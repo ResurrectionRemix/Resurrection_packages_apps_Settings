@@ -79,6 +79,20 @@
                 android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
 
+        <!-- Mod version -->
+        <Preference android:key="mod_version"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/mod_version"
+                android:summary="@string/mod_version_default" />
+
+        <!-- CyanogenMod API Version -->
+        <Preference android:key="mod_api_level"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/mod_api_level"
+                android:summary="@string/mod_api_level_default" />
+
         <!-- Security patch level -->
         <Preference android:key="security_patch"
                 android:enabled="false"
@@ -95,7 +109,8 @@
 
         <!-- Device MBN version -->
         <Preference android:key="mbn_version"
-                style="?android:preferenceInformationStyle"
+                android:enabled="false"
+                android:shouldDisableView="false"
                 android:title="@string/mbn_version"
                 android:summary="@string/device_info_default"/>
 
@@ -112,6 +127,13 @@
                 android:shouldDisableView="false"
                 android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
+
+        <!-- Build date -->
+        <Preference android:key="build_date"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/build_date"
+                android:summary="@string/build_date_default" />
 
         <!-- Detailed build version -->
         <Preference android:key="build_number"
