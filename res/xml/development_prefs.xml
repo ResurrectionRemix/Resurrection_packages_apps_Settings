@@ -52,6 +52,17 @@
             android:title="@string/enable_adb"
             android:summary="@string/enable_adb_summary"/>
 
+        <com.android.settings.HostnamePreference
+            android:key="device_hostname"
+            android:title="@string/device_hostname"
+            android:dialogTitle="@string/device_hostname"
+            android:positiveButtonText="@string/wifi_save"
+            android:negativeButtonText="@string/wifi_cancel"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:persistent="false" />
+
         <CheckBoxPreference
             android:key="allow_mock_location"
             android:title="@string/allow_mock_location"
