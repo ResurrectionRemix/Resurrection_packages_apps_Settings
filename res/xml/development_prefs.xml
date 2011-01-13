@@ -70,6 +70,17 @@
             android:summary="@string/adb_over_network_summary"
             android:dependency="enable_adb"/>
 
+        <com.android.settings.HostnamePreference
+            android:key="device_hostname"
+            android:title="@string/device_hostname"
+            android:dialogTitle="@string/device_hostname"
+            android:positiveButtonText="@string/wifi_save"
+            android:negativeButtonText="@string/wifi_cancel"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:persistent="false" />
+
         <CheckBoxPreference
             android:key="bugreport_in_power"
             android:title="@string/bugreport_in_power"
