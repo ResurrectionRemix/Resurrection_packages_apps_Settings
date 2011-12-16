@@ -560,10 +560,12 @@ public class ManageApplications extends Fragment implements
         if (className == null) {
             className = intent.getComponent().getClassName();
         }
-        if (className.equals(RunningServicesActivity.class.getName())) {
+        if (className.equals(RunningServicesActivity.class.getName())
+                || className.endsWith(".RunningServices")) {
             defaultTabTag = TAB_RUNNING;
         } else if (className.equals(StorageUseActivity.class.getName())
-                || Intent.ACTION_MANAGE_PACKAGE_STORAGE.equals(action)) {
+                || Intent.ACTION_MANAGE_PACKAGE_STORAGE.equals(action)
+                || className.endsWith(".StorageUse")) {
             mSortOrder = SORT_ORDER_SIZE;
             mFilterApps = FILTER_APPS_ALL;
             defaultTabTag = TAB_ALL;
@@ -662,6 +664,7 @@ public class ManageApplications extends Fragment implements
         mActivityResumed = true;
         showCurrentTab();
         updateOptionsMenu();
+        mTabHost.getTabWidget().setEnabled(true);
     }
 
     @Override
@@ -684,6 +687,7 @@ public class ManageApplications extends Fragment implements
             mRunningProcessesView.doPause();
             mResumedRunning = false;
         }
+        mTabHost.getTabWidget().setEnabled(false);
     }
 
     @Override

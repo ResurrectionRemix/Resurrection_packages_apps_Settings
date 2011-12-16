@@ -276,20 +276,18 @@ public class ChooseLockGeneric extends PreferenceActivity {
                     KEY_UNLOCK_SET_PATTERN.equals(key) || KEY_UNLOCK_SET_PIN.equals(key);
         }
 
-        private Intent getBiometricSensorIntent(int quality) {
+        private Intent getBiometricSensorIntent() {
             Intent fallBackIntent = new Intent().setClass(getActivity(), ChooseLockGeneric.class);
             fallBackIntent.putExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, true);
             fallBackIntent.putExtra(CONFIRM_CREDENTIALS, false);
             fallBackIntent.putExtra(EXTRA_SHOW_FRAGMENT_TITLE,
                     R.string.backup_lock_settings_picker_title);
-            fallBackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             boolean showTutorial = ALWAY_SHOW_TUTORIAL ||
                     !mChooseLockSettingsHelper.utils().isBiometricWeakEverChosen();
             Intent intent = new Intent();
-            intent.setClassName("com.android.facelock", showTutorial
-                        ? "com.android.facelock.FaceLockTutorial"
-                        : "com.android.facelock.SetupFaceLock");
+            intent.setClassName("com.android.facelock", "com.android.facelock.SetupIntro");
+            intent.putExtra("showTutorial", showTutorial);
             PendingIntent pending = PendingIntent.getActivity(getActivity(), 0, fallBackIntent, 0);
             intent.putExtra("PendingIntent", pending);
             return intent;
@@ -353,7 +351,7 @@ public class ChooseLockGeneric extends PreferenceActivity {
                     startActivity(intent);
                 }
             } else if (quality == DevicePolicyManager.PASSWORD_QUALITY_BIOMETRIC_WEAK) {
-                Intent intent = getBiometricSensorIntent(quality);
+                Intent intent = getBiometricSensorIntent();
                 startActivity(intent);
             } else if (quality == DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED) {
                 mChooseLockSettingsHelper.utils().clearLock(false);

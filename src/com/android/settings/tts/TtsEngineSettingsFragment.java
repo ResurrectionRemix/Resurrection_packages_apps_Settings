@@ -68,6 +68,9 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
         mEngineSettingsPreference.setOnPreferenceClickListener(this);
         mInstallVoicesPreference = root.findPreference(KEY_INSTALL_DATA);
         mInstallVoicesPreference.setOnPreferenceClickListener(this);
+        // Remove this preference unless voices are indeed available to install.
+        root.removePreference(mInstallVoicesPreference);
+
 
         root.setTitle(getEngineLabel());
         root.setKey(getEngineName());
@@ -92,13 +95,19 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
         ArrayList<String> unavailable = voiceDataDetails.getStringArrayListExtra(
                 TextToSpeech.Engine.EXTRA_UNAVAILABLE_VOICES);
 
-        if (available == null || unavailable == null){
+        if (available == null){
             Log.e(TAG, "TTS data check failed (available == null).");
+            final CharSequence[] empty = new CharSequence[0];
+            mLocalePreference.setEntries(empty);
+            mLocalePreference.setEntryValues(empty);
             return;
         }
 
-        if (unavailable.size() > 0) {
+        if (unavailable != null && unavailable.size() > 0) {
             mInstallVoicesPreference.setEnabled(true);
+            getPreferenceScreen().addPreference(mInstallVoicesPreference);
+        } else {
+            getPreferenceScreen().removePreference(mInstallVoicesPreference);
         }
 
         if (available.size() > 0) {
