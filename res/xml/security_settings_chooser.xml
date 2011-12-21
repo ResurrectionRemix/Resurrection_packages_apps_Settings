@@ -31,6 +31,14 @@
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
+            
+        <ListPreference
+            android:key="lock_after_timeout"
+            android:title="@string/lock_after_timeout"
+            android:summary="@string/lock_after_timeout_summary"
+            android:entries="@array/lock_after_timeout_entries"
+            android:entryValues="@array/lock_after_timeout_values"
+            android:persistent="false"/>
 
     </PreferenceCategory>
 
