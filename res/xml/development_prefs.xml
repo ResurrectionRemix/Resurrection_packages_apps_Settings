@@ -22,6 +22,12 @@
         android:title="@string/enable_adb" 
         android:summary="@string/enable_adb_summary"/>
 
+    <CheckBoxPreference
+        android:key="adb_over_network"
+        android:title="@string/adb_over_network"
+        android:summary="@string/adb_over_network_summary"
+        android:dependency="enable_adb"/>
+
     <Preference
         android:key="verifier_device_identifier"
         style="?android:attr/preferenceInformationStyle"
