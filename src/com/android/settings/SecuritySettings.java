@@ -250,7 +250,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             // This setting is a slave to display timeout when a device policy is enforced.
             // As such, maxLockTimeout = adminTimeout - displayTimeout.
             // If there isn't enough time, shows "immediately" setting.
-            disableUnusableTimeouts(Math.max(0, adminTimeout - displayTimeout));
+            //disableUnusableTimeouts(Math.max(0, adminTimeout - displayTimeout));
         }
     }
 
