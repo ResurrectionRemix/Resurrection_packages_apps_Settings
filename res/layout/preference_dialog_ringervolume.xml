@@ -130,7 +130,7 @@
                     android:layout_gravity="left"
                     android:text="@string/volume_notification_description"
                 />
-
+                
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,8 +152,16 @@
                             android:paddingTop="2dip"
                             android:layout_marginRight="@dimen/volume_seekbar_side_margin" />
             </LinearLayout>
-
+            
         </LinearLayout>
+
+		<CheckBox
+				android:id="@+id/link_ring_and_volume"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="left"
+				android:text="@string/link_volume_ringtones" 
+			/>
 
         <TextView
                 android:textAppearance="?android:attr/textAppearanceSmall"
