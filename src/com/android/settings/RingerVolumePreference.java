@@ -172,12 +172,42 @@ public class RingerVolumePreference extends VolumePreference {
         }
 
         CheckBox linkCheckBox = (CheckBox) view.findViewById(R.id.link_ring_and_volume);
+        CheckBox linkMuteStates = (CheckBox) view.findViewById(R.id.link_mutes);
 
         final View ringerSection = view.findViewById(R.id.ringer_section);
         final View notificationSection = view.findViewById(R.id.notification_section);
-        final TextView ringerDesc = (TextView) ringerSection.findViewById(R.id.ringer_description_text);
+        final TextView ringerDesc = (TextView) ringerSection
+                .findViewById(R.id.ringer_description_text);
+
+        final int defaultMuteStreams = ((1 << AudioSystem.STREAM_RING) | (1 << AudioSystem.STREAM_NOTIFICATION));
 
         if (Utils.isVoiceCapable(getContext())) {
+            if (Settings.System.getInt(getContext().getContentResolver(),
+                    Settings.System.MODE_RINGER_STREAMS_AFFECTED, defaultMuteStreams) == defaultMuteStreams) {
+                linkMuteStates.setChecked(true);
+            } else {
+                linkMuteStates.setChecked(false);
+            }
+
+            linkMuteStates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        Settings.System
+                                .putInt(buttonView.getContext().getContentResolver(),
+                                        Settings.System.MODE_RINGER_STREAMS_AFFECTED,
+                                        defaultMuteStreams);
+                    } else {
+                        Settings.System
+                                .putInt(buttonView.getContext().getContentResolver(),
+                                        Settings.System.MODE_RINGER_STREAMS_AFFECTED,
+                                        (1 << AudioSystem.STREAM_RING)
+                                                | (0 << AudioSystem.STREAM_NOTIFICATION));
+                    }
+                }
+            });
+
             if (System.getInt(getContext().getContentResolver(),
                     System.VOLUME_LINK_NOTIFICATION, 1) == 1) {
                 linkCheckBox.setChecked(true);
