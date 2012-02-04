@@ -48,6 +48,14 @@
             <intent android:action="android.settings.SHOW_MANUAL" />
         </PreferenceScreen>
 
+        <!-- Anonymous statistics - (CMStats) -->
+        <PreferenceScreen
+            android:key="cmstats"
+            android:title="@string/anonymous_statistics_title"
+            android:summary="@string/anonymous_statistics_summary"
+            android:fragment="com.android.settings.cmstats.AnonymousStats" >
+        </PreferenceScreen>
+
         <!-- Legal Information -->
         <PreferenceScreen
                 android:key="container"
