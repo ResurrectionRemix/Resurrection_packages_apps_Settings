@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout 
+	android:id="@+id/ll_root" 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<TableLayout 
+		android:id="@+id/ll_table_info"
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:paddingBottom="10dip">
+
+		<TableRow 
+			android:id="@+id/ll_table_row_lux"
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<TextView 
+				android:id="@+id/ll_tw_lux_text"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="@string/ll_lux" 
+				android:textStyle="bold" />
+
+			<TextView 
+				android:id="@+id/ll_tw_lux_value"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="20dp" />
+
+		</TableRow>
+
+		<TableRow 
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/table_row_lcd">
+
+			<TextView 
+				android:id="@+id/ll_tw_lcd_text"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="@string/ll_lcd" 
+				android:textStyle="bold">
+
+			</TextView>
+
+			<TextView 
+				android:id="@+id/ll_tw_lcd_value"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="20dp" />
+
+		</TableRow>
+
+		<TableRow 
+			android:id="@+id/table_row_btn"
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<TextView 
+				android:id="@+id/ll_tw_btn_text"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="@string/ll_btn" 
+				android:textStyle="bold">
+
+			</TextView>
+
+			<TextView 
+				android:id="@+id/ll_tw_btn_value"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="20dp" />
+
+		</TableRow>
+
+		<TableRow 
+			android:id="@+id/table_row_kb"
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<TextView 
+				android:id="@+id/ll_tw_kb_text"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="@string/ll_kb" 
+				android:textStyle="bold">
+
+			</TextView>
+
+			<TextView 
+				android:id="@+id/ll_tw_kb_value"
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="20dp" />
+
+		</TableRow>
+
+	</TableLayout>
+
+	<ScrollView 
+		android:id="@+id/ll_scroll"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout 
+		    android:layout_width="fill_parent"
+			android:layout_height="fill_parent" 
+			android:orientation="vertical">
+
+			<LinearLayout 
+				android:id="@+id/ll_btns" 
+			    android:layout_height="wrap_content"
+				android:layout_width="wrap_content" 
+				android:layout_gravity="center"
+				android:paddingBottom="10dp">
+
+				<Button 
+				    android:id="@+id/btn_reload"
+				    android:text="@string/ll_reload" 
+					android:layout_width="100dip" 
+					android:layout_height="wrap_content"
+					android:layout_gravity="center" />
+
+				<Button 
+				    android:id="@+id/btn_default"
+				    android:text="@string/ll_default" 
+					android:layout_width="100dip" 
+					android:layout_height="wrap_content"
+					android:layout_gravity="center" />
+
+				<Button 
+				    android:text="@string/ll_save" 
+				    android:id="@+id/btn_save"
+					android:layout_width="100dip" 
+					android:layout_height="wrap_content" />
+
+			</LinearLayout>
+
+			<TableLayout 
+				android:id="@+id/ll_table_config"
+			    android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:paddingBottom="10dip">
+
+				<TableRow 
+					android:id="@+id/ll_table_row_headers"
+				    android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:layout_gravity="center_vertical|center_horizontal">
+
+					<TextView 
+						android:id="@+id/ll_tw_header_lower_text"
+					    android:layout_width="wrap_content"
+						android:layout_height="wrap_content" 
+						android:textStyle="bold" 
+						android:text="@string/ll_header_lower"
+						android:paddingLeft="5dip" 
+						android:paddingRight="5dip"
+						android:layout_gravity="center" />
+
+					<TextView 
+					    android:id="@+id/ll_tw_header_upper"
+					    android:layout_height="wrap_content" 
+						android:textStyle="bold" 
+						android:text="@string/ll_header_upper"
+						android:paddingLeft="5dip" 
+						android:paddingRight="5dip"
+						android:layout_gravity="center" />
+
+					<TextView 
+						android:id="@+id/ll_tw_header_lcd" 
+					    android:layout_width="wrap_content"
+						android:layout_height="wrap_content" 
+						android:textStyle="bold"
+						android:text="@string/ll_header_lcd"
+						android:paddingLeft="5dip" 
+						android:paddingRight="5dip"
+						android:layout_gravity="center" />
+
+					<TextView 
+						android:id="@+id/ll_tw_header_btn"
+					    android:layout_width="wrap_content"
+						android:layout_height="wrap_content" 
+						android:textStyle="bold"
+						android:text="@string/ll_header_btn" 
+						android:paddingLeft="5dip" 
+						android:paddingRight="5dip"
+						android:layout_gravity="center" />
+
+					<TextView 
+						android:id="@+id/ll_tw_header_kb"
+					    android:layout_width="wrap_content"
+						android:layout_height="wrap_content" 
+						android:textStyle="bold"
+						android:text="@string/ll_header_kb" 
+						android:paddingLeft="5dip" 
+						android:paddingRight="5dip"
+						android:layout_gravity="center" />
+
+				</TableRow>
+
+			</TableLayout>
+
+			<LinearLayout 
+				android:id="@+id/ll_num_levels"
+			    android:layout_height="wrap_content"
+				android:layout_width="wrap_content" 
+				android:layout_gravity="center">
+
+				<Button 
+				    android:id="@+id/btn_num_levels"
+				    android:text="@string/ll_num_levels" 
+					android:layout_height="wrap_content" 
+					android:layout_width="wrap_content"
+					android:layout_gravity="center" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

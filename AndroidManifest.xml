@@ -1375,6 +1375,13 @@
                 android:resource="@id/wireless_settings" />
         </activity>
 
+	<activity android:name="Settings$BacklightSettingsActivity"
+		android:label="@string/backlight_settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
                 android:exported="false"
