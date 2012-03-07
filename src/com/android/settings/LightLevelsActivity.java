@@ -1,5 +1,5 @@
 
-package com.android.settings.cna;
+package com.android.settings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
