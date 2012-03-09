@@ -22,12 +22,18 @@
                 android:key="brightness"
                 android:title="@string/brightness"
                 android:dialogTitle="@string/brightness" />
-
+        
         <PreferenceScreen
+                android:key="backlight_widget"
+                android:fragment="com.android.settings.cyanogenmod.Backlight"
+                android:title="@string/backlight_title"
+                android:summary="@string/backlight_summary" />
+				
+		<PreferenceScreen
                 android:key="wallpaper"
                 android:title="@string/wallpaper_settings_title"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
-
+                
         <CheckBoxPreference
             android:key="accelerometer"
             android:title="@string/accelerometer_title"/>

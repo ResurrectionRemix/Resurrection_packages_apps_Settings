@@ -14,6 +14,7 @@ import android.os.IPowerManager;
 import android.os.ServiceManager;
 import android.provider.Settings;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
