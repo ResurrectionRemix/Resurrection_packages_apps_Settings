@@ -66,6 +66,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_SHOW_PASSWORD = "show_password";
     private static final String KEY_RESET_CREDENTIALS = "reset_credentials";
     private static final String KEY_TOGGLE_INSTALL_APPLICATIONS = "toggle_install_applications";
+    private static final String KEY_POWER_INSTANTLY_LOCKS = "power_button_instantly_locks";
 
     DevicePolicyManager mDPM;
 
@@ -82,6 +83,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mToggleAppInstallation;
     private DialogInterface mWarnInstallApps;
+    private CheckBoxPreference mPowerButtonInstantlyLocks;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -156,6 +158,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // visible pattern
         mVisiblePattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_PATTERN);
 
+        // lock instantly on power key press
+        mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
+                KEY_POWER_INSTANTLY_LOCKS);
+
         // don't display visible pattern if biometric and backup is not pattern
         if (resid == R.xml.security_settings_biometric_weak &&
                 mLockPatternUtils.getKeyguardStoredPasswordQuality() !=
@@ -185,6 +191,14 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if ((TelephonyManager.PHONE_TYPE_CDMA == tm.getCurrentPhoneType()) &&
                 (tm.getLteOnCdmaMode() != Phone.LTE_ON_CDMA_TRUE)) {
             root.removePreference(root.findPreference(KEY_SIM_LOCK));
+        } else {
+            // Disable SIM lock if sim card is missing or unknown
+            if ((TelephonyManager.getDefault().getSimState() ==
+                                 TelephonyManager.SIM_STATE_ABSENT) ||
+                (TelephonyManager.getDefault().getSimState() ==
+                                 TelephonyManager.SIM_STATE_UNKNOWN)) {
+                root.findPreference(KEY_SIM_LOCK).setEnabled(false);
+            }
         }
 
         // Show password
@@ -314,6 +328,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mTactileFeedback != null) {
             mTactileFeedback.setChecked(lockPatternUtils.isTactileFeedbackEnabled());
         }
+        if (mPowerButtonInstantlyLocks != null) {
+            mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
+        }
 
         mShowPassword.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.TEXT_SHOW_PASSWORD, 1) != 0);
@@ -343,6 +360,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
             lockPatternUtils.setVisiblePatternEnabled(isToggled(preference));
         } else if (KEY_TACTILE_FEEDBACK_ENABLED.equals(key)) {
             lockPatternUtils.setTactileFeedbackEnabled(isToggled(preference));
+        } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
+            lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
         } else if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);
