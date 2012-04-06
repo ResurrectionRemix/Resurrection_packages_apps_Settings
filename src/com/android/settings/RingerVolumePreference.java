@@ -252,6 +252,7 @@ public class RingerVolumePreference extends VolumePreference {
             });
         } else {
             ringerSection.setVisibility(View.GONE);
+            linkCheckBox.setEnabled(false);
         }
 
         // Load initial states from AudioManager
