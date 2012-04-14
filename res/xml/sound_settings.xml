@@ -32,6 +32,11 @@
         <intent android:targetPackage="com.android.musicfx"
                 android:targetClass="com.android.musicfx.ControlPanelPicker" />
     </Preference>
+    
+    <PreferenceScreen
+            android:key="quiet_hours"
+            android:fragment="com.android.settings.QuietHours"
+            android:title="@string/quiet_hours_title" />
 
     <PreferenceCategory
             android:key="category_calls_and_notification"
