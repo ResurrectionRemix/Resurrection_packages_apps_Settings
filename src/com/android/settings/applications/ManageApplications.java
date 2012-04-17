@@ -605,7 +605,6 @@ public class ManageApplications extends Fragment implements
         if (emptyView != null) {
             lv.setEmptyView(emptyView);
         }
-        lv.setOnItemClickListener(this);
         lv.setSaveEnabled(true);
         lv.setItemsCanFocus(true);
         lv.setOnItemClickListener(this);
