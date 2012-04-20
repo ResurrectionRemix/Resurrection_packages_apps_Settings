@@ -153,6 +153,10 @@ public class RingerVolumePreference extends VolumePreference {
                 Settings.System.MODE_RINGER_STREAMS_AFFECTED, defaultMuteStreams);
     }
 
+    private static boolean isNotificationStreamMuted(Context c) {
+        return (getCurrentMutableStreams(c) & (1 << AudioSystem.STREAM_NOTIFICATION)) != 0;
+    }
+
     @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
@@ -187,12 +191,7 @@ public class RingerVolumePreference extends VolumePreference {
                 .findViewById(R.id.ringer_description_text);
 
         if (Utils.isVoiceCapable(getContext())) {
-            if ((getCurrentMutableStreams(getContext()) & AudioSystem.STREAM_NOTIFICATION) != 0) {
-                linkMuteStates.setChecked(true);
-            } else {
-                linkMuteStates.setChecked(false);
-            }
-
+            linkMuteStates.setChecked(isNotificationStreamMuted(getContext()));
             linkMuteStates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                 @Override
