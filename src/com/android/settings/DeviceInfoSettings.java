@@ -74,7 +74,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
-        setStringSummary(KEY_MOD_VERSION, Build.MODVERSION);
+        setValueSummary(KEY_MOD_VERSION, "ro.aokp.version");
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         
 
