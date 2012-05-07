@@ -67,6 +67,14 @@
                 android:targetPackage="com.aokp.romcontrol" />
     </header>
 
+    <header android:icon="@drawable/ic_settings_themes"
+            android:title="@string/themes_title">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.tmobile.themechooser"
+                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
 
