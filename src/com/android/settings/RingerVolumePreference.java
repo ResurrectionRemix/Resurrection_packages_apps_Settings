@@ -235,7 +235,7 @@ public class RingerVolumePreference extends VolumePreference {
                         ringerDesc.setText(R.string.volume_ring_description);
                         Toast.makeText(
                                 getContext(),
-                                getResources().getString(R.string.toast_link_volume_ringtones),
+                                getContext().getResources().getString(R.string.toast_link_volume_ringtones),
                                 Toast.LENGTH_LONG).show();
                     } else {
                         Settings.System
