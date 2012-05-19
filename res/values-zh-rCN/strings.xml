@@ -21,6 +21,7 @@
     <string name="device_info_default" msgid="7847265875578739287">"未知"</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"无线和网络"</string>
     <string name="header_category_device" msgid="5781174212691167553">"设备"</string>
+    <string name="battery_pulse_title">低电量指示灯</string>
     <string name="header_category_personal" msgid="6225932173498802187">"个人"</string>
     <string name="header_category_system" msgid="2073558547468647128">"系统"</string>
     <string name="turn_on_radio" msgid="8706561489788373676">"打开无线通信"</string>
@@ -162,15 +163,16 @@
     <string name="date_time_24_hour_sample" msgid="8916857570746212357">"13:00"</string>
     <string name="choose_timezone" msgid="1362834506479536274">"选择时区"</string>
     <string name="normal_date_format" msgid="7636406984925498359">"所在区域 (<xliff:g id="DATE">%s</xliff:g>)"</string>
-    <string name="display_preview_label" msgid="1127597250917274792">"预览:"</string>
+    <string name="display_preview_label" msgid="1127597250917274792">"预览："</string>
     <string name="display_font_size_label" msgid="8941851418397475389">"字号："</string>
     <!-- no translation found for intent_sender_data_label (6332324780477289261) -->
     <skip />
-    <string name="intent_sender_sendbroadcast_text" msgid="1415735148895872715">"发送<xliff:g id="BROADCAST">broadcast</xliff:g>"</string>
-    <string name="intent_sender_action_label" msgid="616458370005452389">"<xliff:g id="ACTION">Action</xliff:g>:"</string>
+    <string name="intent_sender_data_label"><xliff:g id="data">"数据："</xliff:g></string>
+    <string name="intent_sender_sendbroadcast_text" msgid="1415735148895872715">"发送<xliff:g id="BROADCAST">广播</xliff:g>"</string>
+    <string name="intent_sender_action_label" msgid="616458370005452389">"<xliff:g id="ACTION">活动</xliff:g>:"</string>
     <string name="intent_sender_startactivity_text" msgid="5080516029580421895">"启动<xliff:g id="ACTIVITY">activity</xliff:g>"</string>
-    <string name="intent_sender_resource_label" msgid="6963659726895482829">"<xliff:g id="RESOURCE">Resource</xliff:g>:"</string>
-    <string name="intent_sender_account_label" msgid="465210404475603404">"帐户:"</string>
+    <string name="intent_sender_resource_label" msgid="6963659726895482829">"<xliff:g id="RESOURCE">资源</xliff:g>："</string>
+    <string name="intent_sender_account_label" msgid="465210404475603404">"帐户："</string>
     <string name="proxy_settings_title" msgid="5912878565897294401">"代理设置"</string>
     <string name="proxy_clear_text" msgid="5555400754952012657">"清除"</string>
     <string name="proxy_port_label" msgid="5655276502233453400">"代理服务器端口"</string>
@@ -245,6 +247,7 @@
     <string name="next_label" msgid="4693520878012668114">"下一步"</string>
     <string name="language_picker_title" msgid="5349877711342869319">"语言"</string>
     <string name="activity_picker_label" msgid="6295660302548177109">"选择活动"</string>
+    <string name="debug_intent_sender_label">调试意图发送者</string>
     <string name="device_info_label" msgid="6551553813651711205">"设备信息"</string>
     <string name="battery_info_label" msgid="4132685016148679403">"电池信息"</string>
     <string name="display_label" msgid="8074070940506840792">"屏幕"</string>
@@ -585,6 +588,33 @@
     <string name="wifi_tether_configure_ap_text" msgid="3474995108398156258">"配置 Wi-Fi 热点"</string>
     <string name="wifi_tether_configure_subtext" msgid="1927454307836232128">"<xliff:g id="NETWORK_SSID">%1$s</xliff:g> <xliff:g id="NETWORK_SECURITY">%2$s</xliff:g> 便携式 Wi-Fi 热点"</string>
     <string name="wifi_tether_configure_ssid_default" msgid="8467525402622138547">"Android 热点"</string>
+    <string name="testing_wifi_info">Wi-Fi 信息</string>
+    <string name="disableNetwork">禁用网络</string>
+    <string name="enableNetwork">启用网络</string>
+    <string name="disconnect">断开连接</string>
+    <string name="getConfiguredNetworks">获取已配置网络</string>
+    <string name="getConnectionInfo">获取连接信息</string>
+    <string name="wifi_status_test">Wi-Fi 状态</string>
+    <string name="wifi_update">刷新状态</string>
+    <string name="wifi_state_label">Wi-Fi 状态：</string>
+    <string name="network_state_label">网络状态：</string>
+    <string name="supplicant_state_label">客户端状态：</string>
+    <string name="rssi_label">RSSI：</string>
+    <string name="bssid_label">BSSID：</string>
+    <string name="ssid_label">SSID：</string>
+    <string name="hidden_ssid_label">隐藏 SSID：</string>
+    <string name="ipaddr_label">IP 地址：</string>
+    <string name="macaddr_label">MAC 地址：</string>
+    <string name="networkid_label">网络 ID：</string>
+    <string name="link_speed_label">连接速度：</string>
+    <string name="scan_list_label">扫描结果：</string>
+    <string name="wifi_state_disabling">正在禁用</string>
+    <string name="wifi_state_disabled">已禁用</string>
+    <string name="wifi_state_enabling">正在启用</string>
+    <string name="wifi_state_enabled">已启用</string>
+    <string name="wifi_state_unknown">未知</string>
+    <string name="wifi_config_info">Wi-Fi 配置</string>
+    <string name="config_list_label">已配置网络</string>
     <string name="display_settings_title" msgid="1708697328627382561">"显示"</string>
     <string name="sound_settings" msgid="5534671337768745343">"声音"</string>
     <string name="silent_mode_title" msgid="3181479108593217704">"静音模式"</string>
@@ -609,9 +639,12 @@
     <string name="sound_effects_enable_title" msgid="1171590821131077296">"触摸提示音"</string>
     <string name="lock_sounds_enable_title" msgid="450098505659399520">"锁屏提示音"</string>
     <string name="haptic_feedback_enable_title" msgid="2438293710530828760">"触摸时振动"</string>
+    <string name="camera_sounds_title">相机声音</string>
+    <string name="camera_sounds_summary">警告: 在某些国家或地区，禁用相机快门音是非法行为！</string>
     <string name="audio_record_proc_title" msgid="4271091199976457534">"降噪"</string>
     <string name="volume_media_description" msgid="7949355934788807863">"音乐、视频、游戏和其他媒体"</string>
     <string name="volume_ring_description" msgid="5936851631698298989">"铃声和通知"</string>
+    <string name="volume_ring_only_description">铃声</string>
     <string name="volume_notification_description" msgid="5810902320215328321">"通知"</string>
     <string name="volume_alarm_description" msgid="8322615148532654841">"闹钟"</string>
     <string name="dock_settings" msgid="1820107306693002541">"底座"</string>
@@ -1101,6 +1134,8 @@
     <string name="testing_phone_info" product="tablet" msgid="193561832258534798">"平板电脑信息"</string>
     <string name="testing_phone_info" product="default" msgid="8656693364332840056">"手机信息"</string>
     <string name="testing_battery_info" msgid="3497865525976497848">"电池信息"</string>
+    <string name="testing_battery_info">电池信息</string>
+    <string name="testing_sim_toolkit">SIM卡工具</string>
     <string name="quick_launch_title" msgid="7904609846945905306">"快速启动"</string>
     <string name="quick_launch_summary" msgid="8101133819188001190">"设置启动应用程序的键盘快捷键"</string>
     <string name="quick_launch_assign_application" msgid="6240064079456617501">"分配给应用程序"</string>
@@ -1390,6 +1425,7 @@
     <string name="wifi_setup_eap_not_supported" msgid="595556546597351489">"您无法在设置过程中配置 EAP Wi-Fi 连接。设置完毕后，您可以在“设置”&gt;“无线和网络”中进行配置。"</string>
     <string name="wifi_setup_description_connecting" msgid="2793554932006756795">"建立连接可能需要几分钟时间..."</string>
     <string name="wifi_setup_description_connected" msgid="5235991893829582459">"触摸"<b>"下一步"</b>"可继续进行设置。"\n\n"触摸"<b>"返回"</b>"可连接到其他 Wi-Fi 网络。"</string>
+    <string name="time_zone_auto_stub">选择时区</string>
     <string name="accessibility_sync_enabled" msgid="558480439730263116">"同步功能已启用"</string>
     <string name="accessibility_sync_disabled" msgid="1741194106479011384">"同步功能已停用"</string>
     <string name="accessibility_sync_error" msgid="8703299118794272041">"同步错误。"</string>
@@ -1580,4 +1616,64 @@
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"取消"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g>%%"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
+    <string name="quick_links_title">快速链接</string>
+    <string name="rom_control_title">ROM 设置</string>
+    <string name="themes_title">主题</string>
+    <string name="backlight_title">自定义亮度设置</string>
+    <string name="backlight_settings">自动亮度</string>
+    <string name="backlight_settings_title">自动亮度</string>
+    <string name="backlight_summary">设置光传感器过滤，调整亮度等级</string>
+    <string name="light_filter_title">光传感器过滤</string>
+    <string name="light_filter_enabled_title">启用</string>
+    <string name="light_filter_enabled_summary">启用光传感器数据移动平均数过滤，以减少频繁调节亮度引起的屏幕闪烁</string>
+    <string name="light_filter_window_title">取值周期</string>
+    <string name="light_filter_window_summary">过滤后的值是此周期内的传感器数据平均值</string>
+    <string name="light_filter_reset_title">重置阀值</string>
+    <string name="light_filter_reset_summary">采样值与平均值偏差过大时重置过滤器</string>
+    <string name="light_filter_interval_title">采样间隔</string>
+    <string name="light_filter_interval_summary">间隔越短精确的越高度，但会占用更多的CPU</string>
+    <string name="light_levels_title">亮度等级</string>
+    <string name="light_levels_enabled_title">使用自定义设置</string>
+    <string name="light_levels_dim_title">屏幕变暗度</string>
+    <string name="light_levels_dim_summary">屏幕明暗变化的程度</string>
+    <string name="light_levels_editor_title">编辑其它等级…</string>
+    <string name="light_decrease_enabled_title">允许降低亮度</string>
+    <string name="light_decrease_enabled_summary">启用此选项允许降低亮度，使用迟滞选项减少频繁调节亮度引起的屏幕闪烁</string>
+    <string name="light_decrease_hysteresis_title">降低亮度迟滞</string>
+    <string name="light_decrease_hysteresis_summary">传感器数据降低一定水平后再降低屏幕亮度</string>
+    <string name="ll_title">光传感器级别</string>
+    <string name="ll_header_upper">上限</string>
+    <string name="ll_header_lower">下限</string>
+    <string name="ll_header_lcd">屏幕</string>
+    <string name="ll_header_btn">按钮</string>
+    <string name="ll_header_kb">键盘</string>
+    <string name="ll_lux">传感器（运算后/原始）：</string>
+    <string name="ll_lcd">屏幕：</string>
+    <string name="ll_btn">按钮：</string>
+    <string name="ll_kb">键盘：</string>
+    <string name="ll_disabled">禁用</string>
+    <string name="ll_default">读取默认值</string>
+    <string name="ll_save">保存并应用</string>
+    <string name="ll_reload">读取当前值</string>
+    <string name="ll_bad_levels">等级必须递增</string>
+    <string name="ll_num_levels">设置亮度等级数</string>
+    <string name="mod_version">Mod 版本</string>
+    <string name="link_volume_ringtones">铃声和通知音量</string>
+    <string name="link_volume_mutes">用于静音时</string>
+    <string name="quiet_hours_title">免打扰模式</string>
+    <string name="quiet_hours_summary">设置一段时间内不受到本设备的任何打扰</string>
+    <string name="quiet_hours_enabled_title">启用免打扰模式</string>
+    <string name="quiet_hours_start">开始时间</string>
+    <string name="quiet_hours_start_summary">免打扰模式的开始时间</string>
+    <string name="quiet_hours_end">结束时间</string>
+    <string name="quiet_hours_end_summary">免打扰模式的结束时间</string>
+    <string name="quiet_hours_notifications_title">通知静音</string>
+    <string name="quiet_hours_ringer_title">来电静音</string>
+    <string name="quiet_hours_still_title">禁止振动</string>
+    <string name="quiet_hours_dim_title">禁止通知灯</string>
+    <string name="quiet_hours_active_from">从</string>
+    <string name="quiet_hours_active_to">至</string>
+    <string name="start_time_title">开始</string>
+    <string name="end_time_title">结束</string>
 </resources>
+
