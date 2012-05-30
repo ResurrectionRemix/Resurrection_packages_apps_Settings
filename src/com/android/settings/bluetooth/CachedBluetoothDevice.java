@@ -63,6 +63,8 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
 
     private boolean mVisible;
 
+    private boolean mDeviceRemove;
+
     private int mPhonebookPermissionChoice;
 
     private final Collection<Callback> mCallbacks = new ArrayList<Callback>();
@@ -299,6 +301,7 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
                     if (Utils.D) {
                         Log.d(TAG, "Command sent successfully:REMOVE_BOND " + describe(null));
                     }
+                    setRemovable(true);
                 } else if (Utils.V) {
                     Log.v(TAG, "Framework rejected command immediately:REMOVE_BOND " +
                             describe(null));
@@ -371,12 +374,22 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
         return mVisible;
     }
 
+    boolean isRemovable () {
+        return mDeviceRemove;
+   }
+
+
     void setVisible(boolean visible) {
         if (mVisible != visible) {
             mVisible = visible;
             dispatchAttributesChanged();
         }
     }
+
+    void setRemovable(boolean removable) {
+        mDeviceRemove = removable;
+    }
+
 
     int getBondState() {
         return mDevice.getBondState();
