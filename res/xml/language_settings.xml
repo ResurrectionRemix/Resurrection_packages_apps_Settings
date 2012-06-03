@@ -107,6 +107,12 @@
                 android:dialogTitle="@string/pointer_speed" />
     </PreferenceCategory>
 
+    <CheckBoxPreference android:key="stylus_icon_enabled"
+            android:title="@string/stylus_icon_enabled_title"
+            android:summary="@string/stylus_icon_enabled_summary"
+            android:defaultValue="false"
+            android:persistent="false" />
+
     <PreferenceCategory android:key="game_controller_settings_category"
             android:title="@string/game_controller_settings_category">
         <CheckBoxPreference
