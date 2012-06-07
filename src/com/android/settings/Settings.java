@@ -301,7 +301,7 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
         intent.setClass(this, SubSettings.class);
         return intent;
     }
-    
+
     /**
      * Populate the activity with the top-level headers.
      */
@@ -325,6 +325,9 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
                     target.remove(header);
             } else if (id == R.id.operator_settings || id == R.id.manufacturer_settings) {
                 Utils.updateHeaderToSpecificActivityFromMetaDataOrRemove(this, target, header);
+            } else if (id == R.id.advanced_settings) {
+                if (!needsAdvancedSettings())
+                    target.remove(header);
             } else if (id == R.id.wifi_settings) {
                 // Remove WiFi Settings if WiFi service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI)) {
@@ -354,6 +357,10 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
         return getResources().getBoolean(R.bool.has_dock_settings);
     }
 
+    private boolean needsAdvancedSettings() {
+        return getResources().getBoolean(R.bool.has_advanced_settings);
+    }
+
     private void getMetaData() {
         try {
             ActivityInfo ai = getPackageManager().getActivityInfo(getComponentName(),
@@ -361,7 +368,7 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
             if (ai == null || ai.metaData == null) return;
             mTopLevelHeaderId = ai.metaData.getInt(META_DATA_KEY_HEADER_ID);
             mFragmentClass = ai.metaData.getString(META_DATA_KEY_FRAGMENT_CLASS);
-            
+
             // Check if it has a parent specified and create a Header object
             final int parentHeaderTitleRes = ai.metaData.getInt(META_DATA_KEY_PARENT_TITLE);
             String parentFragmentClass = ai.metaData.getString(META_DATA_KEY_PARENT_FRAGMENT_CLASS);
@@ -444,7 +451,7 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
         public HeaderAdapter(Context context, List<Header> objects) {
             super(context, 0, objects);
             mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            
+
             // Temp Switches provided as placeholder until the adapter replaces these with actual
             // Switches inflated from their layouts. Must be done before adapter is set in super
             mWifiEnabler = new WifiEnabler(context, new Switch(context));
@@ -531,7 +538,7 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
         }
-        
+
         public void pause() {
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
