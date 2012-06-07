@@ -424,6 +424,9 @@ public class Settings extends PreferenceActivity
             int id = (int) header.id;
             if (id == R.id.operator_settings || id == R.id.manufacturer_settings) {
                 Utils.updateHeaderToSpecificActivityFromMetaDataOrRemove(this, target, header);
+            } else if (id == R.id.advanced_settings) {
+                if (!needsAdvancedSettings())
+                    target.remove(header);
             } else if (id == R.id.wifi_settings) {
                 // Remove WiFi Settings if WiFi service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI)) {
@@ -538,6 +541,10 @@ public class Settings extends PreferenceActivity
             mListeningToAccountUpdates = true;
         }
         return headerIndex;
+    }
+
+    private boolean needsAdvancedSettings() {
+        return getResources().getBoolean(R.bool.has_advanced_settings);
     }
 
     private void getMetaData() {
