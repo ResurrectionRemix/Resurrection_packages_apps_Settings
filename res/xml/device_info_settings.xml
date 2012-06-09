@@ -40,6 +40,14 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
+        
+        <!-- Anonymous statistics - (AOKPStats) -->
+        <PreferenceScreen
+            android:key="aokpstats"
+            android:title="@string/anonymous_statistics_title"
+            android:summary="@string/anonymous_statistics_summary"
+            android:fragment="com.android.settings.aokpstats.AnonymousStats" >
+        </PreferenceScreen>
 
         <!-- Legal Information -->
         <PreferenceScreen
