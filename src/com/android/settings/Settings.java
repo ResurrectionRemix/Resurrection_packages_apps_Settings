@@ -603,4 +603,5 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
     public static class AdvancedWifiSettingsActivity extends Settings { /* empty */ }
     public static class TextToSpeechSettingsActivity extends Settings { /* empty */ }
     public static class AndroidBeamSettingsActivity extends Settings { /* empty */ }
+    public static class AnonymousStatsActivity extends Settings { /* empty */ }
 }
