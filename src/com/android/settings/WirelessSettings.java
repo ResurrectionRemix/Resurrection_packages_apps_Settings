@@ -27,6 +27,7 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -39,7 +40,8 @@ import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
 import com.android.settings.wifi.p2p.WifiP2pEnabler;
 
-public class WirelessSettings extends SettingsPreferenceFragment {
+public class WirelessSettings extends SettingsPreferenceFragment
+    implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
     private static final String KEY_TOGGLE_NFC = "toggle_nfc";
@@ -51,6 +53,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
     private static final String KEY_TETHER_SETTINGS = "tether_settings";
     private static final String KEY_PROXY_SETTINGS = "proxy_settings";
     private static final String KEY_MOBILE_NETWORK_SETTINGS = "mobile_network_settings";
+    private static final String KEY_NFC_POLLING_MODE = "nfc_polling_mode";
 
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
@@ -59,6 +62,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
     private CheckBoxPreference mAirplaneModePreference;
     private NfcEnabler mNfcEnabler;
     private NfcAdapter mNfcAdapter;
+    ListPreference mNfcPollingMode;
 
     private WifiP2pEnabler mWifiP2pEnabler;
 
@@ -79,6 +83,16 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         }
         // Let the intents be launched by the Preference manager
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+    
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mNfcPollingMode) {
+            int newVal = Integer.parseInt((String) newValue);
+            return Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NFC_POLLING_MODE, newVal);
+        }
+        return false;
     }
 
     public static boolean isRadioAllowed(Context context, String type) {
@@ -101,11 +115,15 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
         CheckBoxPreference nfc = (CheckBoxPreference) findPreference(KEY_TOGGLE_NFC);
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
+        mNfcPollingMode = (ListPreference) findPreference(KEY_NFC_POLLING_MODE);
+        mNfcPollingMode.setOnPreferenceChangeListener(this);
+        mNfcPollingMode.setValue((Settings.System.getInt(activity.getContentResolver(),
+                Settings.System.NFC_POLLING_MODE, 3)) + "");
 
         CheckBoxPreference wifiP2p = (CheckBoxPreference) findPreference(KEY_TOGGLE_WIFI_P2P);
 
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
-        mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
+        mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam, mNfcPollingMode);
 
         String toggleable = Settings.System.getString(activity.getContentResolver(),
                 Settings.System.AIRPLANE_MODE_TOGGLEABLE_RADIOS);
@@ -145,6 +163,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         if (mNfcAdapter == null) {
             getPreferenceScreen().removePreference(nfc);
             getPreferenceScreen().removePreference(androidBeam);
+            getPreferenceScreen().removePreference(mNfcPollingMode);
             mNfcEnabler = null;
         }
 
