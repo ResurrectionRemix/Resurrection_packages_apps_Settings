@@ -46,6 +46,8 @@ public class AnonymousStats extends SettingsPreferenceFragment
 
     protected static final String ANONYMOUS_ALARM_SET = "pref_anonymous_alarm_set";
 
+    protected static final String ANONYMOUS_REPORTED_VERSION = "pref_anonymous_reported_version";
+
     private CheckBoxPreference mEnableReporting;
 
     private Preference mViewStats;

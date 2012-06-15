@@ -94,6 +94,8 @@ public class ReportingService extends Service {
             httpclient.execute(httppost);
             getSharedPreferences("AOKPStats", 0).edit().putLong(AnonymousStats.ANONYMOUS_LAST_CHECKED,
                     System.currentTimeMillis()).apply();
+            getSharedPreferences("AOKPStats", 0).edit().putString(AnonymousStats.ANONYMOUS_REPORTED_VERSION,
+                    deviceVersion).apply();
         } catch (Exception e) {
             Log.e(TAG, "Got Exception", e);
         }
