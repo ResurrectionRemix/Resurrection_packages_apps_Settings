@@ -46,11 +46,17 @@ public class ReportingServiceManager extends BroadcastReceiver {
         prefs.edit().putBoolean(AnonymousStats.ANONYMOUS_ALARM_SET, false).apply();
         boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
         boolean firstBoot = prefs.getBoolean(AnonymousStats.ANONYMOUS_FIRST_BOOT, true);
+        String repVer = prefs.getString(AnonymousStats.ANONYMOUS_REPORTED_VERSION, "");
         if (!optedIn || firstBoot) {
             return;
         }
         long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
         if (lastSynced == 0) {
+            return;
+        }
+        if (!repVer.equals(Utilities.getModVersion())) {
+            // version changed, report now
+            launchService(ctx);
             return;
         }
         long timeLeft = (lastSynced + tFrame) - System.currentTimeMillis();
@@ -71,6 +77,7 @@ public class ReportingServiceManager extends BroadcastReceiver {
             boolean firstBoot = prefs.getBoolean(AnonymousStats.ANONYMOUS_FIRST_BOOT, true);
             boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
             boolean alarmSet = prefs.getBoolean(AnonymousStats.ANONYMOUS_ALARM_SET, false);
+            String repVer = prefs.getString(AnonymousStats.ANONYMOUS_REPORTED_VERSION, "");
             if (alarmSet) {
                 return;
             }
@@ -78,6 +85,9 @@ public class ReportingServiceManager extends BroadcastReceiver {
             if (lastSynced == 0) {
                 shouldSync = true;
             } else if (System.currentTimeMillis() - lastSynced >= tFrame) {
+                shouldSync = true;
+            } else if (!repVer.equals(Utilities.getModVersion())) {
+                Log.i("AOKPStats", "AOKP version changed!");
                 shouldSync = true;
             }
             if ((shouldSync && optedIn) || firstBoot) {
