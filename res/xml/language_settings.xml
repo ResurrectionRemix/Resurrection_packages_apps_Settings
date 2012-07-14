@@ -87,6 +87,17 @@
                 android:dialogTitle="@string/pointer_speed"
                 />
 
+        <PreferenceScreen
+                android:fragment="com.android.settings.inputmethod.StylusGestures"
+                android:key="stylus_gestures"
+                android:title="@string/gestures_settings_title" />
+
+        <SwitchPreference
+                android:key="high_touch_sensitivity"
+                android:title="@string/high_touch_sensitivity_title"
+                android:summary="@string/high_touch_sensitivity_summary"
+                android:defaultValue="false" />
+
         <!-- Gesture pad settings -->
         <Preference
             android:key="gesture_pad_settings">
@@ -95,12 +106,6 @@
                 android:targetPackage="com.cyanogenmod.settings.device"
                 android:targetClass="com.cyanogenmod.settings.device.GesturePadSettings" />
         </Preference>
-
-        <SwitchPreference
-                android:key="high_touch_sensitivity"
-                android:title="@string/high_touch_sensitivity_title"
-                android:summary="@string/high_touch_sensitivity_summary"
-                android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
