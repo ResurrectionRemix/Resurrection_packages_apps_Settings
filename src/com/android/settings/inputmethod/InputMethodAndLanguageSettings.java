@@ -94,6 +94,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_PREVIOUSLY_ENABLED_SUBTYPES = "previously_enabled_subtypes";
     private static final String KEY_HIGH_TOUCH_SENSITIVITY = "high_touch_sensitivity";
     private static final String KEY_TRACKPAD_SETTINGS = "gesture_pad_settings";
+    private static final String KEY_STYLUS_GESTURES = "stylus_gestures";
 
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
@@ -105,6 +106,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private PreferenceCategory mHardKeyboardCategory;
     private PreferenceCategory mGameControllerCategory;
     private Preference mLanguagePref;
+    private PreferenceScreen mStylusGestures;
     private final ArrayList<InputMethodPreference> mInputMethodPreferenceList = new ArrayList<>();
     private final ArrayList<PreferenceScreen> mHardKeyboardPreferenceList = new ArrayList<>();
     private InputManager mIm;
@@ -176,9 +178,14 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
                         findPreference(KEY_POINTER_SETTINGS_CATEGORY);
 
+        mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
         mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
 
         if (pointerSettingsCategory != null) {
+            if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
+                pointerSettingsCategory.removePreference(mStylusGestures);
+            }
+
             if (!isHighTouchSensitivitySupported()) {
                 pointerSettingsCategory.removePreference(mHighTouchSensitivity);
                 mHighTouchSensitivity = null;
