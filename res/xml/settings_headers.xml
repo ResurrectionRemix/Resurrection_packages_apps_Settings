@@ -57,6 +57,17 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
+    <!-- Quick Links -->
+    <header android:title="@string/quick_links_title" />
+
+    <header android:icon="@drawable/ic_settings_rom_control"
+            android:title="@string/rom_control_title">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.aokp.romcontrol.ROMControlActivity"
+                android:targetPackage="com.aokp.romcontrol" />
+    </header>
+
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
 
