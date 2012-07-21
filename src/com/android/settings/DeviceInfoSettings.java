@@ -100,6 +100,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
+        setValueSummary(KEY_AOKP_VERSION, "ro.aokp.version");
         setValueSummary(KEY_CM_VERSION, "ro.cm.version");
         findPreference(KEY_CM_VERSION).setEnabled(true);
         setValueSummary(KEY_PA_VERSION, "ro.pa.version");
