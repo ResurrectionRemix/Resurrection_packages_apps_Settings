@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Light sensor filter -->
+    <PreferenceCategory
+        android:title="@string/light_filter_title">
+
+        <!-- Enable -->
+        <CheckBoxPreference
+            android:key="light_filter_enabled"
+            android:title="@string/light_filter_enabled_title" 
+            android:summary="@string/light_filter_enabled_summary"
+            android:persistent="false" />
+
+        <!-- Filter window -->
+        <ListPreference
+            android:key="light_filter_window"
+            android:title="@string/light_filter_window_title"
+            android:summary="@string/light_filter_window_summary"
+            android:dialogTitle="@string/light_filter_window_title"
+            android:entries="@array/entries_light_filter_window"
+            android:entryValues="@array/values_light_filter_window"
+            android:dependency="light_filter_enabled"
+            android:persistent="false" />
+
+        <!-- Reset -->
+        <ListPreference
+            android:key="light_filter_reset"
+            android:title="@string/light_filter_reset_title"
+            android:summary="@string/light_filter_reset_summary"
+            android:dialogTitle="@string/light_filter_reset_title"
+            android:entries="@array/entries_light_filter_reset"
+            android:entryValues="@array/values_light_filter_reset"
+            android:dependency="light_filter_enabled"
+            android:persistent="false" />
+
+        <!-- Sample interval -->
+        <ListPreference
+            android:key="light_filter_interval"
+            android:title="@string/light_filter_interval_title"
+            android:summary="@string/light_filter_interval_summary"
+            android:dialogTitle="@string/light_filter_interval_title"
+            android:entries="@array/entries_light_filter_interval"
+            android:entryValues="@array/values_light_filter_interval"
+            android:dependency="light_filter_enabled" 
+            android:persistent="false" />        
+
+    </PreferenceCategory>
+
+    <!-- Light levels -->
+    <PreferenceCategory
+        android:title="@string/light_levels_title">
+
+        <!-- Enable custom levels -->
+        <CheckBoxPreference
+            android:key="light_levels_enabled"
+            android:title="@string/light_levels_enabled_title"
+            android:persistent="false" />
+
+        <!-- Screen dim level -->
+        <ListPreference
+            android:key="light_levels_dim"
+            android:title="@string/light_levels_dim_title"
+            android:summary="@string/light_levels_dim_summary"
+            android:dialogTitle="@string/light_levels_dim_title"
+            android:entries="@array/entries_light_levels_dim"
+            android:entryValues="@array/values_light_levels_dim"
+            android:dependency="light_levels_enabled"
+            android:persistent="false" />
+
+        <!-- Level editor -->
+        <PreferenceScreen
+            android:key="light_levels_editor"
+            android:title="@string/light_levels_editor_title"
+            android:dependency="light_levels_enabled">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.LightLevelsActivity" />
+        </PreferenceScreen>
+
+        <!-- Allow screen brightness to decrease -->
+        <CheckBoxPreference
+            android:key="light_decrease_enabled"
+            android:title="@string/light_decrease_enabled_title"
+            android:summary="@string/light_decrease_enabled_summary"
+            android:persistent="false" />
+
+        <!-- Screen decrease hysteresis -->
+        <ListPreference
+            android:key="light_decrease_hysteresis"
+            android:title="@string/light_decrease_hysteresis_title"
+            android:summary="@string/light_decrease_hysteresis_summary"
+            android:dialogTitle="@string/light_decrease_hysteresis_title"
+            android:entries="@array/entries_light_decrease_hysteresis"
+            android:entryValues="@array/values_light_decrease_hysteresis"
+            android:dependency="light_decrease_enabled"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
