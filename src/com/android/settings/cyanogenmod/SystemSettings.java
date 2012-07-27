@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 CyanogenMod
+ * Copyright (C) 2012 The CyanogenMod project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,13 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.IWindowManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -28,6 +32,7 @@ public class SystemSettings extends SettingsPreferenceFragment {
 
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
+    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
@@ -54,6 +59,17 @@ public class SystemSettings extends SettingsPreferenceFragment {
             } else {
                 updateBatteryPulseDescription();
             }
+        }
+
+        // Only show the hardware keys config on a device that does not have a navbar
+        IWindowManager windowManager = IWindowManager.Stub.asInterface(
+                ServiceManager.getService(Context.WINDOW_SERVICE));
+        try {
+            if (windowManager.hasNavigationBar()) {
+                getPreferenceScreen().removePreference(findPreference(KEY_HARDWARE_KEYS));
+            }
+        } catch (RemoteException e) {
+            // Do nothing
         }
     }
 
