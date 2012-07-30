@@ -25,6 +25,15 @@
          <extra android:name="cm_security" android:value="true" />
      </PreferenceScreen>
 
+     <ListPreference
+        android:key="lockscreen_battery_status"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_battery_status_title"
+        android:title="@string/lockscreen_battery_status_title"
+        android:entries="@array/lockscreen_battery_status_entries"
+        android:entryValues="@array/lockscreen_battery_status_values"
+        android:defaultValue="0" />
+
     <CheckBoxPreference
         android:key="allow_rotation"
         android:title="@string/allow_rotate_title"

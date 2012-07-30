@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -37,8 +38,10 @@ public class Lockscreen extends SettingsPreferenceFragment
     private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
     private static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
     private static final String KEY_VOLUME_WAKE = "volume_wake";
+    private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
+    private ListPreference mBatteryStatus;
     private PreferenceScreen mLockscreenButtons;
 
     private CheckBoxPreference mAllowRotation;
@@ -81,6 +84,9 @@ public class Lockscreen extends SettingsPreferenceFragment
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
 
+        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
+        mBatteryStatus.setOnPreferenceChangeListener(this);
+
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
             getPreferenceScreen().removePreference(mLockscreenButtons);
@@ -88,6 +94,19 @@ public class Lockscreen extends SettingsPreferenceFragment
 
         if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
             prefSet.removePreference(mAllowRotation);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Set the battery status description text
+        if (mBatteryStatus != null) {
+            int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
+            mBatteryStatus.setValueIndex(batteryStatus);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
         }
     }
 
@@ -141,7 +160,16 @@ public class Lockscreen extends SettingsPreferenceFragment
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return true;
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mBatteryStatus) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mBatteryStatus.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        }
+        return false;
     }
 }
