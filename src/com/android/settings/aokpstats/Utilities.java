@@ -83,7 +83,7 @@ public class Utilities {
     public static String getModVersion() {
         String aokp_ver = SystemProperties.get("ro.aokp.version");
         if (aokp_ver != null) {
-            Pattern pattern = Pattern.compile("^(aokp_)[a-z0-9]*_(jb-)?(build|milestone)-[0-9]+$");
+            Pattern pattern = Pattern.compile("^(aokp_)[a-z0-9]*_(jb-)?(([a-zA-Z]+-[0-9]+-[0-9]+)|((build|milestone)-[0-9]+))$");
             Matcher matcher = pattern.matcher(aokp_ver);
             if (matcher.find()) {
                 String[] splitted = aokp_ver.split("_");
