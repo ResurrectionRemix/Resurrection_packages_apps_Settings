@@ -2644,5 +2644,11 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>
