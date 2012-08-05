@@ -27,6 +27,7 @@ import android.util.Log;
 import com.android.settings.DisplaySettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.ButtonSettings;
 import com.android.settings.hardware.DisplayColor;
 import com.android.settings.hardware.DisplayGamma;
 import com.android.settings.hardware.VibratorIntensity;
@@ -77,6 +78,7 @@ public class BootReceiver extends BroadcastReceiver {
         VibratorIntensity.restore(ctx);
         DisplaySettings.restore(ctx);
         LocationSettings.restore(ctx);
+        ButtonSettings.restoreKeyDisabler(ctx);
     }
 
     private void initFreqCapFiles(Context ctx)
