@@ -259,25 +259,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         getActivity().unregisterReceiver(mReceiver);
     }
 
-    /**
-     * Put the audio system into the correct vibrate setting
-     */
-    private void setPhoneVibrateSettingValue(boolean vibeOnRing) {
-        // If vibrate-on-ring is checked, use VIBRATE_SETTING_ON
-        // Otherwise vibrate is off when ringer is silent
-        int vibrateMode = vibeOnRing ? AudioManager.VIBRATE_SETTING_ON
-                : AudioManager.VIBRATE_SETTING_ONLY_SILENT;
-        mAudioManager.setVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER, vibrateMode);
-        mAudioManager.setVibrateSetting(AudioManager.VIBRATE_TYPE_NOTIFICATION, vibrateMode);
-    }
-
     // updateState in fact updates the UI to reflect the system state
     private void updateState(boolean force) {
         if (getActivity() == null) return;
         ContentResolver resolver = getContentResolver();
 
-        final int vibrateMode = mAudioManager.getVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER);
-        
         if (Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_ENABLED, 0) == 1) {
             mQuietHours.setSummary(getString(R.string.quiet_hours_active_from) + " " +
                     returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_START))
@@ -286,8 +272,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         } else {
             mQuietHours.setSummary(getString(R.string.quiet_hours_summary));
         }
-
-        mVibrateWhenRinging.setChecked(vibrateMode == AudioManager.VIBRATE_SETTING_ON);
     }
 
     private void updateRingtoneName(int type, Preference preference, int msg) {
