@@ -264,6 +264,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         if (getActivity() == null) return;
         ContentResolver resolver = getContentResolver();
 
+        mVibrateWhenRinging.setChecked(Settings.System.getInt(resolver,
+            Settings.System.VIBRATE_WHEN_RINGING, 0) != 0);
+
         if (Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_ENABLED, 0) == 1) {
             mQuietHours.setSummary(getString(R.string.quiet_hours_active_from) + " " +
                     returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_START))
