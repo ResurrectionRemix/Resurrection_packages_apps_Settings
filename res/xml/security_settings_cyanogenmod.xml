@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="additional_options"
+        android:title="@string/additional_options_title">
+
+        <CheckBoxPreference
+            android:key="menu_unlock"
+            android:title="@string/unlock_menu_unlock_title"
+            android:summary="@string/unlock_menu_unlock_summary" />
+
+        <CheckBoxPreference
+            android:key="home_unlock"
+            android:title="@string/unlock_home_unlock_title"
+            android:summary="@string/unlock_home_unlock_summary" />
+
+        <CheckBoxPreference
+            android:key="quick_unlock_control"
+            android:title="@string/unlock_quick_unlock_control_title"
+            android:summary="@string/unlock_quick_unlock_control_summary" />
+
+        <CheckBoxPreference
+            android:key="lockscreen_vibrate"
+            android:persistent="false"
+            android:title="@string/lockscreen_vibrate_enabled_title"
+            android:summary="@string/lockscreen_vibrate_enabled_head"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

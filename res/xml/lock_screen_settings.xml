@@ -17,6 +17,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/lock_screen_settings">
 
+     <PreferenceScreen
+         android:key="screen_security"
+         android:fragment="com.android.settings.SecuritySettings"
+         android:title="@string/screen_security_category"
+         android:summary="@string/screen_security_summary">
+         <extra android:name="cm_security" android:value="true" />
+     </PreferenceScreen>
+
     <CheckBoxPreference
         android:key="allow_rotation"
         android:title="@string/allow_rotate_title"
