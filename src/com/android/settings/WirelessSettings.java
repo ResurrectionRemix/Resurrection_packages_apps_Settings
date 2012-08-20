@@ -63,7 +63,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
     private NfcEnabler mNfcEnabler;
     private NfcAdapter mNfcAdapter;
     private NsdEnabler mNsdEnabler;
-    ListPreference mNfcPollingMode;
+    private ListPreference mNfcPollingMode;
 
     /**
      * Invoked on each preference click in this hierarchy, overrides
@@ -83,13 +83,15 @@ public class WirelessSettings extends SettingsPreferenceFragment
         // Let the intents be launched by the Preference manager
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-    
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mNfcPollingMode) {
             int newVal = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NFC_POLLING_MODE, newVal);
+            updateNfcPolling();
+            return true;
         }
         return false;
     }
@@ -120,6 +122,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
         mNfcPollingMode.setOnPreferenceChangeListener(this);
         mNfcPollingMode.setValue((Settings.System.getInt(activity.getContentResolver(),
                 Settings.System.NFC_POLLING_MODE, 3)) + "");
+        updateNfcPolling();
 
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam, mNfcPollingMode);
@@ -165,8 +168,8 @@ public class WirelessSettings extends SettingsPreferenceFragment
         mNfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if (mNfcAdapter == null) {
             getPreferenceScreen().removePreference(nfc);
-            getPreferenceScreen().removePreference(androidBeam);
             getPreferenceScreen().removePreference(mNfcPollingMode);
+            getPreferenceScreen().removePreference(androidBeam);
             mNfcEnabler = null;
         }
 
@@ -212,6 +215,25 @@ public class WirelessSettings extends SettingsPreferenceFragment
             Preference ps = findPreference(KEY_CELL_BROADCAST_SETTINGS);
             if (ps != null) root.removePreference(ps);
         }
+    }
+
+    private void updateNfcPolling() {
+        int resId;
+        String value = Settings.System.getString(getContentResolver(),
+                Settings.System.NFC_POLLING_MODE);
+        String[] pollingArray = getResources().getStringArray(R.array.nfc_polling_mode_values);
+
+        if (pollingArray[0].equals(value)) {
+            resId = R.string.nfc_polling_mode_screen_off;
+            mNfcPollingMode.setValueIndex(0);
+        } else if (pollingArray[1].equals(value)) {
+            resId = R.string.nfc_polling_mode_screen_locked;
+            mNfcPollingMode.setValueIndex(1);
+        } else {
+            resId = R.string.nfc_polling_mode_screen_unlocked;
+            mNfcPollingMode.setValueIndex(2);
+        }
+        mNfcPollingMode.setSummary(getResources().getString(resId));
     }
 
     @Override
