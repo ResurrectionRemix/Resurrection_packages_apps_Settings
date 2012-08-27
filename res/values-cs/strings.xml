@@ -1706,7 +1706,6 @@
     <string name="themes_title">Témata vzhledu</string>
     <string name="mod_version">Verze AOKP</string>
     <string name="mod_version_default">Neznámá</string>
-    
     <string name="quiet_hours_title">Hodiny klidu</string>
     <string name="quiet_hours_summary">Zvolit hodiny, během kterých by mělo být zařízení v tichém režimu</string>
     <string name="quiet_hours_enabled_title">Zapnout hodiny klidu</string>
@@ -1722,7 +1721,6 @@
     <string name="quiet_hours_active_to">do</string>
     <string name="start_time_title">Začátek</string>
     <string name="end_time_title">Konec</string>
-    
     <string name="anonymous_statistics_title">AOKP statistiky</string>
     <string name="anonymous_statistics_summary">Pomáhá vylepšovat AOKP odesíláním anonymních statistik</string>
     <string name="anonymous_statistics_warning_title">O odesílání</string>
@@ -1738,7 +1736,6 @@
     <string name="preview_version_title">Verze</string>
     <string name="preview_country_title">Země</string>
     <string name="preview_carrier_title">Operátor</string>
-    
     <string name="hardware_info">Informace o hardwaru</string>
     <string name="device_rear_camera">Zadní kamera</string>
     <string name="device_front_camera">Přední kamera</string>
@@ -1746,27 +1743,65 @@
     <string name="gpu_info">GPU</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Operační paměť</string>
-    
     <string name="nfc_polling_mode_title">Režim NFC</string>
-    <string name="nfc_polling_mode_summary">Nastavit minimální požadavky pro zapnutí NFC</string>
-    
+    <string name="nfc_polling_mode_screen_off">Vypnutá obrazovka</string>
+    <string name="nfc_polling_mode_screen_locked">Zapnutá obrazovka, uzamčeno</string>
+    <string name="nfc_polling_mode_screen_unlocked">Zapnutá obrazovka, odemčeno (výchozí)</string>
     <string name="camera_sounds_title">Zvuky fotoaparátu</string>
     <string name="camera_sounds_summary">POZOR: Vypnutí zvuku fotoaparátu/kamery je v některých zemích nelegální!</string>
-
     <string name="safe_headset_restore_title">Bezpečná hlasitost sluchátek</string>
     <string name="safe_headset_restore_summary">Zabránit nastavení příliš vysoké hlasistoti pokud jsou připojena sluchátka</string>
-
     <string name="location_gps_source_title">Zdroj GPS</string>
     <string name="location_gps_source_summary">Zvolit zda používat vnitřní nebo externí bluetooth GPS pro určování polohy</string>
     <string name="location_gps_source_notification_title">Pozor</string>
     <string name="location_gps_source_notification">Zdroj GPS byl změněn! GPS bude vypnuta. Před použitím je třeba ji opět zapnout!</string>
-
     <string name="device_hostname">Jméno zařízení</string>
-
     <string name="adb_over_network">ADB po síti</string>
     <string name="adb_over_network_summary">Povolit ladění TCP/IP po síťovém rozhraní (Wi-Fi, USB sítě). Nastavení je resetováno při restartu.</string>
     <string name="adb_over_network_warning">POZOR: Pokud je ADB po síti povoleno, telefon je otevřen ke všem zásáhům v síti, kde je připojen!\n\nTento režim je doporučené provozovat pouze v důvěryhodných sítích.\n\nOpravdu se má tato funkčnost zapnout?</string>
-    
     <string name="adb_notify">Notifikace ladění</string>
     <string name="adb_notify_summary">Zobrazit notifikaci, pokud je zapnuto ladění Android</string>
+    <string name="volume_adjust_sounds_enable_title">Zvuk změny hlasitosti</string>
+    <string name="volume_adjust_sounds_enable_summary">Přehrát zvuk při změně hlasitosti pomocí hw. tlačítek</string>
+    <string name="volume_ring_only_description">Vyzvánění</string>
+    <string name="link_volume_ringtones">Spojit hlasitosti</string>
+    <string name="link_volume_mutes">Spojit tiché režimy</string>
+    <string name="backlight_title">Vlastní nastavení podsvícení</string>
+    <string name="backlight_settings">Automatické podsvícení</string>
+    <string name="backlight_settings_title">Automatické podsvícení</string>
+    <string name="backlight_summary">Vylepšit úrovně a filtrování</string>
+    <string name="light_filter_title">Filtrování světelného senzoru</string>
+    <string name="light_filter_enabled_title">Zapnuto</string>
+    <string name="light_filter_enabled_summary">Použít průměrné filtrování na data ze senzoru k omezení problikávání</string>
+    <string name="light_filter_window_title">Délka okna</string>
+    <string name="light_filter_window_summary">Filtrovaná hodnota je průměr hodoty ze senzoru během této doby</string>
+    <string name="light_filter_reset_title">Hranice resetování</string>
+    <string name="light_filter_reset_summary">Pokud se vzorky příliš odchylují od průměru, filtr se zresetuje</string>
+    <string name="light_filter_interval_title">Interval vzorku</string>
+    <string name="light_filter_interval_summary">Nízká hodnota zlepšuje průměr, ale používá více CPU</string>
+    <string name="light_levels_title">Úrovně podsvícení</string>
+    <string name="light_levels_enabled_title">Použít vlastní</string>
+    <string name="light_levels_dim_title">Úroveň ztmavené obrazovky</string>
+    <string name="light_levels_dim_summary">Jas použitý při nejvíce ztmavené obrazovce</string>
+    <string name="light_levels_editor_title">Upravit ostatní úrovně\u2026</string>
+    <string name="light_decrease_enabled_title">Povolit snižování podsvícení</string>
+    <string name="light_decrease_enabled_summary">Zapnout pro povolení snížení podsvícení. Použije hysterezi pro snížení problikávání</string>
+    <string name="light_decrease_hysteresis_title">Snižovací hystereze</string>
+    <string name="light_decrease_hysteresis_summary">Hladiny senzoru se při snižování překrývají</string>
+    <string name="ll_title">Úrovně světelného senzoru</string>
+    <string name="ll_header_upper">Horní</string>
+    <string name="ll_header_lower">Dolní</string>
+    <string name="ll_header_lcd">Obrazovka</string>
+    <string name="ll_header_btn">Tlačítka</string>
+    <string name="ll_header_kb">Klávesnice</string>
+    <string name="ll_lux">Senzor (fitrované / ryzí):</string>
+    <string name="ll_lcd">Obrazovka:</string>
+    <string name="ll_btn">Tlačítka:</string>
+    <string name="ll_kb">Klávesnice:</string>
+    <string name="ll_disabled">vypnuto</string>
+    <string name="ll_default">Načíst výchozí hodnoty</string>
+    <string name="ll_save">Uložit a použít</string>
+    <string name="ll_reload">Obnovit aktuální</string>
+    <string name="ll_bad_levels">Úrovně se musí zvyšovat</string>
+    <string name="ll_num_levels">Nastavit počet úrovní</string>
 </resources>
