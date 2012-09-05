@@ -634,11 +634,14 @@
     <string name="sound_effects_enable_title" msgid="1171590821131077296">"触摸提示音"</string>
     <string name="lock_sounds_enable_title" msgid="450098505659399520">"锁屏提示音"</string>
     <string name="haptic_feedback_enable_title" msgid="2438293710530828760">"触摸时振动"</string>
+    <string name="volume_adjust_sounds_enable_title">调节音量提示音</string>
+    <string name="volume_adjust_sounds_enable_summary">启用/禁用调节音量时的提示音</string>
     <string name="camera_sounds_title">相机声音</string>
     <string name="camera_sounds_summary">警告: 在某些国家或地区，禁用相机快门音是非法行为！</string>
     <string name="audio_record_proc_title" msgid="4271091199976457534">"降噪"</string>
     <string name="volume_media_description" msgid="7949355934788807863">"音乐、视频、游戏和其他媒体"</string>
     <string name="volume_ring_description" msgid="5936851631698298989">"铃声和通知"</string>
+    <string name="volume_ring_only_description">铃声</string>
     <string name="volume_notification_description" msgid="5810902320215328321">"通知"</string>
     <string name="volume_alarm_description" msgid="8322615148532654841">"闹钟"</string>
     <string name="volume_ring_mute" msgid="3018992671608737202">"使铃声和通知静音"</string>
@@ -1725,6 +1728,9 @@
 
     <string name="mod_version">AOKP 版本</string>
     <string name="mod_version_default">未知</string>
+    <string name="link_volume_ringtones">合并音量</string>
+    <string name="link_volume_mutes">合并静音状态</string>
+    <string name="toast_link_volume_ringtones">设定的通知音量将与铃声音量一致。</string>
 
 	<!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
@@ -1774,4 +1780,43 @@
     <string name="adb_over_network_summary">通过网络接口(WiFi, USB 网络)进行 TCP/IP 调试，需重启。</string>
     <!-- Warning for Adb over Network -->
     <string name="adb_over_network_warning">警告： 当ADB网络调试开启，您的手机将完全暴露在网络，包括GSM数据网络！\n\n请在确保所接入网络是安全可信时使用此功能。\n\n确定要开启此功能？</string>
+    <!-- Backlight  -->
+    <string name="backlight_title">自定义亮度设置</string>
+    <string name="backlight_summary">设置光传感器过滤，调整亮度等级</string>
+    <string name="light_filter_title">光传感器过滤</string>
+    <string name="light_filter_enabled_title">启用</string>
+    <string name="light_filter_enabled_summary">启用光传感器数据移动平均数过滤，以减少频繁调节亮度引起的屏幕闪烁</string>
+    <string name="light_filter_window_title">取值周期</string>
+    <string name="light_filter_window_summary">过滤后的值是此周期内的传感器数据平均值</string>
+    <string name="light_filter_reset_title">重置阀值</string>
+    <string name="light_filter_reset_summary">采样值与平均值偏差过大时重置过滤器</string>
+    <string name="light_filter_interval_title">采样间隔</string>
+    <string name="light_filter_interval_summary">间隔越短精确的越高度，但会占用更多的CPU</string>
+    <string name="light_levels_title">亮度等级</string>
+    <string name="light_levels_enabled_title">使用自定义设置</string>
+    <string name="light_levels_dim_title">屏幕变暗度</string>
+    <string name="light_levels_dim_summary">屏幕明暗变化的程度</string>
+    <string name="light_levels_editor_title">编辑其它等级…</string>
+    <string name="light_decrease_enabled_title">允许降低亮度</string>
+    <string name="light_decrease_enabled_summary">启用此选项允许降低亮度，使用迟滞选项减少频繁调节亮度引起的屏幕闪烁</string>
+    <string name="light_decrease_hysteresis_title">降低亮度迟滞</string>
+    <string name="light_decrease_hysteresis_summary">降低亮度迟滞</string>
+
+    <!-- Light sensor levels  -->
+    <string name="ll_title">光传感器级别</string>
+    <string name="ll_header_upper">上限</string>
+    <string name="ll_header_lower">下限</string>
+    <string name="ll_header_lcd">屏幕</string>
+    <string name="ll_header_btn">按钮</string>
+    <string name="ll_header_kb">键盘</string>
+    <string name="ll_lux">传感器（运算后/原始）：</string>
+    <string name="ll_lcd">屏幕：</string>
+    <string name="ll_btn">按钮：</string>
+    <string name="ll_kb">键盘：</string>
+    <string name="ll_disabled">禁用</string>
+    <string name="ll_default">读取默认值</string>
+    <string name="ll_save">保存并应用</string>
+    <string name="ll_reload">读取当前值</string>
+    <string name="ll_bad_levels">等级必须递增</string>
+    <string name="ll_num_levels">设置亮度等级数</string>
 </resources>

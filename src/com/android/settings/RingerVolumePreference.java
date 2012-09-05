@@ -232,7 +232,7 @@ public class RingerVolumePreference extends VolumePreference {
                         ringerDesc.setText(R.string.volume_ring_description);
                         Toast.makeText(
                                 getContext(),
-                                "Make sure to change your volume to re-set your notification volume to match your ringtone volume.",
+                                getContext().getResources().getString(R.string.toast_link_volume_ringtones),
                                 Toast.LENGTH_LONG).show();
                     } else {
                         Settings.System
