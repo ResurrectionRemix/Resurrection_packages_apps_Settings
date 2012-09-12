@@ -17,6 +17,8 @@
 package com.android.settings;
 
 import android.app.ActivityManagerNative;
+import android.app.DialogFragment;
+import android.app.VibrationPickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -28,6 +30,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
+import android.media.VibrationPattern;
 import android.media.audiofx.AudioEffect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -58,6 +61,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final int FALLBACK_EMERGENCY_TONE_VALUE = 0;
 
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
+    private static final String KEY_VIBRATION = "vibration";
     private static final String KEY_RING_VOLUME = "ring_volume";
     private static final String KEY_MUSICFX = "musicfx";
     private static final String KEY_DTMF_TONE = "dtmf_tone";
@@ -83,6 +87,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
     private static final int MSG_UPDATE_NOTIFICATION_SUMMARY = 2;
+    private static final int VIB_OK = 10;
+    private static final int VIB_CANCEL = 11;
 
     private CheckBoxPreference mVibrateWhenRinging;
     private CheckBoxPreference mDtmfTone;
@@ -93,6 +99,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private Preference mMusicFx;
     private CheckBoxPreference mLockSounds;
     private Preference mRingtonePreference;
+    private Preference mVibrationPreference;
     private Preference mNotificationPreference;
     private CheckBoxPreference mSafeHeadsetRestore;
     private PreferenceScreen mQuietHours;
@@ -118,6 +125,18 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 break;
             case MSG_UPDATE_NOTIFICATION_SUMMARY:
                 mNotificationPreference.setSummary((CharSequence) msg.obj);
+                break;
+            case VIB_OK:
+                VibrationPattern mPattern = (VibrationPattern) msg.obj;
+                if (mPattern == null) {
+                    break;
+                }
+                mVibrationPreference.setSummary(mPattern.getName());
+                Settings.System.putString(getContentResolver(),
+                        Settings.System.PHONE_VIBRATION, mPattern.getUri().toString());
+                break;
+            case VIB_CANCEL:
+            default:
                 break;
             }
         }
@@ -184,6 +203,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
 
         mRingtonePreference = findPreference(KEY_RINGTONE);
+        mVibrationPreference = findPreference(KEY_VIBRATION);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
         
         mQuietHours = (PreferenceScreen) findPreference(KEY_QUIET_HOURS);
@@ -199,6 +219,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
             getPreferenceScreen().removePreference(mVibrateWhenRinging);
+            getPreferenceScreen().removePreference(mVibrationPreference);
             getPreferenceScreen().removePreference(mHapticFeedback);
         }
 
@@ -246,6 +267,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 }
             }
         };
+
+        lookupVibrationName();
     }
 
     @Override
@@ -254,6 +277,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
         updateState(true);
         lookupRingtoneNames();
+        lookupVibrationName();
 
         IntentFilter filter = new IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION);
         getActivity().registerReceiver(mReceiver, filter);
@@ -356,6 +380,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SAFE_HEADSET_VOLUME_RESTORE,
                     mSafeHeadsetRestore.isChecked() ? 1 : 0);
+        } else if (preference == mVibrationPreference) {
+            String uriString = VibrationPattern.getPhoneVibration(getActivity());
+            DialogFragment newFragment = VibrationPickerDialog.newInstance(mHandler, false, uriString);
+            newFragment.show(getFragmentManager(), "dialog");
+            return true;
+
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -398,5 +428,10 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         cal.set(Calendar.MINUTE, mn);
         Date date = cal.getTime();
         return DateFormat.getTimeFormat(getActivity().getApplicationContext()).format(date);
+    }
+
+    private void lookupVibrationName() {
+        String uriString = VibrationPattern.getPhoneVibration(getActivity());
+        mVibrationPreference.setSummary(new VibrationPattern(Uri.parse(uriString), getActivity()).getName());
     }
 }
