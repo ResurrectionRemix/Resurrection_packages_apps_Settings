@@ -21,6 +21,8 @@ import com.android.settings.bluetooth.DockEventReceiver;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.bluetooth.BluetoothDevice;
+import android.app.DialogFragment;
+import android.app.VibrationPickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -32,6 +34,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
+import android.media.VibrationPattern;
 import android.media.audiofx.AudioEffect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,8 +53,8 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.VolumePanel;
 
-import java.util.Date;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class SoundSettings extends SettingsPreferenceFragment implements
@@ -67,6 +70,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_LIMITER_SOUND = "notification_sounds_limiter";
     private static final String KEY_RING_MODE = "ring_mode";
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
+    private static final String KEY_VIBRATION = "vibration";
     private static final String KEY_RING_VOLUME = "ring_volume";
     private static final String KEY_INCREASING_RING = "increasing_ring";
     private static final String KEY_MUSICFX = "musicfx";
@@ -98,6 +102,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
     private static final int MSG_UPDATE_NOTIFICATION_SUMMARY = 2;
+    private static final int VIB_OK = 10;
+    private static final int VIB_CANCEL = 11;
 
     private CheckBoxPreference mVibrateWhenRinging;
     private ListPreference mVolumeOverlay;
@@ -111,6 +117,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mHeadsetConnectPlayer;
     private CheckBoxPreference mConvertSoundToVibration;
     private Preference mRingtonePreference;
+    private Preference mVibrationPreference;
     private Preference mNotificationPreference;
     private PreferenceScreen mQuietHours;
 
@@ -131,6 +138,18 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 break;
             case MSG_UPDATE_NOTIFICATION_SUMMARY:
                 mNotificationPreference.setSummary((CharSequence) msg.obj);
+                break;
+            case VIB_OK:
+                VibrationPattern mPattern = (VibrationPattern) msg.obj;
+                if (mPattern == null) {
+                    break;
+                }
+                mVibrationPreference.setSummary(mPattern.getName());
+                Settings.System.putString(getContentResolver(),
+                        Settings.System.PHONE_VIBRATION, mPattern.getUri().toString());
+                break;
+            case VIB_CANCEL:
+            default:
                 break;
             }
         }
@@ -228,15 +247,18 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 Settings.System.NOTIFICATION_CONVERT_SOUND_TO_VIBRATION, 1) != 0);
 
         mRingtonePreference = findPreference(KEY_RINGTONE);
+        mVibrationPreference = findPreference(KEY_VIBRATION);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
 
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
             removePreference(KEY_VIBRATE);
             removePreference(KEY_HAPTIC_FEEDBACK);
+            removePreference(KEY_VIBRATION);
         }
         if (!Utils.isVoiceCapable(getActivity())) {
             removePreference(KEY_VIBRATE);
+            removePreference(KEY_VIBRATION);
         }
 
         if (TelephonyManager.PHONE_TYPE_CDMA == activePhoneType) {
@@ -283,6 +305,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         };
 
         initDockSettings();
+        lookupVibrationName();
     }
 
     @Override
@@ -291,6 +314,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
         updateState(true);
         lookupRingtoneNames();
+        lookupVibrationName();
 
         IntentFilter filter = new IntentFilter(Intent.ACTION_DOCK_EVENT);
         getActivity().registerReceiver(mReceiver, filter);
@@ -448,6 +472,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         } else if (preference == mHeadsetConnectPlayer) {
             Settings.System.putInt(getContentResolver(), Settings.System.HEADSET_CONNECT_PLAYER,
                     mHeadsetConnectPlayer.isChecked() ? 1 : 0);
+        } else if (preference == mVibrationPreference) {
+            String uriString = VibrationPattern.getPhoneVibration(getActivity());
+            DialogFragment newFragment = VibrationPickerDialog.newInstance(mHandler, false, uriString);
+            newFragment.show(getFragmentManager(), "dialog");
+            return true;
+
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -584,6 +614,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         ab.setMessage(R.string.dock_not_found_text);
         ab.setPositiveButton(android.R.string.ok, null);
         return ab.create();
+    }
+
+    private void lookupVibrationName() {
+        String uriString = VibrationPattern.getPhoneVibration(getActivity());
+        mVibrationPreference.setSummary(new VibrationPattern(Uri.parse(uriString), getActivity()).getName());
     }
 }
 

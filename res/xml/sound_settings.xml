@@ -72,6 +72,13 @@
          android:title="@string/vibrate_when_ringing_title"
          android:persistent="false" />
 
+    <Preference
+            android:key="vibration"
+            android:title="@string/vibration_title"
+            android:dependency="vibrate_when_ringing"
+            android:persistent="false"
+            android:defaultValue="false" />
+
     <com.android.settings.IncreasingRingPreference
             android:key="increasing_ring"
             android:title="@string/increasing_ring_title"
