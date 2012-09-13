@@ -57,6 +57,7 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
     private static final String KEY_MAC_ADDRESS = "mac_address";
     private static final String KEY_CURRENT_IP_ADDRESS = "current_ip_address";
     private static final String KEY_FREQUENCY_BAND = "frequency_band";
+    private static final String KEY_COUNTRY_CODE = "wifi_countrycode";
     private static final String KEY_NOTIFY_OPEN_NETWORKS = "notify_open_networks";
     private static final String KEY_SLEEP_POLICY = "sleep_policy";
     private static final String KEY_POOR_NETWORK_DETECTION = "wifi_poor_network_detection";
@@ -211,6 +212,17 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
             }
         }
 
+        ListPreference ccodePref = (ListPreference) findPreference(KEY_COUNTRY_CODE);
+        if (ccodePref != null) {
+            ccodePref.setOnPreferenceChangeListener(this);
+            String value = mWifiManager.getCountryCode();
+            if (value != null) {
+                ccodePref.setValue(value);
+            } else {
+                Log.e(TAG, "Failed to fetch country code");
+            }
+        }
+
         ListPreference sleepPolicyPref = (ListPreference) findPreference(KEY_SLEEP_POLICY);
         if (sleepPolicyPref != null) {
             if (Utils.isWifiOnly(context)) {
@@ -326,6 +338,16 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
             // Don't update the preference widget state until the child activity returns.
             // It will be updated in onResume after the activity finishes.
             return false;
+        }
+
+        if (KEY_COUNTRY_CODE.equals(key)) {
+            try {
+                mWifiManager.setCountryCode((String) newValue, true);
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(getActivity(), R.string.wifi_setting_countrycode_error,
+                        Toast.LENGTH_SHORT).show();
+                return false;
+            }
         }
 
         if (KEY_SLEEP_POLICY.equals(key)) {
