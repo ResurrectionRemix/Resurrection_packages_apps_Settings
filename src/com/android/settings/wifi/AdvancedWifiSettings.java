@@ -20,6 +20,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.net.wifi.WpsInfo;
 import android.os.Bundle;
 import android.os.UserManager;
@@ -58,6 +59,8 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
 
     private static final String KEY_PRIORITY_SETTINGS = "wifi_priority_settings";
 
+    private static final String KEY_COUNTRY_CODE = "wifi_countrycode";
+
     private static final String KEY_AUTO_CONNECT_ENABLE = "auto_connect_type";
     private static final String WIFI_AUTO_CONNECT_TYPE = "wifi_auto_connect_type";
     private static final int AUTO_CONNECT_ENABLED = 0;
@@ -88,6 +91,7 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     private ListPreference mCellularToWlanPref;
 
     private boolean mUnavailable;
+    private WifiManager mWifiManager;
 
     public AdvancedWifiSettings() {
         super(UserManager.DISALLOW_CONFIG_WIFI);
@@ -115,6 +119,8 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
         getEmptyTextView().setText(R.string.wifi_advanced_not_available);
         if (mUnavailable) {
             getPreferenceScreen().removeAll();
+        } else {
+            mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         }
     }
 
@@ -191,6 +197,17 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
             }
         } else {
             Log.d(TAG, "Fail to get priority pref...");
+        }
+
+        ListPreference ccodePref = (ListPreference) findPreference(KEY_COUNTRY_CODE);
+        if (ccodePref != null) {
+            ccodePref.setOnPreferenceChangeListener(this);
+            String value = mWifiManager.getCountryCode();
+            if (value != null) {
+                ccodePref.setValue(value);
+            } else {
+                Log.e(TAG, "Failed to fetch country code");
+            }
         }
 
         mAutoConnectEnablePref =
@@ -275,6 +292,16 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getActivity();
         String key = preference.getKey();
+
+        if (KEY_COUNTRY_CODE.equals(key)) {
+            try {
+                mWifiManager.setCountryCode((String) newValue, true);
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(getActivity(), R.string.wifi_setting_countrycode_error,
+                        Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
 
         if (KEY_WLAN_TO_CELLULAR_HINT.equals(key)) {
             boolean checked = ((Boolean) newValue).booleanValue();
