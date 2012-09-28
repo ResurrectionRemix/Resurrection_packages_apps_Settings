@@ -87,7 +87,7 @@ public class Utilities {
             Matcher matcher = pattern.matcher(aokp_ver);
             if (matcher.find()) {
                 String[] splitted = aokp_ver.split("_");
-                String ver = splitted[splitted.length-1];
+                String ver = splitted[splitted.length-2].concat(splitted[splitted.length-1]);
                 return ver;
             } else {
                 return "KANG";
