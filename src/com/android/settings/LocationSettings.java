@@ -20,15 +20,19 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.ContentQueryMap;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.location.LocationManager;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.ListPreference;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -46,19 +50,18 @@ import android.widget.Toast;
  * Gesture lock pattern settings.
  */
 public class LocationSettings extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+        implements Preference.OnPreferenceChangeListener {
 
     // Location Settings
+    private static final String KEY_LOCATION_TOGGLE = "location_toggle";
     private static final String KEY_LOCATION_NETWORK = "location_network";
     private static final String KEY_LOCATION_GPS = "location_gps";
     private static final String KEY_ASSISTED_GPS = "assisted_gps";
-    private static final String KEY_USE_LOCATION = "location_use_for_services";
 
     private CheckBoxPreference mNetwork;
     private CheckBoxPreference mGps;
     private CheckBoxPreference mAssistedGps;
-    private CheckBoxPreference mUseLocation;
-    private ListPreference mGPSBTPref;
+    private SwitchPreference mLocationAccess;
 
     // These provide support for receiving notification when Location Manager settings change.
     // This is necessary because the Network Location Provider can change settings
@@ -94,47 +97,12 @@ public class LocationSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.location_settings);
         root = getPreferenceScreen();
 
+        mLocationAccess = (SwitchPreference) root.findPreference(KEY_LOCATION_TOGGLE);
         mNetwork = (CheckBoxPreference) root.findPreference(KEY_LOCATION_NETWORK);
         mGps = (CheckBoxPreference) root.findPreference(KEY_LOCATION_GPS);
         mAssistedGps = (CheckBoxPreference) root.findPreference(KEY_ASSISTED_GPS);
-        if (GoogleLocationSettingHelper.isAvailable(getActivity())) {
-            // GSF present, Add setting for 'Use My Location'
-            CheckBoxPreference useLocation = new CheckBoxPreference(getActivity());
-            useLocation.setKey(KEY_USE_LOCATION);
-            useLocation.setTitle(R.string.use_location_title);
-            useLocation.setSummary(R.string.use_location_summary);
-            useLocation.setChecked(
-                    GoogleLocationSettingHelper.getUseLocationForServices(getActivity())
-                    == GoogleLocationSettingHelper.USE_LOCATION_FOR_SERVICES_ON);
-            useLocation.setPersistent(false);
-            useLocation.setOnPreferenceChangeListener(this);
-            getPreferenceScreen().addPreference(useLocation);
-            mUseLocation = useLocation;
-        }
-        //add BT gps devices
-        mGPSBTPref = (ListPreference) findPreference("location_gps_source");
-        ArrayList<CharSequence> entries = new ArrayList<CharSequence>();
-        for (String e : getResources().getStringArray(R.array.location_entries_gps_source) ) {
-            entries.add(e);
-        }
-        ArrayList<CharSequence> values = new ArrayList<CharSequence>();
-        for (String v: getResources().getStringArray(R.array.location_values_gps_source)) {
-            values.add(v);
-        }
-        // add known bonded BT devices
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if ((mBluetoothAdapter != null) && (mBluetoothAdapter.isEnabled())) {
-            for (BluetoothDevice d : mBluetoothAdapter.getBondedDevices()) {
-                String dname = d.getName() + " - " + d.getAddress();
-                entries.add(dname);
-                values.add(d.getAddress());
-            }
-        }
-        mGPSBTPref.setEntries(entries.toArray(new CharSequence[entries.size()]));
-        mGPSBTPref.setEntryValues(values.toArray(new CharSequence[values.size()]));
-        mGPSBTPref.setDefaultValue("0");
-        mGPSBTPref.setOnPreferenceChangeListener(this);
 
+        mLocationAccess.setOnPreferenceChangeListener(this);
         return root;
     }
 
@@ -160,19 +128,19 @@ public class LocationSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-
+        final ContentResolver cr = getContentResolver();
         if (preference == mNetwork) {
-            Settings.Secure.setLocationProviderEnabled(getContentResolver(),
+            Settings.Secure.setLocationProviderEnabled(cr,
                     LocationManager.NETWORK_PROVIDER, mNetwork.isChecked());
         } else if (preference == mGps) {
             boolean enabled = mGps.isChecked();
-            Settings.Secure.setLocationProviderEnabled(getContentResolver(),
+            Settings.Secure.setLocationProviderEnabled(cr,
                     LocationManager.GPS_PROVIDER, enabled);
             if (mAssistedGps != null) {
                 mAssistedGps.setEnabled(enabled);
             }
         } else if (preference == mAssistedGps) {
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.ASSISTED_GPS_ENABLED,
+            Settings.Secure.putInt(cr, Settings.Secure.ASSISTED_GPS_ENABLED,
                     mAssistedGps.isChecked() ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
@@ -189,9 +157,11 @@ public class LocationSettings extends SettingsPreferenceFragment
         ContentResolver res = getContentResolver();
         boolean gpsEnabled = Settings.Secure.isLocationProviderEnabled(
                 res, LocationManager.GPS_PROVIDER);
-        mNetwork.setChecked(Settings.Secure.isLocationProviderEnabled(
-                res, LocationManager.NETWORK_PROVIDER));
+        boolean networkEnabled = Settings.Secure.isLocationProviderEnabled(
+                res, LocationManager.NETWORK_PROVIDER);
         mGps.setChecked(gpsEnabled);
+        mNetwork.setChecked(networkEnabled);
+        mLocationAccess.setChecked(gpsEnabled || networkEnabled);
         if (mAssistedGps != null) {
             mAssistedGps.setChecked(Settings.Secure.getInt(res,
                     Settings.Secure.ASSISTED_GPS_ENABLED, 2) == 1);
@@ -208,32 +178,66 @@ public class LocationSettings extends SettingsPreferenceFragment
         createPreferenceHierarchy();
     }
 
-    public boolean onPreferenceChange(Preference preference, Object value) {
-        if (preference == mUseLocation) {
-            boolean newValue = (value == null ? false : (Boolean) value);
-            GoogleLocationSettingHelper.setUseLocationForServices(getActivity(), newValue);
-            // We don't want to change the value immediately here, since the user may click
-            // disagree in the dialog that pops up. When the activity we just launched exits, this
-            // activity will be restated and the new value re-read, so the checkbox will get its
-            // new value then.
-            return false;
-        }  else if (preference == mGPSBTPref) {
-            String oldPref = Settings.System.getString(getContentResolver(),
-                    Settings.Secure.EXTERNAL_GPS_BT_DEVICE);
-            String newPref = value == null ? "0" : (String) value;
-            // "0" represents the internal GPS.
-            Settings.System.putString(getContentResolver(), Settings.Secure.EXTERNAL_GPS_BT_DEVICE,
-                    newPref);
-            if (!oldPref.equals(newPref) && ("0".equals(oldPref) || "0".equals(newPref)) ) {
-                LocationManager locationManager =
-                    (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-                locationManager.setGPSSource(newPref);
-                // Show msg to inform user that source has been switched
-                Toast.makeText(this.getActivity(),
-                        getResources().getString(R.string.location_gps_source_notification),
-                        Toast.LENGTH_LONG).show();
-            }
+    /** Enable or disable all providers when the master toggle is changed. */
+    private void onToggleLocationAccess(boolean checked) {
+        final ContentResolver cr = getContentResolver();
+        Settings.Secure.setLocationProviderEnabled(cr,
+                LocationManager.GPS_PROVIDER, checked);
+        Settings.Secure.setLocationProviderEnabled(cr,
+                LocationManager.NETWORK_PROVIDER, checked);
+        updateLocationToggles();
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference pref, Object newValue) {
+        if (pref.getKey().equals(KEY_LOCATION_TOGGLE)) {
+            onToggleLocationAccess((Boolean) newValue);
         }
         return true;
+    }
+
+}
+
+class WrappingSwitchPreference extends SwitchPreference {
+
+    public WrappingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    public WrappingSwitchPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        TextView title = (TextView) view.findViewById(android.R.id.title);
+        if (title != null) {
+            title.setSingleLine(false);
+            title.setMaxLines(3);
+        }
+    }
+}
+
+class WrappingCheckBoxPreference extends CheckBoxPreference {
+
+    public WrappingCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    public WrappingCheckBoxPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        TextView title = (TextView) view.findViewById(android.R.id.title);
+        if (title != null) {
+            title.setSingleLine(false);
+            title.setMaxLines(3);
+        }
     }
 }

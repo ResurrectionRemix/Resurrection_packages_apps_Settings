@@ -116,7 +116,7 @@
     <string name="bluetooth_profile_details" msgid="6823621790324933337">"Profilinställningar"</string>
     <string name="bluetooth_name_not_set" msgid="2653752006416027426">"Inget namn har angetts, använder kontonamn"</string>
     <string name="bluetooth_scan_for_devices" msgid="9214184305566815727">"Sök efter enheter"</string>
-    <string name="bluetooth_rename_device" product="tablet" msgid="787970073150631155">"Byt namn på pekdator"</string>
+    <string name="bluetooth_rename_device" product="tablet" msgid="787970073150631155">"Byt namn på surfplatta"</string>
     <string name="bluetooth_rename_device" product="default" msgid="6267987985556136749">"Byt namn på telefon"</string>
     <string name="bluetooth_rename_button" msgid="1648028693822994566">"Byt namn"</string>
     <string name="bluetooth_disconnect_title" msgid="6026705382020027966">"Vill du koppla från?"</string>
@@ -299,7 +299,7 @@
     <string name="owner_info_settings_title" msgid="2723190010708381889">"Ägaruppgifter"</string>
     <string name="owner_info_settings_summary" msgid="3800834657847339570"></string>
     <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Ange text som ska visas på den låsta skärmen"</string>
-    <string name="location_settings_title" msgid="8935806698251432196">"Platstjänster"</string>
+    <string name="location_settings_title" msgid="4483843407328665068">"Platsåtkomst"</string>
     <string name="security_settings_title" msgid="7945465324818485460">"Säkerhet"</string>
     <string name="security_settings_summary" msgid="967393342537986570">"Ställ in Min plats, skärmupplåsning, lås för SIM-kort och lås för uppgiftslagring"</string>
     <string name="cdma_security_settings_summary" msgid="6068799952798901542">"Ställ in Min plats, skärmupplåsning, lås för uppgiftslagring"</string>
@@ -899,16 +899,20 @@
     <string name="tethering_help_button_text" msgid="656117495547173630">"Hjälp"</string>
     <string name="network_settings_title" msgid="7967552516440151852">"Mobila nätverk"</string>
     <string name="location_title" msgid="1029961368397484576">"Min plats"</string>
-    <string name="location_network_based" msgid="5569673665032992664">"Googles platstjänst"</string>
-    <string name="location_neighborhood_level" msgid="2948129720516513300">"Tillåt att anonyma platsdata skickas till Google. Tillåt även att appar med tillstånd använder data från källor som Wi-Fi-nätverk och nätverk för mobilenheter för att avgöra din ungefärliga position."</string>
+    <string name="location_network_based" msgid="7472814266821714527">"Plats från Wi-Fi/mobilnätverk"</string>
+    <string name="location_neighborhood_level" msgid="5626515380188353712">"Ge appar möjlighet att snabbare se var du är med Googles platstjänst. Anonym platsinformation samlas in och skickas till Google."</string>
     <string name="location_neighborhood_level_wifi" msgid="7457348712272184793">"Platsen fastställs av Wi-Fi"</string>
     <string name="location_gps" msgid="8392461023569708478">"GPS-satelliter"</string>
-    <string name="location_street_level" msgid="4244496898967415234">"Låter appar använda GPS för att se var du befinner dig"</string>
+    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"Ge appar möjlighet att använda surfplattans GPS för att fastställa mer exakt var du befinner dig"</string>
+    <string name="location_street_level" product="default" msgid="4617445745492014203">"Ge appar möjlighet att använda mobilens GPS för att fastställa mer exakt var du befinner dig"</string>
     <string name="assisted_gps" msgid="4649317129586736885">"Använd assisterad GPS"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"Använd servern för att förbättra GPS-funktionen (avmarkera om du vill minska nätverksbelastningen)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"Använd servern för att förbättra GPS-funktionen (avmarkera om du vill förbättra GPS-funktionen)"</string>
     <string name="use_location_title" msgid="5206937465504979977">"Plats och Sök på Google"</string>
     <string name="use_location_summary" msgid="3978805802386162520">"Låter Google använda din plats för att förbättra sökresultaten och andra tjänster"</string>
+    <string name="location_access_title" msgid="7064108942964081243">"Åtkomst till min plats"</string>
+    <string name="location_access_summary" msgid="69031404093194341">"Ge appar som har bett om tillstånd möjlighet att använda din platsinformation"</string>
+    <string name="location_sources_heading" msgid="1278732419851088319">"Platskällor"</string>
     <string name="about_settings" product="tablet" msgid="593457295516533765">"Om pekdatorn"</string>
     <string name="about_settings" product="default" msgid="1743378368185371685">"Om telefonen"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"Visa juridisk information, status, programversion"</string>
@@ -965,7 +969,7 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Försök igen om <xliff:g id="NUMBER">%d</xliff:g> sekunder."</string>
     <string name="skip_button_label" msgid="8680422740354436943">"Avbryt"</string>
     <string name="next_button_label" msgid="8890792540116568321">"Nästa"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"Skydda din pekdator"</string>
+    <string name="lock_title" product="tablet" msgid="2909697418179419990">"Skydda din surfplatta"</string>
     <string name="lock_title" product="default" msgid="4059246467204273930">"Skydda din telefon"</string>
     <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"Skydda pekdatorn från obehörig användning genom att skapa ett personligt grafiskt lösenord. Anslut punkterna med fingret i valfri ordning på nästa sida. Du måste ansluta minst fyra punkter."\n\n"Tryck på Nästa när du är redo att sätta igång."</string>
     <string name="lock_intro_message" product="default" msgid="8393155371327584659">"Skydda mobilen från obehörig användning genom att skapa ett personligt grafiskt lösenord på skärmen. Anslut minst fyra punkter i valfri ordning med fingret på nästa skärm."\n\n"Tryck på Nästa när du är redo att sätta igång."</string>
@@ -1045,7 +1049,7 @@
     <string name="clear_failed_dlg_text" msgid="1092177570631523106">"Det gick inte att ta bort data för appen."</string>
     <string name="security_settings_desc" product="tablet" msgid="1292421279262430109">"Appen har åtkomst till följande på pekdatorn:"</string>
     <string name="security_settings_desc" product="default" msgid="61749028818785244">"Appen har åtkomst till följande på mobilen:"</string>
-    <string name="security_settings_desc_multi" product="tablet" msgid="7300932212437084403">"Den här appen har åtkomst till följande på din pekdator. I syfte att förbättra prestandan och minska minnesanvändningen är några av dessa behörigheter tillgängliga för <xliff:g id="BASE_APP_NAME">%1$s</xliff:g>, eftersom den körs i samma process som <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> :"</string>
+    <string name="security_settings_desc_multi" product="tablet" msgid="7300932212437084403">"Den här appen har åtkomst till följande på din surfplatta. I syfte att förbättra prestandan och minska minnesanvändningen är några av dessa behörigheter tillgängliga för <xliff:g id="BASE_APP_NAME">%1$s</xliff:g>, eftersom den körs i samma process som <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g> :"</string>
     <string name="security_settings_desc_multi" product="default" msgid="6610268420793984752">"Den här appen har åtkomst till följande på din mobil. I syfte att förbättra prestandan och minska minnesanvändningen är några av dessa behörigheter tillgängliga för <xliff:g id="BASE_APP_NAME">%1$s</xliff:g>, eftersom den körs i samma process som <xliff:g id="ADDITIONAL_APPS_LIST">%2$s</xliff:g>:"</string>
     <string name="join_two_items" msgid="1336880355987539064">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> och <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="5925635036718502724">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> och <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
@@ -1056,7 +1060,7 @@
     <string name="empty_list_msg" msgid="5993162337235907160">"Du har inte installerat några appar från tredje part."</string>
     <string name="version_text" msgid="9189073826278676425">"version <xliff:g id="VERSION_NUM">%1$s</xliff:g>"</string>
     <string name="move_app" msgid="5042838441401731346">"Flytta"</string>
-    <string name="move_app_to_internal" product="tablet" msgid="2299714147283854957">"Flytta till pekdator"</string>
+    <string name="move_app_to_internal" product="tablet" msgid="2299714147283854957">"Flytta till surfplatta"</string>
     <string name="move_app_to_internal" product="default" msgid="3895430471913858185">"Flytta till telefon"</string>
     <string name="move_app_to_sdcard" product="nosdcard" msgid="4350451696315265420">"Flytta till USB-enhet"</string>
     <string name="move_app_to_sdcard" product="default" msgid="1143379049903056407">"Flytta till SD-kort"</string>
@@ -1291,7 +1295,7 @@
     <string name="usage_type_wake_lock" msgid="5125438890233677880">"Behåll aktiv"</string>
     <string name="usage_type_gps" msgid="7989688715128160790">"GPS"</string>
     <string name="usage_type_wifi_running" msgid="8234997940652067049">"WiFi körs"</string>
-    <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"Pekdator"</string>
+    <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"Surfplatta"</string>
     <string name="usage_type_phone" product="default" msgid="9108247984998041853">"Telefon"</string>
     <string name="usage_type_data_send" msgid="2857401966985425427">"Skickade data"</string>
     <string name="usage_type_data_recv" msgid="7251090882025234185">"Mottagna data"</string>
