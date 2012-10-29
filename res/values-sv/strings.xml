@@ -632,6 +632,15 @@
     <string name="sound_effects_enable_title" msgid="1171590821131077296">"Ljud vid tryck"</string>
     <string name="lock_sounds_enable_title" msgid="450098505659399520">"Skärmlåsljud"</string>
     <string name="haptic_feedback_enable_title" msgid="2438293710530828760">"Vibrera vid tryck"</string>
+
+    <!-- Sound settings screen, setting check box label -->
+    <string name="volume_adjust_sounds_enable_title">Justera volymen</string>
+    <!-- Sound settings screen, setting check box summary -->
+    <string name="volume_adjust_sounds_enable_summary">Spela upp ljud när du justerar volymen med hårda tangenter</string>
+    <!-- Sound settings screen, setting check box label -->
+    <string name="camera_sounds_title">Kamera ljud</string>
+    <string name="camera_sounds_summary">VARNING: Inaktivera kamerans ljud i slutare är olagligt i vissa områden!</string>
+
     <string name="audio_record_proc_title" msgid="4271091199976457534">"Ta bort bakgrundsljud"</string>
     <string name="volume_media_description" msgid="7949355934788807863">"Musik, video, spel och andra media"</string>
     <string name="volume_ring_description" msgid="5936851631698298989">"Ringsignal och meddelanden"</string>
@@ -712,6 +721,24 @@
     <string name="device_info_settings" product="default" msgid="475872867864762157">"Telefonens status"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"Systemuppdateringar"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
+
+  <!--  About device screen, Hardware info -->
+    <string name="hardware_info">Hårdvaru information</string>
+    <!--  About device Screen, hardware info, rear camera -->
+    <string name="device_rear_camera">Bakre kamera</string>
+    <!--  About device Screen, hardware info, front camera -->
+    <string name="device_front_camera">Front kamera</string>
+    <!--  About device Screen, hardware info, screen res -->
+    <string name="device_screen_resolution">Skärm resolution</string>
+    <!--  About device Screen, hardware info, GPU info -->
+    <string name="gpu_info">GPU</string>
+    <!-- About device screen, Cpu info. -->
+    <string name="cpu_info">CPU</string>
+    <!-- About phone screen, Free memory info -->
+    <string name="mem_info">Minne</string>
+    <!-- About phone screen, fcc equipment id label-->
+    <string name="fcc_equipment_id">Utrustnings ID</string>
+
     <string name="firmware_version" msgid="4801135784886859972">"Android-version"</string>
     <string name="model_number" msgid="3765737700545384794">"Modellnummer"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Basbandsversion"</string>
@@ -1704,12 +1731,19 @@
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"Cell broadcasts"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"Välj vilka typer av varningsmeddelanden som ska visas."</string>
 
+    <!-- Safe headset volume restore checkbox -->
+    <string name="safe_headset_restore_title">Säker headsets volym</string>
+    <string name="safe_headset_restore_summary">Förhindrar höga volymnivåer när headsetet pluggas in första gången</string>
+
     <string name="quick_links_title">Snabblänkar</string>
     <string name="rom_control_title">ROM Kontroll</string>
     <string name="themes_title">Teman</string>
 
     <string name="mod_version">AOKP version</string>
     <string name="mod_version_default">Okänd</string>
+    <string name="link_volume_ringtones">Länka volym</string>
+    <string name="link_volume_mutes">Länka, dämpa ner ljudet</string>
+    <string name="toast_link_volume_ringtones">"Se till att ändra din volym för att återställa din notifikations volymen så den matchar din ringsignals volym."</string>
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
@@ -1753,4 +1787,62 @@
     <!-- time range preference -->
     <string name="start_time_title">Start</string>
     <string name="end_time_title">Slut</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Enhetens värdnamn</string>
+
+    <!-- Adb over Network -->
+    <string name="adb_over_network">ADB över nätverk</string>
+    <string name="adb_over_network_summary">Aktivera TCP/IP felsökning över nätverks gränssnitt som (Wi-Fi, USB nätverk). Denna inställning återställs vid omstart</string>
+    <!-- Warning for Adb over Network -->
+    <string name="adb_over_network_warning">VARNING: När ADB över nätverk är aktiverat, är telefonen öppen för intrång på alla anslutna nät, inklusive GSM-nät!\n\nAnvänd endast den här funktionen när du är ansluten till betrodda nätverk.\n\nVill du verkligen vill aktivera den här funktionen?</string>
+
+    <!-- Backlight  -->
+    <string name="backlight_title">Automatisk bakgrundsbelysning</string>
+    <string name="backlight_summary">Justera nivåer och filtrering</string>
+    <string name="light_filter_title">Ljus sensor filter</string>
+    <string name="light_filter_enabled_title">Aktiverad</string>
+    <string name="light_filter_enabled_summary">Applicera rörligt medelvärde filter av sensordata för att minska flimmer</string>
+    <string name="light_filter_window_title">Fönsterlängd</string>
+    <string name="light_filter_window_summary">Filtrerade värdet är det genomsnittliga värdet under denna period för sensorn</string>
+    <string name="light_filter_reset_title">Återställ</string>
+    <string name="light_filter_reset_summary">Provet avviker så mycket från nuvarande genomsnittliga värdet, återställer filtret</string>
+    <string name="light_filter_interval_title">Prov intervall</string>
+    <string name="light_filter_interval_summary">Lågt värde kan förbättra noggrannheten men använder lite mer CPU</string>
+    <string name="light_levels_title">Ljusnivåer</string>
+    <string name="light_levels_enabled_title">Använd anpassade</string>
+    <string name="light_levels_dim_title">Skärm dim nivå</string>
+    <string name="light_levels_dim_summary">Ljusstyrka används för att dämpa skärmen</string>
+    <string name="light_levels_editor_title">Editera andra nivåer\u2026</string>
+    <string name="light_decrease_enabled_title">Tillåt lätt minskning</string>
+    <string name="light_decrease_enabled_summary">Aktivera för att ljuset skall minska. Använd hysteres för att minska flimmer</string>
+    <string name="light_decrease_hysteresis_title">Minska hysteres</string>
+    <string name="light_decrease_hysteresis_summary">Sensor nivåer överlappar så mycket nedåt</string>
+
+    <!-- Light sensor levels  -->
+    <string name="ll_title">Ljus sensor nivåer</string>
+    <string name="ll_header_upper">Övre</string>
+    <string name="ll_header_lower">Undre</string>
+    <string name="ll_header_lcd">Skärm</string>
+    <string name="ll_header_btn">Knappar</string>
+    <string name="ll_header_kb">Tangentbord</string>
+    <string name="ll_lux">Sensor (filtrerad / grovt):</string>
+    <string name="ll_lcd">Skärm:</string>
+    <string name="ll_btn">Knappar:</string>
+    <string name="ll_kb">Tangentbord:</string>
+    <string name="ll_disabled">avaktiverad</string>
+    <string name="ll_default">Ladda standard</string>
+    <string name="ll_save">Save &amp; tillämpa</string>
+    <string name="ll_reload">Ladda föregående</string>
+    <string name="ll_bad_levels">Nivåer måste öka</string>
+    <string name="ll_num_levels">Ange antal nivåer</string>
+    <string name="vibration_title">Telefon vibrationer</string>
+
+     <!-- Stylus Icon -->
+    <string name="stylus_icon_enabled_title">Visa ikonen när du använder pennan</string>
+    <string name="stylus_icon_enabled_summary">Visa pekar ikonen när ritar eller svävar med pennan</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">Masslagring</string>
+    <string name="usb_mass_storage_summary">Aktivera USB-masslagring</string>
 </resources>
