@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.security.KeyStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,7 @@ public class ChooseLockGeneric extends PreferenceActivity {
         private static final String KEY_UNLOCK_BACKUP_INFO = "unlock_backup_info";
         private static final String KEY_UNLOCK_SET_OFF = "unlock_set_off";
         private static final String KEY_UNLOCK_SET_NONE = "unlock_set_none";
+        private static final String KEY_UNLOCK_SET_CIRCLES = "unlock_set_circles";
         private static final String KEY_UNLOCK_SET_BIOMETRIC_WEAK = "unlock_set_biometric_weak";
         private static final String KEY_UNLOCK_SET_PIN = "unlock_set_pin";
         private static final String KEY_UNLOCK_SET_PASSWORD = "unlock_set_password";
@@ -68,6 +70,7 @@ public class ChooseLockGeneric extends PreferenceActivity {
         private KeyStore mKeyStore;
         private boolean mPasswordConfirmed = false;
         private boolean mWaitingForConfirmation = false;
+        private boolean mCirclesLock;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -111,25 +114,47 @@ public class ChooseLockGeneric extends PreferenceActivity {
             if (KEY_UNLOCK_SET_OFF.equals(key)) {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED, true);
+                mCirclesLock = false;
+                setUnsecureType(mCirclesLock);
             } else if (KEY_UNLOCK_SET_NONE.equals(key)) {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED, false);
+                mCirclesLock = false;
+                setUnsecureType(mCirclesLock);
+            } else if (KEY_UNLOCK_SET_CIRCLES.equals(key)) {
+                updateUnlockMethodAndFinish(
+                        DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED, false);
+                mCirclesLock = true;
+                setUnsecureType(mCirclesLock);
             } else if (KEY_UNLOCK_SET_BIOMETRIC_WEAK.equals(key)) {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_BIOMETRIC_WEAK, false);
+                mCirclesLock = false;
+                setUnsecureType(mCirclesLock);
             }else if (KEY_UNLOCK_SET_PATTERN.equals(key)) {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_SOMETHING, false);
+                mCirclesLock = false;
+                setUnsecureType(mCirclesLock);
             } else if (KEY_UNLOCK_SET_PIN.equals(key)) {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_NUMERIC, false);
+                mCirclesLock = false;
+                setUnsecureType(mCirclesLock);
             } else if (KEY_UNLOCK_SET_PASSWORD.equals(key)) {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC, false);
+                mCirclesLock = false;
+                setUnsecureType(mCirclesLock);
             } else {
                 handled = false;
             }
             return handled;
+        }
+
+        private void setUnsecureType(boolean useCircles) {
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.USE_CIRCLES_LOCKSCREEN, useCircles);
         }
 
         @Override
@@ -268,6 +293,8 @@ public class ChooseLockGeneric extends PreferenceActivity {
                     if (KEY_UNLOCK_SET_OFF.equals(key)) {
                         enabled = quality <= DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
                     } else if (KEY_UNLOCK_SET_NONE.equals(key)) {
+                        enabled = quality <= DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
+                    } else if (KEY_UNLOCK_SET_CIRCLES.equals(key)) {
                         enabled = quality <= DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
                     } else if (KEY_UNLOCK_SET_BIOMETRIC_WEAK.equals(key)) {
                         enabled = quality <= DevicePolicyManager.PASSWORD_QUALITY_BIOMETRIC_WEAK ||

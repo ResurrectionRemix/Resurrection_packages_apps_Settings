@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserId;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
@@ -88,6 +89,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private CheckBoxPreference mToggleAppInstallation;
     private DialogInterface mWarnInstallApps;
     private CheckBoxPreference mPowerButtonInstantlyLocks;
+    private boolean mCirclesLock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,6 +100,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
         mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
+
+        mCirclesLock = Settings.System.getBoolean(getActivity().getContentResolver(),
+                Settings.System.USE_CIRCLES_LOCKSCREEN, false);
     }
 
     private PreferenceScreen createPreferenceHierarchy() {
@@ -114,7 +119,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (mLockPatternUtils.isLockScreenDisabled()) {
                 resid = R.xml.security_settings_lockscreen;
             } else {
-                resid = R.xml.security_settings_chooser;
+                if (mCirclesLock) {
+                    resid = R.xml.security_settings_chooser_circles;
+                } else {
+                    resid = R.xml.security_settings_chooser;
+                }
             }
         } else if (mLockPatternUtils.usingBiometricWeak() &&
                 mLockPatternUtils.isBiometricWeakInstalled()) {
