@@ -122,6 +122,8 @@ public class ChooseLockGeneric extends PreferenceActivity {
                 mCirclesLock = false;
                 setUnsecureType(mCirclesLock);
             } else if (KEY_UNLOCK_SET_CIRCLES.equals(key)) {
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.LOCKSCREEN_STOCK_MUSIC_LAYOUT, 1);
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED, false);
                 mCirclesLock = true;
