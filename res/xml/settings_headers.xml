@@ -160,6 +160,13 @@
     <!-- CUSTOMIZATION -->
     <header android:id="@+id/customization_section"
         android:title="@string/header_category_customization" />
+
+    <!-- Lockscreen. TODO: ADD CUSTOM IMAGE -->
+    <header
+        android:id="@+id/lock_screen_settings"
+        android:fragment="com.android.settings.paranoid.Lockscreen"
+        android:icon="@drawable/ic_settings_development" 
+        android:title="@string/lock_screen_settings" />
         
     <!-- Hybrid options -->
     <header
