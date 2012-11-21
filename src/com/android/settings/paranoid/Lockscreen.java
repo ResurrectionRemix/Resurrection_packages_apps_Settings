@@ -47,6 +47,8 @@ public class Lockscreen extends SettingsPreferenceFragment
         mContext = getActivity();
 
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+        mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
     }
 
     @Override
