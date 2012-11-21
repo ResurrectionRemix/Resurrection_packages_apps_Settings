@@ -888,35 +888,6 @@
         <item>@*android:drawable/ic_lockscreen_twitter</item>
     </string-array>
 
-    <!-- Notification light pulse length spinners. -->
-    <string-array name="notification_pulse_length_entries" translatable="false">
-        <item>@string/pulse_length_always_on</item>
-        <item>@string/pulse_length_very_short</item>
-        <item>@string/pulse_length_short</item>
-        <item>@string/pulse_length_normal</item>
-        <item>@string/pulse_length_long</item>
-        <item>@string/pulse_length_very_long</item>
-    </string-array>
-
-    <!-- Values for notification light length. -->
-    <string-array name="notification_pulse_length_values" translatable="false">
-        <item>1</item>
-        <item>250</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2500</item>
-        <item>5000</item>
-    </string-array>
-
-    <!-- Notification light pulse speed spinners. -->
-    <string-array name="notification_pulse_speed_entries" translatable="false">
-        <item>@string/pulse_speed_very_fast</item>
-        <item>@string/pulse_speed_fast</item>
-        <item>@string/pulse_speed_normal</item>
-        <item>@string/pulse_speed_slow</item>
-        <item>@string/pulse_speed_very_slow</item>
-    </string-array>
-
     <!-- Notification sound limter entires -->
     <string-array name="notification_sound_limiter_entries">
         <item>@string/notification_sound_default_time</item>
@@ -943,15 +914,6 @@
         <item>120000</item>
     </string-array>
 
-    <!-- Values for notification light speed. -->
-    <string-array name="notification_pulse_speed_values" translatable="false">
-        <item>250</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2500</item>
-        <item>5000</item>
-    </string-array>
-
     <!-- Status bar misc sizes. -->
     <string-array name="status_bar_sizes_entries">
         <item>@string/status_bar_size_normal</item>
@@ -974,32 +936,6 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
-    </string-array>
-
-    <string-array name="entries_ring_widget" translatable="false">
-        <item>@string/sound_mode_silent</item>
-        <item>@string/sound_mode_vibrate</item>
-        <item>@string/sound_mode_sound</item>
-        <item>@string/sound_mode_sound_vibrate</item>
-    </string-array>
-
-    <string-array name="values_ring_widget" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="entries_network_widget">
-        <item>@string/network_mode_2g_3g2g</item>
-        <item>@string/network_mode_2g_3g</item>
-        <item>@string/network_mode_2g_3g_3g2g</item>
-    </string-array>
-
-    <string-array name="values_network_widget" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <string-array name="entries_pie_gravity">
@@ -1169,6 +1105,121 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <!-- Notification light pulse length spinners. -->
+    <string-array name="notification_pulse_length_entries" translatable="false">
+        <item>@string/pulse_length_always_on</item>
+        <item>@string/pulse_length_very_short</item>
+        <item>@string/pulse_length_short</item>
+        <item>@string/pulse_length_normal</item>
+        <item>@string/pulse_length_long</item>
+        <item>@string/pulse_length_very_long</item>
+    </string-array>
+
+    <!-- Values for notification light length. -->
+    <string-array name="notification_pulse_length_values" translatable="false">
+        <item>1</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>5000</item>
+    </string-array>
+
+    <!-- Notification light pulse speed spinners. -->
+    <string-array name="notification_pulse_speed_entries" translatable="false">
+        <item>@string/pulse_speed_very_fast</item>
+        <item>@string/pulse_speed_fast</item>
+        <item>@string/pulse_speed_normal</item>
+        <item>@string/pulse_speed_slow</item>
+        <item>@string/pulse_speed_very_slow</item>
+    </string-array>
+
+    <!-- Values for notification light speed. -->
+    <string-array name="notification_pulse_speed_values" translatable="false">
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>5000</item>
+    </string-array>
+
+    <!-- Arrays required by Notification Widgets. -->
+    <string-array name="entries_brightness_widget" formatted="false" translatable="false">
+        <item>@string/cm_brightness_mode_auto</item>
+        <item>@string/cm_brightness_mode_dim</item>
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+
+   <string-array name="values_brightness_widget" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="entries_network_widget">
+        <item>@string/network_mode_2g_3g2g</item>
+        <item>@string/network_mode_2g_3g</item>
+        <item>@string/network_mode_2g_3g_3g2g</item>
+    </string-array>
+
+    <string-array name="values_network_widget" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="entries_screentimeout_widget">
+        <item>15s/1m/5m</item>
+        <item>30s/2m/5m</item>
+    </string-array>
+
+    <string-array name="values_screentimeout_widget" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="entries_ring_widget" translatable="false">
+        <item>@string/cm_sound_mode_silent</item>
+        <item>@string/cm_sound_mode_vibrate</item>
+        <item>@string/cm_sound_mode_sound</item>
+        <item>@string/cm_sound_mode_soundVibrate</item>
+    </string-array>
+
+    <string-array name="values_ring_widget" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="entries_flash_widget">
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="values_flash_widget" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="haptic_feedback_entries">
+        <item>Use global setting</item>
+        <item>On</item>
+        <item>Off</item>
+    </string-array>
+
+    <string-array name="haptic_feedback_values" translatable="false">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
     </string-array>
 
     <!-- **** CYANOGENMOD EDITS END **** -->

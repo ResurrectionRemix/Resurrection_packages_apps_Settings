@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="pref_buttons"
+        android:title="@string/title_buttons" />
+
+    <PreferenceCategory
+        android:key="pref_buttons_modes"
+        android:title="@string/title_button_modes">
+
+        <MultiSelectListPreference
+            android:key="pref_brightness_mode"
+            android:dialogTitle="@string/pref_brightness_mode_title"
+            android:title="@string/pref_brightness_mode_title"
+            android:summary="@string/pref_brightness_mode_summary"
+            android:entries="@array/entries_brightness_widget"
+            android:entryValues="@array/values_brightness_widget"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="pref_network_mode"
+            android:dialogTitle="@string/pref_network_mode_title"
+            android:title="@string/pref_network_mode_title"
+            android:entries="@array/entries_network_widget"
+            android:entryValues="@array/values_network_widget" />
+
+        <ListPreference
+            android:key="pref_screentimeout_mode"
+            android:dialogTitle="@string/pref_screentimeout_mode_title"
+            android:title="@string/pref_screentimeout_mode_title"
+            android:entries="@array/entries_screentimeout_widget"
+            android:entryValues="@array/values_screentimeout_widget" />
+
+        <MultiSelectListPreference
+            android:key="pref_ring_mode"
+            android:dialogTitle="@string/pref_ring_mode_title"
+            android:title="@string/pref_ring_mode_title"
+            android:summary="@string/pref_ring_mode_summary"
+            android:entries="@array/entries_ring_widget"
+            android:entryValues="@array/values_ring_widget"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="pref_flash_mode"
+            android:dialogTitle="@string/pref_flash_mode_title"
+            android:title="@string/pref_flash_mode_title"
+            android:entries="@array/entries_flash_widget"
+            android:entryValues="@array/values_flash_widget" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
