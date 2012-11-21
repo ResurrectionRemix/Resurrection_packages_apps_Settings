@@ -17,6 +17,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.app.ActivityManagerNative;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -25,6 +26,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.IWindowManager;
@@ -32,9 +34,10 @@ import android.view.IWindowManager;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.WarnedListPreference;
 
 public class SystemSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_FONT_SIZE = "font_size";
@@ -43,6 +46,9 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
+    private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
+
+    private WarnedListPreference mFontSizePref;
     private PreferenceScreen mPhoneDrawer;
     private PreferenceScreen mTabletDrawer;
 
@@ -54,6 +60,9 @@ public class SystemSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.system_settings);
 
+        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
+        mFontSizePref.setOnPreferenceChangeListener(this);
+        mFontSizePref.setOnPreferenceClickListener(this);
         mPhoneDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER);
         mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
 
@@ -98,6 +107,24 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         return indices.length-1;
     }
 
+    public void readFontSizePreference(ListPreference pref) {
+        try {
+            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Unable to retrieve font size");
+        }
+
+        // mark the appropriate item in the preferences list
+        int index = floatToIndex(mCurConfig.fontScale);
+        pref.setValueIndex(index);
+
+        // report the current size in the summary text
+        final Resources res = getResources();
+        String[] fontSizeNames = res.getStringArray(R.array.entries_font_size);
+        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
+                fontSizeNames[index]));
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -111,10 +138,50 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     }
 
     private void updateState() {
+        readFontSizePreference(mFontSizePref);
+    }
+
+    public void writeFontSizePreference(Object objValue) {
+        try {
+            mCurConfig.fontScale = Float.parseFloat(objValue.toString());
+            ActivityManagerNative.getDefault().updatePersistentConfiguration(mCurConfig);
+        } catch (RemoteException e) {
+            Log.w(TAG, "Unable to save font size");
+        }
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (preference == mFontSizePref) {
+            if (Utils.hasMultipleUsers(getActivity())) {
+                showDialog(DLG_GLOBAL_CHANGE_WARNING);
+                return true;
+            } else {
+                mFontSizePref.click();
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Dialog onCreateDialog(int dialogId) {
+        if (dialogId == DLG_GLOBAL_CHANGE_WARNING) {
+            return Utils.buildGlobalChangeWarningDialog(getActivity(),
+                    R.string.global_font_change_title,
+                    new Runnable() {
+                        public void run() {
+                            mFontSizePref.click();
+                        }
+                    });
+        }
+        return null;
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
+        if (KEY_FONT_SIZE.equals(key)) {
+            writeFontSizePreference(objValue);
+        }
 
         return true;
     }
