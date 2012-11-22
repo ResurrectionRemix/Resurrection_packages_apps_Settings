@@ -159,6 +159,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+                android:id="@+id/link_volumes_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dip"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+            <CheckBox
+                    android:id="@+id/link_ring_and_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="@string/link_volume_ringtones"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                />
+            <CheckBox
+                    android:id="@+id/link_mutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="@string/link_volume_mutes"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                />
+        </LinearLayout>
+
         <TextView
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="wrap_content"

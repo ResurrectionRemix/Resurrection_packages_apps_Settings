@@ -115,7 +115,7 @@ public class RingerVolumePreference extends VolumePreference {
             boolean muted = mAudioManager.isStreamMute(streamType);
 
             if (mCheckBoxes[i] != null) {
-                if ((streamType == AudioManager.STREAM_RING) &&
+                if (streamType == AudioManager.STREAM_RING &&
                         (mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE)) {
                     mCheckBoxes[i].setImageResource(
                             com.android.internal.R.drawable.ic_audio_ring_notif_vibrate);
@@ -156,6 +156,13 @@ public class RingerVolumePreference extends VolumePreference {
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     }
 
+    private static int getCurrentMutableStreams(Context c) {
+        final int defaultMuteStreams = ((1 << AudioSystem.STREAM_RING)|(1 << AudioSystem.STREAM_NOTIFICATION)|
+                (1 << AudioSystem.STREAM_SYSTEM)|(1 << AudioSystem.STREAM_SYSTEM_ENFORCED));
+        return Settings.System.getInt(c.getContentResolver(),
+                Settings.System.MODE_RINGER_STREAMS_AFFECTED, defaultMuteStreams);
+    }
+
     @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
@@ -178,6 +185,82 @@ public class RingerVolumePreference extends VolumePreference {
             mCheckBoxes[i] = checkbox;
         }
 
+        final CheckBox linkCheckBox = (CheckBox) view.findViewById(R.id.link_ring_and_volume);
+        final CheckBox linkMuteStates = (CheckBox) view.findViewById(R.id.link_mutes);
+
+        final View ringerSection = view.findViewById(R.id.ringer_section);
+        final View notificationSection = view.findViewById(R.id.notification_section);
+        final View linkVolumesSection = view.findViewById(R.id.link_volumes_section);
+        final TextView ringerDesc = (TextView) ringerSection
+                .findViewById(R.id.ringer_description_text);
+
+        if (Utils.isVoiceCapable(getContext())) {
+            if ((getCurrentMutableStreams(getContext()) & (1 << AudioSystem.STREAM_NOTIFICATION)) != 0) {
+                linkMuteStates.setChecked(true);
+            } else {
+                linkMuteStates.setChecked(false);
+            }
+
+            linkMuteStates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                    int mutedStreams = getCurrentMutableStreams(getContext());
+
+                    if (isChecked) {
+                        mutedStreams |= (1 << AudioSystem.STREAM_NOTIFICATION);
+                    } else {
+                        mutedStreams &= ~(1 << AudioSystem.STREAM_NOTIFICATION);
+                    }
+                    Settings.System
+                    .putInt(buttonView.getContext().getContentResolver(),
+                            Settings.System.MODE_RINGER_STREAMS_AFFECTED,
+                            mutedStreams);
+                }
+            });
+
+            if (System.getInt(getContext().getContentResolver(),
+                    System.VOLUME_LINK_NOTIFICATION, 1) == 1) {
+                linkCheckBox.setChecked(true);
+                notificationSection.setVisibility(View.GONE);
+                ringerDesc.setText(R.string.volume_ring_description);
+                linkMuteStates.setEnabled(false);
+            } else {
+                linkCheckBox.setChecked(false);
+                notificationSection.setVisibility(View.VISIBLE);
+                ringerDesc.setText(R.string.volume_ring_only_description);
+                linkMuteStates.setEnabled(true);
+            }
+
+            linkCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        notificationSection.setVisibility(View.GONE);
+                        ringerDesc.setText(R.string.volume_ring_description);
+                        linkMuteStates.setEnabled(false);
+                        final int volume = mAudioManager.getStreamVolume(AudioSystem.STREAM_RING);
+                        mAudioManager.setStreamVolume(AudioSystem.STREAM_NOTIFICATION, volume, 0);
+                        Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                                Settings.System.VOLUME_LINK_NOTIFICATION, 1);
+                    } else {
+                        notificationSection.setVisibility(View.VISIBLE);
+                        ringerDesc.setText(R.string.volume_ring_only_description);
+                        linkMuteStates.setEnabled(true);
+                        Settings.System.putInt(buttonView.getContext().getContentResolver(),
+                                Settings.System.VOLUME_LINK_NOTIFICATION, 0);
+                    }
+                    updateSlidersAndMutedStates();
+                }
+
+            });
+        } else {
+            ringerSection.setVisibility(View.GONE);
+            linkVolumesSection.setVisibility(View.GONE);
+        }
+
         // Load initial states from AudioManager
         updateSlidersAndMutedStates();
 
@@ -196,16 +279,6 @@ public class RingerVolumePreference extends VolumePreference {
             };
             getContext().registerReceiver(mRingModeChangedReceiver, filter);
         }
-
-        // Disable either ringer+notifications or notifications
-        int id;
-        if (!Utils.isVoiceCapable(getContext())) {
-            id = R.id.ringer_section;
-        } else {
-            id = R.id.notification_section;
-        }
-        View hideSection = view.findViewById(id);
-        hideSection.setVisibility(View.GONE);
     }
 
     private Uri getMediaVolumeUri(Context context) {
