@@ -801,22 +801,6 @@
         <item>Always allow</item>
     </string-array>
 
-    <!-- Volume overlay options. -->
-    <string-array name="volume_overlay_entries">
-        <item>@string/volume_overlay_single</item>
-        <item>@string/volume_overlay_expandable</item>
-        <item>@string/volume_overlay_expanded</item>
-        <item>@string/volume_overlay_none</item>
-    </string-array>
-
-    <!-- Values for volume overlay. -->
-    <string-array name="volume_overlay_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
     <!-- Rotation mode options. -->
     <string-array name="rotation_mode_entries">
         <item>@string/rotation_0</item>
@@ -1010,6 +994,36 @@
 
     <!-- **** CYANOGENMOD EDITS START **** -->
 
+    <!-- Volume Overlay options. -->
+    <string-array name="volume_overlay_entries">
+        <item>@string/volume_overlay_single</item>
+        <item>@string/volume_overlay_expandable</item>
+        <item>@string/volume_overlay_expanded</item>
+        <item>@string/volume_overlay_none</item>
+    </string-array>
+
+    <!-- Values for Volume Overlay. Do not translate. -->
+    <string-array name="volume_overlay_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Silent mode options. -->
+    <string-array name="silent_mode_entries">
+        <item>Off</item>
+        <item>Vibrate</item>
+        <item>Mute</item>
+    </string-array>
+
+    <!-- Values for Silent mode. Do not translate. -->
+    <string-array name="silent_mode_values" translatable="false">
+        <item>off</item>
+        <item>vibrate</item>
+        <item>mute</item>
+    </string-array>
+
     <!-- Arrays for root access capability -->
     <string-array name="root_access_entries">
         <item>@string/root_access_none</item>
@@ -1175,6 +1189,26 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="increasing_ring_interval_entries" translatable="false">
+        <item>@string/increasing_ring_interval_eachring</item>
+        <item>@string/increasing_ring_interval_half_second</item>
+        <item>@string/increasing_ring_interval_1second</item>
+        <item>@string/increasing_ring_interval_2seconds</item>
+        <item>@string/increasing_ring_interval_3seconds</item>
+        <item>@string/increasing_ring_interval_5seconds</item>
+        <item>@string/increasing_ring_interval_10seconds</item>
+    </string-array>
+
+    <integer-array name="increasing_ring_interval_values" translatable="false">
+        <item>0</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+    </integer-array>
 
     <string-array name="entries_screentimeout_widget">
         <item>15s/1m/5m</item>

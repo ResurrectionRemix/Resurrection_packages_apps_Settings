@@ -27,6 +27,12 @@
             android:streamType="ring" />
 
     <ListPreference
+            android:key="silent_mode"
+            android:title="@string/silent_mode_title"
+            android:entries="@array/silent_mode_entries"
+            android:entryValues="@array/silent_mode_values" />
+
+    <ListPreference
             android:key="volume_overlay"
             android:title="@string/volume_overlay_title"
             android:entries="@array/volume_overlay_entries"
@@ -38,7 +44,6 @@
         android:summary="@string/notification_sound_limiter_summary"
         android:entries="@array/notification_sound_limiter_entries"
         android:entryValues="@array/notification_sound_limiter_values" />
-
 
     <Preference
             android:key="musicfx"
@@ -69,6 +74,13 @@
          android:key="vibrate_when_ringing"
          android:title="@string/vibrate_when_ringing_title"
          android:persistent="false" />
+
+    <com.android.settings.IncreasingRingPreference
+            android:key="increasing_ring"
+            android:title="@string/increasing_ring_title"
+            android:dialogTitle="@string/increasing_ring_title"
+            android:persistent="false"
+            android:streamType="ring" />
 
     <PreferenceCategory
             android:title="@string/sound_category_system_title"/>
