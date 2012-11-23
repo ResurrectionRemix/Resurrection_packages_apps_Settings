@@ -32,8 +32,10 @@ import com.android.settings.SettingsPreferenceFragment;
 public class Lockscreen extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
+    public static final String KEY_ALLOW_ROTATION = "allow_rotation";
     public static final String KEY_SEE_TRHOUGH = "see_through";
 
+    private CheckBoxPreference mAllowRotation;
     private CheckBoxPreference mSeeThrough;
 
     private Context mContext;
@@ -46,6 +48,10 @@ public class Lockscreen extends SettingsPreferenceFragment
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
 
+        mAllowRotation = (CheckBoxPreference) prefSet.findPreference(KEY_ALLOW_ROTATION);
+        mAllowRotation.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALLOW_ROTATION, 0) == 1);
+
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
         mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
@@ -53,11 +59,15 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mSeeThrough) {
+        if (preference == mAllowRotation) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALLOW_ROTATION, mAllowRotation.isChecked()
+                    ? 1 : 0);
+        } else if (preference == mSeeThrough) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
                     ? 1 : 0);
-        }
+        } 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
