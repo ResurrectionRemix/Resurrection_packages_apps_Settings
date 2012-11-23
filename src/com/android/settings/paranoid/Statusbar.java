@@ -19,9 +19,11 @@ package com.android.settings.paranoid;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -33,8 +35,10 @@ public class Statusbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String KEY_SHOW_CLOCK = "show_clock";
+    public static final String KEY_AM_PM_STYLE = "am_pm_style";
 
     private CheckBoxPreference mShowClock;
+    private ListPreference mAmPmStyle;
 
     private Context mContext;
 
@@ -49,6 +53,23 @@ public class Statusbar extends SettingsPreferenceFragment
         mShowClock = (CheckBoxPreference) prefSet.findPreference(KEY_SHOW_CLOCK);
         mShowClock.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1);
+
+        mAmPmStyle = (ListPreference) prefSet.findPreference(KEY_AM_PM_STYLE);
+        int amPmStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_AM_PM_STYLE, 2);
+        mAmPmStyle.setValue(String.valueOf(amPmStyle));
+        mAmPmStyle.setSummary(mAmPmStyle.getEntry());
+        mAmPmStyle.setOnPreferenceChangeListener(this);
+
+        try {
+            if (Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.TIME_12_24) == 24) {
+                mAmPmStyle.setEnabled(false);
+                mAmPmStyle.setSummary(R.string.status_bar_am_pm_info);
+            }
+        } catch (SettingNotFoundException e) {
+            // This will hurt you, run away
+        }
     }
 
     @Override
@@ -62,6 +83,14 @@ public class Statusbar extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return true;
+        if (preference == mAmPmStyle) {
+            int statusBarAmPmSize = Integer.valueOf((String) newValue);
+            int index = mAmPmStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_AM_PM_STYLE, statusBarAmPmSize);
+            mAmPmStyle.setSummary(mAmPmStyle.getEntries()[index]);
+            return true;
+        }
+        return false;
     }
 }
