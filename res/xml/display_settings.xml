@@ -19,39 +19,44 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
         <com.android.settings.BrightnessPreference
-                android:key="brightness"
-                android:title="@string/brightness"
-                android:dialogTitle="@string/brightness" />
+            android:key="brightness"
+            android:title="@string/brightness"
+            android:dialogTitle="@string/brightness" />
 
         <PreferenceScreen
-                android:key="wallpaper"
-                android:title="@string/wallpaper_settings_title"
-                android:fragment="com.android.settings.WallpaperTypeSettings" />
+            android:key="wallpaper"
+            android:title="@string/wallpaper_settings_title"
+            android:fragment="com.android.settings.WallpaperTypeSettings" />
 
         <CheckBoxPreference
             android:key="accelerometer"
             android:title="@string/accelerometer_title"/>
 
+        <Preference
+            android:key="rotation"
+            android:title="@string/rotation_settings_title"
+            android:summary="@string/rotation_settings_summary" />
+
         <ListPreference
-                android:key="screen_timeout"
-                android:title="@string/screen_timeout"
-                android:summary="@string/screen_timeout_summary"
-                android:persistent="false"
-                android:entries="@array/screen_timeout_entries"
-                android:entryValues="@array/screen_timeout_values" />
+            android:key="screen_timeout"
+            android:title="@string/screen_timeout"
+            android:summary="@string/screen_timeout_summary"
+            android:persistent="false"
+            android:entries="@array/screen_timeout_entries"
+            android:entryValues="@array/screen_timeout_values" />
 
         <PreferenceScreen
-                android:key="screensaver"
-                android:title="@string/screensaver_settings_title"
-                android:fragment="com.android.settings.DreamSettings" />
+            android:key="screensaver"
+            android:title="@string/screensaver_settings_title"
+            android:fragment="com.android.settings.DreamSettings" />
 
         <com.android.settings.WarnedListPreference
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:summary="@string/summary_font_size"
-                android:entries="@array/entries_font_size"
-                android:entryValues="@array/entryvalues_font_size"
-                android:dialogTitle="@string/dialog_title_font_size" />
+            android:key="font_size"
+            android:title="@string/title_font_size"
+            android:summary="@string/summary_font_size"
+            android:entries="@array/entries_font_size"
+            android:entryValues="@array/entryvalues_font_size"
+            android:dialogTitle="@string/dialog_title_font_size" />
 
         <PreferenceScreen
             android:key="notification_pulse"
@@ -64,8 +69,7 @@
             android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 
         <PreferenceScreen
-                android:key="wifi_display"
-                android:title="@string/wifi_display_settings_title"
-                android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
-
+            android:key="wifi_display"
+            android:title="@string/wifi_display_settings_title"
+            android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 </PreferenceScreen>
