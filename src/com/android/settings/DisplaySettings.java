@@ -49,6 +49,7 @@ import android.util.Log;
 
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.DreamSettings;
+import com.android.settings.Utils;
 
 import java.util.ArrayList;
 
@@ -406,12 +407,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else if (preference == mRotation) {
             mAllowedRotationModes = Settings.System.getInt(getActivity().getContentResolver(), Settings.System
                     .ACCELEROMETER_ROTATION_ANGLES, -1);
-            boolean allowAllRotations = getActivity().getResources().getBoolean(
-                    com.android.internal.R.bool.config_allowAllRotations);
             if (mAllowedRotationModes < 0) {
-                mAllowedRotationModes = allowAllRotations ?
-                    (1 | 2 | 4 | 8) :
-                            (1 | 2 | 8);
+                mAllowedRotationModes = Utils.getScreenType(getActivity())
+                        == Utils.DEVICE_TABLET ? (1 | 2 | 4 | 8) :  (1 | 2 | 8);
             }
             AlertDialog.Builder d = new AlertDialog.Builder(getActivity());
             d.setTitle(R.string.rotation_settings_title);

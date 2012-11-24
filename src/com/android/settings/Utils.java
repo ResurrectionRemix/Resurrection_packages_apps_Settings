@@ -56,9 +56,12 @@ import android.provider.ContactsContract.Profile;
 import android.provider.ContactsContract.RawContacts;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TabWidget;
 
@@ -96,6 +99,10 @@ public class Utils {
      * to specify the summary text that should be displayed for the preference.
      */
     private static final String META_DATA_PREFERENCE_SUMMARY = "com.android.settings.summary";
+
+    // Device types
+    public static final int DEVICE_PHONE = 0;
+    public static final int DEVICE_TABLET = 1;
 
     /**
      * Finds a matching activity for a preference's intent. If a matching
@@ -586,5 +593,20 @@ public class Utils {
     public static boolean hasMultipleUsers(Context context) {
         return ((UserManager) context.getSystemService(Context.USER_SERVICE))
                 .getUsers().size() > 1;
+    }
+
+    public static int getScreenType(Context context) {
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        display.getMetrics(dm);
+        int shortSize = Math.min(dm.heightPixels, dm.widthPixels);
+        int shortSizeDp = shortSize * DisplayMetrics.DENSITY_DEFAULT / DisplayMetrics.DENSITY_DEVICE;
+        if (shortSizeDp < 600) {
+            return DEVICE_PHONE;
+        } else if (shortSizeDp < 720) {
+            return DEVICE_TABLET;
+        }
+        return 0;
     }
 }
