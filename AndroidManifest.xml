@@ -69,6 +69,7 @@
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
     <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES" />
     <uses-permission android:name="android.permission.OEM_UNLOCK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!-- Heads up -->
     <uses-permission android:name="android.permission.CHANGE_HEADS_UP_STATE" />
@@ -2135,6 +2136,7 @@
                   android:label="@string/protected_apps"
                   android:excludeFromRecents="true"
                   android:configChanges="orientation|keyboardHidden|screenSize">
+
             <intent-filter>
                 <action android:name=".applications.ProtectedAppsActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2149,6 +2151,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".cyanogenmod.PerformanceSettings" />
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
@@ -2173,10 +2177,10 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">$
-            <intent-filter android:priority="2147483647">$
-                <action android:name="android.intent.action.BOOT_COMPLETED" />$
-            </intent-filter>$
+        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
         </receiver>
 
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
