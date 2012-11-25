@@ -33,10 +33,14 @@ public class Lockscreen extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String KEY_ALLOW_ROTATION = "allow_rotation";
+    public static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
     public static final String KEY_SEE_TRHOUGH = "see_through";
+    public static final String KEY_VOLUME_WAKE = "volume_wake";
 
     private CheckBoxPreference mAllowRotation;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mVolBtnMusicCtrl;
+    private CheckBoxPreference mVolumeWake;
 
     private Context mContext;
 
@@ -55,6 +59,14 @@ public class Lockscreen extends SettingsPreferenceFragment
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
         mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
+
+        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);	
+        mVolumeWake.setChecked(Settings.System.getInt(mContext.getContentResolver(),	
+                    Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+
+        mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
+        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),	
+                   Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
     }
 
     @Override
@@ -67,7 +79,17 @@ public class Lockscreen extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
                     ? 1 : 0);
-        } 
+        } else if (preference == mVolumeWake) {	
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.VOLUME_WAKE_SCREEN,
+                    mVolumeWake.isChecked()
+                    ? 1 : 0);
+         } else if (preference == mVolBtnMusicCtrl) {	
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.VOLBTN_MUSIC_CONTROLS,	
+                    mVolBtnMusicCtrl.isChecked()
+                    ? 1 : 0);
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
