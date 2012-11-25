@@ -34,11 +34,13 @@ import com.android.settings.SettingsPreferenceFragment;
 public class Statusbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    public static final String KEY_SHOW_CLOCK = "show_clock";
     public static final String KEY_AM_PM_STYLE = "am_pm_style";
+    public static final String KEY_SHOW_CLOCK = "show_clock";
+    public static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
     private CheckBoxPreference mShowClock;
     private ListPreference mAmPmStyle;
+    private CheckBoxPreference mStatusBarNotifCount;
 
     private Context mContext;
 
@@ -70,6 +72,10 @@ public class Statusbar extends SettingsPreferenceFragment
         } catch (SettingNotFoundException e) {
             // This will hurt you, run away
         }
+
+        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(KEY_STATUS_BAR_NOTIF_COUNT);
+        mStatusBarNotifCount.setChecked(Settings.System.getInt(getActivity().getContentResolver(), 
+                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
     }
 
     @Override
@@ -78,6 +84,10 @@ public class Statusbar extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_CLOCK, mShowClock.isChecked()
                     ? 1 : 0);
+        } else if (preference == mStatusBarNotifCount) {	
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_NOTIF_COUNT,	mStatusBarNotifCount.isChecked()
+                    ? 1 : 0);	
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
