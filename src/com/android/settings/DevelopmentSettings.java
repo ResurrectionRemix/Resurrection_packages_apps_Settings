@@ -90,6 +90,7 @@ public class DevelopmentSettings extends PreferenceFragment
     public static final String PREF_SHOW = "show";
 
     private static final String ENABLE_ADB = "enable_adb";
+    private static final String ADB_NOTIFY = "adb_notify";
     private static final String ADB_TCPIP  = "adb_over_network";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
@@ -153,6 +154,7 @@ public class DevelopmentSettings extends PreferenceFragment
     private boolean mDontPokeProperties;
 
     private CheckBoxPreference mEnableAdb;
+    private CheckBoxPreference mAdbNotify;
     private Preference mBugreport;
     private CheckBoxPreference mBugreportInPower;
     private CheckBoxPreference mAdbOverNetwork;
@@ -219,6 +221,7 @@ public class DevelopmentSettings extends PreferenceFragment
         addPreferencesFromResource(R.xml.development_prefs);
 
         mEnableAdb = findAndInitCheckboxPref(ENABLE_ADB);
+        mAdbNotify = findAndInitCheckboxPref(ADB_NOTIFY);
         mBugreport = findPreference(BUGREPORT);
         mBugreportInPower = findAndInitCheckboxPref(BUGREPORT_IN_POWER_KEY);
         mAdbOverNetwork = findAndInitCheckboxPref(ADB_TCPIP);
@@ -418,6 +421,8 @@ public class DevelopmentSettings extends PreferenceFragment
         mHaveDebugSettings = false;
         updateCheckBox(mEnableAdb, Settings.Global.getInt(cr,
                 Settings.Global.ADB_ENABLED, 0) != 0);
+        mAdbNotify.setChecked(Settings.Secure.getInt(cr,
+                Settings.Secure.ADB_NOTIFY, 1) != 0);
         updateCheckBox(mBugreportInPower, Settings.Secure.getInt(cr,
                 Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) != 0);
         updateCheckBox(mKeepScreenOn, Settings.Global.getInt(cr,
@@ -1100,6 +1105,10 @@ public class DevelopmentSettings extends PreferenceFragment
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.BUGREPORT_IN_POWER_MENU, 
                     mBugreportInPower.isChecked() ? 1 : 0);
+        } else if (preference == mAdbNotify) {
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.ADB_NOTIFY,
+                    mAdbNotify.isChecked() ? 1 : 0);
         } else if (preference == mAdbOverNetwork) {
             if (mAdbOverNetwork.isChecked()) {
                 if (mAdbTcpDialog != null) {
