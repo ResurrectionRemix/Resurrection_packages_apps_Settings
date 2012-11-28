@@ -101,6 +101,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_AOKP_VERSION, "ro.aokp.version");
+        findPreference(KEY_AOKP_VERSION).setEnabled(true);
         setValueSummary(KEY_CM_VERSION, "ro.cm.version");
         findPreference(KEY_CM_VERSION).setEnabled(true);
         setValueSummary(KEY_PA_VERSION, "ro.pa.version");
@@ -252,6 +253,19 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
                             Toast.LENGTH_LONG);
                     mDevHitToast.show();
+                }
+            }
+        } else if (preference.getKey().equals(KEY_AOKP_VERSION)) {
+            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
+            mHits[mHits.length-1] = SystemClock.uptimeMillis();
+            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setClassName("android",
+                        com.android.internal.app.AOKPLogoActivity.class.getName());
+                try {
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
         } else if (preference.getKey().equals(KEY_CM_VERSION)) {
