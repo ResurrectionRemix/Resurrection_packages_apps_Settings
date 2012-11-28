@@ -101,8 +101,9 @@
         android:title="@string/system_settings_title" />
 
     <!-- ROM Control -->
-    <header android:icon="@drawable/ic_settings_rom_control"
-            android:title="@string/rom_control_title">
+    <header android:id="@+id/rom_control"
+            android:title="@string/rom_control_title"
+            android:icon="@drawable/ic_settings_rom_control" >
         <intent
                 android:action="android.intent.action.MAIN"
                 android:targetClass="com.aokp.romcontrol.ROMControlActivity"

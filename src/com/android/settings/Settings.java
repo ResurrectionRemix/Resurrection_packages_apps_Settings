@@ -123,7 +123,15 @@ public class Settings extends PreferenceActivity
             R.id.date_time_settings,
             R.id.about_settings,
             R.id.accessibility_settings,
-            R.id.launcher_settings
+            R.id.customization_section,
+            R.id.launcher_settings,
+            R.id.lock_screen_settings,
+            R.id.themes_settings,
+            R.id.tool_bar_settings,
+            R.id.system_settings,
+            R.id.rom_control,
+            R.id.hybrid_settings,
+            R.id.advanced_settings
     };
 
     private SharedPreferences mDevelopmentPreferences;
