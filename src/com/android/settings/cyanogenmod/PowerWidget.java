@@ -89,7 +89,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
                     .getContentResolver(),
-                    Settings.System.EXPANDED_VIEW_WIDGET, 1) == 1));
+                    Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1));
             mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity()
                     .getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_ONCHANGE, 0) == 1));

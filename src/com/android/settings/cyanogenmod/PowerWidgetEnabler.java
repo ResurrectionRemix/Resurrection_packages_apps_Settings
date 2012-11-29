@@ -38,9 +38,9 @@ public class PowerWidgetEnabler extends SwitchWidget {
     }
 
     public void setState(Switch switch_) {
-        int isEnabled = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.EXPANDED_VIEW_WIDGET, 1);
-        mSwitch.setChecked(isEnabled == 1 ? true : false);
+        boolean isEnabled = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1;
+        mSwitch.setChecked(isEnabled);
         return;
     }
 
