@@ -55,17 +55,20 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private static final String PREF_ENABLED_TILES = "enabled_tiles";
     private static final String PREF_TILES_ORDER = "tiles_order";
 
-    private static final int WIFI = 0;
-    private static final int BLUETOOTH = 1;
-    private static final int LOCATION = 2;
-    private static final int DATA = 3;
-    private static final int NFC = 4;
-    private static final int SCREEN_ROTATION = 5;
-    private static final int AIRPLANE = 6;
-    private static final int BATTERY = 7;
-    // TODO: Moar toggles
-    //private static final int BRIGHTNESS = 8;
-    //private static final int CLOCK = 10;
+    private static final String TILE_SEPARATOR = "|";
+    private static final String WIFI = "WIFI";
+    private static final String BLUETOOTH = "BLUETOOTH";
+    private static final String LOCATION = "LOCATION";
+    private static final String DATA = "DATA";
+    private static final String NFC = "NFC";
+    private static final String SCREEN_ROTATION = "SCREEN_ROTATION";
+    private static final String AIRPLANE = "AIRPLANE";
+    private static final String BATTERY = "BATTERY";
+    private static final String SYNC = "SYNC";
+
+    private static final String DEFAULT_TILES = WIFI + TILE_SEPARATOR
+            + DATA + TILE_SEPARATOR + BATTERY + TILE_SEPARATOR
+            + AIRPLANE + TILE_SEPARATOR + BLUETOOTH;
 
     // Arrays containing the entire set of tiles
     private static ArrayList<String> allEntries;
@@ -332,28 +335,28 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
         // Check if device has gyroscope
         if(!pm.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE)) {
-            removeEntry(values[SCREEN_ROTATION]);
+            removeEntry(SCREEN_ROTATION);
         }
 
         // Check if device has bluetooth
         if (!pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
-            removeEntry(values[BLUETOOTH]);
+            removeEntry(BLUETOOTH);
         }
 
         // Check if device has network capabilities
         boolean hasMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
         if (!hasMobileData) {
-            removeEntry(values[DATA]);
+            removeEntry(DATA);
         }
 
         // Check if device has GPS
         if(!pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)) {
-            removeEntry(values[LOCATION]);
+            removeEntry(LOCATION);
         }
 
         // Check if device has Wi-Fi
         if(!pm.hasSystemFeature(PackageManager.FEATURE_WIFI)) {
-            removeEntry(values[WIFI]);
+            removeEntry(WIFI);
         }
 
         /*
@@ -370,22 +373,22 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         final boolean wifiAvailable = mWifiRegexs.length != 0;
 
         if (!wifiAvailable) {
-            removeEntry(values[WIFI_AP]);
+            removeEntry(WIFI_AP);
         }
 
         if (!usbAvailable) {
-            removeEntry(values[USB_TETHER]);
+            removeEntry(USB_TETHER);
         }
 
         // Check if device has LTE
         if(Phone.LTE_ON_CDMA_TRUE != TelephonyManager.getDefault().getLteOnCdmaMode() ||
                 TelephonyManager.getDefault().getLteOnGsmMode() == 0) {
-            removeEntry(values[LTE]);
+            removeEntry(LTE);
         }*/
 
         // Check if device has NFC
         if(!pm.hasSystemFeature(PackageManager.FEATURE_NFC)) {
-            removeEntry(values[NFC]);
+            removeEntry(NFC);
         }
 
         mEntries = allEntries.toArray(new String[allEntries.size()]);
@@ -414,6 +417,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             }
         }
 
+        if(newTiles.startsWith("|")) {
+            newTiles = newTiles.substring(1, newTiles.length());
+        }
+
         Settings.System.putString(c.getContentResolver(),
                 Settings.System.QUICK_SETTINGS_ENTRIES, newTiles);
     }
@@ -423,8 +430,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
                 Settings.System.QUICK_SETTINGS_ENTRIES);
 
         if (cluster == null) {
-            Log.e(TAG, "cluster was null");
-            cluster = "|";
+            cluster = DEFAULT_TILES;
         }
 
         String[] tilesStringArray = cluster.split("\\|");
