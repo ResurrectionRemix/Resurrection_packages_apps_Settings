@@ -59,8 +59,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private static final int BLUETOOTH = 1;
     private static final int LOCATION = 2;
     private static final int DATA = 3;
-    private static final int SCREEN_ROTATION = 4;
-    private static final int AIRPLANE = 5;
+    private static final int NFC = 4;
+    private static final int SCREEN_ROTATION = 5;
+    private static final int AIRPLANE = 6;
     private static final int BATTERY = 7;
     // TODO: Moar toggles
     //private static final int BRIGHTNESS = 8;
@@ -380,12 +381,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         if(Phone.LTE_ON_CDMA_TRUE != TelephonyManager.getDefault().getLteOnCdmaMode() ||
                 TelephonyManager.getDefault().getLteOnGsmMode() == 0) {
             removeEntry(values[LTE]);
-        }
+        }*/
 
         // Check if device has NFC
         if(!pm.hasSystemFeature(PackageManager.FEATURE_NFC)) {
             removeEntry(values[NFC]);
-        }*/
+        }
 
         mEntries = allEntries.toArray(new String[allEntries.size()]);
         mValues = allValues.toArray(new String[allValues.size()]);
