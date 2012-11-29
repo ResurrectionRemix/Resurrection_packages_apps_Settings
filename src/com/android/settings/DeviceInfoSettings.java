@@ -215,35 +215,38 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                 }
             }
         } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
-            if (mDevHitCountdown > 0) {
-                mDevHitCountdown--;
-                if (mDevHitCountdown == 0) {
-                    getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
-                            Context.MODE_PRIVATE).edit().putBoolean(
-                                    DevelopmentSettings.PREF_SHOW, true).apply();
+            // Only allow the owner of the device to turn on dev and performance options
+            if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
+                if (mDevHitCountdown > 0) {
+                    mDevHitCountdown--;
+                    if (mDevHitCountdown == 0) {
+                        getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
+                                Context.MODE_PRIVATE).edit().putBoolean(
+                                        DevelopmentSettings.PREF_SHOW, true).apply();
+                        if (mDevHitToast != null) {
+                            mDevHitToast.cancel();
+                        }
+                        mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
+                                Toast.LENGTH_LONG);
+                        mDevHitToast.show();
+                    } else if (mDevHitCountdown > 0
+                            && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
+                        if (mDevHitToast != null) {
+                            mDevHitToast.cancel();
+                        }
+                        mDevHitToast = Toast.makeText(getActivity(), getResources().getString(
+                                R.string.show_dev_countdown, mDevHitCountdown),
+                                Toast.LENGTH_SHORT);
+                        mDevHitToast.show();
+                    }
+                } else if (mDevHitCountdown < 0) {
                     if (mDevHitToast != null) {
                         mDevHitToast.cancel();
                     }
-                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
+                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
                             Toast.LENGTH_LONG);
                     mDevHitToast.show();
-                } else if (mDevHitCountdown > 0
-                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
-                    if (mDevHitToast != null) {
-                        mDevHitToast.cancel();
-                    }
-                    mDevHitToast = Toast.makeText(getActivity(), getResources().getString(
-                            R.string.show_dev_countdown, mDevHitCountdown),
-                            Toast.LENGTH_SHORT);
-                    mDevHitToast.show();
                 }
-            } else if (mDevHitCountdown < 0) {
-                if (mDevHitToast != null) {
-                    mDevHitToast.cancel();
-                }
-                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
-                        Toast.LENGTH_LONG);
-                mDevHitToast.show();
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
