@@ -69,12 +69,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
 
+    private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
+
     private DisplayManager mDisplayManager;
 
     private CheckBoxPreference mAccelerometer;
     private Preference mRotation;
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
+    private WarnedListPreference mFontSizePref;
 
     private final Configuration mCurConfig = new Configuration();
     
@@ -126,6 +129,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
+
+        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
+        mFontSizePref.setOnPreferenceChangeListener(this);
+        mFontSizePref.setOnPreferenceClickListener(this);
 
         mNotificationPulse = (PreferenceScreen) findPreference(KEY_NOTIFICATION_PULSE);
 
@@ -243,6 +250,24 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return indices.length-1;
     }
     
+    public void readFontSizePreference(ListPreference pref) {
+        try {
+            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Unable to retrieve font size");
+        }
+
+        // mark the appropriate item in the preferences list
+        int index = floatToIndex(mCurConfig.fontScale);
+        pref.setValueIndex(index);
+
+        // report the current size in the summary text
+        final Resources res = getResources();
+        String[] fontSizeNames = res.getStringArray(R.array.entries_font_size);
+        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
+                fontSizeNames[index]));
+    }
+    
     @Override
     public void onResume() {
         super.onResume();
@@ -271,7 +296,22 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    @Override
+    public Dialog onCreateDialog(int dialogId) {
+        if (dialogId == DLG_GLOBAL_CHANGE_WARNING) {
+            return Utils.buildGlobalChangeWarningDialog(getActivity(),
+                    R.string.global_font_change_title,
+                    new Runnable() {
+                        public void run() {
+                            mFontSizePref.click();
+                        }
+                    });
+        }
+        return null;
+    }
+
     private void updateState() {
+        readFontSizePreference(mFontSizePref);
         updateAccelerometerRotationCheckbox();
         updateScreenSaverSummary();
         updateWifiDisplaySummary();
@@ -303,6 +343,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    public void writeFontSizePreference(Object objValue) {
+        try {
+            mCurConfig.fontScale = Float.parseFloat(objValue.toString());
+            ActivityManagerNative.getDefault().updatePersistentConfiguration(mCurConfig);
+        } catch (RemoteException e) {
+            Log.w(TAG, "Unable to save font size");
+        }
+    }
+
     private void updateAccelerometerRotationCheckbox() {
         if (getActivity() == null) return;
 
@@ -329,6 +378,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Log.e(TAG, "could not persist screen timeout setting", e);
             }
         }
+        if (KEY_FONT_SIZE.equals(key)) {
+            writeFontSizePreference(objValue);
+        }
 
         return true;
     }
@@ -346,7 +398,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if (preference == mRotation) {
+        if (preference == mFontSizePref) {
+            if (Utils.hasMultipleUsers(getActivity())) {
+                showDialog(DLG_GLOBAL_CHANGE_WARNING);
+                return true;
+            } else {
+                mFontSizePref.click();
+            }
+        } else if (preference == mRotation) {
             mAllowedRotationModes = Settings.System.getInt(getActivity().getContentResolver(), Settings.System
                     .ACCELEROMETER_ROTATION_ANGLES, -1);
             if (mAllowedRotationModes < 0) {
