@@ -1503,5 +1503,25 @@
             </intent-filter>
         </receiver>
 
+
+        <activity android:name=".paranoid.PlatLogoActivity"
+                android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
+                android:process=":ui">
+        </activity>
+        <activity
+            android:name=".paranoid.Nyandroid"
+            android:exported="true"
+            android:label="Nyandroid"
+            android:icon="@drawable/nyandroid04"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
