@@ -604,9 +604,8 @@ public class Utils {
         int shortSizeDp = shortSize * DisplayMetrics.DENSITY_DEFAULT / DisplayMetrics.DENSITY_DEVICE;
         if (shortSizeDp < 600) {
             return DEVICE_PHONE;
-        } else if (shortSizeDp < 720) {
+        } else {
             return DEVICE_TABLET;
         }
-        return 0;
     }
 }
