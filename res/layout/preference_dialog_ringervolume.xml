@@ -159,6 +159,26 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="8dip" >
+
+            <CheckBox
+                android:id="@+id/link_ring_and_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/link_volume_ringtones" />
+
+            <CheckBox
+                android:id="@+id/link_mutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/link_volume_mutes" />
+        </LinearLayout>
+
         <TextView
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="wrap_content"
