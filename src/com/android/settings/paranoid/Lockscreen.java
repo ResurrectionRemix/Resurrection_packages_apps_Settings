@@ -16,7 +16,9 @@
 
 package com.android.settings.paranoid;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -33,12 +35,14 @@ public class Lockscreen extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String KEY_ALLOW_ROTATION = "allow_rotation";
-    public static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
     public static final String KEY_SEE_TRHOUGH = "see_through";
+    public static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
+    public static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
     public static final String KEY_VOLUME_WAKE = "volume_wake";
 
     private CheckBoxPreference mAllowRotation;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mHomeScreenWidgets;
     private CheckBoxPreference mVolBtnMusicCtrl;
     private CheckBoxPreference mVolumeWake;
 
@@ -60,12 +64,16 @@ public class Lockscreen extends SettingsPreferenceFragment
         mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
 
-        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);	
-        mVolumeWake.setChecked(Settings.System.getInt(mContext.getContentResolver(),	
+        mHomeScreenWidgets = (CheckBoxPreference) prefSet.findPreference(KEY_HOME_SCREEN_WIDGETS);
+        mHomeScreenWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.HOME_SCREEN_WIDGETS, 0) == 1);
+
+        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
+        mVolumeWake.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
 
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
-        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),	
+        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
     }
 
@@ -79,14 +87,40 @@ public class Lockscreen extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
                     ? 1 : 0);
-        } else if (preference == mVolumeWake) {	
+        } else if (preference == mHomeScreenWidgets) {
+            final boolean isChecked = mHomeScreenWidgets.isChecked();
+            if(isChecked) {
+                // Show warning
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.home_screen_widgets_warning_title);
+                builder.setMessage(getResources().getString(R.string.home_screen_widgets_warning))
+                        .setPositiveButton(com.android.internal.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Settings.System.putInt(mContext.getContentResolver(),
+                                        Settings.System.HOME_SCREEN_WIDGETS,
+                                        isChecked ? 1 : 0);
+                            }
+                        })
+                        .setNegativeButton(com.android.internal.R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                mHomeScreenWidgets.setChecked(false);
+                                dialog.dismiss();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            } else {
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.HOME_SCREEN_WIDGETS, 0);
+            }
+         } else if (preference == mVolumeWake) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.VOLUME_WAKE_SCREEN,
                     mVolumeWake.isChecked()
                     ? 1 : 0);
-         } else if (preference == mVolBtnMusicCtrl) {	
+         } else if (preference == mVolBtnMusicCtrl) {
             Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.VOLBTN_MUSIC_CONTROLS,	
+                    Settings.System.VOLBTN_MUSIC_CONTROLS,
                     mVolBtnMusicCtrl.isChecked()
                     ? 1 : 0);
         }
