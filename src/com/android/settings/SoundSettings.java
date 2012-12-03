@@ -308,18 +308,18 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         if (getActivity() == null) return;
         ContentResolver resolver = getContentResolver();
 
-        final int vibrateMode = mAudioManager.getVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER);
-        
+        mVibrateWhenRinging.setChecked(mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE
+                || Settings.System.getBoolean(resolver, Settings.System.VIBRATE_WHEN_RINGING, false));
+
         if (Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_ENABLED, 0) == 1) {
             mQuietHours.setSummary(getString(R.string.quiet_hours_active_from) + " " +
                     returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_START))
                     + " " + getString(R.string.quiet_hours_active_to) + " " +
                     returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_END)));
+
         } else {
             mQuietHours.setSummary(getString(R.string.quiet_hours_summary));
         }
-
-        mVibrateWhenRinging.setChecked(vibrateMode == AudioManager.VIBRATE_SETTING_ON);
     }
 
     private void updateRingtoneName(int type, Preference preference, int msg) {
