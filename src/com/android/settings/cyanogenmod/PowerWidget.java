@@ -285,7 +285,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     int network_state = -99;
 
                     try {
-                        network_state = Settings.Secure.getInt(getActivity()
+                        network_state = Settings.Global.getInt(getActivity()
                                 .getApplicationContext().getContentResolver(),
                                 Settings.Global.PREFERRED_NETWORK_MODE);
                     } catch (Settings.SettingNotFoundException e) {
