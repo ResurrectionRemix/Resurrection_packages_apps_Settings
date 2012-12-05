@@ -24,6 +24,16 @@
         android:order="100">
 
         <Preference
+            android:key="development_tools"
+            android:title="@string/development_tools_title"
+            android:persistent="false">
+            <intent
+                android:action="android.settings.development.LAUNCH_TOOLS"
+                android:targetPackage="com.android.development"
+                android:targetClass="com.android.development.Development" />
+        </Preference>
+
+        <Preference
             android:key="memory"
             android:icon="@drawable/ic_settings_memory"
             android:title="@string/memory_settings_title"
