@@ -86,19 +86,19 @@ public class Shortcuts extends ApplicationsDialogPreference {
         super.onActivityCreated(savedInstanceState);
 
         ListView listView = getListView();
-		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
-			@Override
-			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-				ListView listView = (ListView) parent;
-				ListAdapter listAdapter = listView.getAdapter();
-				Object obj = listAdapter.getItem(position);
-				if (obj != null && obj instanceof View.OnLongClickListener) {
-					View.OnLongClickListener longListener = (View.OnLongClickListener) obj;
-					return longListener.onLongClick(view);
-				}
-				return false;
-			}
-		});
+        listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                ListView listView = (ListView) parent;
+                ListAdapter listAdapter = listView.getAdapter();
+                Object obj = listAdapter.getItem(position);
+                if (obj != null && obj instanceof View.OnLongClickListener) {
+                    View.OnLongClickListener longListener = (View.OnLongClickListener) obj;
+                    return longListener.onLongClick(view);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -159,8 +159,8 @@ public class Shortcuts extends ApplicationsDialogPreference {
             super(context);
         }
 
-	    @Override
-	    public boolean onLongClick(View v) {
+        @Override
+        public boolean onLongClick(View v) {
             final TextView tView;
             final ShorcutPreference pref = this;
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -182,7 +182,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
             }
 
             return false;
-	    }
+        }
     }
 
     public ArrayList<String> getApplicationsStringArray() {
