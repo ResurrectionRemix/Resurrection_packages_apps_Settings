@@ -109,7 +109,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         if (preference == mEnabledTiles) {
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
-            ArrayList<String> enabledTiles = getTilesStringArray(mContext);
+            ArrayList<String> enabledTiles = getTilesStringArray();
 
             boolean checkedTiles[] = new boolean[mValues.length];
 
@@ -137,9 +137,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
                     String tileKey = (mValues[which]);
 
                     if (isChecked) {
-                        addTile(mContext, tileKey);
+                        addTile(tileKey);
                     } else {
-                        removeTile(mContext, tileKey);
+                        removeTile(tileKey);
                     }
                 }
             });
@@ -165,16 +165,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         return true;
     }
 
-    public static void addTile(Context context, String key) {
-        ArrayList<String> enabledTiles = getTilesStringArray(context);
+    public static void addTile(String key) {
+        ArrayList<String> enabledTiles = getTilesStringArray();
         enabledTiles.add(key);
-        setTilesFromStringArray(context, enabledTiles);
+        setTilesFromStringArray(enabledTiles);
     }
 
-    public static void removeTile(Context context, String key) {
-        ArrayList<String> enabledTiles = getTilesStringArray(context);
+    public static void removeTile(String key) {
+        ArrayList<String> enabledTiles = getTilesStringArray();
         enabledTiles.remove(key);
-        setTilesFromStringArray(context, enabledTiles);
+        setTilesFromStringArray(enabledTiles);
     }
 
     public static class TileDragList extends ListFragment {
@@ -227,7 +227,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         private TouchInterceptor.DropListener mDropListener = new TouchInterceptor.DropListener() {
             public void drop(int from, int to) {
                 // get the current button list
-                ArrayList<String> tiles = getTilesStringArray(mContext);
+                ArrayList<String> tiles = getTilesStringArray();
 
                 // move the button
                 if (from < tiles.size()) {
@@ -237,7 +237,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
                         tiles.add(to, tile);
 
                         // save our buttons
-                        setTilesFromStringArray(mTilesContext, tiles);
+                        setTilesFromStringArray(tiles);
 
                         // tell our adapter/listview to reload
                         mButtonAdapter.reloadButtons();
@@ -271,7 +271,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
             public void reloadButtons() {
                 mTiles = new ArrayList<Tile>();
-                ArrayList<String> tileArray = getTilesStringArray(mButtonContext);
+                ArrayList<String> tileArray = getTilesStringArray();
 
                 for(String tile : tileArray) {
                     if(!tile.equals("")) {
@@ -404,7 +404,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         }
     }
 
-    public static void setTilesFromStringArray(Context c, ArrayList<String> newTilesArray) {
+    public static void setTilesFromStringArray(ArrayList<String> newTilesArray) {
         String newTiles = "";
 
         if(!newTilesArray.isEmpty()) {
@@ -421,12 +421,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             newTiles = newTiles.substring(1, newTiles.length());
         }
 
-        Settings.System.putString(c.getContentResolver(),
+        Settings.System.putString(mContext.getContentResolver(),
                 Settings.System.QUICK_SETTINGS_ENTRIES, newTiles);
     }
 
-    public static ArrayList<String> getTilesStringArray(Context c) {
-        String cluster = Settings.System.getString(c.getContentResolver(),
+    public static ArrayList<String> getTilesStringArray() {
+        String cluster = Settings.System.getString(mContext.getContentResolver(),
                 Settings.System.QUICK_SETTINGS_ENTRIES);
 
         if (cluster == null) {

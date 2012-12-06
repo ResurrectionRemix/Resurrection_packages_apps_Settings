@@ -28,17 +28,14 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-/**
- * Lockscreen Settings
- */
 public class Lockscreen extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    public static final String KEY_ALLOW_ROTATION = "allow_rotation";
-    public static final String KEY_SEE_TRHOUGH = "see_through";
-    public static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
-    public static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
-    public static final String KEY_VOLUME_WAKE = "volume_wake";
+    private static final String KEY_ALLOW_ROTATION = "allow_rotation";
+    private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
+    private static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
+    private static final String KEY_VOLUME_WAKE = "volume_wake";
 
     private CheckBoxPreference mAllowRotation;
     private CheckBoxPreference mSeeThrough;

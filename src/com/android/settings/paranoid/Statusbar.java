@@ -28,9 +28,6 @@ import android.provider.Settings.SettingNotFoundException;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-/**
- * Statusbar Settings
- */
 public class Statusbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
