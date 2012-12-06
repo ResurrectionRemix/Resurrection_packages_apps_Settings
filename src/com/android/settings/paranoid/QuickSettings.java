@@ -33,7 +33,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -249,23 +249,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
         private class ButtonAdapter extends BaseAdapter {
             private Context mButtonContext;
-            private Resources mSystemUIResources = null;
             private LayoutInflater mInflater;
             private ArrayList<Tile> mTiles;
 
             public ButtonAdapter(Context c) {
                 mButtonContext = c;
                 mInflater = LayoutInflater.from(mButtonContext);
-
-                if (pm != null) {
-                    try {
-                        mSystemUIResources = pm.getResourcesForApplication("com.android.systemui");
-                    } catch (Exception e) {
-                        mSystemUIResources = null;
-                        Log.e(TAG, "Could not load SystemUI resources", e);
-                    }
-                }
-
                 reloadButtons();
             }
 
@@ -405,21 +394,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     }
 
     public static void setTilesFromStringArray(ArrayList<String> newTilesArray) {
-        String newTiles = "";
-
-        if(!newTilesArray.isEmpty()) {
-            for (int i = 0; i < newTilesArray.size(); i++) {
-                newTiles += newTilesArray.get(i);
-
-                if(i + 1 < newTilesArray.size()) {
-                    newTiles += "|";
-                }
-            }
-        }
-
-        if(newTiles.startsWith("|")) {
-            newTiles = newTiles.substring(1, newTiles.length());
-        }
+        String newTiles = TextUtils.join("|", newTilesArray);
 
         Settings.System.putString(mContext.getContentResolver(),
                 Settings.System.QUICK_SETTINGS_ENTRIES, newTiles);

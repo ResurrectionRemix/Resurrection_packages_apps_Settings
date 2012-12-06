@@ -24,15 +24,19 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -46,6 +50,7 @@ import com.android.settings.R;
 import com.android.settings.ApplicationsDialogPreference;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,12 +64,14 @@ public class Shortcuts extends ApplicationsDialogPreference {
 
     private PreferenceScreen mPreferenceScreen;
     private Context mContext;
+    private Resources mResources;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mContext = getActivity();
+        mResources = mContext.getResources();
 
         mPreferenceScreen = getPreferenceManager().createPreferenceScreen(mContext);
         setPreferenceScreen(mPreferenceScreen);
@@ -102,7 +109,25 @@ public class Shortcuts extends ApplicationsDialogPreference {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, final Preference preference) {
+        ListView list = new ListView(mContext);
+        list.setAdapter(new IconAdapter());
+        final Dialog dialog = new Dialog(mContext);
+        dialog.setTitle(R.string.icon_picker_choose_icon_title);
+        dialog.setContentView(list);
+        list.setOnItemClickListener(new OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                    int position, long id) {
+                String packageName = preference.getSummary().toString();
+                IconAdapter adapter = (IconAdapter) parent.getAdapter();
+                String drawable = adapter.getItemReference(position);
+                modifyApplication(packageName, drawable);
+                preference.setIcon((Drawable) adapter.getItem(position));
+                dialog.cancel();
+            }
+        });
+        dialog.show();
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -185,6 +210,54 @@ public class Shortcuts extends ApplicationsDialogPreference {
         }
     }
 
+    public class IconAdapter extends BaseAdapter {
+
+        TypedArray icons;
+        String[] labels;
+
+        public IconAdapter() {
+            icons = mResources.obtainTypedArray(R.array.custom_target_icons);
+            labels = mResources.getStringArray(R.array.custom_target_icons_entries);
+        }
+
+        @Override
+        public int getCount() {
+            return labels.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return icons.getDrawable(position);
+        }
+
+        public String getItemReference(int position) {
+            String name = icons.getString(position);
+            int separatorIndex = name.lastIndexOf(File.separator);
+            int periodIndex = name.lastIndexOf('.');
+            return name.substring(separatorIndex + 1, periodIndex);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View iView = convertView;
+            if (convertView == null) {
+                iView = View.inflate(mContext, android.R.layout.simple_list_item_1, null);
+            }
+            TextView tt = (TextView) iView.findViewById(android.R.id.text1);
+            tt.setText(labels[position]);
+            Drawable ic = ((Drawable) getItem(position)).mutate();
+            int bound = mResources.getDimensionPixelSize(R.dimen.shortcut_picker_left_padding);
+            ic.setBounds(0,  0, bound, bound);
+            tt.setCompoundDrawables(ic, null, null, null);
+            return iView;
+        }
+    }
+
     public ArrayList<String> getApplicationsStringArray() {
         String cluster =  Settings.System.getString(getContentResolver(),
                 Settings.System.LOCKSCREEN_TARGETS);
@@ -198,23 +271,33 @@ public class Shortcuts extends ApplicationsDialogPreference {
         return new ArrayList<String>(Arrays.asList(apps));
     }
 
+    private void setApplicationsStringArray(ArrayList<String> apps) {
+        String newApps = TextUtils.join("|", apps);
+        Settings.System.putString(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_TARGETS, newApps);
+    }
+
     private void loadApplications() {
-        ArrayList<String> apps = getApplicationsStringArray();
-        if(apps != null) {
-            for(String app: apps) {
-                addApplicationPreference(app);
+        ArrayList<String> targets = getApplicationsStringArray();
+        if(targets != null) {
+            for(String target : targets) {
+                String[] item = target.split(":");
+                if(item.length > 1) {
+                    addApplicationPreference(item[0],
+                            getDrawable(item[1]));
+                } else {
+                    addApplicationPreference(item[0]);
+                }
             }
         }
     }
 
-    private void addApplication(String packageName) {
+    private void addApplication(String target) {
         String apps = Settings.System.getString(getContentResolver(),
                 Settings.System.LOCKSCREEN_TARGETS);
-        if(apps != null) {
-            apps += "|" + packageName;
-        } else {
-            apps = packageName;
-        }
+
+        if(apps != null) apps += "|" + target;
+        else apps = target;
 
         if(apps.startsWith("|")) {
             apps = apps.substring(1, apps.length());
@@ -226,26 +309,28 @@ public class Shortcuts extends ApplicationsDialogPreference {
 
     private void removeApplication(String packageName, Preference pref) {
         ArrayList<String> apps = getApplicationsStringArray();
-        apps.remove(packageName);
-        String newApps = "";
 
-        if(!apps.isEmpty()) {
-            for (int i = 0; i < apps.size(); i++) {
-                newApps += apps.get(i);
-
-                if(i + 1 < apps.size()) {
-                    newApps += "|";
-                }
+        for(int i = 0; i < apps.size(); i++) {
+            String app = apps.get(i);
+            if(app.startsWith(packageName)) {
+                apps.remove(app);
             }
         }
 
-        if(newApps.startsWith("|")) {
-            newApps = newApps.substring(1, newApps.length());
+        mPreferenceScreen.removePreference(pref);
+        setApplicationsStringArray(apps);
+    }
+
+    private void modifyApplication(String packageName, String drawable) {
+        ArrayList<String> apps = getApplicationsStringArray();
+
+        for(int i = 0; i < apps.size(); i++) {
+            if(apps.get(i).startsWith(packageName)) {
+                apps.set(i, packageName + ":" + drawable);
+            }
         }
 
-        Settings.System.putString(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_TARGETS, newApps);
-        mPreferenceScreen.removePreference(pref);
+        setApplicationsStringArray(apps);
     }
 
     private void resetApplications() {
@@ -255,17 +340,22 @@ public class Shortcuts extends ApplicationsDialogPreference {
     }
 
     private void addApplicationPreference(String packageName) {
+        addApplicationPreference(packageName, null);
+    }
+
+    private void addApplicationPreference(String packageName, Drawable icon) {
         List<PackageInfo> packages = mPackageManager.getInstalledPackages(0);
         for(int i=0; packages != null && i<packages.size(); i++) {
             PackageInfo p = packages.get(i);
             ApplicationInfo appInfo = p.applicationInfo;
             if (appInfo != null && appInfo.packageName.equals(packageName)) {
                 CharSequence label = mPackageManager.getApplicationLabel(appInfo);
-                Drawable icon = null;
-                try {
-                    icon = mPackageManager.getApplicationIcon(packageName);
-                } catch(NameNotFoundException e) {
-                    // default icon
+                if(icon == null) {
+                    try {
+                        icon = mPackageManager.getApplicationIcon(packageName);
+                    } catch(NameNotFoundException e) {
+                        // default icon
+                    }
                 }
                 addPreference(label, packageName, icon);
             }
@@ -280,5 +370,14 @@ public class Shortcuts extends ApplicationsDialogPreference {
         pref.setSummary(packageName);
         if(icon != null) pref.setIcon(icon);
         mPreferenceScreen.addPreference(pref);
+    }
+
+    private Drawable getDrawable(String drawableName){
+        int resourceId = Resources.getSystem().getIdentifier(drawableName, "drawable", "android");
+        if(resourceId == 0) {
+            return null;
+        } else {
+            return Resources.getSystem().getDrawable(resourceId);
+        }
     }
 }

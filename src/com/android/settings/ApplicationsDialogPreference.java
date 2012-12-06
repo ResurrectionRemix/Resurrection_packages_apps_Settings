@@ -144,16 +144,12 @@ public class ApplicationsDialogPreference extends SettingsPreferenceFragment {
                 holder = new ViewHolder();
                 convertView.setTag(holder);
                 holder.title = (TextView) convertView.findViewById(com.android.internal.R.id.title);
-                holder.summary = (TextView) convertView.findViewById(com.android.internal.R.id.summary);
                 holder.icon = (ImageView) convertView.findViewById(R.id.icon);
             }
             AppItem applicationInfo = getItem(position);
 
             if (holder.title != null) {
                 holder.title.setText(applicationInfo.title);
-            }
-            if (holder.summary != null) {
-                holder.summary.setVisibility(View.GONE);
             }
             if (holder.icon != null) {
                 Drawable loadIcon = applicationInfo.icon;
@@ -165,7 +161,6 @@ public class ApplicationsDialogPreference extends SettingsPreferenceFragment {
 
     static class ViewHolder {
         TextView title;
-        TextView summary;
         ImageView icon;
     }
 }
