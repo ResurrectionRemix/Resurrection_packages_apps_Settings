@@ -251,9 +251,8 @@ public class Shortcuts extends ApplicationsDialogPreference {
             TextView tt = (TextView) iView.findViewById(android.R.id.text1);
             tt.setText(labels[position]);
             Drawable ic = ((Drawable) getItem(position)).mutate();
-            int bound = mResources.getDimensionPixelSize(R.dimen.shortcut_picker_left_padding);
-            ic.setBounds(0,  0, bound, bound);
-            tt.setCompoundDrawables(ic, null, null, null);
+            tt.setCompoundDrawablePadding(15);
+            tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);
             return iView;
         }
     }
