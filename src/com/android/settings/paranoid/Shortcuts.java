@@ -262,7 +262,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
                 Settings.System.LOCKSCREEN_TARGETS);
 
         if (cluster == null) {
-            return null;
+            return new ArrayList<String>();
         }
 
         String[] apps = cluster.split("\\|");
