@@ -133,7 +133,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
                                 Drawable icon = getApplicationIcon(packageName);
                                 if(icon != null) mPreference.setIcon(icon);
                                 break;
-                            case 1: // Holo icon
+                            case 1: // System defaults
                                 ListView list = new ListView(mContext);
                                 list.setAdapter(new IconAdapter());
                                 final Dialog holoDialog = new Dialog(mContext);
