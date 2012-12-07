@@ -110,23 +110,43 @@ public class Shortcuts extends ApplicationsDialogPreference {
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, final Preference preference) {
-        ListView list = new ListView(mContext);
-        list.setAdapter(new IconAdapter());
-        final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle(R.string.icon_picker_choose_icon_title);
-        dialog.setContentView(list);
-        list.setOnItemClickListener(new OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                    int position, long id) {
-                String packageName = preference.getSummary().toString();
-                IconAdapter adapter = (IconAdapter) parent.getAdapter();
-                String drawable = adapter.getItemReference(position);
-                modifyApplication(packageName, drawable);
-                preference.setIcon((Drawable) adapter.getItem(position));
-                dialog.cancel();
-            }
-        });
+        final String packageName = preference.getSummary().toString();
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.icon_picker_type)
+                .setItems(R.array.icon_types, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch(which) {
+                            case 0: // Default
+                                modifyApplication(packageName, null);
+                                Drawable icon = getApplicationIcon(packageName);
+                                if(icon != null) preference.setIcon(icon);
+                                break;
+                            case 1: // Holo icon
+                                ListView list = new ListView(mContext);
+                                list.setAdapter(new IconAdapter());
+                                final Dialog holoDialog = new Dialog(mContext);
+                                holoDialog.setTitle(R.string.icon_picker_choose_icon_title);
+                                holoDialog.setContentView(list);
+                                list.setOnItemClickListener(new OnItemClickListener(){
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                                        IconAdapter adapter = (IconAdapter) parent.getAdapter();
+                                        String drawable = adapter.getItemReference(position);
+                                        modifyApplication(packageName, drawable);
+                                        preference.setIcon((Drawable) adapter.getItem(position));
+                                        holoDialog.cancel();
+                                    }
+                                });
+                                holoDialog.show();
+                                break;
+                            case 2: // Custom user icon stub
+                                break;
+                        }
+                    }
+                }
+        );
+        AlertDialog dialog = builder.create();
         dialog.show();
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -325,7 +345,11 @@ public class Shortcuts extends ApplicationsDialogPreference {
 
         for(int i = 0; i < apps.size(); i++) {
             if(apps.get(i).startsWith(packageName)) {
-                apps.set(i, packageName + ":" + drawable);
+                if(drawable != null) {
+                    apps.set(i, packageName + ":" + drawable);
+                } else {
+                    apps.set(i, packageName);
+                }
             }
         }
 
@@ -350,11 +374,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
             if (appInfo != null && appInfo.packageName.equals(packageName)) {
                 CharSequence label = mPackageManager.getApplicationLabel(appInfo);
                 if(icon == null) {
-                    try {
-                        icon = mPackageManager.getApplicationIcon(packageName);
-                    } catch(NameNotFoundException e) {
-                        // default icon
-                    }
+                    getApplicationIcon(packageName);
                 }
                 addPreference(label, packageName, icon);
             }
@@ -369,6 +389,15 @@ public class Shortcuts extends ApplicationsDialogPreference {
         pref.setSummary(packageName);
         if(icon != null) pref.setIcon(icon);
         mPreferenceScreen.addPreference(pref);
+    }
+
+    private Drawable getApplicationIcon(String packageName) {
+        try {
+            Drawable icon = mPackageManager.getApplicationIcon(packageName);
+            return icon;
+        } catch(NameNotFoundException e) {
+            return null;
+        }
     }
 
     private Drawable getDrawable(String drawableName){
