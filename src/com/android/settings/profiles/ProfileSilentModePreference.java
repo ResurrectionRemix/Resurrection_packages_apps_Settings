@@ -18,7 +18,6 @@ package com.android.settings.profiles;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.VibratorSettings;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.Preference;
@@ -31,16 +30,16 @@ import android.widget.LinearLayout;
 
 import com.android.settings.R;
 
-public class VibratorPreference extends Preference implements
+public class ProfileSilentModePreference extends Preference implements
         CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     private boolean mProtectFromCheckedChange = false;
 
     private CheckBox mCheckBox;
 
-    final static String TAG = "VibratorPreference";
+    final static String TAG = "ProfileSilentModePreference";
 
-    private ProfileConfig.VibratorItem mVibratorItem;
+    private ProfileConfig.SilentModeItem mSilentModeItem;
 
     final static int defaultChoice = -1;
 
@@ -51,7 +50,7 @@ public class VibratorPreference extends Preference implements
      * @param attrs
      * @param defStyle
      */
-    public VibratorPreference(Context context, AttributeSet attrs, int defStyle) {
+    public ProfileSilentModePreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
@@ -60,7 +59,7 @@ public class VibratorPreference extends Preference implements
      * @param context
      * @param attrs
      */
-    public VibratorPreference(Context context, AttributeSet attrs) {
+    public ProfileSilentModePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
@@ -68,7 +67,7 @@ public class VibratorPreference extends Preference implements
     /**
      * @param context
      */
-    public VibratorPreference(Context context) {
+    public ProfileSilentModePreference(Context context) {
         super(context);
         init();
     }
@@ -100,14 +99,14 @@ public class VibratorPreference extends Preference implements
     }
 
     public boolean isChecked() {
-        return mVibratorItem != null && mVibratorItem.mSettings.isOverride();
+        return mSilentModeItem != null && mSilentModeItem.mSettings.isOverride();
     }
 
-    public void setVibratorItem(ProfileConfig.VibratorItem vibratorItem) {
-        mVibratorItem = vibratorItem;
+    public void setSilentModeItem(ProfileConfig.SilentModeItem silentModeItem) {
+        mSilentModeItem = silentModeItem;
 
         if (mCheckBox != null) {
-            mCheckBox.setChecked(mVibratorItem.mSettings.isOverride());
+            mCheckBox.setChecked(mSilentModeItem.mSettings.isOverride());
         }
     }
 
@@ -116,63 +115,68 @@ public class VibratorPreference extends Preference implements
             return;
         }
 
-        mVibratorItem.mSettings.setOverride(isChecked);
+        mSilentModeItem.mSettings.setOverride(isChecked);
 
         callChangeListener(isChecked);
     }
 
-    protected Dialog createVibratorDialog() {
+    protected Dialog createSilentModeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        final String[] VibratorValues = getContext().getResources().getStringArray(R.array.profile_vibrator_values);
+        final String[] silentModeValues = getContext().getResources().getStringArray(R.array.silent_mode_values);
+        String currentValue = mSilentModeItem.mSettings.getValue();
+        if (currentValue != null) {
+            for (int i = 0; i < silentModeValues.length; i++) {
+                if (currentValue.equals(silentModeValues[i])) {
+                    currentChoice = i;
+                    break;
+                }
+            }
+        }
 
-        currentChoice = mVibratorItem.mSettings.getValue();
-
-        builder.setTitle(mVibratorItem.mLabel);
-        builder.setSingleChoiceItems(R.array.profile_vibrator_entries, currentChoice,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int item) {
-                        currentChoice = item;
-                    }
-                });
+        builder.setTitle(R.string.silent_mode_title);
+        builder.setSingleChoiceItems(R.array.silent_mode_entries, currentChoice, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                currentChoice = item;
+            }
+        });
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (currentChoice != defaultChoice) {
-                    int value = Integer.parseInt(VibratorValues[currentChoice]);
-                    mVibratorItem.mSettings.setValue(value);
-                    switch (value) {
-                    case VibratorSettings.OFF:
-                        setSummary(getContext().getString(R.string.vibrator_state_disabled));
-                        break;
-                    case VibratorSettings.SILENT:
-                        setSummary(getContext().getString(R.string.vibrator_state_silent));
-                        break;
-                    default:
-                        setSummary(getContext().getString(R.string.vibrator_state_enabled));
-                        break;
-                    }
+                    String value = silentModeValues[currentChoice];
+                    mSilentModeItem.mSettings.setValue(value);
+                    setSummary(getContext().getResources().getStringArray(R.array.silent_mode_entries)[currentChoice]);
                 }
             }
         });
 
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-            }
-        });
+        builder.setNegativeButton(android.R.string.cancel, null);
         return builder.create();
     }
 
-    public ProfileConfig.VibratorItem getVibratorItem() {
-        return mVibratorItem;
+    public ProfileConfig.SilentModeItem getSilentModeItem() {
+        return mSilentModeItem;
     }
 
     @Override
     public void onClick(android.view.View v) {
         if ((v != null) && (R.id.text_layout == v.getId())) {
-            createVibratorDialog().show();
+            createSilentModeDialog().show();
+        }
+    }
+
+    public void setSummary(Context context) {
+        String[] entries = context.getResources().getStringArray(R.array.silent_mode_entries);
+        String[] values = context.getResources().getStringArray(R.array.silent_mode_values);
+        int l = entries.length;
+        String value = mSilentModeItem.mSettings.getValue();
+        for (int i = 0; i < l; i++) {
+            if (value.equals(values[i])) {
+                setSummary(entries[i]);
+                break;
+            }
         }
     }
 }

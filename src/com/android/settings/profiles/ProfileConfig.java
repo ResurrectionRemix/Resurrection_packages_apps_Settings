@@ -24,8 +24,8 @@ import android.app.ConnectionSettings;
 import android.app.Profile;
 import android.app.ProfileGroup;
 import android.app.ProfileManager;
+import android.app.SilentModeSettings;
 import android.app.StreamSettings;
-import android.app.VibratorSettings;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -75,7 +75,7 @@ public class ProfileConfig extends SettingsPreferenceFragment
 
     private ArrayList<ConnectionItem> mConnections;
 
-    private VibratorItem[] mVibrators;
+    private SilentModeItem mSilentMode;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -98,11 +98,6 @@ public class ProfileConfig extends SettingsPreferenceFragment
         if (WimaxHelper.isWimaxSupported(getActivity())) {
             mConnections.add(new ConnectionItem(ConnectionSettings.PROFILE_CONNECTION_WIMAX, getString(R.string.toggleWimax)));
         }
-
-        mVibrators = new VibratorItem[] {
-                new VibratorItem(AudioManager.VIBRATE_TYPE_RINGER, getString(R.string.vibrator_type_ringer)),
-                new VibratorItem(AudioManager.VIBRATE_TYPE_NOTIFICATION, getString(R.string.vibrator_type_notification)),
-        };
 
         addPreferencesFromResource(R.xml.profile_config);
 
@@ -190,6 +185,24 @@ public class ProfileConfig extends SettingsPreferenceFragment
         PreferenceGroup systemPrefs = (PreferenceGroup) prefSet.findPreference("profile_system_settings");
         if (systemPrefs != null) {
             systemPrefs.removeAll();
+            // Silent mode preference
+            if (mSilentMode == null) {
+                mSilentMode = new SilentModeItem();
+            }
+            SilentModeSettings settings = mProfile.getSilentMode();
+            if (settings == null) {
+                settings = new SilentModeSettings();
+                mProfile.setSilentMode(settings);
+            }
+            mSilentMode.mSettings = settings;
+            ProfileSilentModePreference pref = new ProfileSilentModePreference(getActivity());
+            pref.setSilentModeItem(mSilentMode);
+            pref.setTitle(R.string.silent_mode_title);
+            pref.setPersistent(false);
+            pref.setSummary(getActivity());
+            pref.setOnPreferenceChangeListener(this);
+            mSilentMode.mCheckbox = pref;
+            systemPrefs.addPreference(pref);
 
             // Lockscreen mode preference
             mScreenLockModePreference = new ListPreference(getActivity());
@@ -237,38 +250,6 @@ public class ProfileConfig extends SettingsPreferenceFragment
                 pref.setStreamItem(stream);
                 stream.mCheckbox = pref;
                 streamList.addPreference(pref);
-            }
-        }
-
-        // Populate the vibrator list
-        PreferenceGroup vibratorList = (PreferenceGroup) prefSet.findPreference("profile_vibratoroverrides");
-        if (vibratorList != null) {
-            vibratorList.removeAll();
-            for (VibratorItem vibrator : mVibrators) {
-                VibratorSettings settings = mProfile.getSettingsForVibrator(vibrator.mVibratorId);
-                if (settings == null) {
-                    settings = new VibratorSettings(vibrator.mVibratorId);
-                    mProfile.setVibratorSettings(settings);
-                }
-                vibrator.mSettings = settings;
-                VibratorPreference pref = new VibratorPreference(getActivity());
-                pref.setKey("vibrator_" + vibrator.mVibratorId);
-                pref.setTitle(vibrator.mLabel);
-                switch (settings.getValue()) {
-                case VibratorSettings.OFF:
-                    pref.setSummary(getString(R.string.vibrator_state_disabled));
-                    break;
-                case VibratorSettings.SILENT:
-                    pref.setSummary(getString(R.string.vibrator_state_silent));
-                    break;
-                default:
-                    pref.setSummary(getString(R.string.vibrator_state_enabled));
-                    break;
-                }
-                pref.setPersistent(false);
-                pref.setVibratorItem(vibrator);
-                vibrator.mCheckbox = pref;
-                vibratorList.addPreference(pref);
             }
         }
 
@@ -326,6 +307,8 @@ public class ProfileConfig extends SettingsPreferenceFragment
                     connection.mSettings.setOverride((Boolean) newValue);
                 }
             }
+        } else if (preference == mSilentMode.mCheckbox) {
+            mSilentMode.mSettings.setOverride((Boolean) newValue);
         } else if (preference == mNamePreference) {
             String name = mNamePreference.getName().toString();
             if (!name.equals(mProfile.getName())) {
@@ -425,15 +408,13 @@ public class ProfileConfig extends SettingsPreferenceFragment
         }
     }
 
-    static class VibratorItem {
-        int mVibratorId;
+    static class SilentModeItem {
         String mLabel;
-        VibratorSettings mSettings;
-        VibratorPreference mCheckbox;
+        SilentModeSettings mSettings;
+        ProfileSilentModePreference mCheckbox;
 
-        public VibratorItem(int vibratorId, String label) {
-            mVibratorId = vibratorId;
-            mLabel = label;
+        public SilentModeItem() {
+            // nothing to do
         }
     }
 }
