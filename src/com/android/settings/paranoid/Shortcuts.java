@@ -249,11 +249,11 @@ public class Shortcuts extends ApplicationsDialogPreference {
                     modifyApplication(packageName, path);
                     Drawable icon = getDrawable(path);
                     if(icon != null) mPreference.setIcon(icon);
-	            } else {
-	                if (mImageTmp.exists()) {
-	                    mImageTmp.delete();
-	                }
-	            }
+                } else {
+                    if (mImageTmp.exists()) {
+                        mImageTmp.delete();
+                    }
+                }
                 break;
         }
     }
