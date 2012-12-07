@@ -16,8 +16,10 @@
 
 package com.android.settings.paranoid;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,10 +28,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -51,6 +56,7 @@ import com.android.settings.ApplicationsDialogPreference;
 import com.android.settings.SettingsPreferenceFragment;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,13 +64,16 @@ import java.util.List;
 public class Shortcuts extends ApplicationsDialogPreference {
 
     private static final int TARGET_LIMIT = 6;
+    private static final int CUSTOM_USER_ICON = 0;
 
     private static final int MENU_ADD = Menu.FIRST;
     private static final int MENU_RESET = MENU_ADD + 1;
 
     private PreferenceScreen mPreferenceScreen;
+    private Preference mPreference;
     private Context mContext;
     private Resources mResources;
+    private File mImageTmp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +93,8 @@ public class Shortcuts extends ApplicationsDialogPreference {
         mAppAdapter = new AppAdapter(mInstalledApps);
         mAppAdapter.update();
 
+        mImageTmp = new File(getActivity().getCacheDir()
+                + File.separator + "target.tmp");
         loadApplications();
         setHasOptionsMenu(true);
     }
@@ -109,8 +120,9 @@ public class Shortcuts extends ApplicationsDialogPreference {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, final Preference preference) {
-        final String packageName = preference.getSummary().toString();
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        mPreference = preference;
+        final String packageName = mPreference.getSummary().toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.icon_picker_type)
                 .setItems(R.array.icon_types, new DialogInterface.OnClickListener() {
@@ -119,7 +131,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
                             case 0: // Default
                                 modifyApplication(packageName, null);
                                 Drawable icon = getApplicationIcon(packageName);
-                                if(icon != null) preference.setIcon(icon);
+                                if(icon != null) mPreference.setIcon(icon);
                                 break;
                             case 1: // Holo icon
                                 ListView list = new ListView(mContext);
@@ -134,13 +146,35 @@ public class Shortcuts extends ApplicationsDialogPreference {
                                         IconAdapter adapter = (IconAdapter) parent.getAdapter();
                                         String drawable = adapter.getItemReference(position);
                                         modifyApplication(packageName, drawable);
-                                        preference.setIcon((Drawable) adapter.getItem(position));
+                                        mPreference.setIcon((Drawable) adapter.getItem(position));
                                         holoDialog.cancel();
                                     }
                                 });
                                 holoDialog.show();
                                 break;
-                            case 2: // Custom user icon stub
+                            case 2: // Custom user icon
+                                Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+                                intent.setType("image/*");
+                                intent.putExtra("crop", "true");
+                                intent.putExtra("scale", true);
+                                intent.putExtra("scaleUpIfNeeded", false);
+                                intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
+                                intent.putExtra("aspectX", 1);
+                                intent.putExtra("aspectY", 1);
+                                intent.putExtra("outputX", 162);
+                                intent.putExtra("outputY", 162);
+                                try {
+                                    mImageTmp.createNewFile();
+                                    mImageTmp.setWritable(true, false);
+                                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mImageTmp));
+                                    intent.putExtra("return-data", false);
+                                    startActivityForResult(intent, CUSTOM_USER_ICON);
+                                } catch (IOException e) {
+                                    // We could not write temp file
+                                    e.printStackTrace();
+                                } catch (ActivityNotFoundException e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                         }
                     }
@@ -196,6 +230,32 @@ public class Shortcuts extends ApplicationsDialogPreference {
         menu.add(0, MENU_RESET, 0, R.string.lock_screen_shortcuts_reset)
                 .setIcon(R.drawable.ic_menu_delete_holo_dark)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) return;
+        switch (requestCode) {
+            case CUSTOM_USER_ICON:
+                if (resultCode == Activity.RESULT_OK) {
+                    String packageName = mPreference.getSummary().toString();
+                    File image = new File(getActivity().getFilesDir() + File.separator
+                            + "lockscreen_" + System.currentTimeMillis() + ".png");
+                    String path = image.getAbsolutePath();
+                    if (mImageTmp.exists()) {
+                        mImageTmp.renameTo(image);
+                    }
+                    image.setReadOnly();
+                    modifyApplication(packageName, path);
+                    Drawable icon = getDrawable(path);
+                    if(icon != null) mPreference.setIcon(icon);
+	            } else {
+	                if (mImageTmp.exists()) {
+	                    mImageTmp.delete();
+	                }
+	            }
+                break;
+        }
     }
 
     public class ShorcutPreference extends Preference implements View.OnLongClickListener {
@@ -403,7 +463,8 @@ public class Shortcuts extends ApplicationsDialogPreference {
     private Drawable getDrawable(String drawableName){
         int resourceId = Resources.getSystem().getIdentifier(drawableName, "drawable", "android");
         if(resourceId == 0) {
-            return null;
+            Drawable d = Drawable.createFromPath(drawableName);
+            return d;
         } else {
             return Resources.getSystem().getDrawable(resourceId);
         }
