@@ -306,8 +306,8 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
         .setMessage(R.string.lockscreen_target_reset_message)
         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                initializeView(GlowPadView.EMPTY_TARGET);
-                saveAll();
+                initializeView(null);
+                Settings.System.putString(mActivity.getContentResolver(), Settings.System.LOCKSCREEN_TARGETS, null);
                 Toast.makeText(mActivity, R.string.lockscreen_target_reset, Toast.LENGTH_LONG).show();
             }
         }).setNegativeButton(R.string.cancel, null)
