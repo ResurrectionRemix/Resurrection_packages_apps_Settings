@@ -37,7 +37,9 @@ import com.android.settings.Utils;
 
 public class LockscreenInterface extends SettingsPreferenceFragment {
 
+    private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
+    private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
 
@@ -58,12 +60,19 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         // Find categories
+        PreferenceCategory generalCategory = (PreferenceCategory)
+                findPreference(LOCKSCREEN_GENERAL_CATEGORY);
         PreferenceCategory widgetsCategory = (PreferenceCategory)
                 findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
 
         // Find preferences
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+
+        // Remove lockscreen button actions if device doesn't have hardware keys
+        if (!hasButtons()) {
+            generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_BUTTONS));
+        }
 
         // Remove/disable custom widgets based on device RAM and policy
         if (ActivityManager.isLowRamDeviceStatic()) {
@@ -119,6 +128,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    /**
+     * Checks if the device has hardware buttons.
+     * @return has Buttons
+     */
+    public boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
     }
 
     /**
