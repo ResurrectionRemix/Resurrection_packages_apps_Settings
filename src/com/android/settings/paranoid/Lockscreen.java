@@ -37,6 +37,9 @@ public class Lockscreen extends SettingsPreferenceFragment
     private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
     private static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
     private static final String KEY_VOLUME_WAKE = "volume_wake";
+    private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+
+    private PreferenceScreen mLockscreenButtons;
 
     private CheckBoxPreference mAllowRotation;
     private CheckBoxPreference mSeeThrough;
@@ -45,6 +48,10 @@ public class Lockscreen extends SettingsPreferenceFragment
     private CheckBoxPreference mVolumeWake;
 
     private Context mContext;
+
+    public boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,12 @@ public class Lockscreen extends SettingsPreferenceFragment
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
-                   
+
+        mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
+        if (!hasButtons()) {
+            getPreferenceScreen().removePreference(mLockscreenButtons);
+        }
+
         if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
             prefSet.removePreference(mAllowRotation);
         }
