@@ -18,8 +18,13 @@ package com.android.settings.deviceinfo;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.UserHandle;
 import android.os.storage.StorageVolume;
 import android.text.format.Formatter;
 import android.util.Log;
@@ -38,6 +43,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 
+import com.android.internal.app.IMediaContainerService;
 import com.android.settings.R;
 import com.android.settings.deviceinfo.StorageMeasurement.FileInfo;
 
@@ -113,12 +119,7 @@ public class MiscFilesHandler extends ListActivity {
                             Log.i(TAG, "deleting: " + mAdapter.getItem(i));
                         }
                         // delete the file
-                        File file = new File(mAdapter.getItem(i).mFileName);
-                        if (file.isDirectory()) {
-                            deleteDir(file);
-                        } else {
-                            file.delete();                            
-                        }
+                        new DeleteHandler(mAdapter.getItem(i).mFileName);
                         toRemove.add(mAdapter.getItem(i));
                     }
                     mAdapter.removeAll(toRemove);
@@ -140,21 +141,34 @@ public class MiscFilesHandler extends ListActivity {
             return true;
         }
 
-        // Deletes all files and subdirectories under given dir.
-        // Returns true if all deletions were successful.
-        // If a deletion fails, the method stops attempting to delete and returns false.
-        private boolean deleteDir(File dir) {
-            if (dir.isDirectory()) {
-                String[] children = dir.list();
-                for (int i=0; i < children.length; i++) {
-                    boolean success = deleteDir(new File(dir, children[i]));
-                    if (!success) {
-                        return false;
+        private class DeleteHandler {
+            private ServiceConnection mDefContainerConn = new ServiceConnection() {
+                @Override
+                public void onServiceConnected(ComponentName name, IBinder service) {
+                    final IMediaContainerService imcs = IMediaContainerService.Stub.asInterface(
+                            service);
+                    try {
+                        imcs.deleteFile(mPath); // Works for file and directory   
+                    } catch (Exception e) {
+                        Log.w(TAG, "Problem in container service", e);
                     }
+                    unbindService(mDefContainerConn);
                 }
+
+                @Override
+                public void onServiceDisconnected(ComponentName name) {
+                }
+            };
+
+            private String mPath;
+
+            public DeleteHandler(String path) {
+                mPath = path;
+                Intent service = new Intent().setComponent(
+                        StorageMeasurement.DEFAULT_CONTAINER_COMPONENT);
+                bindService(service, mDefContainerConn, Context.BIND_AUTO_CREATE,
+                        UserHandle.USER_OWNER);
             }
-            // The directory is now empty so delete it
-            return dir.delete();
         }
 
         public void onDestroyActionMode(ActionMode mode) {
