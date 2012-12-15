@@ -27,6 +27,7 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 public class Lockscreen extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -72,6 +73,10 @@ public class Lockscreen extends SettingsPreferenceFragment
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
+                   
+        if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
+            prefSet.removePreference(mAllowRotation);
+        }
     }
 
     @Override
