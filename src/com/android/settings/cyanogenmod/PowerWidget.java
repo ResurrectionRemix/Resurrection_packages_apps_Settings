@@ -248,6 +248,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             if (!isMobileData) {
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_MOBILEDATA);
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_NETWORKMODE);
+                PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_WIFIAP);
                 prefButtonsModes.removePreference(mNetworkMode);
             }
 
