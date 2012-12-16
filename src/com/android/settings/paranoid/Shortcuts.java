@@ -228,7 +228,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
                 .setIcon(R.drawable.ic_menu_add)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         menu.add(0, MENU_RESET, 0, R.string.lock_screen_shortcuts_reset)
-                .setIcon(R.drawable.ic_menu_delete_holo_dark)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
 
@@ -417,9 +417,18 @@ public class Shortcuts extends ApplicationsDialogPreference {
     }
 
     private void resetApplications() {
-        mPreferenceScreen.removeAll();
-        Settings.System.putString(getContentResolver(),
-            Settings.System.LOCKSCREEN_TARGETS, "");
+        AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+        alert.setTitle(R.string.tiles_reset_title);
+        alert.setMessage(R.string.tiles_reset_message);
+        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                mPreferenceScreen.removeAll();
+                Settings.System.putString(getContentResolver(),
+                        Settings.System.LOCKSCREEN_TARGETS, "");
+            }
+        });
+        alert.setNegativeButton(R.string.cancel, null);
+        alert.create().show();
     }
 
     private void addApplicationPreference(String packageName) {

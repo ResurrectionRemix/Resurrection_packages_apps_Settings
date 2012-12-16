@@ -21,7 +21,9 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,6 +35,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.settings.R;
@@ -43,6 +47,7 @@ import java.util.ArrayList;
 public class QuickSettingsTiles extends Fragment {
 
     private static final int MENU_RESET = Menu.FIRST;
+    private static final String SYSTEM_UI = "com.android.systemui";
 
     DraggableGridView mDragView;
     private ViewGroup mContainer;
@@ -58,8 +63,8 @@ public class QuickSettingsTiles extends Fragment {
         PackageManager pm = getActivity().getPackageManager();
         if (pm != null) {
             try {
-                mSystemUiResources = pm.getResourcesForApplication("com.android.systemui");
-            } catch (Exception e) {
+                mSystemUiResources = pm.getResourcesForApplication(SYSTEM_UI);
+            } catch (NameNotFoundException e) {
                 mSystemUiResources = null;
             }
         }
@@ -91,15 +96,8 @@ public class QuickSettingsTiles extends Fragment {
         final TextView name = (TextView) v.findViewById(R.id.qs_text);
         name.setText(titleId);
         if (mSystemUiResources != null && iconSysId != null) {
-            int resId = mSystemUiResources.getIdentifier(iconSysId, null, null);
-            if (resId > 0) {
-                try {
-                    Drawable d = mSystemUiResources.getDrawable(resId);
-                    name.setCompoundDrawablesRelativeWithIntrinsicBounds(null, d, null, null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            name.setCompoundDrawablesRelativeWithIntrinsicBounds(null,
+                    getDrawableFromString(iconSysId), null, null);
         } else {
             name.setCompoundDrawablesRelativeWithIntrinsicBounds(0, iconRegId, 0, 0);
         }
@@ -131,7 +129,7 @@ public class QuickSettingsTiles extends Fragment {
                 if (arg2 != mDragView.getChildCount() - 1) return;
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle(R.string.tile_choose_title)
-                .setAdapter(mTileAdapter, new DialogInterface.OnClickListener() {
+                .setAdapter(/*mTileAdapter*/new IconAdapter(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, final int position) {
                         new Thread(new Runnable() {
                             @Override
@@ -150,6 +148,58 @@ public class QuickSettingsTiles extends Fragment {
         });
 
         setHasOptionsMenu(true);
+    }
+
+    public class IconAdapter extends BaseAdapter {
+
+        String[] mTileKeys;
+        Context mContext;
+        Resources mResources;
+
+        public IconAdapter() {
+            mContext = getActivity();
+            mTileKeys = new String[getCount()];
+            QuickSettingsUtil.TILES.keySet().toArray(mTileKeys);
+            mResources = mContext.getResources();
+        }
+
+        @Override
+        public int getCount() {
+            return QuickSettingsUtil.TILES.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            String icon = QuickSettingsUtil.TILES.get(mTileKeys[position])
+                    .getIcon();
+            return getDrawableFromString(icon);
+        }
+
+        public String getTileId(int position) {
+            return QuickSettingsUtil.TILES.get(mTileKeys[position])
+                    .getId();
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View iView = convertView;
+            if (convertView == null) {
+                iView = View.inflate(mContext, R.layout.preference_icon, null);
+            }
+            TextView tt = (TextView) iView.findViewById(com.android.internal.R.id.title);
+            tt.setText(mContext.getString(QuickSettingsUtil.TILES.get(mTileKeys[position])
+                    .getTitleResId()));
+            ImageView i = (ImageView) iView.findViewById(R.id.icon);
+            Drawable ic = ((Drawable) getItem(position)).mutate();
+            i.setImageDrawable(ic);
+
+            return iView;
+        }
     }
 
     @Override
@@ -184,8 +234,8 @@ public class QuickSettingsTiles extends Fragment {
 
     private void resetTiles() {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-        alert.setTitle(R.string.tiles_reset_title);
-        alert.setMessage(R.string.tiles_reset_message);
+        alert.setTitle(R.string.lock_screen_shortcuts_reset);
+        alert.setMessage(R.string.lock_screen_shortcuts_reset_message);
         alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 QuickSettingsUtil.resetTiles(getActivity());
@@ -194,6 +244,19 @@ public class QuickSettingsTiles extends Fragment {
         });
         alert.setNegativeButton(R.string.cancel, null);
         alert.create().show();
+    }
+
+    private Drawable getDrawableFromString(String drawable) {
+        int resId = mSystemUiResources.getIdentifier(drawable, null, null);
+        if (resId > 0) {
+            try {
+                Drawable d = mSystemUiResources.getDrawable(resId);
+                return d;
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     @SuppressWarnings("rawtypes")
