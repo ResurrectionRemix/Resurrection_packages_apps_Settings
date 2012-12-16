@@ -36,7 +36,7 @@ public class PowerMenu extends SettingsPreferenceFragment {
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
     private static final String KEY_USER = "power_menu_user";
-    private static final String KEY_SILENT = "power_menu_silent";
+    private static final String KEY_SOUND = "power_menu_sound";
 
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
@@ -44,7 +44,7 @@ public class PowerMenu extends SettingsPreferenceFragment {
     private CheckBoxPreference mProfilesPref;
     private CheckBoxPreference mAirplanePref;
     private CheckBoxPreference mUserPref;
-    private CheckBoxPreference mSilentPref;
+    private CheckBoxPreference mSoundPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,9 +94,9 @@ public class PowerMenu extends SettingsPreferenceFragment {
                     Settings.System.POWER_MENU_USER_ENABLED, 0) == 1));
         }
 
-        mSilentPref = (CheckBoxPreference) findPreference(KEY_SILENT);
-        mSilentPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_SILENT_ENABLED, 1) == 1));
+        mSoundPref = (CheckBoxPreference) findPreference(KEY_SOUND);
+        mSoundPref.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.POWER_MENU_SOUND_ENABLED, 1) == 1));
 
     }
 
@@ -134,10 +134,10 @@ public class PowerMenu extends SettingsPreferenceFragment {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_USER_ENABLED,
                     value ? 1 : 0);
-       } else if (preference == mSilentPref) {
-            value = mSilentPref.isChecked();
+       } else if (preference == mSoundPref) {
+            value = mSoundPref.isChecked();
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_SILENT_ENABLED,
+                    Settings.System.POWER_MENU_SOUND_ENABLED,
                     value ? 1 : 0);
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);

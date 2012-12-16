@@ -25,7 +25,7 @@ import android.app.ConnectionSettings;
 import android.app.Profile;
 import android.app.ProfileGroup;
 import android.app.ProfileManager;
-import android.app.SilentModeSettings;
+import android.app.RingModeSettings;
 import android.app.StreamSettings;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -74,7 +74,7 @@ public class ProfileConfig extends SettingsPreferenceFragment
 
     private ArrayList<ConnectionItem> mConnections;
 
-    private SilentModeItem mSilentMode;
+    private RingModeItem mRingMode;
 
     private AirplaneModeItem mAirplaneMode;
 
@@ -186,24 +186,24 @@ public class ProfileConfig extends SettingsPreferenceFragment
         PreferenceGroup systemPrefs = (PreferenceGroup) prefSet.findPreference("profile_system_settings");
         if (systemPrefs != null) {
             systemPrefs.removeAll();
-            // Silent mode preference
-            if (mSilentMode == null) {
-                mSilentMode = new SilentModeItem();
+            // Ring mode preference
+            if (mRingMode == null) {
+                mRingMode = new RingModeItem();
             }
-            SilentModeSettings sms = mProfile.getSilentMode();
-            if (sms == null) {
-                sms = new SilentModeSettings();
-                mProfile.setSilentMode(sms);
+            RingModeSettings rms = mProfile.getRingMode();
+            if (rms == null) {
+                rms = new RingModeSettings();
+                mProfile.setRingMode(rms);
             }
-            mSilentMode.mSettings = sms;
-            ProfileSilentModePreference smp = new ProfileSilentModePreference(getActivity());
-            smp.setSilentModeItem(mSilentMode);
-            smp.setTitle(R.string.silent_mode_title);
-            smp.setPersistent(false);
-            smp.setSummary(getActivity());
-            smp.setOnPreferenceChangeListener(this);
-            mSilentMode.mCheckbox = smp;
-            systemPrefs.addPreference(smp);
+            mRingMode.mSettings = rms;
+            ProfileRingModePreference rmp = new ProfileRingModePreference(getActivity());
+            rmp.setRingModeItem(mRingMode);
+            rmp.setTitle(R.string.ring_mode_title);
+            rmp.setPersistent(false);
+            rmp.setSummary(getActivity());
+            rmp.setOnPreferenceChangeListener(this);
+            mRingMode.mCheckbox = rmp;
+            systemPrefs.addPreference(rmp);
 
             // Airplane mode preference
             if (mAirplaneMode == null) {
@@ -315,8 +315,8 @@ public class ProfileConfig extends SettingsPreferenceFragment
                     connection.mSettings.setOverride((Boolean) newValue);
                 }
             }
-        } else if (preference == mSilentMode.mCheckbox) {
-            mSilentMode.mSettings.setOverride((Boolean) newValue);
+        } else if (preference == mRingMode.mCheckbox) {
+            mRingMode.mSettings.setOverride((Boolean) newValue);
         } else if (preference == mAirplaneMode.mCheckbox) {
             mAirplaneMode.mSettings.setOverride((Boolean) newValue);
         } else if (preference == mNamePreference) {
@@ -413,12 +413,12 @@ public class ProfileConfig extends SettingsPreferenceFragment
         }
     }
 
-    static class SilentModeItem {
+    static class RingModeItem {
         String mLabel;
-        SilentModeSettings mSettings;
-        ProfileSilentModePreference mCheckbox;
+        RingModeSettings mSettings;
+        ProfileRingModePreference mCheckbox;
 
-        public SilentModeItem() {
+        public RingModeItem() {
             // nothing to do
         }
     }

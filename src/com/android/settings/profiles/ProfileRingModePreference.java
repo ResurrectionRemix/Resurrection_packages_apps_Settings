@@ -30,16 +30,16 @@ import android.widget.LinearLayout;
 
 import com.android.settings.R;
 
-public class ProfileSilentModePreference extends Preference implements
+public class ProfileRingModePreference extends Preference implements
         CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     private boolean mProtectFromCheckedChange = false;
 
     private CheckBox mCheckBox;
 
-    final static String TAG = "ProfileSilentModePreference";
+    final static String TAG = "ProfileRingModePreference";
 
-    private ProfileConfig.SilentModeItem mSilentModeItem;
+    private ProfileConfig.RingModeItem mRingModeItem;
 
     final static int defaultChoice = -1;
 
@@ -50,7 +50,7 @@ public class ProfileSilentModePreference extends Preference implements
      * @param attrs
      * @param defStyle
      */
-    public ProfileSilentModePreference(Context context, AttributeSet attrs, int defStyle) {
+    public ProfileRingModePreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
@@ -59,7 +59,7 @@ public class ProfileSilentModePreference extends Preference implements
      * @param context
      * @param attrs
      */
-    public ProfileSilentModePreference(Context context, AttributeSet attrs) {
+    public ProfileRingModePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
@@ -67,7 +67,7 @@ public class ProfileSilentModePreference extends Preference implements
     /**
      * @param context
      */
-    public ProfileSilentModePreference(Context context) {
+    public ProfileRingModePreference(Context context) {
         super(context);
         init();
     }
@@ -99,14 +99,14 @@ public class ProfileSilentModePreference extends Preference implements
     }
 
     public boolean isChecked() {
-        return mSilentModeItem != null && mSilentModeItem.mSettings.isOverride();
+        return mRingModeItem != null && mRingModeItem.mSettings.isOverride();
     }
 
-    public void setSilentModeItem(ProfileConfig.SilentModeItem silentModeItem) {
-        mSilentModeItem = silentModeItem;
+    public void setRingModeItem(ProfileConfig.RingModeItem ringModeItem) {
+        mRingModeItem = ringModeItem;
 
         if (mCheckBox != null) {
-            mCheckBox.setChecked(mSilentModeItem.mSettings.isOverride());
+            mCheckBox.setChecked(mRingModeItem.mSettings.isOverride());
         }
     }
 
@@ -115,26 +115,26 @@ public class ProfileSilentModePreference extends Preference implements
             return;
         }
 
-        mSilentModeItem.mSettings.setOverride(isChecked);
+        mRingModeItem.mSettings.setOverride(isChecked);
 
         callChangeListener(isChecked);
     }
 
-    protected Dialog createSilentModeDialog() {
+    protected Dialog createRingModeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        final String[] silentModeValues = getContext().getResources().getStringArray(R.array.silent_mode_values);
-        String currentValue = mSilentModeItem.mSettings.getValue();
+        final String[] ringModeValues = getContext().getResources().getStringArray(R.array.ring_mode_values);
+        String currentValue = mRingModeItem.mSettings.getValue();
         if (currentValue != null) {
-            for (int i = 0; i < silentModeValues.length; i++) {
-                if (currentValue.equals(silentModeValues[i])) {
+            for (int i = 0; i < ringModeValues.length; i++) {
+                if (currentValue.equals(ringModeValues[i])) {
                     currentChoice = i;
                     break;
                 }
             }
         }
 
-        builder.setTitle(R.string.silent_mode_title);
-        builder.setSingleChoiceItems(R.array.silent_mode_entries, currentChoice, new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.ring_mode_title);
+        builder.setSingleChoiceItems(R.array.ring_mode_entries, currentChoice, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 currentChoice = item;
@@ -145,9 +145,9 @@ public class ProfileSilentModePreference extends Preference implements
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (currentChoice != defaultChoice) {
-                    String value = silentModeValues[currentChoice];
-                    mSilentModeItem.mSettings.setValue(value);
-                    setSummary(getContext().getResources().getStringArray(R.array.silent_mode_entries)[currentChoice]);
+                    String value = ringModeValues[currentChoice];
+                    mRingModeItem.mSettings.setValue(value);
+                    setSummary(getContext().getResources().getStringArray(R.array.ring_mode_entries)[currentChoice]);
                 }
             }
         });
@@ -156,22 +156,22 @@ public class ProfileSilentModePreference extends Preference implements
         return builder.create();
     }
 
-    public ProfileConfig.SilentModeItem getSilentModeItem() {
-        return mSilentModeItem;
+    public ProfileConfig.RingModeItem getRingModeItem() {
+        return mRingModeItem;
     }
 
     @Override
     public void onClick(android.view.View v) {
         if ((v != null) && (R.id.text_layout == v.getId())) {
-            createSilentModeDialog().show();
+            createRingModeDialog().show();
         }
     }
 
     public void setSummary(Context context) {
-        String[] entries = context.getResources().getStringArray(R.array.silent_mode_entries);
-        String[] values = context.getResources().getStringArray(R.array.silent_mode_values);
+        String[] entries = context.getResources().getStringArray(R.array.ring_mode_entries);
+        String[] values = context.getResources().getStringArray(R.array.ring_mode_values);
         int l = entries.length;
-        String value = mSilentModeItem.mSettings.getValue();
+        String value = mRingModeItem.mSettings.getValue();
         for (int i = 0; i < l; i++) {
             if (value.equals(values[i])) {
                 setSummary(entries[i]);
