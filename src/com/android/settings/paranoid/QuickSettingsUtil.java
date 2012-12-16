@@ -54,11 +54,9 @@ public class QuickSettingsUtil {
     public static final String TILE_AIRPLANE = "toggleAirplane";
     public static final String TILE_FLASHLIGHT = "toggleFlashlight";
     public static final String TILE_SLEEP = "toggleSleepMode";
-    public static final String TILE_MEDIA_PLAY_PAUSE = "toggleMediaPlayPause";
-    public static final String TILE_MEDIA_PREVIOUS = "toggleMediaPrevious";
-    public static final String TILE_MEDIA_NEXT = "toggleMediaNext";
     public static final String TILE_LTE = "toggleLte";
     public static final String TILE_WIMAX = "toggleWimax";
+    public static final String TILE_NFC = "toggleNfc";
 
     private static final String TILE_DELIMITER = "|";
     private static final String TILES_DEFAULT = TILE_USER
@@ -106,6 +104,9 @@ public class QuickSettingsUtil {
         TILES.put(TILE_SOUND, new QuickSettingsUtil.TileInfo(
                 TILE_SOUND, R.string.title_tile_sound,
                 "com.android.systemui:drawable/ic_qs_ring_on"));
+        TILES.put(TILE_SYNC, new QuickSettingsUtil.TileInfo(
+                TILE_SYNC, R.string.title_tile_sync,
+                "com.android.systemui:drawable/ic_qs_sync_off"));
         TILES.put(TILE_WIFI, new QuickSettingsUtil.TileInfo(
                 TILE_WIFI, R.string.title_tile_wifi,
                 "com.android.systemui:drawable/ic_qs_wifi_4"));
@@ -115,6 +116,9 @@ public class QuickSettingsUtil {
         TILES.put(TILE_USER, new QuickSettingsUtil.TileInfo(
                 TILE_USER, R.string.title_tile_user,
                 "com.android.systemui:drawable/ic_qs_default_user"));
+        TILES.put(TILE_NFC, new QuickSettingsUtil.TileInfo(
+                TILE_NFC, R.string.title_tile_nfc,
+                "com.android.systemui:drawable/ic_qs_nfc_off"));
 
 /* These toggles are not available yet.  Comment out for now
         TILES.put(TILE_FLASHLIGHT, new QuickSettingsUtil.TileInfo(
@@ -126,9 +130,6 @@ public class QuickSettingsUtil {
         TILES.put(TILE_SCREENTIMEOUT, new QuickSettingsUtil.TileInfo(
                 TILE_SCREENTIMEOUT, R.string.title_tile_screentimeout,
                 "com.android.systemui:drawable/stat_screen_timeout_on"));
-        TILES.put(TILE_SYNC, new QuickSettingsUtil.TileInfo(
-                TILE_SYNC, R.string.title_tile_sync,
-                "com.android.systemui:drawable/stat_sync_on"));
         if(PhoneConstants.LTE_ON_CDMA_TRUE == TelephonyManager.getDefault().getLteOnCdmaMode() ||
            TelephonyManager.getDefault().getLteOnGsmMode() != 0) {
             TILES.put(TILE_LTE, new QuickSettingsUtil.TileInfo(
