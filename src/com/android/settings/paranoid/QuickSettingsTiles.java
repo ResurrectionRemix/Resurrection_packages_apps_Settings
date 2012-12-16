@@ -53,7 +53,7 @@ public class QuickSettingsTiles extends Fragment {
     private ViewGroup mContainer;
     LayoutInflater mInflater;
     Resources mSystemUiResources;
-    TileAdapter mTileAdapter;
+    IconAdapter mTileAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,7 +68,7 @@ public class QuickSettingsTiles extends Fragment {
                 mSystemUiResources = null;
             }
         }
-        mTileAdapter = new TileAdapter(getActivity(), 0);
+        mTileAdapter = new IconAdapter();
         return mDragView;
     }
 
@@ -129,7 +129,7 @@ public class QuickSettingsTiles extends Fragment {
                 if (arg2 != mDragView.getChildCount() - 1) return;
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle(R.string.tile_choose_title)
-                .setAdapter(/*mTileAdapter*/new IconAdapter(), new DialogInterface.OnClickListener() {
+                .setAdapter(mTileAdapter, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, final int position) {
                         new Thread(new Runnable() {
                             @Override
@@ -148,58 +148,6 @@ public class QuickSettingsTiles extends Fragment {
         });
 
         setHasOptionsMenu(true);
-    }
-
-    public class IconAdapter extends BaseAdapter {
-
-        String[] mTileKeys;
-        Context mContext;
-        Resources mResources;
-
-        public IconAdapter() {
-            mContext = getActivity();
-            mTileKeys = new String[getCount()];
-            QuickSettingsUtil.TILES.keySet().toArray(mTileKeys);
-            mResources = mContext.getResources();
-        }
-
-        @Override
-        public int getCount() {
-            return QuickSettingsUtil.TILES.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            String icon = QuickSettingsUtil.TILES.get(mTileKeys[position])
-                    .getIcon();
-            return getDrawableFromString(icon);
-        }
-
-        public String getTileId(int position) {
-            return QuickSettingsUtil.TILES.get(mTileKeys[position])
-                    .getId();
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View iView = convertView;
-            if (convertView == null) {
-                iView = View.inflate(mContext, R.layout.preference_icon, null);
-            }
-            TextView tt = (TextView) iView.findViewById(com.android.internal.R.id.title);
-            tt.setText(mContext.getString(QuickSettingsUtil.TILES.get(mTileKeys[position])
-                    .getTitleResId()));
-            ImageView i = (ImageView) iView.findViewById(R.id.icon);
-            Drawable ic = ((Drawable) getItem(position)).mutate();
-            i.setImageDrawable(ic);
-
-            return iView;
-        }
     }
 
     @Override
@@ -260,16 +208,17 @@ public class QuickSettingsTiles extends Fragment {
     }
 
     @SuppressWarnings("rawtypes")
-    static class TileAdapter extends ArrayAdapter {
+    public class IconAdapter extends BaseAdapter {
 
         String[] mTileKeys;
+        Context mContext;
         Resources mResources;
 
-        public TileAdapter(Context context, int textViewResourceId) {
-            super(context, android.R.layout.simple_list_item_1);
+        public IconAdapter() {
+            mContext = getActivity();
             mTileKeys = new String[getCount()];
             QuickSettingsUtil.TILES.keySet().toArray(mTileKeys);
-            mResources = context.getResources();
+            mResources = mContext.getResources();
         }
 
         @Override
@@ -279,9 +228,9 @@ public class QuickSettingsTiles extends Fragment {
 
         @Override
         public Object getItem(int position) {
-            int resid = QuickSettingsUtil.TILES.get(mTileKeys[position])
-                    .getTitleResId();
-            return mResources.getString(resid);
+            String icon = QuickSettingsUtil.TILES.get(mTileKeys[position])
+                    .getIcon();
+            return getDrawableFromString(icon);
         }
 
         public String getTileId(int position) {
@@ -289,6 +238,26 @@ public class QuickSettingsTiles extends Fragment {
                     .getId();
         }
 
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View iView = convertView;
+            if (convertView == null) {
+                iView = View.inflate(mContext, R.layout.preference_icon, null);
+            }
+            TextView tt = (TextView) iView.findViewById(com.android.internal.R.id.title);
+            tt.setText(mContext.getString(QuickSettingsUtil.TILES.get(mTileKeys[position])
+                    .getTitleResId()));
+            ImageView i = (ImageView) iView.findViewById(R.id.icon);
+            Drawable ic = ((Drawable) getItem(position)).mutate();
+            i.setImageDrawable(ic);
+
+            return iView;
+        }
     }
 
     public interface OnRearrangeListener {
