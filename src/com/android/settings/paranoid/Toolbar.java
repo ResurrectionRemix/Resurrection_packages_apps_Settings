@@ -40,6 +40,7 @@ public class Toolbar extends SettingsPreferenceFragment
 
     private static final String KEY_AM_PM_STYLE = "am_pm_style";
     private static final String KEY_SHOW_CLOCK = "show_clock";
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
     private static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
@@ -56,6 +57,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String PIE_CENTER = "pie_center";
 
     private ListPreference mAmPmStyle;
+    private CheckBoxPreference mStatusBarBrightnessControl;
     private ListPreference mStatusBarMaxNotif;
     private ListPreference mPieMode;
     private ListPreference mPieSize;
@@ -105,6 +107,18 @@ public class Toolbar extends SettingsPreferenceFragment
         mAmPmStyle.setValue(String.valueOf(amPmStyle));
         mAmPmStyle.setSummary(mAmPmStyle.getEntry());
         mAmPmStyle.setOnPreferenceChangeListener(this);
+
+        mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
+        mStatusBarBrightnessControl.setChecked((Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
+        try {
+            if (Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                mStatusBarBrightnessControl.setEnabled(false);
+                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
+            }
+        } catch (SettingNotFoundException e) {
+        }
 
         mStatusBarMaxNotif = (ListPreference) prefSet.findPreference(STATUS_BAR_MAX_NOTIF);
         int maxNotIcons = Settings.System.getInt(mContext.getContentResolver(),
@@ -182,6 +196,7 @@ public class Toolbar extends SettingsPreferenceFragment
                 prefSet.removePreference(mNavigationCategory);
             }
         } else {
+            prefSet.removePreference(mStatusBarBrightnessControl);
             mNavigationCategory.removePreference(mNavigationBarControls);
         }
     }
@@ -192,9 +207,14 @@ public class Toolbar extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_CLOCK, mShowClock.isChecked()
                     ? 1 : 0);
+        } else if (preference == mStatusBarBrightnessControl) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
+                    mStatusBarBrightnessControl.isChecked() ? 1 : 0);
+            return true;
         } else if (preference == mStatusBarNotifCount) {	
             Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.STATUS_BAR_NOTIF_COUNT,	mStatusBarNotifCount.isChecked()
+                    Settings.System.STATUS_BAR_NOTIF_COUNT, mStatusBarNotifCount.isChecked()
                     ? 1 : 0);	
         }else if (preference == mMenuButtonShow) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
