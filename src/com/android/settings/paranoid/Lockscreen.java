@@ -84,8 +84,15 @@ public class Lockscreen extends SettingsPreferenceFragment
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
 
+        // Battery status
         mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
-        mBatteryStatus.setOnPreferenceChangeListener(this);
+        if (mBatteryStatus != null) {
+            int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
+            mBatteryStatus.setValueIndex(batteryStatus);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
+            mBatteryStatus.setOnPreferenceChangeListener(this);
+        }
 
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
@@ -94,19 +101,6 @@ public class Lockscreen extends SettingsPreferenceFragment
 
         if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
             prefSet.removePreference(mAllowRotation);
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        // Set the battery status description text
-        if (mBatteryStatus != null) {
-            int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
-            mBatteryStatus.setValueIndex(batteryStatus);
-            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
         }
     }
 
