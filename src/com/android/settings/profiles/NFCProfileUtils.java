@@ -123,8 +123,7 @@ public class NFCProfileUtils {
     static NdefMessage getProfileAsNdef(Profile profile) {
         byte[] profileBytes = NFCProfileUtils.asByteArray(profile.getUuid());
 
-        NdefRecord record = new NdefRecord(NdefRecord.TNF_MIME_MEDIA,
-                NFCProfile.PROFILE_MIME_TYPE.getBytes(), new byte[] {}, profileBytes);
+        NdefRecord record = NdefRecord.createMime(NFCProfile.PROFILE_MIME_TYPE, profileBytes);
         return new NdefMessage(new NdefRecord[] { record });
     }
 }
