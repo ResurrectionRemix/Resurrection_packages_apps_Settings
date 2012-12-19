@@ -2051,7 +2051,7 @@
     <string name="toggleWifiAp">WLAN-Hotspot</string>
     <string name="toggleBluetooth">Bluetooth</string>
     <string name="toggleGPS">GPS</string>
-    <string name="toggleData">Mobilfunk-Daten</string>
+    <string name="toggleData">Mobilfunkdaten</string>
     <string name="toggleSync">Synchronisierung</string>
     <string name="toggle2g3g">2G/3G</string>
     <string name="toggleSound">Klingelmodus</string>
@@ -2064,7 +2064,7 @@
     <string name="toggleWimax">WiMAX</string>
 
     <!-- Screen security -->
-    <string name="screen_security_category">Bildschirm-Sicherheit</string>
+    <string name="screen_security_category">Bildschirmsicherheit</string>
     <string name="screen_security_title">Sicherheitssperre</string>
     <string name="screen_security_summary">Einstellungen zur Sicherheitssperre, Timeouts und Abschaltverzögerungen anzeigen und ändern.</string>
     <string name="additional_options_title">Weitere Optionen</string>
@@ -2324,9 +2324,9 @@
     <string name="title_toggle_sync">Synchronisierung</string>
     <string name="title_toggle_wifiap">WLAN-Hotspot</string>
     <string name="title_toggle_screentimeout">Bildschirm-Timeout</string>
-    <string name="title_toggle_mobiledata">Mobilfunk-Daten</string>
+    <string name="title_toggle_mobiledata">Mobilfunkdaten</string>
     <string name="title_toggle_lockscreen">Bildschirmsperre</string>
-    <string name="title_toggle_networkmode">2G/3G</string>
+    <string name="title_toggle_networkmode">Netzmodus</string>
     <string name="title_toggle_autorotate">Autom. Ausrichtung</string>
     <string name="title_toggle_airplane">Flugmodus</string>
     <string name="title_toggle_flashlight">Taschenlampe</string>
@@ -2383,7 +2383,7 @@
 
     <!-- Whether to display IME switcher notifcation -->
     <string name="ime_switcher_notify">Auswahl-Benachrichtigung</string>
-    <string name="ime_switcher_notify_summary">Benachrichtigung zur Auswahl der Eingabemethode in der Statusleiste anzeigen</string>
+    <string name="ime_switcher_notify_summary">Benachrichtigung zur Auswahl der Eingabemethode in der Statusleiste anzeigen.</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
@@ -2412,6 +2412,15 @@
     <string name="display_category_wakeup_options_title">Aufwecken</string>
     <string name="pref_volume_wake_title">Lautstärketaste</string>
     <string name="pref_volume_wake_summary">Lautstärketasten wecken das Gerät und aktivieren den Bildschirm</string>
+
+    <!-- Setting checkbox title for root access -->
+    <string name="root_access">Root-Zugriff</string>
+    <string name="root_access_warning_title">Root-Zugriff erlauben?</string>
+    <string name="root_access_warning_message">Apps den Root-Zugriff zu ermöglichen kann gefährlich sein und die Sicherheit des Gerätes beeinträchtigen!</string>
+    <string name="root_access_none">Ausgeschaltet</string>
+    <string name="root_access_apps">Nur Apps</string>
+    <string name="root_access_adb">Nur ADB</string>
+    <string name="root_access_all">Apps und ADB</string>
 
     <!-- Setting checkbox summary for displaying USB debugging notification -->
     <string name="adb_notify">USB-Debugging Info</string>
@@ -2445,7 +2454,7 @@
     <string name="quick_settings_title">Schnelleinstellungen</string>
     <string name="title_static_tiles">Statische Kacheln</string>
     <string name="tile_picker_title">Kacheln anordnen</string>
-    <string name="tile_picker_summary">Kacheln auswählen oder ihre Reihenfolge ändern</string>
+    <string name="tile_picker_summary">Kacheln auswählen oder ihre Reihenfolge ändern.</string>
     <string name="tile_choose_title">Kachel auswählen</string>
 
     <string name="title_tile_airplane">Flugmodus</string>
@@ -2457,22 +2466,23 @@
     <string name="title_tile_torch">Taschenlampe</string>
     <string name="title_tile_lockscreen">Bildschirmsperre</string>
     <string name="title_tile_lte">LTE</string>
-    <string name="title_tile_mobiledata">Mobilfunk-Daten</string>
+    <string name="title_tile_mobiledata">Mobilfunkdaten</string>
     <string name="title_tile_profile">Profile</string>
     <string name="title_tile_autorotate">Bildschirmausrichtung</string>
     <string name="title_tile_settings">Einstellungen</string>
     <string name="title_tile_screentimeout">Bildschirm-Timeout</string>
     <string name="title_tile_sound">Klingelmodus</string>
-    <string name="title_tile_sync">Synchronisierung</string>
+    <string name="title_tile_sync">Sync</string>
     <string name="title_tile_wifiap">WLAN-Hotspot</string>
     <string name="title_tile_wifi">WLAN</string>
     <string name="title_tile_wimax">WiMAX</string>
     <string name="title_tile_user">Benutzer wechseln</string>
-    <string name="title_tile_networkmode">2G/3G</string>
+    <string name="title_tile_networkmode">Netzmodus</string>
+    <string name="title_tile_nfc">NFC</string>
 
     <string name="title_dynamic_tiles">Dynamische Kacheln</string>
     <string name="dynamic_tiles_note_title">Hinweis</string>
-    <string name="dynamic_tiles_note_summary">Dynamische Kacheln werden nur angezeigt, wenn das entsprechende Systemereignis eintritt</string>
+    <string name="dynamic_tiles_note_summary">Dynamische Kacheln werden nur angezeigt, wenn das entsprechende Systemereignis eintritt.</string>
     <string name="title_dynamic_alarm">Wecker</string>
     <string name="title_dynamic_bugreport">Fehlerprotokollierung</string>
     <string name="title_dynamic_ime">Eingabemethode wählen</string>
@@ -2482,7 +2492,7 @@
     <string name="title_quick_pulldown">Schnelles Öffnen</string>
     <string name="summary_quick_pulldown">Schnelleinstellungen durch herunterziehen der Benachrichtigungsleiste in der Nähe des rechten Randes anzeigen</string>
     <string name="title_collapse_panel">Automatisch schließen</string>
-    <string name="summary_collapse_panel">Schnelleinstellungen nach Auswahl automatisch schließen</string>
+    <string name="summary_collapse_panel">Schnelleinstellungen nach Auswahl automatisch schließen.</string>
 
     <!-- Reset tiles -->
     <string name="tiles_reset_title">Zurücksetzen</string>
@@ -2493,6 +2503,21 @@
     <string name="volume_key_cursor_control_off">Deaktiviert</string>
     <string name="volume_key_cursor_control_on">Lautstärkewippe oben/unten bewegt den Cursor nach links/rechts</string>
     <string name="volume_key_cursor_control_on_reverse">Lautstärkewippe oben/unten bewegt den Cursor nach rechts/links</string>
+
+    <!--- Wifi countrycode -->
+    <string name="wifi_setting_countrycode_title">Ländercode</string>
+    <string name="wifi_setting_countrycode_summary">Den WLAN-Ländercode festlegen</string>
+    <string name="wifi_setting_countrycode_error">Beim Festlegen des WLAN-Ländercodes ist ein Problem aufgetreten.</string>
+
+    <!-- Wireless display -->
+    <string name="pref_wifi_disable_hdcp_title">HDCP-Aushandlung überspringen</string>
+    <string name="pref_wifi_disable_hdcp_summary">Diese Option kann helfen, falls bei bestehender Verbindung keine Ausgabe erfolgt.</string>
+
+    <!--- Sms security limit -->
+    <string name="app_security_title">App-Sicherheit</string>
+    <string name="sms_security_check_limit_title">SMS-Begrenzung</string>
+    <string name="sms_security_check_limit_summary">Zeigt einen Alarmdialog an, um Apps daran zu hindern, häufig SMS zu verschicken.\nMomentane Begrenzung: %d Nachrichten in 15 Minuten</string>
+    <string name="sms_security_check_limit_default">30 (Standard)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
