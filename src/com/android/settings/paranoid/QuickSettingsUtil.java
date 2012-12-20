@@ -95,6 +95,9 @@ public class QuickSettingsUtil {
         TILES.put(TILE_MOBILEDATA, new QuickSettingsUtil.TileInfo(
                 TILE_MOBILEDATA, R.string.title_tile_mobiledata,
                 "com.android.systemui:drawable/ic_qs_signal_4"));
+        TILES.put(TILE_NETWORKMODE, new QuickSettingsUtil.TileInfo(
+                TILE_NETWORKMODE, R.string.title_tile_networkmode,
+                "com.android.systemui:drawable/stat_2g3g_on"));
         TILES.put(TILE_AUTOROTATE, new QuickSettingsUtil.TileInfo(
                 TILE_AUTOROTATE, R.string.title_tile_autorotate,
                 "com.android.systemui:drawable/ic_qs_auto_rotate"));
@@ -124,9 +127,6 @@ public class QuickSettingsUtil {
         TILES.put(TILE_FLASHLIGHT, new QuickSettingsUtil.TileInfo(
                 TILE_FLASHLIGHT, R.string.title_tile_flashlight,
                 "com.android.systemui:drawable/ic_qs_flashlight_off"));
-        TILES.put(TILE_NETWORKMODE, new QuickSettingsUtil.TileInfo(
-                TILE_NETWORKMODE, R.string.title_tile_networkmode,
-                "com.android.systemui:drawable/stat_2g3g_on"));
         TILES.put(TILE_SCREENTIMEOUT, new QuickSettingsUtil.TileInfo(
                 TILE_SCREENTIMEOUT, R.string.title_tile_screentimeout,
                 "com.android.systemui:drawable/stat_screen_timeout_on"));

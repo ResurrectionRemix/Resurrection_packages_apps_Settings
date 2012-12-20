@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -28,6 +29,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
 
+import com.android.internal.telephony.Phone;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -44,12 +46,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String EXP_RING_MODE = "pref_ring_mode";
+    private static final String EXP_NETWORK_MODE = "pref_network_mode";
     private static final String DYNAMIC_ALARM = "dynamic_alarm";
     private static final String DYNAMIC_BUGREPORT = "dynamic_bugreport";
     private static final String DYNAMIC_IME = "dynamic_ime";
     private static final String DYNAMIC_WIFI = "dynamic_wifi";
 
     MultiSelectListPreference mRingMode;
+    ListPreference mNetworkMode;
     CheckBoxPreference mDynamicAlarm;
     CheckBoxPreference mDynamicBugReport;
     CheckBoxPreference mDynamicWifi;
@@ -91,11 +95,43 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         }
         mRingMode.setOnPreferenceChangeListener(this);
 
+        // Add the network mode preference
+        mNetworkMode = (ListPreference) prefSet.findPreference(EXP_NETWORK_MODE);
+        mNetworkMode.setSummary(mNetworkMode.getEntry());
+        mNetworkMode.setOnPreferenceChangeListener(this);
+
         // Don't show mobile data options if not supported
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
         if (!isMobileData) {
             QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_MOBILEDATA);
             QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_WIFIAP);
+            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_WIFIAP);
+            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_NETWORKMODE);
+            prefSet.removePreference(mNetworkMode);
+        } else {
+            // We have telephony support however, some phones run on networks not supported
+            // by the networkmode tile so remove both it and the associated options list
+            int network_state = -99;
+            try {
+                network_state = Settings.Global.getInt(getActivity()
+                        .getApplicationContext().getContentResolver(),
+                        Settings.Global.PREFERRED_NETWORK_MODE);
+            } catch (Settings.SettingNotFoundException e) {
+                // Unable to retrieve PREFERRED_NETWORK_MODE
+            }
+
+            switch (network_state) {
+                // list of supported network modes
+                case Phone.NT_MODE_WCDMA_PREF:
+                case Phone.NT_MODE_WCDMA_ONLY:
+                case Phone.NT_MODE_GSM_UMTS:
+                case Phone.NT_MODE_GSM_ONLY:
+                    break;
+                default:
+                    QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_NETWORKMODE);
+                    prefSet.removePreference(mNetworkMode);
+                    break;
+            }
         }
 
         // Don't show the bluetooth options if not supported
@@ -147,6 +183,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             Settings.System.putString(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_RING_MODE, TextUtils.join(SEPARATOR, arrValue));
             updateSummary(TextUtils.join(SEPARATOR, arrValue), mRingMode, R.string.pref_ring_mode_summary);
+        } else if (preference == mNetworkMode) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mNetworkMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.EXPANDED_NETWORK_MODE, value);
+            mNetworkMode.setSummary(mNetworkMode.getEntries()[index]);
         }
         return true;
     }
