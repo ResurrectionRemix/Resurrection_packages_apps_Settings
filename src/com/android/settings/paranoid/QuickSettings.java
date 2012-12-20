@@ -105,7 +105,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         if (!isMobileData) {
             QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_MOBILEDATA);
             QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_WIFIAP);
-            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_WIFIAP);
             QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_NETWORKMODE);
             prefSet.removePreference(mNetworkMode);
         } else {
