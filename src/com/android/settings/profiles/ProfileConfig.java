@@ -414,7 +414,6 @@ public class ProfileConfig extends SettingsPreferenceFragment
     }
 
     static class RingModeItem {
-        String mLabel;
         RingModeSettings mSettings;
         ProfileRingModePreference mCheckbox;
 
@@ -424,7 +423,6 @@ public class ProfileConfig extends SettingsPreferenceFragment
     }
 
     static class AirplaneModeItem {
-        String mLabel;
         AirplaneModeSettings mSettings;
         ProfileAirplaneModePreference mCheckbox;
 

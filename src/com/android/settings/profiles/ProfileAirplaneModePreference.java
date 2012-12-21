@@ -165,7 +165,6 @@ public class ProfileAirplaneModePreference extends Preference implements
 
     public void setSummary(Context context) {
         int value = mAirplaneModeItem.mSettings.getValue();
-        mAirplaneModeItem.mSettings.setValue(currentChoice);
         setSummary(value == 1 ? getContext().getString(R.string.connection_state_enabled) : getContext().getString(
                 R.string.connection_state_disabled));
     }
