@@ -618,6 +618,9 @@
     <string name="wifi_setting_frequency_band_title" msgid="7493768705046080060">"Полоса частот Wi-Fi"</string>
     <string name="wifi_setting_frequency_band_summary" msgid="3250740757118009784">"Укажите рабочий диапазон частот"</string>
     <string name="wifi_setting_frequency_band_error" msgid="837281974489794378">"При настройке полосы частот возникла неполадка."</string>
+    <string name="wifi_setting_countrycode_title">Код региона Wi-Fi</string>
+    <string name="wifi_setting_countrycode_summary">Укажите код региона Wi-Fi</string>
+    <string name="wifi_setting_countrycode_error">При настройке кода региона Wi-Fi возникла неполадка.</string>
     <string name="wifi_advanced_mac_address_title" msgid="6571335466330978393">"MAC-адрес"</string>
     <string name="wifi_advanced_ip_address_title" msgid="6215297094363164846">"IP-адрес"</string>
     <string name="wifi_advanced_settings_label" msgid="3654366894867838338">"Настройки IP"</string>
@@ -2108,6 +2111,11 @@
     <!-- Performance Settings : I/O scheduler settings summary. -->
     <string name="io_scheds_summary">Изменить режим планировщика I/O (ввода/вывода)</string>
 
+    <!-- Performance Settings : I/O scheduler settings sub items -->
+    <string name="io_sched_title">Планировщик I/O</string>
+    <string name="io_sched_set_on_boot">Выставлять при загрузке</string>
+    <string name="io_sched_set_on_boot_summary">Применить текущие настройки планировщика I/O при загрузке</string>
+
     <!-- Memory Management -->
     <string name="memory_management_title">Управление памятью</string>
     <string name="memory_management_summary">Настройка использования памяти для изменения производительности системы</string>
@@ -2297,7 +2305,7 @@
     <string name="title_toggle_screentimeout">Задержка выкл. экрана</string>
     <string name="title_toggle_mobiledata">Передача данных</string>
     <string name="title_toggle_lockscreen">Блокировка</string>
-    <string name="title_toggle_networkmode">2G/3G</string>
+    <string name="title_toggle_networkmode">Режим сети</string>
     <string name="title_toggle_autorotate">Автоповорот</string>
     <string name="title_toggle_airplane">Режим полёта</string>
     <string name="title_toggle_flashlight">Фонарик</string>
@@ -2328,8 +2336,8 @@
     <string name="kill_app_longpress_back_summary">Долгое нажатие кнопки Назад закроет запущенное приложение</string>
 
     <!-- Change Log strings -->
-    <string name="changelog_title">Посмотреть список изменений</string>
-    <string name="changelog_summary">Список изменений</string>
+    <string name="changelog_title">Список изменений</string>
+    <string name="changelog_summary">Просмотр списка изменений</string>
     <string name="changelog_loading">Загрузка списка изменений...</string>
     <string name="changelog_error">Ошибка загрузки списка изменений...</string>
     <string name="changelog_unknown">Неизвестно</string>
@@ -2432,6 +2440,7 @@
     <string name="title_tile_sync">Синхронизация</string>
     <string name="title_tile_wifiap">Точка доступа Wi-Fi</string>
     <string name="title_tile_user">Переключение пользователей</string>
+    <string name="title_tile_networkmode">Режим сети</string>
 
     <string name="title_dynamic_tiles">Динамические плитки</string>
     <string name="dynamic_tiles_note_title">Примечание</string>
@@ -2443,9 +2452,13 @@
 
     <string name="title_general">Основные</string>
     <string name="title_quick_pulldown">Быстрый доступ</string>
-    <string name="summary_quick_pulldown">Показывать \"Быстрые настройки\" потянув строку уведомлений вниз по правому краю экрана</string>
+    <string name="summary_quick_pulldown">угол строки уведомлений при опускании вниз открывает \"Быстрые настройки\"</string>
     <string name="title_collapse_panel">Закрывать панель</string>
     <string name="summary_collapse_panel">Закрывать панель быстрых настроек после переключения</string>
+
+    <string name="quick_pulldown_off">Выкл.</string>
+    <string name="quick_pulldown_left">Левый</string>
+    <string name="quick_pulldown_right">Правый</string>
 
     <!-- Reset tiles -->
     <string name="tiles_reset_title">Сброс</string>
@@ -2456,6 +2469,10 @@
     <string name="volume_key_cursor_control_off">Выключено</string>
     <string name="volume_key_cursor_control_on">Кнопка громкости +/- двигает курсор влево/вправо</string>
     <string name="volume_key_cursor_control_on_reverse">Кнопка громкости +/- двигает курсор вправо/влево</string>
+
+    <!-- Wireless display -->
+    <string name="pref_wifi_disable_hdcp_title">Пропустить опрос HDCP</string>
+    <string name="pref_wifi_disable_hdcp_summary">Используйте эту настройку, если вы смогли подключиться, но не удаётся вывести изображение</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
