@@ -24,6 +24,18 @@
         android:defaultValue="false" />
 
     <PreferenceCategory
+        android:key="power_key"
+        android:title="@string/hardware_keys_power_key_title" >
+
+        <CheckBoxPreference
+            android:key="power_end_call"
+            android:title="@string/power_end_call_title"
+            android:summary="@string/power_end_call_summary"
+            android:persistent="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
 
@@ -32,6 +44,12 @@
             android:title="@string/button_wake_title"
             android:summary="@string/home_wake_summary"
             android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="home_answer_call"
+            android:title="@string/home_answer_call_title"
+            android:summary="@string/home_answer_call_summary"
+            android:persistent="false"/>
 
         <ListPreference
             android:key="hardware_keys_home_long_press"
