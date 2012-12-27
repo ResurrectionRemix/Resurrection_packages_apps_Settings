@@ -528,6 +528,9 @@
     <string name="wifi_settings_category" msgid="2810363951104753710">"Wi-Fi beállítások"</string>
     <string name="wifi_settings_title" msgid="4351120897298124250">"Wi-Fi"</string>
     <string name="wifi_settings_summary" msgid="668767638556052820">"Vezeték nélküli hozzáférési pontok beállítása és kezelése"</string>
+    <string name="wifi_setting_countrycode_title">Wi-Fi régiókód</string>
+    <string name="wifi_setting_countrycode_summary">Adja meg a Wi-Fi régiókódját</string>
+    <string name="wifi_setting_countrycode_error">Hiba történt a régiókód beállítása közben.</string>
     <string name="wifi_setup_wizard_title" msgid="70277346338812325">"Wi-Fi hálózat kiválasztása"</string>
     <string name="wifi_starting" msgid="6716593470710880000">"Wi-Fi bekapcsolása?"</string>
     <string name="wifi_stopping" msgid="244864762599017659">"Wi-Fi kikapcsolása..."</string>
@@ -1900,9 +1903,9 @@
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
     <string name="anonymous_statistics_title">CyanogenMod Statisztika</string>
-    <string name="anonymous_statistics_summary">Segítsen a CyanogenMod jobbá tételében, kapcsolja be az anonim statisztikai adatok gyűjtését</string>
+    <string name="anonymous_statistics_summary">Segítsen a CyanogenMod jobbá tételében, kapcsolja be a névtelen statisztikai adatok gyűjtését</string>
     <string name="anonymous_statistics_warning_title">Tudnivalók</string>
-    <string name="anonymous_statistics_warning">A CyanogenMod statisztika engedélyezése nem terjed ki személyes adatokra, ezért csak egy egyedi azonosítóval azonosítjuk az eszközöket. A statisztika minden rendszerindításkor elküldésre kerül, hogy követni tudjuk az új telepítéseket.\n\nAz elküldött adatok menüpont alatt láthatja a statisztikai adatokat.</string>
+    <string name="anonymous_statistics_warning">A CyanogenMod statisztika engedélyezése nem terjed ki személyes adatokra, csak egy egyedi azonosítóval azonosítjuk az eszközöket. A statisztika minden rendszerindításkor elküldésre kerül, hogy követni tudjuk az új telepítéseket.\n\nAz elküldött adatok menüpont alatt tekintheti meg a statisztikai adatokat.</string>
     <string name="enable_reporting_title">Statisztika engedélyezése</string>
     <string name="preview_data_title">Elküldött adatok</string>
     <string name="preview_data_summary">%s</string>
@@ -2009,7 +2012,7 @@
     <string name="profile_appgroup_manage">Alkalmazáscsoportok kezelése</string>
 
     <!-- Profile settings screen, section header for settings related to notification profiles -->
-    <string name="profile_settings">Profil beállításo</string>
+    <string name="profile_settings">Profil beállítások</string>
     <string name="profile_name">Név</string>
 
     <!-- Profile Settings sound modes labels -->
@@ -2104,7 +2107,7 @@
 
     <!-- Performance Settings : Warning dialog  -->
     <string name="performance_settings_warning_title">Innentől óvatosan</string>
-    <string name="performance_settings_warning">Ezek a beállítások kísérleti jelleggel szerepelnek itt. Bármilyen változtatás a készülék instabilitásához, meghibásodásához vagy adatvesztéshez vezethet.\n\nAz esetleges károkért nem vállalunk felelősséget.</string>
+    <string name="performance_settings_warning">Ezek a beállítások kísérleti jelleggel szerepelnek itt. Bármilyen változtatás a készülék instabilitásához, meghibásodásához, vagy adatvesztéshez vezethet.\n\nAz esetleges károkért nem vállalunk felelősséget.</string>
 
     <!-- Performance Settings : Processor Settings -->
     <!-- Performance Settings : Processor settings title -->
@@ -2142,10 +2145,10 @@
     <string name="pref_zram_summary">Memóriatömörítés virtuális kapacitásnöveléshez (újraindítás szükséges)</string>
     <!-- KSM -->
     <string name="pref_ksm_title">KSM</string>
-    <string name="pref_ksm_summary">Memóriatömörítés virtuális kapacitásnöveléshez</string>
+    <string name="pref_ksm_summary">Azonos memórialapok összevonása virtuális kapacitásnöveléshez</string>
     <!-- Purgeable Assets -->
     <string name="pref_purgeable_assets_title">Memória ürítés engedélyezése</string>
-    <string name="pref_purgeable_assets_summary">Szükség esetén több RAM felszabadítását engedélyezi (újraindítás szükséges)</string>
+    <string name="pref_purgeable_assets_summary">Szükség esetén engedélyezi több RAM felszabadítását (újraindítás szükséges)</string>
 
     <!-- Performance Settings : Dithering -->
     <string name="pref_use_dithering_title">Felületjavítás</string>
@@ -2184,7 +2187,7 @@
     <string name="icon_picker_facebook">Facebook</string>
     <string name="icon_picker_gallery">Galéria</string>
     <string name="icon_picker_google_small">Google (kicsi)</string>
-    <string name="icon_picker_googleplus">Google Plus</string>
+    <string name="icon_picker_googleplus">Google+</string>
     <string name="icon_picker_googletalk">Google Csevegő</string>
     <string name="icon_picker_maps">Térkép</string>
     <string name="icon_picker_movie">Film</string>
@@ -2278,7 +2281,7 @@
     <!-- Sound settings screen -->
     <string name="volume_overlay_title">Hangerő panel</string>
     <string name="volbtn_music_controls_title">Zene vezérlése</string>
-    <string name="volbtn_music_controls_summary">A lejátszott számok között lépkedhet, hosszan nyomvatartott hangerő gombokkal (kikapcsolt képernyőnél)</string>
+    <string name="volbtn_music_controls_summary">Kikapcsolt képernyőnél a hangerőgombok nyomvatartásával válthat az éppen lejátszott zeneszámok között.</string>
     <string name="volume_ring_only_description">Csengőhang</string>
     <string name="ring_mode_title">Csengetés módja</string>
     <string name="ring_mode_normal">Normál</string>
@@ -2409,7 +2412,7 @@
 
     <!-- Status bar notification count -->
     <string name="status_bar_notif_count_title">Értesítések száma</string>
-    <string name="status_bar_notif_count_summary">Folyamatban lévő értesítések számának megjelenítése az Értesítési sávon</string>
+    <string name="status_bar_notif_count_summary">Folyamatban lévő értesítések számának megjelenítése az értesítési sávon</string>
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Ébredés beállítások</string>
@@ -2427,7 +2430,8 @@
     <string name="adb_over_network">ADB hálózaton keresztül</string>
     <string name="adb_over_network_summary">Engedélyezi a TCP/IP hibakeresést hálózati eszközön keresztül (Wi-Fi, USB hálózatok). Újraindítás után alaphelyzetbe áll vissza.</string>
     <!-- Warning for Adb over Network -->
-    <string name="adb_over_network_warning">VIGYÁZAT: Ha a funkció engedélyezve van, a telefon nyitva áll bármilyen behatolásra az összes kapcsolodó hálózaton keresztül!\n\nCsak biztonságos hálózatra csatlakozva érdemes engedélyezni.\n\nBiztosan engedélyezni szeretné?</string>
+    <string name="adb_over_network_warning" product="default">VIGYÁZAT: Ha a funkció engedélyezve van, a telefon nyitva áll bármilyen behatolásra az összes kapcsolodó hálózaton keresztül!\n\nCsak biztonságos hálózatra csatlakozva érdemes engedélyezni.\n\nBiztosan engedélyezni szeretné?</string>
+    <string name="adb_over_network_warning" product="tablet">VIGYÁZAT: Ha a funkció engedélyezve van, a táblagép nyitva áll bármilyen behatolásra az összes kapcsolodó hálózaton keresztül!\n\nCsak biztonságos hálózatra csatlakozva érdemes engedélyezni.\n\nBiztosan engedélyezni szeretné?</string>
 
     <string name="lockscreen_buttons_title">Gomb műveletek</string>
     <string name="lockscreen_buttons_summary">Képernyőzár beállítások</string>
@@ -2459,6 +2463,7 @@
     <string name="title_tile_lockscreen">Képernyőzár</string>
     <string name="title_tile_lte">LTE</string>
     <string name="title_tile_mobiledata">Mobilinternet</string>
+    <string name="title_tile_profile">Profil</string>
     <string name="title_tile_autorotate">Kijelző tájolás</string>
     <string name="title_tile_settings">Beállítások</string>
     <string name="title_tile_screentimeout">Képernyő időkorlátja</string>
@@ -2469,6 +2474,8 @@
     <string name="title_tile_wimax">WiMAX</string>
     <string name="title_tile_user">Felhasználóváltás</string>
     <string name="title_tile_networkmode">2G/3G</string>
+    <string name="title_tile_nfc">NFC</string>
+    <string name="title_tile_screen_timeout">Képernyő időkorlátja</string>
 
     <string name="title_dynamic_tiles">Dinamikus lapok</string>
     <string name="dynamic_tiles_note_title">Megjegyzés</string>
@@ -2480,7 +2487,12 @@
 
     <string name="title_general">Általános</string>
     <string name="title_quick_pulldown">Gyors legördítés</string>
-    <string name="summary_quick_pulldown">Lapok megjelenítése az értesítési sáv jobb olalán történő legörgetéskor</string>
+    <string name="summary_quick_pulldown">Lapok megjelenítése az értesítési sáv %1$s olalán történő legörgetéskor</string>
+    <string name="quick_pulldown_summary_left">bal</string>
+    <string name="quick_pulldown_summary_right">jobb</string>
+    <string name="quick_pulldown_off">Kikapcsolva</string>
+    <string name="quick_pulldown_left">Bal</string>
+    <string name="quick_pulldown_right">Jobb</string>
     <string name="title_collapse_panel">Panel automatikus bezárása</string>
     <string name="summary_collapse_panel">Elrejtés lap kiválasztásakor</string>
 
@@ -2493,6 +2505,16 @@
     <string name="volume_key_cursor_control_off">Letiltva</string>
     <string name="volume_key_cursor_control_on">Hangerő fel/le - balra/jobbra</string>
     <string name="volume_key_cursor_control_on_reverse">Hangerő fel/le - jobbra/balra</string>
+
+    <!-- Wireless display -->
+    <string name="pref_wifi_disable_hdcp_title">HDCP megerősítés tiltása</string>
+    <string name="pref_wifi_disable_hdcp_summary">Próbálja ki ezt a beállítást, ha tud csatlakozni a képernyőhöz, de az nem mutat képet.</string>
+
+    <!--- Sms security limit -->
+    <string name="app_security_title">Alkalmazásbiztonság</string>
+    <string name="sms_security_check_limit_title">Üzenet korlát</string>
+    <string name="sms_security_check_limit_summary">Figyelmeztető ablak megjelenítése a túl gyakori üzenetküldés megakadályozására. Jelenlegi limit: %d üzenet 15 percenként</string>
+    <string name="sms_security_check_limit_default">30 (Alapbeállítás)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
