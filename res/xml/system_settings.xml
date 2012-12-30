@@ -29,6 +29,16 @@
         android:title="@string/power_menu_title"
         android:fragment="com.android.settings.cyanogenmod.PowerMenu" />
 
+    <!-- Lock clock -->
+    <PreferenceScreen
+        android:key="lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    </PreferenceScreen>
+
     <PreferenceScreen
         android:key="notification_pulse"
         android:title="@string/notification_pulse_title"
