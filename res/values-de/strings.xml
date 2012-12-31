@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2007 The Android Open Source Project
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,7 +13,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
+-->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -20,9 +21,9 @@
     <string name="no" msgid="6731231425810196216">"Nein"</string>
     <string name="create" msgid="3578857613172647409">"Erstellen"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Unbekannt"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"In <xliff:g id="STEP_COUNT">%1$d</xliff:g> Schritten sind Sie ein Entwickler."</string>
-    <string name="show_dev_on" msgid="1110711554982716293">"Sie sind jetzt ein Entwickler!"</string>
-    <string name="show_dev_already" msgid="2151632240145446227">"Okay, sind Sie bereits ein Entwickler."</string>
+    <string name="show_dev_countdown" msgid="5521163114237004821">"Noch <xliff:g id="STEP_COUNT">%1$d</xliff:g> Schritte bis zur Aktivierung der Entwickleroptionen."</string>
+    <string name="show_dev_on" msgid="1110711554982716293">"Sie haben die Entwickleroptionen aktiviert!"</string>
+    <string name="show_dev_already" msgid="2151632240145446227">"Die Entwickleroptionen sind bereits aktiviert."</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"Drahtlos &amp; Netzwerke"</string>
     <string name="header_category_device" msgid="5781174212691167553">"Gerät"</string>
     <string name="header_category_personal" msgid="6225932173498802187">"Nutzer"</string>
@@ -2341,7 +2342,7 @@
     <string name="pref_brightness_mode_summary">Helligkeitsstufen, zwischen denen umgeschaltet wird</string>
     <string name="cm_brightness_mode_auto">Automatisch</string>
     <string name="cm_brightness_mode_dim">Dunkel</string>
-    <string name="pref_network_mode_title">Netzwerkmodi</string>
+    <string name="pref_network_mode_title">Netzmodi</string>
     <string name="pref_screentimeout_mode_title">Bildschirm-Timeout</string>
     <string name="pref_ring_mode_title">Klingelmodi</string>
     <string name="pref_ring_mode_summary">Klingelmodi, zwischen denen umgeschaltet wird</string>
@@ -2375,7 +2376,7 @@
     <string name="power_menu_sound_title">Lautlos</string>
 
     <!-- CM Updater -->
-    <string name="cmupdate_settings_title">CyanogenMod Updates</string>
+    <string name="cmupdate_settings_title">CyanogenMod-Updates</string>
     <string name="cmupdate_settings_summary">Auf neue Versionen prüfen und diese installieren.</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings -->
@@ -2518,6 +2519,31 @@
     <string name="sms_security_check_limit_title">SMS-Begrenzung</string>
     <string name="sms_security_check_limit_summary">Zeigt einen Alarmdialog an, um Apps daran zu hindern, häufig SMS zu verschicken.\nMomentane Begrenzung: %d Nachrichten in 15 Minuten</string>
     <string name="sms_security_check_limit_default">30 (Standard)</string>
+
+    <!--- Lock clock -->
+    <string name="lock_clock_title">Uhr-Widget</string>
+    <string name="lock_clock_summary">Eigenschaften des \'Chronus-Widgets\' anzeigen oder ändern.</string>
+
+    <!-- Stylus icon -->
+    <string name="stylus_icon_enabled_title">Stift-Symbol</string>
+    <string name="stylus_icon_enabled_summary">Zeiger einblenden, wenn ein Stift verwendet wird</string>
+
+    <!-- Awnser call with home button -->
+    <string name="accessibility_home_button_answers_call_prerefence_title">Anruf mit Home-Button annehmen</string>
+
+    <!-- Navigation Bar -->
+    <string name="navigation_bar_title">Navigationsleiste</string>
+    <string name="navigation_bar_help_text">1 - Schloss-Icon berühren, um zu beginnen\n\n2 - Eine Schaltfläche berühren, um ihr eine Funktion zuzuweisen oder diese zu ändern\n\n3 - Eine Schaltfläche gedrückt halten, um sie zu verschieben\n\n4 - Schloss-Icon erneut berühren, um die Änderungen zu speichern\n\n5 - Reset-Icon berühren, um die Vorgaben wiederherzustellen\n\n</string>
+    <string name="navigation_bar_tips">&#8226; Eine Funktion kann nur einer Schaltfläche gleichzeitig zugewiesen werden\n\n&#8226; Die Funktion der Home-Schaltfläche kann nicht verändert werden\n\n&#8226; Die seitlichen Schaltflächen können nicht verschoben werden</string>
+    <string name="navigation_bar_tips_title">Schnellhilfe</string>
+    <string name="navigation_bar_reset_message">Die Vorgaben der Navigationsleiste wiederherstellen?</string>
+    <string name="navigation_bar_save_message">Die Einstellungen der Navigationsleiste wurden gespeichert</string>
+    <string name="navigation_bar_reset_toast">Die Vorgaben der Navigationsleiste wurden wiederhergestellt</string>
+    <string name="navigation_bar_menu_editable">Änderbar</string>
+    <string name="navigation_bar_menu_locked">Gesperrt</string>
+
+    <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
+    <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen.</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
