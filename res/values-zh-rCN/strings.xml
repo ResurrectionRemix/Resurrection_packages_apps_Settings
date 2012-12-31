@@ -520,6 +520,10 @@
     <string name="android_beam_disabled_summary" msgid="1737782116894793393">"无法使用，因为 NFC 已关闭"</string>
     <string name="android_beam_label" msgid="6257036050366775040">"Android Beam"</string>
     <string name="android_beam_explained" msgid="6981652347448777459">"打开此功能后，您只需将自己的设备与另一台支持 NFC 的设备靠在一起，即可将您设备上的应用内容同步分享给对方。例如，您可以发送网页、YouTube 视频、联系人等等。"\n\n"您只需将设备靠在一起（通常是背靠背）然后触摸屏幕即可，所分享的内容由相应的应用确定。"</string>
+    <string name="nfc_polling_mode_title">NFC 侦测模式</string>
+    <string name="nfc_polling_mode_screen_off">屏幕关闭</string>
+    <string name="nfc_polling_mode_screen_locked">屏幕开启，锁屏</string>
+    <string name="nfc_polling_mode_screen_unlocked">屏幕开启，解锁 (默认)</string>
     <string name="nsd_quick_toggle_title" msgid="3125572815278848258">"网络服务发现"</string>
     <string name="nsd_quick_toggle_summary" msgid="155692215972781276">"允许其他设备上的应用发现此设备上的应用"</string>
     <string name="wifi_quick_toggle_title" msgid="874495178395350104">"Wi-Fi"</string>
@@ -758,6 +762,11 @@
     <string name="device_info_settings" product="default" msgid="475872867864762157">"手机状态"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"系统更新"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
+    <string name="hardware_info">硬件信息</string>
+    <string name="device_rear_camera">后置摄像头</string>
+    <string name="device_front_camera">前置摄像头</string>
+    <string name="device_screen_resolution">屏幕分辨率</string>
+    <string name="mem_info">内存</string>
     <string name="firmware_version" msgid="4801135784886859972">"Android 版本"</string>
     <string name="model_number" msgid="3765737700545384794">"型号"</string>
     <string name="fcc_equipment_id" msgid="149114368246356737">"设备 ID"</string>
@@ -1028,6 +1037,7 @@
     <string name="lock_title" product="default" msgid="4059246467204273930">"手机安全设置"</string>
     <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"创建个人屏幕解锁图案可防止他人未经许可使用您的平板电脑。在下一屏幕上用手指以任意顺序连接至少四个点。"\n\n"准备好开始了吗？请触摸“下一步”。"</string>
     <string name="lock_intro_message" product="default" msgid="8393155371327584659">"创建个人屏幕解锁图案可防止他人未经许可使用您的手机。在下一屏幕上滑动手指以任意顺序连接至少四个点。"\n\n"准备好开始了吗？请触摸“下一步”。"</string>
+    <string name="advanced_settings_title">设备选项</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"管理应用"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"管理和删除已安装的应用"</string>
     <string name="applications_settings" msgid="1721442176406964682">"应用"</string>
@@ -1267,6 +1277,8 @@
     <string name="enable_adb" msgid="7982306934419797485">"USB 调试"</string>
     <string name="enable_adb_summary" msgid="4881186971746056635">"连接 USB 后启用调试模式"</string>
     <string name="bugreport_in_power" msgid="4548816486587403971">"电源键菜单错误报告"</string>
+    <string name="adb_notify">USB 调试通知</string>
+    <string name="adb_notify_summary">当连接 USB 调试模式时显示通知</string>
     <string name="bugreport_in_power_summary" msgid="5764234382355067053">"在电源键菜单中添加提交错误报告的选项"</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"不锁定屏幕"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"充电时屏幕不会休眠"</string>
@@ -1834,4 +1846,53 @@
     <string name="user_picture_title" msgid="7297782792000291692">"照片 ID"</string>
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"小区广播"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"请选择要显示的紧急消息类型。"</string>
+
+	<string name="quick_links_title">快速链接</string>
+	<string name="rom_control_title">ROM控制</string>
+	<string name="themes_title">系统主题</string>
+	<string name="mod_version">AOKP 版本</string>
+	<string name="mod_version_default">未知</string>
+
+    <!-- Anonymous Statistics #CM -->
+    <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+<string name="anonymous_statistics_title">AOKP 统计</string>
+<string name="anonymous_statistics_summary">发送匿名的统计报告帮助 AOKP 更好发展</string>
+<string name="anonymous_statistics_warning_title">关于</string>
+<string name="anonymous_statistics_warning">AOKP 数据统计允许将非个人数据提交给开发者用于统计使用设备的数量。提交的数据包括设备唯一ID，这不会损害您的隐私和个人数据。数据将在设备启动引导时提交，每周提交一次。\n\n提交的数据示例请查看预览数据。</string>
+<string name="enable_reporting_title">启用报告</string>
+<string name="preview_data_title">预览数据</string>
+<string name="view_stats_title">查看统计信息</string>
+<string name="anonymous_learn_more">更多信息</string>
+
+<!-- Anonymous Statistics - Notification -->
+<string name="anonymous_notification_desc">启用/禁用 AOKP 统计</string>
+<!-- Anonymous Statistics - Preview -->
+<string name="preview_id_title">设备唯一 ID</string>
+<string name="preview_device_title">设备</string>
+<string name="preview_version_title">版本</string>
+<string name="preview_country_title">国家或地区</string>
+<string name="preview_carrier_title">运营商</string>
+
+    <!-- Quiet hours #CM -->
+<string name="quiet_hours_title">静音时段</string>
+<string name="quiet_hours_summary">设置设备自动进入静音状态的时间段</string>
+<string name="quiet_hours_enabled_title">启用静音时段</string>
+<string name="quiet_hours_start">静音时段开始</string>
+<string name="quiet_hours_start_summary">设置何时开始进入静音状态</string>
+<string name="quiet_hours_end">静音时段结束</string>
+<string name="quiet_hours_end_summary">设置何时退出静音状态</string>
+<string name="quiet_hours_notifications_title">屏蔽通知音效</string>
+<string name="quiet_hours_ringer_title">屏蔽来电铃声</string>
+<string name="quiet_hours_still_title">关闭震动</string>
+<string name="quiet_hours_dim_title">关闭通知灯</string>
+<string name="quiet_hours_active_from">静音时间从</string>
+<string name="quiet_hours_active_to">到</string>
+
+    <!-- time range preference -->
+<string name="start_time_title">开始</string>
+<string name="end_time_title">结束</string>
+
+    <string name="vibration_title">振动效果</string>
+    <string name="link_volume_ringtones">合并音量</string>
+    <string name="link_volume_mutes">合并静音状态</string>
 </resources>
