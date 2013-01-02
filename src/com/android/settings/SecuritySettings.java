@@ -729,7 +729,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             updateSlideAfterScreenOffSummary();
         } else if (preference == mSmsSecurityCheck) {
             int smsSecurityCheck = Integer.valueOf((String) value);
-            Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
+            Settings.Global.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
                      smsSecurityCheck);
             updateSmsSecuritySummary(smsSecurityCheck);
         }
