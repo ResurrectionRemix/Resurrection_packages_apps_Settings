@@ -35,11 +35,13 @@ public class Statusbar extends SettingsPreferenceFragment
     public static final String KEY_SHOW_CLOCK = "show_clock";
     public static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     public static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
+    public static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
 
     private CheckBoxPreference mShowClock;
     private ListPreference mAmPmStyle;
     private ListPreference mStatusBarMaxNotif;
     private CheckBoxPreference mStatusBarNotifCount;
+    private CheckBoxPreference mMenuButtonShow;
 
     private Context mContext;
 
@@ -67,6 +69,10 @@ public class Statusbar extends SettingsPreferenceFragment
                 Settings.System.MAX_NOTIFICATION_ICONS, 2);
         mStatusBarMaxNotif.setValue(String.valueOf(maxNotIcons));
         mStatusBarMaxNotif.setOnPreferenceChangeListener(this);
+
+        mMenuButtonShow = (CheckBoxPreference) prefSet.findPreference(NAV_BAR_TABUI_MENU);
+        mMenuButtonShow.setChecked((Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.NAV_BAR_TABUI_MENU, 0) == 1));
 
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
@@ -97,6 +103,10 @@ public class Statusbar extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIF_COUNT,	mStatusBarNotifCount.isChecked()
                     ? 1 : 0);	
+        }else if (preference == mMenuButtonShow) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAV_BAR_TABUI_MENU, mMenuButtonShow.isChecked() ? 1 : 0);
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
