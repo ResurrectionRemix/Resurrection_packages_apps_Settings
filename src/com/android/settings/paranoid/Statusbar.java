@@ -34,9 +34,11 @@ public class Statusbar extends SettingsPreferenceFragment
     public static final String KEY_AM_PM_STYLE = "am_pm_style";
     public static final String KEY_SHOW_CLOCK = "show_clock";
     public static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+    public static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
 
     private CheckBoxPreference mShowClock;
     private ListPreference mAmPmStyle;
+    private ListPreference mStatusBarMaxNotif;
     private CheckBoxPreference mStatusBarNotifCount;
 
     private Context mContext;
@@ -60,6 +62,12 @@ public class Statusbar extends SettingsPreferenceFragment
         mAmPmStyle.setSummary(mAmPmStyle.getEntry());
         mAmPmStyle.setOnPreferenceChangeListener(this);
 
+        mStatusBarMaxNotif = (ListPreference) prefSet.findPreference(STATUS_BAR_MAX_NOTIF);
+        int maxNotIcons = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.MAX_NOTIFICATION_ICONS, 2);
+        mStatusBarMaxNotif.setValue(String.valueOf(maxNotIcons));
+        mStatusBarMaxNotif.setOnPreferenceChangeListener(this);
+
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.TIME_12_24) == 24) {
@@ -73,6 +81,10 @@ public class Statusbar extends SettingsPreferenceFragment
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(KEY_STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked(Settings.System.getInt(getActivity().getContentResolver(), 
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
+
+        //if (!Utils.isTablet()) {
+        //    prefSet.removePreference(mStatusBarMaxNotif);
+        //}
     }
 
     @Override
@@ -96,6 +108,11 @@ public class Statusbar extends SettingsPreferenceFragment
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.STATUS_BAR_AM_PM_STYLE, statusBarAmPmSize);
             mAmPmStyle.setSummary(mAmPmStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarMaxNotif) {
+            int maxNotIcons = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.MAX_NOTIFICATION_ICONS, maxNotIcons);
             return true;
         }
         return false;
