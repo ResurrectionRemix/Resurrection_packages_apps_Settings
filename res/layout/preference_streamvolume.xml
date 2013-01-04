@@ -27,8 +27,8 @@
         android:gravity="center_vertical"
         android:clickable="true"
         android:focusable="true"
-        android:paddingLeft="@*android:dimen/preference_item_padding_side"
-        android:paddingRight="@*android:dimen/preference_item_padding_inner"
+        android:paddingStart="@*android:dimen/preference_item_padding_side"
+        android:paddingEnd="@*android:dimen/preference_item_padding_inner"
         android:background="?android:attr/selectableItemBackground">
 
         <RelativeLayout
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:paddingTop="6dip"
             android:paddingBottom="6dip"
-            android:paddingLeft="@*android:dimen/preference_icon_minWidth" >
+            android:paddingStart="@*android:dimen/preference_icon_minWidth" >
 
             <TextView android:id="@+android:id/title"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@android:id/title"
-                android:layout_alignLeft="@android:id/title"
+                android:layout_alignStart="@android:id/title"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?android:attr/textColorSecondary"
                 android:maxLines="2" />
