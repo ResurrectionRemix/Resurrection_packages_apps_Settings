@@ -17,6 +17,7 @@
 package com.android.settings.paranoid;
 
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -36,17 +37,18 @@ public class Lockscreen extends SettingsPreferenceFragment
     private static final String KEY_ALLOW_ROTATION = "allow_rotation";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
+    private static final String KEY_LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
     private static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
     private static final String KEY_VOLUME_WAKE = "volume_wake";
     private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
     private ListPreference mBatteryStatus;
-    private PreferenceScreen mLockscreenButtons;
 
     private CheckBoxPreference mAllowRotation;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mHomeScreenWidgets;
+    private CheckBoxPreference mMaximizeWidgets;
     private CheckBoxPreference mVolBtnMusicCtrl;
     private CheckBoxPreference mVolumeWake;
 
@@ -76,6 +78,14 @@ public class Lockscreen extends SettingsPreferenceFragment
         mHomeScreenWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.HOME_SCREEN_WIDGETS, 0) == 1);
 
+        mMaximizeWidgets = (CheckBoxPreference)findPreference(KEY_LOCKSCREEN_MAXIMIZE_WIDGETS);
+        if (Utils.isTablet()) {
+            getPreferenceScreen().removePreference(mMaximizeWidgets);
+            mMaximizeWidgets = null;
+        } else {
+            mMaximizeWidgets.setOnPreferenceChangeListener(this);
+        }
+
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
         mVolumeWake.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
@@ -84,19 +94,14 @@ public class Lockscreen extends SettingsPreferenceFragment
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
 
-        // Battery status
         mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
         if (mBatteryStatus != null) {
-            int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
-            mBatteryStatus.setValueIndex(batteryStatus);
-            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
             mBatteryStatus.setOnPreferenceChangeListener(this);
         }
 
-        mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
+        PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
-            getPreferenceScreen().removePreference(mLockscreenButtons);
+            getPreferenceScreen().removePreference(lockscreenButtons);
         }
 
         if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
@@ -155,13 +160,36 @@ public class Lockscreen extends SettingsPreferenceFragment
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        ContentResolver cr = getActivity().getContentResolver();
+        if (mBatteryStatus != null) {
+            int batteryStatus = Settings.System.getInt(cr,
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
+            mBatteryStatus.setValueIndex(batteryStatus);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
+        }
+
+        if (mMaximizeWidgets != null) {
+            mMaximizeWidgets.setChecked(Settings.System.getInt(cr,
+                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+        }
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        ContentResolver cr = getActivity().getContentResolver();
+
         if (preference == mBatteryStatus) {
             int value = Integer.valueOf((String) objValue);
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        } else if (preference == mMaximizeWidgets) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
             return true;
         }
         return false;
