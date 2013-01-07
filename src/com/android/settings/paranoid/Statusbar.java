@@ -36,12 +36,14 @@ public class Statusbar extends SettingsPreferenceFragment
     public static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     public static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
     public static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
+    private static final String STATUS_BAR_DONOTDISTURB = "status_bar_donotdisturb";
 
     private CheckBoxPreference mShowClock;
     private ListPreference mAmPmStyle;
     private ListPreference mStatusBarMaxNotif;
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mMenuButtonShow;
+    private CheckBoxPreference mStatusBarDoNotDisturb;
 
     private Context mContext;
 
@@ -88,6 +90,10 @@ public class Statusbar extends SettingsPreferenceFragment
         mStatusBarNotifCount.setChecked(Settings.System.getInt(getActivity().getContentResolver(), 
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
 
+        mStatusBarDoNotDisturb = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_DONOTDISTURB);
+        mStatusBarDoNotDisturb.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_DONOTDISTURB, 0) == 1));
+
         //if (!Utils.isTablet()) {
         //    prefSet.removePreference(mStatusBarMaxNotif);
         //}
@@ -106,6 +112,11 @@ public class Statusbar extends SettingsPreferenceFragment
         }else if (preference == mMenuButtonShow) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NAV_BAR_TABUI_MENU, mMenuButtonShow.isChecked() ? 1 : 0);
+            return true;
+        }else if (preference == mStatusBarDoNotDisturb) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_DONOTDISTURB,
+                    mStatusBarDoNotDisturb.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
