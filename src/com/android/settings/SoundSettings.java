@@ -668,4 +668,3 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mVibrationPreference.setSummary(new VibrationPattern(Uri.parse(uriString), getActivity()).getName());
     }
 }
-

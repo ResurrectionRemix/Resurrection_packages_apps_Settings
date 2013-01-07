@@ -65,11 +65,13 @@ public class Resurrection extends SettingsPreferenceFragment implements
   
     private CheckBoxPreference mShowEnterKey;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mHeadsetConnectPlayer;
     
     private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_NOTFY_ME = "notfy_me";
     private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_HEADSET_CONNECT_PLAYER = "headset_connect_player";
      
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -86,6 +88,10 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mShowEnterKey = (CheckBoxPreference) findPreference(SHOW_ENTER_KEY);
         mShowEnterKey.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.FORMAL_TEXT_INPUT, 0) == 1);
+                
+        mHeadsetConnectPlayer = (CheckBoxPreference) findPreference(KEY_HEADSET_CONNECT_PLAYER);
+        mHeadsetConnectPlayer.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HEADSET_CONNECT_PLAYER, 0) != 0);
         
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
@@ -112,6 +118,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
 		   } else if  (preference == mShowEnterKey) {
            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FORMAL_TEXT_INPUT, 
            mShowEnterKey.isChecked() ? 1 : 0);
+            } else if (preference == mHeadsetConnectPlayer) {
+            Settings.System.putInt(getContentResolver(), Settings.System.HEADSET_CONNECT_PLAYER,
+                    mHeadsetConnectPlayer.isChecked() ? 1 : 0);
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
