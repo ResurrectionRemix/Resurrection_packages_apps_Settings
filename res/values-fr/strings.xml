@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2007 The Android Open Source Project
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,7 +13,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
+-->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -1268,9 +1269,6 @@
     <string name="enable_adb_summary" msgid="4881186971746056635">"Mode débogage lorsqu\'un câble USB est connecté"</string>
     <string name="bugreport_in_power" msgid="4548816486587403971">"Rapports de bug du menu de démarrage"</string>
     <string name="bugreport_in_power_summary" msgid="5764234382355067053">"Inclure une option permettant d\'établir un rapport de bug dans le menu de démarrage"</string>
-    <string name="adb_over_network">ADB sur TCP/IP</string>
-    <string name="adb_over_network_summary">"Activer le débogage sur toutes les interfaces réseau (Wifi, Usb net)"</string>
-    <string name="adb_over_network_warning">"ATTENTION : Lorsque cette fonction est activée, votre appareil est ouvert aux intrusions sur toutes les interfaces, y compris via le réseau mobile\u00A0!\n\nIl est fortement conseillé de désactiver le réseau mobile avant d\'activer cette fonction.\n\nContinuer\u00A0?"</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"Rester activé"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"L\'écran ne se met jamais en veille lors du chargement"</string>
     <string name="allow_mock_location" msgid="2787962564578664888">"Positions fictives"</string>
@@ -1840,7 +1838,18 @@
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"Diffusions cellulaires"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"Sélectionnez les types d\'alertes d\'urgence à afficher."</string>
 
-    <!-- CYANOGENMOD EDITS START -->
+    <!-- ****  CYANOGENMOD ADDITIONS START  **** -->
+
+    <!-- time range preference -->
+    <string name="start_time_title">Début</string>
+    <string name="end_time_title">Fin</string>
+
+    <!-- convert sound to vibration toggle -->
+    <string name="notification_convert_sound_to_vibration_title">Vibrer à la notification</string>
+    <string name="notification_convert_sound_to_vibration_summary">En mode vibreur, toutes les notifications vibrent indépendamment des paramètres individuels des applications</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Nom d\'hôte de l\'appareil</string>
 
     <string name="ok">OK</string>
 
@@ -1865,15 +1874,15 @@
     <string name="quiet_hours_dim">Désactiver les leds</string>
     <string name="quiet_hours_dim_on">Leds de notification désactivées</string>
     <string name="quiet_hours_dim_off">Leds de notification actives</string>
-    <string name="quiet_hours_haptic">Désactiver son des boutons</string>
-    <string name="quiet_hours_haptic_on">Le son des boutons est désactivé</string>
-    <string name="quiet_hours_haptic_off">Le son des boutons est actif</string>
+    <string name="quiet_hours_haptic">Désactiver le retour haptique</string>
+    <string name="quiet_hours_haptic_on">Le retour haptique est désactivé</string>
+    <string name="quiet_hours_haptic_off">Le retour haptique est activé</string>
     <string name="quiet_hours_active_from">Actif de</string>
     <string name="quiet_hours_active_to">jusqu\'à</string>
 
-    <!-- time range preference -->
-    <string name="start_time_title">Début</string>
-    <string name="end_time_title">Fin</string>
+    <!-- Category title for headset specific Settings.
+         [CHAR LIMIT=40] -->
+    <string name="headset_category_title">Casque audio</string>
 
     <!-- About phone screen,  setting option name-->
     <string name="mod_version">Version CyanogenMod</string>
@@ -1889,11 +1898,11 @@
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-     <string name="anonymous_statistics_title">Statistiques CyanogenMod</string>
+    <string name="anonymous_statistics_title">Statistiques CyanogenMod</string>
     <string name="anonymous_statistics_summary">Aidez CyanogenMod en participant à l\'envoi de données anonymes pour comptabiliser les installations par type d\'appareil</string>
     <string name="anonymous_statistics_warning_title">À propos</string>
-    <string name="anonymous_statistics_warning">Autoriser les statistiques CyanogenMod permet l\'envoi de données anonymes aux développeurs du système CyanogenMod pour comptabiliser le nombre d\'installations par type d\'appareil. Les informations envoyées contiennent un identifiant unique de appareil afin de limiter les doublons et en aucune manière ne compromet la sécurité de vos données. Ce jeu d\'informations est envoyé à chaque redémarrage pour ne conserver que les installations actives.\n\nVous pouvez visualiser ces données en sélectionnant \"Prévisualiser les données\".</string>
-    <string name="enable_reporting_title">Activer le reporting</string>
+    <string name="anonymous_statistics_warning">Autoriser l\'envoi de statistiques permet pour les développeurs du système CyanogenMod de collecter des données anonymes afin de comptabiliser le nombre d\'installations par type d\'appareil. Les informations envoyées contiennent un identifiant unique de appareil afin de limiter les doublons et en aucune manière ne compromet la sécurité de vos données. Ce jeu d\'informations est envoyé à chaque redémarrage pour ne conserver que les installations actives.\n\nVous pouvez visualiser ces données en sélectionnant \"Prévisualiser les données\".</string>
+    <string name="enable_reporting_title">Activer l\'envoi</string>
     <string name="preview_data_title">Prévisualiser les données</string>
     <string name="preview_data_summary">%s</string>
     <string name="view_stats_title">Afficher les statistiques</string>
@@ -1970,6 +1979,9 @@
     <string name="rename_dialog_message">Saisir un nouveau nom</string>
     <string name="duplicate_appgroup_name">Ce groupe existe déjà\u00A0!</string>
     <string name="duplicate_profile_name">Ce profil existe déjà\u00A0!</string>
+
+    <!-- Title for the accessibility preference to home button to answers a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_home_button_answers_call_prerefence_title">Bouton Home pour répondre aux appels</string>
 
     <!-- Reset Profiles -->
     <string name="profile_reset_title">Réinitialiser</string>
@@ -2072,6 +2084,15 @@
     <string name="unlock_home_unlock_summary">Déverrouillage de l\'écran en appuyant sur le bouton Home</string>
     <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
     <string name="unlock_quick_unlock_control_summary">Évite d\'appuyer sur OK lors de la saisie du code PIN ou du mot de passe.\nAttention : effacer compte comme un essai raté\u00A0!</string>
+
+    <!-- Setting checkbox title for root access -->
+    <string name="root_access">Accès root</string>
+    <string name="root_access_warning_title">Autoriser l\'accès root\u00A0?</string>
+    <string name="root_access_warning_message">Autoriser l\'accès root aux applications peut être très dangereux et corrompre la sécurité et la stabilité de votre appareil\u00A0!</string>
+    <string name="root_access_none">Désactivé</string>
+    <string name="root_access_apps">Application uniquement</string>
+    <string name="root_access_adb">ADB uniquement</string>
+    <string name="root_access_all">Applications et ADB</string>
 
     <!-- Slide lock delay -->
     <string name="delay_and_timeout_title">Délai de verrouillage</string>
@@ -2180,7 +2201,7 @@
     <string name="icon_picker_nav_normal">Navigation</string>
     <string name="icon_picker_phone">Téléphone</string>
     <string name="icon_picker_podcast">Podcast</string>
-    <string name="icon_picker_rss">Rss</string>
+    <string name="icon_picker_rss">RSS</string>
     <string name="icon_picker_search">Recherche</string>
     <string name="icon_picker_sms">Messages</string>
     <string name="icon_picker_twitter">Twitter</string>
@@ -2209,7 +2230,7 @@
     <string name="profile_write_nfc_tag">Écrire sur les tags NFC</string>
     <string name="profile_write_touch_tag">Toucher le tag pour écrire</string>
     <string name="profile_write_success">Tag écrit avec succès</string>
-    <string name="profile_write_failed">L\'écriture à échoué\u00A0!</string>
+    <string name="profile_write_failed">L\'écriture a échoué\u00A0!</string>
     <string name="profile_selected">Profil sélectionné : %1$s</string>
     <string name="profile_nfc_text">Écrire un profil sur un tag NFC permet d\'en sélectionner un avec celui-ci. Lors du deuxième contact le profil précédent est sélectionné.</string>
     <string name="profile_unknown_nfc_tag">Profil inconnu</string>
@@ -2267,6 +2288,7 @@
     <string name="volume_overlay_title">Contrôle du volume</string>
     <string name="volbtn_music_controls_title">Playlist par boutons volume</string>
     <string name="volbtn_music_controls_summary">Lorsque l\'écran est éteint, un appui long permet de changer le titre en cours</string>
+    <string name="headset_connect_player_title">Lancer le lecteur de musique au branchement du casque</string>
     <string name="volume_ring_only_description">Sonneries</string>
     <string name="ring_mode_title">Sonnerie</string>
     <string name="ring_mode_normal">Normal</string>
@@ -2294,6 +2316,17 @@
     <string name="hardware_keys_action_search">Assistant de recherche</string>
     <string name="hardware_keys_action_voice_search">Recherche vocale</string>
     <string name="hardware_keys_action_in_app_search">Recherche dans l\'application</string>
+
+    <!-- Navigation Bar #CM -->
+    <string name="navigation_bar_title">Barre de navigation</string>
+    <string name="navigation_bar_help_text">1 - Pour commencer l\'édition, appuyer sur le cadenas\n\n2 - Appuyer sur un des boutons pour assigner ou changer une fonctionnalité\n\n3 - Pression longue pour modifier l\'ordre\n\n4 - Pour enregistrer, appuyer à nouveau sur le cadenas\n\n5 - Pour remettre à zéro, appuyer sur le bouton \"Réinitialiser\"\n\n</string>
+    <string name="navigation_bar_tips">&#8226; Les actions peuvent être assignées qu\'une seule fois\n\n&#8226; Le bouton d\'accueil ne peut être réassigné\n\n&#8226; Les boutons sur le bord ne peuvent être déplacés</string>
+    <string name="navigation_bar_tips_title">Astuces rapides</string>
+    <string name="navigation_bar_reset_message">Supprimer les paramètres actuels et remettre à zéro\u00A0?</string>
+    <string name="navigation_bar_save_message">Paramètres de la barre de navigation enregistrés</string>
+    <string name="navigation_bar_reset_toast">Barre de navigation remise à zéro</string>
+    <string name="navigation_bar_menu_editable">Editable</string>
+    <string name="navigation_bar_menu_locked">Verrouillée</string>
 
     <!-- Power Widget  -->
     <string name="power_widget_title">Widget d\'alimentation</string>
@@ -2347,7 +2380,6 @@
     <string name="kill_app_longpress_back">Tuer avec bouton Retour</string>
     <string name="kill_app_longpress_back_summary">Permet de forcer la fermeture de l\'application en cours en appuyant longuement sur le bouton Retour</string>
 
-
     <!-- Change Log strings -->
     <string name="changelog_title">Voir le rapport de version</string>
     <string name="changelog_loading">Chargement du rapport de version…</string>
@@ -2370,7 +2402,7 @@
     <string name="cmupdate_settings_summary">Vérifier, afficher ou installer les mises à jour disponibles</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
-    <string name="advanced_settings_title">Options avancés</string>
+    <string name="advanced_settings_title">Options avancées</string>
 
     <!-- Whether to display IME switcher notifcation -->
     <string name="ime_switcher_notify">Icône méthode de saisie</string>
@@ -2410,6 +2442,16 @@
 
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">Outils dév.</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">Stockage de masse</string>
+    <string name="usb_mass_storage_summary">Activer le stockage de masse USB</string>
+
+    <!-- Android debugging over WiFi -->
+    <string name="adb_over_network">ADB sur TCP/IP</string>
+    <string name="adb_over_network_summary">Activer le débogage sur toutes les interfaces (réseaux USB, Wi-Fi et Bluetooth)</string>
+    <!-- Warning for Adb over Network -->
+    <string name="adb_over_network_warning">ATTENTION : Lorsque cette fonction est activée, votre appareil est ouvert aux intrusions sur toutes les interfaces, y compris via le réseau mobile\u00A0!\n\nIl est fortement conseillé de désactiver le réseau mobile avant d\'activer cette fonction.\n\nContinuer\u00A0?</string>
 
     <string name="lockscreen_buttons_title">Bouton d\'actions</string>
     <string name="lockscreen_buttons_summary">Voir ou modifier les actions du bouton de verrouillage</string>
@@ -2453,6 +2495,7 @@
     <string name="title_tile_networkmode">Réseau</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Veille écran</string>
+    <string name="title_tile_usb_tether">Modem USB</string>
 
     <string name="title_dynamic_tiles">Raccourcis dynamiques</string>
     <string name="dynamic_tiles_note_title">Note</string>
@@ -2460,16 +2503,19 @@
     <string name="title_dynamic_alarm">Réveil</string>
     <string name="title_dynamic_bugreport">Rapport de bug</string>
     <string name="title_dynamic_ime">Changement IME</string>
+    <string name="title_dynamic_usbtether">Modem USB</string>
     <string name="title_dynamic_wifi">Wi-Fi disponible</string>
 
     <string name="title_general">Général</string>
     <string name="title_quick_pulldown">Ouverture rapide</string>
     <string name="summary_quick_pulldown">Tirer le coté %1$s pour ouvrir le panneau des raccrourcis</string>
+    <string name="quick_pulldown_summary_left">gauche</string>
+    <string name="quick_pulldown_summary_right">droit</string>
     <string name="quick_pulldown_off">Désactiver</string>
     <string name="quick_pulldown_left">Gauche</string>
     <string name="quick_pulldown_right">Droit</string>
     <string name="title_collapse_panel">Fermeture automatique</string>
-    <string name="summary_collapse_panel">Fermer le panneau des raccourcis lorsqu\'il bascule</string>
+    <string name="summary_collapse_panel">Fermer le panneau des raccourcis après un appui</string>
 
     <!-- Reset tiles -->
     <string name="tiles_reset_title">Réinitialiser</string>
@@ -2484,11 +2530,48 @@
     <!-- Wireless display -->
     <string name="pref_wifi_disable_hdcp_title">Eviter la négociation HDCP</string>
     <string name="pref_wifi_disable_hdcp_summary">Essayer cette option si vous voulez vous connecter sans aucune sortie</string>
+    <string name="wifi_setting_countrycode_title">Code de région Wi-Fi</string>
+    <!-- [CHAR LIMIT=50]-->
+    <string name="wifi_setting_countrycode_summary">Spécifier le code de région Wi-Fi</string>
+    <!-- [CHAR LIMIT=50]. -->
+    <string name="wifi_setting_countrycode_error">Il y a eu un problème de réglage du code de région.</string>
+    <!-- Wi-Fi settings screen, advanced, title of the item to set the Wi-Fi priority. -->
+    <string name="wifi_setting_priority_title">Priorité Wi-Fi</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the Wi-Fi priority-->
+    <string name="wifi_setting_priority_summary">Définir la priorité des réseaux Wi-Fi</string>
+
+    <!-- Activity label of BluetoothMasPermissionActivity, also used as Strings in the permission dialog [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_request">Demande d\'accès aux messages</string>
+    <!-- Bluetooth MAS permission Alert Activity text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_acceptance_dialog_text">%1$s souhaite accéder à vos messages. Donner l\'accès à %2$s\u00A0?</string>
+    <!-- Bluetooth MAS permission Alert Activity checkbox text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_remember_choice">Ne plus demander</string>
+
+    <!--- Sms security limit -->
+    <string name="app_security_title">Sécurité des applications</string>
+    <string name="sms_security_check_limit_title">Limiter l\'émission de SMS</string>
+    <string name="sms_security_check_limit_summary">Afficher un message d\'alerte pour prevenir qu\'une application envoie des messages SMS trop fréquemment. Limite actuelle : %d messages en 15 minutes</string>
+    <string name="sms_security_check_limit_default">30 (Défaut)</string>
 
     <!--- Lock clock -->
     <string name="lock_clock_title">Widget horloge</string>
     <string name="lock_clock_summary">Afficher ou modifier la façon dont \'cLock\' est affiché sur l\'écran d\'accueil ou de verrouillage</string>
 
-    <!-- **** CYANOGENMOD ADDITIONS END **** -->
+    <!-- Stylus Icon -->
+    <string name="stylus_icon_enabled_title">Afficher l\'icône quand un stylet est utilisé</string>
+    <string name="stylus_icon_enabled_summary">Afficher le pointeur du stylet quand celui-ci approche ou dessine sur l\'écran</string>
 
+    <string name="lockscreen_maximize_widgets_title">Maximiser les widgets</string>
+    <string name="lockscreen_maximize_widgets_summary">Afficher les widgets maximisés et le système de déverrouillage minimisé lorque l\'écran est déverrouillé</string>
+
+    <!-- Custom lock screen background -->
+    <string name="lockscreen_custom_background_title">Fond d\'écran</string>
+    <string name="lockscreen_custom_background_dialog_title">Choisir une couleur</string>
+    <string name="lockscreen_background_result_successful">Fond d\'écran changé avec succès</string>
+    <string name="lockscreen_background_result_not_successful">Impossible de changer le fond d\écran</string>
+    <string name="lockscreen_background_color_fill">Couleur de remplissage</string>
+    <string name="lockscreen_background_custom_image">Image personnalisée</string>
+    <string name="lockscreen_background_default_wallpaper">Fond d\'écran par défaut</string>
+
+    <!-- ****  CYANOGENMOD ADDITIONS END  **** -->
 </resources>
