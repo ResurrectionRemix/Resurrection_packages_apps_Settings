@@ -110,6 +110,9 @@ public class QuickSettingsUtil {
         TILES.put(TILE_SYNC, new QuickSettingsUtil.TileInfo(
                 TILE_SYNC, R.string.title_tile_sync,
                 "com.android.systemui:drawable/ic_qs_sync_off"));
+        TILES.put(TILE_FLASHLIGHT, new QuickSettingsUtil.TileInfo(
+                TILE_FLASHLIGHT, R.string.title_tile_flashlight,
+                "com.android.systemui:drawable/ic_qs_flashlight_off"));
         TILES.put(TILE_WIFI, new QuickSettingsUtil.TileInfo(
                 TILE_WIFI, R.string.title_tile_wifi,
                 "com.android.systemui:drawable/ic_qs_wifi_4"));
@@ -124,9 +127,6 @@ public class QuickSettingsUtil {
                 "com.android.systemui:drawable/ic_qs_nfc_off"));
 
 /* These toggles are not available yet.  Comment out for now
-        TILES.put(TILE_FLASHLIGHT, new QuickSettingsUtil.TileInfo(
-                TILE_FLASHLIGHT, R.string.title_tile_flashlight,
-                "com.android.systemui:drawable/ic_qs_flashlight_off"));
         TILES.put(TILE_SCREENTIMEOUT, new QuickSettingsUtil.TileInfo(
                 TILE_SCREENTIMEOUT, R.string.title_tile_screentimeout,
                 "com.android.systemui:drawable/stat_screen_timeout_on"));
