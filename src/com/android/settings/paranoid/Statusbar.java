@@ -27,6 +27,7 @@ import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 public class Statusbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -94,9 +95,10 @@ public class Statusbar extends SettingsPreferenceFragment
         mStatusBarDoNotDisturb.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_DONOTDISTURB, 0) == 1));
 
-        //if (!Utils.isTablet()) {
-        //    prefSet.removePreference(mStatusBarMaxNotif);
-        //}
+        if (!Utils.isTablet()) {
+            prefSet.removePreference(mStatusBarMaxNotif);
+            prefSet.removePreference(mMenuButtonShow);
+        }
     }
 
     @Override

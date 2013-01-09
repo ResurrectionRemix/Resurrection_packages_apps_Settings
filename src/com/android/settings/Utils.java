@@ -57,6 +57,7 @@ import android.provider.ContactsContract.RawContacts;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.ExtendedPropertiesUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -607,5 +608,9 @@ public class Utils {
         } else {
             return DEVICE_TABLET;
         }
+    }
+
+    public static boolean isTablet(){
+        return ExtendedPropertiesUtils.isTablet();
     }
 }
