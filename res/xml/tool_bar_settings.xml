@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 ParanoidAndroid Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/tool_bar_settings">
+
+    <PreferenceCategory
+        android:key="toolbar_status"
+        android:title="@string/tool_bar_status_heading" />
+
+        <CheckBoxPreference
+            android:key="show_clock"
+            android:title="@string/show_clock_title" />
+
+        <ListPreference
+            android:key="am_pm_style"
+            android:dialogTitle="@string/am_pm_style_title"
+            android:title="@string/am_pm_style_title"
+            android:entries="@array/status_bar_sizes_entries"
+            android:entryValues="@array/status_bar_sizes_values" />
+
+         <CheckBoxPreference
+            android:key="status_bar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"
+            android:defaultValue="false" />
+
+        <PreferenceScreen
+            android:key="quick_settings_tiles"
+            android:fragment="com.android.settings.paranoid.QuickSettings"
+            android:title="@string/quick_settings_title" />
+
+    <PreferenceCategory
+        android:key="toolbar_navigation"
+        android:title="@string/tool_bar_nav_heading" />
+
+        <ListPreference
+            android:key="status_bar_max_notifications"
+            android:dialogTitle="@string/status_bar_max_notifications_title"
+            android:title="@string/status_bar_max_notifications_title"
+            android:summary="@string/status_bar_max_notifications_summary"
+            android:entries="@array/status_bar_max_notifications"
+            android:entryValues="@array/status_bar_max_notifications" />
+
+        <CheckBoxPreference
+            android:key="nav_bar_tabui_menu"
+            android:title="@string/navigation_bar_tabui_menu_title"
+            android:summary="@string/navigation_bar_tabui_menu_summary" />
+
+        <CheckBoxPreference
+            android:key="status_bar_donotdisturb"
+            android:title="@string/status_bar_donotdisturb_title"
+            android:summary="@string/status_bar_donotdisturb_summary"
+            android:defaultValue="false" />
+
+        <PreferenceScreen
+            android:key="navigation_bar"
+            android:fragment="com.android.settings.cyanogenmod.NavBar"
+            android:title="@string/navigation_bar_title" />
+
+</PreferenceScreen>

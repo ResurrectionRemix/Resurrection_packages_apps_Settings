@@ -29,7 +29,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class Statusbar extends SettingsPreferenceFragment
+public class Toolbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String KEY_AM_PM_STYLE = "am_pm_style";
@@ -38,6 +38,7 @@ public class Statusbar extends SettingsPreferenceFragment
     public static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
     public static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
     private static final String STATUS_BAR_DONOTDISTURB = "status_bar_donotdisturb";
+    private static final String NAV_BAR = "navigation_bar";
 
     private CheckBoxPreference mShowClock;
     private ListPreference mAmPmStyle;
@@ -45,6 +46,7 @@ public class Statusbar extends SettingsPreferenceFragment
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mMenuButtonShow;
     private CheckBoxPreference mStatusBarDoNotDisturb;
+    private PreferenceScreen mButtonControl; 
 
     private Context mContext;
 
@@ -52,7 +54,7 @@ public class Statusbar extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_settings);
+        addPreferencesFromResource(R.xml.tool_bar_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
 
@@ -77,6 +79,8 @@ public class Statusbar extends SettingsPreferenceFragment
         mMenuButtonShow.setChecked((Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.NAV_BAR_TABUI_MENU, 0) == 1));
 
+        mButtonControl = (PreferenceScreen) prefSet.findPreference(NAV_BAR);
+
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.TIME_12_24) == 24) {
@@ -98,6 +102,9 @@ public class Statusbar extends SettingsPreferenceFragment
         if (!Utils.isTablet()) {
             prefSet.removePreference(mStatusBarMaxNotif);
             prefSet.removePreference(mMenuButtonShow);
+            prefSet.removePreference(mStatusBarDoNotDisturb);            
+        } else {
+            prefSet.removePreference(mButtonControl);
         }
     }
 
