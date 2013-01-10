@@ -41,7 +41,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.paranoid.QuickSettingsTiles.OnRearrangeListener;
+import com.android.settings.paranoid.CustomTilesFragment.OnRearrangeListener;
 
 public class DraggableGridView extends ViewGroup implements
         View.OnTouchListener, View.OnClickListener, View.OnLongClickListener {

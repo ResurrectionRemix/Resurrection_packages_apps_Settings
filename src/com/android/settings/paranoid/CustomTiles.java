@@ -41,8 +41,8 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
-public class QuickSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
-    private static final String TAG = "QuickSettings";
+public class CustomTiles extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+    private static final String TAG = "CustomTiles";
 
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String EXP_RING_MODE = "pref_ring_mode";
@@ -62,7 +62,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.quick_settings_panel);
+        addPreferencesFromResource(R.xml.custom_tiles_panel);
     }
 
     @Override
@@ -103,9 +103,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         // Don't show mobile data options if not supported
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
         if (!isMobileData) {
-            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_MOBILEDATA);
-            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_WIFIAP);
-            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_NETWORKMODE);
+            CustomTilesUtil.TILES.remove(CustomTilesUtil.TILE_MOBILEDATA);
+            CustomTilesUtil.TILES.remove(CustomTilesUtil.TILE_WIFIAP);
+            CustomTilesUtil.TILES.remove(CustomTilesUtil.TILE_NETWORKMODE);
             prefSet.removePreference(mNetworkMode);
         } else {
             // We have telephony support however, some phones run on networks not supported
@@ -127,7 +127,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
                 case Phone.NT_MODE_GSM_ONLY:
                     break;
                 default:
-                    QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_NETWORKMODE);
+                    CustomTilesUtil.TILES.remove(CustomTilesUtil.TILE_NETWORKMODE);
                     prefSet.removePreference(mNetworkMode);
                     break;
             }
@@ -135,7 +135,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
         // Don't show the bluetooth options if not supported
         if (BluetoothAdapter.getDefaultAdapter() == null) {
-            QuickSettingsUtil.TILES.remove(QuickSettingsUtil.TILE_BLUETOOTH);
+            CustomTilesUtil.TILES.remove(CustomTilesUtil.TILE_BLUETOOTH);
         }
     }
 
