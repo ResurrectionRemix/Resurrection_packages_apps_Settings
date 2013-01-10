@@ -166,7 +166,7 @@
     <string name="bluetooth_pb_remember_choice" msgid="2901499974259177202">"Ne jelenjen meg többé"</string>
     <string name="date_and_time" msgid="4114084177056654663">"Dátum és idő beállításai"</string>
     <string name="choose_timezone" msgid="1362834506479536274">"Válasszon időzónát"</string>
-    <string name="normal_date_format" msgid="7636406984925498359">"Regionális (<xliff:g id="DATE">%s</xliff:g>)"</string>
+    <string name="normal_date_format" msgid="7636406984925498359">"Helyi (<xliff:g id="DATE">%s</xliff:g>)"</string>
     <string name="display_preview_label" msgid="1127597250917274792">"Előnézet:"</string>
     <string name="display_font_size_label" msgid="8941851418397475389">"Betűméret:"</string>
     <!-- no translation found for intent_sender_data_label (6332324780477289261) -->
@@ -291,7 +291,7 @@
     <string name="date_time_set_time" msgid="5716856602742530696">"Idő beállítása"</string>
     <string name="date_time_set_timezone" msgid="5045627174274377814">"Időzóna kiválasztása"</string>
     <string name="date_time_set_date" msgid="7021491668550232105">"Dátum beállítása"</string>
-    <string name="date_time_date_format" msgid="6951498879879281102">"Válassza ki a dátum formátumát"</string>
+    <string name="date_time_date_format" msgid="6951498879879281102">"Dátum formátuma"</string>
     <string name="zone_list_menu_sort_alphabetically" msgid="5683377702671088588">"Rendezés név szerint"</string>
     <string name="zone_list_menu_sort_by_timezone" msgid="2720190443744884114">"Rendezés időzóna szerint"</string>
     <string name="date_picker_title" msgid="1338210036394128512">"Dátum"</string>
@@ -562,6 +562,7 @@
     <string name="wifi_more" msgid="3195296805089107950">"Egyebek"</string>
     <string name="wifi_setup_wps" msgid="8128702488486283957">"Automat. beállítás (WPS)"</string>
     <string name="wifi_required_info_text" msgid="9014073093293520112">"A telepítés befejezéséhez a táblagépnek Wi-Fi hálózatra van szüksége. A beállítás után válthat a mobil adatforgalom és a Wi-Fi között."</string>
+    <string name="wifi_auto_connect">Automatikus csatlakozás</string>
     <string name="wifi_show_advanced" msgid="1793703023711426246">"Speciális beállítások megjelenítése"</string>
     <string name="wifi_wps_setup_title" msgid="6034518116333042484">"WPS"</string>
     <string name="wifi_wps_setup_msg" msgid="315174329121275092">"WPS indítása..."</string>
@@ -723,7 +724,7 @@
     <string name="wallpaper_settings_fragment_title" msgid="519078346877860129">"Válasszon tapétát innen:"</string>
     <string name="screensaver_settings_title" msgid="3349790120327233241">"Álmodozás"</string>
     <string name="screensaver_settings_summary_either_long" msgid="2458481525925378465">"Dokkolt vagy alvó állapotban, töltés közben"</string>
-    <string name="screensaver_settings_summary_either_short" msgid="6140527286137331478">"Mindegy"</string>
+    <string name="screensaver_settings_summary_either_short" msgid="6140527286137331478">"Mindkettő"</string>
     <string name="screensaver_settings_summary_sleep" msgid="9086186698140423493">"Töltés közben"</string>
     <string name="screensaver_settings_summary_dock" msgid="2072657401664633283">"Dokkolt állapotban"</string>
     <string name="screensaver_settings_summary_off" msgid="2481581696365146473">"Ki"</string>
@@ -1158,7 +1159,7 @@
     <!-- no translation found for service_client_name (4037193625611815517) -->
     <skip />
     <string name="service_background_processes" msgid="6844156253576174488">"<xliff:g id="MEMORY">%1$s</xliff:g> szabad"</string>
-    <string name="service_foreground_processes" msgid="7583975676795574276">"<xliff:g id="MEMORY">%1$s</xliff:g> fogl"</string>
+    <string name="service_foreground_processes" msgid="7583975676795574276">"<xliff:g id="MEMORY">%1$s</xliff:g> foglalt"</string>
     <string name="memory" msgid="6609961111091483458">"RAM"</string>
     <!-- no translation found for service_process_name (4098932168654826656) -->
     <skip />
@@ -1548,6 +1549,7 @@
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Értesítések"</string>
     <string name="sound_category_call_ringtone_vibrate_title" msgid="1543777228646645163">"Csengőhang és rezgés beállításai"</string>
     <string name="sound_category_system_title" msgid="1480844520622721141">"Rendszer"</string>
+    <string name="headset_category_title">Fejhallgató</string>
     <string name="wifi_setup_title" msgid="661074868726906436">"Wi-Fi beállítása"</string>
     <string name="wifi_setup_title_editing_network" msgid="7304321031985059969">"Csatlakozás <xliff:g id="NETWORK_NAME">%s</xliff:g> Wi-Fi hálózathoz"</string>
     <string name="wifi_setup_title_connecting_network" msgid="3747859666621319757">"Csatlakozás a(z) <xliff:g id="NETWORK_NAME">%s</xliff:g> Wi-Fi hálózathoz..."</string>
@@ -1698,8 +1700,8 @@
     <string name="data_usage_change_cycle" msgid="7776556448920114866">"Ciklus módosítása..."</string>
     <string name="data_usage_pick_cycle_day" msgid="4470796861757050966">"Az adatforgalmi ciklus visszaállítása a hónap e napján:"</string>
     <string name="data_usage_empty" msgid="8621855507876539282">"Egy alkalmazás sem használt adatokat ekkor."</string>
-    <string name="data_usage_label_foreground" msgid="4938034231928628164">"Előtér"</string>
-    <string name="data_usage_label_background" msgid="3225844085975764519">"Háttér"</string>
+    <string name="data_usage_label_foreground" msgid="4938034231928628164">"Előtérben"</string>
+    <string name="data_usage_label_background" msgid="3225844085975764519">"Háttérben"</string>
     <string name="data_usage_app_restricted" msgid="3568465218866589705">"korlátozott"</string>
     <string name="data_usage_disable_mobile" msgid="5211007048880167438">"Mobiladatok kikapcsolása?"</string>
     <string name="data_usage_disable_mobile_limit" msgid="4644364396844393848">"Mobil adatkorlát beállítása"</string>
@@ -1860,25 +1862,25 @@
     <string name="quiet_hours_summary">Csendes órák beállításai</string>
     <string name="quiet_hours_note_title">Megjegyzés</string>
     <string name="quiet_hours_note_summary">A bejövő hívásokra nincs hatással</string>
-    <string name="quiet_hours_enabled">Csendes órák engedélyezése</string>
-    <string name="quiet_hours_enabled_on">Csendes órák bekapcsolva</string>
-    <string name="quiet_hours_enabled_off">Az értesítésekre nincs hatással</string>
+    <string name="quiet_hours_enabled">Csendes órák</string>
+    <string name="quiet_hours_enabled_on">Aktív</string>
+    <string name="quiet_hours_enabled_off">Inaktív</string>
     <string name="quiet_hours_start">Csendes órák kezdete</string>
     <string name="quiet_hours_start_summary">Csendes órák engedélyezve</string>
     <string name="quiet_hours_end">Csendes órák vége</string>
     <string name="quiet_hours_end_summary">Csendes órák tiltva</string>
-    <string name="quiet_hours_mute">Értesítések némítása</string>
-    <string name="quiet_hours_mute_on">Értesítések némítva</string>
-    <string name="quiet_hours_mute_off">Értesítések engedélyezve</string>
-    <string name="quiet_hours_still">Rezgés engedélyezése</string>
-    <string name="quiet_hours_still_on">Rezgés tiltva</string>
-    <string name="quiet_hours_still_off">Rezgés engedélyezve</string>
-    <string name="quiet_hours_dim">Értesítési fények tiltása</string>
-    <string name="quiet_hours_dim_on">Értesítési fények tiltva</string>
-    <string name="quiet_hours_dim_off">Értesítési fények engedélyezve</string>
-    <string name="quiet_hours_haptic">Érintési visszajelzés tiltása</string>
-    <string name="quiet_hours_haptic_on">Érintési visszajelzés tiltva</string>
-    <string name="quiet_hours_haptic_off">Érintési visszajelzés engedélyezve</string>
+    <string name="quiet_hours_mute">Értesítések</string>
+    <string name="quiet_hours_mute_on">Tiltva</string>
+    <string name="quiet_hours_mute_off">Engedélyezve</string>
+    <string name="quiet_hours_still">Rezgés</string>
+    <string name="quiet_hours_still_on">Tiltva</string>
+    <string name="quiet_hours_still_off">Engedélyezve</string>
+    <string name="quiet_hours_dim">Értesítési fények</string>
+    <string name="quiet_hours_dim_on">Tiltva</string>
+    <string name="quiet_hours_dim_off">Engedélyezve</string>
+    <string name="quiet_hours_haptic">Érintési visszajelzés</string>
+    <string name="quiet_hours_haptic_on">Tiltva</string>
+    <string name="quiet_hours_haptic_off">Engedélyezve</string>
     <string name="quiet_hours_active_from">Bekapcsolva ettől</string>
     <string name="quiet_hours_active_to">eddig</string>
 
@@ -2283,6 +2285,7 @@
     <string name="volume_overlay_title">Hangerő panel</string>
     <string name="volbtn_music_controls_title">Zene vezérlése</string>
     <string name="volbtn_music_controls_summary">Kikapcsolt képernyőnél a hangerőgombok nyomvatartásával válthat az éppen lejátszott zeneszámok között.</string>
+    <string name="headset_connect_player_title">Zenelejátszó indítása csatlakoztatáskor</string>
     <string name="volume_ring_only_description">Csengőhang</string>
     <string name="ring_mode_title">Csengetés módja</string>
     <string name="ring_mode_normal">Normál</string>
@@ -2290,7 +2293,7 @@
     <string name="ring_mode_mute">Néma</string>
 
     <!-- Hardware keys -->
-    <string name="hardware_keys_title">Hardware gombok</string>
+    <string name="hardware_keys_title">Hardver gombok</string>
     <string name="hardware_keys_bindings_title">Gomb események</string>
     <string name="hardware_keys_enable_custom_title">Egyéni műveletek engedélyezése</string>
     <string name="hardware_keys_home_long_press_title">Kezdő gomb (hosszan)</string>
@@ -2310,6 +2313,17 @@
     <string name="hardware_keys_action_search">Kereső asszisztens</string>
     <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
     <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
+
+    <!-- Navigation Bar #CM -->
+    <string name="navigation_bar_title">Navigációs sáv</string>
+    <string name="navigation_bar_help_text">1 - A szerkesztéshez érintse meg a lakatot\n\n2 - Válasszon gombot a hozzárendelés módosításához\n\n3 - Tartsa hosszan a sorba rendezéshez\n\n4 - A mentéshez érintse meg ismét a lakatot\n\n5 - Az alaphelyzet visszaállításához érintse meg a Visszaállítás gombot\n\n</string>
+    <string name="navigation_bar_tips">&#8226; Egy esemény csak egy gombhoz állítható be\n\n&#8226; A kezdőgomb nem társítható\n\n&#8226; Az oldalsó gombok nem rendezhetőek át</string>
+    <string name="navigation_bar_tips_title">Gyors tippek</string>
+    <string name="navigation_bar_reset_message">Törli a jelenlegi beállításokat és visszaállítja az alaphelyzetet?</string>
+    <string name="navigation_bar_save_message">Navigációs sáv beállításai elmentve</string>
+    <string name="navigation_bar_reset_toast">Navigációs sáv beállításai visszaállítva az alaphelyzetbe</string>
+    <string name="navigation_bar_menu_editable">Szerkeszthető</string>
+    <string name="navigation_bar_menu_locked">Zárolt</string>
 
     <!-- Power Widget  -->
     <string name="power_widget_title">Energiagazdálkodás</string>
@@ -2401,7 +2415,7 @@
     <string name="status_bar_am_pm_info">24 órás megjelenítés aktív</string>
     <string name="status_bar_battery_title">Akkumulátor állapotjelző stílusa</string>
     <string name="status_bar_toggle_brightness">Fényerő vezérlés</string>
-    <string name="status_bar_toggle_brightness_summary">Engedélyezi az értesítési sávon a fényerö változtatását ujjának csúsztatásával</string>
+    <string name="status_bar_toggle_brightness_summary">Engedélyezi az értesítési sávon a fényerő változtatását ujjának csúsztatásával</string>
     <string name="status_bar_toggle_info">Automatikus fényerő engedélyezve</string>
     <string name="status_bar_signal_text_title">Térerő jelzés stílusa</string>
     <string name="status_bar_style_icon">Ikon</string>
@@ -2487,7 +2501,7 @@
 
     <string name="title_general">Általános</string>
     <string name="title_quick_pulldown">Gyors legördítés</string>
-    <string name="summary_quick_pulldown">Lapok megjelenítése az értesítési sáv %1$s olalán történő legörgetéskor</string>
+    <string name="summary_quick_pulldown">Lapok megjelenítése az értesítési sáv %1$s oldalán történő legörgetéskor</string>
     <string name="quick_pulldown_summary_left">bal</string>
     <string name="quick_pulldown_summary_right">jobb</string>
     <string name="quick_pulldown_off">Kikapcsolva</string>
@@ -2523,6 +2537,9 @@
     <!-- Stylus Icon -->
     <string name="stylus_icon_enabled_title">Ikon megjelenítése stylus használatakor</string>
     <string name="stylus_icon_enabled_summary">Stylus használatakor megjelenít egy ikont az értesítési sávon</string>
+
+    <string name="lockscreen_maximize_widgets_title">Teljes méretű modulok</string>
+    <string name="lockscreen_maximize_widgets_summary">Modulok megjelenése maximális méretben (feloldás a lakat ikonnal)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
