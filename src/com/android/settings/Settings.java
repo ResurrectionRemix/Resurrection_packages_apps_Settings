@@ -131,6 +131,7 @@ public class Settings extends PreferenceActivity
             R.id.system_settings,
             R.id.rom_control,
             R.id.hybrid_settings,
+            R.id.performance,
             R.id.advanced_settings
     };
 

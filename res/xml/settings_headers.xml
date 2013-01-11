@@ -269,6 +269,15 @@
         android:icon="@drawable/ic_settings_performance"
         android:title="@string/performance_settings_title" />
 
+    <header android:id="@+id/performance"
+            android:title="@string/performance_title"
+            android:icon="@drawable/ic_settings_performance_aokp" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.brewcrewfoo.performance"
+                android:targetClass="com.brewcrewfoo.performance.activities.MainActivity" />
+    </header>
+
     <!-- About Device -->
     <header
         android:id="@+id/about_settings"
