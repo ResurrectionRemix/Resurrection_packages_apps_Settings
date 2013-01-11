@@ -80,6 +80,15 @@
                 android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
+    <header android:id="@+id/performance"
+            android:title="@string/performance_title"
+            android:icon="@drawable/ic_settings_performance" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.brewcrewfoo.performance"
+                android:targetClass="com.brewcrewfoo.performance.activities.MainActivity" />
+    </header>
+
     <header android:id="@+id/advanced_settings"
             android:title="@string/advanced_settings_title"
             android:icon="@drawable/ic_settings_advanced">
