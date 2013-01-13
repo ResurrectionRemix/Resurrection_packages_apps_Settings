@@ -72,6 +72,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_PA_VERSION = "pa_version";
     private static final String KEY_PAC_VERSION = "pac_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
+    private static final String KEY_DEVICE_CHIPSET = "device_chipset";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_GPU = "device_gpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
@@ -137,6 +138,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
         }
 
+        addStringPreference(KEY_DEVICE_CHIPSET,
+                SystemProperties.get("ro.device.chipset", null));
         addStringPreference(KEY_DEVICE_GPU,
                 SystemProperties.get("ro.device.gpu", null));
         addStringPreference(KEY_DEVICE_FRONT_CAMERA,
