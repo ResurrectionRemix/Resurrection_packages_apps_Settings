@@ -85,6 +85,11 @@
         <PreferenceScreen
             android:key="hardware_info"
             android:title="@string/hardware_info">
+            <!-- Device chipset -->
+            <Preference android:key="device_chipset"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/chipset_info"
+                android:summary="@string/device_info_default"/>
 
             <!-- Device cpu info -->
             <Preference android:key="device_cpu"

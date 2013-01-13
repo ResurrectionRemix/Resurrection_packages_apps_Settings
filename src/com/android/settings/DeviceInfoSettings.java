@@ -69,6 +69,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     private static final String KEY_MOD_VERSION = "mod_version";
 
+    private static final String KEY_DEVICE_CHIPSET = "device_chipset";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_GPU = "device_gpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
@@ -110,6 +111,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
+        addStringPreference(KEY_DEVICE_CHIPSET,
+                SystemProperties.get("ro.device.chipset", null));
         addStringPreference(KEY_DEVICE_CPU,
                 SystemProperties.get("ro.device.cpu", getCPUInfo()));
         addStringPreference(KEY_DEVICE_GPU,
