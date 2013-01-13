@@ -613,4 +613,16 @@ public class Utils {
     public static boolean isTablet(){
         return ExtendedPropertiesUtils.isTablet();
     }
+
+    public static boolean hasNavigationBar() {
+        int value;
+        String prop = ExtendedPropertiesUtils.
+                readProperty("com.android.systemui.navbar.dpi", "0");
+        if(ExtendedPropertiesUtils.isParsableToInt(prop)) {
+            value = Integer.parseInt(prop);
+        } else {
+            value = ExtendedPropertiesUtils.getActualProperty(prop);
+        }
+        return value > 0;
+    }
 }

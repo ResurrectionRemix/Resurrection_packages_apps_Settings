@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
@@ -32,13 +33,14 @@ import com.android.settings.Utils;
 public class Toolbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    public static final String KEY_AM_PM_STYLE = "am_pm_style";
-    public static final String KEY_SHOW_CLOCK = "show_clock";
-    public static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
-    public static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
-    public static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
+    private static final String KEY_AM_PM_STYLE = "am_pm_style";
+    private static final String KEY_SHOW_CLOCK = "show_clock";
+    private static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+    private static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
+    private static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
     private static final String STATUS_BAR_DONOTDISTURB = "status_bar_donotdisturb";
-    private static final String NAV_BAR = "navigation_bar";
+    private static final String NAV_BAR_CATEGORY = "toolbar_navigation";
+    private static final String NAV_BAR_CONTROLS = "navigation_bar_controls";
 
     private CheckBoxPreference mShowClock;
     private ListPreference mAmPmStyle;
@@ -46,7 +48,8 @@ public class Toolbar extends SettingsPreferenceFragment
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mMenuButtonShow;
     private CheckBoxPreference mStatusBarDoNotDisturb;
-    private PreferenceScreen mButtonControl; 
+    private PreferenceScreen mNavigationBarControls;
+    private PreferenceCategory mNavigationCategory;
 
     private Context mContext;
 
@@ -75,11 +78,13 @@ public class Toolbar extends SettingsPreferenceFragment
         mStatusBarMaxNotif.setValue(String.valueOf(maxNotIcons));
         mStatusBarMaxNotif.setOnPreferenceChangeListener(this);
 
+        mNavigationCategory = (PreferenceCategory) prefSet.findPreference(NAV_BAR_CATEGORY);
+
         mMenuButtonShow = (CheckBoxPreference) prefSet.findPreference(NAV_BAR_TABUI_MENU);
         mMenuButtonShow.setChecked((Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.NAV_BAR_TABUI_MENU, 0) == 1));
 
-        mButtonControl = (PreferenceScreen) prefSet.findPreference(NAV_BAR);
+        mNavigationBarControls = (PreferenceScreen) prefSet.findPreference(NAV_BAR_CONTROLS);
 
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
@@ -102,9 +107,13 @@ public class Toolbar extends SettingsPreferenceFragment
         if (!Utils.isTablet()) {
             prefSet.removePreference(mStatusBarMaxNotif);
             prefSet.removePreference(mMenuButtonShow);
-            prefSet.removePreference(mStatusBarDoNotDisturb);            
+            prefSet.removePreference(mStatusBarDoNotDisturb);
+
+            if(!Utils.hasNavigationBar()) {
+                prefSet.removePreference(mNavigationCategory);
+            }
         } else {
-            prefSet.removePreference(mButtonControl);
+            mNavigationCategory.removePreference(mNavigationBarControls);
         }
     }
 

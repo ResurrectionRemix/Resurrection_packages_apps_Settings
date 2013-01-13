@@ -43,10 +43,6 @@
             android:fragment="com.android.settings.paranoid.CustomTiles"
             android:title="@string/custom_tiles_title" />
 
-    <PreferenceCategory
-        android:key="toolbar_navigation"
-        android:title="@string/tool_bar_navigation_header" />
-
         <ListPreference
             android:key="status_bar_max_notifications"
             android:dialogTitle="@string/status_bar_max_notifications_title"
@@ -56,19 +52,25 @@
             android:entryValues="@array/status_bar_max_notifications" />
 
         <CheckBoxPreference
-            android:key="nav_bar_tabui_menu"
-            android:title="@string/navigation_bar_tabui_menu_title"
-            android:summary="@string/navigation_bar_tabui_menu_summary" />
-
-        <CheckBoxPreference
             android:key="status_bar_donotdisturb"
             android:title="@string/status_bar_donotdisturb_title"
             android:summary="@string/status_bar_donotdisturb_summary"
             android:defaultValue="false" />
 
+    <PreferenceCategory
+        android:key="toolbar_navigation"
+        android:title="@string/tool_bar_navigation_header">
+
+        <CheckBoxPreference
+            android:key="nav_bar_tabui_menu"
+            android:title="@string/navigation_bar_tabui_menu_title"
+            android:summary="@string/navigation_bar_tabui_menu_summary" />
+
         <PreferenceScreen
-            android:key="navigation_bar"
+            android:key="navigation_bar_controls"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
             android:title="@string/navigation_bar_title" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
