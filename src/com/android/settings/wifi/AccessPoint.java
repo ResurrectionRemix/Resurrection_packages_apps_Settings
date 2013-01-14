@@ -61,7 +61,6 @@ class AccessPoint extends Preference {
     String bssid;
     int security;
     int networkId;
-    boolean autoConnect;
     boolean wpsAvailable = false;
 
     PskType pskType = PskType.UNKNOWN;
@@ -188,7 +187,6 @@ class AccessPoint extends Preference {
         bssid = config.BSSID;
         security = getSecurity(config);
         networkId = config.networkId;
-        autoConnect = config.autoConnect;
         mRssi = Integer.MAX_VALUE;
         mConfig = config;
     }
@@ -201,7 +199,6 @@ class AccessPoint extends Preference {
         if (security == SECURITY_PSK)
             pskType = getPskType(result);
         networkId = -1;
-        autoConnect = true;
         mRssi = result.level;
         mScanResult = result;
     }

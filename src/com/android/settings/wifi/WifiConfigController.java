@@ -118,7 +118,6 @@ public class WifiConfigController implements TextWatcher,
     private IpAssignment mIpAssignment = IpAssignment.UNASSIGNED;
     private ProxySettings mProxySettings = ProxySettings.UNASSIGNED;
     private LinkProperties mLinkProperties = new LinkProperties();
-    private boolean mAutoConnect;
 
     // True when this instance is used in SetupWizard XL context.
     private final boolean mInXlSetupWizard;
@@ -161,9 +160,6 @@ public class WifiConfigController implements TextWatcher,
         mProxySettingsSpinner = (Spinner) mView.findViewById(R.id.proxy_settings);
         mProxySettingsSpinner.setOnItemSelectedListener(this);
 
-        boolean showAutoConnectField = false;
-        boolean showAutoConnectFieldValue = false;
-
         if (mAccessPoint == null) { // new network
             mConfigUi.setTitle(R.string.wifi_add_network);
 
@@ -186,9 +182,6 @@ public class WifiConfigController implements TextWatcher,
 
             showIpConfigFields();
             showProxyFields();
-            mView.findViewById(R.id.wifi_auto_connect_toggle).setVisibility(View.VISIBLE);
-            ((CheckBox) mView.findViewById(R.id.wifi_auto_connect_togglebox)).setChecked(true);
-            mView.findViewById(R.id.wifi_auto_connect_togglebox).setOnClickListener(this);
             mView.findViewById(R.id.wifi_advanced_toggle).setVisibility(View.VISIBLE);
             mView.findViewById(R.id.wifi_advanced_togglebox).setOnClickListener(this);
 
@@ -237,35 +230,18 @@ public class WifiConfigController implements TextWatcher,
                 } else {
                     mProxySettingsSpinner.setSelection(PROXY_NONE);
                 }
-
-                showAutoConnectField = true;
-                showAutoConnectFieldValue = config.autoConnect;
             }
 
             if (mAccessPoint.networkId == INVALID_NETWORK_ID || mEdit) {
                 showSecurityFields();
                 showIpConfigFields();
                 showProxyFields();
-                mView.findViewById(R.id.wifi_auto_connect_toggle).setVisibility(View.VISIBLE);
-                WifiConfiguration config = mAccessPoint.getConfig();
-                if (mEdit) {
-                    showAutoConnectField = false;
-                    ((CheckBox) mView.findViewById(R.id.wifi_auto_connect_togglebox)).setChecked(config.autoConnect);
-                } else {
-                    mAutoConnect = true;
-                    ((CheckBox) mView.findViewById(R.id.wifi_auto_connect_togglebox)).setChecked(true);
-                }
-                mView.findViewById(R.id.wifi_auto_connect_togglebox).setOnClickListener(this);
                 mView.findViewById(R.id.wifi_advanced_toggle).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.wifi_advanced_togglebox).setOnClickListener(this);
                 if (showAdvancedFields) {
                     ((CheckBox) mView.findViewById(R.id.wifi_advanced_togglebox)).setChecked(true);
                     mView.findViewById(R.id.wifi_advanced_fields).setVisibility(View.VISIBLE);
                 }
-            }
-
-            if (showAutoConnectField) {
-                addRow(group, R.string.wifi_auto_connect, (showAutoConnectFieldValue ? context.getString(R.string.yes) : context.getString(R.string.no)));
             }
 
             if (mEdit) {
@@ -412,7 +388,6 @@ public class WifiConfigController implements TextWatcher,
         config.proxySettings = mProxySettings;
         config.ipAssignment = mIpAssignment;
         config.linkProperties = new LinkProperties(mLinkProperties);
-        config.autoConnect = mAutoConnect;
 
         return config;
     }
@@ -777,8 +752,6 @@ public class WifiConfigController implements TextWatcher,
             } else {
                 mView.findViewById(R.id.wifi_advanced_fields).setVisibility(View.GONE);
             }
-        } else if (view.getId() == R.id.wifi_auto_connect_togglebox) {
-            mAutoConnect = ((CheckBox) view).isChecked();
         }
     }
 
