@@ -117,6 +117,12 @@
             android:entries="@array/emergency_tone_entries"
             android:entryValues="@array/emergency_tone_values" />
 
+    <CheckBoxPreference
+            android:key="notification_convert_sound_to_vibration"
+            android:title="@string/notification_convert_sound_to_vibration_title"
+            android:summary="@string/notification_convert_sound_to_vibration_summary"
+            android:defaultValue="true" />
+
     <!-- Dock -->
     <PreferenceCategory
         android:key="dock_category"
