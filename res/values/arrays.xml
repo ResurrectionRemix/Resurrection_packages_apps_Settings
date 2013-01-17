@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/*
-** Copyright 2007 The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Choices for timezone picker first level.
          These values will be used as search terms for TimeZone displayName
          strings. --> <skip />
@@ -1278,8 +1278,8 @@
     </integer-array>
 
     <string-array name="entries_screentimeout_widget">
-        <item>15s/1m/5m</item>
-        <item>30s/2m/5m</item>
+        <item>15s | 1m | 5m</item>
+        <item>30s | 2m | 5m</item>
     </string-array>
 
     <string-array name="values_screentimeout_widget" translatable="false">
@@ -1357,7 +1357,7 @@
         <item>SOUND</item>
     </string-array>
 
-    <!--- Volume key cursor control -->
+    <!-- Volume key cursor control -->
     <string-array name="volume_key_cursor_control_entries" translatable="false">
         <item>@string/volume_key_cursor_control_off</item>
         <item>@string/volume_key_cursor_control_on</item>
@@ -1380,7 +1380,7 @@
         <item>1</item>
     </string-array>
 
-    <!--- Sms security limit -->
+    <!-- Sms security limit -->
     <string-array name="sms_security_check_limit_entries" translatable="false">
         <item>@string/sms_security_check_limit_default</item>
         <item>50</item>
@@ -1395,5 +1395,18 @@
         <item>200</item>
     </string-array>
 
-    <!-- **** CYANOGENMOD EDITS END **** -->
+    <!-- Custom lock screen background-->
+    <string-array name="lockscreen_background_entries" translatable="false">
+        <item>@string/lockscreen_background_color_fill</item>
+        <item>@string/lockscreen_background_custom_image</item>
+        <item>@string/lockscreen_background_default_wallpaper</item>
+    </string-array>
+
+    <string-array name="lockscreen_background_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>

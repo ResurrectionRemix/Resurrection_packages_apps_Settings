@@ -26,6 +26,14 @@
      </PreferenceScreen>
 
      <ListPreference
+        android:key="lockscreen_background"
+        android:persistent="false"
+        android:dialogTitle="@string/lockscreen_custom_background_title"
+        android:title="@string/lockscreen_custom_background_title"
+        android:entries="@array/lockscreen_background_entries"
+        android:entryValues="@array/lockscreen_background_values" />
+
+     <ListPreference
         android:key="lockscreen_battery_status"
         android:persistent="false"
         android:dialogTitle="@string/lockscreen_battery_status_title"
