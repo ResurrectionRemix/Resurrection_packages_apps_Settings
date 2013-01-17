@@ -2256,6 +2256,7 @@
 
     <!-- Sound settings screen -->
     <string name="volume_overlay_title">Lydstyrkepanel</string>
+    <string name="headset_connect_player_title">Start musik-app ved tilslutning</string>
     <string name="volume_ring_only_description">Ringetoner</string>
     <string name="ring_mode_title">Lydtilstande</string>
     <string name="ring_mode_normal">Normal</string>
@@ -2436,6 +2437,7 @@
 
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Skærm-timeout</string>
+    <string name="title_tile_usb_tether">Tethering via USB</string>
 
     <string name="title_dynamic_tiles">Dynamiske felter</string>
     <string name="dynamic_tiles_note_title">NB:</string>
@@ -2443,6 +2445,7 @@
     <string name="title_dynamic_alarm">Vækkeur</string>
     <string name="title_dynamic_bugreport">Fejlrapport</string>
     <string name="title_dynamic_ime">IME-skifter</string>
+    <string name="title_dynamic_usbtether">Tethering via USB</string>
     <string name="title_dynamic_wifi">Wi-Fi-visning</string>
 
     <string name="title_general">Generelt</string>
@@ -2492,7 +2495,7 @@
     <!--- Sms security limit -->
     <string name="app_security_title">App-sikkerhed</string>
     <string name="sms_security_check_limit_title">SMS-grænse</string>
-    <string name="sms_security_check_limit_summary">Vis en advarselsdialog for at forhindre programmer i at sende SMS-beskeder for ofte. Aktuel grænse: %d beskeder på 15 minutter</string>
+    <string name="sms_security_check_limit_summary">Vis en advarselsdialog for at forhindre programmer i at sende SMS-beskeder for ofte. Aktuel grænse: %d beskeder på 30 minutter (kræver genstart)</string>
     <string name="sms_security_check_limit_default">30 (standard)</string>
 
     <!--- Lock clock -->
@@ -2513,6 +2516,48 @@
     <string name="navigation_bar_reset_toast">Indstillinger for navigationsbjælken er gendannet</string>
     <string name="navigation_bar_menu_editable">Redigerbar</string>
     <string name="navigation_bar_menu_locked">Låst</string>
+
+    <!-- Title for the accessibility preference to home button to answers a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_home_button_answers_call_prerefence_title">Startknap besvarer opkald</string>
+
+    <string name="lockscreen_maximize_widgets_title">Maksimér widgets</string>
+    <string name="lockscreen_maximize_widgets_summary">Vis widgets maksimeret og låsen minimeret, når skærmen er tændt</string>
+
+    <!-- Category title for headset specific Settings.
+         [CHAR LIMIT=40] -->
+    <string name="headset_category_title">Håndfri</string>
+
+    <!-- Activity label of BluetoothMasPermissionActivity, also used as Strings in the permission dialog [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_request">"Anmodning om beskeder"</string>
+
+    <!-- Bluetooth MAS permission Alert Activity text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_acceptance_dialog_text">%1$s vil gerne have adgang til dine beskeder. Vil du give %2$s adgang?</string>
+
+    <!-- Bluetooth MAS permission Alert Activity checkbox text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_remember_choice">Spørg ikke igen</string>
+
+    <!-- Wi-Fi settings screen, advanced, title of the item to set the Wi-Fi priority. -->
+    <string name="wifi_setting_priority_title">Wi-Fi-prioritet</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the Wi-Fi priority-->
+    <string name="wifi_setting_priority_summary">Angiv prioriteten af Wi-Fi-netværkene</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">USB-lager</string>
+    <string name="usb_mass_storage_summary">Aktivér USB-lager</string>
+
+    <!-- Custom lock screen background -->
+    <string name="lockscreen_custom_background_title">Baggrund</string>
+    <string name="lockscreen_custom_background_dialog_title">Vælg farve</string>
+    <string name="lockscreen_background_result_successful">Baggrund blev skiftet med succes</string>
+    <string name="lockscreen_background_result_not_successful">Baggrund kunne ikke skiftes</string>
+    <string name="lockscreen_background_color_fill">Fyldfarve</string>
+    <string name="lockscreen_background_custom_image">Brugerdefineret billede</string>
+    <string name="lockscreen_background_default_wallpaper">Standardtapet</string>
+
+    <!-- convert sound to vibration toggle -->
+    <string name="notification_convert_sound_to_vibration_title">Vibrér ved notifikation</string>
+    <string name="notification_convert_sound_to_vibration_summary">I vibreringstilstand vil alle notifikationer vibrere, uanset individuelle app-indstillinger.</string>
+
    <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- ======================================================================================= -->
