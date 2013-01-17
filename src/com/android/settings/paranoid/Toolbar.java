@@ -88,7 +88,7 @@ public class Toolbar extends SettingsPreferenceFragment
 
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.TIME_12_24) == 24) {
+                    Settings.System.TIME_12_24) != 12) {
                 mAmPmStyle.setEnabled(false);
                 mAmPmStyle.setSummary(R.string.status_bar_am_pm_info);
             }
