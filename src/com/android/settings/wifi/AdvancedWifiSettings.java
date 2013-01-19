@@ -51,6 +51,7 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
     private static final String KEY_SCAN_ALWAYS_AVAILABLE = "wifi_scan_always_available";
     private static final String KEY_INSTALL_CREDENTIALS = "install_credentials";
     private static final String KEY_SUSPEND_OPTIMIZATIONS = "suspend_optimizations";
+    private static final String KEY_WIFI_PRIORITY = "wifi_priority";
 
     private WifiManager mWifiManager;
 
@@ -152,6 +153,9 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
             sleepPolicyPref.setValue(stringValue);
             updateSleepPolicySummary(sleepPolicyPref, stringValue);
         }
+
+        Preference wifiPriority = findPreference(KEY_WIFI_PRIORITY);
+        wifiPriority.setEnabled(mWifiManager.isWifiEnabled());
     }
 
     private void updateSleepPolicySummary(Preference sleepPolicyPref, String value) {
