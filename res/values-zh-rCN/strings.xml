@@ -164,6 +164,16 @@
     <string name="bluetooth_phonebook_request" msgid="457033227379858269">"电话簿请求"</string>
     <string name="bluetooth_pb_acceptance_dialog_text" msgid="6555508756987053866">"%1$s想访问您的联系人信息和通话记录。要向%2$s授予访问权限吗？"</string>
     <string name="bluetooth_pb_remember_choice" msgid="2901499974259177202">"下次不再询问"</string>
+
+    <!-- Activity label of BluetoothMasPermissionActivity, also used as Strings in the permission dialog [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_request">"信息访问请求"</string>
+
+    <!-- Bluetooth MAS permission Alert Activity text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_acceptance_dialog_text">%1$s 想访问您的信息. 给予 %2$s 访问权限?</string>
+
+    <!-- Bluetooth MAS permission Alert Activity checkbox text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_remember_choice">下次不再询问</string>
+
     <string name="date_and_time" msgid="4114084177056654663">"日期和时间设置"</string>
     <string name="choose_timezone" msgid="1362834506479536274">"选择时区"</string>
     <string name="normal_date_format" msgid="7636406984925498359">"所在区域 (<xliff:g id="DATE">%s</xliff:g>)"</string>
@@ -623,6 +633,10 @@
     <string name="wifi_setting_countrycode_summary">指定 Wi-Fi 使用的区域码</string>
     <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
     <string name="wifi_setting_countrycode_error">设置区域码时遇到了问题.</string>
+    <!-- Wi-Fi settings screen, advanced, title of the item to set the Wi-Fi priority. -->
+    <string name="wifi_setting_priority_title">Wi-Fi 连接优先</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the Wi-Fi priority-->
+    <string name="wifi_setting_priority_summary">设置各个 Wi-Fi 网络的优先连接顺序</string>
     <string name="wifi_advanced_mac_address_title" msgid="6571335466330978393">"MAC 地址"</string>
     <string name="wifi_advanced_ip_address_title" msgid="6215297094363164846">"IP 地址"</string>
     <string name="wifi_advanced_settings_label" msgid="3654366894867838338">"IP 设置"</string>
@@ -1330,6 +1344,8 @@
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_title" msgid="7218498768415430963">"自动更新屏幕放大状态"</string>
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_summary" msgid="4392059334816220155">"在应用转换时更新屏幕放大状态"</string>
     <string name="accessibility_power_button_ends_call_prerefence_title" msgid="6673851944175874235">"按电源按钮结束通话"</string>
+    <!-- Title for the accessibility preference to home button to answers a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_home_button_answers_call_prerefence_title">使用 Home 键接听通话</string>
     <string name="accessibility_toggle_speak_password_preference_title" msgid="5986628515113204844">"说出密码"</string>
     <string name="accessibility_long_press_timeout_preference_title" msgid="6708467774619266508">"触摸和按住延迟"</string>
     <string name="accessibility_toggle_script_injection_preference_title" msgid="7950932054266694403">"增强网页辅助功能"</string>
@@ -1548,6 +1564,11 @@
     <string name="sound_category_notification_title" msgid="3502115998790286943">"通知"</string>
     <string name="sound_category_call_ringtone_vibrate_title" msgid="1543777228646645163">"来电铃声和振动"</string>
     <string name="sound_category_system_title" msgid="1480844520622721141">"系统"</string>
+
+    <!-- Category title for headset specific Settings.
+         [CHAR LIMIT=40] -->
+    <string name="headset_category_title">耳机</string>
+
     <string name="wifi_setup_title" msgid="661074868726906436">"Wi-Fi 设置"</string>
     <string name="wifi_setup_title_editing_network" msgid="7304321031985059969">"连接到 Wi-Fi 网络<xliff:g id="NETWORK_NAME">%s</xliff:g>"</string>
     <string name="wifi_setup_title_connecting_network" msgid="3747859666621319757">"正在连接到 Wi-Fi 网络“<xliff:g id="NETWORK_NAME">%s</xliff:g>”..."</string>
@@ -1881,9 +1902,13 @@
     <string name="quiet_hours_active_from">从</string>
     <string name="quiet_hours_active_to">激活到</string>
 
-    <!-- time range preference -->
+    <!-- Time range preference -->
     <string name="start_time_title">起始</string>
     <string name="end_time_title">结束</string>
+
+    <!-- Convert sound to vibration toggle -->
+    <string name="notification_convert_sound_to_vibration_title">收到通知时震动</string>
+    <string name="notification_convert_sound_to_vibration_summary">处于震动模式时, 所有的通知都将无视任何应用的单独设置并产生震动</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">设备网络名</string>
@@ -2273,6 +2298,7 @@
     <string name="volume_overlay_title">声控面板风格</string>
     <string name="volbtn_music_controls_title">音量键音乐控制</string>
     <string name="volbtn_music_controls_summary">当屏幕关闭时, 长按音量键即可改变音乐曲目</string>
+    <string name="headset_connect_player_title">插入耳机时启动音乐播放器</string>
     <string name="volume_ring_only_description">铃声</string>
     <string name="ring_mode_title">响铃模式</string>
     <string name="ring_mode_normal">正常</string>
@@ -2300,6 +2326,18 @@
     <string name="hardware_keys_action_search">搜索助手</string>
     <string name="hardware_keys_action_voice_search">语音搜索</string>
     <string name="hardware_keys_action_in_app_search">程序内搜索</string>
+
+    <!-- Navigation Bar #CM -->
+    <string name="navigation_bar_title">导航栏</string>
+    <string name="navigation_bar_help_text">1 - 点击锁定图标以开始编辑\n\n2 - 点击任何按键以指定或改变它的功能\n\n3 - 长按任何按键以重新排列按键顺序\n\n4 - 再次点击锁定图标将会保存您的改变\n\n5 - 如果您想还原为系统默认值, 请点击重置键\n\n</string>
+    <string name="navigation_bar_tips">&#8226; 一个按键只能拥有一个行为\n\n&#8226; Home 键的行为是不能被改变的\n\n&#8226; 侧边按键的位置是不能改变的</string>
+    <string name="navigation_bar_tips_title">小提示</string>
+    <string name="navigation_bar_reset_message">您确定要删除目前的设置并还原为系统默认值?</string>
+    <string name="navigation_bar_save_message">导航栏设置已保存</string>
+    <string name="navigation_bar_reset_toast">导航栏设置已还原为系统默认值</string>
+    <string name="navigation_bar_menu_editable">可被编辑</string>
+    <string name="navigation_bar_menu_locked">已锁定</string>
+
 
     <!-- Power Widget  -->
     <string name="power_widget_title">电控小部件</string>
@@ -2345,7 +2383,7 @@
     <string name="cm_sound_mode_silent">静音</string>
     <string name="cm_sound_mode_vibrate">震动</string>
     <string name="cm_sound_mode_sound">铃声</string>
-    <string name="cm_sound_mode_soundVibrate">铃声 ＋ 震动</string>
+    <string name="cm_sound_mode_soundVibrate">铃声 &amp; 震动</string>
     <string name="pref_flash_mode_title">手电筒切换模式</string>
     <string name="expanded_haptic_feedback_title">触动反馈</string>
 
@@ -2415,11 +2453,15 @@
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">启动开发工具</string>
 
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">USB 大容量存储</string>
+    <string name="usb_mass_storage_summary">使用 USB 大容量存储模式连接到计算机</string>
+
     <!-- Android debugging over WiFi -->
     <string name="adb_over_network">网络 ADB 调试</string>
     <string name="adb_over_network_summary">通过网络接口 (Wi-Fi, USB 网络) 启用 TCP/IP 调试.该设置重启后失效</string>
     <!-- Warning for Adb over Network -->
-    <string name="adb_over_network_warning">警告: 网络 ADB 调试启用后, 您的设备将会在已连接的网络 (包括GSM数据网络) 上被视为是开放的, 并有可能被侵入!\n\n请仅在您所信任的网络中使用此功能.\n\n您确实要启用该功能吗?</string>
+    <string name="adb_over_network_warning">警告: 网络 ADB 调试启用后, 您的设备将会在已连接的网络 (包括 GSM 数据网络) 上被视为是开放的, 并有可能被侵入!\n\n请仅在您所信任的网络中使用此功能.\n\n您确实要启用该功能吗?</string>
 
     <string name="lockscreen_buttons_title">按键行为</string>
     <string name="lockscreen_buttons_summary">查看或改变在锁屏界面上按键的行为</string>
@@ -2463,6 +2505,7 @@
     <string name="title_tile_networkmode">网络模式</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">屏幕超时</string>
+    <string name="title_tile_usb_tether">USB 网络共享</string>
 
     <string name="title_dynamic_tiles">动态按钮</string>
     <string name="dynamic_tiles_note_title">注意</string>
@@ -2470,6 +2513,7 @@
     <string name="title_dynamic_alarm">闹钟</string>
     <string name="title_dynamic_bugreport">Bug 报告</string>
     <string name="title_dynamic_ime">输入法更改器</string>
+    <string name="title_dynamic_usbtether">USB 网络共享</string>
     <string name="title_dynamic_wifi">Wi-Fi 显示</string>
 
     <string name="title_general">常规</string>
@@ -2497,7 +2541,7 @@
     <string name="pref_wifi_disable_hdcp_title">跳过 HDCP 谈判</string>
     <string name="pref_wifi_disable_hdcp_summary">如果您可以连接但是没有任何输出, 请尝试此选项</string>
 
-    <!--- Sms security limit -->
+    <!--- SMS security limit -->
     <string name="app_security_title">应用安全</string>
     <string name="sms_security_check_limit_title">短信限制</string>
     <string name="sms_security_check_limit_summary">当某个应用频繁性的发送短信时显示一个警告窗口. 目前限制: 15 分钟内发送 %d 条信息</string>
@@ -2507,5 +2551,21 @@
     <string name="lock_clock_title">时钟小部件</string>
     <string name="lock_clock_summary">查看或改变 \'cLock\' 锁屏与主屏幕小部件的显示方式</string>
 
+    <!-- Stylus Icon -->
+    <string name="stylus_icon_enabled_title">使用触控笔时显示指针</string>
+    <string name="stylus_icon_enabled_summary">使用触控笔悬浮或绘图时将会显示指针</string>
+
+    <string name="lockscreen_maximize_widgets_title">最大化锁屏小部件</string>
+    <string name="lockscreen_maximize_widgets_summary">开启屏幕时将最小化解锁界面并默认显示最大化的锁屏小部件</string>
+
+    <!-- Custom lock screen background -->
+    <string name="lockscreen_custom_background_title">背景</string>
+    <string name="lockscreen_custom_background_dialog_title">选择颜色</string>
+    <string name="lockscreen_background_result_successful">背景已成功改变</string>
+    <string name="lockscreen_background_result_not_successful">背景未被改变</string>
+    <string name="lockscreen_background_color_fill">颜色填充</string>
+    <string name="lockscreen_background_custom_image">自定义图片</string>
+    <string name="lockscreen_background_default_wallpaper">默认墙纸</string>
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
 </resources>
