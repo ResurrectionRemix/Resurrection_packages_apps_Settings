@@ -73,4 +73,38 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="toolbar_pie_controls"
+        android:title="@string/pie_controls_title" />
+
+        <CheckBoxPreference
+            android:key="pie_controls"
+            android:title="@string/pie_controls_title"
+            android:summary="@string/pie_controls_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="pie_gravity"
+            android:dialogTitle="@string/pie_gravity_title"
+            android:title="@string/pie_gravity_title"
+            android:summary="@string/pie_gravity_summary"
+            android:entries="@array/entries_pie_gravity"
+            android:entryValues="@array/values_pie_gravity" />
+
+        <ListPreference
+            android:key="pie_size"
+            android:dialogTitle="@string/pie_size_title"
+            android:title="@string/pie_size_title"
+            android:summary="@string/pie_size_summary"
+            android:entries="@array/entries_pie_size"
+            android:entryValues="@array/values_pie_size" />
+
+        <ListPreference
+            android:key="pie_mode"
+            android:dialogTitle="@string/pie_mode_title"
+            android:title="@string/pie_mode_title"
+            android:summary="@string/pie_mode_summary"
+            android:entries="@array/entries_pie_mode"
+            android:entryValues="@array/values_pie_mode" />
+
 </PreferenceScreen>
