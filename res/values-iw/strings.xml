@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--  Copyright (C) 2007 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,7 +13,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
+-->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -1835,7 +1836,7 @@
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"שידורים סלולריים"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"בחר את סוגי התראות החירום להצגה."</string>
 
-    <!-- CYANOGENMOD EDITS START -->
+    <!-- *** CYANOGENMOD ADDITIONS START *** -->
 
     <string name="ok">אישור</string>
 
@@ -2358,7 +2359,7 @@
     <string name="cm_sound_mode_silent">שקט</string>
     <string name="cm_sound_mode_vibrate">רטט</string>
     <string name="cm_sound_mode_sound">צליל</string>
-    <string name="cm_sound_mode_soundVibrate">צליל + רטט</string>
+    <string name="cm_sound_mode_soundVibrate">צליל ורטט</string>
     <string name="pref_flash_mode_title">מצבי פנס</string>
     <string name="expanded_haptic_feedback_title">משוב מגע</string>
 
@@ -2428,6 +2429,10 @@
 
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">הפעל כלים</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">אחסון בנפח גדול</string>
+    <string name="usb_mass_storage_summary">הפעל אחסון USB בנפח גדול</string>
 
     <!-- Android debugging over WiFi -->
     <string name="adb_over_network">ADB על גבי רשת</string>
@@ -2511,12 +2516,17 @@
     <string name="volume_key_cursor_control_on_reverse">כפתור למעלה/למטה מזיז את הסמן ימינה/שמאלה</string>
 
     <!-- Wi-Fi Settings -->
+
     <!-- Wi-Fi settings screen, advanced, title of the item to show the Wi-Fi device's MAC address. -->
     <string name="wifi_setting_countrycode_title">קוד Wi-Fi אזורי</string>
     <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
     <string name="wifi_setting_countrycode_summary">בחר את הקוד האזורי עבור חיבור ה-Wi-Fi</string>
     <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
     <string name="wifi_setting_countrycode_error">חלה תקלה בהגדרת הקוד.</string>
+    <!-- Wi-Fi settings screen, advanced, title of the item to set the Wi-Fi priority. -->
+    <string name="wifi_setting_priority_title">עדיפות רשתות Wi-Fi</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the Wi-Fi priority-->
+    <string name="wifi_setting_priority_summary">ציין את סדר העדיפויות של רשתות ה-Wi-Fi</string>
 
     <!-- Wireless display -->
     <string name="pref_wifi_disable_hdcp_title">דלג על משא ומתן של HDCP</string>
@@ -2544,6 +2554,26 @@
     <!-- Lock screen Widget options -->
     <string name="lockscreen_maximize_widgets_title">הגדל וידג\'טים</string>
     <string name="lockscreen_maximize_widgets_summary">הצג את הוידג\'טים מוגדלים ואת פתיחת הנעילה מכווצת כשהמסך נדלק</string>
+
+    <!-- Bluetooth -->
+
+    <!-- Activity label of BluetoothMasPermissionActivity, also used as Strings in the permission dialog [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_request">בקשת גישה להודעות</string>
+
+    <!-- Bluetooth MAS permission Alert Activity text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_acceptance_dialog_text">%1$s רוצה לגשת להודעות שלך. לאפשר גישה ל-%2$s?</string>
+
+    <!-- Bluetooth MAS permission Alert Activity checkbox text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_remember_choice">אל תשאל שוב</string>
+
+    <!-- Custom lock screen background -->
+    <string name="lockscreen_custom_background_title">רקע</string>
+    <string name="lockscreen_custom_background_dialog_title">בחר צבע</string>
+    <string name="lockscreen_background_result_successful">הרקע שונה בהצלחה</string>
+    <string name="lockscreen_background_result_not_successful">חלה שגיאה בעת שינוי הרקע</string>
+    <string name="lockscreen_background_color_fill">מילוי בצבע</string>
+    <string name="lockscreen_background_custom_image">טפט מותאם אישית</string>
+    <string name="lockscreen_background_default_wallpaper">טפט ברירת מחדל</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
