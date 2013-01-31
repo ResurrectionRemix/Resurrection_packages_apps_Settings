@@ -21,6 +21,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -38,6 +39,10 @@ public class SystemSettings extends SettingsPreferenceFragment {
 
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
+    private static final String KEY_POWER_MENU = "power_menu";
+
+    private boolean mIsPrimary;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -48,15 +53,28 @@ public class SystemSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.system_settings);
+        PreferenceScreen prefScreen = getPreferenceScreen();
 
-        // Dont display the lock clock preference if its not installed
-        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+        // Determine which user is logged in
+        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        if (mIsPrimary) {
+            // Primary user only preferences
+            // Only show the hardware keys config on a device that does not have a navbar
+            PreferenceScreen hardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
+            if (!hasButtons()) {
+               prefScreen.removePreference(hardwareKeys);
+            }
 
-        // Only show the hardware keys config on a device that does not have a navbar
-        PreferenceScreen hardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
-        if (!hasButtons()) {
-            getPreferenceScreen().removePreference(hardwareKeys);
+        } else {
+            // Secondary user is logged in, remove all primary user specific preferences
+            prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
+            prefScreen.removePreference(findPreference(KEY_POWER_MENU));
+            prefScreen.removePreference(findPreference(KEY_NOTIFICATION_DRAWER));
         }
+
+        // Preferences that applies to all users
+        // Don't display the lock clock preference if its not installed
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
     }
 
     @Override

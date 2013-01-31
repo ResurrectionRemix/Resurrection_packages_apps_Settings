@@ -32,6 +32,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -58,8 +59,9 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
-    private static final String KEY_BACKGROUND_PREF = "lockscreen_background";
+    private static final String KEY_BACKGROUND = "lockscreen_background";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
+    private static final String KEY_SCREEN_SECURITY = "screen_security";
 
     private ListPreference mCustomBackground;
 
@@ -70,6 +72,8 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     private File mWallpaperImage;
     private File mWallpaperTemporary;
+
+    private boolean mIsPrimary;
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -83,25 +87,38 @@ public class Lockscreen extends SettingsPreferenceFragment
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
 
-        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
-        mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
+        // Determine which user is logged in
+        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        if (mIsPrimary) {
+            // Its the primary user, show all the settings
+            mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+            mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
 
-        mHomeScreenWidgets = (CheckBoxPreference) prefSet.findPreference(KEY_HOME_SCREEN_WIDGETS);
-        mHomeScreenWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.HOME_SCREEN_WIDGETS, 0) == 1);
+            mHomeScreenWidgets = (CheckBoxPreference) prefSet.findPreference(KEY_HOME_SCREEN_WIDGETS);
+            mHomeScreenWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.HOME_SCREEN_WIDGETS, 0) == 1);
 
-        mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND_PREF);
+            PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
+            if (!hasButtons()) {
+                getPreferenceScreen().removePreference(lockscreenButtons);
+            }
+        } else {
+            // Secondary user is logged in, remove all primary user specific preferences
+            PreferenceScreen prefScreen = getPreferenceScreen();
+            prefScreen.removePreference(findPreference(KEY_SCREEN_SECURITY));
+            prefScreen.removePreference(findPreference(KEY_SEE_TRHOUGH));
+            prefScreen.removePreference(findPreference(KEY_HOME_SCREEN_WIDGETS));
+            prefScreen.removePreference(findPreference(KEY_LOCKSCREEN_BUTTONS));
+        }
+
+        // This applies to all users
+        mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND);
         mCustomBackground.setOnPreferenceChangeListener(this);
         updateCustomBackgroundSummary();
 
         mWallpaperImage = new File(getActivity().getFilesDir() + "/lockwallpaper");
         mWallpaperTemporary = new File(getActivity().getCacheDir() + "/lockwallpaper.tmp");
-
-        PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
-        if (!hasButtons()) {
-            getPreferenceScreen().removePreference(lockscreenButtons);
-        }
     }
 
     private void updateCustomBackgroundSummary() {
@@ -123,35 +140,37 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mSeeThrough) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
-                    ? 1 : 0);
-        } else if (preference == mHomeScreenWidgets) {
-            final boolean isChecked = mHomeScreenWidgets.isChecked();
-            if(isChecked) {
-                // Show warning
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle(R.string.home_screen_widgets_warning_title);
-                builder.setMessage(getResources().getString(R.string.home_screen_widgets_warning))
-                        .setPositiveButton(com.android.internal.R.string.ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                Settings.System.putInt(mContext.getContentResolver(),
-                                        Settings.System.HOME_SCREEN_WIDGETS,
-                                        isChecked ? 1 : 0);
-                            }
-                        })
-                        .setNegativeButton(com.android.internal.R.string.cancel, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                mHomeScreenWidgets.setChecked(false);
-                                dialog.dismiss();
-                            }
-                        });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            } else {
+        if (mIsPrimary) {
+            if (preference == mSeeThrough) {
                 Settings.System.putInt(mContext.getContentResolver(),
-                        Settings.System.HOME_SCREEN_WIDGETS, 0);
+                        Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
+                        ? 1 : 0);
+            } else if (preference == mHomeScreenWidgets) {
+                final boolean isChecked = mHomeScreenWidgets.isChecked();
+                if(isChecked) {
+                    // Show warning
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle(R.string.home_screen_widgets_warning_title);
+                    builder.setMessage(getResources().getString(R.string.home_screen_widgets_warning))
+                            .setPositiveButton(com.android.internal.R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Settings.System.putInt(mContext.getContentResolver(),
+                                            Settings.System.HOME_SCREEN_WIDGETS,
+                                            isChecked ? 1 : 0);
+                                }
+                            })
+                            .setNegativeButton(com.android.internal.R.string.cancel, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    mHomeScreenWidgets.setChecked(false);
+                                    dialog.dismiss();
+                                }
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                } else {
+                    Settings.System.putInt(mContext.getContentResolver(),
+                            Settings.System.HOME_SCREEN_WIDGETS, 0);
+                }
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
