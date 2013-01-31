@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
      Copyright (C) 2013 The CyanogenMod Project
 
@@ -1942,7 +1942,7 @@
     <string name="quiet_hours_title">Modo \'tranquilidad\'</string>
     <string name="quiet_hours_summary">Configurar las horas en las que el dispositivo debe de estar en modo \'tranquilidad\'</string>
     <string name="quiet_hours_note_title">Nota</string>
-    <string name="quiet_hours_note_summary">Las llamadas entrantes se comportarán de manera normal durante este modo.</string>
+    <string name="quiet_hours_note_summary">Las llamadas entrantes se comportarán de manera normal durante este modo</string>
     <string name="quiet_hours_enabled">Modo \'tranquilidad\'</string>
     <string name="quiet_hours_enabled_on">Se forzará el modo \'tranquilidad\' durante las horas:</string>
     <string name="quiet_hours_enabled_off">Las notificaciones se comportarán de manera normal</string>
@@ -1966,6 +1966,8 @@
     <string name="quiet_hours_active_to">a</string>
     <string name="start_time_title">Inicio</string>
     <string name="end_time_title">Fin</string>
+    <string name="notification_convert_sound_to_vibration_title">Vibración en notificaciones</string>
+    <string name="notification_convert_sound_to_vibration_summary">En el modo vibración todas las notificaciones vibrarán, independientemente de la configuración específica de la aplicación</string>
     <string name="device_hostname">Nombre del dispositivo</string>
     <string name="mod_version">Versión CyanogenMod</string>
     <string name="mod_version_default">Desconocida</string>
@@ -2150,13 +2152,13 @@
     <string name="pref_use_16bpp_alpha_title">Transparencia 16bit</string>
     <string name="pref_use_16bpp_alpha_summary">Ofrece mejor rendimiento gráfico a costa de una menor calidad gráfica. Adicionalmente, puede causar defectos visuales (requiere reiniciar)</string>
     <string name="display_rotation_title">Rotación</string>
-    <string name="display_rotation_disabled">Desactivado</string>
+    <string name="display_rotation_disabled">Desactivada</string>
     <string name="display_rotation_unit">grados</string>
     <string name="display_rotation_category_title">Modos de rotación</string>
-    <string name="display_rotation_0_title">0 º</string>
-    <string name="display_rotation_90_title">90 º</string>
-    <string name="display_rotation_180_title">180 º</string>
-    <string name="display_rotation_270_title">270 º</string>
+    <string name="display_rotation_0_title">0 grados</string>
+    <string name="display_rotation_90_title">90 grados</string>
+    <string name="display_rotation_180_title">180 grados</string>
+    <string name="display_rotation_270_title">270 grados</string>
     <string name="picker_activities">Actividades</string>
     <string name="select_custom_app_title">Seleccionar aplicación personalizada</string>
     <string name="select_custom_activity_title">Seleccionar actividad personalizada</string>
@@ -2190,10 +2192,10 @@
     <string name="increasing_ring_title">Volumen ascendente</string>
     <string name="checkbox_increasing_ring">Activar</string>
     <string name="increasing_ring_min_volume_title">Volumen inicial</string>
-    <string name="increasing_ring_volume_notice">Nota:\nSi el volumen inicial se establece más alto que el volumen de llamada, prevalecerá el volumen de llamada.</string>
+    <string name="increasing_ring_volume_notice">Nota:\nSi el volumen inicial se establece más alto que el volumen de llamada, prevalecerá el volumen de llamada</string>
     <string name="increasing_ring_interval_title">Intervalo de incremento</string>
     <string name="increasing_ring_interval_eachring">En cada tono</string>
-    <string name="increasing_ring_interval_half_second">0,5 segundos</string>
+    <string name="increasing_ring_interval_half_second">Medio segundo</string>
     <string name="increasing_ring_interval_1second">1 segundo</string>
     <string name="increasing_ring_interval_2seconds">2 segundos</string>
     <string name="increasing_ring_interval_3seconds">3 segundos</string>
@@ -2204,9 +2206,9 @@
     <string name="profile_write_success">Etiqueta escrita correctamente</string>
     <string name="profile_write_failed">¡Fallo al escribir la etiqueta!</string>
     <string name="profile_selected">Perfil seleccionado: %1$s</string>
-    <string name="profile_nfc_text">Escribir un perfil a una etiqueta NFC permite tocar la etiqueta para seleccionar el perfil. Tocar una segunda vez seleccionará el perfil seleccionado previamente.</string>
+    <string name="profile_nfc_text">Escribir un perfil a una etiqueta NFC permite tocar la etiqueta para seleccionar el perfil. Tocar una segunda vez seleccionará el perfil seleccionado previamente</string>
     <string name="profile_unknown_nfc_tag">Perfil desconocido</string>
-    <string name="profile_add_nfc_text">Esta etiqueta NFC hace referencia a un perfil desconocido. Añadir esta etiqueta NFC a un perfil existente permitirá seleccionar el perfil en el futuro.</string>
+    <string name="profile_add_nfc_text">Esta etiqueta NFC hace referencia a un perfil desconocido. Añadir esta etiqueta NFC a un perfil existente permitirá seleccionar el perfil en el futuro</string>
     <string name="profile_select">Seleccionar perfil</string>
     <string name="link_volume_ringtones">Vincular volúmenes</string>
     <string name="link_volume_mutes">Vincular silencio</string>
@@ -2367,8 +2369,10 @@
     <string name="adb_notify">Notificar depuración USB</string>
     <string name="adb_notify_summary">Mostrar una notificación cuando el modo de depuración USB esté conectado</string>
     <string name="development_tools_title">Iniciar Herramientas</string>
+    <string name="usb_mass_storage_title">Almacenamiento masivo</string>
+    <string name="usb_mass_storage_summary">Habilitar el almacenamiento masivo USB</string>
     <string name="adb_over_network">ADB sobre TCP/IP</string>
-    <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre las interfaces de red (Wi-Fi, redes USB). Esta configuración se restablece al reiniciar el dispositivo.</string>
+    <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre las interfaces de red (Wi-Fi, redes USB). Esta configuración se restablece al reiniciar el dispositivo</string>
     <string name="adb_over_network_warning">AVISO: ¡Cuando ADB sobre TCP/IP esté activo, su teléfono estará abierto a intrusiones en todas las redes conectadas, incluida la red de datos GSM!\n\nUse sólo esta característica cuando esté conectado a redes de confianza.\n\n¿Desea realmente activar esta función?</string>
     <string name="lockscreen_buttons_title">Acciones de botones</string>
     <string name="lockscreen_buttons_summary">Ver o cambiar las acciones de los botones en bloqueo de pantalla</string>
@@ -2436,6 +2440,8 @@
     <string name="wifi_setting_countrycode_title">Código de región Wi-Fi</string>
     <string name="wifi_setting_countrycode_summary">Especificar el código de región para Wi-Fi</string>
     <string name="wifi_setting_countrycode_error">Ocurrió un error al establecer el código de región</string>
+    <string name="wifi_setting_priority_title">Prioridad Wi-Fi</string>
+    <string name="wifi_setting_priority_summary">Especificar la prioridad de las redes Wi-Fi</string>
     <string name="pref_wifi_disable_hdcp_title">Omitir negociación HDCP</string>
     <string name="pref_wifi_disable_hdcp_summary">Intente esta opción si puede conectar a la red pero no se consigue salida al exterior</string>
     <string name="app_security_title">Seguridad en aplicaciones</string>
@@ -2448,7 +2454,7 @@
     <string name="stylus_icon_enabled_summary">Mostrar el cursor cuando se arrastra o dibuja con Stylus</string>
     <string name="navigation_bar_title">Barra de navegación</string>
     <string name="navigation_bar_help_text">1 - Para empezar a editar, tocar el candado.\n\n2 - Tocar cualquier botón para asignar o cambiar una acción.\n\n3 - Mantener presionado un botón para reorganizar.\n\n4 - Para guardar, tocar el candado nuevamente.\n\n5 - Para restaurar la configuración por defecto, tocar el icono de restablecer.\n\n</string>
-    <string name="navigation_bar_tips">&#8226; Solo se puede asignar una acción a un botón a la vez.\n\n&#8226; El botón de inicio no puede ser reasignado.\n\n&#8226; Los botones laterales, no pueden ser reorganizados.</string>
+    <string name="navigation_bar_tips">&#8226; Sólo se puede asignar una acción a un botón a la vez.\n\n&#8226; El botón de inicio no puede ser reasignado.\n\n&#8226; Los botones laterales, no pueden ser reorganizados.</string>
     <string name="navigation_bar_tips_title">Consejos rápidos</string>
     <string name="navigation_bar_reset_message">¿Borrar configuración actual y restaurar valores por defecto?</string>
     <string name="navigation_bar_save_message">Barra de navegación guardada</string>
@@ -2462,6 +2468,13 @@
     <string name="bluetooth_mas_remember_choice">No volver a preguntar</string>
     <string name="accessibility_home_button_answers_call_prerefence_title">Botón Inicio descuelga</string>
     <string name="headset_category_title">Auriculares</string>
+    <string name="lockscreen_custom_background_title">Fondo</string>
+    <string name="lockscreen_custom_background_dialog_title">Elegir color</string>
+    <string name="lockscreen_background_result_successful">Fondo cambiado correctamente</string>
+    <string name="lockscreen_background_result_not_successful">El fondo no pudo ser cambiado</string>
+    <string name="lockscreen_background_color_fill">Color de relleno</string>
+    <string name="lockscreen_background_custom_image">Imagen personalizada</string>
+    <string name="lockscreen_background_default_wallpaper">Fondo por defecto</string>
 
     <!-- CYANOGENMOD ADDITIONS END -->
 </resources>
