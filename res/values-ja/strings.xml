@@ -1841,7 +1841,21 @@
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"エリアメール"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"表示する緊急警報の種類を選択してください。"</string>
 
-    <!-- CM String entries bellow -->
+    <!-- ** CYANOGENMOD ADDITIONS ** -->
+
+    <!-- Activity label of BluetoothMasPermissionActivity, also used as Strings in the permission dialog [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_request">"メッセージアクセスリクエスト"</string>
+
+    <!-- Bluetooth MAS permission Alert Activity text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_acceptance_dialog_text">%1$s はメッセージにアクセスしようとします。%2$s を許可しますか?</string>
+
+    <!-- Bluetooth MAS permission Alert Activity checkbox text [CHAR LIMIT=none] -->
+    <string name="bluetooth_mas_remember_choice">次回以降表示しない</string>
+
+    <!-- Wi-Fi settings screen, advanced, title of the item to set the Wi-Fi priority. -->
+    <string name="wifi_setting_priority_title">Wi-Fi優先度</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the Wi-Fi priority-->
+    <string name="wifi_setting_priority_summary">Wi-Fiネットワークの優先度を設定する</string>
 
     <string name="battery_info_status_full">フル</string>
     <!-- Brightness gadget value used to describe maximum brightness state. -->
@@ -2462,6 +2476,10 @@
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">開発ツールの起動</string>
 
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">マスストレージ</string>
+    <string name="usb_mass_storage_summary">USBマスストレージを有効にする</string>
+
     <!--- Volume key cursor control -->
     <string name="volume_key_cursor_control_title">音量キーカーソル制御</string>
     <string name="volume_key_cursor_control_off">無効</string>
@@ -2495,6 +2513,7 @@
     <string name="title_tile_lockscreen">ロック画面</string>
     <string name="title_tile_lte">LTE</string>
     <string name="title_tile_mobiledata">データ通信</string>
+    <string name="title_tile_profile">プロファイル</string>
     <string name="title_tile_autorotate">画面の回転</string>
     <string name="title_tile_settings">設定</string>
     <string name="title_tile_sound">サウンド</string>
@@ -2507,15 +2526,20 @@
     <string name="title_tile_torch">トーチ</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">画面のタイムアウト</string>
+    <string name="title_tile_usb_tether">USBテザリング</string>
+
     <string name="title_dynamic_tiles">ダイナミックタイル</string>
     <string name="dynamic_tiles_note_title">ノート</string>
     <string name="dynamic_tiles_note_summary">ダイナミックタイルは常時表示されるのではなく、システムイベントにより表示されます。</string>
     <string name="title_dynamic_alarm">アラーム</string>
     <string name="title_dynamic_bugreport">バグリポート</string>
     <string name="title_dynamic_ime">入力方法の選択</string>
+    <string name="title_dynamic_usbtether">USBテザリング</string>
     <string name="title_dynamic_wifi">Wi-Fiディスプレイ</string>
+
     <string name="title_general">一般</string>
     <string name="title_quick_pulldown">クイックプルダウン</string>
+    <string name="summary_quick_pulldown">ステータスバーの%1$sでクイック設定パネルをプルダウンする</string>
     <string name="quick_pulldown_off">オフ</string>
     <string name="quick_pulldown_left">左</string>
     <string name="quick_pulldown_right">右</string>
@@ -2523,8 +2547,8 @@
     <string name="quick_pulldown_summary_right">右側</string>
     <string name="title_collapse_panel">自動的に閉じる</string>
     <string name="summary_collapse_panel">トグル後にクイック設定パネルを自動的に閉じる</string>
-    <string name="summary_quick_pulldown">通知バーの右側をプルダウンでクイック設定を表示する</string>
-    <string name="title_tile_profile">プロファイル</string>
+
+    <!-- Reset tiles -->
     <string name="tiles_reset_title">リセット</string>
     <string name="tiles_reset_message">タイルとレイアウトを初期設定に戻しますか?</string>
 
@@ -2542,6 +2566,15 @@
 
     <string name="lockscreen_maximize_widgets_title">ウィジェットを最大化</string>
     <string name="lockscreen_maximize_widgets_summary">画面がオンのときウィジェットを最大で表示し、アンロックを最小で表示する</string>
+
+    <!-- Custom lock screen background -->
+    <string name="lockscreen_custom_background_title">背景</string>
+    <string name="lockscreen_custom_background_dialog_title">色を選択</string>
+    <string name="lockscreen_background_result_successful">背景を変更しました</string>
+    <string name="lockscreen_background_result_not_successful">背景は変更されませんでした</string>
+    <string name="lockscreen_background_color_fill">単色で染める</string>
+    <string name="lockscreen_background_custom_image">カスタムイメージ</string>
+    <string name="lockscreen_background_default_wallpaper">デフォルトの壁紙</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
