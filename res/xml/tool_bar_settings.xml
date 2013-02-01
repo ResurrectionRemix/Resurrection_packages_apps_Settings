@@ -86,6 +86,14 @@
             android:entryValues="@array/values_pie_trigger" />
 
         <ListPreference
+            android:key="pie_mode"
+            android:dialogTitle="@string/pie_mode_title"
+            android:title="@string/pie_mode_title"
+            android:summary="@string/pie_mode_summary"
+            android:entries="@array/entries_pie_mode"
+            android:entryValues="@array/values_pie_mode" />
+
+        <ListPreference
             android:key="pie_gravity"
             android:dialogTitle="@string/pie_gravity_title"
             android:title="@string/pie_gravity_title"
@@ -102,19 +110,21 @@
             android:entryValues="@array/values_pie_size" />
 
         <ListPreference
-            android:key="pie_mode"
-            android:dialogTitle="@string/pie_mode_title"
-            android:title="@string/pie_mode_title"
-            android:summary="@string/pie_mode_summary"
-            android:entries="@array/entries_pie_mode"
-            android:entryValues="@array/values_pie_mode" />
-
-        <ListPreference
             android:key="pie_gap"
             android:dialogTitle="@string/pie_gap_title"
             android:title="@string/pie_gap_title"
             android:summary="@string/pie_gap_summary"
             android:entries="@array/entries_pie_gap"
             android:entryValues="@array/values_pie_gap" />
+
+        <CheckBoxPreference
+            android:key="pie_menu"
+            android:title="@string/pie_menu_title"
+            android:summary="@string/pie_menu_summary" />
+
+        <CheckBoxPreference
+            android:key="pie_search"
+            android:title="@string/pie_search_title"
+            android:summary="@string/pie_search_summary" />
 
 </PreferenceScreen>
