@@ -188,6 +188,7 @@ public class TouchInterceptor extends ListView {
             params.height = mItemHeightNormal;
             v.setLayoutParams(params);
             v.setVisibility(View.VISIBLE);
+            v.setDrawingCacheEnabled(false); //Resets the drawing cache, the positions might have changed. We don't want the cache to be wrong.
         }
     }
 
