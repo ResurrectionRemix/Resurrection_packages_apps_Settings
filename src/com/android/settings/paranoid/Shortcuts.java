@@ -339,7 +339,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
 
     public ArrayList<String> getApplicationsStringArray() {
         String cluster =  Settings.System.getString(getContentResolver(),
-                Settings.System.LOCKSCREEN_TARGETS);
+                Settings.System.LOCKSCREEN_SHORTCUTS);
 
         if (cluster == null) {
             return new ArrayList<String>();
@@ -353,7 +353,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
     private void setApplicationsStringArray(ArrayList<String> apps) {
         String newApps = TextUtils.join("|", apps);
         Settings.System.putString(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_TARGETS, newApps);
+                Settings.System.LOCKSCREEN_SHORTCUTS, newApps);
     }
 
     private void loadApplications() {
@@ -373,7 +373,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
 
     private void addApplication(String target) {
         String apps = Settings.System.getString(getContentResolver(),
-                Settings.System.LOCKSCREEN_TARGETS);
+                Settings.System.LOCKSCREEN_SHORTCUTS);
 
         if(apps != null) apps += "|" + target;
         else apps = target;
@@ -383,7 +383,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
         }
 
         Settings.System.putString(getContentResolver(),
-            Settings.System.LOCKSCREEN_TARGETS, apps);
+            Settings.System.LOCKSCREEN_SHORTCUTS, apps);
     }
 
     private void removeApplication(String packageName, Preference pref) {
@@ -424,7 +424,7 @@ public class Shortcuts extends ApplicationsDialogPreference {
             public void onClick(DialogInterface dialog, int id) {
                 mPreferenceScreen.removeAll();
                 Settings.System.putString(getContentResolver(),
-                        Settings.System.LOCKSCREEN_TARGETS, "");
+                        Settings.System.LOCKSCREEN_SHORTCUTS, "");
             }
         });
         alert.setNegativeButton(R.string.cancel, null);
