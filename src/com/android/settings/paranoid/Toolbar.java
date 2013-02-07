@@ -29,7 +29,6 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -38,7 +37,6 @@ import com.android.settings.Utils;
 public class Toolbar extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
     private static final String NAV_BAR_TABUI_MENU = "nav_bar_tabui_menu";
     private static final String STATUS_BAR_DONOTDISTURB = "status_bar_donotdisturb";
@@ -53,7 +51,6 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String PIE_SEARCH = "pie_search";
     private static final String PIE_CENTER = "pie_center";
 
-    private CheckBoxPreference mStatusBarBrightnessControl;
     private ListPreference mStatusBarMaxNotif;
     private ListPreference mPieMode;
     private ListPreference mPieSize;
@@ -90,18 +87,6 @@ public class Toolbar extends SettingsPreferenceFragment
         mPieCenter = (CheckBoxPreference) prefSet.findPreference(PIE_CENTER);
         mPieCenter.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.PIE_CENTER, 1) == 1);
-
-        mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
-        mStatusBarBrightnessControl.setChecked((Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
-        try {
-            if (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                mStatusBarBrightnessControl.setEnabled(false);
-                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
-            }
-        } catch (SettingNotFoundException e) {
-        }
 
         mStatusBarMaxNotif = (ListPreference) prefSet.findPreference(STATUS_BAR_MAX_NOTIF);
         int maxNotIcons = Settings.System.getInt(mContext.getContentResolver(),
@@ -165,19 +150,13 @@ public class Toolbar extends SettingsPreferenceFragment
                 prefSet.removePreference(mNavigationCategory);
             }
         } else {
-            prefSet.removePreference(mStatusBarBrightnessControl);
             mNavigationCategory.removePreference(mNavigationBarControls);
         }
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mStatusBarBrightnessControl) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
-                    mStatusBarBrightnessControl.isChecked() ? 1 : 0);
-            return true;
-        }else if (preference == mMenuButtonShow) {
+        if (preference == mMenuButtonShow) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NAV_BAR_TABUI_MENU, mMenuButtonShow.isChecked() ? 1 : 0);
             return true;
