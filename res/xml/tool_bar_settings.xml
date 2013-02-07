@@ -22,26 +22,9 @@
         android:title="@string/tool_bar_status_header">
 
         <CheckBoxPreference
-            android:key="show_clock"
-            android:title="@string/show_clock_title" />
-
-        <ListPreference
-            android:key="am_pm_style"
-            android:dialogTitle="@string/am_pm_style_title"
-            android:title="@string/am_pm_style_title"
-            android:entries="@array/status_bar_sizes_entries"
-            android:entryValues="@array/status_bar_sizes_values" />
-
-        <CheckBoxPreference
             android:key="status_bar_brightness_control"
             android:title="@string/status_bar_toggle_brightness"
             android:summary="@string/status_bar_toggle_brightness_summary"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
-            android:key="status_bar_notif_count"
-            android:title="@string/status_bar_notif_count_title"
-            android:summary="@string/status_bar_notif_count_summary"
             android:defaultValue="false" />
 
         <PreferenceScreen
