@@ -2275,7 +2275,7 @@
     <string name="dialog_test">测试</string>
     <string name="dialog_delete_title">删除</string>
     <string name="dialog_delete_message">移除选中的项目?</string>
-    <string name="dialog_test_message">请将屏幕关闭以便测试新的指示灯设置.关闭此对话框将停止测试.</string>
+    <string name="dialog_test_message">请将屏幕关闭以便测试新的指示灯设置. 关闭此对话框将停止测试.</string>
     <string name="dialog_test_button">关闭</string>
 
     <!-- Values for the notification light pulse spinners -->
@@ -2301,7 +2301,6 @@
 
     <!-- Sound settings screen -->
     <string name="volume_overlay_title">声控面板风格</string>
-    <string name="headset_connect_player_title">插入耳机时启动音乐播放器</string>
     <string name="volume_ring_only_description">铃声</string>
     <string name="ring_mode_title">响铃模式</string>
     <string name="ring_mode_normal">正常</string>
@@ -2405,6 +2404,9 @@
     <string name="power_menu_reboot_title">重启菜单</string>
     <string name="power_menu_screenshot_title">屏幕截图</string>
     <string name="power_menu_expanded_desktop">扩展桌面</string>
+    <string name="expanded_desktop_disabled">已禁用</string>
+    <string name="expanded_desktop_status_bar">显示状态栏</string>
+    <string name="expanded_desktop_no_status_bar">隐藏状态栏</string>
     <string name="power_menu_profiles_title">情景模式</string>
     <string name="power_menu_airplane_title">飞行模式</string>
     <string name="power_menu_user_title">用户切换器</string>
@@ -2497,6 +2499,7 @@
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">屏幕超时</string>
     <string name="title_tile_usb_tether">USB 网络共享</string>
+    <string name="title_tile_quiet_hours">安静时段</string>
 
     <string name="title_dynamic_tiles">动态按钮</string>
     <string name="dynamic_tiles_note_title">注意</string>
@@ -2535,7 +2538,7 @@
     <!--- SMS security limit -->
     <string name="app_security_title">应用安全</string>
     <string name="sms_security_check_limit_title">短信限制</string>
-    <string name="sms_security_check_limit_summary">当某个应用频繁性的发送短信时显示一个警告窗口. 目前限制: 15 分钟内发送 %d 条信息</string>
+    <string name="sms_security_check_limit_summary">应用程序在 30 分钟内发送 %d 条信息后需要用户认可才能继续</string>
     <string name="sms_security_check_limit_default">30 (默认)</string>
 
     <!--- Lock clock -->
@@ -2557,6 +2560,35 @@
     <string name="lockscreen_background_color_fill">颜色填充</string>
     <string name="lockscreen_background_custom_image">自定义图片</string>
     <string name="lockscreen_background_default_wallpaper">默认墙纸</string>
+
+    <!-- Launch music player when headset is connected -->
+    <string name="headset_connect_player_title">启动音乐播放器</string>
+    <string name="headset_connect_player_summary">插入耳机时启动默认音乐播放器</string>
+
+    <!-- Safe headset volume restore checkbox -->
+    <string name="safe_headset_volume_title">耳机安全音量</string>
+    <string name="safe_headset_volume_summary">第一次插入耳机时防止音量过大</string>
+
+    <!-- Waiver -->
+    <string name="cyanogenmod_waiver_title">弃权声明书</string>
+<string name="cyanogenmod_waiver_body">改变此设置可能在您所在的国家属于非法行为.\n\n选择 \'确定\' 意味着您已读此警告并放弃一切起诉权, 保证 CyanogenMod 及其贡献者免于受罚并且不承担任何法律责任.</string>
+
+    <!-- Automatic brightness customization -->
+    <string name="light_sensor_current_value">目前光线传感器值: <xliff:g id="light_level">%d</xliff:g> lux</string>
+    <string name="auto_brightness_dialog_title">自动亮度级别</string>
+    <string name="auto_brightness_adjust_button">调整</string>
+    <string name="auto_brightness_reset_button">重置</string>
+    <string name="auto_brightness_lux_dialog_title">环境亮度范围</string>
+    <string name="auto_brightness_split_dialog_title">分离亮度级别</string>
+    <string name="auto_brightness_start_lux">范围开始 (lux)</string>
+    <string name="auto_brightness_end_lux">范围结束 (lux)</string>
+    <string name="auto_brightness_reset_dialog_title">重置级别?</string>
+    <string name="auto_brightness_reset_confirmation">所有亮度级别都将被还原为默认值.</string>
+    <string name="auto_brightness_split_lux_format">分离位置 (在 <xliff:g id="min">%1$d</xliff:g> 到 <xliff:g id="max">%2$d</xliff:g> lux 之间选择)</string>
+    <string name="auto_brightness_level_options">亮度级别选项</string>
+    <string name="auto_brightness_menu_edit_lux">环境亮度范围</string>
+    <string name="auto_brightness_menu_split">分离</string>
+    <string name="auto_brightness_menu_remove">删除</string>
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- ======================================================================================= -->
@@ -2569,5 +2601,4 @@
 	<string name="aokp_version_default">未知</string>
 
     <string name="vibration_title">振动效果</string>
-    <string name="safe_headset_volume_title">耳机安全音量</string>
 </resources>
