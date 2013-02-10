@@ -44,6 +44,10 @@ public class SystemSettings extends SettingsPreferenceFragment {
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
 
+    public boolean hasButtons() {
+        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,14 +79,9 @@ public class SystemSettings extends SettingsPreferenceFragment {
         }
 
         // Only show the hardware keys config on a device that does not have a navbar
-        IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                ServiceManager.getService(Context.WINDOW_SERVICE));
-        try {
-            if (windowManager.hasNavigationBar()) {
-                getPreferenceScreen().removePreference(findPreference(KEY_HARDWARE_KEYS));
-            }
-        } catch (RemoteException e) {
-            // Do nothing
+        PreferenceScreen hardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
+        if (!hasButtons()) {
+            getPreferenceScreen().removePreference(hardwareKeys);
         }
     }
 
