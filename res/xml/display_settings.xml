@@ -64,10 +64,10 @@
                 android:entryValues="@array/entryvalues_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
-        <PreferenceScreen
+        <CheckBoxPreference
             android:key="notification_pulse"
             android:title="@string/notification_pulse_title"
-            android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
+            android:persistent="false" />
 
         <PreferenceScreen
             android:key="battery_light"
