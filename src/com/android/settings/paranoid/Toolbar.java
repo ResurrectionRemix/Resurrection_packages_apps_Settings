@@ -53,6 +53,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String PIE_GAP = "pie_gap";
     private static final String PIE_MENU = "pie_menu";
     private static final String PIE_SEARCH = "pie_search";
+    private static final String PIE_CENTER = "pie_center";
 
     private ListPreference mAmPmStyle;
     private ListPreference mStatusBarMaxNotif;
@@ -67,6 +68,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private CheckBoxPreference mStatusBarDoNotDisturb;
     private CheckBoxPreference mPieMenu;
     private CheckBoxPreference mPieSearch;
+    private CheckBoxPreference mPieCenter;
     private PreferenceScreen mNavigationBarControls;
     private PreferenceCategory mNavigationCategory;
 
@@ -92,6 +94,10 @@ public class Toolbar extends SettingsPreferenceFragment
         mPieSearch = (CheckBoxPreference) prefSet.findPreference(PIE_SEARCH);
         mPieSearch.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.PIE_SEARCH, 1) == 1);
+
+        mPieCenter = (CheckBoxPreference) prefSet.findPreference(PIE_CENTER);
+        mPieCenter.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PIE_CENTER, 1) == 1);
 
         mAmPmStyle = (ListPreference) prefSet.findPreference(KEY_AM_PM_STYLE);
         int amPmStyle = Settings.System.getInt(mContext.getContentResolver(),
@@ -205,6 +211,9 @@ public class Toolbar extends SettingsPreferenceFragment
         } else if (preference == mPieSearch) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_SEARCH, mPieSearch.isChecked() ? 1 : 0);
+        } else if (preference == mPieCenter) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PIE_SEARCH, mPieCenter.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
