@@ -56,6 +56,7 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
     };
 
     private SettingRowAdapter mAdapter;
+    private int mMinLevel;
     private boolean mIsDefault;
 
     private SensorEventListener mLightSensorListener = new SensorEventListener() {
@@ -91,6 +92,9 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
 
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        mMinLevel = pm.getMinimumAbsoluteScreenBrightness();
 
         mSensorLevel = (TextView) view.findViewById(R.id.light_sensor_value);
         mBrightnessLevel = (TextView) view.findViewById(R.id.current_brightness);
@@ -453,6 +457,16 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
             mAdapter.notifyDataSetChanged();
         }
 
+        private int brightnessToProgress(int brightness) {
+            brightness -= mMinLevel;
+            return brightness * 100;
+        }
+
+        private float progressToBrightness(int progress) {
+            float brightness = (float) progress / 100F;
+            return brightness + mMinLevel;
+        }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             final Holder holder;
@@ -466,7 +480,7 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
                 holder.percent = (TextView) convertView.findViewById(R.id.backlight_percent);
                 convertView.setTag(holder);
 
-                holder.backlight.setMax(100 * PowerManager.BRIGHTNESS_ON);
+                holder.backlight.setMax(brightnessToProgress(PowerManager.BRIGHTNESS_ON));
                 holder.backlight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     private boolean mIsDragging = false;
 
@@ -481,9 +495,12 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         int pos = (Integer) seekBar.getTag();
                         if (fromUser) {
-                            int minValue = (pos == 0) ? 0 : getItem(pos - 1).backlight * 100;
+                            int minValue = pos == 0
+                                    ? 0
+                                    : brightnessToProgress(getItem(pos - 1).backlight);
                             int maxValue = isLastItem(pos)
-                                    ? seekBar.getMax() : getItem(pos + 1).backlight * 100;
+                                    ? seekBar.getMax()
+                                    : brightnessToProgress(getItem(pos + 1).backlight);
 
                             if (progress < minValue) {
                                 seekBar.setProgress(minValue);
@@ -493,21 +510,21 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
                                 return;
                             }
 
-                            getItem(pos).backlight = (progress + 50) / 100;
+                            getItem(pos).backlight = Math.round(progressToBrightness(progress));
                             mIsDefault = false;
                         }
 
                         if (mIsDragging) {
-                            final float brightness = (float) progress / seekBar.getMax();
-                            updateBrightness(brightness);
+                            float brightness = progressToBrightness(progress);
+                            updateBrightness(brightness / PowerManager.BRIGHTNESS_ON);
                         }
 
                         holder.updatePercent();
                     }
                     @Override
                     public void onStartTrackingTouch(SeekBar seekBar) {
-                        final float brightness = (float) seekBar.getProgress() / seekBar.getMax();
-                        updateBrightness(brightness);
+                        float brightness = progressToBrightness(seekBar.getProgress());
+                        updateBrightness(brightness / PowerManager.BRIGHTNESS_ON);
                         mIsDragging = true;
                     }
                     @Override
@@ -527,7 +544,7 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
                     String.valueOf(row.luxFrom), to));
 
             holder.backlight.setTag(position);
-            holder.backlight.setProgress(100 * row.backlight);
+            holder.backlight.setProgress(brightnessToProgress(row.backlight));
             holder.updatePercent();
 
             return convertView;
