@@ -19,8 +19,13 @@
     <string name="yes" msgid="4676390750360727396">"Да"</string>
     <string name="no" msgid="6731231425810196216">"Нет"</string>
     <string name="create" msgid="3578857613172647409">"Создать"</string>
+    <string name="allow" msgid="3349662621170855910">"Разрешить"</string>
+    <string name="deny" msgid="6947806159746484865">"Отклонить"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Неизвестно"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"Вы почти у цели. Осталось несколько шагов: <xliff:g id="STEP_COUNT">%1$d</xliff:g>."</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one" msgid="5295687242294085452">"Вы почти у цели. Осталось несколько шагов (<xliff:g id="STEP_COUNT">%1$d</xliff:g>)."</item>
+    <item quantity="other" msgid="6722953419953594148">"Вы почти у цели. Осталось несколько шагов (<xliff:g id="STEP_COUNT">%1$d</xliff:g>)."</item>
+  </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"Вы стали разработчиком!"</string>
     <string name="show_dev_already" msgid="2151632240145446227">"Не нужно, вы уже разработчик."</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"БЕСПРОВОДНЫЕ СЕТИ"</string>
@@ -105,14 +110,11 @@
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"Неизвестная ошибка"</string>
     <string name="battery_info_health_cold" msgid="3835692786176707318">"Холодная"</string>
     <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
-    <string name="bluetooth_visibility" msgid="2930835434091839916">"Видимость"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Время видимости для устройств Bluetooth: <xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Отображать для ближайших устройств Bluetooth"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"Не отображать для других Bluetooth-устройств"</string>
-    <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Отображать только для подключенных устройств"</string>
-    <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Сделать устройство видимым"</string>
+    <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Доступно только для подключенных устройств"</string>
     <string name="bluetooth_visibility_timeout" msgid="8002247464357005429">"Тайм-аут видимости"</string>
-    <string name="bluetooth_visibility_timeout_summary" msgid="6483353842671501585">"Укажите, в течение какого времени устройство будет видимым"</string>
     <string name="bluetooth_lock_voice_dialing" msgid="3139322992062086225">"Заблокировать голосовой набор"</string>
     <string name="bluetooth_lock_voice_dialing_summary" msgid="4741338867496787042">"Предотвратить использование телефона Bluetooth, когда экран заблокирован"</string>
     <string name="bluetooth_devices" msgid="1886018064039454227">"Устройства Bluetooth"</string>
@@ -146,15 +148,15 @@
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"Полученные файлы"</string>
     <string name="device_picker" msgid="8398232791303186677">"Выбор устройства"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"Запрос разрешения на включение Bluetooth"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"Приложение запрашивает разрешение включить Bluetooth. Разрешить?"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"Одному из приложений нужно, чтобы ваш планшетный ПК был доступен для поиска на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"Одному из приложений нужно, чтобы ваш телефон был доступен для поиска на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"Одному из приложений нужно, чтобы ваш планшетный ПК был доступен для поиска на других устройствах. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"Одному из приложений нужно, чтобы ваш телефон был доступен для поиска на других устройствах. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"Одному из приложений нужно, чтобы ваш планшетный ПК был доступен для поиска на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"Одному из приложений нужно, чтобы ваш телефон был доступен для поиска на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"Одному из приложений нужно, чтобы ваш планшетный ПК был доступен для поиска на других устройствах. Включить Bluetooth?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"Одному из приложений нужно, чтобы ваш телефон был доступен для поиска на других устройствах. Включить Bluetooth?"</string>
+    <string name="bluetooth_ask_enablement" msgid="637355677176904990">"Приложение запрашивает разрешение включить Bluetooth."</string>
+    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"Одному из приложений требуется, чтобы ваш планшетный ПК был доступен для поиска через Bluetooth на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек."</string>
+    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"Одному из приложений требуется, чтобы ваш телефон был доступен для поиска через Bluetooth на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"Одному из приложений требуется сделать ваш планшетный ПК доступным для поиска через Bluetooth на других устройствах. Позже эти настройки можно будет изменить."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"Одному из приложений требуется сделать ваш телефон доступным для поиска через Bluetooth на других устройствах. Позже эти настройки можно будет изменить."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"Одному из приложений требуется включить Bluetooth и сделать ваш планшетный ПК доступным для поиска на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"Одному из приложений требуется включить Bluetooth и сделать ваш телефон доступным для поиска на других устройствах в течение <xliff:g id="TIMEOUT">%1$d</xliff:g> сек."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"Одному из приложений требуется включить Bluetooth и сделать ваш планшетный ПК доступным для поиска на других устройствах. Позже эти настройки можно будет изменить."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"Одному из приложений требуется включить Bluetooth и сделать ваш телефон доступным для поиска на других устройствах. Позже эти настройки можно будет изменить."</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"Включение Bluetooth..."</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"Отключение Bluetooth..."</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Автоматическое подключение"</string>
@@ -347,19 +349,19 @@
     <string name="unlock_backup_info_summary" msgid="108524727803788172">"Выберите альтернативный способ разблокировки экрана."</string>
     <string name="unlock_set_unlock_off_title" msgid="7117155352183088342">"Нет"</string>
     <string name="unlock_set_unlock_off_summary" msgid="94361581669110415"></string>
-    <string name="unlock_set_unlock_none_title" msgid="2871898266296656162">"Прокрутка"</string>
+    <string name="unlock_set_unlock_none_title" msgid="2871898266296656162">"Слайдер"</string>
     <string name="unlock_set_unlock_none_summary" msgid="8914673583104628191">"Защита отключена"</string>
     <string name="unlock_set_unlock_biometric_weak_title" msgid="2227215291604628670">"Фейсконтроль"</string>
     <string name="unlock_set_unlock_biometric_weak_summary" msgid="180083326982058964">"Низкий уровень защиты (экспериментальная функция)"</string>
     <string name="unlock_set_unlock_pattern_title" msgid="2912067603917311700">"Графический ключ"</string>
     <string name="unlock_set_unlock_pattern_summary" msgid="7062696666227725593">"Средний уровень защиты"</string>
-    <string name="unlock_set_unlock_pin_title" msgid="5846029709462329515">"PIN"</string>
+    <string name="unlock_set_unlock_pin_title" msgid="5846029709462329515">"PIN-код"</string>
     <string name="unlock_set_unlock_pin_summary" msgid="907878650556383388">"Уровень безопасности от среднего до высокого"</string>
     <string name="unlock_set_unlock_password_title" msgid="8775603825675090937">"Пароль"</string>
     <string name="unlock_set_unlock_password_summary" msgid="8856220848940929546">"Высокий уровень защиты"</string>
     <string name="unlock_set_unlock_disabled_summary" msgid="2120729867788851674">"Запрещено администратором, политикой шифрования или хранилищем учетных данных"</string>
     <string name="unlock_set_unlock_mode_off" msgid="5881952274566013651">"Нет"</string>
-    <string name="unlock_set_unlock_mode_none" msgid="5660014471997663139">"Перетащить значок блокировки"</string>
+    <string name="unlock_set_unlock_mode_none" msgid="5660014471997663139">"Для разблокировки экрана сдвиньте слайдер"</string>
     <string name="unlock_set_unlock_mode_biometric_weak" msgid="3008473624490350142">"Фейсконтроль"</string>
     <string name="unlock_set_unlock_mode_pattern" msgid="7837270780919299289">"Графический ключ"</string>
     <string name="unlock_set_unlock_mode_pin" msgid="3541326261341386690">"PIN-код"</string>
@@ -519,7 +521,7 @@
     <string name="android_beam_off_summary" msgid="4663095428454779138">"Выключено"</string>
     <string name="android_beam_disabled_summary" msgid="1737782116894793393">"Недоступно, так как отключена связь малого радиуса действия"</string>
     <string name="android_beam_label" msgid="6257036050366775040">"Android Beam"</string>
-    <string name="android_beam_explained" msgid="6981652347448777459">"Когда включена эта функция, данные приложений можно передавать на другие устройства с поддержкой связи малого радиуса действия. Например, отправлять страницы браузера, видео YouTube, контакты и другие сведения."\n\n"Просто разместите устройства поблизости (например, совместите их задние панели) и коснитесь экрана. Передаваемые данные зависят от приложения."</string>
+    <string name="android_beam_explained" msgid="6981652347448777459">"Когда включена эта функция, вы можете обмениваться данными между устройствами, просто приложив их друг к другу."\n\n"Передавать можно практически любые данные, включая контакты, ссылки, веб-страницы, фотографии и видео."</string>
     <string name="nsd_quick_toggle_title" msgid="3125572815278848258">"Обнаружение сетевых служб"</string>
     <string name="nsd_quick_toggle_summary" msgid="155692215972781276">"Разрешить приложениям на других устройствах обнаруживать приложения на этом устройстве"</string>
     <string name="wifi_quick_toggle_title" msgid="874495178395350104">"Wi-Fi"</string>
@@ -573,7 +575,7 @@
     <string name="wifi_wps_failed_auth" msgid="1174614355181181958">"Ошибка аутентификации. Повторите попытку."</string>
     <string name="wifi_wps_failed_overlap" msgid="5159533685596844778">"Обнаружен другой сеанс WPS. Повторите попытку через несколько минут."</string>
     <string name="wifi_ssid" msgid="641393708309146745">"Имя сети (SSID)"</string>
-    <string name="wifi_security" msgid="6603611185592956936">"Безопасность"</string>
+    <string name="wifi_security" msgid="6603611185592956936">"Защита"</string>
     <string name="wifi_signal" msgid="5514120261628065287">"Уровень сигнала"</string>
     <string name="wifi_status" msgid="4824568012414605414">"Статус"</string>
     <string name="wifi_speed" msgid="3526198708812322037">"Скорость связи"</string>
@@ -663,12 +665,12 @@
     <string name="musicfx_title" msgid="3415566786340790345">"Звуковые эффекты"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"Громкость звонка"</string>
     <string name="vibrate_in_silent_title" msgid="3897968069156767036">"Виброзвонок без звука"</string>
-    <string name="notification_sound_title" msgid="312032901303146002">"Уведомление по умолчанию"</string>
+    <string name="notification_sound_title" msgid="5137483249425507572">"Звук уведомлений по умолчанию"</string>
     <string name="notification_pulse_title" msgid="1247988024534030629">"Индикатор событий"</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"Мелодия"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"Уведомление"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"Использовать этот уровень громкости также для уведомлений"</string>
-    <string name="notification_sound_dialog_title" msgid="9052854168612951170">"Выбрать мелодию уведомлений"</string>
+    <string name="notification_sound_dialog_title" msgid="3805140135741385667">"Звук уведомлений по умолчанию"</string>
     <string name="media_volume_title" msgid="3576565767317118106">"Мультимедиа"</string>
     <string name="media_volume_summary" msgid="5363248930648849974">"Настроить громкость музыки и видео"</string>
     <string name="alarm_volume_title" msgid="2285597478377758706">"Будильник"</string>
@@ -782,6 +784,7 @@
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
     <string name="status_network_type" msgid="3279383550222116235">"Тип мобильной сети"</string>
+    <string name="status_latest_area_info" msgid="7222470836568238054">"Сведения об операторе"</string>
     <string name="status_data_state" msgid="5503181397066522950">"Передача данных в моб. сети"</string>
     <string name="status_service_state" msgid="2323931627519429503">"Доступность моб. сети"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"Уровень сигнала"</string>
@@ -985,7 +988,7 @@
     <string name="lockpassword_choose_your_password_header" msgid="8624900666929394990">"Выберите пароль"</string>
     <string name="lockpassword_choose_your_pattern_header" msgid="6949761069941694050">"Создайте графический ключ"</string>
     <string name="lockpassword_choose_your_pin_header" msgid="7598849519816138302">"Выберите ПИН-код"</string>
-    <string name="lockpassword_confirm_your_password_header" msgid="6308478184889846633">"Подтвердите пароль"</string>
+    <string name="lockpassword_confirm_your_password_header" msgid="6308478184889846633">"Введите новый пароль"</string>
     <string name="lockpassword_confirm_your_pattern_header" msgid="7543433733032330821">"Подтвердите графический ключ"</string>
     <string name="lockpassword_confirm_your_pin_header" msgid="49038294648213197">"Подтвердите ПИН-код"</string>
     <string name="lockpassword_confirm_passwords_dont_match" msgid="6850677112663979120">"Пароли не совпадают"</string>
@@ -996,16 +999,16 @@
     <string name="lockpassword_pattern_set_toast" msgid="6867259621331406236">"Ключ был установлен"</string>
     <string name="lock_settings_title" msgid="335025124489630932">"Блокировка экрана"</string>
     <string name="lockpattern_change_lock_pattern_label" msgid="5679630792003440352">"Изменить ключ"</string>
-    <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"Изменить ПИН-код разблокировки"</string>
+    <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"Изменить PIN-код"</string>
     <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"Начертите существующий ключ"</string>
     <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"Повторите попытку"</string>
-    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"Начертите графический ключ разблокировки"</string>
+    <string name="lockpattern_recording_intro_header" msgid="2063630508212535241">"Начертите ключ разблокировки"</string>
     <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"Для справки нажмите \"Меню\"."</string>
-    <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"По завершении отпустите палец."</string>
-    <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"Соедините точки (как минимум <xliff:g id="NUMBER">%d</xliff:g>). Повторите попытку:"</string>
-    <string name="lockpattern_pattern_entered_header" msgid="8378617839439987962">"Графический ключ сохранен."</string>
-    <string name="lockpattern_need_to_confirm" msgid="5144676887162575050">"Для подтверждения начертите графический ключ повторно:"</string>
-    <string name="lockpattern_pattern_confirmed_header" msgid="2223856038485537716">"Новый графический ключ разблокировки:"</string>
+    <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"По завершении отпустите палец"</string>
+    <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"Соедините не менее <xliff:g id="NUMBER">%d</xliff:g> точек"</string>
+    <string name="lockpattern_pattern_entered_header" msgid="8378617839439987962">"Графический ключ сохранен"</string>
+    <string name="lockpattern_need_to_confirm" msgid="5144676887162575050">"Начертите ключ еще раз"</string>
+    <string name="lockpattern_pattern_confirmed_header" msgid="2223856038485537716">"Новый ключ разблокировки"</string>
     <string name="lockpattern_confirm_button_text" msgid="1128204343957002841">"Подтвердить"</string>
     <string name="lockpattern_restart_button_text" msgid="3337574403350953926">"Воспроизвести повторно"</string>
     <string name="lockpattern_retry_button_text" msgid="1949847413862309134">"Повтор"</string>
@@ -1022,12 +1025,6 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"Слишком много неудачных попыток!"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Повторите попытку через <xliff:g id="NUMBER">%d</xliff:g> с."</string>
     <string name="activity_not_found" msgid="5551664692991605325">"Приложение не установлено на телефоне."</string>
-    <string name="skip_button_label" msgid="8680422740354436943">"Отмена"</string>
-    <string name="next_button_label" msgid="8890792540116568321">"Далее"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"Безопасность планшетного ПК"</string>
-    <string name="lock_title" product="default" msgid="4059246467204273930">"Обеспечение безопасности телефона"</string>
-    <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"Создайте графический ключ разблокировки экрана, и никто, кроме вас, не сможет воспользоваться вашим планшетным ПК. Для этого соедините в произвольном порядке не менее четырех точек на экране. "\n\n"Чтобы начать, нажмите \"Далее\"."</string>
-    <string name="lock_intro_message" product="default" msgid="8393155371327584659">"Чтобы никто, кроме вас, не мог воспользоваться вашим телефоном, создайте графический ключ разблокировки экрана. Для этого соедините в произвольном порядке не менее четырех точек на следующем экране. "\n\n"Чтобы начать, нажмите \"Далее\"."</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"Управление приложениями"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"Управление установленными приложениями и их удаление"</string>
     <string name="applications_settings" msgid="1721442176406964682">"Приложения"</string>
@@ -1194,8 +1191,7 @@
     <string name="auto_punctuate" msgid="4595367243950425833">"Автопунктуация"</string>
     <string name="hardkeyboard_category" msgid="5957168411305769899">"Настройки внешней клавиатуры"</string>
     <string name="auto_punctuate_summary" msgid="4372126865670574837">"Нажмите дважды клавишу \"Пробел\" для ввода точки"</string>
-    <string name="show_password" msgid="3001113966880559611">"Показывать пароль"</string>
-    <string name="show_password_summary" msgid="7345931695292850058"></string>
+    <string name="show_password" msgid="3001113966880559611">"Показывать пароль при вводе"</string>
     <string name="ime_security_warning" msgid="4135828934735934248">"При использовании этого способа могут собираться все вводимые данные, в том числе пароли и номера кредитных карт. Способ ввода запрашиваетя приложением \"<xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g>\". Использовать этот способ ввода?"</string>
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"Для проверки орфографии будет использоваться приложение <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>, которое может собирать все вводимые данные, в том числе пароли и номера кредитных карт. Продолжить?"</string>
     <string name="spellchecker_quick_settings" msgid="246728645150092058">"Настройки"</string>
@@ -1483,7 +1479,7 @@
     <string name="credentials_install_summary" product="default" msgid="5737658257407822713">"Установить сертификаты с SD-карты"</string>
     <string name="credentials_reset" msgid="3239382277144980418">"Очистить учетные данные"</string>
     <string name="credentials_reset_summary" msgid="3369361230171260282">"Удалить все сертификаты"</string>
-    <string name="trusted_credentials" msgid="4266945289534242402">"Надежные учетные данные"</string>
+    <string name="trusted_credentials" msgid="4266945289534242402">"Надежные сертификаты"</string>
     <string name="trusted_credentials_summary" msgid="6735221351155686632">"Показывать надежные сертификаты ЦС"</string>
     <string name="credentials_install_gesture_prompt" msgid="2207390278112395082">"Начертите графический ключ"</string>
     <string name="credentials_install_gesture_explanation" msgid="7408921172253634829">"Чтобы подтвердить установку учетных данных, начертите графический ключ."</string>
@@ -1505,9 +1501,9 @@
     <string name="privacy_settings_title" msgid="4856282165773594890">"Восстановление и сброс"</string>
     <string name="backup_section_title" msgid="7952232291452882740">"Резервное копирование и восстановление"</string>
     <string name="personal_data_section_title" msgid="7815209034443782061">"Возврат к заводским настройкам"</string>
-    <string name="backup_data_title" msgid="1239105919852668016">"Копирование данных"</string>
+    <string name="backup_data_title" msgid="1239105919852668016">"Резервирование данных"</string>
     <string name="backup_data_summary" msgid="9157861529438245957">"Сохранять резервные копии данных приложений, паролей точек доступа Wi-Fi и настроек на серверах Google"</string>
-    <string name="backup_configure_account_title" msgid="3790872965773196615">"Резервный аккаунт"</string>
+    <string name="backup_configure_account_title" msgid="3790872965773196615">"Аккаунт для резервирования"</string>
     <string name="backup_configure_account_default_summary" msgid="2436933224764745553">"Не найдены аккаунты с резервными копиями данных"</string>
     <string name="auto_restore_title" msgid="5397528966329126506">"Автовосстановление"</string>
     <string name="auto_restore_summary" msgid="4235615056371993807">"При переустановке приложения восстановить резервную копию настроек и данных"</string>
@@ -1652,11 +1648,11 @@
     <string name="enable_traces_summary_num" msgid="8978230237777454269">"Включено трассировок: <xliff:g id="NUM">%1$d</xliff:g>"</string>
     <string name="enable_traces_summary_all" msgid="3950139649125158247">"Все трассировки включены"</string>
     <string name="enable_opengl_traces_title" msgid="6790444011053219871">"Вкл. трассировку OpenGL"</string>
-    <string name="debug_layout" msgid="5981361776594526155">"Показывать границы макета"</string>
+    <string name="debug_layout" msgid="5981361776594526155">"Показывать границы элементов"</string>
     <string name="debug_layout_summary" msgid="2001775315258637682">"Показывать границы клипа, поля и т. д."</string>
     <string name="show_cpu_usage" msgid="2389212910758076024">"Показывать загрузку ЦП"</string>
     <string name="show_cpu_usage_summary" msgid="2113341923988958266">"Экран, показывающий текущую загрузку ЦП"</string>
-    <string name="force_hw_ui" msgid="6426383462520888732">"Ускорить работу GPU"</string>
+    <string name="force_hw_ui" msgid="6426383462520888732">"GPU-ускорение"</string>
     <string name="force_hw_ui_summary" msgid="5535991166074861515">"Всегда использовать GPU для двухмерного рисования"</string>
     <string name="force_msaa" msgid="7920323238677284387">"Включить 4x MSAA"</string>
     <string name="force_msaa_summary" msgid="9123553203895817537">"Включить 4x MSAA в приложениях OpenGL ES 2.0"</string>
@@ -1807,7 +1803,7 @@
     <string name="user_owner" msgid="3879126011135546571">"Владелец"</string>
     <string name="user_nickname" msgid="5148818000228994488">"Псевдоним"</string>
     <string name="user_add_user_title" msgid="3961861593718285403">"Добавить пользователя"</string>
-    <string name="user_add_user_message_long" msgid="2278524063301283723">"Если вашим устройством пользуется кто-то ещё, создайте отдельных пользователей. У каждого из них будет свое пространство, где можно, например, установить приложения или выбрать обои. Некоторые параметры, например настройки сети Wi-Fi, будут общими для всех."\n\n"Каждый новый пользователь должен выполнить настройку."\n\n"Пользователи могут разрешать обновления для любых аккаунтов на устройстве."</string>
+    <string name="user_add_user_message_long" msgid="2278524063301283723">"Если устройством пользуется несколько человек, заведите для них отдельные учетные записи. В результате у каждого пользователя появится свое пространство, где можно будет установить собственные приложения или обои. При этом некоторые параметры, например настройки Wi-Fi, останутся общими для всех."\n\n"Обновление приложений будет происходить для всех учетных записей одновременно. Установить обновление сможет любой пользователь."\n\n</string>
     <string name="user_add_user_message_short" msgid="3310933423737035428">"Каждый новый пользователь должен выполнить настройку."\n\n"Пользователи могут разрешать обновления для любых аккаунтов на устройстве."</string>
     <string name="user_setup_dialog_title" msgid="1765794166801864563">"Настроить аккаунт?"</string>
     <string name="user_setup_dialog_message" msgid="614037943337008555">"Если у пользователя нет возможности настроить аккаунт прямо сейчас, он сможет сделать это позже."</string>

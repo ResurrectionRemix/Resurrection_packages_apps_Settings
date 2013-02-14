@@ -19,8 +19,13 @@
     <string name="yes" msgid="4676390750360727396">"是"</string>
     <string name="no" msgid="6731231425810196216">"否"</string>
     <string name="create" msgid="3578857613172647409">"建立"</string>
+    <string name="allow" msgid="3349662621170855910">"允許"</string>
+    <string name="deny" msgid="6947806159746484865">"拒絕"</string>
     <string name="device_info_default" msgid="7847265875578739287">"不明"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"您只需完成剩餘的 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 個步驟，即可成為開發人員。"</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one" msgid="5295687242294085452">"您只需完成剩餘的 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 個步驟，即可成為開發人員。"</item>
+    <item quantity="other" msgid="6722953419953594148">"您只需完成剩餘的 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 個步驟，即可成為開發人員。"</item>
+  </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"您現在已成為開發人員！"</string>
     <string name="show_dev_already" msgid="2151632240145446227">"不需要了，您已經是開發人員。"</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"無線與網路"</string>
@@ -105,14 +110,11 @@
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"未知的錯誤"</string>
     <string name="battery_info_health_cold" msgid="3835692786176707318">"冷"</string>
     <string name="bluetooth" msgid="5549625000628014477">"藍牙"</string>
-    <string name="bluetooth_visibility" msgid="2930835434091839916">"可偵測性"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"向附近所有藍牙裝置顯示 (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"向附近所有藍牙裝置顯示"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"不向其他藍牙裝置顯示"</string>
     <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"只向配對的裝置顯示"</string>
-    <string name="bluetooth_not_discoverable" msgid="128269993123955177">"設定裝置為可偵測"</string>
     <string name="bluetooth_visibility_timeout" msgid="8002247464357005429">"偵測時限設定"</string>
-    <string name="bluetooth_visibility_timeout_summary" msgid="6483353842671501585">"設定裝置可供偵測的開放時間"</string>
     <string name="bluetooth_lock_voice_dialing" msgid="3139322992062086225">"鎖定語音撥號"</string>
     <string name="bluetooth_lock_voice_dialing_summary" msgid="4741338867496787042">"螢幕鎖定時不要使用藍牙撥號"</string>
     <string name="bluetooth_devices" msgid="1886018064039454227">"藍牙裝置"</string>
@@ -146,15 +148,15 @@
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"顯示已接收的檔案"</string>
     <string name="device_picker" msgid="8398232791303186677">"藍牙裝置選擇器"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"藍牙權限要求"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"應用程式要求開啟藍牙功能，您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"平板電腦上的某個應用程式要求將平板電腦設成開放其他藍牙裝置搜尋，開放的時間長度為 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒。您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"手機上的某個應用程式要求將手機設成開放其他藍牙裝置搜尋，開放的時間長度為 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒。您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"平板電腦上的某個應用程式要求將平板電腦「一律設成開放其他藍牙裝置搜尋」，您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"手機上的某個應用程式要求將手機設成「一律開放其他藍牙裝置搜尋」，您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"平板電腦上的某個應用程式要求將平板電腦設成開放其他藍牙裝置搜尋，開放的時間長度為 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒。您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"您手機中的某個應用程式要求開啟藍牙功能 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒鐘，讓其他藍牙裝置可在這段時間內搜尋到您的手機。您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"平板電腦上的某個應用程式要求將平板電腦設成開放其他藍牙裝置搜尋，您要允許這項要求嗎？"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"您手機中的某個應用程式要求開啟藍牙功能，讓其他藍牙裝置可在這段時間內搜尋到您的手機。您要允許這項要求嗎？"</string>
+    <string name="bluetooth_ask_enablement" msgid="637355677176904990">"應用程式要求開啟藍牙功能。"</string>
+    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"應用程式要求開放 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒，讓其他藍芽裝置能搜尋到您的平板電腦。"</string>
+    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"應用程式要求開放 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒，讓其他藍牙裝置能搜尋到您的手機。"</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"應用程式要求讓其他藍芽裝置能搜尋到您的平版電腦。您日後可在 [藍牙] 設定中變更這項設定。"</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"應用程式要求讓其他藍芽裝置能搜尋到您的手機。您日後可在 [藍牙] 設定中變更這項設定。"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"應用程式要求開啟藍牙功能 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒，讓其他裝置能搜尋到您的平板電腦。"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"應用程式要求開啟藍牙功能 <xliff:g id="TIMEOUT">%1$d</xliff:g> 秒，讓其他裝置能搜尋到您的手機。"</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"應用程式要求開啟藍牙功能，讓其他裝置能搜尋到您的平板電腦。您日後可在 [藍牙] 設定中變更這項設定。"</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"應用程式要求開啟藍牙功能，讓其他裝置能搜尋到您的手機。您日後可在 [藍牙] 設定中變更這項設定。"</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"藍牙開啟中…"</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"正在關閉藍牙…"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"自動連線"</string>
@@ -503,7 +505,7 @@
     <string name="wifi_display_status_available" msgid="1924167525172207067">"可以使用"</string>
     <string name="wifi_display_details" msgid="7791118209992162698">"顯示裝置設定"</string>
     <string name="wifi_display_disconnect_title" msgid="1543715924639003599">"中斷連線？"</string>
-    <string name="wifi_display_disconnect_text" msgid="4824860802264489088">"這個東座會結束您與下列裝置的連線：&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="wifi_display_disconnect_text" msgid="4824860802264489088">"這個動作會結束您與下列裝置的連線：&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
     <string name="wifi_display_options_title" msgid="5740656401635054838">"無線螢幕分享選項"</string>
     <string name="wifi_display_options_forget" msgid="9119048225398894580">"刪除"</string>
     <string name="wifi_display_options_done" msgid="5703116500357822557">"完成"</string>
@@ -663,12 +665,12 @@
     <string name="musicfx_title" msgid="3415566786340790345">"音樂效果"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"鈴聲音量"</string>
     <string name="vibrate_in_silent_title" msgid="3897968069156767036">"靜音時震動"</string>
-    <string name="notification_sound_title" msgid="312032901303146002">"預設通知"</string>
+    <string name="notification_sound_title" msgid="5137483249425507572">"預設通知音效"</string>
     <string name="notification_pulse_title" msgid="1247988024534030629">"閃爍燈光通知"</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"鈴聲"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"通知"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"通知音量與來電音量相同"</string>
-    <string name="notification_sound_dialog_title" msgid="9052854168612951170">"選擇通知鈴聲"</string>
+    <string name="notification_sound_dialog_title" msgid="3805140135741385667">"預設通知音效"</string>
     <string name="media_volume_title" msgid="3576565767317118106">"媒體"</string>
     <string name="media_volume_summary" msgid="5363248930648849974">"設定音樂與影片的音量"</string>
     <string name="alarm_volume_title" msgid="2285597478377758706">"鬧鐘"</string>
@@ -720,7 +722,7 @@
     <string name="wallpaper_settings_fragment_title" msgid="519078346877860129">"選擇桌布來源"</string>
     <string name="screensaver_settings_title" msgid="3349790120327233241">"休眠模式"</string>
     <string name="screensaver_settings_summary_either_long" msgid="2458481525925378465">"安置於座架上或休眠及充電時"</string>
-    <string name="screensaver_settings_summary_either_short" msgid="6140527286137331478">"皆可"</string>
+    <string name="screensaver_settings_summary_either_short" msgid="6140527286137331478">"以上任一情況"</string>
     <string name="screensaver_settings_summary_sleep" msgid="9086186698140423493">"充電時"</string>
     <string name="screensaver_settings_summary_dock" msgid="2072657401664633283">"安置於座架上時"</string>
     <string name="screensaver_settings_summary_off" msgid="2481581696365146473">"關閉"</string>
@@ -782,6 +784,7 @@
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
     <string name="status_network_type" msgid="3279383550222116235">"行動網路類型"</string>
+    <string name="status_latest_area_info" msgid="7222470836568238054">"行動通訊業者資訊"</string>
     <string name="status_data_state" msgid="5503181397066522950">"行動網路狀態"</string>
     <string name="status_service_state" msgid="2323931627519429503">"服務狀態"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"訊號強度"</string>
@@ -999,7 +1002,7 @@
     <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"變更解鎖 PIN"</string>
     <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"確認儲存的圖形"</string>
     <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"請再試一次："</string>
-    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"畫出解鎖圖形"</string>
+    <string name="lockpattern_recording_intro_header" msgid="2063630508212535241">"畫出解鎖圖形："</string>
     <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"請按 [Menu] 以取得說明。"</string>
     <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"完成時請移開手指。"</string>
     <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"請連接至少 <xliff:g id="NUMBER">%d</xliff:g> 點。再試一次："</string>
@@ -1022,12 +1025,6 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"錯誤嘗試太多！"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"<xliff:g id="NUMBER">%d</xliff:g> 秒後再試一次。"</string>
     <string name="activity_not_found" msgid="5551664692991605325">"您未在手機上安裝應用程式。"</string>
-    <string name="skip_button_label" msgid="8680422740354436943">"取消"</string>
-    <string name="next_button_label" msgid="8890792540116568321">"下一步"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"保護平板電腦的安全"</string>
-    <string name="lock_title" product="default" msgid="4059246467204273930">"手機安全設定"</string>
-    <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"建立個人螢幕解鎖圖形，避免有心人士未經授權即擅自使用您的平板電腦。在下個畫面中，滑動手指任意連結螢幕中至少 4 個點。"\n\n"準備開始了嗎？請輕觸 [下一步]。"</string>
-    <string name="lock_intro_message" product="default" msgid="8393155371327584659">"建立個人螢幕解鎖圖形，避免他人未經授權擅自使用您的手機。請在下一個畫面中，滑動手指任意連接至少四個點。"\n\n"準備開始了嗎？請輕觸 [下一步]。"</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"管理應用程式"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"管理和移除已安裝的應用程式"</string>
     <string name="applications_settings" msgid="1721442176406964682">"應用程式"</string>
@@ -1195,7 +1192,6 @@
     <string name="hardkeyboard_category" msgid="5957168411305769899">"實體鍵盤設定"</string>
     <string name="auto_punctuate_summary" msgid="4372126865670574837">"按空白鍵兩次可插入「.」"</string>
     <string name="show_password" msgid="3001113966880559611">"顯示密碼"</string>
-    <string name="show_password_summary" msgid="7345931695292850058"></string>
     <string name="ime_security_warning" msgid="4135828934735934248">"此輸入法可能會收集您輸入的所有文字，包括密碼和信用卡號等個人資料。此輸入法來自「<xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g>」應用程式。是否要使用此輸入法？"</string>
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"這個拼字檢查程式可能會收集您輸入的所有文字，包括密碼和信用卡號等個人資料。該程式是由應用程式「<xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>」所提供，要使用這個拼字檢查程式嗎？"</string>
     <string name="spellchecker_quick_settings" msgid="246728645150092058">"設定"</string>

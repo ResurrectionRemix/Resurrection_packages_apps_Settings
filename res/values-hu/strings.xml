@@ -19,8 +19,13 @@
     <string name="yes" msgid="4676390750360727396">"Igen"</string>
     <string name="no" msgid="6731231425810196216">"Nem"</string>
     <string name="create" msgid="3578857613172647409">"Létrehozás"</string>
+    <string name="allow" msgid="3349662621170855910">"Engedélyezés"</string>
+    <string name="deny" msgid="6947806159746484865">"Elutasítás"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Ismeretlen"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"<xliff:g id="STEP_COUNT">%1$d</xliff:g> lépésre van attól, hogy fejlesztő legyen."</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one" msgid="5295687242294085452">"<xliff:g id="STEP_COUNT">%1$d</xliff:g> lépésre van attól, hogy fejlesztő legyen."</item>
+    <item quantity="other" msgid="6722953419953594148">"<xliff:g id="STEP_COUNT">%1$d</xliff:g> lépésre van attól, hogy fejlesztő legyen."</item>
+  </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"Ön mostantól már fejlesztő!"</string>
     <string name="show_dev_already" msgid="2151632240145446227">"Nincs rá szükség, Ön már fejlesztő."</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"VEZETÉK NÉLKÜLI és EGYÉB HÁLÓZATOK"</string>
@@ -105,14 +110,11 @@
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"Ismeretlen hiba történt"</string>
     <string name="battery_info_health_cold" msgid="3835692786176707318">"Közömbös"</string>
     <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
-    <string name="bluetooth_visibility" msgid="2930835434091839916">"Felderíthető"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Az összes közeli Bluetooth eszköz számára látható (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Az összes közeli Bluetooth eszköz számára látható"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"Nem látható a többi Bluetooth eszköz számára"</string>
     <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Csak párosított eszközök számára látható"</string>
-    <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Az eszköz legyen felderíthető"</string>
     <string name="bluetooth_visibility_timeout" msgid="8002247464357005429">"Láthatóság időkerete"</string>
-    <string name="bluetooth_visibility_timeout_summary" msgid="6483353842671501585">"Állítsa be, milyen hosszan legyen felfedezhető az eszköz"</string>
     <string name="bluetooth_lock_voice_dialing" msgid="3139322992062086225">"Hanghívás zárolása"</string>
     <string name="bluetooth_lock_voice_dialing_summary" msgid="4741338867496787042">"A bluetooth tárcsázó használatának megakadályozása, ha a képernyő le van zárva"</string>
     <string name="bluetooth_devices" msgid="1886018064039454227">"Bluetooth eszközök"</string>
@@ -146,15 +148,15 @@
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"Beérkező fájlok megjelenítése"</string>
     <string name="device_picker" msgid="8398232791303186677">"Bluetooth-eszközválasztó"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"Bluetooth engedélykérés"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"Egy alkalmazás be akarja kapcsolni a Bluetooth funkciót. Engedélyezi?"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"A táblagépen lévő egyik alkalmazás felfedezhetővé akarja tenni a táblagépet más eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig. Engedélyezi?"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"A telefonon lévő egyik alkalmazás felfedezhetővé akarja tenni a telefont más eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig. Engedélyezi?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"A táblagépen lévő egyik alkalmazás \"mindig felfedezhető\" állapotúvá szeretné tenni táblagépét más Bluetooth eszközök számára. Engedélyezi?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"A telefonon lévő egyik alkalmazás \"mindig felfedezhető\" állapotúvá szeretné tenni telefonját más Bluetooth eszközök számára. Engedélyezi?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"A táblagépen lévő egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a táblagépet felfedezhetővé akarja tenni más eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig. Engedélyezi?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"A telefonon lévő egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a telefont felfedezhetővé akarja tenni más eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig. Engedélyezi?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"A táblagépen lévő egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a táblagépet felfedezhetővé akarja tenni más eszközök számára. Engedélyezi?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"A telefonon lévő egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a telefont felfedezhetővé akarja tenni más eszközök számára. Engedélyezi?"</string>
+    <string name="bluetooth_ask_enablement" msgid="637355677176904990">"Egy alkalmazás be akarja kapcsolni a Bluetooth funkciót."</string>
+    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"Egy alkalmazás láthatóvá akarja tenni a táblagépet más Bluetooth-eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig."</string>
+    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"Egy alkalmazás láthatóvá akarja tenni a telefont más Bluetooth-eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"Az egyik alkalmazás láthatóvá akarja tenni a táblagépet más eszközök számára. Ezt később módosíthatja a Bluetooth beállításokban."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"Az egyik alkalmazás láthatóvá akarja tenni a telefont más eszközök számára. Ezt később módosíthatja a Bluetooth beállításokban."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"Az egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a táblagépet láthatóvá akarja tenni más eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"Az egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a telefont láthatóvá akarja tenni más eszközök számára <xliff:g id="TIMEOUT">%1$d</xliff:g> másodpercig."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"Az egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a táblagépet láthatóvá akarja tenni más eszközök számára. Ezt később módosíthatja a Bluetooth beállításokban."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"Az egyik alkalmazás be akarja kapcsolni a Bluetooth funkciót, és a telefont láthatóvá akarja tenni más eszközök számára. Ezt később módosíthatja a Bluetooth beállításokban."</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"Bluetooth bekapcsolása?"</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"Bluetooth kikapcsolása…"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Automatikus csatlakozás"</string>
@@ -663,12 +665,12 @@
     <string name="musicfx_title" msgid="3415566786340790345">"Zenei hatások"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"Csengetés hangereje"</string>
     <string name="vibrate_in_silent_title" msgid="3897968069156767036">"Rezgés néma üzemmódban"</string>
-    <string name="notification_sound_title" msgid="312032901303146002">"Alapértelmezett értesítés"</string>
+    <string name="notification_sound_title" msgid="5137483249425507572">"Alapértelmezett értesítési hang"</string>
     <string name="notification_pulse_title" msgid="1247988024534030629">"Villogó értesítő fény"</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"Csengőhang"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"Értesítés"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"Bejövő hívások hangerejének használata az értesítéseknél"</string>
-    <string name="notification_sound_dialog_title" msgid="9052854168612951170">"Válasszon értesítési csengőhangot"</string>
+    <string name="notification_sound_dialog_title" msgid="3805140135741385667">"Alapértelmezett értesítési hang"</string>
     <string name="media_volume_title" msgid="3576565767317118106">"Média"</string>
     <string name="media_volume_summary" msgid="5363248930648849974">"Zenék és videók hangerejének beállítása"</string>
     <string name="alarm_volume_title" msgid="2285597478377758706">"Ébresztő"</string>
@@ -720,7 +722,7 @@
     <string name="wallpaper_settings_fragment_title" msgid="519078346877860129">"Válasszon tapétát innen:"</string>
     <string name="screensaver_settings_title" msgid="3349790120327233241">"Álmodozás"</string>
     <string name="screensaver_settings_summary_either_long" msgid="2458481525925378465">"Dokkolt vagy alvó állapotban, töltés közben"</string>
-    <string name="screensaver_settings_summary_either_short" msgid="6140527286137331478">"Mindegy"</string>
+    <string name="screensaver_settings_summary_either_short" msgid="6140527286137331478">"Bármelyik"</string>
     <string name="screensaver_settings_summary_sleep" msgid="9086186698140423493">"Töltés közben"</string>
     <string name="screensaver_settings_summary_dock" msgid="2072657401664633283">"Dokkolt állapotban"</string>
     <string name="screensaver_settings_summary_off" msgid="2481581696365146473">"Ki"</string>
@@ -782,6 +784,7 @@
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
     <string name="status_network_type" msgid="3279383550222116235">"Mobilhálózat típusa"</string>
+    <string name="status_latest_area_info" msgid="7222470836568238054">"Operátoradatok"</string>
     <string name="status_data_state" msgid="5503181397066522950">"Mobilhálózat állapota"</string>
     <string name="status_service_state" msgid="2323931627519429503">"Szolgáltatás állapota"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"Jelerősség"</string>
@@ -999,7 +1002,7 @@
     <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"A feloldó PIN-kód módosítása"</string>
     <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"Erősítse meg az elmentett mintát"</string>
     <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"Próbálja újra:"</string>
-    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"Rajzoljon egy feloldási mintát"</string>
+    <string name="lockpattern_recording_intro_header" msgid="2063630508212535241">"Rajzoljon feloldómintát:"</string>
     <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"Nyomja meg a Menü gombot, ha segítségre van szüksége."</string>
     <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"Emelje fel az ujját, ha kész."</string>
     <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"Kapcsoljon össze legalább <xliff:g id="NUMBER">%d</xliff:g> pontot. Próbálkozzon újra:"</string>
@@ -1022,12 +1025,6 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"Túl sok helytelen próbálkozás!"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Próbálja újra <xliff:g id="NUMBER">%d</xliff:g> másodperc múlva."</string>
     <string name="activity_not_found" msgid="5551664692991605325">"Az alkalmazás már nincs telepítve a telefonján."</string>
-    <string name="skip_button_label" msgid="8680422740354436943">"Mégse"</string>
-    <string name="next_button_label" msgid="8890792540116568321">"Tovább"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"A táblagép védelme"</string>
-    <string name="lock_title" product="default" msgid="4059246467204273930">"A telefon védelme"</string>
-    <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"Védje meg táblagépét a jogosulatlan használattól egy személyes képernyőfeloldási minta létrehozásával. Ujjával tetszőleges sorrendben kösse össze a pontokat a következő képernyőn. Legalább négy pontot össze kell kötnie. "\n\n"Készen áll? Érintse meg a Tovább gombot."</string>
-    <string name="lock_intro_message" product="default" msgid="8393155371327584659">"Védje meg telefonját a jogosulatlan használattól egy személyes képernyőfeloldási minta létrehozásával. Ujjával tetszőleges sorrendben kössön össze legalább négy pontot a következő képernyőn. "\n\n"Készen áll? Érintse meg a Tovább gombot."</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"Alkalmazások kezelése"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"Telepített alkalmazások kezelése és eltávolítása"</string>
     <string name="applications_settings" msgid="1721442176406964682">"Alkalmazások"</string>
@@ -1195,7 +1192,6 @@
     <string name="hardkeyboard_category" msgid="5957168411305769899">"Fizikai billentyűzet beállításai"</string>
     <string name="auto_punctuate_summary" msgid="4372126865670574837">"A \".\" beillesztéséhez kétszer kell lenyomni a szóköz billentyűt"</string>
     <string name="show_password" msgid="3001113966880559611">"Jelszó láthatóvá tétele"</string>
-    <string name="show_password_summary" msgid="7345931695292850058"></string>
     <string name="ime_security_warning" msgid="4135828934735934248">"Ez a beviteli módszer alkalmas lehet a beírt szövegek -– köztük az olyan személyes adatok, mint a jelszavak és a hitelkártyaszámok –- összegyűjtésére. A(z) <xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g> alkalmazás kapcsolta be. Használja ezt a módszert?"</string>
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"Lehetséges, hogy ez a helyesírás-ellenőrző összegyűjti a beírt szövegeket, beleértve a személyes adatokat, mint amilyenek a jelszavak és bankkártyaszámok. A(z) <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g> alkalmazástól származik. Használja ezt a helyesírás-ellenőrzőt?"</string>
     <string name="spellchecker_quick_settings" msgid="246728645150092058">"Beállítások"</string>
@@ -1665,7 +1661,7 @@
     <string name="window_animation_scale_title" msgid="6162587588166114700">"Ablakanimáció mérete"</string>
     <string name="transition_animation_scale_title" msgid="387527540523595875">"Áttűnési animáció mérete"</string>
     <string name="animator_duration_scale_title" msgid="3406722410819934083">"Animáció léptéke"</string>
-    <string name="overlay_display_devices_title" msgid="5364176287998398539">"Másodlagos kijelzők szim."</string>
+    <string name="overlay_display_devices_title" msgid="5364176287998398539">"Másodlagos kijelzők szimulálása"</string>
     <string name="debug_applications_category" msgid="4206913653849771549">"Alkalmazások"</string>
     <string name="immediately_destroy_activities" msgid="8366775083630234121">"Törölje a tevékenységeket"</string>
     <string name="immediately_destroy_activities_summary" msgid="3592221124808773368">"Tevékenységek törlése, amint elhagyják azokat"</string>

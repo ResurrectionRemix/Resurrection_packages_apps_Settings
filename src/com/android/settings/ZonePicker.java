@@ -23,10 +23,12 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -81,7 +83,7 @@ public class ZonePicker extends ListFragment {
     public static SimpleAdapter constructTimezoneAdapter(Context context,
             boolean sortedByName) {
         return constructTimezoneAdapter(context, sortedByName,
-                android.R.layout.simple_list_item_2);
+                R.layout.date_time_setup_custom_list_item_2);
     }
 
     /**
@@ -152,6 +154,15 @@ public class ZonePicker extends ListFragment {
         // Sets the adapter
         setSorting(true);
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        final View view = super.onCreateView(inflater, container, savedInstanceState);
+        final ListView list = (ListView) view.findViewById(android.R.id.list);
+        Utils.forcePrepareCustomPreferencesList(container, view, list, false);
+        return view;
     }
 
     @Override

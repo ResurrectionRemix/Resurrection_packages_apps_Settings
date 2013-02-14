@@ -19,8 +19,13 @@
     <string name="yes" msgid="4676390750360727396">"Yes"</string>
     <string name="no" msgid="6731231425810196216">"No"</string>
     <string name="create" msgid="3578857613172647409">"Create"</string>
+    <string name="allow" msgid="3349662621170855910">"Allow"</string>
+    <string name="deny" msgid="6947806159746484865">"Deny"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Unknown"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"You are now <xliff:g id="STEP_COUNT">%1$d</xliff:g> steps away from being a developer."</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one" msgid="5295687242294085452">"You are now <xliff:g id="STEP_COUNT">%1$d</xliff:g> step away from being a developer."</item>
+    <item quantity="other" msgid="6722953419953594148">"You are now <xliff:g id="STEP_COUNT">%1$d</xliff:g> steps away from being a developer."</item>
+  </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"You are now a developer!"</string>
     <string name="show_dev_already" msgid="2151632240145446227">"No need, you are already a developer."</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"WIRELESS &amp; NETWORKS"</string>
@@ -105,14 +110,11 @@
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"Unknown error"</string>
     <string name="battery_info_health_cold" msgid="3835692786176707318">"Cold"</string>
     <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
-    <string name="bluetooth_visibility" msgid="2930835434091839916">"Discoverable"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Visible to all Bluetooth devices nearby (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Visible to all Bluetooth devices nearby"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"Not visible to other Bluetooth devices"</string>
     <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Only visible to paired devices"</string>
-    <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Make device discoverable"</string>
     <string name="bluetooth_visibility_timeout" msgid="8002247464357005429">"Visibility timeout"</string>
-    <string name="bluetooth_visibility_timeout_summary" msgid="6483353842671501585">"Set how long device will be discoverable"</string>
     <string name="bluetooth_lock_voice_dialing" msgid="3139322992062086225">"Lock voice dialling"</string>
     <string name="bluetooth_lock_voice_dialing_summary" msgid="4741338867496787042">"Prevent use of the Bluetooth dialler when the screen is locked"</string>
     <string name="bluetooth_devices" msgid="1886018064039454227">"Bluetooth devices"</string>
@@ -146,15 +148,15 @@
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"Show files received"</string>
     <string name="device_picker" msgid="8398232791303186677">"Bluetooth device chooser"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"Bluetooth permission request"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"An app wants to turn on Bluetooth. Allow?"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"An app on your tablet wants to make your tablet discoverable by other Bluetooth devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds. Allow?"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"An app on your phone wants to make your phone discoverable by other Bluetooth devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds. Allow?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"An app on your tablet wants to make your tablet “always discoverable” by other Bluetooth devices. Allow?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"An app on your phone wants to make your phone “always discoverable” by other Bluetooth devices. Allow?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"An app on your tablet wants to turn on Bluetooth and make your tablet discoverable by other devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds. Allow?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"An app on your phone wants to turn on Bluetooth and make your phone discoverable by other devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds. Allow?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"An app on your tablet wants to turn on Bluetooth and make your tablet discoverable by other devices. Allow?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"An app on your phone wants to turn on Bluetooth and make your phone discoverable by other devices. Allow?"</string>
+    <string name="bluetooth_ask_enablement" msgid="637355677176904990">"An app wants to turn on Bluetooth."</string>
+    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"An app wants to make your tablet visible to other Bluetooth devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds."</string>
+    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"An app wants to make your phone visible to other Bluetooth devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"An app wants to make your tablet visible to other Bluetooth devices. You can change this later in Bluetooth settings."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"An app wants to make your phone visible to other Bluetooth devices. You can change this later in Bluetooth settings."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"An app wants to turn on Bluetooth and make your tablet visible to other devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"An app wants to turn on Bluetooth and make your phone visible to other devices for <xliff:g id="TIMEOUT">%1$d</xliff:g> seconds."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"An app wants to turn on Bluetooth and make your tablet visible to other devices. You can change this later in Bluetooth settings."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"An app wants to turn on Bluetooth and make your phone visible to other devices. You can change this later in Bluetooth settings."</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"Turning on Bluetooth…"</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"Turning Bluetooth off…"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Auto-connect"</string>
@@ -663,12 +665,14 @@
     <string name="musicfx_title" msgid="3415566786340790345">"Music effects"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"Ringer volume"</string>
     <string name="vibrate_in_silent_title" msgid="3897968069156767036">"Vibrate when silent"</string>
-    <string name="notification_sound_title" msgid="312032901303146002">"Default notification"</string>
+    <!-- no translation found for notification_sound_title (5137483249425507572) -->
+    <skip />
     <string name="notification_pulse_title" msgid="1247988024534030629">"Pulse notification light"</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"Ringtone"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"Notification"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"Use incoming call volume for notifications"</string>
-    <string name="notification_sound_dialog_title" msgid="9052854168612951170">"Choose notification ringtone"</string>
+    <!-- no translation found for notification_sound_dialog_title (3805140135741385667) -->
+    <skip />
     <string name="media_volume_title" msgid="3576565767317118106">"Media"</string>
     <string name="media_volume_summary" msgid="5363248930648849974">"Set volume for music and videos"</string>
     <string name="alarm_volume_title" msgid="2285597478377758706">"Alarm"</string>
@@ -782,6 +786,7 @@
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
     <string name="status_network_type" msgid="3279383550222116235">"Mobile network type"</string>
+    <string name="status_latest_area_info" msgid="7222470836568238054">"Operator info"</string>
     <string name="status_data_state" msgid="5503181397066522950">"Mobile network state"</string>
     <string name="status_service_state" msgid="2323931627519429503">"Service status"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"Signal strength"</string>
@@ -999,7 +1004,7 @@
     <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"Change unlock PIN"</string>
     <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"Confirm saved pattern"</string>
     <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"Try again:"</string>
-    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"Draw an unlock pattern"</string>
+    <string name="lockpattern_recording_intro_header" msgid="2063630508212535241">"Draw an unlock pattern:"</string>
     <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"Press Menu for help."</string>
     <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"Release finger when done."</string>
     <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"Connect at least <xliff:g id="NUMBER">%d</xliff:g> dots. Try again:"</string>
@@ -1022,12 +1027,6 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"Too many incorrect attempts!"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Try again in <xliff:g id="NUMBER">%d</xliff:g> seconds."</string>
     <string name="activity_not_found" msgid="5551664692991605325">"Application is not installed on your phone."</string>
-    <string name="skip_button_label" msgid="8680422740354436943">"Cancel"</string>
-    <string name="next_button_label" msgid="8890792540116568321">"Next"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"Securing your tablet"</string>
-    <string name="lock_title" product="default" msgid="4059246467204273930">"Securing your phone"</string>
-    <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"Protect your tablet from unauthorised use by creating a personal screen unlock pattern. Slide your finger to connect the dots in any order on the next screen. You need to connect at least four dots. "\n\n"Ready to start? Touch Next."</string>
-    <string name="lock_intro_message" product="default" msgid="8393155371327584659">"Protect your phone from unauthorised use by creating a personal screen unlock pattern. Slide your finger to connect at least four dots in any order on the next screen. "\n\n"Ready to start? Touch Next."</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"Manage apps"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"Manage and remove installed apps"</string>
     <string name="applications_settings" msgid="1721442176406964682">"Apps"</string>
@@ -1195,7 +1194,6 @@
     <string name="hardkeyboard_category" msgid="5957168411305769899">"Physical keyboard settings"</string>
     <string name="auto_punctuate_summary" msgid="4372126865670574837">"Press Space key twice to insert \".\""</string>
     <string name="show_password" msgid="3001113966880559611">"Make passwords visible"</string>
-    <string name="show_password_summary" msgid="7345931695292850058"></string>
     <string name="ime_security_warning" msgid="4135828934735934248">"This input method may be able to collect all the text that you type, including personal data like passwords and credit card numbers. It comes from the app <xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g>. Use this input method?"</string>
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"This spell checker may be able to collect all the text that you type, including personal data like passwords and credit card numbers. It comes from the app <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>. Use this spell checker?"</string>
     <string name="spellchecker_quick_settings" msgid="246728645150092058">"Settings"</string>

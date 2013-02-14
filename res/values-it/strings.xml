@@ -19,8 +19,13 @@
     <string name="yes" msgid="4676390750360727396">"Sì"</string>
     <string name="no" msgid="6731231425810196216">"No"</string>
     <string name="create" msgid="3578857613172647409">"Crea"</string>
+    <string name="allow" msgid="3349662621170855910">"Consenti"</string>
+    <string name="deny" msgid="6947806159746484865">"Rifiuta"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Sconosciuto"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"Ora ti mancano <xliff:g id="STEP_COUNT">%1$d</xliff:g> passaggi per diventare uno sviluppatore."</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one" msgid="5295687242294085452">"Ora ti manca <xliff:g id="STEP_COUNT">%1$d</xliff:g> passaggio per diventare uno sviluppatore."</item>
+    <item quantity="other" msgid="6722953419953594148">"Ora ti mancano <xliff:g id="STEP_COUNT">%1$d</xliff:g> passaggi per diventare uno sviluppatore."</item>
+  </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"Ora sei uno sviluppatore."</string>
     <string name="show_dev_already" msgid="2151632240145446227">"Non è necessario, sei già uno sviluppatore."</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"WIRELESS E RETI"</string>
@@ -105,14 +110,11 @@
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"Errore sconosciuto"</string>
     <string name="battery_info_health_cold" msgid="3835692786176707318">"Minimo"</string>
     <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
-    <string name="bluetooth_visibility" msgid="2930835434091839916">"Rilevabile"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Visibile a tutti dispositivi Bluetooth vicini (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Visibile a tutti dispositivi Bluetooth vicini"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"Non visibile ad altri dispositivi Bluetooth"</string>
     <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Visibile solo ai dispositivi accoppiati"</string>
-    <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Rendi rilevabile il dispositivo"</string>
     <string name="bluetooth_visibility_timeout" msgid="8002247464357005429">"Timeout visibilità"</string>
-    <string name="bluetooth_visibility_timeout_summary" msgid="6483353842671501585">"Imposta la durata della rilevabilità del dispositivo"</string>
     <string name="bluetooth_lock_voice_dialing" msgid="3139322992062086225">"Blocca composizione vocale"</string>
     <string name="bluetooth_lock_voice_dialing_summary" msgid="4741338867496787042">"Impedisci l\'uso del compositore Bluetooth quando lo schermo è bloccato"</string>
     <string name="bluetooth_devices" msgid="1886018064039454227">"Dispositivi Bluetooth"</string>
@@ -146,15 +148,15 @@
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"Mostra file ricevuti"</string>
     <string name="device_picker" msgid="8398232791303186677">"Selettore dispositivo Bluetooth"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"Richiesta autorizzazione Bluetooth"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"Un\'applicazione vuole attivare il Bluetooth. Consentire?"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"Un\'applicazione sul tablet vuole rendere il tablet rilevabile da altri dispositivi Bluetooth per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi. Consentire?"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"Un\'applicazione sul telefono vuole rendere il telefono rilevabile da altri dispositivi Bluetooth per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi. Consentire?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"Un\'applicazione sul tablet vuole rendere il tablet \"sempre rilevabile\" da altri dispositivi Bluetooth. Consentire?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"Un\'applicazione sul telefono vuole rendere il telefono \"sempre rilevabile\" da altri dispositivi Bluetooth. Consentire?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"Un\'applicazione sul tablet vuole attivare il Bluetooth e rendere il tablet rilevabile da altri dispositivi per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi. Consentire?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"Un\'applicazione sul telefono vuole attivare il Bluetooth e rendere il telefono rilevabile da altri dispositivi per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi. Consentire?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"Un\'applicazione sul tablet vuole attivare il  Bluetooth e rendere il tablet rilevabile da altri dispositivi. Consentire?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"Un\'applicazione sul telefono vuole attivare il Bluetooth e rendere il telefono rilevabile da altri dispositivi. Consentire?"</string>
+    <string name="bluetooth_ask_enablement" msgid="637355677176904990">"Un\'app chiede di attivare il Bluetooth."</string>
+    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"Un\'app chiede di rendere il tablet visualizzabile da altri dispositivi Bluetooth per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi."</string>
+    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"Un\'app chiede di rendere il telefono visualizzabile da altri dispositivi Bluetooth per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"Un\'app chiede di rendere il tablet visualizzabile da altri dispositivi Bluetooth. Puoi modificare questa impostazione in seguito nelle impostazioni Bluetooth."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"Un\'app chiede di rendere il telefono visualizzabile da altri dispositivi Bluetooth. Puoi modificare questa impostazione in seguito nelle impostazioni Bluetooth."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"Un\'app chiede di attivare il Bluetooth e di rendere il tablet visualizzabile da altri dispositivi per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"Un\'app chiede di attivare il Bluetooth e di rendere il telefono visualizzabile da altri dispositivi per <xliff:g id="TIMEOUT">%1$d</xliff:g> secondi."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"Un\'app chiede di attivare il Bluetooth e di rendere il tablet visualizzabile da altri dispositivi. Puoi modificare questa impostazione in seguito nelle impostazioni Bluetooth."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"Un\'app chiede di attivare il Bluetooth e di rendere il telefono visualizzabile da altri dispositivi. Puoi modificare questa impostazione in seguito nelle impostazioni Bluetooth."</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"Attivazione Bluetooth..."</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"Disattivazione Bluetooth..."</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Connessione automatica"</string>
@@ -663,12 +665,12 @@
     <string name="musicfx_title" msgid="3415566786340790345">"Effetti musicali"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"Volume suoneria"</string>
     <string name="vibrate_in_silent_title" msgid="3897968069156767036">"Vibra in modalità silenziosa"</string>
-    <string name="notification_sound_title" msgid="312032901303146002">"Notifica predefinita"</string>
+    <string name="notification_sound_title" msgid="5137483249425507572">"Suono di notifica predefinito"</string>
     <string name="notification_pulse_title" msgid="1247988024534030629">"Luce di notifica pulsante"</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"Suoneria"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"Notifica"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"Usa volume chiamate in entrata per le notifiche"</string>
-    <string name="notification_sound_dialog_title" msgid="9052854168612951170">"Scegli suoneria notifica"</string>
+    <string name="notification_sound_dialog_title" msgid="3805140135741385667">"Suono di notifica predefinito"</string>
     <string name="media_volume_title" msgid="3576565767317118106">"Applicazioni multimediali"</string>
     <string name="media_volume_summary" msgid="5363248930648849974">"Imposta il volume di musica e video"</string>
     <string name="alarm_volume_title" msgid="2285597478377758706">"Allarme"</string>
@@ -725,7 +727,7 @@
     <string name="screensaver_settings_summary_dock" msgid="2072657401664633283">"Quando inserito nel dock"</string>
     <string name="screensaver_settings_summary_off" msgid="2481581696365146473">"Disattivato"</string>
     <string name="screensaver_settings_disabled_prompt" msgid="3857507943322777651">"Per stabilire che cosa accade quando il telefono è inserito nel dock e/o in stand-by, attiva Daydream."</string>
-    <string name="screensaver_settings_when_to_dream" msgid="8352267826043957746">"Quando sognare a occhi aperti"</string>
+    <string name="screensaver_settings_when_to_dream" msgid="8352267826043957746">"Quando attivare Daydream"</string>
     <string name="screensaver_settings_dream_start" msgid="4998187847985120168">"Inizia subito"</string>
     <string name="screensaver_settings_button" msgid="7292214707625717013">"Impostazioni"</string>
     <string name="automatic_brightness" msgid="5014143533884135461">"Luminosità automatica"</string>
@@ -782,6 +784,7 @@
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
     <string name="status_network_type" msgid="3279383550222116235">"Tipo di rete cellulare"</string>
+    <string name="status_latest_area_info" msgid="7222470836568238054">"Info operatore"</string>
     <string name="status_data_state" msgid="5503181397066522950">"Stato rete cellulare"</string>
     <string name="status_service_state" msgid="2323931627519429503">"Stato servizio"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"Intensità segnale"</string>
@@ -999,7 +1002,7 @@
     <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"Cambia PIN di sblocco"</string>
     <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"Conferma sequenza salvata"</string>
     <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"Riprova:"</string>
-    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"Inserisci una sequenza di sblocco"</string>
+    <string name="lockpattern_recording_intro_header" msgid="2063630508212535241">"Inserisci una sequenza di sblocco:"</string>
     <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"Premi Menu per visualizzare la guida."</string>
     <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"Allontana il dito al termine."</string>
     <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"Collega almeno <xliff:g id="NUMBER">%d</xliff:g> punti. Riprova:"</string>
@@ -1022,12 +1025,6 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"Troppi tentativi errati."</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Riprova fra <xliff:g id="NUMBER">%d</xliff:g> secondi."</string>
     <string name="activity_not_found" msgid="5551664692991605325">"Applicazione non installata sul telefono."</string>
-    <string name="skip_button_label" msgid="8680422740354436943">"Annulla"</string>
-    <string name="next_button_label" msgid="8890792540116568321">"Avanti"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"Protezione del tablet"</string>
-    <string name="lock_title" product="default" msgid="4059246467204273930">"Protezione del telefono"</string>
-    <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"Proteggi il tuo tablet dall\'uso non autorizzato creando una sequenza di sblocco dello schermo personale. Fai scorrere il dito per collegare i pallini in qualsiasi ordine nella schermata successiva. Devi collegare almeno quattro pallini. "\n\n"Sei pronto per iniziare? Tocca \"Avanti\"."</string>
-    <string name="lock_intro_message" product="default" msgid="8393155371327584659">"Proteggi il tuo telefono dall\'uso non autorizzato creando una sequenza di sblocco dello schermo personale. Fai scorrere il dito per collegare almeno quattro pallini in qualsiasi ordine nella schermata successiva. "\n\n"Sei pronto per iniziare? Tocca \"Avanti\"."</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"Gestisci applicazioni"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"Gestisci e rimuovi applicazioni installate"</string>
     <string name="applications_settings" msgid="1721442176406964682">"Applicazioni"</string>
@@ -1195,7 +1192,6 @@
     <string name="hardkeyboard_category" msgid="5957168411305769899">"Impostazioni tastiera fisica"</string>
     <string name="auto_punctuate_summary" msgid="4372126865670574837">"Premi due volte la barra spaziatrice per inserire \".\""</string>
     <string name="show_password" msgid="3001113966880559611">"Password visibili"</string>
-    <string name="show_password_summary" msgid="7345931695292850058"></string>
     <string name="ime_security_warning" msgid="4135828934735934248">"Questo metodo di immissione potrebbe riuscire a raccogliere tutto il testo digitato, compresi i dati personali come password e numeri di carte di credito. Deriva dall\'applicazione <xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g>. Utilizzare questo metodo di immissione?"</string>
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"Questa funzione di controllo ortografico potrebbe riuscire a raccogliere tutto il testo digitato, compresi i dati personali come password e numeri di carte di credito. Deriva dall\'applicazione <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>. Utilizzare questa funzione di controllo ortografico?"</string>
     <string name="spellchecker_quick_settings" msgid="246728645150092058">"Impostazioni"</string>
