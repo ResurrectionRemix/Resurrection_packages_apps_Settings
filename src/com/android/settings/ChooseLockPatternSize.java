@@ -63,7 +63,7 @@ public class ChooseLockPatternSize extends PreferenceActivity {
             final boolean isFallback = getActivity().getIntent()
                 .getBooleanExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, false);
 
-            Intent intent = new Intent(getActivity(), ChooseLockPatternSize.class);
+            Intent intent = new Intent(getActivity(), ChooseLockPattern.class);
             intent.putExtra("pattern_size", patternSize);
             intent.putExtra("key_lock_method", "pattern");
             intent.putExtra("confirm_credentials", false);
