@@ -13,7 +13,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
+-->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -158,8 +158,8 @@
     <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"Una aplicación quiere activar el Bluetooth y hacer visible tu teléfono para otros dispositivos durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos."</string>
     <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"Una aplicación quiere activar el Bluetooth y hacer visible tu tablet para otros dispositivos. Puedes cambiar esta configuración más tarde en los ajustes de Bluetooth."</string>
     <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"Una aplicación quiere activar el Bluetooth y hacer visible tu teléfono para otros dispositivos. Puedes cambiar esta configuración más tarde en los ajustes de Bluetooth."</string>
-    <string name="bluetooth_turning_on" msgid="4850574877288036646">"Activando Bluetooth…"</string>
-    <string name="bluetooth_turning_off" msgid="2337747302892025192">"Desactivando Bluetooth..."</string>
+    <string name="bluetooth_turning_on" msgid="4850574877288036646">"Activando Bluetooth\u2026"</string>
+    <string name="bluetooth_turning_off" msgid="2337747302892025192">"Desactivando Bluetooth\u2026"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Conexión automática"</string>
     <string name="bluetooth_connection_permission_request" msgid="4747918249032890077">"Solicitud para establecer conexión de Bluetooth"</string>
     <string name="bluetooth_connection_notif_message" msgid="3687933246423942977">"Toca para conectarte a \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\"."</string>
@@ -2232,7 +2232,6 @@
     <string name="battery_light_medium_color_title">Cargando</string>
     <string name="battery_light_full_color_title">Cargada</string>
     <string name="volume_overlay_title">Panel de volumen</string>
-    <string name="headset_connect_player_title">Iniciar aplicación de música al conectar</string>
     <string name="volume_ring_only_description">Tonos del teléfono</string>
     <string name="ring_mode_title">Modo de sonido</string>
     <string name="ring_mode_normal">Normal</string>
@@ -2317,8 +2316,8 @@
     <string name="power_menu_screenshot_title">Capturar pantalla</string>
     <string name="power_menu_expanded_desktop">Extender escritorio</string>
     <string name="expanded_desktop_disabled">Desactivado</string>
-    <string name="expanded_desktop_status_bar">Con barra de estado</string>
-    <string name="expanded_desktop_no_status_bar">Sin barra de estado</string>
+    <string name="expanded_desktop_status_bar">Barra de estado visible</string>
+    <string name="expanded_desktop_no_status_bar">Barra de estado oculta</string>
     <string name="power_menu_profiles_title">Perfiles</string>
     <string name="power_menu_airplane_title">Modo avión</string>
     <string name="power_menu_user_title">Cambiar de usuario</string>
@@ -2450,10 +2449,29 @@
     <string name="lockscreen_background_color_fill">Color de relleno</string>
     <string name="lockscreen_background_custom_image">Imagen personalizada</string>
     <string name="lockscreen_background_default_wallpaper">Fondo por defecto</string>
+    <string name="headset_connect_player_title">Iniciar reproductor</string>
+    <string name="headset_connect_player_summary">Iniciar el reproductor de música por defecto al conectar los auriculares</string>
     <string name="safe_headset_volume_title">Volumen seguro</string>
     <string name="safe_headset_volume_summary">Prevenir un volumen alto en los auriculares cuando sean conectados por primera vez</string>
     <string name="cyanogenmod_waiver_title">Renuncia</string>
     <string name="cyanogenmod_waiver_body">Cambiar este ajuste puede ir en contra de la leyes de su estado o país.\n\nPulsando \'Aceptar\', usted reconoce esta advertencia y exime de cualquier responsabilidad legal a CyanogenMod y sus colaboradores, renunciando así a cualquier reclamación por daños y perjuicios.</string>
+    <string name="light_sensor_current_value">Valor actual del sensor: <xliff:g id="light_level">%d</xliff:g> lux</string>
+    <string name="auto_brightness_dialog_title">Niveles automáticos de brillo</string>
+    <string name="auto_brightness_level_format"><xliff:g id="start_level">%1$s</xliff:g> -\n<xliff:g id="end_level">%2$s</xliff:g> lux</string>
+    <string name="auto_brightness_brightness_format"><xliff:g id="percent">%s</xliff:g>%%</string>
+    <string name="auto_brightness_adjust_button">Ajustar</string>
+    <string name="auto_brightness_reset_button">Restablecer</string>
+    <string name="auto_brightness_lux_dialog_title">Luminosidad ambiental</string>
+    <string name="auto_brightness_split_dialog_title">Dividir nivel</string>
+    <string name="auto_brightness_start_lux">Inicio del intervalo (lux)</string>
+    <string name="auto_brightness_end_lux">Fin del intervalo (lux)</string>
+    <string name="auto_brightness_reset_dialog_title">¿Restablecer los niveles?</string>
+    <string name="auto_brightness_reset_confirmation">Todos los niveles de brillo serán restablecidos a los valores por defecto.</string>
+    <string name="auto_brightness_split_lux_format">Valor para división (entre <xliff:g id="min">%1$d</xliff:g> y <xliff:g id="max">%2$d</xliff:g> lux)</string>
+    <string name="auto_brightness_level_options">Opciones de nivel de luz</string>
+    <string name="auto_brightness_menu_edit_lux">Editar</string>
+    <string name="auto_brightness_menu_split">Dividir</string>
+    <string name="auto_brightness_menu_remove">Eliminar</string>
 
     <!-- CYANOGENMOD ADDITIONS END -->
 </resources>
