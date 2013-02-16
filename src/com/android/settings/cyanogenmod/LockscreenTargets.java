@@ -35,7 +35,15 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Xfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
@@ -194,7 +202,8 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
                             File fPath = new File(rSource);
                             if (fPath != null) {
                                 if (fPath.exists()) {
-                                    front = new BitmapDrawable(getResources(), BitmapFactory.decodeFile(rSource));
+                                    front = new BitmapDrawable(getResources(), getRoundedCornerBitmap(BitmapFactory.decodeFile(rSource)));
+                                    tmpInset = tmpInset + 5;
                                 }
                             }
                         } else if (in.hasExtra(GlowPadView.ICON_RESOURCE)) {
@@ -256,6 +265,25 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
             }
         }
         mWaveView.setTargetResources(tDraw);
+    }
+
+    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+            bitmap.getHeight(), Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        final RectF rectF = new RectF(rect);
+        final float roundPx = 24;
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        return output;
     }
 
     @Override
