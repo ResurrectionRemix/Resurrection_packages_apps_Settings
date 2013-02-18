@@ -58,7 +58,6 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
-    private static final String KEY_LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
     private static final String KEY_BACKGROUND_PREF = "lockscreen_background";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
@@ -66,7 +65,6 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mHomeScreenWidgets;
-    private CheckBoxPreference mMaximizeWidgets;
 
     private Context mContext;
 
@@ -92,14 +90,6 @@ public class Lockscreen extends SettingsPreferenceFragment
         mHomeScreenWidgets = (CheckBoxPreference) prefSet.findPreference(KEY_HOME_SCREEN_WIDGETS);
         mHomeScreenWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.HOME_SCREEN_WIDGETS, 0) == 1);
-
-        mMaximizeWidgets = (CheckBoxPreference)findPreference(KEY_LOCKSCREEN_MAXIMIZE_WIDGETS);
-        if (Utils.isTablet()) {
-            getPreferenceScreen().removePreference(mMaximizeWidgets);
-            mMaximizeWidgets = null;
-        } else {
-            mMaximizeWidgets.setOnPreferenceChangeListener(this);
-        }
 
         mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND_PREF);
         mCustomBackground.setOnPreferenceChangeListener(this);
@@ -168,17 +158,6 @@ public class Lockscreen extends SettingsPreferenceFragment
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        ContentResolver cr = getActivity().getContentResolver();
-        if (mMaximizeWidgets != null) {
-            mMaximizeWidgets.setChecked(Settings.System.getInt(cr,
-                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
-        }
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_BG_WALLPAPER) {
             int hintId;
@@ -205,13 +184,7 @@ public class Lockscreen extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        ContentResolver cr = getActivity().getContentResolver();
-
-        if (preference == mMaximizeWidgets) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
-            return true;
-        } else if (preference == mCustomBackground) {
+        if (preference == mCustomBackground) {
             int selection = mCustomBackground.findIndexOfValue(objValue.toString());
             return handleBackgroundSelection(selection);
         }
