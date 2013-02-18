@@ -123,14 +123,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
-        String cpuInfo = getCPUInfo();
         String memInfo = getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
 
         if (memInfo != null) {
             setStringSummary(KEY_DEVICE_MEMORY, memInfo);
@@ -140,6 +133,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
 
         addStringPreference(KEY_DEVICE_CHIPSET,
                 SystemProperties.get("ro.device.chipset", null));
+        addStringPreference(KEY_DEVICE_CPU,
+                SystemProperties.get("ro.device.cpu", getCPUInfo()));
         addStringPreference(KEY_DEVICE_GPU,
                 SystemProperties.get("ro.device.gpu", null));
         addStringPreference(KEY_DEVICE_FRONT_CAMERA,
