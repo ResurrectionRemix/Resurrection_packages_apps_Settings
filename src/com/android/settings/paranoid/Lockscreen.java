@@ -118,10 +118,6 @@ public class Lockscreen extends SettingsPreferenceFragment
         if (!hasButtons()) {
             getPreferenceScreen().removePreference(lockscreenButtons);
         }
-
-        if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
-            prefSet.removePreference(mAllowRotation);
-        }
     }
 
     private void updateCustomBackgroundSummary() {
