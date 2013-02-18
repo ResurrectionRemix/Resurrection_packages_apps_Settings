@@ -33,6 +33,12 @@
             android:entryValues="@array/ring_mode_values" />
 
     <ListPreference
+            android:key="volume_overlay"
+            android:title="@string/volume_overlay_title"
+            android:entries="@array/volume_overlay_entries"
+            android:entryValues="@array/volume_overlay_values" />
+
+    <ListPreference
         android:key="notification_sounds_limiter"
         android:title="@string/notification_sound_limiter_title"
         android:summary="@string/notification_sound_limiter_summary"
