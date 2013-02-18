@@ -61,10 +61,8 @@ public class Lockscreen extends SettingsPreferenceFragment
     private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
     private static final String KEY_LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
     private static final String KEY_BACKGROUND_PREF = "lockscreen_background";
-    private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
 
-    private ListPreference mBatteryStatus;
     private ListPreference mCustomBackground;
 
     private CheckBoxPreference mAllowRotation;
@@ -116,9 +114,6 @@ public class Lockscreen extends SettingsPreferenceFragment
         mWallpaperImage = new File(getActivity().getFilesDir() + "/lockwallpaper");
         mWallpaperTemporary = new File(getActivity().getCacheDir() + "/lockwallpaper.tmp");
 
-        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
-        mBatteryStatus.setOnPreferenceChangeListener(this);
-
         PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
             getPreferenceScreen().removePreference(lockscreenButtons);
@@ -144,19 +139,6 @@ public class Lockscreen extends SettingsPreferenceFragment
             mCustomBackground.setValueIndex(LOCKSCREEN_BACKGROUND_COLOR_FILL);
         }
         mCustomBackground.setSummary(getResources().getString(resId));
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        // Set the battery status description text
-        if (mBatteryStatus != null) {
-            int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
-            mBatteryStatus.setValueIndex(batteryStatus);
-            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
-        }
     }
 
     @Override
@@ -239,13 +221,7 @@ public class Lockscreen extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver cr = getActivity().getContentResolver();
 
-        if (preference == mBatteryStatus) {
-            int value = Integer.valueOf((String) objValue);
-            int index = mBatteryStatus.findIndexOfValue((String) objValue);
-            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
-            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
-            return true;
-        } else if (preference == mMaximizeWidgets) {
+        if (preference == mMaximizeWidgets) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
             return true;
