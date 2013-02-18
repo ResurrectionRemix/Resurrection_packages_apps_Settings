@@ -117,9 +117,7 @@ public class Lockscreen extends SettingsPreferenceFragment
         mWallpaperTemporary = new File(getActivity().getCacheDir() + "/lockwallpaper.tmp");
 
         mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
-        if (mBatteryStatus != null) {
-            mBatteryStatus.setOnPreferenceChangeListener(this);
-        }
+        mBatteryStatus.setOnPreferenceChangeListener(this);
 
         PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
@@ -146,6 +144,19 @@ public class Lockscreen extends SettingsPreferenceFragment
             mCustomBackground.setValueIndex(LOCKSCREEN_BACKGROUND_COLOR_FILL);
         }
         mCustomBackground.setSummary(getResources().getString(resId));
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Set the battery status description text
+        if (mBatteryStatus != null) {
+            int batteryStatus = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
+            mBatteryStatus.setValueIndex(batteryStatus);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
+        }
     }
 
     @Override
@@ -193,13 +204,6 @@ public class Lockscreen extends SettingsPreferenceFragment
         super.onResume();
 
         ContentResolver cr = getActivity().getContentResolver();
-        if (mBatteryStatus != null) {
-            int batteryStatus = Settings.System.getInt(cr,
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0);
-            mBatteryStatus.setValueIndex(batteryStatus);
-            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
-        }
-
         if (mMaximizeWidgets != null) {
             mMaximizeWidgets.setChecked(Settings.System.getInt(cr,
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
