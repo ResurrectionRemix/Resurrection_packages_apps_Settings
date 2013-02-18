@@ -67,7 +67,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final int FALLBACK_EMERGENCY_TONE_VALUE = 0;
 
     private static final String KEY_VOLUME_OVERLAY = "volume_overlay";
-    private static final String KEY_NOTIFICATION_LIMITER_SOUND = "notification_sounds_limiter";
     private static final String KEY_RING_MODE = "ring_mode";
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
     private static final String KEY_VIBRATION = "vibration";
@@ -109,7 +108,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private ListPreference mVolumeOverlay;
     private ListPreference mRingMode;
     private CheckBoxPreference mDtmfTone;
-    private ListPreference mNotifSoundLimiter;
     private CheckBoxPreference mSoundEffects;
     private CheckBoxPreference mHapticFeedback;
     private Preference mMusicFx;
@@ -190,11 +188,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 VolumePanel.VOLUME_OVERLAY_EXPANDABLE);
         mVolumeOverlay.setValue(Integer.toString(volumeOverlay));
         mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
-
-        mNotifSoundLimiter = (ListPreference) findPreference(KEY_NOTIFICATION_LIMITER_SOUND);
-        mNotifSoundLimiter.setOnPreferenceChangeListener(this);
-        mNotifSoundLimiter.setValue(Integer.toString(Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_SOUND_LIMITER_THRESHOLD, 0)));
 
         mRingMode = (ListPreference) findPreference(KEY_RING_MODE);
         if (!getResources().getBoolean(R.bool.has_silent_mode)) {
@@ -504,10 +497,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.MODE_VOLUME_OVERLAY, value);
             mVolumeOverlay.setSummary(mVolumeOverlay.getEntries()[index]);
-        } else if (preference == mNotifSoundLimiter) {
-            int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.NOTIFICATION_SOUND_LIMITER_THRESHOLD, value);
         }
 
         return true;
