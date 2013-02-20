@@ -98,6 +98,15 @@
                 android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
     </header>
 
+    <header android:id="@+id/sprint_tools"
+            android:title="@string/sprint_tools_title"
+            android:icon="@drawable/ic_sprint_tools">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.teameos.settings.device"
+                android:targetClass="org.teameos.settings.device.DeviceSettings" />
+    </header>
+
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />

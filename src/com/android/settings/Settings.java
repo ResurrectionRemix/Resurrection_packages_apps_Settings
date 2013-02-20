@@ -125,7 +125,8 @@ public class Settings extends PreferenceActivity
             R.id.rom_control,
             R.id.themes,
             R.id.performance,
-            R.id.advanced_settings
+            R.id.advanced_settings,
+            R.id.sprint_tools
     };
 
     private SharedPreferences mDevelopmentPreferences;
@@ -436,7 +437,10 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.advanced_settings) {
                 if (!needsAdvancedSettings())
                     target.remove(header);
-            } else if (id == R.id.wifi_settings) {
+            } else if (id == R.id.sprint_tools) {
+                if (!isSprintDevice())
+                    target.remove(header);
+	    } else if (id == R.id.wifi_settings) {
                 // Remove WiFi Settings if WiFi service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI)) {
                     target.remove(i);
@@ -554,6 +558,10 @@ public class Settings extends PreferenceActivity
 
     private boolean needsAdvancedSettings() {
         return getResources().getBoolean(R.bool.has_advanced_settings);
+    }
+
+    private boolean isSprintDevice() {
+        return getResources().getBoolean(R.bool.is_sprint_device);
     }
 
     private void getMetaData() {
