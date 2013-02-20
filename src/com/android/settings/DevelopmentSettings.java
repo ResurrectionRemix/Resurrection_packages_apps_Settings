@@ -50,6 +50,7 @@ import android.os.ServiceManager;
 import android.os.StrictMode;
 import android.os.SystemProperties;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiCheckPreference;
@@ -235,6 +236,11 @@ public class DevelopmentSettings extends PreferenceFragment
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
 
+        if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
+            disableForUser(mEnableAdb);
+            disableForUser(mPassword);
+        }
+
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
         mAllPrefs.add(mDebugAppPref);
         mWaitForDebugger = findAndInitCheckboxPref(WAIT_FOR_DEBUGGER_KEY);
@@ -313,6 +319,13 @@ public class DevelopmentSettings extends PreferenceFragment
 
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
         mAllPrefs.add(mDevelopmentTools);
+    }
+
+    private void disableForUser(Preference pref) {
+        if (pref != null) {
+            pref.setEnabled(false);
+            mDisabledPrefs.add(pref);
+        }
     }
 
     private CheckBoxPreference findAndInitCheckboxPref(String key) {

@@ -19,8 +19,13 @@
     <string name="yes" msgid="4676390750360727396">"Da"</string>
     <string name="no" msgid="6731231425810196216">"Ne"</string>
     <string name="create" msgid="3578857613172647409">"Ustvari"</string>
+    <string name="allow" msgid="3349662621170855910">"Dovoli"</string>
+    <string name="deny" msgid="6947806159746484865">"Zavrni"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Neznano"</string>
-    <string name="show_dev_countdown" msgid="5521163114237004821">"Št. korakov, ki vas loči od tega, da postanete razvijalec: <xliff:g id="STEP_COUNT">%1$d</xliff:g>."</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one" msgid="5295687242294085452">"Št. korakov, ki vas loči od tega, da postanete razvijalec: <xliff:g id="STEP_COUNT">%1$d</xliff:g>."</item>
+    <item quantity="other" msgid="6722953419953594148">"Št. korakov, ki vas loči od tega, da postanete razvijalec: <xliff:g id="STEP_COUNT">%1$d</xliff:g>."</item>
+  </plurals>
     <string name="show_dev_on" msgid="1110711554982716293">"Zdaj ste razvijalec."</string>
     <string name="show_dev_already" msgid="2151632240145446227">"Ni treba, ker ste že razvijalec."</string>
     <string name="header_category_wireless_networks" msgid="4944823405420438623">"BREZŽIČNE IN OMREŽNE POVEZAVE"</string>
@@ -105,14 +110,11 @@
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"Neznana napaka"</string>
     <string name="battery_info_health_cold" msgid="3835692786176707318">"Hladno"</string>
     <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
-    <string name="bluetooth_visibility" msgid="2930835434091839916">"Viden"</string>
     <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Vidno vsem napravam Bluetooth v bližini (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
     <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Vidno vsem napravam Bluetooth v bližini"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"Ni vidno drugim napravam Bluetooth"</string>
     <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Vidno samo seznanjenim napravam"</string>
-    <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Naj bo naprava vidna drugim"</string>
     <string name="bluetooth_visibility_timeout" msgid="8002247464357005429">"Časovna omejitev vidnosti"</string>
-    <string name="bluetooth_visibility_timeout_summary" msgid="6483353842671501585">"Nastavite trajanje vidnosti naprave"</string>
     <string name="bluetooth_lock_voice_dialing" msgid="3139322992062086225">"Zakleni glasovno klicanje"</string>
     <string name="bluetooth_lock_voice_dialing_summary" msgid="4741338867496787042">"Prepreči uporabo telefona Bluetooth, kadar je zaslon zaklenjen"</string>
     <string name="bluetooth_devices" msgid="1886018064039454227">"Naprave Bluetooth"</string>
@@ -146,15 +148,15 @@
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"Pokaži prejete datoteke"</string>
     <string name="device_picker" msgid="8398232791303186677">"Izbirnik naprav Bluetooth"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"Zahteva za dovoljenje za uporabo funkcije Bluetooth"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"Program želi vklopiti Bluetooth. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"Program v tabličnem računalniku želi vklopiti Bluetooth in nastaviti tablični računalnik, da ga bodo lahko druge naprave odkrile <xliff:g id="TIMEOUT">%1$d</xliff:g> s. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"Program v telefonu želi nastaviti telefon, da ga bodo lahko druge naprave odkrile <xliff:g id="TIMEOUT">%1$d</xliff:g> s. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"Program v telefonu želi nastaviti tablični računalnik, da ga bodo lahko druge naprave Bluetooth kadar koli odkrile. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"Program v telefonu želi nastaviti telefon, da ga bodo lahko druge naprave Bluetooth kadar koli odkrile. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"Program v tabličnem računalniku želi vklopiti Bluetooth in nastaviti tablični računalnik, da ga bodo lahko druge naprave odkrile <xliff:g id="TIMEOUT">%1$d</xliff:g> s. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"Program v telefonu želi za <xliff:g id="TIMEOUT">%1$d</xliff:g> s vklopiti Bluetooth in nastaviti telefon, da ga bodo lahko odkrile druge naprave. Želite dovoliti?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"Program v tabličnem računalniku želi vklopiti Bluetooth in nastaviti tablični računalnik, da ga bodo lahko druge naprave odkrile. Želite omogočiti?"</string>
-    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"Program v telefonu želi vklopiti Bluetooth in nastaviti telefon, da ga bodo lahko druge naprave odkrile. Želite omogočiti?"</string>
+    <string name="bluetooth_ask_enablement" msgid="637355677176904990">"Aplikacija želi vklopiti Bluetooth."</string>
+    <string name="bluetooth_ask_discovery" product="tablet" msgid="786921566047356213">"Aplikacija želi, da lahko druge naprave Bluetooth vidijo vaš tablični računalnik toliko sekund: <xliff:g id="TIMEOUT">%1$d</xliff:g>."</string>
+    <string name="bluetooth_ask_discovery" product="default" msgid="5510358858113713272">"Aplikacija želi, da lahko druge naprave Bluetooth vidijo vaš telefon toliko sekund: <xliff:g id="TIMEOUT">%1$d</xliff:g>."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8863617309580598607">"Aplikacija želi omogočiti, da lahko druge naprave Bluetooth vidijo vaš tablični računalnik. To lahko pozneje spremenite v nastavitvah Bluetooth."</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="6487606808683607975">"Aplikacija želi omogočiti, da lahko druge naprave Bluetooth vidijo vaš telefon. To lahko pozneje spremenite v nastavitvah Bluetooth."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="3346529092809011149">"Aplikacija želi vklopiti Bluetooth in omogočiti, da lahko druge naprave vidijo vaš tablični računalnik toliko sekund: <xliff:g id="TIMEOUT">%1$d</xliff:g>."</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="4724094889807196118">"Aplikacija želi vklopiti Bluetooth in omogočiti, da lahko druge naprave vidijo vaš telefon toliko sekund: <xliff:g id="TIMEOUT">%1$d</xliff:g>."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="989613204829097159">"Aplikacija želi vklopiti Bluetooth in omogočiti, da lahko druge naprave vidijo vaš tablični računalnik. To lahko pozneje spremenite v nastavitvah Bluetooth."</string>
+    <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="6671615712909139801">"Aplikacija želi vklopiti Bluetooth in omogočiti, da lahko druge naprave vidijo vaš telefon. To lahko pozneje spremenite v nastavitvah Bluetooth."</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"Vklop Bluetootha…"</string>
     <string name="bluetooth_turning_off" msgid="2337747302892025192">"Izklop Bluetootha…"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Samodejno poveži"</string>
@@ -663,12 +665,12 @@
     <string name="musicfx_title" msgid="3415566786340790345">"Glasbeni učinki"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"Glasnost zvonjenja"</string>
     <string name="vibrate_in_silent_title" msgid="3897968069156767036">"Vibriraj v tihem načinu"</string>
-    <string name="notification_sound_title" msgid="312032901303146002">"Privzeto obvestilo"</string>
+    <string name="notification_sound_title" msgid="5137483249425507572">"Privzeti zvok obvestila"</string>
     <string name="notification_pulse_title" msgid="1247988024534030629">"Lučka za obvestila z utripanjem"</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"Zvonjenje"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"Obvestilo"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"Za obvestila uporabljaj glasnost dohodnih klicev"</string>
-    <string name="notification_sound_dialog_title" msgid="9052854168612951170">"Izberite melodijo zvonjenja za obvestila"</string>
+    <string name="notification_sound_dialog_title" msgid="3805140135741385667">"Privzeti zvok obvestila"</string>
     <string name="media_volume_title" msgid="3576565767317118106">"Predstavnost"</string>
     <string name="media_volume_summary" msgid="5363248930648849974">"Nastavi glasnost za glasbo in video"</string>
     <string name="alarm_volume_title" msgid="2285597478377758706">"Alarm"</string>
@@ -782,6 +784,7 @@
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
     <string name="status_network_type" msgid="3279383550222116235">"Vrsta mobilnega omrežja"</string>
+    <string name="status_latest_area_info" msgid="7222470836568238054">"Podatki operaterja"</string>
     <string name="status_data_state" msgid="5503181397066522950">"Stanje mobilnega omrežja"</string>
     <string name="status_service_state" msgid="2323931627519429503">"Stanje storitve"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"Moč signala"</string>
@@ -999,7 +1002,7 @@
     <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"Spremeni kodo PIN za odklepanje"</string>
     <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"Potrdite shranjeni vzorec"</string>
     <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"Poskusite znova:"</string>
-    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"Nariši vzorec za odklepanje"</string>
+    <string name="lockpattern_recording_intro_header" msgid="2063630508212535241">"Narišite vzorec za odklepanje:"</string>
     <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"Če želite pomoč, pritisnite meni."</string>
     <string name="lockpattern_recording_inprogress" msgid="4622772178078818425">"Ko končate, dvignite prst."</string>
     <string name="lockpattern_recording_incorrect_too_short" msgid="3103250430366718996">"Povežite vsaj <xliff:g id="NUMBER">%d</xliff:g> pik. Poskusite znova:"</string>
@@ -1022,12 +1025,6 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"Preveč napačnih poskusov!"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Čez <xliff:g id="NUMBER">%d</xliff:g> sekund poskusite znova."</string>
     <string name="activity_not_found" msgid="5551664692991605325">"Aplikacija ni nameščena v telefonu."</string>
-    <string name="skip_button_label" msgid="8680422740354436943">"Prekliči"</string>
-    <string name="next_button_label" msgid="8890792540116568321">"Naprej"</string>
-    <string name="lock_title" product="tablet" msgid="2909697418179419990">"Varnost tabličnega računalnika"</string>
-    <string name="lock_title" product="default" msgid="4059246467204273930">"Zaščita telefona"</string>
-    <string name="lock_intro_message" product="tablet" msgid="8616353869251700776">"Zaščitite tablični računalnik pred nepooblaščeno uporabo tako, da ustvarite vzorec za odklepanje zaslona. Na naslednjem zaslonu s prstom v poljubnem vrstnem redu povežite pike. Povezati morate vsaj štiri pike. "\n\n"Ste pripravljeni? Dotaknite se možnosti »Naprej«."</string>
-    <string name="lock_intro_message" product="default" msgid="8393155371327584659">"Zaščitite telefon pred nepooblaščeno uporabo, tako da ustvarite osebni vzorec za odklepanje zaslona. Na naslednjem zaslonu s prstom v poljubnem vrstnem redu povežite vsaj štiri pike. "\n\n"Ste pripravljeni? Dotaknite se gumba »Naprej«."</string>
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"Upravljaj programe"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"Upravljanje in odstranjevanje nameščenih programov"</string>
     <string name="applications_settings" msgid="1721442176406964682">"Programi"</string>
@@ -1195,7 +1192,6 @@
     <string name="hardkeyboard_category" msgid="5957168411305769899">"Nastavitve fizične tipkovnice"</string>
     <string name="auto_punctuate_summary" msgid="4372126865670574837">"Dvakrat pritisnite preslednico, da vnesete ».«"</string>
     <string name="show_password" msgid="3001113966880559611">"Gesla so vidna"</string>
-    <string name="show_password_summary" msgid="7345931695292850058"></string>
     <string name="ime_security_warning" msgid="4135828934735934248">"Ta način vnosa lahko morda zbere besedilo, ki ga vtipkate, vključno z osebnimi podatki, kot so gesla in številke kreditnih kartic. Omogoča jo program <xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g>. Ali želite uporabiti ta način vnosa?"</string>
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"Ta pregledovalnik črkovanja bo morda lahko zbral vse besedilo, ki ga vnesete, vključno z osebnimi podatki, kot so gesla in številke kreditnih kartic. Pregledovalnik je iz programa <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>. Ga želite uporabiti?"</string>
     <string name="spellchecker_quick_settings" msgid="246728645150092058">"Nastavitve"</string>
