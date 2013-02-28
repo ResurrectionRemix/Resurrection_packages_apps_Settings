@@ -70,13 +70,10 @@
             android:entries="@array/entries_pie_trigger"
             android:entryValues="@array/values_pie_trigger" />
 
-        <ListPreference
-            android:key="pie_mode"
-            android:dialogTitle="@string/pie_mode_title"
-            android:title="@string/pie_mode_title"
-            android:summary="@string/pie_mode_summary"
-            android:entries="@array/entries_pie_mode"
-            android:entryValues="@array/values_pie_mode" />
+        <CheckBoxPreference
+            android:key="pie_stick"
+            android:title="@string/pie_stick_title"
+            android:summary="@string/pie_stick_summary" />
 
         <ListPreference
             android:key="pie_gravity"
@@ -90,6 +87,14 @@
             android:key="pie_center"
             android:title="@string/pie_center_title"
             android:summary="@string/pie_center_summary" />
+
+        <ListPreference
+            android:key="pie_mode"
+            android:dialogTitle="@string/pie_mode_title"
+            android:title="@string/pie_mode_title"
+            android:summary="@string/pie_mode_summary"
+            android:entries="@array/entries_pie_mode"
+            android:entryValues="@array/values_pie_mode" />
 
         <ListPreference
             android:key="pie_size"

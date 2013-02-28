@@ -50,6 +50,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String PIE_MENU = "pie_menu";
     private static final String PIE_SEARCH = "pie_search";
     private static final String PIE_CENTER = "pie_center";
+    private static final String PIE_STICK = "pie_stick";
 
     private ListPreference mStatusBarMaxNotif;
     private ListPreference mPieMode;
@@ -62,6 +63,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private CheckBoxPreference mPieMenu;
     private CheckBoxPreference mPieSearch;
     private CheckBoxPreference mPieCenter;
+    private CheckBoxPreference mPieStick;
     private PreferenceScreen mNavigationBarControls;
     private PreferenceCategory mNavigationCategory;
 
@@ -87,6 +89,10 @@ public class Toolbar extends SettingsPreferenceFragment
         mPieCenter = (CheckBoxPreference) prefSet.findPreference(PIE_CENTER);
         mPieCenter.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.PIE_CENTER, 1) == 1);
+
+        mPieStick = (CheckBoxPreference) prefSet.findPreference(PIE_STICK);
+        mPieStick.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PIE_STICK, 0) == 1);
 
         mStatusBarMaxNotif = (ListPreference) prefSet.findPreference(STATUS_BAR_MAX_NOTIF);
         int maxNotIcons = Settings.System.getInt(mContext.getContentResolver(),
@@ -174,6 +180,9 @@ public class Toolbar extends SettingsPreferenceFragment
         } else if (preference == mPieCenter) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_CENTER, mPieCenter.isChecked() ? 1 : 0);
+        } else if (preference == mPieStick) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PIE_STICK, mPieStick.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
