@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.paranoid;
+package com.android.settings.cyanogenmod;
 
 import java.util.Collections;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.paranoid.CustomTilesFragment.OnRearrangeListener;
+import com.android.settings.cyanogenmod.QuickSettingsTiles.OnRearrangeListener;
 
 public class DraggableGridView extends ViewGroup implements
         View.OnTouchListener, View.OnClickListener, View.OnLongClickListener {
@@ -269,7 +269,7 @@ public class DraggableGridView extends ViewGroup implements
 
     void toggleAddDelete(boolean delete) {
         int resid = R.drawable.ic_menu_add;
-        int stringid = R.string.add_title;
+        int stringid = R.string.tiles_add_title;
         if (delete) {
             resid = R.drawable.ic_menu_delete_holo_dark;
             stringid = R.string.dialog_delete_title;
