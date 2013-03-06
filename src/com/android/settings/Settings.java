@@ -493,6 +493,10 @@ public class Settings extends PreferenceActivity
                 if (!showDev) {
                     target.remove(i);
                 }
+            } else if (id == R.id.superuser) {
+                if (!DevelopmentSettings.isRootForAppsEnabled()) {
+                    target.remove(i);
+                }
             }
 
             if (target.get(i) == header
