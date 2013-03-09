@@ -42,7 +42,7 @@
     </PreferenceScreen> 
 
 <PreferenceScreen
-           android:id="@+id/themes"
+            android:id="@+id/themes"
             android:title="@string/themes_title"
             android:summary="@string/themes_summary"
             android:icon="@drawable/ic_settings_themes" >
@@ -50,7 +50,8 @@
                 android:action="android.intent.action.MAIN"
                 android:targetPackage="com.tmobile.themechooser"
                 android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </PreferenceScreen> 
+     </PreferenceScreen>
+
 <PreferenceScreen
            android:id="@+id/performance"
             android:title="@string/performance_title"
@@ -117,8 +118,14 @@
                 android:targetPackage="com.android.lmt"
                 android:targetClass="com.android.lmt.LMT" />
  </PreferenceScreen>
+ 
+    <!-- PB-->
+<PreferenceScreen
+        android:id="@+id/trds_settings"
+        android:icon="@drawable/ic_settings_trds"
+        android:summary="@string/pb_summary"
+        android:title="@string/pb_settings_title" />
 </PreferenceCategory>
-
 
 <PreferenceCategory
         android:key="resurrection_update"
