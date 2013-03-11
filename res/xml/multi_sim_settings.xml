@@ -58,6 +58,16 @@
                     android:targetClass="com.android.phone.SetSubscription" />
         </PreferenceScreen>
 
+        <CheckBoxPreference
+            android:key="tune_away"
+            android:title="@string/tune_away_title"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="priority_subscription"
+            android:title="@string/priority_sub_title"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
