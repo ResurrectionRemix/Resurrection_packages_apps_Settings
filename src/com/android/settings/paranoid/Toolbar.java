@@ -77,7 +77,7 @@ public class Toolbar extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.tool_bar_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
-
+        
         mPieMenu = (CheckBoxPreference) prefSet.findPreference(PIE_MENU);
         mPieMenu.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.PIE_MENU, 1) == 1);
@@ -183,7 +183,7 @@ public class Toolbar extends SettingsPreferenceFragment
         } else if (preference == mPieStick) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_STICK, mPieStick.isChecked() ? 1 : 0);
-        }
+        } 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 
 public class SystemSettings extends SettingsPreferenceFragment {
     private static final String TAG = "SystemSettings";
-
+    
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";

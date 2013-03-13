@@ -17,6 +17,24 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Notification drawer Shortcuts & WiFi Display -->
+    <PreferenceCategory
+       android:title="@string/notification_draw_settings_title">
+       <PreferenceScreen
+            android:id="@+id/slim_notification_shortcuts"
+            android:fragment="com.android.settings.slim.notificationshortcuts.NotificationShortcuts"
+            android:key="slim_shortcuts_settings"
+            android:title="@string/notification_shortcuts_settings_title"
+            android:summary="@string/notification_shortcuts_settings_summary">
+	</PreferenceScreen>
+	    
+       <CheckBoxPreference
+            android:key="notification_show_wifi_ssid"
+            android:title="@string/notification_show_wifi_ssid_title"
+            android:summary="@string/notification_show_wifi_ssid_summary" />
+    
+    </PreferenceCategory>
+    
     <!-- Notification drawer Power Widget -->
     <PreferenceCategory
        android:title="@string/power_widget_title">
