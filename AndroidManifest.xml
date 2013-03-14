@@ -1621,6 +1621,27 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
+	
+	 <!-- Notification Shortcuts -->
+
+        <activity android:name="Settings$NotificationShortcutsSettingsActivity"
+                android:label="@string/notification_shortcuts_settings_title"
+                android:clearTaskOnLaunch="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.android.settings.slim.notificationshortcuts.NotificationShortcuts" />
+                <action android:name="android.settings.slim.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.slim.notificationshortcuts.NotificationShortcuts" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/slim_notification_shortcuts" />
+        </activity>
+
+        <activity android:name="net.margaritov.preference.colorpicker" />
 
         <receiver android:name=".bluetooth.BluetoothDiscoverableTimeoutReceiver">
             <intent-filter>

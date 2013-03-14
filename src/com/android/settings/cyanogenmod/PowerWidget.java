@@ -61,11 +61,13 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
+    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
 
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
     private ListPreference mPowerWidgetHapticFeedback;
+    private CheckBoxPreference mShowWifiName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,10 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     .findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
             mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HIDE_SCROLLBAR);
+                    
+            mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+            mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
 
             mPowerWidgetHapticFeedback = (ListPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HAPTIC_FEEDBACK);
@@ -132,6 +138,11 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_SCROLLBAR,
                     value ? 1 : 0);
+        } else if (preference == mShowWifiName) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
+                    mShowWifiName.isChecked() ? 1 : 0);
+            return true;
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
