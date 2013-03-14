@@ -14,9 +14,11 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/notification_shortcuts_settings_title"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen 
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/notification_shortcuts_settings_title">
 
     <SwitchPreference android:key="pref_notification_shortcuts_toggle"
         android:title="@string/notification_shortcuts_settings_title"
@@ -46,16 +48,23 @@
 
     <CheckBoxPreference android:key="pref_notification_shortcuts_hide_carrier"
         android:title="@string/notification_shortcuts_hide_carrier_title" />
+    
+    </PreferenceCategory>
 
     <PreferenceCategory android:key="pref_notification_shortcuts_list"
-        android:title="@string/notification_shortcuts_title" />
+        android:title="@string/notification_shortcuts_title">
+	
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:dependency="pref_notification_shortcuts_toggle"
-        android:title="@string/notification_shortcuts_category_reset_title" />
+        android:title="@string/notification_shortcuts_category_reset_title">
 
     <Preference android:key="pref_notification_shortcuts_reset"
         android:dependency="pref_notification_shortcuts_toggle"
         android:title="@string/notification_shortcuts_reset_title">
     </Preference>
+    
+    </PreferenceCategory>
+    
 </PreferenceScreen>
