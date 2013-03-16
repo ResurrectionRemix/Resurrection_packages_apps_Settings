@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/resurrection_settings_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+   
+   
+   <PreferenceScreen
+        android:id="@+id/about_rom"
+        android:fragment="com.android.settings.rr.About"
+        android:icon="@drawable/ic_settings_about_rr"
+        android:title="@string/about_rr_settings_title" />
+    
+    <PreferenceCategory
+        android:key="resurrection_general_ui"
+        android:title="@string/general_ui_header">    
+  
+<PreferenceScreen
+        android:key="lock_clock"
+        android:icon="@drawable/ic_settings_lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+
+  </PreferenceScreen>
+<PreferenceScreen
+        android:key="notfy_me"
+        android:icon="@drawable/ic_settings_notify_me"
+        android:title="@string/notify_me_title"
+        android:summary="@string/notify_me_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="org.tpmkranz.notifyme"
+                android:targetClass="org.tpmkranz.notifyme.MainActivity" />
+ 
+
+</PreferenceScreen>
+
+</PreferenceCategory>
+
+</PreferenceScreen>
