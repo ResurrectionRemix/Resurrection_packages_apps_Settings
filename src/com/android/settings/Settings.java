@@ -89,7 +89,6 @@ public class Settings extends PreferenceActivity
 
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
-
     private String mFragmentClass;
     private int mTopLevelHeaderId;
     private Header mFirstHeader;
@@ -127,6 +126,8 @@ public class Settings extends PreferenceActivity
             R.id.performance,
             R.id.advanced_settings,
             R.id.sprint_tools
+           
+ 
     };
 
     private SharedPreferences mDevelopmentPreferences;
@@ -859,5 +860,7 @@ public class Settings extends PreferenceActivity
     public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
     public static class AnonymousStatsActivity extends Settings { /* empty */ }
     public static class DreamSettingsActivity extends Settings { /* empty */ }
+    public static class ResurrectionActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+    public static class AboutActivity extends Settings { /* empty */ }
 }
