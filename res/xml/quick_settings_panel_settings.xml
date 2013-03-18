@@ -16,7 +16,18 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/custom_tiles_title">
+    android:title="@string/quick_settings_title">
+
+    <PreferenceCategory
+        android:key="pref_general_settings"
+        android:title="@string/title_general" >
+
+        <CheckBoxPreference
+            android:key="collapse_panel"
+            android:title="@string/title_collapse_panel"
+            android:summary="@string/summary_collapse_panel" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="static_tiles"
@@ -26,7 +37,7 @@
             android:key="tile_picker"
             android:title="@string/tile_picker_title"
             android:summary="@string/tile_picker_summary"
-            android:fragment="com.android.settings.paranoid.CustomTilesFragment" />
+            android:fragment="com.android.settings.cyanogenmod.QuickSettingsTiles" />
 
         <MultiSelectListPreference
             android:key="pref_ring_mode"
@@ -37,11 +48,11 @@
             android:entryValues="@array/values_ring_widget" />
 
         <ListPreference
-            android:key="pref_network_mode"
-            android:dialogTitle="@string/pref_network_mode_title"
-            android:title="@string/pref_network_mode_title"
-            android:entries="@array/entries_network_widget"
-            android:entryValues="@array/values_network_widget" />
+            android:key="pref_screentimeout_mode"
+            android:dialogTitle="@string/pref_screentimeout_mode_title"
+            android:title="@string/pref_screentimeout_mode_title"
+            android:entries="@array/entries_screentimeout_widget"
+            android:entryValues="@array/values_screentimeout_widget" />
 
         </PreferenceCategory>
 
@@ -66,6 +77,10 @@
         <CheckBoxPreference
             android:key="dynamic_ime"
             android:title="@string/title_dynamic_ime" />
+
+        <CheckBoxPreference
+            android:key="dynamic_usbtether"
+            android:title="@string/title_dynamic_usbtether" />
 
         <CheckBoxPreference
             android:key="dynamic_wifi"
