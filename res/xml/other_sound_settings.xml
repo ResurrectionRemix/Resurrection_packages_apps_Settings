@@ -82,4 +82,27 @@
             android:title="@string/emergency_tone_title"
             android:persistent="false" />
 
+    <PreferenceCategory
+            android:title="@string/power_notifications_category_title"/>
+
+    <SwitchPreference
+            android:key="power_notifications"
+            android:title="@string/power_notifications_enable_title"
+            android:summary="@string/power_notifications_enable_summary"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+    <SwitchPreference
+            android:key="power_notifications_vibrate"
+            android:title="@string/power_notifications_vibrate_title"
+            android:defaultValue="false"
+            android:dependency="power_notifications"
+            android:persistent="false" />
+
+    <Preference
+            android:key="power_notifications_ringtone"
+            android:title="@string/power_notifications_ringtone_title"
+            android:dependency="power_notifications"
+            android:persistent="false" />
+
 </PreferenceScreen>
