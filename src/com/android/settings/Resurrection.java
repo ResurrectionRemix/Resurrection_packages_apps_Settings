@@ -163,7 +163,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
             timeout = KEYBOARD_ROTATION_TIMEOUT_DEFAULT;
         mKeyboardRotationTimeout.setValue(Integer.toString(timeout));
         mKeyboardRotationTimeout.setSummary(getString(R.string.keyboard_rotation_timeout_summary, mKeyboardRotationTimeout.getEntry()));
-    }
+    } 
 
     @Override
     public void onResume() {
