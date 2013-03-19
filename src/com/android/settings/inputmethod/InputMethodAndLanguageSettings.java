@@ -362,15 +362,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 imm.showInputMethodPicker();
             }
         } else if (preference instanceof CheckBoxPreference) {
-
             final CheckBoxPreference chkPref = (CheckBoxPreference) preference;
-            if (chkPref == mDisableFullscreenKeyboard) {
-                boolean checked = ((CheckBoxPreference) preference).isChecked();
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.DISABLE_FULLSCREEN_KEYBOARD, checked ? 1 : 0);
-                return true;
-            }
-
             if (!mHardKeyboardPreferenceList.isEmpty()) {
                 for (int i = 0; i < sHardKeyboardKeys.length; ++i) {
                     if (chkPref == mHardKeyboardCategory.findPreference(sHardKeyboardKeys[i])) {
