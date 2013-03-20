@@ -37,6 +37,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_TORCH;
 import static com.android.internal.util.cm.QSConstants.TILE_USER;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFI;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFIAP;
+import static com.android.internal.util.cm.QSConstants.TILE_DESKTOPMODE;
 
 import android.content.Context;
 import android.provider.Settings;
@@ -110,6 +111,9 @@ public class QuickSettingsUtil {
         TILES.put(TILE_USER, new QuickSettingsUtil.TileInfo(
                 TILE_USER, R.string.title_tile_user,
                 "com.android.systemui:drawable/ic_qs_default_user"));
+        TILES.put(TILE_DESKTOPMODE, new QuickSettingsUtil.TileInfo(
+                TILE_DESKTOPMODE, R.string.title_tile_desktop_mode,
+                "com.android.systemui:drawable/ic_qs_expanded_desktop"));
     }
 
     public static String getCurrentTiles(Context context) {
