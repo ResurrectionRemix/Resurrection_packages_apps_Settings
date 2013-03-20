@@ -18,7 +18,6 @@ package com.android.settings;
 
 import static android.provider.Settings.Secure.SCREENSAVER_ACTIVATE_ON_DOCK;
 import static android.provider.Settings.Secure.SCREENSAVER_ACTIVATE_ON_SLEEP;
-import static android.provider.Settings.Secure.SCREENSAVER_ACTIVATE_ON_WIRELESS_CHARGE;
 import static android.provider.Settings.Secure.SCREENSAVER_ENABLED;
 
 import android.content.ComponentName;
@@ -168,15 +167,6 @@ public class DreamBackend {
     public void setActivatedOnSleep(boolean value) {
         logd("setActivatedOnSleep(%s)", value);
         setBoolean(SCREENSAVER_ACTIVATE_ON_SLEEP, value);
-    }
-
-    public boolean isActivatedOnWirelessCharge() {
-        return getBoolean(SCREENSAVER_ACTIVATE_ON_WIRELESS_CHARGE, false);
-    }
-
-    public void setActivatedOnWirelessCharge(boolean value) {
-        logd("setActivatedOnWirelessCharge(%s)", value);
-        setBoolean(SCREENSAVER_ACTIVATE_ON_WIRELESS_CHARGE, value);
     }
 
     private boolean getBoolean(String key, boolean def) {
