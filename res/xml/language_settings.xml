@@ -35,6 +35,11 @@
             android:title="@string/keyboard_settings_category">
         <PreferenceScreen android:key="current_input_method"
                 android:title="@string/current_input_method" />
+        <CheckBoxPreference
+		android:key="disable_fullscreen_keyboard"
+                android:title="@string/disable_fullscreen_keyboard_title"
+                android:summary="@string/disable_fullscreen_keyboard_summary"
+                android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
