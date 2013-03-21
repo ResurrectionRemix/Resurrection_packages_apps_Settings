@@ -26,6 +26,7 @@ import android.graphics.Point;
 import android.graphics.PorterDuff.Mode;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.animation.AlphaAnimation;
@@ -47,7 +48,8 @@ public class DraggableGridView extends ViewGroup implements
         View.OnTouchListener, View.OnClickListener, View.OnLongClickListener {
 
     public static float childRatio = .95f;
-    protected int colCount, childSize, padding, dpi, scroll = 0;
+    protected int colCount = 3;
+    protected int childSize, padding, dpi, scroll = 0;
     protected float lastDelta = 0;
     protected Handler handler = new Handler();
     protected int dragged = -1, lastX = -1, lastY = -1, lastTarget = -1;
@@ -57,6 +59,7 @@ public class DraggableGridView extends ViewGroup implements
     protected OnRearrangeListener onRearrangeListener;
     protected OnClickListener secondaryOnClickListener;
     private OnItemClickListener onItemClickListener;
+    private int mTileTextSize;
 
     public DraggableGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -123,8 +126,12 @@ public class DraggableGridView extends ViewGroup implements
         // compute width of view, in dp
         float w = (r - l) / (dpi / 160f);
 
-        // determine number of columns, at least 2
-        colCount = 3;
+        // determine number of columns
+        colCount = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.QUICK_TILES_PER_ROW, 3);
+
+        // update tile text size based on column count
+        updateTileTextSize(colCount);
 
         // determine childSize and padding, in px
         childSize = (r - l) / colCount;
@@ -180,7 +187,7 @@ public class DraggableGridView extends ViewGroup implements
         // Set the measured dimensions. We always fill the tray width, but wrap
         // to the height of
         // all the tiles.
-        int numRows = (int) Math.ceil((float) cursor / 3);
+        int numRows = (int) Math.ceil((float) cursor / colCount);
         int newHeight = (int) ((numRows * cellHeight) + ((numRows - 1) * 0))
                 + getPaddingTop() + getPaddingBottom();
         // setMeasuredDimension(width, newHeight);
@@ -277,6 +284,7 @@ public class DraggableGridView extends ViewGroup implements
         TextView addDeleteTile = ((TextView) getChildAt(getChildCount() - 1).findViewById(R.id.qs_text));
         addDeleteTile.setCompoundDrawablesRelativeWithIntrinsicBounds(0, resid, 0, 0);
         addDeleteTile.setText(stringid);
+        addDeleteTile.setTextSize(1, mTileTextSize);
     }
 
     public boolean onLongClick(View view) {
@@ -510,4 +518,21 @@ public class DraggableGridView extends ViewGroup implements
     public void setOnItemClickListener(OnItemClickListener l) {
         this.onItemClickListener = l;
     }
+
+    private void updateTileTextSize(int column) {
+        // adjust the tile text size based on column count
+        switch (column) {
+            case 5:
+                mTileTextSize = 7;
+                break;
+            case 4:
+                mTileTextSize = 10;
+                break;
+            case 3:
+            default:
+                mTileTextSize = 12;
+                break;
+        }
+    }
+
 }

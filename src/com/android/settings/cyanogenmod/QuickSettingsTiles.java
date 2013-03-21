@@ -25,6 +25,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +41,7 @@ import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.QuickSettingsUtil.TileInfo;
 
 import java.util.ArrayList;
+
 public class QuickSettingsTiles extends Fragment {
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -49,6 +51,8 @@ public class QuickSettingsTiles extends Fragment {
     LayoutInflater mInflater;
     Resources mSystemUiResources;
     TileAdapter mTileAdapter;
+
+    private int mTileTextSize;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,6 +68,9 @@ public class QuickSettingsTiles extends Fragment {
             }
         }
         mTileAdapter = new TileAdapter(getActivity(), 0);
+        int colCount = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QUICK_TILES_PER_ROW, 3);
+        updateTileTextSize(colCount);
         return mDragView;
     }
 
@@ -88,8 +95,9 @@ public class QuickSettingsTiles extends Fragment {
      */
     void addTile(int titleId, String iconSysId, int iconRegId, boolean newTile) {
         View v = (View) mInflater.inflate(R.layout.qs_tile, null, false);
-        final TextView name = (TextView) v.findViewById(R.id.qs_text);
+        TextView name = (TextView) v.findViewById(R.id.qs_text);
         name.setText(titleId);
+        name.setTextSize(1, mTileTextSize);
         if (mSystemUiResources != null && iconSysId != null) {
             int resId = mSystemUiResources.getIdentifier(iconSysId, null, null);
             if (resId > 0) {
@@ -193,6 +201,22 @@ public class QuickSettingsTiles extends Fragment {
         });
         alert.setNegativeButton(R.string.cancel, null);
         alert.create().show();
+    }
+
+    private void updateTileTextSize(int column) {
+        // adjust the tile text size based on column count
+        switch (column) {
+            case 5:
+                mTileTextSize = 7;
+                break;
+            case 4:
+                mTileTextSize = 10;
+                break;
+            case 3:
+            default:
+                mTileTextSize = 12;
+                break;
+        }
     }
 
     @SuppressWarnings("rawtypes")
