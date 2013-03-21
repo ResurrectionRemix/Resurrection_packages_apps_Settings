@@ -21,6 +21,12 @@
         android:key="toolbar_status"
         android:title="@string/tool_bar_status_header">
 
+         <CheckBoxPreference
+            android:key="quick_pulldown"
+            android:title="@string/quick_pulldown_title"
+            android:summary="@string/quick_pulldown_summary"
+            android:defaultValue="false" />
+
         <PreferenceScreen
             android:key="quick_settings_panel"
             android:fragment="com.android.settings.cyanogenmod.QuickSettings"
@@ -51,10 +57,10 @@
             android:title="@string/navigation_bar_tabui_menu_title"
             android:summary="@string/navigation_bar_tabui_menu_summary" />
 
-        <!--PreferenceScreen
+        <PreferenceScreen
             android:key="navigation_bar_controls"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
-            android:title="@string/navigation_bar_title" /-->
+            android:title="@string/navigation_bar_title" />
 
     </PreferenceCategory>
 
