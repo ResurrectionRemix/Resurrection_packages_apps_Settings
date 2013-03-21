@@ -20,15 +20,17 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
    
    
-   <PreferenceScreen
+ <PreferenceScreen
         android:id="@+id/about_rom"
         android:fragment="com.android.settings.rr.About"
         android:icon="@drawable/ic_settings_about_rr"
         android:title="@string/about_rr_settings_title" />
+        
     
-    <PreferenceCategory
+<PreferenceCategory
         android:key="resurrection_general_ui"
-        android:title="@string/general_ui_header">    
+        android:title="@string/general_ui_header"> 
+          
   
 <PreferenceScreen
         android:key="lock_clock"
@@ -38,8 +40,8 @@
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.cyanogenmod.lockclock"
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-
-  </PreferenceScreen>
+   
+   </PreferenceScreen>             
 <PreferenceScreen
         android:key="notfy_me"
         android:icon="@drawable/ic_settings_notify_me"
@@ -48,8 +50,23 @@
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="org.tpmkranz.notifyme"
                 android:targetClass="org.tpmkranz.notifyme.MainActivity" />
- 
+</PreferenceScreen>
 
+</PreferenceCategory>
+
+<PreferenceCategory
+        android:key="resurrection_update"
+        android:title="@string/update_header"> 
+        
+
+<PreferenceScreen
+        android:key="update_me"
+        android:icon="@drawable/ic_settings_update_me"
+        android:title="@string/update_me_title"
+        android:summary="@string/update_me_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.acquariusoft.UpdateMeSmartphone"
+                android:targetClass="com.acquariusoft.UpdateMeSmartphone.UpdateMeActivityOld" />
 </PreferenceScreen>
 
 </PreferenceCategory>
