@@ -86,13 +86,6 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
-    <!-- Statusbar -->
-    <header
-        android:id="@+id/tool_bar_settings"
-        android:fragment="com.android.settings.paranoid.Toolbar"
-        android:icon="@drawable/ic_settings_status_bar" 
-        android:title="@string/tool_bar_settings" />
-
     <!-- System -->
     <header
         android:id="@+id/system_settings"
@@ -120,13 +113,6 @@
             android:targetPackage="com.paranoid.preferences"
             android:targetClass="com.paranoid.preferences.MainActivity" />
     </header>
-
-    <!-- Superuser -->
-    <header
-        android:id="@+id/superuser"
-        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
-        android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
@@ -268,14 +254,15 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
+		
+	<!-- Superuser -->
+    <header
+        android:id="@+id/superuser"
+        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
+        android:icon="@drawable/ic_action_permission"
+        android:title="@string/superuser" />
 
     <!-- Performance -->
-    <header
-        android:id="@+id/performance_settings"
-        android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
-        android:icon="@drawable/ic_settings_performance"
-        android:title="@string/performance_settings_title" />
-
     <header android:id="@+id/performance"
             android:title="@string/performance_title"
             android:icon="@drawable/ic_settings_performance_aokp" >
