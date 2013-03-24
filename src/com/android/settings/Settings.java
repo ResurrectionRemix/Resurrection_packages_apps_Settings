@@ -127,7 +127,6 @@ public class Settings extends PreferenceActivity
             R.id.launcher_settings,
             R.id.lock_screen_settings,
             R.id.themes_settings,
-            R.id.tool_bar_settings,
             R.id.system_settings,
             R.id.rom_control,
             R.id.hybrid_settings,
@@ -489,7 +488,7 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.development_settings
-                    || id == R.id.performance_settings) {
+                    || id == R.id.performance) {
                 if (!showDev) {
                     target.remove(i);
                 }
