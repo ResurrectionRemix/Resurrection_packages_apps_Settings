@@ -158,14 +158,8 @@ public class Toolbar extends SettingsPreferenceFragment
             prefSet.removePreference(mStatusBarMaxNotif);
             prefSet.removePreference(mMenuButtonShow);
             prefSet.removePreference(mStatusBarDoNotDisturb);
-
-            if(!Utils.hasNavigationBar()) {
-                prefSet.removePreference(mNavigationCategory);
-            }
-        } else {
-            mNavigationCategory.removePreference(mNavigationBarControls);
             prefSet.removePreference(mQuickPullDown);
-        }
+        } 
     }
 
     @Override
