@@ -19,7 +19,6 @@
     android:title="@string/quiet_hours_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-<<<<<<< HEAD
     <Preference
         android:key="quiet_hours_note"
         style="?android:preferenceInformationStyle"
@@ -35,19 +34,10 @@
         android:defaultValue="false" />
 
     <com.android.settings.cyanogenmod.TimeRangePreference
-=======
-    <CheckBoxPreference
-        android:key="quiet_hours_enabled"
-        android:title="@string/quiet_hours_enabled_title"
-        android:defaultValue="false" />
-
-    <com.android.settings.TimeRangePreference
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         android:key="quiet_hours_timerange"
         android:dependency="quiet_hours_enabled" />
 
     <CheckBoxPreference
-<<<<<<< HEAD
         android:key="quiet_hours_mute"
         android:title="@string/quiet_hours_mute"
         android:summaryOn="@string/quiet_hours_mute_on"
@@ -59,40 +49,20 @@
         android:title="@string/quiet_hours_haptic"
         android:summaryOn="@string/quiet_hours_haptic_on"
         android:summaryOff="@string/quiet_hours_haptic_off"
-=======
-        android:key="quiet_hours_notifications"
-        android:title="@string/quiet_hours_notifications_title"
-        android:dependency="quiet_hours_enabled" />
-
-    <CheckBoxPreference
-        android:key="quiet_hours_ringer"
-        android:title="@string/quiet_hours_ringer_title"
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         android:dependency="quiet_hours_enabled" />
 
     <CheckBoxPreference
         android:key="quiet_hours_still"
-<<<<<<< HEAD
         android:title="@string/quiet_hours_still"
         android:summaryOn="@string/quiet_hours_still_on"
         android:summaryOff="@string/quiet_hours_still_off"
-=======
-        android:title="@string/quiet_hours_still_title"
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         android:dependency="quiet_hours_enabled" />
 
     <CheckBoxPreference
         android:key="quiet_hours_dim"
-<<<<<<< HEAD
         android:title="@string/quiet_hours_dim"
         android:summaryOn="@string/quiet_hours_dim_on"
         android:summaryOff="@string/quiet_hours_dim_off"
         android:dependency="quiet_hours_enabled" />
 
 </PreferenceScreen>
-=======
-        android:title="@string/quiet_hours_dim_title"
-        android:dependency="quiet_hours_enabled" />
-
-</PreferenceScreen>
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925

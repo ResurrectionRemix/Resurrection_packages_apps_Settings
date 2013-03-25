@@ -78,15 +78,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_SCREEN_RESOLUTION = "device_screen_resolution";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
-    private static final String KEY_MOD_VERSION = "mod_version";
-
-    private static final String KEY_DEVICE_CHIPSET = "device_chipset";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_GPU = "device_gpu";
-    private static final String KEY_DEVICE_MEMORY = "device_memory";
-    private static final String KEY_DEVICE_REAR_CAMERA = "device_rear_camera";
-    private static final String KEY_DEVICE_FRONT_CAMERA = "device_front_camera";
-    private static final String KEY_DEVICE_SCREEN_RESOLUTION = "device_screen_resolution";
 
     long[] mHits = new long[3];
     int mDevHitCountdown;
@@ -107,13 +98,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-<<<<<<< HEAD
         setValueSummary(KEY_CM_VERSION, "ro.cm.version");
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
-=======
-        setValueSummary(KEY_MOD_VERSION, "ro.aokp.version");
-        findPreference(KEY_MOD_VERSION).setEnabled(true);
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -127,7 +113,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
-<<<<<<< HEAD
         String memInfo = getMemInfo();
 
         if (memInfo != null) {
@@ -136,18 +121,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
         }
 
-=======
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         addStringPreference(KEY_DEVICE_CHIPSET,
                 SystemProperties.get("ro.device.chipset", null));
         addStringPreference(KEY_DEVICE_CPU,
                 SystemProperties.get("ro.device.cpu", getCPUInfo()));
         addStringPreference(KEY_DEVICE_GPU,
                 SystemProperties.get("ro.device.gpu", null));
-<<<<<<< HEAD
-=======
-        addStringPreference(KEY_DEVICE_MEMORY, getMemInfo());
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         addStringPreference(KEY_DEVICE_FRONT_CAMERA,
                 SystemProperties.get("ro.device.front_cam", null));
         addStringPreference(KEY_DEVICE_REAR_CAMERA,
@@ -224,19 +203,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setClassName("android",
                         com.android.internal.app.PlatLogoActivity.class.getName());
-                try {
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
-                }
-            }
-        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
-            mHits[mHits.length-1] = SystemClock.uptimeMillis();
-            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("android",
-                        com.android.internal.app.AOKPLogoActivity.class.getName());
                 try {
                     startActivity(intent);
                 } catch (Exception e) {

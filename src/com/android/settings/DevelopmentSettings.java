@@ -93,11 +93,7 @@ public class DevelopmentSettings extends PreferenceFragment
 
     private static final String ENABLE_ADB = "enable_adb";
     private static final String ADB_NOTIFY = "adb_notify";
-<<<<<<< HEAD
     private static final String ADB_TCPIP  = "adb_over_network";
-=======
-
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
     private static final String HDCP_CHECKING_KEY = "hdcp_checking";
@@ -1154,10 +1150,6 @@ public class DevelopmentSettings extends PreferenceFragment
                 mVerifyAppsOverUsb.setChecked(false);
                 updateBugreportOptions();
             }
-        } else if (preference == mAdbNotify) {
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_NOTIFY,
-                    mAdbNotify.isChecked() ? 1 : 0);
         } else if (preference == mBugreportInPower) {
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.BUGREPORT_IN_POWER_MENU, 

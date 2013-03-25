@@ -16,7 +16,6 @@
 
 package com.android.settings;
 
-
 import com.android.settings.bluetooth.DockEventReceiver;
 
 import android.app.AlertDialog;
@@ -89,7 +88,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOCK_SOUNDS = "dock_sounds";
     private static final String KEY_DOCK_AUDIO_MEDIA_ENABLED = "dock_audio_media_enabled";
     private static final String KEY_QUIET_HOURS = "quiet_hours";
-<<<<<<< HEAD
     private static final String KEY_HEADSET_CONNECT_PLAYER = "headset_connect_player";
     private static final String KEY_CONVERT_SOUND_TO_VIBRATE = "notification_convert_sound_to_vibration";
     private static final String KEY_SAFE_HEADSET_VOLUME = "safe_headset_volume";
@@ -98,9 +96,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String RING_MODE_NORMAL = "normal";
     private static final String RING_MODE_VIBRATE = "vibrate";
     private static final String RING_MODE_MUTE = "mute";
-=======
-    private static final String KEY_SAFE_HEADSET_VOLUME = "safe_headset_volume";
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
@@ -138,22 +133,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private Intent mDockIntent;
     private CheckBoxPreference mDockAudioMediaEnabled;
 
-<<<<<<< HEAD
     // To track whether a confirmation dialog was clicked.
     private boolean mDialogClicked;
     private Dialog mWaiverDialog;
-=======
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(AudioManager.RINGER_MODE_CHANGED_ACTION)) {
-                updateState(false);
-            } else if (intent.getAction().equals(Intent.ACTION_DOCK_EVENT)) {
-                handleDockChange(intent);
-            }
-        }
-    };
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -176,7 +158,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             case VIB_CANCEL:
             default:
                 break;
-<<<<<<< HEAD
             }
         }
     };
@@ -188,8 +169,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 handleDockChange(intent);
             } else if (intent.getAction().equals(AudioManager.RINGER_MODE_CHANGED_ACTION)) {
                 updateState(false);
-=======
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
             }
         }
     };
@@ -210,7 +189,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             // device is not CDMA, do not display CDMA emergency_tone
             getPreferenceScreen().removePreference(findPreference(KEY_EMERGENCY_TONE));
         }
-<<<<<<< HEAD
 
         mVolumeOverlay = (ListPreference) findPreference(KEY_VOLUME_OVERLAY);
         mVolumeOverlay.setOnPreferenceChangeListener(this);
@@ -221,9 +199,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
 
         mRingMode = (ListPreference) findPreference(KEY_RING_MODE);
-=======
-        
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         if (!getResources().getBoolean(R.bool.has_silent_mode)) {
             getPreferenceScreen().removePreference(mRingMode);
             findPreference(KEY_RING_VOLUME).setDependency(null);
@@ -252,7 +227,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mVibrateWhenRinging.setPersistent(false);
         mVibrateWhenRinging.setChecked(Settings.System.getInt(resolver,
                 Settings.System.VIBRATE_WHEN_RINGING, 0) != 0);
-        mVibrateWhenRinging.setOnPreferenceChangeListener(this);
 
         mDtmfTone = (CheckBoxPreference) findPreference(KEY_DTMF_TONE);
         mDtmfTone.setPersistent(false);
@@ -287,21 +261,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mRingtonePreference = findPreference(KEY_RINGTONE);
         mVibrationPreference = findPreference(KEY_VIBRATION);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
-        
-        mQuietHours = (PreferenceScreen) findPreference(KEY_QUIET_HOURS);
-        if (Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_ENABLED, 0) == 1) {
-            mQuietHours.setSummary(getString(R.string.quiet_hours_active_from) + " " + 
-                    returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_START)) 
-                    + " " + getString(R.string.quiet_hours_active_to) + " " +
-                    returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_END)));
-        } else {
-            mQuietHours.setSummary(getString(R.string.quiet_hours_summary));
-        }
-
-        mSafeHeadsetVolume = (CheckBoxPreference) findPreference(KEY_SAFE_HEADSET_VOLUME);
-        mSafeHeadsetVolume.setPersistent(false);
-        mSafeHeadsetVolume.setChecked(Settings.System.getBoolean(resolver,
-                Settings.System.MANUAL_SAFE_MEDIA_VOLUME, true));
 
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
@@ -372,13 +331,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         IntentFilter filter = new IntentFilter(Intent.ACTION_DOCK_EVENT);
         getActivity().registerReceiver(mReceiver, filter);
 
-<<<<<<< HEAD
         filter = new IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION);
         getActivity().registerReceiver(mReceiver, filter);
-=======
-        IntentFilter mFilter = new IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION);
-        getActivity().registerReceiver(mReceiver, mFilter);
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     }
 
     @Override
@@ -387,7 +341,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         getActivity().unregisterReceiver(mReceiver);
     }
 
-<<<<<<< HEAD
     private void setPhoneRingModeValue(String value) {
         int ringerMode = AudioManager.RINGER_MODE_NORMAL;
         if (value.equals(RING_MODE_MUTE)) {
@@ -409,18 +362,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         }
         // Shouldn't happen
         return RING_MODE_NORMAL;
-=======
-    /**
-     * Put the audio system into the correct vibrate setting
-     */
-    private void setPhoneVibrateSettingValue(boolean vibeOnRing) {
-        // If vibrate-on-ring is checked, use VIBRATE_SETTING_ON
-        // Otherwise vibrate is off when ringer is silent
-        int vibrateMode = vibeOnRing ? AudioManager.VIBRATE_SETTING_ON
-                : AudioManager.VIBRATE_SETTING_ONLY_SILENT;
-        mAudioManager.setVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER, vibrateMode);
-        mAudioManager.setVibrateSetting(AudioManager.VIBRATE_TYPE_NOTIFICATION, vibrateMode);
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     }
 
     // updateState in fact updates the UI to reflect the system state
@@ -428,30 +369,18 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         if (getActivity() == null) return;
         ContentResolver resolver = getContentResolver();
 
-<<<<<<< HEAD
         mRingMode.setValue(getPhoneRingModeSettingValue());
-=======
-        mVibrateWhenRinging.setChecked(mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE
-                || Settings.System.getBoolean(resolver, Settings.System.VIBRATE_WHEN_RINGING, false));
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
         if (Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_ENABLED, 0) == 1) {
             mQuietHours.setSummary(getString(R.string.quiet_hours_active_from) + " " +
                     returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_START))
                     + " " + getString(R.string.quiet_hours_active_to) + " " +
                     returnTime(Settings.System.getString(resolver, Settings.System.QUIET_HOURS_END)));
-<<<<<<< HEAD
         } else {
             mQuietHours.setSummary(getString(R.string.quiet_hours_summary));
         }
 
         mRingMode.setSummary(mRingMode.getEntry());
-=======
-
-        } else {
-            mQuietHours.setSummary(getString(R.string.quiet_hours_summary));
-        }
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     }
 
     private void updateRingtoneName(int type, Preference preference, int msg) {
@@ -516,15 +445,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
                     mLockSounds.isChecked() ? 1 : 0);
 
-<<<<<<< HEAD
         } else if (preference == mConvertSoundToVibration) {
             Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_CONVERT_SOUND_TO_VIBRATION,
                     mConvertSoundToVibration.isChecked() ? 1 : 0);
-=======
-        } else if (preference == mSafeHeadsetVolume) {
-            Settings.System.putBoolean(getContentResolver(), Settings.System.MANUAL_SAFE_MEDIA_VOLUME,
-                    mSafeHeadsetVolume.isChecked());
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
         } else if (preference == mMusicFx) {
             // let the framework fire off the intent
@@ -562,7 +485,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         } else if (preference == mDockAudioMediaEnabled) {
             Settings.Global.putInt(getContentResolver(), Settings.Global.DOCK_AUDIO_MEDIA_ENABLED,
                     mDockAudioMediaEnabled.isChecked() ? 1 : 0);
-<<<<<<< HEAD
 
         } else if (preference == mHeadsetConnectPlayer) {
             Settings.System.putInt(getContentResolver(), Settings.System.HEADSET_CONNECT_PLAYER,
@@ -586,8 +508,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                     Settings.System.putInt(getContentResolver(), Settings.System.SAFE_HEADSET_VOLUME, 1);
                 }
 
-=======
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         } else if (preference == mVibrationPreference) {
             String uriString = VibrationPattern.getPhoneVibration(getActivity());
             DialogFragment newFragment = VibrationPickerDialog.newInstance(mHandler, false, uriString);
@@ -729,31 +649,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         ab.setPositiveButton(android.R.string.ok, null);
         return ab.create();
     }
-<<<<<<< HEAD
-=======
-    
-    private String returnTime(String t) {
-        if (t == null || t.equals("")) {
-            return "";
-        }
-        int hr = Integer.parseInt(t.trim());
-        int mn = hr;
-
-        hr = hr / 60;
-        mn = mn % 60;
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, hr);
-        cal.set(Calendar.MINUTE, mn);
-        Date date = cal.getTime();
-        return DateFormat.getTimeFormat(getActivity().getApplicationContext()).format(date);
-    }
-
-    private void lookupVibrationName() {
-        String uriString = VibrationPattern.getPhoneVibration(getActivity());
-        mVibrationPreference.setSummary(new VibrationPattern(Uri.parse(uriString), getActivity()).getName());
-    }
-}
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     private void lookupVibrationName() {
         String uriString = VibrationPattern.getPhoneVibration(getActivity());

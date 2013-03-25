@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package com.koushikdutta.urlimageviewhelper;
-=======
-package com.scheffsblend.smw.Preferences;
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -75,8 +71,4 @@ public class ImageListPreference extends ListPreference {
         builder.setAdapter(listAdapter, this);
         super.onPrepareDialogBuilder(builder);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925

@@ -106,11 +106,7 @@
             android:excludeFromRecents="true"
             android:permission="android.permission.REQUEST_SUPERUSER"
             android:process=":superuser"
-<<<<<<< HEAD
             android:taskAffinity="com.android.settings"
-=======
-            android:taskAffinity="com.android.settings.superuser"
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
             android:theme="@style/RequestThemeDark" />
         <!-- Only system/su can open this activity -->
         <!-- This is activity is started in multiuser mode when the user invoking su -->
@@ -123,10 +119,6 @@
             android:excludeFromRecents="true"
             android:permission="android.permission.REQUEST_SUPERUSER"
             android:process=":superuser"
-<<<<<<< HEAD
-=======
-            android:taskAffinity="com.android.settings.superuser"
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
             android:theme="@style/RequestThemeDark" />
 
         <!-- Multiple instances of this activity can be running for multiple su requests -->
@@ -137,21 +129,13 @@
             android:exported="false"
             android:label="@string/request"
             android:process=":superuser"
-<<<<<<< HEAD
             android:taskAffinity="com.android.settings"
-=======
-            android:taskAffinity="com.android.settings.superuser"
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
             android:theme="@style/RequestThemeDark" />
 
         <receiver
             android:name="com.koushikdutta.superuser.SuReceiver"
             android:permission="android.permission.REPORT_SUPERUSER" />
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
         <!-- Settings -->
 
         <activity android:name="Settings"
@@ -1627,16 +1611,6 @@
                 android:resource="@id/wireless_settings" />
         </activity>
 
-        <activity android:name="Settings$AnonymousStatsActivity"
-                android:label="@string/anonymous_statistics_title"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:clearTaskOnLaunch="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.aokpstats.AnonymousStats" />
-        </activity>
-        
-        
-
         <activity android:name="Settings$DreamSettingsActivity"
                 android:label="@string/screensaver_settings_title"
                 android:taskAffinity=""
@@ -1651,39 +1625,6 @@
                 android:value="com.android.settings.DreamSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/display_settings" />
-        </activity>
-        
-        <!-- Resurrection Settings-->
-        <activity android:name="Resurrection" />
-         <!-- About Resurrection Remix -->
-        <activity android:name=".rr.About" />
-        
-                <activity android:name="Settings$ResurrectionActivity"
-                android:label="@string/resurrection_settings_title"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.Resurrection" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/rr_settings" />
-        </activity>
-
-        <activity android:name="Settings$QuietHoursSettingsActivity"
-                android:label="@string/quiet_hours_title"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.QuietHours" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/sound_settings" />
         </activity>
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
@@ -1702,7 +1643,6 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
-<<<<<<< HEAD
 	
 	 <!-- Notification Shortcuts -->
 
@@ -1724,24 +1664,6 @@
         </activity>
 
         <activity android:name="net.margaritov.preference.colorpicker" />
-=======
-        
-        <receiver android:name=".aokpstats.ReportingServiceManager"
-            android:enabled="true"
-            android:exported="false"
-            android:label="ReportingServiceManager">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <service android:label="ReportingService"
-            android:enabled="true"
-            android:exported="false"
-            android:name=".aokpstats.ReportingService">
-        </service>
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
         <receiver android:name=".bluetooth.BluetoothDiscoverableTimeoutReceiver">
             <intent-filter>

@@ -101,15 +101,9 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     private static final String TOGGLE_LARGE_TEXT_PREFERENCE =
             "toggle_large_text_preference";
     private static final String TOGGLE_POWER_BUTTON_ENDS_CALL_PREFERENCE =
-<<<<<<< HEAD
             "toggle_power_button_ends_call_preference";
     private static final String TOGGLE_HOME_BUTTON_ANSWERS_CALL_PREFERENCE =
             "toggle_home_button_answers_call_preference";
-=======
-        "toggle_power_button_ends_call_preference";
-    private static final String TOGGLE_HOME_BUTTON_ANSWERS_CALL_PREFERENCE =
-        "toggle_home_button_answers_call_preference";
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     private static final String TOGGLE_LOCK_SCREEN_ROTATION_PREFERENCE =
             "toggle_lock_screen_rotation_preference";
     private static final String TOGGLE_SPEAK_PASSWORD_PREFERENCE =
@@ -288,10 +282,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
                         ? Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     private void handleLockScreenRotationPreferenceClick() {
         RotationPolicy.setRotationLockForAccessibility(getActivity(),
                 !mToggleLockScreenRotationPreference.isChecked());
@@ -341,13 +332,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         if (!KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_POWER)
                 || !Utils.isVoiceCapable(getActivity())) {
             mSystemsCategory.removePreference(mTogglePowerButtonEndsCallPreference);
-        }
-        // Home button answers calls.
-        mToggleHomeButtonAnswersCallPreference =
-            (CheckBoxPreference) findPreference(TOGGLE_HOME_BUTTON_ANSWERS_CALL_PREFERENCE);
-        if (!KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME)
-                || !Utils.isVoiceCapable(getActivity())) {
-            mSystemsCategory.removePreference(mToggleHomeButtonAnswersCallPreference);
         }
 
         // Home button answers calls.
