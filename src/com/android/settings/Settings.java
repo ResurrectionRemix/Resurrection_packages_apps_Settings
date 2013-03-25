@@ -91,7 +91,6 @@ public class Settings extends PreferenceActivity
 
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
-
     private String mFragmentClass;
     private int mTopLevelHeaderId;
     private Header mFirstHeader;
@@ -123,6 +122,7 @@ public class Settings extends PreferenceActivity
             R.id.date_time_settings,
             R.id.about_settings,
             R.id.accessibility_settings,
+<<<<<<< HEAD
             R.id.customization_section,
             R.id.launcher_settings,
             R.id.lock_screen_settings,
@@ -132,6 +132,16 @@ public class Settings extends PreferenceActivity
             R.id.hybrid_settings,
             R.id.performance,
             R.id.advanced_settings
+=======
+            R.id.quick_links,
+            R.id.rom_control,
+            R.id.themes,
+            R.id.performance,
+            R.id.advanced_settings,
+            R.id.sprint_tools
+           
+ 
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     };
 
     private SharedPreferences mDevelopmentPreferences;
@@ -440,6 +450,7 @@ public class Settings extends PreferenceActivity
             if (id == R.id.operator_settings || id == R.id.manufacturer_settings ||
                     id == R.id.advanced_settings || id == R.id.hybrid_settings) {
                 Utils.updateHeaderToSpecificActivityFromMetaDataOrRemove(this, target, header);
+<<<<<<< HEAD
             } else if (id == R.id.launcher_settings) {
                 Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
                 launcherIntent.addCategory(Intent.CATEGORY_HOME);
@@ -458,6 +469,15 @@ public class Settings extends PreferenceActivity
                     target.remove(header);
                 }
             } else if (id == R.id.wifi_settings) {
+=======
+            } else if (id == R.id.advanced_settings) {
+                if (!needsAdvancedSettings())
+                    target.remove(header);
+            } else if (id == R.id.sprint_tools) {
+                if (!isSprintDevice())
+                    target.remove(header);
+	    } else if (id == R.id.wifi_settings) {
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
                 // Remove WiFi Settings if WiFi service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI)) {
                     target.remove(i);
@@ -576,6 +596,14 @@ public class Settings extends PreferenceActivity
             mListeningToAccountUpdates = true;
         }
         return headerIndex;
+    }
+
+    private boolean needsAdvancedSettings() {
+        return getResources().getBoolean(R.bool.has_advanced_settings);
+    }
+
+    private boolean isSprintDevice() {
+        return getResources().getBoolean(R.bool.is_sprint_device);
     }
 
     private void getMetaData() {
@@ -880,10 +908,17 @@ public class Settings extends PreferenceActivity
     public static class TextToSpeechSettingsActivity extends Settings { /* empty */ }
     public static class AndroidBeamSettingsActivity extends Settings { /* empty */ }
     public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
     public static class ApnSettingsActivity extends Settings { /* empty */ }
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class DreamSettingsActivity extends Settings { /* empty */ }
     public static class NotificationShortcutsSettingsActivity extends Settings { /* empty */ }
     public static class ResurrectionActivity extends Settings { /* empty */ }
+=======
+    public static class AnonymousStatsActivity extends Settings { /* empty */ }
+    public static class DreamSettingsActivity extends Settings { /* empty */ }
+    public static class ResurrectionActivity extends Settings { /* empty */ }
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     public static class AboutActivity extends Settings { /* empty */ }
 }

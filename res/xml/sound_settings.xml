@@ -40,12 +40,23 @@
 
     <Preference
             android:key="musicfx"
+<<<<<<< HEAD
             android:title="@string/musicfx_title" />
 
     <!-- Quiet hours -->
     <PreferenceScreen
             android:key="quiet_hours"
             android:fragment="com.android.settings.cyanogenmod.QuietHours"
+=======
+            android:title="@string/musicfx_title">
+        <intent android:targetPackage="com.android.musicfx"
+                android:targetClass="com.android.musicfx.ControlPanelPicker" />
+    </Preference>
+    
+    <PreferenceScreen
+            android:key="quiet_hours"
+            android:fragment="com.android.settings.QuietHours"
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
             android:title="@string/quiet_hours_title" />
 
     <PreferenceCategory
@@ -72,6 +83,7 @@
             android:persistent="false"
             android:defaultValue="false" />
 
+<<<<<<< HEAD
     <com.android.settings.IncreasingRingPreference
             android:key="increasing_ring"
             android:title="@string/increasing_ring_title"
@@ -79,6 +91,8 @@
             android:persistent="false"
             android:streamType="ring" />
 
+=======
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     <PreferenceCategory
             android:title="@string/sound_category_system_title"/>
 
@@ -112,10 +126,16 @@
             android:defaultValue="true" />
 
     <CheckBoxPreference
+<<<<<<< HEAD
             android:key="volume_adjust_sounds"
             android:title="@string/volume_adjust_sounds_enable_title"
             android:summary="@string/volume_adjust_sounds_enable_summary"
             android:persistent="false" />
+=======
+            android:key="safe_headset_volume"
+            android:title="@string/safe_headset_volume_title"
+            android:defaultValue="true" />
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     <ListPreference
             android:key="emergency_tone"

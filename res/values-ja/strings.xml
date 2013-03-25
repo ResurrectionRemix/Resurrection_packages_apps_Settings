@@ -778,8 +778,17 @@
     <string name="device_screen_resolution">画面解像度</string>
     <!--  About device Screen, hardware info, GPU info -->
     <string name="gpu_info">GPU</string>
+<<<<<<< HEAD
     <!-- About device screen, Chipset info -->
     <string name="chipset_info">チップセット</string>
+=======
+    <!-- About device screen, Cpu info. -->
+    <string name="cpu_info">CPU</string>
+    <!-- About device screen, Chipset info -->
+    <string name="chipset_info">チップセット</string>
+    <!-- About phone screen, Free memory info -->
+    <string name="mem_info">メモリ</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     <string name="firmware_version" msgid="4801135784886859972">"Androidバージョン"</string>
     <string name="model_number" msgid="3765737700545384794">"モデル番号"</string>
     <string name="fcc_equipment_id" msgid="149114368246356737">"装置ID"</string>
@@ -1045,6 +1054,10 @@
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"誤った回数が多すぎます。"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"<xliff:g id="NUMBER">%d</xliff:g>秒後にやり直してください。"</string>
     <string name="activity_not_found" msgid="5551664692991605325">"アプリは端末にインストールされていません。"</string>
+
+    <!-- Device specific settings -->
+    <string name="advanced_settings_title">デバイスオプション</string>
+
     <string name="manageapplications_settings_title" msgid="7041951105633616745">"アプリを管理"</string>
     <string name="manageapplications_settings_summary" msgid="1794401500935451259">"インストール済みアプリを管理、削除する"</string>
     <string name="applications_settings" msgid="1721442176406964682">"アプリ"</string>
@@ -1283,6 +1296,9 @@
     <string name="enable_adb" msgid="7982306934419797485">"USBデバッグ"</string>
     <string name="enable_adb_summary" msgid="4881186971746056635">"USB接続時はデバッグモードにする"</string>
     <string name="bugreport_in_power" msgid="4548816486587403971">"電源メニューのバグレポート"</string>
+    <!-- Setting checkbox summary for displaying USB debugging notification -->
+    <string name="adb_notify">USBデバッグ通知</string>
+    <string name="adb_notify_summary">USBデバッグが接続されている時に通知を表示する</string>
     <string name="bugreport_in_power_summary" msgid="5764234382355067053">"電源メニューにバグレポートを取得するオプションを含める"</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"スリープモードにしない"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"充電中に画面をスリープにしない"</string>
@@ -1331,6 +1347,7 @@
     <string name="accessibility_toggle_screen_magnification_preference_title" msgid="2472285215737820469">"画面の拡大"</string>
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_title" msgid="7218498768415430963">"画面の拡大を自動更新"</string>
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_summary" msgid="4392059334816220155">"アプリの遷移時に画面の拡大を更新"</string>
+    <string name="accessibility_home_button_answers_call_title">ホームボタンで着信に応答</string>
     <string name="accessibility_power_button_ends_call_prerefence_title" msgid="6673851944175874235">"電源ボタンで通話を終了"</string>
     <string name="accessibility_toggle_speak_password_preference_title" msgid="5986628515113204844">"パスワードの音声出力"</string>
     <string name="accessibility_long_press_timeout_preference_title" msgid="6708467774619266508">"押し続ける時間"</string>
@@ -1855,6 +1872,7 @@
     <string name="cell_broadcast_settings" msgid="8415582011920085222">"エリアメール"</string>
     <string name="cell_broadcast_settings_summary" msgid="3301339398950905913">"表示する緊急警報の種類を選択してください。"</string>
 
+<<<<<<< HEAD
     <!-- ** CYANOGENMOD ADDITIONS ** -->
 
     <!-- Activity label of BluetoothMasPermissionActivity, also used as Strings in the permission dialog [CHAR LIMIT=none] -->
@@ -2338,6 +2356,24 @@
     <string name="anonymous_statistics_warning">匿名利用状況の送信を許諾することによって、CyanogenModの開発者がデバイス単位のユニークインストール数を追跡することができます。
                 送信される情報にはユニークIDが含まれますが、これはあなたの個人情報、端末のタイプ及びバージョン情報とは結びつきません。
                 データ送信は端末の起動時に毎回行われ、送信されるデータの例はプレビューをクリックすることにより確認できます。</string>
+=======
+    <string name="quick_links_title">クイックリンク</string>
+    <string name="rom_control_title">ROMコントロール</string>
+    <string name="themes_title">テーマ</string>
+    <string name="performance_title">パフォーマンス</string>
+
+    <string name="mod_version">AOKPバージョン</string>
+    <string name="mod_version_default">不明</string>
+
+    <!-- Anonymous Statistics #CM -->
+    <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+    <string name="anonymous_statistics_title">AOKP利用統計</string>
+    <string name="anonymous_statistics_summary">AOKPをより良くするための匿名利用統計報告をオプトインする</string>
+    <string name="anonymous_statistics_warning_title">利用統計について</string>
+    <string name="anonymous_statistics_warning">匿名利用状況の送信を許諾することによって、AOKPの開発者がデバイス単位のユニークインストール数を追跡することができます。
+         送信される情報にはユニークIDが含まれますが、これはあなたの個人情報、端末のタイプ及びバージョン情報とは結びつきません。
+         データ送信は週に一回端末の起動時に行われます。\n\n送信されるデータの例はプレビューをクリックすることにより確認できます。</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     <string name="enable_reporting_title">リポートを有効にする</string>
     <string name="preview_data_title">データのプレビュー</string>
     <string name="preview_data_summary">%s</string>
@@ -2345,13 +2381,18 @@
     <string name="anonymous_learn_more">詳細</string>
 
     <!-- Anonymous Statistics - Notification -->
+<<<<<<< HEAD
     <string name="anonymous_notification_desc">CyanogenMod 利用統計を有効/無効にする</string>
+=======
+    <string name="anonymous_notification_desc">AOKP利用統計を有効/無効にする</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">ユニークID</string>
     <string name="preview_device_title">デバイス</string>
     <string name="preview_version_title">バージョン</string>
     <string name="preview_country_title">国</string>
+<<<<<<< HEAD
     <string name="preview_carrier_title">キャリア</string>
 
     <!-- About device screen, version of modification of Android. -->
@@ -2380,10 +2421,19 @@
     <string name="quiet_hours_enabled">サイレントタイムを有効にする</string>
     <string name="quiet_hours_enabled_on">サイレントタイムが機能します</string>
     <string name="quiet_hours_enabled_off">通知は平常通り行われます</string>
+=======
+    <string name="preview_carrier_title"> キャリア</string>
+
+    <!-- Quiet hours #CM -->
+    <string name="quiet_hours_title">サイレントタイム</string>
+    <string name="quiet_hours_summary">デバイスがサイレントモードになる時間の参照や変更</string>
+    <string name="quiet_hours_enabled_title">サイレントタイムを有効にする</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     <string name="quiet_hours_start">開始時刻</string>
     <string name="quiet_hours_start_summary">サイレントタイムが始まる時刻</string>
     <string name="quiet_hours_end">終了時刻</string>
     <string name="quiet_hours_end_summary">サイレントタイムが終了する時刻</string>
+<<<<<<< HEAD
     <string name="quiet_hours_mute">通知音をミュート</string>
     <string name="quiet_hours_mute_on">通知音は再生されません</string>
     <string name="quiet_hours_mute_off">通知音は再生されます</string>
@@ -2396,6 +2446,12 @@
     <string name="quiet_hours_haptic">バイブフィードバックを無効にする</string>
     <string name="quiet_hours_haptic_on">バイブフィードバックは無効</string>
     <string name="quiet_hours_haptic_off">バイブフィードバックは有効</string>
+=======
+    <string name="quiet_hours_notifications_title">通知音をミュート</string>
+    <string name="quiet_hours_ringer_title">着信音をミュート</string>
+    <string name="quiet_hours_still_title">バイブレーションを無効</string>
+    <string name="quiet_hours_dim_title">通知LEDを無効</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
     <string name="quiet_hours_active_from">有効時間</string>
     <string name="quiet_hours_active_to">から</string>
 
@@ -2403,6 +2459,7 @@
     <string name="start_time_title">開始</string>
     <string name="end_time_title">終了</string>
 
+<<<<<<< HEAD
     <!-- Display : Rotation #CM -->
     <string name="display_rotation_title">自動回転</string>
     <string name="display_rotation_disabled">無効</string>
@@ -2435,10 +2492,20 @@
     <!-- about page -->
     <string name="cpu_info">プロセッサ</string>
     <string name="mem_info">メモリ</string>
+=======
+    <string name="vibration_title">着信バイブレーション</string>
+    <string name="link_volume_ringtones">着信音と同じ音量にする</string>
+    <string name="link_volume_mutes">ミュート状態をリンクさせる</string>
+
+    <!-- AOKP specific sound settings
+    <string name="camera_sounds">シャッター音</string> ** TODO ** -->
+    <string name="safe_headset_volume_title">安全なヘッドセット音量</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     <!-- Hostname setting -->
     <string name="device_hostname">デバイスのホスト名</string>
 
+<<<<<<< HEAD
     <string name="increasing_ring_title">着信音の増加</string>
     <!-- Sound settings screen, the caption of the checkbox for making incoming calls increase in volume -->
     <string name="checkbox_increasing_ring">有効</string>
@@ -2592,4 +2659,18 @@
     <string name="camera_sounds">シャッター音</string> ** TODO ** -->
     <string name="safe_headset_volume_title">安全なヘッドセット音量</string>
 
+=======
+    <!--- Sms security limit -->
+    <string name="app_security_title">アプリのセキュリティ</string>
+    <string name="sms_security_check_limit_title">SMSメッセージ制限</string>
+    <string name="sms_security_check_limit_summary">アプリの頻繁なSMSメッセージ送信を防止するために警告ダイアログを表示する (要再起動)\n現在の制限：30分間に%d通のメッセージ</string>
+    <string name="sms_security_check_limit_default">30 (デフォルト)</string>
+
+    <!-- Sprint Tools -->
+    <string name="sprint_tools_title">Sprintツール</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">マスストレージ</string>
+    <string name="usb_mass_storage_summary">USBマスストレージを有効にする</string>
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 </resources>

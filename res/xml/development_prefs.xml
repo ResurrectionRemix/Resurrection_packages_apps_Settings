@@ -60,12 +60,25 @@
         android:title="@string/enforce_read_external_title"
         android:summary="@string/enforce_read_external_summary" />
 
+<<<<<<< HEAD
     <ListPreference
         android:key="root_access"
         android:title="@string/root_access"
         android:persistent="false"
         android:entries="@array/root_access_entries"
         android:entryValues="@array/root_access_values" />
+=======
+        <com.android.settings.HostnamePreference
+            android:key="device_hostname"
+            android:title="@string/device_hostname"
+            android:dialogTitle="@string/device_hostname"
+            android:positiveButtonText="@string/wifi_save"
+            android:negativeButtonText="@string/wifi_cancel"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:persistent="false" />
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
 
     <PreferenceCategory android:key="debug_debugging_category"
             android:title="@string/debug_debugging_category">
@@ -82,6 +95,7 @@
             android:dependency="enable_adb"/>
 
         <CheckBoxPreference
+<<<<<<< HEAD
             android:key="adb_over_network"
             android:title="@string/adb_over_network"
             android:summary="@string/adb_over_network_summary"
@@ -99,6 +113,8 @@
             android:persistent="false" />
 
         <CheckBoxPreference
+=======
+>>>>>>> 8b6521c67077302d51a9377a614f3d8535355925
             android:key="bugreport_in_power"
             android:title="@string/bugreport_in_power"
             android:summary="@string/bugreport_in_power_summary"/>
