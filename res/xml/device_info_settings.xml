@@ -32,12 +32,6 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
 
-        <!-- Change Log -->
-        <PreferenceScreen android:key="changelog"
-            android:title="@string/changelog_title"
-            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
-        </PreferenceScreen>
-
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status" 
@@ -171,29 +165,11 @@
                 android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- PAC version -->
-        <Preference android:key="pac_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/pac_version"
-                android:summary="@string/mod_version_default" />
-
-        <!-- AOKP version -->
-        <Preference android:key="aokp_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/aokp_version"
-                android:summary="@string/aokp_version_default" />
-
         <!-- CM version -->
         <Preference android:key="cm_version"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/mod_version"
                 android:summary="@string/mod_version_default" />
-
-        <!-- PA version -->
-        <Preference android:key="pa_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/pa_version"
-                android:summary="@string/pa_version_default" />
 
         <!-- Mod build date -->
         <Preference android:key="build_date"

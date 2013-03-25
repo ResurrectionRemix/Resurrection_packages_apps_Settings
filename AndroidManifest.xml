@@ -1513,7 +1513,6 @@
 
        <activity android:name=".paranoid.Toolbar" />
 
-        <!-- CyanogenMod activities Start -->
         <activity android:name=".cyanogenmod.PowerWidget" />
 
         <activity android:name=".cyanogenmod.SystemSettings" />
@@ -1562,8 +1561,25 @@
         <activity android:name=".ApnEditor" />
 
         <activity android:name=".cyanogenmod.ChangeLog" />
-
-        <!-- CyanogenMod activities End -->
+        
+             <!-- Resurrection Settings-->
+        <activity android:name="Resurrection" />
+         <!-- About Resurrection Remix -->
+        <activity android:name=".rr.About" />
+        
+           <activity android:name="Settings$ResurrectionActivity"
+                android:label="@string/resurrection_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.Resurrection" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/rr_settings" />
+        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -1673,41 +1689,8 @@
                 android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
                 android:process=":ui">
         </activity>
-        <activity
-            android:name=".paranoid.Nyandroid"
-            android:exported="true"
-            android:label="Nyandroid"
-            android:icon="@drawable/nyandroid04"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleInstance"
-            android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
-        <!-- Based on CyanogenMod's CIDCircus, Android's easteregg -->
-        <activity android:name=".pac.PACLogoActivity"
-                android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
-                android:process=":ui">
-        </activity>
-        <activity
-            android:name=".pac.PACCircus"
-            android:exported="true"
-            android:label="PACCircus"
-            android:icon="@drawable/empty_icon"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleInstance"
-            android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name=".pac.PACLOGO" />
-            </intent-filter>
-        </activity>
+
 
     </application>
 </manifest>
