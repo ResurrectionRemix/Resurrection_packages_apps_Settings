@@ -32,10 +32,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,8 +65,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_CM_VERSION = "rom.version";
-    private static final String KEY_MOD_BUILD_DATE = "build_date";
+
+    static final int TAPS_TO_BE_A_DEVELOPER = 7;
+    private static final String KEY_MOD_VERSION = "mod_version";
+
     private static final String KEY_DEVICE_CHIPSET = "device_chipset";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_GPU = "device_gpu";
@@ -76,8 +76,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_REAR_CAMERA = "device_rear_camera";
     private static final String KEY_DEVICE_FRONT_CAMERA = "device_front_camera";
     private static final String KEY_DEVICE_SCREEN_RESOLUTION = "device_screen_resolution";
-
-    static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
     long[] mHits = new long[3];
     int mDevHitCountdown;
@@ -98,8 +96,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_CM_VERSION, "ro.rr.version");
-        setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+        setValueSummary(KEY_MOD_VERSION, "ro.aokp.version");
+        findPreference(KEY_MOD_VERSION).setEnabled(true);
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -113,20 +111,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
-        String memInfo = getMemInfo();
-
-        if (memInfo != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
-        }
-
         addStringPreference(KEY_DEVICE_CHIPSET,
                 SystemProperties.get("ro.device.chipset", null));
         addStringPreference(KEY_DEVICE_CPU,
                 SystemProperties.get("ro.device.cpu", getCPUInfo()));
         addStringPreference(KEY_DEVICE_GPU,
                 SystemProperties.get("ro.device.gpu", null));
+        addStringPreference(KEY_DEVICE_MEMORY, getMemInfo());
         addStringPreference(KEY_DEVICE_FRONT_CAMERA,
                 SystemProperties.get("ro.device.front_cam", null));
         addStringPreference(KEY_DEVICE_REAR_CAMERA,
@@ -209,54 +200,49 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
-        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
-            // Only allow the owner of the device to turn on dev and performance options
-            if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-                if (mDevHitCountdown > 0) {
-                    mDevHitCountdown--;
-                    if (mDevHitCountdown == 0) {
-                        getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
-                                Context.MODE_PRIVATE).edit().putBoolean(
-                                        DevelopmentSettings.PREF_SHOW, true).apply();
-                        if (mDevHitToast != null) {
-                            mDevHitToast.cancel();
-                        }
-                        mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
-                                Toast.LENGTH_LONG);
-                        mDevHitToast.show();
-                    } else if (mDevHitCountdown > 0
-                            && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
-                        if (mDevHitToast != null) {
-                            mDevHitToast.cancel();
-                        }
-                        mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
-                                R.plurals.show_dev_countdown, mDevHitCountdown, mDevHitCountdown),
-                                Toast.LENGTH_SHORT);
-                        mDevHitToast.show();
-                    }
-                } else if (mDevHitCountdown < 0) {
-                    if (mDevHitToast != null) {
-                        mDevHitToast.cancel();
-                    }
-                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
-                            Toast.LENGTH_LONG);
-                    mDevHitToast.show();
-                }
-            }
-
-        } else if (preference.getKey().equals(KEY_CM_VERSION)) {
+        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.putExtra("is_cid", true);
                 intent.setClassName("android",
-                        com.android.internal.app.PlatLogoActivity.class.getName());
+                        com.android.internal.app.AOKPLogoActivity.class.getName());
                 try {
                     startActivity(intent);
                 } catch (Exception e) {
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
+            }
+        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
+            if (mDevHitCountdown > 0) {
+                mDevHitCountdown--;
+                if (mDevHitCountdown == 0) {
+                    getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
+                            Context.MODE_PRIVATE).edit().putBoolean(
+                                    DevelopmentSettings.PREF_SHOW, true).apply();
+                    if (mDevHitToast != null) {
+                        mDevHitToast.cancel();
+                    }
+                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
+                            Toast.LENGTH_LONG);
+                    mDevHitToast.show();
+                } else if (mDevHitCountdown > 0
+                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
+                    if (mDevHitToast != null) {
+                        mDevHitToast.cancel();
+                    }
+                    mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
+                            R.plurals.show_dev_countdown, mDevHitCountdown, mDevHitCountdown),
+                            Toast.LENGTH_SHORT);
+                    mDevHitToast.show();
+                }
+            } else if (mDevHitCountdown < 0) {
+                if (mDevHitToast != null) {
+                    mDevHitToast.cancel();
+                }
+                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
+                        Toast.LENGTH_LONG);
+                mDevHitToast.show();
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

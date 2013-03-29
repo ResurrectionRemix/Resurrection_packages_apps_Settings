@@ -38,17 +38,14 @@ import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.provider.Settings.System;
 import android.text.TextUtils;
 import android.view.InputDevice;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,14 +60,9 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_CURRENT_INPUT_METHOD = "current_input_method";
     private static final String KEY_INPUT_METHOD_SELECTOR = "input_method_selector";
     private static final String KEY_USER_DICTIONARY_SETTINGS = "key_user_dictionary_settings";
-    private static final String KEY_IME_SWITCHER = "status_bar_ime_switcher";
-    private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
-    private static final String KEY_STYLUS_ICON_ENABLED = "stylus_icon_enabled";
-
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
 
-    private static final String PREF_DISABLE_FULLSCREEN_KEYBOARD = "disable_fullscreen_keyboard";
     private static final String[] sSystemSettingNames = {
         System.TEXT_AUTO_REPLACE, System.TEXT_AUTO_CAPS, System.TEXT_AUTO_PUNCTUATE,
     };
@@ -79,8 +71,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         "auto_replace", "auto_caps", "auto_punctuate",
     };
 
-    private CheckBoxPreference mStylusIconEnabled;
-    private CheckBoxPreference mStatusBarImeSwitcher;
     private int mDefaultInputMethodSelectorVisibility = 0;
     private ListPreference mShowInputMethodSelectorPref;
     private PreferenceCategory mKeyboardSettingsCategory;
@@ -99,9 +89,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     @SuppressWarnings("unused")
     private SettingsObserver mSettingsObserver;
     private Intent mIntentWaitingForResult;
-    private ListPreference mVolumeKeyCursorControl;
-
-    private CheckBoxPreference mDisableFullscreenKeyboard;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -182,18 +169,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         mIm = (InputManager)getActivity().getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
 
-        // Enable or disable mStatusBarImeSwitcher based on boolean value: config_show_cmIMESwitcher
-        final Preference keyImeSwitcherPref = findPreference(KEY_IME_SWITCHER);
-        if (keyImeSwitcherPref != null) {
-            if (!getResources().getBoolean(com.android.internal.R.bool.config_show_cmIMESwitcher)) {
-                getPreferenceScreen().removePreference(keyImeSwitcherPref);
-            } else {
-                mStatusBarImeSwitcher = (CheckBoxPreference) keyImeSwitcherPref;
-            }
-        }
-
-        mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
-
         // Spell Checker
         final Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setClass(getActivity(), SpellCheckersSettingsActivity.class);
@@ -202,18 +177,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (scp != null) {
             scp.setFragmentIntent(this, intent);
         }
-
-        mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
-        if(mVolumeKeyCursorControl != null) {
-            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-            mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                    .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
-            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
-        }
-
-        mDisableFullscreenKeyboard = (CheckBoxPreference) findPreference(PREF_DISABLE_FULLSCREEN_KEYBOARD);
-        mDisableFullscreenKeyboard.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.DISABLE_FULLSCREEN_KEYBOARD, 0) == 1);
 
         mHandler = new Handler();
         mSettingsObserver = new SettingsObserver(mHandler, getActivity());
@@ -294,16 +257,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             }
         }
 
-        if (mStatusBarImeSwitcher != null) {
-            mStatusBarImeSwitcher.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_IME_SWITCHER, 1) != 0);
-        }
-
-        if (mStylusIconEnabled != null) {
-            mStylusIconEnabled.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.STYLUS_ICON_ENABLED, 0) == 1);
-        }
-
         // Hard keyboard
         if (!mHardKeyboardPreferenceList.isEmpty()) {
             for (int i = 0; i < sHardKeyboardKeys.length; ++i) {
@@ -357,14 +310,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (Utils.isMonkeyRunning()) {
             return false;
         }
-        if (preference == mStatusBarImeSwitcher) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_IME_SWITCHER, mStatusBarImeSwitcher.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mStylusIconEnabled) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.STYLUS_ICON_ENABLED, mStylusIconEnabled.isChecked() ? 1 : 0);
-        } else if (preference instanceof PreferenceScreen) {
+        if (preference instanceof PreferenceScreen) {
             if (preference.getFragment() != null) {
                 // Fragment will be handled correctly by the super class.
             } else if (KEY_CURRENT_INPUT_METHOD.equals(preference.getKey())) {
@@ -373,15 +319,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 imm.showInputMethodPicker();
             }
         } else if (preference instanceof CheckBoxPreference) {
-
             final CheckBoxPreference chkPref = (CheckBoxPreference) preference;
-            if (chkPref == mDisableFullscreenKeyboard) {
-                boolean checked = ((CheckBoxPreference) preference).isChecked();
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.DISABLE_FULLSCREEN_KEYBOARD, checked ? 1 : 0);
-                return true;
-            }
-
             if (!mHardKeyboardPreferenceList.isEmpty()) {
                 for (int i = 0; i < sHardKeyboardKeys.length; ++i) {
                     if (chkPref == mHardKeyboardCategory.findPreference(sHardKeyboardKeys[i])) {
@@ -438,15 +376,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                     saveInputMethodSelectorVisibility((String)value);
                 }
             }
-        }
-        if (preference == mVolumeKeyCursorControl) {
-            String volumeKeyCursorControl = (String) value;
-            int val = Integer.parseInt(volumeKeyCursorControl);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, val);
-            int index = mVolumeKeyCursorControl.findIndexOfValue(volumeKeyCursorControl);
-            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntries()[index]);
-            return true;
         }
         return false;
     }

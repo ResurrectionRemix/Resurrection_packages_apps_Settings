@@ -101,9 +101,9 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     private static final String TOGGLE_LARGE_TEXT_PREFERENCE =
             "toggle_large_text_preference";
     private static final String TOGGLE_POWER_BUTTON_ENDS_CALL_PREFERENCE =
-            "toggle_power_button_ends_call_preference";
+        "toggle_power_button_ends_call_preference";
     private static final String TOGGLE_HOME_BUTTON_ANSWERS_CALL_PREFERENCE =
-            "toggle_home_button_answers_call_preference";
+        "toggle_home_button_answers_call_preference";
     private static final String TOGGLE_LOCK_SCREEN_ROTATION_PREFERENCE =
             "toggle_lock_screen_rotation_preference";
     private static final String TOGGLE_SPEAK_PASSWORD_PREFERENCE =
@@ -282,7 +282,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
                         ? Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
-
     private void handleLockScreenRotationPreferenceClick() {
         RotationPolicy.setRotationLockForAccessibility(getActivity(),
                 !mToggleLockScreenRotationPreference.isChecked());
@@ -333,7 +332,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
                 || !Utils.isVoiceCapable(getActivity())) {
             mSystemsCategory.removePreference(mTogglePowerButtonEndsCallPreference);
         }
-
         // Home button answers calls.
         mToggleHomeButtonAnswersCallPreference =
             (CheckBoxPreference) findPreference(TOGGLE_HOME_BUTTON_ANSWERS_CALL_PREFERENCE);
@@ -1057,7 +1055,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             ToggleSwitch toggleSwitch = new ToggleSwitch(activity);
             final int padding = activity.getResources().getDimensionPixelSize(
                     R.dimen.action_bar_switch_padding);
-            toggleSwitch.setPaddingRelative(0, 0, padding, 0);
+            toggleSwitch.setPadding(0, 0, padding, 0);
             activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
                     ActionBar.DISPLAY_SHOW_CUSTOM);
             activity.getActionBar().setCustomView(toggleSwitch,

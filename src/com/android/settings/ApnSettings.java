@@ -16,8 +16,6 @@
 
 package com.android.settings;
 
-import java.util.ArrayList;
-
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -41,7 +39,6 @@ import android.preference.PreferenceScreen;
 import android.provider.Telephony;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -50,7 +47,9 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 
-public class ApnSettings extends SettingsPreferenceFragment implements
+import java.util.ArrayList;
+
+public class ApnSettings extends PreferenceActivity implements
         Preference.OnPreferenceChangeListener {
     static final String TAG = "ApnSettings";
 
@@ -117,20 +116,21 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onCreate(Bundle icicle) {
+    protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
         addPreferencesFromResource(R.xml.apn_settings);
+        getListView().setItemsCanFocus(true);
 
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
-        setHasOptionsMenu(true);
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
 
-        getActivity().registerReceiver(mMobileStateReceiver, mMobileStateFilter);
+        registerReceiver(mMobileStateReceiver, mMobileStateFilter);
 
         if (!mRestoreDefaultApnMode) {
             fillList();
@@ -140,13 +140,14 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
-        getActivity().unregisterReceiver(mMobileStateReceiver);
+
+        unregisterReceiver(mMobileStateReceiver);
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
 
         if (mRestoreDefaultApnThread != null) {
@@ -163,7 +164,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 "_id", "name", "apn", "type"}, where, null,
                 Telephony.Carriers.DEFAULT_SORT_ORDER);
 
-        PreferenceGroup apnList = (PreferenceGroup) getPreferenceScreen().findPreference("apn_list");
+        PreferenceGroup apnList = (PreferenceGroup) findPreference("apn_list");
         apnList.removeAll();
 
         ArrayList<Preference> mmsApnList = new ArrayList<Preference>();
@@ -176,7 +177,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
             String key = cursor.getString(ID_INDEX);
             String type = cursor.getString(TYPES_INDEX);
 
-            ApnPreference pref = new ApnPreference(getActivity());
+            ApnPreference pref = new ApnPreference(this);
 
             pref.setKey(key);
             pref.setTitle(name);
@@ -204,15 +205,15 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         menu.add(0, MENU_NEW, 0,
                 getResources().getString(R.string.menu_new))
-                .setIcon(android.R.drawable.ic_menu_add)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+                .setIcon(android.R.drawable.ic_menu_add);
         menu.add(0, MENU_RESTORE, 0,
                 getResources().getString(R.string.menu_restore))
                 .setIcon(android.R.drawable.ic_menu_upload);
+        return true;
     }
 
     @Override
@@ -230,22 +231,14 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     private void addNewApn() {
-        Bundle editBundle = new Bundle();
-        editBundle.putString(ApnEditor.EDIT_ACTION, Intent.ACTION_INSERT);
-        editBundle.putString(ApnEditor.EDIT_DATA, Telephony.Carriers.CONTENT_URI.toSafeString());
-        ((PreferenceActivity) getActivity()).startPreferencePanel(ApnEditor.class.getName(), editBundle,
-                            R.string.apn_edit, null, null, 0);
+        startActivity(new Intent(Intent.ACTION_INSERT, Telephony.Carriers.CONTENT_URI));
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         int pos = Integer.parseInt(preference.getKey());
         Uri url = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI, pos);
-        Bundle editBundle = new Bundle();
-        editBundle.putString(ApnEditor.EDIT_ACTION, Intent.ACTION_EDIT);
-        editBundle.putString(ApnEditor.EDIT_DATA, url.toSafeString());
-        ((PreferenceActivity) getActivity()).startPreferencePanel(ApnEditor.class.getName(), editBundle,
-                R.string.apn_edit, null, null, 0);
+        startActivity(new Intent(Intent.ACTION_EDIT, url));
         return true;
     }
 
@@ -282,12 +275,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         return key;
     }
 
-    @Override
-    protected void showDialog(int dialogId) {
-        removeDialog(dialogId);
-        super.showDialog(dialogId);
-    }
-
     private boolean restoreDefaultApn() {
         showDialog(DIALOG_RESTORE_DEFAULTAPN);
         mRestoreDefaultApnMode = true;
@@ -318,9 +305,9 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                     fillList();
                     getPreferenceScreen().setEnabled(true);
                     mRestoreDefaultApnMode = false;
-                    removeDialog(DIALOG_RESTORE_DEFAULTAPN);
+                    dismissDialog(DIALOG_RESTORE_DEFAULTAPN);
                     Toast.makeText(
-                        getActivity(),
+                        ApnSettings.this,
                         getResources().getString(
                                 R.string.restore_default_apn_completed),
                         Toast.LENGTH_LONG).show();
@@ -342,7 +329,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
             switch (msg.what) {
                 case EVENT_RESTORE_DEFAULTAPN_START:
                     ContentResolver resolver = getContentResolver();
-                    resolver.delete(DEFAULTAPN_URI, null, null);
+                    resolver.delete(DEFAULTAPN_URI, null, null);                    
                     mRestoreApnUiHandler
                         .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;
@@ -351,16 +338,20 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public Dialog onCreateDialog(int id) {
+    protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_RESTORE_DEFAULTAPN) {
-            ProgressDialog dialog = new ProgressDialog(getActivity());
+            ProgressDialog dialog = new ProgressDialog(this);
             dialog.setMessage(getResources().getString(R.string.restore_default_apn));
             dialog.setCancelable(false);
-            dialog.setCanceledOnTouchOutside(false);
-            getPreferenceScreen().setEnabled(false);
             return dialog;
         }
         return null;
     }
 
+    @Override
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        if (id == DIALOG_RESTORE_DEFAULTAPN) {
+            getPreferenceScreen().setEnabled(false);
+        }
+    }
 }

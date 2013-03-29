@@ -14,6 +14,9 @@
      limitations under the License.
 -->
 
+<!-- Layout for a Preference in a PreferenceActivity. The
+     Preference is able to place a specific widget for its particular
+     type in the "widget_frame" layout. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+android:id/widget_frame"
     android:layout_width="match_parent"
@@ -26,11 +29,10 @@
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dip"
-        android:maxWidth="36dip"
-        android:maxHeight="36dip"
-        android:adjustViewBounds="true"
-        android:layout_gravity="center" />
+        android:layout_marginStart="6dip"
+        android:layout_marginEnd="6dip"
+        android:layout_gravity="center"
+        android:contentDescription="@null" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -46,7 +48,16 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:ellipsize="end" />
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+
+        <TextView android:id="@+android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/title"
+            android:layout_alignStart="@android:id/title"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:maxLines="2" />
 
     </RelativeLayout>
 

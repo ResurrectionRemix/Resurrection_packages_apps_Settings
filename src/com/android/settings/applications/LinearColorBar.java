@@ -101,11 +101,11 @@ public class LinearColorBar extends LinearLayout {
 
         int indicatorLeft, indicatorRight;
         if (mShowingGreen) {
-            indicatorLeft = (isLayoutRtl() ? width - right3 : right2);
-            indicatorRight = (isLayoutRtl() ? width - right2 : right3);
+            indicatorLeft = right2;
+            indicatorRight = right3;
         } else {
-            indicatorLeft = (isLayoutRtl() ? width - right2 : right);
-            indicatorRight = (isLayoutRtl() ? width - right : right2);
+            indicatorLeft = right;
+            indicatorRight = right2;
         }
 
         if (mLastInterestingLeft != indicatorLeft || mLastInterestingRight != indicatorRight) {
@@ -144,8 +144,8 @@ public class LinearColorBar extends LinearLayout {
         }
 
         if (left < right) {
-            mRect.left = (isLayoutRtl() ? width-right+left : left);
-            mRect.right = (isLayoutRtl() ? width : right);
+            mRect.left = left;
+            mRect.right = right;
             mPaint.setColor(LEFT_COLOR);
             canvas.drawRect(mRect, mPaint);
             width -= (right-left);
@@ -155,8 +155,8 @@ public class LinearColorBar extends LinearLayout {
         right = right2;
 
         if (left < right) {
-            mRect.left = (isLayoutRtl() ? width-right+left : left);
-            mRect.right = (isLayoutRtl() ? width : right);
+            mRect.left = left;
+            mRect.right = right;
             mPaint.setColor(MIDDLE_COLOR);
             canvas.drawRect(mRect, mPaint);
             width -= (right-left);
@@ -166,8 +166,8 @@ public class LinearColorBar extends LinearLayout {
 
         right = left + width;
         if (left < right) {
-            mRect.left = (isLayoutRtl() ? width-right+left : left);
-            mRect.right = (isLayoutRtl() ? width : right);
+            mRect.left = left;
+            mRect.right = right;
             mPaint.setColor(RIGHT_COLOR);
             canvas.drawRect(mRect, mPaint);
         }

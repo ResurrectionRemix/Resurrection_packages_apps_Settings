@@ -56,22 +56,14 @@ import android.provider.ContactsContract.Profile;
 import android.provider.ContactsContract.RawContacts;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.ExtendedPropertiesUtils;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TabWidget;
 
 import com.android.settings.users.ProfileUpdateReceiver;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,8 +73,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class Utils {
-
-    private static final String TAG = "Utils";
 
     /**
      * Set the preference's title to the matching activity's label.
@@ -106,10 +96,6 @@ public class Utils {
      * to specify the summary text that should be displayed for the preference.
      */
     private static final String META_DATA_PREFERENCE_SUMMARY = "com.android.settings.summary";
-
-    // Device types
-    public static final int DEVICE_PHONE = 0;
-    public static final int DEVICE_TABLET = 1;
 
     /**
      * Finds a matching activity for a preference's intent. If a matching
@@ -492,43 +478,6 @@ public class Utils {
         }
     }
 
-    public static boolean fileExists(String filename) {
-        return new File(filename).exists();
-    }
-
-    public static String fileReadOneLine(String fname) {
-        BufferedReader br;
-        String line = null;
-
-        try {
-            br = new BufferedReader(new FileReader(fname), 512);
-            try {
-                line = br.readLine();
-            } finally {
-                br.close();
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "IO Exception when reading /sys/ file", e);
-        }
-        return line;
-    }
-
-    public static boolean fileWriteOneLine(String fname, String value) {
-        try {
-            FileWriter fw = new FileWriter(fname);
-            try {
-                fw.write(value);
-            } finally {
-                fw.close();
-            }
-        } catch (IOException e) {
-            String Error = "Error writing to " + fname + ". Exception: ";
-            Log.e(TAG, Error, e);
-            return false;
-        }
-        return true;
-    }
-
     /* Used by UserSettings as well. Call this on a non-ui thread. */
     public static boolean copyMeProfilePhoto(Context context, UserInfo user) {
         Uri contactUri = Profile.CONTENT_URI;
@@ -644,35 +593,5 @@ public class Utils {
     public static boolean hasMultipleUsers(Context context) {
         return ((UserManager) context.getSystemService(Context.USER_SERVICE))
                 .getUsers().size() > 1;
-    }
-
-    public static int getScreenType(Context context) {
-        DisplayMetrics dm = new DisplayMetrics();
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        display.getMetrics(dm);
-        int shortSize = Math.min(dm.heightPixels, dm.widthPixels);
-        int shortSizeDp = shortSize * DisplayMetrics.DENSITY_DEFAULT / DisplayMetrics.DENSITY_DEVICE;
-        if (shortSizeDp < 600) {
-            return DEVICE_PHONE;
-        } else {
-            return DEVICE_TABLET;
-        }
-    }
-
-    public static boolean isTablet(){
-        return ExtendedPropertiesUtils.isTablet();
-    }
-
-    public static boolean hasNavigationBar() {
-        int value;
-        String prop = ExtendedPropertiesUtils.
-                readProperty("com.android.systemui.navbar.dpi", "0");
-        if(ExtendedPropertiesUtils.isParsableToInt(prop)) {
-            value = Integer.parseInt(prop);
-        } else {
-            value = ExtendedPropertiesUtils.getActualProperty(prop);
-        }
-        return value > 0;
     }
 }

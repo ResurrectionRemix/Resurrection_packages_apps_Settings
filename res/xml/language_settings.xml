@@ -67,20 +67,6 @@
                 android:persistent="false"/>
     </PreferenceCategory>
 
-    <CheckBoxPreference
-            android:key="status_bar_ime_switcher"
-            android:title="@string/ime_switcher_notify"
-            android:summary="@string/ime_switcher_notify_summary"
-            android:defaultValue="true"
-            android:persistent="false" />
-    <ListPreference
-            android:key="volume_key_cursor_control"
-            android:persistent="false"
-            android:dialogTitle="@string/volume_key_cursor_control_title"
-            android:title="@string/volume_key_cursor_control_title"
-            android:entries="@array/volume_key_cursor_control_entries"
-            android:entryValues="@array/volume_key_cursor_control_values" />
-
     <PreferenceCategory android:key="voice_category"
             android:title="@string/voice_category" >
 
@@ -107,12 +93,6 @@
                 android:dialogTitle="@string/pointer_speed" />
     </PreferenceCategory>
 
-    <CheckBoxPreference android:key="stylus_icon_enabled"
-            android:title="@string/stylus_icon_enabled_title"
-            android:summary="@string/stylus_icon_enabled_summary"
-            android:defaultValue="false"
-            android:persistent="false" />
-
     <PreferenceCategory android:key="game_controller_settings_category"
             android:title="@string/game_controller_settings_category">
         <CheckBoxPreference
@@ -121,14 +101,5 @@
                 android:summaryOn="@string/vibrate_input_devices_summary"
                 android:summaryOff="@string/vibrate_input_devices_summary"
                 android:persistent="false"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory android:key="keyboard_settings_addition"
-            android:title="@string/keyboard_settings_additional_category">
-        <CheckBoxPreference
-                android:key="disable_fullscreen_keyboard"
-                android:title="@string/disable_fullscreen_keyboard_title"
-                android:summary="@string/disable_fullscreen_keyboard_summary"
-                android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>

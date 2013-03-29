@@ -26,26 +26,16 @@
             android:persistent="false"
             android:streamType="ring" />
 
-    <ListPreference
-            android:key="ring_mode"
-            android:title="@string/ring_mode_title"
-            android:entries="@array/ring_mode_entries"
-            android:entryValues="@array/ring_mode_values" />
-
-    <ListPreference
-            android:key="volume_overlay"
-            android:title="@string/volume_overlay_title"
-            android:entries="@array/volume_overlay_entries"
-            android:entryValues="@array/volume_overlay_values" />
-
     <Preference
             android:key="musicfx"
-            android:title="@string/musicfx_title" />
-
-    <!-- Quiet hours -->
+            android:title="@string/musicfx_title">
+        <intent android:targetPackage="com.android.musicfx"
+                android:targetClass="com.android.musicfx.ControlPanelPicker" />
+    </Preference>
+    
     <PreferenceScreen
             android:key="quiet_hours"
-            android:fragment="com.android.settings.cyanogenmod.QuietHours"
+            android:fragment="com.android.settings.QuietHours"
             android:title="@string/quiet_hours_title" />
 
     <PreferenceCategory
@@ -71,13 +61,6 @@
             android:dependency="vibrate_when_ringing"
             android:persistent="false"
             android:defaultValue="false" />
-
-    <com.android.settings.IncreasingRingPreference
-            android:key="increasing_ring"
-            android:title="@string/increasing_ring_title"
-            android:dialogTitle="@string/increasing_ring_title"
-            android:persistent="false"
-            android:streamType="ring" />
 
     <PreferenceCategory
             android:title="@string/sound_category_system_title"/>
@@ -112,22 +95,15 @@
             android:defaultValue="true" />
 
     <CheckBoxPreference
-            android:key="volume_adjust_sounds"
-            android:title="@string/volume_adjust_sounds_enable_title"
-            android:summary="@string/volume_adjust_sounds_enable_summary"
-            android:persistent="false" />
+            android:key="safe_headset_volume"
+            android:title="@string/safe_headset_volume_title"
+            android:defaultValue="true" />
 
     <ListPreference
             android:key="emergency_tone"
             android:title="@string/emergency_tone_title"
             android:entries="@array/emergency_tone_entries"
             android:entryValues="@array/emergency_tone_values" />
-
-    <CheckBoxPreference
-            android:key="notification_convert_sound_to_vibration"
-            android:title="@string/notification_convert_sound_to_vibration_title"
-            android:summary="@string/notification_convert_sound_to_vibration_summary"
-            android:defaultValue="true" />
 
     <!-- Dock -->
     <PreferenceCategory
@@ -149,20 +125,5 @@
         android:key="dock_sounds"
         android:title="@string/dock_sounds_enable_title"
         android:defaultValue="false" />
-
-    <PreferenceCategory
-            android:title="@string/headset_category_title"/>
-
-    <CheckBoxPreference
-            android:key="headset_connect_player"
-            android:title="@string/headset_connect_player_title"
-            android:summary="@string/headset_connect_player_summary"
-            android:persistent="false" />
-
-    <CheckBoxPreference
-            android:key="safe_headset_volume"
-            android:title="@string/safe_headset_volume_title"
-            android:summary="@string/safe_headset_volume_summary"
-            android:defaultValue="true" />
 
 </PreferenceScreen>

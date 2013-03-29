@@ -249,55 +249,28 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
             mItemAvailable.setTitle(R.string.memory_available);
         }
 
-        if (mVolume != null &&  mVolume.isRemovable() && !mVolume.allowMassStorage()) {
-            if (Environment.MEDIA_MOUNTED.equals(state)
-                    || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-                mMountTogglePreference.setEnabled(true);
-                mMountTogglePreference.setTitle(mResources.getString(R.string.usbdisk_eject));
-                mMountTogglePreference.setSummary(mResources.getString(R.string.usbdisk_eject_summary));
-            } else {
-                if (Environment.MEDIA_UNMOUNTED.equals(state) || Environment.MEDIA_NOFS.equals(state)
-                        || Environment.MEDIA_UNMOUNTABLE.equals(state)) {
-                    mMountTogglePreference.setEnabled(true);
-                    mMountTogglePreference.setTitle(mResources.getString(R.string.usbdisk_mount));
-                    mMountTogglePreference.setSummary(mResources.getString(R.string.usbdisk_mount_summary));
-                } else {
-                    mMountTogglePreference.setEnabled(false);
-                    mMountTogglePreference.setTitle(mResources.getString(R.string.usbdisk_mount));
-                    mMountTogglePreference.setSummary(mResources.getString(R.string.usbdisk_insert_summary));
-                }
-
-                removePreference(mUsageBarPreference);
-                removePreference(mItemTotal);
-                removePreference(mItemAvailable);
-                if (mFormatPreference != null) {
-                    removePreference(mFormatPreference);
-                }
-            }                
+        if (Environment.MEDIA_MOUNTED.equals(state)
+                || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            mMountTogglePreference.setEnabled(true);
+            mMountTogglePreference.setTitle(mResources.getString(R.string.sd_eject));
+            mMountTogglePreference.setSummary(mResources.getString(R.string.sd_eject_summary));
         } else {
-            if (Environment.MEDIA_MOUNTED.equals(state)
-                    || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            if (Environment.MEDIA_UNMOUNTED.equals(state) || Environment.MEDIA_NOFS.equals(state)
+                    || Environment.MEDIA_UNMOUNTABLE.equals(state)) {
                 mMountTogglePreference.setEnabled(true);
-                mMountTogglePreference.setTitle(mResources.getString(R.string.sd_eject));
-                mMountTogglePreference.setSummary(mResources.getString(R.string.sd_eject_summary));
+                mMountTogglePreference.setTitle(mResources.getString(R.string.sd_mount));
+                mMountTogglePreference.setSummary(mResources.getString(R.string.sd_mount_summary));
             } else {
-                if (Environment.MEDIA_UNMOUNTED.equals(state) || Environment.MEDIA_NOFS.equals(state)
-                        || Environment.MEDIA_UNMOUNTABLE.equals(state)) {
-                    mMountTogglePreference.setEnabled(true);
-                    mMountTogglePreference.setTitle(mResources.getString(R.string.sd_mount));
-                    mMountTogglePreference.setSummary(mResources.getString(R.string.sd_mount_summary));
-                } else {
-                    mMountTogglePreference.setEnabled(false);
-                    mMountTogglePreference.setTitle(mResources.getString(R.string.sd_mount));
-                    mMountTogglePreference.setSummary(mResources.getString(R.string.sd_insert_summary));
-                }
+                mMountTogglePreference.setEnabled(false);
+                mMountTogglePreference.setTitle(mResources.getString(R.string.sd_mount));
+                mMountTogglePreference.setSummary(mResources.getString(R.string.sd_insert_summary));
+            }
 
-                removePreference(mUsageBarPreference);
-                removePreference(mItemTotal);
-                removePreference(mItemAvailable);
-                if (mFormatPreference != null) {
-                    removePreference(mFormatPreference);
-                }
+            removePreference(mUsageBarPreference);
+            removePreference(mItemTotal);
+            removePreference(mItemAvailable);
+            if (mFormatPreference != null) {
+                removePreference(mFormatPreference);
             }
         }
 
