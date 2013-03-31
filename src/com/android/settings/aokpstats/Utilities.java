@@ -77,7 +77,8 @@ public class Utilities {
     }
 
     public static String getDevice() {
-        return SystemProperties.get("ro.product.device");
+        String device = SystemProperties.get("ro.aokp.device");
+        return device == null ? SystemProperties.get("ro.product.device") : device;
     }
 
     public static String getModVersion() {
@@ -89,12 +90,17 @@ public class Utilities {
                 String[] splitted = aokp_ver.split("_");
                 String ver = splitted[splitted.length-2].concat(splitted[splitted.length-1]);
                 return ver;
-            } else {
-                return "KANG";
-            }
-        }
-        else {
+        String version = SystemProperties.get("ro.aokp.version");
+        String branch = SystemProperties.get("ro.aokp.branch");
+        if (version == null || branch == null || !version.startsWith("aokp")) {
             return "KANG";
+        } else {
+            String[] splitVer = version.split("_");
+            if (version.contains("milestone")) {
+                return branch + "_" + splitVer[3]; // exact milestone version
+            } else {
+                return branch + "_" + splitVer[2]; // nightly || unofficial
+            }
         }
     }
 
