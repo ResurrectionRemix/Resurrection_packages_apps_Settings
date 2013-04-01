@@ -117,6 +117,11 @@
                 android:title="@string/device_screen_resolution"/>
         </PreferenceScreen>
 
+        <PreferenceScreen android:key="changelog"
+            android:title="@string/changelog_title"
+            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
+        </PreferenceScreen>
+
         <PreferenceScreen
                 android:key="safetylegal"
                 android:title="@string/settings_safetylegal_title">
@@ -159,12 +164,6 @@
                 android:title="@string/baseband_version"
                 android:summary="@string/device_info_default"/>
         
-        <!-- Device Kernel version -->
-        <Preference android:key="kernel_version" 
-                style="?android:preferenceInformationStyle"
-                android:title="@string/kernel_version"
-                android:summary="@string/device_info_default"/>
-
         <!-- Mod version -->
         <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
@@ -175,6 +174,12 @@
         <Preference android:key="build_number" 
                 style="?android:preferenceInformationStyle"
                 android:title="@string/build_number"
+                android:summary="@string/device_info_default"/>
+
+        <!-- Device Kernel version -->
+        <Preference android:key="kernel_version" 
+                style="?android:preferenceInformationStyle"
+                android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
 
         <!-- SELinux status information -->

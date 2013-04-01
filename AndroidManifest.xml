@@ -1595,6 +1595,30 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
         
+<<<<<<< HEAD
+=======
+        <receiver android:name=".aokpstats.ReportingServiceManager"
+            android:enabled="true"
+            android:exported="false"
+            android:label="ReportingServiceManager">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service android:label="ReportingService"
+            android:enabled="true"
+            android:exported="false"
+            android:name=".aokpstats.ReportingService">
+        </service>
+
+        <!-- DirtSettings -->
+        <activity android:name=".ds.About" />
+        <activity android:name="Dirt" />
+        <activity android:name=".cyanogenmod.PowerWidget" />
+        <activity android:name=".cyanogenmod.ChangeLog" />
+>>>>>>> 405792e... Added CM's built-in Changelog
 
         <receiver android:name=".bluetooth.BluetoothDiscoverableTimeoutReceiver">
             <intent-filter>
