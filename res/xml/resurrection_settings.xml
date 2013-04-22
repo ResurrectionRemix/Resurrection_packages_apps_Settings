@@ -51,6 +51,16 @@
                 android:targetPackage="org.tpmkranz.notifyme"
                 android:targetClass="org.tpmkranz.notifyme.MainActivity" />
 </PreferenceScreen>
+    <!-- Permissions Management -->
+<PreferenceScreen
+        android:id="@+id/permissions_settings"
+        android:icon="@drawable/ic_settings_permissions"
+        android:title="@string/permissions_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.chameleonos.permissionsmanager"
+            android:targetClass="org.chameleonos.permissionsmanager.activity.PermissionManagerActivity" />
+ </PreferenceScreen>
 
 </PreferenceCategory>
 
