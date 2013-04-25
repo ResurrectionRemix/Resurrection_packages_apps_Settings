@@ -64,16 +64,18 @@
  
  <PreferenceCategory
             android:title="@string/power_notifications_category_title"/>
-
-    <CheckBoxPreference
+            
+     <CheckBoxPreference
             android:key="power_notifications"
             android:title="@string/power_notifications_enable_title"
+           android:summary="@string/power_notifications_enable_title_summary"
             android:defaultValue="false"
             android:persistent="false" />
 
     <CheckBoxPreference
             android:key="power_notifications_vibrate"
             android:title="@string/power_notifications_vibrate_title"
+            android:summary="@string/update_power_notifications_vibrate_summary"
             android:defaultValue="false"
             android:dependency="power_notifications"
             android:persistent="false" />
