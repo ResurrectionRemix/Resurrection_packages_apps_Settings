@@ -58,47 +58,6 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-    <!-- Quick Links -->
-    <header android:id="@+id/quick_links"
-            android:title="@string/quick_links_title" />
-
-    <header android:id="@+id/rom_control"
-            android:title="@string/rom_control_title"
-            android:icon="@drawable/ic_settings_rom_control" >
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="com.aokp.romcontrol.ROMControlActivity"
-                android:targetPackage="com.aokp.romcontrol" />
-    </header>
-
-    <header android:id="@+id/themes"
-            android:title="@string/themes_title"
-            android:icon="@drawable/ic_settings_themes" >
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.tmobile.themechooser"
-                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
-
-    <header android:id="@+id/performance"
-            android:title="@string/performance_title"
-            android:icon="@drawable/ic_settings_performance" >
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.brewcrewfoo.performance"
-                android:targetClass="com.brewcrewfoo.performance.activities.MainActivity" />
-    </header>
-
-
-    <header android:id="@+id/advanced_settings"
-            android:title="@string/advanced_settings_title"
-            android:icon="@drawable/ic_settings_advanced">
-        <intent
-                android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
-                android:targetPackage="com.cyanogenmod.settings.device"
-                android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
-    </header>
-
     <header android:id="@+id/sprint_tools"
             android:title="@string/sprint_tools_title"
             android:icon="@drawable/ic_sprint_tools">
