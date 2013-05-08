@@ -33,6 +33,7 @@
 <PreferenceScreen
            android:id="@+id/rom_control"
             android:title="@string/rom_control_title"
+            android:summary="@string/rom_control_summary"
             android:icon="@drawable/ic_settings_rom_control" >
         <intent
                 android:action="android.intent.action.MAIN"
@@ -43,6 +44,7 @@
 <PreferenceScreen
            android:id="@+id/themes"
             android:title="@string/themes_title"
+            android:summary="@string/themes_summary"
             android:icon="@drawable/ic_settings_themes" >
         <intent
                 android:action="android.intent.action.MAIN"
@@ -52,6 +54,7 @@
 <PreferenceScreen
            android:id="@+id/performance"
             android:title="@string/performance_title"
+            android:summary="@string/performance_summary"
             android:icon="@drawable/ic_settings_performance" >
         <intent
                 android:action="android.intent.action.MAIN"
@@ -62,6 +65,7 @@
 <PreferenceScreen
            android:id="@+id/advanced_settings"
             android:title="@string/advanced_settings_title"
+            android:summary="@string/advenced_settings_summary"
             android:icon="@drawable/ic_settings_advanced">
         <intent
                 android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
@@ -97,11 +101,21 @@
 <PreferenceScreen
         android:id="@+id/permissions_settings"
         android:icon="@drawable/ic_settings_permissions"
+        android:summary="@string/permissions_summary"
         android:title="@string/permissions_settings_title">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="org.chameleonos.permissionsmanager"
             android:targetClass="org.chameleonos.permissionsmanager.activity.PermissionManagerActivity" />
+       </PreferenceScreen>     
+            <PreferenceScreen
+        android:key="pie"
+        android:icon="@drawable/ic_pie"
+        android:title="@string/pie_title"
+        android:summary="@string/pie_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.lmt"
+                android:targetClass="com.android.lmt.LMT" />
  </PreferenceScreen>
 </PreferenceCategory>
 
