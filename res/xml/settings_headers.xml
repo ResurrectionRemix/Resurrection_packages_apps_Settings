@@ -76,7 +76,21 @@
         android:icon="@drawable/ic_settings_resurrection"
         android:title="@string/resurrection_settings_title" />
         
-        
+            <!-- TRDS -->
+    <header
+        android:id="@+id/trds_settings"
+        android:icon="@drawable/ic_settings_trds"
+        android:summary="@string/pb_summary"
+        android:title="@string/pb_settings_title"/>
+
+    <header android:id="@+id/themes"
+            android:title="@string/themes_title"
+            android:icon="@drawable/ic_settings_themes" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.tmobile.themechooser"
+                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
