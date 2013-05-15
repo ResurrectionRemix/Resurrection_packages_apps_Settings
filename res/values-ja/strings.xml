@@ -1941,4 +1941,58 @@
     <!-- USB Mass Storage -->
     <string name="usb_mass_storage_title">マスストレージ</string>
     <string name="usb_mass_storage_summary">USBマスストレージを有効にする</string>
+
+    <string name="volume_adjust_sounds_enable_title">ボリューム調整音</string>
+    <!-- Sound settings screen, setting check box summary -->
+    <string name="volume_adjust_sounds_enable_summary">ハードキーで音量を調整するときに音を鳴らす</string>
+
+    <!-- Automatic brightness customization -->
+    <string name="light_sensor_current_value">現在のライトセンサー値: <xliff:g id="light_level">%d</xliff:g> lux</string>
+    <string name="auto_brightness_dialog_title">明るさの自動調整レベル</string>
+    <string name="auto_brightness_level_format"><xliff:g id="level">%1$d</xliff:g> lux</string>
+    <string name="auto_brightness_last_level_format"><xliff:g id="level">%1$d</xliff:g> -\n\u221e lux</string>
+    <string name="auto_brightness_brightness_format"><xliff:g id="percent">%s</xliff:g>%%</string>
+    <string name="auto_brightness_adjust_button">調整</string>
+    <string name="auto_brightness_close_button">閉じる</string>
+    <string name="auto_brightness_reset_button">リセット</string>
+    <string name="auto_brightness_split_dialog_title">ライトレベル分割</string>
+    <string name="auto_brightness_level_dialog_title">ライトレベル設定</string>
+    <string name="auto_brightness_lux">周囲の明るさ (lux)</string>
+    <string name="auto_brightness_backlight">画面の輝度 (%)</string>
+    <string name="auto_brightness_reset_dialog_title">レベルをリセットしますか？</string>
+    <string name="auto_brightness_reset_confirmation">すべてのライトレベルがデフォルト設定にリセットされます</string>
+    <string name="auto_brightness_split_lux_format">分割位置 (<xliff:g id="min">%1$d</xliff:g> 〜 <xliff:g id="max">%2$d</xliff:g> lux)</string>
+    <string name="auto_brightness_level_options">ライトレベルオプション</string>
+    <string name="auto_brightness_menu_edit">編集</string>
+    <string name="auto_brightness_menu_split">分割</string>
+    <string name="auto_brightness_menu_remove">削除</string>
+    <string name="auto_brightness_preview">プレビュー</string>
+    <string name="auto_brightness_preview_dialog_title">輝度カーブプレビュー</string>
+    <string name="auto_brightness_help_dialog_title">ヘルプ</string>
+    <string name="auto_brightness_help_text"><b>輝度計算方法</b>
+\n\n
+輝度カーブは<i>制御点</i>の数から<i>三次スプライン補間</i>によって求められます。
+指定されたライトレベル範囲で一定の画面輝度の場合はバケツ型にならないように計算して、
+周囲の明るさの小さな変化によって画面輝度が大きく変化しないようにします。
+しかし制御点の変更結果を予測するのは少々困難です。\n
+そのために計算したカーブをプレビューで確認することができます。
+プレビューはすべての制御点が表示されるように<i>対数</i>スケールで示されることに注意してください。
+リニアスケールだと暗いレベルの制御点のわずかな変化を識別することができません。
+\n\n
+<b>輝度カーブの編集方法</b>
+\n\n
+各ライトレベルは輝度カーブのそれぞれの<i>制御点</i>に相当し、スライダーで輝度を編集することができます。
+スライダーをタッチしている間は確認のためにレベルに応じて画面輝度が変化します。\n
+各行を長押しすることで追加オプションを利用できます。
+『編集』を選択することで制御点のライトレベルと画面輝度をマニュアルで編集することができます。
+『分割』を選択すると制御点を追加してライトレベルを複製します。
+『削除』は選択したライトレベルを削除します。
+    </string>
+    <string name="ok">OK</string>
+
+    <!-- Permissions Management -->
+    <string name="permissions_settings_title">パーミッション</string>
+
+    <!-- TRDS Settings -->
+    <string name="trds_settings_title">ダークAOKP</string>
 </resources>
