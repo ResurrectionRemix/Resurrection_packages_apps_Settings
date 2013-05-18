@@ -58,6 +58,58 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
+<<<<<<< HEAD
+=======
+    <!-- Quick Links -->
+    <header android:id="@+id/quick_links"
+            android:title="@string/quick_links_title" />
+
+    <header
+        android:id="@+id/launcher_settings"
+        android:title="@string/launcher_settings_title"
+        android:icon="@drawable/ic_settings_cmlauncher" />
+
+    <header android:id="@+id/rom_control"
+            android:title="@string/rom_control_title"
+            android:icon="@drawable/ic_settings_rom_control" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.aokp.romcontrol.ROMControlActivity"
+                android:targetPackage="com.aokp.romcontrol" />
+    </header>
+
+    <!-- Profiles -->
+    <header
+        android:id="@+id/profiles_settings"
+        android:icon="@drawable/ic_settings_profiles"
+        android:fragment="com.android.settings.profiles.ProfilesSettings"
+        android:title="@string/profiles_settings_title" />
+
+    <!-- TRDS -->
+    <header
+        android:id="@+id/trds_settings"
+        android:icon="@drawable/ic_settings_trds"
+        android:title="@string/trds_settings_title" />
+
+    <header android:id="@+id/themes"
+            android:title="@string/themes_title"
+            android:icon="@drawable/ic_settings_themes" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.tmobile.themechooser"
+                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+
+    <header android:id="@+id/advanced_settings"
+            android:title="@string/advanced_settings_title"
+            android:icon="@drawable/ic_settings_advanced">
+        <intent
+                android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+                android:targetPackage="com.cyanogenmod.settings.device"
+                android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
+    </header>
+
+>>>>>>> 315d8b4... Added Launcher configuration item
     <header android:id="@+id/sprint_tools"
             android:title="@string/sprint_tools_title"
             android:icon="@drawable/ic_sprint_tools">
