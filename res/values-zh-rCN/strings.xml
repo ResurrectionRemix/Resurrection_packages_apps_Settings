@@ -1916,4 +1916,59 @@
 
     <!-- Sprint Tools -->
     <string name="sprint_tools_title">Sprint 工具</string>
+
+    <!-- USB Mass Storage -->
+    <string name="usb_mass_storage_title">大容量存储</string>
+    <string name="usb_mass_storage_summary">启用 USB 大容量存储设备</string>
+
+    <string name="volume_adjust_sounds_enable_title">音量调节提示音</string>
+    <!-- Sound settings screen, setting check box summary -->
+    <string name="volume_adjust_sounds_enable_summary">使用实体音量键调节音量时发出提示音</string>
+
+    <!-- Automatic brightness customization -->
+    <string name="light_sensor_current_value">当前感光器值：<xliff:g id="light_level">%d</xliff:g> lux</string>
+    <string name="auto_brightness_dialog_title">自动亮度等级</string>
+    <string name="auto_brightness_adjust_button">调整</string>
+    <string name="auto_brightness_close_button">关闭</string>
+    <string name="auto_brightness_reset_button">重置</string>
+    <string name="auto_brightness_split_dialog_title">拆分亮度范围</string>
+    <string name="auto_brightness_level_dialog_title">亮度等级设置</string>
+    <string name="auto_brightness_lux">环境亮度（lux）</string>
+    <string name="auto_brightness_backlight">屏幕亮度（%）</string>
+    <string name="auto_brightness_reset_dialog_title">重置等级？</string>
+    <string name="auto_brightness_reset_confirmation">全部亮度等级将重置为默认。</string>
+    <string name="auto_brightness_split_lux_format">拆分位置 (在 <xliff:g id="min">%1$d</xliff:g> 至 <xliff:g id="max">%2$d</xliff:g> lux 之间)</string>
+    <string name="auto_brightness_level_options">亮度等级选项</string>
+    <string name="auto_brightness_menu_edit_lux">环境亮度范围</string>
+    <string name="auto_brightness_menu_split">拆分</string>
+    <string name="auto_brightness_menu_remove">移除</string>
+    <string name="auto_brightness_preview">预览</string>
+    <string name="auto_brightness_preview_dialog_title">亮度曲线预览</string>
+    <string name="auto_brightness_help_dialog_title">帮助</string>
+    <string name="auto_brightness_help_text"><b>如何计算亮度？</b>
+\n\n
+亮度曲线计算方法是在指定数量的<i>控制点</i>执行<i>三次样条插值</i>。
+这不是一个“桶型”计算，屏幕亮度将在特定的环境亮度范围内保持不变；
+这样当环境亮度发生细微的变化时不会导致屏幕亮度发生大的改变，但是它可能难以准确预测改变中的控制点的结果。\n
+为了方便，预览计算曲线可以帮助检查。
+请注意，预览的曲线显示在<i>对数</i>标尺，这样所有的控制点可以表示的更明确。
+如果使用线性标尺，它无法区分在环境亮度较低范围内的重要的控制点。
+\n\n
+<b>如何编辑亮度曲线？</b>
+\n\n
+亮度列表中每一行对应一个<i>控制点</i>的亮度曲线。
+编辑亮度等级的点，您可以使用每一行的滑块。
+触摸滑块时给出亮度水平的预览，屏幕亮度会做出相应的改变。\n
+长按一行可使用更多选项。
+选择“调整”，可以同时编辑环境亮度级别的控制点以及手动输入所需的屏幕亮度。
+选择“拆分”，将当前行重复为两个实现插入新的控制点。
+选择“移除”，删除选定的行。
+    </string>
+    <string name="ok">确定</string>
+
+    <!-- Permissions Management -->
+    <string name="permissions_settings_title">权限管理</string>
+
+    <!-- TRDS Settings -->
+    <string name="trds_settings_title">暗黑 AOKP</string>
 </resources>
