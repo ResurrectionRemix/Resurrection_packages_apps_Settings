@@ -27,7 +27,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -194,13 +194,13 @@ public class InputMethodPreference extends CheckBoxPreference
 
     public static boolean startFragment(
             Fragment fragment, String fragmentClass, int requestCode, Bundle extras) {
-        if (fragment.getActivity() instanceof PreferenceActivity) {
-            PreferenceActivity preferenceActivity = (PreferenceActivity)fragment.getActivity();
+        if (fragment.getActivity() instanceof PreferenceDrawerActivity) {
+            PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity)fragment.getActivity();
             preferenceActivity.startPreferencePanel(fragmentClass, extras, 0, null, fragment,
                     requestCode);
             return true;
         } else {
-            Log.w(TAG, "Parent isn't PreferenceActivity, thus there's no way to launch the "
+            Log.w(TAG, "Parent isn't PreferenceDrawerActivity, thus there's no way to launch the "
                     + "given Fragment (name: " + fragmentClass + ", requestCode: " + requestCode
                     + ")");
             return false;

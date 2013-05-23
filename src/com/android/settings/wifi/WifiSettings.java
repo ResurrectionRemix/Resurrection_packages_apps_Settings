@@ -43,7 +43,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceScreen;
 import android.security.Credentials;
 import android.security.KeyStore;
@@ -377,8 +377,8 @@ public class WifiSettings extends SettingsPreferenceFragment
         if (!mSetupWizardMode) {
             Switch actionBarSwitch = new Switch(activity);
 
-            if (activity instanceof PreferenceActivity) {
-                PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
+            if (activity instanceof PreferenceDrawerActivity) {
+                PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity) activity;
                 if (preferenceActivity.onIsHidingHeaders() || !preferenceActivity.onIsMultiPane()) {
                     final int padding = activity.getResources().getDimensionPixelSize(
                             R.dimen.action_bar_switch_padding);
@@ -493,8 +493,8 @@ public class WifiSettings extends SettingsPreferenceFragment
                 showDialog(WPS_PBC_DIALOG_ID);
                 return true;
             case MENU_ID_P2P:
-                if (getActivity() instanceof PreferenceActivity) {
-                    ((PreferenceActivity) getActivity()).startPreferencePanel(
+                if (getActivity() instanceof PreferenceDrawerActivity) {
+                    ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
                             WifiP2pSettings.class.getCanonicalName(),
                             null,
                             R.string.wifi_p2p_settings_title, null,
@@ -517,8 +517,8 @@ public class WifiSettings extends SettingsPreferenceFragment
                 }
                 return true;
             case MENU_ID_ADVANCED:
-                if (getActivity() instanceof PreferenceActivity) {
-                    ((PreferenceActivity) getActivity()).startPreferencePanel(
+                if (getActivity() instanceof PreferenceDrawerActivity) {
+                    ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
                             AdvancedWifiSettings.class.getCanonicalName(),
                             null,
                             R.string.wifi_advanced_titlebar, null,

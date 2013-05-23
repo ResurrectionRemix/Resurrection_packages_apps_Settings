@@ -41,7 +41,7 @@ import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -1072,7 +1072,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             final boolean enabled = arguments.getBoolean(EXTRA_CHECKED);
             mToggleSwitch.setCheckedInternal(enabled);
             // Title.
-            PreferenceActivity activity = (PreferenceActivity) getActivity();
+            PreferenceDrawerActivity activity = (PreferenceDrawerActivity) getActivity();
             if (!activity.onIsMultiPane() || activity.onIsHidingHeaders()) {
                 mOldActivityTitle = getActivity().getTitle();
                 String title = arguments.getString(EXTRA_TITLE);

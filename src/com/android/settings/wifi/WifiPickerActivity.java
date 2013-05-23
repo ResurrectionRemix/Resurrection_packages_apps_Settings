@@ -25,7 +25,7 @@ import android.widget.Button;
 
 public class WifiPickerActivity extends PreferenceActivity implements ButtonBarHandler {
 
-    // Same as what are in PreferenceActivity as private.
+    // Same as what are in PreferenceDrawerActivity as private.
     private static final String EXTRA_PREFS_SHOW_BUTTON_BAR = "extra_prefs_show_button_bar";
     private static final String EXTRA_PREFS_SET_NEXT_TEXT = "extra_prefs_set_next_text";
     private static final String EXTRA_PREFS_SET_BACK_TEXT = "extra_prefs_set_back_text";
@@ -44,7 +44,7 @@ public class WifiPickerActivity extends PreferenceActivity implements ButtonBarH
 
     /**
      * Almost dead copy of
-     * {@link PreferenceActivity#startWithFragment(String, Bundle, Fragment, int)}, except
+     * {@link PreferenceDrawerActivity#startWithFragment(String, Bundle, Fragment, int)}, except
      * this has additional codes for button bar handling.
      */
     @Override
@@ -87,13 +87,13 @@ public class WifiPickerActivity extends PreferenceActivity implements ButtonBarH
 
     @Override
     public boolean hasNextButton() {
-        // PreferenceActivity#hasNextButton() is protected, so we need to expose it here.
+        // PreferenceDrawerActivity#hasNextButton() is protected, so we need to expose it here.
         return super.hasNextButton();
     }
 
     @Override
     public Button getNextButton() {
-        // PreferenceActivity#getNextButton() is protected, so we need to expose it here.
+        // PreferenceDrawerActivity#getNextButton() is protected, so we need to expose it here.
         return super.getNextButton();
     }
 }

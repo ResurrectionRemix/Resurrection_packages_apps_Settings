@@ -38,7 +38,7 @@ import android.os.storage.StorageEventListener;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.Menu;
@@ -181,8 +181,8 @@ public class Memory extends SettingsPreferenceFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.storage_usb:
-                if (getActivity() instanceof PreferenceActivity) {
-                    ((PreferenceActivity) getActivity()).startPreferencePanel(
+                if (getActivity() instanceof PreferenceDrawerActivity) {
+                    ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
                             UsbSettings.class.getCanonicalName(),
                             null,
                             R.string.storage_title_usb, null,
