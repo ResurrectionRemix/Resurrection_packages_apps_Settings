@@ -57,7 +57,7 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
 
     private void setSwitchState() {
         boolean enabled = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.UI_INVERTED_MODE, 0) == 1;
+                Settings.Secure.UI_INVERTED_MODE, 1) == 2;
         mStateMachineEvent = true;
         mSwitch.setChecked(enabled);
         mStateMachineEvent = false;
@@ -69,7 +69,7 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
         }
         // Handle a switch change
         Settings.Secure.putInt(mContext.getContentResolver(),
-                Settings.Secure.UI_INVERTED_MODE, isChecked ? 1 : 0);
+                Settings.Secure.UI_INVERTED_MODE, isChecked ? 2 : 1);
         Helpers.restartSystemUI();
 
         ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
