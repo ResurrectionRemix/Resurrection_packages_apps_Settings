@@ -360,7 +360,6 @@ public class BrightnessPreference extends SeekBarDialogPreference implements
         myState.oldAutomatic = mOldAutomatic == 1;
         myState.oldProgress = mOldBrightness;
         myState.curBrightness = mCurBrightness;
-
         myState.autoSensitivitySelection = mAutoSensitivity.getSelectedItemPosition();
         myState.customizeDialogShown = mCustomizeDialog != null && mCustomizeDialog.isShowing();
         if (myState.customizeDialogShown) {
@@ -388,6 +387,7 @@ public class BrightnessPreference extends SeekBarDialogPreference implements
         setMode(myState.automatic ? 1 : 0);
         setBrightness(myState.progress, false);
         mCurBrightness = myState.curBrightness;
+        mAutoSensitivity.setSelection(myState.autoSensitivitySelection);
 
         mAutoSensitivity.setSelection(myState.autoSensitivitySelection);
 
@@ -415,7 +415,7 @@ public class BrightnessPreference extends SeekBarDialogPreference implements
             oldAutomatic = source.readInt() == 1;
             oldProgress = source.readInt();
             curBrightness = source.readInt();
-            
+
             autoSensitivitySelection = source.readInt();
             customizeDialogShown = source.readInt() == 1;
             customizeDialogState = source.readBundle();
@@ -430,7 +430,6 @@ public class BrightnessPreference extends SeekBarDialogPreference implements
             dest.writeInt(oldAutomatic ? 1 : 0);
             dest.writeInt(oldProgress);
             dest.writeInt(curBrightness);
-
             dest.writeInt(autoSensitivitySelection);
             dest.writeInt(customizeDialogShown ? 1 : 0);
             dest.writeBundle(customizeDialogState);
