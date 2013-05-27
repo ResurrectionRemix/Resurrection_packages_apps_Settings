@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.provider.Settings;
-import android.util.Slog;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import com.android.settings.util.Helpers; 
@@ -32,6 +31,24 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
     private final Context mContext;
     private Switch mSwitch;
     private boolean mStateMachineEvent;
+
+    // list off apps which we restart just to be sure due that AOSP
+    // does not every time reload all resources on onConfigurationChanged
+    // or because some apps are just not programmed well on that part.
+    private String mTRDSApps[] = new String[] {
+        "com.android.contacts",
+        "com.android.calendar",
+        "com.android.email",
+        "com.android.vending",
+        "com.android.mms",
+        "com.google.android.talk",
+        "com.google.android.gm",
+        "com.google.android.googlequicksearchbox",
+        "com.google.android.youtube",
+        "com.google.android.apps.genie.geniewidget",
+        "com.google.android.apps.plus",
+        "com.google.android.apps.maps"
+    };
 
     public TRDSEnabler(Context context, Switch switch_) {
         mContext = context;
@@ -76,6 +93,7 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
         List<ActivityManager.RunningAppProcessInfo> pids = am.getRunningAppProcesses();
            for(int i = 0; i < pids.size(); i++) {
                ActivityManager.RunningAppProcessInfo info = pids.get(i);
+<<<<<<< HEAD
                if(info.processName.equalsIgnoreCase("com.android.contacts")) {
                     am.killBackgroundProcesses("com.android.contacts");
                }
@@ -99,6 +117,12 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
                }
                if(info.processName.equalsIgnoreCase("com.google.android.youtube")) {
                     am.killBackgroundProcesses("com.google.android.youtube");
+=======
+               for (int j = 0; j < mTRDSApps.length; j++) {
+                   if(info.processName.equalsIgnoreCase(mTRDSApps[j])) {
+                        am.killBackgroundProcesses(mTRDSApps[j]);
+                   }
+>>>>>>> 4943a8f... Settings: refactor TRDS toggle and add some apps
                }
            }
     }
