@@ -93,7 +93,7 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
         List<ActivityManager.RunningAppProcessInfo> pids = am.getRunningAppProcesses();
            for(int i = 0; i < pids.size(); i++) {
                ActivityManager.RunningAppProcessInfo info = pids.get(i);
-<<<<<<< HEAD
+
                if(info.processName.equalsIgnoreCase("com.android.contacts")) {
                     am.killBackgroundProcesses("com.android.contacts");
                }
@@ -117,12 +117,11 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
                }
                if(info.processName.equalsIgnoreCase("com.google.android.youtube")) {
                     am.killBackgroundProcesses("com.google.android.youtube");
-=======
+
                for (int j = 0; j < mTRDSApps.length; j++) {
                    if(info.processName.equalsIgnoreCase(mTRDSApps[j])) {
                         am.killBackgroundProcesses(mTRDSApps[j]);
                    }
->>>>>>> 4943a8f... Settings: refactor TRDS toggle and add some apps
                }
            }
     }
