@@ -56,7 +56,13 @@
         android:key="resurrection_general_ui"
         android:title="@string/general_ui_header"> 
           
-  
+ <CheckBoxPreference
+        android:key="show_enter_key"
+        android:icon="@drawable/ic_lockscreen_ime"
+        android:title="@string/show_enter_key_title"
+        android:summary="@string/show_enter_key_summary"
+        android:persistent="false" />
+        
 <PreferenceScreen
         android:key="lock_clock"
         android:icon="@drawable/ic_settings_lock_clock"

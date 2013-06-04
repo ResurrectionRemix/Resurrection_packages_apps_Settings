@@ -15,20 +15,45 @@
 
 package com.android.settings;
 
+import android.app.Activity;
 import android.app.ActivityManagerNative;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnMultiChoiceClickListener;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
+import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.MediaStore;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.view.IWindowManager;
+import android.view.Display;
+import android.view.Window;
+import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.io.File;
+import java.io.IOException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -37,20 +62,31 @@ import com.android.settings.Utils;
 public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
-
+  
+    private CheckBoxPreference mShowEnterKey;
+    
+    private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_NOTFY_ME = "notfy_me";
+    
+     
     private final Configuration mCurConfig = new Configuration();
-
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.resurrection_settings);
         
+        mShowEnterKey = (CheckBoxPreference) findPreference(SHOW_ENTER_KEY);
+        mShowEnterKey.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.FORMAL_TEXT_INPUT, 0) == 1);
+        
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
     }
-    
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -63,7 +99,16 @@ public class Resurrection extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+		boolean value;
+		
+		  if (preference == mShowEnterKey) {
+           Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FORMAL_TEXT_INPUT, 
+           mShowEnterKey.isChecked() ? 1 : 0);
+            }  else {
+              // If not handled, let preferences handle it.
+              return super.onPreferenceTreeClick(preferenceScreen, preference);
+         }
+         return true; 
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -85,7 +130,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
                 getPreferenceScreen().removePreference(preference);
                 return true;
             }
-
 
         }
         return false;
