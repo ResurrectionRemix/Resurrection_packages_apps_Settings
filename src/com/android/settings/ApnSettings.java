@@ -81,6 +81,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
     private static final Uri DEFAULTAPN_URI = Uri.parse(RESTORE_CARRIERS_URI);
     private static final Uri PREFERAPN_URI = Uri.parse(PREFERRED_APN_URI);
+    private Uri mPreferApnUri;
 
     private static boolean mRestoreDefaultApnMode;
 
@@ -134,6 +135,14 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         Log.d(TAG, "onCreate received sub :" + mSubscription);
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
+
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            mPreferApnUri = Uri.parse(PREFERRED_APN_URI + "/" + mSubscription);
+        } else {
+            mPreferApnUri = Uri.parse(PREFERRED_APN_URI);
+        }
+        Log.d(TAG, "Preferred APN Uri is set to '" + mPreferApnUri.toString() + "'");
+
         setHasOptionsMenu(true);
     }
 
@@ -283,13 +292,13 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
         ContentValues values = new ContentValues();
         values.put(APN_ID, mSelectedKey);
-        resolver.update(PREFERAPN_URI, values, null, null);
+        resolver.update(mPreferApnUri, values, null, null);
     }
 
     private String getSelectedApnKey() {
         String key = null;
 
-        Cursor cursor = getContentResolver().query(PREFERAPN_URI, new String[] {"_id"},
+        Cursor cursor = getContentResolver().query(mPreferApnUri, new String[] {"_id"},
                 null, null, Telephony.Carriers.DEFAULT_SORT_ORDER);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
