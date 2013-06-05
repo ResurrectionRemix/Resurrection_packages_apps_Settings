@@ -18,7 +18,6 @@ package com.android.settings.aokpstats;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,49 +31,38 @@ import android.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class AnonymousStats extends SettingsPreferenceFragment
-        implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener,
+public class AnonymousStats extends SettingsPreferenceFragment implements
+        DialogInterface.OnClickListener, DialogInterface.OnDismissListener,
         Preference.OnPreferenceChangeListener {
-
     private static final String VIEW_STATS = "pref_view_stats";
 
-    protected static final String ANONYMOUS_OPT_IN = "pref_anonymous_opt_in";
-
-    protected static final String ANONYMOUS_FIRST_BOOT = "pref_anonymous_first_boot";
-
-    protected static final String ANONYMOUS_LAST_CHECKED = "pref_anonymous_checked_in";
-
-    protected static final String ANONYMOUS_ALARM_SET = "pref_anonymous_alarm_set";
-
-    protected static final String ANONYMOUS_REPORTED_VERSION = "pref_anonymous_reported_version";
+    private static final String PREF_FILE_NAME = "AOKPStats";
+    /* package */ static final String ANONYMOUS_OPT_IN = "pref_anonymous_opt_in";
+    /* package */ static final String ANONYMOUS_LAST_CHECKED = "pref_anonymous_checked_in";
 
     private CheckBoxPreference mEnableReporting;
-
     private Preference mViewStats;
 
     private Dialog mOkDialog;
-
     private boolean mOkClicked;
 
     private SharedPreferences mPrefs;
 
+    public static SharedPreferences getPreferences(Context context) {
+        return context.getSharedPreferences(PREF_FILE_NAME, 0);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getPreferenceManager() != null) {
-            addPreferencesFromResource(R.xml.anonymous_stats);
-            PreferenceScreen prefSet = getPreferenceScreen();
-            mPrefs = getActivity().getSharedPreferences("AOKPStats", 0);
-            mEnableReporting = (CheckBoxPreference) prefSet.findPreference(ANONYMOUS_OPT_IN);
-            mViewStats = (Preference) prefSet.findPreference(VIEW_STATS);
-            boolean firstBoot = mPrefs.getBoolean(ANONYMOUS_FIRST_BOOT, true);
-            if (mEnableReporting.isChecked() && firstBoot) {
-                mPrefs.edit().putBoolean(ANONYMOUS_FIRST_BOOT, false).apply();
-                ReportingServiceManager.launchService(getActivity());
-            }
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel(1);
-        }
+
+        addPreferencesFromResource(R.xml.anonymous_stats);
+
+        mPrefs = getPreferences(getActivity());
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+        mEnableReporting = (CheckBoxPreference) prefSet.findPreference(ANONYMOUS_OPT_IN);
+        mViewStats = (Preference) prefSet.findPreference(VIEW_STATS);
     }
 
     @Override
@@ -85,14 +73,13 @@ public class AnonymousStats extends SettingsPreferenceFragment
                 mOkClicked = false;
                 if (mOkDialog != null) {
                     mOkDialog.dismiss();
-                    mOkDialog = null;
                 }
-                mOkDialog = new AlertDialog.Builder(getActivity()).setMessage(
-                        getActivity().getResources().getString(R.string.anonymous_statistics_warning))
+                mOkDialog = new AlertDialog.Builder(getActivity())
+                        .setMessage(R.string.anonymous_statistics_warning)
                         .setTitle(R.string.anonymous_statistics_warning_title)
                         .setIconAttribute(android.R.attr.alertDialogIcon)
                         .setPositiveButton(android.R.string.yes, this)
-                        .setNeutralButton(getString(R.string.anonymous_learn_more), this)
+                        .setNeutralButton(R.string.anonymous_learn_more, this)
                         .setNegativeButton(android.R.string.no, this)
                         .show();
                 mOkDialog.setOnDismissListener(this);
@@ -129,13 +116,11 @@ public class AnonymousStats extends SettingsPreferenceFragment
             mOkClicked = true;
             mPrefs.edit().putBoolean(ANONYMOUS_OPT_IN, true).apply();
             ReportingServiceManager.launchService(getActivity());
-        } else if (which == DialogInterface.BUTTON_NEGATIVE){
+        } else if (which == DialogInterface.BUTTON_NEGATIVE) {
             mEnableReporting.setChecked(false);
         } else {
             Uri uri = Uri.parse("http://stats.aokp.co/info/");
             startActivity(new Intent(Intent.ACTION_VIEW, uri));
         }
     }
-
 }
-

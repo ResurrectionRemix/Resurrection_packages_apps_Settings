@@ -16,16 +16,11 @@
 
 package com.android.settings.aokpstats;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -45,8 +40,14 @@ import com.google.analytics.tracking.android.Tracker;
 import com.android.settings.R;
 import com.android.settings.Settings;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReportingService extends Service {
-    protected static final String TAG = "AOKPStats";
+    /* package */ static final String TAG = "AOKPStats";
+
+    private StatsUploadTask mTask;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -55,83 +56,83 @@ public class ReportingService extends Service {
 
     @Override
     public int onStartCommand (Intent intent, int flags, int startId) {
-        if (intent.getBooleanExtra("firstBoot", false)) {
-            promptUser();
-            Log.d(TAG, "Prompting user for opt-in.");
-        } else {
-            Log.d(TAG, "User has opted in -- reporting.");
-            Thread thread = new Thread() {
-                @Override
-                public void run() {
-                    report();
-                }
-            };
-            thread.start();
+        Log.d(TAG, "User has opted in -- reporting.");
+
+        if (mTask == null || mTask.getStatus() == AsyncTask.Status.FINISHED) {
+            mTask = new StatsUploadTask();
+            mTask.execute();
         }
+
         return Service.START_REDELIVER_INTENT;
     }
 
-    private void report() {
-        String deviceId = Utilities.getUniqueID(getApplicationContext());
-        String deviceName = Utilities.getDevice();
-        String deviceVersion = Utilities.getModVersion();
-        String deviceCountry = Utilities.getCountryCode(getApplicationContext());
-        String deviceCarrier = Utilities.getCarrier(getApplicationContext());
-        String deviceCarrierId = Utilities.getCarrierId(getApplicationContext());
+    private class StatsUploadTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            String deviceId = Utilities.getUniqueID(getApplicationContext());
+            String deviceName = Utilities.getDevice();
+            String deviceVersion = Utilities.getModVersion();
+            String deviceCountry = Utilities.getCountryCode(getApplicationContext());
+            String deviceCarrier = Utilities.getCarrier(getApplicationContext());
+            String deviceCarrierId = Utilities.getCarrierId(getApplicationContext());
 
-        Log.d(TAG, "SERVICE: Device ID=" + deviceId);
-        Log.d(TAG, "SERVICE: Device Name=" + deviceName);
-        Log.d(TAG, "SERVICE: Device Version=" + deviceVersion);
-        Log.d(TAG, "SERVICE: Country=" + deviceCountry);
-        Log.d(TAG, "SERVICE: Carrier=" + deviceCarrier);
-        Log.d(TAG, "SERVICE: Carrier ID=" + deviceCarrierId);
+            Log.d(TAG, "SERVICE: Device ID=" + deviceId);
+            Log.d(TAG, "SERVICE: Device Name=" + deviceName);
+            Log.d(TAG, "SERVICE: Device Version=" + deviceVersion);
+            Log.d(TAG, "SERVICE: Country=" + deviceCountry);
+            Log.d(TAG, "SERVICE: Carrier=" + deviceCarrier);
+            Log.d(TAG, "SERVICE: Carrier ID=" + deviceCarrierId);
 
-        // report to google analytics
-        GoogleAnalytics ga = GoogleAnalytics.getInstance(this);
-        //ga.setDebug(true);
-        Tracker tracker = ga.getTracker(getString(R.string.ga_trackingId));
-        tracker.setAppName("AOKP");
-        tracker.setAppVersion(deviceVersion);
-        tracker.setCustomDimension(1, deviceId);
-        tracker.setCustomDimension(2, deviceName);
-        tracker.sendEvent("checkin", deviceName, deviceVersion, null);
-        tracker.close();
+            // report to google analytics
+            GoogleAnalytics ga = GoogleAnalytics.getInstance(ReportingService.this);
+            //ga.setDebug(true);
+            Tracker tracker = ga.getTracker(getString(R.string.ga_trackingId));
+            tracker.setAppName("AOKP");
+            tracker.setAppVersion(deviceVersion);
+            tracker.setCustomDimension(1, deviceId);
+            tracker.setCustomDimension(2, deviceName);
+            tracker.setCustomMetric(1, 1L);
+            tracker.sendEvent("checkin", deviceName, deviceVersion, null);
+            tracker.close();
 
-        // report to the aokpstats service
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost("http://stats.aokp.co/submit.php");
-        boolean success = false;
-        try {
-            List<NameValuePair> kv = new ArrayList<NameValuePair>(2);
-            kv.add(new BasicNameValuePair("hash", deviceId));
-            kv.add(new BasicNameValuePair("aokp_version", deviceVersion));
+            // report to the aokpstats service
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("http://stats.aokp.co/submit.php");
+            boolean success = false;
+            try {
+                List<NameValuePair> kv = new ArrayList<NameValuePair>(2);
+                kv.add(new BasicNameValuePair("hash", deviceId));
+                kv.add(new BasicNameValuePair("aokp_version", deviceVersion));
 
-            httpPost.setEntity(new UrlEncodedFormEntity(kv));
-            httpClient.execute(httpPost);
+                httpPost.setEntity(new UrlEncodedFormEntity(kv));
+                httpClient.execute(httpPost);
 
-            success = true;
-        } catch (IOException e) {
-            Log.w(TAG, "Could not upload stats checkin", e);
+                success = true;
+            } catch (IOException e) {
+                Log.w(TAG, "Could not upload stats checkin", e);
+            }
+            return success;
         }
 
-        ReportingServiceManager.setAlarm(this);
-        stopSelf();
-    }
+        @Override
+        protected void onPostExecute(Boolean result) {
+            final Context context = ReportingService.this;
+            long interval;
 
-    private void promptUser() {
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent nI = new Intent();
-        nI.setComponent(new ComponentName(getPackageName(),Settings.AnonymousStatsActivity.class.getName()));
-        PendingIntent pI = PendingIntent.getActivity(this, 0, nI, 0);
-        Notification.Builder builder = new Notification.Builder(this)
-        .setSmallIcon(R.drawable.ic_aokp_stats_notif)
-        .setAutoCancel(true)
-        .setTicker(getString(R.string.anonymous_statistics_title))
-        .setContentIntent(pI)
-        .setWhen(0)
-        .setContentTitle(getString(R.string.anonymous_statistics_title))
-        .setContentText(getString(R.string.anonymous_notification_desc));
-        nm.notify(1, builder.getNotification());
+            if (result) {
+                final SharedPreferences prefs = AnonymousStats.getPreferences(context);
+                prefs.edit().putLong(AnonymousStats.ANONYMOUS_LAST_CHECKED,
+                        System.currentTimeMillis()).apply();
+                // use set interval
+                interval = 0;
+            } else {
+                // error, try again in 3 hours
+                interval = 3L * 60L * 60L * 1000L;
+            }
+
+            ReportingServiceManager.setAlarm(context, interval);
+            stopSelf();
+        }
     }
 }
 

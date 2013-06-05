@@ -28,77 +28,75 @@ import android.net.NetworkInfo;
 import android.util.Log;
 
 public class ReportingServiceManager extends BroadcastReceiver {
-
-    public static final long dMill = 24 * 60 * 60 * 1000;
-    public static final long tFrame = 7 * dMill;
+    private static final long MILLIS_PER_HOUR = 60L * 60L * 1000L;
+    private static final long MILLIS_PER_DAY = 24L * MILLIS_PER_HOUR;
+    private static final long UPDATE_INTERVAL = 1L * MILLIS_PER_DAY;
 
     @Override
-    public void onReceive(Context ctx, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-            setAlarm(ctx);
+            setAlarm(context, 0);
         } else {
-            launchService(ctx);
+            launchService(context);
         }
     }
 
-    protected static void setAlarm (Context ctx) {
-        SharedPreferences prefs = ctx.getSharedPreferences("AOKPStats", 0);
-        prefs.edit().putBoolean(AnonymousStats.ANONYMOUS_ALARM_SET, false).apply();
+    public static void setAlarm(Context context, long millisFromNow) {
+        SharedPreferences prefs = AnonymousStats.getPreferences(context);
         boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
-        boolean firstBoot = prefs.getBoolean(AnonymousStats.ANONYMOUS_FIRST_BOOT, true);
-        String repVer = prefs.getString(AnonymousStats.ANONYMOUS_REPORTED_VERSION, "");
-        if (!optedIn || firstBoot) {
+        if (!optedIn) {
+            return;
+        }
+
+        if (millisFromNow <= 0) {
+            long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
+            if (lastSynced == 0) {
+                // never synced, so let's fake out that the last sync was just now.
+                // this will allow the user tFrame time to opt out before it will start
+                // sending up anonymous stats.
+                lastSynced = System.currentTimeMillis();
+                prefs.edit().putLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, lastSynced).apply();
+                Log.d(ReportingService.TAG, "Set alarm for first sync.");
+            }
+            millisFromNow = (lastSynced + UPDATE_INTERVAL) - System.currentTimeMillis();
+        }
+
+        Intent intent = new Intent(ConnectivityManager.CONNECTIVITY_ACTION);
+        intent.setClass(context, ReportingServiceManager.class);
+
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + millisFromNow,
+                PendingIntent.getBroadcast(context, 0, intent, 0));
+        Log.d(ReportingService.TAG, "Next sync attempt in : " + millisFromNow / MILLIS_PER_HOUR + " hours");
+    }
+
+    public static void launchService(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        if (networkInfo == null || !networkInfo.isConnected()) {
+            return;
+        }
+
+        SharedPreferences prefs = AnonymousStats.getPreferences(context);
+        boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
+        if (!optedIn) {
             return;
         }
         long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
         if (lastSynced == 0) {
+            setAlarm(context, 0);
             return;
         }
-        if (!repVer.equals(Utilities.getModVersion())) {
-            // version changed, report now
-            launchService(ctx);
+        long timeLeft = System.currentTimeMillis() - lastSynced;
+        if (timeLeft < UPDATE_INTERVAL) {
+            Log.d(ReportingService.TAG, "Waiting for next sync : " + timeLeft / MILLIS_PER_HOUR + " hours");
             return;
         }
-        long timeLeft = (lastSynced + tFrame) - System.currentTimeMillis();
-        Intent sIntent = new Intent(ConnectivityManager.CONNECTIVITY_ACTION);
-        sIntent.setComponent(new ComponentName(ctx.getPackageName(), ReportingServiceManager.class.getName()));
-        AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + timeLeft, PendingIntent.getBroadcast(ctx, 0, sIntent, 0));
-        Log.d(ReportingService.TAG, "Next sync attempt in : " + timeLeft / dMill + " days");
-        prefs.edit().putBoolean(AnonymousStats.ANONYMOUS_ALARM_SET, true).apply();
-    }
 
-    public static void launchService (Context ctx) {
-        ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            SharedPreferences prefs = ctx.getSharedPreferences("AOKPStats", 0);
-            long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
-            boolean firstBoot = prefs.getBoolean(AnonymousStats.ANONYMOUS_FIRST_BOOT, true);
-            boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
-            boolean alarmSet = prefs.getBoolean(AnonymousStats.ANONYMOUS_ALARM_SET, false);
-            String repVer = prefs.getString(AnonymousStats.ANONYMOUS_REPORTED_VERSION, "");
-            if (alarmSet) {
-                return;
-            }
-            boolean shouldSync = false;
-            if (lastSynced == 0) {
-                shouldSync = true;
-            } else if (System.currentTimeMillis() - lastSynced >= tFrame) {
-                shouldSync = true;
-            } else if (!repVer.equals(Utilities.getModVersion())) {
-                Log.i("AOKPStats", "AOKP version changed!");
-                shouldSync = true;
-            }
-            if ((shouldSync && optedIn) || firstBoot) {
-                Intent sIntent = new Intent();
-                sIntent.setComponent(new ComponentName(ctx.getPackageName(), ReportingService.class.getName()));
-                sIntent.putExtra("firstBoot", firstBoot);
-                ctx.startService(sIntent);
-            } else if (optedIn) {
-                setAlarm(ctx);
-            }
-        }
+        Intent intent = new Intent();
+        intent.setClass(context, ReportingService.class);
+        context.startService(intent);
     }
 }
-
