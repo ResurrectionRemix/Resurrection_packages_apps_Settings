@@ -42,9 +42,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -119,6 +120,10 @@ public class ReportingService extends Service {
             tracker.setCustomMetric(1, 1L);
             tracker.sendEvent("checkin", deviceName, deviceVersion, null);
             tracker.sendView(deviceName);
+            tracker.setCustomDimension(1, deviceId);
+            tracker.setCustomDimension(2, deviceName);
+            tracker.setCustomMetric(1, 1L);
+            tracker.sendEvent("checkin", deviceName, deviceVersion, null);
             tracker.close();
 
             // report to the aokpstats service
@@ -188,6 +193,10 @@ public class ReportingService extends Service {
     }
 
 
+=======
+        }
+
+>>>>>>> 9f7838b... Squashed Stats commits from CM
         @Override
         protected void onPostExecute(Boolean result) {
             final Context context = ReportingService.this;
