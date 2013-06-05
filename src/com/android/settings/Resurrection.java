@@ -64,19 +64,24 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String TAG = "Resurrection";
   
     private CheckBoxPreference mShowEnterKey;
+    private CheckBoxPreference mSeeThrough;
     
     private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_NOTFY_ME = "notfy_me";
-    
+    private static final String KEY_SEE_TRHOUGH = "see_through";
      
     private final Configuration mCurConfig = new Configuration();
-    
+    private Context mContext;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.resurrection_settings);
+       PreferenceScreen prefSet = getPreferenceScreen();
+       mContext = getActivity();
+   
+        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
         
         mShowEnterKey = (CheckBoxPreference) findPreference(SHOW_ENTER_KEY);
         mShowEnterKey.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
@@ -100,8 +105,11 @@ public class Resurrection extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 		boolean value;
-		
-		  if (preference == mShowEnterKey) {
+        if (preference == mSeeThrough) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
+                    ? 1 : 0);
+		   } else if  (preference == mShowEnterKey) {
            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FORMAL_TEXT_INPUT, 
            mShowEnterKey.isChecked() ? 1 : 0);
             }  else {
