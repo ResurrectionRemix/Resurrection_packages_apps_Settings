@@ -40,9 +40,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -134,6 +135,7 @@ public class ReportingService extends Service {
                 Log.w(TAG, "Could not upload stats checkin", e);
             }
             return success;
+
         }
     private void report() {
         String deviceId = Utilities.getUniqueID(getApplicationContext());
@@ -181,6 +183,8 @@ public class ReportingService extends Service {
         ReportingServiceManager.setAlarm(this);
         stopSelf();
     }
+
+        }
 
         @Override
         protected void onPostExecute(Boolean result) {
