@@ -65,7 +65,7 @@
         
  <CheckBoxPreference
         android:key="see_through"
-        android:icon="@drawable/ic_rom_control_general"
+        android:icon="@drawable/ic_see_through"
         android:title="@string/see_through_title"
         android:summary="@string/see_through_summary" />
 
@@ -78,7 +78,8 @@
                 android:targetPackage="com.cyanogenmod.lockclock"
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
    
-   </PreferenceScreen>             
+   </PreferenceScreen>
+         
 <PreferenceScreen
         android:key="notfy_me"
         android:icon="@drawable/ic_settings_notify_me"
@@ -91,7 +92,7 @@
     <!-- Permissions Management -->
 <PreferenceScreen
         android:id="@+id/permissions_settings"
-        android:icon="@drawable/ic_settings_permissions"
+        android:icon="@drawable/ic_rom_control_lockscreens"
         android:summary="@string/permissions_summary"
         android:title="@string/permissions_settings_title">
         <intent
@@ -101,7 +102,33 @@
        </PreferenceScreen>     
 
 </PreferenceCategory>
+        <!-- DPI Settings -->
+     <PreferenceCategory
+        android:key="resurrection_dpi"
+        android:title="@string/dpi_header">     
 
+<PreferenceScreen
+        android:key="dpi_installer"
+        android:icon="@drawable/ic_xposed_installer"
+        android:title="@string/dpi_installer"
+        android:summary="@string/dpi_installer_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="de.robv.android.xposed.installer"
+                android:targetClass="de.robv.android.xposed.installer.XposedInstallerActivity" />
+               
+</PreferenceScreen>
+
+<PreferenceScreen
+        android:key="per_app_settings"
+        android:icon="@drawable/ic_per_app_settings"
+        android:title="@string/per_app_settings"
+        android:summary="@string/per_app_settings_summary">
+        <intent android:action="android.intent.action.MAIN"
+               android:targetPackage="de.robv.android.xposed.mods.appsettings"
+               android:targetClass="de.robv.android.xposed.mods.appsettings.XposedModActivity" />
+</PreferenceScreen>
+
+</PreferenceCategory>
 
 <PreferenceCategory
         android:key="resurrection_update"
