@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.ModelFields;
 import com.google.analytics.tracking.android.Tracker;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -112,10 +113,11 @@ public class ReportingService extends Service {
             Tracker tracker = ga.getTracker(getString(R.string.ga_trackingId));
             tracker.setAppName("AOKP");
             tracker.setAppVersion(deviceVersion);
-            tracker.setCustomDimension(1, deviceId);
+            tracker.set(ModelFields.CLIENT_ID, deviceId);
             tracker.setCustomDimension(2, deviceName);
             tracker.setCustomMetric(1, 1L);
             tracker.sendEvent("checkin", deviceName, deviceVersion, null);
+            tracker.sendView(deviceName);
             tracker.close();
 
             // report to the aokpstats service
