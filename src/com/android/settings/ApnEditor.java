@@ -36,11 +36,14 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.provider.Telephony;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
@@ -93,6 +96,7 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     private String mCurMnc;
     private String mCurMcc;
+    private int mSubscription = 0;
 
     private Uri mUri;
     private Cursor mCursor;
@@ -204,6 +208,10 @@ public class ApnEditor extends SettingsPreferenceFragment
             mUri = intent.getData();
         }
 
+        // Read the subscription received from Phone settings.
+        mSubscription = intent.getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
+                MSimTelephonyManager.getDefault().getDefaultSubscription());
+        Log.d(TAG,"ApnEditor onCreate received sub: " + mSubscription);
         mFirstTime = icicle == null;
 
         if (action.equals(Intent.ACTION_INSERT)) {
@@ -505,6 +513,7 @@ public class ApnEditor extends SettingsPreferenceFragment
         String apn = checkNotSet(mApn.getText());
         String mcc = checkNotSet(mMcc.getText());
         String mnc = checkNotSet(mMnc.getText());
+        int dataSub = 0;
 
         if (getErrorMsg() != null && !force) {
             showDialog(ERROR_DIALOG_ID);
@@ -554,8 +563,19 @@ public class ApnEditor extends SettingsPreferenceFragment
 
         values.put(Telephony.Carriers.NUMERIC, mcc + mnc);
 
+        try {
+            dataSub = Settings.Global.getInt(getContentResolver(),
+                    Settings.Global.MULTI_SIM_DATA_CALL_SUBSCRIPTION);
+        } catch (SettingNotFoundException snfe) {
+            // Exception Reading Multi Sim Data Subscription Value
+            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+               Log.e(TAG, "Exception Reading Multi Sim Data Subscription Value.", snfe);
+            }
+        }
+
         if (mCurMnc != null && mCurMcc != null) {
-            if (mCurMnc.equals(mnc) && mCurMcc.equals(mcc)) {
+            if (mCurMnc.equals(mnc) && mCurMcc.equals(mcc) &&
+                    mSubscription == dataSub ) {
                 values.put(Telephony.Carriers.CURRENT, 1);
             }
         }
