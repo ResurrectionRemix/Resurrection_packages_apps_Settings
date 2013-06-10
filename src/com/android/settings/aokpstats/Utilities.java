@@ -18,6 +18,7 @@ package com.android.settings.aokpstats;
 
 import android.content.Context;
 import android.os.SystemProperties;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
@@ -27,21 +28,14 @@ import java.security.MessageDigest;
 
 public class Utilities {
     public static String getUniqueID(Context ctx) {
-        TelephonyManager tm = (TelephonyManager) ctx
-                .getSystemService(Context.TELEPHONY_SERVICE);
-
-        String device_id = digest(tm.getDeviceId());
-        if (device_id == null) {
-            String wifiInterface = SystemProperties.get("wifi.interface");
-            try {
-                String wifiMac = new String(NetworkInterface.getByName(
-                        wifiInterface).getHardwareAddress());
-                device_id = digest(wifiMac);
-            } catch (Exception e) {
-                device_id = null;
-            }
+        String device_id = null;
+        String wifiInterface = SystemProperties.get("wifi.interface");
+        try {
+            String wifiMac = new String(NetworkInterface.getByName(
+                    wifiInterface).getHardwareAddress());
+            device_id = digest(wifiMac);
+        } catch (Exception e) {
         }
-
         return device_id;
     }
 
@@ -78,14 +72,6 @@ public class Utilities {
     }
 
     public static String getModVersion() {
-        String aokp_ver = SystemProperties.get("ro.aokp.version");
-        if (aokp_ver != null) {
-            Pattern pattern = Pattern.compile("^(aokp_)[a-z0-9]*_((jb-mr1)|(unofficial))?[-_]?(((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)+-[0-9]+-[0-9]+)|((build|milestone)-[0-9]+))$");
-            Matcher matcher = pattern.matcher(aokp_ver);
-            if (matcher.find()) {
-                String[] splitted = aokp_ver.split("_");
-                String ver = splitted[splitted.length-2].concat(splitted[splitted.length-1]);
-                return ver;
         String version = SystemProperties.get("ro.aokp.version");
         String branch = SystemProperties.get("ro.aokp.branch");
         if (version == null || branch == null || !version.startsWith("aokp")) {
