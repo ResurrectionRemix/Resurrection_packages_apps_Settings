@@ -62,10 +62,12 @@ import com.android.settings.Utils;
 public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
-  
+    
+    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private CheckBoxPreference mShowEnterKey;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mHeadsetConnectPlayer;
+    private CheckBoxPreference mShowWifiName;
     
     private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
@@ -84,6 +86,11 @@ public class Resurrection extends SettingsPreferenceFragment implements
        mContext = getActivity();
    
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+        
+        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+        mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
+        
         
         mShowEnterKey = (CheckBoxPreference) findPreference(SHOW_ENTER_KEY);
         mShowEnterKey.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
@@ -121,6 +128,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
             } else if (preference == mHeadsetConnectPlayer) {
             Settings.System.putInt(getContentResolver(), Settings.System.HEADSET_CONNECT_PLAYER,
                     mHeadsetConnectPlayer.isChecked() ? 1 : 0);
+         } else if (preference == mShowWifiName) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
+                    mShowWifiName.isChecked() ? 1 : 0);
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -68,10 +68,20 @@
         android:icon="@drawable/ic_see_through"
         android:title="@string/see_through_title"
         android:summary="@string/see_through_summary" />
+  
+   <CheckBoxPreference
+        android:key="notification_show_wifi_ssid"
+        android:icon="@drawable/ic_appwidget_settings_wifi_on_holo"
+        android:title="@string/notification_show_wifi_ssid_title"
+        android:summary="@string/notification_show_wifi_ssid_summary"
+        android:defaultValue="true" />
+        
         
  <CheckBoxPreference
         android:key="headset_connect_player"
+        android:icon="@drawable/ic_bt_headphones_a2dp"
         android:title="@string/headset_connect_player_title"
+        android:summary="@string/headset_connect_player_title_summary"
         android:persistent="false" />
 
 <PreferenceScreen
