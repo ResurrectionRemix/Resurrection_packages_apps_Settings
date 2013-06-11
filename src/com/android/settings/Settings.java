@@ -893,5 +893,10 @@ public class Settings extends PreferenceActivity
     public static class DreamSettingsActivity extends Settings { /* empty */ }
     public static class ResurrectionActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
     public static class AboutActivity extends Settings { /* empty */ }
+=======
+    public static class NotificationShortcutsSettingsActivity extends Settings { /* empty */ }
+    public static class HaloActivity extends Settings { /* empty */ }
+>>>>>>> f7c111a... HALO (2/2)
 }
