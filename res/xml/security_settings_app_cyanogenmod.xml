@@ -21,6 +21,12 @@
         android:key="app_security"
         android:title="@string/app_security_title">
 
+        <CheckBoxPreference
+            android:key="privacy_guard_default"
+            android:title="@string/privacy_guard_default_title"
+            android:summary="@string/privacy_guard_default_summary"
+            android:persistent="false" />
+
         <ListPreference
             android:key="sms_security_check_limit"
             android:dialogTitle="@string/sms_security_check_limit_title"
