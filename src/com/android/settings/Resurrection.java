@@ -18,6 +18,7 @@ package com.android.settings;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
+import android.app.INotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -68,7 +69,14 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mHeadsetConnectPlayer;
     private CheckBoxPreference mShowWifiName;
+    private ListPreference mHaloState;
+    private CheckBoxPreference mHaloHide;
+    private CheckBoxPreference mHaloReversed;
+    private INotificationManager mNotificationManager;
     
+    private static final String KEY_HALO_STATE = "halo_state";
+    private static final String KEY_HALO_HIDE = "halo_hide";
+    private static final String KEY_HALO_REVERSED = "halo_reversed";
     private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_NOTFY_ME = "notfy_me";
@@ -99,6 +107,18 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mHeadsetConnectPlayer = (CheckBoxPreference) findPreference(KEY_HEADSET_CONNECT_PLAYER);
         mHeadsetConnectPlayer.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.HEADSET_CONNECT_PLAYER, 0) != 0);
+                
+        mHaloState = (ListPreference) findPreference(KEY_HALO_STATE);
+        mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
+        mHaloState.setOnPreferenceChangeListener(this);
+
+        mHaloHide = (CheckBoxPreference) findPreference(KEY_HALO_HIDE);
+        mHaloHide.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_HIDE, 0) == 1);
+
+        mHaloReversed = (CheckBoxPreference) findPreference(KEY_HALO_REVERSED);
+        mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_REVERSED, 1) == 1);
         
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
@@ -114,7 +134,15 @@ public class Resurrection extends SettingsPreferenceFragment implements
     public void onPause() {
         super.onPause();
     }
-
+   private boolean isHaloPolicyBlack() {
+        try {
+            return mNotificationManager.isHaloPolicyBlack();
+        } catch (android.os.RemoteException ex) {
+                // System dead
+        }
+        return true;
+        }
+        
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 		boolean value;
@@ -131,6 +159,14 @@ public class Resurrection extends SettingsPreferenceFragment implements
          } else if (preference == mShowWifiName) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
                     mShowWifiName.isChecked() ? 1 : 0);
+         } else if (preference == mHaloHide) {  
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_HIDE, mHaloHide.isChecked()
+                    ? 1 : 0);  
+         } else if (preference == mHaloReversed) {  
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_REVERSED, mHaloReversed.isChecked()
+                    ? 1 : 0);
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -138,9 +174,18 @@ public class Resurrection extends SettingsPreferenceFragment implements
          return true; 
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object Value) {
         final String key = preference.getKey();
-        return true;
+ if (preference == mHaloState) {
+            boolean state = Integer.valueOf((String) Value) == 1;
+            try {
+                mNotificationManager.setHaloPolicyBlack(state);
+            } catch (android.os.RemoteException ex) {
+                // System dead
+            }          
+            return true;
+        }
+        return false;
     }
 
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {

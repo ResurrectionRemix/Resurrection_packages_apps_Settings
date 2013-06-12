@@ -119,6 +119,32 @@
 </PreferenceCategory>
         <!-- DPI Settings -->
      <PreferenceCategory
+        android:key="rr_halo"
+        android:title="@string/halo_header">
+
+     <ListPreference
+         android:key="halo_state"
+         android:dialogTitle="@string/halo_state_title"
+         android:title="@string/halo_state_title"
+         android:summary="@string/halo_state_summary"
+         android:entries="@array/entries_halo_state"
+         android:entryValues="@array/values_halo_state" />
+
+     <CheckBoxPreference
+         android:key="halo_hide"
+         android:title="@string/halo_hide_title"
+         android:summary="@string/halo_hide_summary"
+         android:defaultValue="false" />
+
+     <CheckBoxPreference
+         android:key="halo_reversed"
+         android:title="@string/halo_reversed_title"
+         android:summary="@string/halo_reversed_summary"
+         android:defaultValue="true" />
+
+ </PreferenceCategory>
+
+ <PreferenceCategory
         android:key="resurrection_dpi"
         android:title="@string/dpi_header">     
 
