@@ -1,5 +1,5 @@
 /*
- *
+ * Resurrection Remix Settings  2013
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -71,6 +71,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private ListPreference mLowBatteryWarning;
     private CheckBoxPreference mKeyboardRotationToggle;
     private ListPreference mKeyboardRotationTimeout;
+    private CheckBoxPreference mFullscreenKeyboard;
     
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
@@ -80,8 +81,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_HEADSET_CONNECT_PLAYER = "headset_connect_player";
     private static final String PREF_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
+    private static final String PREF_FULLSCREEN_KEYBOARD = "fullscreen_keyboard";
     
-    private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 5000; // 5s
+    private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -95,6 +97,10 @@ public class Resurrection extends SettingsPreferenceFragment implements
    
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
         
+        mFullscreenKeyboard = (CheckBoxPreference) findPreference(PREF_FULLSCREEN_KEYBOARD);
+        mFullscreenKeyboard.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.FULLSCREEN_KEYBOARD, 0) == 1);
+                
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
@@ -176,6 +182,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
                     Settings.System.KEYBOARD_ROTATION_TIMEOUT,
                     mKeyboardRotationToggle.isChecked() ? KEYBOARD_ROTATION_TIMEOUT_DEFAULT : 0);
             updateRotationTimeout(KEYBOARD_ROTATION_TIMEOUT_DEFAULT);
+          } else if (preference == mFullscreenKeyboard) {
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FULLSCREEN_KEYBOARD,
+                    mFullscreenKeyboard.isChecked() ? 1 : 0);
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
