@@ -63,6 +63,24 @@
         android:summary="@string/show_enter_key_summary"
         android:persistent="false" />
         
+    <CheckBoxPreference
+        android:key="keyboard_rotation_toggle"
+        android:icon="@drawable/ic_lockscreen_ime"
+        android:title="@string/keyboard_rotation_toggle_title"
+        android:summary="@string/keyboard_rotation_toggle_summary"
+        android:defaultValue="false"
+        android:persistent="true" />
+   
+    <ListPreference
+        android:key="keyboard_rotation_timeout"
+        android:icon="@drawable/ic_lockscreen_ime"
+        android:persistent="false"
+        android:dialogTitle="@string/keyboard_rotation_timeout_title"
+        android:title="@string/keyboard_rotation_timeout_title"
+        android:entries="@array/keyboard_rotation_timeout_entries"
+        android:entryValues="@array/keyboard_rotation_timeout_values"
+        android:dependency="keyboard_rotation_toggle" />
+        
  <CheckBoxPreference
         android:key="see_through"
         android:icon="@drawable/ic_see_through"
@@ -83,8 +101,17 @@
         android:title="@string/headset_connect_player_title"
         android:summary="@string/headset_connect_player_title_summary"
         android:persistent="false" />
-
-<PreferenceScreen
+   
+ <ListPreference
+        android:key="pref_low_battery_warning_policy"
+        android:icon="@drawable/ic_rom_control_battery"
+        android:title="@string/pref_low_battery_warning_policy_title"
+        android:summary="@string/pref_low_battery_warning_policy_summary"
+        android:entries="@array/pref_low_battery_warning_policy_entries"
+        android:entryValues="@array/pref_low_battery_warning_policy_values"
+        android:defaultValue="3" />
+  
+ <PreferenceScreen
         android:key="lock_clock"
         android:icon="@drawable/ic_settings_lock_clock"
         android:title="@string/lock_clock_title"
