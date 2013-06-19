@@ -45,7 +45,7 @@
            android:id="@+id/advanced_settings"
             android:title="@string/advanced_settings_title"
             android:summary="@string/advenced_settings_summary"
-            android:icon="@drawable/ic_settings_advanced">
+            android:icon="@drawable/hardware_phone">
         <intent
                 android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
                 android:targetPackage="com.cyanogenmod.settings.device"
@@ -58,10 +58,35 @@
           
  <CheckBoxPreference
         android:key="show_enter_key"
-        android:icon="@drawable/ic_lockscreen_ime"
+        android:icon="@drawable/social_reply"
         android:title="@string/show_enter_key_title"
         android:summary="@string/show_enter_key_summary"
         android:persistent="false" />
+        
+    <CheckBoxPreference
+        android:key="fullscreen_keyboard"
+        android:icon="@drawable/av_full_screen"
+        android:title="@string/fullscreen_keyboard"
+        android:summary="@string/fullscreen_keyboard_summary"
+        android:defaultValue="false" />
+
+  <CheckBoxPreference
+        android:key="keyboard_rotation_toggle"
+        android:icon="@drawable/ic_rom_control_toggles"
+        android:title="@string/keyboard_rotation_toggle_title"
+        android:summary="@string/keyboard_rotation_toggle_summary"
+        android:defaultValue="false"
+        android:persistent="true" />
+   
+    <ListPreference
+        android:key="keyboard_rotation_timeout"
+        android:icon="@drawable/ic_keyboard_screen_rotation"
+        android:persistent="false"
+        android:dialogTitle="@string/keyboard_rotation_timeout_title"
+        android:title="@string/keyboard_rotation_timeout_title"
+        android:entries="@array/keyboard_rotation_timeout_entries"
+        android:entryValues="@array/keyboard_rotation_timeout_values"
+        android:dependency="keyboard_rotation_toggle" />
         
  <CheckBoxPreference
         android:key="see_through"
@@ -79,12 +104,21 @@
         
  <CheckBoxPreference
         android:key="headset_connect_player"
-        android:icon="@drawable/ic_bt_headphones_a2dp"
+        android:icon="@drawable/hardware_headphones"
         android:title="@string/headset_connect_player_title"
         android:summary="@string/headset_connect_player_title_summary"
         android:persistent="false" />
-
-<PreferenceScreen
+   
+ <ListPreference
+        android:key="pref_low_battery_warning_policy"
+        android:icon="@drawable/alerts_and_states_warning"
+        android:title="@string/pref_low_battery_warning_policy_title"
+        android:summary="@string/pref_low_battery_warning_policy_summary"
+        android:entries="@array/pref_low_battery_warning_policy_entries"
+        android:entryValues="@array/pref_low_battery_warning_policy_values"
+        android:defaultValue="3" />
+  
+ <PreferenceScreen
         android:key="lock_clock"
         android:icon="@drawable/ic_settings_lock_clock"
         android:title="@string/lock_clock_title"
