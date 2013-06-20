@@ -84,7 +84,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String PREF_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
     private static final String PREF_FULLSCREEN_KEYBOARD = "fullscreen_keyboard";
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
-    
     private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
     private final Configuration mCurConfig = new Configuration();
