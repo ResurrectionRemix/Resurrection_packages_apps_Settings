@@ -76,6 +76,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCameraSounds;
     
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
+    private static final String PER_APP_DPI = "per_app_settings";
+    private static final String DPI_MODULE_INSTALLER = "dpi_installer";
     private static final String ADVENCED_SETTINGS = "advanced_settings";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
     private static final String SHOW_ENTER_KEY = "show_enter_key";
@@ -153,9 +155,12 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mHeadsetConnectPlayer.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.HEADSET_CONNECT_PLAYER, 0) != 0);
         
+        
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
         removePreferenceIfPackageNotInstalled(findPreference(KEY_NOTFY_ME));
         removePreferenceIfPackageNotInstalled(findPreference(ADVENCED_SETTINGS));
+        removePreferenceIfPackageNotInstalled(findPreference(PER_APP_DPI));
+        removePreferenceIfPackageNotInstalled(findPreference(DPI_MODULE_INSTALLER));
     }
     public void updateRotationTimeout(int timeout) {
         if (timeout == 0)
