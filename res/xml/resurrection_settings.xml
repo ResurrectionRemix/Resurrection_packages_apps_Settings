@@ -33,8 +33,7 @@
 <PreferenceScreen
            android:id="@+id/rom_control"
             android:title="@string/rom_control_title"
-            android:summary="@string/rom_control_summary"
-            android:icon="@drawable/ic_settings_rom_control" >
+            android:summary="@string/rom_control_summary" >
         <intent
                 android:action="android.intent.action.MAIN"
                 android:targetClass="com.aokp.romcontrol.ROMControlActivity"
@@ -44,8 +43,7 @@
 <PreferenceScreen
            android:id="@+id/advanced_settings"
             android:title="@string/advanced_settings_title"
-            android:summary="@string/advenced_settings_summary"
-            android:icon="@drawable/hardware_phone">
+            android:summary="@string/advenced_settings_summary">
         <intent
                 android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
                 android:targetPackage="com.cyanogenmod.settings.device"
@@ -57,21 +55,18 @@
           
  <CheckBoxPreference
         android:key="show_enter_key"
-        android:icon="@drawable/social_reply"
         android:title="@string/show_enter_key_title"
         android:summary="@string/show_enter_key_summary"
         android:persistent="false" />
         
     <CheckBoxPreference
         android:key="fullscreen_keyboard"
-        android:icon="@drawable/av_full_screen"
         android:title="@string/fullscreen_keyboard"
         android:summary="@string/fullscreen_keyboard_summary"
         android:defaultValue="false" />
 
   <CheckBoxPreference
         android:key="keyboard_rotation_toggle"
-        android:icon="@drawable/ic_rom_control_toggles"
         android:title="@string/keyboard_rotation_toggle_title"
         android:summary="@string/keyboard_rotation_toggle_summary"
         android:defaultValue="false"
@@ -79,7 +74,6 @@
    
     <ListPreference
         android:key="keyboard_rotation_timeout"
-        android:icon="@drawable/ic_keyboard_screen_rotation"
         android:persistent="false"
         android:dialogTitle="@string/keyboard_rotation_timeout_title"
         android:title="@string/keyboard_rotation_timeout_title"
@@ -93,20 +87,17 @@
         android:title="@string/user_interface">       
  <CheckBoxPreference
         android:key="see_through"
-        android:icon="@drawable/ic_see_through"
         android:title="@string/see_through_title"
         android:summary="@string/see_through_summary" />
   
    <CheckBoxPreference
         android:key="notification_show_wifi_ssid"
-        android:icon="@drawable/ic_appwidget_settings_wifi_on_holo"
         android:title="@string/notification_show_wifi_ssid_title"
         android:summary="@string/notification_show_wifi_ssid_summary"
         android:defaultValue="true" />
         
   <CheckBoxPreference
         android:key="power_menu_expanded_desktop"
-        android:icon="@drawable/ic_lock_expanded_desktop"
         android:title="@string/power_menu_expanded_desktop"
         android:summary="@string/power_menu_expanded_desktop_summary"
        android:defaultValue="false" />
@@ -118,37 +109,39 @@
  
  <CheckBoxPreference
         android:key="headset_connect_player"
-        android:icon="@drawable/hardware_headphones"
         android:title="@string/headset_connect_player_title"
         android:summary="@string/headset_connect_player_title_summary"
         android:persistent="false" />
         
  <ListPreference
         android:key="pref_low_battery_warning_policy"
-        android:icon="@drawable/alerts_and_states_warning"
         android:title="@string/pref_low_battery_warning_policy_title"
         android:summary="@string/pref_low_battery_warning_policy_summary"
         android:entries="@array/pref_low_battery_warning_policy_entries"
         android:entryValues="@array/pref_low_battery_warning_policy_values"
         android:defaultValue="3" />
-  
- <PreferenceScreen
+        
+    	    <CheckBoxPreference
+            android:key="camera_sounds"
+            android:title="@string/camera_sounds_title"
+            android:summary="@string/camera_sounds_summary"	
+            android:defaultValue="false" /> 
+             
+   </PreferenceCategory>
+  <PreferenceCategory
+        android:key="security_header"
+        android:title="@string/security_header"> 
+        
+         <PreferenceScreen
         android:key="lock_clock"
-        android:icon="@drawable/ic_settings_lock_clock"
         android:title="@string/lock_clock_title"
         android:summary="@string/lock_clock_summary">
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.cyanogenmod.lockclock"
-                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-   
-   </PreferenceScreen>
-   </PreferenceCategory>
-  <PreferenceCategory
-        android:key="security_header"
-        android:title="@string/security_header">         
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />    
+                </PreferenceScreen>       
 <PreferenceScreen
         android:key="notfy_me"
-        android:icon="@drawable/ic_settings_notify_me"
         android:title="@string/notify_me_title"
         android:summary="@string/notify_me_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -158,7 +151,6 @@
     <!-- Permissions Management -->
 <PreferenceScreen
         android:id="@+id/permissions_settings"
-        android:icon="@drawable/ic_rom_control_lockscreens"
         android:summary="@string/permissions_summary"
         android:title="@string/permissions_settings_title">
         <intent
@@ -175,7 +167,6 @@
 
 <PreferenceScreen
         android:key="dpi_installer"
-        android:icon="@drawable/ic_xposed_installer"
         android:title="@string/dpi_installer"
         android:summary="@string/dpi_installer_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -186,7 +177,6 @@
 
 <PreferenceScreen
         android:key="per_app_settings"
-        android:icon="@drawable/ic_per_app_settings"
         android:title="@string/per_app_settings"
         android:summary="@string/per_app_settings_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -200,11 +190,10 @@
         android:key="resurrection_update"
         android:title="@string/update_header"> 
         
-
 <PreferenceScreen
         android:key="update_me"
-        android:icon="@drawable/ic_settings_update_me"
         android:title="@string/update_me_title"
+        android:icon="@drawable/ic_settings_update_me"
         android:summary="@string/update_me_summary">
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.acquariusoft.UpdateMeSmartphone"

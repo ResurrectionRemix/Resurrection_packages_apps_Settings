@@ -63,7 +63,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
     
-    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
+    
     private CheckBoxPreference mShowEnterKey;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mHeadsetConnectPlayer;
@@ -73,8 +73,10 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private ListPreference mKeyboardRotationTimeout;
     private CheckBoxPreference mFullscreenKeyboard;
     private CheckBoxPreference mExpandedDesktopPref;
+    private CheckBoxPreference mCameraSounds;
     
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
+    private static final String ADVENCED_SETTINGS = "advanced_settings";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
     private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
@@ -84,6 +86,10 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String PREF_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
     private static final String PREF_FULLSCREEN_KEYBOARD = "fullscreen_keyboard";
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
+    private static final String KEY_CAMERA_SOUNDS = "camera_sounds";
+    private static final String PROP_CAMERA_SOUND = "persist.sys.camera-sound";
+    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
+    
     private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
     private final Configuration mCurConfig = new Configuration();
@@ -112,7 +118,12 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);   
-          
+        
+        mCameraSounds = (CheckBoxPreference) findPreference(KEY_CAMERA_SOUNDS);
+        mCameraSounds.setPersistent(false);
+        mCameraSounds.setChecked(SystemProperties.getBoolean(
+                PROP_CAMERA_SOUND, true));   
+                       
          mExpandedDesktopPref = (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP);
         boolean showExpandedDesktopPref =
             getResources().getBoolean(R.bool.config_show_expandedDesktop);
@@ -143,7 +154,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
                 Settings.System.HEADSET_CONNECT_PLAYER, 0) != 0);
         
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
-
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_NOTFY_ME));
+        removePreferenceIfPackageNotInstalled(findPreference(ADVENCED_SETTINGS));
     }
     public void updateRotationTimeout(int timeout) {
         if (timeout == 0)
@@ -203,6 +215,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
           } else if (preference == mFullscreenKeyboard) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FULLSCREEN_KEYBOARD,
                     mFullscreenKeyboard.isChecked() ? 1 : 0);
+          } else if (preference == mCameraSounds) {
+            SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "1" : "0");
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
