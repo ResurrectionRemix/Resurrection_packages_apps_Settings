@@ -51,10 +51,9 @@
                 android:targetPackage="com.cyanogenmod.settings.device"
                 android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
     </PreferenceScreen>      
-
 <PreferenceCategory
-        android:key="resurrection_general_ui"
-        android:title="@string/general_ui_header"> 
+        android:key="keyboard_header"
+        android:title="@string/keyboard_header"> 
           
  <CheckBoxPreference
         android:key="show_enter_key"
@@ -88,6 +87,10 @@
         android:entryValues="@array/keyboard_rotation_timeout_values"
         android:dependency="keyboard_rotation_toggle" />
         
+        </PreferenceCategory>
+  <PreferenceCategory
+        android:key="user_interface"
+        android:title="@string/user_interface">       
  <CheckBoxPreference
         android:key="see_through"
         android:icon="@drawable/ic_see_through"
@@ -107,6 +110,12 @@
         android:title="@string/power_menu_expanded_desktop"
         android:summary="@string/power_menu_expanded_desktop_summary"
        android:defaultValue="false" />
+       
+       </PreferenceCategory>
+ <PreferenceCategory
+        android:key="sound_header"
+        android:title="@string/sound_header"> 
+ 
  <CheckBoxPreference
         android:key="headset_connect_player"
         android:icon="@drawable/hardware_headphones"
@@ -133,7 +142,10 @@
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
    
    </PreferenceScreen>
-         
+   </PreferenceCategory>
+  <PreferenceCategory
+        android:key="security_header"
+        android:title="@string/security_header">         
 <PreferenceScreen
         android:key="notfy_me"
         android:icon="@drawable/ic_settings_notify_me"
