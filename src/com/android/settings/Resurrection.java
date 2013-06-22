@@ -76,13 +76,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCameraSounds;
     
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
-    private static final String PER_APP_DPI = "per_app_settings";
-    private static final String DPI_MODULE_INSTALLER = "dpi_installer";
-    private static final String ADVENCED_SETTINGS = "advanced_settings";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
     private static final String SHOW_ENTER_KEY = "show_enter_key";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
-    private static final String KEY_NOTFY_ME = "notfy_me";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_HEADSET_CONNECT_PLAYER = "headset_connect_player";
     private static final String PREF_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
@@ -157,10 +153,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
         
         
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
-        removePreferenceIfPackageNotInstalled(findPreference(KEY_NOTFY_ME));
-        removePreferenceIfPackageNotInstalled(findPreference(ADVENCED_SETTINGS));
-        removePreferenceIfPackageNotInstalled(findPreference(PER_APP_DPI));
-        removePreferenceIfPackageNotInstalled(findPreference(DPI_MODULE_INSTALLER));
     }
     public void updateRotationTimeout(int timeout) {
         if (timeout == 0)
