@@ -33,8 +33,7 @@
 <PreferenceScreen
            android:id="@+id/rom_control"
             android:title="@string/rom_control_title"
-            android:summary="@string/rom_control_summary"
-            android:icon="@drawable/ic_settings_rom_control" >
+            android:summary="@string/rom_control_summary" >
         <intent
                 android:action="android.intent.action.MAIN"
                 android:targetClass="com.aokp.romcontrol.ROMControlActivity"
@@ -44,60 +43,111 @@
 <PreferenceScreen
            android:id="@+id/advanced_settings"
             android:title="@string/advanced_settings_title"
-            android:summary="@string/advenced_settings_summary"
-            android:icon="@drawable/ic_settings_advanced">
+            android:summary="@string/advenced_settings_summary">
         <intent
                 android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
                 android:targetPackage="com.cyanogenmod.settings.device"
                 android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
     </PreferenceScreen>      
-
 <PreferenceCategory
-        android:key="resurrection_general_ui"
-        android:title="@string/general_ui_header"> 
+        android:key="keyboard_header"
+        android:title="@string/keyboard_header"> 
           
  <CheckBoxPreference
         android:key="show_enter_key"
-        android:icon="@drawable/ic_lockscreen_ime"
         android:title="@string/show_enter_key_title"
         android:summary="@string/show_enter_key_summary"
         android:persistent="false" />
         
+    <CheckBoxPreference
+        android:key="fullscreen_keyboard"
+        android:title="@string/fullscreen_keyboard"
+        android:summary="@string/fullscreen_keyboard_summary"
+        android:defaultValue="false" />
+
+  <CheckBoxPreference
+        android:key="keyboard_rotation_toggle"
+        android:title="@string/keyboard_rotation_toggle_title"
+        android:summary="@string/keyboard_rotation_toggle_summary"
+        android:defaultValue="false"
+        android:persistent="true" />
+   
+    <ListPreference
+        android:key="keyboard_rotation_timeout"
+        android:persistent="false"
+        android:dialogTitle="@string/keyboard_rotation_timeout_title"
+        android:title="@string/keyboard_rotation_timeout_title"
+        android:entries="@array/keyboard_rotation_timeout_entries"
+        android:entryValues="@array/keyboard_rotation_timeout_values"
+        android:dependency="keyboard_rotation_toggle" />
+        
+        </PreferenceCategory>
+  <PreferenceCategory
+        android:key="user_interface"
+        android:title="@string/user_interface">       
  <CheckBoxPreference
         android:key="see_through"
-        android:icon="@drawable/ic_see_through"
         android:title="@string/see_through_title"
         android:summary="@string/see_through_summary" />
   
    <CheckBoxPreference
         android:key="notification_show_wifi_ssid"
-        android:icon="@drawable/ic_appwidget_settings_wifi_on_holo"
         android:title="@string/notification_show_wifi_ssid_title"
         android:summary="@string/notification_show_wifi_ssid_summary"
         android:defaultValue="true" />
         
-        
+  <CheckBoxPreference
+        android:key="power_menu_expanded_desktop"
+        android:title="@string/power_menu_expanded_desktop"
+        android:summary="@string/power_menu_expanded_desktop_summary"
+       android:defaultValue="false" />
+       
+       </PreferenceCategory>
+ <PreferenceCategory
+        android:key="sound_header"
+        android:title="@string/sound_header"> 
+ 
  <CheckBoxPreference
         android:key="headset_connect_player"
-        android:icon="@drawable/ic_bt_headphones_a2dp"
         android:title="@string/headset_connect_player_title"
         android:summary="@string/headset_connect_player_title_summary"
         android:persistent="false" />
-
-<PreferenceScreen
+        
+ <ListPreference
+        android:key="pref_low_battery_warning_policy"
+        android:title="@string/pref_low_battery_warning_policy_title"
+        android:summary="@string/pref_low_battery_warning_policy_summary"
+        android:entries="@array/pref_low_battery_warning_policy_entries"
+        android:entryValues="@array/pref_low_battery_warning_policy_values"
+        android:defaultValue="3" />
+        
+    	    <CheckBoxPreference
+            android:key="camera_sounds"
+            android:title="@string/camera_sounds_title"
+            android:summary="@string/camera_sounds_summary"	
+            android:defaultValue="false" /> 
+             
+   </PreferenceCategory>
+  <PreferenceCategory
+        android:key="security_header"
+        android:title="@string/security_header"> 
+        
+         <PreferenceScreen
         android:key="lock_clock"
-        android:icon="@drawable/ic_settings_lock_clock"
         android:title="@string/lock_clock_title"
         android:summary="@string/lock_clock_summary">
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.cyanogenmod.lockclock"
-                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-   
-   </PreferenceScreen>
-         
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />    
+                </PreferenceScreen>  
+                
+ <PreferenceScreen
+        android:key="pie_control"
+        android:fragment="com.android.settings.cyanogenmod.PieControl"
+        android:title="@string/pie_control_title" />     
+
 <PreferenceScreen
         android:key="notfy_me"
-        android:icon="@drawable/ic_settings_notify_me"
         android:title="@string/notify_me_title"
         android:summary="@string/notify_me_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -107,7 +157,6 @@
     <!-- Permissions Management -->
 <PreferenceScreen
         android:id="@+id/permissions_settings"
-        android:icon="@drawable/ic_rom_control_lockscreens"
         android:summary="@string/permissions_summary"
         android:title="@string/permissions_settings_title">
         <intent
@@ -119,38 +168,11 @@
 </PreferenceCategory>
         <!-- DPI Settings -->
      <PreferenceCategory
-        android:key="rr_halo"
-        android:title="@string/halo_header">
-
-     <ListPreference
-         android:key="halo_state"
-         android:dialogTitle="@string/halo_state_title"
-         android:title="@string/halo_state_title"
-         android:summary="@string/halo_state_summary"
-         android:entries="@array/entries_halo_state"
-         android:entryValues="@array/values_halo_state" />
-
-     <CheckBoxPreference
-         android:key="halo_hide"
-         android:title="@string/halo_hide_title"
-         android:summary="@string/halo_hide_summary"
-         android:defaultValue="false" />
-
-     <CheckBoxPreference
-         android:key="halo_reversed"
-         android:title="@string/halo_reversed_title"
-         android:summary="@string/halo_reversed_summary"
-         android:defaultValue="true" />
-
- </PreferenceCategory>
-
- <PreferenceCategory
         android:key="resurrection_dpi"
         android:title="@string/dpi_header">     
 
 <PreferenceScreen
         android:key="dpi_installer"
-        android:icon="@drawable/ic_xposed_installer"
         android:title="@string/dpi_installer"
         android:summary="@string/dpi_installer_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -161,7 +183,6 @@
 
 <PreferenceScreen
         android:key="per_app_settings"
-        android:icon="@drawable/ic_per_app_settings"
         android:title="@string/per_app_settings"
         android:summary="@string/per_app_settings_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -175,10 +196,8 @@
         android:key="resurrection_update"
         android:title="@string/update_header"> 
         
-
 <PreferenceScreen
         android:key="update_me"
-        android:icon="@drawable/ic_settings_update_me"
         android:title="@string/update_me_title"
         android:summary="@string/update_me_summary">
         <intent android:action="android.intent.action.MAIN"
