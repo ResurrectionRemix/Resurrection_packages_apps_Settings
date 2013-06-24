@@ -74,9 +74,13 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mFullscreenKeyboard;
     private CheckBoxPreference mExpandedDesktopPref;
     private CheckBoxPreference mCameraSounds;
+<<<<<<< HEAD
     private PreferenceScreen mPieControl;
     
     private static final String KEY_PIE_CONTROL = "pie_control";
+=======
+    
+>>>>>>> dd1810765761e709d2b82cd3d86ce6c963a13718
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
     private static final String SHOW_ENTER_KEY = "show_enter_key";
@@ -107,9 +111,13 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mFullscreenKeyboard = (CheckBoxPreference) findPreference(PREF_FULLSCREEN_KEYBOARD);
         mFullscreenKeyboard.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.FULLSCREEN_KEYBOARD, 0) == 1);
+<<<<<<< HEAD
           // Pie controls 
         mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);  
              
+=======
+                
+>>>>>>> dd1810765761e709d2b82cd3d86ce6c963a13718
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
@@ -186,6 +194,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         AlertDialog alert = builder.create();
         alert.show();
     }
+<<<<<<< HEAD
     private void updatePieControlDescription() {
         if (Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.PIE_CONTROLS, 0) == 1) {
@@ -194,6 +203,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
             mPieControl.setSummary(getString(R.string.pie_control_disabled));
         }
     }
+=======
+    
+>>>>>>> dd1810765761e709d2b82cd3d86ce6c963a13718
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 		boolean value;
