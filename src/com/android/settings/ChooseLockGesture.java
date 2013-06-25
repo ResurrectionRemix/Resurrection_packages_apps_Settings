@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * Copyright (C) 2013 The ChameleonOS Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +17,13 @@
 
 package com.android.settings;
 
-import com.google.android.collect.Lists;
-
-import com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient;
-import com.android.internal.widget.LockPatternUtils;
-import com.android.internal.widget.LockPatternView;
-import com.android.internal.widget.LockPatternView.Cell;
-
-import static com.android.internal.widget.LockPatternView.DisplayMode;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.gesture.Gesture;
+import android.gesture.GestureStore;
+import android.gesture.Prediction;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.KeyEvent;
@@ -35,22 +31,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient;
+import com.android.internal.widget.LockGestureView;
+import com.android.internal.widget.LockPatternUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
+import static com.android.internal.widget.LockGestureView.DisplayMode;
 
 /**
- * If the user has a lock pattern set already, makes them confirm the existing one.
+ * If the user has a lock gesture set already, makes them confirm the existing one.
  *
- * Then, prompts the user to choose a lock pattern:
- * - prompts for initial pattern
+ * Then, prompts the user to choose a lock gesture:
+ * - prompts for initial gesture
  * - asks for confirmation / restart
  * - saves chosen password when confirmed
  */
-public class ChooseLockPattern extends PreferenceActivity {
+public class ChooseLockGesture extends PreferenceActivity {
     /**
-     * Used by the choose lock pattern wizard to indicate the wizard is
+     * Used by the choose lock gesture wizard to indicate the wizard is
      * finished, and each activity in the wizard should finish.
      * <p>
      * Previously, each activity in the wizard would finish itself after
@@ -63,27 +62,25 @@ public class ChooseLockPattern extends PreferenceActivity {
     @Override
     public Intent getIntent() {
         Intent modIntent = new Intent(super.getIntent());
-        modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ChooseLockPatternFragment.class.getName());
+        modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ChooseLockGestureFragment.class.getName());
         modIntent.putExtra(EXTRA_NO_HEADERS, true);
         return modIntent;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        CharSequence msg = getText(R.string.lockpassword_choose_your_pattern_header);
+        CharSequence msg = getText(R.string.lockpassword_choose_your_gesture_header);
         showBreadCrumbs(msg, msg);
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // *** TODO ***
-        // chooseLockPatternFragment.onKeyDown(keyCode, event);
         return super.onKeyDown(keyCode, event);
     }
 
-    public static class ChooseLockPatternFragment extends Fragment
+    public static class ChooseLockGestureFragment extends Fragment
             implements View.OnClickListener {
 
         public static final int CONFIRM_EXISTING_REQUEST = 55;
@@ -91,28 +88,19 @@ public class ChooseLockPattern extends PreferenceActivity {
         // how long after a confirmation message is shown before moving on
         static final int INFORMATION_MSG_TIMEOUT_MS = 3000;
 
-        // how long we wait to clear a wrong pattern
-        private static final int WRONG_PATTERN_CLEAR_TIMEOUT_MS = 2000;
+        // how long we wait to clear a wrong gesture
+        private static final int WRONG_GESTURE_CLEAR_TIMEOUT_MS = 2000;
 
         private static final int ID_EMPTY_MESSAGE = -1;
 
         protected TextView mHeaderText;
-        protected LockPatternView mLockPatternView;
+        protected LockGestureView mLockGestureView;
         protected TextView mFooterText;
         private TextView mFooterLeftButton;
         private TextView mFooterRightButton;
-        protected List<LockPatternView.Cell> mChosenPattern = null;
-
-        /**
-         * The patten used during the help screen to show how to draw a pattern.
-         */
-        private final List<LockPatternView.Cell> mAnimatePattern =
-                Collections.unmodifiableList(Lists.newArrayList(
-                        LockPatternView.Cell.of(0, 0),
-                        LockPatternView.Cell.of(0, 1),
-                        LockPatternView.Cell.of(1, 1),
-                        LockPatternView.Cell.of(2, 1)
-                ));
+        protected Gesture mChosenGesture = null;
+        protected GestureStore mGestureStore;
+        protected int mMinPredictionScore;
 
         @Override
         public void onActivityResult(int requestCode, int resultCode,
@@ -130,55 +118,67 @@ public class ChooseLockPattern extends PreferenceActivity {
         }
 
         /**
-         * The pattern listener that responds according to a user choosing a new
-         * lock pattern.
+         * The gesture listener that responds according to a user choosing a new
+         * lock gesture.
          */
-        protected LockPatternView.OnPatternListener mChooseNewLockPatternListener =
-                new LockPatternView.OnPatternListener() {
+        protected LockGestureView.OnLockGestureListener mChooseNewLockGestureListener =
+                new LockGestureView.OnLockGestureListener() {
 
-                public void onPatternStart() {
-                    mLockPatternView.removeCallbacks(mClearPatternRunnable);
-                    patternInProgress();
+                public void onGestureStart() {
+                    mLockGestureView.removeCallbacks(mClearGestureRunnable);
+                    mLockGestureView.setDisplayMode(DisplayMode.Correct);
+                    gestureInProgress();
                 }
 
-                public void onPatternCleared() {
-                    mLockPatternView.removeCallbacks(mClearPatternRunnable);
+                public void onGestureCleared() {
+                    mLockGestureView.removeCallbacks(mClearGestureRunnable);
                 }
 
-                public void onPatternDetected(List<LockPatternView.Cell> pattern) {
+                public void onGestureDetected(Gesture gesture) {
                     if (mUiStage == Stage.NeedToConfirm || mUiStage == Stage.ConfirmWrong) {
-                        if (mChosenPattern == null) throw new IllegalStateException(
+                        if (mChosenGesture == null) throw new IllegalStateException(
                                 "null chosen pattern in stage 'need to confirm");
-                        if (mChosenPattern.equals(pattern)) {
+                        if (gestureMatch(gesture)) {
                             updateStage(Stage.ChoiceConfirmed);
                         } else {
                             updateStage(Stage.ConfirmWrong);
                         }
-                    } else if (mUiStage == Stage.Introduction || mUiStage == Stage.ChoiceTooShort){
-                        if (pattern.size() < LockPatternUtils.MIN_LOCK_PATTERN_SIZE) {
-                            updateStage(Stage.ChoiceTooShort);
-                        } else {
-                            mChosenPattern = new ArrayList<LockPatternView.Cell>(pattern);
-                            updateStage(Stage.FirstChoiceValid);
-                        }
+                    } else if (mUiStage == Stage.Introduction){
+                        mChosenGesture = gesture;
+                        if (mGestureStore.getGestures("lock_gesture") != null)
+                            mGestureStore.removeEntry("lock_gesture");
+                        mGestureStore.addGesture("lock_gesture", gesture);
+                        updateStage(Stage.FirstChoiceValid);
                     } else {
                         throw new IllegalStateException("Unexpected stage " + mUiStage + " when "
-                                + "entering the pattern.");
+                                + "entering the gesture.");
                     }
                 }
 
-                public void onPatternCellAdded(List<Cell> pattern) {
-
-                }
-
-                private void patternInProgress() {
-                    mHeaderText.setText(R.string.lockpattern_recording_inprogress);
+                private void gestureInProgress() {
+                    mHeaderText.setText(R.string.lockgesture_recording_inprogress);
                     mFooterText.setText("");
                     mFooterLeftButton.setEnabled(false);
                     mFooterRightButton.setEnabled(false);
                 }
          };
 
+        protected boolean gestureMatch(Gesture gesture) {
+            ArrayList<Prediction> predictions = mGestureStore.recognize(gesture);
+            if (predictions.size() > 0) {
+                Prediction prediction = predictions.get(0);
+                if (prediction.score > mMinPredictionScore) {
+                    if (prediction.name.equals("lock_gesture")) {
+                        Gesture foundGesture = mGestureStore.getGestures("lock_gesture").get(0);
+                        if (foundGesture.getStrokesCount() == gesture.getStrokesCount())
+                            return true;
+                        else
+                            return false;
+                    }
+                }
+            }
+            return false;
+        }
 
         /**
          * The states of the left footer button.
@@ -186,8 +186,8 @@ public class ChooseLockPattern extends PreferenceActivity {
         enum LeftButtonMode {
             Cancel(R.string.cancel, true),
             CancelDisabled(R.string.cancel, false),
-            Retry(R.string.lockpattern_retry_button_text, true),
-            RetryDisabled(R.string.lockpattern_retry_button_text, false),
+            Retry(R.string.lockgesture_retry_button_text, true),
+            RetryDisabled(R.string.lockgesture_retry_button_text, false),
             Gone(ID_EMPTY_MESSAGE, false);
 
 
@@ -208,10 +208,10 @@ public class ChooseLockPattern extends PreferenceActivity {
          * The states of the right button.
          */
         enum RightButtonMode {
-            Continue(R.string.lockpattern_continue_button_text, true),
-            ContinueDisabled(R.string.lockpattern_continue_button_text, false),
-            Confirm(R.string.lockpattern_confirm_button_text, true),
-            ConfirmDisabled(R.string.lockpattern_confirm_button_text, false),
+            Continue(R.string.lockgesture_continue_button_text, true),
+            ContinueDisabled(R.string.lockgesture_continue_button_text, false),
+            Confirm(R.string.lockgesture_confirm_button_text, true),
+            ConfirmDisabled(R.string.lockgesture_confirm_button_text, false),
             Ok(android.R.string.ok, true);
 
             /**
@@ -228,33 +228,30 @@ public class ChooseLockPattern extends PreferenceActivity {
         }
 
         /**
-         * Keep track internally of where the user is in choosing a pattern.
+         * Keep track internally of where the user is in choosing a gesture.
          */
         protected enum Stage {
+
             Introduction(
-                    R.string.lockpattern_recording_intro_header,
+                    R.string.lockgesture_recording_intro_header,
                     LeftButtonMode.Cancel, RightButtonMode.ContinueDisabled,
                     ID_EMPTY_MESSAGE, true),
             HelpScreen(
-                    R.string.lockpattern_settings_help_how_to_record,
+                    R.string.lockgesture_settings_help_how_to_record,
                     LeftButtonMode.Gone, RightButtonMode.Ok, ID_EMPTY_MESSAGE, false),
-            ChoiceTooShort(
-                    R.string.lockpattern_recording_incorrect_too_short,
-                    LeftButtonMode.Retry, RightButtonMode.ContinueDisabled,
-                    ID_EMPTY_MESSAGE, true),
             FirstChoiceValid(
-                    R.string.lockpattern_pattern_entered_header,
+                    R.string.lockgesture_pattern_entered_header,
                     LeftButtonMode.Retry, RightButtonMode.Continue, ID_EMPTY_MESSAGE, false),
             NeedToConfirm(
-                    R.string.lockpattern_need_to_confirm,
+                    R.string.lockgesture_need_to_confirm,
                     LeftButtonMode.Cancel, RightButtonMode.ConfirmDisabled,
                     ID_EMPTY_MESSAGE, true),
             ConfirmWrong(
-                    R.string.lockpattern_need_to_unlock_wrong,
+                    R.string.lockgesture_need_to_unlock_wrong,
                     LeftButtonMode.Cancel, RightButtonMode.ConfirmDisabled,
                     ID_EMPTY_MESSAGE, true),
             ChoiceConfirmed(
-                    R.string.lockpattern_pattern_confirmed_header,
+                    R.string.lockgesture_pattern_confirmed_header,
                     LeftButtonMode.Cancel, RightButtonMode.Confirm, ID_EMPTY_MESSAGE, false);
 
 
@@ -263,43 +260,51 @@ public class ChooseLockPattern extends PreferenceActivity {
              * @param leftMode The mode of the left button.
              * @param rightMode The mode of the right button.
              * @param footerMessage The footer message.
-             * @param patternEnabled Whether the pattern widget is enabled.
+             * @param gestureEnabled Whether the pattern widget is enabled.
              */
             Stage(int headerMessage,
                     LeftButtonMode leftMode,
                     RightButtonMode rightMode,
-                    int footerMessage, boolean patternEnabled) {
+                    int footerMessage, boolean gestureEnabled) {
                 this.headerMessage = headerMessage;
                 this.leftMode = leftMode;
                 this.rightMode = rightMode;
                 this.footerMessage = footerMessage;
-                this.patternEnabled = patternEnabled;
+                this.gestureEnabled = gestureEnabled;
             }
 
             final int headerMessage;
             final LeftButtonMode leftMode;
             final RightButtonMode rightMode;
             final int footerMessage;
-            final boolean patternEnabled;
+            final boolean gestureEnabled;
         }
 
         private Stage mUiStage = Stage.Introduction;
 
-        private Runnable mClearPatternRunnable = new Runnable() {
+        private Runnable mClearGestureRunnable = new Runnable() {
             public void run() {
-                mLockPatternView.clearPattern();
+                mLockGestureView.clearGesture();
             }
         };
 
         private ChooseLockSettingsHelper mChooseLockSettingsHelper;
 
         private static final String KEY_UI_STAGE = "uiStage";
-        private static final String KEY_PATTERN_CHOICE = "chosenPattern";
+        private static final String KEY_GESTURE_CHOICE = "chosenGesture";
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
+            mGestureStore = new GestureStore();
+            mGestureStore.setOrientationStyle(GestureStore.ORIENTATION_SENSITIVE);
+            try {
+                mMinPredictionScore = getActivity().getResources().getInteger(
+                        com.android.internal.R.integer.min_gesture_prediction_score);
+            } catch (Resources.NotFoundException e) {
+                mMinPredictionScore = 2;
+            }
         }
 
         @Override
@@ -307,13 +312,10 @@ public class ChooseLockPattern extends PreferenceActivity {
                 Bundle savedInstanceState) {
 
             // setupViews()
-            View view = inflater.inflate(R.layout.choose_lock_pattern, null);
+            View view = inflater.inflate(R.layout.choose_lock_gesture, null);
             mHeaderText = (TextView) view.findViewById(R.id.headerText);
-            mLockPatternView = (LockPatternView) view.findViewById(R.id.lockPattern);
-            mLockPatternView.setOnPatternListener(mChooseNewLockPatternListener);
-            mLockPatternView.setTactileFeedbackEnabled(
-                    mChooseLockSettingsHelper.utils().isTactileFeedbackEnabled());
-
+            mLockGestureView = (LockGestureView) view.findViewById(R.id.lockGesture);
+            mLockGestureView.setOnGestureListener(mChooseNewLockGestureListener);
             mFooterText = (TextView) view.findViewById(R.id.footerText);
 
             mFooterLeftButton = (TextView) view.findViewById(R.id.footerLeftButton);
@@ -323,11 +325,11 @@ public class ChooseLockPattern extends PreferenceActivity {
             mFooterRightButton.setOnClickListener(this);
 
             // make it so unhandled touch events within the unlock screen go to the
-            // lock pattern view.
+            // lock gesture view.
             final LinearLayoutWithDefaultTouchRecepient topLayout
                     = (LinearLayoutWithDefaultTouchRecepient) view.findViewById(
                     R.id.topLayout);
-            topLayout.setDefaultTouchRecepient(mLockPatternView);
+            topLayout.setDefaultTouchRecepient(mLockGestureView);
 
             final boolean confirmCredentials = getActivity().getIntent()
                     .getBooleanExtra("confirm_credentials", false);
@@ -348,9 +350,9 @@ public class ChooseLockPattern extends PreferenceActivity {
                 }
             } else {
                 // restore from previous state
-                final String patternString = savedInstanceState.getString(KEY_PATTERN_CHOICE);
-                if (patternString != null) {
-                    mChosenPattern = LockPatternUtils.stringToPattern(patternString);
+                final Gesture gesture = savedInstanceState.getParcelable(KEY_GESTURE_CHOICE);
+                if (gesture != null) {
+                    mChosenGesture = gesture;
                 }
                 updateStage(Stage.values()[savedInstanceState.getInt(KEY_UI_STAGE)]);
             }
@@ -360,8 +362,8 @@ public class ChooseLockPattern extends PreferenceActivity {
         public void onClick(View v) {
             if (v == mFooterLeftButton) {
                 if (mUiStage.leftMode == LeftButtonMode.Retry) {
-                    mChosenPattern = null;
-                    mLockPatternView.clearPattern();
+                    mChosenGesture = null;
+                    mLockGestureView.clearGesture();
                     updateStage(Stage.Introduction);
                 } else if (mUiStage.leftMode == LeftButtonMode.Cancel) {
                     // They are canceling the entire wizard
@@ -384,14 +386,14 @@ public class ChooseLockPattern extends PreferenceActivity {
                         throw new IllegalStateException("expected ui stage " + Stage.ChoiceConfirmed
                                 + " when button is " + RightButtonMode.Confirm);
                     }
-                    saveChosenPatternAndFinish();
+                    saveChosenGestureAndFinish();
                 } else if (mUiStage.rightMode == RightButtonMode.Ok) {
                     if (mUiStage != Stage.HelpScreen) {
                         throw new IllegalStateException("Help screen is only mode with ok button, but " +
                                 "stage is " + mUiStage);
                     }
-                    mLockPatternView.clearPattern();
-                    mLockPatternView.setDisplayMode(DisplayMode.Correct);
+                    mLockGestureView.clearGesture();
+                    mLockGestureView.setDisplayMode(DisplayMode.Correct);
                     updateStage(Stage.Introduction);
                 }
             }
@@ -415,16 +417,15 @@ public class ChooseLockPattern extends PreferenceActivity {
             super.onSaveInstanceState(outState);
 
             outState.putInt(KEY_UI_STAGE, mUiStage.ordinal());
-            if (mChosenPattern != null) {
-                outState.putString(KEY_PATTERN_CHOICE,
-                        LockPatternUtils.patternToString(mChosenPattern));
+            if (mChosenGesture != null) {
+                outState.putParcelable(KEY_GESTURE_CHOICE, mChosenGesture);
             }
         }
 
         /**
          * Updates the messages and buttons appropriate to what stage the user
-         * is at in choosing a view.  This doesn't handle clearing out the pattern;
-         * the pattern is expected to be in the right state.
+         * is at in choosing a view.  This doesn't handle clearing out the gesture;
+         * the gesture is expected to be in the right state.
          * @param stage
          */
         protected void updateStage(Stage stage) {
@@ -434,14 +435,7 @@ public class ChooseLockPattern extends PreferenceActivity {
 
             // header text, footer text, visibility and
             // enabled state all known from the stage
-            if (stage == Stage.ChoiceTooShort) {
-                mHeaderText.setText(
-                        getResources().getString(
-                                stage.headerMessage,
-                                LockPatternUtils.MIN_LOCK_PATTERN_SIZE));
-            } else {
-                mHeaderText.setText(stage.headerMessage);
-            }
+            mHeaderText.setText(stage.headerMessage);
             if (stage.footerMessage == ID_EMPTY_MESSAGE) {
                 mFooterText.setText("");
             } else {
@@ -460,35 +454,30 @@ public class ChooseLockPattern extends PreferenceActivity {
             mFooterRightButton.setEnabled(stage.rightMode.enabled);
 
             // same for whether the patten is enabled
-            if (stage.patternEnabled) {
-                mLockPatternView.enableInput();
+            if (stage.gestureEnabled) {
+                mLockGestureView.enableInput();
             } else {
-                mLockPatternView.disableInput();
+                mLockGestureView.disableInput();
             }
 
             // the rest of the stuff varies enough that it is easier just to handle
             // on a case by case basis.
-            mLockPatternView.setDisplayMode(DisplayMode.Correct);
+            mLockGestureView.setDisplayMode(DisplayMode.Correct);
 
             switch (mUiStage) {
                 case Introduction:
-                    mLockPatternView.clearPattern();
+                    mLockGestureView.clearGesture();
                     break;
                 case HelpScreen:
-                    mLockPatternView.setPattern(DisplayMode.Animate, mAnimatePattern);
-                    break;
-                case ChoiceTooShort:
-                    mLockPatternView.setDisplayMode(DisplayMode.Wrong);
-                    postClearPatternRunnable();
                     break;
                 case FirstChoiceValid:
                     break;
                 case NeedToConfirm:
-                    mLockPatternView.clearPattern();
+                    mLockGestureView.clearGesture();
                     break;
                 case ConfirmWrong:
-                    mLockPatternView.setDisplayMode(DisplayMode.Wrong);
-                    postClearPatternRunnable();
+                    mLockGestureView.setDisplayMode(DisplayMode.Wrong);
+                    postClearGestureRunnable();
                     break;
                 case ChoiceConfirmed:
                     break;
@@ -502,24 +491,24 @@ public class ChooseLockPattern extends PreferenceActivity {
         }
 
 
-        // clear the wrong pattern unless they have started a new one
+        // clear the wrong gesture unless they have started a new one
         // already
-        private void postClearPatternRunnable() {
-            mLockPatternView.removeCallbacks(mClearPatternRunnable);
-            mLockPatternView.postDelayed(mClearPatternRunnable, WRONG_PATTERN_CLEAR_TIMEOUT_MS);
+        private void postClearGestureRunnable() {
+            mLockGestureView.removeCallbacks(mClearGestureRunnable);
+            mLockGestureView.postDelayed(mClearGestureRunnable, WRONG_GESTURE_CLEAR_TIMEOUT_MS);
         }
 
-        private void saveChosenPatternAndFinish() {
+        private void saveChosenGestureAndFinish() {
             LockPatternUtils utils = mChooseLockSettingsHelper.utils();
-            final boolean lockVirgin = !utils.isPatternEverChosen();
+            final boolean lockVirgin = !utils.isGestureEverChosen();
 
             final boolean isFallback = getActivity().getIntent()
                 .getBooleanExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, false);
-            utils.saveLockPattern(mChosenPattern, isFallback);
-            utils.setLockPatternEnabled(true);
+            utils.saveLockGesture(mChosenGesture, isFallback);
+            utils.setLockGestureEnabled(true);
 
             if (lockVirgin) {
-                utils.setVisiblePatternEnabled(true);
+                utils.setVisibleGestureEnabled(true);
             }
 
             getActivity().setResult(RESULT_FINISHED);
