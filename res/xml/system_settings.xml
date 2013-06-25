@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/system_interface_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceScreen
+        android:key="status_bar"
+        android:fragment="com.android.settings.cyanogenmod.StatusBar"
+        android:title="@string/status_bar_title" />
+
+    <PreferenceScreen
+        android:key="quick_settings_panel"
+        android:fragment="com.android.settings.cyanogenmod.QuickSettings"
+        android:title="@string/quick_settings_panel_title" />
+
+    <PreferenceScreen
+        android:key="notification_drawer"
+        android:fragment="com.android.settings.cyanogenmod.PowerWidget"
+        android:title="@string/notification_drawer_title" />
+
+    <PreferenceScreen
+        android:key="power_menu"
+        android:title="@string/power_menu_title"
+        android:fragment="com.android.settings.cyanogenmod.PowerMenu" />
+
+    <!-- Lock clock -->
+    <PreferenceScreen
+        android:key="lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="notification_pulse"
+        android:title="@string/notification_pulse_title"
+        android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
+
+    <PreferenceScreen
+        android:key="battery_light"
+        android:title="@string/battery_light_title"
+        android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
+
+    <PreferenceScreen
+        android:key="hardware_keys"
+        android:fragment="com.android.settings.cyanogenmod.HardwareKeys"
+        android:title="@string/hardware_keys_title" />
+
+    <PreferenceScreen
+        android:key="pie_control"
+        android:fragment="com.android.settings.cyanogenmod.PieControl"
+        android:title="@string/pie_control_title" />
+
+    <PreferenceCategory
+        android:key="navigation_bar_category"
+        android:title="@string/navigation_bar_category" >
+
+        <PreferenceScreen
+            android:key="navigation_bar"
+            android:fragment="com.android.settings.cyanogenmod.NavBar"
+            android:title="@string/navigation_bar_title" />
+
+        <PreferenceScreen
+            android:key="navigation_ring"
+            android:fragment="com.android.settings.cyanogenmod.NavRing"
+            android:title="@string/navigation_ring_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
