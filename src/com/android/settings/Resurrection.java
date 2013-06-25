@@ -74,9 +74,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mFullscreenKeyboard;
     private CheckBoxPreference mExpandedDesktopPref;
     private CheckBoxPreference mCameraSounds;
-    private PreferenceScreen mPieControl;
     
-    private static final String KEY_PIE_CONTROL = "pie_control";
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
     private static final String SHOW_ENTER_KEY = "show_enter_key";
@@ -107,9 +105,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mFullscreenKeyboard = (CheckBoxPreference) findPreference(PREF_FULLSCREEN_KEYBOARD);
         mFullscreenKeyboard.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.FULLSCREEN_KEYBOARD, 0) == 1);
-          // Pie controls 
-        mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);  
-             
+                
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
@@ -163,15 +159,11 @@ public class Resurrection extends SettingsPreferenceFragment implements
             timeout = KEYBOARD_ROTATION_TIMEOUT_DEFAULT;
         mKeyboardRotationTimeout.setValue(Integer.toString(timeout));
         mKeyboardRotationTimeout.setSummary(getString(R.string.keyboard_rotation_timeout_summary, mKeyboardRotationTimeout.getEntry()));
-    } 
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-        
-        	        if (mPieControl != null) {
-            updatePieControlDescription();
-        }
     }
 
     @Override
@@ -186,14 +178,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         AlertDialog alert = builder.create();
         alert.show();
     }
-    private void updatePieControlDescription() {
-        if (Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0) == 1) {
-            mPieControl.setSummary(getString(R.string.pie_control_enabled));
-        } else {
-            mPieControl.setSummary(getString(R.string.pie_control_disabled));
-        }
-    }
+    
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 		boolean value;
