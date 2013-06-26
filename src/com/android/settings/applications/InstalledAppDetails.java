@@ -872,6 +872,12 @@ public class InstalledAppDetails extends Fragment
             }
         }
 
+
+        // only setup the privacy guard setting if we didn't get uninstalled
+        if (!mMoveInProgress) {
+            initPrivacyGuardButton();
+        }
+
         return true;
     }
 
@@ -1012,7 +1018,6 @@ public class InstalledAppDetails extends Fragment
             initDataButtons();
             initMoveButton();
             initNotificationButton();
-            initPrivacyGuardButton();
         } else {
             mMoveAppButton.setText(R.string.moving);
             mMoveAppButton.setEnabled(false);
