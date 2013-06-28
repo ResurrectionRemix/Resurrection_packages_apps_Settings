@@ -2,7 +2,7 @@
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_rr_settings_title"
-	xmlns:rb="http://schemas.android.com/apk/res/com.android.settings">
+	xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings">
 
 	<PreferenceCategory
 		android:key="links"
@@ -31,9 +31,10 @@
 
 		<com.android.settings.widgets.DeveloperPreference
             android:title="Westcrip"
-            rb:nameDev="westcrip"
-            rb:twitterHandle="westcrip"
-            rb:donateLink="@string/donate_westcrip" />
+            resurrection:nameDev="westcrip"
+            resurrection:twitterHandle="westcrip"
+            resurrection:donateLink="@string/donate_westcrip"
+            resurrection:emailDev="altan_koruk@hotmail.com"/>
 
 	</PreferenceCategory>    
 
@@ -44,15 +45,17 @@
 
 		<com.android.settings.widgets.DeveloperPreference
             android:title="AOKP"
-            rb:nameDev="AOKP"
-            rb:twitterHandle="aokp_rom"
-            rb:donateLink="@string/donate_aokp" />
+            resurrection:nameDev="AOKP"
+            resurrection:twitterHandle="aokp_rom"
+            resurrection:donateLink="@string/donate_aokp"
+            resurrection:emailDev="aokp@aokp.co"/>
 
 		<com.android.settings.widgets.DeveloperPreference
             android:title="CyanogenMod"
-            rb:nameDev="CyanogenMod"
-            rb:twitterHandle="cyanogenmod"
-            rb:donateLink="@string/donate_cyanogenmod" />
+            resurrection:nameDev="CyanogenMod"
+            resurrection:twitterHandle="cyanogenmod"
+            resurrection:donateLink="@string/donate_cyanogenmod"
+            resurrection:emailDev="korukaltan@gmail.com"/>
 
 	</PreferenceCategory>
 
