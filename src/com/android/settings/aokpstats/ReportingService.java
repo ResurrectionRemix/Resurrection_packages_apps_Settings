@@ -36,32 +36,6 @@ import java.util.List;
 
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.ModelFields;
-<<<<<<< HEAD
-import com.google.analytics.tracking.android.Tracker;
-
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.IBinder;
-import android.util.Log;
-
-
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
 
 import com.android.settings.R;
@@ -121,11 +95,6 @@ public class ReportingService extends Service {
             tracker.setCustomMetric(1, 1L);
             tracker.sendEvent("checkin", deviceName, deviceVersion, null);
             tracker.sendView(deviceName);
-            tracker.setCustomDimension(1, deviceId);
-            tracker.setCustomDimension(2, deviceName);
-            tracker.setCustomMetric(1, 1L);
-            tracker.sendEvent("checkin", deviceName, deviceVersion, null);
-            tracker.sendView(deviceName);
             tracker.close();
 
             // report to the aokpstats service
@@ -145,55 +114,6 @@ public class ReportingService extends Service {
                 Log.w(TAG, "Could not upload stats checkin", e);
             }
             return success;
-        }
-
-    private void report() {
-        String deviceId = Utilities.getUniqueID(getApplicationContext());
-        String deviceName = Utilities.getDevice();
-        String deviceVersion = Utilities.getModVersion();
-        String deviceCountry = Utilities.getCountryCode(getApplicationContext());
-        String deviceCarrier = Utilities.getCarrier(getApplicationContext());
-        String deviceCarrierId = Utilities.getCarrierId(getApplicationContext());
-
-        Log.d(TAG, "SERVICE: Device ID=" + deviceId);
-        Log.d(TAG, "SERVICE: Device Name=" + deviceName);
-        Log.d(TAG, "SERVICE: Device Version=" + deviceVersion);
-        Log.d(TAG, "SERVICE: Country=" + deviceCountry);
-        Log.d(TAG, "SERVICE: Carrier=" + deviceCarrier);
-        Log.d(TAG, "SERVICE: Carrier ID=" + deviceCarrierId);
-
-        // report to google analytics
-        GoogleAnalytics ga = GoogleAnalytics.getInstance(this);
-        //ga.setDebug(true);
-        Tracker tracker = ga.getTracker(getString(R.string.ga_trackingId));
-        tracker.setAppName("AOKP");
-        tracker.setAppVersion(deviceVersion);
-        tracker.setCustomDimension(1, deviceId);
-        tracker.setCustomDimension(2, deviceName);
-        tracker.sendEvent("checkin", deviceName, deviceVersion, null);
-        tracker.close();
-
-        // report to the aokpstats service
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost("http://stats.aokp.co/submit.php");
-        boolean success = false;
-        try {
-            List<NameValuePair> kv = new ArrayList<NameValuePair>(2);
-            kv.add(new BasicNameValuePair("hash", deviceId));
-            kv.add(new BasicNameValuePair("aokp_version", deviceVersion));
-
-            httpPost.setEntity(new UrlEncodedFormEntity(kv));
-            httpClient.execute(httpPost);
-
-            success = true;
-        } catch (IOException e) {
-            Log.w(TAG, "Could not upload stats checkin", e);
-        }
-
-        ReportingServiceManager.setAlarm(this);
-        stopSelf();
-    }
-
         }
 
         @Override
@@ -217,3 +137,4 @@ public class ReportingService extends Service {
         }
     }
 }
+
