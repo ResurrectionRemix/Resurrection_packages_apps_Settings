@@ -21,11 +21,11 @@
         android:key="app_security"
         android:title="@string/app_security_title">
 
-        <CheckBoxPreference
-            android:key="privacy_guard_default"
-            android:title="@string/privacy_guard_default_title"
-            android:summary="@string/privacy_guard_default_summary"
-            android:persistent="false" />
+         <Preference
+            android:fragment="com.android.settings.cyanogenmod.privacyguard.PrivacyGuardManager"
+            android:key="privacy_guard_manager"
+            android:summary="@string/privacy_guard_manager_summary"
+            android:title="@string/privacy_guard_manager_title" />
 
         <ListPreference
             android:key="sms_security_check_limit"
