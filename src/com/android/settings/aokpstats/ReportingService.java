@@ -192,11 +192,8 @@ public class ReportingService extends Service {
         stopSelf();
     }
 
-
-=======
         }
 
->>>>>>> 9f7838b... Squashed Stats commits from CM
         @Override
         protected void onPostExecute(Boolean result) {
             final Context context = ReportingService.this;
