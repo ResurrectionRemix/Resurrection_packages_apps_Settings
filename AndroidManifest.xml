@@ -1293,13 +1293,6 @@
             </intent-filter>
         </activity>
 
-        <!-- DeviceInfo adds the user's requested build to stats upload.  -->
-        <receiver android:name=".DeviceInfo$StatsReportReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.STATISTICS_REPORT" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name="BatteryInfo" android:label="@string/battery_info_label"
                   android:taskAffinity="com.android.settings"
                   android:parentActivityName="Settings">
@@ -1533,14 +1526,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/wireless_settings" />
         </activity>
-
-        <activity android:name="Settings$AnonymousStatsActivity"
-                android:label="@string/anonymous_statistics_title"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:clearTaskOnLaunch="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.aokpstats.AnonymousStats" />
-        </activity>
         
         
 
@@ -1610,21 +1595,6 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
         
-        <receiver android:name=".aokpstats.ReportingServiceManager"
-            android:enabled="true"
-            android:exported="false"
-            android:label="ReportingServiceManager">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <service android:label="ReportingService"
-            android:enabled="true"
-            android:exported="false"
-            android:name=".aokpstats.ReportingService">
-        </service>
 
         <receiver android:name=".bluetooth.BluetoothDiscoverableTimeoutReceiver">
             <intent-filter>
