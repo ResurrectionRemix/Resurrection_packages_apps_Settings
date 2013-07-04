@@ -73,8 +73,11 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private ListPreference mKeyboardRotationTimeout;
     private CheckBoxPreference mFullscreenKeyboard;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private CheckBoxPreference mExpandedDesktopPref;
     private CheckBoxPreference mCameraSounds;
+=======
+>>>>>>> parent of b5dc521... Expanded Desktop 1\2
 =======
 >>>>>>> parent of b5dc521... Expanded Desktop 1\2
     
@@ -87,10 +90,13 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String PREF_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
     private static final String PREF_FULLSCREEN_KEYBOARD = "fullscreen_keyboard";
 <<<<<<< HEAD
+<<<<<<< HEAD
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
     private static final String KEY_CAMERA_SOUNDS = "camera_sounds";
     private static final String PROP_CAMERA_SOUND = "persist.sys.camera-sound";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
+=======
+>>>>>>> parent of b5dc521... Expanded Desktop 1\2
 =======
 >>>>>>> parent of b5dc521... Expanded Desktop 1\2
     
@@ -122,6 +128,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
 <<<<<<< HEAD
+<<<<<<< HEAD
         mLowBatteryWarning.setOnPreferenceChangeListener(this);   
         
         mCameraSounds = (CheckBoxPreference) findPreference(KEY_CAMERA_SOUNDS);
@@ -140,6 +147,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
             mExpandedDesktopPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 0) == 1));
         }      
+=======
+        mLowBatteryWarning.setOnPreferenceChangeListener(this);     
+>>>>>>> parent of b5dc521... Expanded Desktop 1\2
 =======
         mLowBatteryWarning.setOnPreferenceChangeListener(this);     
 >>>>>>> parent of b5dc521... Expanded Desktop 1\2
