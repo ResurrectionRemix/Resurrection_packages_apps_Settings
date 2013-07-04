@@ -195,6 +195,11 @@
         android:key="resurrection_update"
         android:title="@string/update_header"> 
         
+        <PreferenceScreen android:key="changelog"
+            android:title="@string/changelog_title"
+            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
+        </PreferenceScreen>  
+              
 <PreferenceScreen
         android:key="update_me"
         android:title="@string/update_me_title"

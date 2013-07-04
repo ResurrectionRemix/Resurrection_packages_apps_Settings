@@ -42,7 +42,7 @@ import com.android.internal.app.AlertController;
 
 public class ChangeLog extends Fragment {
 
-    private static final String CHANGELOG_PATH = "/system/etc/DU-changelog.txt";
+    private static final String CHANGELOG_PATH = "/system/etc/ResurrecrionRemix-changelog.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
