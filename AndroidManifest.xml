@@ -1549,7 +1549,6 @@
         <activity android:name="Resurrection" />
          <!-- About Resurrection Remix -->
         <activity android:name=".rr.About" />
-        
         <activity android:name=".cyanogenmod.ChangeLog" />
         
                 <activity android:name="Settings$ResurrectionActivity"
@@ -1593,17 +1592,10 @@
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="android.location.PROVIDERS_CHANGED" />
                 <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
-
-        <receiver android:name=".aokpstats.ReportingServiceManager"
-            android:enabled="true"
-            android:exported="false"
-            android:label="ReportingServiceManager">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
-
+        
 
         <receiver android:name=".bluetooth.BluetoothDiscoverableTimeoutReceiver">
             <intent-filter>
