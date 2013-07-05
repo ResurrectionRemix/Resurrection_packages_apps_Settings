@@ -37,6 +37,8 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.android.settings.R;
+
 public class DeviceInfoSettings extends SettingsPreferenceFragment {
 
     private static final String LOG_TAG = "DeviceInfoSettings";
@@ -65,10 +67,19 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
+<<<<<<< HEAD
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     private static final String KEY_MOD_VERSION = "mod_version";
 
+=======
+	private static final String PAC_ROM_SHARE = "share";
+    private static final String KEY_AOKP_VERSION = "aokp_version";
+    private static final String KEY_CM_VERSION = "cm_version";
+    private static final String KEY_PA_VERSION = "pa_version";
+    private static final String KEY_PAC_VERSION = "pac_version";
+    private static final String KEY_MOD_BUILD_DATE = "build_date";
+>>>>>>> 8090f70... Add ROM Share
     private static final String KEY_DEVICE_CHIPSET = "device_chipset";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_GPU = "device_gpu";
@@ -244,6 +255,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                         Toast.LENGTH_LONG);
                 mDevHitToast.show();
             }
+        } else if (preference.getKey().equals(PAC_ROM_SHARE)) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, String.format(
+                    getActivity().getString(R.string.share_message)));
+            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title)));
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
