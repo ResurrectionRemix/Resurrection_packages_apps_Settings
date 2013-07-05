@@ -82,8 +82,12 @@
         android:icon="@drawable/ic_settings_trds"
         android:summary="@string/pb_summary"
         android:title="@string/pb_settings_title"/>
-
-
+        
+    <header
+        android:id="@+id/launcher_settings"
+        android:title="@string/launcher_settings_title"
+        android:icon="@drawable/ic_settings_cmlauncher" />
+        
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -142,16 +146,6 @@
     <header android:id="@+id/personal_section"
         android:title="@string/header_category_personal" />
 
-<<<<<<< HEAD
-=======
-    <!-- Profiles -->
-    <header
-        android:id="@+id/profiles_settings"
-        android:icon="@drawable/ic_settings_profiles"
-        android:fragment="com.android.settings.profiles.ProfilesSettings"
-        android:title="@string/profiles_settings_title" /> 
-
->>>>>>> ab20607... Settings: Add Utility function
     <!-- Location -->
     <header
         android:fragment="com.android.settings.LocationSettings"
