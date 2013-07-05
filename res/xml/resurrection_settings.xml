@@ -39,6 +39,12 @@
                 android:targetClass="com.aokp.romcontrol.ROMControlActivity"
                 android:targetPackage="com.aokp.romcontrol" />
     </PreferenceScreen> 
+    
+             <PreferenceScreen
+                android:key="halo"
+                android:fragment="com.android.settings.paranoid.Halo"
+                android:title="@string/halo_settings_title"
+                android:summary="@string/halo_settings_summary" />
 
 <PreferenceScreen
            android:id="@+id/advanced_settings"
