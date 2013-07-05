@@ -48,4 +48,33 @@
         android:title="@string/quiet_hours_dim_title"
         android:dependency="quiet_hours_enabled" />
 
+    <PreferenceCategory
+        android:key="sms_respond"
+        android:title="@string/quiet_hours_auto_sms_group">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/auto_sms_entries"
+            android:entryValues="@array/auto_sms_values"
+            android:key="auto_sms"
+            android:summary="@string/quiet_hours_auto_sms_summary"
+            android:title="@string/quiet_hours_auto_sms_title"
+            android:dependency="quiet_hours_enabled" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/auto_sms_entries"
+            android:entryValues="@array/auto_sms_values"
+            android:key="auto_sms_call"
+            android:summary="@string/quiet_hours_auto_sms_call_summary"
+            android:title="@string/quiet_hours_auto_sms_call_title"
+            android:dependency="quiet_hours_enabled" />
+
+        <Preference
+            android:key="auto_sms_message"
+            android:title="@string/quiet_hours_auto_string_title"
+            android:dependency="quiet_hours_enabled" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

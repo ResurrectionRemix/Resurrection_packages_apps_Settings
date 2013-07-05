@@ -62,7 +62,12 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
     <uses-permission android:name="android.permission.SET_TIME" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.CHANGE_PRIVACY_GUARD_STATE" />
+=======
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+>>>>>>> 85741e3... Settings: AutoSmsReply while in QuietHours
 
     <permission
         android:name="android.permission.REQUEST_SUPERUSER"
@@ -163,6 +168,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!-- QuietHours AutoSMS -->
+
+        <service android:name=".service.CallService"/>
+        <service android:name=".service.SmsService"/>
+
+        <receiver
+            android:name=".service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
         <!-- Wireless Controls -->
 
