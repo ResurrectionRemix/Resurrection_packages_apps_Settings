@@ -127,14 +127,9 @@ public class Settings extends PreferenceActivity
             R.id.rom_control,
             R.id.themes,
             R.id.advanced_settings,
-<<<<<<< HEAD
-            R.id.sprint_tools
-           
- 
-=======
             R.id.launcher_settings,
             R.id.sprint_tools,
->>>>>>> 315d8b4... Added Launcher configuration item
+
     };
 
     private SharedPreferences mDevelopmentPreferences;
