@@ -195,14 +195,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FULLSCREEN_KEYBOARD,
                     mFullscreenKeyboard.isChecked() ? 1 : 0);
           } else if (preference == mCameraSounds) {
-            SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "1" : "0");
-        } else if (preference.getKey().equals(RR_ROM_SHARE)) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, String.format(
-                    getActivity().getString(R.string.share_message)));
-            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title)));           
+            SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "1" : "0");          
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -225,6 +218,14 @@ public class Resurrection extends SettingsPreferenceFragment implements
                     Settings.System.KEYBOARD_ROTATION_TIMEOUT, timeout);
             updateRotationTimeout(timeout);
             return true;
+           } else if (preference.getKey().equals(RR_ROM_SHARE)) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, String.format(
+                    getActivity().getString(R.string.share_message)));
+            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title))); 
+             return true;
     }
         return false;
     }
