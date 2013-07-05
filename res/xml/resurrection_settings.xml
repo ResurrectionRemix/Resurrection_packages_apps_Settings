@@ -194,10 +194,7 @@
         android:key="resurrection_update"
         android:title="@string/update_header"> 
         
-        <PreferenceScreen android:key="changelog"
-            android:title="@string/changelog_title"
-            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
-        </PreferenceScreen>  
+ 
               
 <PreferenceScreen
         android:key="update_me"
@@ -207,7 +204,17 @@
                 android:targetPackage="com.acquariusoft.UpdateMeSmartphone"
                 android:targetClass="com.acquariusoft.UpdateMeSmartphone.UpdateMeActivityOld" />
 </PreferenceScreen>
-
+        <!-- Share RR ROM -->
+        <Preference
+            android:key="share"
+            android:title="@string/share_rr"
+            android:summary="@string/share_rr_summary" />
+            
+        <PreferenceScreen android:key="changelog"
+            android:title="@string/changelog_title"
+            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
+            
+        </PreferenceScreen> 
 </PreferenceCategory>
 
 </PreferenceScreen>
