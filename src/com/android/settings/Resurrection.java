@@ -85,7 +85,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_SOUNDS = "camera_sounds";
     private static final String PROP_CAMERA_SOUND = "persist.sys.camera-sound";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
-    private static final String RR_ROM_SHARE = "share";
     
     private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
@@ -146,8 +145,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
             timeout = KEYBOARD_ROTATION_TIMEOUT_DEFAULT;
         mKeyboardRotationTimeout.setValue(Integer.toString(timeout));
         mKeyboardRotationTimeout.setSummary(getString(R.string.keyboard_rotation_timeout_summary, mKeyboardRotationTimeout.getEntry()));
+    
     }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -195,7 +194,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.FULLSCREEN_KEYBOARD,
                     mFullscreenKeyboard.isChecked() ? 1 : 0);
           } else if (preference == mCameraSounds) {
-            SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "1" : "0");          
+            SystemProperties.set(PROP_CAMERA_SOUND, mCameraSounds.isChecked() ? "1" : "0");
+         
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -218,14 +218,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
                     Settings.System.KEYBOARD_ROTATION_TIMEOUT, timeout);
             updateRotationTimeout(timeout);
             return true;
-           } else if (preference.getKey().equals(RR_ROM_SHARE)) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, String.format(
-                    getActivity().getString(R.string.share_message)));
-            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title))); 
-             return true;
+ 
     }
         return false;
     }
