@@ -134,17 +134,16 @@
 
         <com.android.settings.RegulatoryInfoPreference android:key="regulatory_info"
                 android:title="@string/regulatory_information" />
-
-        <!-- Device hardware model -->
-        <Preference android:key="device_model" 
-                style="?android:preferenceInformationStyle"
-                android:title="@string/model_number"
-                android:summary="@string/device_info_default"/>
         <!-- Share RR ROM -->
            <Preference
             android:key="share"
             android:title="@string/share_rr"
             android:summary="@string/share_rr_summary" />
+        <!-- Device hardware model -->
+        <Preference android:key="device_model" 
+                style="?android:preferenceInformationStyle"
+                android:title="@string/model_number"
+                android:summary="@string/device_info_default"/>
         <!-- Device firmware version -->
         <Preference android:key="firmware_version" 
                 style="?android:preferenceInformationStyle"
