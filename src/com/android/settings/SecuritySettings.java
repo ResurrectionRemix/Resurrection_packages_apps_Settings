@@ -62,12 +62,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_BIOMETRIC_WEAK_LIVELINESS = "biometric_weak_liveliness";
     private static final String KEY_LOCK_ENABLED = "lockenabled";
     private static final String KEY_VISIBLE_PATTERN = "visiblepattern";
-<<<<<<< HEAD
-=======
-    private static final String KEY_VISIBLE_ERROR_PATTERN = "visible_error_pattern";
-    private static final String KEY_VISIBLE_DOTS = "visibledots";
-    private static final String KEY_QUICK_UNLOCK = "lockscreen_quick_unlock_control";
->>>>>>> dac502e... LockscreenPattern : Toggle dots/error pattern visibility (2/2) - CM
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
@@ -96,12 +90,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mBiometricWeakLiveliness;
     private CheckBoxPreference mVisiblePattern;
-<<<<<<< HEAD
-=======
-    private CheckBoxPreference mVisibleErrorPattern;
-    private CheckBoxPreference mVisibleDots;
-    private CheckBoxPreference mQuickUnlock;
->>>>>>> dac502e... LockscreenPattern : Toggle dots/error pattern visibility (2/2) - CM
 
     private CheckBoxPreference mShowPassword;
 
@@ -211,18 +199,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // visible pattern
         mVisiblePattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_PATTERN);
 
-<<<<<<< HEAD
-=======
-        // Quick Unlock for PIN and Password Lockscreens
-        mQuickUnlock = (CheckBoxPreference) root.findPreference(KEY_QUICK_UNLOCK);
-
-        // visible error pattern
-        mVisibleErrorPattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_ERROR_PATTERN);
-
-        // visible dots
-        mVisibleDots = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_DOTS);
-
->>>>>>> dac502e... LockscreenPattern : Toggle dots/error pattern visibility (2/2) - CM
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
                 KEY_POWER_INSTANTLY_LOCKS);
@@ -233,11 +209,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
             PreferenceGroup securityCategory = (PreferenceGroup)
                     root.findPreference(KEY_SECURITY_CATEGORY);
-            if (securityCategory != null && mVisiblePattern != null &&
-                    mVisibleErrorPattern != null && mVisibleDots != null) {
-                securityCategory.removePreference(mVisiblePattern);
-                securityCategory.removePreference(mVisibleErrorPattern);
-                securityCategory.removePreference(mVisibleDots);
+            if (securityCategory != null && mVisiblePattern != null) {
+                securityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
             }
         }
 
@@ -444,19 +417,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mVisiblePattern != null) {
             mVisiblePattern.setChecked(lockPatternUtils.isVisiblePatternEnabled());
         }
-<<<<<<< HEAD
-=======
-        if (mQuickUnlock != null) {
-            mQuickUnlock.setChecked(Settings.System.getBoolean(getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, false));
-        }
-        if (mVisibleErrorPattern != null) {
-            mVisibleErrorPattern.setChecked(lockPatternUtils.isShowErrorPath());
-        }
-        if (mVisibleDots != null) {
-            mVisibleDots.setChecked(lockPatternUtils.isVisibleDotsEnabled());
-        }
->>>>>>> dac502e... LockscreenPattern : Toggle dots/error pattern visibility (2/2) - CM
         if (mPowerButtonInstantlyLocks != null) {
             mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
         }
@@ -515,16 +475,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             lockPatternUtils.setLockPatternEnabled(isToggled(preference));
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
             lockPatternUtils.setVisiblePatternEnabled(isToggled(preference));
-<<<<<<< HEAD
-=======
-        } else if (KEY_QUICK_UNLOCK.equals(key)) {
-            Settings.System.putBoolean(getContentResolver(),
-                 Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference));
-        } else if (KEY_VISIBLE_ERROR_PATTERN.equals(key)) {
-            lockPatternUtils.setShowErrorPath(isToggled(preference));
-        } else if (KEY_VISIBLE_DOTS.equals(key)) {
-            lockPatternUtils.setVisibleDotsEnabled(isToggled(preference));
->>>>>>> dac502e... LockscreenPattern : Toggle dots/error pattern visibility (2/2) - CM
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
         } else if (preference == mShowPassword) {
