@@ -67,16 +67,6 @@
                 
   </PreferenceScreen>
         
-       <!-- Permissions Management -->
-<PreferenceScreen
-        android:id="@+id/permissions_settings"
-        android:summary="@string/permissions_summary"
-        android:title="@string/permissions_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="org.chameleonos.permissionsmanager"
-            android:targetClass="org.chameleonos.permissionsmanager.activity.PermissionManagerActivity" />
-       </PreferenceScreen>
 <PreferenceCategory
         android:key="keyboard_header"
         android:title="@string/keyboard_header"> 
@@ -190,6 +180,29 @@
 
 </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="app_security_rr"
+        android:title="@string/app_security_title">
+        
+         <Preference
+            android:fragment="com.android.settings.cyanogenmod.privacyguard.PrivacyGuardManager"
+            android:key="privacy_guard_manager"
+            android:summary="@string/privacy_guard_manager_summary"
+            android:title="@string/privacy_guard_manager_title" />
+            
+     <!-- Permissions Management -->
+<PreferenceScreen
+        android:id="@+id/permissions_settings"
+        android:summary="@string/permissions_summary"
+        android:title="@string/permissions_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.chameleonos.permissionsmanager"
+            android:targetClass="org.chameleonos.permissionsmanager.activity.PermissionManagerActivity" />
+       </PreferenceScreen>
+       
+       </PreferenceCategory> 
+           
 <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 
@@ -209,7 +222,6 @@
             android:title="@string/changelog_title"
             android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
             
-        </PreferenceScreen> 
+</PreferenceScreen> 
 </PreferenceCategory>
-
-</PreferenceScreen>
+</PreferenceScreen> 
