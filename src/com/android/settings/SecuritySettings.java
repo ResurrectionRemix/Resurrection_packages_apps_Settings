@@ -93,7 +93,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mBiometricWeakLiveliness;
     private CheckBoxPreference mVisiblePattern;
-    private CheckBoxPreference mPrivacyGuardDefault;
 
 
     private CheckBoxPreference mShowPassword;
@@ -107,19 +106,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private boolean mIsPrimary;
 
-<<<<<<< HEAD
-=======
-    // Cyanogenmod Additions
-    private CheckBoxPreference mSlideLockDelayToggle;
-    private ListPreference mSlideLockTimeoutDelay;
-    private ListPreference mSlideLockScreenOffDelay;
-    private CheckBoxPreference mVibratePref;
-    private CheckBoxPreference mMenuUnlock;
-    private CheckBoxPreference mHomeUnlock;
-    private CheckBoxPreference mQuickUnlockScreen;
-    private ListPreference mSmsSecurityCheck;
-
->>>>>>> deff1bd... Settings: Introduce Privacy Guard Manager
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -295,18 +281,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 PreferenceGroup appCategory = (PreferenceGroup)
                         root.findPreference(KEY_APP_SECURITY_CATEGORY);
                 appCategory.removePreference(mSmsSecurityCheck);
-            }
-<<<<<<< HEAD
-
-            mPrivacyGuardDefault = (CheckBoxPreference) findPreference(KEY_PRIVACY_GUARD_DEFAULT);
-            try {
-                mPrivacyGuardDefault.setChecked(Settings.Secure.getInt(getContentResolver(),
-                        Settings.Secure.PRIVACY_GUARD_DEFAULT) == 1);
-            } catch (SettingNotFoundException e) {
-                mPrivacyGuardDefault.setChecked(false);
-=======
->>>>>>> deff1bd... Settings: Introduce Privacy Guard Manager
-         }
 
         return root;
     }
@@ -526,13 +500,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         } else if (KEY_TOGGLE_VERIFY_APPLICATIONS.equals(key)) {
             Settings.Global.putInt(getContentResolver(), Settings.Global.PACKAGE_VERIFIER_ENABLE,
                     mToggleVerifyApps.isChecked() ? 1 : 0);
-<<<<<<< HEAD
-
-        } else if (KEY_PRIVACY_GUARD_DEFAULT.equals(key)) {
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.PRIVACY_GUARD_DEFAULT,
-                    mPrivacyGuardDefault.isChecked() ? 1 : 0);
-=======
->>>>>>> deff1bd... Settings: Introduce Privacy Guard Manager
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
