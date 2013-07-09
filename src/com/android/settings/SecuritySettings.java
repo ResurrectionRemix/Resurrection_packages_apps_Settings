@@ -94,13 +94,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mBiometricWeakLiveliness;
     private CheckBoxPreference mVisiblePattern;
-<<<<<<< HEAD
-=======
-    private CheckBoxPreference mVisibleErrorPattern;
-    private CheckBoxPreference mVisibleDots;
-    private CheckBoxPreference mQuickUnlock;
     private CheckBoxPreference mPrivacyGuardDefault;
->>>>>>> d383801... Fixed conflicts
+
 
     private CheckBoxPreference mShowPassword;
 
@@ -210,17 +205,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // visible pattern
         mVisiblePattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_PATTERN);
 
-        // Quick Unlock for PIN and Password Lockscreens
-        mQuickUnlock = (CheckBoxPreference) root.findPreference(KEY_QUICK_UNLOCK);
-
-<<<<<<< HEAD
-=======
-        // visible error pattern
-        mVisibleErrorPattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_ERROR_PATTERN);
-
-        // visible dots
-        mVisibleDots = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_DOTS);
->>>>>>> d383801... Fixed conflicts
 
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
@@ -453,24 +437,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mVisiblePattern != null) {
             mVisiblePattern.setChecked(lockPatternUtils.isVisiblePatternEnabled());
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> d383801... Fixed conflicts
-        if (mQuickUnlock != null) {
-            mQuickUnlock.setChecked(Settings.System.getBoolean(getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, false));
-        }
-<<<<<<< HEAD
-
-=======
-        if (mVisibleErrorPattern != null) {
-            mVisibleErrorPattern.setChecked(lockPatternUtils.isShowErrorPath());
-        }
-        if (mVisibleDots != null) {
-            mVisibleDots.setChecked(lockPatternUtils.isVisibleDotsEnabled());
-        }
->>>>>>> d383801... Fixed conflicts
         if (mPowerButtonInstantlyLocks != null) {
             mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
         }
@@ -529,16 +496,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             lockPatternUtils.setLockPatternEnabled(isToggled(preference));
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
             lockPatternUtils.setVisiblePatternEnabled(isToggled(preference));
-        } else if (KEY_QUICK_UNLOCK.equals(key)) {
-            Settings.System.putBoolean(getContentResolver(),
-                 Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference));
-<<<<<<< HEAD
-=======
-        } else if (KEY_VISIBLE_ERROR_PATTERN.equals(key)) {
-            lockPatternUtils.setShowErrorPath(isToggled(preference));
-        } else if (KEY_VISIBLE_DOTS.equals(key)) {
-            lockPatternUtils.setVisibleDotsEnabled(isToggled(preference));
->>>>>>> d383801... Fixed conflicts
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
         } else if (preference == mShowPassword) {
