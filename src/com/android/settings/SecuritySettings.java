@@ -281,7 +281,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 PreferenceGroup appCategory = (PreferenceGroup)
                         root.findPreference(KEY_APP_SECURITY_CATEGORY);
                 appCategory.removePreference(mSmsSecurityCheck);
-
+             }
         return root;
     }
 
