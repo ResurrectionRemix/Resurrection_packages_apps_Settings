@@ -44,17 +44,7 @@
                 android:key="halo"
                 android:fragment="com.android.settings.paranoid.Halo"
                 android:title="@string/halo_settings_title"
-                android:summary="@string/halo_settings_summary" />
-
-<PreferenceScreen
-           android:id="@+id/advanced_settings"
-            android:title="@string/advanced_settings_title"
-            android:summary="@string/advenced_settings_summary">
-        <intent
-                android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
-                android:targetPackage="com.cyanogenmod.settings.device"
-                android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
-    </PreferenceScreen>  
+                android:summary="@string/halo_settings_summary" /> 
     
     <PreferenceScreen
             android:id="@+id/themes"

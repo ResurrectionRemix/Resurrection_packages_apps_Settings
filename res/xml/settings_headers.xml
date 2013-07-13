@@ -91,6 +91,18 @@
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
+        
+        
+    <header
+           android:id="@+id/advanced_settings"
+           android:icon="@drawable/ic_sysbar_quicksettings"
+            android:title="@string/advanced_settings_title"
+            android:summary="@string/advenced_settings_summary">
+        <intent
+                android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+                android:targetPackage="com.cyanogenmod.settings.device"
+                android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
+</header> 
 
     <!-- Sound -->
     <header
