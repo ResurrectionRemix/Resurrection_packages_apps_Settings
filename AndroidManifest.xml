@@ -198,7 +198,6 @@
                 android:resource="@id/wireless_settings" />
         </activity>
 
-
         <!-- Top-level settings -->
 
         <activity android:name="Settings$WifiSettingsActivity"
@@ -1307,7 +1306,12 @@
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
             </intent-filter>
         </activity>
-
+        <!-- DeviceInfo adds the user's requested build to stats upload.  -->
+        <receiver android:name=".DeviceInfo$StatsReportReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.STATISTICS_REPORT" />
+            </intent-filter>
+        </receiver>
         <activity android:name="BatteryInfo" android:label="@string/battery_info_label"
                   android:taskAffinity="com.android.settings"
                   android:parentActivityName="Settings">
