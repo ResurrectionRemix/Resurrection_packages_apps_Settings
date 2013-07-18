@@ -70,6 +70,7 @@
                 android:targetPackage="com.cyanogenmod.settings.device"
                 android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
         </Preference>
+<<<<<<< HEAD
         
         <ListPreference
                 android:key="screen_off_animation"
@@ -77,6 +78,15 @@
                 android:entries="@array/screen_off_animation_entries"
                 android:entryValues="@array/screen_off_animation_values" />
                 
+=======
+
+        <CheckBoxPreference
+            android:key="wake_when_plugged_or_unplugged"
+            android:title="@string/wake_when_plugged_or_unplugged_title"
+            android:summary="@string/wake_when_plugged_or_unplugged_summary"
+            android:defaultValue="false" />
+
+>>>>>>> ad11248... Forward port "Display options: allow configuration of wake on plug behavior"
         <PreferenceCategory
             android:key="lights_prefs"
             android:title="@string/lights_category_title">
