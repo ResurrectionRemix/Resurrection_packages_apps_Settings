@@ -159,6 +159,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mWakeWhenPluggedOrUnplugged =
                 (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
 
+<<<<<<< HEAD
         mScreenOffAnimationPreference = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
         final int currentAnimation = Settings.System.getInt(resolver, SCREEN_OFF_ANIMATION,
                 1 /* CRT-off */);
@@ -169,6 +170,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
 
+=======
+>>>>>>> ad11248... Forward port "Display options: allow configuration of wake on plug behavior"
         boolean hasNotificationLed = res.getBoolean(
                 com.android.internal.R.bool.config_intrusiveNotificationLed);
         boolean hasBatteryLed = res.getBoolean(
@@ -347,11 +350,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         final ContentResolver resolver = getContentResolver();
 
+<<<<<<< HEAD
         // Display rotation observer
         resolver.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
                 mAccelerometerRotationObserver);
 
+=======
+>>>>>>> ad11248... Forward port "Display options: allow configuration of wake on plug behavior"
         if (mAdaptiveBacklight != null) {
             mAdaptiveBacklight.setChecked(AdaptiveBacklight.isEnabled());
         }
@@ -462,6 +468,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                     mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
+<<<<<<< HEAD
         } else if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
@@ -491,6 +498,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             });
 
             alert.show();
+=======
+>>>>>>> ad11248... Forward port "Display options: allow configuration of wake on plug behavior"
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
