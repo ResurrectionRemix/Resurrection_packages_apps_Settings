@@ -45,7 +45,16 @@
                 android:fragment="com.android.settings.paranoid.Halo"
                 android:title="@string/halo_settings_title"
                 android:summary="@string/halo_settings_summary" /> 
-    
+            
+            <PreferenceScreen
+                android:id="@+id/hybrid_settings"
+                android:title="@string/hybrid_settings"
+                android:summary="@string/hybrid_settings_summary">
+                <intent android:action="android.intent.action.MAIN"
+                        android:targetPackage="com.paranoid.preferences"
+                        android:targetClass="com.paranoid.preferences.MainActivity" />
+
+            </PreferenceScreen>    
     <PreferenceScreen
             android:id="@+id/themes"
             android:title="@string/themes_title"
@@ -142,31 +151,6 @@
                 android:targetPackage="com.cyanogenmod.lockclock"
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />    
                 </PreferenceScreen>       
-
-</PreferenceCategory>
-        <!-- DPI Settings -->
-     <PreferenceCategory
-        android:key="resurrection_dpi"
-        android:title="@string/dpi_header">     
-
-<PreferenceScreen
-        android:key="dpi_installer"
-        android:title="@string/dpi_installer"
-        android:summary="@string/dpi_installer_summary">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="de.robv.android.xposed.installer"
-                android:targetClass="de.robv.android.xposed.installer.XposedInstallerActivity" />
-               
-</PreferenceScreen>
-
-<PreferenceScreen
-        android:key="per_app_settings"
-        android:title="@string/per_app_settings"
-        android:summary="@string/per_app_settings_summary">
-        <intent android:action="android.intent.action.MAIN"
-               android:targetPackage="de.robv.android.xposed.mods.appsettings"
-               android:targetClass="de.robv.android.xposed.mods.appsettings.XposedModActivity" />
-</PreferenceScreen>
 
 </PreferenceCategory>
 
