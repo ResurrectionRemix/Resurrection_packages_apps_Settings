@@ -260,6 +260,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             mMusicFx.setSummary(ris.get(0).loadLabel(p));
         }
 
+
         if (!Utils.isVoiceCapable(getActivity())) {
             for (String prefKey : NEED_VOICE_CAPABILITY) {
                 Preference pref = findPreference(prefKey);
