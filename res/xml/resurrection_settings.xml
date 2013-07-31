@@ -54,17 +54,7 @@
                         android:targetPackage="com.paranoid.preferences"
                         android:targetClass="com.paranoid.preferences.MainActivity" />
 
-            </PreferenceScreen>    
-    <PreferenceScreen
-            android:id="@+id/themes"
-            android:title="@string/themes_title"
-            android:summary="@string/themes_title_summary">
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.tmobile.themechooser"
-                android:targetClass="com.tmobile.themechooser.ThemeChooser" /> 
-                
-  </PreferenceScreen>
+            </PreferenceScreen>
         
 <PreferenceCategory
         android:key="keyboard_header"
@@ -113,7 +103,22 @@
         android:summary="@string/notification_show_wifi_ssid_summary"
         android:defaultValue="true" />
        
-       </PreferenceCategory>
+        <ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:defaultValue="1" />
+
+         <ListPreference
+            android:key="listview_interpolator"
+            android:dialogTitle="@string/listview_interpolator_title"
+            android:title="@string/listview_interpolator_title"
+            android:entries="@array/listview_interpolator_entries"
+            android:entryValues="@array/listview_interpolator_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
  <PreferenceCategory
         android:key="sound_header"
         android:title="@string/sound_header"> 

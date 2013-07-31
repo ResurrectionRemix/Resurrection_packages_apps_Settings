@@ -83,6 +83,15 @@
         android:summary="@string/pb_summary"
         android:title="@string/pb_settings_title"/>
         
+    <header android:id="@+id/themes"
+            android:title="@string/themes_title"
+            android:icon="@drawable/ic_settings_themes" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.tmobile.themechooser"
+                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+        
     <header
         android:id="@+id/launcher_settings"
         android:title="@string/launcher_settings_title"
