@@ -75,7 +75,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCameraSounds;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
-    private CheckBoxPreference mStatusBarTraffic;
     
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
@@ -90,8 +89,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
-    private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
-
+    
     private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
     private final Configuration mCurConfig = new Configuration();
@@ -109,11 +107,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mFullscreenKeyboard = (CheckBoxPreference) findPreference(PREF_FULLSCREEN_KEYBOARD);
         mFullscreenKeyboard.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.FULLSCREEN_KEYBOARD, 0) == 1);
- 
-        mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
-        mStatusBarTraffic.setChecked(Settings.System.getBoolean(mContentResolver,
-                Settings.System.STATUS_BAR_TRAFFIC, false));
-
+                
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
@@ -249,11 +243,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
                     Settings.System.LISTVIEW_ANIMATION,
                     listviewanimation);
             mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarTraffic) {
-            Settings.System.putBoolean(mContentResolver,
-                    Settings.System.STATUS_BAR_TRAFFIC,
-                    ((TwoStatePreference) preference).isChecked());
             return true;
         } else if (preference == mListViewInterpolator) {
             int listviewinterpolator = Integer.valueOf((String) newValue);
