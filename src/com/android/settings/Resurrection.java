@@ -75,6 +75,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mCameraSounds;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
+    private CheckBoxPreference mStatusPac;
     
     private static final String KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
@@ -89,7 +90,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
-    
+    private static final String KEY_PAC_STATUS = "pac_status";
+
     private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
     private final Configuration mCurConfig = new Configuration();
@@ -119,6 +121,10 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);   
         
+        mStatusPac = (CheckBoxPreference) findPreference(KEY_PAC_STATUS);
+        mStatusPac.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.PAC_STATUS, 0) == 1);
+                       
         mCameraSounds = (CheckBoxPreference) findPreference(KEY_CAMERA_SOUNDS);
         mCameraSounds.setPersistent(false);
         mCameraSounds.setChecked(SystemProperties.getBoolean(
@@ -196,6 +202,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
             } else if (preference == mHeadsetConnectPlayer) {
             Settings.System.putInt(getContentResolver(), Settings.System.HEADSET_CONNECT_PLAYER,
                     mHeadsetConnectPlayer.isChecked() ? 1 : 0);
+         } else if (preference == mStatusPac) {
+            Settings.System.putInt(getContentResolver(), Settings.System.PAC_STATUS,
+                    mStatusPac.isChecked() ? 1 : 0);
          } else if (preference == mShowWifiName) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
                     mShowWifiName.isChecked() ? 1 : 0);
