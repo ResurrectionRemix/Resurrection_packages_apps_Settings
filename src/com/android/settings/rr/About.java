@@ -55,9 +55,9 @@ public class About extends SettingsPreferenceFragment {
         } else if (preference == mForumUrl) {
             launchUrl("http://www.resurrectionremix.com/index.php");
         } else if (preference == mSourceUrl) {
-            launchUrl("https://github.com/westcripp");
+            launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
-            launchUrl("http://www.facebook.com/westcripp");
+            launchUrl("https://www.facebook.com/resurrectionremixrom");
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
