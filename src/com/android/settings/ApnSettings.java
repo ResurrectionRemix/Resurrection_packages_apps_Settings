@@ -33,7 +33,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Telephony;
@@ -49,7 +49,7 @@ import com.android.internal.telephony.TelephonyProperties;
 
 import java.util.ArrayList;
 
-public class ApnSettings extends PreferenceActivity implements
+public class ApnSettings extends PreferenceDrawerActivity implements
         Preference.OnPreferenceChangeListener {
     static final String TAG = "ApnSettings";
 
@@ -231,6 +231,7 @@ public class ApnSettings extends PreferenceActivity implements
     }
 
     private void addNewApn() {
+
         startActivity(new Intent(Intent.ACTION_INSERT, Telephony.Carriers.CONTENT_URI));
     }
 
@@ -238,7 +239,9 @@ public class ApnSettings extends PreferenceActivity implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         int pos = Integer.parseInt(preference.getKey());
         Uri url = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI, pos);
+
         startActivity(new Intent(Intent.ACTION_EDIT, url));
+        
         return true;
     }
 
