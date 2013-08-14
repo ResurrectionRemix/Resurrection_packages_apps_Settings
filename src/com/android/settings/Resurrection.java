@@ -91,8 +91,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_PAC_STATUS = "pac_status";
-    private static final String KEY_HARDWARE_KEYS = "hardware_keys"; 
-    
+
     private static final int KEYBOARD_ROTATION_TIMEOUT_DEFAULT = 2000; // 2s
     
     private final Configuration mCurConfig = new Configuration();
