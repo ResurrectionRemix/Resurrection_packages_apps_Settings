@@ -17,7 +17,7 @@ package com.android.settings.inputmethod;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -125,7 +125,7 @@ public class UserDictionaryAddWordFragment extends Fragment
             final long id) {
         final LocaleRenderer locale = (LocaleRenderer)parent.getItemAtPosition(pos);
         if (locale.isMoreLanguages()) {
-            PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity)getActivity();
+            PreferenceActivity preferenceActivity = (PreferenceActivity)getActivity();
             preferenceActivity.startPreferenceFragment(new UserDictionaryLocalePicker(this), true);
         } else {
             mContents.updateLocale(locale.getLocaleString());

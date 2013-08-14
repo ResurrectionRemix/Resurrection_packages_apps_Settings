@@ -31,7 +31,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
@@ -164,12 +164,12 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
 
         mCurrentEngine = mTts.getCurrentEngine();
 
-        PreferenceDrawerActivity preferenceActivity = null;
-        if (getActivity() instanceof PreferenceDrawerActivity) {
-            preferenceActivity = (PreferenceDrawerActivity) getActivity();
+        PreferenceActivity preferenceActivity = null;
+        if (getActivity() instanceof PreferenceActivity) {
+            preferenceActivity = (PreferenceActivity) getActivity();
         } else {
             throw new IllegalStateException("TextToSpeechSettings used outside a " +
-                    "PreferenceDrawerActivity");
+                    "PreferenceActivity");
         }
 
         mEnginePreferenceCategory.removeAll();

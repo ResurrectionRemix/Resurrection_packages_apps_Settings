@@ -43,7 +43,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFrameLayout;
 import android.provider.Settings;
 import android.support.v4.view.PagerAdapter;
@@ -991,7 +991,7 @@ public class ManageApplications extends Fragment implements
         Bundle args = new Bundle();
         args.putString(InstalledAppDetails.ARG_PACKAGE_NAME, mCurrentPkgName);
 
-        PreferenceDrawerActivity pa = (PreferenceDrawerActivity)getActivity();
+        PreferenceActivity pa = (PreferenceActivity)getActivity();
         pa.startPreferencePanel(InstalledAppDetails.class.getName(), args,
                 R.string.application_info_label, null, this, INSTALLED_APP_DETAILS);
     }

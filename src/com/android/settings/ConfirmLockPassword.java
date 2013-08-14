@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceDrawerActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -121,15 +120,9 @@ public class ConfirmLockPassword extends PreferenceActivity {
             mPasswordEntry.setInputType(isAlpha ? currentType
                     : (InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD));
 
-            // Update the breadcrumb (title) if this is embedded in a PreferenceDrawerActivity
+            // Update the breadcrumb (title) if this is embedded in a PreferenceActivity
             if (activity instanceof PreferenceActivity) {
                 final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-                int id = isAlpha ? R.string.lockpassword_confirm_your_password_header
-                        : R.string.lockpassword_confirm_your_pin_header;
-                CharSequence title = getText(id);
-                preferenceActivity.showBreadCrumbs(title, title);
-            } else if (activity instanceof PreferenceDrawerActivity) {
-                final PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity) activity;
                 int id = isAlpha ? R.string.lockpassword_confirm_your_password_header
                         : R.string.lockpassword_confirm_your_pin_header;
                 CharSequence title = getText(id);

@@ -36,7 +36,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Process;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.Formatter;
@@ -265,13 +265,13 @@ public class PowerUsageDetail extends Fragment implements Button.OnClickListener
         Bundle args = new Bundle();
         args.putString(InstalledAppDetails.ARG_PACKAGE_NAME, mPackages[0]);
 
-        PreferenceDrawerActivity pa = (PreferenceDrawerActivity)getActivity();
+        PreferenceActivity pa = (PreferenceActivity)getActivity();
         pa.startPreferencePanel(InstalledAppDetails.class.getName(), args,
                 R.string.application_info_label, null, null, 0);
     }
 
     private void doAction(int action) {
-        PreferenceDrawerActivity pa = (PreferenceDrawerActivity)getActivity();
+        PreferenceActivity pa = (PreferenceActivity)getActivity();
         switch (action) {
             case ACTION_DISPLAY_SETTINGS:
                 pa.startPreferencePanel(DisplaySettings.class.getName(), null,

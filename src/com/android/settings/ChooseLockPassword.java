@@ -29,7 +29,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceDrawerActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
@@ -226,20 +225,14 @@ public class ChooseLockPassword extends PreferenceActivity {
                     updateStage(mUiStage);
                 }
             }
-            // Update the breadcrumb (title) if this is embedded in a PreferenceDrawerActivity
-            if (activity instanceof PreferenceDrawerActivity) {
-                final PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity) activity;
+            // Update the breadcrumb (title) if this is embedded in a PreferenceActivity
+            if (activity instanceof PreferenceActivity) {
+                final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
                 int id = mIsAlphaMode ? R.string.lockpassword_choose_your_password_header
                         : R.string.lockpassword_choose_your_pin_header;
                 CharSequence title = getText(id);
                 preferenceActivity.showBreadCrumbs(title, title);
-            } else if (activity instanceof PreferenceActivity) {
-                    final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-                    int id = mIsAlphaMode ? R.string.lockpassword_choose_your_password_header
-                            : R.string.lockpassword_choose_your_pin_header;
-                    CharSequence title = getText(id);
-                    preferenceActivity.showBreadCrumbs(title, title);
-                }
+            }
 
             return view;
         }

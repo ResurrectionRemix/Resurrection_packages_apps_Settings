@@ -49,7 +49,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -73,7 +73,7 @@ import java.util.List;
 /**
  * Top-level settings activity to handle single pane and double pane UI layout.
  */
-public class Settings extends PreferenceDrawerActivity
+public class Settings extends PreferenceActivity
         implements ButtonBarHandler, OnAccountsUpdateListener {
 
     private static final String LOG_TAG = "Settings";

@@ -68,7 +68,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
 
     /**
      * Invoked on each preference click in this hierarchy, overrides
-     * PreferenceDrawerActivity's implementation.  Used to make sure we track the
+     * PreferenceActivity's implementation.  Used to make sure we track the
      * preference click events.
      */
     @Override

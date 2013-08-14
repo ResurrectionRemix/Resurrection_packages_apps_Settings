@@ -26,7 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -114,8 +114,8 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
 
         Switch actionBarSwitch = new Switch(activity);
 
-        if (activity instanceof PreferenceDrawerActivity) {
-            PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity) activity;
+        if (activity instanceof PreferenceActivity) {
+            PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
             if (preferenceActivity.onIsHidingHeaders() || !preferenceActivity.onIsMultiPane()) {
                 final int padding = activity.getResources().getDimensionPixelSize(
                         R.dimen.action_bar_switch_padding);
@@ -358,7 +358,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
                 Bundle args = new Bundle(1);
                 args.putParcelable(DeviceProfilesSettings.EXTRA_DEVICE, device.getDevice());
 
-                ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(
+                ((PreferenceActivity) getActivity()).startPreferencePanel(
                         DeviceProfilesSettings.class.getName(), args,
                         R.string.bluetooth_device_advanced_title, null, null, 0);
             } else {
