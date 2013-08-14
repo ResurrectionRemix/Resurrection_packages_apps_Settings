@@ -49,7 +49,7 @@ import com.android.internal.telephony.TelephonyProperties;
 
 import java.util.ArrayList;
 
-public class ApnSettings extends PreferenceActivity implements
+public class ApnSettings extends PreferenceDrawerActivity implements
         Preference.OnPreferenceChangeListener {
     static final String TAG = "ApnSettings";
 
@@ -231,30 +231,17 @@ public class ApnSettings extends PreferenceActivity implements
     }
 
     private void addNewApn() {
-<<<<<<< HEAD
+
         startActivity(new Intent(Intent.ACTION_INSERT, Telephony.Carriers.CONTENT_URI));
-=======
-        Bundle editBundle = new Bundle();
-        editBundle.putString(ApnEditor.EDIT_ACTION, Intent.ACTION_INSERT);
-        editBundle.putString(ApnEditor.EDIT_DATA, Telephony.Carriers.CONTENT_URI.toSafeString());
-        ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(ApnEditor.class.getName(), editBundle,
-                            R.string.apn_edit, null, null, 0);
->>>>>>> 9c4ad53... Use the new PreferenceDrawerActivity to make use of the navigation drawer UI.
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         int pos = Integer.parseInt(preference.getKey());
         Uri url = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI, pos);
-<<<<<<< HEAD
+
         startActivity(new Intent(Intent.ACTION_EDIT, url));
-=======
-        Bundle editBundle = new Bundle();
-        editBundle.putString(ApnEditor.EDIT_ACTION, Intent.ACTION_EDIT);
-        editBundle.putString(ApnEditor.EDIT_DATA, url.toSafeString());
-        ((PreferenceDrawerActivity) getActivity()).startPreferencePanel(ApnEditor.class.getName(), editBundle,
-                R.string.apn_edit, null, null, 0);
->>>>>>> 9c4ad53... Use the new PreferenceDrawerActivity to make use of the navigation drawer UI.
+        
         return true;
     }
 
