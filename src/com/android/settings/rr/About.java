@@ -22,6 +22,7 @@ public class About extends SettingsPreferenceFragment {
     Preference mForumUrl;
     Preference mSourceUrl;
     Preference mFacebookUrl;
+    Preference mGoogleUrl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,8 @@ public class About extends SettingsPreferenceFragment {
         mForumUrl = findPreference("rr_irc");
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
-
+        mGoogleUrl = findPreference("rr_google_plus");
+        
         PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
         for (int i = 0; i < devsGroup.getPreferenceCount(); i++) {
@@ -58,6 +60,8 @@ public class About extends SettingsPreferenceFragment {
             launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
             launchUrl("https://www.facebook.com/resurrectionremixrom");
+        } else if (preference == mGoogleUrl) {
+            launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
