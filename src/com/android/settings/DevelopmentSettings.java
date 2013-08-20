@@ -105,6 +105,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String SELECT_RUNTIME_KEY = "select_runtime";
     private static final String SELECT_RUNTIME_PROPERTY = "persist.sys.dalvik.vm.lib";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
+    private static final String ALLOW_MOCK_SMS = "allow_mock_sms";
     private static final String HDCP_CHECKING_KEY = "hdcp_checking";
     private static final String HDCP_CHECKING_PROPERTY = "persist.sys.hdcp_checking";
     private static final String LOCAL_BACKUP_PASSWORD = "local_backup_password";
@@ -194,6 +195,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private CheckBoxPreference mBtHciSnoopLog;
     private CheckBoxPreference mQuickBoot;
     private CheckBoxPreference mAllowMockLocation;
+    private CheckBoxPreference mAllowMockSMS;
     private PreferenceScreen mPassword;
 
     private String mDebugApp;
@@ -303,6 +305,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mBtHciSnoopLog = findAndInitCheckboxPref(BT_HCI_SNOOP_LOG);
         mQuickBoot = findAndInitCheckboxPref(ENABLE_QUICKBOOT_KEY);
         mAllowMockLocation = findAndInitCheckboxPref(ALLOW_MOCK_LOCATION);
+        mAllowMockSMS = findAndInitCheckboxPref(ALLOW_MOCK_SMS);
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
         mAdvancedReboot = findAndInitCheckboxPref(ADVANCED_REBOOT_KEY);
@@ -569,6 +572,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateAdbOverNetwork();
         updateCheckBox(mAllowMockLocation, Settings.Secure.getInt(cr,
                 Settings.Secure.ALLOW_MOCK_LOCATION, 0) != 0);
+        updateCheckBox(mAllowMockSMS, Settings.Secure.getInt(cr,
+                Settings.Secure.ALLOW_MOCK_SMS, 0) != 0);
         updateCheckBox(mQuickBoot, Settings.Global.getInt(cr,
                 Settings.Global.ENABLE_QUICKBOOT, 0) != 0);
         updateRuntimeValue();
@@ -1493,6 +1498,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.System.putBoolean(mContext.getContentResolver(),
                     Settings.System.DISABLE_FC_NOTIFICATIONS,
                     ((CheckBoxPreference) preference).isChecked()); 
+        } else if (preference == mAllowMockSMS) {
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.ALLOW_MOCK_SMS,
+                    mAllowMockSMS.isChecked() ? 1 : 0);
         } else if (preference == mQuickBoot) {
             Settings.Global.putInt(getActivity().getContentResolver(),
                     Settings.Global.ENABLE_QUICKBOOT,
