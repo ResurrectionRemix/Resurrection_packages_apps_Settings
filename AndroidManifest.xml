@@ -62,10 +62,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
     <uses-permission android:name="android.permission.SET_TIME" />
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.CHANGE_PRIVACY_GUARD_STATE" />
-=======
->>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
@@ -169,27 +166,10 @@
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
         <!-- QuietHours AutoSMS -->
 
         <service android:name=".service.CallService"/>
         <service android:name=".service.SmsService"/>
-=======
-        <!-- QuietHours SmsCall Service -->
-
-        <service android:name=".service.SmsCallService"/>
-        <service android:name=".service.AlarmService"/>
-
-        <receiver
-            android:name=".service.AlarmReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"></action>
-                <action android:name="android.intent.action.TIME_CHANGED"></action>
-                <action android:name="android.intent.action.DATE_CHANGED"></action>
-                <action android:name="com.android.settings.service.SCHEDULE_SERVICE_COMMAND"/>
-            </intent-filter>
-        </receiver>
->>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
 
         <receiver
             android:name=".service.BootReceiver">
@@ -198,17 +178,6 @@
             </intent-filter>
         </receiver>
 
-<<<<<<< HEAD
-=======
-        <activity
-            android:name=".service.BypassAlarm"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:taskAffinity="com.android.settings.service.BypassAlarm"
-            android:theme="@android:style/Theme.Holo.Dialog" />
-
->>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
         <!-- Wireless Controls -->
 
         <activity android:name="Settings$WirelessSettingsActivity"
