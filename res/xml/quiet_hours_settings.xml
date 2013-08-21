@@ -54,19 +54,31 @@
 
         <ListPreference
             android:defaultValue="0"
+<<<<<<< HEAD
             android:entries="@array/auto_sms_entries"
             android:entryValues="@array/auto_sms_values"
             android:key="auto_sms"
             android:summary="@string/quiet_hours_auto_sms_summary"
+=======
+            android:entries="@array/incoming_contact_entries"
+            android:entryValues="@array/incoming_contact_values"
+            android:key="auto_sms"
+>>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
             android:title="@string/quiet_hours_auto_sms_title"
             android:dependency="quiet_hours_enabled" />
 
         <ListPreference
             android:defaultValue="0"
+<<<<<<< HEAD
             android:entries="@array/auto_sms_entries"
             android:entryValues="@array/auto_sms_values"
             android:key="auto_sms_call"
             android:summary="@string/quiet_hours_auto_sms_call_summary"
+=======
+            android:entries="@array/incoming_contact_entries"
+            android:entryValues="@array/incoming_contact_values"
+            android:key="auto_sms_call"
+>>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
             android:title="@string/quiet_hours_auto_sms_call_title"
             android:dependency="quiet_hours_enabled" />
 
@@ -77,4 +89,54 @@
 
     </PreferenceCategory>
 
+<<<<<<< HEAD
+=======
+    <PreferenceCategory
+        android:key="quiethours_bypass"
+        android:title="@string/quiet_hours_bypass_group">
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/incoming_contact_entries"
+            android:entryValues="@array/incoming_contact_values"
+            android:key="sms_bypass"
+            android:title="@string/quiet_hours_sms_bypass_title"
+            android:dependency="quiet_hours_enabled" />
+
+        <Preference
+            android:key="sms_bypass_code"
+            android:title="@string/quiet_hours_sms_code_title"
+            android:dependency="quiet_hours_enabled" />
+
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/incoming_contact_entries"
+            android:entryValues="@array/incoming_contact_values"
+            android:key="call_bypass"
+            android:title="@string/quiet_hours_call_bypass_title"
+            android:dependency="quiet_hours_enabled" />
+
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/incoming_call_number_entries"
+            android:entryValues="@array/incoming_call_number_values"
+            android:key="required_calls"
+            android:title="@string/quiet_hours_calls_required_title"
+            android:dependency="quiet_hours_enabled" />
+
+        <RingtonePreference
+            android:ringtoneType="all"
+            android:showSilent="false"
+            android:key="bypass_ringtone"
+            android:title="@string/quiet_hours_bypass_ringtone_title"
+            android:dependency="quiet_hours_enabled" />
+
+        <CheckBoxPreference
+            android:key="loop_bypass_ringtone"
+            android:title="@string/quiet_hours_bypass_ringtone_loop_title"
+            android:dependency="quiet_hours_enabled" />
+
+    </PreferenceCategory>
+>>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
 </PreferenceScreen>

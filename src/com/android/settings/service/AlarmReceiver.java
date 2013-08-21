@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * Copyright (C) 2013 Android Open Kang Project
  *
@@ -16,29 +14,34 @@
  * limitations under the License.
  */
 
->>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
 package com.android.settings.service;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.PowerManager;
+import android.util.Log;
 
-public class BootReceiver extends BroadcastReceiver {
+public class AlarmReceiver extends BroadcastReceiver {
+
+    private final static String TAG = "AlarmReceiver";
+
+    private static final String SCHEDULE_SERVICE_COMMAND =
+            "com.android.settings.service.SCHEDULE_SERVICE_COMMAND";
 
     @Override
     public void onReceive(Context context, Intent intent) {
-<<<<<<< HEAD
-        if (CallService.returnUserCallSms(context) != 0) {
-            context.startService(new Intent(context, CallService.class));
+        if (SmsCallService.mWakeLock == null) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            SmsCallService.mWakeLock = pm.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK, SmsCallService.WAKE_TAG);
+            if (!SmsCallService.mWakeLock.isHeld()) {
+                SmsCallService.mWakeLock.acquire();
+            }
         }
-        if (SmsService.returnUserTextSms(context) != 0) {
-            context.startService(new Intent(context, SmsService.class));
-        }
+
+        SmsCallHelper.scheduleService(context);
+
     }
 
-=======
-        SmsCallHelper.scheduleService(context);
-    }
->>>>>>> 34a5662... Settings: QuietHours AutoSMSReply && QuietHours Bypass (2/2)
 }
