@@ -33,7 +33,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Telephony;
@@ -49,7 +49,7 @@ import com.android.internal.telephony.TelephonyProperties;
 
 import java.util.ArrayList;
 
-public class ApnSettings extends PreferenceDrawerActivity implements
+public class ApnSettings extends PreferenceActivity implements
         Preference.OnPreferenceChangeListener {
     static final String TAG = "ApnSettings";
 
