@@ -27,7 +27,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.UserHandle;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.text.format.DateUtils;
 import android.text.format.Formatter;
 import android.util.AttributeSet;
@@ -394,7 +394,7 @@ public class RunningProcessesView extends FrameLayout
             args.putInt(RunningServiceDetails.KEY_USER_ID, mi.mUserId);
             args.putBoolean(RunningServiceDetails.KEY_BACKGROUND, mAdapter.mShowBackground);
     
-            PreferenceActivity pa = (PreferenceActivity)mOwner.getActivity();
+            PreferenceDrawerActivity pa = (PreferenceDrawerActivity)mOwner.getActivity();
             pa.startPreferencePanel(RunningServiceDetails.class.getName(), args,
                     R.string.runningservicedetails_settings_title, null, null, 0);
         }
