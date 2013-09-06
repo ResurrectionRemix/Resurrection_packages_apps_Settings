@@ -611,8 +611,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
                     Log.d(TAG, "SET_TUNE_AWAY_DONE: mTuneAwayValue = " + mTuneAwayValue);
                     mTuneAway.setChecked(mTuneAwayValue);
                     mTuneAway.setSummary(mTuneAwayValue ? "Enable" : "Disable");
-                    Settings.Global.putInt(getContentResolver(), Settings.Global.TUNE_AWAY_STATUS,
-                            mTuneAwayValue ? 1 : 0);
+                    MSimPhoneFactory.setTuneAway(mTuneAwayValue);
                     break;
                 case EVENT_SET_PRIORITY_SUBSCRIPTION:
                     updatePrioritySub(msg.arg1);
