@@ -81,7 +81,11 @@ import com.android.settings.fuelgauge.InactiveApps;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.widget.SwitchBar;
+
 import cyanogenmod.providers.CMSettings;
+import com.android.settings.util.Helpers;
+
+import dalvik.system.VMRuntime;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -111,6 +115,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String ADB_TCPIP = "adb_over_network";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String ENABLE_TERMINAL = "enable_terminal";
+
     private static final String KEEP_SCREEN_ON_MODES = "keep_screen_on_modes";
     private static final String BT_HCI_SNOOP_LOG = "bt_hci_snoop_log";
     private static final String ENABLE_OEM_UNLOCK = "oem_unlock_enable";
@@ -1800,7 +1805,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 CMSettings.Secure.putInt(getActivity().getContentResolver(),
                         CMSettings.Secure.ADB_PORT, -1);
                 updateAdbOverNetwork();
-            }
+		}
         } else if (preference == mClearAdbKeys) {
             if (mAdbKeysDialog != null) dismissDialogs();
             mAdbKeysDialog = new AlertDialog.Builder(getActivity())
@@ -1808,6 +1813,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                         .setPositiveButton(android.R.string.ok, this)
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();
+
         } else if (preference == mEnableTerminal) {
             final PackageManager pm = getActivity().getPackageManager();
             pm.setApplicationEnabledSetting(TERMINAL_APP_PACKAGE,

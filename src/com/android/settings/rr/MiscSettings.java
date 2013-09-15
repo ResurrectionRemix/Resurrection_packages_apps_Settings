@@ -32,6 +32,8 @@ import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.preference.SwitchPreference;
+import com.android.settings.util.Helpers;
+import dalvik.system.VMRuntime;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -45,8 +47,10 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
 
 private static final String ENABLE_MULTI_WINDOW_KEY = "enable_multi_window";
 private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.multi_window";
+ private static final String RESTART_SYSTEMUI = "restart_systemui";
 
 private SwitchPreference mEnableMultiWindow;
+private Preference mRestartSystemUI;
 
 
     @Override
@@ -56,6 +60,7 @@ private SwitchPreference mEnableMultiWindow;
         addPreferencesFromResource(R.xml.rr_misc);
 	  final ContentResolver resolver = getActivity().getContentResolver();
         mEnableMultiWindow = (SwitchPreference) findPreference(ENABLE_MULTI_WINDOW_KEY);
+	mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
     }
 
   private static boolean showEnableMultiWindowPreference() {
@@ -84,7 +89,10 @@ private SwitchPreference mEnableMultiWindow;
             } else {
                 setEnableMultiWindow(false);
             }
-        } else {
+        }
+ 	else if (preference == mRestartSystemUI) {
+           Helpers.restartSystemUI();  
+	}else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return false;
