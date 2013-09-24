@@ -1774,6 +1774,15 @@
                 android:resource="@id/profiles_settings" />
             </activity>
 
+        <activity
+            android:name=".fragments.AnimationControls"
+            android:label="@string/title_animation_controls">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.android.settings.SHORTCUT"/>
+            </intent-filter>
+        </activity>
+
         <!-- Keep compatibility with old shortcuts. -->
         <activity-alias android:name="ProfileSettings"
                 android:label="@string/profile_settings"
