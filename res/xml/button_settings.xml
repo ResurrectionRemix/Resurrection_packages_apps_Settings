@@ -150,6 +150,30 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="camera_key"
+        android:title="@string/hardware_keys_camera_key_title" >
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="camera_wake_screen"
+            android:title="@string/camera_wake_title"
+            android:summary="@string/camera_wake_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="camera_sleep_on_release"
+            android:title="@string/camera_sleep_on_release_title"
+            android:summary="@string/camera_sleep_on_release_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="camera_music_controls"
+            android:title="@string/camera_music_controls_title"
+            android:summary="@string/camera_music_controls_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="volume_keys"
         android:title="@string/hardware_keys_volume_keys_title" >
 

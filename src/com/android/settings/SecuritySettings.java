@@ -273,6 +273,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
                     findPreference(Settings.System.MENU_UNLOCK_SCREEN);
             CheckBoxPreference homeUnlock = (CheckBoxPreference)
                     findPreference(Settings.System.HOME_UNLOCK_SCREEN);
+            CheckBoxPreference cameraUnlock = (CheckBoxPreference)
+                    findPreference(Settings.System.CAMERA_UNLOCK_SCREEN);
             CheckBoxPreference vibratePref = (CheckBoxPreference)
                     findPreference(Settings.System.LOCKSCREEN_VIBRATE_ENABLED);
 
@@ -305,6 +307,10 @@ public class SecuritySettings extends RestrictedSettingsFragment
             // Hide the HomeUnlock setting if no home button is available
             if ((deviceKeys & ButtonSettings.KEY_MASK_HOME) == 0) {
                 additionalPrefs.removePreference(homeUnlock);
+            }
+            // Hide the CameraUnlock setting if no camera button is available
+            if ((deviceKeys & ButtonSettings.KEY_MASK_CAMERA) == 0) {
+                additionalPrefs.removePreference(cameraUnlock);
             }
         }
 
