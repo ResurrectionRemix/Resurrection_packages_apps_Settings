@@ -26,6 +26,13 @@
             settings:keywords="@string/keywords_location_mode"
             android:summary="@string/location_mode_location_off_title" />
 
+        <SwitchPreference
+            android:key="lto_download_data_wifi_only"
+            android:title="@string/lto_download_data_wifi_only"
+            android:summaryOn="@string/lto_download_data_wifi_only_on"
+            android:summaryOff="@string/lto_download_data_wifi_only_off"
+            android:defaultValue="false" />
+
         <!-- This preference category gets removed if there is no managed profile -->
         <PreferenceCategory
             android:key="managed_profile_location_category"
