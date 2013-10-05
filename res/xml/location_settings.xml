@@ -21,6 +21,11 @@
             android:title="@string/location_mode_title"
             android:summary="@string/location_mode_location_off_title" />
 
+        <com.android.settings.WrappingCheckBoxPreference
+            android:key="gps_download_data_wifi_only"
+            android:title="@string/gps_download_data_wifi_only"
+            android:defaultValue="true" />
+
         <PreferenceCategory
             android:key="recent_location_requests"
             android:title="@string/location_category_recent_location_requests" />
