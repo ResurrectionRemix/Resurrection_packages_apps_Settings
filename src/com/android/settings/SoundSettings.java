@@ -93,6 +93,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mLockSounds;
     private Preference mRingtonePreference;
     private Preference mNotificationPreference;
+<<<<<<< HEAD
+=======
+    private CheckBoxPreference mVolumeWakeScreen;
+    private CheckBoxPreference mVolumeAdjustSound;
+>>>>>>> cd4e6f0... [2/2] settings: expandable volume panel and tweaks
 
     private Runnable mRingtoneLookupRunnable;
 
@@ -175,6 +180,18 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mLockSounds.setChecked(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
 
+<<<<<<< HEAD
+=======
+        mVolumeWakeScreen = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE_SCREEN);
+        mVolumeWakeScreen.setChecked(Settings.System.getInt(resolver,
+                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+
+        mVolumeAdjustSound = (CheckBoxPreference) findPreference(KEY_VOLUME_ADJUST_SOUNDS);
+        mVolumeAdjustSound.setPersistent(false);
+        mVolumeAdjustSound.setChecked(Settings.System.getInt(resolver,
+                Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) == 1);
+
+>>>>>>> cd4e6f0... [2/2] settings: expandable volume panel and tweaks
         mRingtonePreference = findPreference(KEY_RINGTONE);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
 
@@ -311,6 +328,15 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
                     mLockSounds.isChecked() ? 1 : 0);
 
+<<<<<<< HEAD
+=======
+        } else if (preference == mVolumeWakeScreen) {
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
+                    mVolumeWakeScreen.isChecked() ? 1 : 0);
+        } else if (preference == mVolumeAdjustSound) {
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED,
+                    mVolumeAdjustSound.isChecked() ? 1 : 0);
+>>>>>>> cd4e6f0... [2/2] settings: expandable volume panel and tweaks
         } else if (preference == mMusicFx) {
             // let the framework fire off the intent
             return false;
