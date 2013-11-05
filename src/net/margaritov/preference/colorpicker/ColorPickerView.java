@@ -259,6 +259,7 @@ public class ColorPickerView extends View {
         Point p = satValToPoint(mSat, mVal);
 
         mSatValTrackerPaint.setColor(0xff000000);
+
         canvas.drawCircle(
             p.x, p.y, PALETTE_CIRCLE_TRACKER_RADIUS - 1f * mDensity, mSatValTrackerPaint);
 

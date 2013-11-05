@@ -125,6 +125,15 @@
              android:summary="@string/title_animation_controls_summary"
              android:fragment="com.android.settings.cyanogenmod.fragments.AnimationControls" />
              
+        <PreferenceCategory
+            android:title="@string/status_bar_style_title">
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.slim.StatusBarClockStyle"
+            android:key="clock_style_pref"
+            android:summary="@string/status_bar_clock_summary"
+            android:title="@string/status_bar_clock" />
+        </PreferenceCategory> 
             <PreferenceCategory
             android:id="@+id/misc"
             android:title="@string/misc_title" />
