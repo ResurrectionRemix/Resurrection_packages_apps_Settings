@@ -70,11 +70,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_RECENTS_LONG_PRESS = "navigation_recents_long_press";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
-<<<<<<< HEAD
     private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
-=======
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
->>>>>>> e9fe965... Settings: set volume wake dependency in code
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
