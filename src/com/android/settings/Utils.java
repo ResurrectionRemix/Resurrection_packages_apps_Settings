@@ -227,7 +227,9 @@ public class Utils {
                         Bundle metaData = resolveInfo.activityInfo.metaData;
 
                         if (res != null && metaData != null) {
-                            icon = res.getDrawable(metaData.getInt(META_DATA_PREFERENCE_ICON));
+                            if (preference instanceof IconPreferenceScreen) {
+                                icon = res.getDrawable(metaData.getInt(META_DATA_PREFERENCE_ICON));
+                            }
                             title = res.getString(metaData.getInt(META_DATA_PREFERENCE_TITLE));
                             summary = res.getString(metaData.getInt(META_DATA_PREFERENCE_SUMMARY));
                         }

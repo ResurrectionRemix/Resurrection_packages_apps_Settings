@@ -33,6 +33,15 @@
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
 
+    <!-- Device Specific Bluetooth Input settings -->
+    <Preference
+        android:key="bluetooth_input_settings">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_BLUETOOTH_INPUT_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
+    </Preference>
+
     <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >

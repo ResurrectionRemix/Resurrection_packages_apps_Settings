@@ -46,6 +46,15 @@
             android:title="@string/power_menu_expanded_desktop"
             android:persistent="true" />
 
+    <!-- Device Specific Touchscreen gestures -->
+    <Preference
+        android:key="touch_screen_gesture_settings">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+    </Preference>
+
     <PreferenceCategory
         android:key="navigation_bar"
         android:title="@string/navigation_bar_category" >
