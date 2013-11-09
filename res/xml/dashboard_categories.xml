@@ -82,7 +82,27 @@
                 android:fragment="com.android.settings.rr.MainSettings"
                 android:icon="@drawable/ic_rr_tools_tint"
                 />        
-                 
+
+
+        <!-- Notification drawer -->
+        <dashboard-tile
+                android:id="@+id/notification_drawer_settings"
+                android:title="@string/notification_drawer_title"
+                android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
+                android:icon="@drawable/ic_settings_notification_drawer"
+                />
+
+        <!-- Gestures -->
+        <dashboard-tile
+            android:id="@+id/device_specific_gesture_settings"
+            android:title="@string/gesture_settings_title"
+            android:icon="@drawable/ic_settings_home">
+            <intent
+                android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+                android:targetPackage="com.cyanogenmod.settings.device"
+                android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+        </dashboard-tile>
+
         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
         <dashboard-tile
