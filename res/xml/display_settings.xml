@@ -56,6 +56,7 @@
                 android:title="@string/wifi_display_settings_title"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
+<<<<<<< HEAD
         <CheckBoxPreference
                 android:key="adaptive_backlight"
                 android:title="@string/adaptive_backlight_title"
@@ -93,5 +94,12 @@
                 android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 
         </PreferenceCategory>
+=======
+        <ListPreference
+                android:key="screen_off_animation"
+                android:title="@string/screen_off_animation"
+                android:entries="@array/screen_off_animation_entries"
+                android:entryValues="@array/screen_off_animation_values" />
+>>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
 
 </PreferenceScreen>
