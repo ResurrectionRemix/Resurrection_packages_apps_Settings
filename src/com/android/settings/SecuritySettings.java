@@ -67,6 +67,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
+    private static final String KEY_SEE_TRHOUGH = "see_through";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
@@ -110,6 +111,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mToggleVerifyApps;
     private CheckBoxPreference mPowerButtonInstantlyLocks;
     private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mSeeThrough;
 
     private Preference mNotificationAccess;
 
@@ -213,6 +215,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             updateLockAfterPreferenceSummary();
         }
 
+<<<<<<< HEAD
         // Add the additional Omni settings
         mLockRingBattery = (CheckBoxPreference) root
                 .findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
@@ -226,6 +229,10 @@ public class SecuritySettings extends RestrictedSettingsFragment
             mMaximizeKeyguardWidgets.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
         }
+=======
+        // lockscreen see through
+        mSeeThrough = (CheckBoxPreference) root.findPreference(KEY_SEE_TRHOUGH);
+>>>>>>> 4e061d4... Lockscreen: See through (2/2)
 
         // biometric weak liveliness
         mBiometricWeakLiveliness =
@@ -609,6 +616,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
             } else {
                 setNonMarketAppsAllowed(false);
             }
+        } else if (preference == mSeeThrough) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH,
+                    mSeeThrough.isChecked() ? 1 : 0);
         } else if (KEY_TOGGLE_VERIFY_APPLICATIONS.equals(key)) {
             Settings.Global.putInt(getContentResolver(), Settings.Global.PACKAGE_VERIFIER_ENABLE,
                     mToggleVerifyApps.isChecked() ? 1 : 0);
