@@ -57,9 +57,10 @@ import android.widget.Toast;
 import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.settings.R;
+import com.codeaurora.telephony.msim.CardSubscriptionManager;
 import com.codeaurora.telephony.msim.MSimPhoneFactory;
-import com.codeaurora.telephony.msim.Subscription.SubscriptionStatus;
 import com.codeaurora.telephony.msim.SubscriptionManager;
+import com.codeaurora.telephony.msim.Subscription.SubscriptionStatus;
 
 import java.lang.Object;
 
@@ -92,12 +93,12 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     protected boolean mIsForeground = false;
     static final int SUBSCRIPTION_ID_INVALID = -1;
     static final int SUBSCRIPTION_DUAL_STANDBY = 2;
+    private final int MAX_SUBSCRIPTIONS = SubscriptionManager.NUM_SUBSCRIPTIONS;
 
     private ListPreference mVoice;
     private ListPreference mData;
     private ListPreference mSms;
     private PreferenceScreen mConfigSub;
-    private int mNumPhones = MSimTelephonyManager.getDefault().getPhoneCount();
     private CharSequence[] entries; // Used for entries like Subscription1, Subscription2 ...
     private CharSequence[] entryValues; // Used for entryValues like 0, 1 ,2 ...
     private CharSequence[] summaries; // Used for Summaries like Aubscription1, Subscription2....
@@ -116,7 +117,14 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     private CheckBoxPreference mTuneAway;
     private ListPreference mPrioritySub;
 
-    SubscriptionManager subManager = SubscriptionManager.getInstance();
+    private AirplaneModeBroadcastReceiver mReceiver = null;
+    IntentFilter mIntentFilter =
+            new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+    SubscriptionManager mSubManager = SubscriptionManager.getInstance();
+    private int mIccCardCount = 0;
+    private CardSubscriptionManager mCardSubscriptionManager =
+            CardSubscriptionManager.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,9 +146,9 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         mPhone = MSimPhoneFactory.getPhone(MSimConstants.SUB1);
 
         for (int subId = 0; subId < SubscriptionManager.NUM_SUBSCRIPTIONS; subId++) {
-            subManager.registerForSubscriptionActivated(subId,
+            mSubManager.registerForSubscriptionActivated(subId,
                     mHandler, EVENT_SUBSCRIPTION_ACTIVATED, null);
-            subManager.registerForSubscriptionDeactivated(subId,
+            mSubManager.registerForSubscriptionDeactivated(subId,
                     mHandler, EVENT_SUBSCRIPTION_DEACTIVATED, null);
         }
 
@@ -149,15 +157,15 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         // entries are Subscription1, Subscription2, Subscription3 ....
         // EntryValues are 0, 1 ,2 ....
         // Summaries are Subscription1, Subscription2, Subscription3 ....
-        entries = new CharSequence[mNumPhones];
-        entryValues = new CharSequence[mNumPhones];
-        summaries = new CharSequence[mNumPhones];
-        entriesPrompt = new CharSequence[mNumPhones + 1];
-        entryValuesPrompt = new CharSequence[mNumPhones + 1];
-        summariesPrompt = new CharSequence[mNumPhones + 1];
+        entries = new CharSequence[MAX_SUBSCRIPTIONS];
+        entryValues = new CharSequence[MAX_SUBSCRIPTIONS];
+        summaries = new CharSequence[MAX_SUBSCRIPTIONS];
+        entriesPrompt = new CharSequence[MAX_SUBSCRIPTIONS + 1];
+        entryValuesPrompt = new CharSequence[MAX_SUBSCRIPTIONS + 1];
+        summariesPrompt = new CharSequence[MAX_SUBSCRIPTIONS + 1];
         CharSequence[] subString = getResources().getTextArray(R.array.multi_sim_entries);
         int i = 0;
-        for (i = 0; i < mNumPhones; i++) {
+        for (i = 0; i < MAX_SUBSCRIPTIONS; i++) {
             entries[i] = subString[i];
             summaries[i] = subString[i];
             summariesPrompt[i] = subString[i];
@@ -168,27 +176,62 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         entryValuesPrompt[i] = Integer.toString(i);
         entriesPrompt[i] = getResources().getString(R.string.prompt);
         summariesPrompt[i] = getResources().getString(R.string.prompt_user);
-        IntentFilter intentFilter =
-                new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        registerReceiver(new AirplaneModeBroadcastReceiver(), intentFilter);
+
+        mReceiver = new AirplaneModeBroadcastReceiver();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (isAirplaneModeOn()) {
-            Log.d(TAG, "Airplane mode is ON, grayout the config subscription menu!!!");
-            mConfigSub.setEnabled(false);
-        } else {
-            mConfigSub.setEnabled(true);
-        }
-        updateMultiSimEntriesForVoice();
-        updateMultiSimEntriesForData();
-        updateMultiSimEntriesForSms();
         mIsForeground = true;
-        updateState();
-        updateTuneAwayState();
-        updatePrioritySubState();
+        registerForAirplaneMode();
+        updateUi();
+    }
+
+    /**
+     * UI behaviour for different SIM scenarios are listed below :
+     * 1. No SIM case : Multi SIM menu will not be accessible.Dialog
+     *    will be displayed to the user
+     * 2. One SIM case : Config SUB menu will only be accessible
+     * 3. Multiple SIM case : All menu options within Multi SIM
+     *    settings will be accessible.
+     *
+     * In case of airplane mode, based on the availability of SIM
+     * cards the same UI is displayed
+     */
+    private void updateUi() {
+        boolean isCardAbsentOrError = false;
+        //reset value before using it
+        mIccCardCount = 0;
+
+        for (int i = 0; i < MAX_SUBSCRIPTIONS; i++) {
+            isCardAbsentOrError = mCardSubscriptionManager.isCardAbsentOrError(i);
+
+            /*Increment count only if card is valid*/
+            if (!isCardAbsentOrError) {
+                mIccCardCount++;
+            }
+        }
+        Log.d(TAG, "mIccCardCount = " + mIccCardCount);
+
+        if (mIccCardCount == 0) {
+             mConfigSub.setEnabled(false);
+             mConfigSub.setSelectable(false);
+             displayAlertDialog(getResources().getString(R.string.no_sim_info));
+             disableMsimMenu();
+        } else if (mIccCardCount == 1) {
+             //1 SIM card is present. Config sub must be accessible
+             disableMsimMenu();
+        } else if ( (mIccCardCount > 1) && (mIccCardCount <= MAX_SUBSCRIPTIONS) )  {
+            updateMultiSimEntriesForVoice();
+            updateMultiSimEntriesForData();
+            updateMultiSimEntriesForSms();
+            updateState();
+            updateTuneAwayState();
+            updatePrioritySubState();
+        } else {
+            Log.d(TAG, "Invalid card count");
+        }
     }
 
     /**
@@ -199,13 +242,18 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
-                Log.d(TAG, "Airplane mode is: " + isAirplaneModeOn());
-                if (isAirplaneModeOn()) {
-                    Log.d(TAG, "Airplane mode is ON, grayout the config subscription menu!!!");
-                    mConfigSub.setEnabled(false);
-                } else {
-                    mConfigSub.setEnabled(true);
-                }
+                Log.d(TAG, "Intent ACTION_AIRPLANE_MODE_CHANGED received");
+                /**
+                 * finish() is required when user enables/disables airplane mode
+                 * via power key. In that case, since the dialog is displayed,
+                 * onResume is not called and the screen will not be updated.
+                 * Also, time will be taken to power down the UICC card and
+                 * incorrect screen is displayed to the user since this intent
+                 * is received before UICC cards status is updated.
+                 * To avoid these issues, finish is called to exit the Multi
+                 * SIM Settings gracefully.
+                 */
+                finish();
             }
         }
     }
@@ -216,7 +264,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     }
 
     protected void updateMultiSimEntriesForSms() {
-        int count = subManager.getActiveSubscriptionsCount();
+        int count = mSubManager.getActiveSubscriptionsCount();
         if (count >= SUBSCRIPTION_DUAL_STANDBY) {
             mSms.setEntries(entriesPrompt);
             mSms.setEntryValues(entryValuesPrompt);
@@ -227,7 +275,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     }
 
     protected void updateMultiSimEntriesForVoice() {
-        int count = subManager.getActiveSubscriptionsCount();
+        int count = mSubManager.getActiveSubscriptionsCount();
         if (count >= SUBSCRIPTION_DUAL_STANDBY) {
             mVoice.setEntries(entriesPrompt);
             mVoice.setEntryValues(entryValuesPrompt);
@@ -266,11 +314,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     protected void onPause() {
         super.onPause();
         mIsForeground = false;
-    }
-
-    private boolean isAirplaneModeOn() {
-        return Settings.Global.getInt(getContentResolver(),
-                Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+        unregisterForAirplaneMode();
     }
 
     private void updateState() {
@@ -280,10 +324,9 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     }
 
     private void updateVoiceSummary() {
-
         int voiceSub = MSimPhoneFactory.getVoiceSubscription();
         boolean promptEnabled  = MSimPhoneFactory.isPromptEnabled();
-        int count = subManager.getActiveSubscriptionsCount();
+        int count = mSubManager.getActiveSubscriptionsCount();
 
         Log.d(TAG, "updateVoiceSummary: voiceSub =  " + voiceSub
                 + " promptEnabled = " + promptEnabled
@@ -291,9 +334,9 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
 
         if (promptEnabled && count >= SUBSCRIPTION_DUAL_STANDBY) {
 
-            Log.d(TAG, "prompt is enabled: setting value to : " + mNumPhones);
-            mVoice.setValue(Integer.toString(mNumPhones));
-            mVoice.setSummary(summariesPrompt[mNumPhones]);
+            Log.d(TAG, "prompt is enabled: setting value to : " + MAX_SUBSCRIPTIONS);
+            mVoice.setValue(Integer.toString(MAX_SUBSCRIPTIONS));
+            mVoice.setSummary(summariesPrompt[MAX_SUBSCRIPTIONS]);
         } else {
             String sub = Integer.toString(voiceSub);
             Log.d(TAG, "setting value to : " + sub);
@@ -313,16 +356,16 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     private void updateSmsSummary() {
         int smsSub = MSimPhoneFactory.getSMSSubscription();
         boolean promptEnabled  = MSimPhoneFactory.isSMSPromptEnabled();
-        int count = subManager.getActiveSubscriptionsCount();
+        int count = mSubManager.getActiveSubscriptionsCount();
 
         Log.d(TAG, "updateSmsSummary: SmsSub =  " + smsSub
                 + " promptEnabled = " + promptEnabled
                 + " number of active SUBs = " + count);
 
         if (promptEnabled && count >= SUBSCRIPTION_DUAL_STANDBY) {
-            Log.d(TAG, "prompt is enabled: setting value to : " + mNumPhones);
-            mSms.setValue(Integer.toString(mNumPhones));
-            mSms.setSummary(summariesPrompt[mNumPhones]);
+            Log.d(TAG, "prompt is enabled: setting value to : " + MAX_SUBSCRIPTIONS);
+            mSms.setValue(Integer.toString(MAX_SUBSCRIPTIONS));
+            mSms.setSummary(summariesPrompt[MAX_SUBSCRIPTIONS]);
         } else {
             String sub = Integer.toString(smsSub);
             Log.d(TAG, "setting value to : " + sub);
@@ -339,12 +382,13 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         if (KEY_VOICE.equals(key)) {
 
             mVoiceSub = Integer.parseInt((String) objValue);
-            if (mVoiceSub == mNumPhones) { //mNumPhones is the maximum index of the UI options.
-                                         //This will be the Prompt option.
+            if (mVoiceSub == MAX_SUBSCRIPTIONS) {
+                //MAX_SUBSCRIPTIONS is the maximum
+                //index of the UI options.This will be the Prompt option.
                 MSimPhoneFactory.setPromptEnabled(true);
                 mVoice.setSummary(summariesPrompt[mVoiceSub]);
                 Log.d(TAG, "prompt is enabled " + mVoiceSub);
-            } else if (subManager.getCurrentSubscription(mVoiceSub).subStatus
+            } else if (mSubManager.getCurrentSubscription(mVoiceSub).subStatus
                     == SubscriptionStatus.SUB_ACTIVATED) {
                 Log.d(TAG, "setVoiceSubscription " + mVoiceSub);
                 MSimPhoneFactory.setPromptEnabled(false);
@@ -369,12 +413,13 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
 
         if (KEY_SMS.equals(key)) {
             int smsSub = Integer.parseInt((String) objValue);
-            if (smsSub == mNumPhones) { //mNumPhones is the maximum index of the UI options.
-                                         //This will be the Prompt option.
+            if (smsSub == MAX_SUBSCRIPTIONS) {
+                //MAX_SUBSCRIPTIONS is the maximum
+                //index of the UI options.This will be the Prompt option.
                 MSimPhoneFactory.setSMSPromptEnabled(true);
                 mSms.setSummary(summariesPrompt[smsSub]);
                 Log.d(TAG, "prompt is enabled " + smsSub);
-            } else if (subManager.getCurrentSubscription(smsSub).subStatus
+            } else if (mSubManager.getCurrentSubscription(smsSub).subStatus
                    == SubscriptionStatus.SUB_ACTIVATED) {
                 Log.d(TAG, "setSMSSubscription " + smsSub);
                 MSimPhoneFactory.setSMSPromptEnabled(false);
@@ -393,7 +438,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
 
         if (PRIORITY_SUB.equals(key)) {
             int prioritySubIndex = Integer.parseInt((String) objValue);
-            if (subManager.getCurrentSubscription(prioritySubIndex).subStatus
+            if (mSubManager.getCurrentSubscription(prioritySubIndex).subStatus
                     == SubscriptionStatus.SUB_ACTIVATED) {
                 mPrioritySubValue = prioritySubIndex;
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_SET_PRIORITY_SUBSCRIPTION,
@@ -439,6 +484,14 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     // This is a method implemented for DialogInterface.OnClickListener.
     public void onClick(DialogInterface dialog, int which) {
         Log.d(TAG, "onClick!");
+
+        /**
+         * onClick will be called for other dialogs displayed in
+         * Multi SIM settings. But in case when no SIM card info is
+         * available, menu should not be accessible to user. Hence,
+         * after displaying the dialog, finish() is called onClick
+         */
+        if (mIccCardCount == 0) finish();
     }
 
     void displayAlertDialog(String msg) {
@@ -584,4 +637,34 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
             }
         }
     };
+
+    /**
+     * This function will disable menu options when a single SIM / no SIM
+     * is present. This will prevent the user from selecting options that
+     * are not valid when multiple SIM cards are not inserted
+     */
+    private void disableMsimMenu() {
+        Log.d(TAG, "disableMsimMenu");
+        mVoice.setEnabled(false);
+        mVoice.setSelectable(false);
+        mData.setEnabled(false);
+        mData.setSelectable(false);
+
+        mSms.setEnabled(false);
+        mSms.setSelectable(false);
+
+        mPrioritySub.setEnabled(false);
+        mPrioritySub.setSelectable(false);
+
+        mTuneAway.setEnabled(false);
+        mTuneAway.setSelectable(false);
+    }
+
+    private void registerForAirplaneMode() {
+        registerReceiver(mReceiver, mIntentFilter);
+    }
+
+    private void unregisterForAirplaneMode() {
+        unregisterReceiver(mReceiver);
+    }
 }
