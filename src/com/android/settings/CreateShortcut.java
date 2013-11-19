@@ -20,6 +20,8 @@ import android.app.LauncherActivity;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.SystemProperties;
+import android.telephony.MSimTelephonyManager;
 import android.view.View;
 import android.widget.ListView;
 
@@ -32,7 +34,11 @@ public class CreateShortcut extends LauncherActivity {
     @Override
     protected Intent getTargetIntent() {
         Intent targetIntent = new Intent(Intent.ACTION_MAIN, null);
-        targetIntent.addCategory("com.android.settings.SHORTCUT");
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            targetIntent.addCategory("codeaurora.intent.filter.settings.multisim.SHORTCUT");
+        } else {
+            targetIntent.addCategory("com.android.settings.SHORTCUT");
+        }
         targetIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return targetIntent;
     }
