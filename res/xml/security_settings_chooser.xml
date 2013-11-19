@@ -26,6 +26,35 @@
             android:summary="@string/unlock_set_unlock_mode_none"
             android:persistent="false"/>
 
+<<<<<<< HEAD
+=======
+        <CheckBoxPreference
+            android:key="keyguard_enable_widgets"
+            android:title="@string/security_enable_widgets_title"/>
+
+        <CheckBoxPreference
+            android:key="lockscreen_maximize_widgets"
+            android:title="@string/security_maximize_widgets_title"/>
+
+
+        <CheckBoxPreference
+            android:key="battery_around_lockscreen_ring"
+            android:title="@string/battery_around_lockscreen_ring"
+            android:defaultValue="true" />
+
+       <ListPreference
+            android:key="lock_after_timeout"
+            android:title="@string/lock_after_timeout"
+            android:summary="@string/lock_after_timeout_summary"
+            android:entries="@array/lock_after_timeout_entries"
+            android:entryValues="@array/lock_after_timeout_values"
+            android:persistent="false"/>
+
+        <CheckBoxPreference
+            android:key="power_button_instantly_locks"
+            android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
+
+>>>>>>> 29de3e3... [1/2] packages/apps/Settings: enable quickunlock
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
