@@ -33,12 +33,16 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+<<<<<<< HEAD
 import android.preference.Preference.OnPreferenceChangeListener;
+=======
+>>>>>>> 9d12771... [2/2] Settings: Optional statusbar battery icons
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 
 import com.android.internal.os.PowerProfile;
 import com.android.settings.HelpUtils;
@@ -63,9 +67,14 @@ public class PowerUsageSummary extends PreferenceFragment implements
     private static final String KEY_BATTERY_PREFS_CATEGORY = "battery_prefs";
     private static final String KEY_BATTERY_STATS_CATEGORY = "battery_stats";
 
-    private static final int MENU_STATS_TYPE = Menu.FIRST;
-    private static final int MENU_STATS_REFRESH = Menu.FIRST + 1;
-    private static final int MENU_HELP = Menu.FIRST + 2;
+    private static final int MENU_STATS_TYPE                = Menu.FIRST;
+    private static final int MENU_STATS_REFRESH             = Menu.FIRST + 1;
+    private static final int MENU_BATTERY_STYLE             = Menu.FIRST + 2;
+    private static final int SUBMENU_BATTERY_BAR            = Menu.FIRST + 3;
+    private static final int SUBMENU_BATTERY_BAR_PERCENT    = Menu.FIRST + 4;
+    private static final int SUBMENU_BATTERY_CIRCLE         = Menu.FIRST + 5;
+    private static final int SUBMENU_BATTERY_CIRCLE_PERCENT = Menu.FIRST + 6;
+    private static final int MENU_HELP                      = Menu.FIRST + 7;
 
     private PreferenceGroup mAppListGroup;
     private Preference mBatteryStatusPref;
@@ -76,7 +85,7 @@ public class PowerUsageSummary extends PreferenceFragment implements
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
 
     private static final int MIN_POWER_THRESHOLD = 5;
-    private static final int MAX_ITEMS_TO_LIST = 10;
+    private static final int MAX_ITEMS_TO_LIST   = 10;
 
     private BatteryStatsHelper mStatsHelper;
 
@@ -188,6 +197,8 @@ public class PowerUsageSummary extends PreferenceFragment implements
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        int selectedIcon = Settings.System.getInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
         if (DEBUG) {
             menu.add(0, MENU_STATS_TYPE, 0, R.string.menu_stats_total)
                     .setIcon(com.android.internal.R.drawable.ic_menu_info_details)
@@ -196,8 +207,23 @@ public class PowerUsageSummary extends PreferenceFragment implements
         MenuItem refresh = menu.add(0, MENU_STATS_REFRESH, 0, R.string.menu_stats_refresh)
                 .setIcon(R.drawable.ic_menu_refresh_holo_dark)
                 .setAlphabeticShortcut('r');
-        refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+
+        SubMenu batteryStyle = menu.addSubMenu(1, MENU_BATTERY_STYLE, 1, R.string.battery_status_icon_title);
+
+        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.battery_bar)
+                    .setChecked(selectedIcon == 0);
+        batteryStyle.add(1, SUBMENU_BATTERY_BAR_PERCENT, 2, R.string.battery_bar_percent)
+                    .setChecked(selectedIcon == 1);
+        batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE, 3, R.string.battery_circle)
+                    .setChecked(selectedIcon == 2);
+        batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE_PERCENT, 4, R.string.battery_circle_percent)
+                    .setChecked(selectedIcon == 3);
+        batteryStyle.setGroupCheckable(1, true, true);
+
+        MenuItem batteryIcon = batteryStyle.getItem();
+        batteryIcon.setIcon(R.drawable.ic_settings_battery)
+                   .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 
         String helpUrl;
         if (!TextUtils.isEmpty(helpUrl = getResources().getString(R.string.help_url_battery))) {
@@ -220,6 +246,26 @@ public class PowerUsageSummary extends PreferenceFragment implements
             case MENU_STATS_REFRESH:
                 mStatsHelper.clearStats();
                 refreshStats();
+                return true;
+            case SUBMENU_BATTERY_BAR:
+                item.setChecked(true);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
+                return true;
+            case SUBMENU_BATTERY_BAR_PERCENT:
+                item.setChecked(true);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, 1);
+                return true;
+            case SUBMENU_BATTERY_CIRCLE:
+                item.setChecked(true);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, 2);
+                return true;
+            case SUBMENU_BATTERY_CIRCLE_PERCENT:
+                item.setChecked(true);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, 3);
                 return true;
             default:
                 return false;
