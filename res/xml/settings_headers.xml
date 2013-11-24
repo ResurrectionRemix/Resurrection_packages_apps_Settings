@@ -102,6 +102,7 @@
     
     <!-- Home -->
     <header
+<<<<<<< HEAD
         android:id="@+id/home_settings"
         android:icon="@drawable/ic_settings_home"
         android:fragment="com.android.settings.HomeSettings"
@@ -113,6 +114,20 @@
         android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
         android:icon="@drawable/ic_action_fast_forward"
         android:title="@string/performance_settings_title" />
+=======
+        android:id="@+id/system_settings"
+        android:icon="@drawable/ic_settings_system"
+        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
+        android:title="@string/system_settings_title" />
+
+    <!-- HALO -->
+    <header
+        android:id="@+id/halo_settings"
+        android:fragment="com.android.settings.paranoid.Halo"
+        android:icon="@drawable/ic_settings_halo" 
+        android:title="@string/halo_settings_title" />
+
+>>>>>>> 7b3fd81... [1/2] Settings: HALO
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
