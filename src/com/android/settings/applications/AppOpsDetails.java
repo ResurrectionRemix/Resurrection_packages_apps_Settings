@@ -17,9 +17,12 @@
 package com.android.settings.applications;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.AppOpsManager;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -97,6 +100,19 @@ public class AppOpsDetails extends Fragment {
         } catch (NameNotFoundException e) {
             Log.e(TAG, "Exception when retrieving package:" + packageName, e);
             mPackageInfo = null;
+        }
+
+        if (packageName != null && packageName.equals("android")) {
+            final Resources r = getActivity().getResources();
+
+            new AlertDialog.Builder(getActivity()).setTitle(r.getString(R.string.appops_sysapp_beware))
+                .setMessage(r.getString(R.string.appops_sysapp_warning))
+                .setPositiveButton(r.getString(R.string.dlg_ok), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
         }
 
         return packageName;
