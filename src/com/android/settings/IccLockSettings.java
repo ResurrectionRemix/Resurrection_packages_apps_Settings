@@ -124,7 +124,15 @@ public class IccLockSettings extends PreferenceActivity
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
             if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
-                mHandler.sendMessage(mHandler.obtainMessage(MSG_SIM_STATE_CHANGED));
+                if (mPhone.getIccCard().getState().isPinLocked()) {
+                    //Code control lands up here only if user pressed cancel for PIN unlock.
+                    //So disable the pin toggle option as card is in LOCKED state.
+                    mPinToggle.setChecked(true);
+                    mPinToggle.setEnabled(false);
+                } else {
+                    mPinToggle.setEnabled(true);
+                    mHandler.sendMessage(mHandler.obtainMessage(MSG_SIM_STATE_CHANGED));
+                }
             }
         }
     };
