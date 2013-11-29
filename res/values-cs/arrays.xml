@@ -70,7 +70,11 @@
     <item msgid="2361722960903353554">"Pomalá"</item>
     <item msgid="1145554631248513562">"Běžná"</item>
     <item msgid="7553665153391107454">"Rychlá"</item>
-    <item msgid="2538100882620724753">"Velmi rychlá"</item>
+    <item msgid="1370673569131070146">"Rychlejší"</item>
+    <item msgid="4648206845228970803">"Velmi rychlá"</item>
+    <item msgid="4977949754169483251">"Svižná"</item>
+    <item msgid="6106302964845503577">"Velmi svižná"</item>
+    <item msgid="6800277205640837264">"Nejrychlejší"</item>
   </string-array>
   <string-array name="tts_pitch_entries">
     <item msgid="7526050907652687351">"Velmi nízká"</item>
@@ -114,6 +118,9 @@
     <!-- no translation found for wifi_security_no_eap:0 (2084555984818107151) -->
     <!-- no translation found for wifi_security_no_eap:1 (397579322683471524) -->
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
+    <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
+    <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
+    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -170,6 +177,11 @@
     <item msgid="7182812872984827322">"TTLS"</item>
     <item msgid="2318274046749286642">"PWD"</item>
   </string-array>
+  <string-array name="wifi_peap_phase2_entries">
+    <item msgid="2577747762745812488">"Žádné"</item>
+    <item msgid="937786527870979616">"MSCHAPV2"</item>
+    <item msgid="5302613883318643629">"GTC"</item>
+  </string-array>
   <string-array name="wifi_phase2_entries">
     <item msgid="1818786254010764570">"Žádné"</item>
     <item msgid="6189918678874123056">"PAP"</item>
@@ -206,15 +218,160 @@
     <item msgid="3044323519470167625">"eHRPD"</item>
     <item msgid="6848428671997893147">"Nespecifikováno"</item>
   </string-array>
+  <string-array name="mvno_type_entries">
+    <item msgid="4367119357633573465">"None"</item>
+    <item msgid="6062567900587138000">"SPN"</item>
+    <item msgid="2454085083342423481">"IMSI"</item>
+    <item msgid="2681427309183221543">"GID"</item>
+  </string-array>
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Interní úložiště zařízení"</item>
     <item msgid="3738430123799803530">"Vyjímatelná karta SD"</item>
     <item msgid="4498124044785815005">"Automaticky vybere systém"</item>
   </string-array>
+  <string-array name="app_ops_categories">
+    <item msgid="6358963769537892925">"Poloha"</item>
+    <item msgid="255608127647030286">"Osobní"</item>
+    <item msgid="4588829735729884491">"SMS a MMS"</item>
+    <item msgid="886742181977884584">"Média"</item>
+    <item msgid="7924928667052300589">"Zařízení"</item>
+  </string-array>
+  <string-array name="app_ops_summaries">
+    <item msgid="4979188868761515915">"přibližná poloha"</item>
+    <item msgid="5789673140227507995">"přesná poloha"</item>
+    <item msgid="1061584358377390581">"GPS"</item>
+    <item msgid="5387405117297558954">"vibrace"</item>
+    <item msgid="3434165993711230924">"čtení kontaktů"</item>
+    <item msgid="616161687718081936">"úprava kontaktů"</item>
+    <item msgid="7638002295329050091">"čtení seznamu hovorů"</item>
+    <item msgid="6546959730920410907">"úprava seznamu hovorů"</item>
+    <item msgid="446877710771379667">"čtení kalendáře"</item>
+    <item msgid="7674458294386319722">"úprava kalendáře"</item>
+    <item msgid="8281201165558093009">"vyhledání sítí Wi-Fi"</item>
+    <item msgid="8694611243479480497">"oznámení"</item>
+    <item msgid="7776439107987345446">"vyhledání vysílače mobilní sítě"</item>
+    <item msgid="514615766544675057">"volání na telefon"</item>
+    <item msgid="8181415497109310680">"čtení zpráv SMS"</item>
+    <item msgid="6816551144382117307">"psaní zpráv SMS"</item>
+    <item msgid="4600463921908905030">"příjem zpráv SMS"</item>
+    <item msgid="5958926493289432745">"příjem nouzových SMS"</item>
+    <item msgid="4945269495221089540">"příjem zpráv MMS"</item>
+    <item msgid="5570472453573929087">"příjem zpráv WAP push"</item>
+    <item msgid="7125408150230860501">"odesílání zpráv SMS"</item>
+    <item msgid="7080337936612188061">"čtení ICC SMS"</item>
+    <item msgid="587124103118495063">"psaní ICC SMS"</item>
+    <item msgid="2320577158869025503">"úprava nastavení"</item>
+    <item msgid="1545733463471924009">"vykreslení navrch"</item>
+    <item msgid="3609046903962454582">"přístup k oznámením"</item>
+    <item msgid="4671646036128214513">"fotoaparát"</item>
+    <item msgid="1097324338692486211">"nahrávání zvuku"</item>
+    <item msgid="5031552983987798163">"přehrávání zvuku"</item>
+    <item msgid="8374996688066472414">"číst obsah schránky"</item>
+    <item msgid="3045529469061083747">"upravit obsah schránky"</item>
+    <item msgid="5124443975763747838">"tlačítka médií"</item>
+    <item msgid="4547883971364273343">"zaměření zvuku"</item>
+    <item msgid="2603878814882344450">"hlavní hlasitost"</item>
+    <item msgid="7136963238377062018">"hlasitost hlasu"</item>
+    <item msgid="4270236897655923007">"hlasitost vyzvánění"</item>
+    <item msgid="6325739889222559394">"hlasitost médií"</item>
+    <item msgid="5762123934816216821">"hlasitost budíku"</item>
+    <item msgid="785049718065337473">"hlasitost oznámení"</item>
+    <item msgid="6700305533746877052">"hlasitost Bluetooth"</item>
+    <item msgid="2029227495214047094">"Zakázat režim spánku"</item>
+    <item msgid="26109888160231211">"sledovat polohu"</item>
+    <item msgid="5753382310468855812">"sledování energeticky náročného určování polohy"</item>
+  </string-array>
+  <string-array name="app_ops_labels">
+    <item msgid="6602854600289714121">"Poloha"</item>
+    <item msgid="8677040780775113033">"Poloha"</item>
+    <item msgid="1660743989948992916">"Poloha"</item>
+    <item msgid="8791172739860195290">"Vibrace"</item>
+    <item msgid="383413555642128046">"Čtení kontaktů"</item>
+    <item msgid="3654594895269697313">"Úprava kontaktů"</item>
+    <item msgid="7928393476362362538">"Čtení seznamu hovorů"</item>
+    <item msgid="6248591205254641116">"Úprava seznamu hovorů"</item>
+    <item msgid="6093344633066170692">"Čtení kalendáře"</item>
+    <item msgid="1334886368750347692">"Úprava kalendáře"</item>
+    <item msgid="1638204101698708656">"Poloha"</item>
+    <item msgid="2154671955760380322">"Přidání oznámení"</item>
+    <item msgid="4282477730595931828">"Poloha"</item>
+    <item msgid="4891423912898525905">"Volání na telefon"</item>
+    <item msgid="2623604824935968113">"Čtení SMS/MMS"</item>
+    <item msgid="4420177125221176306">"Psaní SMS/MMS"</item>
+    <item msgid="3986142739951490025">"Příjem SMS/MMS"</item>
+    <item msgid="3984213795861739778">"Příjem SMS/MMS"</item>
+    <item msgid="3656243523752472788">"Příjem SMS/MMS"</item>
+    <item msgid="8105802370238551510">"Příjem SMS/MMS"</item>
+    <item msgid="1407766984645388488">"Odesílání SMS/MMS"</item>
+    <item msgid="3527273606643794973">"Čtení SMS/MMS"</item>
+    <item msgid="4370895547001583812">"Psaní SMS/MMS"</item>
+    <item msgid="4218544235221631789">"Úprava nastavení"</item>
+    <item msgid="736541391767350377">"Vykreslení navrch"</item>
+    <item msgid="5530815681721654194">"Přístup k oznámením"</item>
+    <item msgid="781213371706962767">"Fotoaparát"</item>
+    <item msgid="1720492593061838172">"Nahrávání zvuku"</item>
+    <item msgid="3493046322001257041">"Přehrávání zvuku"</item>
+    <item msgid="136815868796597058">"Číst obsah schránky"</item>
+    <item msgid="5238692940326972503">"Upravit obsah schránky"</item>
+    <item msgid="5753789168376302997">"Tlačítka médií"</item>
+    <item msgid="3265262911688671938">"Zaměření zvuku"</item>
+    <item msgid="2098976479485046797">"Hlavní hlasitost"</item>
+    <item msgid="5660213838861789350">"Hlasitost hlasu"</item>
+    <item msgid="7983336752371254444">"Hlasitost vyzvánění"</item>
+    <item msgid="7878027809189330917">"Hlasitost médií"</item>
+    <item msgid="7260546305036218513">"Hlasitost budíku"</item>
+    <item msgid="9103719301075748925">"Hlasitost oznámení"</item>
+    <item msgid="7025966722295861512">"Hlasitost Bluetooth"</item>
+    <item msgid="4665183401128289653">"Zakázat režim spánku"</item>
+    <item msgid="8584357129746649222">"Poloha"</item>
+    <item msgid="7669257279311110599">"Určování polohy"</item>
+  </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Krátká"</item>
     <item msgid="2560532955514699713">"Střední"</item>
     <item msgid="2372711992605524591">"Dlouhá"</item>
+  </string-array>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"Výchozí"</item>
+    <item msgid="1016452621833735880">"Bezpatkové"</item>
+    <item msgid="2496277987934654454">"Bezpatkové zúžené"</item>
+    <item msgid="4406003087391086325">"Patkové"</item>
+    <item msgid="1558362802170124073">"Neproporcionální"</item>
+  </string-array>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"Velmi malé"</item>
+    <item msgid="6781094565687692782">"Malé"</item>
+    <item msgid="8222123259497646551">"Normální"</item>
+    <item msgid="5813217276778560466">"Velké"</item>
+    <item msgid="9044232017390975191">"Velmi velké"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="6022616153255438487">"Žádné"</item>
+    <item msgid="1352974708028506778">"Obrys"</item>
+    <item msgid="5850876295428722675">"Stín"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25 %"</item>
+    <item msgid="2367156416247936773">"50 %"</item>
+    <item msgid="5395560410107149298">"75 %"</item>
+    <item msgid="8342334626783983353">"100 %"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="1630625150404038035">"Bílé na černém"</item>
+    <item msgid="4589278788192525675">"Černé na bílém"</item>
+    <item msgid="1309255027325660115">"Žluté na černém"</item>
+    <item msgid="2985943780939258562">"Žluté na modrém"</item>
+    <item msgid="7520438652121629055">"Vlastní"</item>
+  </string-array>
+  <string-array name="select_runtime_titles">
+    <item msgid="3574453009229338122">"Dalvik"</item>
+    <item msgid="8978402910750533864">"ART"</item>
+    <item msgid="7839859333977894115">"ART (režim ladění)"</item>
+  </string-array>
+  <string-array name="select_runtime_summaries">
+    <item msgid="6412880178297884701">"Použít program Dalvik"</item>
+    <item msgid="5131846588686178907">"Použít program ART"</item>
+    <item msgid="4530003713865319928">"Použít ladicí sestavení programu ART"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Nikdy nekontrolovat"</item>
@@ -254,17 +411,37 @@
     <item msgid="1069584980746680398">"Měřítko animace 10x"</item>
   </string-array>
   <string-array name="overlay_display_devices_entries">
-    <item msgid="1606809880904982133">"Žádné"</item>
+    <item msgid="1606809880904982133">"Žádný"</item>
     <item msgid="688482401508173818">"720x480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280x720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920x1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280x720 tvdpi a 1920x1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"720x480 mdpi (zabezpečené)"</item>
+    <item msgid="8181151155909301030">"1280x720 tvdpi"</item>
+    <item msgid="2920655562462493148">"1280x720 tvdpi (zabezpečené)"</item>
+    <item msgid="8910371271391940941">"1920x1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"1920x1080 xhdpi (zabezpečené)"</item>
+    <item msgid="1937752114395156918">"1280x720 tvdpi a 1920x1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"Žádné"</item>
     <item msgid="9089630089455370183">"Logcat"</item>
     <item msgid="5397807424362304288">"Systrace (grafika)"</item>
     <item msgid="1340692776955662664">"Zásobník volání funkce glGetError"</item>
+  </string-array>
+  <string-array name="show_non_rect_clip_entries">
+    <item msgid="993742912147090253">"Vypnuto"</item>
+    <item msgid="675719912558941285">"Vykreslit neobdélníkový výstřižek modře"</item>
+    <item msgid="1064373276095698656">"Zvýraznit testované příkazy kreslení zeleně"</item>
+  </string-array>
+  <string-array name="track_frame_time_entries">
+    <item msgid="2193584639058893150">"Vypnuto"</item>
+    <item msgid="2751513398307949636">"Na obrazovce ve formě sloupců"</item>
+    <item msgid="8272260411216018353">"Na obrazovce ve formě řádků"</item>
+    <item msgid="120512413928262547">"V adb shell dumpsys gfxinfo"</item>
+  </string-array>
+  <string-array name="debug_hw_overdraw_entries">
+    <item msgid="8190572633763871652">"Vypnuto"</item>
+    <item msgid="7688197031296835369">"Zobrazit překreslované oblasti"</item>
+    <item msgid="2290859360633824369">"Zobrazit oblasti pro deuteranomálii"</item>
+    <item msgid="3448087929560624983">"Zobrazit počítadlo překreslení"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Standardní limit"</item>
@@ -294,5 +471,11 @@
     <item msgid="7389829271787670252">"Zeptat se"</item>
     <item msgid="5077768429488260031">"Nepovolit nikdy"</item>
     <item msgid="1417929597727989746">"Vždy povolit"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"normální"</item>
+    <item msgid="4517779899383204000">"střední"</item>
+    <item msgid="406385694840950802">"nízké"</item>
+    <item msgid="4212263919458209842">"kritické"</item>
   </string-array>
 </resources>

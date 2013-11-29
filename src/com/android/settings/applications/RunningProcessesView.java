@@ -16,6 +16,7 @@
 
 package com.android.settings.applications;
 
+import android.text.BidiFormatter;
 import com.android.internal.util.MemInfoReader;
 import com.android.settings.R;
 
@@ -27,7 +28,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.UserHandle;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.text.format.DateUtils;
 import android.text.format.Formatter;
 import android.util.AttributeSet;
@@ -342,11 +343,14 @@ public class RunningProcessesView extends FrameLayout
                 mLastBackgroundProcessMemory = mState.mBackgroundProcessMemory;
                 mLastAvailMemory = availMem;
                 long freeMem = mLastAvailMemory + mLastBackgroundProcessMemory;
-                String sizeStr = Formatter.formatShortFileSize(getContext(), freeMem);
+                BidiFormatter bidiFormatter = BidiFormatter.getInstance();
+                String sizeStr = bidiFormatter.unicodeWrap(
+                        Formatter.formatShortFileSize(getContext(), freeMem));
                 mBackgroundProcessText.setText(getResources().getString(
                         R.string.service_background_processes, sizeStr));
-                sizeStr = Formatter.formatShortFileSize(getContext(),
-                        mMemInfoReader.getTotalSize() - freeMem);
+                sizeStr = bidiFormatter.unicodeWrap(
+                        Formatter.formatShortFileSize(getContext(),
+                                mMemInfoReader.getTotalSize() - freeMem));
                 mForegroundProcessText.setText(getResources().getString(
                         R.string.service_foreground_processes, sizeStr));
             }
@@ -394,7 +398,7 @@ public class RunningProcessesView extends FrameLayout
             args.putInt(RunningServiceDetails.KEY_USER_ID, mi.mUserId);
             args.putBoolean(RunningServiceDetails.KEY_BACKGROUND, mAdapter.mShowBackground);
     
-            PreferenceDrawerActivity pa = (PreferenceDrawerActivity)mOwner.getActivity();
+            PreferenceActivity pa = (PreferenceActivity)mOwner.getActivity();
             pa.startPreferencePanel(RunningServiceDetails.class.getName(), args,
                     R.string.runningservicedetails_settings_title, null, null, 0);
         }

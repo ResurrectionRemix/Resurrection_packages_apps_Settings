@@ -70,7 +70,11 @@
     <item msgid="2361722960903353554">"Lenta"</item>
     <item msgid="1145554631248513562">"Normale"</item>
     <item msgid="7553665153391107454">"Veloce"</item>
-    <item msgid="2538100882620724753">"Molto veloce"</item>
+    <item msgid="1370673569131070146">"Più veloce"</item>
+    <item msgid="4648206845228970803">"Molto veloce"</item>
+    <item msgid="4977949754169483251">"Rapida"</item>
+    <item msgid="6106302964845503577">"Molto rapida"</item>
+    <item msgid="6800277205640837264">"Massima velocità"</item>
   </string-array>
   <string-array name="tts_pitch_entries">
     <item msgid="7526050907652687351">"Molto basso"</item>
@@ -114,6 +118,9 @@
     <!-- no translation found for wifi_security_no_eap:0 (2084555984818107151) -->
     <!-- no translation found for wifi_security_no_eap:1 (397579322683471524) -->
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
+    <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
+    <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
+    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -170,6 +177,11 @@
     <item msgid="7182812872984827322">"TTLS"</item>
     <item msgid="2318274046749286642">"PWD"</item>
   </string-array>
+  <string-array name="wifi_peap_phase2_entries">
+    <item msgid="2577747762745812488">"Nessuno"</item>
+    <item msgid="937786527870979616">"MSCHAPV2"</item>
+    <item msgid="5302613883318643629">"GTC"</item>
+  </string-array>
   <string-array name="wifi_phase2_entries">
     <item msgid="1818786254010764570">"Nessuna"</item>
     <item msgid="6189918678874123056">"PAP"</item>
@@ -186,7 +198,7 @@
     <item msgid="8673874894887358090">"Manuale"</item>
   </string-array>
   <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Disattiva"</item>
+    <item msgid="5165439859689033665">"OFF"</item>
     <item msgid="3165868966179561687">"Avviso"</item>
     <item msgid="6038758039030476855">"Vibrazione"</item>
   </string-array>
@@ -206,15 +218,160 @@
     <item msgid="3044323519470167625">"eHRPD"</item>
     <item msgid="6848428671997893147">"Non specificato"</item>
   </string-array>
+  <string-array name="mvno_type_entries">
+    <item msgid="4367119357633573465">"None"</item>
+    <item msgid="6062567900587138000">"SPN"</item>
+    <item msgid="2454085083342423481">"IMSI"</item>
+    <item msgid="2681427309183221543">"GID"</item>
+  </string-array>
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Memorizzazione su dispositivo interno"</item>
     <item msgid="3738430123799803530">"Scheda SD rimovibile"</item>
     <item msgid="4498124044785815005">"Impostazione di sistema"</item>
   </string-array>
+  <string-array name="app_ops_categories">
+    <item msgid="6358963769537892925">"Posizione"</item>
+    <item msgid="255608127647030286">"Personali"</item>
+    <item msgid="4588829735729884491">"Messaggi"</item>
+    <item msgid="886742181977884584">"Contenuti multimediali"</item>
+    <item msgid="7924928667052300589">"Dispositivo"</item>
+  </string-array>
+  <string-array name="app_ops_summaries">
+    <item msgid="4979188868761515915">"posizione approssimativa"</item>
+    <item msgid="5789673140227507995">"posizione precisa"</item>
+    <item msgid="1061584358377390581">"GPS"</item>
+    <item msgid="5387405117297558954">"vibrazione"</item>
+    <item msgid="3434165993711230924">"lettura contatti"</item>
+    <item msgid="616161687718081936">"modifica dei contatti"</item>
+    <item msgid="7638002295329050091">"lettura del registro chiamate"</item>
+    <item msgid="6546959730920410907">"modifica del registro chiamate"</item>
+    <item msgid="446877710771379667">"lettura calendario"</item>
+    <item msgid="7674458294386319722">"modifica del calendario"</item>
+    <item msgid="8281201165558093009">"scansione Wi-Fi"</item>
+    <item msgid="8694611243479480497">"notifica"</item>
+    <item msgid="7776439107987345446">"scansione cell"</item>
+    <item msgid="514615766544675057">"chiamate telefono"</item>
+    <item msgid="8181415497109310680">"lettura SMS"</item>
+    <item msgid="6816551144382117307">"scrittura SMS"</item>
+    <item msgid="4600463921908905030">"ricezione SMS"</item>
+    <item msgid="5958926493289432745">"ricezione SMS di emergenza"</item>
+    <item msgid="4945269495221089540">"ricezione MMS"</item>
+    <item msgid="5570472453573929087">"ricezione push WAP"</item>
+    <item msgid="7125408150230860501">"invio SMS"</item>
+    <item msgid="7080337936612188061">"lettura SMS ICC"</item>
+    <item msgid="587124103118495063">"scrittura SMS ICC"</item>
+    <item msgid="2320577158869025503">"modifica delle impostazioni"</item>
+    <item msgid="1545733463471924009">"traccia in alto"</item>
+    <item msgid="3609046903962454582">"accesso a notifiche"</item>
+    <item msgid="4671646036128214513">"fotocamera"</item>
+    <item msgid="1097324338692486211">"registrazione audio"</item>
+    <item msgid="5031552983987798163">"riproduzione audio"</item>
+    <item msgid="8374996688066472414">"lettura degli appunti"</item>
+    <item msgid="3045529469061083747">"modifica degli appunti"</item>
+    <item msgid="5124443975763747838">"pulsanti contenuti multimediali"</item>
+    <item msgid="4547883971364273343">"focus audio"</item>
+    <item msgid="2603878814882344450">"volume principale"</item>
+    <item msgid="7136963238377062018">"volume voce"</item>
+    <item msgid="4270236897655923007">"volume suoneria"</item>
+    <item msgid="6325739889222559394">"volume contenuti multimediali"</item>
+    <item msgid="5762123934816216821">"volume allarme"</item>
+    <item msgid="785049718065337473">"volume notifiche"</item>
+    <item msgid="6700305533746877052">"volume bluetooth"</item>
+    <item msgid="2029227495214047094">"mantieni attivo"</item>
+    <item msgid="26109888160231211">"monitora posizione"</item>
+    <item msgid="5753382310468855812">"monitora localizzazione a consumo elevato"</item>
+  </string-array>
+  <string-array name="app_ops_labels">
+    <item msgid="6602854600289714121">"Posizione"</item>
+    <item msgid="8677040780775113033">"Posizione"</item>
+    <item msgid="1660743989948992916">"Posizione"</item>
+    <item msgid="8791172739860195290">"Vibrazione"</item>
+    <item msgid="383413555642128046">"Lettura contatti"</item>
+    <item msgid="3654594895269697313">"Modifica dei contatti"</item>
+    <item msgid="7928393476362362538">"Lettura del registro chiamate"</item>
+    <item msgid="6248591205254641116">"Modifica del registro chiamate"</item>
+    <item msgid="6093344633066170692">"Lettura calendario"</item>
+    <item msgid="1334886368750347692">"Modifica del calendario"</item>
+    <item msgid="1638204101698708656">"Posizione"</item>
+    <item msgid="2154671955760380322">"Pubblicazione notifica"</item>
+    <item msgid="4282477730595931828">"Posizione"</item>
+    <item msgid="4891423912898525905">"Chiamate telefono"</item>
+    <item msgid="2623604824935968113">"Lettura di SMS/MMS"</item>
+    <item msgid="4420177125221176306">"Scrittura di SMS/MMS"</item>
+    <item msgid="3986142739951490025">"Ricezione SMS/MMS"</item>
+    <item msgid="3984213795861739778">"Ricezione SMS/MMS"</item>
+    <item msgid="3656243523752472788">"Ricezione SMS/MMS"</item>
+    <item msgid="8105802370238551510">"Ricezione SMS/MMS"</item>
+    <item msgid="1407766984645388488">"Invio SMS/MMS"</item>
+    <item msgid="3527273606643794973">"Lettura di SMS/MMS"</item>
+    <item msgid="4370895547001583812">"Scrittura di SMS/MMS"</item>
+    <item msgid="4218544235221631789">"Modifica delle impostazioni"</item>
+    <item msgid="736541391767350377">"Traccia in alto"</item>
+    <item msgid="5530815681721654194">"Accesso a notifiche"</item>
+    <item msgid="781213371706962767">"Fotocamera"</item>
+    <item msgid="1720492593061838172">"Registrazione audio"</item>
+    <item msgid="3493046322001257041">"Riproduzione audio"</item>
+    <item msgid="136815868796597058">"Lettura degli appunti"</item>
+    <item msgid="5238692940326972503">"Modifica degli appunti"</item>
+    <item msgid="5753789168376302997">"Pulsanti contenuti multimediali"</item>
+    <item msgid="3265262911688671938">"Focus audio"</item>
+    <item msgid="2098976479485046797">"Volume principale"</item>
+    <item msgid="5660213838861789350">"Volume voce"</item>
+    <item msgid="7983336752371254444">"Volume suoneria"</item>
+    <item msgid="7878027809189330917">"Volume contenuti multimediali"</item>
+    <item msgid="7260546305036218513">"Volume allarme"</item>
+    <item msgid="9103719301075748925">"Volume notifiche"</item>
+    <item msgid="7025966722295861512">"Volume Bluetooth"</item>
+    <item msgid="4665183401128289653">"Mantieni attivo"</item>
+    <item msgid="8584357129746649222">"Posizione"</item>
+    <item msgid="7669257279311110599">"Geolocalizzazione"</item>
+  </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Breve"</item>
     <item msgid="2560532955514699713">"Medio"</item>
     <item msgid="2372711992605524591">"Lungo"</item>
+  </string-array>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"Predefinito"</item>
+    <item msgid="1016452621833735880">"Sans-serif"</item>
+    <item msgid="2496277987934654454">"Sans-serif condensed"</item>
+    <item msgid="4406003087391086325">"Serif"</item>
+    <item msgid="1558362802170124073">"Monospace"</item>
+  </string-array>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"Molto piccole"</item>
+    <item msgid="6781094565687692782">"Piccole"</item>
+    <item msgid="8222123259497646551">"Medie"</item>
+    <item msgid="5813217276778560466">"Grandi"</item>
+    <item msgid="9044232017390975191">"Molto grandi"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="6022616153255438487">"Nessuno"</item>
+    <item msgid="1352974708028506778">"Contorno"</item>
+    <item msgid="5850876295428722675">"Ombreggiatura"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25%"</item>
+    <item msgid="2367156416247936773">"50%"</item>
+    <item msgid="5395560410107149298">"75%"</item>
+    <item msgid="8342334626783983353">"100%"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="1630625150404038035">"Bianco su nero"</item>
+    <item msgid="4589278788192525675">"Nero su bianco"</item>
+    <item msgid="1309255027325660115">"Giallo su nero"</item>
+    <item msgid="2985943780939258562">"Giallo su blu"</item>
+    <item msgid="7520438652121629055">"Personalizzato"</item>
+  </string-array>
+  <string-array name="select_runtime_titles">
+    <item msgid="3574453009229338122">"Dalvik"</item>
+    <item msgid="8978402910750533864">"ART"</item>
+    <item msgid="7839859333977894115">"ART (debug)"</item>
+  </string-array>
+  <string-array name="select_runtime_summaries">
+    <item msgid="6412880178297884701">"Usa Dalvik"</item>
+    <item msgid="5131846588686178907">"Usa ART"</item>
+    <item msgid="4530003713865319928">"Usa la build di debug ART"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Non verificare mai"</item>
@@ -256,15 +413,35 @@
   <string-array name="overlay_display_devices_entries">
     <item msgid="1606809880904982133">"Nessuno"</item>
     <item msgid="688482401508173818">"720 x 480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280 x 720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920 x 1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280 x 720 tvdpi e 1920 x 1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"720 x 480 mdpi (opzione sicura)"</item>
+    <item msgid="8181151155909301030">"1280 x 720 tvdpi"</item>
+    <item msgid="2920655562462493148">"1280 x 720 tvdpi (opzione sicura)"</item>
+    <item msgid="8910371271391940941">"1920 x 1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"1920 x 1080 xhdpi (opzione sicura)"</item>
+    <item msgid="1937752114395156918">"1280 x 720 tvdpi, 1920 x 1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"Nessuna"</item>
     <item msgid="9089630089455370183">"Logcat"</item>
     <item msgid="5397807424362304288">"Systrace (grafica)"</item>
     <item msgid="1340692776955662664">"Stack di chiamate su glGetError"</item>
+  </string-array>
+  <string-array name="show_non_rect_clip_entries">
+    <item msgid="993742912147090253">"OFF"</item>
+    <item msgid="675719912558941285">"Area ritaglio non rettangolare blu"</item>
+    <item msgid="1064373276095698656">"Evidenzia cmd disegno test in verde"</item>
+  </string-array>
+  <string-array name="track_frame_time_entries">
+    <item msgid="2193584639058893150">"OFF"</item>
+    <item msgid="2751513398307949636">"Su schermo sotto forma di barre"</item>
+    <item msgid="8272260411216018353">"Su schermo sotto forma di linee"</item>
+    <item msgid="120512413928262547">"In adb shell dumpsys gfxinfo"</item>
+  </string-array>
+  <string-array name="debug_hw_overdraw_entries">
+    <item msgid="8190572633763871652">"OFF"</item>
+    <item msgid="7688197031296835369">"Mostra aree overdraw"</item>
+    <item msgid="2290859360633824369">"Mostra aree con deuteranomalia"</item>
+    <item msgid="3448087929560624983">"Mostra contatore overdraw"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Limite standard"</item>
@@ -294,5 +471,11 @@
     <item msgid="7389829271787670252">"Chiedi"</item>
     <item msgid="5077768429488260031">"Non consentire mai"</item>
     <item msgid="1417929597727989746">"Consenti sempre"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"normale"</item>
+    <item msgid="4517779899383204000">"medio"</item>
+    <item msgid="406385694840950802">"basso"</item>
+    <item msgid="4212263919458209842">"critico"</item>
   </string-array>
 </resources>

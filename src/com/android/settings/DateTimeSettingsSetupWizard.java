@@ -121,7 +121,6 @@ public class DateTimeSettingsSetupWizard extends Activity
         mSelectedTimeZone = tz;
         mTimeZoneButton = (Button)findViewById(R.id.time_zone_button);
         mTimeZoneButton.setText(tz.getDisplayName());
-        // mTimeZoneButton.setText(DateTimeSettings.getTimeZoneText(tz));
         mTimeZoneButton.setOnClickListener(this);
 
         final boolean autoDateTimeEnabled;
@@ -141,6 +140,7 @@ public class DateTimeSettingsSetupWizard extends Activity
         mDatePicker = (DatePicker)findViewById(R.id.date_picker);
         mDatePicker.setEnabled(!autoDateTimeEnabled);
         mDatePicker.setCalendarViewShown(false);
+        DateTimeSettings.configureDatePicker(mDatePicker);
 
         mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -244,7 +244,6 @@ public class DateTimeSettingsSetupWizard extends Activity
             if (mTimeZoneButton != null) {
                 mTimeZoneButton.setText(tz.getDisplayName());
             }
-            // mTimeZoneButton.setText(DateTimeSettings.getTimeZoneText(tz));
             mDatePicker.updateDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH),
                     now.get(Calendar.DAY_OF_MONTH));
             mTimePicker.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
@@ -263,7 +262,7 @@ public class DateTimeSettingsSetupWizard extends Activity
 
     /**
      * If this is called, that means we're in prefs style portrait mode for a large display
-     * and the user has tapped on the time zone preference. If we were a PreferenceDrawerActivity,
+     * and the user has tapped on the time zone preference. If we were a PreferenceActivity,
      * we'd then launch the timezone fragment in a new activity, but we aren't, and here
      * on a tablet display, we really want more of a popup picker look' like the one we use
      * for the xlarge version of this activity. So we just take this opportunity to launch that.
@@ -271,7 +270,7 @@ public class DateTimeSettingsSetupWizard extends Activity
      * TODO: For phones, we might want to change this to do the "normal" opening
      * of the zonepicker fragment in its own activity. Or we might end up just
      * creating a separate DateTimeSettingsSetupWizardPhone activity that subclasses
-     * PreferenceDrawerActivity in the first place to handle all that automatically.
+     * PreferenceActivity in the first place to handle all that automatically.
      */
     @Override
     public boolean onPreferenceStartFragment(PreferenceFragment caller, Preference pref) {

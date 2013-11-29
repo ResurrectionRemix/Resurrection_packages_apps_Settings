@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
+import static android.provider.Settings.System.SCREEN_OFF_ANIMATION;
 
 import android.app.ActivityManagerNative;
 import android.app.Dialog;
@@ -58,9 +59,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_ACCELEROMETER = "accelerometer";
     private static final String KEY_FONT_SIZE = "font_size";
-    private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
+    private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
+    private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
+    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -68,7 +71,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mAccelerometer;
     private WarnedListPreference mFontSizePref;
-    private CheckBoxPreference mNotificationPulse;
+    private Preference mNotificationLight;
+    private Preference mChargingLight;
 
     private final Configuration mCurConfig = new Configuration();
     
@@ -77,6 +81,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private WifiDisplayStatus mWifiDisplayStatus;
     private Preference mWifiDisplayPreference;
+
+    private ListPreference mScreenOffAnimationPreference;
 
     private final RotationPolicy.RotationPolicyListener mRotationPolicyListener =
             new RotationPolicy.RotationPolicyListener() {
@@ -95,9 +101,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
         mAccelerometer.setPersistent(false);
-        if (RotationPolicy.isRotationLockToggleSupported(getActivity())) {
+        if (!RotationPolicy.isRotationSupported(getActivity())
+                || RotationPolicy.isRotationLockToggleSupported(getActivity())) {
             // If rotation lock is supported, then we do not provide this option in
-            // Display settings.  However, is still available in Accessibility settings.
+            // Display settings.  However, is still available in Accessibility settings,
+            // if the device supports rotation.
             getPreferenceScreen().removePreference(mAccelerometer);
         }
 
@@ -107,7 +115,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         com.android.internal.R.bool.config_dreamsSupported) == false) {
             getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
-        
+
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
         final long currentTimeout = Settings.System.getLong(resolver, SCREEN_OFF_TIMEOUT,
                 FALLBACK_SCREEN_TIMEOUT_VALUE);
@@ -116,22 +124,28 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
 
+        mScreenOffAnimationPreference = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
+        final int currentAnimation = Settings.System.getInt(resolver, SCREEN_OFF_ANIMATION,
+                1 /* CRT-off */);
+        mScreenOffAnimationPreference.setValue(String.valueOf(currentAnimation));
+        mScreenOffAnimationPreference.setOnPreferenceChangeListener(this);
+        updateScreenOffAnimationPreferenceDescription(currentAnimation);
+
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
-        mNotificationPulse = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_PULSE);
-        if (mNotificationPulse != null
+        mNotificationLight = (Preference) findPreference(KEY_NOTIFICATION_LIGHT);
+        if (mNotificationLight != null
                 && getResources().getBoolean(
                         com.android.internal.R.bool.config_intrusiveNotificationLed) == false) {
-            getPreferenceScreen().removePreference(mNotificationPulse);
-        } else {
-            try {
-                mNotificationPulse.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.NOTIFICATION_LIGHT_PULSE) == 1);
-                mNotificationPulse.setOnPreferenceChangeListener(this);
-            } catch (SettingNotFoundException snfe) {
-                Log.e(TAG, Settings.System.NOTIFICATION_LIGHT_PULSE + " not found");
-            }
+            getPreferenceScreen().removePreference(mNotificationLight);
+        }
+
+        mChargingLight = (Preference) findPreference(KEY_BATTERY_LIGHT);
+        if (mChargingLight != null
+                && getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed) == false) {
+            getPreferenceScreen().removePreference(mChargingLight);
         }
 
         mDisplayManager = (DisplayManager)getActivity().getSystemService(
@@ -143,6 +157,24 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mWifiDisplayPreference);
             mWifiDisplayPreference = null;
         }
+    }
+
+    private void updateScreenOffAnimationPreferenceDescription(int currentAnim) {
+        ListPreference preference = mScreenOffAnimationPreference;
+        String summary;
+        if (currentAnim < 0) {
+            // Unsupported value
+            summary = "";
+        } else {
+            final CharSequence[] entries = preference.getEntries();
+            final CharSequence[] values = preference.getEntryValues();
+            if (entries == null || entries.length == 0) {
+                summary = "";
+            } else {
+                summary = entries[currentAnim].toString();
+            }
+        }
+        preference.setSummary(summary);
     }
 
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
@@ -191,13 +223,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         if (revisedEntries.size() != entries.length || revisedValues.size() != values.length) {
+            final int userPreference = Integer.parseInt(screenTimeoutPreference.getValue());
             screenTimeoutPreference.setEntries(
                     revisedEntries.toArray(new CharSequence[revisedEntries.size()]));
             screenTimeoutPreference.setEntryValues(
                     revisedValues.toArray(new CharSequence[revisedValues.size()]));
-            final int userPreference = Integer.parseInt(screenTimeoutPreference.getValue());
             if (userPreference <= maxTimeout) {
                 screenTimeoutPreference.setValue(String.valueOf(userPreference));
+            } else if (revisedValues.size() > 0
+                    && Long.parseLong(revisedValues.get(revisedValues.size() - 1).toString())
+                    == maxTimeout) {
+                // If the last one happens to be the same as the max timeout, select that
+                screenTimeoutPreference.setValue(String.valueOf(maxTimeout));
             } else {
                 // There will be no highlighted selection since nothing in the list matches
                 // maxTimeout. The user can still select anything less than maxTimeout.
@@ -331,11 +368,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (preference == mAccelerometer) {
             RotationPolicy.setRotationLockForAccessibility(
                     getActivity(), !mAccelerometer.isChecked());
-        } else if (preference == mNotificationPulse) {
-            boolean value = mNotificationPulse.isChecked();
-            Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_LIGHT_PULSE,
-                    value ? 1 : 0);
-            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -353,6 +385,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
+        }
+        if (KEY_SCREEN_OFF_ANIMATION.equals(key)) {
+            int value = Integer.parseInt((String) objValue);
+            try {
+                Settings.System.putInt(getContentResolver(), SCREEN_OFF_ANIMATION, value);
+                updateScreenOffAnimationPreferenceDescription(value);
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "could not persist screen-off animation setting", e);
+            }
         }
 
         return true;

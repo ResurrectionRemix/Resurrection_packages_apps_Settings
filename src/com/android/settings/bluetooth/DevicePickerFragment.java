@@ -16,11 +16,15 @@
 
 package com.android.settings.bluetooth;
 
+import static android.os.UserManager.DISALLOW_CONFIG_BLUETOOTH;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothDevicePicker;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserManager;
 
 import com.android.settings.R;
 
@@ -29,6 +33,10 @@ import com.android.settings.R;
  * connection management.
  */
 public final class DevicePickerFragment extends DeviceListPreferenceFragment {
+
+    public DevicePickerFragment() {
+        super(null /* Not tied to any user restrictions. */);
+    }
 
     private boolean mNeedAuth;
     private String mLaunchPackage;
@@ -51,7 +59,9 @@ public final class DevicePickerFragment extends DeviceListPreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle(getString(R.string.device_picker));
-        mStartScanOnResume = (savedInstanceState == null);  // don't start scan after rotation
+        UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
+        mStartScanOnResume = !um.hasUserRestriction(DISALLOW_CONFIG_BLUETOOTH)
+                && (savedInstanceState == null);  // don't start scan after rotation
     }
 
     @Override

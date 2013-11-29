@@ -19,6 +19,7 @@ package com.android.settings;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.PasswordEntryKeyboardHelper;
 import com.android.internal.widget.PasswordEntryKeyboardView;
+import com.android.settings.ChooseLockGeneric.ChooseLockGenericFragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -29,7 +30,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceDrawerActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
@@ -63,6 +63,12 @@ public class ChooseLockPassword extends PreferenceActivity {
         modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ChooseLockPasswordFragment.class.getName());
         modIntent.putExtra(EXTRA_NO_HEADERS, true);
         return modIntent;
+    }
+
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        if (ChooseLockPasswordFragment.class.getName().equals(fragmentName)) return true;
+        return false;
     }
 
     @Override
@@ -155,6 +161,9 @@ public class ChooseLockPassword extends PreferenceActivity {
             super.onCreate(savedInstanceState);
             mLockPatternUtils = new LockPatternUtils(getActivity());
             Intent intent = getActivity().getIntent();
+            if (!(getActivity() instanceof ChooseLockPassword)) {
+                throw new SecurityException("Fragment contained in wrong activity");
+            }
             mRequestedQuality = Math.max(intent.getIntExtra(LockPatternUtils.PASSWORD_TYPE_KEY,
                     mRequestedQuality), mLockPatternUtils.getRequestedPasswordQuality());
             mPasswordMinLength = Math.max(
@@ -226,20 +235,14 @@ public class ChooseLockPassword extends PreferenceActivity {
                     updateStage(mUiStage);
                 }
             }
-            // Update the breadcrumb (title) if this is embedded in a PreferenceDrawerActivity
-            if (activity instanceof PreferenceDrawerActivity) {
-                final PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity) activity;
+            // Update the breadcrumb (title) if this is embedded in a PreferenceActivity
+            if (activity instanceof PreferenceActivity) {
+                final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
                 int id = mIsAlphaMode ? R.string.lockpassword_choose_your_password_header
                         : R.string.lockpassword_choose_your_pin_header;
                 CharSequence title = getText(id);
                 preferenceActivity.showBreadCrumbs(title, title);
-            } else if (activity instanceof PreferenceActivity) {
-                    final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-                    int id = mIsAlphaMode ? R.string.lockpassword_choose_your_password_header
-                            : R.string.lockpassword_choose_your_pin_header;
-                    CharSequence title = getText(id);
-                    preferenceActivity.showBreadCrumbs(title, title);
-                }
+            }
 
             return view;
         }
@@ -402,6 +405,7 @@ public class ChooseLockPassword extends PreferenceActivity {
                             LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, false);
                     mLockPatternUtils.clearLock(isFallback);
                     mLockPatternUtils.saveLockPassword(pin, mRequestedQuality, isFallback);
+                    getActivity().setResult(RESULT_FINISHED);
                     getActivity().finish();
                 } else {
                     CharSequence tmp = mPasswordEntry.getText();

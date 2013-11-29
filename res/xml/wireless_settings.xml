@@ -23,25 +23,10 @@
         android:persistent="false"
         android:disableDependentsState="true" />
 
-    <PreferenceScreen
-        android:fragment="com.android.settings.vpn2.VpnSettings"
-        android:key="vpn_settings"
-        android:title="@string/vpn_settings_title" />
-
-    <PreferenceScreen
-        android:fragment="com.android.settings.TetherSettings"
-        android:key="tether_settings"
-        android:title="@string/tether_settings_title_all" />
-
-    <PreferenceScreen
-        android:key="wimax_settings"
-        android:title="@string/wimax_settings"
-        android:summary="@string/wimax_settings_summary" >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings.wimax"
-            android:targetClass="com.android.settings.wimax.WimaxSettings" />
-    </PreferenceScreen>
+    <com.android.settings.SmsListPreference
+        android:key="sms_application"
+        android:title="@string/sms_application_title"
+        android:persistent="false" />
 
     <CheckBoxPreference
         android:key="toggle_nfc"
@@ -54,12 +39,15 @@
         android:key="android_beam_settings"
         android:title="@string/android_beam_settings_title" />
 
-    <ListPreference
-        android:key="nfc_polling_mode"
-        android:title="@string/nfc_polling_mode_title"
-        android:entries="@array/nfc_polling_mode_entries"
-        android:entryValues="@array/nfc_polling_mode_values"
-        android:persistent="false" />
+    <PreferenceScreen
+        android:fragment="com.android.settings.TetherSettings"
+        android:key="tether_settings"
+        android:title="@string/tether_settings_title_all" />
+
+    <PreferenceScreen
+        android:fragment="com.android.settings.vpn2.VpnSettings"
+        android:key="vpn_settings"
+        android:title="@string/vpn_settings_title" />
 
     <PreferenceScreen
         android:key="mobile_network_settings"
@@ -69,6 +57,20 @@
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.phone"
             android:targetClass="com.android.phone.MobileNetworkSettings" />
+    </PreferenceScreen>
+
+    <Preference
+        android:key="manage_mobile_plan"
+        android:title="@string/manage_mobile_plan_title"
+        android:persistent="false" />
+
+    <PreferenceScreen
+        android:key="wimax_settings"
+        android:title="@string/wimax_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings.wimax"
+            android:targetClass="com.android.settings.wimax.WimaxSettings" />
     </PreferenceScreen>
 
     <CheckBoxPreference
@@ -84,8 +86,7 @@
 
     <PreferenceScreen
         android:key="cell_broadcast_settings"
-        android:title="@string/cell_broadcast_settings"
-        android:summary="@string/cell_broadcast_settings_summary" >
+        android:title="@string/cell_broadcast_settings" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.cellbroadcastreceiver"

@@ -16,17 +16,21 @@
 
 package com.android.settings.inputmethod;
 
+import com.android.internal.inputmethod.InputMethodUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -41,25 +45,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Comparator;
+import java.text.Collator;
 import java.util.List;
 
-public class InputMethodPreference extends CheckBoxPreference
-        implements Comparator<InputMethodPreference> {
+public class InputMethodPreference extends CheckBoxPreference {
     private static final String TAG = InputMethodPreference.class.getSimpleName();
-    private static final float DISABLED_ALPHA = 0.4f;
     private final SettingsPreferenceFragment mFragment;
     private final InputMethodInfo mImi;
     private final InputMethodManager mImm;
+    private final boolean mIsValidSystemNonAuxAsciiCapableIme;
     private final Intent mSettingsIntent;
-    private final boolean mAlwaysChecked;
     private final boolean mIsSystemIme;
+    private final Collator mCollator;
 
     private AlertDialog mDialog = null;
     private ImageView mInputMethodSettingsButton;
     private TextView mTitleText;
     private TextView mSummaryText;
     private View mInputMethodPref;
+    private OnPreferenceChangeListener mOnImePreferenceChangeListener;
 
     private final OnClickListener mPrefOnclickListener = new OnClickListener() {
         @Override
@@ -80,7 +84,7 @@ public class InputMethodPreference extends CheckBoxPreference
     };
 
     public InputMethodPreference(SettingsPreferenceFragment fragment, Intent settingsIntent,
-            InputMethodManager imm, InputMethodInfo imi, int imiCount) {
+            InputMethodManager imm, InputMethodInfo imi) {
         super(fragment.getActivity(), null, R.style.InputMethodPreferenceStyle);
         setLayoutResource(R.layout.preference_inputmethod);
         setWidgetLayoutResource(R.layout.preference_inputmethod_widget);
@@ -88,13 +92,12 @@ public class InputMethodPreference extends CheckBoxPreference
         mSettingsIntent = settingsIntent;
         mImm = imm;
         mImi = imi;
-        updateSummary();
-        mAlwaysChecked = InputMethodAndSubtypeUtil.isAlwaysCheckedIme(
-                imi, fragment.getActivity(), imiCount);
-        mIsSystemIme = InputMethodAndSubtypeUtil.isSystemIme(imi);
-        if (mAlwaysChecked) {
-            setEnabled(false);
-        }
+        mIsSystemIme = InputMethodUtils.isSystemIme(imi);
+        mCollator = Collator.getInstance(fragment.getResources().getConfiguration().locale);
+        final Context context = fragment.getActivity();
+        mIsValidSystemNonAuxAsciiCapableIme = InputMethodSettingValuesWrapper
+                .getInstance(context).isValidSystemNonAuxAsciiCapableIme(imi, context);
+        updatePreferenceViews();
     }
 
     @Override
@@ -154,9 +157,8 @@ public class InputMethodPreference extends CheckBoxPreference
         }
         if (mSettingsIntent == null) {
             mInputMethodSettingsButton.setVisibility(View.GONE);
-        } else {
-            updatePreferenceViews();
         }
+        updatePreferenceViews();
     }
 
     @Override
@@ -165,14 +167,23 @@ public class InputMethodPreference extends CheckBoxPreference
         updatePreferenceViews();
     }
 
-    private void updatePreferenceViews() {
+    public void updatePreferenceViews() {
+        final boolean isAlwaysChecked =
+                InputMethodSettingValuesWrapper.getInstance(getContext()).isAlwaysCheckedIme(
+                        mImi, getContext());
+        if (isAlwaysChecked) {
+            super.setChecked(true);
+            super.setEnabled(false);
+        } else {
+            super.setEnabled(true);
+        }
         final boolean checked = isChecked();
         if (mInputMethodSettingsButton != null) {
             mInputMethodSettingsButton.setEnabled(checked);
             mInputMethodSettingsButton.setClickable(checked);
             mInputMethodSettingsButton.setFocusable(checked);
             if (!checked) {
-                mInputMethodSettingsButton.setAlpha(DISABLED_ALPHA);
+                mInputMethodSettingsButton.setAlpha(Utils.DISABLED_ALPHA);
             }
         }
         if (mTitleText != null) {
@@ -190,6 +201,7 @@ public class InputMethodPreference extends CheckBoxPreference
                 mInputMethodPref.setBackgroundColor(0);
             }
         }
+        updateSummary();
     }
 
     public static boolean startFragment(
@@ -207,7 +219,7 @@ public class InputMethodPreference extends CheckBoxPreference
         }
     }
 
-    public String getSummaryString() {
+    private String getSummaryString() {
         final StringBuilder builder = new StringBuilder();
         final List<InputMethodSubtype> subtypes = mImm.getEnabledInputMethodSubtypeList(mImi, true);
         for (InputMethodSubtype subtype : subtypes) {
@@ -221,7 +233,7 @@ public class InputMethodPreference extends CheckBoxPreference
         return builder.toString();
     }
 
-    public void updateSummary() {
+    private void updateSummary() {
         final String summary = getSummaryString();
         if (TextUtils.isEmpty(summary)) {
             return;
@@ -234,17 +246,19 @@ public class InputMethodPreference extends CheckBoxPreference
      * @param checked whether to check the box
      * @param save whether to save IME settings
      */
-    public void setChecked(boolean checked, boolean save) {
+    private void setChecked(boolean checked, boolean save) {
+        final boolean wasChecked = isChecked();
         super.setChecked(checked);
         if (save) {
             saveImeSettings();
+            if (wasChecked != checked && mOnImePreferenceChangeListener != null) {
+                mOnImePreferenceChangeListener.onPreferenceChange(this, checked);
+            }
         }
-        updateSummary();
     }
 
-    @Override
-    public void setChecked(boolean checked) {
-        setChecked(checked, false);
+    public void setOnImePreferenceChangeListener(OnPreferenceChangeListener listener) {
+        mOnImePreferenceChangeListener = listener;
     }
 
     private void showSecurityWarnDialog(InputMethodInfo imi, final InputMethodPreference chkPref) {
@@ -276,13 +290,26 @@ public class InputMethodPreference extends CheckBoxPreference
     }
 
     @Override
-    public int compare(InputMethodPreference arg0, InputMethodPreference arg1) {
-        if (arg0.isEnabled() == arg0.isEnabled()) {
-            return arg0.mImi.getId().compareTo(arg1.mImi.getId());
-        } else {
-            // Prefer system IMEs
-            return arg0.isEnabled() ? 1 : -1;
+    public int compareTo(Preference p) {
+        if (!(p instanceof InputMethodPreference)) {
+            return super.compareTo(p);
         }
+        final InputMethodPreference imp = (InputMethodPreference) p;
+        final boolean priority0 = mIsSystemIme && mIsValidSystemNonAuxAsciiCapableIme;
+        final boolean priority1 = imp.mIsSystemIme && imp.mIsValidSystemNonAuxAsciiCapableIme;
+        if (priority0 == priority1) {
+            final CharSequence t0 = getTitle();
+            final CharSequence t1 = imp.getTitle();
+            if (TextUtils.isEmpty(t0)) {
+                return 1;
+            }
+            if (TextUtils.isEmpty(t1)) {
+                return -1;
+            }
+            return mCollator.compare(t0.toString(), t1.toString());
+        }
+        // Prefer always checked system IMEs
+        return priority0 ? -1 : 1;
     }
 
     private void saveImeSettings() {

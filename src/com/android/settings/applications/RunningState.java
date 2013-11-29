@@ -32,6 +32,7 @@ import android.content.pm.ServiceInfo;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Drawable.ConstantState;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
@@ -462,6 +463,12 @@ public class RunningState {
                     si.mServiceInfo = ActivityThread.getPackageManager().getServiceInfo(
                             service.service, PackageManager.GET_UNINSTALLED_PACKAGES,
                             UserHandle.getUserId(service.uid));
+
+                    if (si.mServiceInfo == null) {
+                        Log.d("RunningService", "getServiceInfo returned null for: "
+                                + service.service);
+                        return false;
+                    }
                 } catch (RemoteException e) {
                 }
                 si.mDisplayLabel = makeLabel(pm,
@@ -665,7 +672,12 @@ public class RunningState {
                 return super.loadIcon(context, state);
             }
             if (mUser.mIcon != null) {
-                return mUser.mIcon.getConstantState().newDrawable();
+                ConstantState constState = mUser.mIcon.getConstantState();
+                if (constState == null) {
+                    return mUser.mIcon;
+                } else {
+                    return constState.newDrawable();
+                }
             }
             return context.getResources().getDrawable(
                     com.android.internal.R.drawable.ic_menu_cc);
@@ -825,8 +837,8 @@ public class RunningState {
                 UserInfo info = mUm.getUserInfo(newItem.mUserId);
                 userItem.mUser.mInfo = info;
                 if (info != null) {
-                    userItem.mUser.mIcon = UserUtils.getUserIcon(mUm, info,
-                            context.getResources());
+                    userItem.mUser.mIcon = UserUtils.getUserIcon(context, mUm,
+                            info, context.getResources());
                 }
                 String name = info != null ? info.name : null;
                 if (name == null) {

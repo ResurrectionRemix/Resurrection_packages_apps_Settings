@@ -28,12 +28,10 @@
 
     <Preference
             android:key="musicfx"
-            android:title="@string/musicfx_title" />
-    
-    <PreferenceScreen
-            android:key="quiet_hours"
-            android:fragment="com.android.settings.QuietHours"
-            android:title="@string/quiet_hours_title" />
+            android:title="@string/musicfx_title">
+        <intent android:targetPackage="com.android.musicfx"
+                android:targetClass="com.android.musicfx.ControlPanelPicker" />
+    </Preference>
 
     <PreferenceCategory
             android:key="category_calls_and_notification"
@@ -52,41 +50,11 @@
          android:title="@string/vibrate_when_ringing_title"
          android:persistent="false" />
 
-    <Preference
-            android:key="vibration"
-            android:title="@string/vibration_title"
-            android:dependency="vibrate_when_ringing"
-            android:persistent="false"
-            android:defaultValue="false" />
- 
- <PreferenceCategory
-            android:title="@string/power_notifications_category_title"/>
-            
-     <CheckBoxPreference
-            android:key="power_notifications"
-            android:title="@string/power_notifications_enable_title"
-           android:summary="@string/power_notifications_enable_title_summary"
-            android:defaultValue="false"
-            android:persistent="false" />
-
-    <CheckBoxPreference
-            android:key="power_notifications_vibrate"
-            android:title="@string/power_notifications_vibrate_title"
-            android:summary="@string/update_power_notifications_vibrate_summary"
-            android:defaultValue="false"
-            android:dependency="power_notifications"
-            android:persistent="false" />
-
-    <Preference
-            android:key="power_notifications_ringtone"
-            android:title="@string/power_notifications_ringtone_title"
-            android:dependency="power_notifications"
-            android:persistent="false" />
     <PreferenceCategory
             android:title="@string/sound_category_system_title"/>
 
     <!-- Do not nest these, or removals in code will break -->
-            
+
     <com.android.settings.DefaultRingtonePreference
             android:key="notification_sound"
             android:title="@string/notification_sound_title"
@@ -108,16 +76,17 @@
             android:key="lock_sounds"
             android:title="@string/lock_sounds_enable_title"
             android:defaultValue="true" />
-            
+
     <CheckBoxPreference
             android:key="haptic_feedback"
             android:title="@string/haptic_feedback_enable_title"
             android:defaultValue="true" />
 
     <CheckBoxPreference
-            android:key="safe_headset_volume"
-            android:title="@string/safe_headset_volume_title"
-            android:defaultValue="true" />
+            android:key="volume_adjust_sounds"
+            android:title="@string/volume_adjust_sounds_enable_title"
+            android:summary="@string/volume_adjust_sounds_enable_summary"
+            android:persistent="true" />
 
     <ListPreference
             android:key="emergency_tone"

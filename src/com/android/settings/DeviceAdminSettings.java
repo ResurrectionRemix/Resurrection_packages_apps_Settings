@@ -43,8 +43,10 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class DeviceAdminSettings extends ListFragment {
     static final String TAG = "DeviceAdminSettings";
@@ -54,6 +56,7 @@ public class DeviceAdminSettings extends ListFragment {
     DevicePolicyManager mDPM;
     final HashSet<ComponentName> mActiveAdmins = new HashSet<ComponentName>();
     final ArrayList<DeviceAdminInfo> mAvailableAdmins = new ArrayList<DeviceAdminInfo>();
+    String mDeviceOwnerPkg;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -70,6 +73,10 @@ public class DeviceAdminSettings extends ListFragment {
     @Override
     public void onResume() {
         super.onResume();
+        mDeviceOwnerPkg = mDPM.getDeviceOwner();
+        if (mDeviceOwnerPkg != null && !mDPM.isDeviceOwner(mDeviceOwnerPkg)) {
+            mDeviceOwnerPkg = null;
+        }
         updateList();
     }
 
@@ -85,9 +92,34 @@ public class DeviceAdminSettings extends ListFragment {
         mAvailableAdmins.clear();
         List<ResolveInfo> avail = getActivity().getPackageManager().queryBroadcastReceivers(
                 new Intent(DeviceAdminReceiver.ACTION_DEVICE_ADMIN_ENABLED),
-                PackageManager.GET_META_DATA);
-        int count = avail == null ? 0 : avail.size();
-        for (int i=0; i<count; i++) {
+                PackageManager.GET_META_DATA | PackageManager.GET_DISABLED_UNTIL_USED_COMPONENTS);
+        if (avail == null) {
+            avail = Collections.emptyList();
+        }
+
+        // Some admins listed in mActiveAdmins may not have been found by the above query.
+        // We thus add them separately.
+        Set<ComponentName> activeAdminsNotInAvail = new HashSet<ComponentName>(mActiveAdmins);
+        for (ResolveInfo ri : avail) {
+            ComponentName riComponentName =
+                    new ComponentName(ri.activityInfo.packageName, ri.activityInfo.name);
+            activeAdminsNotInAvail.remove(riComponentName);
+        }
+        if (!activeAdminsNotInAvail.isEmpty()) {
+            avail = new ArrayList<ResolveInfo>(avail);
+            PackageManager packageManager = getActivity().getPackageManager();
+            for (ComponentName unlistedActiveAdmin : activeAdminsNotInAvail) {
+                List<ResolveInfo> resolved = packageManager.queryBroadcastReceivers(
+                        new Intent().setComponent(unlistedActiveAdmin),
+                        PackageManager.GET_META_DATA
+                                | PackageManager.GET_DISABLED_UNTIL_USED_COMPONENTS);
+                if (resolved != null) {
+                    avail.addAll(resolved);
+                }
+            }
+        }
+
+        for (int i = 0, count = avail.size(); i < count; i++) {
             ResolveInfo ri = avail.get(i);
             try {
                 DeviceAdminInfo dpi = new DeviceAdminInfo(getActivity(), ri);
@@ -149,7 +181,13 @@ public class DeviceAdminSettings extends ListFragment {
         }
 
         public boolean isEnabled(int position) {
-            return true;
+            DeviceAdminInfo info = mAvailableAdmins.get(position);
+            if (mActiveAdmins.contains(info.getComponent())
+                    && info.getPackageName().equals(mDeviceOwnerPkg)) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -181,10 +219,16 @@ public class DeviceAdminSettings extends ListFragment {
             vh.icon.setImageDrawable(item.loadIcon(activity.getPackageManager()));
             vh.name.setText(item.loadLabel(activity.getPackageManager()));
             vh.checkbox.setChecked(mActiveAdmins.contains(item.getComponent()));
+            final boolean activeOwner = vh.checkbox.isChecked()
+                    && item.getPackageName().equals(mDeviceOwnerPkg);
             try {
                 vh.description.setText(item.loadDescription(activity.getPackageManager()));
             } catch (Resources.NotFoundException e) {
             }
+            vh.checkbox.setEnabled(!activeOwner);
+            vh.name.setEnabled(!activeOwner);
+            vh.description.setEnabled(!activeOwner);
+            vh.icon.setEnabled(!activeOwner);
         }
     }
 }

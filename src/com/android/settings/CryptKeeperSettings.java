@@ -30,7 +30,7 @@ import android.content.res.Resources;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -201,6 +201,6 @@ public class CryptKeeperSettings extends Fragment {
         preference.setFragment(CryptKeeperConfirm.class.getName());
         preference.setTitle(R.string.crypt_keeper_confirm_title);
         preference.getExtras().putString("password", password);
-        ((PreferenceDrawerActivity) getActivity()).onPreferenceStartFragment(null, preference);
+        ((PreferenceActivity) getActivity()).onPreferenceStartFragment(null, preference);
     }
 }

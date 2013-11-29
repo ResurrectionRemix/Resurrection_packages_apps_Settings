@@ -20,10 +20,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.ContentObserver;
 import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -108,6 +110,7 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
             Toast.makeText(mContext, R.string.wifi_in_airplane_mode, Toast.LENGTH_SHORT).show();
             // Reset switch to off. No infinite check/listenenr loop.
             buttonView.setChecked(false);
+            return;
         }
 
         // Disable tethering if enabling Wifi
@@ -117,11 +120,10 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
             mWifiManager.setWifiApEnabled(null, false);
         }
 
-        if (mWifiManager.setWifiEnabled(isChecked)) {
-            // Intent has been taken into account, disable until new state is active
-            mSwitch.setEnabled(false);
-        } else {
+        mSwitch.setEnabled(false);
+        if (!mWifiManager.setWifiEnabled(isChecked)) {
             // Error
+            mSwitch.setEnabled(true);
             Toast.makeText(mContext, R.string.wifi_error, Toast.LENGTH_SHORT).show();
         }
     }

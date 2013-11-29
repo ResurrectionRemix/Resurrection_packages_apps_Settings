@@ -16,6 +16,7 @@
 
 package com.android.settings.inputmethod;
 
+import com.android.internal.inputmethod.InputMethodUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -36,10 +37,13 @@ import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
     private static final String TAG =InputMethodAndSubtypeEnabler.class.getSimpleName();
@@ -54,6 +58,7 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
     private String mInputMethodId;
     private String mTitle;
     private String mSystemLocale = "";
+    private Collator mCollator = Collator.getInstance();
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -84,7 +89,9 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
             }
         }
 
-        mSystemLocale = config.locale.toString();
+        final Locale locale = config.locale;
+        mSystemLocale = locale.toString();
+        mCollator = Collator.getInstance(locale);
         onCreateIMM();
         setPreferenceScreen(createPreferenceHierarchy());
     }
@@ -100,6 +107,10 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
+        // Refresh internal states in mInputMethodSettingValues to keep the latest
+        // "InputMethodInfo"s and "InputMethodSubtype"s
+        InputMethodSettingValuesWrapper
+                .getInstance(getActivity()).refreshAllInputMethodAndSubtypes();
         InputMethodAndSubtypeUtil.loadInputMethodSubtypeList(
                 this, getContentResolver(), mInputMethodProperties, mInputMethodAndSubtypePrefsMap);
         updateAutoSelectionCB();
@@ -139,7 +150,7 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
                     InputMethodInfo imi = mInputMethodProperties.get(i);
                     if (id.equals(imi.getId())) {
                         selImi = imi;
-                        if (InputMethodAndSubtypeUtil.isSystemIme(imi)) {
+                        if (InputMethodUtils.isSystemIme(imi)) {
                             InputMethodAndSubtypeUtil.setSubtypesPreferenceEnabled(
                                     this, mInputMethodProperties, id, true);
                             // This is a built-in IME, so no need to warn.
@@ -259,7 +270,7 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
                         }
                     } else {
                         final CheckBoxPreference chkbxPref = new SubtypeCheckBoxPreference(
-                                context, subtype.getLocale(), mSystemLocale);
+                                context, subtype.getLocale(), mSystemLocale, mCollator);
                         chkbxPref.setKey(imiId + subtype.hashCode());
                         chkbxPref.setTitle(subtypeLabel);
                         subtypePreferences.add(chkbxPref);
@@ -370,9 +381,10 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
     private static class SubtypeCheckBoxPreference extends CheckBoxPreference {
         private final boolean mIsSystemLocale;
         private final boolean mIsSystemLanguage;
+        private final Collator mCollator;
 
         public SubtypeCheckBoxPreference(
-                Context context, String subtypeLocale, String systemLocale) {
+                Context context, String subtypeLocale, String systemLocale, Collator collator) {
             super(context);
             if (TextUtils.isEmpty(subtypeLocale)) {
                 mIsSystemLocale = false;
@@ -382,6 +394,7 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
                 mIsSystemLanguage = mIsSystemLocale
                         || subtypeLocale.startsWith(systemLocale.substring(0, 2));
             }
+            mCollator = collator;
         }
 
         @Override
@@ -411,10 +424,10 @@ public class InputMethodAndSubtypeEnabler extends SettingsPreferenceFragment {
                 if (TextUtils.isEmpty(t1)) {
                     return -1;
                 }
-                return t0.toString().compareTo(t1.toString());
+                return mCollator.compare(t0.toString(), t1.toString());
             } else {
                 Log.w(TAG, "Illegal preference type.");
-                return -1;
+                return super.compareTo(p);
             }
         }
     }

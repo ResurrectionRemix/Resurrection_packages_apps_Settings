@@ -76,7 +76,7 @@
         <!-- Do not translate. -->
         <item>1800000</item>
     </string-array>
-    
+
     <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
     <string-array name="dream_timeout_entries">
         <item>Never</item>
@@ -108,8 +108,8 @@
         <!-- Do not translate. -->
         <item>1800000</item>
     </string-array>
-    
-    <!-- Security settings.  The delay after screen is turned off until device locks. 
+
+    <!-- Security settings.  The delay after screen is turned off until device locks.
          These are shown in a list dialog. -->
     <string-array name="lock_after_timeout_entries">
         <item>Immediately</item>
@@ -144,7 +144,7 @@
         <!-- Do not translate. -->
         <item>1800000</item>
     </string-array>
-    
+
     <string-array name="entries_font_size">
         <item msgid="6490061470416867723">Small</item>
         <item msgid="3579015730662088893">Normal</item>
@@ -158,7 +158,7 @@
         <item>1.15</item>
         <item>1.30</item>
     </string-array>
-    
+
     <!-- TTS settings -->
 
     <!-- Default speech rate choices -->
@@ -167,7 +167,11 @@
         <item>Slow</item>
         <item>Normal</item>
         <item>Fast</item>
+        <item>Faster</item>
         <item>Very fast</item>
+        <item>Rapid</item>
+        <item>Very rapid</item>
+        <item>Fastest</item>
     </string-array>
     <!-- Do not translate. -->
     <string-array name="tts_rate_values">
@@ -176,6 +180,10 @@
         <item>100</item>
         <item>150</item>
         <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
     </string-array>
 
     <!-- Default pitch choices -->
@@ -202,6 +210,7 @@
         <item>Dies ist ein Beispiel für Sprachsynthese in Deutsch.</item>
         <item>Questo è un esempio di sintesi vocale in italiano.</item>
         <item>Este es un ejemplo de síntesis de voz en español.</item>
+        <item>이것은 한국어 음성 합성의 예입니다.</item>
     </string-array>
     <string-array name="tts_demo_string_langs" translatable="false">
         <item>eng</item>
@@ -209,6 +218,7 @@
         <item>deu</item>
         <item>ita</item>
         <item>spa</item>
+        <item>kor</item>
     </string-array>
 
 
@@ -298,12 +308,10 @@
 
    <!-- Wi-Fi AP settings.  The type of security a Wi-Fi AP supports. -->
    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
-    <string-array name="wifi_ap_security" translatable="false">
-        <item>Open</item>
-        <!-- Do not translate. -->
-        <item>WPA PSK</item>
-        <!-- Do not translate. -->
-        <item>WPA2 PSK</item>
+    <string-array name="wifi_ap_security">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wpa</item>
+        <item>@string/wifi_security_wpa2</item>
     </string-array>
 
     <!-- Match this with the constants in WifiDialog. --> <skip />
@@ -413,6 +421,34 @@
         <item>2</item>
     </string-array>
 
+    <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi region code. -->
+    <string-array name="wifi_countrycode_entries">
+        <item>United States</item>
+        <item>Canada, Taiwan</item>
+        <item>Germany</item>
+        <item>Europe</item>
+        <item>Japan, Russia</item>
+        <item>Australia</item>
+        <item>China</item>
+        <item>Korea</item>
+        <item>Turkey</item>
+        <item>Singapore</item>
+        <item>Brazil</item>
+    </string-array>
+
+    <string-array name="wifi_countrycode_values" translatable="false">
+        <item>US</item>
+        <item>CA</item>
+        <item>DE</item>
+        <item>GB</item>
+        <item>JP</item>
+        <item>AU</item>
+        <item>CN</item>
+        <item>KR</item>
+        <item>TR</item>
+        <item>SG</item>
+        <item>BR</item>
+    </string-array>
 
     <!-- Display options for UsageStats class -->
     <string-array name="usage_stats_display_order_types">
@@ -429,7 +465,14 @@
         <item>PWD</item>
     </string-array>
 
-    <!-- Phase 2 options -->
+    <!-- Phase 2 options for PEAP -->
+    <string-array name="wifi_peap_phase2_entries">
+        <item>None</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+
+    <!-- Phase 2 options for rest of EAP methods -->
     <string-array name="wifi_phase2_entries">
         <item>None</item>
         <item>PAP</item>
@@ -461,19 +504,6 @@
         <item>Off</item>
         <item>Alert</item>
         <item>Vibrate</item>
-    </string-array>
-
-    <!-- NFC settings. -->
-    <string-array name="nfc_polling_mode_entries">
-       <item>@string/nfc_polling_mode_screen_off</item>
-       <item>@string/nfc_polling_mode_screen_locked</item>
-       <item>@string/nfc_polling_mode_screen_unlocked</item>
-    </string-array>
-
-    <string-array name="nfc_polling_mode_values">
-       <item>1</item>
-       <item>2</item>
-       <item>3</item>
     </string-array>
 
     <!-- Do not translate. -->
@@ -547,7 +577,30 @@
         <item>0</item>
     </string-array>
 
-    <!-- Apps on SD instalaltion location options in ApplicationSettings -->
+    <!-- MVNO Info used in APN editor -->
+    <string-array name="mvno_type_entries">
+        <!-- Do not translate. -->
+        <item>None</item>
+        <!-- Do not translate. -->
+        <item>SPN</item>
+        <!-- Do not translate. -->
+        <item>IMSI</item>
+        <!-- Do not translate. -->
+        <item>GID</item>
+    </string-array>
+
+    <string-array translatable="false" name="mvno_type_values">
+        <!-- Do not translate. -->
+        <item></item>
+        <!-- Do not translate. -->
+        <item>spn</item>
+        <!-- Do not translate. -->
+        <item>imsi</item>
+        <!-- Do not translate. -->
+        <item>gid</item>
+    </string-array>
+
+    <!-- Apps on SD installation location options in ApplicationSettings -->
     <string-array name="app_install_location_entries">
         <item>Internal device storage</item>
         <item>Removable SD card</item>
@@ -561,11 +614,114 @@
         <item>auto</item>
     </string-array>
 
+    <!-- Names of categories of app ops tabs -->
+    <string-array name="app_ops_categories">
+        <item>Location</item>
+        <item>Personal</item>
+        <item>Messaging</item>
+        <item>Media</item>
+        <item>Device</item>
+    </string-array>
+
+    <!-- User display names for app ops codes -->
+    <string-array name="app_ops_summaries">
+        <item>coarse location</item>
+        <item>fine location</item>
+        <item>GPS</item>
+        <item>vibrate</item>
+        <item>read contacts</item>
+        <item>modify contacts</item>
+        <item>read call log</item>
+        <item>modify call log</item>
+        <item>read calendar</item>
+        <item>modify calendar</item>
+        <item>wi-fi scan</item>
+        <item>notification</item>
+        <item>cell scan</item>
+        <item>call phone</item>
+        <item>read SMS</item>
+        <item>write SMS</item>
+        <item>receive SMS</item>
+        <item>receive emergency SMS</item>
+        <item>receive MMS</item>
+        <item>receive WAP push</item>
+        <item>send SMS</item>
+        <item>read ICC SMS</item>
+        <item>write ICC SMS</item>
+        <item>modify settings</item>
+        <item>draw on top</item>
+        <item>access notifications</item>
+        <item>camera</item>
+        <item>record audio</item>
+        <item>play audio</item>
+        <item>read clipboard</item>
+        <item>modify clipboard</item>
+        <item>media buttons</item>
+        <item>audio focus</item>
+        <item>master volume</item>
+        <item>voice volume</item>
+        <item>ring volume</item>
+        <item>media volume</item>
+        <item>alarm volume</item>
+        <item>notification volume</item>
+        <item>bluetooth volume</item>
+        <item>keep awake</item>
+        <item>monitor location</item>
+        <item>monitor high power location</item>
+    </string-array>
+
+    <!-- User display names for app ops codes -->
+    <string-array name="app_ops_labels">
+        <item>Location</item>
+        <item>Location</item>
+        <item>Location</item>
+        <item>Vibrate</item>
+        <item>Read contacts</item>
+        <item>Modify contacts</item>
+        <item>Read call log</item>
+        <item>Modify call log</item>
+        <item>Read calendar</item>
+        <item>Modify calendar</item>
+        <item>Location</item>
+        <item>Post notification</item>
+        <item>Location</item>
+        <item>Call phone</item>
+        <item>Read SMS/MMS</item>
+        <item>Write SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Send SMS/MMS</item>
+        <item>Read SMS/MMS</item>
+        <item>Write SMS/MMS</item>
+        <item>Modify settings</item>
+        <item>Draw on top</item>
+        <item>Access notifications</item>
+        <item>Camera</item>
+        <item>Record audio</item>
+        <item>Play audio</item>
+        <item>Read clipboard</item>
+        <item>Modify clipboard</item>
+        <item>Media buttons</item>
+        <item>Audio focus</item>
+        <item>Master volume</item>
+        <item>Voice volume</item>
+        <item>Ring volume</item>
+        <item>Media volume</item>
+        <item>Alarm volume</item>
+        <item>Notification volume</item>
+        <item>Bluetooth volume</item>
+        <item>Keep awake</item>
+        <item>Location</item>
+        <item>Location</item>
+    </string-array>
+
     <!-- Titles for the list of long press timeout options. -->
     <string-array name="long_press_timeout_selector_titles">
         <!-- A title for the option for short long-press timeout [CHAR LIMIT=25] -->
         <item>Short</item>
-        <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->        
+        <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->
         <item>Medium</item>
         <!-- A title for the option for long long-press timeout [CHAR LIMIT=25] -->
         <item>Long</item>
@@ -576,6 +732,191 @@
         <item>500</item>
         <item>1000</item>
         <item>1500</item>
+    </string-array>
+
+    <!-- Titles for captioning typeface preference. [CHAR LIMIT=35] -->
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Default</item>
+        <item>Sans-serif</item>
+        <item>Sans-serif condensed</item>
+        <item>Serif</item>
+        <item>Monospace</item>
+    </string-array>
+
+    <!-- Values for captioning typeface preference. -->
+    <string-array name="captioning_typeface_selector_values" translatable="false" >
+        <item></item>
+        <item>sans-serif</item>
+        <item>sans-serif-condensed</item>
+        <item>serif</item>
+        <item>monospace</item>
+    </string-array>
+
+    <!-- Titles for captioning font size preference. [CHAR LIMIT=35] -->
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Very small</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Large</item>
+        <item>Very large</item>
+    </string-array>
+
+    <!-- Values for captioning font size preference. -->
+    <string-array name="captioning_font_size_selector_values" translatable="false" >
+        <item>0.25</item>
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+    </string-array>
+
+    <!-- Titles for captioning character edge type preference. [CHAR LIMIT=35] -->
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>None</item>
+        <item>Outline</item>
+        <item>Drop shadow</item>
+    </string-array>
+
+    <!-- Values for captioning character edge type preference. -->
+    <integer-array name="captioning_edge_type_selector_values" translatable="false" >
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+    <!-- Titles for captioning color preference. -->
+    <string-array name="captioning_color_selector_titles" translatable="false" >
+        <item>@string/color_white</item>
+        <item>@string/color_black</item>
+        <item>@string/color_red</item>
+        <item>@string/color_yellow</item>
+        <item>@string/color_green</item>
+        <item>@string/color_cyan</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_magenta</item>
+    </string-array>
+
+    <!-- Values for captioning color preference. -->
+    <integer-array name="captioning_color_selector_values" translatable="false" >
+        <item>0xFFFFFFFF</item>
+        <item>0xFF000000</item>
+        <item>0xFFFF0000</item>
+        <item>0xFFFFFF00</item>
+        <item>0xFF00FF00</item>
+        <item>0xFF00FFFF</item>
+        <item>0xFF0000FF</item>
+        <item>0xFFFF00FF</item>
+        <item>0xFF000055</item>
+        <item>0xFF0000AA</item>
+        <item>0xFF005500</item>
+        <item>0xFF005555</item>
+        <item>0xFF0055AA</item>
+        <item>0xFF0055FF</item>
+        <item>0xFF00AA00</item>
+        <item>0xFF00AA55</item>
+        <item>0xFF00AAAA</item>
+        <item>0xFF00AAFF</item>
+        <item>0xFF00FF55</item>
+        <item>0xFF00FFAA</item>
+        <item>0xFF550000</item>
+        <item>0xFF550055</item>
+        <item>0xFF5500AA</item>
+        <item>0xFF5500FF</item>
+        <item>0xFF555500</item>
+        <item>0xFF555555</item>
+        <item>0xFF5555AA</item>
+        <item>0xFF5555FF</item>
+        <item>0xFF55AA00</item>
+        <item>0xFF55AA55</item>
+        <item>0xFF55AAAA</item>
+        <item>0xFF55AAFF</item>
+        <item>0xFF55FF00</item>
+        <item>0xFF55FF55</item>
+        <item>0xFF55FFAA</item>
+        <item>0xFF55FFFF</item>
+        <item>0xFFAA0000</item>
+        <item>0xFFAA0055</item>
+        <item>0xFFAA00AA</item>
+        <item>0xFFAA00FF</item>
+        <item>0xFFAA5500</item>
+        <item>0xFFAA5555</item>
+        <item>0xFFAA55AA</item>
+        <item>0xFFAA55FF</item>
+        <item>0xFFAAAA00</item>
+        <item>0xFFAAAA55</item>
+        <item>0xFFAAAAAA</item>
+        <item>0xFFAAAAFF</item>
+        <item>0xFFAAFF00</item>
+        <item>0xFFAAFF55</item>
+        <item>0xFFAAFFAA</item>
+        <item>0xFFAAFFFF</item>
+        <item>0xFFFF0055</item>
+        <item>0xFFFF00AA</item>
+        <item>0xFFFF5500</item>
+        <item>0xFFFF5555</item>
+        <item>0xFFFF55AA</item>
+        <item>0xFFFF55FF</item>
+        <item>0xFFFFAA00</item>
+        <item>0xFFFFAA55</item>
+        <item>0xFFFFAAAA</item>
+        <item>0xFFFFAAFF</item>
+        <item>0xFFFFFF55</item>
+        <item>0xFFFFFFAA</item>
+    </integer-array>
+
+    <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
+    <string-array name="captioning_opacity_selector_titles" >
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+
+    <!-- Values for captioning opacity preference. -->
+    <integer-array name="captioning_opacity_selector_values" translatable="false" >
+        <item>0x40FFFFFF</item>
+        <item>0x80FFFFFF</item>
+        <item>0xC0FFFFFF</item>
+        <item>0xFFFFFFFF</item>
+    </integer-array>
+
+    <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
+    <string-array name="captioning_preset_selector_titles" >
+        <item>White on black</item>
+        <item>Black on white</item>
+        <item>Yellow on black</item>
+        <item>Yellow on blue</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Values for captioning text style preset preference. -->
+    <integer-array name="captioning_preset_selector_values" translatable="false" >
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>-1</item>
+    </integer-array>
+
+    <!-- Titles for runtime selection preference. [CHAR LIMIT=35] -->
+    <string-array name="select_runtime_titles">
+        <item>Dalvik</item>
+        <item>ART</item>
+        <item>ART (debug)</item>
+    </string-array>
+
+    <!-- Values for runtime selection preference. -->
+    <string-array name="select_runtime_values" translatable="false" >
+        <item>libdvm.so</item>
+        <item>libart.so</item>
+        <item>libartd.so</item>
+    </string-array>
+
+    <!-- Summaries for runtime selection preference. [CHAR LIMIT=100]-->
+    <string-array name="select_runtime_summaries" >
+        <item>Use Dalvik</item>
+        <item>Use ART</item>
+        <item>Use ART debug build</item>
     </string-array>
 
     <!-- Titles for HDCP checking preference. [CHAR LIMIT=35] -->
@@ -669,8 +1010,11 @@
     <string-array name="overlay_display_devices_entries">
         <item>None</item>
         <item>720x480 mdpi</item>
+        <item>720x480 mdpi (secure)</item>
         <item>1280x720 tvdpi</item>
+        <item>1280x720 tvdpi (secure)</item>
         <item>1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi (secure)</item>
         <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
     </string-array>
 
@@ -678,8 +1022,11 @@
     <string-array name="overlay_display_devices_values" translatable="false" >
         <item></item>
         <item>720x480/160</item>
+        <item>720x480/160,secure</item>
         <item>1280x720/213</item>
+        <item>1280x720/213,secure</item>
         <item>1920x1080/320</item>
+        <item>1920x1080/320,secure</item>
         <item>1280x720/213;1920x1080/320</item>
     </string-array>
 
@@ -699,6 +1046,52 @@
         <item>error</item>
     </string-array>
 
+    <!-- Titles for non-rectangular clipping preference. [CHAR LIMIT=35] -->
+    <string-array name="show_non_rect_clip_entries">
+        <item>Off</item>
+        <item>Draw non-rectangular clip region in blue</item>
+        <item>Highlight tested drawing commands in green</item>
+    </string-array>
+
+    <!-- Values for non-rectangular clipping preference. -->
+    <string-array name="show_non_rect_clip_values" translatable="false" >
+        <item>hide</item>
+        <item>region</item>
+        <item>highlight</item>
+    </string-array>
+
+    <!-- Titles for frame time tracking preference. [CHAR LIMIT=35] -->
+    <string-array name="track_frame_time_entries">
+        <item>Off</item>
+        <item>On screen as bars</item>
+        <item>On screen as lines</item>
+        <item>In adb shell dumpsys gfxinfo</item>
+    </string-array>
+
+    <!-- Values for frame time tracking preference. -->
+    <string-array name="track_frame_time_values" translatable="false" >
+        <item>false</item>
+        <item>visual_bars</item>
+        <item>visual_lines</item>
+        <item>true</item>
+    </string-array>
+
+    <!-- Titles for debug overdraw preference. [CHAR LIMIT=50] -->
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Off</item>
+        <item>Show overdraw areas</item>
+        <item>Show areas for Deuteranomaly</item>
+        <item>Show overdraw counter</item>
+    </string-array>
+
+    <!-- Values for debug overdraw preference. -->
+    <string-array name="debug_hw_overdraw_values" translatable="false" >
+        <item>false</item>
+        <item>show</item>
+        <item>show_deuteranomaly</item>
+        <item>count</item>
+    </string-array>
+
     <!-- Titles for app process limit preference. [CHAR LIMIT=35] -->
     <string-array name="app_process_limit_entries">
         <item>Standard limit</item>
@@ -707,18 +1100,6 @@
         <item>At most 2 processes</item>
         <item>At most 3 processes</item>
         <item>At most 4 processes</item>
-    </string-array>
-
-    <!-- QuietHours AutoSMS response -->
-    <string-array name="auto_sms_entries" translatable="false">
-        <item>@string/quiet_hours_auto_disabled</item>
-        <item>@string/quiet_hours_auto_enabled</item>
-        <item>@string/quiet_hours_auto_contacts</item>
-    </string-array>
-    <string-array name="auto_sms_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <!-- Values for app process limit preference. -->
@@ -798,149 +1179,16 @@
         <item>Always allow</item>
     </string-array>
 
-    <!--- Sms security limit -->
-    <string-array name="sms_security_check_limit_entries" translatable="false">
-        <item>@string/sms_security_check_limit_default</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-        <item>500</item>
-        </string-array>
-
-    <string-array name="sms_security_check_limit_values" translatable="false">
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-        <item>500</item>
+    <!-- [CHAR LIMIT=30] Labels for memory states -->
+    <string-array name="ram_states">
+        <!-- Normal desired memory state. -->
+        <item>normal</item>
+        <!-- Moderate memory state, not as good as normal. -->
+        <item>moderate</item>
+        <!-- Memory is running low. -->
+        <item>low</item>
+        <!-- Memory is critical. -->
+        <item>critical</item>
     </string-array>
 
-    <!-- Auto-brightness sensitivity -->
-    <string-array name="auto_brightness_sensitivity_entries" translatable="false">
-        <item>@string/auto_brightness_sensitivity_verylow</item>
-        <item>@string/auto_brightness_sensitivity_low</item>
-        <item>@string/auto_brightness_sensitivity_medium</item>
-        <item>@string/auto_brightness_sensitivity_high</item>
-        <item>@string/auto_brightness_sensitivity_veryhigh</item>
-    </string-array>
-
-    <integer-array name="auto_brightness_sensitivity_values">
-        <item>150</item>
-        <item>125</item>
-        <item>100</item>
-        <item>50</item>
-        <item>25</item>
-    </integer-array>
-    
-    <string-array name="pref_low_battery_warning_policy_entries">
-        <item>Pop-up and sound</item>
-        <item>Pop-up only</item>
-        <item>Sound only</item>
-        <item>Off</item>
-    </string-array>
-
-    <string-array name="pref_low_battery_warning_policy_values">
-        <item>3</item>
-        <item>1</item>
-        <item>2</item>
-        <item>0</item>
-    </string-array>
-    <!-- Auto keyboard rotation -->
-    <string-array name="keyboard_rotation_timeout_entries" translatable="false">
-        <item>2s</item>
-        <item>5s</item>
-        <item>10s</item>
-        <item>20s</item>
-        <item>30s</item>
-        <item>60s</item>
-    </string-array>
-
-    <string-array name="keyboard_rotation_timeout_values" translatable="false">
-        <item>2000</item>
-        <item>5000</item>
-        <item>10000</item>
-        <item>20000</item>
-        <item>30000</item>
-        <item>60000</item>
-    </string-array>
-
-    <!-- HALO -->
-    <string-array name="entries_halo_state">
-        <item>@string/halo_state_black</item>
-        <item>@string/halo_state_white</item>
-    </string-array>
-
-    <string-array name="values_halo_state" translatable="false">
-        <item>1</item>
-        <item>0</item>
-    </string-array>
-
-    <string-array name="entries_halo_size">
-        <item>@string/halo_size_miniscule</item>
-        <item>@string/halo_size_small</item>
-        <item>@string/halo_size_default</item>
-        <item>@string/halo_size_large</item>
-        <item>@string/halo_size_gigantic</item>
-        <item>@string/halo_size_monster</item>
-    </string-array>
-
-    <string-array name="values_halo_size" translatable="false">
-        <item>0.6</item>
-        <item>0.8</item>
-        <item>1.0</item>
-        <item>1.2</item>
-        <item>1.4</item>
-        <item>1.6</item>
-    </string-array>
-  <!-- Listview animation -->
-    <string-array name="listview_animation_entries">
-        <item>@string/listview_off</item>
-        <item>@string/listview_wave_left</item>
-        <item>@string/listview_wave_right</item>
-        <item>@string/listview_scale</item>
-        <item>@string/listview_alpha</item>
-        <item>@string/listview_stack_top</item>
-        <item>@string/listview_stack_bottom</item>
-        <item>@string/listview_unfold</item>
-        <item>@string/listview_fold</item>
-        <item>@string/listview_translate_left</item>
-        <item>@string/listview_translate_right</item>
-    </string-array>
-    
-    <string-array name="listview_animation_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <!-- Listview Interpolator -->
-    <string-array name="listview_interpolator_entries">
-        <item>@string/listview_off</item>
-        <item>@string/listview_accelerate_interpolator</item>
-        <item>@string/listview_decelerate_interpolator</item>
-        <item>@string/listview_accelerate_decelerate_interpolator</item>
-        <item>@string/listview_anticipate_interpolator</item>
-        <item>@string/listview_overshoot_interpolator</item>
-        <item>@string/listview_anticipate_overshoot_interpolator</item>
-        <item>@string/listview_bounce_interpolator</item>
-    </string-array>
-
-    <string-array name="listview_interpolator_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>
 </resources>

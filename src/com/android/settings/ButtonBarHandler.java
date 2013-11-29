@@ -19,7 +19,7 @@ import android.widget.Button;
 
 /**
  * Interface letting {@link SettingsPreferenceFragment} access to bottom bar inside
- * {@link android.preference.PreferenceDrawerActivity}.
+ * {@link android.preference.PreferenceActivity}.
  */
 public interface ButtonBarHandler {
     public boolean hasNextButton();

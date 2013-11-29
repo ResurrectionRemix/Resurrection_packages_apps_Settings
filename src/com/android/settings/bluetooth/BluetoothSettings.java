@@ -16,6 +16,8 @@
 
 package com.android.settings.bluetooth;
 
+import static android.os.UserManager.DISALLOW_CONFIG_BLUETOOTH;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -32,16 +34,13 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.android.settings.ProgressCategory;
 import com.android.settings.R;
 
 /**
@@ -74,6 +73,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
 
     private final IntentFilter mIntentFilter;
 
+
     // accessed from inner class (not private to avoid thunks)
     Preference mMyDevicePreference;
 
@@ -94,6 +94,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
     };
 
     public BluetoothSettings() {
+        super(DISALLOW_CONFIG_BLUETOOTH);
         mIntentFilter = new IntentFilter(BluetoothAdapter.ACTION_LOCAL_NAME_CHANGED);
     }
 
@@ -119,7 +120,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
             if (preferenceActivity.onIsHidingHeaders() || !preferenceActivity.onIsMultiPane()) {
                 final int padding = activity.getResources().getDimensionPixelSize(
                         R.dimen.action_bar_switch_padding);
-                actionBarSwitch.setPadding(0, 0, padding, 0);
+                actionBarSwitch.setPaddingRelative(0, 0, padding, 0);
                 activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
                         ActionBar.DISPLAY_SHOW_CUSTOM);
                 activity.getActionBar().setCustomView(actionBarSwitch, new ActionBar.LayoutParams(
@@ -167,6 +168,9 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (mLocalAdapter == null) return;
+        // If the user is not allowed to configure bluetooth, do not show the menu.
+        if (isRestrictedAndNotPinProtected()) return;
+
         boolean bluetoothIsEnabled = mLocalAdapter.getBluetoothState() == BluetoothAdapter.STATE_ON;
         boolean isDiscovering = mLocalAdapter.isDiscovering();
         int textId = isDiscovering ? R.string.bluetooth_searching_for_devices :
@@ -213,6 +217,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
     }
 
     private void startScanning() {
+        if (isRestrictedAndNotPinProtected()) return;
         if (!mAvailableDevicesCategoryIsPresent) {
             getPreferenceScreen().addPreference(mAvailableDevicesCategory);
         }
@@ -259,12 +264,14 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
                 mMyDevicePreference.setEnabled(true);
                 preferenceScreen.addPreference(mMyDevicePreference);
 
-                if (mDiscoverableEnabler == null) {
-                    mDiscoverableEnabler = new BluetoothDiscoverableEnabler(getActivity(),
-                            mLocalAdapter, mMyDevicePreference);
-                    mDiscoverableEnabler.resume();
-                    LocalBluetoothManager.getInstance(getActivity()).setDiscoverableEnabler(
-                            mDiscoverableEnabler);
+                if (!isRestrictedAndNotPinProtected()) {
+                    if (mDiscoverableEnabler == null) {
+                        mDiscoverableEnabler = new BluetoothDiscoverableEnabler(getActivity(),
+                                mLocalAdapter, mMyDevicePreference);
+                        mDiscoverableEnabler.resume();
+                        LocalBluetoothManager.getInstance(getActivity()).setDiscoverableEnabler(
+                                mDiscoverableEnabler);
+                    }
                 }
 
                 // Paired devices category
@@ -278,7 +285,9 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
                         BluetoothDeviceFilter.BONDED_DEVICE_FILTER);
                 int numberOfPairedDevices = mPairedDevicesCategory.getPreferenceCount();
 
-                mDiscoverableEnabler.setNumberOfPairedDevices(numberOfPairedDevices);
+                if (mDiscoverableEnabler != null) {
+                    mDiscoverableEnabler.setNumberOfPairedDevices(numberOfPairedDevices);
+                }
 
                 // Available devices category
                 if (mAvailableDevicesCategory == null) {
@@ -286,9 +295,11 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
                 } else {
                     mAvailableDevicesCategory.removeAll();
                 }
-                addDeviceCategory(mAvailableDevicesCategory,
-                        R.string.bluetooth_preference_found_devices,
-                        BluetoothDeviceFilter.UNBONDED_DEVICE_FILTER);
+                if (!isRestrictedAndNotPinProtected()) {
+                    addDeviceCategory(mAvailableDevicesCategory,
+                            R.string.bluetooth_preference_found_devices,
+                            BluetoothDeviceFilter.UNBONDED_DEVICE_FILTER);
+                }
                 int numberOfAvailableDevices = mAvailableDevicesCategory.getPreferenceCount();
                 mAvailableDevicesCategoryIsPresent = true;
 
@@ -353,6 +364,8 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment {
         public void onClick(View v) {
             // User clicked on advanced options icon for a device in the list
             if (v.getTag() instanceof CachedBluetoothDevice) {
+                if (isRestrictedAndNotPinProtected()) return;
+
                 CachedBluetoothDevice device = (CachedBluetoothDevice) v.getTag();
 
                 Bundle args = new Bundle(1);

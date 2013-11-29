@@ -70,7 +70,11 @@
     <item msgid="2361722960903353554">"بطيء"</item>
     <item msgid="1145554631248513562">"عادي"</item>
     <item msgid="7553665153391107454">"سريع"</item>
-    <item msgid="2538100882620724753">"سريع جدًا"</item>
+    <item msgid="1370673569131070146">"أسرع"</item>
+    <item msgid="4648206845228970803">"سريع جدًا"</item>
+    <item msgid="4977949754169483251">"سريع"</item>
+    <item msgid="6106302964845503577">"سريع جدًا"</item>
+    <item msgid="6800277205640837264">"الأسرع"</item>
   </string-array>
   <string-array name="tts_pitch_entries">
     <item msgid="7526050907652687351">"منخفضة جدًا"</item>
@@ -84,7 +88,7 @@
     <item msgid="8934131797783724664">"جارٍ الفحص..."</item>
     <item msgid="8513729475867537913">"جارٍ الاتصال…"</item>
     <item msgid="515055375277271756">"جارٍ المصادقة…"</item>
-    <item msgid="1943354004029184381">"جارٍ الحصول على عنوان IP…"</item>
+    <item msgid="1943354004029184381">"‏جارٍ الحصول على عنوان IP…"</item>
     <item msgid="4221763391123233270">"متصل"</item>
     <item msgid="624838831631122137">"معلق"</item>
     <item msgid="7979680559596111948">"جارٍ فصل الاتصال..."</item>
@@ -98,7 +102,7 @@
     <item msgid="8878186979715711006">"جارٍ الفحص..."</item>
     <item msgid="355508996603873860">"جارٍ الاتصال بجهاز <xliff:g id="NETWORK_NAME">%1$s</xliff:g>…"</item>
     <item msgid="554971459996405634">"جارٍ المصادقة مع <xliff:g id="NETWORK_NAME">%1$s</xliff:g>…"</item>
-    <item msgid="7928343808033020343">"جارٍ الحصول على عنوان IP من <xliff:g id="NETWORK_NAME">%1$s</xliff:g>…"</item>
+    <item msgid="7928343808033020343">"‏جارٍ الحصول على عنوان IP من <xliff:g id="NETWORK_NAME">%1$s</xliff:g>…"</item>
     <item msgid="8937994881315223448">"متصل بـ <xliff:g id="NETWORK_NAME">%1$s</xliff:g>"</item>
     <item msgid="1330262655415760617">"معلق"</item>
     <item msgid="7698638434317271902">"جارٍ قطع الاتصال بـ <xliff:g id="NETWORK_NAME">%1$s</xliff:g>…"</item>
@@ -114,6 +118,9 @@
     <!-- no translation found for wifi_security_no_eap:0 (2084555984818107151) -->
     <!-- no translation found for wifi_security_no_eap:1 (397579322683471524) -->
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
+    <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
+    <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
+    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"طبقة النقل الآمنة"</item>
@@ -170,6 +177,11 @@
     <item msgid="7182812872984827322">"TTLS"</item>
     <item msgid="2318274046749286642">"PWD"</item>
   </string-array>
+  <string-array name="wifi_peap_phase2_entries">
+    <item msgid="2577747762745812488">"لا شيء"</item>
+    <item msgid="937786527870979616">"MSCHAPV2"</item>
+    <item msgid="5302613883318643629">"GTC"</item>
+  </string-array>
   <string-array name="wifi_phase2_entries">
     <item msgid="1818786254010764570">"لا شيء"</item>
     <item msgid="6189918678874123056">"بروتوكول مصادقة كلمات المرور"</item>
@@ -193,8 +205,8 @@
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"لا شيء"</item>
     <item msgid="5756844015743664882">"بروتوكول مصادقة كلمات المرور"</item>
-    <item msgid="535934025797984365">"بروتوكول CHAP"</item>
-    <item msgid="8383098660619805783">"بروتوكول مصادقة كلمات المرور أو بروتوكول CHAP"</item>
+    <item msgid="535934025797984365">"‏بروتوكول CHAP"</item>
+    <item msgid="8383098660619805783">"‏بروتوكول مصادقة كلمات المرور أو بروتوكول CHAP"</item>
   </string-array>
   <string-array name="apn_protocol_entries">
     <item msgid="4852355456199302715">"IPv4"</item>
@@ -206,65 +218,230 @@
     <item msgid="3044323519470167625">"eHRPD"</item>
     <item msgid="6848428671997893147">"غير محدد"</item>
   </string-array>
+  <string-array name="mvno_type_entries">
+    <item msgid="4367119357633573465">"None"</item>
+    <item msgid="6062567900587138000">"SPN"</item>
+    <item msgid="2454085083342423481">"IMSI"</item>
+    <item msgid="2681427309183221543">"GID"</item>
+  </string-array>
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"سعة تخزين الجهاز الداخلية"</item>
-    <item msgid="3738430123799803530">"بطاقة SD قابلة للإزالة"</item>
+    <item msgid="3738430123799803530">"‏بطاقة SD قابلة للإزالة"</item>
     <item msgid="4498124044785815005">"ترك القرار للنظام"</item>
+  </string-array>
+  <string-array name="app_ops_categories">
+    <item msgid="6358963769537892925">"الموقع"</item>
+    <item msgid="255608127647030286">"شخصية"</item>
+    <item msgid="4588829735729884491">"المراسلة"</item>
+    <item msgid="886742181977884584">"الوسائط"</item>
+    <item msgid="7924928667052300589">"الجهاز"</item>
+  </string-array>
+  <string-array name="app_ops_summaries">
+    <item msgid="4979188868761515915">"الموقع التقريبي"</item>
+    <item msgid="5789673140227507995">"الموقع الدقيق"</item>
+    <item msgid="1061584358377390581">"GPS"</item>
+    <item msgid="5387405117297558954">"اهتزاز"</item>
+    <item msgid="3434165993711230924">"قراءة جهات الاتصال"</item>
+    <item msgid="616161687718081936">"تعديل جهات الاتصال"</item>
+    <item msgid="7638002295329050091">"قراءة سجل المكالمات"</item>
+    <item msgid="6546959730920410907">"تعديل سجل المكالمات"</item>
+    <item msgid="446877710771379667">"قراءة التقويم"</item>
+    <item msgid="7674458294386319722">"تعديل التقويم"</item>
+    <item msgid="8281201165558093009">"‏فحص Wi-Fi"</item>
+    <item msgid="8694611243479480497">"إشعار"</item>
+    <item msgid="7776439107987345446">"فحص الشبكة الخلوية"</item>
+    <item msgid="514615766544675057">"اتصال هاتفي"</item>
+    <item msgid="8181415497109310680">"‏قراءة الرسائل القصيرة SMS"</item>
+    <item msgid="6816551144382117307">"‏كتابة الرسائل القصيرة SMS"</item>
+    <item msgid="4600463921908905030">"‏تلقي الرسائل القصيرة SMS"</item>
+    <item msgid="5958926493289432745">"‏تلقي الرسائل القصيرة SMS في حالة الطوارئ"</item>
+    <item msgid="4945269495221089540">"‏تلقي رسائل الوسائط المتعددة (MMS)"</item>
+    <item msgid="5570472453573929087">"‏تلقي رسائل WAP push"</item>
+    <item msgid="7125408150230860501">"‏إرسال رسائل قصيرة SMS"</item>
+    <item msgid="7080337936612188061">"‏قراءة الرسائل القصيرة SMS لبطاقة ICC"</item>
+    <item msgid="587124103118495063">"‏كتابة الرسائل القصيرة SMS لبطاقة ICC"</item>
+    <item msgid="2320577158869025503">"تعديل الإعدادات"</item>
+    <item msgid="1545733463471924009">"رسم في الأعلى"</item>
+    <item msgid="3609046903962454582">"إشعارات الدخول"</item>
+    <item msgid="4671646036128214513">"الكاميرا"</item>
+    <item msgid="1097324338692486211">"تسجيل الصوت"</item>
+    <item msgid="5031552983987798163">"تشغيل الصوت"</item>
+    <item msgid="8374996688066472414">"قراءة الحافظة"</item>
+    <item msgid="3045529469061083747">"تعديل الحافظة"</item>
+    <item msgid="5124443975763747838">"أزرار الوسائط"</item>
+    <item msgid="4547883971364273343">"التركيز على الصوت"</item>
+    <item msgid="2603878814882344450">"مستوى الصوت الرئيسي"</item>
+    <item msgid="7136963238377062018">"مستوى الصوت"</item>
+    <item msgid="4270236897655923007">"مستوى صوت الرنين"</item>
+    <item msgid="6325739889222559394">"مستوى صوت الوسائط"</item>
+    <item msgid="5762123934816216821">"مستوى صوت المنبه"</item>
+    <item msgid="785049718065337473">"مستوى صوت الإشعار"</item>
+    <item msgid="6700305533746877052">"مستوى صوت البلوتوث"</item>
+    <item msgid="2029227495214047094">"البقاء في الوضع النشط"</item>
+    <item msgid="26109888160231211">"مراقبة الموقع"</item>
+    <item msgid="5753382310468855812">"مراقبة موقع متميز"</item>
+  </string-array>
+  <string-array name="app_ops_labels">
+    <item msgid="6602854600289714121">"الموقع"</item>
+    <item msgid="8677040780775113033">"الموقع"</item>
+    <item msgid="1660743989948992916">"الموقع"</item>
+    <item msgid="8791172739860195290">"اهتزاز"</item>
+    <item msgid="383413555642128046">"قراءة جهات الاتصال"</item>
+    <item msgid="3654594895269697313">"تعديل جهات الاتصال"</item>
+    <item msgid="7928393476362362538">"قراءة سجل المكالمات"</item>
+    <item msgid="6248591205254641116">"تعديل سجل المكالمات"</item>
+    <item msgid="6093344633066170692">"قراءة التقويم"</item>
+    <item msgid="1334886368750347692">"تعديل التقويم"</item>
+    <item msgid="1638204101698708656">"الموقع"</item>
+    <item msgid="2154671955760380322">"نشر إشعار"</item>
+    <item msgid="4282477730595931828">"الموقع"</item>
+    <item msgid="4891423912898525905">"اتصال هاتفي"</item>
+    <item msgid="2623604824935968113">"‏قراءة الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="4420177125221176306">"‏كتابة الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="3986142739951490025">"‏تلقي الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="3984213795861739778">"‏تلقي الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="3656243523752472788">"‏تلقي الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="8105802370238551510">"‏تلقي الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="1407766984645388488">"‏إرسال الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="3527273606643794973">"‏قراءة الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="4370895547001583812">"‏كتابة الرسائل القصيرة SMS/رسائل الوسائط المتعددة"</item>
+    <item msgid="4218544235221631789">"تعديل الإعدادات"</item>
+    <item msgid="736541391767350377">"رسم في الأعلى"</item>
+    <item msgid="5530815681721654194">"إشعارات الدخول"</item>
+    <item msgid="781213371706962767">"الكاميرا"</item>
+    <item msgid="1720492593061838172">"تسجيل الصوت"</item>
+    <item msgid="3493046322001257041">"تشغيل الصوت"</item>
+    <item msgid="136815868796597058">"قراءة الحافظة"</item>
+    <item msgid="5238692940326972503">"تعديل الحافظة"</item>
+    <item msgid="5753789168376302997">"أزرار الوسائط"</item>
+    <item msgid="3265262911688671938">"التركيز على الصوت"</item>
+    <item msgid="2098976479485046797">"مستوى الصوت الرئيسي"</item>
+    <item msgid="5660213838861789350">"مستوى الصوت"</item>
+    <item msgid="7983336752371254444">"مستوى صوت الرنين"</item>
+    <item msgid="7878027809189330917">"مستوى صوت الوسائط"</item>
+    <item msgid="7260546305036218513">"مستوى صوت المنبّه"</item>
+    <item msgid="9103719301075748925">"مستوى صوت الإشعار"</item>
+    <item msgid="7025966722295861512">"مستوى صوت البلوتوث"</item>
+    <item msgid="4665183401128289653">"البقاء في الوضع النشط"</item>
+    <item msgid="8584357129746649222">"الموقع"</item>
+    <item msgid="7669257279311110599">"الموقع"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"قصيرة"</item>
     <item msgid="2560532955514699713">"متوسطة"</item>
     <item msgid="2372711992605524591">"طويلة"</item>
   </string-array>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"افتراضي"</item>
+    <item msgid="1016452621833735880">"Sans-serif"</item>
+    <item msgid="2496277987934654454">"‏Sans-serif مكثف"</item>
+    <item msgid="4406003087391086325">"Serif"</item>
+    <item msgid="1558362802170124073">"Monospace"</item>
+  </string-array>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"صغير جدًا"</item>
+    <item msgid="6781094565687692782">"صغير"</item>
+    <item msgid="8222123259497646551">"عادي"</item>
+    <item msgid="5813217276778560466">"كبير"</item>
+    <item msgid="9044232017390975191">"كبير جدًا"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="6022616153255438487">"بدون"</item>
+    <item msgid="1352974708028506778">"مخطط"</item>
+    <item msgid="5850876295428722675">"ظل خلفي"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25%"</item>
+    <item msgid="2367156416247936773">"50%"</item>
+    <item msgid="5395560410107149298">"75%"</item>
+    <item msgid="8342334626783983353">"100%"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="1630625150404038035">"أبيض في أسود"</item>
+    <item msgid="4589278788192525675">"أسود في أبيض"</item>
+    <item msgid="1309255027325660115">"أصفر في أسود"</item>
+    <item msgid="2985943780939258562">"أصفر في أزرق"</item>
+    <item msgid="7520438652121629055">"مخصص"</item>
+  </string-array>
+  <string-array name="select_runtime_titles">
+    <item msgid="3574453009229338122">"Dalvik"</item>
+    <item msgid="8978402910750533864">"ART"</item>
+    <item msgid="7839859333977894115">"‏ART (تصحيح الأخطاء)"</item>
+  </string-array>
+  <string-array name="select_runtime_summaries">
+    <item msgid="6412880178297884701">"‏استخدام Dalvik"</item>
+    <item msgid="5131846588686178907">"‏استخدام ART"</item>
+    <item msgid="4530003713865319928">"‏استخدام إصدار تصحيح الأخطاء من ART"</item>
+  </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"عدم التحقق مطلقًا"</item>
-    <item msgid="6042769699089883931">"التحقق من محتوى DRM فقط"</item>
+    <item msgid="6042769699089883931">"‏التحقق من محتوى DRM فقط"</item>
     <item msgid="9174900380056846820">"التحقق دومًا"</item>
   </string-array>
   <string-array name="hdcp_checking_summaries">
-    <item msgid="505558545611516707">"عدم استخدام التحقق من HDCP مطلقًا"</item>
-    <item msgid="3878793616631049349">"استخدام التحقق من HDCP لمحتوى DRM فقط"</item>
-    <item msgid="45075631231212732">"استخدام التحقق من HDCP دومًا"</item>
+    <item msgid="505558545611516707">"‏عدم استخدام التحقق من HDCP مطلقًا"</item>
+    <item msgid="3878793616631049349">"‏استخدام التحقق من HDCP لمحتوى DRM فقط"</item>
+    <item msgid="45075631231212732">"‏استخدام التحقق من HDCP دومًا"</item>
   </string-array>
   <string-array name="window_animation_scale_entries">
     <item msgid="8134156599370824081">"إيقاف الرسوم المتحركة"</item>
-    <item msgid="6624864048416710414">"حجم الرسوم المتحركة 0.5x"</item>
-    <item msgid="2219332261255416635">"حجم الرسوم المتحركة 1x"</item>
-    <item msgid="3544428804137048509">"حجم الرسوم المتحركة 1.5x"</item>
-    <item msgid="3110710404225974514">"حجم الرسوم المتحركة 2x"</item>
-    <item msgid="4402738611528318731">"حجم الرسوم المتحركة 5x"</item>
-    <item msgid="6189539267968330656">"حجم الرسوم المتحركة 10x"</item>
+    <item msgid="6624864048416710414">"‏حجم الرسوم المتحركة 0.5x"</item>
+    <item msgid="2219332261255416635">"‏حجم الرسوم المتحركة 1x"</item>
+    <item msgid="3544428804137048509">"‏حجم الرسوم المتحركة 1.5x"</item>
+    <item msgid="3110710404225974514">"‏حجم الرسوم المتحركة 2x"</item>
+    <item msgid="4402738611528318731">"‏حجم الرسوم المتحركة 5x"</item>
+    <item msgid="6189539267968330656">"‏حجم الرسوم المتحركة 10x"</item>
   </string-array>
   <string-array name="transition_animation_scale_entries">
     <item msgid="8464255836173039442">"إيقاف الرسوم المتحركة"</item>
-    <item msgid="3375781541913316411">"حجم الرسوم المتحركة 5x."</item>
-    <item msgid="1991041427801869945">"حجم الرسوم المتحركة 1x"</item>
-    <item msgid="4012689927622382874">"حجم الرسوم المتحركة 1.5x"</item>
-    <item msgid="3289156759925947169">"حجم الرسوم المتحركة 2x"</item>
-    <item msgid="7705857441213621835">"حجم الرسوم المتحركة 5x"</item>
-    <item msgid="6660750935954853365">"حجم الرسوم المتحركة 10x"</item>
+    <item msgid="3375781541913316411">"‏حجم الرسوم المتحركة 5x."</item>
+    <item msgid="1991041427801869945">"‏حجم الرسوم المتحركة 1x"</item>
+    <item msgid="4012689927622382874">"‏حجم الرسوم المتحركة 1.5x"</item>
+    <item msgid="3289156759925947169">"‏حجم الرسوم المتحركة 2x"</item>
+    <item msgid="7705857441213621835">"‏حجم الرسوم المتحركة 5x"</item>
+    <item msgid="6660750935954853365">"‏حجم الرسوم المتحركة 10x"</item>
   </string-array>
   <string-array name="animator_duration_scale_entries">
     <item msgid="6039901060648228241">"إيقاف الرسوم المتحركة"</item>
-    <item msgid="1138649021950863198">"حجم الرسوم المتحركة ‎.5x"</item>
-    <item msgid="4394388961370833040">"حجم الرسوم المتحركة 1x"</item>
-    <item msgid="8125427921655194973">"حجم الرسوم المتحركة 1.5x"</item>
-    <item msgid="3334024790739189573">"حجم الرسوم المتحركة 2x"</item>
-    <item msgid="3170120558236848008">"حجم الرسوم المتحركة 5x"</item>
-    <item msgid="1069584980746680398">"حجم الرسوم المتحركة 10x"</item>
+    <item msgid="1138649021950863198">"‏حجم الرسوم المتحركة ‎.5x"</item>
+    <item msgid="4394388961370833040">"‏حجم الرسوم المتحركة 1x"</item>
+    <item msgid="8125427921655194973">"‏حجم الرسوم المتحركة 1.5x"</item>
+    <item msgid="3334024790739189573">"‏حجم الرسوم المتحركة 2x"</item>
+    <item msgid="3170120558236848008">"‏حجم الرسوم المتحركة 5x"</item>
+    <item msgid="1069584980746680398">"‏حجم الرسوم المتحركة 10x"</item>
   </string-array>
   <string-array name="overlay_display_devices_entries">
     <item msgid="1606809880904982133">"لا شيء"</item>
     <item msgid="688482401508173818">"720×480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280×720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920×1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280×720 tvdpi و1920×1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"‏720x480 mdpi (آمن)"</item>
+    <item msgid="8181151155909301030">"1280×720 tvdpi"</item>
+    <item msgid="2920655562462493148">"‏1280x720 tvdpi (آمن)"</item>
+    <item msgid="8910371271391940941">"1920×1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"‏1920x1080 xhdpi (آمن)"</item>
+    <item msgid="1937752114395156918">"‏1280×720 tvdpi و1920×1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"لا شيء"</item>
     <item msgid="9089630089455370183">"Logcat"</item>
-    <item msgid="5397807424362304288">"Systrace (رسومات)"</item>
-    <item msgid="1340692776955662664">"تكدس الاستدعاءات في دالة glGetError"</item>
+    <item msgid="5397807424362304288">"‏Systrace (رسومات)"</item>
+    <item msgid="1340692776955662664">"‏تكدس الاستدعاءات في دالة glGetError"</item>
+  </string-array>
+  <string-array name="show_non_rect_clip_entries">
+    <item msgid="993742912147090253">"إيقاف"</item>
+    <item msgid="675719912558941285">"رسم منطقة قصاصة غير مستطيلة بالأزرق"</item>
+    <item msgid="1064373276095698656">"إبراز أوامر رسم تم اختبارها بالأخضر"</item>
+  </string-array>
+  <string-array name="track_frame_time_entries">
+    <item msgid="2193584639058893150">"إيقاف"</item>
+    <item msgid="2751513398307949636">"على الشاشة كأشرطة"</item>
+    <item msgid="8272260411216018353">"على الشاشة كخطوط"</item>
+    <item msgid="120512413928262547">"In adb shell dumpsys gfxinfo"</item>
+  </string-array>
+  <string-array name="debug_hw_overdraw_entries">
+    <item msgid="8190572633763871652">"إيقاف"</item>
+    <item msgid="7688197031296835369">"عرض مناطق تجاوز الحد"</item>
+    <item msgid="2290859360633824369">"‏عرض مناطق العرض المسرحي Deuteranomaly"</item>
+    <item msgid="3448087929560624983">"عرض عداد سحب مبلغ أكبر من الرصيد"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"الحد القياسي"</item>
@@ -275,12 +452,12 @@
     <item msgid="7899496259191969307">"4 عمليات بحد أقصى"</item>
   </string-array>
   <string-array name="vpn_types_long">
-    <item msgid="2732002039459078847">"شبكة ظاهرية خاصة (VPN) عبر PPTP"</item>
-    <item msgid="3799752201662127867">"شبكة ظاهرية خاصة (VPN) لـ L2TP/IPSec مزودة بمفاتيح مشتركة مسبقًا"</item>
-    <item msgid="4725504331295252103">"شبكة ظاهرية خاصة (VPN) لـ L2TP/IPSec مزودة بشهادات"</item>
-    <item msgid="7526551163264034377">"شبكة ظاهرية خاصة (VPN) لـ IPSec مزودة بمفاتيح مشتركة مسبقًا ومصادقة Xauth"</item>
-    <item msgid="8064740940687465039">"شبكة ظاهرية خاصة (VPN) لـ IPSec مزودة بشهادات ومصادقة Xauth"</item>
-    <item msgid="4946199982372391490">"شبكة ظاهرية خاصة (VPN) لـ IPSec مزودة بشهادات ومصادقة مختلطة"</item>
+    <item msgid="2732002039459078847">"‏شبكة ظاهرية خاصة (VPN) عبر PPTP"</item>
+    <item msgid="3799752201662127867">"‏شبكة ظاهرية خاصة (VPN) لـ L2TP/IPSec مزودة بمفاتيح مشتركة مسبقًا"</item>
+    <item msgid="4725504331295252103">"‏شبكة ظاهرية خاصة (VPN) لـ L2TP/IPSec مزودة بشهادات"</item>
+    <item msgid="7526551163264034377">"‏شبكة ظاهرية خاصة (VPN) لـ IPSec مزودة بمفاتيح مشتركة مسبقًا ومصادقة Xauth"</item>
+    <item msgid="8064740940687465039">"‏شبكة ظاهرية خاصة (VPN) لـ IPSec مزودة بشهادات ومصادقة Xauth"</item>
+    <item msgid="4946199982372391490">"‏شبكة ظاهرية خاصة (VPN) لـ IPSec مزودة بشهادات ومصادقة مختلطة"</item>
   </string-array>
   <string-array name="vpn_states">
     <item msgid="8621078286418985762">"غير متصل"</item>
@@ -294,5 +471,11 @@
     <item msgid="7389829271787670252">"اسأل"</item>
     <item msgid="5077768429488260031">"عدم السماح مطلقًا"</item>
     <item msgid="1417929597727989746">"السماح دومًا"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"عادية"</item>
+    <item msgid="4517779899383204000">"معتدلة"</item>
+    <item msgid="406385694840950802">"منخفضة"</item>
+    <item msgid="4212263919458209842">"حرجة"</item>
   </string-array>
 </resources>

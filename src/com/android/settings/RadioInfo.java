@@ -23,15 +23,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
-import android.net.LinkProperties;
 import android.net.TrafficStats;
 import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.telephony.CellInfo;
 import android.telephony.CellLocation;
@@ -41,7 +38,6 @@ import android.telephony.TelephonyManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,26 +50,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
 
-import com.android.internal.telephony.DataConnection;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneStateIntentReceiver;
 import com.android.internal.telephony.TelephonyProperties;
-import com.android.internal.telephony.gsm.GsmDataConnection;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-
-import android.util.Log;
 
 public class RadioInfo extends Activity {
     private final String TAG = "phone";
@@ -126,6 +116,7 @@ public class RadioInfo extends Activity {
     private TextView dnsCheckState;
     private EditText smsc;
     private Button radioPowerButton;
+    private Button cellInfoListRateButton;
     private Button dnsCheckToggleButton;
     private Button pingTestButton;
     private Button updateSmscButton;
@@ -177,9 +168,8 @@ public class RadioInfo extends Activity {
 
         @Override
         public void onCellInfoChanged(List<CellInfo> arrayCi) {
-            Log.d(TAG, "[RadioInfo] onCellInfoChanged: arrayCi=" + arrayCi);
-            mCellInfoValue = arrayCi;
-            updateCellInfoTv();
+            log("onCellInfoChanged: arrayCi=" + arrayCi);
+            updateCellInfoTv(arrayCi);
         }
     };
 
@@ -205,7 +195,7 @@ public class RadioInfo extends Activity {
                     if (ar.exception == null) {
                         int type = ((int[])ar.result)[0];
                         if (type >= mPreferredNetworkLabels.length) {
-                            Log.e(TAG, "[RadioInfo] EVENT_QUERY_PREFERRED_TYPE_DONE: unknown " +
+                            log("EVENT_QUERY_PREFERRED_TYPE_DONE: unknown " +
                                     "type=" + type);
                             type = mPreferredNetworkLabels.length - 1;
                         }
@@ -299,6 +289,9 @@ public class RadioInfo extends Activity {
         radioPowerButton = (Button) findViewById(R.id.radio_power);
         radioPowerButton.setOnClickListener(mPowerButtonHandler);
 
+        cellInfoListRateButton = (Button) findViewById(R.id.cell_info_list_rate);
+        cellInfoListRateButton.setOnClickListener(mCellInfoListRateHandler);
+
         imsRegRequiredButton = (Button) findViewById(R.id.ims_reg_required);
         imsRegRequiredButton.setOnClickListener(mImsRegRequiredHandler);
 
@@ -340,7 +333,7 @@ public class RadioInfo extends Activity {
 
         // Get current cell info
         mCellInfoValue = mTelephonyManager.getAllCellInfo();
-        Log.d(TAG, "[RadioInfo] onCreate: mCellInfoValue=" + mCellInfoValue);
+        log("onCreate: mCellInfoValue=" + mCellInfoValue);
     }
 
     @Override
@@ -357,13 +350,14 @@ public class RadioInfo extends Activity {
         updateDataStats();
         updateDataStats2();
         updatePowerState();
+        updateCellInfoListRate();
         updateImsRegRequiredState();
         updateSmsOverImsState();
         updateLteRamDumpState();
         updateProperties();
         updateDnsCheckState();
 
-        Log.i(TAG, "[RadioInfo] onResume: register phone & data intents");
+        log("onResume: register phone & data intents");
 
         mPhoneStateReceiver.registerIntent();
         mTelephonyManager.listen(mPhoneStateListener,
@@ -379,7 +373,7 @@ public class RadioInfo extends Activity {
     public void onPause() {
         super.onPause();
 
-        Log.i(TAG, "[RadioInfo] onPause: unregister phone & data intents");
+        log("onPause: unregister phone & data intents");
 
         mPhoneStateReceiver.unregisterIntent();
         mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
@@ -435,6 +429,11 @@ public class RadioInfo extends Activity {
                             getString(R.string.turn_off_radio) :
                             getString(R.string.turn_on_radio);
         radioPowerButton.setText(buttonText);
+    }
+
+    private void updateCellInfoListRate() {
+        cellInfoListRateButton.setText("CellInfoListRate " + mCellInfoListRateHandler.getRate());
+        updateCellInfoTv(mTelephonyManager.getAllCellInfo());
     }
 
     private void updateDnsCheckState() {
@@ -524,7 +523,8 @@ public class RadioInfo extends Activity {
         mNeighboringCids.setText(sb.toString());
     }
 
-    private final void updateCellInfoTv() {
+    private final void updateCellInfoTv(List<CellInfo> arrayCi) {
+        mCellInfoValue = arrayCi;
         StringBuilder value = new StringBuilder();
         if (mCellInfoValue != null) {
             int index = 0;
@@ -928,12 +928,32 @@ public class RadioInfo extends Activity {
         }
     };
 
+    class CellInfoListRateHandler implements OnClickListener {
+        int rates[] = {Integer.MAX_VALUE, 0, 1000};
+        int index = 0;
+
+        public int getRate() {
+            return rates[index];
+        }
+
+        @Override
+        public void onClick(View v) {
+            index += 1;
+            if (index >= rates.length) {
+                index = 0;
+            }
+            phone.setCellInfoListRate(rates[index]);
+            updateCellInfoListRate();
+        }
+    }
+    CellInfoListRateHandler mCellInfoListRateHandler = new CellInfoListRateHandler();
+
     private Button imsRegRequiredButton;
     static final String PROPERTY_IMS_REG_REQUIRED = "persist.radio.imsregrequired";
     OnClickListener mImsRegRequiredHandler = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.d(TAG, String.format("toggle %s: currently %s",
+            log(String.format("toggle %s: currently %s",
                 PROPERTY_IMS_REG_REQUIRED, (isImsRegRequired() ? "on":"off")));
             boolean newValue = !isImsRegRequired();
             SystemProperties.set(PROPERTY_IMS_REG_REQUIRED,
@@ -947,7 +967,7 @@ public class RadioInfo extends Activity {
     }
 
     private void updateImsRegRequiredState() {
-        Log.d(TAG, "updateImsRegRequiredState isImsRegRequired()=" + isImsRegRequired());
+        log("updateImsRegRequiredState isImsRegRequired()=" + isImsRegRequired());
         String buttonText = isImsRegRequired() ?
                             getString(R.string.ims_reg_required_off) :
                             getString(R.string.ims_reg_required_on);
@@ -959,7 +979,7 @@ public class RadioInfo extends Activity {
     OnClickListener mSmsOverImsHandler = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.d(TAG, String.format("toggle %s: currently %s",
+            log(String.format("toggle %s: currently %s",
                     PROPERTY_SMS_OVER_IMS, (isSmsOverImsEnabled() ? "on":"off")));
             boolean newValue = !isSmsOverImsEnabled();
             SystemProperties.set(PROPERTY_SMS_OVER_IMS, newValue ? "1":"0");
@@ -972,7 +992,7 @@ public class RadioInfo extends Activity {
     }
 
     private void updateSmsOverImsState() {
-        Log.d(TAG, "updateSmsOverImsState isSmsOverImsEnabled()=" + isSmsOverImsEnabled());
+        log("updateSmsOverImsState isSmsOverImsEnabled()=" + isSmsOverImsEnabled());
         String buttonText = isSmsOverImsEnabled() ?
                             getString(R.string.sms_over_ims_off) :
                             getString(R.string.sms_over_ims_on);
@@ -984,7 +1004,7 @@ public class RadioInfo extends Activity {
     OnClickListener mLteRamDumpHandler = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.d(TAG, String.format("toggle %s: currently %s",
+            log(String.format("toggle %s: currently %s",
                     PROPERTY_LTE_RAM_DUMP, (isSmsOverImsEnabled() ? "on":"off")));
             boolean newValue = !isLteRamDumpEnabled();
             SystemProperties.set(PROPERTY_LTE_RAM_DUMP, newValue ? "1":"0");
@@ -997,7 +1017,7 @@ public class RadioInfo extends Activity {
     }
 
     private void updateLteRamDumpState() {
-        Log.d(TAG, "updateLteRamDumpState isLteRamDumpEnabled()=" + isLteRamDumpEnabled());
+        log("updateLteRamDumpState isLteRamDumpEnabled()=" + isLteRamDumpEnabled());
         String buttonText = isLteRamDumpEnabled() ?
                             getString(R.string.lte_ram_dump_off) :
                             getString(R.string.lte_ram_dump_on);
@@ -1017,7 +1037,7 @@ public class RadioInfo extends Activity {
             try {
                 startActivity(intent);
             } catch (android.content.ActivityNotFoundException ex) {
-                Log.d(TAG, "OEM-specific Info/Settings Activity Not Found : " + ex);
+                log("OEM-specific Info/Settings Activity Not Found : " + ex);
                 // If the activity does not exist, there are no OEM
                 // settings, and so we can just do nothing...
             }
@@ -1071,4 +1091,8 @@ public class RadioInfo extends Activity {
             "LTE/GSM/CDMA auto (PRL)",
             "LTE only",
             "Unknown"};
+
+    private void log(String s) {
+        Log.d(TAG, "[RadioInfo] " + s);
+    }
 }

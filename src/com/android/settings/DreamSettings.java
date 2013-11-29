@@ -26,7 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -99,7 +99,7 @@ public class DreamSettings extends SettingsPreferenceFragment {
 
         final int padding = activity.getResources().getDimensionPixelSize(
                 R.dimen.action_bar_switch_padding);
-        mSwitch.setPadding(0, 0, padding, 0);
+        mSwitch.setPaddingRelative(0, 0, padding, 0);
         activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
                 ActionBar.DISPLAY_SHOW_CUSTOM);
         activity.getActionBar().setCustomView(mSwitch, new ActionBar.LayoutParams(
@@ -122,6 +122,8 @@ public class DreamSettings extends SettingsPreferenceFragment {
         super.onActivityCreated(savedInstanceState);
 
         ListView listView = getListView();
+
+        listView.setItemsCanFocus(true);
 
         TextView emptyView = (TextView) getView().findViewById(android.R.id.empty);
         emptyView.setText(R.string.screensaver_settings_disabled_prompt);
@@ -190,31 +192,20 @@ public class DreamSettings extends SettingsPreferenceFragment {
         final CharSequence[] items = {
                 mContext.getString(R.string.screensaver_settings_summary_dock),
                 mContext.getString(R.string.screensaver_settings_summary_sleep),
-                mContext.getString(R.string.screensaver_settings_summary_wireless)
+                mContext.getString(R.string.screensaver_settings_summary_either_short)
         };
 
-        boolean[] initialChecked = new boolean[] {
-                mBackend.isActivatedOnDock(),
-                mBackend.isActivatedOnSleep(),
-                mBackend.isActivatedOnWirelessCharge()
-        };
+        int initialSelection = mBackend.isActivatedOnDock() && mBackend.isActivatedOnSleep() ? 2
+                : mBackend.isActivatedOnDock() ? 0
+                : mBackend.isActivatedOnSleep() ? 1
+                : -1;
 
         return new AlertDialog.Builder(mContext)
                 .setTitle(R.string.screensaver_settings_when_to_dream)
-                .setMultiChoiceItems(items, initialChecked, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                        switch(which) {
-                            case 0:
-                                mBackend.setActivatedOnDock(isChecked);
-                                break;
-                            case 1:
-                                mBackend.setActivatedOnSleep(isChecked);
-                                break;
-                            case 2:
-                                mBackend.setActivatedOnWirelessCharge(isChecked);
-                                break;
-                        }
+                .setSingleChoiceItems(items, initialSelection, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        mBackend.setActivatedOnDock(item == 0 || item == 2);
+                        mBackend.setActivatedOnSleep(item == 1 || item == 2);
                     }
                 })
                 .create();
@@ -327,8 +318,9 @@ public class DreamSettings extends SettingsPreferenceFragment {
 
             ImageView settingsButton = (ImageView) row.findViewById(android.R.id.button2);
             settingsButton.setVisibility(showSettings ? View.VISIBLE : View.INVISIBLE);
-            settingsButton.setAlpha(dreamInfo.isActive ? 1f : 0.33f);
+            settingsButton.setAlpha(dreamInfo.isActive ? 1f : Utils.DISABLED_ALPHA);
             settingsButton.setEnabled(dreamInfo.isActive);
+            settingsButton.setFocusable(dreamInfo.isActive);
             settingsButton.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -340,7 +332,8 @@ public class DreamSettings extends SettingsPreferenceFragment {
 
         private View createDreamInfoRow(ViewGroup parent) {
             final View row =  mInflater.inflate(R.layout.dream_info_row, parent, false);
-            row.setOnClickListener(new OnClickListener(){
+            final View header = row.findViewById(android.R.id.widget_frame);
+            header.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     v.setPressed(true);

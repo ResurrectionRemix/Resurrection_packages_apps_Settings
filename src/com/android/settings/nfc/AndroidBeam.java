@@ -35,11 +35,9 @@ import com.android.settings.R;
 public class AndroidBeam extends Fragment
         implements CompoundButton.OnCheckedChangeListener {
     private View mView;
-    private ImageView mImageView;
     private NfcAdapter mNfcAdapter;
     private Switch mActionBarSwitch;
     private CharSequence mOldActivityTitle;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,20 +47,17 @@ public class AndroidBeam extends Fragment
         mActionBarSwitch = new Switch(activity);
 
         if (activity instanceof PreferenceActivity) {
-            PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-                final int padding = activity.getResources().getDimensionPixelSize(
-                        R.dimen.action_bar_switch_padding);
-                mActionBarSwitch.setPadding(0, 0, padding, 0);
-                activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
-                        ActionBar.DISPLAY_SHOW_CUSTOM);
-                activity.getActionBar().setCustomView(mActionBarSwitch, new ActionBar.LayoutParams(
-                        ActionBar.LayoutParams.WRAP_CONTENT,
-                        ActionBar.LayoutParams.WRAP_CONTENT,
-                        Gravity.CENTER_VERTICAL | Gravity.END));
-                if (!preferenceActivity.onIsMultiPane() || preferenceActivity.onIsHidingHeaders()) {
-                    mOldActivityTitle = getActivity().getTitle();
-                    activity.getActionBar().setTitle(R.string.android_beam_settings_title);
-                }
+            final int padding = activity.getResources().getDimensionPixelSize(
+                    R.dimen.action_bar_switch_padding);
+            mActionBarSwitch.setPaddingRelative(0, 0, padding, 0);
+            activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
+                    ActionBar.DISPLAY_SHOW_CUSTOM);
+            activity.getActionBar().setCustomView(mActionBarSwitch, new ActionBar.LayoutParams(
+                    ActionBar.LayoutParams.WRAP_CONTENT,
+                    ActionBar.LayoutParams.WRAP_CONTENT,
+                    Gravity.CENTER_VERTICAL | Gravity.END));
+            mOldActivityTitle = activity.getActionBar().getTitle();
+            activity.getActionBar().setTitle(R.string.android_beam_settings_title);
         }
 
         mActionBarSwitch.setOnCheckedChangeListener(this);
@@ -78,13 +73,14 @@ public class AndroidBeam extends Fragment
         initView(mView);
         return mView;
     }
+
     @Override
     public void onDestroyView() {
+        super.onDestroyView();
         getActivity().getActionBar().setCustomView(null);
         if (mOldActivityTitle != null) {
             getActivity().getActionBar().setTitle(mOldActivityTitle);
         }
-        super.onDestroyView();
     }
 
     private void initView(View view) {

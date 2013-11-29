@@ -20,13 +20,14 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceDrawerActivity;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -47,6 +48,9 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     private SettingsDialogFragment mDialogFragment;
 
     private String mHelpUrl;
+
+    // Cache the content resolver for async callbacks
+    private ContentResolver mContentResolver;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -104,7 +108,11 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
      * Returns the ContentResolver from the owning Activity.
      */
     protected ContentResolver getContentResolver() {
-        return getActivity().getContentResolver();
+        Context context = getActivity();
+        if (context != null) {
+            mContentResolver = context.getContentResolver();
+        }
+        return mContentResolver;
     }
 
     /**
@@ -233,8 +241,11 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
                     mParentFragment = getFragmentManager().findFragmentById(mParentFragmentId);
                     if (!(mParentFragment instanceof DialogCreatable)) {
                         throw new IllegalArgumentException(
-                                KEY_PARENT_FRAGMENT_ID + " must implement "
-                                        + DialogCreatable.class.getName());
+                                (mParentFragment != null
+                                        ? mParentFragment.getClass().getName()
+                                        : mParentFragmentId)
+                                + " must implement "
+                                + DialogCreatable.class.getName());
                     }
                 }
                 // This dialog fragment could be created from non-SettingsPreferenceFragment
@@ -294,13 +305,13 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     public boolean startFragment(
             Fragment caller, String fragmentClass, int requestCode, Bundle extras) {
-        if (getActivity() instanceof PreferenceDrawerActivity) {
-            PreferenceDrawerActivity preferenceActivity = (PreferenceDrawerActivity)getActivity();
+        if (getActivity() instanceof PreferenceActivity) {
+            PreferenceActivity preferenceActivity = (PreferenceActivity)getActivity();
             preferenceActivity.startPreferencePanel(fragmentClass, extras,
                     R.string.lock_settings_picker_title, null, caller, requestCode);
             return true;
         } else {
-            Log.w(TAG, "Parent isn't PreferenceDrawerActivity, thus there's no way to launch the "
+            Log.w(TAG, "Parent isn't PreferenceActivity, thus there's no way to launch the "
                     + "given Fragment (name: " + fragmentClass + ", requestCode: " + requestCode
                     + ")");
             return false;

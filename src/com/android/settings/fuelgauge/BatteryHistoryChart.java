@@ -340,7 +340,7 @@ public class BatteryHistoryChart extends View {
         long uSecTime = mStats.computeBatteryRealtime(SystemClock.elapsedRealtime() * 1000,
                 BatteryStats.STATS_SINCE_CHARGED);
         mStatsPeriod = uSecTime;
-        String durationString = Utils.formatElapsedTime(getContext(), mStatsPeriod / 1000);
+        String durationString = Utils.formatElapsedTime(getContext(), mStatsPeriod / 1000, true);
         mDurationString = getContext().getString(R.string.battery_stats_on_battery,
                 durationString);
         mChargingLabel = getContext().getString(R.string.battery_stats_charging_label);
@@ -382,7 +382,7 @@ public class BatteryHistoryChart extends View {
             mHavePhoneSignal = true;
         }
         if (mHistEnd <= mHistStart) mHistEnd = mHistStart+1;
-        mTotalDurationString = Utils.formatElapsedTime(getContext(), mHistEnd - mHistStart);
+        mTotalDurationString = Utils.formatElapsedTime(getContext(), mHistEnd - mHistStart, true);
     }
 
     @Override
@@ -557,77 +557,77 @@ public class BatteryHistoryChart extends View {
                             lastX = x;
                             lastY = y;
                         }
+                    }
 
-                        final boolean charging =
-                            (rec.states&HistoryItem.STATE_BATTERY_PLUGGED_FLAG) != 0;
-                        if (charging != lastCharging) {
-                            if (charging) {
-                                mChargingPath.moveTo(x, h-mChargingOffset);
-                            } else {
-                                mChargingPath.lineTo(x, h-mChargingOffset);
-                            }
-                            lastCharging = charging;
+                    final boolean charging =
+                        (rec.states&HistoryItem.STATE_BATTERY_PLUGGED_FLAG) != 0;
+                    if (charging != lastCharging) {
+                        if (charging) {
+                            mChargingPath.moveTo(x, h-mChargingOffset);
+                        } else {
+                            mChargingPath.lineTo(x, h-mChargingOffset);
                         }
+                        lastCharging = charging;
+                    }
 
-                        final boolean screenOn =
-                            (rec.states&HistoryItem.STATE_SCREEN_ON_FLAG) != 0;
-                        if (screenOn != lastScreenOn) {
-                            if (screenOn) {
-                                mScreenOnPath.moveTo(x, h-mScreenOnOffset);
-                            } else {
-                                mScreenOnPath.lineTo(x, h-mScreenOnOffset);
-                            }
-                            lastScreenOn = screenOn;
+                    final boolean screenOn =
+                        (rec.states&HistoryItem.STATE_SCREEN_ON_FLAG) != 0;
+                    if (screenOn != lastScreenOn) {
+                        if (screenOn) {
+                            mScreenOnPath.moveTo(x, h-mScreenOnOffset);
+                        } else {
+                            mScreenOnPath.lineTo(x, h-mScreenOnOffset);
                         }
+                        lastScreenOn = screenOn;
+                    }
 
-                        final boolean gpsOn =
-                            (rec.states&HistoryItem.STATE_GPS_ON_FLAG) != 0;
-                        if (gpsOn != lastGpsOn) {
-                            if (gpsOn) {
-                                mGpsOnPath.moveTo(x, h-mGpsOnOffset);
-                            } else {
-                                mGpsOnPath.lineTo(x, h-mGpsOnOffset);
-                            }
-                            lastGpsOn = gpsOn;
+                    final boolean gpsOn =
+                        (rec.states&HistoryItem.STATE_GPS_ON_FLAG) != 0;
+                    if (gpsOn != lastGpsOn) {
+                        if (gpsOn) {
+                            mGpsOnPath.moveTo(x, h-mGpsOnOffset);
+                        } else {
+                            mGpsOnPath.lineTo(x, h-mGpsOnOffset);
                         }
+                        lastGpsOn = gpsOn;
+                    }
 
-                        final boolean wifiRunning =
-                            (rec.states&HistoryItem.STATE_WIFI_RUNNING_FLAG) != 0;
-                        if (wifiRunning != lastWifiRunning) {
-                            if (wifiRunning) {
-                                mWifiRunningPath.moveTo(x, h-mWifiRunningOffset);
-                            } else {
-                                mWifiRunningPath.lineTo(x, h-mWifiRunningOffset);
-                            }
-                            lastWifiRunning = wifiRunning;
+                    final boolean wifiRunning =
+                        (rec.states&HistoryItem.STATE_WIFI_RUNNING_FLAG) != 0;
+                    if (wifiRunning != lastWifiRunning) {
+                        if (wifiRunning) {
+                            mWifiRunningPath.moveTo(x, h-mWifiRunningOffset);
+                        } else {
+                            mWifiRunningPath.lineTo(x, h-mWifiRunningOffset);
                         }
+                        lastWifiRunning = wifiRunning;
+                    }
 
-                        final boolean wakeLock =
-                            (rec.states&HistoryItem.STATE_WAKE_LOCK_FLAG) != 0;
-                        if (wakeLock != lastWakeLock) {
-                            if (wakeLock) {
-                                mWakeLockPath.moveTo(x, h-mWakeLockOffset);
-                            } else {
-                                mWakeLockPath.lineTo(x, h-mWakeLockOffset);
-                            }
-                            lastWakeLock = wakeLock;
+                    final boolean wakeLock =
+                        (rec.states&HistoryItem.STATE_WAKE_LOCK_FLAG) != 0;
+                    if (wakeLock != lastWakeLock) {
+                        if (wakeLock) {
+                            mWakeLockPath.moveTo(x, h-mWakeLockOffset);
+                        } else {
+                            mWakeLockPath.lineTo(x, h-mWakeLockOffset);
                         }
+                        lastWakeLock = wakeLock;
+                    }
 
-                        if (mLargeMode && mHavePhoneSignal) {
-                            int bin;
-                            if (((rec.states&HistoryItem.STATE_PHONE_STATE_MASK)
-                                    >> HistoryItem.STATE_PHONE_STATE_SHIFT)
-                                    == ServiceState.STATE_POWER_OFF) {
-                                bin = 0;
-                            } else if ((rec.states&HistoryItem.STATE_PHONE_SCANNING_FLAG) != 0) {
-                                bin = 1;
-                            } else {
-                                bin = (rec.states&HistoryItem.STATE_SIGNAL_STRENGTH_MASK)
-                                        >> HistoryItem.STATE_SIGNAL_STRENGTH_SHIFT;
-                                bin += 2;
-                            }
-                            mPhoneSignalChart.addTick(x, bin);
+                    if (mLargeMode && mHavePhoneSignal) {
+                        int bin;
+                        if (((rec.states&HistoryItem.STATE_PHONE_STATE_MASK)
+                                >> HistoryItem.STATE_PHONE_STATE_SHIFT)
+                                == ServiceState.STATE_POWER_OFF) {
+                            bin = 0;
+                        } else if ((rec.states&HistoryItem.STATE_PHONE_SCANNING_FLAG) != 0) {
+                            bin = 1;
+                        } else {
+                            bin = (rec.states&HistoryItem.STATE_SIGNAL_STRENGTH_MASK)
+                                    >> HistoryItem.STATE_SIGNAL_STRENGTH_SHIFT;
+                            bin += 2;
                         }
+                        mPhoneSignalChart.addTick(x, bin);
                     }
 
                 } else if (rec.cmd != BatteryStats.HistoryItem.CMD_OVERFLOW) {
@@ -654,19 +654,26 @@ public class BatteryHistoryChart extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        
+
         final int width = getWidth();
         final int height = getHeight();
-        
+        final boolean layoutRtl = isLayoutRtl();
+        final int textStartX = layoutRtl ? width : 0;
+        mTextPaint.setTextAlign(layoutRtl ? Paint.Align.RIGHT : Paint.Align.LEFT);
+
         canvas.drawPath(mBatLevelPath, mBatteryBackgroundPaint);
         if (mLargeMode) {
-            canvas.drawText(mDurationString, 0, -mTextAscent + (mLineWidth/2),
+            int durationHalfWidth = mTotalDurationStringWidth / 2;
+            if (layoutRtl) durationHalfWidth = -durationHalfWidth;
+            canvas.drawText(mDurationString, textStartX, -mTextAscent + (mLineWidth / 2),
                     mTextPaint);
-            canvas.drawText(mTotalDurationString, (width/2) - (mTotalDurationStringWidth/2),
+            canvas.drawText(mTotalDurationString, (width / 2) - durationHalfWidth,
                     mLevelBottom - mTextAscent + mThinLineWidth, mTextPaint);
         } else {
-            canvas.drawText(mDurationString, (width/2) - (mDurationStringWidth/2),
-                    (height/2) - ((mTextDescent-mTextAscent)/2) - mTextAscent, mTextPaint);
+            int durationHalfWidth = mDurationStringWidth / 2;
+            if (layoutRtl) durationHalfWidth = -durationHalfWidth;
+            canvas.drawText(mDurationString, (width / 2) - durationHalfWidth,
+                    (height / 2) - ((mTextDescent - mTextAscent) / 2) - mTextAscent, mTextPaint);
         }
         if (!mBatGoodPath.isEmpty()) {
             canvas.drawPath(mBatGoodPath, mBatteryGoodPaint);
@@ -703,22 +710,22 @@ public class BatteryHistoryChart extends View {
 
         if (mLargeMode) {
             if (mHavePhoneSignal) {
-                canvas.drawText(mPhoneSignalLabel, 0,
+                canvas.drawText(mPhoneSignalLabel, textStartX,
                         height - mPhoneSignalOffset - mTextDescent, mTextPaint);
             }
             if (mHaveGps) {
-                canvas.drawText(mGpsOnLabel, 0,
+                canvas.drawText(mGpsOnLabel, textStartX,
                         height - mGpsOnOffset - mTextDescent, mTextPaint);
             }
             if (mHaveWifi) {
-                canvas.drawText(mWifiRunningLabel, 0,
+                canvas.drawText(mWifiRunningLabel, textStartX,
                         height - mWifiRunningOffset - mTextDescent, mTextPaint);
             }
-            canvas.drawText(mWakeLockLabel, 0,
+            canvas.drawText(mWakeLockLabel, textStartX,
                     height - mWakeLockOffset - mTextDescent, mTextPaint);
-            canvas.drawText(mChargingLabel, 0,
+            canvas.drawText(mChargingLabel, textStartX,
                     height - mChargingOffset - mTextDescent, mTextPaint);
-            canvas.drawText(mScreenOnLabel, 0,
+            canvas.drawText(mScreenOnLabel, textStartX,
                     height - mScreenOnOffset - mTextDescent, mTextPaint);
             canvas.drawLine(0, mLevelBottom+(mThinLineWidth/2), width,
                     mLevelBottom+(mThinLineWidth/2), mTextPaint);

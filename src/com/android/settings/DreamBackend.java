@@ -18,7 +18,6 @@ package com.android.settings;
 
 import static android.provider.Settings.Secure.SCREENSAVER_ACTIVATE_ON_DOCK;
 import static android.provider.Settings.Secure.SCREENSAVER_ACTIVATE_ON_SLEEP;
-import static android.provider.Settings.Secure.SCREENSAVER_ACTIVATE_ON_WIRELESS_CHARGE;
 import static android.provider.Settings.Secure.SCREENSAVER_ENABLED;
 
 import android.content.ComponentName;
@@ -170,15 +169,6 @@ public class DreamBackend {
         setBoolean(SCREENSAVER_ACTIVATE_ON_SLEEP, value);
     }
 
-    public boolean isActivatedOnWirelessCharge() {
-        return getBoolean(SCREENSAVER_ACTIVATE_ON_WIRELESS_CHARGE, false);
-    }
-
-    public void setActivatedOnWirelessCharge(boolean value) {
-        logd("setActivatedOnWirelessCharge(%s)", value);
-        setBoolean(SCREENSAVER_ACTIVATE_ON_WIRELESS_CHARGE, value);
-    }
-
     private boolean getBoolean(String key, boolean def) {
         return Settings.Secure.getInt(mContext.getContentResolver(), key, def ? 1 : 0) == 1;
     }
@@ -286,6 +276,9 @@ public class DreamBackend {
         if (caughtException != null) {
             Log.w(TAG, "Error parsing : " + resolveInfo.serviceInfo.packageName, caughtException);
             return null;
+        }
+        if (cn != null && cn.indexOf('/') < 0) {
+            cn = resolveInfo.serviceInfo.packageName + "/" + cn;
         }
         return cn == null ? null : ComponentName.unflattenFromString(cn);
     }

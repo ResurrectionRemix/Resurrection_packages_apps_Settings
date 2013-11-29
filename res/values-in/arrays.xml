@@ -70,7 +70,11 @@
     <item msgid="2361722960903353554">"Lambat"</item>
     <item msgid="1145554631248513562">"Normal"</item>
     <item msgid="7553665153391107454">"Cepat"</item>
-    <item msgid="2538100882620724753">"Sangat cepat"</item>
+    <item msgid="1370673569131070146">"Lebih cepat"</item>
+    <item msgid="4648206845228970803">"Sangat cepat"</item>
+    <item msgid="4977949754169483251">"Cepat sekali"</item>
+    <item msgid="6106302964845503577">"Sangat cepat sekali"</item>
+    <item msgid="6800277205640837264">"Tercepat"</item>
   </string-array>
   <string-array name="tts_pitch_entries">
     <item msgid="7526050907652687351">"Sangat rendah"</item>
@@ -114,6 +118,9 @@
     <!-- no translation found for wifi_security_no_eap:0 (2084555984818107151) -->
     <!-- no translation found for wifi_security_no_eap:1 (397579322683471524) -->
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
+    <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
+    <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
+    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -170,6 +177,11 @@
     <item msgid="7182812872984827322">"TTLS"</item>
     <item msgid="2318274046749286642">"PWD"</item>
   </string-array>
+  <string-array name="wifi_peap_phase2_entries">
+    <item msgid="2577747762745812488">"Tidak Ada"</item>
+    <item msgid="937786527870979616">"MSCHAPV2"</item>
+    <item msgid="5302613883318643629">"GTC"</item>
+  </string-array>
   <string-array name="wifi_phase2_entries">
     <item msgid="1818786254010764570">"Tak Satu Pun"</item>
     <item msgid="6189918678874123056">"PAP"</item>
@@ -206,15 +218,160 @@
     <item msgid="3044323519470167625">"eHRPD"</item>
     <item msgid="6848428671997893147">"Tidak ditentukan"</item>
   </string-array>
+  <string-array name="mvno_type_entries">
+    <item msgid="4367119357633573465">"Tidak ada"</item>
+    <item msgid="6062567900587138000">"SPN"</item>
+    <item msgid="2454085083342423481">"IMSI"</item>
+    <item msgid="2681427309183221543">"GID"</item>
+  </string-array>
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Penyimpanan perangkat internal"</item>
     <item msgid="3738430123799803530">"Kartu SD yang dapat dicopot"</item>
     <item msgid="4498124044785815005">"Biarkan sistem menentukan"</item>
   </string-array>
+  <string-array name="app_ops_categories">
+    <item msgid="6358963769537892925">"Lokasi"</item>
+    <item msgid="255608127647030286">"Pribadi"</item>
+    <item msgid="4588829735729884491">"Perpesanan"</item>
+    <item msgid="886742181977884584">"Media"</item>
+    <item msgid="7924928667052300589">"Perangkat"</item>
+  </string-array>
+  <string-array name="app_ops_summaries">
+    <item msgid="4979188868761515915">"lokasi sementara"</item>
+    <item msgid="5789673140227507995">"lokasi terperinci"</item>
+    <item msgid="1061584358377390581">"GPS"</item>
+    <item msgid="5387405117297558954">"getar"</item>
+    <item msgid="3434165993711230924">"membaca kontak"</item>
+    <item msgid="616161687718081936">"ubah kontak"</item>
+    <item msgid="7638002295329050091">"baca log panggilan"</item>
+    <item msgid="6546959730920410907">"ubah log panggilan"</item>
+    <item msgid="446877710771379667">"membaca kalender"</item>
+    <item msgid="7674458294386319722">"ubah kalender"</item>
+    <item msgid="8281201165558093009">"pemindaian Wi-Fi"</item>
+    <item msgid="8694611243479480497">"pemberitahuan"</item>
+    <item msgid="7776439107987345446">"pemindaian seluler"</item>
+    <item msgid="514615766544675057">"telepon"</item>
+    <item msgid="8181415497109310680">"baca SMS"</item>
+    <item msgid="6816551144382117307">"tulis SMS"</item>
+    <item msgid="4600463921908905030">"terima SMS"</item>
+    <item msgid="5958926493289432745">"terima SMS darurat"</item>
+    <item msgid="4945269495221089540">"terima MMS"</item>
+    <item msgid="5570472453573929087">"terima WAP push"</item>
+    <item msgid="7125408150230860501">"kirim SMS"</item>
+    <item msgid="7080337936612188061">"baca ICC SMS"</item>
+    <item msgid="587124103118495063">"tulis ICC SMS"</item>
+    <item msgid="2320577158869025503">"ubah setelan"</item>
+    <item msgid="1545733463471924009">"gambar di atas"</item>
+    <item msgid="3609046903962454582">"akses pemberitahuan"</item>
+    <item msgid="4671646036128214513">"kamera"</item>
+    <item msgid="1097324338692486211">"rekam audio"</item>
+    <item msgid="5031552983987798163">"putar audio"</item>
+    <item msgid="8374996688066472414">"baca papan klip"</item>
+    <item msgid="3045529469061083747">"ubah papan klip"</item>
+    <item msgid="5124443975763747838">"tombol media"</item>
+    <item msgid="4547883971364273343">"fokus audio"</item>
+    <item msgid="2603878814882344450">"volume master"</item>
+    <item msgid="7136963238377062018">"volume suara"</item>
+    <item msgid="4270236897655923007">"volume dering"</item>
+    <item msgid="6325739889222559394">"volume media"</item>
+    <item msgid="5762123934816216821">"volume alarm"</item>
+    <item msgid="785049718065337473">"volume pemberitahuan"</item>
+    <item msgid="6700305533746877052">"volume bluetooth"</item>
+    <item msgid="2029227495214047094">"tetap aktif"</item>
+    <item msgid="26109888160231211">"monitor lokasi"</item>
+    <item msgid="5753382310468855812">"memantau lokasi berdaya tinggi"</item>
+  </string-array>
+  <string-array name="app_ops_labels">
+    <item msgid="6602854600289714121">"Lokasi"</item>
+    <item msgid="8677040780775113033">"Lokasi"</item>
+    <item msgid="1660743989948992916">"Lokasi"</item>
+    <item msgid="8791172739860195290">"Getar"</item>
+    <item msgid="383413555642128046">"Membaca kontak"</item>
+    <item msgid="3654594895269697313">"Ubah kontak"</item>
+    <item msgid="7928393476362362538">"Baca log panggilan"</item>
+    <item msgid="6248591205254641116">"Ubah log panggilan"</item>
+    <item msgid="6093344633066170692">"Membaca kalender"</item>
+    <item msgid="1334886368750347692">"Ubah kalender"</item>
+    <item msgid="1638204101698708656">"Lokasi"</item>
+    <item msgid="2154671955760380322">"Pemberitahuan pos"</item>
+    <item msgid="4282477730595931828">"Lokasi"</item>
+    <item msgid="4891423912898525905">"Telepon"</item>
+    <item msgid="2623604824935968113">"Baca SMS/MMS"</item>
+    <item msgid="4420177125221176306">"Tulis SMS/MMS"</item>
+    <item msgid="3986142739951490025">"Terima SMS/MMS"</item>
+    <item msgid="3984213795861739778">"Terima SMS/MMS"</item>
+    <item msgid="3656243523752472788">"Terima SMS/MMS"</item>
+    <item msgid="8105802370238551510">"Terima SMS/MMS"</item>
+    <item msgid="1407766984645388488">"Kirim SMS/MMS"</item>
+    <item msgid="3527273606643794973">"Baca SMS/MMS"</item>
+    <item msgid="4370895547001583812">"Tulis SMS/MMS"</item>
+    <item msgid="4218544235221631789">"Ubah setelan"</item>
+    <item msgid="736541391767350377">"Gambar di atas"</item>
+    <item msgid="5530815681721654194">"Akses pemberitahuan"</item>
+    <item msgid="781213371706962767">"Kamera"</item>
+    <item msgid="1720492593061838172">"Rekam audio"</item>
+    <item msgid="3493046322001257041">"Putar audio"</item>
+    <item msgid="136815868796597058">"Baca papan klip"</item>
+    <item msgid="5238692940326972503">"Ubah papan klip"</item>
+    <item msgid="5753789168376302997">"Tombol media"</item>
+    <item msgid="3265262911688671938">"Fokus audio"</item>
+    <item msgid="2098976479485046797">"Volume utama"</item>
+    <item msgid="5660213838861789350">"Volume suara"</item>
+    <item msgid="7983336752371254444">"Volume dering"</item>
+    <item msgid="7878027809189330917">"Volume media"</item>
+    <item msgid="7260546305036218513">"Volume alarm"</item>
+    <item msgid="9103719301075748925">"Volume pemberitahuan"</item>
+    <item msgid="7025966722295861512">"Volume bluetooth"</item>
+    <item msgid="4665183401128289653">"Tetap aktif"</item>
+    <item msgid="8584357129746649222">"Lokasi"</item>
+    <item msgid="7669257279311110599">"Lokasi"</item>
+  </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Singkat"</item>
     <item msgid="2560532955514699713">"Sedang"</item>
     <item msgid="2372711992605524591">"Lama"</item>
+  </string-array>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"Default"</item>
+    <item msgid="1016452621833735880">"Sans-serif"</item>
+    <item msgid="2496277987934654454">"Sans-serif condensed"</item>
+    <item msgid="4406003087391086325">"Serif"</item>
+    <item msgid="1558362802170124073">"Monospace"</item>
+  </string-array>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"Sangat kecil"</item>
+    <item msgid="6781094565687692782">"Kecil"</item>
+    <item msgid="8222123259497646551">"Normal"</item>
+    <item msgid="5813217276778560466">"Besar"</item>
+    <item msgid="9044232017390975191">"Sangat besar"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="6022616153255438487">"Tidak ada"</item>
+    <item msgid="1352974708028506778">"Garis batas"</item>
+    <item msgid="5850876295428722675">"Bayangan jatuh"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25%"</item>
+    <item msgid="2367156416247936773">"50%"</item>
+    <item msgid="5395560410107149298">"75%"</item>
+    <item msgid="8342334626783983353">"100%"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="1630625150404038035">"Putih berlatar hitam"</item>
+    <item msgid="4589278788192525675">"Hitam berlatar putih"</item>
+    <item msgid="1309255027325660115">"Kuning berlatar hitam"</item>
+    <item msgid="2985943780939258562">"Kuning berlatar biru"</item>
+    <item msgid="7520438652121629055">"Khusus"</item>
+  </string-array>
+  <string-array name="select_runtime_titles">
+    <item msgid="3574453009229338122">"Dalvik"</item>
+    <item msgid="8978402910750533864">"ART"</item>
+    <item msgid="7839859333977894115">"ART (debug)"</item>
+  </string-array>
+  <string-array name="select_runtime_summaries">
+    <item msgid="6412880178297884701">"Gunakan Dalvik"</item>
+    <item msgid="5131846588686178907">"Gunakan ART"</item>
+    <item msgid="4530003713865319928">"Gunakan bentukan debug ART"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Jangan periksa"</item>
@@ -256,15 +413,35 @@
   <string-array name="overlay_display_devices_entries">
     <item msgid="1606809880904982133">"Tidak ada"</item>
     <item msgid="688482401508173818">"720x480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280x720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920x1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280x720 tvdpi and 1920x1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"720x480 mdpi (aman)"</item>
+    <item msgid="8181151155909301030">"1280x720 tvdpi"</item>
+    <item msgid="2920655562462493148">"1280x720 tvdpi (aman)"</item>
+    <item msgid="8910371271391940941">"1920x1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"1920x1080 xhdpi (aman)"</item>
+    <item msgid="1937752114395156918">"1280x720 tvdpi dan 1920x1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"Tidak ada"</item>
     <item msgid="9089630089455370183">"Logcat"</item>
     <item msgid="5397807424362304288">"Systrace (Grafis)"</item>
     <item msgid="1340692776955662664">"Panggil tumpukan di glGetError"</item>
+  </string-array>
+  <string-array name="show_non_rect_clip_entries">
+    <item msgid="993742912147090253">"Nonaktif"</item>
+    <item msgid="675719912558941285">"Gambar wilayah non-kotak biru"</item>
+    <item msgid="1064373276095698656">"Sorot perintah gambar teruji hijau"</item>
+  </string-array>
+  <string-array name="track_frame_time_entries">
+    <item msgid="2193584639058893150">"Nonaktif"</item>
+    <item msgid="2751513398307949636">"Di layar dalam bentuk batang"</item>
+    <item msgid="8272260411216018353">"Di layar dalam bentuk garis"</item>
+    <item msgid="120512413928262547">"Di adb shell dumpsys gfxinfo"</item>
+  </string-array>
+  <string-array name="debug_hw_overdraw_entries">
+    <item msgid="8190572633763871652">"Nonaktif"</item>
+    <item msgid="7688197031296835369">"Tampilkan area overdraw"</item>
+    <item msgid="2290859360633824369">"Tampilkan area untuk Buta Warna"</item>
+    <item msgid="3448087929560624983">"Lihat penghitung overdraw"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Batas standar"</item>
@@ -287,12 +464,18 @@
     <item msgid="6692305604213080515">"Memulai..."</item>
     <item msgid="8001704909356800092">"Menyambung…"</item>
     <item msgid="4039737283841672166">"Terhubung"</item>
-    <item msgid="4042143101664725090">"Waktu tunggu"</item>
+    <item msgid="4042143101664725090">"Waktu habis"</item>
     <item msgid="7664124146786465092">"Gagal"</item>
   </string-array>
   <string-array name="security_settings_premium_sms_values">
     <item msgid="7389829271787670252">"Tanya"</item>
     <item msgid="5077768429488260031">"Jangan pernah izinkan"</item>
     <item msgid="1417929597727989746">"Selalu izinkan"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"normal"</item>
+    <item msgid="4517779899383204000">"menengah"</item>
+    <item msgid="406385694840950802">"rendah"</item>
+    <item msgid="4212263919458209842">"kritis"</item>
   </string-array>
 </resources>

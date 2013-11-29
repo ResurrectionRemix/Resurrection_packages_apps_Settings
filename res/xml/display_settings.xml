@@ -18,10 +18,13 @@
         android:title="@string/display_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.android.settings.BrightnessPreference
-                android:key="brightness"
+        <!--<com.android.settings.BrightnessPreference
                 android:title="@string/brightness"
-                android:dialogTitle="@string/brightness" />
+                android:persistent="false"/>-->
+
+        <PreferenceScreen
+                android:title="@string/brightness"
+                android:fragment="org.omnirom.omnigears.brightness.BrightnessSettings" />
 
         <PreferenceScreen
                 android:key="wallpaper"
@@ -53,14 +56,25 @@
                 android:entryValues="@array/entryvalues_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
-        <CheckBoxPreference
-            android:key="notification_pulse"
-            android:title="@string/notification_pulse_title"
-            android:persistent="true" />
+        <PreferenceScreen
+                android:key="notification_light"
+                android:title="@string/notification_light_settings"
+                android:fragment="org.omnirom.omnigears.notificationlight.NotificationLightSettings" />
+
+        <PreferenceScreen
+                android:key="battery_light"
+                android:title="@string/battery_light_settings"
+                android:fragment="org.omnirom.omnigears.batterylight.BatteryLightSettings" />
 
         <PreferenceScreen
                 android:key="wifi_display"
                 android:title="@string/wifi_display_settings_title"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+
+        <ListPreference
+                android:key="screen_off_animation"
+                android:title="@string/screen_off_animation"
+                android:entries="@array/screen_off_animation_entries"
+                android:entryValues="@array/screen_off_animation_values" />
 
 </PreferenceScreen>

@@ -70,7 +70,11 @@
     <item msgid="2361722960903353554">"Mabagal"</item>
     <item msgid="1145554631248513562">"Normal"</item>
     <item msgid="7553665153391107454">"Mabilis"</item>
-    <item msgid="2538100882620724753">"Napakabilis"</item>
+    <item msgid="1370673569131070146">"Mas Mabilis"</item>
+    <item msgid="4648206845228970803">"Napakabilis"</item>
+    <item msgid="4977949754169483251">"Matulin"</item>
+    <item msgid="6106302964845503577">"Napakatulin"</item>
+    <item msgid="6800277205640837264">"Pinakamabilis"</item>
   </string-array>
   <string-array name="tts_pitch_entries">
     <item msgid="7526050907652687351">"Napakababa"</item>
@@ -114,6 +118,9 @@
     <!-- no translation found for wifi_security_no_eap:0 (2084555984818107151) -->
     <!-- no translation found for wifi_security_no_eap:1 (397579322683471524) -->
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
+    <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
+    <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
+    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -170,6 +177,11 @@
     <item msgid="7182812872984827322">"TTLS"</item>
     <item msgid="2318274046749286642">"PWD"</item>
   </string-array>
+  <string-array name="wifi_peap_phase2_entries">
+    <item msgid="2577747762745812488">"Wala"</item>
+    <item msgid="937786527870979616">"MSCHAPV2"</item>
+    <item msgid="5302613883318643629">"GTC"</item>
+  </string-array>
   <string-array name="wifi_phase2_entries">
     <item msgid="1818786254010764570">"Wala"</item>
     <item msgid="6189918678874123056">"PAP"</item>
@@ -206,15 +218,160 @@
     <item msgid="3044323519470167625">"eHRPD"</item>
     <item msgid="6848428671997893147">"Hindi tinukoy"</item>
   </string-array>
+  <string-array name="mvno_type_entries">
+    <item msgid="4367119357633573465">"None"</item>
+    <item msgid="6062567900587138000">"SPN"</item>
+    <item msgid="2454085083342423481">"IMSI"</item>
+    <item msgid="2681427309183221543">"GID"</item>
+  </string-array>
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Imbakan ng panloob na device"</item>
     <item msgid="3738430123799803530">"Naaalis na SD card"</item>
     <item msgid="4498124044785815005">"Hayaang magpasya ang system"</item>
   </string-array>
+  <string-array name="app_ops_categories">
+    <item msgid="6358963769537892925">"Lokasyon"</item>
+    <item msgid="255608127647030286">"Personal"</item>
+    <item msgid="4588829735729884491">"Pagmemensahe"</item>
+    <item msgid="886742181977884584">"Media"</item>
+    <item msgid="7924928667052300589">"Device"</item>
+  </string-array>
+  <string-array name="app_ops_summaries">
+    <item msgid="4979188868761515915">"tinatayang lokasyon"</item>
+    <item msgid="5789673140227507995">"eksaktong lokasyon"</item>
+    <item msgid="1061584358377390581">"GPS"</item>
+    <item msgid="5387405117297558954">"mag-vibrate"</item>
+    <item msgid="3434165993711230924">"magbasa ng mga contact"</item>
+    <item msgid="616161687718081936">"baguhin ang mga contact"</item>
+    <item msgid="7638002295329050091">"basahin ang log ng tawag"</item>
+    <item msgid="6546959730920410907">"baguhin ang log ng tawag"</item>
+    <item msgid="446877710771379667">"magbasa ng kalendaryo"</item>
+    <item msgid="7674458294386319722">"baguhin ang kalendaryo"</item>
+    <item msgid="8281201165558093009">"pag-scan ng wi-fi"</item>
+    <item msgid="8694611243479480497">"notification"</item>
+    <item msgid="7776439107987345446">"pag-scan ng cell"</item>
+    <item msgid="514615766544675057">"tumawag sa telepono"</item>
+    <item msgid="8181415497109310680">"magbasa ng SMS"</item>
+    <item msgid="6816551144382117307">"sumulat ng SMS"</item>
+    <item msgid="4600463921908905030">"tumanggap ng SMS"</item>
+    <item msgid="5958926493289432745">"tumanggap ng pang-emergency na SMS"</item>
+    <item msgid="4945269495221089540">"tumanggap ng MMS"</item>
+    <item msgid="5570472453573929087">"tumanggap ng WAP push"</item>
+    <item msgid="7125408150230860501">"magpadala ng SMS"</item>
+    <item msgid="7080337936612188061">"magbasa ng ICC SMS"</item>
+    <item msgid="587124103118495063">"sumulat ng ICC SMS"</item>
+    <item msgid="2320577158869025503">"baguhin ang mga setting"</item>
+    <item msgid="1545733463471924009">"gumuhit sa tuktok"</item>
+    <item msgid="3609046903962454582">"i-access ang mga notification"</item>
+    <item msgid="4671646036128214513">"camera"</item>
+    <item msgid="1097324338692486211">"i-record ang audio"</item>
+    <item msgid="5031552983987798163">"i-play ang audio"</item>
+    <item msgid="8374996688066472414">"basahin ang clipboard"</item>
+    <item msgid="3045529469061083747">"baguhin ang clipboard"</item>
+    <item msgid="5124443975763747838">"mga button ng media"</item>
+    <item msgid="4547883971364273343">"focus ng audio"</item>
+    <item msgid="2603878814882344450">"master na volume"</item>
+    <item msgid="7136963238377062018">"volume ng boses"</item>
+    <item msgid="4270236897655923007">"volume ng ring"</item>
+    <item msgid="6325739889222559394">"volume ng media"</item>
+    <item msgid="5762123934816216821">"volume ng alarma"</item>
+    <item msgid="785049718065337473">"volume ng notification"</item>
+    <item msgid="6700305533746877052">"volume ng bluetooth"</item>
+    <item msgid="2029227495214047094">"panatilihing bukas"</item>
+    <item msgid="26109888160231211">"subaybayan ang lokasyon"</item>
+    <item msgid="5753382310468855812">"subaybayan ang lokasyon na gumagamit ng maraming power"</item>
+  </string-array>
+  <string-array name="app_ops_labels">
+    <item msgid="6602854600289714121">"Lokasyon"</item>
+    <item msgid="8677040780775113033">"Lokasyon"</item>
+    <item msgid="1660743989948992916">"Lokasyon"</item>
+    <item msgid="8791172739860195290">"Mag-vibrate"</item>
+    <item msgid="383413555642128046">"Magbasa ng mga contact"</item>
+    <item msgid="3654594895269697313">"Baguhin ang mga contact"</item>
+    <item msgid="7928393476362362538">"Basahin ang log ng tawag"</item>
+    <item msgid="6248591205254641116">"Baguhin ang log ng tawag"</item>
+    <item msgid="6093344633066170692">"Magbasa ng kalendaryo"</item>
+    <item msgid="1334886368750347692">"Baguhin ang kalendaryo"</item>
+    <item msgid="1638204101698708656">"Lokasyon"</item>
+    <item msgid="2154671955760380322">"Mag-post ng notification"</item>
+    <item msgid="4282477730595931828">"Lokasyon"</item>
+    <item msgid="4891423912898525905">"Tumawag sa telepono"</item>
+    <item msgid="2623604824935968113">"Magbasa ng SMS/MMS"</item>
+    <item msgid="4420177125221176306">"Magsulat ng SMS/MMS"</item>
+    <item msgid="3986142739951490025">"Tumanggap ng SMS/MMS"</item>
+    <item msgid="3984213795861739778">"Tumanggap ng SMS/MMS"</item>
+    <item msgid="3656243523752472788">"Tumanggap ng SMS/MMS"</item>
+    <item msgid="8105802370238551510">"Tumanggap ng SMS/MMS"</item>
+    <item msgid="1407766984645388488">"Magpadala ng SMS/MMS"</item>
+    <item msgid="3527273606643794973">"Magbasa ng SMS/MMS"</item>
+    <item msgid="4370895547001583812">"Magsulat ng SMS/MMS"</item>
+    <item msgid="4218544235221631789">"Baguhin ang mga setting"</item>
+    <item msgid="736541391767350377">"Gumuhit sa tuktok"</item>
+    <item msgid="5530815681721654194">"I-access ang mga notification"</item>
+    <item msgid="781213371706962767">"Camera"</item>
+    <item msgid="1720492593061838172">"I-record ang audio"</item>
+    <item msgid="3493046322001257041">"I-play ang audio"</item>
+    <item msgid="136815868796597058">"Basahin ang clipboard"</item>
+    <item msgid="5238692940326972503">"Baguhin ang clipboard"</item>
+    <item msgid="5753789168376302997">"Mga media button"</item>
+    <item msgid="3265262911688671938">"Focus ng audio"</item>
+    <item msgid="2098976479485046797">"Master volume"</item>
+    <item msgid="5660213838861789350">"Volume ng boses"</item>
+    <item msgid="7983336752371254444">"Volume ng pag-ring"</item>
+    <item msgid="7878027809189330917">"Volume ng media"</item>
+    <item msgid="7260546305036218513">"Volume ng alarm"</item>
+    <item msgid="9103719301075748925">"Volume ng notification"</item>
+    <item msgid="7025966722295861512">"Volume ng Bluetooth"</item>
+    <item msgid="4665183401128289653">"Panatilihing bukas"</item>
+    <item msgid="8584357129746649222">"Lokasyon"</item>
+    <item msgid="7669257279311110599">"Lokasyon"</item>
+  </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Maikli"</item>
     <item msgid="2560532955514699713">"Katamtaman"</item>
     <item msgid="2372711992605524591">"Mahaba"</item>
+  </string-array>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"Default"</item>
+    <item msgid="1016452621833735880">"Sans-serif"</item>
+    <item msgid="2496277987934654454">"Sans-serif condensed"</item>
+    <item msgid="4406003087391086325">"Serif"</item>
+    <item msgid="1558362802170124073">"Monospace"</item>
+  </string-array>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"Napakaliit"</item>
+    <item msgid="6781094565687692782">"Maliit"</item>
+    <item msgid="8222123259497646551">"Normal"</item>
+    <item msgid="5813217276778560466">"Malaki"</item>
+    <item msgid="9044232017390975191">"Napakalaki"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="6022616153255438487">"Wala"</item>
+    <item msgid="1352974708028506778">"Outline"</item>
+    <item msgid="5850876295428722675">"Drop shadow"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25%"</item>
+    <item msgid="2367156416247936773">"50%"</item>
+    <item msgid="5395560410107149298">"75%"</item>
+    <item msgid="8342334626783983353">"100%"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="1630625150404038035">"Puti sa itim"</item>
+    <item msgid="4589278788192525675">"Itim sa puti"</item>
+    <item msgid="1309255027325660115">"Dilaw sa itim"</item>
+    <item msgid="2985943780939258562">"Dilaw sa asul"</item>
+    <item msgid="7520438652121629055">"Custom"</item>
+  </string-array>
+  <string-array name="select_runtime_titles">
+    <item msgid="3574453009229338122">"Dalvik"</item>
+    <item msgid="8978402910750533864">"ART"</item>
+    <item msgid="7839859333977894115">"ART (debug)"</item>
+  </string-array>
+  <string-array name="select_runtime_summaries">
+    <item msgid="6412880178297884701">"Gamitin ang Dalvik"</item>
+    <item msgid="5131846588686178907">"Gamitin ang ART"</item>
+    <item msgid="4530003713865319928">"Gamitin ang build sa pag-debug ng ART"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Huwag kailanman suriin"</item>
@@ -256,15 +413,35 @@
   <string-array name="overlay_display_devices_entries">
     <item msgid="1606809880904982133">"Wala"</item>
     <item msgid="688482401508173818">"720x480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280x720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920x1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280x720 tvdpi at 1920x1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"720x480 mdpi (secure)"</item>
+    <item msgid="8181151155909301030">"1280x720 tvdpi"</item>
+    <item msgid="2920655562462493148">"1280x720 tvdpi (secure)"</item>
+    <item msgid="8910371271391940941">"1920x1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"1920x1080 xhdpi (secure)"</item>
+    <item msgid="1937752114395156918">"1280x720 tvdpi at 1920x1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"Wala"</item>
     <item msgid="9089630089455370183">"Logcat"</item>
     <item msgid="5397807424362304288">"Systrace (Graphics)"</item>
     <item msgid="1340692776955662664">"Stack ng tawag sa glGetError"</item>
+  </string-array>
+  <string-array name="show_non_rect_clip_entries">
+    <item msgid="993742912147090253">"I-off"</item>
+    <item msgid="675719912558941285">"Draw non-rectangular clip region in blue"</item>
+    <item msgid="1064373276095698656">"Highlight tested drawing commands in green"</item>
+  </string-array>
+  <string-array name="track_frame_time_entries">
+    <item msgid="2193584639058893150">"Naka-off"</item>
+    <item msgid="2751513398307949636">"Sa screen bilang mga bar"</item>
+    <item msgid="8272260411216018353">"Sa screen bilang mga linya"</item>
+    <item msgid="120512413928262547">"Sa adb shell dumpsys gfxinfo"</item>
+  </string-array>
+  <string-array name="debug_hw_overdraw_entries">
+    <item msgid="8190572633763871652">"I-off"</item>
+    <item msgid="7688197031296835369">"Tingnan ang mga overdraw na bahagi"</item>
+    <item msgid="2290859360633824369">"Ipakita ang mga lugar para sa Deuteranomaly"</item>
+    <item msgid="3448087929560624983">"Ipakita ang overdraw na counter"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Karaniwang limitasyon"</item>
@@ -294,5 +471,11 @@
     <item msgid="7389829271787670252">"Magtanong"</item>
     <item msgid="5077768429488260031">"Huwag kailanman payagan"</item>
     <item msgid="1417929597727989746">"Palaging payagan"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"normal"</item>
+    <item msgid="4517779899383204000">"katamtaman"</item>
+    <item msgid="406385694840950802">"mababa"</item>
+    <item msgid="4212263919458209842">"kritikal"</item>
   </string-array>
 </resources>

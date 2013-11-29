@@ -19,24 +19,13 @@
         android:title="@string/user_settings_title">
 
     <PreferenceCategory
-            android:key="user_you"
-            android:title="@string/user_you_section"/>
-    <Preference
-            android:key="user_me"
-            android:summary="@string/user_owner" />
-    <com.android.settings.SelectableEditTextPreference
-            android:key="user_nickname"
-            android:title="@string/user_nickname"
-            android:icon="@drawable/empty_icon" />
-    <Preference
-            android:key="user_owner_info"
-            android:title="@string/owner_info_settings_title"
-            android:icon="@drawable/empty_icon"
-            android:fragment="com.android.settings.OwnerInfoSettings" />
-
-    <PreferenceCategory
             android:key="user_list"
             android:title="@string/user_list_title">
     </PreferenceCategory>
+
+    <Preference
+            android:key="user_add"
+            android:title="@string/user_add_user_menu"
+            android:icon="@drawable/ic_menu_add_dark" />
 
 </PreferenceScreen>

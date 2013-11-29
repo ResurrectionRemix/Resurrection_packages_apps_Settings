@@ -164,43 +164,45 @@ public class ApnSettings extends PreferenceActivity implements
                 "_id", "name", "apn", "type"}, where, null,
                 Telephony.Carriers.DEFAULT_SORT_ORDER);
 
-        PreferenceGroup apnList = (PreferenceGroup) findPreference("apn_list");
-        apnList.removeAll();
+        if (cursor != null) {
+            PreferenceGroup apnList = (PreferenceGroup) findPreference("apn_list");
+            apnList.removeAll();
 
-        ArrayList<Preference> mmsApnList = new ArrayList<Preference>();
+            ArrayList<Preference> mmsApnList = new ArrayList<Preference>();
 
-        mSelectedKey = getSelectedApnKey();
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            String name = cursor.getString(NAME_INDEX);
-            String apn = cursor.getString(APN_INDEX);
-            String key = cursor.getString(ID_INDEX);
-            String type = cursor.getString(TYPES_INDEX);
+            mSelectedKey = getSelectedApnKey();
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                String name = cursor.getString(NAME_INDEX);
+                String apn = cursor.getString(APN_INDEX);
+                String key = cursor.getString(ID_INDEX);
+                String type = cursor.getString(TYPES_INDEX);
 
-            ApnPreference pref = new ApnPreference(this);
+                ApnPreference pref = new ApnPreference(this);
 
-            pref.setKey(key);
-            pref.setTitle(name);
-            pref.setSummary(apn);
-            pref.setPersistent(false);
-            pref.setOnPreferenceChangeListener(this);
+                pref.setKey(key);
+                pref.setTitle(name);
+                pref.setSummary(apn);
+                pref.setPersistent(false);
+                pref.setOnPreferenceChangeListener(this);
 
-            boolean selectable = ((type == null) || !type.equals("mms"));
-            pref.setSelectable(selectable);
-            if (selectable) {
-                if ((mSelectedKey != null) && mSelectedKey.equals(key)) {
-                    pref.setChecked();
+                boolean selectable = ((type == null) || !type.equals("mms"));
+                pref.setSelectable(selectable);
+                if (selectable) {
+                    if ((mSelectedKey != null) && mSelectedKey.equals(key)) {
+                        pref.setChecked();
+                    }
+                    apnList.addPreference(pref);
+                } else {
+                    mmsApnList.add(pref);
                 }
-                apnList.addPreference(pref);
-            } else {
-                mmsApnList.add(pref);
+                cursor.moveToNext();
             }
-            cursor.moveToNext();
-        }
-        cursor.close();
+            cursor.close();
 
-        for (Preference preference : mmsApnList) {
-            apnList.addPreference(preference);
+            for (Preference preference : mmsApnList) {
+                apnList.addPreference(preference);
+            }
         }
     }
 
@@ -209,7 +211,8 @@ public class ApnSettings extends PreferenceActivity implements
         super.onCreateOptionsMenu(menu);
         menu.add(0, MENU_NEW, 0,
                 getResources().getString(R.string.menu_new))
-                .setIcon(android.R.drawable.ic_menu_add);
+                .setIcon(android.R.drawable.ic_menu_add)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.add(0, MENU_RESTORE, 0,
                 getResources().getString(R.string.menu_restore))
                 .setIcon(android.R.drawable.ic_menu_upload);
@@ -231,7 +234,6 @@ public class ApnSettings extends PreferenceActivity implements
     }
 
     private void addNewApn() {
-
         startActivity(new Intent(Intent.ACTION_INSERT, Telephony.Carriers.CONTENT_URI));
     }
 
@@ -239,9 +241,7 @@ public class ApnSettings extends PreferenceActivity implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         int pos = Integer.parseInt(preference.getKey());
         Uri url = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI, pos);
-
         startActivity(new Intent(Intent.ACTION_EDIT, url));
-        
         return true;
     }
 
@@ -332,7 +332,7 @@ public class ApnSettings extends PreferenceActivity implements
             switch (msg.what) {
                 case EVENT_RESTORE_DEFAULTAPN_START:
                     ContentResolver resolver = getContentResolver();
-                    resolver.delete(DEFAULTAPN_URI, null, null);                    
+                    resolver.delete(DEFAULTAPN_URI, null, null);
                     mRestoreApnUiHandler
                         .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;

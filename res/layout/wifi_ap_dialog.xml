@@ -46,6 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
+                    android:hint="@string/wifi_ssid_hint"
                     android:inputType="textNoSuggestions"
                     android:maxLength="32" />
 
@@ -81,7 +82,8 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:password="true"
-                    android:maxLength="63" />
+                    android:maxLength="63"
+                    android:imeOptions="flagForceAscii" />
 
             <TextView android:id="@+id/hint"
                     style="?android:attr/textAppearanceSmall"

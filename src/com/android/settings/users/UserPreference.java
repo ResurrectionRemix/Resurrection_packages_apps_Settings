@@ -20,6 +20,7 @@ import com.android.internal.util.CharSequences;
 import com.android.settings.R;
 
 import android.content.Context;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
 import android.util.AttributeSet;
@@ -31,34 +32,62 @@ public class UserPreference extends Preference {
     public static final int USERID_UNKNOWN = -10;
 
     private OnClickListener mDeleteClickListener;
+    private OnClickListener mSettingsClickListener;
     private int mSerialNumber = -1;
     private int mUserId = USERID_UNKNOWN;
+    private boolean mRestricted;
+    private boolean mSelf;
+    static final int SETTINGS_ID = R.id.manage_user;
+    static final int DELETE_ID = R.id.trash_user;
 
     public UserPreference(Context context, AttributeSet attrs) {
-        this(context, attrs, USERID_UNKNOWN, false, null);
+        this(context, attrs, USERID_UNKNOWN, null, null);
     }
 
-    UserPreference(Context context, AttributeSet attrs, int userId, boolean showDelete,
+    UserPreference(Context context, AttributeSet attrs, int userId,
+            OnClickListener settingsListener,
             OnClickListener deleteListener) {
         super(context, attrs);
-        if (showDelete) {
+        if (deleteListener != null || settingsListener != null) {
             setWidgetLayoutResource(R.layout.preference_user_delete_widget);
-            mDeleteClickListener = deleteListener;
         }
+        mDeleteClickListener = deleteListener;
+        mSettingsClickListener = settingsListener;
         mUserId = userId;
     }
 
     @Override
     protected void onBindView(View view) {
+        View deleteDividerView = view.findViewById(R.id.divider_delete);
+        View manageDividerView = view.findViewById(R.id.divider_manage);
         View deleteView = view.findViewById(R.id.trash_user);
         if (deleteView != null) {
-            deleteView.setOnClickListener(mDeleteClickListener);
-            deleteView.setTag(this);
+            if (mDeleteClickListener != null) {
+                deleteView.setOnClickListener(mDeleteClickListener);
+                deleteView.setTag(this);
+            } else {
+                deleteView.setVisibility(View.GONE);
+                deleteDividerView.setVisibility(View.GONE);
+            }
+        }
+        View manageView = view.findViewById(R.id.manage_user);
+        if (manageView != null) {
+            if (mSettingsClickListener != null) {
+                manageView.setOnClickListener(mSettingsClickListener);
+                manageView.setTag(this);
+                if (mDeleteClickListener != null) {
+                    manageDividerView.setVisibility(View.GONE);
+                }
+            } else {
+                manageView.setVisibility(View.GONE);
+                manageDividerView.setVisibility(View.GONE);
+            }
         }
         super.onBindView(view);
     }
 
-    public int getSerialNumber() {
+    private int getSerialNumber() {
+        if (mUserId == UserHandle.myUserId()) return Integer.MIN_VALUE;
         if (mSerialNumber < 0) {
             // If the userId is unknown
             if (mUserId == USERID_UNKNOWN) return Integer.MAX_VALUE;
