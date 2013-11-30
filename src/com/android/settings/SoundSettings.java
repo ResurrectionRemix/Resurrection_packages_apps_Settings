@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
- * This code has been modified. Portions copyright (C) 2013, ParanoidAndroid Project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,10 +76,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOCK_AUDIO_SETTINGS = "dock_audio";
     private static final String KEY_DOCK_SOUNDS = "dock_sounds";
     private static final String KEY_DOCK_AUDIO_MEDIA_ENABLED = "dock_audio_media_enabled";
-<<<<<<< HEAD
-=======
-    private static final String KEY_VOLUME_WAKE_SCREEN = "volume_wake_screen";
->>>>>>> 0a54aff... Volume Rocker: Hardcode music track seek option (2/2).
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
@@ -98,10 +93,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mLockSounds;
     private Preference mRingtonePreference;
     private Preference mNotificationPreference;
-<<<<<<< HEAD
-=======
-    private CheckBoxPreference mVolumeWakeScreen;
->>>>>>> 0a54aff... Volume Rocker: Hardcode music track seek option (2/2).
 
     private Runnable mRingtoneLookupRunnable;
 
@@ -184,13 +175,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mLockSounds.setChecked(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
 
-<<<<<<< HEAD
-=======
-        mVolumeWakeScreen = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE_SCREEN);
-        mVolumeWakeScreen.setChecked(Settings.System.getInt(resolver,
-                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
-
->>>>>>> 0a54aff... Volume Rocker: Hardcode music track seek option (2/2).
         mRingtonePreference = findPreference(KEY_RINGTONE);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
 
@@ -327,12 +311,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
                     mLockSounds.isChecked() ? 1 : 0);
 
-<<<<<<< HEAD
-=======
-        } else if (preference == mVolumeWakeScreen) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
-                    mVolumeWakeScreen.isChecked() ? 1 : 0);
->>>>>>> 0a54aff... Volume Rocker: Hardcode music track seek option (2/2).
         } else if (preference == mMusicFx) {
             // let the framework fire off the intent
             return false;
