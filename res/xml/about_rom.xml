@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/about_rr_settings_title"
+	xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings">
+
+	<PreferenceCategory
+		android:key="links"
+		android:title="@string/rr">
+
+		<Preference
+			android:key="rr_website"
+			android:title="@string/rr_website_title"
+			android:summary="@string/rr_website_summary" />
+
+		<Preference
+			android:key="rr_source"
+			android:title="@string/rr_source_title"
+			android:summary="@string/rr_source_summary" />
+
+
+		<Preference
+			android:key="rr_facebook"
+			android:title="@string/rr_facebook_title"
+			android:summary="@string/rr_facebook_summary" />
+			
+		<Preference
+			android:key="rr_google_plus"
+			android:title="@string/rr_google_plus_title"
+			android:summary="@string/rr_google_plus_summary" />
+			
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:key="devs"
+		android:title="@string/devs">
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="Westcrip"
+            resurrection:nameDev="westcrip"
+            resurrection:twitterHandle="westcrip"
+            resurrection:donateLink="@string/donate_westcrip"
+            resurrection:emailDev="altan_koruk@hotmail.com"/>
+
+	</PreferenceCategory>    
+
+	<PreferenceCategory
+		android:key="contributors"
+		android:title="@string/contributors_title">
+
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="AOKP"
+            resurrection:nameDev="AOKP"
+            resurrection:twitterHandle="aokp_rom"
+            resurrection:donateLink="@string/donate_aokp"
+            resurrection:emailDev="aokp@aokp.co"/>
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="CyanogenMod"
+            resurrection:nameDev="CyanogenMod"
+            resurrection:twitterHandle="cyanogenmod"
+            resurrection:donateLink="@string/donate_cyanogenmod"
+            resurrection:emailDev="cyanogenmod18@yahoo.com"/>
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

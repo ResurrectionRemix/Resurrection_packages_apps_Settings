@@ -18,7 +18,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/resurrection_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-
+    
+ <PreferenceScreen
+        android:id="@+id/about_rom"
+        android:fragment="com.android.settings.rr.About"
+        android:icon="@drawable/ic_settings_about_rr"
+        android:title="@string/about_rr_settings_title" /> 
+        
   <PreferenceScreen
         android:key="lock_clock"
         android:title="@string/lock_clock_title"

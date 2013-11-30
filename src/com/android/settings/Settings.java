@@ -1124,4 +1124,5 @@ public class Settings extends PreferenceActivity
     public static class PrintJobSettingsActivity extends Settings { /* empty */ }
     public static class PerformanceSettingsActivity extends Settings { /* empty */ }
     public static class ResurrectionActivity extends Settings { /* empty */ }
+    public static class AboutActivity extends Settings { /* empty */ }
 }
