@@ -215,7 +215,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             updateLockAfterPreferenceSummary();
         }
 
-<<<<<<< HEAD
+
         // Add the additional Omni settings
         mLockRingBattery = (CheckBoxPreference) root
                 .findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
@@ -229,10 +229,10 @@ public class SecuritySettings extends RestrictedSettingsFragment
             mMaximizeKeyguardWidgets.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
         }
-=======
+
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) root.findPreference(KEY_SEE_TRHOUGH);
->>>>>>> 4e061d4... Lockscreen: See through (2/2)
+
 
         // biometric weak liveliness
         mBiometricWeakLiveliness =
