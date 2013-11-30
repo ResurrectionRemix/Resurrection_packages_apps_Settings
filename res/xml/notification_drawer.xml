@@ -19,6 +19,12 @@
     android:title="@string/notification_drawer_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <Preference
+        android:fragment="com.android.settings.pac.NotificationDrawerStyle"
+        android:key="notification_style"
+        android:title="@string/notification_style_title"
+        android:summary="@string/notification_style_summary" />
+
     <ListPreference
         android:key="notification_drawer_collapse_on_dismiss"
         android:title="@string/notification_drawer_collapse_on_dismiss_title"
