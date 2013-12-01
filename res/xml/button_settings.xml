@@ -157,6 +157,14 @@
             android:summary="@string/volbtn_music_controls_summary"
             android:defaultValue="true" />
 
+        <ListPreference
+            android:key="volume_key_cursor_control"
+            android:dialogTitle="@string/volbtn_cursor_control_title"
+            android:title="@string/volbtn_cursor_control_title"
+            android:entries="@array/volbtn_cursor_control_entries"
+            android:entryValues="@array/volbtn_cursor_control_values"
+            android:persistent="false" />
+
         <CheckBoxPreference
             android:key="swap_volume_buttons"
             android:title="@string/swap_volume_buttons_title"

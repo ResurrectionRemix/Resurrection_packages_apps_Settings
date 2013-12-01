@@ -43,6 +43,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+    private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_MENU = "menu_key";
@@ -77,7 +78,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
+<<<<<<< HEAD
     private CheckBoxPreference mShowActionOverflow;
+=======
+    private ListPreference mVolumeKeyCursorControl;
+>>>>>>> 7f1c553... settings: bring back volume key cursor control
     private CheckBoxPreference mSwapVolumeButtons;
 
     @Override
@@ -204,6 +209,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             mSwapVolumeButtons = (CheckBoxPreference)
                     prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
             mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
+
+            int cursorControlAction = Settings.System.getInt(resolver,
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
+            mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
+                    cursorControlAction);
+
             if (!res.getBoolean(R.bool.config_show_volumeRockerWake)) {
                 volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
             }
@@ -267,6 +278,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else if (preference == mAppSwitchLongPressAction) {
             handleActionListChange(mAppSwitchLongPressAction, newValue,
                     Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
+            return true;
+        } else if (preference == mVolumeKeyCursorControl) {
+            handleActionListChange(mVolumeKeyCursorControl, newValue,
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
         }
 
