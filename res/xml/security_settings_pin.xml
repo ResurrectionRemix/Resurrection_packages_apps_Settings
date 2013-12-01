@@ -34,6 +34,13 @@
             android:entryValues="@array/lock_after_timeout_values"
             android:persistent="false"/>
 
+        <ListPreference
+            android:key="lock_numpad_random"
+            android:entries="@array/lock_numpad_random_entries"
+            android:entryValues="@array/lock_numpad_random_values"
+            android:title="@string/lock_numpad_random_title"
+            android:dialogTitle="@string/lock_numpad_random_dialog_title" />
+
         <CheckBoxPreference
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
