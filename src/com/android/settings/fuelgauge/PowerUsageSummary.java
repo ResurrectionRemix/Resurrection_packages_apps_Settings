@@ -33,7 +33,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+<<<<<<< HEAD
 import android.preference.Preference.OnPreferenceChangeListener;
+=======
+>>>>>>> 9d12771... [2/2] Settings: Optional statusbar battery icons
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Menu;
