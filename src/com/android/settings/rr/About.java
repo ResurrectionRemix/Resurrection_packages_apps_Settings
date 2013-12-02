@@ -13,10 +13,12 @@ import com.android.settings.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
+    
 public class About extends SettingsPreferenceFragment {
 
-    public static final String TAG = "About";
+public static final String TAG = "About";
+    
+private static final String RR_ROM_SHARE = "share";
 
     Preference mSiteUrl;
     Preference mForumUrl;
@@ -62,6 +64,13 @@ public class About extends SettingsPreferenceFragment {
             launchUrl("https://www.facebook.com/resurrectionremixrom");
         } else if (preference == mGoogleUrl) {
             launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
+          } else if (preference.getKey().equals(RR_ROM_SHARE)) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, String.format(
+                    getActivity().getString(R.string.share_message)));
+            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title)));
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
