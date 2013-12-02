@@ -24,7 +24,32 @@
         android:fragment="com.android.settings.rr.About"
         android:icon="@drawable/ic_settings_about_rr"
         android:title="@string/about_rr_settings_title" /> 
+ 
+            <PreferenceCategory
+            android:id="@+id/quick_links"
+            android:title="@string/quick_links_title" />
+                   
+ <PreferenceScreen
+        android:id="@+id/bars_and_menus"
+        android:title="@string/bars_and_menus_settings"
+        android:summary="@string/bars_and_menus_settings_summary"
+        android:fragment="org.omnirom.omnigears.BarsAndMenusSettings" />
         
+    <!-- buttons -->
+  <PreferenceScreen
+        android:id="@+id/button_settings"
+        android:title="@string/header_button_settings"
+        android:summary="@string/header_button_settings_summary"
+        android:breadCrumbTitle="@string/header_button_settings"
+        android:fragment="org.omnirom.omnigears.ButtonSettings"/>
+ 
+  <PreferenceScreen
+        android:id="@+id/active_display"
+        android:title="@string/active_display_settings"
+        android:summary="@string/active_display_settings_summary"
+        android:breadCrumbTitle="@string/active_display_settings"
+        android:fragment="org.omnirom.omnigears.chameleonos.ActiveDisplaySettings"/>
+                 
   <PreferenceScreen
         android:key="lock_clock"
         android:title="@string/lock_clock_title"
@@ -33,6 +58,26 @@
                 android:targetPackage="com.cyanogenmod.lockclock"
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
   </PreferenceScreen>
-
-
+  
+<PreferenceCategory
+        android:key="resurrection_update"
+        android:title="@string/update_header"> 
+        
+ 
+              
+<PreferenceScreen
+        android:key="update_me"
+        android:title="@string/update_me_title"
+        android:summary="@string/update_me_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.acquariusoft.UpdateMeSmartphone"
+                android:targetClass="com.acquariusoft.UpdateMeSmartphone.UpdateMeActivityOld" />
 </PreferenceScreen>
+            
+        <PreferenceScreen android:key="changelog"
+            android:title="@string/changelog_title"
+            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
+            
+</PreferenceScreen> 
+</PreferenceCategory>
+</PreferenceScreen> 
