@@ -24,12 +24,6 @@ import android.util.Config;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-import android.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.view.ViewGroup;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,13 +34,14 @@ import java.io.InputStreamReader;
 import com.android.internal.app.AlertActivity;
 import com.android.internal.app.AlertController;
 
-public class ChangeLog extends Fragment {
+public class ChangeLog extends AlertActivity {
 
-    private static final String CHANGELOG_PATH = "/system/etc/ResurrectionRemix-changelog.txt";
+    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-CM.txt";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         InputStreamReader inputReader = null;
         StringBuilder data = null;
         try {
@@ -58,7 +53,8 @@ public class ChangeLog extends Fragment {
                 data.append(tmp, 0, numRead);
             }
         } catch (IOException e) {
-            data.append(this.getString(R.string.changelog_error));
+            showErrorAndFinish();
+            return;
         } finally {
             try {
                 if (inputReader != null) {
@@ -68,12 +64,34 @@ public class ChangeLog extends Fragment {
             }
         }
 
-        TextView textView = new TextView(getActivity());
-        textView.setText(data.toString());
+        if (TextUtils.isEmpty(data)) {
+            showErrorAndFinish();
+            return;
+        }
 
-        final ScrollView scrollView = new ScrollView(getActivity());
-        scrollView.addView(textView);
+        WebView webView = new WebView(this);
 
-        return scrollView;
+        // Begin the loading.  This will be done in a separate thread in WebView.
+        webView.loadDataWithBaseURL(null, data.toString(), "text/plain", "utf-8", null);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                // Change from 'Loading...' to the real title
+                mAlert.setTitle(getString(R.string.changelog_dialog));
+            }
+        });
+
+        final AlertController.AlertParams p = mAlertParams;
+        p.mTitle = getString(R.string.changelog_loading);
+        p.mView = webView;
+        p.mForceInverseBackground = true;
+        setupAlert();
     }
+
+    private void showErrorAndFinish() {
+        Toast.makeText(this, R.string.changelog_error, Toast.LENGTH_LONG)
+                .show();
+        finish();
+    }
+
 }

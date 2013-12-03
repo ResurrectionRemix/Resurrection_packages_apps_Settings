@@ -26,16 +26,11 @@
             android:summary="@string/unlock_set_unlock_mode_off"
             android:persistent="false"/>
 
-        <CheckBoxPreference
-            android:key="keyguard_enable_widgets"
-            android:title="@string/security_enable_widgets_title"/>
-
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
-
     </PreferenceCategory>
 
 </PreferenceScreen>

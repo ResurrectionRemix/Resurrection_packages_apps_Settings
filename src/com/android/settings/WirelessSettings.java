@@ -366,18 +366,22 @@ public class WirelessSettings extends RestrictedSettingsFragment
         protectByRestrictions(KEY_TETHER_SETTINGS);
 
         // Enable link to CMAS app settings depending on the value in config.xml.
-        boolean isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
-                com.android.internal.R.bool.config_cellBroadcastAppLinks);
-        try {
-            if (isCellBroadcastAppLinkEnabled) {
-                PackageManager pm = getPackageManager();
-                if (pm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
-                        == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
-                    isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
+        PackageManager pm = getPackageManager();
+        boolean hasPhoneFeatures = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+        boolean isCellBroadcastAppLinkEnabled = false;
+        if (hasPhoneFeatures) {
+            isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
+                    com.android.internal.R.bool.config_cellBroadcastAppLinks);
+            try {
+                if (isCellBroadcastAppLinkEnabled) {
+                    if (pm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
+                            == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+                        isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
+                    }
                 }
+            } catch (IllegalArgumentException ignored) {
+                isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
             }
-        } catch (IllegalArgumentException ignored) {
-            isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
         }
         if (isSecondaryUser || !isCellBroadcastAppLinkEnabled) {
             PreferenceScreen root = getPreferenceScreen();

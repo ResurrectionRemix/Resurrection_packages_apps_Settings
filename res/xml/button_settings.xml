@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceScreen
+        android:key="power_menu"
+        android:title="@string/power_menu_title"
+        android:fragment="com.android.settings.cyanogenmod.PowerMenu" />
+
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="hardware_key_rebinding"
+        android:title="@string/hardware_keys_enable_custom_title"
+        android:defaultValue="false" />
+
+    <com.android.settings.cyanogenmod.ButtonBacklightBrightness
+        android:key="button_backlight"
+        android:title="@string/button_backlight_title"
+        android:dialogTitle="@string/button_backlight_title"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="home_key"
+        android:title="@string/hardware_keys_home_key_title" >
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="home_wake_screen"
+            android:title="@string/home_wake_title"
+            android:summary="@string/home_wake_summary"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="hardware_keys_home_long_press"
+            android:dialogTitle="@string/hardware_keys_long_press_title"
+            android:title="@string/hardware_keys_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+        <ListPreference
+            android:key="hardware_keys_home_double_tap"
+            android:dialogTitle="@string/hardware_keys_double_tap_title"
+            android:title="@string/hardware_keys_double_tap_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="menu_key"
+        android:title="@string/hardware_keys_menu_key_title" >
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="ui_force_overflow_button"
+            android:title="@string/hardware_keys_show_overflow_title"
+            android:summary="@string/hardware_keys_show_overflow_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="hardware_keys_menu_press"
+            android:dialogTitle="@string/hardware_keys_short_press_title"
+            android:title="@string/hardware_keys_short_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+        <ListPreference
+            android:key="hardware_keys_menu_long_press"
+            android:dialogTitle="@string/hardware_keys_long_press_title"
+            android:title="@string/hardware_keys_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="assist_key"
+        android:title="@string/hardware_keys_assist_key_title" >
+
+        <ListPreference
+            android:key="hardware_keys_assist_press"
+            android:dialogTitle="@string/hardware_keys_short_press_title"
+            android:title="@string/hardware_keys_short_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+        <ListPreference
+            android:key="hardware_keys_assist_long_press"
+            android:dialogTitle="@string/hardware_keys_long_press_title"
+            android:title="@string/hardware_keys_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="app_switch_key"
+        android:title="@string/hardware_keys_appswitch_key_title" >
+
+        <ListPreference
+            android:key="hardware_keys_app_switch_press"
+            android:dialogTitle="@string/hardware_keys_short_press_title"
+            android:title="@string/hardware_keys_short_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+        <ListPreference
+            android:key="hardware_keys_app_switch_long_press"
+            android:dialogTitle="@string/hardware_keys_long_press_title"
+            android:title="@string/hardware_keys_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="hardware_key_rebinding" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="volume_keys"
+        android:title="@string/hardware_keys_volume_keys_title" >
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="volume_wake_screen"
+            android:title="@string/volume_wake_title"
+            android:summary="@string/volume_wake_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="volbtn_music_controls"
+            android:title="@string/volbtn_music_controls_title"
+            android:summary="@string/volbtn_music_controls_summary"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

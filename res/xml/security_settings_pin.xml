@@ -34,38 +34,15 @@
             android:entryValues="@array/lock_after_timeout_values"
             android:persistent="false"/>
 
-        <ListPreference
-            android:key="lock_numpad_random"
-            android:entries="@array/lock_numpad_random_entries"
-            android:entryValues="@array/lock_numpad_random_values"
-            android:title="@string/lock_numpad_random_title"
-            android:dialogTitle="@string/lock_numpad_random_dialog_title" />
-
         <CheckBoxPreference
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
-
-        <CheckBoxPreference
-            android:key="keyguard_enable_widgets"
-            android:title="@string/security_enable_widgets_title"/>
 
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
-
-        <CheckBoxPreference
-
-            android:key="lockscreen_quick_unlock_control"
-            android:title="@string/lockscreen_quick_unlock_control_title"
-            android:summary="@string/lockscreen_quick_unlock_control_summary" />
-
-       <CheckBoxPreference
-            android:key="see_through"
-            android:title="@string/see_through_title"
-            android:summary="@string/see_through_summary" />
-
 
     </PreferenceCategory>
 

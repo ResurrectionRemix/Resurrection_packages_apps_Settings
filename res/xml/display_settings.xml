@@ -18,13 +18,9 @@
         android:title="@string/display_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <!--<com.android.settings.BrightnessPreference
+        <com.android.settings.BrightnessPreference
                 android:title="@string/brightness"
-                android:persistent="false"/>-->
-
-        <PreferenceScreen
-                android:title="@string/brightness"
-                android:fragment="org.omnirom.omnigears.brightness.BrightnessSettings" />
+                android:persistent="false"/>
 
         <PreferenceScreen
                 android:key="wallpaper"
@@ -48,33 +44,47 @@
                 android:title="@string/screensaver_settings_title"
                 android:fragment="com.android.settings.DreamSettings" />
 
-        <com.android.settings.WarnedListPreference
+        <com.android.settings.FontDialogPreference
                 android:key="font_size"
                 android:title="@string/title_font_size"
                 android:summary="@string/summary_font_size"
-                android:entries="@array/entries_font_size"
-                android:entryValues="@array/entryvalues_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
-
-        <PreferenceScreen
-                android:key="notification_light"
-                android:title="@string/notification_light_settings"
-                android:fragment="org.omnirom.omnigears.notificationlight.NotificationLightSettings" />
-
-        <PreferenceScreen
-                android:key="battery_light"
-                android:title="@string/battery_light_settings"
-                android:fragment="org.omnirom.omnigears.batterylight.BatteryLightSettings" />
 
         <PreferenceScreen
                 android:key="wifi_display"
                 android:title="@string/wifi_display_settings_title"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
-        <ListPreference
-                android:key="screen_off_animation"
-                android:title="@string/screen_off_animation"
-                android:entries="@array/screen_off_animation_entries"
-                android:entryValues="@array/screen_off_animation_values" />
+        <CheckBoxPreference
+                android:key="adaptive_backlight"
+                android:title="@string/adaptive_backlight_title"
+                android:summary="@string/adaptive_backlight_summary"
+                android:defaultValue="true" />
+
+        <!-- DeviceParts Device Specific Display settings -->
+        <Preference
+            android:key="advanced_display_settings"
+            android:title="@string/advanced_settings_title">
+            <intent
+                android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+                android:targetPackage="com.cyanogenmod.settings.device"
+                android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
+        </Preference>
+
+        <PreferenceCategory
+            android:key="lights_prefs"
+            android:title="@string/lights_category_title">
+
+            <PreferenceScreen
+                android:key="notification_pulse"
+                android:title="@string/notification_pulse_title"
+                android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
+
+            <PreferenceScreen
+                android:key="battery_light"
+                android:title="@string/battery_light_title"
+                android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
+
+        </PreferenceCategory>
 
 </PreferenceScreen>

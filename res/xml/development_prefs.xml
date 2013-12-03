@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,10 +16,26 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/development_settings_title">
+
+    <PreferenceScreen
+            android:key="development_tools"
+            android:title="@string/development_tools_title"
+            android:persistent="false" >
+        <intent
+                android:action="android.settings.development.LAUNCH_TOOLS"
+                android:targetPackage="com.android.development"
+                android:targetClass="com.android.development.Development" />
+    </PreferenceScreen>
+
     <com.android.settings.BugreportPreference
             android:key="bugreport"
             android:title="@*android:string/bugreport_title"
             android:dialogTitle="@*android:string/bugreport_title" />
+
+    <CheckBoxPreference
+        android:key="advanced_reboot"
+        android:title="@string/advanced_reboot_title"
+        android:summary="@string/advanced_reboot_summary" />
 
     <PreferenceScreen
             android:key="local_backup_password"
@@ -33,13 +49,8 @@
     </PreferenceScreen>
 
     <CheckBoxPreference
-        android:key="advanced_reboot"
-        android:title="@string/advanced_reboot_title"
-        android:summary="@string/advanced_reboot_summary" />
-
-    <CheckBoxPreference 
-        android:key="keep_screen_on" 
-        android:title="@string/keep_screen_on" 
+        android:key="keep_screen_on"
+        android:title="@string/keep_screen_on"
         android:summary="@string/keep_screen_on_summary"/>
 
     <ListPreference
@@ -67,6 +78,13 @@
             android:fragment="com.android.settings.applications.ProcessStatsUi">
     </PreferenceScreen>
 
+    <ListPreference
+        android:key="root_access"
+        android:title="@string/root_access"
+        android:persistent="false"
+        android:entries="@array/root_access_entries"
+        android:entryValues="@array/root_access_values" />
+
     <PreferenceCategory android:key="debug_debugging_category"
             android:title="@string/debug_debugging_category">
 
@@ -75,10 +93,27 @@
             android:title="@string/enable_adb"
             android:summary="@string/enable_adb_summary"/>
 
+        <com.android.settings.HostnamePreference
+            android:key="device_hostname"
+            android:title="@string/device_hostname"
+            android:dialogTitle="@string/device_hostname"
+            android:positiveButtonText="@string/wifi_save"
+            android:negativeButtonText="@string/wifi_cancel"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:persistent="false" />
+
         <CheckBoxPreference
             android:key="adb_notify"
             android:title="@string/adb_notify"
             android:summary="@string/adb_notify_summary"
+            android:dependency="enable_adb"/>
+
+        <CheckBoxPreference
+            android:key="adb_over_network"
+            android:title="@string/adb_over_network"
+            android:summary="@string/adb_over_network_summary"
             android:dependency="enable_adb"/>
 
         <Preference android:key="clear_adb_keys"
@@ -88,12 +123,6 @@
             android:key="enable_terminal"
             android:title="@string/enable_terminal_title"
             android:summary="@string/enable_terminal_summary" />
-
-        <CheckBoxPreference
-            android:key="adb_over_network"
-            android:title="@string/adb_over_network"
-            android:summary="@string/adb_over_network_summary"
-            android:dependency="enable_adb"/>
 
         <CheckBoxPreference
             android:key="bugreport_in_power"
@@ -244,11 +273,6 @@
             android:title="@string/show_cpu_usage"
             android:summary="@string/show_cpu_usage_summary"/>
 
-        <CheckBoxPreference
-            android:key="show_cpu_info"
-            android:title="@string/show_cpu_info"
-            android:summary="@string/show_cpu_info_summary"/>
-
         <ListPreference
             android:key="track_frame_time"
             android:title="@string/track_frame_time"
@@ -285,6 +309,11 @@
             android:title="@string/show_all_anrs"
             android:summary="@string/show_all_anrs_summary"/>
 
-     </PreferenceCategory>
+        <CheckBoxPreference
+            android:key="kill_app_longpress_back"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"/>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

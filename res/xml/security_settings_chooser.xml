@@ -26,42 +26,11 @@
             android:summary="@string/unlock_set_unlock_mode_none"
             android:persistent="false"/>
 
-        <CheckBoxPreference
-            android:key="keyguard_enable_widgets"
-            android:title="@string/security_enable_widgets_title"/>
-
-        <CheckBoxPreference
-            android:key="lockscreen_maximize_widgets"
-            android:title="@string/security_maximize_widgets_title"/>
-
-
-        <CheckBoxPreference
-            android:key="battery_around_lockscreen_ring"
-            android:title="@string/battery_around_lockscreen_ring"
-            android:defaultValue="true" />
-
-       <ListPreference
-            android:key="lock_after_timeout"
-            android:title="@string/lock_after_timeout"
-            android:summary="@string/lock_after_timeout_summary"
-            android:entries="@array/lock_after_timeout_entries"
-            android:entryValues="@array/lock_after_timeout_values"
-            android:persistent="false"/>
-
-        <CheckBoxPreference
-            android:key="power_button_instantly_locks"
-            android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
-
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
-
-        <CheckBoxPreference
-            android:key="see_through"
-            android:title="@string/see_through_title"
-            android:summary="@string/see_through_summary" />
 
     </PreferenceCategory>
 

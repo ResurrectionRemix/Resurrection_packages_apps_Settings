@@ -29,7 +29,21 @@
          very long strings too. -->
     <integer name="maximum_user_dictionary_word_length" translatable="false">48</integer>
 
-    <!-- Must be true to display button settings -->
-    <bool name="config_device_has_button_settings" translatable="false">false</bool>
+    <!-- **** CYANOGENMOD ADDITIONS START **** -->
+    <!-- Processor menu, freq cap files -->
+    <string name="max_cpu_freq_file" translatable="false">/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq</string>
+    <string name="min_cpu_freq_file" translatable="false">/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq</string>
 
+    <!-- Home button Wake Support. Some devices do not support this.
+         Setting to false will disable Home button Wake support -->
+    <bool name="config_show_homeWake">false</bool>
+
+    <!-- Volume rocker support. Some devices do not have a volume rocker. -->
+    <bool name="has_volume_rocker">true</bool>
+
+    <!-- Volume Rocker Wake Support. Some devices do not support (PMU) this.
+         Setting to false will disable Volume Rocker Wake support -->
+    <bool name="config_show_volumeRockerWake">false</bool>
+
+    <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
