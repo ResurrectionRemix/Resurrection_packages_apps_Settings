@@ -29,26 +29,6 @@
             android:id="@+id/quick_links"
             android:title="@string/quick_links_title" />
                    
- <PreferenceScreen
-        android:id="@+id/bars_and_menus"
-        android:title="@string/bars_and_menus_settings"
-        android:summary="@string/bars_and_menus_settings_summary"
-        android:fragment="org.omnirom.omnigears.BarsAndMenusSettings" />
-        
-    <!-- buttons -->
-  <PreferenceScreen
-        android:id="@+id/button_settings"
-        android:title="@string/header_button_settings"
-        android:summary="@string/header_button_settings_summary"
-        android:breadCrumbTitle="@string/header_button_settings"
-        android:fragment="org.omnirom.omnigears.ButtonSettings"/>
- 
-  <PreferenceScreen
-        android:id="@+id/active_display"
-        android:title="@string/active_display_settings"
-        android:summary="@string/active_display_settings_summary"
-        android:breadCrumbTitle="@string/active_display_settings"
-        android:fragment="org.omnirom.omnigears.chameleonos.ActiveDisplaySettings"/>
                  
   <PreferenceScreen
         android:key="lock_clock"
@@ -79,9 +59,13 @@
                 android:targetClass="com.acquariusoft.UpdateMeSmartphone.UpdateMeActivityOld" />
 </PreferenceScreen>
             
+        <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
-            android:title="@string/changelog_title"
-            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
+                android:title="@string/changelog_title">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.cyanogenmod.ChangeLog" />
+        </PreferenceScreen>
             
 </PreferenceScreen> 
 </PreferenceCategory>
