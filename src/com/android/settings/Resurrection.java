@@ -101,7 +101,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         if (preference == mSeeThrough) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
-                    ? 0 : 1);
+                    ? 1 : 0);
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
