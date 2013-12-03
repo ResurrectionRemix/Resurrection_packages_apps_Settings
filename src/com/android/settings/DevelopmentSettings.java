@@ -569,7 +569,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void updateAdvancedRebootOptions() {
         mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
-<<<<<<< HEAD
                 Settings.Secure.ADVANCED_REBOOT, 0) != 0);
     }
 
@@ -600,10 +599,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mAdbOverNetwork.setSummary(R.string.adb_over_network_summary);
         }
     }
-=======
-                Settings.Global.ADVANCED_REBOOT, 1) != 0);
-     }
->>>>>>> a8ce9bc... [1/2] settings: Set AdvancedReboot to be enabled by default
 
     private void resetDangerousOptions() {
         mDontPokeProperties = true;
