@@ -39,7 +39,15 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
-
+        
+        <!-- Anonymous statistics - (CMStats) -->
+        <PreferenceScreen
+             android:key="cmstats"
+             android:title="@string/anonymous_statistics_title"
+             android:summary="@string/anonymous_statistics_summary"
+             android:fragment="com.android.settings.cmstats.AnonymousStats" >
+         </PreferenceScreen>
+         
         <!-- Legal Information -->
         <PreferenceScreen
                 android:key="container"
