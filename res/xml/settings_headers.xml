@@ -35,7 +35,14 @@
         android:fragment="com.android.settings.bluetooth.BluetoothSettings"
         android:title="@string/bluetooth_settings_title"
         android:icon="@drawable/ic_settings_bluetooth2" />
-
+        
+    <!-- Profiles -->
+    <header
+        android:id="@+id/profiles_settings"
+        android:icon="@drawable/ic_settings_profiles"
+        android:fragment="com.android.settings.profiles.ProfilesSettings"
+        android:title="@string/profiles_settings_title" />
+        
     <!-- Data Usage -->
     <header
         android:id="@+id/data_usage_settings"
@@ -67,6 +74,7 @@
           android:fragment="com.android.settings.Resurrection"
           android:icon="@drawable/ic_settings_about_rr"
           android:title="@string/resurrection_settings_title" />
+<<<<<<< HEAD
           
     <!-- Home -->
     <header
@@ -82,6 +90,9 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
+=======
+        
+>>>>>>> 88bccb1... better strings
     <!-- Themes -->
     <header
         android:id="@+id/themes_settings"
@@ -92,13 +103,13 @@
             android:targetPackage="com.tmobile.themechooser"
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
-
-    <!-- System UI -->
+    
+    <!-- Home -->
     <header
-        android:id="@+id/system_settings"
-        android:icon="@drawable/ic_settings_system"
-        android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
-        android:title="@string/system_settings_title" />
+        android:id="@+id/home_settings"
+        android:icon="@drawable/ic_settings_home"
+        android:fragment="com.android.settings.HomeSettings"
+        android:title="@string/home_settings_title" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
@@ -117,13 +128,6 @@
         android:icon="@drawable/ic_settings_display"
         android:fragment="com.android.settings.DisplaySettings"
         android:title="@string/display_settings" />
-
-    <!-- Buttons -->
-    <header
-        android:id="@+id/button_settings"
-        android:icon="@drawable/ic_settings_buttons"
-        android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
-        android:title="@string/button_settings" />
 
     <!-- Storage -->
     <header
@@ -178,13 +182,6 @@
     <!-- PERSONAL -->
     <header android:id="@+id/personal_section"
         android:title="@string/header_category_personal" />
-
-    <!-- Profiles -->
-    <header
-        android:id="@+id/profiles_settings"
-        android:icon="@drawable/ic_settings_profiles"
-        android:fragment="com.android.settings.profiles.ProfilesSettings"
-        android:title="@string/profiles_settings_title" />
 
     <!-- Location -->
     <header
