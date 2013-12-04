@@ -66,7 +66,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_MOD_VERSION = "rr_mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
@@ -402,8 +402,8 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
         try {
             /* The expected /proc/cpuinfo output is as follows:
-             * Processor	: ARMv7 Processor rev 2 (v7l)
-             * BogoMIPS	: 272.62
+             * Processor        : ARMv7 Processor rev 2 (v7l)
+             * BogoMIPS        : 272.62
              */
             String firstLine = readLine(FILENAME_PROC_CPUINFO);
             if (firstLine != null) {
