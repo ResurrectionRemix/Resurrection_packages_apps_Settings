@@ -64,10 +64,12 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String TAG = "Resurrection";
   
     private CheckBoxPreference mSeeThrough;
-
+    private CheckBoxPreference mQuickUnlockScreen;
+    	
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
- 
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+    	
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
     @Override
@@ -79,17 +81,23 @@ public class Resurrection extends SettingsPreferenceFragment implements
        mContext = getActivity();
        
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+
+        mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        if (mQuickUnlockScreen  != null) {
+            mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+            mQuickUnlockScreen.setOnPreferenceChangeListener(this);
+        }
         
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
     }
-
+    
     @Override
     public void onPause() {
         super.onPause();
@@ -102,6 +110,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
                     ? 1 : 0);
+        } else if (preference == mQuickUnlockScreen) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlockScreen.isChecked() ? 1 : 0);
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
