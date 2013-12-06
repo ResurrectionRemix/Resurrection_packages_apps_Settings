@@ -68,16 +68,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
-<<<<<<< HEAD
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
 
     private static final String CATEGORY_LIGHTS = "lights_prefs";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
-=======
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
->>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -97,11 +94,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private WifiDisplayStatus mWifiDisplayStatus;
     private Preference mWifiDisplayPreference;
 
-<<<<<<< HEAD
     private CheckBoxPreference mAdaptiveBacklight;
-=======
     private ListPreference mScreenOffAnimationPreference;
->>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
 
     private final RotationPolicy.RotationPolicyListener mRotationPolicyListener =
             new RotationPolicy.RotationPolicyListener() {
@@ -144,9 +138,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
 
-<<<<<<< HEAD
         mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
-=======
         mScreenOffAnimationPreference = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
         final int currentAnimation = Settings.System.getInt(resolver, SCREEN_OFF_ANIMATION,
                 1 /* CRT-off */);
@@ -154,8 +146,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScreenOffAnimationPreference.setOnPreferenceChangeListener(this);
         updateScreenOffAnimationPreferenceDescription(currentAnimation);
 
-        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
->>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
 
