@@ -649,6 +649,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         pokeSystemProperties();
     }
 
+    private void resetAdvancedRebootOptions() {
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.ADVANCED_REBOOT, 0);
+    }
+
     void filterRuntimeOptions(Preference selectRuntime) {
         ListPreference pref = (ListPreference) selectRuntime;
         ArrayList<String> validValues = new ArrayList<String>();
