@@ -33,9 +33,9 @@
         android:id="@+id/system_settings"
         android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
         android:summary="@string/system_settings_title_summary"
-        android:title="@string/system_settings_title" />
-        
-    <PreferenceScreen
+        android:title="@string/system_settings_title" />                   
+
+  <PreferenceScreen
         android:id="@+id/button_settings"
         android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
         android:summary="@string/button_settings_summary"
@@ -44,9 +44,16 @@
       <CheckBoxPreference
             android:key="status_bar_traffic"
             android:title="@string/show_network_speed"
-            android:summary="@string/show_network_speed_summary"
-            android:defaultValue="true"/>
-                      
+            android:summary="@string/show_network_speed_summary"/>
+
+    <CheckBoxPreference
+            android:key="status_bar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"/>
+            
+     <PreferenceCategory
+            android:id="@+id/lockscreen_links"
+            android:title="@string/lockscreen_links_title" />
                                  
   <PreferenceScreen
         android:id="@+id/lock_screen_settings"
@@ -67,14 +74,8 @@
         <CheckBoxPreference
             android:key="see_through"
             android:title="@string/see_through_title"
-            android:summary="@string/see_through_summary" 
-            android:defaultValue="true"/>
-            
-    <CheckBoxPreference
-            android:key="status_bar_notif_count"
-            android:title="@string/status_bar_notif_count_title"
-            android:summary="@string/status_bar_notif_count_summary"
-            android:defaultValue="true"/>
+            android:summary="@string/see_through_summary" />
+              
   <PreferenceScreen
         android:key="lock_clock"
         android:title="@string/lock_clock_title"
@@ -83,10 +84,12 @@
                 android:targetPackage="com.cyanogenmod.lockclock"
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
   </PreferenceScreen>
-        
+              
 <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 
+        
+ 
               
 <PreferenceScreen
         android:key="update_me"
