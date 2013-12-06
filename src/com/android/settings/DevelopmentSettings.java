@@ -636,7 +636,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         resetRootAccessOptions();
         resetAdbNotifyOptions();
         resetVerifyAppsOverUsbOptions();
-        resetAdvancedRebootOptions();
         resetDevelopmentShortcutOptions();
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
