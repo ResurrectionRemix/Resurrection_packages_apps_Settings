@@ -63,13 +63,11 @@ import com.android.settings.Utils;
 public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
-    
-    private CheckBoxPreference mStatusBarNotifCount;
+  
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mQuickUnlockScreen;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mStatusBarTraffic;
-    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
@@ -89,11 +87,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
        
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
         
-         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
-        mStatusBarNotifCount.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
-        mStatusBarNotifCount.setOnPreferenceChangeListener(this);
-               
         mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
         mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
             Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
@@ -151,10 +144,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                 Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
-                 } else if (preference == mStatusBarNotifCount) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(), Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
-        } else {
             return true;
  
     }
