@@ -40,7 +40,13 @@
         android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
         android:summary="@string/button_settings_summary"
         android:title="@string/button_settings" />
-             
+        
+      <CheckBoxPreference
+            android:key="status_bar_traffic"
+            android:title="@string/show_network_speed"
+            android:summary="@string/show_network_speed_summary"
+            android:defaultValue="false" />
+                       
   <PreferenceScreen
         android:id="@+id/lock_screen_settings"
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
@@ -56,7 +62,12 @@
             android:key="battery_around_lockscreen_ring"
             android:title="@string/battery_around_lockscreen_ring"
             android:defaultValue="true" />
-                                   
+  
+        <CheckBoxPreference
+            android:key="see_through"
+            android:title="@string/see_through_title"
+            android:summary="@string/see_through_summary" />
+              
   <PreferenceScreen
         android:key="lock_clock"
         android:title="@string/lock_clock_title"
@@ -65,12 +76,7 @@
                 android:targetPackage="com.cyanogenmod.lockclock"
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
   </PreferenceScreen>
-  
-        <CheckBoxPreference
-            android:key="see_through"
-            android:title="@string/see_through_title"
-            android:summary="@string/see_through_summary" />  
-            
+              
 <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 
