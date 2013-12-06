@@ -21,7 +21,9 @@ import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
+import android.content.pm.ResolveInfo;
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnMultiChoiceClickListener;
@@ -83,22 +85,24 @@ public class Resurrection extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.resurrection_settings);
+       addPreferencesFromResource(R.xml.resurrection_settings);
+       
        PreferenceScreen prefSet = getPreferenceScreen();
        mContext = getActivity();
+       ContentResolver resolver = getActivity().getContentResolver();
        
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
         
          mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
-        mStatusBarNotifCount.setChecked(Settings.System.getInt(getContentResolver(),
+        mStatusBarNotifCount.setChecked(Settings.System.putInt(resolver,
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
         mStatusBarNotifCount.setOnPreferenceChangeListener(this);
-               
+       
         mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
-        mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
+        mStatusBarTraffic.setChecked(Settings.System.putInt(resolver,
             Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
         mStatusBarTraffic.setOnPreferenceChangeListener(this);
-        
+
         mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         if (mQuickUnlockScreen  != null) {
             mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
@@ -139,27 +143,25 @@ public class Resurrection extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
             }  else {
-              // If not handled, let preferences handle it.
-              return super.onPreferenceTreeClick(preferenceScreen, preference);
-         }
-         return true; 
+.             return false;
+
     }
     
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final String key = preference.getKey();
-	  if (preference == mStatusBarTraffic) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    ContentResolver resolver = getActivity().getContentResolver();
+          if (preference == mStatusBarTraffic) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
                 Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
                  } else if (preference == mStatusBarNotifCount) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(), Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
         } else {
             return true;
  
     }
         return false;
-    }	   
+    }           
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
         String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
         Pattern pattern = Pattern.compile("component=([^/]+)/");
