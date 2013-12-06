@@ -1,5 +1,6 @@
 /*
- *
+ * Resurrection Remix ROM Settings
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -66,12 +67,14 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mQuickUnlockScreen;
     private CheckBoxPreference mLockRingBattery;
+    private CheckBoxPreference mStatusBarTraffic;
     
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
-    	
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
+    
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
     @Override
@@ -83,7 +86,12 @@ public class Resurrection extends SettingsPreferenceFragment implements
        mContext = getActivity();
        
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
-
+        
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarTraffic.setOnPreferenceChangeListener(this);
+        
         mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         if (mQuickUnlockScreen  != null) {
             mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
@@ -129,12 +137,18 @@ public class Resurrection extends SettingsPreferenceFragment implements
          }
          return true; 
     }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
-        return true;
+	  if (preference == mStatusBarTraffic) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
+            return true;
+ 
     }
-
+        return false;
+    }	   
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
         String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
         Pattern pattern = Pattern.compile("component=([^/]+)/");
@@ -150,7 +164,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
                 return true;
             }
 
-        }
+    }
         return false;
     }
 
