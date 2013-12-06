@@ -242,21 +242,29 @@ final class LocalBluetoothProfileManager {
         }
 
         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+            int newState = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, 0);
+            int oldState = intent.getIntExtra(BluetoothProfile.EXTRA_PREVIOUS_STATE, 0);
+            if (DEBUG) {
+                Log.d(TAG, mProfile + " state change " + oldState + " -> " + newState);
+            }
             CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
-            if (cachedDevice == null) {
+
+            if ((cachedDevice == null) && ((newState != BluetoothProfile.STATE_DISCONNECTED)
+                && (newState != BluetoothProfile.STATE_DISCONNECTING))) {
                 Log.w(TAG, "StateChangedHandler found new device: " + device);
                 cachedDevice = mDeviceManager.addDevice(mLocalAdapter,
                         LocalBluetoothProfileManager.this, device);
             }
-            int newState = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, 0);
-            int oldState = intent.getIntExtra(BluetoothProfile.EXTRA_PREVIOUS_STATE, 0);
+
             if (newState == BluetoothProfile.STATE_DISCONNECTED &&
                     oldState == BluetoothProfile.STATE_CONNECTING) {
                 Log.i(TAG, "Failed to connect " + mProfile + " device");
             }
 
-            cachedDevice.onProfileStateChanged(mProfile, newState);
-            cachedDevice.refresh();
+            if (cachedDevice != null) {
+               cachedDevice.onProfileStateChanged(mProfile, newState);
+               cachedDevice.refresh();
+            }
         }
     }
 
