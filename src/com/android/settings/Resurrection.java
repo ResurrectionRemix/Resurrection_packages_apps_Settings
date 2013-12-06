@@ -140,7 +140,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
     
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
-	  if (preference == mStatusBarTraffic) {
+          if (preference == mStatusBarTraffic) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                 Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
@@ -148,7 +148,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
  
     }
         return false;
-    }	   
+    }           
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
         String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
         Pattern pattern = Pattern.compile("component=([^/]+)/");
