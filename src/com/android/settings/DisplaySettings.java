@@ -67,7 +67,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 =======
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e8477d0... [2/2] ElectronBeam: Add an alternative screen-off animation
+=======
+>>>>>>> e979fdf... [1/1] ElectronBeam: Add an alternative screen-off animation and profiles icon
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
 
@@ -75,12 +78,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
 <<<<<<< HEAD
+<<<<<<< HEAD
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
 =======
 =======
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
 >>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
 >>>>>>> e8477d0... [2/2] ElectronBeam: Add an alternative screen-off animation
+=======
+    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
+>>>>>>> e979fdf... [1/1] ElectronBeam: Add an alternative screen-off animation and profiles icon
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -103,11 +110,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private Preference mWifiDisplayPreference;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e8477d0... [2/2] ElectronBeam: Add an alternative screen-off animation
-    private CheckBoxPreference mAdaptiveBacklight;
 =======
+>>>>>>> e979fdf... [1/1] ElectronBeam: Add an alternative screen-off animation and profiles icon
+    private CheckBoxPreference mAdaptiveBacklight;
     private ListPreference mScreenOffAnimationPreference;
->>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -151,9 +159,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
 
-<<<<<<< HEAD
         mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
-=======
         mScreenOffAnimationPreference = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
         final int currentAnimation = Settings.System.getInt(resolver, SCREEN_OFF_ANIMATION,
                 1 /* CRT-off */);
@@ -161,8 +167,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScreenOffAnimationPreference.setOnPreferenceChangeListener(this);
         updateScreenOffAnimationPreferenceDescription(currentAnimation);
 
-        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
->>>>>>> a3c13f7... [2/2] ElectronBeam: Add an alternative screen-off animation
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
 
