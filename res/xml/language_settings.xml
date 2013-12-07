@@ -92,8 +92,23 @@
                 android:key="pointer_speed"
                 android:title="@string/pointer_speed"
                 android:dialogTitle="@string/pointer_speed" />
+
+<<<<<<< HEAD
+=======
+        <PreferenceScreen
+                android:fragment="com.android.settings.inputmethod.StylusGestures"
+                android:key="stylus_gestures"
+                android:title="@string/gestures_settings_title" />
+
+        <CheckBoxPreference android:key="stylus_icon_enabled"
+                android:title="@string/stylus_icon_enabled_title"
+                android:summary="@string/stylus_icon_enabled_summary"
+                android:defaultValue="false"
+                android:persistent="false" />
+
     </PreferenceCategory>
 
+>>>>>>> 8f00fd1... [2/2]Settings: Stylus Gestures
     <PreferenceCategory android:key="game_controller_settings_category"
             android:title="@string/game_controller_settings_category">
         <CheckBoxPreference

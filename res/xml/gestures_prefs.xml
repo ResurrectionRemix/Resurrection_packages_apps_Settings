@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/enable_subcat_title" >
+
+        <!-- Enable -->
+        <CheckBoxPreference
+            android:key="enable_spen"
+            android:summary="@string/enable_spen_summary_head"
+            android:title="@string/enable_spen_title_head" />
+    </PreferenceCategory>
+    <!-- Gesture Actions -->
+    <PreferenceCategory android:title="@string/gestures_subcat_title" >
+        <ListPreference
+            android:dependency="enable_spen"
+            android:entries="@array/gestures_entries"
+            android:entryValues="@array/gestures_values"
+            android:key="gestures_left"
+            android:persistent="false"
+            android:title="@string/gestures_left_spen_title_head" />
+        <ListPreference
+            android:dependency="enable_spen"
+            android:entries="@array/gestures_entries"
+            android:entryValues="@array/gestures_values"
+            android:key="gestures_right"
+            android:persistent="false"
+            android:title="@string/gestures_right_spen_title_head" />
+        <ListPreference
+            android:dependency="enable_spen"
+            android:entries="@array/gestures_entries"
+            android:entryValues="@array/gestures_values"
+            android:key="gestures_up"
+            android:persistent="false"
+            android:title="@string/gestures_up_spen_title_head" />
+        <ListPreference
+            android:dependency="enable_spen"
+            android:entries="@array/gestures_entries"
+            android:entryValues="@array/gestures_values"
+            android:key="gestures_down"
+            android:persistent="false"
+            android:title="@string/gestures_down_spen_title_head" />
+        <ListPreference
+            android:dependency="enable_spen"
+            android:entries="@array/gestures_entries"
+            android:entryValues="@array/gestures_values"
+            android:key="gestures_long"
+            android:persistent="false"
+            android:title="@string/gestures_long_spen_title_head" />
+        <ListPreference
+            android:dependency="enable_spen"
+            android:entries="@array/gestures_entries"
+            android:entryValues="@array/gestures_values"
+            android:key="gestures_double"
+            android:persistent="false"
+            android:title="@string/gestures_double_spen_title_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
