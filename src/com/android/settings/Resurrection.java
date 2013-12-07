@@ -55,22 +55,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 public class Resurrection extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+    Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
-    
-    private CheckBoxPreference mStatusBarNotifCount;
+  
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mQuickUnlockScreen;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mStatusBarTraffic;
-    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+    private CheckBoxPreference mStatusBarNotifCount;
     
+    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
@@ -87,31 +88,29 @@ public class Resurrection extends SettingsPreferenceFragment implements
        PreferenceScreen prefSet = getPreferenceScreen();
        mContext = getActivity();
        
-        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
-        
-         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
-        mStatusBarNotifCount.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
-        mStatusBarNotifCount.setOnPreferenceChangeListener(this);
-               
-        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
-        mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
-        mStatusBarTraffic.setOnPreferenceChangeListener(this);
-        
+                
         mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         if (mQuickUnlockScreen  != null) {
             mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
             mQuickUnlockScreen.setOnPreferenceChangeListener(this);
-        }
+}
               mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
         if (mLockRingBattery != null) {
             mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
-        }
-          
-        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+}
+        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+        
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarTraffic.setOnPreferenceChangeListener(this);
+        
+	    mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
+        mStatusBarNotifCount.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
+        mStatusBarNotifCount.setOnPreferenceChangeListener(this);
 
     }
 
@@ -128,55 +127,31 @@ public class Resurrection extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
                 boolean value;
-        if (preference == mSeeThrough) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
-                    ? 1 : 0);
-        } else if (preference == mQuickUnlockScreen) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlockScreen.isChecked() ? 1 : 0);
+          if (preference == mSeeThrough) {
+                    Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked() ? 1 : 0);
         } else if (preference == mLockRingBattery) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
+        } else if (preference == mQuickUnlockScreen) {
+                    Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlockScreen.isChecked() ? 1 : 0);
             }  else {
-              // If not handled, let preferences handle it.
-              return super.onPreferenceTreeClick(preferenceScreen, preference);
          }
          return true; 
     }
-    
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final String key = preference.getKey();
-          if (preference == mStatusBarTraffic) {
+        ContentResolver resolver = getActivity().getContentResolver();
+	  if (preference == mStatusBarTraffic) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                 Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
-                 } else if (preference == mStatusBarNotifCount) {
+	        } else if (preference == mStatusBarNotifCount) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(), Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
-        } else {
-            return true;
- 
+            }  else {
+	            return false;
+        }
+			        return true;
     }
-        return false;
-    }           
-    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
-        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
-        Pattern pattern = Pattern.compile("component=([^/]+)/");
-        Matcher matcher = pattern.matcher(intentUri);
-
-        String packageName=matcher.find()?matcher.group(1):null;
-        if(packageName != null) {
-            try {
-                getPackageManager().getPackageInfo(packageName, 0);
-            } catch (NameNotFoundException e) {
-                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
-                getPreferenceScreen().removePreference(preference);
-                return true;
-            }
-
-    }
-        return false;
-    }
-
 }
