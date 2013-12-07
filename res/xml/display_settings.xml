@@ -46,6 +46,11 @@
                 settings:keywords="@string/keywords_display_wallpaper"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
 
+        <PreferenceScreen
+            android:key="display_rotation"
+            android:fragment="com.android.settings.cyanogenmod.DisplayRotation"
+            android:title="@string/display_rotation_title" />
+
         <ListPreference
                 android:key="screen_timeout"
                 android:title="@string/screen_timeout"
