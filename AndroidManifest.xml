@@ -1962,7 +1962,6 @@
             </intent-filter>
         </receiver>
 
-<<<<<<< HEAD
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.android.settings.files"
@@ -1972,13 +1971,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-=======
-        <!-- Lto Service -->
-        <service android:label="LtoService"
-            android:enabled="true"
-            android:exported="false"
-            android:name=".cyanogenmod.LtoService">
-        </service>
 
         <!-- Disable MultiSIM settings if not available. -->
         <receiver android:name=".deviceinfo.msim.DisableMSimReceiver">
@@ -1987,6 +1979,5 @@
             </intent-filter>
         </receiver>
 
->>>>>>> ae4e281... Settings(MSIM): Disable MultiSimSettings activity if unsupported
     </application>
 </manifest>
