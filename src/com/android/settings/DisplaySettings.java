@@ -74,11 +74,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_LIGHTS = "lights_prefs";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
-<<<<<<< HEAD
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
-=======
+
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
->>>>>>> ad11248... Forward port "Display options: allow configuration of wake on plug behavior"
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -293,15 +291,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         RotationPolicy.registerRotationPolicyListener(getActivity(),
                 mRotationPolicyListener);
 
-<<<<<<< HEAD
         if (mWifiDisplayPreference != null) {
             getActivity().registerReceiver(mReceiver, new IntentFilter(
                     DisplayManager.ACTION_WIFI_DISPLAY_STATUS_CHANGED));
             mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
         }
-=======
         final ContentResolver resolver = getContentResolver();
->>>>>>> ad11248... Forward port "Display options: allow configuration of wake on plug behavior"
 
         if (mAdaptiveBacklight != null) {
             mAdaptiveBacklight.setChecked(AdaptiveBacklight.isEnabled());
