@@ -21,10 +21,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -34,8 +34,10 @@ public class QuietHours extends SettingsPreferenceFragment implements
 
     private static final String TAG = "QuietHours";
     private static final String KEY_QUIET_HOURS_TIMERANGE = "quiet_hours_timerange";
+    private static final CharSequence KEY_QUIET_HOURS_RINGER = "quiet_hours_ringer";
 
     private TimeRangePreference mQuietHoursTimeRange;
+    private ListPreference mQuietHoursRinger;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,12 +50,24 @@ public class QuietHours extends SettingsPreferenceFragment implements
         // Load the preferences
         mQuietHoursTimeRange =
                 (TimeRangePreference) findPreference(KEY_QUIET_HOURS_TIMERANGE);
-
-        // Set the preference state and listeners where applicable
         mQuietHoursTimeRange.setTimeRange(
                 Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_START, 0),
                 Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_END, 0));
         mQuietHoursTimeRange.setOnPreferenceChangeListener(this);
+
+        // Remove the ringer setting on non-telephony devices else enable it
+        mQuietHoursRinger = (ListPreference) findPreference(KEY_QUIET_HOURS_RINGER);
+        TelephonyManager telephonyManager =
+                (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (telephonyManager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE) {
+            getPreferenceScreen().removePreference(mQuietHoursRinger);
+            mQuietHoursRinger = null;
+        } else {
+            int muteType = Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_RINGER, 0);
+            mQuietHoursRinger.setValue(String.valueOf(muteType));
+            mQuietHoursRinger.setSummary(mQuietHoursRinger.getEntry());
+            mQuietHoursRinger.setOnPreferenceChangeListener(this);
+        }
 
         // Remove the notification light setting if the device does not support it
         if (!res.getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
@@ -76,6 +90,12 @@ public class QuietHours extends SettingsPreferenceFragment implements
                     mQuietHoursTimeRange.getStartTime());
             Settings.System.putInt(resolver, Settings.System.QUIET_HOURS_END,
                     mQuietHoursTimeRange.getEndTime());
+            return true;
+        } else if (preference == mQuietHoursRinger) {
+            int ringerMuteType = Integer.valueOf((String) newValue);
+            int index = mQuietHoursRinger.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.QUIET_HOURS_RINGER, ringerMuteType);
+            mQuietHoursRinger.setSummary(mQuietHoursRinger.getEntries()[index]);
             return true;
         }
         return false;

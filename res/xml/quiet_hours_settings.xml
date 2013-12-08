@@ -22,12 +22,20 @@
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="quiet_hours_enabled"
         android:title="@string/quiet_hours_enabled"
-        android:summaryOn="@string/quiet_hours_note_summary"
         android:defaultValue="false" />
 
     <com.android.settings.cyanogenmod.TimeRangePreference
         android:key="quiet_hours_timerange"
         android:dependency="quiet_hours_enabled" />
+
+    <ListPreference
+        android:key="quiet_hours_ringer"
+        android:title="@string/quiet_hours_ringer"
+        android:dialogTitle="@string/quiet_hours_ringer"
+        android:dependency="quiet_hours_enabled"
+        android:entries="@array/quiet_hours_ringer_entries"
+        android:entryValues="@array/quiet_hours_ringer_values"
+        android:defaultValue="0" />
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="quiet_hours_mute"
