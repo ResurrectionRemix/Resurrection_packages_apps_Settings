@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip">
+
+    <RelativeLayout
+        android:id="@+id/image_here"
+        android:layout_width="wrap_content"
+        android:layout_height="150dip"
+        android:paddingTop="8dip"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="150dip"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:id="@+id/photo_text_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="42dip"
+            android:layout_alignBottom="@id/photo"
+            android:layout_alignLeft="@id/photo"
+            android:background="#7F000000" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="42dip"
+            android:layout_alignBottom="@id/photo"
+            android:layout_alignLeft="@id/photo"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@android:color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageView
+                android:id="@+id/twitter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:scaleType="centerInside"
+                android:src="@drawable/twitter_birdy"/>
+
+        </LinearLayout>
+        
+        <ImageView
+                android:id="@+id/donate_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/photo"
+                android:paddingRight="4dip"
+                android:paddingBottom="4dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/paypal_donate"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

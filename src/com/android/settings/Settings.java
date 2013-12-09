@@ -527,6 +527,10 @@ public class Settings extends PreferenceActivity
         // uiOptions for fragments also defined as activities in manifest.
         if (WifiSettings.class.getName().equals(fragmentName) ||
                 WifiP2pSettings.class.getName().equals(fragmentName) ||
+<<<<<<< HEAD
+=======
+                WifiDisplaySettings.class.getName().equals(fragmentName) ||
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
                 BlacklistSettings.class.getName().equals(fragmentName) ||
                 BluetoothSettings.class.getName().equals(fragmentName) ||
                 DreamSettings.class.getName().equals(fragmentName) ||
@@ -1148,6 +1152,11 @@ public class Settings extends PreferenceActivity
     public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
     public static class ProfilesSettingsActivity extends Settings { /* empty */ }
     public static class DreamSettingsActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
+=======
+    public static class ResurrectionActivity extends Settings { /* empty */ }
+    public static class AboutActivity extends Settings { /* empty */ }
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
     public static class NotificationStationActivity extends Settings { /* empty */ }
     public static class UserSettingsActivity extends Settings { /* empty */ }
     public static class NotificationAccessSettingsActivity extends Settings { /* empty */ }
@@ -1160,4 +1169,8 @@ public class Settings extends PreferenceActivity
     public static class ApnSettingsActivity extends Settings { /* empty */ }
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 }

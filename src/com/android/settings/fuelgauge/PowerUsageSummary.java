@@ -26,11 +26,23 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcel;
+<<<<<<< HEAD
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+=======
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,7 +58,12 @@ import java.util.List;
  * Displays a list of apps and subsystems that consume power, ordered by how much power was
  * consumed since the last time it was unplugged.
  */
+<<<<<<< HEAD
 public class PowerUsageSummary extends PreferenceFragment {
+=======
+public class PowerUsageSummary extends PreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 
     private static final boolean DEBUG = false;
 
@@ -54,6 +71,12 @@ public class PowerUsageSummary extends PreferenceFragment {
 
     private static final String KEY_APP_LIST = "app_list";
     private static final String KEY_BATTERY_STATUS = "battery_status";
+<<<<<<< HEAD
+=======
+    private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
+    private static final String KEY_BATTERY_PREFS_CATEGORY = "battery_prefs";
+    private static final String KEY_BATTERY_STATS_CATEGORY = "battery_stats";
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
     private static final int MENU_STATS_REFRESH = Menu.FIRST + 1;
@@ -61,6 +84,12 @@ public class PowerUsageSummary extends PreferenceFragment {
 
     private PreferenceGroup mAppListGroup;
     private Preference mBatteryStatusPref;
+<<<<<<< HEAD
+=======
+    private ListPreference mLowBatteryWarning;
+    private PreferenceCategory mBatteryPrefsCat;
+    private PreferenceCategory mBatteryStatsCat;
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
 
@@ -101,6 +130,23 @@ public class PowerUsageSummary extends PreferenceFragment {
         addPreferencesFromResource(R.xml.power_usage_summary);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
         mBatteryStatusPref = mAppListGroup.findPreference(KEY_BATTERY_STATUS);
+<<<<<<< HEAD
+=======
+
+        mBatteryPrefsCat =
+            (PreferenceCategory) mAppListGroup.findPreference(KEY_BATTERY_PREFS_CATEGORY);
+        mBatteryStatsCat =
+            (PreferenceCategory) mAppListGroup.findPreference(KEY_BATTERY_STATS_CATEGORY);
+
+        mLowBatteryWarning =
+            (ListPreference) mAppListGroup.findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
+        int lowBatteryWarning = Settings.System.getInt(getActivity().getContentResolver(),
+                                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
+        mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
+        mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
+        mLowBatteryWarning.setOnPreferenceChangeListener(this);
+
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         setHasOptionsMenu(true);
     }
 
@@ -148,6 +194,22 @@ public class PowerUsageSummary extends PreferenceFragment {
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
+<<<<<<< HEAD
+=======
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mLowBatteryWarning) {
+            int lowBatteryWarning = Integer.valueOf((String) newValue);
+            int index = mLowBatteryWarning.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY,
+                    lowBatteryWarning);
+            mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
+            return true;
+        }
+        return false;
+    }
+
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (DEBUG) {
@@ -198,6 +260,16 @@ public class PowerUsageSummary extends PreferenceFragment {
         mAppListGroup.removeAll();
         mAppListGroup.setOrderingAsAdded(false);
 
+<<<<<<< HEAD
+=======
+        mBatteryPrefsCat.setOrder(-5);
+        mAppListGroup.addPreference(mBatteryPrefsCat);
+        mLowBatteryWarning.setOrder(-4);
+        mAppListGroup.addPreference(mLowBatteryWarning);
+        mBatteryStatsCat.setOrder(-3);
+        mAppListGroup.addPreference(mBatteryStatsCat);
+
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         mBatteryStatusPref.setOrder(-2);
         mAppListGroup.addPreference(mBatteryStatusPref);
         BatteryHistoryPreference hist = new BatteryHistoryPreference(

@@ -576,7 +576,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void updateAdvancedRebootOptions() {
         mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
+<<<<<<< HEAD
                 Settings.Secure.ADVANCED_REBOOT, 0) != 0);
+=======
+                Settings.Secure.ADVANCED_REBOOT, 1) != 0);
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
     }
 
     private void resetDevelopmentShortcutOptions() {
