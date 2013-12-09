@@ -16,6 +16,7 @@
 
 package com.android.settings;
 
+import android.app.ActionBar;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.telephony.SubscriptionManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.internal.telephony.CommandException;
@@ -159,6 +161,11 @@ public class IccLockSettings extends PreferenceActivity
             return;
         }
 
+        ActionBar mActionBar = getActionBar();
+        if (mActionBar != null) {
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         addPreferencesFromResource(R.xml.sim_lock_settings);
 
         mPinDialog = (EditPinPreference) findPreference(PIN_DIALOG);
@@ -201,6 +208,15 @@ public class IccLockSettings extends PreferenceActivity
         mPhone = PhoneFactory.getPhone(phoneId);
         mRes = getResources();
         updatePreferences();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return false;
     }
 
     private void updatePreferences() {
