@@ -1,0 +1,25 @@
+# Keep all Fragments in this package, which are used by reflection.
+-keep class com.android.settings.*Fragment
+-keep class com.android.settings.*Picker
+-keep class com.android.settings.*Settings
+-keep class com.android.settings.wifi.*Settings
+-keep class com.android.settings.deviceinfo.*
+-keep class com.android.settings.bluetooth.*
+-keep class com.android.settings.applications.*
+-keep class com.android.settings.inputmethod.*
+-keep class com.android.settings.MasterClear
+-keep class com.android.settings.MasterClearConfirm
+-keep class com.android.settings.accounts.*
+-keep class com.android.settings.fuelgauge.*
+-keep class com.android.settings.users.*
+-keep class com.android.settings.NotificationStation
+-keep class com.android.settings.nfc.*
+-keep class com.android.settings.privacyguard.*
+-keep class com.android.settings.cyanogenmod.*Settings
+-keep class com.koushikdutta.**
+-keep class com.android.settings.cyanogenmod.superuser.**
+
+# Keep click responders
+-keepclassmembers class com.android.settings.inputmethod.UserDictionaryAddWordActivity {
+  *** onClick*(...);
+}
