@@ -20,6 +20,7 @@ import android.app.ActivityManager;
 import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
@@ -39,8 +40,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+
 
     private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mQuickUnlock;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -94,6 +98,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                 mEnableKeyguardWidgets.setEnabled(!disabled);
             }
         }
+        mQuickUnlock = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        if (mQuickUnlock != null) {
+            mQuickUnlock.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+        }
     }
 
     @Override
@@ -102,6 +111,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(lockPatternUtils.getWidgetsEnabled());
+        }
+
+        if (mQuickUnlock != null) {
+            mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                  Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
         }
     }
 
@@ -113,6 +127,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (KEY_ENABLE_WIDGETS.equals(key)) {
             lockPatternUtils.setWidgetsEnabled(mEnableKeyguardWidgets.isChecked());
             return true;
+        }
+        if (preference == mQuickUnlock) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlock.isChecked() ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
