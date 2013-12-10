@@ -63,10 +63,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
   
-    private CheckBoxPreference mSeeThrough;
 
     private static final String KEY_LOCK_CLOCK = "lock_clock";
-    private static final String KEY_SEE_TRHOUGH = "see_through";
  
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -78,7 +76,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
        PreferenceScreen prefSet = getPreferenceScreen();
        mContext = getActivity();
        
-        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+
         
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
@@ -93,20 +91,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-                boolean value;
-        if (preference == mSeeThrough) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
-                    ? 1 : 0);
-            }  else {
-              // If not handled, let preferences handle it.
-              return super.onPreferenceTreeClick(preferenceScreen, preference);
-         }
-         return true; 
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

@@ -18,40 +18,63 @@
 
 package com.android.settings;
 
+import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import android.app.Activity;
+import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.BroadcastReceiver;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
+import android.view.IWindowManager;
+import android.view.Display;
+import android.view.Window;
+import android.widget.Toast;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.File;
+import java.io.IOException;
 
 import java.util.List;
 
 public class Spawn extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Spawn";
+								
+    private Context mContext;
 
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+    private static final String KEY_SEE_TRHOUGH = "see_through";
 
     private CheckBoxPreference mStatusBarNotifCount;
+    private CheckBoxPreference mSeeThrough;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +83,9 @@ public class Spawn extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        mContext = getActivity();
+
+        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
 
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked(Settings.System.getInt(resolver,
@@ -70,10 +96,20 @@ public class Spawn extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+                boolean value;
+        if (preference == mSeeThrough) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
+                    ? 1 : 0);
+            }  else {
+              // If not handled, let preferences handle it.
+              return super.onPreferenceTreeClick(preferenceScreen, preference);
+         }
         return true;
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+    final String key = preference.getKey();
         ContentResolver resolver = getActivity().getContentResolver();
            if (preference == mStatusBarNotifCount) {
             boolean value = (Boolean) objValue;
