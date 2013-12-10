@@ -68,16 +68,12 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private CheckBoxPreference mQuickUnlockScreen;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mStatusBarTraffic;
-    private ListPreference mScreenOffAnimationPreference;
     
-    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
-    
-    import static android.provider.Settings.System.SCREEN_OFF_ANIMATION;
     
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -95,14 +91,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
             Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
         mStatusBarTraffic.setOnPreferenceChangeListener(this);
-
-        mScreenOffAnimationPreference = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
-         final int currentAnimation = Settings.System.getInt(resolver, SCREEN_OFF_ANIMATION,
-                 1 /* CRT-off */);
-         mScreenOffAnimationPreference.setValue(String.valueOf(currentAnimation));
-         mScreenOffAnimationPreference.setOnPreferenceChangeListener(this);
-         updateScreenOffAnimationPreferenceDescription(currentAnimation); 
-                
+        
         mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         if (mQuickUnlockScreen  != null) {
             mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
@@ -148,23 +137,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
          }
          return true; 
     }
-    private void updateScreenOffAnimationPreferenceDescription(int currentAnim) {
-         ListPreference preference = mScreenOffAnimationPreference;
-         String summary;
-         if (currentAnim < 0) {
-             // Unsupported value
-             summary = "";
-         } else {
-             final CharSequence[] entries = preference.getEntries();
-             final CharSequence[] values = preference.getEntryValues();
-             if (entries == null || entries.length == 0) {
-                 summary = "";
-             } else {
-                 summary = entries[currentAnim].toString();
-             }
-         }
-         preference.setSummary(summary);
-     }    
+    
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
 	  if (preference == mStatusBarTraffic) {
