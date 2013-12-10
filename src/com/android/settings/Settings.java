@@ -73,6 +73,12 @@ import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.cyanogenmod.ButtonSettings;
+import com.android.settings.cyanogenmod.LockscreenInterface;
+import com.android.settings.cyanogenmod.MoreDeviceSettings;
+import com.android.settings.cyanogenmod.PerformanceSettings;
+import com.android.settings.cyanogenmod.SystemUiSettings;
+import com.android.settings.cyanogenmod.superuser.PolicyNativeFragment;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
@@ -307,11 +313,6 @@ public class Settings extends PreferenceActivity
         }
     }
 
-    @Override
-    public boolean onIsMultiPane() {
-        return false;
-    }
-
     private static final String[] ENTRY_FRAGMENTS = {
         WirelessSettings.class.getName(),
         WifiSettings.class.getName(),
@@ -359,7 +360,15 @@ public class Settings extends PreferenceActivity
         PaymentSettings.class.getName(),
         KeyboardLayoutPickerFragment.class.getName(),
         BlacklistSettings.class.getName(),
-        ApnSettings.class.getName()
+        ApnSettings.class.getName(),
+        HomeSettings.class.getName(),
+        LockscreenInterface.class.getName(),
+        SystemUiSettings.class.getName(),
+        ButtonSettings.class.getName(),
+        MoreDeviceSettings.class.getName(),
+        ProfilesSettings.class.getName(),
+        PerformanceSettings.class.getName(),
+        PolicyNativeFragment.class.getName()
     };
 
     @Override
@@ -1148,8 +1157,6 @@ public class Settings extends PreferenceActivity
     public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
     public static class ProfilesSettingsActivity extends Settings { /* empty */ }
     public static class DreamSettingsActivity extends Settings { /* empty */ }
-    public static class ResurrectionActivity extends Settings { /* empty */ }
-    public static class AboutActivity extends Settings { /* empty */ }
     public static class NotificationStationActivity extends Settings { /* empty */ }
     public static class UserSettingsActivity extends Settings { /* empty */ }
     public static class NotificationAccessSettingsActivity extends Settings { /* empty */ }
@@ -1162,5 +1169,4 @@ public class Settings extends PreferenceActivity
     public static class ApnSettingsActivity extends Settings { /* empty */ }
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
-
 }

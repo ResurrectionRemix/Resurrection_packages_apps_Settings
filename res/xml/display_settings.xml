@@ -27,9 +27,10 @@
                 android:title="@string/wallpaper_settings_title"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
 
-        <CheckBoxPreference
-            android:key="accelerometer"
-            android:title="@string/accelerometer_title"/>
+        <PreferenceScreen
+            android:key="display_rotation"
+            android:fragment="com.android.settings.cyanogenmod.DisplayRotation"
+            android:title="@string/display_rotation_title" />
 
         <ListPreference
                 android:key="screen_timeout"
@@ -70,13 +71,6 @@
                 android:targetPackage="com.cyanogenmod.settings.device"
                 android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
         </Preference>
-        
-        <ListPreference
-                android:key="screen_off_animation"
-                android:title="@string/screen_off_animation"
-                android:entries="@array/screen_off_animation_entries"
-                android:entryValues="@array/screen_off_animation_values" />
-                
 
         <CheckBoxPreference
             android:key="wake_when_plugged_or_unplugged"
@@ -99,6 +93,5 @@
                 android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 
         </PreferenceCategory>
-
 
 </PreferenceScreen>
