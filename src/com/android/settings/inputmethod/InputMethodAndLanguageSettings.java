@@ -292,6 +292,13 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         // Refresh internal states in mInputMethodSettingValues to keep the latest
         // "InputMethodInfo"s and "InputMethodSubtype"s
         mInputMethodSettingValues.refreshAllInputMethodAndSubtypes();
+<<<<<<< HEAD
+=======
+        // TODO: Consolidate the logic to InputMethodSettingsWrapper
+        InputMethodAndSubtypeUtil.loadInputMethodSubtypeList(
+                this, getContentResolver(),
+                mInputMethodSettingValues.getInputMethodList(), null);
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         updateInputMethodPreferenceViews();
     }
 
@@ -433,6 +440,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             }
         }
         updateCurrentImeName();
+<<<<<<< HEAD
         // TODO: Consolidate the logic with InputMethodSettingsWrapper
         // CAVEAT: The preference class here does not know about the default value - that is
         // managed by the Input Method Manager Service, so in this case it could save the wrong
@@ -440,6 +448,8 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         InputMethodAndSubtypeUtil.loadInputMethodSubtypeList(
                 this, getContentResolver(),
                 mInputMethodSettingValues.getInputMethodList(), null);
+=======
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
     }
 
     private void updateCurrentImeName() {
