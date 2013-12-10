@@ -40,23 +40,6 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
-<<<<<<< HEAD
-        <!-- CyanogenMod Updates -->
-        <PreferenceScreen android:key="cm_updates"
-                android:title="@string/cmupdate_settings_title" 
-                android:summary="@string/cmupdate_settings_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.cyanogenmod.updater"
-                    android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
-        </PreferenceScreen>
-
-        <!-- Anonymous statistics - (CMStats) -->
-        <PreferenceScreen
-            android:key="cmstats"
-            android:title="@string/anonymous_statistics_title"
-            android:summary="@string/anonymous_statistics_summary"
-            android:fragment="com.android.settings.cmstats.AnonymousStats" >
-        </PreferenceScreen>
 
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
@@ -64,8 +47,6 @@
             android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
         </PreferenceScreen>
 
-=======
->>>>>>> 66092e5... improve settings add mdpi about rom pngs
         <!-- Legal Information -->
         <PreferenceScreen
                 android:key="container"
