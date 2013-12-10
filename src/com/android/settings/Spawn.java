@@ -72,9 +72,11 @@ public class Spawn extends SettingsPreferenceFragment implements
 
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,11 @@ public class Spawn extends SettingsPreferenceFragment implements
         mStatusBarNotifCount.setChecked(Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
         mStatusBarNotifCount.setOnPreferenceChangeListener(this);
+
+	mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(resolver,
+            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarTraffic.setOnPreferenceChangeListener(this);
 
     }
 
@@ -114,6 +121,10 @@ public class Spawn extends SettingsPreferenceFragment implements
            if (preference == mStatusBarNotifCount) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
+        } else if (preference == mStatusBarTraffic) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
         } else {
             return false;
         }
