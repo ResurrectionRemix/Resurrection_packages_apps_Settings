@@ -16,18 +16,6 @@
 
 package com.android.settings.cyanogenmod;
 
-<<<<<<< HEAD
-import android.app.Fragment;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
-import com.android.settings.R;
-
-=======
 import com.android.settings.R;
 
 import android.os.Bundle;
@@ -39,27 +27,10 @@ import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-<<<<<<< HEAD
-public class ChangeLog extends Fragment {
-    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-CM.txt";
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-        InputStreamReader inputReader = null;
-        String text = null;
-
-        try {
-            StringBuilder data = new StringBuilder();
-            char tmp[] = new char[2048];
-            int numRead;
-
-=======
 import com.android.internal.app.AlertActivity;
 import com.android.internal.app.AlertController;
 
@@ -77,20 +48,13 @@ public class ChangeLog extends AlertActivity {
             data = new StringBuilder(2048);
             char tmp[] = new char[2048];
             int numRead;
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
             inputReader = new FileReader(CHANGELOG_PATH);
             while ((numRead = inputReader.read(tmp)) >= 0) {
                 data.append(tmp, 0, numRead);
             }
-<<<<<<< HEAD
-            text = data.toString();
-        } catch (IOException e) {
-            text = getString(R.string.changelog_error);
-=======
         } catch (IOException e) {
             showErrorAndFinish();
             return;
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         } finally {
             try {
                 if (inputReader != null) {
@@ -100,16 +64,6 @@ public class ChangeLog extends AlertActivity {
             }
         }
 
-<<<<<<< HEAD
-        final TextView textView = new TextView(getActivity());
-        textView.setText(text);
-
-        final ScrollView scrollView = new ScrollView(getActivity());
-        scrollView.addView(textView);
-
-        return scrollView;
-    }
-=======
         if (TextUtils.isEmpty(data)) {
             showErrorAndFinish();
             return;
@@ -140,5 +94,4 @@ public class ChangeLog extends AlertActivity {
         finish();
     }
 
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 }

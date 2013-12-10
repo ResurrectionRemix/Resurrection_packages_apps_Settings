@@ -17,18 +17,12 @@
 package com.android.settings.applications;
 
 import android.app.Activity;
-<<<<<<< HEAD
-import android.app.AppOpsManager;
-import android.app.Fragment;
-import android.content.Context;
-=======
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.AppOpsManager;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -108,8 +102,6 @@ public class AppOpsDetails extends Fragment {
             mPackageInfo = null;
         }
 
-<<<<<<< HEAD
-=======
         if (packageName != null && packageName.equals("android")) {
             final Resources r = getActivity().getResources();
 
@@ -123,7 +115,6 @@ public class AppOpsDetails extends Fragment {
                 .show();
         }
 
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         return packageName;
     }
 
