@@ -27,10 +27,9 @@
                 android:title="@string/wallpaper_settings_title"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
 
-        <PreferenceScreen
-            android:key="display_rotation"
-            android:fragment="com.android.settings.cyanogenmod.DisplayRotation"
-            android:title="@string/display_rotation_title" />
+        <CheckBoxPreference
+            android:key="accelerometer"
+            android:title="@string/accelerometer_title"/>
 
         <ListPreference
                 android:key="screen_timeout"
@@ -71,15 +70,6 @@
                 android:targetPackage="com.cyanogenmod.settings.device"
                 android:targetClass="com.cyanogenmod.settings.device.DisplaySettings" />
         </Preference>
-<<<<<<< HEAD
-
-        <CheckBoxPreference
-            android:key="wake_when_plugged_or_unplugged"
-            android:title="@string/wake_when_plugged_or_unplugged_title"
-            android:summary="@string/wake_when_plugged_or_unplugged_summary"
-            android:defaultValue="false" />
-
-=======
         
         <ListPreference
                 android:key="screen_off_animation"
@@ -87,7 +77,13 @@
                 android:entries="@array/screen_off_animation_entries"
                 android:entryValues="@array/screen_off_animation_values" />
                 
->>>>>>> e979fdf... [1/1] ElectronBeam: Add an alternative screen-off animation and profiles icon
+
+        <CheckBoxPreference
+            android:key="wake_when_plugged_or_unplugged"
+            android:title="@string/wake_when_plugged_or_unplugged_title"
+            android:summary="@string/wake_when_plugged_or_unplugged_summary"
+            android:defaultValue="false" />
+
         <PreferenceCategory
             android:key="lights_prefs"
             android:title="@string/lights_category_title">
