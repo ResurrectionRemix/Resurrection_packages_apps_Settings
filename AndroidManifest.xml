@@ -180,6 +180,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+
+=======
         
         <!-- Resurrection Settings-->
         <activity android:name="Resurrection" />
@@ -199,6 +202,7 @@
                 android:resource="@id/rr_settings" />
         </activity>
         
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"
                 android:configChanges="orientation|keyboardHidden|screenSize"
@@ -1464,7 +1468,10 @@
         </activity>
 
         <activity android:name="Settings$WifiDisplaySettingsActivity"
+<<<<<<< HEAD
+=======
                 android:uiOptions="splitActionBarWhenNarrow"
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
                 android:label="@string/wifi_display_settings_title"
                 android:taskAffinity=""
                 android:excludeFromRecents="true">
@@ -1770,11 +1777,15 @@
                 android:value="com.android.settings.cmstats.AnonymousStats" />
         </activity>
 
+<<<<<<< HEAD
+        <activity android:name=".cyanogenmod.ChangeLog" />
+=======
         <activity android:name=".cyanogenmod.ChangeLog" android:label="@string/changelog_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 
@@ -1809,7 +1820,11 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.app.action.START_ENCRYPTION" />
+<<<<<<< HEAD
+                <category android:name="android.intent.category.DEFAULT" />
+=======
                 <category android:name="android.intent.category.DEFAULT" /> />
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.CryptKeeperSettings" />

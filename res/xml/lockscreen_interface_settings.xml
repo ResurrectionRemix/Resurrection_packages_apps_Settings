@@ -27,6 +27,19 @@
             android:summary="@string/lockscreen_target_summary"
             android:title="@string/lockscreen_target_title" />
 
+<<<<<<< HEAD
+        <!-- Lock clock -->
+        <PreferenceScreen
+        android:key="lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+        </PreferenceScreen>
+
+=======
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="lockscreen_maximize_widgets"
             android:summary="@string/lockscreen_maximize_widgets_summary"

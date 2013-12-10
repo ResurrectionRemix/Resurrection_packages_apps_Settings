@@ -97,10 +97,17 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
+<<<<<<< HEAD
+        setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
+        findPreference(KEY_BUILD_NUMBER).setEnabled(true);
+        findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
+        setValueSummary(KEY_MOD_VERSION, "ro.cm.version");
+=======
         setStringSummary(KEY_BUILD_NUMBER, "resurrection_version-4.x.x_incremental");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_MOD_VERSION, "ro.rr_modversion");
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
 
@@ -402,8 +409,13 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
         try {
             /* The expected /proc/cpuinfo output is as follows:
+<<<<<<< HEAD
+             * Processor	: ARMv7 Processor rev 2 (v7l)
+             * BogoMIPS	: 272.62
+=======
              * Processor        : ARMv7 Processor rev 2 (v7l)
              * BogoMIPS        : 272.62
+>>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
              */
             String firstLine = readLine(FILENAME_PROC_CPUINFO);
             if (firstLine != null) {
