@@ -376,7 +376,6 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
                     switch (printJob.getState()) {
                         case PrintJobInfo.STATE_QUEUED:
                         case PrintJobInfo.STATE_STARTED: {
-<<<<<<< HEAD
                             if (!printJob.isCancelling()) {
                                 preference.setTitle(getString(
                                         R.string.print_printing_state_title_template,
@@ -386,11 +385,6 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
                                         R.string.print_cancelling_state_title_template,
                                         printJob.getLabel()));
                             }
-=======
-                            preference.setTitle(getString(
-                                    R.string.print_printing_state_title_template,
-                                    printJob.getLabel()));
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
                         } break;
 
                         case PrintJobInfo.STATE_FAILED: {
@@ -400,7 +394,6 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
                         } break;
 
                         case PrintJobInfo.STATE_BLOCKED: {
-<<<<<<< HEAD
                             if (!printJob.isCancelling()) {
                                 preference.setTitle(getString(
                                         R.string.print_blocked_state_title_template,
@@ -410,11 +403,6 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
                                         R.string.print_cancelling_state_title_template,
                                         printJob.getLabel()));
                             }
-=======
-                            preference.setTitle(getString(
-                                    R.string.print_blocked_state_title_template,
-                                    printJob.getLabel()));
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
                         } break;
                     }
 

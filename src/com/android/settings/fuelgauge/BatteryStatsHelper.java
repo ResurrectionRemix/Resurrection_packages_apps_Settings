@@ -490,7 +490,6 @@ public class BatteryStatsHelper {
                     * mPowerProfile.getAveragePower(PowerProfile.POWER_WIFI_SCAN)) / 1000;
             power += p;
             if (DEBUG && p != 0) Log.i(TAG, String.format("wifi scanning power=%.2f", p));
-<<<<<<< HEAD
             for (int bin = 0; bin < BatteryStats.Uid.NUM_WIFI_BATCHED_SCAN_BINS; bin++) {
                 long batchScanTimeMs = u.getWifiBatchedScanTime(bin, uSecTime, which) / 1000;
                 p = (batchScanTimeMs
@@ -500,8 +499,6 @@ public class BatteryStatsHelper {
                     Log.i(TAG, String.format("wifi batched scanning lvl %d = %.2f", bin, p));
                 }
             }
-=======
->>>>>>> 67871288ef10dafa45797239039ec3026e4c4020
 
             // Process Sensor usage
             Map<Integer, ? extends BatteryStats.Uid.Sensor> sensorStats = u.getSensorStats();
