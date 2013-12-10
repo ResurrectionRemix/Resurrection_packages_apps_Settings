@@ -40,7 +40,13 @@
         android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
         android:summary="@string/button_settings_summary"
         android:title="@string/button_settings" />
-             
+        
+   <PreferenceScreen
+          android:id="@+id/spawn_settings"
+          android:fragment="com.android.settings.Spawn"
+          android:summary="@string/spawn_title_summary"
+          android:title="@string/spawn_title" />
+                      
   <PreferenceScreen
         android:id="@+id/lock_screen_settings"
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
