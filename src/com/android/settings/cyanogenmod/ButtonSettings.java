@@ -78,11 +78,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
-<<<<<<< HEAD
     private CheckBoxPreference mShowActionOverflow;
-=======
     private ListPreference mVolumeKeyCursorControl;
->>>>>>> 7f1c553... settings: bring back volume key cursor control
     private CheckBoxPreference mSwapVolumeButtons;
 
     @Override
