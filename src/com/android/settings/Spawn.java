@@ -73,11 +73,13 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
+    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
 
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mStatusBarTraffic;
-
+    private CheckBoxPreference mLockRingBattery;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +101,13 @@ public class Spawn extends SettingsPreferenceFragment implements
             Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
         mStatusBarTraffic.setOnPreferenceChangeListener(this);
 
+            mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
+       if (mLockRingBattery != null) {
+            mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
+                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
+       }   
+    
+    
     }
 
     @Override
@@ -108,6 +117,9 @@ public class Spawn extends SettingsPreferenceFragment implements
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
                     ? 1 : 0);
+        } else if (preference == mLockRingBattery) {
+             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);                    
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
