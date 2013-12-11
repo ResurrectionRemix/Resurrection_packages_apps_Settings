@@ -213,23 +213,7 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/spawn_settings" />
         </activity>
- 	        <activity android:name="Settings$ActiveDisplaySettingsActivity"
-                android:label="@string/ad_settings_title"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.android.settings.SOUND_SETTINGS" />
-                <action android:name="android.settings.SOUND_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.VOICE_LAUNCH" />	
-                <category android:name="com.android.settings.SHORTCUT" />
-			            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"	
-                android:value="com.android.settings.ActiveDisplaySettings" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/active_display" />
-        </activity>       
+        
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"
                 android:configChanges="orientation|keyboardHidden|screenSize"
