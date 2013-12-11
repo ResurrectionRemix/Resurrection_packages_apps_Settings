@@ -77,11 +77,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
-<<<<<<< HEAD
-    private CheckBoxPreference mShowActionOverflow;
     private ListPreference mVolumeKeyCursorControl;
-=======
->>>>>>> ad002fe... Settings: remove force overflow button
     private CheckBoxPreference mSwapVolumeButtons;
 
     @Override
