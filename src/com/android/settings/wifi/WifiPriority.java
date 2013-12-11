@@ -25,7 +25,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+<<<<<<< HEAD
 import android.widget.ImageView;
+=======
+>>>>>>> fc13439... Wi-Fi AP priorities: Add RTL support & cleanup
 import android.widget.TextView;
 
 import com.android.settings.R;
