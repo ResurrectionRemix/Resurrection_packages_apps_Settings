@@ -69,8 +69,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String TAG = "Spawn";
 								
     private Context mContext;
-    
-    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
+
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
@@ -80,7 +79,6 @@ public class Spawn extends SettingsPreferenceFragment implements
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mStatusBarTraffic;
     private CheckBoxPreference mLockRingBattery;
-    private CheckBoxPreference mShowWifiName;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,10 +91,6 @@ public class Spawn extends SettingsPreferenceFragment implements
 
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
 
-        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-        mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
-                
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked(Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
@@ -125,9 +119,7 @@ public class Spawn extends SettingsPreferenceFragment implements
                     ? 1 : 0);
         } else if (preference == mLockRingBattery) {
              Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);         
-         } else if (preference == mShowWifiName) {
-             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID, mShowWifiName.isChecked() ? 1 : 0);                    
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);                    
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
