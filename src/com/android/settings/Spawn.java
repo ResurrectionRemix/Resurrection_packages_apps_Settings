@@ -74,11 +74,14 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
-
+    private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
+    private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
+    
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mStatusBarTraffic;
     private CheckBoxPreference mLockRingBattery;
+    private CheckBoxPreference mHeadsetHookLaunchVoice;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,7 +109,10 @@ public class Spawn extends SettingsPreferenceFragment implements
             mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
                      Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
        }   
-    
+
+        mHeadsetHookLaunchVoice = (CheckBoxPreference) findPreference(BUTTON_HEADSETHOOK_LAUNCH_VOICE);
+        mHeadsetHookLaunchVoice.setChecked(Settings.System.getInt(resolver,
+                Settings.System.HEADSETHOOK_LAUNCH_VOICE, 1) == 1);   
     
     }
 
@@ -119,7 +125,11 @@ public class Spawn extends SettingsPreferenceFragment implements
                     ? 1 : 0);
         } else if (preference == mLockRingBattery) {
              Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);                    
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
+        } else if (preference == mHeadsetHookLaunchVoice) {
+            boolean checked = ((CheckBoxPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);                    
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
