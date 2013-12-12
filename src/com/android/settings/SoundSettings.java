@@ -109,11 +109,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mLockSounds;
     private Preference mRingtonePreference;
     private Preference mNotificationPreference;
-<<<<<<< HEAD
     private PreferenceScreen mQuietHours;
-=======
-    private CheckBoxPreference mVolumeWakeScreen;
->>>>>>> 0f399a8... Move volume adjust sound option to more native place (2/2).
 
     private Runnable mRingtoneLookupRunnable;
 
@@ -208,13 +204,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mLockSounds.setChecked(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
 
-<<<<<<< HEAD
-=======
-        mVolumeWakeScreen = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE_SCREEN);
-        mVolumeWakeScreen.setChecked(Settings.System.getInt(resolver,
-                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
-
->>>>>>> 0f399a8... Move volume adjust sound option to more native place (2/2).
         mRingtonePreference = findPreference(KEY_RINGTONE);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
 
@@ -395,12 +384,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
                     mLockSounds.isChecked() ? 1 : 0);
 
-<<<<<<< HEAD
-=======
-        } else if (preference == mVolumeWakeScreen) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
-                    mVolumeWakeScreen.isChecked() ? 1 : 0);
->>>>>>> 0f399a8... Move volume adjust sound option to more native place (2/2).
         } else if (preference == mMusicFx) {
             // let the framework fire off the intent
             return false;
@@ -628,4 +611,3 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         return ab.create();
     }
 }
-

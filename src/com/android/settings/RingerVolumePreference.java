@@ -202,7 +202,6 @@ public class RingerVolumePreference extends VolumePreference {
             mCheckBoxes[i] = checkbox;
         }
 
-        // Volumes link checkbox
         final CheckBox linkCheckBox = (CheckBox) view.findViewById(R.id.link_ring_and_volume);
         final CheckBox linkMuteStates = (CheckBox) view.findViewById(R.id.link_mutes);
         final CheckBox volumeKeysControlRingStream = (CheckBox) view.findViewById(R.id.volume_keys_control_ring_stream);
@@ -299,7 +298,6 @@ public class RingerVolumePreference extends VolumePreference {
             linkVolumesSection.setVisibility(View.GONE);
         }
 
-<<<<<<< HEAD
         // Load safe headset setting
         boolean safeMediaVolumeEnabled = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_safe_media_volume_enabled);
@@ -363,8 +361,9 @@ public class RingerVolumePreference extends VolumePreference {
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.SAFE_HEADSET_VOLUME, 1);
                 }
-=======
-        // Volume adjust sound checkbox
+            }
+        });
+       // Volume adjust sound checkbox
         final CheckBox adjustCheckBox = (CheckBox) view.findViewById(R.id.volume_adjust_sound);
         final View volumeAdjustSection = view.findViewById(R.id.volume_adjust_section);
 
@@ -387,10 +386,8 @@ public class RingerVolumePreference extends VolumePreference {
                             Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 0);
                 }
                 updateSlidersAndMutedStates();
->>>>>>> 0f399a8... Move volume adjust sound option to more native place (2/2).
             }
         });
-
         // Load initial states from AudioManager
         updateSlidersAndMutedStates();
 
