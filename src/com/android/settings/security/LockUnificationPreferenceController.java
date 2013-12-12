@@ -225,8 +225,9 @@ public class LockUnificationPreferenceController extends AbstractPreferenceContr
                 mLockPatternUtils.getKeyguardStoredPasswordQuality(mProfileUserId);
         // PASSWORD_QUALITY_SOMETHING means pattern, everything above means PIN/password.
         if (profileQuality == DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
+            byte patternSize = mLockPatternUtils.getLockPatternSize(MY_USER_ID);
             mLockPatternUtils.saveLockPattern(
-                    LockPatternUtils.byteArrayToPattern(mCurrentProfilePassword),
+                    LockPatternUtils.byteArrayToPattern(mCurrentProfilePassword, patternSize),
                     mCurrentDevicePassword, MY_USER_ID);
         } else {
             mLockPatternUtils.saveLockPassword(
