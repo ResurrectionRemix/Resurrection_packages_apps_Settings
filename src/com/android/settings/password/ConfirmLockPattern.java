@@ -22,6 +22,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
 import android.view.LayoutInflater;
@@ -139,6 +140,8 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
                     mLockPatternUtils.isTactileFeedbackEnabled());
             mLockPatternView.setInStealthMode(!mLockPatternUtils.isVisiblePatternEnabled(
                     mEffectiveUserId));
+            mLockPatternView.setLockPatternSize(
+                    mLockPatternUtils.getLockPatternSize(mEffectiveUserId));
             mLockPatternView.setOnPatternListener(mConfirmExistingLockPatternListener);
             updateStage(Stage.NeedToUnlock);
 
@@ -462,7 +465,9 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
                                 mLockPatternUtils, pattern, challenge, localUserId,
                                 onVerifyCallback)
                         : LockPatternChecker.verifyTiedProfileChallenge(
-                                mLockPatternUtils, LockPatternUtils.patternToString(pattern),
+                                mLockPatternUtils,
+                                LockPatternUtils.patternToString(pattern,
+                                    mLockPatternUtils.getLockPatternSize(mEffectiveUserId)),
                                 true, challenge, localUserId, onVerifyCallback);
             }
 
@@ -487,7 +492,7 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
                                     intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_TYPE,
                                                     StorageManager.CRYPT_TYPE_PATTERN);
                                     intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD,
-                                                    LockPatternUtils.patternToString(pattern));
+                                                    mLockPatternUtils.patternToString(pattern, localEffectiveUserId));
                                 }
                                 mCredentialCheckResultTracker.setResult(matched, intent, timeoutMs,
                                         localEffectiveUserId);

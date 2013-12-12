@@ -191,8 +191,9 @@ public class LockUnificationPreferenceController extends AbstractPreferenceContr
         int profileQuality =
                 mLockPatternUtils.getKeyguardStoredPasswordQuality(mProfileChallengeUserId);
         if (profileQuality == DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
+            byte patternSize = mLockPatternUtils.getLockPatternSize(MY_USER_ID);
             mLockPatternUtils.saveLockPattern(
-                    LockPatternUtils.stringToPattern(mCurrentProfilePassword),
+                    LockPatternUtils.stringToPattern(mCurrentProfilePassword, patternSize),
                     mCurrentDevicePassword, MY_USER_ID);
         } else {
             mLockPatternUtils.saveLockPassword(
