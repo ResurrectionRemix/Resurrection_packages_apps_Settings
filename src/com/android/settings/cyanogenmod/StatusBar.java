@@ -30,9 +30,16 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
+    private static final String PREF_BATT_BAR = "battery_bar_list";
+    private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
+    private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
+    private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
+    private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
 
     private static final String STATUS_BAR_BATTERY_SHOW_PERCENT = "status_bar_battery_show_percent";
@@ -41,6 +48,18 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
     private ListPreference mStatusBarBattery;
+<<<<<<< HEAD
+=======
+    private ListPreference mBatteryBar;
+    private ListPreference mBatteryBarStyle;
+    private ListPreference mBatteryBarThickness;
+    private ListPreference mStatusBarCmSignal;
+    private ListPreference mStatusBarNetStatsUpdate;
+    private CheckBoxPreference mBatteryBarChargingAnimation;
+    private CheckBoxPreference mStatusBarNetworkStats;
+    private CheckBoxPreference mSMSBreath;
+    private ColorPickerPreference mBatteryBarColor;
+>>>>>>> 5edb703... Settings: Port BatteryBar (2/2)
     private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarCmSignal;
 
@@ -85,11 +104,50 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             prefSet.removePreference(mStatusBarCmSignal);
         }
 
+<<<<<<< HEAD
         if (Utils.isTablet(getActivity())) {
             prefSet.removePreference(statusBarBrightnessControl);
         }
 
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
+=======
+        mStatusBarNetworkStats.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1));
+
+        long statsUpdate = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
+        mStatusBarNetStatsUpdate.setValue(String.valueOf(statsUpdate));
+        mStatusBarNetStatsUpdate.setSummary(mStatusBarNetStatsUpdate.getEntry());
+        mStatusBarNetStatsUpdate.setOnPreferenceChangeListener(this);
+
+        mSMSBreath.setChecked((Settings.System.getInt(resolver, Settings.System.KEY_SMS_BREATH, 0) == 1));
+
+        mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
+        mBatteryBar.setOnPreferenceChangeListener(this);
+        mBatteryBar.setValue((Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR, 0)) + "");
+        mBatteryBar.setSummary(mBatteryBar.getEntry());
+
+        mBatteryBarStyle = (ListPreference) findPreference(PREF_BATT_BAR_STYLE);
+        mBatteryBarStyle.setOnPreferenceChangeListener(this);
+        mBatteryBarStyle.setValue((Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0)) + "");
+        mBatteryBarStyle.setSummary(mBatteryBarStyle.getEntry());
+
+        mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
+        mBatteryBarColor.setOnPreferenceChangeListener(this);
+        int defaultColor = 0xffffffff;
+        int intColor = Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_COLOR, defaultColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mBatteryBarColor.setSummary(hexColor);
+
+        mBatteryBarChargingAnimation = (CheckBoxPreference) findPreference(PREF_BATT_ANIMATE);
+        mBatteryBarChargingAnimation.setChecked(Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, 0) == 1);
+
+        mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
+        mBatteryBarThickness.setOnPreferenceChangeListener(this);
+        mBatteryBarThickness.setValue((Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, 1)) + "");
+        mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
+
+        updateBatteryBarOptions();
+>>>>>>> 5edb703... Settings: Port BatteryBar (2/2)
     }
 
     @Override
@@ -108,9 +166,66 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
+<<<<<<< HEAD
+=======
+        } else if (preference == mStatusBarNetStatsUpdate) {
+            long updateInterval = Long.valueOf((String) newValue);
+            int index = mStatusBarNetStatsUpdate.findIndexOfValue((String) newValue);
+            Settings.System.putLong(resolver, Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, updateInterval);
+            mStatusBarNetStatsUpdate.setSummary(mStatusBarNetStatsUpdate.getEntries()[index]);
+>>>>>>> 5edb703... Settings: Port BatteryBar (2/2)
+            return true;
+        } else if (preference == mBatteryBarColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                    .valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_COLOR, intHex);
+            return true;
+        } else if (preference == mBatteryBar) {
+            int val = Integer.valueOf((String) newValue);
+            int index = mBatteryBar.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR, val);
+            mBatteryBar.setSummary(mBatteryBar.getEntries()[index]);
+            updateBatteryBarOptions();
+            return true;
+        } else if (preference == mBatteryBarStyle) {
+            int val = Integer.valueOf((String) newValue);
+            int index = mBatteryBarStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_STYLE, val);
+            mBatteryBarStyle.setSummary(mBatteryBarStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mBatteryBarThickness) {
+            int val = Integer.valueOf((String) newValue);
+            int index = mBatteryBarThickness.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, val);
+            mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntries()[index]);
             return true;
         }
 
+<<<<<<< HEAD
+=======
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+        if (preference == mStatusBarNetworkStats) {
+            value = mStatusBarNetworkStats.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_NETWORK_STATS, value ? 1 : 0);
+            return true;
+        } else if (preference == mSMSBreath) {
+            value = mSMSBreath.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
+            return true;
+        } else if (preference == mBatteryBarChargingAnimation) {
+            value = mBatteryBarChargingAnimation.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, value ? 1 : 0);
+            return true;
+        }
+>>>>>>> 5edb703... Settings: Port BatteryBar (2/2)
         return false;
     }
 
@@ -118,5 +233,20 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         boolean enabled = !(value.equals(STATUS_BAR_STYLE_TEXT)
                 || value.equals(STATUS_BAR_STYLE_HIDDEN));
         mStatusBarBatteryShowPercent.setEnabled(enabled);
+    }
+
+    private void updateBatteryBarOptions() {
+        if (Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.STATUSBAR_BATTERY_BAR, 0) == 0) {
+            mBatteryBarStyle.setEnabled(false);
+            mBatteryBarThickness.setEnabled(false);
+            mBatteryBarChargingAnimation.setEnabled(false);
+            mBatteryBarColor.setEnabled(false);
+        } else {
+            mBatteryBarStyle.setEnabled(true);
+            mBatteryBarThickness.setEnabled(true);
+            mBatteryBarChargingAnimation.setEnabled(true);
+            mBatteryBarColor.setEnabled(true);
+        }
     }
 }
