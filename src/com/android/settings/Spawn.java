@@ -95,9 +95,7 @@ public class Spawn extends SettingsPreferenceFragment implements
         mContext = getActivity();
 
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
-
-                    
-            mQuickUnlockScreen.setOnPreferenceChangeListener(this);        
+      
         mStatusBarCustomHeader = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_CUSTOM_HEADER);
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
             Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
@@ -115,7 +113,7 @@ public class Spawn extends SettingsPreferenceFragment implements
         
         mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         if (mQuickUnlockScreen  != null) {
-            mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
+            mQuickUnlockScreen.setChecked(Settings.System.getInt(resolver, 
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
             mQuickUnlockScreen.setOnPreferenceChangeListener(this);
         }         
@@ -147,8 +145,9 @@ public class Spawn extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);
         } else if (preference == mQuickUnlockScreen) {
+			boolean checked = ((CheckBoxPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlockScreen.isChecked() ? 1 : 0);             
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, checked ? 1:0);            
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
