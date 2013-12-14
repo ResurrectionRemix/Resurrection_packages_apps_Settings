@@ -78,10 +78,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
-<<<<<<< HEAD
-=======
     private CheckBoxPreference mShowActionOverflow;
->>>>>>> parent of ef6859c... Settings: remove force overflow button
     private ListPreference mVolumeKeyCursorControl;
     private CheckBoxPreference mSwapVolumeButtons;
 
