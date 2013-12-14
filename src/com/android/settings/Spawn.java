@@ -77,14 +77,14 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
     private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
-    
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";	
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mStatusBarTraffic;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mHeadsetHookLaunchVoice;
     private CheckBoxPreference mStatusBarCustomHeader;
-    
+    private CheckBoxPreference mQuickUnlockScreen;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +95,9 @@ public class Spawn extends SettingsPreferenceFragment implements
         mContext = getActivity();
 
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
-        
+
+                    
+            mQuickUnlockScreen.setOnPreferenceChangeListener(this);        
         mStatusBarCustomHeader = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_CUSTOM_HEADER);
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
             Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
@@ -110,7 +112,13 @@ public class Spawn extends SettingsPreferenceFragment implements
         mStatusBarTraffic.setChecked(Settings.System.getInt(resolver,
             Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
         mStatusBarTraffic.setOnPreferenceChangeListener(this);
-
+        
+        mQuickUnlockScreen = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        if (mQuickUnlockScreen  != null) {
+            mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+            mQuickUnlockScreen.setOnPreferenceChangeListener(this);
+        }         
             mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
        if (mLockRingBattery != null) {
             mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
@@ -121,8 +129,9 @@ public class Spawn extends SettingsPreferenceFragment implements
         mHeadsetHookLaunchVoice.setChecked(Settings.System.getInt(resolver,
                 Settings.System.HEADSETHOOK_LAUNCH_VOICE, 1) == 1);   
     
-    }
 
+	   }
+	
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
                 boolean value;
@@ -136,7 +145,10 @@ public class Spawn extends SettingsPreferenceFragment implements
         } else if (preference == mHeadsetHookLaunchVoice) {
             boolean checked = ((CheckBoxPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);              
+                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);
+        } else if (preference == mQuickUnlockScreen) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlockScreen.isChecked() ? 1 : 0);             
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
