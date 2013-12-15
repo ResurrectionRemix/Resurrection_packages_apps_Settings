@@ -77,6 +77,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
     private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
+    private static final String MENU_UNLOCK_PREF = "menu_unlock";
     
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
@@ -84,6 +85,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mHeadsetHookLaunchVoice;
     private CheckBoxPreference mStatusBarCustomHeader;
+    private CheckBoxPreference mMenuUnlock;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +119,15 @@ public class Spawn extends SettingsPreferenceFragment implements
                      Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
        }   
 
+        // Menu Unlock
+         mMenuUnlock = (CheckBoxPreference) findPreference(MENU_UNLOCK_PREF);
+        if (mMenuUnlock != null) {
+             final boolean configDisabled = getResources().getBoolean
+                     (com.android.internal.R.bool.config_disableMenuKeyInLockScreen);
+             mMenuUnlock.setChecked(Settings.System.getInt(getContentResolver(),
+                     Settings.System.MENU_UNLOCK_SCREEN, configDisabled ? 0 : 1) == 1);
+         }
+         
         mHeadsetHookLaunchVoice = (CheckBoxPreference) findPreference(BUTTON_HEADSETHOOK_LAUNCH_VOICE);
         mHeadsetHookLaunchVoice.setChecked(Settings.System.getInt(resolver,
                 Settings.System.HEADSETHOOK_LAUNCH_VOICE, 1) == 1);   
@@ -136,7 +147,10 @@ public class Spawn extends SettingsPreferenceFragment implements
         } else if (preference == mHeadsetHookLaunchVoice) {
             boolean checked = ((CheckBoxPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);              
+                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);
+       } else if (preference == mMenuUnlock) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.MENU_UNLOCK_SCREEN, mMenuUnlock.isChecked() ? 1 : 0);               
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
