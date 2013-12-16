@@ -60,6 +60,10 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+<<<<<<< HEAD
+=======
+import android.util.DisplayMetrics;
+>>>>>>> 8f8c145... Settings: [3/3] Customizable lockscreen & navring targets
 import android.view.DisplayInfo;
 import android.view.Surface;
 import android.view.View;
@@ -749,10 +753,12 @@ public class Utils {
         }
         activity.setRequestedOrientation(frozenRotation);
     }
+<<<<<<< HEAD
 
     /* returns whether the device has volume rocker or not. */
     public static boolean hasVolumeRocker(Context context) {
         return context.getResources().getBoolean(R.bool.has_volume_rocker);
     }
-
+=======
+>>>>>>> 8f8c145... Settings: [3/3] Customizable lockscreen & navring targets
 }
