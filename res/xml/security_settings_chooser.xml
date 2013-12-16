@@ -26,46 +26,6 @@
             android:summary="@string/unlock_set_unlock_mode_none"
             android:persistent="false"/>
 
-<<<<<<< HEAD
-=======
-        <CheckBoxPreference
-            android:key="keyguard_enable_widgets"
-            android:title="@string/security_enable_widgets_title"/>
-
-        <CheckBoxPreference
-            android:key="lockscreen_maximize_widgets"
-            android:title="@string/security_maximize_widgets_title"/>
-
-
-        <CheckBoxPreference
-            android:key="battery_around_lockscreen_ring"
-            android:title="@string/battery_around_lockscreen_ring"
-            android:defaultValue="true" />
-
-        <Preference
-            android:fragment="org.omnirom.omnigears.interfacesettings.LockscreenTargets"
-            android:key="lockscreen_targets"
-            android:summary="@string/lockscreen_target_summary"
-            android:title="@string/lockscreen_target_title" />
-
-       <ListPreference
-            android:key="lock_after_timeout"
-            android:title="@string/lock_after_timeout"
-            android:summary="@string/lock_after_timeout_summary"
-            android:entries="@array/lock_after_timeout_entries"
-            android:entryValues="@array/lock_after_timeout_values"
-            android:persistent="false"/>
-
-        <CheckBoxPreference
-            android:key="power_button_instantly_locks"
-            android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
-
-        <CheckBoxPreference
-            android:key="menu_unlock"
-            android:title="@string/unlock_menu_unlock_title"
-            android:summary="@string/unlock_menu_unlock_summary" />
-
->>>>>>> 8f8c145... Settings: [3/3] Customizable lockscreen & navring targets
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"

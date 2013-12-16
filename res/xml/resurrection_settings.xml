@@ -63,7 +63,12 @@
                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
   </PreferenceScreen>
   
-            
+	    <!-- Navigation bar -->
+    <PreferenceScreen
+        android:key="navigation_ring"
+        android:fragment="com.android.settings.Resurrection"
+        android:title="@string/navigation_ring_title" />
+                    
 <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 

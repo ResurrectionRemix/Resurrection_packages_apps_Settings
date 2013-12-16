@@ -49,6 +49,7 @@ import android.util.Log;
 import android.view.IWindowManager;
 import android.view.Display;
 import android.view.Window;
+import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,7 +64,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
   
-
+    private static final String CATEGORY_NAVBAR = "category_navigation_bar";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
  
     private final Configuration mCurConfig = new Configuration();
@@ -76,8 +77,16 @@ public class Resurrection extends SettingsPreferenceFragment implements
        PreferenceScreen prefSet = getPreferenceScreen();
        mContext = getActivity();
        
-
-        
+        try {
+            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
+            // Hide navigation bar category on devices without navigation bar
+            if (!hasNavBar) {
+                prefSet.removePreference(findPreference(CATEGORY_NAVBAR));
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
+        }
+        }
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
     }
@@ -91,8 +100,8 @@ public class Resurrection extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
+ 
     }
-
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         return true;
