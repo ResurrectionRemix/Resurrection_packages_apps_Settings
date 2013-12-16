@@ -42,7 +42,13 @@
             android:title="@string/custom_statusbar_header_title"
             android:summary="@string/custom_statusbar_header_summary"	
             android:defaultValue="false" />
-                     
+            
+    <CheckBoxPreference
+            android:key="status_bar_brightness_control"
+            android:title="@string/status_bar_toggle_brightness"
+            android:summary="@string/status_bar_toggle_brightness_summary"
+            android:defaultValue="false" />
+                                 
     <PreferenceCategory
         android:key="spawn_lockscreen"
 	    android:title="@string/spawn_lockscreen_title" >
