@@ -18,10 +18,8 @@
 
 package com.android.settings;
 
-import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
@@ -63,6 +61,11 @@ import java.io.File;
 import java.io.IOException;
 
 import java.util.List;
+
+
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.R;
+import com.android.settings.util.Helpers;
 
 public class Spawn extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -184,8 +187,9 @@ public class Spawn extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
 	        } else if (preference == mStatusBarCustomHeader) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver,
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
+             Settings.System.putInt(resolver,
+                 Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
+            Helpers.restartSystemUI();
         } else if (preference == mStatusBarBrightnessControl) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
