@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.temasek;
+package com.android.settings.rr;
 
 import android.app.ActivityManager;
 import android.app.INotificationManager;

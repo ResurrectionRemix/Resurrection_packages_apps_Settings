@@ -47,7 +47,12 @@
           android:fragment="com.android.settings.Spawn"
           android:summary="@string/spawn_title_summary"
           android:title="@string/spawn_title" />
-                      
+    <!-- HALO -->
+<PreferenceScreen
+         android:id="@+id/halo_settings"
+         android:fragment="com.android.settings.rr.Halo"
+         android:title="@string/halo_settings_title" />
+                               
   <PreferenceScreen
         android:id="@+id/lock_screen_settings"
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
