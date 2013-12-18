@@ -62,8 +62,12 @@ import com.android.settings.Utils;
 public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
-  
-
+    
+    private ListPreference mListViewAnimation;
+    private ListPreference mListViewInterpolator;
+      
+    private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
  
     private final Configuration mCurConfig = new Configuration();
@@ -77,7 +81,21 @@ public class Resurrection extends SettingsPreferenceFragment implements
        mContext = getActivity();
        
 
-        
+         //ListView Animations
+        mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
+        int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.LISTVIEW_ANIMATION, 1);
+        mListViewAnimation.setValue(String.valueOf(listviewanimation));
+        mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+        mListViewAnimation.setOnPreferenceChangeListener(this);
+
+        mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
+        int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+        mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+        mListViewInterpolator.setOnPreferenceChangeListener(this);
+                 
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
     }
@@ -93,11 +111,27 @@ public class Resurrection extends SettingsPreferenceFragment implements
         super.onPause();
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
+        if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int listviewinterpolator = Integer.valueOf((String) newValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR,
+                    listviewinterpolator);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);        
         return true;
     }
-
+        return false;
+    }
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
         String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
         Pattern pattern = Pattern.compile("component=([^/]+)/");
