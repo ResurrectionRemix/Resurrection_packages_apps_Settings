@@ -101,7 +101,3 @@ public abstract class AbstractAsyncSuCMDProcessor extends AsyncTask<String, Void
     @Override
     protected abstract void onPostExecute(String result);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 80d5a50... Settings: TRDS goes Slim

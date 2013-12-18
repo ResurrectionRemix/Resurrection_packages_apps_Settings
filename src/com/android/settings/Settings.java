@@ -831,12 +831,9 @@ public class Settings extends PreferenceActivity
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
         private final ProfileEnabler mProfileEnabler;
-<<<<<<< HEAD
         private final LocationEnabler mLocationEnabler;
-=======
         private final TRDSEnabler mTRDSEnabler;
-
->>>>>>> 80d5a50... Settings: TRDS goes Slim
+        
         private AuthenticatorHelper mAuthHelper;
         private DevicePolicyManager mDevicePolicyManager;
 
@@ -857,11 +854,8 @@ public class Settings extends PreferenceActivity
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
                     || header.id == R.id.profiles_settings
-<<<<<<< HEAD
-                    || header.id == R.id.location_settings) {
-=======
+                    || header.id == R.id.location_settings
                     || header.id == R.id.trds_settings) {
->>>>>>> 80d5a50... Settings: TRDS goes Slim
                 return HEADER_TYPE_SWITCH;
             } else if (header.id == R.id.security_settings) {
                 return HEADER_TYPE_BUTTON;
@@ -983,14 +977,11 @@ public class Settings extends PreferenceActivity
                         mBluetoothEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.profiles_settings) {
                         mProfileEnabler.setSwitch(holder.switch_);
-<<<<<<< HEAD
                     } else if (header.id == R.id.location_settings) {
                         mLocationEnabler.setSwitch(holder.switch_);
-=======
                     } else if (header.id == R.id.trds_settings) {
                         mTRDSSwitch = (Switch) view.findViewById(R.id.switchWidget);
                         mTRDSEnabler.setSwitch(holder.switch_);
->>>>>>> 80d5a50... Settings: TRDS goes Slim
                     }
                     updateCommonHeaderView(header, holder);
                     break;
@@ -1065,22 +1056,16 @@ public class Settings extends PreferenceActivity
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
             mProfileEnabler.resume();
-<<<<<<< HEAD
             mLocationEnabler.resume();
-=======
             mTRDSEnabler.resume();
->>>>>>> 80d5a50... Settings: TRDS goes Slim
         }
 
         public void pause() {
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
             mProfileEnabler.pause();
-<<<<<<< HEAD
             mLocationEnabler.pause();
-=======
             mTRDSEnabler.pause();
->>>>>>> 80d5a50... Settings: TRDS goes Slim
         }
     }
 
