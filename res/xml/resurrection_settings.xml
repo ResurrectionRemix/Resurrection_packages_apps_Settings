@@ -82,7 +82,15 @@
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
             android:defaultValue="0"
-            android:dependency="listview_animation" />            
+            android:dependency="listview_animation" /> 
+            
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="lock_color_alpha"
+             android:title="@string/ls_color_alpha_title"
+             android:summary="@string/ls_color_alpha_summary"
+             android:defaultValue="0x70000000"
+             alphaSlider="true" />
+            
 <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 
