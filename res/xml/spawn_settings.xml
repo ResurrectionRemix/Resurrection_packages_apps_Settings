@@ -48,7 +48,13 @@
             android:title="@string/status_bar_toggle_brightness"
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
-                                 
+            
+  <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_flip"
+            android:title="@string/flip_qs_tiles_title"
+            android:summary="@string/flip_qs_tiles_summary"
+            android:defaultValue="true" /> 
+                                            
     <PreferenceCategory
         android:key="spawn_lockscreen"
 	    android:title="@string/spawn_lockscreen_title" >
