@@ -82,7 +82,16 @@
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
             android:defaultValue="0"
-            android:dependency="listview_animation" />            
+            android:dependency="listview_animation" />
+            
+        <ListPreference
+             android:key="pref_music_mode"
+             android:dialogTitle="@string/pref_music_mode_title"
+             android:title="@string/pref_music_mode_title"
+             android:entries="@array/entries_music_widget"
+             android:entryValues="@array/values_music_widget"
+             android:defaultValue="3" />
+                         
 <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 

@@ -65,10 +65,12 @@ public class Resurrection extends SettingsPreferenceFragment implements
     
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
-      
+    private ListPreference mMusicMode;
+     
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String EXP_MUSIC_MODE = "pref_music_mode";
  
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -80,7 +82,11 @@ public class Resurrection extends SettingsPreferenceFragment implements
        PreferenceScreen prefSet = getPreferenceScreen();
        mContext = getActivity();
        
-
+        // Music mode
+         mMusicMode = (ListPreference) prefSet.findPreference(EXP_MUSIC_MODE);
+         mMusicMode.setSummary(mMusicMode.getEntry());
+         mMusicMode.setOnPreferenceChangeListener(this);
+         
          //ListView Animations
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
@@ -129,6 +135,13 @@ public class Resurrection extends SettingsPreferenceFragment implements
                     listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);        
         return true;
+        } else if (preference == mMusicMode) {
+             int value = Integer.valueOf((String) newValue);
+             int index = mMusicMode.findIndexOfValue((String) newValue);
+             Settings.System.putInt(getContentResolver(), 
+             Settings.System.MUSIC_TILE_MODE, value);
+             mMusicMode.setSummary(mMusicMode.getEntries()[index]);
+             return true;
     }
         return false;
     }
