@@ -54,7 +54,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.File;
 import java.io.IOException;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -69,22 +69,18 @@ public class Resurrection extends SettingsPreferenceFragment implements
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
-    private static final String PREF_LS_COLOR_ALPHA = "lock_color_alpha";
-    
-    ColorPickerPreference mLsColorAlpha;
-    
+ 
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       addPreferencesFromResource(R.xml.resurrection_settings);
+        addPreferencesFromResource(R.xml.resurrection_settings);
        PreferenceScreen prefSet = getPreferenceScreen();
        mContext = getActivity();
        
-        mLsColorAlpha = (ColorPickerPreference) findPreference(PREF_LS_COLOR_ALPHA);
-        mLsColorAlpha.setOnPreferenceChangeListener(this);
+
          //ListView Animations
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
@@ -133,13 +129,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
                     listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);        
         return true;
-        } else if (preference == mLsColorAlpha) {
-             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-             preference.setSummary(hex);
-             int intHex = ColorPickerPreference.convertToColorInt(hex);
-             Settings.System.putInt(getActivity().getContentResolver(),
-                     Settings.System.LOCKSCREEN_COLOR_ALPHA, intHex);
-             return true;
     }
         return false;
     }
