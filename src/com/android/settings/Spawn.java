@@ -72,7 +72,8 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String TAG = "Spawn";
 								
     private Context mContext;
-
+    
+    private static final String NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
@@ -91,6 +92,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     private CheckBoxPreference mStatusBarCustomHeader;
     private CheckBoxPreference mMenuUnlock;
     private CheckBoxPreference mStatusBarBrightnessControl;
+    private CheckBoxPreference mShowWifiName;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,6 +104,10 @@ public class Spawn extends SettingsPreferenceFragment implements
         mContext = getActivity();
 
         mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+
+        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+        mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
         
         mStatusBarCustomHeader = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_CUSTOM_HEADER);
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
@@ -167,7 +173,10 @@ public class Spawn extends SettingsPreferenceFragment implements
                     Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);
        } else if (preference == mMenuUnlock) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.MENU_UNLOCK_SCREEN, mMenuUnlock.isChecked() ? 1 : 0);               
+                    Settings.System.MENU_UNLOCK_SCREEN, mMenuUnlock.isChecked() ? 1 : 0);
+         } else if (preference == mShowWifiName) {
+             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
+                    mShowWifiName.isChecked() ? 1 : 0);               
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
