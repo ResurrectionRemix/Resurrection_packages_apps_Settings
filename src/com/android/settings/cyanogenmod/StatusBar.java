@@ -45,14 +45,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBattery.setValue(String.valueOf(batteryStyle));
         mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
         mStatusBarBattery.setOnPreferenceChangeListener(this);
-        
-        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
-         int statusBarAmPm = Settings.System.getInt(resolver,
-                 Settings.System.STATUS_BAR_AM_PM, 2);
- 
-         mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
-         mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
-         mStatusBarAmPm.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -64,12 +56,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_BATTERY, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
             return true;
-        } else if (mStatusBarAmPm != null && preference == mStatusBarAmPm) {
-             int statusBarAmPm = Integer.valueOf((String) newValue);
-             int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
-             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
-             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
-             return true;
         }
         return false;
     }
