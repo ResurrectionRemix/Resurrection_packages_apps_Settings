@@ -177,6 +177,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         // Build hard keyboard and game controller preference categories.
         mIm = (InputManager)getActivity().getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
+<<<<<<< HEAD
         
         mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
         mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
@@ -193,6 +194,24 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             if (pointerSettingsCategory != null) {
                 Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                         pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
+=======
+
+        PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
+                        findPreference(KEY_POINTER_SETTINGS_CATEGORY);
+        mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
+        mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
+
+        if (pointerSettingsCategory != null) {
+            // remove stylus preference for non stylus devices
+            if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
+                pointerSettingsCategory.removePreference(mStylusGestures);
+                pointerSettingsCategory.removePreference(mStylusIconEnabled);
+            }
+            Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                            pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
+            if (pointerSettingsCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(pointerSettingsCategory);
+>>>>>>> 3dddf7c... Settings : Update gesture preference check
             }
         }
 
