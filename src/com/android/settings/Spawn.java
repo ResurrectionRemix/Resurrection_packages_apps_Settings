@@ -82,6 +82,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
     private static final String MENU_UNLOCK_PREF = "menu_unlock";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+    private static final String ENABLE_NAVIGATION_BAR = "enable_nav_bar";
     
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
@@ -91,6 +92,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     private CheckBoxPreference mStatusBarCustomHeader;
     private CheckBoxPreference mMenuUnlock;
     private CheckBoxPreference mStatusBarBrightnessControl;
+    private CheckBoxPreference mEnableNavigationBar;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,8 +103,16 @@ public class Spawn extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity();
 
-        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
-        
+        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);        
+         
+        boolean hasNavBarByDefault = getResources().getBoolean(
+                 com.android.internal.R.bool.config_showNavigationBar);
+         boolean enableNavigationBar = Settings.System.getInt(getContentResolver(),
+                 Settings.System.ENABLE_NAVIGATION_BAR, 0) == 1);
+         mEnableNavigationBar = (CheckBoxPreference) findPreference(ENABLE_NAVIGATION_BAR);
+         mEnableNavigationBar.setChecked(enableNavigationBar);
+         mEnableNavigationBar.setOnPreferenceChangeListener(this);
+                         
         mStatusBarCustomHeader = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_CUSTOM_HEADER);
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
             Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
@@ -193,6 +203,12 @@ public class Spawn extends SettingsPreferenceFragment implements
         } else if (preference == mStatusBarBrightnessControl) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
+         } else if (preference == mEnableNavigationBar) {
+             Settings.System.putInt(getActivity().getContentResolver(),
+                     Settings.System.ENABLE_NAVIGATION_BAR,
+                     ((Boolean) newValue) ? 1 : 0);
+             updateNavbarPreferences((Boolean) newValue);
+             return true;       
         } else {
             return false;
         }
