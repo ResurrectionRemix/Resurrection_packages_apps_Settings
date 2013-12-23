@@ -54,7 +54,6 @@
             android:targetPackage="com.cyanogenmod.settings.device"
             android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
     </Preference>
-
     <PreferenceCategory
         android:key="navigation_bar"
         android:title="@string/navigation_bar_category" >
@@ -68,7 +67,11 @@
             android:key="navigation_ring"
             android:fragment="com.android.settings.cyanogenmod.NavRing"
             android:title="@string/navigation_ring_title" />
-
-    </PreferenceCategory>
-
+            
+   <PreferenceScreen
+         android:key="navigation_bar"
+         android:fragment="com.android.settings.rr.NavigationBarSettings"
+         android:title="@string/navigation_bar_h_title" />
+         
+</PreferenceCategory>  
 </PreferenceScreen>
