@@ -47,7 +47,11 @@
           android:fragment="com.android.settings.Spawn"
           android:summary="@string/spawn_title_summary"
           android:title="@string/spawn_title" />
-                      
+     <Preference
+          android:fragment="com.android.settings.rr.NotificationDrawerStyle"
+          android:key="notification_style"
+          android:title="@string/notification_style_title"
+          android:summary="@string/notification_style_summary" />                      
   <PreferenceScreen
         android:id="@+id/lock_screen_settings"
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
