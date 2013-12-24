@@ -55,7 +55,7 @@ import com.android.settings.cyanogenmod.DisplayRotation;
 
 import org.cyanogenmod.hardware.AdaptiveBacklight;
 import android.widget.EditText;
-
+import com.android.settings.util.Helpers;
 import java.util.ArrayList;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
@@ -91,7 +91,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mDisplayRotationPreference;
 
     private final Configuration mCurConfig = new Configuration();
-
+    
     private ListPreference mScreenTimeoutPreference;
     private Preference mScreenSaverPreference;
 
@@ -101,7 +101,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private Context mContext;
     private Preference mCustomLabel;
     private String mCustomLabelText = null;
-
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
         @Override
@@ -481,7 +480,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     updateCustomLabelTextSummary();
                     Intent i = new Intent();
                     i.setAction("com.android.settings.LABEL_CHANGED");
-                    mContext.sendBroadcast(i);
+                    Helpers.restartSystemUI();
                 }
             });
             alert.setNegativeButton(getResources().getString(R.string.cancel),
