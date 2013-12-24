@@ -26,7 +26,12 @@
     <PreferenceCategory
         android:title="@string/lockscreen_widgets_category_title"
         android:key="lockscreen_widgets_category" >
-
+        
+        <CheckBoxPreference
+            android:key="lockscreen_quick_unlock_control"
+            android:summary="@string/lockscreen_quick_unlock_control_summary"
+            android:title="@string/lockscreen_quick_unlock_control_title" />
+            
         <CheckBoxPreference
             android:key="keyguard_enable_widgets"
             android:title="@string/lockscreen_custom_widgets_title" />
