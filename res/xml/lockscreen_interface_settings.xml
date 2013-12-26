@@ -51,6 +51,23 @@
             android:key="keyguard_enable_widgets"
             android:title="@string/lockscreen_custom_widgets_title" />
 
+<<<<<<< HEAD
+=======
+        <CheckBoxPreference
+                android:key="keyguard_enable_camera"
+                android:title="@string/lockscreen_enable_camera_title" />
+
+        <!-- Lock clock -->
+        <PreferenceScreen
+            android:key="lock_clock"
+            android:title="@string/lock_clock_title"
+            android:summary="@string/lock_clock_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.cyanogenmod.lockclock"
+                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+        </PreferenceScreen>
+
+>>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="lockscreen_maximize_widgets"
             android:summary="@string/lockscreen_maximize_widgets_summary"

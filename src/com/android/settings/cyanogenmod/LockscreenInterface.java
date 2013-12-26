@@ -20,7 +20,12 @@ import android.app.ActivityManager;
 import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+<<<<<<< HEAD
 import android.content.ContentResolver;
+=======
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+>>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
@@ -39,12 +44,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     private static final String TAG = "LockscreenInterface";
 
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
+<<<<<<< HEAD
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
 
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mQuickUnlock;
+=======
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
+
+    private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mEnableCameraWidget;
+>>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private DevicePolicyManager mDPM;
@@ -57,6 +70,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 
+<<<<<<< HEAD
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
         PreferenceCategory widgetsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
 
@@ -70,11 +84,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                             findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
                 }
             }
+=======
+        // Find preferences
+        mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
+        mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+>>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
 
         } else {
             // Secondary user is logged in, remove all primary user specific preferences
         }
 
+<<<<<<< HEAD
         // This applies to all users
         // Enable or disable keyguard widget checkbox based on DPM state
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
@@ -95,6 +115,21 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                 }
                 mEnableKeyguardWidgets.setEnabled(!disabled);
             }
+=======
+        // Enable or disable camera widget based on device and policy
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA) ||
+                Camera.getNumberOfCameras() == 0) {
+            widgetsCategory.removePreference(mEnableCameraWidget);
+            mEnableCameraWidget = null;
+        } else {
+            checkDisabledByPolicy(mEnableCameraWidget,
+                    DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
+        }
+
+        // Remove cLock settings item if not installed
+        if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
+            widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
+>>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
         }
         mQuickUnlock = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         if (mQuickUnlock != null) {
@@ -106,7 +141,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
+<<<<<<< HEAD
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
+=======
+
+        // Update custom widgets and camera
+>>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(lockPatternUtils.getWidgetsEnabled());
         }
@@ -114,6 +154,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         if (mQuickUnlock != null) {
             mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                   Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+        }
+
+        if (mEnableCameraWidget != null) {
+            mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
         }
     }
 
@@ -124,6 +168,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
         if (KEY_ENABLE_WIDGETS.equals(key)) {
             lockPatternUtils.setWidgetsEnabled(mEnableKeyguardWidgets.isChecked());
+            return true;
+        } else if (KEY_ENABLE_CAMERA.equals(key)) {
+            mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
         }
         if (preference == mQuickUnlock) {
