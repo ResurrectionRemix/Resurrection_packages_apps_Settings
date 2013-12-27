@@ -141,6 +141,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String DEBUG_APPLICATIONS_CATEGORY_KEY = "debug_applications_category";
     private static final String WIFI_DISPLAY_CERTIFICATION_KEY = "wifi_display_certification";
     private static final String PREF_DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
+
+    private static final String ENABLE_QUICKBOOT_KEY = "enable_quickboot";
+    private static final String QUICKBOOT_PACKAGE_NAME = "com.qapp.quickboot";
     private static final String OPENGL_TRACES_KEY = "enable_opengl_traces";
     
 
@@ -189,6 +192,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private CheckBoxPreference mAdbOverNetwork;
     private CheckBoxPreference mKeepScreenOn;
     private CheckBoxPreference mBtHciSnoopLog;
+    private CheckBoxPreference mQuickBoot;
     private CheckBoxPreference mAllowMockLocation;
     private PreferenceScreen mPassword;
 
@@ -297,6 +301,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mAdbOverNetwork = findAndInitCheckboxPref(ADB_TCPIP);
         mKeepScreenOn = findAndInitCheckboxPref(KEEP_SCREEN_ON);
         mBtHciSnoopLog = findAndInitCheckboxPref(BT_HCI_SNOOP_LOG);
+        mQuickBoot = findAndInitCheckboxPref(ENABLE_QUICKBOOT_KEY);
         mAllowMockLocation = findAndInitCheckboxPref(ALLOW_MOCK_LOCATION);
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
@@ -310,6 +315,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
             disableForUser(mDevelopmentShortcut);
+            disableForUser(mQuickBoot);
+        }
+
+        if (!isPackageInstalled(QUICKBOOT_PACKAGE_NAME)) {
+            removePreference(mQuickBoot);
         }
 
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
@@ -557,8 +567,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateCheckBox(mBtHciSnoopLog, Settings.Secure.getInt(cr,
                 Settings.Secure.BLUETOOTH_HCI_LOG, 0) != 0);
         updateAdbOverNetwork();
-	updateCheckBox(mAllowMockLocation, Settings.Secure.getInt(cr,
+        updateCheckBox(mAllowMockLocation, Settings.Secure.getInt(cr,
                 Settings.Secure.ALLOW_MOCK_LOCATION, 0) != 0);
+        updateCheckBox(mQuickBoot, Settings.Global.getInt(cr,
+                Settings.Global.ENABLE_QUICKBOOT, 0) != 0);
         updateRuntimeValue();
         updateHdcpValues();
         updatePasswordSummary();
@@ -1448,7 +1460,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.BUGREPORT_IN_POWER_MENU,
                     mBugreportInPower.isChecked() ? 1 : 0);
-	} else if (preference == mAdbOverNetwork) {
+        } else if (preference == mAdbOverNetwork) {
             if (mAdbOverNetwork.isChecked()) {
                 if (mAdbTcpDialog != null) {
                     dismissDialogs();
@@ -1481,6 +1493,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.System.putBoolean(mContext.getContentResolver(),
                     Settings.System.DISABLE_FC_NOTIFICATIONS,
                     ((CheckBoxPreference) preference).isChecked()); 
+        } else if (preference == mQuickBoot) {
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ENABLE_QUICKBOOT,
+                    mQuickBoot.isChecked() ? 1 : 0);
         } else if (preference == mDebugAppPref) {
             startActivityForResult(new Intent(getActivity(), AppPicker.class), RESULT_DEBUG_APP);
         } else if (preference == mWaitForDebugger) {
