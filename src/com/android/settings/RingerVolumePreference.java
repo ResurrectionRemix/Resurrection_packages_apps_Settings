@@ -423,16 +423,6 @@ public class RingerVolumePreference extends VolumePreference {
                     view.findViewById(SEEKBAR_SECTION_ID[i]).setVisibility(View.GONE);
                 }
             }
-        } else {
-            // Disable either ringer+notifications or notifications
-            int id;
-            if (!Utils.isVoiceCapable(getContext())) {
-                id = R.id.ringer_section;
-            } else {
-                id = R.id.notification_section;
-            }
-            View hideSection = view.findViewById(id);
-            hideSection.setVisibility(View.GONE);
         }
     }
 
