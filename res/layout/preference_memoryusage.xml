@@ -25,12 +25,21 @@
 
     <com.android.settings.deviceinfo.PercentageBarChart
         android:id="@+id/percentage_bar_chart"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="32dip"
+        android:layout_weight="1"
         android:minHeight="?android:attr/listPreferredItemHeight"
         android:gravity="center_vertical"
         settings:minTickWidth="6dip"
         settings:emptyColor="@color/material_empty_color_light">
     </com.android.settings.deviceinfo.PercentageBarChart>
+
+    <view class="com.android.settings.deviceinfo.UsageBarPreference$RefreshAnimationView"
+        android:id="@+id/memory_usage_rescan_media"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/storage_rescan_media"/>
 
 </LinearLayout>
