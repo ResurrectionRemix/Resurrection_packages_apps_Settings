@@ -19,10 +19,14 @@ package com.android.settings.notificationlight;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.InputFilter;
@@ -52,6 +56,8 @@ public class LightSettingsDialog extends AlertDialog implements
         ColorPickerView.OnColorChangedListener, TextWatcher, OnFocusChangeListener {
 
     private final static String STATE_KEY_COLOR = "LightSettingsDialog:color";
+    // Minimum delay between LED notification updates
+    private final static long LED_UPDATE_DELAY_MS = 250;
 
     private ColorPickerView mColorPicker;
 
@@ -63,6 +69,13 @@ public class LightSettingsDialog extends AlertDialog implements
 
     private OnColorChangedListener mListener;
 
+    private NotificationManager mNotificationManager;
+
+    private boolean mReadyForLed;
+    private int mLedLastColor;
+    private int mLedLastSpeedOn;
+    private int mLedLastSpeedOff;
+
     /**
      * @param context
      * @param initialColor
@@ -73,7 +86,7 @@ public class LightSettingsDialog extends AlertDialog implements
             int initialSpeedOff) {
         super(context);
 
-        init(initialColor, initialSpeedOn, initialSpeedOff, true);
+        init(context, initialColor, initialSpeedOn, initialSpeedOff, true);
     }
 
     /**
@@ -87,10 +100,17 @@ public class LightSettingsDialog extends AlertDialog implements
             int initialSpeedOff, boolean onOffChangeable) {
         super(context);
 
-        init(initialColor, initialSpeedOn, initialSpeedOff, onOffChangeable);
+        init(context, initialColor, initialSpeedOn, initialSpeedOff, onOffChangeable);
     }
 
-    private void init(int color, int speedOn, int speedOff, boolean onOffChangeable) {
+    private void init(Context context, int color, int speedOn, int speedOff,
+            boolean onOffChangeable) {
+        mNotificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mReadyForLed = false;
+        mLedLastColor = 0;
+
         // To fight color banding.
         getWindow().setFormat(PixelFormat.RGBA_8888);
         setUp(color, speedOn, speedOff, onOffChangeable);
@@ -124,7 +144,7 @@ public class LightSettingsDialog extends AlertDialog implements
                 speedOn);
         mPulseSpeedOn.setAdapter(pulseSpeedAdapter);
         mPulseSpeedOn.setSelection(pulseSpeedAdapter.getTimePosition(speedOn));
-        mPulseSpeedOn.setOnItemSelectedListener(mSelectionListener);
+        mPulseSpeedOn.setOnItemSelectedListener(mPulseSelectionListener);
 
         mPulseSpeedOff = (Spinner) layout.findViewById(R.id.off_spinner);
         pulseSpeedAdapter = new PulseSpeedAdapter(R.array.notification_pulse_speed_entries,
@@ -132,19 +152,26 @@ public class LightSettingsDialog extends AlertDialog implements
                 speedOff);
         mPulseSpeedOff.setAdapter(pulseSpeedAdapter);
         mPulseSpeedOff.setSelection(pulseSpeedAdapter.getTimePosition(speedOff));
+        mPulseSpeedOff.setOnItemSelectedListener(mPulseSelectionListener);
 
         mPulseSpeedOn.setEnabled(onOffChangeable);
         mPulseSpeedOff.setEnabled((speedOn != 1) && onOffChangeable);
 
         setView(layout);
         setTitle(R.string.edit_light_settings);
+
+        mReadyForLed = true;
+        updateLed();
     }
 
-    private AdapterView.OnItemSelectedListener mSelectionListener = new AdapterView.OnItemSelectedListener() {
-
+    private AdapterView.OnItemSelectedListener mPulseSelectionListener =
+            new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            mPulseSpeedOff.setEnabled(mPulseSpeedOn.isEnabled() && getPulseSpeedOn() != 1);
+            if (parent == mPulseSpeedOn) {
+                mPulseSpeedOff.setEnabled(mPulseSpeedOn.isEnabled() && getPulseSpeedOn() != 1);
+            }
+            updateLed();
         }
 
         @Override
@@ -166,6 +193,18 @@ public class LightSettingsDialog extends AlertDialog implements
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        dismissLed();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateLed();
+    }
+
+    @Override
     public void onColorChanged(int color) {
         final boolean hasAlpha = mColorPicker.isAlphaSliderVisible();
         final String format = hasAlpha ? "%08x" : "%06x";
@@ -177,6 +216,8 @@ public class LightSettingsDialog extends AlertDialog implements
         if (mListener != null) {
             mListener.onColorChanged(color);
         }
+
+        updateLed();
     }
 
     public void setAlphaSliderVisible(boolean visible) {
@@ -197,6 +238,59 @@ public class LightSettingsDialog extends AlertDialog implements
     public int getPulseSpeedOff() {
         // return 0 if 'Always on' is selected
         return getPulseSpeedOn() == 1 ? 0 : ((Pair<String, Integer>) mPulseSpeedOff.getSelectedItem()).second;
+    }
+
+    private Handler mLedHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            updateLed();
+        }
+    };
+
+    private void updateLed() {
+        if (!mReadyForLed) {
+            return;
+        }
+
+        final int color = getColor() & 0xFFFFFF;
+        final int speedOn, speedOff;
+        if (mPulseSpeedOn.isEnabled()) {
+            speedOn = getPulseSpeedOn();
+            speedOff = getPulseSpeedOff();
+        } else {
+            speedOn = 1;
+            speedOff = 0;
+        }
+
+        if (mLedLastColor == color && mLedLastSpeedOn == speedOn
+                && mLedLastSpeedOff == speedOff) {
+            return;
+        }
+
+        // Dampen rate of consecutive LED changes
+        if (mLedHandler.hasMessages(0)) {
+            return;
+        }
+        mLedHandler.sendEmptyMessageDelayed(0, LED_UPDATE_DELAY_MS);
+
+        mLedLastColor = color;
+        mLedLastSpeedOn = speedOn;
+        mLedLastSpeedOff = speedOff;
+
+        final Bundle b = new Bundle();
+        b.putBoolean(Notification.EXTRA_FORCE_SHOW_LIGHTS, true);
+
+        final Notification.Builder builder = new Notification.Builder(getContext());
+        builder.setLights(color, speedOn, speedOff);
+        builder.setExtras(b);
+
+        mNotificationManager.notify(1, builder.build());
+    }
+
+    public void dismissLed() {
+        mNotificationManager.cancel(1);
+        // ensure we later reset LED if dialog is
+        // hidden and then made visible
+        mLedLastColor = 0;
     }
 
     class PulseSpeedAdapter extends BaseAdapter implements SpinnerAdapter {

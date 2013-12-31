@@ -18,13 +18,8 @@ package com.android.settings.notificationlight;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
@@ -55,8 +50,6 @@ public class ApplicationLightPreference extends DialogPreference {
     private boolean mOnOffChangeable;
 
     private Resources mResources;
-    private ScreenReceiver mReceiver = null;
-    private AlertDialog mTestDialog;
 
     /**
      * @param context
@@ -107,6 +100,20 @@ public class ApplicationLightPreference extends DialogPreference {
         mResources = getContext().getResources();
     }
 
+    public void onStart() {
+        LightSettingsDialog d = (LightSettingsDialog) getDialog();
+        if (d != null) {
+            d.onStart();
+        }
+    }
+
+    public void onStop() {
+        LightSettingsDialog d = (LightSettingsDialog) getDialog();
+        if (d != null) {
+            d.onStop();
+        }
+    }
+
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
@@ -149,17 +156,6 @@ public class ApplicationLightPreference extends DialogPreference {
         super.showDialog(state);
 
         final LightSettingsDialog d = (LightSettingsDialog) getDialog();
-
-        // Intercept the click on the middle button to show the test dialog and prevent the onDismiss
-        d.findViewById(android.R.id.button3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int onTime = d.getPulseSpeedOn();
-                int offTime = d.getPulseSpeedOff();
-
-                showTestDialog(d.getColor() - 0xFF000000, onTime, offTime);
-            }
-        });
     }
 
     @Override
@@ -179,45 +175,14 @@ public class ApplicationLightPreference extends DialogPreference {
                 callChangeListener(this);
             }
         });
-        d.setButton(AlertDialog.BUTTON_NEUTRAL, mResources.getString(R.string.dialog_test),
-                (DialogInterface.OnClickListener) null);
         d.setButton(AlertDialog.BUTTON_NEGATIVE, mResources.getString(R.string.cancel),
-                (DialogInterface.OnClickListener) null);
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
 
         return d;
-    }
-
-    private void showTestDialog(int color, int speedOn, int speedOff) {
-        final Context context = getContext();
-
-        if (mReceiver != null) {
-            context.unregisterReceiver(mReceiver);
-        }
-        if (mTestDialog != null) {
-            mTestDialog.dismiss();
-        }
-
-        mReceiver = new ScreenReceiver(color, speedOn, speedOff);
-
-        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(Intent.ACTION_SCREEN_ON);
-        context.registerReceiver(mReceiver, filter);
-
-        mTestDialog = new AlertDialog.Builder(context)
-                .setTitle(R.string.dialog_test)
-                .setMessage(R.string.dialog_test_message)
-                .setPositiveButton(R.string.dialog_test_button, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (mReceiver != null) {
-                            context.unregisterReceiver(mReceiver);
-                            mReceiver = null;
-                        }
-                    }
-                })
-                .create();
-
-        mTestDialog.show();
     }
 
     /**
@@ -280,39 +245,6 @@ public class ApplicationLightPreference extends DialogPreference {
     /**
      * Utility methods
      */
-    public class ScreenReceiver extends BroadcastReceiver {
-        protected int timeon;
-        protected int timeoff;
-        protected int color;
-
-        public ScreenReceiver(int color, int timeon, int timeoff) {
-            this.timeon = timeon;
-            this.timeoff = timeoff;
-            this.color = color;
-        }
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final NotificationManager nm =
-                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-            if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                Notification.Builder builder = new Notification.Builder(context);
-                builder.setAutoCancel(true);
-                builder.setLights(color, timeon, timeoff);
-                Notification n = builder.getNotification();
-                n.flags |= Notification.FLAG_SHOW_LIGHTS;
-                nm.notify(1, n);
-            } else if(intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                nm.cancel(1);
-                context.unregisterReceiver(mReceiver);
-                mReceiver = null;
-                mTestDialog.dismiss();
-                mTestDialog = null;
-            }
-        }
-    }
-
     private static ShapeDrawable createRectShape(int width, int height, int color) {
         ShapeDrawable shape = new ShapeDrawable(new RectShape());
         shape.setIntrinsicHeight(height);

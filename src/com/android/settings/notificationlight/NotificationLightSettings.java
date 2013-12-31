@@ -157,6 +157,35 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         getActivity().invalidateOptionsMenu();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        setChildrenStarted(getPreferenceScreen(), true);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        setChildrenStarted(getPreferenceScreen(), false);
+    }
+
+    private void setChildrenStarted(PreferenceGroup group, boolean started) {
+        final int count = group.getPreferenceCount();
+        for (int i = 0; i < count; i++) {
+            Preference pref = group.getPreference(i);
+            if (pref instanceof ApplicationLightPreference) {
+                ApplicationLightPreference ap = (ApplicationLightPreference) pref;
+                if (started) {
+                    ap.onStart();
+                } else {
+                    ap.onStop();
+                }
+            } else if (pref instanceof PreferenceGroup) {
+                setChildrenStarted((PreferenceGroup) pref, started);
+            }
+        }
+    }
+
     private void refreshDefault() {
         ContentResolver resolver = getContentResolver();
         int color = Settings.System.getInt(resolver,
