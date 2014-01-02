@@ -75,11 +75,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
         mMtp = (CheckBoxPreference)root.findPreference(KEY_MTP);
         mPtp = (CheckBoxPreference)root.findPreference(KEY_PTP);
         mUms = (CheckBoxPreference)root.findPreference(KEY_MASS_STORAGE);
-<<<<<<< HEAD
         if (!storageVolumes[0].allowMassStorage()) {
-=======
-        if (!storageManager.isUsbMassStorageSupported()) {
->>>>>>> 9506c2c... Settings: UMS [2/2]
             root.removePreference(mUms);
         }
 
@@ -121,30 +117,10 @@ public class UsbSettings extends SettingsPreferenceFragment {
     }
 
     private void updateToggles(String function) {
-<<<<<<< HEAD
         mMtp.setChecked(UsbManager.USB_FUNCTION_MTP.equals(function));
         mPtp.setChecked(UsbManager.USB_FUNCTION_PTP.equals(function));
         mUms.setChecked(UsbManager.USB_FUNCTION_MASS_STORAGE.equals(function));
 
-=======
-        if (UsbManager.USB_FUNCTION_MTP.equals(function)) {
-            mMtp.setChecked(true);
-            mPtp.setChecked(false);
-            mUms.setChecked(false);
-        } else if (UsbManager.USB_FUNCTION_PTP.equals(function)) {
-            mMtp.setChecked(false);
-            mPtp.setChecked(true);
-            mUms.setChecked(false);
-        } else if (UsbManager.USB_FUNCTION_MASS_STORAGE.equals(function)) {
-            mMtp.setChecked(false);
-            mPtp.setChecked(false);
-            mUms.setChecked(true);
-        } else  {
-            mMtp.setChecked(false);
-            mPtp.setChecked(false);
-            mUms.setChecked(false);
-        }
->>>>>>> 9506c2c... Settings: UMS [2/2]
         UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
         if (um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
             Log.e(TAG, "USB is locked down");
@@ -152,7 +128,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
             mPtp.setEnabled(false);
             mUms.setEnabled(false);
         } else if (!mUsbAccessoryMode) {
-            // Enable function switch while USB is not in Accessory Mode, otherwise disable it
+            //Enable MTP and PTP switch while USB is not in Accessory Mode, otherwise disable it
             Log.e(TAG, "USB Normal Mode");
             mMtp.setEnabled(true);
             mPtp.setEnabled(true);
