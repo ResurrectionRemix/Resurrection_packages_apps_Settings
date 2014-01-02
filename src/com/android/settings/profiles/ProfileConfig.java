@@ -72,6 +72,8 @@ public class ProfileConfig extends SettingsPreferenceFragment
 
     private ListPreference mScreenLockModePreference;
 
+    private ListPreference mExpandedDesktopModePreference;
+
     // constant value that can be used to check return code from sub activity.
     private static final int PROFILE_GROUP_DETAILS = 1;
 
@@ -273,6 +275,20 @@ public class ProfileConfig extends SettingsPreferenceFragment
             }
 
             systemPrefs.addPreference(mScreenLockModePreference);
+
+            // Expanded Desktop
+            mExpandedDesktopModePreference = new ListPreference(getActivity());
+            mExpandedDesktopModePreference.setTitle(R.string.power_menu_expanded_desktop);
+            mExpandedDesktopModePreference.setEntries(R.array.profile_expanded_desktop_entries);
+            mExpandedDesktopModePreference.setEntryValues(R.array.profile_expanded_desktop_values);
+            mExpandedDesktopModePreference.setPersistent(false);
+            mExpandedDesktopModePreference.setSummary(getResources().getStringArray(
+                    R.array.profile_expanded_desktop_entries)[mProfile.getExpandedDesktopMode()]);
+            mExpandedDesktopModePreference.setValue(String.valueOf(mProfile
+                    .getExpandedDesktopMode()));
+            mExpandedDesktopModePreference.setOnPreferenceChangeListener(this);
+
+            systemPrefs.addPreference(mExpandedDesktopModePreference);
         }
 
         // Populate the audio streams list
@@ -290,8 +306,8 @@ public class ProfileConfig extends SettingsPreferenceFragment
                 StreamVolumePreference pref = new StreamVolumePreference(getActivity());
                 pref.setKey("stream_" + stream.mStreamId);
                 pref.setTitle(stream.mLabel);
-                pref.setSummary(getString(R.string.volume_override_summary) + " " + settings.getValue() 
-                        + "/" + am.getStreamMaxVolume(stream.mStreamId)); 
+                pref.setSummary(getString(R.string.volume_override_summary) + " " + settings.getValue()
+                        + "/" + am.getStreamMaxVolume(stream.mStreamId));
                 pref.setPersistent(false);
                 pref.setStreamItem(stream);
                 stream.mCheckbox = pref;
@@ -371,6 +387,10 @@ public class ProfileConfig extends SettingsPreferenceFragment
             mProfile.setScreenLockMode(Integer.valueOf((String) newValue));
             mScreenLockModePreference.setSummary(getResources().getStringArray(
                     R.array.profile_lockmode_summaries)[mProfile.getScreenLockMode()]);
+        } else if (preference == mExpandedDesktopModePreference) {
+            mProfile.setExpandedDesktopMode(Integer.valueOf((String) newValue));
+            mExpandedDesktopModePreference.setSummary(getResources().getStringArray(
+                    R.array.profile_expanded_desktop_entries)[mProfile.getExpandedDesktopMode()]);
         }
         return true;
     }
@@ -396,7 +416,7 @@ public class ProfileConfig extends SettingsPreferenceFragment
                 0, header, this, PROFILE_GROUP_DETAILS);
     }
 
-    
+
     private void deleteProfile() {
         if (mProfile.getUuid().equals(mProfileManager.getActiveProfile().getUuid())) {
             Toast toast = Toast.makeText(getActivity(), getString(R.string.profile_cannot_delete),
