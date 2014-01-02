@@ -1203,5 +1203,9 @@ public class Settings extends PreferenceActivity
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class SpawnActivity extends Settings { /* empty */ }
+<<<<<<< HEAD
     public static class SystemSettingsActivity extends Settings { /* empty */ }
+=======
+
+>>>>>>> parent of c980a0f... Re-add system settings fragment direct link.
 }
