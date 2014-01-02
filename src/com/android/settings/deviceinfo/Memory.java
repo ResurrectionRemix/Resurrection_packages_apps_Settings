@@ -170,7 +170,12 @@ public class Memory extends SettingsPreferenceFragment {
     public void onPrepareOptionsMenu(Menu menu) {
         final MenuItem usb = menu.findItem(R.id.storage_usb);
         UserManager um = (UserManager)getActivity().getSystemService(Context.USER_SERVICE);
+<<<<<<< HEAD
+        boolean usbItemVisible = !um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER);
+        usb.setVisible(usbItemVisible);
+=======
         usb.setVisible(!um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER));
+>>>>>>> 9506c2c... Settings: UMS [2/2]
     }
 
     @Override
