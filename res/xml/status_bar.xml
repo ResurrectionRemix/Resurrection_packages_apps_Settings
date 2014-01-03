@@ -18,6 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_title">
 
+<<<<<<< HEAD
    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="status_bar_clock"
         android:title="@string/status_bar_show_clock_title"
@@ -93,4 +94,136 @@
              android:summary="@string/battery_bar_animate_summary" />
  
      </PreferenceCategory>
+=======
+    <PreferenceCategory
+        android:key="category_status_bar_battery"
+        android:title="@string/status_bar_battery_cat_title">
+
+        <ListPreference
+            android:key="status_bar_battery"
+            android:dialogTitle="@string/status_bar_battery_title"
+            android:title="@string/status_bar_battery_title"
+            android:entries="@array/entries_status_bar_battery"
+            android:entryValues="@array/values_status_bar_battery"
+            android:defaultValue="0" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="status_bar_battery_show_percent"
+            android:title="@string/status_bar_battery_show_percent_title"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_status_bar_battery_bar"
+        android:title="@string/battery_bar_title">
+
+        <ListPreference
+            android:key="battery_bar_list"
+            android:title="@string/battery_bar"
+            android:entries="@array/battery_bar_entries"
+            android:entryValues="@array/battery_bar_values" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="battery_bar_color"
+            android:title="@string/battery_bar_color"
+            android:defaultValue="0xffffffff" />
+
+        <ListPreference
+            android:key="battery_bar_style"
+            android:title="@string/battery_bar_style_title"
+            android:entries="@array/battery_bar_style_entries"
+            android:entryValues="@array/battery_bar_style_values" />
+
+        <ListPreference
+            android:key="battery_bar_thickness"
+            android:title="@string/battery_bar_thickness_title"
+            android:entries="@array/battery_bar_thickness_entries"
+            android:entryValues="@array/battery_bar_thickness_values" />
+
+        <CheckBoxPreference
+            android:key="battery_bar_animate"
+            android:title="@string/battery_bar_animate_title"
+            android:summary="@string/battery_bar_animate_summary" />
+
+    </PreferenceCategory>
+
+    <!-- Status bar tweaks -->
+    <PreferenceCategory
+        android:key="category_status_bar_clock"
+        android:title="@string/status_bar_clock_title">
+
+       <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="status_bar_clock"
+            android:title="@string/status_bar_show_clock_title"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="status_bar_am_pm"
+            android:dialogTitle="@string/status_bar_am_pm_title"
+            android:title="@string/status_bar_am_pm_title"
+            android:entries="@array/entries_status_bar_am_pm"
+            android:entryValues="@array/values_status_bar_am_pm" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="status_bar_general"
+        android:title="@string/status_bar_general_title">
+
+        <ListPreference
+            android:key="status_bar_signal"
+            android:dialogTitle="@string/status_bar_signal_text_title"
+            android:title="@string/status_bar_signal_text_title"
+            android:entries="@array/entries_status_bar_signal"
+            android:entryValues="@array/values_status_bar_signal" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="status_bar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/status_bar_double_tap_to_sleep_title"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/status_bar_network_title">
+
+       <CheckBoxPreference
+            android:key="status_bar_show_network_stats"
+            android:title="@string/status_bar_show_network_stats_title"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="status_bar_network_status_update"
+            android:dialogTitle="@string/status_bar_network_stats_update_title"
+            android:title="@string/status_bar_network_stats_update_title"
+            android:entries="@array/entries_status_bar_network_stats_update"
+            android:entryValues="@array/values_status_bar_network_stats_update"
+            android:dependency="status_bar_show_network_stats" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/breathing_notifications_title">
+
+        <CheckBoxPreference android:key="sms_breath"
+            android:title="@string/sms_breath"
+            android:summary="@string/sms_breath_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="missed_call_breath"
+            android:title="@string/title_missed_call_breath"
+            android:summary="@string/missed_call_breath_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+>>>>>>> 90c7865... Breathing Missed Call notifications (2/3)
 </PreferenceScreen>

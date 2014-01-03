@@ -43,6 +43,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
 
     private static final String STATUS_BAR_BATTERY_SHOW_PERCENT = "status_bar_battery_show_percent";
+<<<<<<< HEAD
+=======
+    private static final String KEY_SMS_BREATH = "sms_breath";
+    private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
+>>>>>>> 90c7865... Breathing Missed Call notifications (2/3)
 
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
@@ -56,6 +61,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mBatteryBarStyle;
     private ListPreference mBatteryBarThickness;
     private CheckBoxPreference mBatteryBarChargingAnimation;
+<<<<<<< HEAD
+=======
+    private CheckBoxPreference mStatusBarNetworkStats;
+    private CheckBoxPreference mSMSBreath;
+    private CheckBoxPreference mMissedCallBreath;
+>>>>>>> 90c7865... Breathing Missed Call notifications (2/3)
     private ColorPickerPreference mBatteryBarColor;
     
     @Override
@@ -72,6 +83,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 (SystemSettingCheckBoxPreference) findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
 
+<<<<<<< HEAD
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
 
@@ -84,6 +96,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } catch (SettingNotFoundException e) {
             // Do nothing
         }
+=======
+        mSMSBreath = (CheckBoxPreference) prefSet.findPreference(KEY_SMS_BREATH);
+        mMissedCallBreath = (CheckBoxPreference) prefSet.findPreference(KEY_MISSED_CALL_BREATH);
+>>>>>>> 90c7865... Breathing Missed Call notifications (2/3)
 
         int batteryStyle = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_BATTERY, 0);
         mStatusBarBattery.setValue(String.valueOf(batteryStyle));
@@ -103,7 +119,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             prefSet.removePreference(statusBarBrightnessControl);
         }
 
+<<<<<<< HEAD
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
+=======
+        mSMSBreath.setChecked((Settings.System.getInt(resolver, Settings.System.KEY_SMS_BREATH, 0) == 1));
+        mMissedCallBreath.setChecked((Settings.System.getInt(resolver, Settings.System.KEY_MISSED_CALL_BREATH, 0) == 1));
+>>>>>>> 90c7865... Breathing Missed Call notifications (2/3)
 
         mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
         mBatteryBar.setOnPreferenceChangeListener(this);
@@ -183,6 +204,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+<<<<<<< HEAD
          boolean value;
          if (preference == mBatteryBarChargingAnimation) {
              value = mBatteryBarChargingAnimation.isChecked();
@@ -190,6 +212,28 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                      Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, value ? 1 : 0);
              return true;
          }
+=======
+        ContentResolver resolver = getActivity().getContentResolver();
+        boolean value;
+        if (preference == mStatusBarNetworkStats) {
+            value = mStatusBarNetworkStats.isChecked();
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NETWORK_STATS, value ? 1 : 0);
+            return true;
+        } else if (preference == mSMSBreath) {
+            value = mSMSBreath.isChecked();
+            Settings.System.putInt(resolver, Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
+            return true;
+        } else if (preference == mBatteryBarChargingAnimation) {
+            value = mBatteryBarChargingAnimation.isChecked();
+            Settings.System.putInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, value ? 1 : 0);
+            return true;
+        } else if (preference == mMissedCallBreath) {
+            value = mMissedCallBreath.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.KEY_MISSED_CALL_BREATH, value ? 1 : 0);
+            return true;
+        }
+>>>>>>> 90c7865... Breathing Missed Call notifications (2/3)
         return false;
     }
 
