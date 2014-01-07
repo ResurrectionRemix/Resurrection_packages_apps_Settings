@@ -41,18 +41,11 @@
     <PreferenceCategory
         android:title="@string/lockscreen_widgets_category_title"
         android:key="lockscreen_widgets_category" >
-        
-        <CheckBoxPreference
-            android:key="lockscreen_quick_unlock_control"
-            android:summary="@string/lockscreen_quick_unlock_control_summary"
-            android:title="@string/lockscreen_quick_unlock_control_title" />
-            
+
         <CheckBoxPreference
             android:key="keyguard_enable_widgets"
             android:title="@string/lockscreen_custom_widgets_title" />
 
-<<<<<<< HEAD
-=======
         <CheckBoxPreference
                 android:key="keyguard_enable_camera"
                 android:title="@string/lockscreen_enable_camera_title" />
@@ -67,7 +60,6 @@
                     android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
 
->>>>>>> f7ee74e... Make the lock screen camera widget configurable (2/2)
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="lockscreen_maximize_widgets"
             android:summary="@string/lockscreen_maximize_widgets_summary"
