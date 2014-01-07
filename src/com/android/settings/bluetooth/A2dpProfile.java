@@ -46,6 +46,11 @@ final class A2dpProfile implements LocalBluetoothProfile {
         BluetoothUuid.AdvAudioDist,
     };
 
+    static final ParcelUuid[] SOURCE_UUIDS = {
+        BluetoothUuid.AudioSource
+    };
+
+
     static final String NAME = "A2DP";
     private final LocalBluetoothProfileManager mProfileManager;
 
