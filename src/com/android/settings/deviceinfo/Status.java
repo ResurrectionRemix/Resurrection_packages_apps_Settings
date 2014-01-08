@@ -57,6 +57,8 @@ import com.android.settings.R;
 import com.android.settings.SelectSubscription;
 import com.android.settings.Utils;
 
+import org.cyanogenmod.hardware.SerialNumber;
+
 import java.lang.ref.WeakReference;
 
 /**
@@ -372,7 +374,7 @@ public class Status extends PreferenceActivity {
 
         updateConnectivity();
 
-        String serial = Build.SERIAL;
+        String serial = getSerialNumber();
         if (serial != null && !serial.equals("")) {
             setSummaryText(KEY_SERIAL_NUMBER, serial);
         } else {
@@ -657,5 +659,17 @@ public class Status extends PreferenceActivity {
 
     private boolean isMultiSimEnabled() {
         return (TelephonyManager.getDefault().getPhoneCount() > 1);
+    }
+
+    private String getSerialNumber() {
+        try {
+            if (SerialNumber.isSupported()) {
+                return SerialNumber.getSerialNumber();
+            }
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed; fall through
+        }
+
+        return Build.SERIAL;
     }
 }
