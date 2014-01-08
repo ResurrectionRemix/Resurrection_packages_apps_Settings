@@ -73,22 +73,18 @@ public class Spawn extends SettingsPreferenceFragment implements
 								
     private Context mContext;
 
-    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
     private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
-    private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     
-    private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mStatusBarTraffic;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mHeadsetHookLaunchVoice;
     private CheckBoxPreference mStatusBarCustomHeader;
-    private CheckBoxPreference mStatusBarBrightnessControl;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -105,23 +101,6 @@ public class Spawn extends SettingsPreferenceFragment implements
         mStatusBarCustomHeader.setChecked(Settings.System.getInt(resolver,
             Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
         mStatusBarCustomHeader.setOnPreferenceChangeListener(this);
-        
-        mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
-        mStatusBarBrightnessControl.setChecked((Settings.System.getInt(resolver,Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
-        mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
-        try {
-            if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                mStatusBarBrightnessControl.setEnabled(false);
-                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
-            }
-        } catch (SettingNotFoundException e) {
-        }
-                
-        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
-        mStatusBarNotifCount.setChecked(Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
-        mStatusBarNotifCount.setOnPreferenceChangeListener(this);
 
 	mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
         mStatusBarTraffic.setChecked(Settings.System.getInt(resolver,
@@ -164,10 +143,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
     final String key = preference.getKey();
         ContentResolver resolver = getActivity().getContentResolver();
-           if (preference == mStatusBarNotifCount) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
-        } else if (preference == mStatusBarTraffic) {
+           if (preference == mStatusBarTraffic) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,
                 Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
@@ -176,9 +152,6 @@ public class Spawn extends SettingsPreferenceFragment implements
              Settings.System.putInt(resolver,
                  Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
             Helpers.restartSystemUI();
-        } else if (preference == mStatusBarBrightnessControl) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver,Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
         } else {
             return false;
         }
