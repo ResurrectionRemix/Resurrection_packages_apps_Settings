@@ -94,6 +94,16 @@
             android:allowBackup="false"
             android:usesCleartextTraffic="false">
 
+        <!-- Screen color Settings Controls -->
+        <activity android:name=".ScreenColorSettings" android:label="@string/screencolor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".CustomScreenColor" android:label="@string/custom_screencolor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="nosensor">
+        </activity>
+
         <!-- Settings -->
         <uses-library android:name="org.cyanogenmod.hardware"
                 android:required="false" />

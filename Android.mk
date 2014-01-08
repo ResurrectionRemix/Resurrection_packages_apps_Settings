@@ -16,6 +16,9 @@ LOCAL_SRC_FILES := \
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
+LOCAL_SRC_FILES += \
+        src/com/android/display/IPPService.aidl
+
 LOCAL_PACKAGE_NAME := Settings
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
