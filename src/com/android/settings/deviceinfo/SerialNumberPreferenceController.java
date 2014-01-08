@@ -26,6 +26,8 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
+import lineageos.hardware.LineageHardwareManager;
+
 public class SerialNumberPreferenceController extends AbstractPreferenceController implements
         PreferenceControllerMixin {
 
@@ -40,7 +42,12 @@ public class SerialNumberPreferenceController extends AbstractPreferenceControll
     @VisibleForTesting
     SerialNumberPreferenceController(Context context, String serialNumber) {
         super(context);
-        mSerialNumber = serialNumber;
+        LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+        if (hardware.isSupported(LineageHardwareManager.FEATURE_SERIAL_NUMBER)) {
+            mSerialNumber = hardware.getSerialNumber();
+        } else {
+            mSerialNumber = serialNumber;
+        }
     }
 
     @Override
