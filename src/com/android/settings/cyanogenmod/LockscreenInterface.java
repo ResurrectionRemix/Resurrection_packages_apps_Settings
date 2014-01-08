@@ -39,7 +39,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
 
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
-    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
 
     private CheckBoxPreference mEnableKeyguardWidgets;
@@ -84,11 +83,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         } else {
             checkDisabledByPolicy(mEnableCameraWidget,
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
-        }
-
-        // Remove cLock settings item if not installed
-        if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
-            widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
         }
 
         // Remove maximize widgets on tablets
