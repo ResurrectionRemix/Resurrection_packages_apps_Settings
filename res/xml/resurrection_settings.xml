@@ -65,7 +65,16 @@
         android:fragment="com.android.settings.cyanogenmod.AppSidebar"
         android:title="@string/app_sidebar_title"
         android:summary="@string/app_sidebar_summary" />
-  
+        
+  <PreferenceScreen
+         android:key="lock_clock"
+         android:title="@string/lock_clock_title"
+         android:summary="@string/lock_clock_summary">
+         <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.cyanogenmod.lockclock"
+                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+   </PreferenceScreen>
+     
             <PreferenceCategory
             android:id="@+id/animations"
             android:title="@string/animations_title" /> 
