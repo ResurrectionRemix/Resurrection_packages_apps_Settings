@@ -118,6 +118,11 @@ final class A2dpProfile implements LocalBluetoothProfile {
 
     public boolean connect(BluetoothDevice device) {
         if (mService == null) return false;
+        //Check if remote device supports AudioSink
+        if (!BluetoothUuid.isUuidPresent(device.getUuids(), BluetoothUuid.AudioSink)) {
+            Log.d(TAG,"Remote device doesn't support A2dpSink, Ignoring");
+            return false;
+        }
         List<BluetoothDevice> sinks = getConnectedDevices();
         if (sinks != null) {
             for (BluetoothDevice sink : sinks) {
