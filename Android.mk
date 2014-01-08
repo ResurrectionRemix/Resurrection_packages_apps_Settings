@@ -16,6 +16,9 @@ LOCAL_SRC_FILES += \
         src/com/android/location/XT/IXTSrv.aidl \
         src/com/android/location/XT/IXTSrvCb.aidl
 
+LOCAL_SRC_FILES += \
+        src/com/android/display/IPPService.aidl
+
 LOCAL_PACKAGE_NAME := Settings
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
