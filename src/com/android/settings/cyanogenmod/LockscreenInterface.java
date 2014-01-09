@@ -37,13 +37,8 @@ import com.android.settings.Utils;
 
 public class LockscreenInterface extends SettingsPreferenceFragment {
 
-<<<<<<< HEAD
-=======
-    private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
-    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
->>>>>>> 1267817... [WIP] LockScreen: allow long-press actions from hardware keys (2/2)
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
@@ -63,20 +58,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
-
+        PreferenceCategory generalCategory = (PreferenceCategory) findPreference(LOCKSCREEN_GENERAL_CATEGORY);
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mLockUtils = mChooseLockSettingsHelper.utils();
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 
-<<<<<<< HEAD
         // Find categories
         PreferenceCategory widgetsCategory = (PreferenceCategory)
                 findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
-=======
-        addPreferencesFromResource(R.xml.lockscreen_interface_settings);
-        PreferenceCategory generalCategory = (PreferenceCategory) findPreference(LOCKSCREEN_GENERAL_CATEGORY);
-        PreferenceCategory widgetsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
->>>>>>> 1267817... [WIP] LockScreen: allow long-press actions from hardware keys (2/2)
 
         // Find preferences
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
@@ -92,18 +81,16 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                     DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
         }
 
-<<<<<<< HEAD
         // Enable or disable camera widget based on device and policy
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA) ||
                 Camera.getNumberOfCameras() == 0) {
             widgetsCategory.removePreference(mEnableCameraWidget);
             mEnableCameraWidget = null;
-=======
+
             PreferenceScreen lockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
             if (!hasButtons()) {
                 generalCategory.removePreference(lockscreenButtons);
             }
->>>>>>> 1267817... [WIP] LockScreen: allow long-press actions from hardware keys (2/2)
         } else {
             checkDisabledByPolicy(mEnableCameraWidget,
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
@@ -115,7 +102,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                     findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
         }
     }
-
+            
     @Override
     public void onResume() {
         super.onResume();
