@@ -80,7 +80,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
                 Camera.getNumberOfCameras() == 0) {
             widgetsCategory.removePreference(mEnableCameraWidget);
             mEnableCameraWidget = null;
-        } else {
+        } else if (mLockUtils.isSecure()) {
             checkDisabledByPolicy(mEnableCameraWidget,
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
         }
