@@ -41,8 +41,16 @@
             android:title="@string/dismiss_all"
             android:summary="@string/dismiss_all_summary" />
 
+        <com.android.settings.pac.AppMultiSelectListPreference
+            android:key="excluded_apps"
+            android:persistent="false"
+            android:title="@string/excluded_apps_title"
+            android:dependency="lockscreen_notifications"
+            android:summary="@string/excluded_apps_summary" />
+
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="category_layout"
         android:title="@string/layout" >
 
             <SeekBarPreference
@@ -56,6 +64,12 @@
                 android:dialogMessage="@string/notifications_height"
                 android:title="@string/notifications_height"
                 android:summary="@string/notifications_height_summary" />
+
+            <CheckBoxPreference
+                android:key="dynamic_width"
+                android:title="@string/dynamic_width"
+                android:dependency="lockscreen_notifications"
+                android:summary="@string/dynamic_width_summary" />
 
     </PreferenceCategory>
     <PreferenceCategory
