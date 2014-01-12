@@ -58,7 +58,25 @@
         android:dependency="noti_reminder_enabled" />
 
     </PreferenceCategory>
-        
+    
+     <PreferenceCategory
+            android:key="shortcuts"
+            android:title="@string/notification_bar_shortcuts">
+
+        <com.android.settings.omni.preference.AppSelectListPreference
+                android:key="clock_shortcut"
+                android:title="@string/clock_shortcut_title"
+                android:positiveButtonText="@string/default_shortcut"
+                android:persistent="false"/>
+
+        <com.android.settings.omni.preference.AppSelectListPreference
+                android:key="calendar_shortcut"
+                android:title="@string/calendar_shortcut_title"
+                android:positiveButtonText="@string/default_shortcut"
+                android:persistent="false"/>
+
+    </PreferenceCategory> 
+          
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 
