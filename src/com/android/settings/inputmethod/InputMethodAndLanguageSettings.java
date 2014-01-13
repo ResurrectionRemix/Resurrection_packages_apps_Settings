@@ -43,7 +43,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
-import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.System;
@@ -66,10 +65,10 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_CURRENT_INPUT_METHOD = "current_input_method";
     private static final String KEY_INPUT_METHOD_SELECTOR = "input_method_selector";
     private static final String KEY_USER_DICTIONARY_SETTINGS = "key_user_dictionary_settings";
-    private static final String KEY_STYLUS_GESTURES = "stylus_gestures";
     private static final String KEY_POINTER_SETTINGS_CATEGORY = "pointer_settings_category";
-    private static final String KEY_STYLUS_ICON_ENABLED = "stylus_icon_enabled";
     private static final String KEY_TRACKPAD_SETTINGS = "gesture_pad_settings";
+    private static final String KEY_STYLUS_ICON_ENABLED = "stylus_icon_enabled";
+    private static final String KEY_STYLUS_GESTURES = "stylus_gestures";
 
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
@@ -82,9 +81,9 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         "auto_replace", "auto_caps", "auto_punctuate",
     };
 
+    private CheckBoxPreference mStylusIconEnabled;
     private int mDefaultInputMethodSelectorVisibility = 0;
     private ListPreference mShowInputMethodSelectorPref;
-    private CheckBoxPreference mStylusIconEnabled;
     private PreferenceCategory mKeyboardSettingsCategory;
     private PreferenceCategory mHardKeyboardCategory;
     private PreferenceCategory mGameControllerCategory;
@@ -177,24 +176,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         // Build hard keyboard and game controller preference categories.
         mIm = (InputManager)getActivity().getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
-<<<<<<< HEAD
-        
-        mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
-        mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
-        // remove stylus preference for non stylus devices
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
-            PreferenceGroup pointerSettingsCategory = (PreferenceGroup)
-                    findPreference(KEY_POINTER_SETTINGS_CATEGORY);
-            pointerSettingsCategory.removePreference(mStylusGestures);
-        }
-
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
-            PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
-                findPreference(KEY_POINTER_SETTINGS_CATEGORY);
-            if (pointerSettingsCategory != null) {
-                Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
-                        pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
-=======
 
         PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
                         findPreference(KEY_POINTER_SETTINGS_CATEGORY);
@@ -211,7 +192,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                             pointerSettingsCategory, KEY_TRACKPAD_SETTINGS);
             if (pointerSettingsCategory.getPreferenceCount() == 0) {
                 getPreferenceScreen().removePreference(pointerSettingsCategory);
->>>>>>> 3dddf7c... Settings : Update gesture preference check
             }
         }
 
@@ -321,12 +301,12 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 mShowInputMethodSelectorPref.setOnPreferenceChangeListener(this);
             }
         }
-        
-	        if (mStylusIconEnabled != null) {
+
+        if (mStylusIconEnabled != null) {
             mStylusIconEnabled.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STYLUS_ICON_ENABLED, 0) == 1);
-			        }
-			        
+        }
+
         // Hard keyboard
         if (!mHardKeyboardPreferenceList.isEmpty()) {
             for (int i = 0; i < sHardKeyboardKeys.length; ++i) {
@@ -382,7 +362,10 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (Utils.isMonkeyRunning()) {
             return false;
         }
-        if (preference instanceof PreferenceScreen) {
+        if (preference == mStylusIconEnabled) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.STYLUS_ICON_ENABLED, mStylusIconEnabled.isChecked() ? 1 : 0);
+        } else if (preference instanceof PreferenceScreen) {
             if (preference.getFragment() != null) {
                 // Fragment will be handled correctly by the super class.
             } else if (KEY_CURRENT_INPUT_METHOD.equals(preference.getKey())) {
@@ -390,9 +373,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                         getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showInputMethodPicker();
             }
-	   } else if (preference == mStylusIconEnabled) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.STYLUS_ICON_ENABLED, mStylusIconEnabled.isChecked() ? 1 : 0);
         } else if (preference instanceof CheckBoxPreference) {
             final CheckBoxPreference chkPref = (CheckBoxPreference) preference;
             if (!mHardKeyboardPreferenceList.isEmpty()) {
