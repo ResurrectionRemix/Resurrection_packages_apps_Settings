@@ -20,10 +20,6 @@
     <string name="wifi_setting_countrycode_error">Ocurrió un error al establecer el código de región</string>
     <string name="wifi_setting_priority_title">Prioridad Wi-Fi</string>
     <string name="wifi_setting_priority_summary">Especificar la prioridad de las redes Wi-Fi</string>
-    <string name="ring_mode_title">Modo de sonido</string>
-    <string name="ring_mode_normal">Normal</string>
-    <string name="ring_mode_vibrate">Vibración</string>
-    <string name="ring_mode_mute">Silencio</string>
     <string name="lock_screen_title">Bloqueo de pantalla</string>
     <string name="increasing_ring_title">Volumen ascendente</string>
     <string name="checkbox_increasing_ring">Activar</string>
@@ -118,9 +114,26 @@
     <string name="toggle2g3g">2G/3G</string>
     <string name="toggleWimax">WiMAX</string>
     <string name="toggleNfc">NFC</string>
+    <string name="volume_ring_only_description">Tonos del teléfono</string>
     <string name="link_volume_ringtones">Vincular volúmenes</string>
     <string name="link_volume_mutes">Vincular silencio</string>
     <string name="volume_keys_control_ring_stream">Controlar volumen de llamada</string>
+    <string name="ring_mode_title">Modo de sonido</string>
+    <string name="ring_mode_normal">Normal</string>
+    <string name="ring_mode_vibrate">Vibración</string>
+    <string name="ring_mode_mute">Silencio</string>
+    <string name="volume_overlay_title">Panel de volumen</string>
+    <string name="volume_overlay_single">Sencillo</string>
+    <string name="volume_overlay_expandable">Ampliable</string>
+    <string name="volume_overlay_expanded">Extendido</string>
+    <string name="volume_overlay_none">Ninguno</string>
+    <string name="automation_effects_title">Automatización y efectos</string>
+    <string name="notification_convert_sound_to_vibration_title">Vibración en notificaciones</string>
+    <string name="notification_convert_sound_to_vibration_summary">En el modo vibración todas las notificaciones vibrarán, independientemente de la configuración específica de la aplicación</string>
+    <string name="notification_vibrate_during_calls_title">Vibrar durante llamadas</string>
+    <string name="notification_vibrate_during_calls_summary">Las notificaciones entrantes vibrarán levemente durante una llamada</string>
+    <string name="volume_adjust_sounds_enable_title">Sonido al ajustar volumen</string>
+    <string name="volume_adjust_sounds_enable_summary">Reproducir un sonido cuando se ajuste el volumen con los controles al efecto</string>
     <string name="icon_picker_title">Seleccionar fuente de iconos</string>
     <string name="icon_picker_system_icons_title">Iconos del sistema</string>
     <string name="icon_picker_gallery_title">Galería</string>
@@ -166,11 +179,6 @@
     <string name="battery_light_low_color_title">Batería baja</string>
     <string name="battery_light_medium_color_title">Cargando</string>
     <string name="battery_light_full_color_title">Cargada</string>
-    <string name="volume_ring_only_description">Tonos del teléfono</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
     <string name="lockpattern_settings_enable_error_path_title">Mostrar patrón erróneo</string>
     <string name="lockpattern_settings_enable_dots_title">Mostrar puntos de patrón</string>
     <string name="lockscreen_vibrate_enabled_title">Vibración</string>
@@ -202,6 +210,7 @@
     <string name="lockscreen_widgets_category_title">Widgets</string>
     <string name="lockscreen_maximize_widgets_title">Maximizar widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Expandir los widgets al encender la pantalla</string>
+    <string name="lockscreen_enable_camera_title">Widget de cámara</string>
     <string name="safe_headset_volume_title">Volumen seguro</string>
     <string name="cyanogenmod_waiver_title">Renuncia</string>
     <string name="cyanogenmod_waiver_body">Cambiar este ajuste puede ir en contra de la leyes de tu estado o país.\n\nPulsando \u00ABAceptar\u00BB, reconoces esta advertencia y eximes de cualquier responsabilidad legal a CyanogenMod y sus colaboradores, renunciando así a cualquier reclamación por daños y perjuicios.</string>
@@ -615,25 +624,33 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="keyboard_backlight_seekbar_title">Brillo del teclado</string>
     <string name="backlight_timeout_title">Tiempo de iluminación</string>
     <string name="backlight_timeout_unlimited">No apagar</string>
-    <plurals name="backlight_timeout_time">
-        <item quantity="one"><xliff:g id="seconds">%d</xliff:g> segundo</item>
-        <item quantity="other"><xliff:g id="seconds">%d</xliff:g> segundos</item>
-    </plurals>
     <string name="backlight_summary_disabled">Deshabilitado</string>
     <string name="backlight_summary_enabled_with_timeout">Habilitado durante <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Habilitado</string>
     <string name="confirm_delete_apn">El APN será eliminado.</string>
     <string name="status_bar_title">Barra de estado</string>
+    <string name="status_bar_show_clock_title">Mostrar reloj</string>
     <string name="status_bar_battery_title">Estilo batería</string>
     <string name="status_bar_style_icon_portrait">Icono vertical</string>
     <string name="status_bar_style_icon_landscape">Icono horizontal</string>
     <string name="status_bar_style_circle">Circular</string>
     <string name="status_bar_style_hidden">Oculta</string>
-    <string name="status_bar_battery_show_percent_title">Mostrar estado de batería</string>
+    <string name="status_bar_battery_show_percent_title">Mostrar porcentaje de batería</string>
+    <string name="status_bar_signal_text_title">Estilo de la señal de estado</string>
+    <string name="status_bar_signal_style_icon">Icono</string>
+    <string name="status_bar_signal_style_text">Texto</string>
+    <string name="status_bar_toggle_brightness">Ajuste de brillo</string>
+    <string name="status_bar_toggle_brightness_summary">Permitir ajustar la luminosidad de la pantalla mediante el deslizamiento por la barra de estado</string>
+    <string name="status_bar_toggle_info">El brillo automático está activado</string>
+    <string name="status_bar_notif_count_title">Mostrar contador notificaciones</string>
+    <string name="status_bar_notif_count_summary">Mostrar el número de notificaciones pendientes en la barra de estado</string>
+    <string name="status_bar_double_tap_to_sleep_title">Doble toque para bloquear</string>
     <string name="development_shortcut_title">Opciones de desarrollador</string>
     <string name="development_shortcut_summary">Habilitar las opciones de \u00ABBorrar datos\u00BB y \u00ABForzar detención\u00BB en el área de notificación y en la lista aplicaciones recientes</string>
     <string name="usb_mass_storage_title">Almacenamiento masivo</string>
     <string name="usb_mass_storage_summary">Permite transferir archivos entre la tarjeta SD y el ordenador</string>
+    <string name="storage_rescan_media">Refrescar contenido multimedia</string>
+    <string name="storage_rescan_media_complete">Refresco completado</string>
     <string name="whisperpush_title">WhisperPush</string>
     <string name="whisperpush_registration_title">Registrar</string>
     <string name="whisperpush_registration_summary">Registrarse en WhisperPush para habilitar el cifrado de SMS.</string>
@@ -647,6 +664,27 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="cmlicense_title">Licencia de CyanogenMod</string>
     <string name="settings_cmlicense_activity_title">Licencia de CyanogenMod</string>
     <string name="settings_cmlicense_activity_unreachable">No hay una conexión de datos disponible. Para ver esta información ahora, introduce la dirección %s en cualquier ordenador con acceso a Internet.</string>
+    <string name="stylus_icon_enabled_title">Stylus</string>
+    <string name="stylus_icon_enabled_summary">Mostrar el cursor cuando se arrastra o dibuja con Stylus</string>
+    <string name="gestures_settings_title">Stylus</string>
+    <string name="category_spen_title">Gestos con Stylus</string>
+    <string name="enable_subcat_title">Stylus</string>
+    <string name="enable_spen_title_head">Habilitar gestos Stylus</string>
+    <string name="enable_spen_summary_head">Ejecutar acciones personalizadas, asociadas a gestos, con el botón del Stylus pulsado</string>
+    <string name="gestures_subcat_title">Gestos</string>
+    <string name="gestures_left_spen_title_head">Deslizar a la izquierda</string>
+    <string name="gestures_right_spen_title_head">Deslizar a la derecha</string>
+    <string name="gestures_up_spen_title_head">Deslizar hacia arriba</string>
+    <string name="gestures_down_spen_title_head">Deslizar hacia abajo</string>
+    <string name="gestures_long_spen_title_head">Pulsación larga</string>
+    <string name="gestures_double_spen_title_head">Doble toque</string>
+    <string name="gestures_action_empty">Sin acción</string>
+    <string name="gestures_action_home">Emular botón Inicio</string>
+    <string name="gestures_action_back">Emular botón Atrás</string>
+    <string name="gestures_action_menu">Emular botón Menú</string>
+    <string name="gestures_action_search">Iniciar búsqueda</string>
+    <string name="gestures_action_recent">Aplicaciones recientes</string>
+    <string name="stylus_app_not_installed">%s no está instalada</string>
 
     <!-- AOSP -->
     <string name="intent_sender_data_label"><xliff:g id="data">Datos:</xliff:g></string>
