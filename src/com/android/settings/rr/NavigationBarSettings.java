@@ -26,7 +26,7 @@ OnPreferenceChangeListener {
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
         int statusNavigationBarHeight = Settings.System.getInt(getActivity().getApplicationContext()
                 .getContentResolver(),
-                Settings.System.NAVIGATION_BAR_HEIGHT, 48);
+                Settings.System.NAVIGATION_BAR_HEIGHT, 0);
         mNavigationBarHeight.setValue(String.valueOf(statusNavigationBarHeight));
         mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry());
     }
