@@ -996,7 +996,19 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/security_settings" />
         </activity>
-
+        
+        <activity android:name=".cyanogenmod.RamBar" />
+         <!-- Pseudo-activity used to provide an intent-filter entry point to ass display rotation config -->
+         <activity android:name="Settings$ASSRamBarActivity"
+                 android:label="@string/ram_bar">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.DEFAULT" />
+             </intent-filter>
+             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                 android:value="com.android.settings.cyanogenmod.RamBar" />
+         </activity>
+         
         <activity android:name="MonitoringCertInfoActivity"
                 android:label="@string/ssl_ca_cert_dialog_title"
                 android:theme="@style/Transparent"
