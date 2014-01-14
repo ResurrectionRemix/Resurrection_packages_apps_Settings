@@ -157,7 +157,8 @@ public class BootReceiver extends BroadcastReceiver {
     private void configureKSM(Context ctx) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
 
-        boolean ksm = prefs.getBoolean(MemoryManagement.KSM_PREF, false);
+        boolean ksmDefault = (SystemProperties.get("ro.ksm.default", "0") != "0");
+        boolean ksm = prefs.getBoolean(MemoryManagement.KSM_PREF, ksmDefault);
 
         Utils.fileWriteOneLine(MemoryManagement.KSM_RUN_FILE, ksm ? "1" : "0");
         Log.d(TAG, "KSM settings restored.");
