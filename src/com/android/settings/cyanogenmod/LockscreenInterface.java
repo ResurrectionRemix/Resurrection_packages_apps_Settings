@@ -120,10 +120,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mEnableKeyguardWidgets.setChecked(mLockUtils.getWidgetsEnabled());
         }
 
-<<<<<<< HEAD
         if (mEnableCameraWidget != null) {
             mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
-=======
         // Update battery status
         if (mBatteryStatus != null) {
             ContentResolver cr = getActivity().getContentResolver();
@@ -131,7 +129,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
->>>>>>> 88d76f4... Settings: Add option to always show battery status on lockscreen (2/2)
         }
     }
 
