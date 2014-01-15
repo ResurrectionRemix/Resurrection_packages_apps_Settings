@@ -109,17 +109,12 @@
              android:entries="@array/entries_music_widget"
              android:entryValues="@array/values_music_widget"
              android:defaultValue="3" />
-
-     <PreferenceScreen
-         android:key="navigation_bar_height"
-         android:dialogTitle="@string/navigation_bar_height"
-         android:fragment="com.android.settings.rr.NavigationBarSettings"
-         android:title="@string/navigation_bar_height"
-         android:entries="@array/navigation_bar_height_entries"
-         android:entryValues="@array/navigation_bar_height_values"
-         android:defaultValue="48"
-         android:persistent="true" />
-              
+             
+        <PreferenceScreen
+          android:key="navigation_bar"
+          android:fragment="com.android.settings.rr.NavigationBarSettings"
+          android:title="@string/navigation_bar_h_title" />
+                        
          <PreferenceScreen
              android:key="screen_recorder"
              android:title="@string/screen_recorder_title"

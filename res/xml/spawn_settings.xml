@@ -37,8 +37,13 @@
             android:summary="@string/custom_statusbar_header_summary"	
             android:defaultValue="false" />
             
-            
-  <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="qs_hide_text"
+            android:title="@string/title_qs_hide_text"
+            android:defaultValue="false"
+            android:summary="@string/summary_qs_hide_text" />
+                       
+          <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="quick_settings_tiles_flip"
             android:title="@string/flip_qs_tiles_title"
             android:summary="@string/flip_qs_tiles_summary"
