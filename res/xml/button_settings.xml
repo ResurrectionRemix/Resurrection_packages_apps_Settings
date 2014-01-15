@@ -99,7 +99,12 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false"
             android:dependency="hardware_key_rebinding" />
-
+ 
+         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+             android:key="enable_fast_torch"
+             android:title="@string/fast_torch_title"
+             android:summary="@string/fast_torch_summary"
+             android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

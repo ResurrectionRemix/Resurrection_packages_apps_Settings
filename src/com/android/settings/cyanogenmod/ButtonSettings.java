@@ -17,6 +17,9 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -52,7 +55,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_APPSWITCH = "app_switch_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
-
+    private static final String CATEGORY_POWER_BUTTON = "power_key";
+    
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
     // frameworks/base/core/java/android/provider/Settings.java
@@ -228,6 +232,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
+                
+         final PreferenceCategory powerButtonCategory =
+                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_POWER_BUTTON);
+         boolean isTorchSupported = isPackageInstalled(getActivity(), "net.cactii.flash2");
+         if (!isTorchSupported) {
+             powerButtonCategory.removePreference(findPreference(Settings.System.ENABLE_FAST_TORCH));
+         }
+         final boolean hasAnyPowerButtonOptions = isTorchSupported /* || etc. */;
+         if (!hasAnyPowerButtonOptions) {
+             prefScreen.removePreference(powerButtonCategory);
+         }
     }
 
     private ListPreference initActionList(String key, int value) {
@@ -307,4 +322,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
+
+    private static boolean isPackageInstalled(Context context, String packageName) {
+         try {
+             return context.getPackageManager().getPackageInfo(packageName, 0) != null;
+         } catch (NameNotFoundException e) {
+             return false;
+         }
+     }
 }
