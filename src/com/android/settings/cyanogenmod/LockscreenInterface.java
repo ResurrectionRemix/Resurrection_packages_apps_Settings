@@ -47,12 +47,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
+<<<<<<< HEAD
     private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+=======
+    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
+>>>>>>> f5311dd... Settings: Glowpad Torch (3/3)
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
+<<<<<<< HEAD
     private CheckBoxPreference mQuickUnlock;
+=======
+    private CheckBoxPreference mGlowpadTorch;
+>>>>>>> f5311dd... Settings: Glowpad Torch (3/3)
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
@@ -62,6 +70,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
+
+        PreferenceScreen prefs = getPreferenceScreen();
 
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
         mLockUtils = mChooseLockSettingsHelper.utils();
@@ -76,6 +86,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         // Find preferences
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+        mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+
+        mGlowpadTorch = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_TORCH);
+        mGlowpadTorch.setChecked(Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
+        mGlowpadTorch.setOnPreferenceChangeListener(this);
+
+        // Remove glowpad torch if device doesn't have torch
+        if (!hasTorch()) {
+            prefs.removePreference(mGlowpadTorch);
+        }
 
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
@@ -177,6 +199,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
             return true;
+        } else if (preference == mGlowpadTorch) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    (Boolean) objValue ? 1 : 0);
+            return true;
         }
 
         return false;
@@ -188,6 +215,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
      */
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+    }
+
+    /**
+     * Checks if the device has torch.
+     * @return has torch
+     */
+    public boolean hasTorch() {
+        return getResources().getBoolean(com.android.internal.R.bool.config_enableTorch);
     }
 
     /**
