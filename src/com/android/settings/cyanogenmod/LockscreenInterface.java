@@ -103,15 +103,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_BUTTONS));
         }
 
-        // Remove/disable custom widgets based on device RAM and policy
-        if (ActivityManager.isLowRamDeviceStatic()) {
-            // Widgets take a lot of RAM, so disable them on low-memory devices
-            widgetsCategory.removePreference(findPreference(KEY_ENABLE_WIDGETS));
-            mEnableKeyguardWidgets = null;
-        } else {
-            checkDisabledByPolicy(mEnableKeyguardWidgets,
-                    DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
-        }
+        // Enable or disable lockscreen widgets based on policy
+        checkDisabledByPolicy(mEnableKeyguardWidgets,
+                DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
 
         // Enable or disable camera widget based on device and policy
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA) ||
