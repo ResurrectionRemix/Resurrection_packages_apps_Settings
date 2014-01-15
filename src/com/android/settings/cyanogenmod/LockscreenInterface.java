@@ -119,9 +119,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(mLockUtils.getWidgetsEnabled());
         }
-
-        if (mEnableCameraWidget != null) {
-            mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
         // Update battery status
         if (mBatteryStatus != null) {
             ContentResolver cr = getActivity().getContentResolver();
@@ -129,6 +126,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
+        }
+            
+        if (mEnableCameraWidget != null) {
+            mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
+
         }
     }
 
