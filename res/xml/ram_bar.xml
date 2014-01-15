@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/ram_bar">
+
+    <Preference
+        style="?android:preferenceInformationStyle"
+        android:title="@string/ram_bar_note_title"
+        android:summary="@string/ram_bar_note_summary"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="ram_bar_mode_cat"
+        android:title="@string/ram_bar_mode_title">
+
+        <ListPreference
+            android:key="ram_bar_mode"
+            android:dialogTitle="@string/ram_bar_mode_dialog_title"
+            android:title="@string/ram_bar_mode_title"
+            android:entries="@array/entries_ram_bar_mode"
+            android:entryValues="@array/values_ram_bar_mode"
+            android:defaultValue="1" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="ram_bar_style"
+        android:title="@string/ram_bar_style_cat">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="ram_bar_color_app_mem"
+            android:title="@string/ram_bar_color_app_mem_color"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="ram_bar_color_cache_mem"
+            android:title="@string/ram_bar_color_cache_mem_color"
+            android:defaultValue="0xffdddddd" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="ram_bar_color_total_mem"
+            android:title="@string/ram_bar_color_total_mem_color"
+            android:defaultValue="0xffbbbbbb" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
