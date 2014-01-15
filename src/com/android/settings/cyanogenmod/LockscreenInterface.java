@@ -22,15 +22,12 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
-=======
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
->>>>>>> 24fa035... Settings: Lockscreen custom wallpaper (2/2)
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
@@ -47,16 +44,13 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.android.internal.widget.LockPatternUtils;
-import com.android.settings.colorpicker.ColorPickerPreference;
+import net.margaritov.preference.colorpicker.ColorPickerPreference; 
 import com.android.settings.cyanogenmod.SeekBarPreference;
 import com.android.settings.ChooseLockSettingsHelper;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-
-<<<<<<< HEAD
-public class LockscreenInterface extends SettingsPreferenceFragment {
-=======
+	
 import java.io.File;
 import java.io.IOException;
 
@@ -64,20 +58,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "LockscreenInterface";
->>>>>>> 24fa035... Settings: Lockscreen custom wallpaper (2/2)
 
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
-<<<<<<< HEAD
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
-
-    private CheckBoxPreference mEnableKeyguardWidgets;
-    private CheckBoxPreference mEnableCameraWidget;
-=======
     private static final String LOCKSCREEN_BACKGROUND = "lockscreen_background";
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
     private static final String LOCKSCREEN_BACKGROUND_COLOR_FILL = "lockscreen_background_color_fill";
     private static final String LOCKSCREEN_WALLPAPER_ALPHA = "lockscreen_wallpaper_alpha";
+
+    private CheckBoxPreference mEnableKeyguardWidgets;
+    private CheckBoxPreference mEnableCameraWidget;
 
     private static final int REQUEST_PICK_WALLPAPER = 201;
     private static final int COLOR_FILL = 0;
@@ -88,18 +79,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private ColorPickerPreference mLockColorFill;
     private ListPreference mLockBackground;
     private SeekBarPreference mWallpaperAlpha;
->>>>>>> 24fa035... Settings: Lockscreen custom wallpaper (2/2)
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
     private DevicePolicyManager mDPM;
-<<<<<<< HEAD
-=======
+
     private PreferenceCategory mLockscreenBackground;
     private boolean mIsPrimary;
     private File wallpaperImage;
     private File wallpaperTemporary;
->>>>>>> 24fa035... Settings: Lockscreen custom wallpaper (2/2)
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -110,7 +98,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mLockUtils = mChooseLockSettingsHelper.utils();
         mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 
-<<<<<<< HEAD
         // Find categories
         PreferenceCategory widgetsCategory = (PreferenceCategory)
                 findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
@@ -118,7 +105,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         // Find preferences
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
-=======
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
         PreferenceCategory widgetsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
         mLockscreenBackground = (PreferenceCategory) findPreference(LOCKSCREEN_BACKGROUND);
@@ -158,8 +144,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                             findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
                 }
             }
->>>>>>> 24fa035... Settings: Lockscreen custom wallpaper (2/2)
-
+            
         // Remove/disable custom widgets based on device RAM and policy
         if (ActivityManager.isLowRamDeviceStatic()) {
             // Widgets take a lot of RAM, so disable them on low-memory devices
@@ -190,7 +175,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         wallpaperTemporary = new File(getActivity().getCacheDir()+"/lockwallpaper.tmp");
         updateVisiblePreferences();
     }
-
+}
     @Override
     public void onResume() {
         super.onResume();
@@ -220,8 +205,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
-<<<<<<< HEAD
+    
     /**
      * Checks if a specific policy is disabled by a device administrator, and disables the
      * provided preference if so.
@@ -246,7 +230,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private boolean featureIsDisabled(int feature) {
         return (mDPM.getKeyguardDisabledFeatures(null) & feature) != 0;
     }
-=======
+
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mLockBackground) {
             int index = mLockBackground.findIndexOfValue(objValue.toString());
@@ -365,6 +349,5 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     }
 
     public static class DeviceAdminLockscreenReceiver extends DeviceAdminReceiver {}
->>>>>>> 24fa035... Settings: Lockscreen custom wallpaper (2/2)
 
 }
