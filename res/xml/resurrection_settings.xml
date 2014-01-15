@@ -63,58 +63,9 @@
         <PreferenceScreen
              android:key="recents_ram_bar"
              android:fragment="com.android.settings.cyanogenmod.RamBar"
-             android:summary="@string/ram_bar_summary"
-             android:title="@string/ram_bar" />
-             
-
-        <PreferenceScreen
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/statusbar_clock_am_pm_style"
-
-                android:title="@string/statusbar_clock_am_pm_style_title"
-                android:summary="@string/statusbar_clock_am_pm_style_summary"
-                android:key="statusbar_clock_am_pm_style"
-
-                android:entries="@array/statusbar_clock_am_pm_styleEntries"
-                android:entryValues="@array/statusbar_clock_am_pm_styleValues"
-                />
-
-        <PreferenceScreen
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/statusbar_clock_style"
-
-                android:title="@string/statusbar_clock_style_title"
-                android:summary="@string/statusbar_clock_style_summary"
-                android:key="statusbar_clock_style"
-
-                android:entries="@array/statusbar_clock_styleEntries"
-                android:entryValues="@array/statusbar_clock_styleValues"
-                />
-
-        <PreferenceScreen
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/statusbar_clock_weekday"
-
-                android:title="@string/statusbar_clock_weekday_title"
-                android:summary="@string/statusbar_clock_weekday_summary"
-                android:key="statusbar_clock_weekday"
-
-                android:entries="@array/statusbar_clock_weekdayEntries"
-                android:entryValues="@array/statusbar_clock_weekdayValues"
-                />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/statusbar_clock_color"
-                android:title="@string/statusbar_clock_color_title"
-                android:summary="@string/statusbar_clock_color_summary"
-                android:key="statusbar_clock_color"
-                android:defaultValue="0xffdddddd" />
-                                       
+             android:summary="@string/app_sidebar_summary"
+             android:title="@string/ram_bar_summary" />
+                              
     <PreferenceScreen
         android:key="app_sidebar"
         android:fragment="com.android.settings.cyanogenmod.AppSidebar"
@@ -159,15 +110,6 @@
              android:entryValues="@array/values_music_widget"
              android:defaultValue="3" />
              
-     <ListPreference
-        android:key="navigation_bar_height"
-        android:dialogTitle="@string/navigation_bar_height"
-        android:title="@string/navigation_bar_height"
-        android:entries="@array/navigation_bar_height_entries"
-        android:entryValues="@array/navigation_bar_height_values"
-        android:defaultValue="0"
-        android:persistent="true" />
-           
          <PreferenceScreen
              android:key="screen_recorder"
              android:title="@string/screen_recorder_title"
