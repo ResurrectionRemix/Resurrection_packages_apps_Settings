@@ -21,6 +21,7 @@ import java.util.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -50,6 +51,7 @@ public class LockscreenButtons extends SettingsPreferenceFragment
     private static final int KEY_MASK_HOME = 0x01;
     private static final int KEY_MASK_BACK = 0x02;
     private static final int KEY_MASK_MENU = 0x04;
+    private static final int KEY_MASK_CAMERA = 0x20;
 
     private ListPreference mLongBackAction;
     private ListPreference mLongHomeAction;
@@ -65,10 +67,23 @@ public class LockscreenButtons extends SettingsPreferenceFragment
         final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
         final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
         final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
+        final boolean hasCameraKey = (deviceKeys & KEY_MASK_CAMERA) != 0;
 
         addPreferencesFromResource(R.xml.lockscreen_buttons_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        CheckBoxPreference menuUnlock = (CheckBoxPreference)
+                findPreference(Settings.System.MENU_UNLOCK_SCREEN);
+        CheckBoxPreference homeUnlock = (CheckBoxPreference)
+                findPreference(Settings.System.HOME_UNLOCK_SCREEN);
+        CheckBoxPreference cameraUnlock = (CheckBoxPreference)
+                findPreference(Settings.System.CAMERA_UNLOCK_SCREEN);
+
+        // Hide the CameraUnlock setting if no camera button is available
+        if (!hasCameraKey) {
+            getPreferenceScreen().removePreference(cameraUnlock);
+        }
 
         mLongBackAction = (ListPreference) prefSet.findPreference(LONG_PRESS_BACK);
         if (hasBackKey) {
@@ -82,6 +97,7 @@ public class LockscreenButtons extends SettingsPreferenceFragment
             mLongHomeAction.setKey(Settings.System.LOCKSCREEN_LONG_HOME_ACTION);
         } else {
             getPreferenceScreen().removePreference(mLongHomeAction);
+            getPreferenceScreen().removePreference(homeUnlock);
         }
 
         mLongMenuAction = (ListPreference) prefSet.findPreference(LONG_PRESS_MENU);
@@ -89,6 +105,7 @@ public class LockscreenButtons extends SettingsPreferenceFragment
             mLongMenuAction.setKey(Settings.System.LOCKSCREEN_LONG_MENU_ACTION);
         } else {
             getPreferenceScreen().removePreference(mLongMenuAction);
+            getPreferenceScreen().removePreference(menuUnlock);
         }
 
         mActions = new ListPreference[] {

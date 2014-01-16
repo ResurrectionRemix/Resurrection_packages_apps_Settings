@@ -202,7 +202,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
      * @return has Buttons
      */
     public boolean hasButtons() {
-        return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        return (getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys) > 0);
     }
 
     /**

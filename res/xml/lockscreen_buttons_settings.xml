@@ -17,20 +17,38 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_buttons_title" >
 
-    <ListPreference android:key="lockscreen_long_press_back"
-        android:title="@string/lockscreen_long_press_back_title"
-        android:persistent="false"
-        android:entries="@array/lockscreen_long_key_press_entries"
-        android:entryValues="@array/lockscreen_long_key_press_values"/>
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="home_unlock_screen"
+        android:title="@string/unlock_home_unlock_title"
+        android:summary="@string/unlock_home_unlock_summary" />
 
-    <ListPreference android:key="lockscreen_long_press_home"
+    <ListPreference
+        android:key="lockscreen_long_press_home"
         android:title="@string/lockscreen_long_press_home_title"
         android:persistent="false"
         android:entries="@array/lockscreen_long_key_press_entries"
         android:entryValues="@array/lockscreen_long_key_press_values"/>
 
-    <ListPreference android:key="lockscreen_long_press_menu"
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="menu_unlock_screen"
+        android:title="@string/unlock_menu_unlock_title"
+        android:summary="@string/unlock_menu_unlock_summary" />
+
+    <ListPreference
+        android:key="lockscreen_long_press_menu"
         android:title="@string/lockscreen_long_press_menu_title"
+        android:persistent="false"
+        android:entries="@array/lockscreen_long_key_press_entries"
+        android:entryValues="@array/lockscreen_long_key_press_values"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="camera_unlock_screen"
+        android:title="@string/unlock_camera_unlock_title"
+        android:summary="@string/unlock_camera_unlock_summary" />
+
+    <ListPreference
+        android:key="lockscreen_long_press_back"
+        android:title="@string/lockscreen_long_press_back_title"
         android:persistent="false"
         android:entries="@array/lockscreen_long_key_press_entries"
         android:entryValues="@array/lockscreen_long_key_press_values"/>

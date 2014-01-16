@@ -96,8 +96,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
     private static final String SLIDE_LOCK_TIMEOUT_DELAY = "slide_lock_timeout_delay";
     private static final String SLIDE_LOCK_SCREENOFF_DELAY = "slide_lock_screenoff_delay";
-    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
-    private static final String CATEGORY_ADDITIONAL = "additional_options";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -260,48 +258,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
             mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
                     KEY_POWER_INSTANTLY_LOCKS);
             checkPowerInstantLockDependency();
-
-            // Add the additional CyanogenMod settings
-            addPreferencesFromResource(R.xml.security_settings_cyanogenmod);
-
-            CheckBoxPreference quickUnlockScreen = (CheckBoxPreference)
-                    findPreference(Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL);
-            CheckBoxPreference menuUnlock = (CheckBoxPreference)
-                    findPreference(Settings.System.MENU_UNLOCK_SCREEN);
-            CheckBoxPreference homeUnlock = (CheckBoxPreference)
-                    findPreference(Settings.System.HOME_UNLOCK_SCREEN);
-            CheckBoxPreference cameraUnlock = (CheckBoxPreference)
-                    findPreference(Settings.System.CAMERA_UNLOCK_SCREEN);
-
-            final int deviceKeys = res.getInteger(
-                    com.android.internal.R.integer.config_deviceHardwareKeys);
-            final PreferenceGroup additionalPrefs =
-                    (PreferenceGroup) findPreference(CATEGORY_ADDITIONAL);
-
-            // hide all lock options if lock screen set to NONE
-            if (mLockPatternUtils.isLockScreenDisabled()) {
-                root.removePreference(additionalPrefs);
-            // hide the quick unlock if using Pattern
-            } else if (mLockPatternUtils.isLockPatternEnabled()) {
-                additionalPrefs.removePreference(quickUnlockScreen);
-            // hide the quick unlock if its not using PIN/password
-            // as a primary lock screen or as a backup to biometric
-            } else if (!mLockPatternUtils.isLockPasswordEnabled()) {
-                additionalPrefs.removePreference(quickUnlockScreen);
-            }
-
-            // Hide the MenuUnlock setting if no menu button is available
-            if ((deviceKeys & ButtonSettings.KEY_MASK_MENU) == 0) {
-                additionalPrefs.removePreference(menuUnlock);
-            }
-            // Hide the HomeUnlock setting if no home button is available
-            if ((deviceKeys & ButtonSettings.KEY_MASK_HOME) == 0) {
-                additionalPrefs.removePreference(homeUnlock);
-            }
-            // Hide the CameraUnlock setting if no camera button is available
-            if ((deviceKeys & ButtonSettings.KEY_MASK_CAMERA) == 0) {
-                additionalPrefs.removePreference(cameraUnlock);
-            }
         }
 
         // biometric weak liveliness
