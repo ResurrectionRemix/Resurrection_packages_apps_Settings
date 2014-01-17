@@ -86,13 +86,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
-<<<<<<< HEAD
+    
     private CheckBoxPreference mShowActionOverflow;
-=======
     private CheckBoxPreference mCameraWake;
     private CheckBoxPreference mCameraSleepOnRelease;
     private CheckBoxPreference mCameraMusicControls;
->>>>>>> c933e92... Camera button support (2/2)
     private ListPreference mVolumeKeyCursorControl;
     private CheckBoxPreference mSwapVolumeButtons;
 
@@ -206,13 +204,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
-<<<<<<< HEAD
         if (hasAnyBindableKey) {
             mShowActionOverflow = (CheckBoxPreference)
                 prefScreen.findPreference(Settings.System.UI_FORCE_OVERFLOW_BUTTON);
         } else {
             prefScreen.removePreference(menuCategory);
-=======
+        }
+        
         if (hasCameraKey) {
             mCameraWake = (CheckBoxPreference)
                 prefScreen.findPreference(Settings.System.CAMERA_WAKE_SCREEN);
@@ -229,7 +227,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
         } else {
             prefScreen.removePreference(cameraCategory);
->>>>>>> c933e92... Camera button support (2/2)
+
         }
 
         if (!hasAnyBindableKey) {
