@@ -192,6 +192,7 @@
         android:title="@string/security_settings_title"
         android:id="@+id/security_settings" />
 
+<<<<<<< HEAD
     <!-- Apps Permissions -->
     <header
         android:id="@+id/appops_settings"
@@ -199,6 +200,15 @@
         android:fragment="com.android.settings.applications.AppOpsSummary"
         android:title="@string/appops_settings" />
 
+=======
+    <!-- CyanogenMod Privacy Settings -->
+    <!-- This is the 'real' Privacy items and includes Privacy Guard, Blacklist & WhisperPush -->
+    <header
+        android:fragment="com.android.settings.cyanogenmod.PrivacySettings"
+        android:icon="@drawable/ic_settings_privacy"
+        android:title="@string/privacy_settings_cyanogenmod_title"
+        android:id="@+id/privacy_settings_cyanogenmod" />
+>>>>>>> cec56bb... Settings: Fix up top level "Privacy" section
 
     <!-- Language -->
     <header
@@ -208,6 +218,9 @@
         android:title="@string/language_settings" />
 
     <!-- Backup and reset -->
+    <!-- Google for some reason calls this class PrivacySettings even though it is "Backup & reset"
+         we are leaving it as-is in order to not complicate future merges but rather adding a new
+         PrivacySettings class under .cyanogenmod above to handle the 'real' privacy items -->
     <header
         android:fragment="com.android.settings.PrivacySettings"
         android:icon="@drawable/ic_settings_backup"
