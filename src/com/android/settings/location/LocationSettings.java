@@ -140,7 +140,7 @@ public class LocationSettings extends LocationSettingsBase
         mGpsDownloadDataWifiOnly =
                 (CheckBoxPreference) root.findPreference(KEY_GPS_DOWNLOAD_DATA_WIFI_ONLY);
         if (mGpsDownloadDataWifiOnly != null) {
-            if (!LongTermOrbits.isSupported() || !checkGpsDownloadWiFiOnly(getActivity())) {
+            if (!isLtoSupported() || !checkGpsDownloadWiFiOnly(getActivity())) {
                 root.removePreference(mGpsDownloadDataWifiOnly);
                 mGpsDownloadDataWifiOnly = null;
             } else {
@@ -326,7 +326,7 @@ public class LocationSettings extends LocationSettingsBase
      * @param ctx A valid context
      */
     public static void restore(final Context context) {
-        if (LongTermOrbits.isSupported() && isLocationModeEnabled(context)) {
+        if (isLtoSupported() && isLocationModeEnabled(context)) {
             // Check and adjust the value for Gps download data on wifi only
             checkGpsDownloadWiFiOnly(context);
 
@@ -338,6 +338,15 @@ public class LocationSettings extends LocationSettingsBase
                     PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
             long nextLtoDownload = System.currentTimeMillis() + (1000 * 60 * 2L);
             am.set(AlarmManager.RTC, nextLtoDownload, pi);
+        }
+    }
+
+    private static boolean isLtoSupported() {
+        try {
+            return LongTermOrbits.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework isn't installed
+            return false;
         }
     }
 }
