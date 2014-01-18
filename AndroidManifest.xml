@@ -222,7 +222,10 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:parentActivityName="Settings">
         </activity>
-
+         <activity
+             android:name=".pac.LockscreenNotifications"
+             android:label="@string/Lockscreen_notifications" >
+         </activity>
         <activity android:name="CreateShortcut" android:label="@string/settings_shortcut"
             android:theme="@style/Theme.CreateShortCut">
             <intent-filter>
