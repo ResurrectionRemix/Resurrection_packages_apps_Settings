@@ -128,6 +128,10 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
             resId = R.string.notification_background_default_wallpaper;
             mNotificationWallpaper.setValueIndex(2);
             mNotificationWallpaperLandscape.setEnabled(false);
+        } else if (value.startsWith("color=")) {
+            resId = R.string.notification_background_color_fill;
+            mNotificationWallpaper.setValueIndex(0);
+            mNotificationWallpaperLandscape.setEnabled(false);
         } else {
             resId = R.string.notification_background_custom_image;
             mNotificationWallpaper.setValueIndex(1);
