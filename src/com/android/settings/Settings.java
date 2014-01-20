@@ -648,22 +648,18 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.development_settings
                     || id == R.id.performance_settings) {
                 if (!showDev) {
-                    target.remove(i);
                 }
             } else if (id == R.id.account_add) {
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
-                    target.remove(i);
                 }
             } else if (id == R.id.superuser) {
                 if (!DevelopmentSettings.isRootForAppsEnabled()) {
-                    target.remove(i);
                 }
             }
 
             if (i < target.size() && target.get(i) == header
                     && UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
                     && !ArrayUtils.contains(SETTINGS_FOR_RESTRICTED, id)) {
-                target.remove(i);
             }
 
             // Increment if the current one wasn't removed by the Utils code.
