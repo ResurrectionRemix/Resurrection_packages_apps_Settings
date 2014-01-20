@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 Daniel Nilsson
+ * Copyright (C) 2013 Slimroms
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +19,14 @@ package net.margaritov.preference.colorpicker;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.android.settings.R;
@@ -40,9 +43,15 @@ public class ColorPickerDialog
     private ColorPickerPanelView mOldColor;
     private ColorPickerPanelView mNewColor;
 
+    private ColorPickerPanelView mWhite;
+    private ColorPickerPanelView mBlack;
+    private ColorPickerPanelView mCyan;
+    private ColorPickerPanelView mRed;
+    private ColorPickerPanelView mGreen;
+    private ColorPickerPanelView mYellow;
+
     private EditText mHex;
-    private Button mSetButton;
-    private Button mIcsColor;
+    private ImageButton mSetButton;
 
     private OnColorChangedListener mListener;
 
@@ -78,9 +87,16 @@ public class ColorPickerDialog
         mColorPicker = (ColorPickerView) layout.findViewById(R.id.color_picker_view);
         mOldColor = (ColorPickerPanelView) layout.findViewById(R.id.old_color_panel);
         mNewColor = (ColorPickerPanelView) layout.findViewById(R.id.new_color_panel);
+
+        mWhite = (ColorPickerPanelView) layout.findViewById(R.id.white_panel);
+        mBlack = (ColorPickerPanelView) layout.findViewById(R.id.black_panel);
+        mCyan = (ColorPickerPanelView) layout.findViewById(R.id.cyan_panel);
+        mRed = (ColorPickerPanelView) layout.findViewById(R.id.red_panel);
+        mGreen = (ColorPickerPanelView) layout.findViewById(R.id.green_panel);
+        mYellow = (ColorPickerPanelView) layout.findViewById(R.id.yellow_panel);
+
         mHex = (EditText) layout.findViewById(R.id.hex);
-        mSetButton = (Button) layout.findViewById(R.id.enter);
-        mIcsColor = (Button) layout.findViewById(R.id.ics_color);
+        mSetButton = (ImageButton) layout.findViewById(R.id.enter);
 
         ((LinearLayout) mOldColor.getParent()).setPadding(
                 Math.round(mColorPicker.getDrawingOffset()),
@@ -94,31 +110,31 @@ public class ColorPickerDialog
         mColorPicker.setOnColorChangedListener(this);
         mOldColor.setColor(color);
         mColorPicker.setColor(color, true);
-        mHex.setText(ColorPickerPreference.convertToARGB(color));
-        mSetButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                String text = mHex.getText().toString();
-                try {
-                    int newColor = ColorPickerPreference.convertToColorInt(text);
-                    mColorPicker.setColor(newColor, true);
-                } catch (Exception e) {
+        setColorAndClickAction(mWhite, Color.WHITE);
+        setColorAndClickAction(mBlack, Color.BLACK);
+        setColorAndClickAction(mCyan, 0xff33b5e5);
+        setColorAndClickAction(mRed, Color.RED);
+        setColorAndClickAction(mGreen, Color.GREEN);
+        setColorAndClickAction(mYellow, Color.YELLOW);
+
+        if (mHex != null) {
+            mHex.setText(ColorPickerPreference.convertToARGB(color));
+        }
+        if (mSetButton != null) {
+           mSetButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    String text = mHex.getText().toString();
+                    try {
+                        int newColor = ColorPickerPreference.convertToColorInt(text);
+                        mColorPicker.setColor(newColor, true);
+                    } catch (Exception e) {
+                    }
                 }
-            }
-        });
-        mIcsColor.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                try {
-                    int newColor = 0xFF33B5E5;
-                    mColorPicker.setColor(newColor, true);
-                } catch (Exception e) {
-                }
-            }
-        });
-
+            });
+        }
     }
 
     @Override
@@ -126,7 +142,9 @@ public class ColorPickerDialog
 
         mNewColor.setColor(color);
         try {
-            mHex.setText(ColorPickerPreference.convertToARGB(color));
+            if (mHex != null) {
+                mHex.setText(ColorPickerPreference.convertToARGB(color));
+            }
         } catch (Exception e) {
 
         }
@@ -138,6 +156,21 @@ public class ColorPickerDialog
 
     public void setAlphaSliderVisible(boolean visible) {
         mColorPicker.setAlphaSliderVisible(visible);
+    }
+
+    public void setColorAndClickAction(ColorPickerPanelView previewRect, final int color) {
+        if (previewRect != null) {
+            previewRect.setColor(color);
+            previewRect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        mColorPicker.setColor(color, true);
+                    } catch (Exception e) {
+                    }
+                }
+            });
+        }
     }
 
     /**
@@ -161,6 +194,21 @@ public class ColorPickerDialog
             }
         }
         dismiss();
+    }
+
+    @Override
+    public Bundle onSaveInstanceState() {
+        Bundle state = super.onSaveInstanceState();
+        state.putInt("old_color", mOldColor.getColor());
+        state.putInt("new_color", mNewColor.getColor());
+        return state;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mOldColor.setColor(savedInstanceState.getInt("old_color"));
+        mColorPicker.setColor(savedInstanceState.getInt("new_color"), true);
     }
 
 }

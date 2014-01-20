@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 Daniel Nilsson
+ * Copyright (C) 2013 Slimroms
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -668,7 +669,7 @@ public class ColorPickerView extends View {
             height = (int) (widthAllowed - PANEL_SPACING - HUE_PANEL_WIDTH);
 
             //If calculated height (based on the width) is more than the allowed height.
-            if(height > heightAllowed || getTag().equals("landscape")) {
+            if(height > heightAllowed) {
                 height = heightAllowed;
                 width = (int) (height + PANEL_SPACING + HUE_PANEL_WIDTH);
             }
