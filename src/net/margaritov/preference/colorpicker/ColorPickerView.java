@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-
 package net.margaritov.preference.colorpicker;
 
 import android.content.Context;
@@ -237,7 +236,9 @@ public class ColorPickerView extends View {
 
         if(BORDER_WIDTH_PX > 0){
             mBorderPaint.setColor(mBorderColor);
-            canvas.drawRect(mDrawingRect.left, mDrawingRect.top, rect.right + BORDER_WIDTH_PX, rect.bottom + BORDER_WIDTH_PX, mBorderPaint);
+            canvas.drawRect(mDrawingRect.left,
+                mDrawingRect.top, rect.right + BORDER_WIDTH_PX,
+                rect.bottom + BORDER_WIDTH_PX, mBorderPaint);
         }
 
         if (mValShader == null) {
@@ -249,7 +250,8 @@ public class ColorPickerView extends View {
 
         mSatShader = new LinearGradient(rect.left, rect.top, rect.right, rect.top,
                 0xffffffff, rgb, TileMode.CLAMP);
-        ComposeShader mShader = new ComposeShader(mValShader, mSatShader, PorterDuff.Mode.MULTIPLY);
+        ComposeShader mShader = new ComposeShader(
+            mValShader, mSatShader, PorterDuff.Mode.MULTIPLY);
         mSatValPaint.setShader(mShader);
 
         canvas.drawRect(rect, mSatValPaint);
@@ -257,7 +259,8 @@ public class ColorPickerView extends View {
         Point p = satValToPoint(mSat, mVal);
 
         mSatValTrackerPaint.setColor(0xff000000);
-        canvas.drawCircle(p.x, p.y, PALETTE_CIRCLE_TRACKER_RADIUS - 1f * mDensity, mSatValTrackerPaint);
+        canvas.drawCircle(
+            p.x, p.y, PALETTE_CIRCLE_TRACKER_RADIUS - 1f * mDensity, mSatValTrackerPaint);
 
         mSatValTrackerPaint.setColor(0xffdddddd);
         canvas.drawCircle(p.x, p.y, PALETTE_CIRCLE_TRACKER_RADIUS, mSatValTrackerPaint);
@@ -278,7 +281,9 @@ public class ColorPickerView extends View {
         }
 
         if (mHueShader == null) {
-            mHueShader = new LinearGradient(rect.left, rect.top, rect.left, rect.bottom, buildHueColorArray(), null, TileMode.CLAMP);
+            mHueShader = new LinearGradient(
+                rect.left, rect.top, rect.left, rect.bottom,
+                buildHueColorArray(), null, TileMode.CLAMP);
             mHuePaint.setShader(mHueShader);
         }
 
@@ -330,7 +335,8 @@ public class ColorPickerView extends View {
         canvas.drawRect(rect, mAlphaPaint);
 
         if(mAlphaSliderText != null && mAlphaSliderText!= ""){
-            canvas.drawText(mAlphaSliderText, rect.centerX(), rect.centerY() + 4 * mDensity, mAlphaTextPaint);
+            canvas.drawText(mAlphaSliderText, rect.centerX(),
+                rect.centerY() + 4 * mDensity, mAlphaTextPaint);
         }
 
         float rectWidth = 4 * mDensity / 2;
@@ -774,7 +780,8 @@ public class ColorPickerView extends View {
 
         float left = dRect.right - HUE_PANEL_WIDTH + BORDER_WIDTH_PX;
         float top = dRect.top + BORDER_WIDTH_PX;
-        float bottom = dRect.bottom - BORDER_WIDTH_PX - (mShowAlphaPanel ? (PANEL_SPACING + ALPHA_PANEL_HEIGHT) : 0);
+        float bottom = dRect.bottom - BORDER_WIDTH_PX - (mShowAlphaPanel
+            ? (PANEL_SPACING + ALPHA_PANEL_HEIGHT) : 0);
         float right = dRect.right - BORDER_WIDTH_PX;
 
         mHueRect = new RectF(left, top, right, bottom);

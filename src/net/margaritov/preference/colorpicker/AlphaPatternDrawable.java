@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package net.margaritov.preference.colorpicker;
 
 import android.graphics.Bitmap;
