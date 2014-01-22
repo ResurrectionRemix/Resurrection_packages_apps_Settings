@@ -185,7 +185,7 @@ public class QuickSettingsUtil {
         }
     }
 
-    private static synchronized void removeUnsupportedTiles(Context context) {
+    protected static synchronized void removeUnsupportedTiles(Context context) {
         // Don't show mobile data options if not supported
         if (!QSUtils.deviceSupportsMobileData(context)) {
             removeTile(TILE_MOBILEDATA);
