@@ -54,13 +54,9 @@ import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
 
 import org.cyanogenmod.hardware.AdaptiveBacklight;
-<<<<<<< HEAD
 import android.widget.EditText;
 import com.android.settings.util.Helpers;
-=======
 import org.cyanogenmod.hardware.TapToWake;
-
->>>>>>> 3e2ce05... DisplaySettings: Add hardware-framework support for tap-to-wake
 import java.util.ArrayList;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
@@ -77,12 +73,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
-<<<<<<< HEAD
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-=======
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
->>>>>>> 3e2ce05... DisplaySettings: Add hardware-framework support for tap-to-wake
 
     private static final String CATEGORY_LIGHTS = "lights_prefs";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
@@ -483,7 +476,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                     mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
-<<<<<<< HEAD
+        } else if (preference == mTapToWake) {
+            return TapToWake.setEnabled(mTapToWake.isChecked());
         } else if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
@@ -513,10 +507,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             });
 
             alert.show();
-=======
-        } else if (preference == mTapToWake) {
-            return TapToWake.setEnabled(mTapToWake.isChecked());
->>>>>>> 3e2ce05... DisplaySettings: Add hardware-framework support for tap-to-wake
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
