@@ -83,7 +83,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
     
-    private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mCameraWake;
     private CheckBoxPreference mCameraSleepOnRelease;
     private CheckBoxPreference mCameraMusicControls;
@@ -168,8 +167,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
             hasAnyBindableKey = true;
         } else {
-            menuCategory.removePreference(findPreference(KEY_MENU_PRESS));
-            menuCategory.removePreference(findPreference(KEY_MENU_LONG_PRESS));
+		prefScreen.removePreference(menuCategory);            
         }
 
         if (hasAssistKey) {
@@ -200,13 +198,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
-        if (hasAnyBindableKey) {
-            mShowActionOverflow = (CheckBoxPreference)
-                prefScreen.findPreference(Settings.System.UI_FORCE_OVERFLOW_BUTTON);
-        } else {
-            prefScreen.removePreference(menuCategory);
-        }
-        
         if (hasCameraKey) {
             mCameraWake = (CheckBoxPreference)
                 prefScreen.findPreference(Settings.System.CAMERA_WAKE_SCREEN);
@@ -316,14 +307,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mShowActionOverflow) {
-            int toastResId = mShowActionOverflow.isChecked()
-                    ? R.string.hardware_keys_show_overflow_toast_enable
-                    : R.string.hardware_keys_show_overflow_toast_disable;
-
-            Toast.makeText(getActivity(), toastResId, Toast.LENGTH_LONG).show();
-            return true;
-        } else if (preference == mSwapVolumeButtons) {
+	if (preference == mSwapVolumeButtons) {
             int value = mSwapVolumeButtons.isChecked()
                     ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
             Settings.System.putInt(getActivity().getContentResolver(),
