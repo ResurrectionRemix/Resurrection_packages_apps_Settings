@@ -20,6 +20,7 @@ import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -46,10 +47,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
+    private CheckBoxPreference mQuickUnlock;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
@@ -109,6 +112,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             widgetsCategory.removePreference(
                     findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
         }
+
+	// Quick unlock
+	mQuickUnlock = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+		if (mQuickUnlock != null) {
+		mQuickUnlock.setChecked(Settings.System.getInt(getContentResolver(),
+		Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+        }
     }
 
     @Override
@@ -132,6 +142,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
 
         }
+	if (mQuickUnlock != null) {
+            mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                  Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+        }
     }
 
     @Override
@@ -144,6 +158,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (KEY_ENABLE_CAMERA.equals(key)) {
             mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
+        }
+	if (preference == mQuickUnlock) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlock.isChecked() ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
