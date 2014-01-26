@@ -47,7 +47,7 @@ private static final String RR_ROM_SHARE = "share";
     Preference mSourceUrl;
     Preference mFacebookUrl;
     Preference mGoogleUrl;
-
+    Preference mDonateUrl;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +57,7 @@ private static final String RR_ROM_SHARE = "share";
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
         mGoogleUrl = findPreference("rr_google_plus");
-        
+        mDonateUrl = findPreference("rr_donate");
         PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
         for (int i = 0; i < devsGroup.getPreferenceCount(); i++) {
@@ -86,6 +86,8 @@ private static final String RR_ROM_SHARE = "share";
             launchUrl("https://www.facebook.com/resurrectionremixrom");
         } else if (preference == mGoogleUrl) {
             launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
+        } else if (preference == mDonateUrl) {
+            launchUrl("http://forum.xda-developers.com/donatetome.php?u=4144763");
           } else if (preference.getKey().equals(RR_ROM_SHARE)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);

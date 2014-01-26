@@ -35,6 +35,11 @@
 			android:title="@string/rr_google_plus_title"
 			android:summary="@string/rr_google_plus_summary" />
 			
+		<Preference
+			android:key="rr_donate"
+			android:title="@string/rr_donate"
+			android:summary="@string/rr_donate_summary" />
+			
 	</PreferenceCategory>
 
 	<PreferenceCategory
@@ -45,29 +50,34 @@
             android:title="Westcrip"
             resurrection:nameDev="westcrip"
             resurrection:twitterHandle="westcrip"
-            resurrection:donateLink="@string/donate_westcrip"
+            resurrection:donateLink="@string/github_westcrip"
             resurrection:emailDev="altan_koruk@hotmail.com"/>
 
 	</PreferenceCategory>    
 
 	<PreferenceCategory
 		android:key="contributors"
-		android:title="@string/contributors_title">
-
-
+		android:title="@string/maincontributors_title">
+				
 		<com.android.settings.widgets.DeveloperPreference
-            android:title="AOKP"
-            resurrection:nameDev="AOKP"
-            resurrection:twitterHandle="aokp_rom"
-            resurrection:donateLink="@string/donate_aokp"
+            android:title="xenon92"
+            resurrection:nameDev="xenon92"
+            resurrection:twitterHandle="Xenon_92"
+            resurrection:donateLink="@string/github_xenon92"
             resurrection:emailDev="aokp@aokp.co"/>
-
+      </PreferenceCategory>
+             
+	<PreferenceCategory
+		android:key="sourcebase"
+		android:title="@string/sourcebase_title">
+				
 		<com.android.settings.widgets.DeveloperPreference
             android:title="CyanogenMod"
             resurrection:nameDev="CyanogenMod"
             resurrection:twitterHandle="cyanogenmod"
-            resurrection:donateLink="@string/donate_cyanogenmod"
+            resurrection:donateLink="@string/github_cm"
             resurrection:emailDev="cyanogenmod18@yahoo.com"/>
+
 
 	</PreferenceCategory>
 
