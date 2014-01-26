@@ -103,7 +103,7 @@ public class Spawn extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity();
 
-        mSeeThrough = (CheckBoxPreference) root.findPreference(KEY_SEE_THROUGH);
+        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_THROUGH);
         if (mSeeThrough != null) {
             mSeeThrough.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
