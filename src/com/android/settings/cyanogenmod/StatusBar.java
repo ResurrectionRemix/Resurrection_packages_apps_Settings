@@ -34,6 +34,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String PREF_BATT_BAR = "battery_bar_list";
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
@@ -48,6 +49,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
     private ListPreference mStatusBarBattery;
+    private ListPreference mStatusBarAmPm;
 
 
     private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
@@ -71,6 +73,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBatteryShowPercent =
                 (SystemSettingCheckBoxPreference) findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
+
+        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
+        int statusBarAmPm = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_AM_PM, 2);
+
+        mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
+        mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
+        mStatusBarAmPm.setOnPreferenceChangeListener(this);
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
@@ -149,6 +159,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
+            return true;
+	} else if (mStatusBarAmPm != null && preference == mStatusBarAmPm) {
+            int statusBarAmPm = Integer.valueOf((String) newValue);
+            int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
+            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
             return true;
         } else if (preference == mBatteryBarColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
