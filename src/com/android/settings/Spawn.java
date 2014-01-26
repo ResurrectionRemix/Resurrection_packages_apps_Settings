@@ -79,7 +79,7 @@ public class Spawn extends SettingsPreferenceFragment implements
 								
     private Context mContext;
 
-    private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_SEE_THROUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
@@ -103,7 +103,11 @@ public class Spawn extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity();
 
-        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+        mSeeThrough = (CheckBoxPreference) root.findPreference(KEY_SEE_THROUGH);
+        if (mSeeThrough != null) {
+            mSeeThrough.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
+        }
         
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getContentResolver(),
