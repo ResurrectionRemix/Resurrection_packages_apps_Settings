@@ -420,6 +420,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
                 PreferenceGroup appCategory = (PreferenceGroup)
                         root.findPreference(KEY_APP_SECURITY_CATEGORY);
                 appCategory.removePreference(mSmsSecurityCheck);
+                root.removePreference(appCategory);
             }
         }
 
