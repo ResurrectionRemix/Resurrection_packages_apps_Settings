@@ -47,20 +47,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
-<<<<<<< HEAD
     private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
-=======
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
->>>>>>> f5311dd... Settings: Glowpad Torch (3/3)
 
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
-<<<<<<< HEAD
     private CheckBoxPreference mQuickUnlock;
-=======
     private CheckBoxPreference mGlowpadTorch;
->>>>>>> f5311dd... Settings: Glowpad Torch (3/3)
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
