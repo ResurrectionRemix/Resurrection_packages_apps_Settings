@@ -42,7 +42,7 @@ import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-
+import com.android.settings.util.Helpers;
 public class QuickSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "QuickSettingsPanel";
@@ -229,6 +229,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int index = mTilesPerRow.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QUICK_TILES_PER_ROW, value);
             mTilesPerRow.setSummary(mTilesPerRow.getEntries()[index]);
+            Helpers.restartSystemUI();
             return true;
         }
         return false;
