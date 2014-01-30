@@ -84,6 +84,15 @@
              android:summary="@string/ram_bar_summary"
              android:title="@string/ram_bar" />
 
+ <PreferenceScreen
+         android:key="lock_clock"
+         android:title="@string/lock_clock_title"
+         android:summary="@string/lock_clock_summary">
+         <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.cyanogenmod.lockclock"
+                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+   </PreferenceScreen>
+
 </PreferenceCategory>  
                               
 </PreferenceScreen>
