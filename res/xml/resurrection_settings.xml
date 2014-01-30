@@ -42,19 +42,19 @@
         android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
         android:summary="@string/system_settings_title_summary"
         android:title="@string/system_settings_title" />                
-
-
-  <PreferenceScreen
-        android:id="@+id/button_settings"
-        android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
-        android:summary="@string/button_settings_summary"
-        android:title="@string/button_settings" />
-        
+       
    <PreferenceScreen
           android:id="@+id/spawn_settings"
           android:fragment="com.android.settings.Spawn"
           android:summary="@string/spawn_title_summary"
           android:title="@string/spawn_title" />
+
+   <PreferenceScreen
+        android:id="@+id/button_settings"
+        android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
+        android:summary="@string/button_settings_summary"
+        android:title="@string/button_settings" />
+
     <!-- HALO -->
    <PreferenceScreen
          android:id="@+id/halo_settings"
