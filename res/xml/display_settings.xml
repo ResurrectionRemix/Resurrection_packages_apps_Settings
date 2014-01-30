@@ -27,6 +27,12 @@
                 android:title="@string/wallpaper_settings_title"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
 
+	<ListPreference
+                android:key="screen_off_animation"
+                android:title="@string/screen_off_animation"
+                android:entries="@array/screen_off_animation_entries"
+                android:entryValues="@array/screen_off_animation_values" />
+
         <PreferenceScreen
             android:key="display_rotation"
             android:fragment="com.android.settings.cyanogenmod.DisplayRotation"
@@ -102,11 +108,5 @@
                 android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 
         </PreferenceCategory>
-
-        <ListPreference
-                android:key="screen_off_animation"
-                android:title="@string/screen_off_animation"
-                android:entries="@array/screen_off_animation_entries"
-                android:entryValues="@array/screen_off_animation_values" />
 
 </PreferenceScreen>
