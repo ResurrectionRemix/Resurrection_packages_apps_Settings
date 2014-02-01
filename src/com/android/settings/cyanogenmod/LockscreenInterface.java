@@ -20,8 +20,11 @@ import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
+<<<<<<< HEAD
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
+=======
+>>>>>>> 8704ab0... Bring back Camera widget option for tablets
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -108,8 +111,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
 
         // Enable or disable camera widget based on device and policy
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA) ||
-                Camera.getNumberOfCameras() == 0) {
+        if (Camera.getNumberOfCameras() == 0) {
             widgetsCategory.removePreference(mEnableCameraWidget);
             mEnableCameraWidget = null;
         } else if (mLockUtils.isSecure()) {
