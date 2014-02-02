@@ -291,24 +291,10 @@ public class QuickSettingsUtil {
         return tiles;
     }
 
-    public static String getCurrentTiles(Context context) {
-        String tiles = Settings.System.getString(context.getContentResolver(),
-                Settings.System.QUICK_SETTINGS_TILES);
-        if (tiles == null) {
-            tiles = getDefaultTiles(context);
-        }
-        return tiles;
-    }
-
     public static void saveCurrentTiles(Context context, String tiles, boolean isRibbon) {
         Settings.System.putString(context.getContentResolver(),
                 isRibbon ? Settings.System.QUICK_SETTINGS_RIBBON_TILES
                          : Settings.System.QUICK_SETTINGS_TILES, tiles);
-    }
-
-    public static void saveCurrentTiles(Context context, String tiles) {
-        Settings.System.putString(context.getContentResolver(),
-                Settings.System.QUICK_SETTINGS_TILES, tiles);
     }
 
     public static void resetTiles(Context context, boolean isRibbon) {
