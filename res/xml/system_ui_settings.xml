@@ -68,15 +68,20 @@
             android:fragment="com.android.settings.cyanogenmod.NavRing"
             android:title="@string/navigation_ring_title" />
 
-        <PreferenceScreen
-          android:key="navigation_bar"
-          android:fragment="com.android.settings.rr.NavigationBarSettings"
-          android:title="@string/navigation_bar_h_title" />
+	<ListPreference
+        	android:key="navigation_bar_height"
+	        android:dialogTitle="@string/navigation_bar_height"
+		android:title="@string/navigation_bar_height"
+		android:entries="@array/navigation_bar_height_entries"
+		android:entryValues="@array/navigation_bar_height_values"
+		android:defaultValue="48"
+		android:persistent="true" />
+
 </PreferenceCategory>  
 
  <PreferenceCategory
         android:key="user_interface_misc"
-        android:title="@string/user_interface_misc" >
+        android:title="@string/user_interface_misc_title" >
 
 	<PreferenceScreen
              android:key="recents_ram_bar"
