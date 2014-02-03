@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-2014 Dokdo Project - Gwon Hyeok
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/themes_settings_title" >
+
+    <PreferenceCategory
+        android:title="@string/title_general"
+        android:key="lockscreen_general_category" >
+
+        <CheckBoxPreference
+            android:key="progressbar_mirror"
+            android:title="@string/progressbar_mirror_title" />
+
+        <CheckBoxPreference
+            android:key="progressbar_reverse"
+            android:title="@string/progressbar_reverse_title" />
+
+        <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="progressbar_speed"
+            android:persistent="false"
+            android:title="@string/progressbar_speed_title"
+            android:summary="@string/progressbar_speed_title"
+            android:max="31"
+            settings:min="1"
+            settings:unitsLeft="Speed: "
+            settings:unitsRight=""
+            android:defaultValue="10" />
+
+        <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="progressbar_width"
+            android:persistent="false"
+            android:title="@string/progressbar_width_title"
+            android:summary="@string/progressbar_width_title"
+            android:max="12"
+            settings:min="0"
+            settings:unitsLeft="Stroke width: "
+            settings:unitsRight="dp"
+            android:defaultValue="4" />
+
+        <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="progressbar_length"
+            android:persistent="false"
+            android:title="@string/progressbar_length_title"
+            android:summary="@string/progressbar_length_title"
+            android:max="48"
+            settings:min="0"
+            settings:unitsLeft="Separator length: "
+            settings:unitsRight="dp"
+            android:defaultValue="10" />
+
+        <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="progressbar_count"
+            android:persistent="false"
+            android:title="@string/progressbar_count_title"
+            android:summary="@string/progressbar_count_title"
+            android:max="12"
+            settings:min="1"
+            settings:unitsLeft="Sections Count: "
+            settings:unitsRight=""
+            android:defaultValue="6" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="progressbar_color_1"
+        android:title="@string/progressbar_color_1_title"
+        android:defaultValue="#ffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="progressbar_color_2"
+        android:title="@string/progressbar_color_2_title"
+        android:defaultValue="#ffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="progressbar_color_3"
+        android:title="@string/progressbar_color_3_title"
+        android:defaultValue="#ffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="progressbar_color_4"
+        android:title="@string/progressbar_color_4_title"
+        android:defaultValue="#ffffff" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
