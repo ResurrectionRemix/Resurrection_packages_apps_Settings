@@ -67,31 +67,23 @@
             android:key="navigation_ring"
             android:fragment="com.android.settings.cyanogenmod.NavRing"
             android:title="@string/navigation_ring_title" />
-
-	<ListPreference
-        	android:key="navigation_bar_height"
-	        android:dialogTitle="@string/navigation_bar_height"
-		android:title="@string/navigation_bar_height"
-		android:entries="@array/navigation_bar_height_entries"
-		android:entryValues="@array/navigation_bar_height_values"
-		android:defaultValue="48"
-		android:persistent="true" />
-
+		
+    <CheckBoxPreference
+             android:key="enable_nav_bar"
+             android:title="@string/navbar_enable_bar"
+             android:summary="@string/navbar_enable_bar_summary" />
+ 
+     <PreferenceScreen
+          android:key="navbar_style_dimen_settings"
+          android:fragment="com.android.settings.pac.navbar.NavbarDimenSettings"
+          android:title="@string/navbar_style_dimen_title"
+          android:dependency="enable_nav_bar" />
+          
 </PreferenceCategory>  
 
  <PreferenceCategory
         android:key="user_interface_misc"
         android:title="@string/user_interface_misc_title" >
-
-   <PreferenceScreen
-        android:id="@+id/omniswitch"
-        android:title="@string/omniswitch_title"
-	android:summary="@string/omniswitch_summary" >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="org.omnirom.omniswitch"
-            android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
-   </PreferenceScreen>
 
 	<PreferenceScreen
              android:key="recents_ram_bar"
