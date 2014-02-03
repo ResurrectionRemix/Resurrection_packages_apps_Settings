@@ -83,6 +83,16 @@
         android:key="user_interface_misc"
         android:title="@string/user_interface_misc_title" >
 
+   <PreferenceScreen
+        android:id="@+id/omniswitch"
+        android:title="@string/omniswitch_title"
+	android:summary="@string/omniswitch_summary" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.omnirom.omniswitch"
+            android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
+   </PreferenceScreen>
+
 	<PreferenceScreen
              android:key="recents_ram_bar"
              android:fragment="com.android.settings.cyanogenmod.RamBar"
