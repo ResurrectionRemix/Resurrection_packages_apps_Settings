@@ -75,8 +75,6 @@ public class QuickSettingsTiles extends Fragment {
         mContainer.setClipToPadding(false);
         mInflater = inflater;
 
-        QuickSettingsUtil.removeUnsupportedTiles(getActivity());
-
         // We have both a panel and the ribbon config, see which one we are using
         Bundle args = getArguments();
         if (args != null) {
