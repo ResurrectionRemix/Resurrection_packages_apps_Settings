@@ -55,6 +55,13 @@
         android:summary="@string/button_settings_summary"
         android:title="@string/button_settings" />
 
+   <!-- Active display -->	
+   <PreferenceScreen	
+    	android:key="active_display"	
+	android:fragment="com.android.settings.fragments.ls.ActiveDisplaySettings"	
+    	android:title="@string/ad_settings_title"	
+    	android:summary="@string/ad_settings_summary" /> 
+
     <!-- HALO -->
    <PreferenceScreen
          android:id="@+id/halo_settings"
