@@ -20,11 +20,8 @@ import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
-=======
->>>>>>> 8704ab0... Bring back Camera widget option for tablets
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.UserHandle;
