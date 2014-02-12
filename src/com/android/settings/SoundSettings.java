@@ -44,6 +44,7 @@ import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.MediaStore;
@@ -68,6 +69,13 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_VOLUME_OVERLAY = "volume_overlay";
     private static final String KEY_RING_MODE = "ring_mode";
+    private static final String KEY_VOLUME_STEPS_ALARM = "volume_steps_alarm";
+    private static final String KEY_VOLUME_STEPS_DTMF = "volume_steps_dtmf";
+    private static final String KEY_VOLUME_STEPS_MUSIC = "volume_steps_music";
+    private static final String KEY_VOLUME_STEPS_NOTIFICATION = "volume_steps_notification";
+    private static final String KEY_VOLUME_STEPS_RING = "volume_steps_ring";
+    private static final String KEY_VOLUME_STEPS_SYSTEM = "volume_steps_system";
+    private static final String KEY_VOLUME_STEPS_VOICE_CALL = "volume_steps_voice_call";
     private static final String KEY_VIBRATE = "vibrate_when_ringing";
     private static final String KEY_RING_VOLUME = "ring_volume";
     private static final String KEY_INCREASING_RING = "increasing_ring";
@@ -117,6 +125,13 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private ListPreference mVolumeOverlay;
     private ListPreference mRingMode;
+    private ListPreference mVolumeStepsAlarm;
+    private ListPreference mVolumeStepsDTMF;
+    private ListPreference mVolumeStepsMusic;
+    private ListPreference mVolumeStepsNotification;
+    private ListPreference mVolumeStepsRing;
+    private ListPreference mVolumeStepsSystem;
+    private ListPreference mVolumeStepsVoiceCall;
     private CheckBoxPreference mSoundEffects;
     private Preference mMusicFx;
     private Preference mRingtonePreference;
@@ -197,7 +212,54 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             // device with fixed volume policy, do not display volumes submenu
             getPreferenceScreen().removePreference(findPreference(KEY_RING_VOLUME));
         }
-
+        
+		boolean isPhone = activePhoneType != TelephonyManager.PHONE_TYPE_NONE;
+		PreferenceCategory audioCat = (PreferenceCategory) getPreferenceScreen().findPreference("category_volume");
+		
+		mVolumeStepsAlarm = (ListPreference) findPreference(KEY_VOLUME_STEPS_ALARM);
+		updateVolumeSteps(mVolumeStepsAlarm.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_ALARM));
+		mVolumeStepsAlarm.setOnPreferenceChangeListener(this);
+		
+		
+		
+		mVolumeStepsDTMF = (ListPreference) findPreference(KEY_VOLUME_STEPS_DTMF);
+		if(isPhone){
+			updateVolumeSteps(mVolumeStepsDTMF.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_DTMF));
+			mVolumeStepsDTMF .setOnPreferenceChangeListener(this);
+		}
+		else
+			audioCat.removePreference(mVolumeStepsDTMF);
+		
+		mVolumeStepsMusic = (ListPreference) findPreference(KEY_VOLUME_STEPS_MUSIC);
+		updateVolumeSteps(mVolumeStepsMusic.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_MUSIC));
+		mVolumeStepsMusic .setOnPreferenceChangeListener(this);
+		
+		mVolumeStepsNotification = (ListPreference) findPreference(KEY_VOLUME_STEPS_NOTIFICATION);
+		updateVolumeSteps(mVolumeStepsNotification.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_NOTIFICATION));
+		mVolumeStepsNotification .setOnPreferenceChangeListener(this);
+		
+		mVolumeStepsRing = (ListPreference) findPreference(KEY_VOLUME_STEPS_RING);
+		if(isPhone){
+			updateVolumeSteps(mVolumeStepsRing.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_RING));
+			mVolumeStepsRing .setOnPreferenceChangeListener(this);
+		}
+		else
+			audioCat.removePreference(mVolumeStepsRing);
+		
+		mVolumeStepsSystem = (ListPreference) findPreference(KEY_VOLUME_STEPS_SYSTEM);
+		updateVolumeSteps(mVolumeStepsSystem.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_SYSTEM));
+		mVolumeStepsSystem .setOnPreferenceChangeListener(this);
+		
+		mVolumeStepsVoiceCall = (ListPreference) findPreference(KEY_VOLUME_STEPS_VOICE_CALL);
+		if(isPhone){
+			updateVolumeSteps(mVolumeStepsVoiceCall.getKey(),mAudioManager.getStreamMaxVolume(mAudioManager.STREAM_VOICE_CALL));
+			mVolumeStepsVoiceCall .setOnPreferenceChangeListener(this);
+		}
+		else
+			audioCat.removePreference(mVolumeStepsVoiceCall);
+		
+		
+		
         mQuietHours = (PreferenceScreen) findPreference(KEY_QUIET_HOURS);
         if (Settings.System.getInt(resolver, Settings.System.QUIET_HOURS_ENABLED, 0) == 1) {
             mQuietHours.setSummary(getString(R.string.quiet_hours_active_from) + " " +
@@ -399,6 +461,48 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         }
         mHandler.sendMessage(mHandler.obtainMessage(msg, summary));
     }
+    
+    private void updateVolumeSteps(int streamType, int steps)
+    {	
+        //Change the setting live
+        mAudioManager.setStreamMaxVolume(streamType, steps);
+        
+	}
+	private void updateVolumeSteps(String settingsKey, int steps){
+		
+		int streamType = -1;
+		if (settingsKey.equals(KEY_VOLUME_STEPS_ALARM))
+				streamType = mAudioManager.STREAM_ALARM;
+				
+		else if (settingsKey.equals(KEY_VOLUME_STEPS_DTMF)) 
+				streamType = mAudioManager.STREAM_DTMF;
+				
+		else if (settingsKey.equals(KEY_VOLUME_STEPS_MUSIC))
+				streamType = mAudioManager.STREAM_MUSIC;
+				
+		else if (settingsKey.equals(KEY_VOLUME_STEPS_NOTIFICATION))
+				streamType = mAudioManager.STREAM_NOTIFICATION;
+				
+		else if (settingsKey.equals(KEY_VOLUME_STEPS_RING))
+				streamType = mAudioManager.STREAM_RING;
+				
+		else if (settingsKey.equals(KEY_VOLUME_STEPS_SYSTEM))
+				streamType = mAudioManager.STREAM_SYSTEM;
+				
+		else if (settingsKey.equals(KEY_VOLUME_STEPS_VOICE_CALL))
+				streamType = mAudioManager.STREAM_VOICE_CALL;
+		
+		//Save the setting for next boot
+		Settings.System.putInt(getContentResolver(),
+                settingsKey, steps);
+		
+		((ListPreference)findPreference(settingsKey)).setSummary(String.valueOf(steps));
+				
+		updateVolumeSteps(streamType, steps);
+		
+		Log.i(TAG, "Volume steps:" + settingsKey + "" +String.valueOf(steps));	
+			
+	}
 
     private void lookupRingtoneNames() {
         new Thread(mRingtoneLookupRunnable).start();
@@ -483,6 +587,20 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             }
         } else if (preference == mRingMode) {
             setPhoneRingModeValue(objValue.toString());
+        } else if (preference == mVolumeStepsAlarm) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
+        } else if (preference == mVolumeStepsDTMF) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
+        } else if (preference == mVolumeStepsMusic) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
+        } else if (preference == mVolumeStepsNotification) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
+        } else if (preference == mVolumeStepsRing) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
+        } else if (preference == mVolumeStepsSystem) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
+        } else if (preference == mVolumeStepsVoiceCall) {
+            updateVolumeSteps(preference.getKey(),Integer.parseInt(objValue.toString()));
         } else if (preference == mVolumeOverlay) {
             final int value = Integer.valueOf((String) objValue);
             final int index = mVolumeOverlay.findIndexOfValue((String) objValue);
