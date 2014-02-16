@@ -43,7 +43,12 @@
             android:entries="@array/entries_status_bar_am_pm"
             android:entryValues="@array/values_status_bar_am_pm"
             android:dependency="status_bar_show_clock" />
-
+         <ListPreference
+             android:key="font_style"
+             android:entries="@array/clock_font_style_entries"
+             android:entryValues="@array/clock_font_style_values"
+             android:title="@string/clock_font_style_title"
+             android:dependency="status_bar_show_clock" />
         <ListPreference
             android:key="clock_date_display"
             android:title="@string/clock_date_display"
