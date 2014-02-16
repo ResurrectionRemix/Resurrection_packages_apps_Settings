@@ -62,10 +62,15 @@
    <!-- Active display -->	
    <PreferenceScreen	
     	android:key="active_display"	
-	android:fragment="com.android.settings.fragments.ls.ActiveDisplaySettings"	
+	    android:fragment="com.android.settings.fragments.ls.ActiveDisplaySettings"	
     	android:title="@string/ad_settings_title"	
-    	android:summary="@string/ad_settings_summary" /> 
-
+    	android:summary="@string/ad_settings_summary" />
+    	 
+    <PreferenceScreen
+         android:id="@+id/lockscreen_notifcation_settings"
+         android:summary="@string/lockscreen_notifications_summary"
+         android:fragment="com.android.settings.pac.LockscreenNotifications"
+         android:title="@string/lockscreen_notifications" />
     <!-- HALO -->
    <PreferenceScreen
          android:id="@+id/halo_settings"
