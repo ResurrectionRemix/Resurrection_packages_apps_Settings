@@ -11,7 +11,11 @@
             android:title="@string/lockscreen_notifications"
             android:summary="@string/lockscreen_notifications_summary" 
             android:defaultValue="true" />
-
+            
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="notification_color"
+                 android:title="@string/notification_color" />
+                 
         <CheckBoxPreference
             android:key="pocket_mode"
             android:title="@string/pocket_mode"
@@ -48,33 +52,22 @@
             android:title="@string/excluded_apps_title"
             android:dependency="lockscreen_notifications"
             android:summary="@string/excluded_apps_summary" />
-
+                 
     </PreferenceCategory>
     <PreferenceCategory
-        android:key="category_layout"
         android:title="@string/layout" >
 
-            <SeekBarPreference
-                android:key="offset_top"
-                android:title="@string/offset_top"
-                android:max="100"
-                android:defaultValue="30" />
+        <SeekBarPreference
+            android:key="offset_top"
+            android:title="@string/offset_top"
+            android:max="100"
+            android:defaultValue="30" />
 
             <com.android.settings.pac.preference.NumberPickerPreference
                 android:key="notifications_height"
                 android:dialogMessage="@string/notifications_height"
                 android:title="@string/notifications_height"
                 android:summary="@string/notifications_height_summary" />
-
-            <CheckBoxPreference
-                android:key="dynamic_width"
-                android:title="@string/dynamic_width"
-                android:dependency="lockscreen_notifications"
-                android:summary="@string/dynamic_width_summary" />
-
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="notification_color"
-                android:title="@string/notification_color" />
 
     </PreferenceCategory>
     <PreferenceCategory
@@ -94,6 +87,5 @@
             android:key="force_expanded_view"
             android:title="@string/force_expanded_view"
             android:summary="@string/force_expanded_view_summary" />
-
     </PreferenceCategory>
 </PreferenceScreen>
