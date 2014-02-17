@@ -117,7 +117,7 @@ public class TetherSettings extends SettingsPreferenceFragment
 
         final Activity activity = getActivity();
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (adapter != null) {
+        if (adapter != null && adapter.getState() == BluetoothAdapter.STATE_ON) {
             adapter.getProfileProxy(activity.getApplicationContext(), mProfileServiceListener,
                     BluetoothProfile.PAN);
         }
@@ -305,6 +305,24 @@ public class TetherSettings extends SettingsPreferenceFragment
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+
+        if (adapter != null && adapter.getState() == BluetoothAdapter.STATE_ON) {
+            BluetoothPan pan = mBluetoothPan.get();
+            if (pan != null) {
+                //Close the connection of the profile proxy to the Service to
+                // avoid objects leak while exiting from tethering menu.
+                adapter.closeProfileProxy(BluetoothProfile.PAN, pan);
+                mBluetoothPan.set(null);
+            }
+        }
+    }
+
+
     private void updateState() {
         ConnectivityManager cm =
                 (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -482,15 +500,20 @@ public class TetherSettings extends SettingsPreferenceFragment
             case BLUETOOTH_TETHERING:
                 // turn on Bluetooth first
                 BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-                if (adapter.getState() == BluetoothAdapter.STATE_OFF) {
-                    mBluetoothEnableForTether = true;
-                    adapter.enable();
-                    mBluetoothTether.setSummary(R.string.bluetooth_turning_on);
-                    mBluetoothTether.setEnabled(false);
-                } else {
-                    BluetoothPan bluetoothPan = mBluetoothPan.get();
-                    if (bluetoothPan != null) bluetoothPan.setBluetoothTethering(true);
-                    mBluetoothTether.setSummary(R.string.bluetooth_tethering_available_subtext);
+                if (adapter != null) {
+                    if (adapter.getState() == BluetoothAdapter.STATE_OFF) {
+                        //Get the Pan Profile proxy object while turning on BT
+                        adapter.getProfileProxy(getActivity().getApplicationContext(),
+                                mProfileServiceListener, BluetoothProfile.PAN);
+                        mBluetoothEnableForTether = true;
+                        adapter.enable();
+                        mBluetoothTether.setSummary(R.string.bluetooth_turning_on);
+                        mBluetoothTether.setEnabled(false);
+                    } else {
+                        BluetoothPan bluetoothPan = mBluetoothPan.get();
+                        if (bluetoothPan != null) bluetoothPan.setBluetoothTethering(true);
+                        mBluetoothTether.setSummary(R.string.bluetooth_tethering_available_subtext);
+                    }
                 }
                 break;
             case USB_TETHERING:
