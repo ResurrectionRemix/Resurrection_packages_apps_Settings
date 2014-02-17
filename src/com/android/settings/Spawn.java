@@ -79,7 +79,6 @@ public class Spawn extends SettingsPreferenceFragment implements
 								
     private Context mContext;
 
-    private static final String KEY_SEE_THROUGH = "see_through";
     private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
@@ -87,7 +86,6 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     
-    private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mStatusBarTraffic;
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mHeadsetHookLaunchVoice;
@@ -102,12 +100,6 @@ public class Spawn extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity();
-
-        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_THROUGH);
-        if (mSeeThrough != null) {
-            mSeeThrough.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
-        }
         
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getContentResolver(),
@@ -140,11 +132,7 @@ public class Spawn extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
                 boolean value;
-        if (preference == mSeeThrough) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
-                    ? 1 : 0);
-        } else if (preference == mLockRingBattery) {
+        if (preference == mLockRingBattery) {
              Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
         } else if (preference == mHeadsetHookLaunchVoice) {
