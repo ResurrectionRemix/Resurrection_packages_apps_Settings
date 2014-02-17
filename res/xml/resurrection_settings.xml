@@ -100,6 +100,14 @@
         android:fragment="com.android.settings.cyanogenmod.AppSidebar"
         android:title="@string/app_sidebar_title"
         android:summary="@string/app_sidebar_summary" />
+        <PreferenceCategory
+            android:title="@string/status_bar_style_title">
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.slim.StatusBarClockStyle"
+            android:key="clock_style_pref"
+            android:summary="@string/status_bar_clock_summary"
+            android:title="@string/status_bar_clock" />
         
   <PreferenceScreen
          android:key="lock_clock"
@@ -109,7 +117,7 @@
                  android:targetPackage="com.cyanogenmod.lockclock"
                  android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
    </PreferenceScreen>
-     
+        </PreferenceCategory>      
             <PreferenceCategory
             android:id="@+id/animations"
             android:title="@string/animations_title" /> 
@@ -137,15 +145,6 @@
              android:summary="@string/title_animation_controls_summary"
              android:fragment="com.android.settings.cyanogenmod.fragments.AnimationControls" />
              
-        <PreferenceCategory
-            android:title="@string/status_bar_style_title">
-
-        <PreferenceScreen
-            android:fragment="com.android.settings.slim.StatusBarClockStyle"
-            android:key="clock_style_pref"
-            android:summary="@string/status_bar_clock_summary"
-            android:title="@string/status_bar_clock" />
-        </PreferenceCategory> 
             <PreferenceCategory
             android:id="@+id/misc"
             android:title="@string/misc_title" />
