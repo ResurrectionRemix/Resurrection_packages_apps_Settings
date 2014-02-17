@@ -61,17 +61,16 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             String newInterval = attrs.getAttributeValue(SETTINGS, "interval");
             if(newInterval != null)
                 mInterval = Integer.parseInt(newInterval);
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             Log.e(TAG, "Invalid interval value", e);
         }
     }
-    
+
     private String getAttributeStringValue(AttributeSet attrs, String namespace, String name, String defaultValue) {
         String value = attrs.getAttributeValue(namespace, name);
-        if(value == null)
+        if(value == null) {
             value = defaultValue;
-        
+        }
         return value;
     }
 
@@ -79,10 +78,12 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
     public void onDependencyChanged(Preference dependency, boolean disableDependent) {
         super.onDependencyChanged(dependency, disableDependent);
         this.setShouldDisableView(true);
-        if (mTitle != null)
+        if (mTitle != null) {
             mTitle.setEnabled(!disableDependent);
-        if (mSeekBar != null)
+        }
+        if (mSeekBar != null) {
             mSeekBar.setEnabled(!disableDependent);
+        }
     }
 
     @Override
@@ -93,19 +94,16 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             LayoutInflater mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             layout = (RelativeLayout)mInflater.inflate(R.layout.seek_bar_preference, parent, false);
             mTitle = (TextView) layout.findViewById(android.R.id.title);
-        }
-        catch(Exception e)
-        {
+        } catch(Exception e) {
             Log.e(TAG, "Error creating seek bar preference", e);
         }
         return layout;
     }
-    
+
     @Override
     public void onBindView(View view) {
         super.onBindView(view);
-        try
-        {
+        try {
             // move our seekbar to the new view we've been given
             ViewParent oldContainer = mSeekBar.getParent();
             ViewGroup newContainer = (ViewGroup) view.findViewById(R.id.seekBarPrefBarContainer);
@@ -120,8 +118,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
                 newContainer.addView(mSeekBar, ViewGroup.LayoutParams.FILL_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT);
             }
-        }
-        catch(Exception ex) {
+        } catch(Exception ex) {
             Log.e(TAG, "Error binding view: " + ex.toString());
         }
         updateView(view);
@@ -144,27 +141,29 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             unitsRight.setText(mUnitsRight);
             TextView unitsLeft = (TextView)layout.findViewById(R.id.seekBarPrefUnitsLeft);
             unitsLeft.setText(mUnitsLeft);
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             Log.e(TAG, "Error updating seek bar preference", e);
         }
     }
-    
+
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         int newValue = progress + mMinValue;
-        if(newValue > mMaxValue)
+
+        if(newValue > mMaxValue) {
             newValue = mMaxValue;
-        else if(newValue < mMinValue)
+        } else if(newValue < mMinValue) {
             newValue = mMinValue;
-        else if(mInterval != 1 && newValue % mInterval != 0)
-            newValue = Math.round(((float)newValue)/mInterval)*mInterval;  
-        
+        } else if(mInterval != 1 && newValue % mInterval != 0) {
+            newValue = Math.round(((float)newValue)/mInterval)*mInterval;
+        }
+
         // change rejected, revert to the previous value
-        if(!callChangeListener(newValue)){
-            seekBar.setProgress(mCurrentValue - mMinValue); 
+        if (!callChangeListener(newValue)) {
+            seekBar.setProgress(mCurrentValue - mMinValue);
             return; 
         }
+
         // change accepted, store it
         mCurrentValue = newValue;
         mStatusText.setText(String.valueOf(newValue));
@@ -189,13 +188,11 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
         if(restoreValue) {
             mCurrentValue = getPersistedInt(mCurrentValue);
-        }
-        else {
+        } else {
             int temp = 0;
             try {
                 temp = (Integer)defaultValue;
-            }
-            catch(Exception ex) {
+            } catch(Exception ex) {
                 Log.e(TAG, "Invalid default value: " + defaultValue.toString());
             }
             persistInt(temp);

@@ -26,6 +26,20 @@
         android:summaryOn="@string/ad_enable_summary_on" />
 
     <CheckBoxPreference
+        android:key="ad_content"
+        android:persistent="false"
+        android:title="@string/ad_content_title"
+        android:summary="@string/ad_content_summary"
+        android:dependency="ad_enable"/>
+
+    <CheckBoxPreference
+        android:key="ad_bypass"
+        android:persistent="false"
+        android:title="@string/ad_bypass_title"
+        android:summary="@string/ad_bypass_summary"
+        android:dependency="ad_enable"/>
+
+    <CheckBoxPreference
         android:key="ad_text"
         android:persistent="false"
         android:title="@string/ad_text_title"
@@ -82,6 +96,13 @@
             android:summary="@string/ad_excluded_apps_summary"
             android:dependency="ad_enable" />
 
+        <com.android.settings.chameleonos.AppMultiSelectListPreference
+            android:key="ad_privacy_apps"
+            android:persistent="false"
+            android:title="@string/ad_privacy_apps_title"
+            android:summary="@string/ad_privacy_apps_summary"
+            android:dependency="ad_enable" />
+
         <CheckBoxPreference
             android:key="ad_show_date"
             android:persistent="false"
@@ -107,6 +128,7 @@
             android:key="ad_threshold"
             android:persistent="false"
             android:dialogTitle="@string/ad_threshold_title"
+            android:summary="@string/ad_threshold_summary"
             android:title="@string/ad_threshold_title"
             android:entries="@array/ad_threshold_entries"
             android:entryValues="@array/ad_threshold_values"
@@ -126,11 +148,8 @@
             android:persistent="false"
             android:title="@string/ad_brightness_title"
             android:summary="@string/ad_brightness_summary"
-            android:max="100"
-            settings:min="0"
             settings:unitsLeft=""
             settings:unitsRight="%"
-            android:defaultValue="100"
             android:dependency="ad_enable" />
 
 </PreferenceScreen>
