@@ -129,7 +129,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.apn_settings);
-        getListView().setItemsCanFocus(true);
         mSubscription = getActivity().getIntent().getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
                 MSimTelephonyManager.getDefault().getDefaultSubscription());
         Log.d(TAG, "onCreate received sub :" + mSubscription);

@@ -247,7 +247,7 @@ public class ApnEditor extends SettingsPreferenceFragment
 
         mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
-        fillUi(icicle.getString(ApnSettings.OPERATOR_NUMERIC_EXTRA));
+        fillUi(intent.getStringExtra(ApnSettings.OPERATOR_NUMERIC_EXTRA));
         setHasOptionsMenu(true);
     }
 
