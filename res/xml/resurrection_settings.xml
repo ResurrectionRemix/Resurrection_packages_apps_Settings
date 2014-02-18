@@ -77,7 +77,7 @@
         android:fragment="com.android.settings.cyanogenmod.AppSidebar"
         android:title="@string/app_sidebar_title"
         android:summary="@string/app_sidebar_summary" />
-    
+              
   <PreferenceCategory
         android:title="@string/lockscreen_style_title">       
    <!-- Active display -->	
@@ -122,8 +122,18 @@
                  android:targetPackage="com.cyanogenmod.lockclock"
                  android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
   </PreferenceScreen>
-        </PreferenceCategory>
-              
+   </PreferenceCategory>
+        
+    <PreferenceCategory
+	   android:key="progressbar"
+	   android:title="@string/progressbar_title" />
+
+    <PreferenceScreen
+       android:key="progressbar_settings"
+       android:fragment="com.android.settings.cyanogenmod.ProgressBar"
+       android:title="@string/progressbar_title" >
+    </PreferenceScreen>
+           
   <PreferenceCategory
         android:id="@+id/animations"
         android:title="@string/animations_title" /> 
