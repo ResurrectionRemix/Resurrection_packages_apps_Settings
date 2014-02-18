@@ -154,6 +154,10 @@
     <string name="adaptive_backlight_summary">Intelligens módon változtatja a háttérvilágítás fényerejét az akkumulátor élettartamának növelése érdekében</string>
     <string name="wake_when_plugged_or_unplugged_title">Felébredés töltő csatlakoztatásakor</string>
     <string name="wake_when_plugged_or_unplugged_summary">A képernyő bekapcsolása a töltő csatlakoztatása/eltávolítása után</string>
+    <string name="screen_animation_off_title">Képernyő-kikapcsolás animáció</string>
+    <string name="screen_animation_style_title">Animáció stílusa</string>
+    <string name="screen_animation_style_electronbeam">Elektronsugár</string>
+    <string name="screen_animation_style_fade">Elhalványuló</string>
     <string name="edit_light_settings">Jelzés beállítások</string>
     <string name="pulse_speed_title">Impulzus hossza és sebessége</string>
     <string name="default_time">Normál</string>
@@ -177,10 +181,6 @@
     <string name="battery_light_low_color_title">Gyenge az akkumulátor</string>
     <string name="battery_light_medium_color_title">Töltés</string>
     <string name="battery_light_full_color_title">Teljesen feltöltve</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
     <string name="lockpattern_settings_enable_error_path_title">Hibás minta megjelenítése</string>
     <string name="lockpattern_settings_enable_dots_title">Feloldási pontok megjelenítése</string>
     <string name="screen_security_category">Képernyővédelem</string>
@@ -191,6 +191,8 @@
     <string name="unlock_menu_unlock_summary">Készülék feloldása a menü gomb megnyomásával</string>
     <string name="unlock_home_unlock_title">Kezdő gomb feloldás</string>
     <string name="unlock_home_unlock_summary">Készülék feloldása a kezdő gomb megnyomásával</string>
+    <string name="unlock_camera_unlock_title">Kamera gomb feloldás</string>
+    <string name="unlock_camera_unlock_summary">Készülék feloldása a kamera gomb megnyomásával</string>
     <string name="unlock_quick_unlock_control_title">Gyors feloldás</string>
     <string name="unlock_quick_unlock_control_summary">Automatikus feloldás a helyes jelszó/PIN kód beütése után</string>
     <string name="delay_and_timeout_title">Képernyőzár késleltetés</string>
@@ -328,8 +330,8 @@
     <string name="ok">OK</string>
     <string name="quiet_hours_title">Csendes órák</string>
     <string name="quiet_hours_summary">Csendes órák beállításai</string>
-    <string name="quiet_hours_note_summary">Megjegyzés: A bejövő hívásokra nincs hatással</string>
     <string name="quiet_hours_enabled">Csendes órák</string>
+    <string name="quiet_hours_ringer">Telefon csörgés</string>
     <string name="quiet_hours_mute">Értesítések</string>
     <string name="quiet_hours_system">Rendszerhangok</string>
     <string name="quiet_hours_still">Rezgés</string>
@@ -337,6 +339,10 @@
     <string name="quiet_hours_haptic">Érintési visszajelzés</string>
     <string name="quiet_hours_active_from">Bekapcsolva ettől</string>
     <string name="quiet_hours_active_to">eddig</string>
+    <string name="quiet_hours_ringer_allow_all">Összes hívás</string>
+    <string name="quiet_hours_ringer_allow_contacts">Csak kapcsolatok</string>
+    <string name="quiet_hours_ringer_allow_starred">Csak kedvencek</string>
+    <string name="quiet_hours_ringer_mute_all">Összes hívás némítása</string>
     <string name="start_time_title">Kezdete</string>
     <string name="end_time_title">Vége</string>
     <string name="mod_version">CyanogenMod verzió</string>
@@ -391,6 +397,7 @@
     <string name="cmupdate_settings_summary">Elérhető frissítések keresése, megtekintése, vagy telepítése</string>
     <string name="advanced_settings_title">Haladó</string>
     <string name="development_tools_title">Fejlesztői eszközök</string>
+    <string name="privacy_settings_cyanogenmod_title">Adatvédelem</string>
     <string name="privacy_guard_switch_label">Adatvédelem engedélyezése</string>
     <string name="privacy_guard_dlg_title">Engedélyezi az adatvédelmi módot?</string>
     <string name="privacy_guard_dlg_text">Amikor az adatvédelmi mód be van kapcsolva, az alkalmazás nem fér hozzá az Ön személyes adataihoz, mint a névjegyzékéhez, üzeneteihez, vagy a hívásnaplójához.</string>
@@ -468,6 +475,7 @@
     <string name="collapse_on_dismiss_never_summary">Értesítési sáv nyitva tartása értesítések eltávolítása után</string>
     <string name="collapse_on_dismiss_if_empty_summary">Értesítési sáv bezárása az utolsó értesítés eltávolítása után</string>
     <string name="collapse_on_dismiss_if_no_clearable_summary">Értesítési sáv bezárása az utolsó eltávolítható értesítés eltávolítása után</string>
+    <string name="double_tap_to_wake_title">Dupla érintésre felébresztés</string>
     <string name="category_quick_access">Gyorsbeállítások panel</string>
     <string name="title_quick_access">Engedélyezés</string>
     <string name="title_quick_access_linked">Azonos elrendezés</string>
@@ -475,7 +483,9 @@
     <string name="font_size_sample">Példa</string>
     <string name="sms_security_check_limit_title">Üzenet korlát</string>
     <string name="sms_security_check_limit_summary">Figyelmeztető ablak megjelenítése a túl gyakori üzenetküldés megakadályozására. Jelenlegi limit: %d üzenet 30 percenként</string>
+    <string name="sms_security_check_limit_summary_none">Az alkalmazások nem küldhetnek üzeneteket megerősítés nélkül</string>
     <string name="sms_security_check_limit_default">30 (Alapértelmezés)</string>
+    <string name="sms_security_check_limit_none">Nincs</string>
     <string name="lockscreen_custom_widgets_title">Egyéni modulok</string>
     <string name="lock_clock_title">Óra modul</string>
     <string name="lock_clock_summary">Az alapértelmezett kezdőképernyő, illetve képernyőzár modul testreszabása</string>
@@ -485,6 +495,10 @@
     <string name="power_notifications_vibrate_title">Rezgés</string>
     <string name="power_notifications_ringtone_title">Értesítési hang</string>
     <string name="power_notifications_ringtone_silent">Néma</string>
+    <string name="lockscreen_battery_status_title">Akkumulátor állapot</string>
+    <string name="lockscreen_battery_status_charging">Csak töltéskor</string>
+    <string name="lockscreen_battery_status_alwayson">Mindig</string>
+    <string name="lockscreen_battery_status_alwaysoff">Soha</string>
     <string name="lockscreen_target_info">Módosításhoz húzza a csúszkát a kívánt pontra</string>
     <string name="lockscreen_target_title">Képernyőzár hivatkozások</string>
     <string name="lockscreen_target_summary">Hivatkozások hozzáadása vagy módosítása</string>
@@ -521,6 +535,18 @@
     <string name="icon_picker_search">Keresés</string>
     <string name="icon_picker_sms">Üzenet</string>
     <string name="icon_picker_twitter">Twitter</string>
+    <string name="lockscreen_buttons_title">Gomb műveletek</string>
+    <string name="lockscreen_buttons_summary">Képernyőzár beállítások</string>
+    <string name="lockscreen_long_press_back_title">Hosszan nyomva tartott Vissza gomb</string>
+    <string name="lockscreen_long_press_home_title">Hosszan nyomva tartott Kezdő gomb</string>
+    <string name="lockscreen_long_press_menu_title">Hosszan nyomva tartott Menü gomb</string>
+    <string name="lockscreen_buttons_no_action">Nincs művelet</string>
+    <string name="lockscreen_buttons_flashlight">Zseblámpa</string>
+    <string name="lockscreen_buttons_next">Következő zeneszám</string>
+    <string name="lockscreen_buttons_previous">Előző zeneszám</string>
+    <string name="lockscreen_buttons_playpause">Zene lejátszás/szünet</string>
+    <string name="lockscreen_buttons_toggle_sound">Hang mód</string>
+    <string name="lockscreen_buttons_sleep">Alvó mód</string>
     <string name="navigation_bar_category">Navigációs sáv</string>
     <string name="navigation_bar_title">Gombok és kinézet</string>
     <string name="navigation_bar_help_text">1 - A szerkesztéshez érintse meg a lakatot\n\n2 - Válasszon gombot a hozzárendelés módosításához\n\n3 - Tartsa hosszan a sorba rendezéshez\n\n4 - A mentéshez érintse meg ismét a lakatot\n\n5 - Az alaphelyzet visszaállításához érintse meg a Visszaállítás gombot\n\n</string>
@@ -602,6 +628,7 @@
     <string name="backlight_summary_disabled">Letiltva</string>
     <string name="backlight_summary_enabled_with_timeout">Engedélyezve <xliff:g id="timeout">%s</xliff:g> másodpercig</string>
     <string name="backlight_summary_enabled">Engedélyezve</string>
+    <string name="accessibility_home_button_answers_call_prerefence_title">A kezdő gomb fogadja a hívást</string>
     <string name="confirm_delete_apn">Az APN törlődni fog.</string>
     <string name="status_bar_title">Értesítési sáv</string>
     <string name="status_bar_show_clock_title">Óra megjelenítése</string>
@@ -671,4 +698,6 @@
     <string name="bluetooth_profile_dun">Telefonos hálózati hozzáférés</string>
     <string name="bluetooth_dun_profile_summary_connected">Csatlakozva a DUN szerverhez</string>
     <string name="bluetooth_dun_profile_summary_use_for">Telefonos hálózati hozzáféréshez használja</string>
+    <string name="ime_switcher_notify">Beviteli mód választó</string>
+    <string name="ime_switcher_notify_summary">Beviteli mód választó megjelenítése az értesítési sávon</string>
 </resources>

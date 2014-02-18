@@ -20,10 +20,6 @@
     <string name="wifi_setting_countrycode_error">Kan regiocode niet instellen</string>
     <string name="wifi_setting_priority_title">Wifi-prioriteit</string>
     <string name="wifi_setting_priority_summary">Prioriteit instellen van wifi-netwerken</string>
-    <string name="ring_mode_title">Belmodus</string>
-    <string name="ring_mode_normal">Normaal</string>
-    <string name="ring_mode_vibrate">Trillen</string>
-    <string name="ring_mode_mute">Dempen</string>
     <string name="lock_screen_title">Schermbeveiliging</string>
     <string name="increasing_ring_title">In volume toenemende beltoon</string>
     <string name="checkbox_increasing_ring">Inschakelen</string>
@@ -118,9 +114,26 @@
     <string name="toggle2g3g">2G/3G</string>
     <string name="toggleWimax">WiMAX</string>
     <string name="toggleNfc">NFC</string>
+    <string name="volume_ring_only_description">Beltoon</string>
     <string name="link_volume_ringtones">Volumen koppelen</string>
     <string name="link_volume_mutes">Stille standen koppelen</string>
     <string name="volume_keys_control_ring_stream">Volumeknoppen passen beltoonvolume aan</string>
+    <string name="ring_mode_title">Belmodus</string>
+    <string name="ring_mode_normal">Normaal</string>
+    <string name="ring_mode_vibrate">Trillen</string>
+    <string name="ring_mode_mute">Dempen</string>
+    <string name="volume_overlay_title">Volumepaneel</string>
+    <string name="volume_overlay_single">Enkelvoudig</string>
+    <string name="volume_overlay_expandable">Uitbreidbaar</string>
+    <string name="volume_overlay_expanded">Uitgebreid</string>
+    <string name="volume_overlay_none">Geen</string>
+    <string name="automation_effects_title">Automatisering &amp; effecten</string>
+    <string name="notification_convert_sound_to_vibration_title">Trillen bij melding</string>
+    <string name="notification_convert_sound_to_vibration_summary">Trillen bij melding in trilstand, ongeacht de app-instelling</string>
+    <string name="notification_vibrate_during_calls_title">Trillen tijdens bellen</string>
+    <string name="notification_vibrate_during_calls_summary">Zacht trillen bij inkomende meldingen tijdens het bellen</string>
+    <string name="volume_adjust_sounds_enable_title">Aanpassingsgeluid volume</string>
+    <string name="volume_adjust_sounds_enable_summary">Geluid afspelen bij aanpassen van volume met volumeknoppen</string>
     <string name="icon_picker_title">Pictogrambron kiezen</string>
     <string name="icon_picker_system_icons_title">Systeempictogrammen</string>
     <string name="icon_picker_gallery_title">Galerij</string>
@@ -141,6 +154,10 @@
     <string name="adaptive_backlight_summary">Schermhelderheid intelligent aanpassen voor langer accugebruik</string>
     <string name="wake_when_plugged_or_unplugged_title">Ontwaken door lader</string>
     <string name="wake_when_plugged_or_unplugged_summary">Scherm aan bij het aansluiten of loskoppelen van de lader</string>
+    <string name="screen_animation_off_title">Scherm-uit-animatie</string>
+    <string name="screen_animation_style_title">Animatiestijl</string>
+    <string name="screen_animation_style_electronbeam">Electron beam</string>
+    <string name="screen_animation_style_fade">Uitfaden</string>
     <string name="edit_light_settings">Meldingsledinstellingen</string>
     <string name="pulse_speed_title">Duur en snelheid van knipperen</string>
     <string name="default_time">Normaal</string>
@@ -159,12 +176,11 @@
     <string name="pulse_speed_slow">Langzaam</string>
     <string name="pulse_speed_very_slow">Zeer langzaam</string>
     <string name="battery_light_title">Acculed</string>
-    <string name="battery_low_pulse_title">Led laten knipperen bij lage accuspanning</string>
+    <string name="battery_low_pulse_title">Knipperen bij lage accuspanning</string>
     <string name="battery_light_list_title">Kleuren</string>
     <string name="battery_light_low_color_title">Lage accuspanning</string>
     <string name="battery_light_medium_color_title">Bezig met opladen</string>
     <string name="battery_light_full_color_title">Volledig opgeladen</string>
-    <string name="volume_ring_only_description">Beltoon</string>
     <string name="lockpattern_settings_enable_error_path_title">Patroonfout weergeven</string>
     <string name="lockpattern_settings_enable_dots_title">Patroonknoppen weergeven</string>
     <string name="screen_security_category">Schermbeveiliging</string>
@@ -175,6 +191,8 @@
     <string name="unlock_menu_unlock_summary">Ontgrendelen door op de menuknop te drukken</string>
     <string name="unlock_home_unlock_title">Thuis-ontgrendeling</string>
     <string name="unlock_home_unlock_summary">Ontgrendelen door op de thuisknop te drukken</string>
+    <string name="unlock_camera_unlock_title">Camera-ontgrendeling</string>
+    <string name="unlock_camera_unlock_summary">Ontgrendelen door op de cameraknop te drukken</string>
     <string name="unlock_quick_unlock_control_title">Snel ontgrendelen</string>
     <string name="unlock_quick_unlock_control_summary">Automatisch ontgrendelen als uw pincode/wachtwoord correct is ingevoerd</string>
     <string name="delay_and_timeout_title">Vergrendelingsvertraging</string>
@@ -193,7 +211,8 @@
     <string name="slide_lock_delay_30m">30 minuten</string>
     <string name="lockscreen_widgets_category_title">Widgets</string>
     <string name="lockscreen_maximize_widgets_title">Widgets maximaliseren</string>
-    <string name="lockscreen_maximize_widgets_summary">Widgets gemaximaliseerd en ontgrendeling geminimaliseerd tonen indien het scherm wordt ingeschakeld</string>
+    <string name="lockscreen_maximize_widgets_summary">Widgets maximaliseren bij scherm aanzetten</string>
+    <string name="lockscreen_enable_camera_title">Camera-widget</string>
     <string name="safe_headset_volume_title">Veilig headsetvolume</string>
     <string name="cyanogenmod_waiver_title">Afstandsverklaring</string>
     <string name="cyanogenmod_waiver_body">Het wijzigen van deze instelling kan in overtreding zijn met de regelgeving in uw staat/land.\n\nDoor te tikken op \'OK\' erkent u deze waarschuwing en doet u afstand van en vrijwaart u CyanogenMod en/of haar bijdragers van alle wettelijke verplichtingen</string>
@@ -318,8 +337,8 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="ok">OK</string>
     <string name="quiet_hours_title">Stille uren</string>
     <string name="quiet_hours_summary">Uren instellen waarin apparaat stil moet zijn</string>
-    <string name="quiet_hours_note_summary">Let op: inkomende oproepen zijn niet onderhevig aan deze instellingen en zullen normaal overgaan</string>
     <string name="quiet_hours_enabled">Stille uren toepassen</string>
+    <string name="quiet_hours_ringer">Beltoon</string>
     <string name="quiet_hours_mute">Meldingsgeluid dempen</string>
     <string name="quiet_hours_system">Systeemgeluid dempen</string>
     <string name="quiet_hours_still">Trillen uitschakelen</string>
@@ -327,6 +346,10 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="quiet_hours_haptic">Haptische feedback uitschakelen</string>
     <string name="quiet_hours_active_from">Actief van</string>
     <string name="quiet_hours_active_to">tot</string>
+    <string name="quiet_hours_ringer_allow_all">Beltoon bij alle oproepen</string>
+    <string name="quiet_hours_ringer_allow_contacts">Beltoon bij oproepen van contacten</string>
+    <string name="quiet_hours_ringer_allow_starred">Beltoon bij oproepen van favoriete contacten</string>
+    <string name="quiet_hours_ringer_mute_all">Stil bij alle oproepen</string>
     <string name="start_time_title">Begin</string>
     <string name="end_time_title">Einde</string>
     <string name="mod_version">CyanogenMod-versie</string>
@@ -381,6 +404,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="cmupdate_settings_summary">Controleren op updates</string>
     <string name="advanced_settings_title">Geavanceerd</string>
     <string name="development_tools_title">Tools openen</string>
+    <string name="privacy_settings_cyanogenmod_title">Privacy</string>
     <string name="privacy_guard_switch_label">Privacybescherming</string>
     <string name="privacy_guard_dlg_title">Privacybescherming inschakelen?</string>
     <string name="privacy_guard_dlg_text">Als Privacybescherming is ingeschakeld, zal de app geen toegang hebben tot persoonsgegevens zoals contacten, berichten of gespreksstatistieken.</string>
@@ -459,6 +483,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="collapse_on_dismiss_never_summary">Paneel open laten bij verwijderen van meldingen</string>
     <string name="collapse_on_dismiss_if_empty_summary">Paneel sluiten bij verwijderen van laatste melding</string>
     <string name="collapse_on_dismiss_if_no_clearable_summary">Paneel sluiten bij verwijderen van laatste verwijderbare melding</string>
+    <string name="double_tap_to_wake_title">Dubbeltikken om te ontwaken</string>
     <string name="category_quick_access">Snelle knoppenstrook</string>
     <string name="title_quick_access">Weergeven in paneel</string>
     <string name="title_quick_access_linked">Gelijke indeling</string>
@@ -466,15 +491,22 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="font_size_sample">Test</string>
     <string name="sms_security_check_limit_title">Limiet sms-berichten</string>
     <string name="sms_security_check_limit_summary">Apps kunnen %d berichten verzenden in 30 minuten zonder bevestiging</string>
+    <string name="sms_security_check_limit_summary_none">Apps kunnen geen berichten verzenden zonder bevestiging</string>
     <string name="sms_security_check_limit_default">30 (standaard)</string>
+    <string name="sms_security_check_limit_none">Geen</string>
+    <string name="lockscreen_custom_widgets_title">Aangepaste widgets</string>
     <string name="lock_clock_title">Klokwidget</string>
-    <string name="lock_clock_summary">Weergave beheren van \'cLock\'</string>
+    <string name="lock_clock_summary">Klokwidget op vergrendelings- of thuisscherm aanpassen</string>
     <string name="power_notifications_category_title">Opladergeluid</string>
     <string name="power_notifications_enable_title">Opladergeluid</string>
     <string name="power_notifications_enable_summary">Geluid afspelen bij het aansluiten of loskoppelen van de lader</string>
     <string name="power_notifications_vibrate_title">Trillen</string>
     <string name="power_notifications_ringtone_title">Meldingsgeluid</string>
     <string name="power_notifications_ringtone_silent">Stil</string>
+    <string name="lockscreen_battery_status_title">Accustatus</string>
+    <string name="lockscreen_battery_status_charging">Alleen bij opladen</string>
+    <string name="lockscreen_battery_status_alwayson">Altijd zichtbaar</string>
+    <string name="lockscreen_battery_status_alwaysoff">Altijd verborgen</string>
     <string name="lockscreen_target_info">Sleep de schijf naar een plaats om een snelkoppeling toe te wijzen</string>
     <string name="lockscreen_target_title">Snelkoppelingen</string>
     <string name="lockscreen_target_summary">Snelkoppelingen op vergrendelingsscherm beheren</string>
@@ -511,6 +543,18 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="icon_picker_search">Zoeken</string>
     <string name="icon_picker_sms">Berichten</string>
     <string name="icon_picker_twitter">Twitter</string>
+    <string name="lockscreen_buttons_title">Knopacties</string>
+    <string name="lockscreen_buttons_summary">Knopacties bij schermvergrendeling beheren</string>
+    <string name="lockscreen_long_press_back_title">Terugknop lang indrukken</string>
+    <string name="lockscreen_long_press_home_title">Thuisknop lang indrukken</string>
+    <string name="lockscreen_long_press_menu_title">Menuknop lang indrukken</string>
+    <string name="lockscreen_buttons_no_action">Geen actie</string>
+    <string name="lockscreen_buttons_flashlight">Zaklamp</string>
+    <string name="lockscreen_buttons_next">Volgend nummer</string>
+    <string name="lockscreen_buttons_previous">Vorig nummer</string>
+    <string name="lockscreen_buttons_playpause">Afspelen/pauzeren</string>
+    <string name="lockscreen_buttons_toggle_sound">Geluid aan/uit</string>
+    <string name="lockscreen_buttons_sleep">Slaapstand</string>
     <string name="navigation_bar_category">Navigatiebalk</string>
     <string name="navigation_bar_title">Knoppen en indeling</string>
     <string name="navigation_bar_help_text">1 - Kies het vergrendelingspictogram om te beginnen\n\n2 - Kies een knop om een functie aan toe te wijzen of te wijzigen\n\n3 - Raak een knop lang aan om de positie te wijzigen\n\n4 - Tik nogmaals op het vergrendelingspictogram om op te slaan\n\n5 - Tik op \'Herstellen\' om de standaardinstellingen te herstellen\n\n</string>
@@ -527,7 +571,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="navring_action_open_ime_switcher">Invoermethode wisselen</string>
     <string name="navring_action_kill_app">App stoppen</string>
     <string name="navring_action_none">Geen</string>
-    <string name="navring_action_take_screenshot">Schermafdruk</string>
+    <string name="navring_action_take_screenshot">Screenshot</string>
     <string name="navring_action_ring_vibrate">Geluid/trillen</string>
     <string name="navring_action_ring_silent">Geluid/stil</string>
     <string name="navring_action_ring_vibrate_silent">Geluid/trillen/stil</string>
@@ -537,7 +581,7 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="navring_choose_action_title">Actie selecteren</string>
     <string name="power_menu_title">Aan/uit-knop</string>
     <string name="power_menu_reboot_title">Herstarten</string>
-    <string name="power_menu_screenshot_title">Schermafdruk</string>
+    <string name="power_menu_screenshot_title">Screenshot</string>
     <string name="power_menu_expanded_desktop">Uitgebreid bureaublad</string>
     <string name="expanded_desktop_disabled">Uitgeschakeld</string>
     <string name="expanded_desktop_status_bar">Statusbalk zichtbaar</string>
@@ -591,18 +635,32 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="backlight_summary_disabled">Uitgeschakeld</string>
     <string name="backlight_summary_enabled_with_timeout">Ingeschakeld voor <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Ingeschakeld</string>
+    <string name="accessibility_home_button_answers_call_prerefence_title">Oproep aannemen met thuisknop</string>
     <string name="confirm_delete_apn">APN wordt verwijderd.</string>
     <string name="status_bar_title">Statusbalk</string>
+    <string name="status_bar_show_clock_title">Klok tonen</string>
     <string name="status_bar_battery_title">Opmaak accustatus</string>
     <string name="status_bar_style_icon_portrait">Pictogram (staand)</string>
     <string name="status_bar_style_icon_landscape">Pictogram (liggend)</string>
     <string name="status_bar_style_circle">Cirkel</string>
+    <string name="status_bar_style_text">Tekst</string>
     <string name="status_bar_style_hidden">Verborgen</string>
     <string name="status_bar_battery_show_percent_title">Accupercentage weergeven</string>
+    <string name="status_bar_signal_text_title">Opmaak signaalstatus</string>
+    <string name="status_bar_signal_style_icon">Pictogram</string>
+    <string name="status_bar_signal_style_text">Tekst</string>
+    <string name="status_bar_toggle_brightness">Helderheid beheren</string>
+    <string name="status_bar_toggle_brightness_summary">Helderheid aanpassen door over de statusbalk te slepen</string>
+    <string name="status_bar_toggle_info">Automatische helderheid ingeschakeld</string>
+    <string name="status_bar_notif_count_title">Aantal meldingen tonen</string>
+    <string name="status_bar_notif_count_summary">Aantal nieuwe meldingen tonen</string>
+    <string name="status_bar_double_tap_to_sleep_title">Dubbeltikken voor slaapstand</string>
     <string name="development_shortcut_title">Ontwikkelingssnelkoppeling</string>
     <string name="development_shortcut_summary">De opties \'app-gegevens wissen\' en \'nu stoppen\' weergeven in meldingenpaneel en recente appslijst</string>
     <string name="usb_mass_storage_title">Massaopslag (UMS)</string>
     <string name="usb_mass_storage_summary">Bestanden uitwisselen tussen uw computer en SD-kaart door het aan te koppelen als flash-geheugen</string>
+    <string name="storage_rescan_media">Mediabestanden op het opslagvolume opnieuw scannen</string>
+    <string name="storage_rescan_media_complete">Scannen voltooid</string>
     <string name="whisperpush_title">WhisperPush</string>
     <string name="whisperpush_registration_title">Registreren</string>
     <string name="whisperpush_registration_summary">Registreren voor WhisperPush om versleutelde sms-berichten in te schakelen</string>
@@ -616,8 +674,42 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="cmlicense_title">Juridische afdeling van CyanogenMod</string>
     <string name="settings_cmlicense_activity_title">Juridische verklaring van CyanogenMod</string>
     <string name="settings_cmlicense_activity_unreachable">Geen netwerkverbinding. Ga naar %s om deze informatie te bekijken op een computer met internet.</string>
+    <string name="stylus_icon_enabled_title">Pictogram bij stylusgebruik</string>
+    <string name="stylus_icon_enabled_summary">Cursor tonen als een stylus wordt gebruikt</string>
+    <string name="gestures_settings_title">Stylusgebaren</string>
+    <string name="category_spen_title">Stylusgebaren</string>
+    <string name="enable_subcat_title">Stylus</string>
+    <string name="enable_spen_title_head">Gebaren inschakelen</string>
+    <string name="enable_spen_summary_head">Gebaren gebruiken met de stylusknop ingedrukt</string>
+    <string name="gestures_subcat_title">Gebaren</string>
+    <string name="gestures_left_spen_title_head">Sleep naar links</string>
+    <string name="gestures_right_spen_title_head">Sleep naar rechts</string>
+    <string name="gestures_up_spen_title_head">Sleep omhoog</string>
+    <string name="gestures_down_spen_title_head">Sleep omlaag</string>
+    <string name="gestures_long_spen_title_head">Lang aanraken</string>
+    <string name="gestures_double_spen_title_head">Dubbeltik</string>
+    <string name="gestures_action_empty">Geen actie</string>
+    <string name="gestures_action_home">Thuis</string>
+    <string name="gestures_action_back">Terug</string>
+    <string name="gestures_action_menu">Menu</string>
+    <string name="gestures_action_search">Zoeken</string>
+    <string name="gestures_action_recent">Recente apps</string>
+    <string name="stylus_app_not_installed">%s is niet geïnstalleerd</string>
+    <string name="ime_switcher_notify">Melding invoermethode</string>
+    <string name="ime_switcher_notify_summary">Melding tonen voor wijzigen invoermethode</string>
+    <string name="app_ops_summaries_alarm_wakeup">ontwaken</string>
+    <string name="app_ops_labels_alarm_wakeup">Ontwaken</string>
+    <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> gebruikt)</string>
+    <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> toegestaan</string>
+    <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> geweigerd</string>
+    <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> toegestaan, <xliff:g id="count">%2$s</xliff:g> geweigerd</string>
+    <string name="app_ops_show_user_apps">Gebruikersapps tonen</string>
+    <string name="app_ops_show_system_apps">Ingebouwde apps tonen</string>
+    <string name="app_ops_reset_counters">Tellers opnieuw instellen</string>
+    <string name="app_ops_reset_confirm_title">Tellers opnieuw instellen?</string>
+    <string name="app_ops_reset_confirm_mesg">>Weet u zeker dat u de App-bewerkingentellers (toegestaan/geweigerd) opnieuw wilt instellen?</string>
 
-    <!-- CAF -->
+    <!-- CAF strings-->
     <string name="intent_sender_data_label"><xliff:g id="data">Gegevens:</xliff:g></string>
     <string name="bluetooth_enter_pin_msg_hs">\nTyp pincode om te koppelen met \u0022<xliff:g id="device_name">%1$s</xliff:g>\u0022. [Hoge beveiliging: sleutel van 16 tekens vereist] </string>
     <string name="bluetooth_profile_sap">SIM-toegang</string>
@@ -627,4 +719,13 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="bluetooth_sap_profile_summary_use_for">Gebruiken voor SIM-toegang</string>
     <string name="bluetooth_dun_profile_summary_use_for">Gebruiken voor inbelnetwerktoegang</string>
     <string name="wifi_disabled_association_rejected">Koppeling afgewezen</string>
+    <string name="app_ops_summaries_wifi_change">wifi aan/uit</string>
+    <string name="app_ops_labels_wifi_change">Wifi aan/uit</string>
+    <string name="app_ops_summaries_bluetooth_change">bluetooth aan/uit</string>
+    <string name="app_ops_labels_bluetooth_change">Bluetooth aan/uit</string>
+    <string name="app_ops_summaries_data_change">gegevens aan/uit</string>
+    <string name="app_ops_labels_data_change">Gegevens aan/uit</string>
+    <string name="app_ops_summaries_auto_start">auto-start</string>
+    <string name="app_ops_labels_auto_start">Auto-start</string>
+    <string name="app_ops_categories_bootup">Opstarten</string>
 </resources>

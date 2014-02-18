@@ -124,7 +124,7 @@
     <string name="toggleNfc">NFC</string>
     <string name="volume_ring_only_description">Suoneria</string>
     <string name="link_volume_ringtones">Collega volume suoneria e notifiche</string>
-    <string name="link_volume_mutes">Collega silenzioso suoneria e notifiche</string>
+    <string name="link_volume_mutes">Collega silenziamento suoneria e notifiche</string>
     <string name="volume_keys_control_ring_stream">I tasti volume regolano la suoneria</string>
     <string name="ring_mode_title">Modalità suoneria</string>
     <string name="ring_mode_normal">Normale</string>
@@ -161,6 +161,10 @@
     <string name="adaptive_backlight_summary">Varia intelligentemente la luminosità della retroilluminazione del display e ottimizza la durata della batteria</string>
     <string name="wake_when_plugged_or_unplugged_title">Risveglia al collegamento</string>
     <string name="wake_when_plugged_or_unplugged_summary">Attiva lo schermo quando si collega o scollega il caricabatterie</string>
+    <string name="screen_animation_off_title">Animazione spegnimento schermo</string>
+    <string name="screen_animation_style_title">Stile animazione</string>
+    <string name="screen_animation_style_electronbeam">Fascio di elettroni</string>
+    <string name="screen_animation_style_fade">Dissolvenza</string>
     <string name="edit_light_settings">Modifica impostazioni luce</string>
     <string name="pulse_speed_title">Durata e velocità del lampeggio</string>
     <string name="default_time">Normale</string>
@@ -184,10 +188,6 @@
     <string name="battery_light_low_color_title">Batteria scarica</string>
     <string name="battery_light_medium_color_title">In carica</string>
     <string name="battery_light_full_color_title">Carica completa</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
     <string name="lockpattern_settings_enable_error_path_title">Sequenza errata visibile</string>
     <string name="lockpattern_settings_enable_dots_title">Punti sequenza visibili</string>
     <string name="screen_security_category">Schermata di sicurezza</string>
@@ -198,6 +198,8 @@
     <string name="unlock_menu_unlock_summary">Il tasto Menu sblocca il dispositivo</string>
     <string name="unlock_home_unlock_title">Sblocca con Home</string>
     <string name="unlock_home_unlock_summary">Il tasto Home sblocca il dispositivo</string>
+    <string name="unlock_camera_unlock_title">Sblocca con Fotocamera</string>
+    <string name="unlock_camera_unlock_summary">Il tasto Fotocamera sblocca il dispositivo</string>
     <string name="unlock_quick_unlock_control_title">Sblocco rapido</string>
     <string name="unlock_quick_unlock_control_summary">Sblocca automaticamente quando il PIN/la password viene inserito in modo corretto</string>
     <string name="delay_and_timeout_title">Ritardo blocco</string>
@@ -356,8 +358,8 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="ok">OK</string>
     <string name="quiet_hours_title">Periodo di quiete</string>
     <string name="quiet_hours_summary">Configura gli orari in cui il dispositivo dovrebbe essere silenzioso</string>
-    <string name="quiet_hours_note_summary">Nota: Le chiamate in arrivo non saranno influenzate dal periodo di quiete e squilleranno normalmente</string>
     <string name="quiet_hours_enabled">Attiva il periodo di quiete</string>
+    <string name="quiet_hours_ringer">Suoneria telefono</string>
     <string name="quiet_hours_mute">Notifiche silenziose</string>
     <string name="quiet_hours_system">Disattiva suoni sistema</string>
     <string name="quiet_hours_still">Disattiva vibrazioni</string>
@@ -365,6 +367,10 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="quiet_hours_haptic">Disattiva vibrazione al tocco</string>
     <string name="quiet_hours_active_from">Attiva dalle</string>
     <string name="quiet_hours_active_to">alle</string>
+    <string name="quiet_hours_ringer_allow_all">Squilla per tutti i chiamanti</string>
+    <string name="quiet_hours_ringer_allow_contacts">Squilla per tutti i contatti</string>
+    <string name="quiet_hours_ringer_allow_starred">Squilla per i contatti preferiti</string>
+    <string name="quiet_hours_ringer_mute_all">Silenzioso per tutti i chiamanti</string>
     <string name="start_time_title">Inizio</string>
     <string name="end_time_title">Fine</string>
     <string name="mod_version">Versione CyanogenMod</string>
@@ -419,6 +425,7 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="cmupdate_settings_summary">Controlla, visualizza e installa gli aggiornamenti disponibili</string>
     <string name="advanced_settings_title">Avanzate</string>
     <string name="development_tools_title">Esegui dev. tools</string>
+    <string name="privacy_settings_cyanogenmod_title">Privacy</string>
     <string name="privacy_guard_switch_label">Attiva Privacy Guard</string>
     <string name="privacy_guard_dlg_title">Attivare Privacy Guard?</string>
     <string name="privacy_guard_dlg_text">Quando Privacy Guard è attivato, l\'applicazione non è in grado di accedere a dati personali come contatti, lista chiamate, messaggi.</string>
@@ -497,6 +504,7 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="collapse_on_dismiss_never_summary">Lascia la barra di notifica aperta quando si rimuovono le notifiche</string>
     <string name="collapse_on_dismiss_if_empty_summary">Chiudi la barra di notifica quando si rimuove l\'ultima notifica</string>
     <string name="collapse_on_dismiss_if_no_clearable_summary">Chiudi la barra di notifica quando si rimuove l\'ultima notifica rimovibile</string>
+    <string name="double_tap_to_wake_title">Risveglio con doppio tocco</string>
     <string name="category_quick_access">Barra accesso rapido</string>
     <string name="title_quick_access">Mostra nel drawer</string>
     <string name="title_quick_access_linked">Disposizione collegata</string>
@@ -504,7 +512,9 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="font_size_sample">Esempio</string>
     <string name="sms_security_check_limit_title">Limite invio SMS</string>
     <string name="sms_security_check_limit_summary">Mostra un avviso per impedire alle applicazioni di inviare SMS troppo frequentemente. Limite attuale: %d messaggi in 15 minuti</string>
+    <string name="sms_security_check_limit_summary_none">Non è consentito alle app l\'invio di messaggi senza conferma</string>
     <string name="sms_security_check_limit_default">30 (predefinito)</string>
+    <string name="sms_security_check_limit_none">Nessuno</string>
     <string name="lockscreen_custom_widgets_title">Widget personalizzati</string>
     <string name="lock_clock_title">Widget orologio</string>
     <string name="lock_clock_summary">Personalizza i widget predefiniti della schermata Home e sblocco</string>
@@ -514,6 +524,10 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="power_notifications_vibrate_title">Vibra</string>
     <string name="power_notifications_ringtone_title">Suono di notifica</string>
     <string name="power_notifications_ringtone_silent">Silenzioso</string>
+    <string name="lockscreen_battery_status_title">Stato batteria</string>
+    <string name="lockscreen_battery_status_charging">Solo in carica</string>
+    <string name="lockscreen_battery_status_alwayson">Sempre visibile</string>
+    <string name="lockscreen_battery_status_alwaysoff">Non visibile</string>
     <string name="lockscreen_target_info">Trascina il cursore e imposta le scorciatoie</string>
     <string name="lockscreen_target_title">Scorciatoie di sblocco</string>
     <string name="lockscreen_target_summary">Visualizza o modifica le scorciatoie di sblocco dello schermo</string>
@@ -550,6 +564,18 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="icon_picker_search">Ricerca</string>
     <string name="icon_picker_sms">Messaggistica</string>
     <string name="icon_picker_twitter">Twitter</string>
+    <string name="lockscreen_buttons_title">Azioni dei pulsanti</string>
+    <string name="lockscreen_buttons_summary">Visualizza o modifica le azioni dei pulsanti della schermata di blocco</string>
+    <string name="lockscreen_long_press_back_title">Tieni premuto Indietro</string>
+    <string name="lockscreen_long_press_home_title">Tieni premuto Home</string>
+    <string name="lockscreen_long_press_menu_title">Tieni premuto Menu</string>
+    <string name="lockscreen_buttons_no_action">Nessuna azione</string>
+    <string name="lockscreen_buttons_flashlight">Torcia</string>
+    <string name="lockscreen_buttons_next">Brano successivo</string>
+    <string name="lockscreen_buttons_previous">Brano precedente</string>
+    <string name="lockscreen_buttons_playpause">Riproduci/Pausa</string>
+    <string name="lockscreen_buttons_toggle_sound">Suono On/Off</string>
+    <string name="lockscreen_buttons_sleep">Sospendi dispositivo</string>
     <string name="navigation_bar_category">Barra di navigazione</string>
     <string name="navigation_bar_title">Pulsanti e disposizione</string>
     <string name="navigation_bar_help_text">1 - Per cominciare le modifiche, tocca il lucchetto\n\n2 - Tocca qualunque pulsante per assegnare o cambiare funzione\n\n3 - Tocca e tieni premuto per modificare l\'ordine\n\n4 - Per salvare, tocca nuovamente il lucchetto\n\n5 - Per ripristinare, tocca il pulsante di reset\n\n</string>
@@ -630,6 +656,7 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="backlight_summary_disabled">Disattivata</string>
     <string name="backlight_summary_enabled_with_timeout">Attiva per <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Attivata</string>
+    <string name="accessibility_home_button_answers_call_prerefence_title">Il pulsante Home risponde alla chiamata</string>
     <string name="confirm_delete_apn">L\'APN sarà cancellato.</string>
     <string name="status_bar_title">Barra di stato</string>
     <string name="status_bar_show_clock_title">Mostra orologio</string>
@@ -637,6 +664,7 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="status_bar_style_icon_portrait">Icona verticale</string>
     <string name="status_bar_style_icon_landscape">Icona orizzontale</string>
     <string name="status_bar_style_circle">Cerchio</string>
+    <string name="status_bar_style_text">Testo</string>
     <string name="status_bar_style_hidden">Nascosto</string>
     <string name="status_bar_battery_show_percent_title">Mostra percentuale batteria</string>
     <string name="status_bar_signal_text_title">Stile indicatore del segnale</string>
@@ -688,4 +716,6 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="gestures_action_search">Ricerca</string>
     <string name="gestures_action_recent">Applicazioni recenti</string>
     <string name="stylus_app_not_installed">%s non è installata</string>
+    <string name="ime_switcher_notify">Notifica metodo inserimento</string>
+    <string name="ime_switcher_notify_summary">Visualizza la notifica del selettore metodo di immissione</string>
 </resources>

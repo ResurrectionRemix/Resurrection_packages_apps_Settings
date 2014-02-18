@@ -154,6 +154,10 @@
     <string name="adaptive_backlight_summary">Die Hintergrundbeleuchtung des Bildschirms intelligent regeln, um die Akkulaufzeit zu verbessern</string>
     <string name="wake_when_plugged_or_unplugged_title">Beim Einstecken aufwecken</string>
     <string name="wake_when_plugged_or_unplugged_summary">Beim Anschließen oder Trennen des Ladegerätes das Display anschalten</string>
+    <string name="screen_animation_off_title">Abschaltanimation</string>
+    <string name="screen_animation_style_title">Animationsstil</string>
+    <string name="screen_animation_style_electronbeam">Elektronenstrahl</string>
+    <string name="screen_animation_style_fade">Ausblenden</string>
     <string name="edit_light_settings">Farbeinstellungen ändern</string>
     <string name="pulse_speed_title">Pulsdauer und Geschwindigkeit</string>
     <string name="default_time">Normal</string>
@@ -177,10 +181,6 @@
     <string name="battery_light_low_color_title">Akku schwach</string>
     <string name="battery_light_medium_color_title">Laden</string>
     <string name="battery_light_full_color_title">Aufgeladen</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
     <string name="lockpattern_settings_enable_error_path_title">Fehler anzeigen</string>
     <string name="lockpattern_settings_enable_dots_title">Punkte anzeigen</string>
     <string name="screen_security_category">Bildschirmsicherheit</string>
@@ -354,8 +354,8 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="ok">OK</string>
     <string name="quiet_hours_title">Ruhige Stunden</string>
     <string name="quiet_hours_summary">Benachrichtigungen in einem vorgegebenen Zeitraum ändern</string>
-    <string name="quiet_hours_note_summary">Hinweis: Ankommende Anrufe werden während der ruhigen Stunden normal signalisiert</string>
     <string name="quiet_hours_enabled">Ruhige Stunden aktiv</string>
+    <string name="quiet_hours_ringer">Klingeln bei Anruf</string>
     <string name="quiet_hours_mute">Benachrichtigungston</string>
     <string name="quiet_hours_system">Systemtöne deaktivieren</string>
     <string name="quiet_hours_still">Vibration</string>
@@ -363,6 +363,10 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="quiet_hours_haptic">Haptisches Feedback</string>
     <string name="quiet_hours_active_from">Aktiv von</string>
     <string name="quiet_hours_active_to">bis</string>
+    <string name="quiet_hours_ringer_allow_all">Bei jedem Anrufer klingeln</string>
+    <string name="quiet_hours_ringer_allow_contacts">Bei allen Kontakten klingeln</string>
+    <string name="quiet_hours_ringer_allow_starred">Bei favorisierten Kontakten klingeln</string>
+    <string name="quiet_hours_ringer_mute_all">Nie klingeln</string>
     <string name="start_time_title">Beginn</string>
     <string name="end_time_title">Ende</string>
     <string name="mod_version">CyanogenMod-Version</string>
@@ -417,6 +421,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="cmupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
     <string name="advanced_settings_title">Erweitert</string>
     <string name="development_tools_title">Entwickler-Werkzeuge</string>
+    <string name="privacy_settings_cyanogenmod_title">Datenschutz</string>
     <string name="privacy_guard_switch_label">Datenschutz aktivieren</string>
     <string name="privacy_guard_dlg_title">Datenschutz aktivieren?</string>
     <string name="privacy_guard_dlg_text">Bei aktiviertem Datenschutz hat die App keinen Zugriff auf persönliche Daten wie Kontakte, Nachrichten oder das Anrufprotokoll.</string>
@@ -495,6 +500,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="collapse_on_dismiss_never_summary">Nach Entfernen von Benachrichtigungen geöffnet lassen</string>
     <string name="collapse_on_dismiss_if_empty_summary">Nach dem Entfernen der letzten Benachrichtigung schließen</string>
     <string name="collapse_on_dismiss_if_no_clearable_summary">Nach dem Entfernen der letzten nicht dauerhaft angezeigten Benachrichtigung schließen</string>
+    <string name="double_tap_to_wake_title">Aufwecken durch doppeltes Tippen</string>
     <string name="category_quick_access">Schnellzugriffsleiste</string>
     <string name="title_quick_access">In Benachrichtigungsleiste anzeigen</string>
     <string name="title_quick_access_linked">Anordnung koppeln</string>
@@ -502,7 +508,9 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="font_size_sample">Beispieltext</string>
     <string name="sms_security_check_limit_title">SMS-Begrenzung</string>
     <string name="sms_security_check_limit_summary">Apps können %d Nachrichten in 30 Minuten senden, bevor eine Bestätigung erforderlich ist</string>
+    <string name="sms_security_check_limit_summary_none">Apps dürfen keine Nachrichten ohne Bestätigung versenden</string>
     <string name="sms_security_check_limit_default">30 (Standard)</string>
+    <string name="sms_security_check_limit_none">Keine</string>
     <string name="lockscreen_custom_widgets_title">Benutzerdefinierte Widgets</string>
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_summary">Einstellungen des Standard-Widgets auf Sperr- und Startbildschirm anpassen</string>
@@ -564,42 +572,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="lockscreen_buttons_playpause">Medien: Play/Pause</string>
     <string name="lockscreen_buttons_toggle_sound">Klingelmodus</string>
     <string name="lockscreen_buttons_sleep">Ruhezustand</string>
-    <string name="lockscreen_target_info">Schieber zur gewünschten Position ziehen, um dort eine Anwendung zu platzieren</string>
-    <string name="lockscreen_target_title">Sperrbildschirm-Anwendungen</string>
-    <string name="lockscreen_target_summary">Anwendungen zum Sperrbildschirm hinzufügen</string>
-    <string name="lockscreen_target_reset">Sperrbildschirm-Anwendungen auf Standard zurückgesetzt</string>
-    <string name="lockscreen_target_reset_title">Zurücksetzen</string>
-    <string name="lockscreen_target_reset_message">Anwendungen vom Sperrbildschirm löschen und auf Standard zurücksetzen?</string>
-    <string name="lockscreen_target_empty">Nicht zugewiesen</string>
-    <string name="lockscreen_target_edit_title">Zuordnung bearbeiten</string>
-    <string name="lockscreen_target_edit_msg">Anwendung oder Symbol zum Ändern berühren</string>
-    <string name="picker_activities">Aktivitäten</string>
-    <string name="select_custom_app_title">Anwendung wählen</string>
-    <string name="select_custom_activity_title">Aktivität wählen</string>
-    <string name="icon_picker_choose_icon_title">Symbol wählen</string>
-    <string name="icon_picker_alarm">Wecker</string>
-    <string name="icon_picker_browser">Browser</string>
-    <string name="icon_picker_calendar">Kalender</string>
-    <string name="icon_picker_camera">Kamera</string>
-    <string name="icon_picker_chrome">Chrome</string>
-    <string name="icon_picker_contacts">Kontakte</string>
-    <string name="icon_picker_email">E-Mail</string>
-    <string name="icon_picker_email2">E-Mail (Holo)</string>
-    <string name="icon_picker_facebook">Facebook</string>
-    <string name="icon_picker_gallery">Galerie</string>
-    <string name="icon_picker_google_small">Google (klein)</string>
-    <string name="icon_picker_googleplus">Google+</string>
-    <string name="icon_picker_googletalk">Hangouts</string>
-    <string name="icon_picker_maps">Maps</string>
-    <string name="icon_picker_movie">Film</string>
-    <string name="icon_picker_music">Musik</string>
-    <string name="icon_picker_nav_normal">Navigation</string>
-    <string name="icon_picker_phone">Telefon</string>
-    <string name="icon_picker_podcast">Podcast</string>
-    <string name="icon_picker_rss">RSS</string>
-    <string name="icon_picker_search">Suche</string>
-    <string name="icon_picker_sms">SMS/MMS</string>
-    <string name="icon_picker_twitter">Twitter</string>
     <string name="navigation_bar_category">Navigationsleiste</string>
     <string name="navigation_bar_title">Schaltflächen</string>
     <string name="navigation_bar_help_text">1 - Schloss-Symbol berühren, um zu beginnen\n\n2 - Eine Schaltfläche berühren, um ihr eine Funktion zuzuweisen oder diese zu ändern\n\n3 - Eine Schaltfläche gedrückt halten, um sie zu verschieben\n\n4 - Schloss-Symbol erneut berühren, um die Änderungen zu speichern\n\n5 - Zurücksetzen-Symbol berühren, um die Vorgaben wiederherzustellen\n\n</string>
@@ -748,7 +720,6 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
     <string name="stylus_app_not_installed">%s ist nicht installiert</string>
     <string name="ime_switcher_notify">Auswahlbenachrichtigung</string>
     <string name="ime_switcher_notify_summary">Benachrichtigung zur Auswahl der Eingabemethode in der Statusleiste anzeigen</string>
-    <string name="status_bar_title">Statusleiste</string>
 
     <!-- Untranslated AOSP strings -->
     <string name="intent_sender_data_label"><xliff:g id="data">Daten:</xliff:g></string>

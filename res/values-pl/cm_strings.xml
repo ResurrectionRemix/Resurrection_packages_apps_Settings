@@ -182,10 +182,12 @@
     <string name="screen_security_title">Ekran blokady</string>
     <string name="screen_security_summary">Zobacz i zmień zabezpieczenia ekranu blokady, opóźnienie i limit czasu</string>
     <string name="additional_options_title">Dodatkowe opcje</string>
-    <string name="unlock_menu_unlock_title">Odblokowywanie przyciskiem menu</string>
-    <string name="unlock_menu_unlock_summary">Przycisk menu odblokowuje urządzenie</string>
+    <string name="unlock_menu_unlock_title">Odblokowywanie przyciskiem Menu</string>
+    <string name="unlock_menu_unlock_summary">Naciśnięcie przycisku Menu odblokuje urządzenie</string>
     <string name="unlock_home_unlock_title">Odblokowywanie przyciskiem Home</string>
-    <string name="unlock_home_unlock_summary">Przycisk Home odblokowuje urządzenie</string>
+    <string name="unlock_home_unlock_summary">Naciśnięcie przycisku Home odblokuje urządzenie</string>
+    <string name="unlock_camera_unlock_title">Odblokowywanie przyciskiem aparatu</string>
+    <string name="unlock_camera_unlock_summary">Naciśnięcie przycisku aparatu odblokuje urządzenie</string>
     <string name="unlock_quick_unlock_control_title">Szybkie odblokowywanie</string>
     <string name="unlock_quick_unlock_control_summary">Odblokuj automatycznie, gdy wprowadzony zostanie poprawny PIN/hasło</string>
     <string name="delay_and_timeout_title">Opóźnienie blokady</string>
@@ -345,7 +347,6 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="ok">OK</string>
     <string name="quiet_hours_title">Godziny ciszy</string>
     <string name="quiet_hours_summary">Skonfiguruj godziny, w których wszystkie dźwięki będą wyciszone</string>
-    <string name="quiet_hours_note_summary">Ważne: Przychodzące połączenia będą działały standardowo w trakcie godzin ciszy</string>
     <string name="quiet_hours_enabled">Aktywuj godziny ciszy</string>
     <string name="quiet_hours_mute">Wycisz powiadomienia</string>
     <string name="quiet_hours_system">Wycisz dźwięki systemowe</string>
@@ -408,6 +409,7 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="cmupdate_settings_summary">Znajdź i zainstaluj dostępne aktualizacje</string>
     <string name="advanced_settings_title">Zaawansowane</string>
     <string name="development_tools_title">Narzędzia uruchamiania</string>
+    <string name="privacy_settings_cyanogenmod_title">Prywatność</string>
     <string name="privacy_guard_switch_label">Aktywuj ochronę prywatności</string>
     <string name="privacy_guard_dlg_title">Aktywować ochronę prywatności?</string>
     <string name="privacy_guard_dlg_text">Kiedy ochrona prywatności jest aktywna, aplikacja nie będzie miała dostępu do osobistych danych, takich jak kontakty, wiadomości czy historia połączeń.</string>
@@ -503,6 +505,10 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="power_notifications_vibrate_title">Wibracje</string>
     <string name="power_notifications_ringtone_title">Dźwięk powiadomienia</string>
     <string name="power_notifications_ringtone_silent">Wyciszone</string>
+    <string name="lockscreen_battery_status_title">Pokaż stan baterii</string>
+    <string name="lockscreen_battery_status_charging">Tylko podczas ładowania</string>
+    <string name="lockscreen_battery_status_alwayson">Zawsze</string>
+    <string name="lockscreen_battery_status_alwaysoff">Nigdy</string>
     <string name="lockscreen_target_info">Przeciągnij palcem na wybrane pola by przypisać skróty</string>
     <string name="lockscreen_target_title">Skróty ekranu blokady</string>
     <string name="lockscreen_target_summary">Podejrzyj lub dodaj własne skróty ekranu blokady</string>
@@ -539,6 +545,18 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="icon_picker_search">Wyszukiwanie</string>
     <string name="icon_picker_sms">Wiadomości</string>
     <string name="icon_picker_twitter">Twitter</string>
+    <string name="lockscreen_buttons_title">Akcje przycisków</string>
+    <string name="lockscreen_buttons_summary">Podejrzyj lub zmień akcje przycisków ekranu blokady</string>
+    <string name="lockscreen_long_press_back_title">Przytrzymanie przycisku Wstecz</string>
+    <string name="lockscreen_long_press_home_title">Przytrzymanie przycisku Home</string>
+    <string name="lockscreen_long_press_menu_title">Przytrzymanie przycisku Menu</string>
+    <string name="lockscreen_buttons_no_action">Brak akcji</string>
+    <string name="lockscreen_buttons_flashlight">Latarka</string>
+    <string name="lockscreen_buttons_next">Następny utwór</string>
+    <string name="lockscreen_buttons_previous">Poprzedni utwór</string>
+    <string name="lockscreen_buttons_playpause">Odtwórz/Zatrzymaj muzykę</string>
+    <string name="lockscreen_buttons_toggle_sound">Przełącz tryb dźwięku</string>
+    <string name="lockscreen_buttons_sleep">Uśpij</string>
     <string name="navigation_bar_category">Pasek nawigacji</string>
     <string name="navigation_bar_title">Przyciski i ich układ</string>
     <string name="navigation_bar_help_text">1 - Aby edytować naciśnij ikonę kłódki\n\n2 - Wybierz przycisk by mu nadać funkcję\n\n3 - Długie naciśnięcie pozwala zmieniać kolejność\n\n4 - Aby zapisać, naciśnij kłódkę ponownie\n\n5 - Aby przywrócić ust. domyślne, naciśnij ikonę resetowania\n\n</string>
@@ -620,6 +638,7 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="backlight_summary_disabled">Wyłączone</string>
     <string name="backlight_summary_enabled_with_timeout">Włączone przez <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Włączone</string>
+    <string name="accessibility_home_button_answers_call_prerefence_title">Odbieraj połączenia przyciskiem Home</string>
     <string name="confirm_delete_apn">APN zostanie usunięty...</string>
     <string name="status_bar_title">Pasek stanu</string>
     <string name="status_bar_show_clock_title">Pokaż zegar</string>
@@ -627,6 +646,7 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="status_bar_style_icon_portrait">Ikona pionowo</string>
     <string name="status_bar_style_icon_landscape">Ikona poziomo</string>
     <string name="status_bar_style_circle">Okrąg</string>
+    <string name="status_bar_style_text">Tekst</string>
     <string name="status_bar_style_hidden">Ukryte</string>
     <string name="status_bar_battery_show_percent_title">Pokaż procent naładowania baterii</string>
     <string name="status_bar_signal_text_title">Styl wskaźnika zasięgu</string>
@@ -657,4 +677,27 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="cmlicense_title">Informacje prawne CyanogenMod</string>
     <string name="settings_cmlicense_activity_title">Informacje prawne CyanogenMod</string>
     <string name="settings_cmlicense_activity_unreachable">Nie masz połączenia z internetem. Aby zobaczyć te informacje przejdź do %s z dowolnego komputera podłączonego do internetu</string>
+    <string name="stylus_icon_enabled_title">Pokaz ikonę podczas używania rysika</string>
+    <string name="stylus_icon_enabled_summary">Pokaż ikonę wskaźnika podczas wskazywania lub rysowania rysikiem</string>
+    <string name="gestures_settings_title">Gesty rysika</string>
+    <string name="category_spen_title">Aktywuj gesty</string>
+    <string name="enable_subcat_title">Rysik</string>
+    <string name="enable_spen_title_head">Aktywuj gesty rysika</string>
+    <string name="enable_spen_summary_head">Używaj własnych akcji za pomocą gestów rysika z wciśniętym przyciskiem.</string>
+    <string name="gestures_subcat_title">Gesty</string>
+    <string name="gestures_left_spen_title_head">Przeciągnięcie w lewo</string>
+    <string name="gestures_right_spen_title_head">Przeciągnięcie w prawo</string>
+    <string name="gestures_up_spen_title_head">Przeciągnięcie w górę</string>
+    <string name="gestures_down_spen_title_head">Przeciągnięcie w dół</string>
+    <string name="gestures_long_spen_title_head">Długie naciśnięcie</string>
+    <string name="gestures_double_spen_title_head">Podwójne naciśnięcie</string>
+    <string name="gestures_action_empty">Brak akcji</string>
+    <string name="gestures_action_home">Przycisk Home</string>
+    <string name="gestures_action_back">Przycisk Wstecz</string>
+    <string name="gestures_action_menu">Przycisk Menu</string>
+    <string name="gestures_action_search">Otwórz wyszukiwarkę</string>
+    <string name="gestures_action_recent">Ostatnie aplikacje</string>
+    <string name="stylus_app_not_installed">Nie zainstalowano aplikacji %s</string>
+    <string name="ime_switcher_notify">Ikona klawiatury</string>
+    <string name="ime_switcher_notify_summary">Wyświetlaj ikonę metod wprowadzania</string>
 </resources>

@@ -17,6 +17,10 @@
 
     <string name="cyanogenmod_waiver_title">Отказ от ответственности</string>
     <string name="cyanogenmod_waiver_body">Изменение этих настроек может противоречить законам вашего государства.\n\nНажимая «OK», вы соглашаетесь с этим предупреждением и освобождаете CyanogenMod и всех его разработчиков от любых юридических обязательств.</string>
+    <string name="ok">OK</string>
+    <string name="battery_info_status_charging_dock_ac">(док-станция, от сети)</string>
+    <string name="battery_info_status_charging_dock_usb">(док-станция, по USB)</string>
+    <string name="intent_sender_data_label"><xliff:g id="data">Данные:</xliff:g></string>
 
     <string name="wifi_disabled_association_rejected">Соединение отклонено</string>
     <string name="wifi_setting_countrycode_title">Код региона Wi-Fi</string>
@@ -28,7 +32,10 @@
     <string name="bluetooth_enter_pin_msg_hs">Для подключения к устройству <xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g> введите PIN-код (16 или более цифр):</string>
     <string name="bluetooth_profile_sap">Доступ к SIM</string>
     <string name="bluetooth_sap_profile_summary_connected">Подключено к серверу доступа SIM</string>
-    <string name="bluetooth_sap_profile_summary_use_for">Используется для доступа к SIM</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Использовать для доступа к SIM</string>
+    <string name="bluetooth_profile_dun">Доступ к модему</string>
+    <string name="bluetooth_dun_profile_summary_connected">Подключено к модему другого устройства</string>
+    <string name="bluetooth_dun_profile_summary_use_for">Использовать в качестве Bluetooth-модема</string>
 
     <string name="confirm_delete_apn">Точка доступа (APN) будет удалена.</string>
 
@@ -51,6 +58,10 @@
     <string name="summary_quick_access_linked">Используются плитки и их размещение из панели быстрых настроек</string>
 
     <string name="lock_screen_title">Экран блокировки</string>
+    <string name="lockscreen_battery_status_title">Состояние батареи</string>
+    <string name="lockscreen_battery_status_charging">Показывать во время зарядки</string>
+    <string name="lockscreen_battery_status_alwayson">Показывать всегда</string>
+    <string name="lockscreen_battery_status_alwaysoff">Не показывать</string>
     <string name="lock_clock_title">Виджет часов</string>
     <string name="lock_clock_summary">Просмотр или изменение настроек отображения виджета «cLock» на главном экране или экране блокировки</string>
     <string name="lockscreen_custom_widgets_title">Виджеты приложений</string>
@@ -67,6 +78,18 @@
     <string name="lockscreen_target_empty">Пусто</string>
     <string name="lockscreen_target_edit_title">Изменение ярлыка</string>
     <string name="lockscreen_target_edit_msg">Выберите необходимое действие и значок</string>
+    <string name="lockscreen_buttons_title">Действия кнопок</string>
+    <string name="lockscreen_buttons_summary">Просмотр или изменение действий кнопок экрана блокировки</string>
+    <string name="lockscreen_long_press_back_title">Долгое нажатие кнопки «Назад»</string>
+    <string name="lockscreen_long_press_home_title">Долгое нажатие кнопки «Домой»</string>
+    <string name="lockscreen_long_press_menu_title">Долгое нажатие кнопки «Меню»</string>
+    <string name="lockscreen_buttons_no_action">Нет действия</string>
+    <string name="lockscreen_buttons_flashlight">Фонарик</string>
+    <string name="lockscreen_buttons_next">Следующий трек</string>
+    <string name="lockscreen_buttons_previous">Предыдущий трек</string>
+    <string name="lockscreen_buttons_playpause">Воспроизв./пауза</string>
+    <string name="lockscreen_buttons_toggle_sound">Перекл. режим звонка</string>
+    <string name="lockscreen_buttons_sleep">Выключить экран</string>
 
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_show_clock_title">Показывать часы</string>
@@ -78,6 +101,7 @@
     <string name="status_bar_style_icon_portrait">Вертикальный значок</string>
     <string name="status_bar_style_icon_landscape">Горизонтальный значок</string>
     <string name="status_bar_style_circle">Круг</string>
+    <string name="status_bar_style_text">Текст</string>
     <string name="status_bar_battery_show_percent_title">Показывать процент заряда</string>
     <string name="status_bar_notif_count_title">Счётчик уведомлений</string>
     <string name="status_bar_notif_count_summary">Показывать количество новых уведомлений в строке состояния</string>
@@ -93,22 +117,27 @@
     <string name="tile_choose_title">Выбор плитки</string>
     <string name="title_tile_airplane">Режим полёта</string>
     <string name="title_tile_battery">Батарея</string>
+    <string name="title_tile_bluetooth">Bluetooth</string>
     <string name="title_tile_brightness">Подсветка</string>
     <string name="title_tile_camera">Камера</string>
     <string name="title_tile_sleep">Выключить экран</string>
+    <string name="title_tile_gps">GPS</string>
     <string name="title_tile_torch">Фонарик</string>
     <string name="title_tile_lockscreen">Экран блокировки</string>
+    <string name="title_tile_lte">LTE</string>
     <string name="title_tile_mobiledata">Передача данных</string>
     <string name="title_tile_profile">Профиль</string>
-    <string name="title_tile_performance_profile">Профиль производительности</string>
+    <string name="title_tile_performance_profile">Профиль производит.</string>
     <string name="title_tile_autorotate">Автоповорот</string>
     <string name="title_tile_settings">Настройки</string>
     <string name="title_tile_screen_timeout">Задержка выкл. экрана</string>
     <string name="title_tile_sound">Звук</string>
     <string name="title_tile_sync">Синхронизация</string>
     <string name="title_tile_wifiap">Wi-Fi модем</string>
+    <string name="title_tile_wifi">Wi-Fi</string>
     <string name="title_tile_user">Пользователи</string>
     <string name="title_tile_networkmode">Режим сети</string>
+    <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_quiet_hours">Тихие часы</string>
     <string name="title_tile_volume">Громкость</string>
     <string name="title_tile_expanded_desktop">Расширенный экран</string>
@@ -145,6 +174,8 @@
 
     <string name="navigation_bar_category">Строка навигации</string>
     <string name="navigation_bar_title">Кнопки и их расположение</string>
+    <string name="navigation_bar_left_title">Режим левши</string>
+    <string name="navigation_bar_left_summary">Отображать строку навигации слева в альбомной ориентации экрана</string>
     <string name="navigation_bar_help_text">1 — Для редактирования нажмите значок замка\n2 — Нажмите кнопку для изменения её функциональности\n3 — Долгим нажатием на кнопке можно перенести её влево или вправо\n4 — Для сохранения снова нажмите на значок замка\n5 — Для восстановления настроек нажмите кнопку «Сброс»\n</string>
     <string name="navigation_bar_tips">&#8226; Одно действие может быть назначено только на одну кнопку\n\n&#8226; Нельзя изменить назначение кнопки «Домой»\n\n&#8226; Нельзя перемещать боковые кнопки</string>
     <string name="navigation_bar_tips_title">Ограничения</string>
@@ -166,6 +197,7 @@
     <string name="navring_action_ring_vibrate_silent">Звук/Вибрация/Беззвучный</string>
     <string name="navring_action_screen_off">Выключить экран</string>
     <string name="navring_action_torch">Фонарик</string>
+    <string name="navring_action_google_now">Google Now</string>
     <string name="navring_choose_action_title">Выбор действия</string>
 
     <string name="picker_activities">Действия</string>
@@ -185,11 +217,16 @@
     <string name="icon_picker_sms">Сообщения</string>
     <string name="icon_picker_phone">Телефон</string>
     <string name="icon_picker_alarm">Часы</string>
-    <string name="icon_picker_email2">Email (Holo)</string>
+    <string name="icon_picker_chrome">Chrome</string>
+    <string name="icon_picker_email">Электронная почта</string>
+    <string name="icon_picker_email2">Электронная почта (стиль Holo)</string>
+    <string name="icon_picker_facebook">Facebook</string>
+    <string name="icon_picker_googleplus">Google+</string>
+    <string name="icon_picker_googletalk">Hangouts</string>
     <string name="icon_picker_google_small">Google (малый)</string>
     <string name="icon_picker_rss">RSS</string>
     <string name="icon_picker_twitter">Твиттер</string>
-    <string name="icon_picker_search">Поиск</string>
+    <string name="icon_picker_search">Google</string>
     <string name="icon_picker_title">Выберите источник значка</string>
     <string name="icon_picker_system_icons_title">Системные значки</string>
     <string name="icon_picker_gallery_title">Галерея</string>
@@ -204,8 +241,12 @@
     <string name="automation_effects_title">Автоматизация и эффекты</string>
     <string name="quiet_hours_title">Тихие часы</string>
     <string name="quiet_hours_summary">Настройка времени, когда устройство должно быть тихим</string>
-    <string name="quiet_hours_note_summary">Примечание: данные настройки не влияют на звук входящих звонков</string>
     <string name="quiet_hours_enabled">Включить тихие часы</string>
+    <string name="quiet_hours_ringer">Телефонные вызовы</string>
+    <string name="quiet_hours_ringer_allow_all">Не отключать звук</string>
+    <string name="quiet_hours_ringer_allow_contacts">Не отключать звук для контактов</string>
+    <string name="quiet_hours_ringer_allow_starred">Не отключать звук для избранных контактов</string>
+    <string name="quiet_hours_ringer_mute_all">Отключить звук для всех</string>
     <string name="quiet_hours_mute">Отключить звук уведомлений</string>
     <string name="quiet_hours_system">Отключить системные звуки</string>
     <string name="quiet_hours_still">Отключить вибрацию</string>
@@ -303,6 +344,11 @@
     <string name="auto_brightness_sensitivity_veryhigh">Очень высокая</string>
     <string name="wake_when_plugged_or_unplugged_title">Включение при зарядке</string>
     <string name="wake_when_plugged_or_unplugged_summary">Включать экран при подключении или отключении зарядного устройства</string>
+    <string name="double_tap_to_wake_title">Включение при двойном нажатии</string>
+    <string name="screen_animation_off_title">Анимация выключения</string>
+    <string name="screen_animation_style_title">Стиль анимации</string>
+    <string name="screen_animation_style_electronbeam">Пучок электронов</string>
+    <string name="screen_animation_style_fade">Затухание</string>
     <string name="lights_category_title">Индикация</string>
     <string name="notification_pulse_title">Индикатор событий</string>
     <string name="notification_light_general_title">Общие</string>
@@ -460,10 +506,18 @@
     <string name="profile_lockmode_insecure_summary">Не запрашивать пароль или PIN-код</string>
     <string name="profile_lockmode_disabled_summary">Отключить экран блокировки</string>
     <string name="profile_airplanemode_title">Режим полёта</string>
+    <string name="profile_networkmode_2g">Только 2G</string>
+    <string name="profile_networkmode_3g">Только 3G</string>
+    <string name="profile_networkmode_2g3g">Автовыбор 2G или 3G</string>
+    <string name="toggleWifi">Wi-Fi</string>
     <string name="toggleWifiAp">Точка доступа Wi-Fi</string>
+    <string name="toggleBluetooth">Bluetooth</string>
+    <string name="toggleGPS">GPS</string>
     <string name="toggleData">Передача данных</string>
     <string name="toggleSync">Автосинхронизация</string>
     <string name="toggle2g3g">Режим сети</string>
+    <string name="toggleWimax">WiMAX</string>
+    <string name="toggleNfc">NFC</string>
     <string name="volume_override_summary">Установить</string>
     <string name="profile_profiles_manage">Профили</string>
     <string name="profile_profile_manage">Управление профилями</string>
@@ -514,6 +568,8 @@
     <string name="unlock_menu_unlock_summary">Нажатие кнопки «Меню» разблокирует устройство</string>
     <string name="unlock_home_unlock_title">Разблок. по кнопке «Домой»</string>
     <string name="unlock_home_unlock_summary">Нажатие кнопки «Домой» разблокирует устройство</string>
+    <string name="unlock_camera_unlock_title">Разблок. по кнопке камеры</string>
+    <string name="unlock_camera_unlock_summary">Нажатие кнопки камеры разблокирует устройство</string>
     <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
     <string name="unlock_quick_unlock_control_summary">Автоматическая разблокировка при вводе правильного пароля или PIN-кода</string>
     <string name="delay_and_timeout_title">Задержка при блокировке</string>
@@ -532,8 +588,12 @@
     <string name="slide_lock_delay_30m">30 минут</string>
     <string name="app_security_title">Безопасность приложений</string>
     <string name="sms_security_check_limit_title">Ограничение SMS-сообщений</string>
-    <string name="sms_security_check_limit_summary">Показывать предупреждение при слишком частой отправке SMS-сообщений приложениями. Текущее значение: %d сообщений в 15 минут.</string>
+    <string name="sms_security_check_limit_summary">Запрашивать подтверждение при отправке больше %d сообщений в течение 30 минут</string>
+    <string name="sms_security_check_limit_summary_none">Приложения могут отправлять неограниченное количество сообщений</string>
     <string name="sms_security_check_limit_default">30 (по умолчанию)</string>
+    <string name="sms_security_check_limit_none">Нет</string>
+
+    <string name="privacy_settings_cyanogenmod_title">Конфиденциальность</string>
 
     <string name="privacy_guard_switch_label">Включить защищённый режим</string>
     <string name="privacy_guard_dlg_title">Включить защищённый режим?</string>
@@ -542,14 +602,43 @@
     <string name="privacy_guard_default_title">Защищённый режим по умолчанию</string>
     <string name="privacy_guard_default_summary">Включать защищённый режим для всех новых приложений</string>
     <string name="privacy_guard_manager_title">Защищённый режим</string>
-    <string name="privacy_guard_manager_summary">Контроль доступа приложений к персональным данным</string>
+    <string name="privacy_guard_manager_summary">Ограничение доступа приложений к персональным данным</string>
     <string name="privacy_guard_no_user_apps">Нет установленных приложений</string>
     <string name="privacy_guard_filter_does_not_match">Приложения с соответствующими разрешениями не установлены</string>
     <string name="privacy_guard_help_title">Справка</string>
     <string name="privacy_guard_reset_title">Сброс</string>
+    <string name="privacy_guard_reset_text">Сбросить разрешения?</string>
     <string name="privacy_guard_help_text">В этом разделе вы можете выбрать приложения, которые будут работать в защищённом режиме, нажав на них. Такие приложения не будут иметь доступа к персональным данным, таким как контакты, сообщения или журнал вызовов. Долгое нажатие откроет подробные сведения о разрешениях данного приложения.\n\nПо умолчанию системные приложения скрыты. Для их отображения или для перехода к расширенным настройкам выберите соответствующий пункт в меню.</string>
     <string name="privacy_guard_manager_show_system_apps">Системные приложения</string>
+    <string name="privacy_guard_manager_filter_permissions">Фильтр разрешений</string>
     <string name="privacy_guard_advanced_settings_title">Дополнительные функции</string>
+
+    <string name="app_ops_summaries_wifi_change">изм. состояния wi-fi</string>
+    <string name="app_ops_labels_wifi_change">Изм. состояния Wi-Fi</string>
+    <string name="app_ops_summaries_bluetooth_change">изм. состояния bluetooth</string>
+    <string name="app_ops_labels_bluetooth_change">Изм. состояния Bluetooth</string>
+    <string name="app_ops_summaries_data_change">изм. состояния моб. интернета</string>
+    <string name="app_ops_labels_data_change">Изм. состояния моб. интернета</string>
+    <string name="app_ops_summaries_alarm_wakeup">вывод из режима сна</string>
+    <string name="app_ops_labels_alarm_wakeup">Вывод из режима сна</string>
+    <string name="app_ops_summaries_auto_start">автозапуск</string>
+    <string name="app_ops_labels_auto_start">Автозапуск</string>
+    <string name="app_ops_categories_bootup">Загрузка</string>
+    <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (использовано <xliff:g id="count">%2$s</xliff:g>)</string>
+    <string name="app_ops_allowed_count">Разрешено <xliff:g id="count" example="2 times">%s</xliff:g></string>
+    <string name="app_ops_ignored_count">Запрещено <xliff:g id="count" example="2 times">%s</xliff:g></string>
+    <string name="app_ops_both_count">Разрешено <xliff:g id="count">%1$s</xliff:g>, запрещено <xliff:g id="count">%2$s</xliff:g></string>
+    <plurals name="app_ops_count">
+        <item quantity="one">%d раз</item>
+        <item quantity="few">%d раза</item>
+        <item quantity="other">%d раз</item>
+    </plurals>
+
+    <string name="app_ops_show_user_apps">Загруженные приложения</string>
+    <string name="app_ops_show_system_apps">Системные приложения</string>
+    <string name="app_ops_reset_counters">Сбросить счётчики</string>
+    <string name="app_ops_reset_confirm_title">Подтверждение сброса</string>
+    <string name="app_ops_reset_confirm_mesg">Данные счётчиков «операций в приложениях» будут удалены.</string>
 
     <string name="blacklist_title">Чёрный список</string>
     <string name="blacklist_edit_dialog_title">Редактировать чёрный список</string>
@@ -583,6 +672,8 @@
     <string name="whisperpush_registration_summary">Зарегистрироваться в WhisperPush для шифрования SMS-сообщений.</string>
     <string name="whisperpush_identitykey_title">Просмотреть ключи идентификации</string>
 
+    <string name="ime_switcher_notify">Переключатель способа ввода</string>
+    <string name="ime_switcher_notify_summary">Показывать переключатель способа ввода в панели уведомлений</string>
     <string name="gestures_settings_title">Поддержка пера</string>
     <string name="category_spen_title">Жесты пера</string>
     <string name="enable_subcat_title">Перо</string>
@@ -604,6 +695,8 @@
     <string name="stylus_app_not_installed">Приложение «%s» не установлено</string>
     <string name="stylus_icon_enabled_title">Указатель пера</string>
     <string name="stylus_icon_enabled_summary">Показывать значок указателя при работе с пером</string>
+
+    <string name="accessibility_home_button_answers_call_prerefence_title">Отвечать на вызов кнопкой «Домой»</string>
 
     <string name="development_tools_title">Запуск утилиты разработчика</string>
     <string name="advanced_reboot_title">Варианты перезагрузки</string>
@@ -648,6 +741,8 @@
     <string name="pref_purgeable_assets_summary">Позволяет освобождать больше памяти путём очистки активов графических элементов (требуется перезагрузка)</string>
     <string name="pref_use_16bpp_alpha_title">16-битная прозрачность</string>
     <string name="pref_use_16bpp_alpha_summary">Увеличенная производительность графической системы, но возможно снижение качества и появление визуальных артефактов (требуется перезагрузка)</string>
+    <string name="pref_force_highend_gfx_title">Высококачественная графика</string>
+    <string name="pref_force_highend_gfx_summary">Использовать эффекты, отключённые для устройств с низкой производительностью, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
 
     <string name="cmupdate_settings_title">Обновления системы</string>
     <string name="cmupdate_settings_summary">Проверка и установка доступных обновлений</string>

@@ -24,7 +24,6 @@
     <string name="root_access_all">Aplicativos e ADB</string>
     <string name="quiet_hours_title">Horas de silêncio</string>
     <string name="quiet_hours_summary">Ver ou alterar o horário que o dispositivo deve ficar em silêncio</string>
-    <string name="quiet_hours_note_summary">Nota: Ligações recebidas se comportarão normalmente durante as horas de silêncio</string>
     <string name="quiet_hours_enabled">Habilitar horas de silêncio</string>
     <string name="quiet_hours_mute">Silenciar notificações</string>
     <string name="quiet_hours_still">Desabilitar vibrações</string>
@@ -543,10 +542,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="keyboard_backlight_seekbar_title">Brilho do teclado</string>
     <string name="backlight_timeout_title">Duração do brilho</string>
     <string name="backlight_timeout_unlimited">Não desligar</string>
-    <plurals name="backlight_timeout_time">
-        <item quantity="one"><xliff:g id="seconds" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> segundo</item>
-        <item quantity="other"><xliff:g id="seconds" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> segundos</item>
-    </plurals>
     <string name="backlight_summary_disabled">Desativado</string>
     <string name="backlight_summary_enabled_with_timeout">Ativado por <xliff:g id="timeout" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Ativado</string>
@@ -638,10 +633,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="lockpattern_settings_enable_error_path_title">Exibir erro no padrão</string>
     <string name="lockpattern_settings_enable_dots_title">Exibir pontos no padrão</string>
     <string name="lockscreen_custom_widgets_title">Widgets personalizados</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
     <string name="volume_overlay_title">Estilo do painel de volume</string>
     <string name="stylus_icon_enabled_title">Mostrar ícone quando usando stylus</string>
     <string name="stylus_icon_enabled_summary">Mostar ponteiro quando pairando ou desenhando com o stylus</string>
@@ -688,9 +679,64 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="lockscreen_enable_camera_title">Widget da câmera</string>
     <string name="status_bar_signal_style_icon">Ícone</string>
     <string name="status_bar_signal_style_text">Texto</string>
-    <string name="lock_pattern_size_3">3x3</string>
-    <string name="lock_pattern_size_4">4x4</string>
-    <string name="lock_pattern_size_5">5x5</string>
-    <string name="lock_pattern_size_6">6x6</string>
-    <string name="privacy_settings_cyanogenmod_title">Privacy</string>
+    <string name="lockscreen_battery_status_title">Estado da bateria</string>
+    <string name="lockscreen_battery_status_charging">Somente quando carregando</string>
+    <string name="lockscreen_battery_status_alwayson">Sempre ligado</string>
+    <string name="ime_switcher_notify">Notificação do método de entrada</string>
+    <string name="ime_switcher_notify_summary">Exibir notificação do seletor de método de entrada</string>
+    <string name="lockscreen_buttons_title">Ações dos botões</string>
+    <string name="lockscreen_buttons_summary">Visualizar ou mudar as ações dos botões na tela de bloqueio</string>
+    <string name="lockscreen_long_press_back_title">Toque longo no botão Voltar</string>
+    <string name="lockscreen_long_press_home_title">Toque longo no botão Home</string>
+    <string name="lockscreen_long_press_menu_title">Toque longo no botão Menu</string>
+    <string name="lockscreen_buttons_no_action">Sem ação</string>
+    <string name="lockscreen_buttons_flashlight">Lanterna</string>
+    <string name="lockscreen_buttons_next">Próxima música</string>
+    <string name="lockscreen_buttons_previous">Música anterior</string>
+    <string name="lockscreen_buttons_playpause">Reproduzir/Pausar música</string>
+    <string name="lockscreen_buttons_toggle_sound">Alternar som</string>
+    <string name="accessibility_home_button_answers_call_prerefence_title">Atender chamadas com botão home</string>
+    <string name="lockscreen_battery_status_alwaysoff">Sempre desligado</string>
+    <string name="lockscreen_buttons_sleep">Suspender</string>
+    <string name="unlock_camera_unlock_title">Destravar com o botão da câmera</string>
+    <string name="unlock_camera_unlock_summary">Ao pressionar o botão da câmera, o dispositivo irá destravar</string>
+    <string name="status_bar_style_text">Texto</string>
+    <string name="privacy_settings_cyanogenmod_title">Privacidade</string>
+    <string name="quiet_hours_ringer">Campainha de telefone</string>
+    <string name="quiet_hours_ringer_allow_all">Tocar para todas chamadas</string>
+    <string name="quiet_hours_ringer_allow_contacts">Tocar para todos contatos</string>
+    <string name="quiet_hours_ringer_allow_starred">Tocar para contatos favoritos</string>
+    <string name="quiet_hours_ringer_mute_all">Não tocar para todas chamadas</string>
+    <string name="sms_security_check_limit_summary_none">Aplicativos não são permitidos a enviar qualquer mensagem sem confirmação</string>
+    <string name="sms_security_check_limit_none">Nenhum</string>
+    <string name="screen_animation_off_title">Animação ao desligar tela</string>
+    <string name="screen_animation_style_title">Estilo de animação</string>
+    <string name="screen_animation_style_electronbeam">Feixe de elétrons</string>
+    <string name="screen_animation_style_fade">Esmaecer</string>
+    <string name="double_tap_to_wake_title">Toque duplo para acordar</string>
+    <string name="app_ops_summaries_wifi_change">modificar wifi</string>
+    <string name="app_ops_labels_wifi_change">Modificar Wi-Fi</string>
+    <string name="app_ops_summaries_bluetooth_change">modificar bluetooth</string>
+    <string name="app_ops_labels_bluetooth_change">Modificar Bluetooth</string>
+    <string name="app_ops_summaries_data_change">modificar dados</string>
+    <string name="app_ops_labels_data_change">Modificar dados</string>
+    <string name="app_ops_summaries_alarm_wakeup">acordar</string>
+    <string name="app_ops_labels_alarm_wakeup">Acordar</string>
+    <string name="app_ops_show_user_apps">Exibir aplicativos do usuário</string>
+    <string name="app_ops_show_system_apps">Exibir aplicativos pré-instalados</string>
+    <string name="app_ops_reset_counters">Redefinir contadores permitir/negar</string>
+    <string name="app_ops_reset_confirm_title">Confirmar redefinição de contadores</string>
+    <string name="app_ops_reset_confirm_mesg">Você tem certeza que quer redefinir os contadores AppOps ?</string>
+    <string name="app_ops_summaries_auto_start">auto inicializar</string>
+    <string name="app_ops_labels_auto_start">Auto inicializar</string>
+    <string name="app_ops_categories_bootup">Inicialização</string>
+    <string name="app_ops_entry_summary"><xliff:g id="op" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s</xliff:g> (usados <xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%2$s</xliff:g>)</string>
+    <string name="app_ops_allowed_count">Permitidos <xliff:g id="count" example="2 times" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="app_ops_ignored_count">Negados <xliff:g id="count" example="2 times" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="app_ops_both_count">Permitidos <xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s</xliff:g>, negados <xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%2$s</xliff:g></string>
+    <string name="privacy_guard_reset_text">Redefinir permissões?</string>
+    <string name="navigation_bar_left_title">Modo canhoto</string>
+    <string name="navigation_bar_left_summary">Posicionar a barra de navegação no lado esquerdo da tela quando em modo paisagem</string>
+    <string name="pref_force_highend_gfx_title">Forçar gráficos de alta qualidade</string>
+    <string name="pref_force_highend_gfx_summary">Ativa efeitos visuais de alta qualidade com barra de status/navegação transparente (requer reinicilização)</string>
 </resources>
