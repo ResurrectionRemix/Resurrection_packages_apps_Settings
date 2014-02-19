@@ -314,6 +314,7 @@ final class BluetoothEventManager {
 
             switch(reason) {
             case BluetoothDevice.UNBOND_REASON_AUTH_FAILED:
+            case BluetoothDevice.UNBOND_REASON_REMOVED:
                 errorMsg = R.string.bluetooth_pairing_pin_error_message;
                 break;
             case BluetoothDevice.UNBOND_REASON_AUTH_REJECTED:
