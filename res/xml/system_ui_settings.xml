@@ -34,6 +34,11 @@
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
+    <PreferenceScreen
+        android:key="recents_panel"
+        android:fragment="com.android.settings.RecentsPanelSettings"
+        android:title="@string/recents_panel_settings_title" />
+
     <ListPreference
             android:key="expanded_desktop"
             android:title="@string/power_menu_expanded_desktop"
@@ -84,17 +89,4 @@
 		android:persistent="true" />
 
 </PreferenceCategory>  
-
- <PreferenceCategory
-        android:key="user_interface_misc"
-        android:title="@string/user_interface_misc_title" >
-
-	<PreferenceScreen
-             android:key="recents_ram_bar"
-             android:fragment="com.android.settings.cyanogenmod.RamBar"
-             android:summary="@string/ram_bar_summary"
-             android:title="@string/ram_bar" />
-
-</PreferenceCategory>  
-                              
 </PreferenceScreen>
