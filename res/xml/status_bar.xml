@@ -17,6 +17,33 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_title">  
+
+    <!-- Network traffic meter -->
+    <PreferenceCategory
+            android:key="category_network_traffic"
+            android:title="@string/network_traffic_title">
+
+        <ListPreference
+                android:key="network_traffic_state"
+                android:title="@string/show_network_traffic_state"
+                android:entries="@array/show_network_traffic_state_entries"
+                android:entryValues="@array/show_network_traffic_state_values"
+                android:persistent="false" />
+
+        <ListPreference
+                android:key="network_traffic_unit"
+                android:title="@string/show_network_traffic_unit"
+                android:entries="@array/show_network_traffic_unit_entries"
+                android:entryValues="@array/show_network_traffic_unit_values"
+                android:persistent="false" />
+
+        <ListPreference
+                android:key="network_traffic_period"
+                android:title="@string/show_network_traffic_frequency"
+                android:entries="@array/show_network_traffic_frequency_entries"
+                android:entryValues="@array/show_network_traffic_frequency_values"
+                android:persistent="false" />
+     </PreferenceCategory>
     
      <PreferenceCategory
          android:key="category_status_bar_battery_bar"
