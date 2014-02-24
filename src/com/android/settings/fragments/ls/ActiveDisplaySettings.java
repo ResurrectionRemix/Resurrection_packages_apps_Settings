@@ -19,7 +19,6 @@ package com.android.settings.fragments.ls;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.CheckBoxPreference;
@@ -30,6 +29,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.text.format.DateFormat;
 import android.text.TextUtils;
 
 import com.android.settings.R;
@@ -37,12 +37,11 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.chameleonos.AppMultiSelectListPreference;
 import com.android.settings.chameleonos.SeekBarPreference;
 
+import com.android.internal.util.cm.DeviceUtils;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import static android.hardware.Sensor.TYPE_LIGHT;
-import static android.hardware.Sensor.TYPE_PROXIMITY;
 
 public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -95,84 +94,103 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
 
         mContext = getActivity().getApplicationContext();
         mResolver = mContext.getContentResolver();
+        PreferenceScreen prefSet = getPreferenceScreen();
 
-        mEnabledPref = (SwitchPreference) findPreference(KEY_ENABLED);
+        mEnabledPref = (SwitchPreference) prefSet.findPreference(KEY_ENABLED);
         mEnabledPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ENABLE_ACTIVE_DISPLAY, 0) == 1));
         mEnabledPref.setOnPreferenceChangeListener(this);
 
-        mShowTextPref = (CheckBoxPreference) findPreference(KEY_SHOW_TEXT);
+        mShowTextPref = (CheckBoxPreference) prefSet.findPreference(KEY_SHOW_TEXT);
         mShowTextPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_TEXT, 0) == 1));
 
-        mShowContentPref = (CheckBoxPreference) findPreference(KEY_SHOW_CONTENT);
+        mShowContentPref = (CheckBoxPreference) prefSet.findPreference(KEY_SHOW_CONTENT);
         mShowContentPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_CONTENT, 1) != 0));
 
-        mBypassPref = (CheckBoxPreference) findPreference(KEY_BYPASS_CONTENT);
-        mBypassPref.setChecked((Settings.System.getInt(mResolver,
+        mBypassPref = (CheckBoxPreference) prefSet.findPreference(KEY_BYPASS_CONTENT);
+        mPocketModePref = (ListPreference) prefSet.findPreference(KEY_POCKET_MODE);
+        mProximityThreshold = (ListPreference) prefSet.findPreference(KEY_THRESHOLD);
+        mTurnOffModePref = (CheckBoxPreference) prefSet.findPreference(KEY_TURNOFF_MODE);
+
+        if (!DeviceUtils.deviceSupportsProximitySensor(mContext)) {
+            prefSet.removePreference(mPocketModePref);
+            prefSet.removePreference(mBypassPref);
+            prefSet.removePreference(mProximityThreshold);
+            prefSet.removePreference(mTurnOffModePref);
+        } else {
+            mBypassPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_BYPASS, 1) != 0));
 
-        mAllNotificationsPref = (CheckBoxPreference) findPreference(KEY_ALL_NOTIFICATIONS);
+            int mode = Settings.System.getInt(mResolver,
+                    Settings.System.ACTIVE_DISPLAY_POCKET_MODE, 0);
+            mPocketModePref.setValue(String.valueOf(mode));
+            updatePocketModeSummary(mode);
+            mPocketModePref.setOnPreferenceChangeListener(this);
+
+            long threshold = Settings.System.getLong(mResolver,
+                Settings.System.ACTIVE_DISPLAY_THRESHOLD, 5000L);
+            mProximityThreshold.setValue(String.valueOf(threshold));
+            updateThresholdSummary(threshold);
+            mProximityThreshold.setOnPreferenceChangeListener(this);
+
+            mTurnOffModePref.setChecked((Settings.System.getInt(mResolver,
+                Settings.System.ACTIVE_DISPLAY_TURNOFF_MODE, 0) == 1));
+        }
+
+        mAllNotificationsPref = (CheckBoxPreference) prefSet.findPreference(KEY_ALL_NOTIFICATIONS);
         mAllNotificationsPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_ALL_NOTIFICATIONS, 0) == 1));
 
-        mHideLowPriorityPref = (CheckBoxPreference) findPreference(KEY_HIDE_LOW_PRIORITY);
+        mHideLowPriorityPref = (CheckBoxPreference) prefSet.findPreference(KEY_HIDE_LOW_PRIORITY);
         mHideLowPriorityPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_HIDE_LOW_PRIORITY_NOTIFICATIONS, 0) == 1));
 
-        mPocketModePref = (ListPreference) findPreference(KEY_POCKET_MODE);
-        mPocketModePref.setOnPreferenceChangeListener(this);
-        int mode = Settings.System.getInt(mResolver,
-                    Settings.System.ACTIVE_DISPLAY_POCKET_MODE, 0);
-        mPocketModePref.setValue(String.valueOf(mode));
-        updatePocketModeSummary(mode);
-        if (!hasProximitySensor()) {
-            getPreferenceScreen().removePreference(mPocketModePref);
-        }
+        mSunlightModePref = (CheckBoxPreference) prefSet.findPreference(KEY_SUNLIGHT_MODE);
 
-        mSunlightModePref = (CheckBoxPreference) findPreference(KEY_SUNLIGHT_MODE);
-        mSunlightModePref.setChecked((Settings.System.getInt(mResolver,
+        if (!DeviceUtils.deviceSupportsLightSensor(mContext)) {
+            prefSet.removePreference(mSunlightModePref);
+        } else {
+            mSunlightModePref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_SUNLIGHT_MODE, 0) == 1));
-        if (!hasLightSensor()) {
-            getPreferenceScreen().removePreference(mSunlightModePref);
         }
 
-        PreferenceScreen prefSet = getPreferenceScreen();
         mRedisplayPref = (ListPreference) prefSet.findPreference(KEY_REDISPLAY);
-        mRedisplayPref.setOnPreferenceChangeListener(this);
         long timeout = Settings.System.getLong(mResolver,
                 Settings.System.ACTIVE_DISPLAY_REDISPLAY, 0);
         mRedisplayPref.setValue(String.valueOf(timeout));
         updateRedisplaySummary(timeout);
+        mRedisplayPref.setOnPreferenceChangeListener(this);
 
-        mExcludedAppsPref = (AppMultiSelectListPreference) findPreference(KEY_EXCLUDED_APPS);
+        mExcludedAppsPref = (AppMultiSelectListPreference) prefSet.findPreference(KEY_EXCLUDED_APPS);
         Set<String> excludedApps = getExcludedApps();
         if (excludedApps != null) mExcludedAppsPref.setValues(excludedApps);
         mExcludedAppsPref.setOnPreferenceChangeListener(this);
 
-        mPrivacyAppsPref = (AppMultiSelectListPreference) findPreference(KEY_PRIVACY_APPS);
+        mPrivacyAppsPref = (AppMultiSelectListPreference) prefSet.findPreference(KEY_PRIVACY_APPS);
         Set<String> privacyApps = getPrivacyApps();
         if (privacyApps != null) mPrivacyAppsPref.setValues(privacyApps);
         mPrivacyAppsPref.setOnPreferenceChangeListener(this);
 
-        mShowDatePref = (CheckBoxPreference) findPreference(KEY_SHOW_DATE);
+        mShowDatePref = (CheckBoxPreference) prefSet.findPreference(KEY_SHOW_DATE);
         mShowDatePref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_SHOW_DATE, 0) == 1));
 
-        mShowAmPmPref = (CheckBoxPreference) findPreference(KEY_SHOW_AMPM);
+        mShowAmPmPref = (CheckBoxPreference) prefSet.findPreference(KEY_SHOW_AMPM);
         mShowAmPmPref.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.ACTIVE_DISPLAY_SHOW_AMPM, 0) == 1));
+        mShowAmPmPref.setEnabled(!is24Hour());
 
         PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         int minimumBacklight = pm.getMinimumScreenBrightnessSetting();
         int maximumBacklight = pm.getMaximumScreenBrightnessSetting();
 
-        mBrightnessLevel = (SeekBarPreference) findPreference(KEY_BRIGHTNESS);
+        mBrightnessLevel = (SeekBarPreference) prefSet.findPreference(KEY_BRIGHTNESS);
         mBrightnessLevel.setMaxValue(maximumBacklight - minimumBacklight);
         mBrightnessLevel.setMinValue(minimumBacklight);
         mBrightnessLevel.setValue(Settings.System.getInt(mResolver,
-                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, maximumBacklight));
+                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, maximumBacklight) - minimumBacklight);
         mBrightnessLevel.setOnPreferenceChangeListener(this);
 
         try {
@@ -190,17 +208,6 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
                 Settings.System.ACTIVE_DISPLAY_TIMEOUT, 8000L);
         mDisplayTimeout.setValue(String.valueOf(timeout));
         updateTimeoutSummary(timeout);
-
-        mProximityThreshold = (ListPreference) prefSet.findPreference(KEY_THRESHOLD);
-        mProximityThreshold.setOnPreferenceChangeListener(this);
-        long threshold = Settings.System.getLong(mResolver,
-                Settings.System.ACTIVE_DISPLAY_THRESHOLD, 5000L);
-        mProximityThreshold.setValue(String.valueOf(threshold));
-        updateThresholdSummary(threshold);
-
-        mTurnOffModePref = (CheckBoxPreference) findPreference(KEY_TURNOFF_MODE);
-        mTurnOffModePref.setChecked((Settings.System.getInt(mResolver,
-                Settings.System.ACTIVE_DISPLAY_TURNOFF_MODE, 0) == 1));
     }
 
     @Override
@@ -327,16 +334,6 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private boolean hasProximitySensor() {
-        SensorManager sm = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        return sm.getDefaultSensor(TYPE_PROXIMITY) != null;
-    }
-
-    private boolean hasLightSensor() {
-        SensorManager sm = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        return sm.getDefaultSensor(TYPE_LIGHT) != null;
-    }
-
     private Set<String> getExcludedApps() {
         String excluded = Settings.System.getString(mResolver,
                 Settings.System.ACTIVE_DISPLAY_EXCLUDED_APPS);
@@ -377,5 +374,9 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         }
         Settings.System.putString(mResolver,
                 Settings.System.ACTIVE_DISPLAY_PRIVACY_APPS, builder.toString());
+    }
+
+    private boolean is24Hour() {
+        return DateFormat.is24HourFormat(mContext);
     }
 }
