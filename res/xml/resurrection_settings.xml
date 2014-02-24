@@ -124,17 +124,6 @@
   </PreferenceScreen>
    </PreferenceCategory>
         
-    <PreferenceCategory
-	   android:key="progressbar"
-	   android:title="@string/progressbar_title" />
-
-    <PreferenceScreen
-       android:key="progressbar_settings"
-       android:fragment="com.android.settings.cyanogenmod.ProgressBar"
-       android:summary="@string/progressbar_title_summary"
-       android:title="@string/progressbar_title" >
-    </PreferenceScreen>
-           
   <PreferenceCategory
         android:id="@+id/animations"
         android:title="@string/animations_title" /> 
@@ -165,6 +154,13 @@
    <PreferenceCategory
         android:id="@+id/misc"
         android:title="@string/misc_title" />
+        
+    <PreferenceScreen
+       android:key="progressbar_settings"
+       android:fragment="com.android.settings.cyanogenmod.ProgressBar"
+       android:summary="@string/progressbar_title_summary"
+       android:title="@string/progressbar_title" >
+    </PreferenceScreen>        
                                       
    <ListPreference
         android:key="pref_music_mode"
