@@ -34,6 +34,7 @@
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
+<<<<<<< HEAD
     <PreferenceScreen
         android:key="recents_panel"
         android:fragment="com.android.settings.RecentsPanelSettings"
@@ -62,6 +63,31 @@
             android:key="expanded_desktop_no_navbar"
             android:title="@string/power_menu_expanded_desktop"
             android:persistent="true" />
+=======
+    <PreferenceCategory
+            android:key="expanded_desktop_category"
+            android:title="@string/power_menu_expanded_desktop" >
+
+        <ListPreference
+                android:key="expanded_desktop"
+                android:title="@string/expanded_desktop_style"
+                android:entries="@array/expanded_desktop_entries"
+                android:entryValues="@array/expanded_desktop_values"
+                android:persistent="false" />
+
+        <CheckBoxPreference
+                android:key="expanded_desktop_no_navbar"
+                android:title="@string/power_menu_expanded_desktop"
+                android:persistent="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+                android:key="expanded_desktop_system_bars_visibility"
+                android:title="@string/expanded_desktop_system_bars_visibility"
+                android:summary="@string/expanded_desktop_system_bars_visibility_summary"
+                android:defaultValue="false" />
+
+    </PreferenceCategory>
+>>>>>>> 6e7b20e... Add setting for system bars visibility on Keyguard in Expanded desktop mode.
 
     <!-- Device Specific Touchscreen gestures. Avoid duplicating CMHW functionality, please -->
     <Preference
