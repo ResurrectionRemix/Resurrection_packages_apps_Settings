@@ -175,14 +175,17 @@ public class AppMultiSelectListPreference extends DialogPreference {
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
         final CharSequence[] defaultValues = a.getTextArray(index);
-        final int valueCount = defaultValues.length;
-        final Set<String> result = new HashSet<String>();
+        if (defaultValues != null) {
+            final int valueCount = defaultValues.length;
+            final Set<String> result = new HashSet<String>();
 
-        for (int i = 0; i < valueCount; i++) {
-            result.add(defaultValues[i].toString());
+            for (int i = 0; i < valueCount; i++) {
+                 result.add(defaultValues[i].toString());
+            }
+
+            return result;
         }
-
-        return result;
+        return null;
     }
 
     @Override
@@ -256,11 +259,11 @@ public class AppMultiSelectListPreference extends DialogPreference {
 
     private final static Comparator<MyApplicationInfo> sDisplayNameComparator
             = new Comparator<MyApplicationInfo>() {
-        public final int
-        compare(MyApplicationInfo a, MyApplicationInfo b) {
-            return collator.compare(a.label, b.label);
-        }
 
         private final Collator collator = Collator.getInstance();
+
+        public final int compare(MyApplicationInfo a, MyApplicationInfo b) {
+            return collator.compare(a.label, b.label);
+        }
     };
 }
