@@ -125,6 +125,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
 
         mQuickTilesBgPressedColor =
                 (ColorPickerPreference) findPreference(PREF_QUICK_TILES_BG_PRESSED_COLOR);
+        mQuickTilesBgPressedColor.setAlphaSliderEnabled(true);       
         mQuickTilesBgPressedColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.QUICK_TILES_BG_PRESSED_COLOR, -2);
@@ -180,7 +181,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
                 Settings.System.QUICK_TILES_PER_ROW_DUPLICATE_LANDSCAPE, 1) == 1);
         mDuplicateColumnsLandscape.setOnPreferenceChangeListener(this);
 
-        /** This FC on tablets
+        /** no need it anymore
         PreferenceCategory additionalOptions =
             (PreferenceCategory) findPreference(PREF_ADDITIONAL_OPTIONS);
         if (!DeviceUtils.isPhone(getActivity())) {
@@ -194,6 +195,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
         return prefs;
     }
 
+    /** remove reset option 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
@@ -210,7 +212,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
              default:
                 return super.onContextItemSelected(item);
         }
-    }
+    }**/
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
