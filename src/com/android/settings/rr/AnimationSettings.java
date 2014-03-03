@@ -52,7 +52,7 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lockscreen_settings);
+        addPreferencesFromResource(R.xml.animation_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
