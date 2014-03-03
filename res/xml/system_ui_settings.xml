@@ -45,7 +45,12 @@
        android:summary="@string/progressbar_title_summary"
        android:title="@string/progressbar_title" >
     </PreferenceScreen>   
-
+     <ListPreference
+            android:key="toast_animation"
+            android:title="@string/toast_animation_title"
+            android:entries="@array/toast_animation_entries"
+            android:entryValues="@array/toast_animation_values"
+            android:persistent="false" />
     <ListPreference
             android:key="expanded_desktop"
             android:title="@string/power_menu_expanded_desktop"
