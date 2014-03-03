@@ -34,6 +34,24 @@
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
+    <PreferenceScreen
+        android:key="recents_panel"
+        android:fragment="com.android.settings.RecentsPanelSettings"
+        android:title="@string/recents_panel_settings_title" />
+
+    <PreferenceScreen
+       android:key="progressbar_settings"
+       android:fragment="com.android.settings.cyanogenmod.ProgressBar"
+       android:summary="@string/progressbar_title_summary"
+       android:title="@string/progressbar_title" >
+    </PreferenceScreen>   
+     <ListPreference
+            android:key="toast_animation"
+            android:title="@string/toast_animation_title"
+            android:entries="@array/toast_animation_entries"
+            android:entryValues="@array/toast_animation_values"
+            android:persistent="false" />
+
     <PreferenceCategory
             android:key="expanded_desktop_category"
             android:title="@string/power_menu_expanded_desktop" >
@@ -55,7 +73,8 @@
                 android:title="@string/expanded_desktop_system_bars_visibility"
                 android:summary="@string/expanded_desktop_system_bars_visibility_summary"
                 android:defaultValue="false" />
-         </PreferenceCategory>       
+
+    </PreferenceCategory>
     <!-- Device Specific Touchscreen gestures. Avoid duplicating CMHW functionality, please -->
     <Preference
         android:key="touch_screen_gesture_settings">
