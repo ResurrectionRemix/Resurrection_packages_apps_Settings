@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   resurrection_settings.xml
+   
+   Copyright 2014 westcrip <westcrip@westcrip-altankrk>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+  <PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/resurrection_settings_title"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    
+   <!-- Active display -->	
+  <PreferenceScreen	
+    	android:key="active_display"	
+	    android:fragment="com.android.settings.fragments.ls.ActiveDisplaySettings"	
+    	android:title="@string/ad_settings_title"	
+    	android:summary="@string/ad_settings_summary" />
+
+
+   <!-- Lockscreen notifications -->    	 
+  <PreferenceScreen
+        android:id="@+id/lockscreen_notifcation_settings"
+        android:summary="@string/lockscreen_notifications_summary"
+        android:fragment="com.android.settings.pac.LockscreenNotifications"
+        android:title="@string/lockscreen_notifications" />
+         
+   <!-- Lockscreen blur -->    	 
+  <PreferenceScreen	
+    	android:key="through"	
+	    android:fragment="com.android.settings.rr.LockscreenGeneral"	
+    	android:title="@string/through_title"	
+    	android:summary="@string/through_title_summary" />         
+
+   <!-- Misc lockscreen customizations -->    	 
+  <PreferenceScreen
+        android:id="@+id/lock_screen_settings"
+        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
+        android:summary="@string/lock_screen_title_summary"
+        android:title="@string/lock_screen_title" />
+       
+
+</PreferenceScreen> 

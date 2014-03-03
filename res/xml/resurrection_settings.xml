@@ -41,7 +41,14 @@
         android:id="@+id/system_settings"
         android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
         android:summary="@string/system_settings_title_summary"
-        android:title="@string/system_settings_title" />                
+        android:icon="@drawable/ic_settings_about_rr"
+        android:title="@string/system_settings_title" />  
+
+  <PreferenceScreen
+        android:id="@+id/lockscreen_settings"
+        android:fragment="com.android.settings.rr.LockscreenSettings"
+        android:icon="@drawable/ic_settings_about_rr"
+        android:title="@string/lockscreen_settings_title" />                
    
   <PreferenceScreen
         android:id="@+id/spawn_settings"
@@ -78,33 +85,6 @@
         android:title="@string/app_sidebar_title"
         android:summary="@string/app_sidebar_summary" />
               
-  <PreferenceCategory
-        android:title="@string/lockscreen_style_title">       
-   <!-- Active display -->	
-  <PreferenceScreen	
-    	android:key="active_display"	
-	    android:fragment="com.android.settings.fragments.ls.ActiveDisplaySettings"	
-    	android:title="@string/ad_settings_title"	
-    	android:summary="@string/ad_settings_summary" />
-    	 
-  <PreferenceScreen
-        android:id="@+id/lockscreen_notifcation_settings"
-        android:summary="@string/lockscreen_notifications_summary"
-        android:fragment="com.android.settings.pac.LockscreenNotifications"
-        android:title="@string/lockscreen_notifications" />
-         
-  <PreferenceScreen	
-    	android:key="through"	
-	    android:fragment="com.android.settings.rr.LockscreenGeneral"	
-    	android:title="@string/through_title"	
-    	android:summary="@string/through_title_summary" />         
-  <PreferenceScreen
-        android:id="@+id/lock_screen_settings"
-        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
-        android:summary="@string/lock_screen_title_summary"
-        android:title="@string/lock_screen_title" />
-  </PreferenceCategory>
-        
   <PreferenceCategory
         android:title="@string/status_bar_style_title">
 
