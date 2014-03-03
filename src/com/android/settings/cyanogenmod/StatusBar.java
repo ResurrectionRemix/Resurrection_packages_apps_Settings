@@ -269,7 +269,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                      Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, value ? 1 : 0);
              return true;
          }
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void enableStatusBarBatteryDependents(String value) {

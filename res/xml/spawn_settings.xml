@@ -27,6 +27,13 @@
     android:title="@string/spawn_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+
+     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+         android:key="power_menu_screenrecord_enabled"
+         android:title="@string/power_menu_screenrecord_title"
+         android:summary="@string/power_menu_screenrecord_title_summary"
+         android:defaultValue="false" />
+
     <!-- Status bar -->
     <PreferenceCategory
             android:key="category_spawn"
@@ -50,12 +57,6 @@
             android:summary="@string/flip_qs_tiles_summary"
             android:defaultValue="true" />
              
-     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-         android:key="power_menu_screenrecord_enabled"
-         android:title="@string/power_menu_screenrecord_title"
-         android:summary="@string/power_menu_screenrecord_title_summary"
-         android:defaultValue="false" />
-                                         
     <PreferenceCategory
         android:key="spawn_lockscreen"
 	    android:title="@string/spawn_lockscreen_title" >
@@ -84,4 +85,5 @@
             android:summary="@string/button_headsethook_launch_voice_summary"
             android:persistent="false" />
     </PreferenceCategory>
+
 </PreferenceScreen>

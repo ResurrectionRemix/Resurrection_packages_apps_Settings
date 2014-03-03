@@ -78,7 +78,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
      
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
-    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String EXP_MUSIC_MODE = "pref_music_mode";
  
     private final Configuration mCurConfig = new Configuration();
@@ -111,7 +110,7 @@ public class Resurrection extends SettingsPreferenceFragment implements
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
                  
-        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
 
     }
 
@@ -154,23 +153,6 @@ public class Resurrection extends SettingsPreferenceFragment implements
     }
         return false;
     }
-    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
-        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
-        Pattern pattern = Pattern.compile("component=([^/]+)/");
-        Matcher matcher = pattern.matcher(intentUri);
 
-        String packageName=matcher.find()?matcher.group(1):null;
-        if(packageName != null) {
-            try {
-                getPackageManager().getPackageInfo(packageName, 0);
-            } catch (NameNotFoundException e) {
-                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
-                getPreferenceScreen().removePreference(preference);
-                return true;
-            }
-
-        }
-        return false;
-    }
 
 }
