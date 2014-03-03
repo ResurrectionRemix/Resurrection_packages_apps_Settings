@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   resurrection_settings.xml
+   
+   Copyright 2014 westcrip <westcrip@westcrip-altankrk>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+  <PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/resurrection_settings_title"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    
+    <!-- HALO -->
+  <PreferenceScreen
+        android:id="@+id/halo_settings"
+        android:fragment="com.android.settings.cyanogenmod.Halo"
+        android:summary="@string/halo_settings_summary" 
+        android:title="@string/halo_settings_title" />
+
+    <!-- OmniSwitch -->        
+  <PreferenceScreen
+        android:id="@+id/omniswitch"
+        android:title="@string/omniswitch_title"
+	    android:summary="@string/omniswitch_summary" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.omnirom.omniswitch"
+            android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
+  </PreferenceScreen>        
+
+    <!-- App bar -->   
+  <PreferenceScreen
+        android:key="app_sidebar"
+        android:fragment="com.android.settings.cyanogenmod.AppSidebar"
+        android:title="@string/app_sidebar_title"
+        android:summary="@string/app_sidebar_summary" />
+
+    <!-- Screen recorder -->   
+   <PreferenceScreen
+        android:key="screen_recorder"
+        android:title="@string/screen_recorder_title"
+        android:summary="@string/screen_recorder_summary"
+        android:fragment="com.android.settings.cyanogenmod.ScreenRecorderSettings" />
+                      
+       
+
+</PreferenceScreen> 
