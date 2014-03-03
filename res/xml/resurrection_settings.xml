@@ -74,25 +74,6 @@
         android:title="@string/spawn_title" />   
   
   <PreferenceCategory
-        android:title="@string/status_bar_style_title">
-
-  <PreferenceScreen
-        android:fragment="com.android.settings.slim.StatusBarClockStyle"
-        android:key="clock_style_pref"
-        android:summary="@string/status_bar_clock_summary"
-        android:title="@string/status_bar_clock" />
-        
-  <PreferenceScreen
-        android:key="lock_clock"
-        android:title="@string/lock_clock_title"
-        android:summary="@string/lock_clock_summary">
-         <intent android:action="android.intent.action.MAIN"
-                 android:targetPackage="com.cyanogenmod.lockclock"
-                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-  </PreferenceScreen>
-   </PreferenceCategory>
-        
-  <PreferenceCategory
         android:id="@+id/animations"
         android:title="@string/animations_title" /> 
              

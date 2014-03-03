@@ -37,6 +37,10 @@ import android.provider.Settings;
 import android.view.Display;
 import android.view.Window;
 import android.widget.Toast;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.Log;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -47,6 +51,7 @@ import java.io.IOException;
 public class LockscreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String TAG = "LockscreenSettings";
 
     @Override
@@ -56,6 +61,8 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
+
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
     }
 
     @Override
@@ -65,6 +72,25 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
+        return false;
+    }
+
+    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
+        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
+        Pattern pattern = Pattern.compile("component=([^/]+)/");
+        Matcher matcher = pattern.matcher(intentUri);
+
+        String packageName=matcher.find()?matcher.group(1):null;
+        if(packageName != null) {
+            try {
+                getPackageManager().getPackageInfo(packageName, 0);
+            } catch (NameNotFoundException e) {
+                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
+                getPreferenceScreen().removePreference(preference);
+                return true;
+            }
+
+        }
         return false;
     }
 }
