@@ -44,15 +44,15 @@ import com.android.settings.R;
 import java.io.File;
 import java.io.IOException;
 
-public class AnimationSettings extends SettingsPreferenceFragment implements
+public class MiscellaneousSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String TAG = "AnimationSettings";
+    private static final String TAG = "MiscellaneousSettings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.animation_settings);
+        addPreferencesFromResource(R.xml.miscellaneous_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();

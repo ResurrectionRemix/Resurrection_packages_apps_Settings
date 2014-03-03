@@ -55,12 +55,6 @@
         android:icon="@drawable/ic_settings_about_rr"
         android:title="@string/button_settings" />
 
- <PreferenceScreen
-        android:id="@+id/animation_settings"
-        android:fragment="com.android.settings.rr.AnimationSettings"
-        android:icon="@drawable/ic_settings_about_rr"
-        android:title="@string/animation_settings_title" />
-
   <PreferenceScreen
         android:id="@+id/advanced_settings"
         android:fragment="com.android.settings.rr.AdvancedSettings"
@@ -71,7 +65,13 @@
         android:id="@+id/spawn_settings"
         android:fragment="com.android.settings.Spawn"
         android:icon="@drawable/ic_settings_about_rr"
-        android:title="@string/spawn_title" />   
+        android:title="@string/spawn_title" />
+
+ <PreferenceScreen
+        android:id="@+id/animation_settings"
+        android:fragment="com.android.settings.rr.MiscellaneousSettings"
+        android:icon="@drawable/ic_settings_about_rr"
+        android:title="@string/misc_settings_title" />
   
   <PreferenceCategory
         android:id="@+id/animations"
