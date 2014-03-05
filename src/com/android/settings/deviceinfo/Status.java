@@ -397,20 +397,6 @@ public class Status extends PreferenceActivity {
              }
     }
 
-    private String getServiceStateString(int state) {
-        switch (state) {
-            case ServiceState.STATE_IN_SERVICE:
-                return mRes.getString(R.string.radioInfo_service_in);
-            case ServiceState.STATE_OUT_OF_SERVICE:
-            case ServiceState.STATE_EMERGENCY_ONLY:
-                return mRes.getString(R.string.radioInfo_service_out);
-            case ServiceState.STATE_POWER_OFF:
-                return mRes.getString(R.string.radioInfo_service_off);
-            default:
-                return mRes.getString(R.string.radioInfo_unknown);
-        }
-    }
-
     private void updateNetworkType() {
         // Whether EDGE, UMTS, etc...
         String networktype = null;
@@ -443,13 +429,23 @@ public class Status extends PreferenceActivity {
     }
 
     private void updateServiceState(ServiceState serviceState) {
-        int voiceState = serviceState.getState();
-        String voiceDisplay = getServiceStateString(voiceState);
+        int state = serviceState.getState();
+        String display = mRes.getString(R.string.radioInfo_unknown);
 
-        int dataState = serviceState.getDataRegState();
-        String dataDisplay = getServiceStateString(dataState);
+        switch (state) {
+            case ServiceState.STATE_IN_SERVICE:
+                display = mRes.getString(R.string.radioInfo_service_in);
+                break;
+            case ServiceState.STATE_OUT_OF_SERVICE:
+            case ServiceState.STATE_EMERGENCY_ONLY:
+                display = mRes.getString(R.string.radioInfo_service_out);
+                break;
+            case ServiceState.STATE_POWER_OFF:
+                display = mRes.getString(R.string.radioInfo_service_off);
+                break;
+        }
 
-        setSummaryText(KEY_SERVICE_STATE, "Voice: " + voiceDisplay + " / Data: " + dataDisplay);
+        setSummaryText(KEY_SERVICE_STATE, display);
 
         if (serviceState.getRoaming()) {
             setSummaryText(KEY_ROAMING_STATE, mRes.getString(R.string.radioInfo_roaming_in));
