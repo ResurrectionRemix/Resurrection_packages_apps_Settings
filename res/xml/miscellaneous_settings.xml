@@ -55,6 +55,13 @@
         android:entryValues="@array/listview_interpolator_values"
         android:defaultValue="0"
         android:dependency="listview_animation" />
+
+     <ListPreference
+            android:key="toast_animation"
+            android:title="@string/toast_animation_title"
+            android:entries="@array/toast_animation_entries"
+            android:entryValues="@array/toast_animation_values"
+            android:persistent="false" />
             
    <PreferenceScreen
         android:id="@+id/animations"

@@ -52,9 +52,11 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
     private ListPreference mMusicMode;
+    private ListPreference mToastAnimation;
      
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String EXP_MUSIC_MODE = "pref_music_mode";
  
     private final Configuration mCurConfig = new Configuration();
@@ -75,7 +77,7 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
          mMusicMode.setSummary(mMusicMode.getEntry());
          mMusicMode.setOnPreferenceChangeListener(this);
          
-         //ListView Animations
+        // ListView animation
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
             Settings.System.LISTVIEW_ANIMATION, 1);
@@ -90,7 +92,13 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
                  
-
+	// Toast animation
+        mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
+        mToastAnimation.setSummary(mToastAnimation.getEntry());
+        int CurrentToastAnimation = Settings.System.getInt(getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
+        mToastAnimation.setValueIndex(CurrentToastAnimation);
+        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+        mToastAnimation.setOnPreferenceChangeListener(this);
 
     }
 
@@ -126,6 +134,12 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
              Settings.System.MUSIC_TILE_MODE, value);
              mMusicMode.setSummary(mMusicMode.getEntries()[index]);
              return true;
+        } else if (preference == mToastAnimation) {
+            int index = mToastAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
+            mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+            Toast.makeText(mContext, "Toast Test", Toast.LENGTH_SHORT).show();
+            return true;
     }
         return false;
     }
