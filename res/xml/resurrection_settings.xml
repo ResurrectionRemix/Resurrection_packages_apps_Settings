@@ -40,37 +40,37 @@
   <PreferenceScreen
         android:id="@+id/system_settings"
         android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
-        android:icon="@drawable/ic_settings_about_rr"
+        android:icon="@drawable/toolbar"
         android:title="@string/system_settings_title" />  
 
   <PreferenceScreen
         android:id="@+id/lockscreen_settings"
         android:fragment="com.android.settings.rr.LockscreenSettings"
-        android:icon="@drawable/ic_settings_about_rr"
+        android:icon="@drawable/locklocked"
         android:title="@string/lockscreen_settings_title" />                
    
   <PreferenceScreen
         android:id="@+id/button_settings"
         android:fragment="com.android.settings.cyanogenmod.ButtonSettings"
-        android:icon="@drawable/ic_settings_about_rr"
+        android:icon="@drawable/button_settings"
         android:title="@string/button_settings" />
 
   <PreferenceScreen
         android:id="@+id/advanced_settings"
         android:fragment="com.android.settings.rr.AdvancedSettings"
-        android:icon="@drawable/ic_settings_about_rr"
+        android:icon="@drawable/toolbarmagic"
         android:title="@string/advanced_settings_title" />
 
   <PreferenceScreen
         android:id="@+id/spawn_settings"
         android:fragment="com.android.settings.Spawn"
-        android:icon="@drawable/ic_settings_about_rr"
+        android:icon="@drawable/tasks"
         android:title="@string/spawn_title" />
 
  <PreferenceScreen
         android:id="@+id/miscellaneous_settings"
         android:fragment="com.android.settings.rr.MiscellaneousSettings"
-        android:icon="@drawable/ic_settings_about_rr"
+        android:icon="@drawable/tune_utilities"
         android:title="@string/misc_settings_title" />
   
   <PreferenceCategory
@@ -119,7 +119,7 @@
     <PreferenceScreen
         android:key="update_me"
         android:title="@string/update_me_title"
-        android:summary="@string/update_me_summary">
+        android:icon="@drawable/folder_downloads">
         <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.acquariusoft.UpdateMeSmartphone"
                 android:targetClass="com.acquariusoft.UpdateMeSmartphone.UpdateMeActivityOld" />
@@ -128,6 +128,7 @@
         <!-- Change Log -->
     <PreferenceScreen android:key="changelog"
         android:title="@string/changelog_title"
+        android:icon="@drawable/file_document"
         android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
         </PreferenceScreen>
              
