@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/screen_state_toggles_title">
+
+
+    <SwitchPreference
+        android:key="screen_state_toggles_enable_key"
+        android:title="@string/screen_state_toggles_enable_title"
+        android:summary="@string/screen_state_toggles_enable_summary"
+        android:defaultValue="false"/>
+
+    <PreferenceCategory
+        android:key="screen_state_toggles_mobile_key"
+        android:title="@string/screen_state_toggles_mobile_title">
+
+        <CheckBoxPreference
+            android:key="screen_state_toggles_twog"
+            android:title="@string/screen_state_toggles_twog"
+            android:summary="@string/screen_state_toggles_twog_summary"
+            android:defaultValue="false"/>
+
+        <CheckBoxPreference
+            android:key="screen_state_toggles_mobile_data"
+            android:title="@string/screen_state_toggles_mobile_data"
+            android:summary="@string/screen_state_toggles_mobile_data_summary"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="screen_state_toggles_location_key"
+        android:title="@string/screen_state_toggles_location_title">
+
+        <CheckBoxPreference
+            android:key="screen_state_toggles_gps"
+            android:title="@string/screen_state_toggles_gps"
+            android:summary="@string/screen_state_toggles_gps_summary"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>
