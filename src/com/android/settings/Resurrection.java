@@ -71,6 +71,7 @@ import com.android.settings.Utils;
 public class Resurrection extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Resurrection";
+    private static final String KEY_XPOSED_APP = "xposed_settings";
     
 
     @Override
@@ -78,8 +79,9 @@ public class Resurrection extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.resurrection_settings);
-       PreferenceScreen prefSet = getPreferenceScreen();
+        PreferenceScreen prefSet = getPreferenceScreen();
 
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_XPOSED_APP));
 
     }
 
@@ -95,6 +97,25 @@ public class Resurrection extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return false;
+    }
+
+    private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
+        String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
+        Pattern pattern = Pattern.compile("component=([^/]+)/");
+        Matcher matcher = pattern.matcher(intentUri);
+
+        String packageName=matcher.find()?matcher.group(1):null;
+        if(packageName != null) {
+            try {
+                getPackageManager().getPackageInfo(packageName, 0);
+            } catch (NameNotFoundException e) {
+                Log.e(TAG,"package "+packageName+" not installed, hiding preference.");
+                getPreferenceScreen().removePreference(preference);
+                return true;
+            }
+
+        }
         return false;
     }
 

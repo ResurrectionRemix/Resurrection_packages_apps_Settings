@@ -67,6 +67,15 @@
         android:icon="@drawable/tasks"
         android:title="@string/spawn_title" />
 
+  <PreferenceScreen
+        android:key="xposed_settings"
+        android:icon="@drawable/ic_settings_about_rr"
+        android:title="@string/xposed_settings_title" >
+         <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="de.robv.android.xposed.installer"
+		android:targetClass="de.robv.android.xposed.installer.WelcomeActivity" />
+  </PreferenceScreen>
+
  <PreferenceScreen
         android:id="@+id/miscellaneous_settings"
         android:fragment="com.android.settings.rr.MiscellaneousSettings"
