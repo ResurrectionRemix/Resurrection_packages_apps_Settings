@@ -54,6 +54,16 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String TAG = "LockscreenSettings";
 
+
+
+    private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_BLUR_RADIUS = "blur_radius";
+
+    private CheckBoxPreference mSeeThrough;
+    private SeekBarPreference mBlurRadius;
+    private Activity mActivity;
+    private ContentResolver mResolver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,16 +72,45 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
 
+        mContext = getActivity();
+        mActivity = getActivity();
+        mResolver = mActivity.getContentResolver();
+
+        // lockscreen see through
+        mSeeThrough = (CheckBoxPreference) prefs.findPreference(KEY_SEE_TRHOUGH);
+        mBlurRadius = (SeekBarPreference) prefs.findPreference(KEY_BLUR_RADIUS);
+        mBlurRadius.setProgress(Settings.System.getInt(resolver, 
+            Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
+        mBlurRadius.setOnPreferenceChangeListener(this);
+
+
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+
+        ContentResolver cr = getContentResolver();
+
+        if (preference == mSeeThrough) {
+              Settings.System.putInt(cr, Settings.System.LOCKSCREEN_SEE_THROUGH,
+                      mSeeThrough.isChecked() ? 1 : 0);
+            return true;
+        }
+
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
+
+        ContentResolver cr = getActivity().getContentResolver();
+
+        if (preference == mBlurRadius) {
+          Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BLUR_RADIUS, (Integer)value);
+          return true;
+        }
+
         return false;
     }
 

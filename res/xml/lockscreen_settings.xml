@@ -42,13 +42,6 @@
         android:fragment="com.android.settings.pac.LockscreenNotifications"
         android:title="@string/lockscreen_notifications" />
          
-   <!-- Lockscreen blur -->    	 
-  <PreferenceScreen	
-    	android:key="through"	
-	    android:fragment="com.android.settings.rr.LockscreenGeneral"	
-    	android:title="@string/through_title"	
-    	android:summary="@string/through_title_summary" />         
-
    <!-- CLock -->
   <PreferenceScreen
         android:key="lock_clock"
@@ -63,6 +56,25 @@
   <PreferenceScreen
         android:id="@+id/lock_screen_settings"
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
-        android:title="@string/lockscreen_misc_title" />       
+        android:title="@string/lockscreen_misc_title" />
+
+   <!-- Lockscreen blur -->    	 
+   <PreferenceCategory
+        android:key="lockscreen_blur_category"
+        android:title="@string/through_title"> 
+
+    <CheckBoxPreference
+            android:key="see_through"
+            android:title="@string/see_through_title"
+            android:summary="@string/see_through_summary" />
+
+    <SeekBarPreference
+            android:key="blur_radius"
+            android:title="@string/blur_radius_title"
+            android:summary="@string/blur_radius_summary"
+            android:dependency="see_through"
+            android:max="25"
+            android:defaultValue="12" />     
+</PreferenceCategory>  
 
 </PreferenceScreen> 
