@@ -73,45 +73,6 @@
         android:icon="@drawable/tune_utilities"
         android:title="@string/misc_settings_title" />
   
-  <PreferenceCategory
-        android:id="@+id/animations"
-        android:title="@string/animations_title" /> 
-             
-  <ListPreference
-        android:key="listview_animation"
-        android:dialogTitle="@string/listview_animation_title"
-        android:title="@string/listview_animation_title"
-        android:entries="@array/listview_animation_entries"
-        android:entryValues="@array/listview_animation_values"
-        android:defaultValue="0" />
-
-  <ListPreference
-        android:key="listview_interpolator"
-        android:dialogTitle="@string/listview_interpolator_title"
-        android:title="@string/listview_interpolator_title"
-        android:entries="@array/listview_interpolator_entries"
-        android:entryValues="@array/listview_interpolator_values"
-        android:defaultValue="0"
-        android:dependency="listview_animation" />
-            
-   <PreferenceScreen
-        android:id="@+id/animations"
-        android:title="@string/title_animation_controls"
-        android:summary="@string/title_animation_controls_summary"
-        android:fragment="com.android.settings.cyanogenmod.fragments.AnimationControls" />
-             
-   <PreferenceCategory
-        android:id="@+id/misc"
-        android:title="@string/misc_title" />
-        
-   <ListPreference
-        android:key="pref_music_mode"
-        android:dialogTitle="@string/pref_music_mode_title"
-        android:title="@string/pref_music_mode_title"
-        android:entries="@array/entries_music_widget"
-        android:entryValues="@array/values_music_widget"
-        android:defaultValue="3" />
-                        
    <PreferenceCategory
         android:key="resurrection_update"
         android:title="@string/update_header"> 
