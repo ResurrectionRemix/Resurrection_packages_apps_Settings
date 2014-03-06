@@ -49,12 +49,6 @@
     	android:title="@string/through_title"	
     	android:summary="@string/through_title_summary" />         
 
-   <!-- Misc lockscreen customizations -->    	 
-  <PreferenceScreen
-        android:id="@+id/lock_screen_settings"
-        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
-        android:title="@string/lockscreen_misc_title" />
-
    <!-- CLock -->
   <PreferenceScreen
         android:key="lock_clock"
@@ -64,6 +58,11 @@
                  android:targetPackage="com.cyanogenmod.lockclock"
 		android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
   </PreferenceScreen>
-       
+
+   <!-- Misc lockscreen customizations -->    	 
+  <PreferenceScreen
+        android:id="@+id/lock_screen_settings"
+        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
+        android:title="@string/lockscreen_misc_title" />       
 
 </PreferenceScreen> 
