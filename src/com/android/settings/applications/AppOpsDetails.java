@@ -33,10 +33,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
@@ -172,16 +173,28 @@ public class AppOpsDetails extends InstrumentedFragment {
                         entry.getSwitchText(mState));
                 ((TextView)view.findViewById(R.id.op_time)).setText(
                         entry.getTimeText(res, true));
-                Switch sw = (Switch)view.findViewById(R.id.switchWidget);
+                Spinner sw = (Spinner)view.findViewById(R.id.spinnerWidget);
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
-                sw.setChecked(mAppOps.checkOp(switchOp, entry.getPackageOps().getUid(),
-                        entry.getPackageOps().getPackageName()) == AppOpsManager.MODE_ALLOWED);
-                sw.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+                int mode = mAppOps.checkOp(switchOp, entry.getPackageOps().getUid(),
+                        entry.getPackageOps().getPackageName());
+                sw.setSelection(modeToPosition(mode));
+                sw.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+                    boolean firstMode = true;
+
                     @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
+                            int position, long id) {
+                        if (firstMode) {
+                            firstMode = false;
+                            return;
+                        }
                         mAppOps.setMode(switchOp, entry.getPackageOps().getUid(),
-                                entry.getPackageOps().getPackageName(), isChecked
-                                ? AppOpsManager.MODE_ALLOWED : AppOpsManager.MODE_IGNORED);
+                                entry.getPackageOps().getPackageName(), positionToMode(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parentView) {
+                        // Do nothing
                     }
                 });
             }
