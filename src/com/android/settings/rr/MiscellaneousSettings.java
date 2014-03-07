@@ -51,13 +51,13 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
 
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
-    private ListPreference mMusicMode;
     private ListPreference mToastAnimation;
+
      
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
-    private static final String EXP_MUSIC_MODE = "pref_music_mode";
+
  
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -72,11 +72,7 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
 
        mContext = getActivity();
        
-        // Music mode
-         mMusicMode = (ListPreference) prefSet.findPreference(EXP_MUSIC_MODE);
-         mMusicMode.setSummary(mMusicMode.getEntry());
-         mMusicMode.setOnPreferenceChangeListener(this);
-         
+
         // ListView animation
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
@@ -126,14 +122,7 @@ public class MiscellaneousSettings extends SettingsPreferenceFragment implements
                     Settings.System.LISTVIEW_INTERPOLATOR,
                     listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);        
-        return true;
-        } else if (preference == mMusicMode) {
-             int value = Integer.valueOf((String) newValue);
-             int index = mMusicMode.findIndexOfValue((String) newValue);
-             Settings.System.putInt(getContentResolver(), 
-             Settings.System.MUSIC_TILE_MODE, value);
-             mMusicMode.setSummary(mMusicMode.getEntries()[index]);
-             return true;
+            return true;
         } else if (preference == mToastAnimation) {
             int index = mToastAnimation.findIndexOfValue((String) newValue);
             Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
