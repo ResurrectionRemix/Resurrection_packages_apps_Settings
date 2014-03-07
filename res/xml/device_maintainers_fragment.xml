@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   resurrection_strings.xml
+   resurrection_settings.xml
    
    Copyright 2014 westcrip <westcrip@westcrip-altankrk>
    
@@ -21,22 +21,23 @@
    
    
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/resurrection_settings_title"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+  <PreferenceCategory
+        android:id="@+id/device_category_samsung"
+        android:title="@string/device_category_samsung_title" >
+        
+    <Preference
+        android:id="@+id/device_i9082"
+        android:summary="@string/device_i9082_summary"
+        android:title="@string/device_i9082" />
 
 
-    <string name="device_maintainers_title">Device maintainers</string>
 
-    <string name="device_category_samsung_title">samsung</string>
-    <string name="device_category_sony_title">sony</string>
-    <string name="device_category_google_title">google</string>
+  </PreferenceCategory>
 
-
-    <string name="device_i9082">Galaxy Grand Duos</string>
-    <string name="device_i9082_summary">GT-I9082 \nMaintainer - xenon92</string>
-
-
-    <string name="device_n7100">Galaxy Note II</string>
-    <string name="device_n7100_summary">N7100 \nMaintainer - westcrip</string>
-
-
-</resources>
+</PreferenceScreen> 
