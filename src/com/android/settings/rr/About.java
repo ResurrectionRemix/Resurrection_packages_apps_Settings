@@ -22,36 +22,73 @@
  */
 package com.android.settings.rr;
 
+import android.app.Activity;
+import android.app.ActivityManagerNative;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemProperties;
+import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.R;
-
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.MediaStore;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
+import android.util.Log;
+import android.view.IWindowManager;
+import android.view.Display;
+import android.view.Window;
+import android.widget.Toast;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-    
-public class About extends SettingsPreferenceFragment {
 
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.R;
+import com.android.settings.Utils;
+    
+public class About extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+			
 public static final String TAG = "About";
     
 private static final String RR_ROM_SHARE = "share";
-
+    
     Preference mSiteUrl;
     Preference mForumUrl;
     Preference mSourceUrl;
     Preference mFacebookUrl;
     Preference mGoogleUrl;
     Preference mDonateUrl;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.about_rom);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getContentResolver();
         mSiteUrl = findPreference("rr_website");
         mForumUrl = findPreference("rr_irc");
         mSourceUrl = findPreference("rr_source");
@@ -75,6 +112,11 @@ private static final String RR_ROM_SHARE = "share";
     }
 
     @Override
+    public boolean onPreferenceChange(Preference preference, Object value) {
+        return false;
+    }
+    
+    @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSiteUrl) {
             launchUrl("http://www.resurrectionremix.com/index.php");
@@ -88,18 +130,19 @@ private static final String RR_ROM_SHARE = "share";
             launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
         } else if (preference == mDonateUrl) {
             launchUrl("http://forum.xda-developers.com/donatetome.php?u=4144763");
-          } else if (preference.getKey().equals(RR_ROM_SHARE)) {
+        } else if (preference.getKey().equals(RR_ROM_SHARE)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, String.format(
                     getActivity().getString(R.string.share_message)));
             startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title)));
-        }
-
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+            }  else {
+                // If not handled, let preferences handle it.
+                return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
+         return true; 
+    }
     private void launchUrl(String url) {
         Uri uriUrl = Uri.parse(url);
         Intent donate = new Intent(Intent.ACTION_VIEW, uriUrl);

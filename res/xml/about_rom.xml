@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/about_rr_settings_title"
+    android:title="@string/about_rr_settings_title"
 	xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings">
 
 	<PreferenceCategory
@@ -40,6 +41,11 @@
 			android:title="@string/rr_donate"
 			android:summary="@string/rr_donate_summary" />
 			
+	   <PreferenceScreen
+        android:key="maintainers"
+        android:fragment="com.android.settings.rr.DeviceMaintainersFragment"
+        android:title="@string/device_maintainers_title" />
+          	
 	</PreferenceCategory>
 
 	<PreferenceCategory
