@@ -2,7 +2,13 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/device_maintainers_title">
-
+        
+  <Preference
+        style="?android:preferenceInformationStyle"
+        android:title="@string/maintainers_note_title"
+        android:summary="@string/maintainers_note_title_summary"
+        android:selectable="false" />
+        
   <PreferenceCategory
         android:id="@+id/device_category_samsung"
         android:title="@string/device_category_samsung_title" >
@@ -11,49 +17,64 @@
         android:id="@+id/device_i9082"
         android:icon="@drawable/phone"
         android:summary="@string/device_i9082_summary"
+        android:selectable="false" 
         android:title="@string/device_i9082" />
         
     <Preference
         android:id="@+id/device_n7100"
         android:icon="@drawable/phone"
         android:summary="@string/device_n7100_summary"
+        android:selectable="false" 
         android:title="@string/device_n7100" />
         
     <Preference
         android:id="@+id/device_i9300"
         android:icon="@drawable/phone"
         android:summary="@string/device_i9300_summary"
+        android:selectable="false" 
         android:title="@string/device_i9300" />
         
     <Preference
         android:id="@+id/device_i9100"
         android:icon="@drawable/phone"
         android:summary="@string/device_i9100_summary"
+        android:selectable="false" 
         android:title="@string/device_i9100" />
         
+    <Preference
+        android:id="@+id/device_att"
+        android:icon="@drawable/phone"
+        android:summary="@string/device_att_summary"
+        android:selectable="false" 
+        android:title="@string/device_att" />
+        
+    <Preference
+        android:id="@+id/device_i9105p"
+        android:icon="@drawable/phone"
+        android:summary="@string/device_i9105p_summary"
+        android:selectable="false" 
+        android:title="@string/device_i9105p" />
+                       
     <Preference
         android:id="@+id/device_i9000"
         android:icon="@drawable/phone"
         android:summary="@string/device_i9000_summary"
+        android:selectable="false" 
         android:title="@string/device_i9000" />
                
     <Preference
         android:id="@+id/device_I897"
         android:icon="@drawable/phone"
         android:summary="@string/device_I897_summary"
+        android:selectable="false" 
         android:title="@string/device_I897" />
 
     <Preference
         android:id="@+id/device_t959"
         android:icon="@drawable/phone"
         android:summary="@string/device_t959_summary"
+        android:selectable="false" 
         android:title="@string/device_t959" />
-        
-    <Preference
-        android:id="@+id/device_i9105p"
-        android:icon="@drawable/phone"
-        android:summary="@string/device_i9105p_summary"
-        android:title="@string/device_i9105p" />
     
 
   </PreferenceCategory>
