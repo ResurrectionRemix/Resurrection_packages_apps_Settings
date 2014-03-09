@@ -31,7 +31,28 @@
         android:dialogTitle="@string/notification_drawer_collapse_on_dismiss_title"
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
+    <CheckBoxPreference
+        android:key="noti_reminder_enabled"
+        android:title="@string/noti_reminder_enable_title"
+        android:summaryOn="@string/enabled"
+        android:summaryOff="@string/disabled"
+        android:defaultValue="false" />
+        
+    <ListPreference
+        android:key="noti_reminder_sound"
+        android:defaultValue="0"
+        android:title="@string/noti_reminder_sound_title"
+        android:entries="@array/noti_reminder_sound_entries"
+        android:entryValues="@array/noti_reminder_sound_values"
+        android:dependency="noti_reminder_enabled" />
 
+    <RingtonePreference
+        android:key="noti_reminder_ringtone"
+        android:title="@string/noti_reminder_ringtone"
+        android:ringtoneType="all"
+        android:showSilent="false"
+        android:dependency="noti_reminder_enabled" />
+        
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 
