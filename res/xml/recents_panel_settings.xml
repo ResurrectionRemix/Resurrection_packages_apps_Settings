@@ -24,7 +24,11 @@
             android:title="@string/show_recent_clear_all_button_title"
             android:summary="@string/show_recent_clear_all_button_summary"
             android:defaultValue="true" />
-
+    <CheckBoxPreference
+            android:key="custom_recent_mode"
+            android:title="@string/custom_recent_title"
+            android:summary="@string/custom_recent_summary"
+            android:persistent="false" />
     <ListPreference
             android:key="recent_menu_clear_all_location"
             android:title="@string/recent_clear_all_button_location_title"
