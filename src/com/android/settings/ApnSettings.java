@@ -123,6 +123,17 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
+<<<<<<< HEAD
+=======
+
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            mPreferApnUri = Uri.parse(PREFERRED_APN_URI + "/" + mSubscription);
+        } else {
+            mPreferApnUri = PREFERAPN_URI;
+        }
+        Log.d(TAG, "Preferred APN Uri is set to '" + mPreferApnUri.toString() + "'");
+
+>>>>>>> 2d6c1c6... Settings: Fix value from being overwritten with null.
         setHasOptionsMenu(true);
     }
 
