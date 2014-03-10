@@ -31,6 +31,10 @@
         android:dialogTitle="@string/notification_drawer_collapse_on_dismiss_title"
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
+
+    <PreferenceCategory
+        android:title="@string/noti_reminder_category" >
+
     <CheckBoxPreference
         android:key="noti_reminder_enabled"
         android:title="@string/noti_reminder_enable_title"
@@ -52,6 +56,8 @@
         android:ringtoneType="all"
         android:showSilent="false"
         android:dependency="noti_reminder_enabled" />
+
+    </PreferenceCategory>
         
     <PreferenceCategory
         android:title="@string/category_quick_access" >
