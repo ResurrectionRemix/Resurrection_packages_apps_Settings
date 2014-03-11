@@ -21,29 +21,38 @@
     
     <CheckBoxPreference
             android:key="custom_recent_mode"
+	     android:disableDependentsState="true"
             android:title="@string/custom_recent_title"
             android:summary="@string/custom_recent_summary"
             android:persistent="false" />
+
+   <PreferenceCategory
+        android:key="stock_recent_category"
+        android:title="@string/stock_recent_title"> 
             
     <CheckBoxPreference
             android:key="recent_menu_clear_all"
+	     android:dependency="custom_recent_mode"
             android:title="@string/show_recent_clear_all_button_title"
             android:summary="@string/show_recent_clear_all_button_summary"
             android:defaultValue="true" />
 
     <ListPreference
             android:key="recent_menu_clear_all_location"
+	     android:dependency="custom_recent_mode"
             android:title="@string/recent_clear_all_button_location_title"
             android:summary="@string/recent_clear_all_button_location_summary"
             android:entries="@array/recent_clear_all_button_location_entries"
             android:entryValues="@array/recent_clear_all_button_location_values"
-            android:defaultValue="2"
-            android:dependency="recent_menu_clear_all" />
+            android:defaultValue="2" />
 
 	<PreferenceScreen
              android:key="recents_ram_bar"
+	      android:dependency="custom_recent_mode"
              android:fragment="com.android.settings.cyanogenmod.RamBar"
              android:summary="@string/ram_bar_summary"
              android:title="@string/ram_bar" />
+
+</PreferenceCategory>  
 
 </PreferenceScreen>
