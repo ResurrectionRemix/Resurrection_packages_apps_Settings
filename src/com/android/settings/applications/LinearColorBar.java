@@ -15,20 +15,18 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-public class LinearColorBar extends LinearLayout {
-    static final int LEFT_COLOR = 0xff0099cc;
-    static final int MIDDLE_COLOR = 0xff0099cc;
-    static final int RIGHT_COLOR = 0xff888888;
-    static final int GRAY_COLOR = 0xff555555;
-    static final int WHITE_COLOR = 0xffffffff;
+import com.android.settings.R;
 
+public class LinearColorBar extends LinearLayout {
     private float mRedRatio;
     private float mYellowRatio;
     private float mGreenRatio;
 
-    private int mLeftColor = LEFT_COLOR;
-    private int mMiddleColor = MIDDLE_COLOR;
-    private int mRightColor = RIGHT_COLOR;
+    private int mLeftColor;
+    private int mMiddleColor;
+    private int mRightColor;
+    private int mGrayColor;
+    private int mWhiteColor;
 
     private boolean mShowIndicator = true;
     private boolean mShowingGreen;
@@ -61,6 +59,13 @@ public class LinearColorBar extends LinearLayout {
 
     public LinearColorBar(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mLeftColor = getResources().getColor(R.color.linear_color_bar_left_color);
+        mMiddleColor = getResources().getColor(R.color.linear_color_bar_middle_color);
+        mRightColor = getResources().getColor(R.color.linear_color_bar_right_color);
+        mGrayColor = getResources().getColor(R.color.linear_color_bar_gray_color);
+        mWhiteColor = getResources().getColor(R.color.linear_color_bar_white_color);
+
         setWillNotDraw(false);
         mPaint.setStyle(Paint.Style.FILL);
         mColorGradientPaint.setStyle(Paint.Style.FILL);
@@ -70,7 +75,6 @@ public class LinearColorBar extends LinearLayout {
                 ? 2 : 1;
         mEdgeGradientPaint.setStrokeWidth(mLineWidth);
         mEdgeGradientPaint.setAntiAlias(true);
-        
     }
 
     public void setOnRegionTappedListener(OnRegionTappedListener listener) {
@@ -175,10 +179,10 @@ public class LinearColorBar extends LinearLayout {
 
     private int pickColor(int color, int region) {
         if (isPressed() && (mLastRegion&region) != 0) {
-            return WHITE_COLOR;
+            return mWhiteColor;
         }
         if ((mColoredRegions&region) == 0) {
-            return GRAY_COLOR;
+            return mGrayColor;
         }
         return color;
     }
