@@ -410,6 +410,8 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="pref_purgeable_assets_summary">Erlaubt dem System, Speicherbereiche von nicht mehr benutzten Bildern freizugeben, um mehr RAM bereitzustellen (Neustart erforderlich)</string>
     <string name="pref_use_16bpp_alpha_title">16-Bit-Transparenz</string>
     <string name="pref_use_16bpp_alpha_summary">Kann die Performance beim Scrollen verbessern, aber Grafikfehler verursachen (Neustart erforderlich)</string>
+    <string name="pref_force_highend_gfx_title">Verbesserte Grafikeffekte</string>
+    <string name="pref_force_highend_gfx_summary">Verbesserte Transparenz- und Animationseffekte wie z.B. Status- und Navigationsleistentransparenz verwenden (Neustart erforderlich)</string>
     <string name="kill_app_longpress_back">App beenden</string>
     <string name="kill_app_longpress_back_summary">Gedrückt halten der Zurück-Taste beendet die Anwendung im Vordergrund</string>
     <string name="changelog_title">Changelog anzeigen</string>
@@ -434,6 +436,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="privacy_guard_filter_does_not_match">Es sind keine Apps mit passenden Berechtigungen installiert</string>
     <string name="privacy_guard_help_title">Hilfe</string>
     <string name="privacy_guard_reset_title">Zurücksetzen</string>
+    <string name="privacy_guard_reset_text">Berechtigungen zurücksetzen?</string>
     <string name="privacy_guard_help_text">An dieser Stelle kann der Datenschutz für einzelne Apps durch einfache Berührung ein- und ausgeschaltet werden. Ausgewählte Apps haben keinen Zugriff auf persönliche Daten wie Kontakte, Nachrichten oder das Anrufprotokoll. Langes Drücken auf einen Eintrag öffnet die Detailanzeige für diese App.\n\nStandardmäßig werden in das System integrierte Apps nicht angezeigt. Wenn diese angezeigt werden sollen, kann dies mit der entsprechenden Menü-Option ausgewählt werden.</string>
     <string name="privacy_guard_manager_show_system_apps">Integrierte Apps anzeigen</string>
     <string name="privacy_guard_manager_filter_permissions">Berechtigungsfilter</string>
@@ -574,6 +577,8 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="lockscreen_buttons_sleep">Ruhezustand</string>
     <string name="navigation_bar_category">Navigationsleiste</string>
     <string name="navigation_bar_title">Schaltflächen</string>
+    <string name="navigation_bar_left_title">Linkshänder-Modus</string>
+    <string name="navigation_bar_left_summary">Navigationsleiste im Querformat auf der linken Seite anzeigen</string>
     <string name="navigation_bar_help_text">1 - Schloss-Symbol berühren, um zu beginnen\n\n2 - Eine Schaltfläche berühren, um ihr eine Funktion zuzuweisen oder diese zu ändern\n\n3 - Eine Schaltfläche gedrückt halten, um sie zu verschieben\n\n4 - Schloss-Symbol erneut berühren, um die Änderungen zu speichern\n\n5 - Zurücksetzen-Symbol berühren, um die Vorgaben wiederherzustellen\n\n</string>
     <string name="navigation_bar_tips">\u2022 Eine Funktion kann nur einer Schaltfläche gleichzeitig zugewiesen werden\n\n\u2022 Die Funktion der Home-Schaltfläche kann nicht verändert werden\n\n\u2022 Die seitlichen Schaltflächen können nicht verschoben werden</string>
     <string name="navigation_bar_tips_title">Schnellhilfe</string>
@@ -720,6 +725,26 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
     <string name="stylus_app_not_installed">%s ist nicht installiert</string>
     <string name="ime_switcher_notify">Auswahlbenachrichtigung</string>
     <string name="ime_switcher_notify_summary">Benachrichtigung zur Auswahl der Eingabemethode in der Statusleiste anzeigen</string>
+  <string name="app_ops_summaries_wifi_change">WLAN ändern</string>
+  <string name="app_ops_labels_wifi_change">WLAN ändern</string>
+  <string name="app_ops_summaries_bluetooth_change">Bluetooth ändern</string>
+  <string name="app_ops_labels_bluetooth_change">Bluetooth ändern</string>
+  <string name="app_ops_summaries_data_change">mobile Daten ändern</string>
+  <string name="app_ops_labels_data_change">Mobile Daten ändern</string>
+  <string name="app_ops_summaries_alarm_wakeup">Ruhezustand ändern</string>
+  <string name="app_ops_labels_alarm_wakeup">Ruhezustand ändern</string>
+  <string name="app_ops_summaries_auto_start">automatisch starten</string>
+  <string name="app_ops_labels_auto_start">Autostart</string>
+  <string name="app_ops_categories_bootup">Systemstart</string>
+  <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> verwendet)</string>
+  <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> erlaubt</string>
+  <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> verweigert</string>
+  <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> erlaubt, <xliff:g id="count">%2$s</xliff:g> verweigert</string>
+  <string name="app_ops_show_user_apps">Installierte Apps anzeigen</string>
+  <string name="app_ops_show_system_apps">Integrierte Apps anzeigen</string>
+  <string name="app_ops_reset_counters">Erlaubt/Verweigert-Zähler zurücksetzen</string>
+  <string name="app_ops_reset_confirm_title">Zurücksetzen bestätigen</string>
+  <string name="app_ops_reset_confirm_mesg">Sollen die Zähler zurückgesetzt werden?</string>
 
     <!-- Untranslated AOSP strings -->
     <string name="intent_sender_data_label"><xliff:g id="data">Daten:</xliff:g></string>
@@ -734,4 +759,83 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
     <string name="bluetooth_dun_profile_summary_connected">Verbunden mit Einwahldienst</string>
     <string name="bluetooth_sap_profile_summary_use_for">Für SIM-Zugriff verwenden</string>
     <string name="bluetooth_dun_profile_summary_use_for">Für Einwahlverbindungen verwenden</string>
+
+    <string name="app_ops_summaries_access_notifications">Auf Benachrichtigungen zugreifen</string>
+    <string name="app_ops_summaries_alarm_volume">Weckerlautstärke</string>
+    <string name="app_ops_summaries_audio_focus">Audiofokus</string>
+    <string name="app_ops_summaries_bluetooth_volume">Bluetooth-Lautstärke</string>
+    <string name="app_ops_summaries_call_phone">Telefonieren</string>
+    <string name="app_ops_summaries_camera">Kamera</string>
+    <string name="app_ops_summaries_cell_scan">Mobilfunknetz-Scan</string>
+    <string name="app_ops_summaries_coarse_location">Ungefährer Standort</string>
+    <string name="app_ops_summaries_draw_on_top">An oberste Position ziehen</string>
+    <string name="app_ops_summaries_fine_location">Genauer Standort</string>
+    <string name="app_ops_summaries_gps">GPS</string>
+    <string name="app_ops_summaries_keep_awake">aktiv lassen</string>
+    <string name="app_ops_summaries_master_volume">Gesamtlautstärke</string>
+    <string name="app_ops_summaries_media_buttons">Medienschaltflächen</string>
+    <string name="app_ops_summaries_media_volume">Medienlautstärke"</string>
+    <string name="app_ops_summaries_modify_calendar">Kalender ändern</string>
+    <string name="app_ops_summaries_modify_call_log">Anrufliste ändern</string>
+    <string name="app_ops_summaries_modify_clipboard">Zwischenablage ändern</string>
+    <string name="app_ops_summaries_modify_contacts">Kontakte ändern</string>
+    <string name="app_ops_summaries_modify_settings">Einstellungen ändern</string>
+    <string name="app_ops_summaries_monitor_high_power_location">Orte mit hohem Stromverbrauch überwachen</string>
+    <string name="app_ops_summaries_monitor_location">Standort beobachten</string>
+    <string name="app_ops_summaries_notification">Benachrichtigung</string>
+    <string name="app_ops_summaries_notification_volume">Benachrichtigungslautstärke</string>
+    <string name="app_ops_summaries_play_audio">Audio wiedergeben</string>
+    <string name="app_ops_summaries_read_calendar">Kalender lesen</string>
+    <string name="app_ops_summaries_read_call_log">Anrufliste lesen</string>
+    <string name="app_ops_summaries_read_clipboard">Zwischenablage lesen</string>
+    <string name="app_ops_summaries_read_contacts">Kontakte lesen</string>
+    <string name="app_ops_summaries_read_icc_sms">ICC-SMS lesen</string>
+    <string name="app_ops_summaries_read_sms">SMS lesen</string>
+    <string name="app_ops_summaries_receive_emergency_sms">Notfall-SMS empfangen</string>
+    <string name="app_ops_summaries_receive_mms">MMS empfangen</string>
+    <string name="app_ops_summaries_receive_sms">SMS empfangen</string>
+    <string name="app_ops_summaries_receive_wap_push">WAP-Push-Nachricht empfangen</string>
+    <string name="app_ops_summaries_record_audio">Audio aufnehmen</string>
+    <string name="app_ops_summaries_ring_volume">Klingeltonlautstärke</string>
+    <string name="app_ops_summaries_send_sms">SMS senden</string>
+    <string name="app_ops_summaries_vibrate">Vibration</string>
+    <string name="app_ops_summaries_voice_volume">Sprachlautstärke</string>
+    <string name="app_ops_summaries_wifi_scan">WLAN-Scan</string>
+    <string name="app_ops_summaries_write_icc_sms">ICC-SMS schreiben</string>
+    <string name="app_ops_summaries_write_sms">SMS schreiben</string>
+
+    <string name="app_ops_labels_access_notifications">Auf Benachrichtigungen zugreifen</string>
+    <string name="app_ops_labels_alarm_volume">Audiofokus</string>
+    <string name="app_ops_labels_bluetooth_volume">Sprachlautstärke</string>
+    <string name="app_ops_labels_call_phone">Telefonieren</string>
+    <string name="app_ops_labels_camera">Kamera</string>
+    <string name="app_ops_labels_draw_on_top">An oberste Position ziehen</string>
+    <string name="app_ops_labels_keep_awake">Klingeltonlautstärke</string>
+    <string name="app_ops_labels_location">Weckerlautstärke</string>
+    <string name="app_ops_labels_media_buttons">Medienschaltflächen</string>
+    <string name="app_ops_labels_modify_calendar">Kalender ändern</string>
+    <string name="app_ops_labels_modify_call_log">Anrufliste ändern</string>
+    <string name="app_ops_labels_modify_clipboard">Zwischenablage ändern</string>
+    <string name="app_ops_labels_modify_contacts">Kontakte ändern</string>
+    <string name="app_ops_labels_modify_settings">Einstellungen ändern</string>
+    <string name="app_ops_labels_notification_toast">Benachrichtigung posten</string>
+    <string name="app_ops_labels_notification_volume">Gesamtlautstärke</string>
+    <string name="app_ops_labels_play_audio">Audio wiedergeben</string>
+    <string name="app_ops_labels_read_calendar">Kalender lesen</string>
+    <string name="app_ops_labels_read_call_log">Anrufliste lesen</string>
+    <string name="app_ops_labels_read_clipboard">Zwischenablage lesen</string>
+    <string name="app_ops_labels_read_contacts">Kontakte lesen</string>
+    <string name="app_ops_labels_read_sms_db">SMS/MMS lesen</string>
+    <string name="app_ops_labels_receive_mms">SMS/MMS empfangen</string>
+    <string name="app_ops_labels_receive_sms">SMS/MMS lesen</string>
+    <string name="app_ops_labels_record_audio">Audio aufnehmen</string>
+    <string name="app_ops_labels_send_sms">SMS/MMS schreiben</string>
+    <string name="app_ops_labels_vibrate">Vibration</string>
+    <string name="app_ops_labels_write_sms_db">SMS/MMS schreiben</string>
+
+    <string name="app_ops_categories_device">Gerät</string>
+    <string name="app_ops_categories_location">Standort</string>
+    <string name="app_ops_categories_media">Medien</string>
+    <string name="app_ops_categories_messaging">SMS/MMS</string>
+    <string name="app_ops_categories_personal">Persönlich</string>
 </resources>

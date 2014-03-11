@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2012-2013 The CyanogenMod Project
+     Copyright (C) 2012-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="duplicate_profile_name">Naam bestaat al</string>
     <string name="duplicate_appgroup_name">Naam bestaat al</string>
     <string name="profile_reset_title">Opnieuw instellen</string>
+    <string name="privacy_guard_reset_text">Machtigingen opnieuw instellen?</string>
     <string name="profile_reset_message">Alle gemaakte profielen en app-groepen verwijderen en standaardwaarden herstellen?</string>
     <string name="profile_delete_confirm">Dit profiel verwijderen?</string>
     <string name="profile_app_delete_confirm">Deze app verwijderen?</string>
@@ -393,6 +394,8 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="pref_purgeable_assets_summary">Wissen van assets in bitmapgeheugen voor meer vrij geheugen indien nodig (herstart vereist)</string>
     <string name="pref_use_16bpp_alpha_title">16 bits-transparantie</string>
     <string name="pref_use_16bpp_alpha_summary">Betere grafische prestaties ten koste van de kwaliteit en kan zorgen voor visuele fouten (herstart vereist)</string>
+    <string name="pref_force_highend_gfx_title">Hoge kwaliteit graphics forceren</string>
+    <string name="pref_force_highend_gfx_summary">Visuele effecten van hoge kwaliteit, zoals transparente status- en navigatiebalk, inschakelen (herstart vereist)</string>
     <string name="kill_app_longpress_back">Stoppen forceren</string>
     <string name="kill_app_longpress_back_summary">Openstaande app geforceerd stoppen door terugknop lang in te drukken</string>
     <string name="changelog_title">Changelog</string>
@@ -557,6 +560,8 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="lockscreen_buttons_sleep">Slaapstand</string>
     <string name="navigation_bar_category">Navigatiebalk</string>
     <string name="navigation_bar_title">Knoppen en indeling</string>
+    <string name="navigation_bar_left_title">Linkshandige modus</string>
+    <string name="navigation_bar_left_summary">Navigatiebalk aan de linkerkant van het scherm weergeven in liggende stand</string>
     <string name="navigation_bar_help_text">1 - Kies het vergrendelingspictogram om te beginnen\n\n2 - Kies een knop om een functie aan toe te wijzen of te wijzigen\n\n3 - Raak een knop lang aan om de positie te wijzigen\n\n4 - Tik nogmaals op het vergrendelingspictogram om op te slaan\n\n5 - Tik op \'Herstellen\' om de standaardinstellingen te herstellen\n\n</string>
     <string name="navigation_bar_tips">&#8226; Acties kunnen slechts aan één knop worden toegewezen\n\n&#8226; De thuisknop kan niet opnieuw worden toegewezen\n\n&#8226; Randknoppen kunnen niet worden herschikt</string>
     <string name="navigation_bar_tips_title">Snelle tips</string>
@@ -708,6 +713,8 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="app_ops_reset_counters">Tellers opnieuw instellen</string>
     <string name="app_ops_reset_confirm_title">Tellers opnieuw instellen?</string>
     <string name="app_ops_reset_confirm_mesg">>Weet u zeker dat u de App-bewerkingentellers (toegestaan/geweigerd) opnieuw wilt instellen?</string>
+    <string name="edge_gesture_service_title">Aanraakgebaren blokkeren</string>
+    <string name="edge_gesture_service_summary">Aanraakgebaren voor navigatie- en statusbalk niet naar apps sturen</string>
 
     <!-- CAF strings-->
     <string name="intent_sender_data_label"><xliff:g id="data">Gegevens:</xliff:g></string>
@@ -728,4 +735,83 @@ Elke regel in de lijst van helderheidsstanden komt overeen met één <i>controle
     <string name="app_ops_summaries_auto_start">auto-start</string>
     <string name="app_ops_labels_auto_start">Auto-start</string>
     <string name="app_ops_categories_bootup">Opstarten</string>
+
+    <string name="app_ops_summaries_access_notifications">toegang tot meldingen</string>
+    <string name="app_ops_summaries_alarm_volume">alarmvolume</string>
+    <string name="app_ops_summaries_audio_focus">audiofocus</string>
+    <string name="app_ops_summaries_bluetooth_volume">bluetooth-volume</string>
+    <string name="app_ops_summaries_call_phone">nummer bellen</string>
+    <string name="app_ops_summaries_camera">camera</string>
+    <string name="app_ops_summaries_cell_scan">mobiele scan</string>
+    <string name="app_ops_summaries_coarse_location">geschatte locatie</string>
+    <string name="app_ops_summaries_draw_on_top">bovenop tekenen</string>
+    <string name="app_ops_summaries_fine_location">nauwkeurige locatie</string>
+    <string name="app_ops_summaries_gps">GPS</string>
+    <string name="app_ops_summaries_keep_awake">ingeschakeld houden</string>
+    <string name="app_ops_summaries_master_volume">hoofdvolume</string>
+    <string name="app_ops_summaries_media_buttons">mediaknoppen</string>
+    <string name="app_ops_summaries_media_volume">mediavolume</string>
+    <string name="app_ops_summaries_modify_calendar">agenda aanpassen</string>
+    <string name="app_ops_summaries_modify_call_log">gesprekkenlijst aanpassen</string>
+    <string name="app_ops_summaries_modify_clipboard">klembord aanpassen</string>
+    <string name="app_ops_summaries_modify_contacts">contacten aanpassen</string>
+    <string name="app_ops_summaries_modify_settings">instellingen aanpassen</string>
+    <string name="app_ops_summaries_monitor_high_power_location">locatie met hoog energieverbruik controleren</string>
+    <string name="app_ops_summaries_monitor_location">monitorlocatie</string>
+    <string name="app_ops_summaries_notification">melding</string>
+    <string name="app_ops_summaries_notification_volume">meldingsvolume</string>
+    <string name="app_ops_summaries_play_audio">audio afspelen</string>
+    <string name="app_ops_summaries_read_calendar">agenda lezen</string>
+    <string name="app_ops_summaries_read_call_log">gesprekkenlijst lezen</string>
+    <string name="app_ops_summaries_read_clipboard">klembord lezen</string>
+    <string name="app_ops_summaries_read_contacts">contacten lezen</string>
+    <string name="app_ops_summaries_read_icc_sms">ICC sms lezen</string>
+    <string name="app_ops_summaries_read_sms">sms lezen</string>
+    <string name="app_ops_summaries_receive_emergency_sms">nood-sms ontvangen</string>
+    <string name="app_ops_summaries_receive_mms">mms ontvangen</string>
+    <string name="app_ops_summaries_receive_sms">sms ontvangen</string>
+    <string name="app_ops_summaries_receive_wap_push">WAP-push ontvangen</string>
+    <string name="app_ops_summaries_record_audio">audio opnemen</string>
+    <string name="app_ops_summaries_ring_volume">beltoonvolume</string>
+    <string name="app_ops_summaries_send_sms">sms verzenden</string>
+    <string name="app_ops_summaries_vibrate">trillen</string>
+    <string name="app_ops_summaries_voice_volume">stemvolume</string>
+    <string name="app_ops_summaries_wifi_scan">wifi-scan</string>
+    <string name="app_ops_summaries_write_icc_sms">ICC sms schrijven</string>
+    <string name="app_ops_summaries_write_sms">sms schrijven</string>
+
+    <string name="app_ops_labels_access_notifications">Toegang tot meldingen</string>
+    <string name="app_ops_labels_alarm_volume">Audiofocus</string>
+    <string name="app_ops_labels_bluetooth_volume">Stemvolume</string>
+    <string name="app_ops_labels_call_phone">Nummer bellen</string>
+    <string name="app_ops_labels_camera">Camera</string>
+    <string name="app_ops_labels_draw_on_top">Bovenop tekenen</string>
+    <string name="app_ops_labels_keep_awake">Beltoonvolume</string>
+    <string name="app_ops_labels_location">Alarmvolume</string>
+    <string name="app_ops_labels_media_buttons">Mediaknoppen</string>
+    <string name="app_ops_labels_modify_calendar">Agenda aanpassen</string>
+    <string name="app_ops_labels_modify_call_log">Gesprekkenlijst aanpassen</string>
+    <string name="app_ops_labels_modify_clipboard">Klembord aanpassen</string>
+    <string name="app_ops_labels_modify_contacts">Contacten aanpassen</string>
+    <string name="app_ops_labels_modify_settings">Instellingen aanpassen</string>
+    <string name="app_ops_labels_notification_toast">Melding/toast</string>
+    <string name="app_ops_labels_notification_volume">Hoofdvolume</string>
+    <string name="app_ops_labels_play_audio">Audio afspelen</string>
+    <string name="app_ops_labels_read_calendar">Agenda lezen</string>
+    <string name="app_ops_labels_read_call_log">Gesprekkenlijst lezen</string>
+    <string name="app_ops_labels_read_clipboard">Klembord lezen</string>
+    <string name="app_ops_labels_read_contacts">Contacten lezen</string>
+    <string name="app_ops_labels_read_sms_db">Sms-DB lezen</string>
+    <string name="app_ops_labels_receive_mms">Sms/mms ontvangen</string>
+    <string name="app_ops_labels_receive_sms">Sms/mms ontvangen</string>
+    <string name="app_ops_labels_record_audio">Audio opnemen</string>
+    <string name="app_ops_labels_send_sms">Sms/mms verzenden</string>
+    <string name="app_ops_labels_vibrate">Trillen</string>
+    <string name="app_ops_labels_write_sms_db">Sms-DB schrijven</string>
+
+    <string name="app_ops_categories_device">Apparaat</string>
+    <string name="app_ops_categories_location">Locatie</string>
+    <string name="app_ops_categories_media">Media</string>
+    <string name="app_ops_categories_messaging">Berichten</string>
+    <string name="app_ops_categories_personal">Persoonlijk</string>
 </resources>
