@@ -38,6 +38,7 @@ import android.net.NetworkScoreManager;
 import android.net.NetworkScorerAppManager;
 import android.net.NetworkScorerAppManager.NetworkScorerAppData;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiChannel;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -127,7 +128,7 @@ public class WifiSettings extends RestrictedSettingsFragment
     private WifiManager.ActionListener mConnectListener;
     private WifiManager.ActionListener mSaveListener;
     private WifiManager.ActionListener mForgetListener;
-
+    
     private WifiEnabler mWifiEnabler;
     // An access point being editted is stored here.
     private AccessPoint mSelectedAccessPoint;
@@ -568,7 +569,8 @@ public class WifiSettings extends RestrictedSettingsFragment
             mSelectedAccessPoint = (AccessPoint) preference;
             /** Bypass dialog for unsecured, unsaved networks */
             if (mSelectedAccessPoint.security == AccessPoint.SECURITY_NONE &&
-                    mSelectedAccessPoint.networkId == INVALID_NETWORK_ID) {
+                    mSelectedAccessPoint.networkId == INVALID_NETWORK_ID &&
+                    !mSelectedAccessPoint.isIBSS) {
                 mSelectedAccessPoint.generateOpenNetworkConfig();
                 if (!savedNetworksExist) {
                     savedNetworksExist = true;
@@ -819,6 +821,8 @@ public class WifiSettings extends RestrictedSettingsFragment
          * correct SSID.  Maps SSID -> List of AccessPoints with the given SSID.  */
         Multimap<String, AccessPoint> apMap = new Multimap<String, AccessPoint>();
 
+        boolean ibssSupported = wifiManager.isIbssSupported();
+
         final List<WifiConfiguration> configs = wifiManager.getConfiguredNetworks();
         if (configs != null) {
             // Update "Saved Networks" menu option.
@@ -844,9 +848,13 @@ public class WifiSettings extends RestrictedSettingsFragment
         final List<ScanResult> results = wifiManager.getScanResults();
         if (results != null) {
             for (ScanResult result : results) {
-                // Ignore hidden and ad-hoc networks.
-                if (result.SSID == null || result.SSID.length() == 0 ||
-                        result.capabilities.contains("[IBSS]")) {
+                // Ignore hidden networks.
+                if (result.SSID == null || result.SSID.length() == 0) {
+                    continue;
+                }
+
+                // Ignore IBSS if chipset does not support them
+                if (!ibssSupported && result.capabilities.contains("[IBSS]")) {
                     continue;
                 }
 
