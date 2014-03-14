@@ -32,6 +32,13 @@
         android:summary="@string/ad_content_summary"
         android:dependency="ad_enable"/>
 
+    <CheckBoxPreference
+        android:key="ad_bypass"
+        android:persistent="false"
+        android:title="@string/ad_bypass_title"
+        android:summary="@string/ad_bypass_summary"
+        android:dependency="ad_enable"/>
+
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="active_display_text"
         android:title="@string/ad_text_title"
@@ -57,13 +64,6 @@
         android:summary="@string/ad_pocket_mode_summary"
         android:entries="@array/ad_pocket_mode_entries"
         android:entryValues="@array/ad_pocket_mode_values"
-        android:dependency="ad_enable"/>
-
-    <CheckBoxPreference
-        android:key="ad_bypass"
-        android:persistent="false"
-        android:title="@string/ad_bypass_title"
-        android:summary="@string/ad_bypass_summary"
         android:dependency="ad_enable"/>
 
     <CheckBoxPreference
@@ -93,6 +93,64 @@
         settings:unitsLeft=""
         settings:unitsRight="s"
         android:dependency="ad_enable" />
+
+    <PreferenceCategory
+        android:key="ad_shake_event"
+        android:title="@string/ad_shake_event_settings_title" />
+
+        <org.omnirom.omnigears.preference.SystemCheckBoxPreference
+            android:key="active_display_shake_event"
+            android:title="@string/ad_shake_event_title"
+            android:summary="@string/ad_shake_event_summary"
+            android:dependency="ad_enable"/>
+
+        <org.omnirom.omnigears.preference.SystemCheckBoxPreference
+            android:key="active_display_shake_force"
+            android:title="@string/ad_shake_force_title"
+            android:summary="@string/ad_shake_force_summary"
+            android:dependency="active_display_shake_event"/>
+
+        <org.omnirom.omnigears.chameleonos.SeekBarPreference
+            android:key="ad_shake_threshold"
+            android:persistent="false"
+            android:title="@string/ad_shake_threshold_title"
+            android:summary="@string/ad_shake_threshold_summary"
+            android:max="20"
+            settings:min="5"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:dependency="active_display_shake_event" />
+
+        <org.omnirom.omnigears.chameleonos.SeekBarPreference
+            android:key="ad_shake_long_threshold"
+            android:persistent="false"
+            android:title="@string/ad_shake_long_threshold_title"
+            android:summary="@string/ad_shake_long_threshold_summary"
+            android:max="5"
+            settings:min="1"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="s"
+            android:dependency="active_display_shake_event" />
+
+        <org.omnirom.omnigears.chameleonos.SeekBarPreference
+            android:key="ad_shake_timeout"
+            android:persistent="false"
+            android:title="@string/ad_shake_timeout_title"
+            android:summary="@string/ad_shake_timeout_summary"
+            android:max="120"
+            settings:min="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="s"
+            android:dependency="active_display_shake_event" />
+
+        <org.omnirom.omnigears.preference.SystemCheckBoxPreference
+            android:key="active_display_shake_quiet_hours"
+            android:title="@string/ad_shake_quiet_hours_title"
+            android:summary="@string/ad_shake_quiet_hours_summary"
+            android:dependency="active_display_shake_event"/>
 
     <PreferenceCategory
         android:key="ad_customizations"
