@@ -57,7 +57,13 @@
         android:id="@+id/lock_screen_settings"
         android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
         android:title="@string/lockscreen_misc_title" />
-
+        
+  <PreferenceScreen
+        android:id="@+id/lock_screen_style"
+        android:fragment="com.android.settings.rr.LockscreenStyle"
+        android:summary="@string/lockscreen_background_style_summary"
+        android:title="@string/lockscreen_background_style_title" />
+        
    <!-- Lockscreen blur -->    	 
    <PreferenceCategory
         android:key="lockscreen_blur_category"
