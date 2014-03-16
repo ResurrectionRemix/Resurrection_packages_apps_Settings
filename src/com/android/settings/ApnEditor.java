@@ -196,10 +196,14 @@ public class ApnEditor extends SettingsPreferenceFragment
         final Intent intent = getActivity().getIntent();
         String action = intent.getAction();
         Bundle fragArgs = getArguments();
+        String operatorNumeric = intent.getStringExtra(ApnSettings.OPERATOR_NUMERIC_EXTRA);
 
         if (fragArgs != null && fragArgs.containsKey(EDIT_ACTION)) {
             mUri = Uri.parse(fragArgs.getString(EDIT_DATA));
             action = fragArgs.getString(EDIT_ACTION);
+            if (fragArgs.containsKey(ApnSettings.OPERATOR_NUMERIC_EXTRA)) {
+                operatorNumeric = fragArgs.getString(ApnSettings.OPERATOR_NUMERIC_EXTRA);
+            }
         } else {
             mUri = intent.getData();
         }
@@ -239,7 +243,8 @@ public class ApnEditor extends SettingsPreferenceFragment
 
         mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
-        fillUi();
+
+        fillUi(operatorNumeric);
         setHasOptionsMenu(true);
     }
 
