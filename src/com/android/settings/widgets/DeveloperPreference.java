@@ -106,15 +106,21 @@ public class DeveloperPreference extends Preference {
             donateButton.setVisibility(View.GONE);
         }
 
-        if (twitterName != null) {
+
             final OnPreferenceClickListener openTwitter = new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Uri twitterURL = Uri.parse("http://twitter.com/#!/" + twitterName);
-                    final Intent intent = new Intent(Intent.ACTION_VIEW, twitterURL);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    getContext().startActivity(intent);
-                    return true;
+
+			if (twitterName != null) {
+
+	                    Uri twitterURL = Uri.parse("http://twitter.com/#!/" + twitterName);
+        	            final Intent intent = new Intent(Intent.ACTION_VIEW, twitterURL);
+        	            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        	            getContext().startActivity(intent);
+
+			}
+        
+	            return true;
                 }
             };
 
@@ -126,10 +132,10 @@ public class DeveloperPreference extends Preference {
                     getGravatarUrl(devEmail),
                     R.drawable.ic_null,
                     UrlImageViewHelper.CACHE_DURATION_ONE_WEEK);
-        } else {
-            twitterButton.setVisibility(View.INVISIBLE);
-            photoView.setVisibility(View.GONE);
-        }
+
+        if (twitterName == null)
+		twitterButton.setVisibility(View.INVISIBLE);
+
 
         devName.setText(nameDev);
 
