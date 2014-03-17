@@ -17,7 +17,28 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_settings_title" >
+    
+    <PreferenceCategory
+        android:key="lockscreen_background_category"
+        android:title="@string/lockscreen_background">
 
+        <ListPreference
+            android:key="lockscreen_background_style"
+            android:persistent="false"
+            android:dialogTitle="@string/lockscreen_background_style_title"
+            android:title="@string/lockscreen_background_style_title"
+            android:entries="@array/lockscreen_background_entries"
+            android:entryValues="@array/lockscreen_background_values" />
+            
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="lockscreen_background_color_fill"
+        android:selectable="false"
+        android:title="@string/background_color_fill_title"
+        android:defaultValue="0xff000000"
+        alphaSlider="true" />
+
+    </PreferenceCategory>
+    
     <PreferenceCategory
         android:title="@string/title_general"
         android:key="lockscreen_general_category" >
@@ -75,25 +96,5 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="lockscreen_background_category"
-        android:title="@string/lockscreen_background">
-
-        <ListPreference
-            android:key="lockscreen_background_style"
-            android:persistent="false"
-            android:dialogTitle="@string/lockscreen_background_style_title"
-            android:title="@string/lockscreen_background_style_title"
-            android:entries="@array/lockscreen_background_entries"
-            android:entryValues="@array/lockscreen_background_values" />
-            
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="lockscreen_background_color_fill"
-        android:selectable="false"
-        android:title="@string/background_color_fill_title"
-        android:defaultValue="0xff000000"
-        alphaSlider="true" />
-
-    </PreferenceCategory>
 
 </PreferenceScreen>
