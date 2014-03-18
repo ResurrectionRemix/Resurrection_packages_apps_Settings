@@ -25,6 +25,8 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
+import android.view.Gravity;
+
 import com.android.settings.util.Helpers;
 import com.android.settings.R;
 import java.util.List;
@@ -36,9 +38,17 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
     private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
 
+    private static final String RECENT_PANEL_LEFTY_MODE =
+            "recent_panel_lefty_mode";
+    private static final String RECENT_PANEL_SCALE =
+            "recent_panel_scale";
+
     private CheckBoxPreference mRecentClearAll;
     private ListPreference mRecentClearAllPosition;
     private CheckBoxPreference mRecentsCustom;
+    private CheckBoxPreference mRecentPanelLeftyMode;
+    private ListPreference mRecentPanelScale;
+
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +74,23 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
              mRecentClearAllPosition.setValue(recentClearAllPosition);
         }
         mRecentClearAllPosition.setOnPreferenceChangeListener(this);
+
+        mRecentPanelLeftyMode =
+                (CheckBoxPreference) findPreference(RECENT_PANEL_LEFTY_MODE);
+        mRecentPanelLeftyMode.setOnPreferenceChangeListener(this);
+
+        mRecentPanelScale =
+                (ListPreference) findPreference(RECENT_PANEL_SCALE);
+        mRecentPanelScale.setOnPreferenceChangeListener(this);
+
+        final boolean recentLeftyMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_GRAVITY, Gravity.RIGHT) == Gravity.LEFT;
+        mRecentPanelLeftyMode.setChecked(recentLeftyMode);
+
+        final int recentScale = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_SCALE_FACTOR, 100);
+        mRecentPanelScale.setValue(recentScale + "");
+
     }
 
     @Override
@@ -85,6 +112,16 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
         } else if (preference == mRecentClearAllPosition) {
             String value = (String) objValue;
             Settings.System.putString(resolver, Settings.System.CLEAR_RECENTS_BUTTON_LOCATION, value);
+        } else if (preference == mRecentPanelScale) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
+            return true;
+        } else if (preference == mRecentPanelLeftyMode) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_GRAVITY,
+                    ((Boolean) objValue) ? Gravity.LEFT : Gravity.RIGHT);
+            return true;
         } else {
             return false;
         }
