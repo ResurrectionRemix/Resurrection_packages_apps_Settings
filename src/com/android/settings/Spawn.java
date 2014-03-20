@@ -84,11 +84,13 @@ public class Spawn extends SettingsPreferenceFragment implements
     private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
     private static final String STATUS_BAR_CUSTOM_HEADER = "custom_status_bar_header";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
+    private static final String PREF_DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
     
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mHeadsetHookLaunchVoice;
     private CheckBoxPreference mStatusBarCustomHeader;
     private CheckBoxPreference mShowWifiName;
+    CheckBoxPreference mDisableFC;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,6 +101,10 @@ public class Spawn extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity();
         
+        mDisableFC = (CheckBoxPreference) findPreference(PREF_DISABLE_FC_NOTIFICATIONS);
+        mDisableFC.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+                Settings.System.DISABLE_FC_NOTIFICATIONS, true));
+                        
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
@@ -130,7 +136,11 @@ public class Spawn extends SettingsPreferenceFragment implements
         } else if (preference == mHeadsetHookLaunchVoice) {
             boolean checked = ((CheckBoxPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);             
+                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);
+        } else if (preference == mDisableFC) {
+            Settings.System.putBoolean(mContext.getContentResolver(),
+                    Settings.System.DISABLE_FC_NOTIFICATIONS,
+                    ((CheckBoxPreference) preference).isChecked());           
             }  else {
               // If not handled, let preferences handle it.
               return super.onPreferenceTreeClick(preferenceScreen, preference);
