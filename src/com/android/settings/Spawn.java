@@ -76,7 +76,7 @@ import com.android.settings.util.Helpers;
 public class Spawn extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "Spawn";
-								
+
     private Context mContext;
 
     private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
@@ -158,4 +158,3 @@ public class Spawn extends SettingsPreferenceFragment implements
         return true;
     }
 }
-
