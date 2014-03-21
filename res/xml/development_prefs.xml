@@ -16,7 +16,13 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/development_settings_title">
-
+        
+        <CheckBoxPreference
+            android:key="kill_app_longpress_back"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"
+            android:persistent="true"/>
+            
     <PreferenceScreen
             android:key="development_tools"
             android:title="@string/development_tools_title"
@@ -325,11 +331,11 @@
             android:title="@string/show_all_anrs"
             android:summary="@string/show_all_anrs_summary"/>
             
+        <!-- Allow disabling of FC dialogs -->
         <CheckBoxPreference
-            android:key="kill_app_longpress_back"
-            android:title="@string/kill_app_longpress_back"
-            android:summary="@string/kill_app_longpress_back_summary"
-            android:persistent="true"/>
+            android:key="disable_fc_notifications"
+            android:title="@string/disable_fc_notifications_title"
+            android:summary="@string/disable_fc_notifications_summary" /> 
 
     </PreferenceCategory>
 

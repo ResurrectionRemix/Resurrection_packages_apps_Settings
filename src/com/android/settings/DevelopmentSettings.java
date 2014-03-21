@@ -140,8 +140,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String DEBUG_DEBUGGING_CATEGORY_KEY = "debug_debugging_category";
     private static final String DEBUG_APPLICATIONS_CATEGORY_KEY = "debug_applications_category";
     private static final String WIFI_DISPLAY_CERTIFICATION_KEY = "wifi_display_certification";
-
+    private static final String PREF_DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
     private static final String OPENGL_TRACES_KEY = "enable_opengl_traces";
+    
 
     private static final String ROOT_ACCESS_KEY = "root_access";
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
@@ -208,6 +209,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private CheckBoxPreference mShowHwLayersUpdates;
     private CheckBoxPreference mDebugLayout;
     private CheckBoxPreference mForceRtlLayout;
+    CheckBoxPreference mDisableFC;
+    
     private ListPreference mDebugHwOverdraw;
     private ListPreference mTrackFrameTime;
     private ListPreference mShowNonRectClip;
@@ -340,7 +343,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mAnimatorDurationScale = addListPreference(ANIMATOR_DURATION_SCALE_KEY);
         mOverlayDisplayDevices = addListPreference(OVERLAY_DISPLAY_DEVICES_KEY);
         mOpenGLTraces = addListPreference(OPENGL_TRACES_KEY);
-
+        
+        mDisableFC = (CheckBoxPreference) findPreference(PREF_DISABLE_FC_NOTIFICATIONS);
+        mDisableFC.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+                Settings.System.DISABLE_FC_NOTIFICATIONS, true));
+                
         mImmediatelyDestroyActivities = (CheckBoxPreference) findPreference(
                 IMMEDIATELY_DESTROY_ACTIVITIES_KEY);
         mAllPrefs.add(mImmediatelyDestroyActivities);
@@ -1452,6 +1459,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.ALLOW_MOCK_LOCATION,
                     mAllowMockLocation.isChecked() ? 1 : 0);
+        } else if (preference == mDisableFC) {
+            Settings.System.putBoolean(mContext.getContentResolver(),
+                    Settings.System.DISABLE_FC_NOTIFICATIONS,
+                    ((CheckBoxPreference) preference).isChecked()); 
         } else if (preference == mDebugAppPref) {
             startActivityForResult(new Intent(getActivity(), AppPicker.class), RESULT_DEBUG_APP);
         } else if (preference == mWaitForDebugger) {
