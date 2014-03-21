@@ -105,7 +105,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int smartPulldownValue = Settings.System.getInt(resolver,
                     Settings.System.QS_SMART_PULLDOWN, 0);
             mSmartPulldown.setValue(String.valueOf(smartPulldownValue));
-            updatePulldownSummary(quickPulldownValue);
+            updateSmartPulldownSummary(smartPulldownValue);
         }
 
         // Add the sound mode
