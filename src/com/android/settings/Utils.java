@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -755,5 +756,20 @@ public class Utils {
     /* returns whether the device has volume rocker or not. */
     public static boolean hasVolumeRocker(Context context) {
         return context.getResources().getBoolean(R.bool.has_volume_rocker);
+    }
+
+    public static boolean isPackageInstalled(Context context, String pkg) {
+        if (pkg != null) {
+            try {
+                PackageInfo pi = context.getPackageManager().getPackageInfo(pkg, 0);
+                if (!pi.applicationInfo.enabled) {
+                    return false;
+                }
+            } catch (NameNotFoundException e) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -329,6 +329,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
             return false;
         }
     }
+<<<<<<< HEAD
 
     public boolean isPackageInstalled(String packageName) {
         if (packageName != null) {
@@ -349,4 +350,6 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     public void setTitle(int resId) {
         getActivity().setTitle(resId);
     }
+=======
+>>>>>>> 4d12cb8... add Voice Wakeup switch
 }

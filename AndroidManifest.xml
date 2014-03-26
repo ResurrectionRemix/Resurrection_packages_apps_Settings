@@ -1773,6 +1773,21 @@
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
+        <activity android:name="Settings$VoiceWakeupSettingsActivity"
+                android:label="@string/voice_wakeup_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.voicewakeup.VoiceWakeupSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/voice_wakeup_settings" />
+        </activity>
+
         <activity android:name=".profiles.ProfilesSettings" />
         <activity android:name="Settings$ProfilesSettingsActivity"
                 android:label="@string/profile_settings"
