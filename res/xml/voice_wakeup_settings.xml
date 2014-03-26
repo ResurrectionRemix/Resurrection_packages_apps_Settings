@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2012-2013 The CyanogenMod Project
+     Copyright (C) 2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,11 +14,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- Width of the sliding KeyguardSecurityContainer (includes 2x keyguard_security_view_margin) -->
-    <dimen name="pa_security_width">320dp</dimen>
-    <!-- Height of the sliding KeyguardSecurityContainer (includes 2x keyguard_security_view_margin) -->
-    <dimen name="pa_security_height">400dp</dimen>
-    <dimen name="profile_instruction_padding">8dp</dimen>
-    <dimen name="shortcut_picker_left_padding">70dip</dimen>
-</resources>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+                  android:title="@string/voice_wakeup_settings_title">
+    <Preference
+        android:key="retrain"
+        android:title="@string/voice_wakeup_retrain_title"
+        android:persistent="false" />
+    <Preference
+        android:key="voice_wakeup_launch_intent"
+        android:title="@string/voice_wakeup_activity_title"
+        android:persistent="false" />
+ </PreferenceScreen>
