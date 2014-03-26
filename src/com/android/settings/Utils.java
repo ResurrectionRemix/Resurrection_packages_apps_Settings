@@ -536,6 +536,14 @@ public class Utils {
         return new File(filename).exists();
     }
 
+    public static boolean fileIsReadable(String fname) {
+        return new File(fname).canRead();
+    }
+
+    public static boolean fileIsWritable(String fname) {
+        return new File(fname).canWrite();
+    }
+
     public static String fileReadOneLine(String fname) {
         BufferedReader br;
         String line = null;
