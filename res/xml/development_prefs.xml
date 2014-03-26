@@ -23,6 +23,14 @@
             android:summary="@string/kill_app_longpress_back_summary"
             android:persistent="true"/>
             
+        <ListPreference
+            android:key="kill_app_longpress_timeout"
+            android:title="@string/kill_app_longpress_timeout_title"
+            android:persistent="false"
+            android:entries="@array/kill_app_longpress_timeout_entries"
+            android:entryValues="@array/kill_app_longpress_timeout_values"
+            android:dependency="kill_app_longpress_back" />
+                        
     <PreferenceScreen
             android:key="development_tools"
             android:title="@string/development_tools_title"
