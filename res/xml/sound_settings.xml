@@ -35,48 +35,6 @@
             android:entries="@array/ring_mode_entries"
             android:entryValues="@array/ring_mode_values" />
             
-	<ListPreference
-            android:key="volume_steps_alarm"
-            android:title="@string/volume_steps_alarm_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" />
-            
-    <ListPreference
-            android:key="volume_steps_dtmf"
-            android:title="@string/volume_steps_dtmf_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" /> 
-            
-	<ListPreference
-            android:key="volume_steps_music"
-            android:title="@string/volume_steps_music_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" /> 
-            
-     <ListPreference
-            android:key="volume_steps_notification"
-            android:title="@string/volume_steps_notification_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" />
-            
-     <ListPreference
-            android:key="volume_steps_ring"
-            android:title="@string/volume_steps_ring_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" />  
-            
-     <ListPreference
-            android:key="volume_steps_system"
-            android:title="@string/volume_steps_system_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" /> 
-            
-     <ListPreference
-            android:key="volume_steps_voice_call"
-            android:title="@string/volume_steps_voice_call_title"
-            android:entries="@array/volume_steps_entries"
-            android:entryValues="@array/volume_steps_entries" />   
-
     <ListPreference
             android:key="volume_overlay"
             android:title="@string/volume_overlay_title"
@@ -229,5 +187,52 @@
             android:title="@string/power_notifications_ringtone_title"
             android:dependency="power_notifications"
             android:persistent="false" />
+
+    <PreferenceCategory
+            android:key="category_volume_steps"
+            android:title="@string/volume_steps_title"/>
+
+	<ListPreference
+            android:key="volume_steps_alarm"
+            android:title="@string/volume_steps_alarm_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" />
+            
+    <ListPreference
+            android:key="volume_steps_dtmf"
+            android:title="@string/volume_steps_dtmf_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" /> 
+            
+	<ListPreference
+            android:key="volume_steps_music"
+            android:title="@string/volume_steps_music_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" /> 
+            
+     <ListPreference
+            android:key="volume_steps_notification"
+            android:title="@string/volume_steps_notification_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" />
+            
+     <ListPreference
+            android:key="volume_steps_ring"
+            android:title="@string/volume_steps_ring_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" />  
+            
+     <ListPreference
+            android:key="volume_steps_system"
+            android:title="@string/volume_steps_system_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" /> 
+            
+     <ListPreference
+            android:key="volume_steps_voice_call"
+            android:title="@string/volume_steps_voice_call_title"
+            android:entries="@array/volume_steps_entries"
+            android:entryValues="@array/volume_steps_entries" />   
+
 
 </PreferenceScreen>
