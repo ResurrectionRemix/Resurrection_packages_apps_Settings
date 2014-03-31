@@ -66,8 +66,13 @@ public class WirelessSettings extends RestrictedSettingsFragment
     private static final String KEY_MOBILE_NETWORK_SETTINGS = "mobile_network_settings";
     private static final String KEY_MANAGE_MOBILE_PLAN = "manage_mobile_plan";
     private static final String KEY_SMS_APPLICATION = "sms_application";
+    private static final String KEY_VOICE_PLUS_ACCOUNT = "voice_plus";
     private static final String KEY_TOGGLE_NSD = "toggle_nsd"; //network service discovery
     private static final String KEY_CELL_BROADCAST_SETTINGS = "cell_broadcast_settings";
+
+    private static final String GOOGLE_VOICE_PACKAGE = "com.google.android.apps.googlevoice";
+    private static final ComponentName VOICE_PLUS_SETUP =
+            new ComponentName("org.cyanogenmod.voiceplus", "org.cyanogenmod.voiceplus.VoicePlusSetup");
 
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
@@ -109,6 +114,11 @@ public class WirelessSettings extends RestrictedSettingsFragment
             return true;
         } else if (preference == findPreference(KEY_MANAGE_MOBILE_PLAN)) {
             onManageMobilePlanClick();
+        } else if (preference == findPreference(KEY_VOICE_PLUS_ACCOUNT)) {
+            Intent chooseVoicePlusAccount = new Intent();
+            chooseVoicePlusAccount.setComponent(VOICE_PLUS_SETUP);
+            chooseVoicePlusAccount.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(chooseVoicePlusAccount);
         }
         // Let the intents be launched by the Preference manager
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -349,6 +359,11 @@ public class WirelessSettings extends RestrictedSettingsFragment
         // Remove SMS Application if the device does not support SMS
         if (!isSmsSupported()) {
             removePreference(KEY_SMS_APPLICATION);
+        }
+
+        // Remove Voice+ option if Google Voice is not installed
+        if (!isPackageInstalled(GOOGLE_VOICE_PACKAGE)) {
+            removePreference(KEY_VOICE_PLUS_ACCOUNT);
         }
 
         // Remove Airplane Mode settings if it's a stationary device such as a TV.
