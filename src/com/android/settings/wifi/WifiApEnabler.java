@@ -84,7 +84,7 @@ public class WifiApEnabler {
         mCheckBox = checkBox;
         mOriginalSummary = checkBox.getSummary();
         checkBox.setPersistent(false);
-        mWaitForWifiStateChange = true;
+        mWaitForWifiStateChange = false;
 
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         mCm = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -134,7 +134,6 @@ public class WifiApEnabler {
          * before we re-enable the Checkbox.
          */
         if (!enable) {
-            mWaitForWifiStateChange = false;
             try {
                 wifiSavedState = Settings.Global.getInt(cr, Settings.Global.WIFI_SAVED_STATE);
             } catch (Settings.SettingNotFoundException e) {
@@ -235,6 +234,7 @@ public class WifiApEnabler {
             case WifiManager.WIFI_STATE_ENABLED:
             case WifiManager.WIFI_STATE_UNKNOWN:
                 enableWifiCheckBox();
+                mWaitForWifiStateChange = false;
                 break;
             default:
         }
