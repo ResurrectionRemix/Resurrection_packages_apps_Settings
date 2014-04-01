@@ -380,6 +380,7 @@ public class Settings extends PreferenceActivity
         PerformanceSettings.class.getName(),
         PolicyNativeFragment.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName()
+        com.android.settings.cyanogenmod.QuietHours.class.getName()
     };
 
     @Override
@@ -1219,4 +1220,5 @@ public class Settings extends PreferenceActivity
     public static class SpawnActivity extends Settings { /* empty */ }
     public static class ASSRamBarActivity extends Settings { /* empty */ } 
     public static class SystemSettingsActivity extends Settings { /* empty */ }
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
 }
