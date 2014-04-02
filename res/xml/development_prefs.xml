@@ -26,9 +26,10 @@
         <ListPreference
             android:key="kill_app_longpress_timeout"
             android:title="@string/kill_app_longpress_timeout_title"
-            android:persistent="false"
+            android:persistent="true"
             android:entries="@array/kill_app_longpress_timeout_entries"
             android:entryValues="@array/kill_app_longpress_timeout_values"
+            android:defaultValue="1500"
             android:dependency="kill_app_longpress_back" />
                         
     <PreferenceScreen
