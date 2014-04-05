@@ -660,11 +660,12 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.voice_wakeup_settings) {
                 if(!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME)) {
                     target.remove(header);
+                }
             } else if (id == R.id.superuser) {
                 if (!DevelopmentSettings.isRootForAppsEnabled()) {
-                }
             }
-
+         }
+         
             if (i < target.size() && target.get(i) == header
                     && UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
                     && !ArrayUtils.contains(SETTINGS_FOR_RESTRICTED, id)) {
