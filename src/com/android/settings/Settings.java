@@ -99,11 +99,11 @@ import com.android.settings.print.PrintServiceSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
 import com.android.settings.profiles.AppGroupConfig;
 import com.android.settings.profiles.ProfileConfig;
+import com.android.settings.voicewakeup.VoiceWakeupEnabler;
 import com.android.settings.profiles.ProfileEnabler;
 import com.android.settings.profiles.ProfilesSettings;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
-import com.android.settings.voicewakeup.VoiceWakeupEnabler;
 import com.android.settings.vpn2.VpnSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
@@ -138,9 +138,8 @@ public class Settings extends PreferenceActivity
 
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
-
     private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
-
+   
     static final int DIALOG_ONLY_ONE_HOME = 1;
 
     private static boolean sShowNoHomeNotice = false;
@@ -658,19 +657,12 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.account_add) {
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                 }
-            } else if (id == R.id.superuser) {
-                if (!DevelopmentSettings.isRootForAppsEnabled()) {
-                }
-<<<<<<< HEAD
-=======
-            } else if (id == R.id.multi_sim_settings) {
-                if (!MSimTelephonyManager.getDefault().isMultiSimEnabled())
-                    target.remove(header);
             } else if (id == R.id.voice_wakeup_settings) {
                 if(!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME)) {
                     target.remove(header);
+            } else if (id == R.id.superuser) {
+                if (!DevelopmentSettings.isRootForAppsEnabled()) {
                 }
->>>>>>> 4d12cb8... add Voice Wakeup switch
             }
 
             if (i < target.size() && target.get(i) == header
@@ -861,12 +853,9 @@ public class Settings extends PreferenceActivity
         private final BluetoothEnabler mBluetoothEnabler;
         private final ProfileEnabler mProfileEnabler;
         private final LocationEnabler mLocationEnabler;
-<<<<<<< HEAD
+        private final VoiceWakeupEnabler mVoiceWakeupEnabler;
         private final TRDSEnabler mTRDSEnabler;
         
-=======
-        private final VoiceWakeupEnabler mVoiceWakeupEnabler;
->>>>>>> 4d12cb8... add Voice Wakeup switch
         private AuthenticatorHelper mAuthHelper;
         private DevicePolicyManager mDevicePolicyManager;
 
@@ -887,13 +876,9 @@ public class Settings extends PreferenceActivity
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
                     || header.id == R.id.profiles_settings
-<<<<<<< HEAD
                     || header.id == R.id.location_settings
-                    || header.id == R.id.trds_settings) {
-=======
                     || header.id == R.id.voice_wakeup_settings
-                    || header.id == R.id.location_settings) {
->>>>>>> 4d12cb8... add Voice Wakeup switch
+                    || header.id == R.id.trds_settings) {
                 return HEADER_TYPE_SWITCH;
             } else if (header.id == R.id.security_settings) {
                 return HEADER_TYPE_BUTTON;
@@ -1018,14 +1003,11 @@ public class Settings extends PreferenceActivity
                         mProfileEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.location_settings) {
                         mLocationEnabler.setSwitch(holder.switch_);
-<<<<<<< HEAD
+                    } else if (header.id == R.id.voice_wakeup_settings) {
+                        mVoiceWakeupEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.trds_settings) {
                         mTRDSSwitch = (Switch) view.findViewById(R.id.switchWidget);
                         mTRDSEnabler.setSwitch(holder.switch_);
-=======
-                    } else if (header.id == R.id.voice_wakeup_settings) {
-                        mVoiceWakeupEnabler.setSwitch(holder.switch_);
->>>>>>> 4d12cb8... add Voice Wakeup switch
                     }
                     updateCommonHeaderView(header, holder);
                     break;
@@ -1101,11 +1083,8 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler.resume();
             mProfileEnabler.resume();
             mLocationEnabler.resume();
-<<<<<<< HEAD
-            mTRDSEnabler.resume();
-=======
             mVoiceWakeupEnabler.resume();
->>>>>>> 4d12cb8... add Voice Wakeup switch
+            mTRDSEnabler.resume();
         }
 
         public void pause() {
@@ -1113,11 +1092,8 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler.pause();
             mProfileEnabler.pause();
             mLocationEnabler.pause();
-<<<<<<< HEAD
-            mTRDSEnabler.pause();
-=======
             mVoiceWakeupEnabler.pause();
->>>>>>> 4d12cb8... add Voice Wakeup switch
+            mTRDSEnabler.pause();
         }
     }
 

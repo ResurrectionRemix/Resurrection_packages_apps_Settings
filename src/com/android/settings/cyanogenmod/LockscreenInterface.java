@@ -151,14 +151,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
         }
 
-<<<<<<< HEAD
-=======
-        // Remove cLock settings item if not installed
-        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
-            widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
-        }
-
->>>>>>> 4d12cb8... add Voice Wakeup switch
         // Remove maximize widgets on tablets
         if (!Utils.isPhone(getActivity())) {
             widgetsCategory.removePreference(

@@ -329,27 +329,10 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
             return false;
         }
     }
-<<<<<<< HEAD
-
-    public boolean isPackageInstalled(String packageName) {
-        if (packageName != null) {
-            try {
-                PackageInfo pi = getPackageManager().getPackageInfo(packageName, 0);
-                if (!pi.applicationInfo.enabled) {
-                    return false;
-                }
-            } catch (NameNotFoundException e) {
-                return false;
-            }
-        }
-
-        return true;
-    }
 
     // Need to AOKP Custom system animation
     public void setTitle(int resId) {
         getActivity().setTitle(resId);
     }
-=======
->>>>>>> 4d12cb8... add Voice Wakeup switch
+
 }
