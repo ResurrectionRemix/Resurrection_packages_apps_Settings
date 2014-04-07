@@ -72,7 +72,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
     private static final String LOCKSCREEN_BACKGROUND_COLOR_FILL = "lockscreen_background_color_fill";
-
+    private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
+    
     private static final int REQUEST_PICK_WALLPAPER = 201;
     private static final int COLOR_FILL = 0;
     private static final int CUSTOM_IMAGE = 1;
@@ -82,6 +83,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mQuickUnlock;
     private CheckBoxPreference mGlowpadTorch;
+    private CheckBoxPreference mEnableModLock;
     private ListPreference mLockBackground;
     private ListPreference mBatteryStatus;
     private ColorPickerPreference mLockColorFill;
@@ -116,7 +118,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
-
+        
+        mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
+         if (mEnableModLock != null) {
+             mEnableModLock.setOnPreferenceChangeListener(this);
+         }
+         
         mGlowpadTorch = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_TORCH);
         mGlowpadTorch.setChecked(Settings.System.getInt(
                 getActivity().getApplicationContext().getContentResolver(),
@@ -151,7 +158,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             checkDisabledByPolicy(mEnableCameraWidget,
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
         }
+        
+        boolean canEnableModLockscreen = false;
+        final Bundle keyguard_metadata = Utils.getApplicationMetadata(
+                getActivity(), "com.android.keyguard");
+        if (keyguard_metadata != null) {
+            canEnableModLockscreen = keyguard_metadata.getBoolean(
+                    "com.cyanogenmod.keyguard", false);
+        }
 
+        if (mEnableModLock != null && !canEnableModLockscreen) {
+            generalCategory.removePreference(mEnableModLock);
+            mEnableModLock = null;
+        }
+        
         // Remove maximize widgets on tablets
         if (!Utils.isPhone(getActivity())) {
             widgetsCategory.removePreference(
@@ -197,12 +217,21 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
         }
-            
+
+        // Update mod lockscreen status
+        if (mEnableModLock != null) {
+            ContentResolver cr = getActivity().getContentResolver();
+            boolean checked = Settings.System.getInt(
+                    cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
+            mEnableModLock.setChecked(checked);
+        }
+                    
         if (mEnableCameraWidget != null) {
             mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
 
         }
-	if (mQuickUnlock != null) {
+        
+	    if (mQuickUnlock != null) {
             mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                   Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
         }
@@ -244,6 +273,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
                     (Boolean) objValue ? 1 : 0);
            return true;
+        } else if (preference == mEnableModLock) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED,
+                    value ? 1 : 0);
+            return true;
         } else if (preference == mLockBackground) {
             int index = mLockBackground.findIndexOfValue(objValue.toString());
             preference.setSummary(mLockBackground.getEntries()[index]);
