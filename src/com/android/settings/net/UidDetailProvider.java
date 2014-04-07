@@ -97,7 +97,7 @@ public class UidDetailProvider {
         // handle special case labels
         switch (uid) {
             case android.os.Process.SYSTEM_UID:
-                detail.label = res.getString(R.string.process_kernel_label);
+                detail.label = res.getString(com.android.internal.R.string.android_system_label);
                 detail.icon = pm.getDefaultActivityIcon();
                 return detail;
             case TrafficStats.UID_REMOVED:
