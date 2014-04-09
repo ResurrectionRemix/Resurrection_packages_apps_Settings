@@ -28,11 +28,25 @@
         android:title="@string/device_n7100" />
         
     <Preference
+        android:id="@+id/device_hlte"
+        android:icon="@drawable/phone"
+        android:summary="@string/device_hlte_summary"
+        android:selectable="false" 
+        android:title="@string/device_hlte" />
+        
+    <Preference
         android:id="@+id/device_i9300"
         android:icon="@drawable/phone"
         android:summary="@string/device_i9300_summary"
         android:selectable="false" 
         android:title="@string/device_i9300" />
+        
+    <Preference
+        android:id="@+id/device_i9305"
+        android:icon="@drawable/phone"
+        android:summary="@string/device_i9305_summary"
+        android:selectable="false" 
+        android:title="@string/device_i9305" />
         
     <Preference
         android:id="@+id/device_s3tm"
@@ -103,7 +117,27 @@
         android:summary="@string/device_ace_summary"
         android:selectable="false" 
         android:title="@string/device_ace" />
- 
+        
+  </PreferenceCategory>
+  
+  <PreferenceCategory
+        android:id="@+id/device_category_lg"
+        android:title="@string/device_category_lg_title" >
+        
+    <Preference
+        android:id="@+id/device_n5"
+        android:icon="@drawable/phone"
+        android:summary="@string/device_n5_summary"
+        android:selectable="false" 
+        android:title="@string/device_n5" />
+        
+    <Preference
+        android:id="@+id/device_n4"
+        android:icon="@drawable/phone"
+        android:summary="@string/device_n4_summary"
+        android:selectable="false" 
+        android:title="@string/device_n4" />
+         
   </PreferenceCategory>
 
 </PreferenceScreen> 
