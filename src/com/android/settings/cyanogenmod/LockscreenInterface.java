@@ -243,6 +243,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
                     (Boolean) objValue ? 1 : 0);
+           return true;
         } else if (preference == mLockBackground) {
             int index = mLockBackground.findIndexOfValue(objValue.toString());
             preference.setSummary(mLockBackground.getEntries()[index]);
