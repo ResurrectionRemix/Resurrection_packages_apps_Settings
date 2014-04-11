@@ -148,12 +148,16 @@
             android:summary="@string/allow_mock_location_summary"/>
 
         <CheckBoxPreference
+            android:key="allow_mock_sms"
+            android:title="@string/allow_mock_sms"/>
+
+        <CheckBoxPreference
             android:key="development_shortcut"
             android:title="@string/development_shortcut_title"
             android:summary="@string/development_shortcut_summary" />
 
         <PreferenceScreen android:key="debug_app"
-                android:title="@string/debug_app" />
+            android:title="@string/debug_app" />
 
         <CheckBoxPreference
             android:key="wait_for_debugger"
