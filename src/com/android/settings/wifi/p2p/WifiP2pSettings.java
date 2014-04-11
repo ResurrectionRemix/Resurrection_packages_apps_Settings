@@ -46,8 +46,10 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -70,13 +72,14 @@ import java.nio.ByteBuffer;
  * Displays Wi-fi p2p settings UI
  */
 public class WifiP2pSettings extends SettingsPreferenceFragment
-        implements PeerListListener, PersistentGroupInfoListener, GroupInfoListener {
+        implements PeerListListener, PersistentGroupInfoListener, GroupInfoListener, TextWatcher {
 
     private static final String TAG = "WifiP2pSettings";
     private static final boolean DBG = false;
     private static final int MENU_ID_SEARCH = Menu.FIRST;
     private static final int MENU_ID_RENAME = Menu.FIRST + 1;
 
+    private static final int DEVICE_NAME_MAX_LENGTH_BYTES = 30;
     private final IntentFilter mIntentFilter = new IntentFilter();
     private WifiP2pManager mWifiP2pManager;
     private WifiP2pManager.Channel mChannel;
@@ -462,6 +465,7 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
                 mDeviceNameText.setText(mThisDevice.deviceName);
                 mDeviceNameText.setSelection(0, mThisDevice.deviceName.length());
             }
+            mDeviceNameText.addTextChangedListener(this);
             mSavedDeviceName = null;
             AlertDialog dialog = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.wifi_p2p_menu_rename)
@@ -632,5 +636,33 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
             mThisDevicePref.setEnabled(true);
             mThisDevicePref.setSelectable(false);
         }
+    }
+
+    // If the device name is beyond 30 bytes, limit the input.
+    private void LimitDeviceNameLength(Editable editable) {
+        int selectionEnd = mDeviceNameText.getSelectionEnd();
+        int strLen = mDeviceNameText.getText().toString().getBytes().length;
+        if (DBG)
+            Log.d(TAG, "Device name bytes length is : " + strLen);
+        if (strLen > DEVICE_NAME_MAX_LENGTH_BYTES) {
+            editable.delete(selectionEnd - 1, selectionEnd);
+            Toast.makeText(getActivity(), R.string.p2p_device_name_input_limit,
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        if (mDeviceNameText.getEditableText() == editable) {
+            LimitDeviceNameLength(editable);
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+    }
+
+    @Override
+    public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
     }
 }
