@@ -94,6 +94,18 @@
                 android:icon="@drawable/ic_settings_display"
                 />
 
+        <!-- Themes -->
+        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+        <dashboard-tile
+            android:id="@+id/theme_settings"
+            android:title="@string/themes_settings_title"
+            android:icon="@drawable/ic_settings_themes">
+            <intent
+                android:action="android.intent.action.MAIN" >
+                <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
+            </intent>
+        </dashboard-tile>
+
         <!-- Notifications -->
         <dashboard-tile
                 android:id="@+id/notification_settings"
