@@ -772,18 +772,4 @@ public class Utils {
 
         return true;
     }
-
-    public static Bundle getApplicationMetadata(Context context, String pkg) {
-        if (pkg != null) {
-            try {
-                ApplicationInfo ai = context.getPackageManager().getApplicationInfo(
-                        pkg, PackageManager.GET_META_DATA);
-                return ai.metaData;
-            } catch (NameNotFoundException e) {
-                return null;
-            }
-        }
-
-        return null;
-    }
 }
