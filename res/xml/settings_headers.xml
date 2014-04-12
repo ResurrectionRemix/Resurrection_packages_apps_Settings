@@ -92,16 +92,12 @@
 
     <!-- Themes -->
     <header
-        android:id="@+id/themes_settings"
-        android:icon="@drawable/ic_settings_cmlauncher"
-        android:title="@string/rr_themes_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
-    
-    <!-- Home -->
+        android:id="@+id/theme_settings"
+        android:title="@string/themes_settings_title"
+        android:breadCrumbTitle="@string/themes_settings_title"
+        android:fragment="com.android.settings.ThemeSettings"
+        android:icon="@drawable/prd_ic_themepacks" />
+    <!-- System UI -->
     <header
         android:id="@+id/home_settings"
         android:icon="@drawable/ic_settings_home"
