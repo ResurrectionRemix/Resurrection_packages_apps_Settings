@@ -128,7 +128,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
                     Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
             return true;
         } else if (preference == mRecentPanelExpandedMode) {
-            int value = Integer.parseInt((String) newValue);
+            int value = Integer.parseInt((String) objValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_EXPANDED_MODE, value);
             return true;
