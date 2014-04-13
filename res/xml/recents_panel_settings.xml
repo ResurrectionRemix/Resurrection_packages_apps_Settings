@@ -21,7 +21,7 @@
     
     <CheckBoxPreference
             android:key="custom_recent_mode"
-	     android:disableDependentsState="true"
+	        android:disableDependentsState="true"
             android:title="@string/custom_recent_title"
             android:summary="@string/custom_recent_summary"
             android:persistent="false" />
@@ -32,14 +32,14 @@
             
     <CheckBoxPreference
             android:key="recent_menu_clear_all"
-	     android:dependency="custom_recent_mode"
+	        android:dependency="custom_recent_mode"
             android:title="@string/show_recent_clear_all_button_title"
             android:summary="@string/show_recent_clear_all_button_summary"
             android:defaultValue="true" />
 
     <ListPreference
             android:key="recent_menu_clear_all_location"
-	     android:dependency="custom_recent_mode"
+	        android:dependency="custom_recent_mode"
             android:title="@string/recent_clear_all_button_location_title"
             android:summary="@string/recent_clear_all_button_location_summary"
             android:entries="@array/recent_clear_all_button_location_entries"
@@ -70,6 +70,14 @@
                 android:entryValues="@array/recent_panel_scale_values"
                 android:title="@string/recent_panel_scale_title"
                 android:summary="@string/recent_panel_scale_summary"
+                android:persistent="false" />
+                
+        <ListPreference
+                android:key="recent_panel_expanded_mode"
+                android:entries="@array/recent_panel_expanded_mode_entries"
+                android:entryValues="@array/recent_panel_expanded_mode_values"
+                android:title="@string/recent_panel_expanded_mode_title"
+                android:summary="@string/recent_panel_expanded_mode_summary"
                 android:persistent="false" />
 
 </PreferenceScreen>
