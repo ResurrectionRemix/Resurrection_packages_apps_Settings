@@ -50,6 +50,17 @@
         android:fragment="com.android.settings.profiles.ProfilesSettings"
         android:title="@string/profiles_settings_title" />
         
+
+    <!-- Mobile networks -->
+    <header
+        android:id="@+id/mobile_network_settings"
+        android:icon="@drawable/ic_settings_mobilenetworks"
+        android:title="@string/network_settings_title"
+        android:dependency="toggle_airplane">
+        <intent
+            android:action="android.settings.DATA_ROAMING_SETTINGS" />
+    </header>
+
     <!-- Data Usage -->
     <header
         android:id="@+id/data_usage_settings"

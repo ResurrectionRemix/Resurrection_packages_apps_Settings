@@ -55,16 +55,6 @@
         android:key="vpn_settings"
         android:title="@string/vpn_settings_title" />
 
-    <PreferenceScreen
-        android:key="mobile_network_settings"
-        android:title="@string/network_settings_title"
-        android:dependency="toggle_airplane">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.phone"
-            android:targetClass="com.android.phone.MobileNetworkSettings" />
-    </PreferenceScreen>
-
     <Preference
         android:key="manage_mobile_plan"
         android:title="@string/manage_mobile_plan_title"

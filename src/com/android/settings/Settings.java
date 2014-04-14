@@ -94,6 +94,7 @@ import com.android.settings.inputmethod.SpellCheckersSettings;
 import com.android.settings.inputmethod.UserDictionaryList;
 import com.android.settings.location.LocationEnabler;
 import com.android.settings.location.LocationSettings;
+import com.android.settings.net.MobileDataEnabler;
 import com.android.settings.nfc.AndroidBeam;
 import com.android.settings.nfc.PaymentSettings;
 import com.android.settings.print.PrintJobSettingsFragment;
@@ -603,6 +604,11 @@ public class Settings extends PreferenceActivity
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
                     target.remove(i);
                 }
+            } else if (id == R.id.mobile_network_settings) {
+                // Remove mobile network settings if the device doesn't have telephony
+                if (Utils.isWifiOnly(this)) {
+                    target.remove(i);
+                }
             } else if (id == R.id.data_usage_settings) {
                 // Remove data usage when kernel module not enabled
                 final INetworkManagementService netManager = INetworkManagementService.Stub
@@ -854,6 +860,7 @@ public class Settings extends PreferenceActivity
 
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
+        private final MobileDataEnabler mMobileDataEnabler;
         private final ProfileEnabler mProfileEnabler;
         private final LocationEnabler mLocationEnabler;
         private final VoiceWakeupEnabler mVoiceWakeupEnabler;
@@ -878,6 +885,7 @@ public class Settings extends PreferenceActivity
                 return HEADER_TYPE_CATEGORY;
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
+                    || header.id == R.id.mobile_network_settings
                     || header.id == R.id.profiles_settings
                     || header.id == R.id.location_settings
                     || header.id == R.id.voice_wakeup_settings
@@ -927,6 +935,7 @@ public class Settings extends PreferenceActivity
             // Switches inflated from their layouts. Must be done before adapter is set in super
             mWifiEnabler = new WifiEnabler(context, new Switch(context));
             mBluetoothEnabler = new BluetoothEnabler(context, new Switch(context));
+            mMobileDataEnabler = new MobileDataEnabler(context, new Switch(context));
             mProfileEnabler = new ProfileEnabler(context, new Switch(context));
             mLocationEnabler = new LocationEnabler(context, new Switch(context));
             mVoiceWakeupEnabler = new VoiceWakeupEnabler(context, new Switch(context));
@@ -1002,6 +1011,8 @@ public class Settings extends PreferenceActivity
                         mWifiEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.bluetooth_settings) {
                         mBluetoothEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.mobile_network_settings) {
+                        mMobileDataEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.profiles_settings) {
                         mProfileEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.location_settings) {
@@ -1084,6 +1095,7 @@ public class Settings extends PreferenceActivity
         public void resume() {
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
+            mMobileDataEnabler.resume();
             mProfileEnabler.resume();
             mLocationEnabler.resume();
             mVoiceWakeupEnabler.resume();
@@ -1093,6 +1105,7 @@ public class Settings extends PreferenceActivity
         public void pause() {
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
+            mMobileDataEnabler.pause();
             mProfileEnabler.pause();
             mLocationEnabler.pause();
             mVoiceWakeupEnabler.pause();
