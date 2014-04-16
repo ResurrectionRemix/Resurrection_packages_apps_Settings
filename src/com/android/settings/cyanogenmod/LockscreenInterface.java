@@ -322,9 +322,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 if (uri == null) {
                     uri = Uri.fromFile(mTempWallpaper);
                 }
-                new SaveUserWallpaperTask().execute(uri);
+                new SaveUserWallpaperTask(getActivity().getApplicationContext()).execute(uri);
             } else {
-                toastLockscreenWallpaperStatus(false);
+                toastLockscreenWallpaperStatus(getActivity(), false);
             }
         }
     }
@@ -380,9 +380,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 intent.putExtra("return-data", false);
                 getActivity().startActivityFromFragment(this, intent, REQUEST_PICK_WALLPAPER);
             } catch (IOException e) {
-                toastLockscreenWallpaperStatus(false);
+                toastLockscreenWallpaperStatus(getActivity(), false);
             } catch (ActivityNotFoundException e) {
-                toastLockscreenWallpaperStatus(false);
+                toastLockscreenWallpaperStatus(getActivity(), false);
             }
         } else if (index == LockscreenBackgroundUtil.LOCKSCREEN_STYLE_DEFAULT) {
             // Sets background to default
@@ -391,25 +391,30 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             if (mWallpaper.exists()) {
                 mWallpaper.delete();
             }
-            updateKeyguardWallpaper();
+            updateKeyguardWallpaper(getActivity());
             updateBackgroundPreference();
         }
     }
 
-    private void toastLockscreenWallpaperStatus(boolean success) {
-        Toast.makeText(getActivity(), getResources().getString(
+    private static void toastLockscreenWallpaperStatus(Context context, boolean success) {
+        Toast.makeText(context, context.getResources().getString(
                 success ? R.string.background_result_successful
                         : R.string.background_result_not_successful),
                 Toast.LENGTH_LONG).show();
     }
 
-    private void updateKeyguardWallpaper() {
-        getActivity().sendBroadcast(new Intent(Intent.ACTION_KEYGUARD_WALLPAPER_CHANGED));
+    private static void updateKeyguardWallpaper(Context context) {
+        context.sendBroadcast(new Intent(Intent.ACTION_KEYGUARD_WALLPAPER_CHANGED));
     }
 
     private class SaveUserWallpaperTask extends AsyncTask<Uri, Void, Boolean> {
 
         private Toast mToast;
+        Context mContext;
+
+        public SaveUserWallpaperTask(Context ctx) {
+            mContext = ctx;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -453,13 +458,15 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         @Override
         protected void onPostExecute(Boolean result) {
             mToast.cancel();
-            toastLockscreenWallpaperStatus(result);
+            toastLockscreenWallpaperStatus(mContext, result);
             if (result) {
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.LOCKSCREEN_BACKGROUND_STYLE,
                         LockscreenBackgroundUtil.LOCKSCREEN_STYLE_IMAGE);
-                updateKeyguardWallpaper();
-                updateBackgroundPreference();
+                updateKeyguardWallpaper(mContext);
+                if (!isDetached()) {
+                    updateBackgroundPreference();
+                }
             }
         }
     }
