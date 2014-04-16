@@ -95,8 +95,8 @@
         android:icon="@drawable/prd_ic_soundpacks">
         <intent android:action="android.intent.action.MAIN" >
              <category android:name="cyanogenmod.intent.category.APP_THEMES" />
-             <!-- TODO: "mods_sounds" is a placeholder" -->
-             <extra android:name="component_filter" android:value="mods_sounds"/>
+             <extra android:name="component_filter"
+                    android:value="mods_alarms,mods_ringtones,mods_notifications"/>
         </intent>
     </Preference>
 </PreferenceScreen>
