@@ -429,6 +429,7 @@ public class Status extends PreferenceActivity {
     }
 
     private void updateServiceState(ServiceState serviceState) {
+<<<<<<< HEAD
         int state = serviceState.getState();
         String display = mRes.getString(R.string.radioInfo_unknown);
 
@@ -446,6 +447,17 @@ public class Status extends PreferenceActivity {
         }
 
         setSummaryText(KEY_SERVICE_STATE, display);
+=======
+        int voiceState = serviceState.getState();
+        int dataState = serviceState.getDataRegState();
+
+        if (voiceState == dataState) {
+            setSummaryText(KEY_SERVICE_STATE, getServiceStateString(voiceState));
+        } else {
+            setSummaryText(KEY_SERVICE_STATE, mRes.getString(R.string.phone_service_state,
+                        getServiceStateString(voiceState), getServiceStateString(dataState)));
+        }
+>>>>>>> 71a0098... Make phone status string translatable.
 
         if (serviceState.getRoaming()) {
             setSummaryText(KEY_ROAMING_STATE, mRes.getString(R.string.radioInfo_roaming_in));
