@@ -559,12 +559,14 @@ public class Status extends PreferenceActivity {
 
     private void updateServiceState(ServiceState serviceState) {
         int voiceState = serviceState.getState();
-        String voiceDisplay = getServiceStateString(voiceState);
-
         int dataState = serviceState.getDataRegState();
-        String dataDisplay = getServiceStateString(dataState);
 
-        setSummaryText(KEY_SERVICE_STATE, "Voice: " + voiceDisplay + " / Data: " + dataDisplay);
+        if (voiceState == dataState) {
+            setSummaryText(KEY_SERVICE_STATE, getServiceStateString(voiceState));
+        } else {
+            setSummaryText(KEY_SERVICE_STATE, mRes.getString(R.string.phone_service_state,
+                        getServiceStateString(voiceState), getServiceStateString(dataState)));
+        }
 
         if (serviceState.getRoaming()) {
             setSummaryText(KEY_ROAMING_STATE, mRes.getString(R.string.radioInfo_roaming_in));
