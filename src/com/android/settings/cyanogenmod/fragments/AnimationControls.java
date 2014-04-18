@@ -131,7 +131,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mWallpaperIntraClose.setEntryValues(mAnimationsNum);
 
         int defaultDuration = Settings.System.getInt(mContentRes,
-                Settings.System.ANIMATION_CONTROLS_DURATION, 0);
+                Settings.System.ANIMATION_CONTROLS_DURATION, 25);
         mAnimationDuration = (AnimBarPreference) findPreference(ANIMATION_DURATION);
         mAnimationDuration.setInitValue((int) (defaultDuration));
         mAnimationDuration.setOnPreferenceChangeListener(this);
