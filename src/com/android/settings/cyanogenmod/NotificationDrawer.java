@@ -58,15 +58,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String PREF_NOTI_REMINDER_RINGTONE = "noti_reminder_ringtone";
     
     private ListPreference mCollapseOnDismiss;
-<<<<<<< HEAD
-=======
-    private CheckBoxPreference mStatusBarCustomHeader;
-    private CheckBoxPreference mFullScreenDetection;
-    private CheckBoxPreference mShowWifiName;
     private AppSelectListPreference mClockShortcut;
     private AppSelectListPreference mCalendarShortcut;
-    private Preference mCustomLabel;
->>>>>>> f91c3ce... [1/2] OmniGears: notification drawer: custom clock & calendar shortcut
     CheckBoxPreference mReminder;
     ListPreference mReminderMode;
     RingtonePreference mReminderRingtone;
@@ -78,50 +71,12 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.notification_drawer);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-<<<<<<< HEAD
-=======
-        // Notification drawer
-        int collapseBehaviour = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS,
-                Settings.System.STATUS_BAR_COLLAPSE_IF_NO_CLEARABLE);
         mClockShortcut = (AppSelectListPreference) findPreference(CLOCK_SHORTCUT);
         mClockShortcut.setOnPreferenceChangeListener(this);
 
         mCalendarShortcut = (AppSelectListPreference) findPreference(CALENDAR_SHORTCUT);
         mCalendarShortcut.setOnPreferenceChangeListener(this);
 
-        updateClockCalendarSummary();
-        mCollapseOnDismiss = (ListPreference) findPreference(UI_COLLAPSE_BEHAVIOUR);
-        mCollapseOnDismiss.setValue(String.valueOf(collapseBehaviour));
-        mCollapseOnDismiss.setOnPreferenceChangeListener(this);
-        updateCollapseBehaviourSummary(collapseBehaviour);
-
-        mStatusBarCustomHeader = (CheckBoxPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
-        mStatusBarCustomHeader.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1);
-        mStatusBarCustomHeader.setOnPreferenceChangeListener(this);
-
-        mFullScreenDetection = (CheckBoxPreference) findPreference(SWIPE_TO_SWITCH_SCREEN_DETECTION);
-        mFullScreenDetection.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.SWIPE_TO_SWITCH_SCREEN_DETECTION, 0) == 1);
-        mFullScreenDetection.setOnPreferenceChangeListener(this);
-
-        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-        mShowWifiName.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
-        mShowWifiName.setOnPreferenceChangeListener(this);
-
-        // Custom Carrier Label Text
-        mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
-        updateCustomLabelTextSummary();
-
-        mHideCarrier = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_HIDE_CARRIER);
-        boolean hideCarrier = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_HIDE_CARRIER, 0) == 1;
-        mHideCarrier.setChecked(hideCarrier);
-        mHideCarrier.setOnPreferenceChangeListener(this);
-
->>>>>>> f91c3ce... [1/2] OmniGears: notification drawer: custom clock & calendar shortcut
         // Notification Remider
         mReminder = (CheckBoxPreference) findPreference(PREF_NOTI_REMINDER_ENABLED);
         mReminder.setChecked(Settings.System.getIntForUser(getContentResolver(),
