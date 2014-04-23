@@ -271,6 +271,12 @@ public class SecuritySettings extends RestrictedSettingsFragment
         // visible pattern
         mVisiblePattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_PATTERN);
 
+        // visible error pattern
+        mVisibleErrorPattern = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_ERROR_PATTERN);
+
+        // visible dots
+        mVisibleDots = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_DOTS);
+        
         // visible gesture
         mVisibleGesture = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_GESTURE);
 
