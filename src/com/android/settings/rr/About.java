@@ -90,7 +90,7 @@ private static final String RR_ROM_SHARE = "share";
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
         mSiteUrl = findPreference("rr_website");
-        mForumUrl = findPreference("rr_irc");
+        mForumUrl = findPreference("rr_forum");
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
         mGoogleUrl = findPreference("rr_google_plus");
@@ -119,7 +119,7 @@ private static final String RR_ROM_SHARE = "share";
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSiteUrl) {
-            launchUrl("http://forum.resurrectionremix.com/");
+            launchUrl("http://resurrectionremix.com/");
         } else if (preference == mForumUrl) {
             launchUrl("http://forum.resurrectionremix.com/");
         } else if (preference == mSourceUrl) {
