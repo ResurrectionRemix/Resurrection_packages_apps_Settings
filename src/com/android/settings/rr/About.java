@@ -119,9 +119,9 @@ private static final String RR_ROM_SHARE = "share";
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSiteUrl) {
-            launchUrl("http://www.resurrectionremix.com/index.php");
+            launchUrl("http://forum.resurrectionremix.com/");
         } else if (preference == mForumUrl) {
-            launchUrl("http://www.resurrectionremix.com/index.php");
+            launchUrl("http://forum.resurrectionremix.com/");
         } else if (preference == mSourceUrl) {
             launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
