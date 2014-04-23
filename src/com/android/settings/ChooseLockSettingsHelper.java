@@ -58,6 +58,9 @@ public final class ChooseLockSettingsHelper {
             case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING:
                 launched = confirmPattern(request, message, details);
                 break;
+            case DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK:
+                launched = confirmGesture(request, message, details);
+                break;
             case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
             case DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC:
             case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
@@ -85,6 +88,30 @@ public final class ChooseLockSettingsHelper {
         intent.putExtra(ConfirmLockPattern.HEADER_TEXT, message);
         intent.putExtra(ConfirmLockPattern.FOOTER_TEXT, details);
         intent.setClassName("com.android.settings", "com.android.settings.ConfirmLockPattern");
+        if (mFragment != null) {
+            mFragment.startActivityForResult(intent, request);
+        } else {
+            mActivity.startActivityForResult(intent, request);
+        }
+        return true;
+    }
+
+    /**
+     * Launch screen to confirm the existing lock gesture.
+     * @param message shown in header of ConfirmLockGesture if not null
+     * @param details shown in footer of ConfirmLockGesture if not null
+     * @see #onActivityResult(int, int, android.content.Intent)
+     * @return true if we launched an activity to confirm gesture
+     */
+    private boolean confirmGesture(int request, CharSequence message, CharSequence details) {
+        if (!mLockPatternUtils.isLockGestureEnabled() || !mLockPatternUtils.savedGestureExists()) {
+            return false;
+        }
+        final Intent intent = new Intent();
+        // supply header and footer text in the intent
+        intent.putExtra(ConfirmLockPattern.HEADER_TEXT, message);
+        intent.putExtra(ConfirmLockPattern.FOOTER_TEXT, details);
+        intent.setClassName("com.android.settings", "com.android.settings.ConfirmLockGesture");
         if (mFragment != null) {
             mFragment.startActivityForResult(intent, request);
         } else {
