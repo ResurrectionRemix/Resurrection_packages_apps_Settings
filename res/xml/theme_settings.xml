@@ -74,7 +74,8 @@
         android:id="@+id/lockscreen_wallpaper_settings"
         android:title="@string/lockscreen_wallpaper_settings_title"
         android:icon="@drawable/prd_ic_lockscreen_wallpapers">
-        <!-- TODO: This is not implemented yet -->
+        <intent android:targetPackage="com.cyanogenmod.trebuchet"
+                android:targetClass="com.android.launcher3.LockWallpaperPickerActivity" />
     </Preference>
 
     <!-- Boot Animations -->

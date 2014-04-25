@@ -82,14 +82,12 @@
         android:key="lockscreen_background_category"
         android:title="@string/lockscreen_background">
 
-        <ListPreference
-            android:key="lockscreen_background_style"
-            android:persistent="false"
-            android:dialogTitle="@string/lockscreen_background_style_title"
-            android:summary="%s"
-            android:title="@string/lockscreen_background_style_title"
-            android:entries="@array/lockscreen_background_entries"
-            android:entryValues="@array/lockscreen_background_values" />
+        <Preference
+            android:id="@+id/lockscreen_wallpaper_settings"
+            android:title="@string/lockscreen_wallpaper_settings_title">
+            <intent android:targetPackage="com.cyanogenmod.trebuchet"
+                    android:targetClass="com.android.launcher3.LockWallpaperPickerActivity" />
+        </Preference>
 
     </PreferenceCategory>
 
