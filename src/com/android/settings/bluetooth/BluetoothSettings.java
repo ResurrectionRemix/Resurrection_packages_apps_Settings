@@ -38,6 +38,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextWatcher;
 import android.text.Editable;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -72,6 +73,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
     private static final int MENU_ID_SCAN = Menu.FIRST;
     private static final int MENU_ID_RENAME_DEVICE = Menu.FIRST + 1;
     private static final int MENU_ID_SHOW_RECEIVED = Menu.FIRST + 2;
+    private static final int MENU_ID_ACCEPT_ALL_FILES = Menu.FIRST + 3;
 
     /* Private intent to show the list of received files */
     private static final String BTOPP_ACTION_OPEN_RECEIVED_FILES =
@@ -209,6 +211,10 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
         boolean isDiscovering = mLocalAdapter.isDiscovering();
         int textId = isDiscovering ? R.string.bluetooth_searching_for_devices :
             R.string.bluetooth_search_for_devices;
+
+        boolean isAcceptAllFilesEnabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.BLUETOOTH_ACCEPT_ALL_FILES, 0) == 1;
+
         menu.add(Menu.NONE, MENU_ID_SCAN, 0, textId)
                 .setEnabled(bluetoothIsEnabled && !isDiscovering)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
@@ -216,6 +222,10 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
                 .setEnabled(bluetoothIsEnabled)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         menu.add(Menu.NONE, MENU_ID_SHOW_RECEIVED, 0, R.string.bluetooth_show_received_files)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        menu.add(Menu.NONE, MENU_ID_ACCEPT_ALL_FILES, 0, R.string.bluetooth_accept_all_files)
+                .setCheckable(true)
+                .setChecked(isAcceptAllFilesEnabled)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -237,6 +247,13 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
             case MENU_ID_SHOW_RECEIVED:
                 Intent intent = new Intent(BTOPP_ACTION_OPEN_RECEIVED_FILES);
                 getActivity().sendBroadcast(intent);
+                return true;
+
+            case MENU_ID_ACCEPT_ALL_FILES:
+                item.setChecked(!item.isChecked());
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.BLUETOOTH_ACCEPT_ALL_FILES,
+                        item.isChecked() ? 1 : 0);
                 return true;
         }
         return super.onOptionsItemSelected(item);
