@@ -26,8 +26,16 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/resurrection_settings_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    
-   <!-- Active display -->	
+
+ 
+         <!-- Peek Notifications-->
+         <CheckBoxPreference
+             android:key="notification_peek"
+             android:title="@string/notification_peek_title"
+             android:summary="@string/notification_peek_summary" />
+ 
+
+    <!-- Active display -->	
   <PreferenceScreen	
     	android:key="active_display"	
 	    android:fragment="com.android.settings.fragments.ls.ActiveDisplaySettings"	
