@@ -31,7 +31,6 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
     private String mUnitsRight = "";
     private SeekBar mSeekBar;
     private TextView mTitle;
-
     private TextView mStatusText;
 
     public SeekBarPreference(Context context, AttributeSet attrs) {
@@ -186,7 +185,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        if(restoreValue) {
+        if (restoreValue) {
             mCurrentValue = getPersistedInt(mCurrentValue);
         } else {
             int temp = 0;
@@ -203,4 +202,17 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
     public void setValue(int value) {
         mCurrentValue = value;
     }
+  
+    public void setMaxValue(int value) {
+        mMaxValue = value;
+    }
+
+    public void setMinValue(int value) {
+        mMinValue = value;
+    }
+
+    public void updateSeekValue() {
+        mSeekBar.setMax(mMaxValue - mMinValue);
+    }
+
 }
