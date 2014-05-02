@@ -72,7 +72,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
     private static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
     private static final String LOCKSCREEN_BACKGROUND_COLOR_FILL = "lockscreen_background_color_fill";
-
+    private static final String KEY_LOCKSCREEN_TARGETS = "lockscreen_targets";
+    
     private static final int REQUEST_PICK_WALLPAPER = 201;
     private static final int COLOR_FILL = 0;
     private static final int CUSTOM_IMAGE = 1;
@@ -85,7 +86,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private ListPreference mLockBackground;
     private ListPreference mBatteryStatus;
     private ColorPickerPreference mLockColorFill;
-
+    private Preference mLockscreenTargets;
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
     private DevicePolicyManager mDPM;
@@ -116,7 +117,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
-
+        mLockscreenTargets = findPreference(KEY_LOCKSCREEN_TARGETS);
+        
         mGlowpadTorch = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_TORCH);
         mGlowpadTorch.setChecked(Settings.System.getInt(
                 getActivity().getApplicationContext().getContentResolver(),
@@ -201,6 +203,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableCameraWidget != null) {
             mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
 
+        }
+        if (mLockscreenTargets != null) {
+            mLockscreenTargets.setEnabled(enabled);
         }
 	if (mQuickUnlock != null) {
             mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
