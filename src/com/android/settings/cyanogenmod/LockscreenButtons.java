@@ -149,23 +149,6 @@ public class LockscreenButtons extends SettingsPreferenceFragment
     }
 
     private void updateUnlockButtonTypes() {
-<<<<<<< HEAD
-=======
-        boolean canEnableModLockscreen = false;
-        final String keyguardPackage = getActivity().getString(
-                com.android.internal.R.string.config_keyguardPackage);
-        final Bundle keyguard_metadata = Utils.getApplicationMetadata(
-                getActivity(), keyguardPackage);
-        if (keyguard_metadata != null) {
-            canEnableModLockscreen = keyguard_metadata.getBoolean(
-                    "com.cyanogenmod.keyguard", false);
-        }
-        if (!canEnableModLockscreen) {
-            // only applicable to mod lockscreen
-            return;
-        }
-
->>>>>>> 3696c9b... Settings: read keyguard package name from overlays
         boolean secure = new LockPatternUtils(getActivity()).isSecure();
 
         if (secure) {

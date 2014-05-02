@@ -154,29 +154,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
         }
 
-<<<<<<< HEAD
-=======
-        boolean canEnableModLockscreen = false;
-        final String keyguardPackage = getActivity().getString(
-                com.android.internal.R.string.config_keyguardPackage);
-        final Bundle keyguard_metadata = Utils.getApplicationMetadata(
-                getActivity(), keyguardPackage);
-        if (keyguard_metadata != null) {
-            canEnableModLockscreen = keyguard_metadata.getBoolean(
-                    "com.cyanogenmod.keyguard", false);
-        }
-
-        if (mEnableModLock != null && !canEnableModLockscreen) {
-            generalCategory.removePreference(mEnableModLock);
-            mEnableModLock = null;
-        }
-
-        // Remove cLock settings item if not installed
-        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
-            widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
-        }
-
->>>>>>> 3696c9b... Settings: read keyguard package name from overlays
         // Remove maximize widgets on tablets
         if (!Utils.isPhone(getActivity())) {
             widgetsCategory.removePreference(
