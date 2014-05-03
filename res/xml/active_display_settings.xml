@@ -25,23 +25,27 @@
         android:summaryOff="@string/ad_enable_summary_off"
         android:summaryOn="@string/ad_enable_summary_on" />
 
-    <CheckBoxPreference
-        android:key="ad_text"
-        android:persistent="false"
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="active_display_content"
+        android:defaultValue="true"
+        android:title="@string/ad_content_title"
+        android:summary="@string/ad_content_summary"
+        android:dependency="ad_enable"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="active_display_text"
         android:title="@string/ad_text_title"
         android:summary="@string/ad_text_summary"
         android:dependency="ad_enable"/>
 
-    <CheckBoxPreference
-        android:key="ad_all_notifications"
-        android:persistent="false"
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="active_display_all_notifications"
         android:title="@string/ad_all_notifications_title"
         android:summary="@string/ad_all_notifications_summary"
         android:dependency="ad_enable"/>
 
-    <CheckBoxPreference
-        android:key="ad_hide_low_priority"
-        android:persistent="false"
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="active_display_hide_low_priority_notifications"
         android:title="@string/ad_hide_low_priority_title"
         android:summary="@string/ad_hide_low_priority_summary"
         android:dependency="ad_enable"/>
@@ -53,6 +57,13 @@
         android:summary="@string/ad_pocket_mode_summary"
         android:entries="@array/ad_pocket_mode_entries"
         android:entryValues="@array/ad_pocket_mode_values"
+        android:dependency="ad_enable"/>
+
+    <CheckBoxPreference
+        android:key="ad_bypass"
+        android:persistent="false"
+        android:title="@string/ad_bypass_title"
+        android:summary="@string/ad_bypass_summary"
         android:dependency="ad_enable"/>
 
     <CheckBoxPreference
@@ -71,20 +82,89 @@
         android:entryValues="@array/ad_redisplay_values"
         android:dependency="ad_enable"/>
 
+    <com.android.settings.chameleonos.SeekBarPreference
+        android:key="ad_annoying"
+        android:persistent="false"
+        android:title="@string/ad_annoying_title"
+        android:summary="@string/ad_annoying_summary"
+        android:max="60"
+        settings:min="0"
+        settings:interval="1"
+        settings:unitsLeft=""
+        settings:unitsRight="s"
+        android:dependency="ad_enable" />
+
+    <PreferenceCategory
+        android:key="ad_shake_event"
+        android:title="@string/ad_shake_event_settings_title" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="active_display_shake_event"
+            android:title="@string/ad_shake_event_title"
+            android:summary="@string/ad_shake_event_summary"
+            android:dependency="ad_enable"/>
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="active_display_shake_force"
+            android:title="@string/ad_shake_force_title"
+            android:summary="@string/ad_shake_force_summary"
+            android:dependency="active_display_shake_event"/>
+
+        <com.android.settings.chameleonos.SeekBarPreference
+            android:key="ad_shake_threshold"
+            android:persistent="false"
+            android:title="@string/ad_shake_threshold_title"
+            android:summary="@string/ad_shake_threshold_summary"
+            android:max="20"
+            settings:min="5"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:dependency="active_display_shake_event" />
+
+        <com.android.settings.chameleonos.SeekBarPreference
+            android:key="ad_shake_long_threshold"
+            android:persistent="false"
+            android:title="@string/ad_shake_long_threshold_title"
+            android:summary="@string/ad_shake_long_threshold_summary"
+            android:max="5"
+            settings:min="1"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="s"
+            android:dependency="active_display_shake_event" />
+
+        <com.android.settings.chameleonos.SeekBarPreference
+            android:key="ad_shake_timeout"
+            android:persistent="false"
+            android:title="@string/ad_shake_timeout_title"
+            android:summary="@string/ad_shake_timeout_summary"
+            android:max="120"
+            settings:min="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="s"
+            android:dependency="active_display_shake_event" />
+
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="active_display_shake_quiet_hours"
+            android:title="@string/ad_shake_quiet_hours_title"
+            android:summary="@string/ad_shake_quiet_hours_summary"
+            android:dependency="active_display_shake_event"/>
+
     <PreferenceCategory
         android:key="ad_customizations"
         android:title="@string/ad_customizations_title" />
 
-        <com.android.settings.chameleonos.AppMultiSelectListPreference
-            android:key="ad_excluded_apps"
-            android:persistent="false"
-            android:title="@string/ad_excluded_apps_title"
-            android:summary="@string/ad_excluded_apps_summary"
-            android:dependency="ad_enable" />
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="active_display_double_tap"
+            android:title="@string/ad_double_tap_title"
+            android:summary="@string/ad_double_tap_summary"
+            android:dependency="ad_enable"/>
 
-        <CheckBoxPreference
-            android:key="ad_show_date"
-            android:persistent="false"
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="active_display_show_date"
+            android:defaultValue="true"
             android:title="@string/ad_show_date_title"
             android:summary="@string/ad_show_date_summary"
             android:dependency="ad_enable"/>
@@ -95,6 +175,20 @@
             android:title="@string/ad_show_ampm_title"
             android:summary="@string/ad_show_ampm_summary"
             android:dependency="ad_enable"/>
+
+        <com.android.settings.chameleonos.AppMultiSelectListPreference
+            android:key="ad_excluded_apps"
+            android:persistent="false"
+            android:title="@string/ad_excluded_apps_title"
+            android:summary="@string/ad_excluded_apps_summary"
+            android:dependency="ad_enable" />
+
+        <com.android.settings.chameleonos.AppMultiSelectListPreference
+            android:key="ad_privacy_apps"
+            android:persistent="false"
+            android:title="@string/ad_privacy_apps_title"
+            android:summary="@string/ad_privacy_apps_summary"
+            android:dependency="ad_enable" />
 
 	<CheckBoxPreference
             android:key="ad_turnoff_mode"
@@ -107,6 +201,7 @@
             android:key="ad_threshold"
             android:persistent="false"
             android:dialogTitle="@string/ad_threshold_title"
+            android:summary="@string/ad_threshold_summary"
             android:title="@string/ad_threshold_title"
             android:entries="@array/ad_threshold_entries"
             android:entryValues="@array/ad_threshold_values"
@@ -126,11 +221,8 @@
             android:persistent="false"
             android:title="@string/ad_brightness_title"
             android:summary="@string/ad_brightness_summary"
-            android:max="100"
-            settings:min="0"
             settings:unitsLeft=""
             settings:unitsRight="%"
-            android:defaultValue="100"
             android:dependency="ad_enable" />
 
 </PreferenceScreen>
