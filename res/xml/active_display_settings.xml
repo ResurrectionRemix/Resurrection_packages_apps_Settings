@@ -32,13 +32,6 @@
         android:summary="@string/ad_content_summary"
         android:dependency="ad_enable"/>
 
-    <CheckBoxPreference
-        android:key="ad_bypass"
-        android:persistent="false"
-        android:title="@string/ad_bypass_title"
-        android:summary="@string/ad_bypass_summary"
-        android:dependency="ad_enable"/>
-
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="active_display_text"
         android:title="@string/ad_text_title"
@@ -64,6 +57,13 @@
         android:summary="@string/ad_pocket_mode_summary"
         android:entries="@array/ad_pocket_mode_entries"
         android:entryValues="@array/ad_pocket_mode_values"
+        android:dependency="ad_enable"/>
+
+    <CheckBoxPreference
+        android:key="ad_bypass"
+        android:persistent="false"
+        android:title="@string/ad_bypass_title"
+        android:summary="@string/ad_bypass_summary"
         android:dependency="ad_enable"/>
 
     <CheckBoxPreference
