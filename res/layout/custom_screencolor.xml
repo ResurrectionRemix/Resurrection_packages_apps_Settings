@@ -63,8 +63,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/bottons_layout"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
+        android:paddingStart="10dip"
+        android:paddingEnd="10dip"
         android:background="@drawable/transparent_background">
 
             <RelativeLayout
@@ -75,22 +75,22 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                     android:id="@+id/up_down"
                     android:layout_width="48dip"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/down_button"/>
                 <ImageView
                     android:id="@+id/more"
                     android:layout_width="48dip"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/more_button"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/up_down"
-                    android:layout_toLeftOf="@id/more"
+                    android:layout_toEndOf="@id/up_down"
+                    android:layout_toStartOf="@id/more"
                     android:gravity="center">
                     <Button
                         android:id="@+id/previous_btn"
@@ -111,8 +111,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/controls_layout"
-        android:paddingLeft="20dip"
-        android:paddingRight="20dip"
+        android:paddingStart="20dip"
+        android:paddingEnd="20dip"
         android:paddingBottom="10dip">
         <LinearLayout android:id="@+id/screencolor_control"
             android:orientation="vertical"
@@ -121,7 +121,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
             <TextView android:id="@+id/hue"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dip"
+                android:paddingStart="20dip"
                 android:paddingTop="10dip"
                 android:layout_width="match_parent"
                 android:textColor="@android:color/white"
@@ -130,40 +130,40 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip">
+                android:paddingStart="10dip"
+                android:paddingEnd="10dip">
                 <ImageView
                     android:id="@+id/reduce_hue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_zoom_out"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"/>
                 <ImageView
                     android:id="@+id/increase_hue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_zoom_in"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"/>
                 <SeekBar android:id="@+id/hcontrol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumb="@drawable/ic_zoom_slider"
                     android:progressDrawable="@drawable/seekbar_define_style"
-                    android:layout_toRightOf="@id/reduce_hue"
-                    android:layout_toLeftOf="@id/increase_hue"
+                    android:layout_toEndOf="@id/reduce_hue"
+                    android:layout_toStartOf="@id/increase_hue"
                     android:maxHeight="12px"
                     android:minHeight="12px"
-                    android:paddingLeft="20dip"
+                    android:paddingStart="20dip"
                     android:paddingTop="10dip"
-                    android:paddingRight="20dip"
+                    android:paddingEnd="20dip"
                     android:paddingBottom="10dip"/>
             </RelativeLayout>
 
             <TextView android:id="@+id/saturation"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dip"
+                android:paddingStart="20dip"
                 android:paddingTop="10dip"
                 android:layout_width="fill_parent"
                 android:textColor="@android:color/white"
@@ -171,38 +171,38 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip">
+                android:paddingStart="10dip"
+                android:paddingEnd="10dip">
                 <ImageView
                     android:id="@+id/reduce_saturation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_zoom_out"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true" />
                 <ImageView
                     android:id="@+id/increase_saturation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_zoom_in"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"/>
                 <SeekBar android:id="@+id/scontrol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumb="@drawable/ic_zoom_slider"
                     android:progressDrawable="@drawable/seekbar_define_style"
-                    android:layout_toRightOf="@id/reduce_saturation"
-                    android:layout_toLeftOf="@id/increase_saturation"
-                    android:paddingLeft="20dip"
+                    android:layout_toEndOf="@id/reduce_saturation"
+                    android:layout_toStartOf="@id/increase_saturation"
+                    android:paddingStart="20dip"
                     android:paddingTop="10dip"
-                    android:paddingRight="20dip"
+                    android:paddingEnd="20dip"
                     android:paddingBottom="10dip"/>
             </RelativeLayout>
 
             <TextView android:id="@+id/contrast"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dip"
+                android:paddingStart="20dip"
                 android:paddingTop="10dip"
                 android:layout_width="fill_parent"
                 android:textColor="@android:color/white"
@@ -210,38 +210,38 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip">
+                android:paddingStart="10dip"
+                android:paddingEnd="10dip">
                 <ImageView
                     android:id="@+id/reduce_contrast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_zoom_out"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true" />
                 <ImageView
                     android:id="@+id/increase_contrast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_zoom_in"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"/>
                 <SeekBar android:id="@+id/ccontrol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumb="@drawable/ic_zoom_slider"
                     android:progressDrawable="@drawable/seekbar_define_style"
-                    android:layout_toRightOf="@id/reduce_contrast"
-                    android:layout_toLeftOf="@id/increase_contrast"
-                    android:paddingLeft="20dip"
+                    android:layout_toEndOf="@id/reduce_contrast"
+                    android:layout_toStartOf="@id/increase_contrast"
+                    android:paddingStart="20dip"
                     android:paddingTop="10dip"
-                    android:paddingRight="20dip"
+                    android:paddingEnd="20dip"
                     android:paddingBottom="10dip"/>
             </RelativeLayout>
 
             <TextView android:id="@+id/intensity"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dip"
+                android:paddingStart="20dip"
                 android:paddingTop="10dip"
                 android:layout_width="fill_parent"
                 android:textColor="@android:color/white"
@@ -249,33 +249,33 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
+                android:paddingStart="10dip"
+                android:paddingEnd="10dip"
                 android:id="@+id/intensity_layout">
                 <ImageView
                     android:id="@+id/reduce_intensity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_zoom_out"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true" />
                 <ImageView
                     android:id="@+id/increase_intensity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_zoom_in"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"/>
                 <SeekBar android:id="@+id/icontrol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumb="@drawable/ic_zoom_slider"
                     android:progressDrawable="@drawable/seekbar_define_style"
-                    android:layout_toRightOf="@id/reduce_intensity"
-                    android:layout_toLeftOf="@id/increase_intensity"
-                    android:paddingLeft="20dip"
+                    android:layout_toEndOf="@id/reduce_intensity"
+                    android:layout_toStartOf="@id/increase_intensity"
+                    android:paddingStart="20dip"
                     android:paddingTop="10dip"
-                    android:paddingRight="20dip"
+                    android:paddingEnd="20dip"
                     android:paddingBottom="10dip"/>
             </RelativeLayout>
         </LinearLayout>
