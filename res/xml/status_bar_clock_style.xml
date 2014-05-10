@@ -28,7 +28,13 @@
             android:title="@string/clock_color_title"
             android:defaultValue="0xffffff"
             android:dependency="status_bar_show_clock" />
-
+            
+        <CheckBoxPreference
+            android:key="clock_use_second"
+            android:title="@string/clock_use_second"
+            android:summary="@string/clock_use_second_summary"
+            android:defaultValue="false" />
+            
         <ListPreference
             android:key="clock_style"
             android:entries="@array/clock_style_entries"
