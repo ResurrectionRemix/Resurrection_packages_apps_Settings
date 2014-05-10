@@ -220,8 +220,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                 summaryResId = R.string.uicc_eject_summary;
 
             } else {
-                titleResId = R.string.sd_eject;
-                summaryResId = R.string.sd_eject_summary;
+                titleResId = R.string.sdcard_eject;
+                summaryResId = R.string.sdcard_eject_summary;
                 isAccessible = mResources.getBoolean(
                         com.android.internal.R.bool.config_batterySdCardAccessibility);
             }
@@ -248,8 +248,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                 summaryResId = R.string.uicc_format_summary;
 
             } else {
-                titleResId = R.string.sd_format;
-                summaryResId = R.string.sd_format_summary;
+                titleResId = R.string.sd_card_format;
+                summaryResId = R.string.sd_card_format_summary;
             }
 
             mFormatPreference.setTitle(titleResId);
@@ -313,8 +313,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                 summaryResId = R.string.uicc_eject_summary;
 
             } else {
-                titleResId = R.string.sd_eject;
-                summaryResId = R.string.sd_eject_summary;
+                titleResId = R.string.sdcard_eject;
+                summaryResId = R.string.sdcard_eject_summary;
             }
 
             mMountTogglePreference.setTitle(titleResId);
@@ -337,8 +337,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                     summaryResId = R.string.uicc_mount_summary;
 
                 } else {
-                    titleResId = R.string.sd_mount;
-                    summaryResId = R.string.sd_mount_summary;
+                    titleResId = R.string.sdcard_mount;
+                    summaryResId = R.string.sdcard_mount_summary;
                 }
 
                 mMountTogglePreference.setTitle(mResources.getString(titleResId));
@@ -356,8 +356,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                     summaryResId = R.string.uicc_insert_summary;
 
                 } else {
-                    titleResId = R.string.sd_mount;
-                    summaryResId = R.string.sd_insert_summary;
+                    titleResId = R.string.sdcard_mount;
+                    summaryResId = R.string.sdcard_insert_summary;
                 }
 
                 mMountTogglePreference.setTitle(mResources.getString(titleResId));
@@ -392,7 +392,7 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                 mFormatPreference.setSummary(R.string.uicc_format_summary);
 
             } else {
-                mFormatPreference.setSummary(R.string.sd_format_summary);
+                mFormatPreference.setSummary(R.string.sdcard_format_summary);
             }
         }
     }

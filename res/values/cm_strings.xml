@@ -781,9 +781,16 @@
 
     <string name="subs_settings">SIM card status</string>
 
-    <!-- string resources for USB OTG & UICC features -->
+    <!-- string resources for SD card, USB OTG & UICC features -->
     <string name="storage_usb">USB storage</string>
     <string name="storage_uicc">UICC storage</string>
+    <string name="sdcard_eject" product="default">Unmount SD card</string>
+    <string name="sdcard_eject_summary" product="default">Unmount the SD card so you can safely remove it</string>
+    <string name="sd_card_format" product="default">Erase SD card</string>
+    <string name="sd_card_format_summary" product="default">Erases all data on the SD card, such as music and photos</string>
+    <string name="sdcard_mount" product="default">Mount SD card</string>
+    <string name="sdcard_mount_summary" product="default" translatable="false"></string>
+    <string name="sdcard_insert_summary" product="default">Insert an SD card to mount</string>
     <string name="usb_eject" product="default">Unmount USB storage</string>
     <string name="usb_eject_summary" product="default">Unmount the USB storage so you can safely remove it</string>
     <string name="usb_format" product="default">Erase USB storage</string>
@@ -803,21 +810,29 @@
     <!-- Message of dialog asking user to confirm before enabling UMS. [CHAR LIMIT=NONE] -->
     <string name="usb_settings_enable_ums_message">System components and apps rely on primary storage always being available. This feature breaks that functionality. It is strongly recommended to use MTP instead. Are you sure you want to enable mass storage?</string>
 
+    <string name="dlg_confirm_sdcard_unmount_title" product="default">Unmount SD card?</string>
     <string name="dlg_confirm_usb_unmount_title" product="default">Unmount USB storage?</string>
     <string name="dlg_confirm_uicc_unmount_title" product="default">Unmount UICC storage?</string>
+    <string name="dlg_confirm_sdcard_unmount_text" product="default">If you unmount the SD card, some apps you are using will stop and may be unavailable until you remount the SD card.</string>
     <string name="dlg_confirm_usb_unmount_text" product="default">If you unmount the USB storage, some apps you are using will stop and may be unavailable until you remount the USB storage.</string>
     <string name="dlg_confirm_uicc_unmount_text" product="default">If you unmount the UICC storage, some apps you are using will stop and may be unavailable until you remount the UICC storage.</string>
+    <string name="dlg_error_sdcard_unmount_text" product="default">Couldn\'t unmount SD card. Try again later.</string>
     <string name="dlg_error_usb_unmount_text" product="default">Couldn\'t unmount USB storage. Try again later.</string>
     <string name="dlg_error_uicc_unmount_text" product="default">Couldn\'t unmount UICC storage. Try again later.</string>
+    <string name="sdcard_unmount_inform_text" product="default">SD card will be unmounted.</string>
     <string name="usb_unmount_inform_text" product="default">USB storage will be unmounted.</string>
     <string name="uicc_unmount_inform_text" product="default">UICC storage will be unmounted.</string>
 
+    <string name="sdcard_media_format_desc" product="default">Erase the SD card? You will lose <b>all</b> data on the card!</string>
     <string name="usb_media_format_desc" product="default">Erase the USB storage? You will lose <b>all</b> data on the storage!</string>
     <string name="uicc_media_format_desc" product="default">Erase the UICC storage? You will lose <b>all</b> data on the storage!</string>
+    <string name="sdcard_media_format_button_text" product="default">Erase SD card</string>
     <string name="usb_media_format_button_text" product="default">Erase USB storage</string>
     <string name="uicc_media_format_button_text" product="default">Erase UICC storage</string>
+    <string name="sdcard_media_format_final_desc" product="default">Erase the SD card, deleting all files stored there? You can\'t reverse this action!</string>
     <string name="usb_media_format_final_desc" product="default">Erase the USB storage, deleting all files stored there? You can\'t reverse this action!</string>
     <string name="uicc_media_format_final_desc" product="default">Erase the UICC storage, deleting all files stored there? You can\'t reverse this action!</string>
+    <string name="sdcard_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the SD card.</string>
     <string name="usb_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the USB storage.</string>
     <string name="uicc_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the UICC storage.</string>
 
