@@ -55,6 +55,9 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+
 /*
  * Displays Wi-fi p2p settings UI
  */
@@ -520,12 +523,45 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
         }
         if (DBG) Log.d(TAG, " mConnectedDevices " + mConnectedDevices);
     }
-
+    private String utfToString(String utf) {
+        int value;
+        byte[] utfBytes = utf.getBytes();
+        ByteBuffer decodedBytes = ByteBuffer.allocate(utf.length());
+        int size = 0;
+        for (int i = 0; i < utfBytes.length; i++) {
+            if ((utfBytes[i] == '\\') && (utfBytes[i + 1] == 'x')) {
+               value = Integer.parseInt(utf.substring(i + 2, i + 4), 16);
+               decodedBytes.put((byte) value);
+               i = i + 3;
+            } else {
+               decodedBytes.put(utfBytes[i]);
+            }
+            size++;
+        }
+        try {
+            ByteBuffer sink = ByteBuffer.allocate(size);
+            for (int j = 0; j < size; j++) {
+                sink.put(decodedBytes.get(j));
+            }
+            return new String(sink.array(), "UTF-8");
+        } catch (UnsupportedEncodingException uee) {
+            uee.printStackTrace();
+        }
+        return null;
+    }
     @Override
     public void onPersistentGroupInfoAvailable(WifiP2pGroupList groups) {
+        CharSequence cs = "\\x";
         mPersistentGroup.removeAll();
 
         for (WifiP2pGroup group: groups.getGroupList()) {
+            String networkName = group.getNetworkName();
+            if (networkName.contains(cs)){
+                String string = utfToString(networkName);
+                if (string != null){
+                    group.setNetworkName(string);
+                }
+            }
             if (DBG) Log.d(TAG, " group " + group);
             WifiP2pPersistentGroup wppg = new WifiP2pPersistentGroup(getActivity(), group);
             mPersistentGroup.addPreference(wppg);
