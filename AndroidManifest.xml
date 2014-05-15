@@ -1954,6 +1954,17 @@
                        android:resource="@id/sound_settings" />
         </activity>
 
+        <activity android:name="Settings$ThemeSettingsActivity"
+                  android:label="@string/themes_settings_title"
+                  android:taskAffinity=""
+                  android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.ThemeSettings" />
+        </activity>
         <!-- CyanogenMod activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
