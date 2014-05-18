@@ -368,8 +368,7 @@ public class AutoBrightnessCustomizeDialog extends AlertDialog
         for (int i = 0; i < n; i++) {
             SettingRow row = mAdapter.getItem(i);
             x[i] = row.lux;
-            //XXX: should mMinLevel be treated as 0 in the preview?
-            y[i] = (float) row.backlight / PowerManager.BRIGHTNESS_ON;
+            y[i] = brightnessToPercent(row.backlight) / 100F;
         }
 
         final View v = getLayoutInflater().inflate(R.layout.auto_brightness_preview, null);
