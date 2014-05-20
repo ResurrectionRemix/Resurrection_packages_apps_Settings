@@ -23,7 +23,6 @@ import static com.android.internal.util.cm.QSConstants.TILE_BATTERY;
 import static com.android.internal.util.cm.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.cm.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.cm.QSConstants.TILE_CAMERA;
-import static com.android.internal.util.cm.QSConstants.TILE_CPUFREQ;
 import static com.android.internal.util.cm.QSConstants.TILE_DELIMITER;
 import static com.android.internal.util.cm.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.cm.QSConstants.TILE_GPS;
@@ -162,9 +161,6 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_QUICKRECORD, R.string.title_tile_quick_record,
                 "com.android.systemui:drawable/ic_qs_quickrecord"));
-        registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_CPUFREQ, R.string.title_tile_cpufreq,
-                "com.android.systemui:drawable/ic_qs_cpufreq"));
     }
 
     private static void registerTile(QuickSettingsUtil.TileInfo info) {
@@ -226,11 +222,6 @@ public class QuickSettingsUtil {
         if (!QSUtils.deviceSupportsPerformanceProfiles(context)) {
             removeTile(TILE_PERFORMANCE_PROFILE);
         }
-        // Don't show the CPUFreq tile if the kernel doesn't support this
-        if (!QSUtils.deviceSupportsCPUFreq()) {
-            removeTile(TILE_CPUFREQ);
-
-        }
     }
 
     private static synchronized void refreshAvailableTiles(Context context) {
@@ -279,7 +270,6 @@ public class QuickSettingsUtil {
         } else {
             disableTile(TILE_NETWORKADB);
         }
-
     }
 
     public static synchronized void updateAvailableTiles(Context context) {
