@@ -172,6 +172,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String ROOT_ACCESS_KEY = "root_access";
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
 
+    private static final String UPDATE_RECOVERY_KEY = "update_recovery";
+    private static final String UPDATE_RECOVERY_PROPERTY = "persist.sys.recovery_update";
+
     private static final String IMMEDIATELY_DESTROY_ACTIVITIES_KEY
             = "immediately_destroy_activities";
     private static final String APP_PROCESS_LIMIT_KEY = "app_process_limit";
@@ -282,6 +285,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mAdvancedReboot;
 
+    private SwitchPreference mUpdateRecovery;
+
     private SwitchPreference mDevelopmentShortcut;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
@@ -298,6 +303,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private Dialog mAdbKeysDialog;
     private boolean mUnavailable;
     private Dialog mRootDialog;
+    private Dialog mUpdateRecoveryDialog;
 
     @Override
     protected int getMetricsCategory() {
@@ -360,7 +366,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
         mAdvancedReboot = findAndInitSwitchPref(ADVANCED_REBOOT_KEY);
-
+        mUpdateRecovery = findAndInitSwitchPref(UPDATE_RECOVERY_KEY);
         mDevelopmentShortcut = findAndInitSwitchPref(DEVELOPMENT_SHORTCUT_KEY);
 
 
@@ -370,6 +376,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             disableForUser(mEnableTerminal);
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
+            disableForUser(mUpdateRecovery);
             disableForUser(mDevelopmentShortcut);
         }
 
@@ -697,6 +704,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateRootAccessOptions();
         updateAdvancedRebootOptions();
         updateDevelopmentShortcutOptions();
+        updateUpdateRecoveryOptions();
     }
 
     private void writeAdvancedRebootOptions() {
@@ -767,6 +775,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         writeLogdSizeOption(null);
         resetRootAccessOptions();
         resetDevelopmentShortcutOptions();
+        resetUpdateRecoveryOptions();
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
@@ -1735,6 +1744,24 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 .show();
     }
 
+    private void updateUpdateRecoveryOptions() {
+        updateSwitchPreference(mUpdateRecovery, SystemProperties.getBoolean(
+                UPDATE_RECOVERY_PROPERTY, false));
+    }
+
+    private void writeUpdateRecoveryOptions() {
+        SystemProperties.set(UPDATE_RECOVERY_PROPERTY,
+                mUpdateRecovery.isChecked() ? "true" : "false");
+        pokeSystemProperties();
+    }
+
+    private void resetUpdateRecoveryOptions() {
+        // User builds should update recovery by default
+        if ("user".equals(Build.TYPE)) {
+            SystemProperties.set(UPDATE_RECOVERY_PROPERTY, "true");
+        }
+    }
+
     @Override
     public void onSwitchChanged(Switch switchView, boolean isChecked) {
         if (switchView != mSwitchBar.getSwitch()) {
@@ -1942,6 +1969,28 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             writeDevelopmentShortcutOptions();
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
+        } else if (preference == mUpdateRecovery) {
+            if (mSwitchBar.isChecked()) {
+                if (mUpdateRecoveryDialog != null) {
+                    dismissDialogs();
+                }
+                if (mUpdateRecovery.isChecked()) {
+                    mUpdateRecoveryDialog = new AlertDialog.Builder(getActivity()).setMessage(
+                            getResources().getString(R.string.update_recovery_on_warning))
+                            .setTitle(R.string.update_recovery_title)
+                            .setPositiveButton(android.R.string.yes, this)
+                            .setNegativeButton(android.R.string.no, this)
+                            .show();
+                } else {
+                    mUpdateRecoveryDialog = new AlertDialog.Builder(getActivity()).setMessage(
+                            getResources().getString(R.string.update_recovery_off_warning))
+                            .setTitle(R.string.update_recovery_title)
+                            .setPositiveButton(android.R.string.yes, this)
+                            .setNegativeButton(android.R.string.no, this)
+                            .show();
+                }
+                mUpdateRecoveryDialog.setOnDismissListener(this);
+            }
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
@@ -2049,6 +2098,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             mRootDialog.dismiss();
             mRootDialog = null;
         }
+        if (mUpdateRecoveryDialog != null) {
+            mUpdateRecoveryDialog.dismiss();
+            mUpdateRecoveryDialog = null;
+        }
     }
 
     public void onClick(DialogInterface dialog, int which) {
@@ -2098,6 +2151,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 // Reset the option
                 writeRootAccessOptions("0");
             }
+        } else if (dialog == mUpdateRecoveryDialog) {
+            if (which == DialogInterface.BUTTON_POSITIVE) {
+                writeUpdateRecoveryOptions();
+            }
         }
     }
 
@@ -2119,6 +2176,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         } else if (dialog == mRootDialog) {
             updateRootAccessOptions();
             mRootDialog = null;
+        } else if (dialog == mUpdateRecoveryDialog) {
+            updateUpdateRecoveryOptions();
+            mUpdateRecoveryDialog = null;
         }
     }
 
