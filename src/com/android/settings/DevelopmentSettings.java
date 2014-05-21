@@ -114,6 +114,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String BUGREPORT = "bugreport";
     private static final String BUGREPORT_IN_POWER_KEY = "bugreport_in_power";
     private static final String OPENGL_TRACES_PROPERTY = "debug.egl.trace";
+    private static final String UPDATE_RECOVERY_PROPERTY = "persist.sys.recovery_update";
 
     private static final String DEBUG_APP_KEY = "debug_app";
     private static final String WAIT_FOR_DEBUGGER_KEY = "wait_for_debugger";
@@ -142,6 +143,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String DEBUG_APPLICATIONS_CATEGORY_KEY = "debug_applications_category";
     private static final String WIFI_DISPLAY_CERTIFICATION_KEY = "wifi_display_certification";
     private static final String PREF_DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
+    private static final String UPDATE_RECOVERY_KEY = "update_recovery";
 
     private static final String ENABLE_QUICKBOOT_KEY = "enable_quickboot";
     private static final String QUICKBOOT_PACKAGE_NAME = "com.qapp.quickboot";
@@ -241,6 +243,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private CheckBoxPreference mAdvancedReboot;
 
+    private CheckBoxPreference mUpdateRecovery;
+
     private CheckBoxPreference mDevelopmentShortcut;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
@@ -309,6 +313,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
         mAdvancedReboot = findAndInitCheckboxPref(ADVANCED_REBOOT_KEY);
+        mUpdateRecovery = findAndInitCheckboxPref(UPDATE_RECOVERY_KEY);
         mDevelopmentShortcut = findAndInitCheckboxPref(DEVELOPMENT_SHORTCUT_KEY);
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
@@ -317,6 +322,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             disableForUser(mEnableTerminal);
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
+            disableForUser(mUpdateRecovery);
             disableForUser(mDevelopmentShortcut);
             disableForUser(mQuickBoot);
         }
@@ -607,6 +613,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateRootAccessOptions();
         updateAdvancedRebootOptions();
         updateDevelopmentShortcutOptions();
+        updateUpdateRecoveryOptions();
     }
 
     private void writeAdvancedRebootOptions() {
@@ -1371,6 +1378,15 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             getActivity().getContentResolver(), Settings.Secure.ANR_SHOW_BACKGROUND, 0) != 0);
     }
 
+    private void updateUpdateRecoveryOptions() {
+        updateCheckBox(mUpdateRecovery, SystemProperties.getBoolean(UPDATE_RECOVERY_PROPERTY, false));
+    }
+
+    private void writeUpdateRecoveryOptions() {
+        SystemProperties.set(UPDATE_RECOVERY_PROPERTY, mUpdateRecovery.isChecked() ? "true" : "false");
+        pokeSystemProperties();
+    }
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (buttonView == mEnabledSwitch) {
@@ -1550,6 +1566,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             writeDevelopmentShortcutOptions();
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
+        } else if (preference == mUpdateRecovery) {
+            writeUpdateRecoveryOptions();
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
