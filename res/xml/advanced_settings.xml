@@ -44,6 +44,13 @@
             android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
   </PreferenceScreen>        
 
+ 
+    <PreferenceScreen
+      android:id="@+id/app_circle_sidebar"
+      android:title="@string/app_circle_bar_title"
+      android:summary="@string/app_circle_sidebar_summary_real"
+      android:fragment="com.android.settings.mahdi.omni.AppCircleSidebar" />
+
     <!-- App bar -->   
   <PreferenceScreen
         android:key="app_sidebar"
