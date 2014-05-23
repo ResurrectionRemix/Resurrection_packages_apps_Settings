@@ -1,15 +1,36 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lockscreen_notifications"
+    android:title="@string/notifications_on_lockscreen"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    
+    <Preference
+            style="?android:preferenceInformationStyle"
+            android:title="@string/note"
+            android:summary="@string/notifications_on_lockscreen_warning_summary"
+            android:selectable="false" />
 
     <PreferenceCategory
+        android:title="@string/notification_peek_title" >
+         <CheckBoxPreference
+            android:key="notification_peek"
+            android:title="@string/notification_peek_title"
+            android:summary="@string/notification_peek_summary" />
+         <ListPreference
+            android:key="peek_pickup_timeout"
+            android:title="@string/peek_pickup_timeout_title"
+            android:persistent="false"
+            android:entries="@array/peek_pickup_timeout_entries"
+            android:entryValues="@array/peek_pickup_timeout_values"
+            android:dependency="notification_peek" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
         android:key="category_general"
-        android:title="@string/general" >
+        android:title="@string/lockscreen_notifications" >
         <CheckBoxPreference
             android:key="lockscreen_notifications"
             android:title="@string/lockscreen_notifications"
-            android:summary="@string/lockscreen_notifications_summary" />
+            android:summary="@string/notifications_on_lockscreen_summary" />
             
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                  android:key="notification_color"

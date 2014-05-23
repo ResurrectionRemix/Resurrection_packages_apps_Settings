@@ -41,8 +41,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
-import android.database.ContentObserver;
-import android.os.Handler;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -56,7 +54,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String TAG = "LockscreenSettings";
     
-    private static final String KEY_PEEK = "notification_peek";
 
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_BLUR_RADIUS = "blur_radius";
@@ -65,7 +62,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private SeekBarPreference mBlurRadius;
     private Activity mActivity;
     private ContentResolver mResolver;
-    private CheckBoxPreference mNotificationPeek;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,10 +74,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         mContext = getActivity();
         mActivity = getActivity();
         mResolver = mActivity.getContentResolver();
-
-	//Peek Notifications
-        mNotificationPeek = (CheckBoxPreference) findPreference(KEY_PEEK);
-        mNotificationPeek.setPersistent(false);
 
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) prefs.findPreference(KEY_SEE_TRHOUGH);
@@ -103,9 +95,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
               Settings.System.putInt(cr, Settings.System.LOCKSCREEN_SEE_THROUGH,
                       mSeeThrough.isChecked() ? 1 : 0);
             return true;
-	} else if (preference == mNotificationPeek) {
-            Settings.System.putInt(getContentResolver(), Settings.System.PEEK_STATE,
-                    mNotificationPeek.isChecked() ? 1 : 0);
 	}
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -122,20 +111,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         }
 
         return false;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        updatePeekCheckbox();
-    }
-
-    private void updatePeekCheckbox() {
-        boolean enabled = Settings.System.getInt(getContentResolver(),
-                Settings.System.PEEK_STATE, 0) == 1;
-        mNotificationPeek.setChecked(enabled);
     }
 
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
