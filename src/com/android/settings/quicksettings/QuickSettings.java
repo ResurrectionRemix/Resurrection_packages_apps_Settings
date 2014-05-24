@@ -282,9 +282,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             // Smart pulldown deactivated
             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
         } else {
-            String type = res.getString(value == 2
-                    ? R.string.smart_pulldown_persistent
-                    : R.string.smart_pulldown_dismissable);
+
+            String type = null;
+            switch (value) {
+                case 1:
+                    type = res.getString(R.string.smart_pulldown_dismissable);
+                    break;
+                case 2:
+                    type = res.getString(R.string.smart_pulldown_persistent);
+                    break;
+                default:
+                    type = res.getString(R.string.smart_pulldown_all);
+                    break;
+            }
+            // Remove title capitalized formatting
+            type = type.toLowerCase();
             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
           }
       }
