@@ -22,6 +22,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 
+import com.android.internal.util.nameless.NamelessUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -46,5 +47,9 @@ public class PowerMenu extends SettingsPreferenceFragment {
             getPreferenceScreen().removePreference(
                     findPreference(Settings.System.POWER_MENU_USER_ENABLED));
         }
+                
+         findPreference(Settings.System.POWER_MENU_ONTHEGO_ENABLED).setEnabled(
+               NamelessUtils.hasCamera(getActivity())
+        );
     }
 }
