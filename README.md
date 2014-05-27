@@ -1,4 +1,4 @@
 ## About
 
 
-Android Settings app for Resurrection Remix ROM ®
+Android Settings app for Resurrection Remix ROM
