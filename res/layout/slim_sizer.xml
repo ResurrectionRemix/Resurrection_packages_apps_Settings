@@ -1,0 +1,63 @@
+<!--
+ *=========================================================================
+ *
+ *  PROJECT:  SlimRoms
+ *            Team Slimroms (http://www.slimroms.net)
+ *
+ *  COPYRIGHT Copyright (C) 2013 Slimroms http://www.slimroms.net
+ *            All rights reserved
+ *
+ *  LICENSE   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ *
+ *  AUTHORS:     fronti90
+ *  DESCRIPTION: SlimSizer: manage your apps
+ *
+ *=========================================================================
+ *
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Declutter" >
+
+    <ListView
+        android:id="@string/listsystem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_layout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_save"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="6dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_trash_holo_dark"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="6dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
