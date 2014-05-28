@@ -290,11 +290,16 @@ public class SecuritySettings extends RestrictedSettingsFragment
                 DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
             PreferenceGroup securityCategory = (PreferenceGroup)
                     root.findPreference(KEY_SECURITY_CATEGORY);
-            if (securityCategory != null && mVisiblePattern != null &&
-                    mVisibleErrorPattern != null && mVisibleDots != null) {
-                securityCategory.removePreference(mVisiblePattern);
-                securityCategory.removePreference(mVisibleErrorPattern);
-                securityCategory.removePreference(mVisibleDots);
+            if (securityCategory != null) {
+                if (mVisiblePattern != null) {
+                    securityCategory.removePreference(mVisiblePattern);
+                }
+                if (mVisibleErrorPattern != null) {
+                    securityCategory.removePreference(mVisibleErrorPattern);
+                }
+                if (mVisibleDots != null) {
+                    securityCategory.removePreference(mVisibleDots);
+                }
             }
             if (securityCategory != null && mVisibleGesture != null) {
                 securityCategory.removePreference(root.findPreference(KEY_VISIBLE_GESTURE));
