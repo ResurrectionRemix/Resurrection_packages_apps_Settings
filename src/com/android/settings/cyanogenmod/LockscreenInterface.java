@@ -166,6 +166,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mBatteryStatus.setValueIndex(batteryStatus);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
         }
+
+        // Update mod lockscreen status
+        if (mEnableModLock != null) {
+            ContentResolver cr = getActivity().getContentResolver();
+            boolean checked = Settings.System.getInt(
+                    cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
+            mEnableModLock.setChecked(checked);
+        }
                     
         if (mEnableCameraWidget != null) {
             mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
@@ -175,39 +183,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                   Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
         }
-        // Update mod lockscreen status
-        if (mEnableModLock != null) {
-            ContentResolver cr = getActivity().getContentResolver();
-            boolean checked = Settings.System.getInt(
-                    cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
-            mEnableModLock.setChecked(checked);
-        }
 
-        updateAvailableModLockPreferences();
-    }
-
-    private void updateAvailableModLockPreferences() {
-        if (mEnableModLock == null) {
-            return;
-        }
-
-        boolean enabled = !mEnableModLock.isChecked();
-        if (mEnableKeyguardWidgets != null) {
-            // Enable or disable lockscreen widgets based on policy
-            if(!checkDisabledByPolicy(mEnableKeyguardWidgets,
-                    DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL)) {
-                mEnableKeyguardWidgets.setEnabled(enabled);
-            }
-        }
-        if (mEnableMaximizeWidgets != null) {
-            mEnableMaximizeWidgets.setEnabled(enabled);
-        }
-        if (mLockscreenTargets != null) {
-            mLockscreenTargets.setEnabled(enabled);
-        }
-        if (mBatteryStatus != null) {
-            mBatteryStatus.setEnabled(enabled);
-        }
     }
 
     @Override
