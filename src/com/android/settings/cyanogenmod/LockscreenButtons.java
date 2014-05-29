@@ -149,9 +149,25 @@ public class LockscreenButtons extends SettingsPreferenceFragment
     }
 
     private void updateUnlockButtonTypes() {
-        boolean secure = new LockPatternUtils(getActivity()).isSecure();
+        boolean canEnableModLockscreen = false;
+        final String keyguardPackage = getActivity().getString(
+                com.android.internal.R.string.config_keyguardPackage);
+        final Bundle keyguard_metadata = Utils.getApplicationMetadata(
+                getActivity(), keyguardPackage);
+        if (keyguard_metadata != null) {
+            canEnableModLockscreen = keyguard_metadata.getBoolean(
+                    "com.cyanogenmod.keyguard", false);
+        }
+        if (!canEnableModLockscreen) {
+            // only applicable to mod lockscreen
+            return;
+        }
 
-        if (secure) {
+        boolean secure = new LockPatternUtils(getActivity()).isSecure();
+        boolean customKeyguardEnabled = Settings.System.getInt(
+                getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
+        if (secure && customKeyguardEnabled) {
             mHomeUnlock.setEnabled(false);
             mCameraUnlock.setEnabled(false);
             mMenuUnlock.setEnabled(false);
@@ -161,7 +177,6 @@ public class LockscreenButtons extends SettingsPreferenceFragment
             mCameraUnlock.setSummary(disabled);
             mMenuUnlock.setSummary(disabled);
         }
-
     }
 
     private void updateEntry(ListPreference pref) {

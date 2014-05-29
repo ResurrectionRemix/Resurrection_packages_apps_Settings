@@ -19,8 +19,6 @@ package com.android.settings.cyanogenmod;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.ContentResolver;
-import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -44,19 +42,23 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_ENABLE_CAMERA = "keyguard_enable_camera";
-    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
-    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
+    private static final String KEY_ENABLE_MAXIMIZE_WIGETS = "lockscreen_maximize_widgets";
     private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
+    private static final String KEY_LOCKSCREEN_TARGETS = "lockscreen_targets";
+    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
     
-
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
-    private CheckBoxPreference mQuickUnlock;
-    private CheckBoxPreference mGlowpadTorch;
     private CheckBoxPreference mEnableModLock;
+    private CheckBoxPreference mEnableMaximizeWidgets;
     private ListPreference mBatteryStatus;
-
+    private Preference mLockscreenTargets;
+    private CheckBoxPreference mGlowpadTorch;
+    private CheckBoxPreference mQuickUnlock;
+    
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockUtils;
     private DevicePolicyManager mDPM;
@@ -65,7 +67,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
-
+        
         PreferenceScreen prefs = getPreferenceScreen();
 
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
@@ -81,13 +83,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         // Find preferences
         mEnableKeyguardWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
+        mEnableMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_MAXIMIZE_WIGETS);
+        mLockscreenTargets = findPreference(KEY_LOCKSCREEN_TARGETS);
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
-        
-        mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
-         if (mEnableModLock != null) {
-             mEnableModLock.setOnPreferenceChangeListener(this);
-         }
-         
+
         mGlowpadTorch = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_TORCH);
         mGlowpadTorch.setChecked(Settings.System.getInt(
                 getActivity().getApplicationContext().getContentResolver(),
@@ -99,6 +98,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             prefs.removePreference(mGlowpadTorch);
         }
 
+        mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
+        if (mEnableModLock != null) {
+            mEnableModLock.setOnPreferenceChangeListener(this);
+        }
         mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
         if (mBatteryStatus != null) {
             mBatteryStatus.setOnPreferenceChangeListener(this);
@@ -109,10 +112,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             generalCategory.removePreference(findPreference(KEY_LOCKSCREEN_BUTTONS));
         }
 
-        // Enable or disable lockscreen widgets based on policy
-        checkDisabledByPolicy(mEnableKeyguardWidgets,
-                DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL);
-
         // Enable or disable camera widget based on device and policy
         if (Camera.getNumberOfCameras() == 0) {
             widgetsCategory.removePreference(mEnableCameraWidget);
@@ -122,10 +121,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             checkDisabledByPolicy(mEnableCameraWidget,
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA);
         }
-        
+
         boolean canEnableModLockscreen = false;
+        final String keyguardPackage = getActivity().getString(
+                com.android.internal.R.string.config_keyguardPackage);
         final Bundle keyguard_metadata = Utils.getApplicationMetadata(
-                getActivity(), "com.android.keyguard");
+                getActivity(), keyguardPackage);
         if (keyguard_metadata != null) {
             canEnableModLockscreen = keyguard_metadata.getBoolean(
                     "com.cyanogenmod.keyguard", false);
@@ -135,13 +136,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             generalCategory.removePreference(mEnableModLock);
             mEnableModLock = null;
         }
-        
+
+        // Remove cLock settings item if not installed
+        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
+            widgetsCategory.removePreference(findPreference(KEY_LOCK_CLOCK));
+        }
+
         // Remove maximize widgets on tablets
         if (!Utils.isPhone(getActivity())) {
             widgetsCategory.removePreference(
-                    findPreference(Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS));
+                    mEnableMaximizeWidgets);
         }
-
 	    // Quick unlock
 	    mQuickUnlock = (CheckBoxPreference) findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
 		if (mQuickUnlock != null) {
@@ -158,6 +163,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(mLockUtils.getWidgetsEnabled());
         }
+	    if (mQuickUnlock != null) {
+            mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                  Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+        }
+        if (mEnableCameraWidget != null) {
+            mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
+        }
+
         // Update battery status
         if (mBatteryStatus != null) {
             ContentResolver cr = getActivity().getContentResolver();
@@ -174,16 +187,32 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 1;
             mEnableModLock.setChecked(checked);
         }
-                    
-        if (mEnableCameraWidget != null) {
-            mEnableCameraWidget.setChecked(mLockUtils.getCameraEnabled());
-        }
-        
-	    if (mQuickUnlock != null) {
-            mQuickUnlock.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                  Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
+
+        updateAvailableModLockPreferences();
+    }
+
+    private void updateAvailableModLockPreferences() {
+        if (mEnableModLock == null) {
+            return;
         }
 
+        boolean enabled = !mEnableModLock.isChecked();
+        if (mEnableKeyguardWidgets != null) {
+            // Enable or disable lockscreen widgets based on policy
+            if(!checkDisabledByPolicy(mEnableKeyguardWidgets,
+                    DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL)) {
+                mEnableKeyguardWidgets.setEnabled(enabled);
+            }
+        }
+        if (mEnableMaximizeWidgets != null) {
+            mEnableMaximizeWidgets.setEnabled(enabled);
+        }
+        if (mLockscreenTargets != null) {
+            mLockscreenTargets.setEnabled(enabled);
+        }
+        if (mBatteryStatus != null) {
+            mBatteryStatus.setEnabled(enabled);
+        }
     }
 
     @Override
@@ -196,8 +225,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (KEY_ENABLE_CAMERA.equals(key)) {
             mLockUtils.setCameraEnabled(mEnableCameraWidget.isChecked());
             return true;
-        }
-	if (preference == mQuickUnlock) {
+        } else if (preference == mQuickUnlock) {
             Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, mQuickUnlock.isChecked() ? 1 : 0);
         }
@@ -214,17 +242,21 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
             return true;
-        } else if (preference == mGlowpadTorch) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
-                    (Boolean) objValue ? 1 : 0);
-           return true;
         } else if (preference == mEnableModLock) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MODLOCK_ENABLED,
                     value ? 1 : 0);
+            // force it so update picks up correct values
+            ((CheckBoxPreference) preference).setChecked(value);
+            updateAvailableModLockPreferences();
+            return true;
+        } else if (preference == mGlowpadTorch) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    (Boolean) objValue ? 1 : 0);
             return true;
         }
+
         return false;
     }
 
@@ -236,22 +268,23 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         return (getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys) > 0);
     }
-
-    /**
+    
+   /**
      * Checks if the device has torch.
      * @return has torch
      */
     public boolean hasTorch() {
         return getResources().getBoolean(com.android.internal.R.bool.config_enableTorch);
     }
-
+    
     /**
      * Checks if a specific policy is disabled by a device administrator, and disables the
      * provided preference if so.
      * @param preference Preference
      * @param feature Feature
+     * @return True if disabled.
      */
-    private void checkDisabledByPolicy(Preference preference, int feature) {
+    private boolean checkDisabledByPolicy(Preference preference, int feature) {
         boolean disabled = featureIsDisabled(feature);
 
         if (disabled) {
@@ -259,6 +292,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         preference.setEnabled(!disabled);
+        return disabled;
     }
 
     /**

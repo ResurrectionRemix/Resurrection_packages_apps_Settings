@@ -518,13 +518,15 @@ public class KeyguardAppWidgetPickActivity extends Activity
             result = RESULT_OK;
             setResultData(result, intent);
         } else {
-            try {
+           try {
                 if (mAddingToKeyguard && mAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
                     // Found in KeyguardHostView.java
                     final int KEYGUARD_HOST_ID = 0x4B455947;
+                    final String keyguardPackage = getString(
+                            com.android.internal.R.string.config_keyguardPackage);
                     int userId = ActivityManager.getCurrentUser();
                     mAppWidgetId = AppWidgetHost.allocateAppWidgetIdForPackage(KEYGUARD_HOST_ID,
-                            userId, "com.android.keyguard");
+                            userId, keyguardPackage);
                 }
                 mAppWidgetManager.bindAppWidgetId(
                         mAppWidgetId, intent.getComponent(), mExtraConfigureOptions);
