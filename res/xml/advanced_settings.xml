@@ -42,9 +42,14 @@
             android:action="android.intent.action.MAIN"
             android:targetPackage="org.omnirom.omniswitch"
             android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
-  </PreferenceScreen>        
-
- 
+  </PreferenceScreen>
+          
+   <PreferenceScreen
+     android:key="gesture_anywhere"
+     android:fragment="com.android.settings.chameleonos.labs.gestureanywhere.GestureAnywhereSettings"
+     android:summary="@string/gesture_anywhere_gestures_summary"
+     android:title="@string/gesture_anywhere_title" />
+     
     <PreferenceScreen
       android:id="@+id/app_circle_sidebar"
       android:title="@string/app_circle_bar_title"
