@@ -673,6 +673,10 @@ public class Settings extends PreferenceActivity
                 }
             } else if (id == R.id.superuser) {
                 if (!DevelopmentSettings.isRootForAppsEnabled()) {
+                }
+            } else if (id == R.id.more_device_settings) {
+                if (!MoreDeviceSettings.hasItems()) {
+                    target.remove(header);
             }
          }
          
