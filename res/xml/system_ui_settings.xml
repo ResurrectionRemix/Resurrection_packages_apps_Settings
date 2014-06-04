@@ -79,30 +79,57 @@
         android:key="navigation_bar"
         android:title="@string/navigation_bar_category" >
         
-	<ListPreference
-        	android:key="navigation_bar_height"
-	        android:dialogTitle="@string/navigation_bar_height"
-		android:title="@string/navigation_bar_height"
-		android:entries="@array/navigation_bar_height_entries"
-		android:entryValues="@array/navigation_bar_height_values"
-		android:defaultValue="48"
-		android:persistent="true" />
+	<CheckBoxPreference
+             android:key="enable_nav_bar"
+            android:title="@string/navbar_enable_bar"
+            android:summary="@string/navbar_enable_bar_summary" />
+
+	<PreferenceScreen
+            android:key="navbar_dimen_settings"
+            android:fragment="com.android.settings.crdroid.NavbarDimenSettings"
+            android:title="@string/navbar_style_dimen_title" 
+	       android:dependency="enable_nav_bar" />
 		
         <PreferenceScreen
             android:key="navigation_bar"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
-            android:title="@string/navigation_bar_title" />
+            android:title="@string/navigation_bar_title" 
+            android:dependency="enable_nav_bar" />
 
         <PreferenceScreen
             android:key="navigation_ring"
             android:fragment="com.android.settings.cyanogenmod.NavRing"
-            android:title="@string/navigation_ring_title" />
+            android:title="@string/navigation_ring_title" 
+            android:dependency="enable_nav_bar" />
             
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="navigation_bar_left"
             android:title="@string/navigation_bar_left_title"
             android:summary="@string/navigation_bar_left_summary"
+            android:dependency="enable_nav_bar"
             android:defaultValue="false" />
+            
+    </PreferenceCategory>
+      
+    <PreferenceCategory
+        android:key="hw_keys_on_navbar"
+        android:title="@string/hw_keys_title">
 
-</PreferenceCategory>  
+        <CheckBoxPreference
+            android:key="key_back_enabled"
+            android:title="@string/key_back_enabled"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="key_menu_enabled"
+            android:title="@string/key_menu_enabled"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="key_home_enabled"
+            android:title="@string/key_home_enabled"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
