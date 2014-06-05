@@ -46,17 +46,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="start|bottom"
         settings:strokeColor="@android:color/holo_blue_light"
-        settings:fillColor="#c033b5e5"
-        settings:fillColorSecondary="#6633b5e5" />
+        settings:fillColor="@color/data_usage_series_fill_color"
+        settings:fillColorSecondary="@color/data_usage_series_fill_color_secondary" />
 
     <com.android.settings.widget.ChartNetworkSeriesView
         android:id="@+id/detail_series"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start|bottom"
-        settings:strokeColor="#d88d3a"
-        settings:fillColor="#c0ba7f3e"
-        settings:fillColorSecondary="#60ba7f3e" />
+        settings:strokeColor="@color/data_usage_series_stroke_color"
+        settings:fillColor="@color/data_usage_series_details_fill_color"
+        settings:fillColorSecondary="@color/data_usage_series_details_fill_color_secondary" />
 
     <com.android.settings.widget.ChartSweepView
         android:id="@+id/sweep_left"
@@ -84,7 +84,7 @@
         settings:neighborMargin="5dip"
         settings:labelSize="60dip"
         settings:labelTemplate="@string/data_usage_sweep_warning"
-        settings:labelColor="#f7931d" />
+        settings:labelColor="@color/data_usage_sweep_warning_label_color" />
 
     <com.android.settings.widget.ChartSweepView
         android:id="@+id/sweep_limit"
@@ -96,6 +96,6 @@
         settings:neighborMargin="5dip"
         settings:labelSize="60dip"
         settings:labelTemplate="@string/data_usage_sweep_limit"
-        settings:labelColor="#c01a2c" />
+        settings:labelColor="@color/data_usage_sweep_limit_label_color" />
 
 </com.android.settings.widget.ChartDataUsageView>
