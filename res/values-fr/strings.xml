@@ -473,7 +473,7 @@
     <string name="bluetooth_device_context_connect_advanced" msgid="2643129703569788771">"Options…"</string>
     <string name="bluetooth_menu_advanced" msgid="8572178316357220524">"Paramètres avancés"</string>
     <string name="bluetooth_advanced_titlebar" msgid="2142159726881547669">"Paramètres Bluetooth avancés"</string>
-    <string name="bluetooth_empty_list_bluetooth_off" msgid="4793562956642282639">"Activez le Bluetooth pour voir les appareils."</string>
+    <string name="bluetooth_empty_list_bluetooth_off" msgid="6351930724051893423">"Si Bluetooth activé, appareil peut communiquer avec autres appareils Bluetooth à proximité."</string>
     <string name="bluetooth_connect_specific_profiles_title" msgid="6952214406025825164">"Se connecter à…"</string>
     <string name="bluetooth_profile_a2dp" msgid="2031475486179830674">"Paramètres audio du support"</string>
     <string name="bluetooth_profile_headset" msgid="8658779596261212609">"Paramètres audio du téléphone"</string>
@@ -513,7 +513,7 @@
     <string name="bluetooth_dock_settings_headset" msgid="1001821426078644650">"Comme téléphone à haut-parleur"</string>
     <string name="bluetooth_dock_settings_a2dp" msgid="8791004998846630574">"Pour la musique et le multimédia"</string>
     <string name="bluetooth_dock_settings_remember" msgid="5551459057010609115">"Mémoriser ces paramètres"</string>
-    <string name="wifi_display_settings_title" msgid="2925465988657380522">"Écran de diffusion"</string>
+    <string name="wifi_display_settings_title" msgid="2925465988657380522">"Caster l\'écran"</string>
     <string name="wifi_display_enable_menu_item" msgid="4883036464138167674">"Activer l\'affichage sans fil"</string>
     <string name="wifi_display_no_devices_found" msgid="1382012407154143453">"Aucun appareil détecté à proximité."</string>
     <string name="wifi_display_status_connecting" msgid="5688608834000748607">"Connexion en cours…"</string>
@@ -989,7 +989,7 @@
     <string name="manage_mobile_plan_title" msgid="7630170375010107744">"Forfait mobile"</string>
     <string name="sms_application_title" msgid="6134351177937015839">"Application SMS par défaut"</string>
     <string name="sms_change_default_dialog_title" msgid="1958688831875804286">"Modifier l\'application SMS ?"</string>
-    <string name="sms_change_default_dialog_text" msgid="1522783933230274787">"Utiliser <xliff:g id="NEW_APP">%s</xliff:g> au lieu de <xliff:g id="CURRENT_APP">%s</xliff:g> comme application SMS ?"</string>
+    <string name="sms_change_default_dialog_text" msgid="1522783933230274787">"Utiliser <xliff:g id="NEW_APP">%1$s</xliff:g> au lieu de <xliff:g id="CURRENT_APP">%2$s</xliff:g> comme application SMS ?"</string>
     <string name="sms_change_default_no_previous_dialog_text" msgid="602683880284921998">"Utiliser <xliff:g id="NEW_APP">%s</xliff:g> comme application SMS ?"</string>
     <string name="mobile_unknown_sim_operator" msgid="9101230468757324260">"Opérateur SIM inconnu"</string>
     <string name="mobile_no_provisioning_url" msgid="2399426808423775711">"Aucun site Web de configuration connu pour %1$s"</string>
@@ -1331,7 +1331,7 @@
     <string name="adb_over_network_warning">"ATTENTION: Lorsque cette fonction est activée, votre téléphone est ouvert aux intrusions sur toutes les interfaces réseau, y compris via le réseau GSM (data) !\n\nIl est fortement conseillé de désactiver le réseau mobile avant d\'activer cette fonction.\n\nContinuer ?"</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"Rester activé"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"L\'écran ne se met jamais en veille lors du chargement."</string>
-    <string name="bt_hci_snoop_log" msgid="3340699311158865670">"Activer les journaux par espionnage HCI Bluetooth"</string>
+    <string name="bt_hci_snoop_log" msgid="3340699311158865670">"Activer journaux HCI Bluetooth"</string>
     <string name="bt_hci_snoop_log_summary" msgid="730247028210113851">"Enregistrer tous les paquets HCI Bluetooth dans un fichier"</string>
     <string name="select_runtime_title" msgid="649783802363155346">"Sélect. moteur d\'exécution"</string>
     <string name="select_runtime_dialog_title" msgid="5314872813037493958">"Sélect. moteur d\'exécution"</string>
@@ -1405,6 +1405,7 @@
     <string name="captioning_background_color" msgid="9053011212948992570">"Couleur d\'arrière-plan"</string>
     <string name="captioning_background_opacity" msgid="6029993616419971202">"Opacité de l\'arrière-plan"</string>
     <string name="captioning_foreground_color" msgid="85623486537640059">"Couleur du texte"</string>
+    <string name="captioning_foreground_opacity" msgid="4370967856995419788">"Opacité du texte"</string>
     <string name="captioning_edge_color" msgid="3670094753735263238">"Couleur du contour"</string>
     <string name="captioning_edge_type" msgid="5997247394951682154">"Type de contour"</string>
     <string name="captioning_typeface" msgid="1826169240566563259">"Famille de polices"</string>
@@ -1801,10 +1802,10 @@
     <string name="show_screen_updates_summary" msgid="2569622766672785529">"Faire clignoter les surfaces à chaque mise à jour"</string>
     <string name="show_hw_screen_updates" msgid="5036904558145941590">"Afficher mises à jour GPU"</string>
     <string name="show_hw_screen_updates_summary" msgid="1115593565980196197">"Faire clignoter les éléments dessinés avec le GPU"</string>
-    <string name="show_hw_layers_updates" msgid="5645728765605699821">"Mises à jour couches mat."</string>
+    <string name="show_hw_layers_updates" msgid="5645728765605699821">"Mises à jour couches matérielles"</string>
     <string name="show_hw_layers_updates_summary" msgid="5296917233236661465">"Couches matérielles en vert une fois mises à jour"</string>
     <string name="debug_hw_overdraw" msgid="2968692419951565417">"Déboguer les conflits GPU"</string>
-    <string name="disable_overlays" msgid="2074488440505934665">"Désact. superpos. matér."</string>
+    <string name="disable_overlays" msgid="2074488440505934665">"Désactiver superpos. matér."</string>
     <string name="disable_overlays_summary" msgid="3578941133710758592">"Toujours utiliser le GPU pour la composition écran"</string>
     <string name="enable_opengl_traces_title" msgid="6790444011053219871">"Activer les traces OpenGL"</string>
     <string name="debug_layout" msgid="5981361776594526155">"Afficher les contours"</string>
@@ -1822,12 +1823,12 @@
     <string name="window_animation_scale_title" msgid="6162587588166114700">"Échelle animation fenêtres"</string>
     <string name="transition_animation_scale_title" msgid="387527540523595875">"Échelle anim. transitions"</string>
     <string name="animator_duration_scale_title" msgid="3406722410819934083">"Échelle durée animation"</string>
-    <string name="overlay_display_devices_title" msgid="5364176287998398539">"Simul. affich. secondaires"</string>
+    <string name="overlay_display_devices_title" msgid="5364176287998398539">"Simuler des écrans secondaires"</string>
     <string name="debug_applications_category" msgid="4206913653849771549">"Applications"</string>
     <string name="immediately_destroy_activities" msgid="8366775083630234121">"Ne pas conserver activités"</string>
     <string name="immediately_destroy_activities_summary" msgid="3592221124808773368">"Supprimer immédiatement les activités abandonnées"</string>
     <string name="app_process_limit_title" msgid="4280600650253107163">"Limite processus arr.-plan"</string>
-    <string name="show_all_anrs" msgid="28462979638729082">"Afficher tous les messages \"L\'application ne répond pas\""</string>
+    <string name="show_all_anrs" msgid="28462979638729082">"Afficher tous les messages ANR"</string>
     <string name="show_all_anrs_summary" msgid="641908614413544127">"Afficher \"L\'application ne répond plus\" pour applis en arrière-plan"</string>
     <string name="data_usage_summary_title" msgid="3804110657238092929">"Consommation des données"</string>
     <string name="data_usage_cycle" msgid="5652529796195787949">"Cycle de consommation"</string>

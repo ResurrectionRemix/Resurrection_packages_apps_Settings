@@ -92,14 +92,14 @@
     <string name="battery_info_status_charging" msgid="1705179948350365604">"充電中"</string>
     <string name="battery_info_status_charging_ac" msgid="5874340256342956252">"(AC)"</string>
     <string name="battery_info_status_charging_usb" msgid="4059070156126770959">"(USB)"</string>
-    <string name="battery_info_status_charging_wireless" msgid="1822125795446772771">"(無線網路)"</string>
+    <string name="battery_info_status_charging_wireless" msgid="1822125795446772771">"(無線)"</string>
     <string name="battery_info_status_discharging" msgid="310932812698268588">"非充電中"</string>
     <string name="battery_info_status_not_charging" msgid="2820070506621483576">"非充電中"</string>
     <string name="battery_info_status_full" msgid="2824614753861462808">"電力充足"</string>
     <string name="battery_info_power_unplugged" msgid="5987246575519551081">"未插入"</string>
     <string name="battery_info_power_ac" msgid="6808516193001604634">"AC"</string>
     <string name="battery_info_power_usb" msgid="8012931702516331797">"USB"</string>
-    <string name="battery_info_power_wireless" msgid="6819163295739305097">"無線網路"</string>
+    <string name="battery_info_power_wireless" msgid="6819163295739305097">"無線"</string>
     <string name="battery_info_power_ac_usb" msgid="6777734146838328688">"AC+USB"</string>
     <string name="battery_info_power_unknown" msgid="7344115502868899881">"不明"</string>
     <string name="battery_info_health_unknown" msgid="5664295556921944255">"不明"</string>
@@ -275,8 +275,8 @@
     <string name="wireless_networks_settings_title" msgid="3643009077742794212">"無線與網路"</string>
     <string name="radio_controls_summary" msgid="1838624369870907268">"管理 Wi-Fi、藍牙、飛航模式、行動網路和 VPN"</string>
     <string name="roaming" msgid="3596055926335478572">"漫遊服務"</string>
-    <string name="roaming_enable" msgid="3737380951525303961">"漫遊時連線到資料傳輸服務"</string>
-    <string name="roaming_disable" msgid="1295279574370898378">"漫遊時連線到資料傳輸服務"</string>
+    <string name="roaming_enable" msgid="3737380951525303961">"漫遊時連線到數據傳輸服務"</string>
+    <string name="roaming_disable" msgid="1295279574370898378">"漫遊時連線到數據傳輸服務"</string>
     <string name="roaming_reenable_message" msgid="9141007271031717369">"由於您不在主要網路蓋涵範圍，且已關閉漫遊服務，資料連線已中斷。"</string>
     <string name="roaming_turn_it_on_button" msgid="4387601818162120589">"開啟"</string>
     <string name="roaming_warning" msgid="7625933694709170887">"允許漫遊服務時，您可能需要支付龐大的漫遊費用！"</string>
@@ -473,7 +473,7 @@
     <string name="bluetooth_device_context_connect_advanced" msgid="2643129703569788771">"選項…"</string>
     <string name="bluetooth_menu_advanced" msgid="8572178316357220524">"進階選項"</string>
     <string name="bluetooth_advanced_titlebar" msgid="2142159726881547669">"藍牙進階設定"</string>
-    <string name="bluetooth_empty_list_bluetooth_off" msgid="4793562956642282639">"開啟藍牙即可查看可用裝置。"</string>
+    <string name="bluetooth_empty_list_bluetooth_off" msgid="6351930724051893423">"開啟藍牙功能後，您的裝置即可與其他鄰近的藍牙裝置相互傳輸資料。"</string>
     <string name="bluetooth_connect_specific_profiles_title" msgid="6952214406025825164">"連線到…"</string>
     <string name="bluetooth_profile_a2dp" msgid="2031475486179830674">"媒體音訊"</string>
     <string name="bluetooth_profile_headset" msgid="8658779596261212609">"手機音訊"</string>
@@ -989,7 +989,7 @@
     <string name="manage_mobile_plan_title" msgid="7630170375010107744">"行動數據傳輸資費方案"</string>
     <string name="sms_application_title" msgid="6134351177937015839">"預設簡訊應用程式"</string>
     <string name="sms_change_default_dialog_title" msgid="1958688831875804286">"變更簡訊應用程式？"</string>
-    <string name="sms_change_default_dialog_text" msgid="1522783933230274787">"您要改用 <xliff:g id="NEW_APP">%s</xliff:g> 而不再使用 <xliff:g id="CURRENT_APP">%s</xliff:g> 做為簡訊應用程式嗎？"</string>
+    <string name="sms_change_default_dialog_text" msgid="1522783933230274787">"您要改用 <xliff:g id="NEW_APP">%1$s</xliff:g> 而不再使用 <xliff:g id="CURRENT_APP">%2$s</xliff:g> 做為簡訊應用程式嗎？"</string>
     <string name="sms_change_default_no_previous_dialog_text" msgid="602683880284921998">"使用 <xliff:g id="NEW_APP">%s</xliff:g> 做為簡訊應用程式嗎？"</string>
     <string name="mobile_unknown_sim_operator" msgid="9101230468757324260">"未知的 SIM 行動通訊業者"</string>
     <string name="mobile_no_provisioning_url" msgid="2399426808423775711">"%1$s 沒有任何已知的佈建網站"</string>
@@ -1402,6 +1402,7 @@
     <string name="captioning_background_color" msgid="9053011212948992570">"背景顏色"</string>
     <string name="captioning_background_opacity" msgid="6029993616419971202">"背景透明度"</string>
     <string name="captioning_foreground_color" msgid="85623486537640059">"文字顏色"</string>
+    <string name="captioning_foreground_opacity" msgid="4370967856995419788">"文字半透明度"</string>
     <string name="captioning_edge_color" msgid="3670094753735263238">"邊緣顏色"</string>
     <string name="captioning_edge_type" msgid="5997247394951682154">"邊緣類型"</string>
     <string name="captioning_typeface" msgid="1826169240566563259">"字型系列"</string>
@@ -1468,10 +1469,10 @@
     <string name="battery_stats_on_battery" msgid="4970762168505236033">"電池已使用時間：<xliff:g id="TIME">%1$s</xliff:g>"</string>
     <string name="battery_stats_duration" msgid="7464501326709469282">"拔除插頭後已過了 <xliff:g id="TIME">%1$s</xliff:g>"</string>
     <string name="battery_stats_charging_label" msgid="4223311142875178785">"充電"</string>
-    <string name="battery_stats_screen_on_label" msgid="7150221809877509708">"螢幕已開"</string>
+    <string name="battery_stats_screen_on_label" msgid="7150221809877509708">"螢幕開啟"</string>
     <string name="battery_stats_gps_on_label" msgid="1193657533641951256">"開啟 GPS"</string>
     <string name="battery_stats_wifi_running_label" msgid="1845839195549226252">"Wi‑Fi"</string>
-    <string name="battery_stats_wake_lock_label" msgid="1908942681902324095">"清醒"</string>
+    <string name="battery_stats_wake_lock_label" msgid="1908942681902324095">"啟用"</string>
     <string name="battery_stats_phone_signal_label" msgid="4137799310329041341">"行動網路訊號"</string>
     <!-- no translation found for battery_stats_last_duration (1535831453827905957) -->
     <skip />
