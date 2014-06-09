@@ -100,7 +100,6 @@ public class DeveloperPreference extends Preference {
                     getContext().startActivity(intent);
                 }
             };
-
             donateButton.setOnClickListener(openDonate);
         } else {
             donateButton.setVisibility(View.GONE);
