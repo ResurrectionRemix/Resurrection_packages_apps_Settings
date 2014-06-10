@@ -518,6 +518,15 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             removePreference(COLOR_TEMPERATURE_KEY);
             mColorTemperaturePreference = null;
         }
+
+        if (!getResources().getBoolean(R.bool.config_enableRecoveryUpdater)) {
+            removePreference(mUpdateRecovery);
+            mUpdateRecovery = null;
+            if (SystemProperties.getBoolean(UPDATE_RECOVERY_PROPERTY, false)) {
+                SystemProperties.set(UPDATE_RECOVERY_PROPERTY, "false");
+                pokeSystemProperties();
+            }
+        }
     }
 
     private ListPreference addListPreference(String prefKey) {
@@ -751,7 +760,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateUSBAudioOptions();
         updateRootAccessOptions();
         updateDevelopmentShortcutOptions();
-        updateUpdateRecoveryOptions();
+        if (mUpdateRecovery != null) {
+            updateUpdateRecoveryOptions();
+        }
         if (mColorTemperaturePreference != null) {
             updateColorTemperature();
         }
@@ -816,7 +827,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         resetAdbNotifyOptions();
         resetVerifyAppsOverUsbOptions();
         resetDevelopmentShortcutOptions();
-        resetUpdateRecoveryOptions();
+        if (mUpdateRecovery != null) {
+            resetUpdateRecoveryOptions();
+        }
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
@@ -1835,8 +1848,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         }
     }
 
-    public static void initializeUpdateRecoveryOption() {
-        if (TextUtils.isEmpty(SystemProperties.get(UPDATE_RECOVERY_PROPERTY))) {
+    public static void initializeUpdateRecoveryOption(Context context) {
+        if (TextUtils.isEmpty(SystemProperties.get(UPDATE_RECOVERY_PROPERTY)) &&
+                context.getResources().getBoolean(R.bool.config_enableRecoveryUpdater)) {
             resetUpdateRecoveryOptions();
         }
     }
