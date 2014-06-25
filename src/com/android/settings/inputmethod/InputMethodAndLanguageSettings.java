@@ -74,6 +74,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TreeSet;
 
+import org.cyanogenmod.hardware.HighTouchSensitivity;
+
 public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, InputManager.InputDeviceListener,
         KeyboardLayoutDialogFragment.OnSetupKeyboardLayoutsListener, Indexable,
@@ -83,14 +85,16 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_CURRENT_INPUT_METHOD = "current_input_method";
     private static final String KEY_INPUT_METHOD_SELECTOR = "input_method_selector";
     private static final String KEY_USER_DICTIONARY_SETTINGS = "key_user_dictionary_settings";
+    private static final String KEY_POINTER_SETTINGS_CATEGORY = "pointer_settings_category";
     private static final String KEY_PREVIOUSLY_ENABLED_SUBTYPES = "previously_enabled_subtypes";
     private static final String KEY_TRACKPAD_SETTINGS = "gesture_pad_settings";
-
+    private static final String KEY_HIGH_TOUCH_SENSITIVITY = "high_touch_sensitivity";
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
 
     private int mDefaultInputMethodSelectorVisibility = 0;
     private ListPreference mShowInputMethodSelectorPref;
+    private SwitchPreference mHighTouchSensitivity;
     private PreferenceCategory mKeyboardSettingsCategory;
     private PreferenceCategory mHardKeyboardCategory;
     private PreferenceCategory mGameControllerCategory;
@@ -167,6 +171,17 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         // Build hard keyboard and game controller preference categories.
         mIm = (InputManager)activity.getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
+
+        PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
+                        findPreference(KEY_POINTER_SETTINGS_CATEGORY);
+
+        mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
+        if (!isHighTouchSensitivitySupported()) {
+            pointerSettingsCategory.removePreference(mHighTouchSensitivity);
+            mHighTouchSensitivity = null;
+        } else {
+            mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+        }
 
         // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
         boolean showCmImeSwitcher = getResources().getBoolean(
@@ -345,6 +360,8 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                         pref.isChecked() ? 1 : 0);
                 return true;
             }
+        } else if (preference == mHighTouchSensitivity) {
+            return HighTouchSensitivity.setEnabled(mHighTouchSensitivity.isChecked());
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -619,6 +636,15 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                     Settings.System.VIBRATE_INPUT_DEVICES, 1) > 0);
         } else {
             getPreferenceScreen().removePreference(mGameControllerCategory);
+        }
+    }
+
+    private static boolean isHighTouchSensitivitySupported() {
+        try {
+            return HighTouchSensitivity.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
         }
     }
 
