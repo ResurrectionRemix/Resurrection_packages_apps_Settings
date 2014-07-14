@@ -19,12 +19,12 @@ package com.android.settings.cmstats;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.Settings;
 import android.util.Log;
 
 public class ReportingServiceManager extends BroadcastReceiver {
@@ -43,8 +43,10 @@ public class ReportingServiceManager extends BroadcastReceiver {
 
     public static void setAlarm(Context context, long millisFromNow) {
         SharedPreferences prefs = AnonymousStats.getPreferences(context);
-        boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
-        if (!optedIn) {
+        if (prefs.contains(AnonymousStats.ANONYMOUS_OPT_IN)) {
+            migrate(context, prefs);
+        }
+        if (!Utilities.isStatsCollectionEnabled(context)) {
             return;
         }
 
@@ -80,10 +82,11 @@ public class ReportingServiceManager extends BroadcastReceiver {
         }
 
         SharedPreferences prefs = AnonymousStats.getPreferences(context);
-        boolean optedIn = prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true);
-        if (!optedIn) {
+
+        if (!Utilities.isStatsCollectionEnabled(context)) {
             return;
         }
+
         long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
         if (lastSynced == 0) {
             setAlarm(context, 0);
@@ -100,4 +103,11 @@ public class ReportingServiceManager extends BroadcastReceiver {
         intent.setClass(context, ReportingService.class);
         context.startService(intent);
     }
+
+    private static void migrate(Context context, SharedPreferences prefs) {
+        Utilities.setStatsCollectionEnabled(context,
+                prefs.getBoolean(AnonymousStats.ANONYMOUS_OPT_IN, true));
+        prefs.edit().remove(AnonymousStats.ANONYMOUS_OPT_IN).commit();
+    }
+
 }
