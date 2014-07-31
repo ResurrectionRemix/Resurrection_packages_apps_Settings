@@ -86,6 +86,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
     private MultiSelectListPreference mBearerMulti;
     private ListPreference mMvnoType;
     private EditTextPreference mMvnoMatchData;
+    private EditTextPreference mPppNumber;
 
     private String mCurMnc;
     private String mCurMcc;
@@ -127,7 +128,8 @@ public class ApnEditor extends InstrumentedPreferenceActivity
             Telephony.Carriers.BEARER_BITMASK, // 19
             Telephony.Carriers.ROAMING_PROTOCOL, // 20
             Telephony.Carriers.MVNO_TYPE,   // 21
-            Telephony.Carriers.MVNO_MATCH_DATA  // 22
+            Telephony.Carriers.MVNO_MATCH_DATA,  // 22
+            "ppp_number"  // 23
     };
 
     private static final int ID_INDEX = 0;
@@ -152,6 +154,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
     private static final int ROAMING_PROTOCOL_INDEX = 20;
     private static final int MVNO_TYPE_INDEX = 21;
     private static final int MVNO_MATCH_DATA_INDEX = 22;
+    private static final int PPP_NUMBER_INDEX = 23;
 
 
     @Override
@@ -174,6 +177,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
         mMcc = (EditTextPreference) findPreference("apn_mcc");
         mMnc = (EditTextPreference) findPreference("apn_mnc");
         mApnType = (EditTextPreference) findPreference("apn_type");
+        mPppNumber = (EditTextPreference) findPreference("apn_ppp_number");
 
         mAuthType = (ListPreference) findPreference(KEY_AUTH_TYPE);
         mAuthType.setOnPreferenceChangeListener(this);
@@ -263,6 +267,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
     private void fillUi() {
         if (mFirstTime) {
             mFirstTime = false;
+            String numeric = mTelephonyManager.getSimOperator(mSubId);
             // Fill in all the values from the db in both text editor and summary
             mName.setText(mCursor.getString(NAME_INDEX));
             mApn.setText(mCursor.getString(APN_INDEX));
@@ -278,7 +283,6 @@ public class ApnEditor extends InstrumentedPreferenceActivity
             mMnc.setText(mCursor.getString(MNC_INDEX));
             mApnType.setText(mCursor.getString(TYPE_INDEX));
             if (mNewApn) {
-                String numeric = mTelephonyManager.getSimOperator(mSubId);
                 // MCC is first 3 chars and then in 2 - 3 chars of MNC
                 if (numeric != null && numeric.length() > 4) {
                     // Country code
@@ -334,6 +338,16 @@ public class ApnEditor extends InstrumentedPreferenceActivity
                 mMvnoType.setValue(mMvnoTypeStr);
                 mMvnoMatchData.setText(mMvnoMatchDataStr);
             }
+
+            String pppNumber = mCursor.getString(PPP_NUMBER_INDEX);
+            mPppNumber.setText(pppNumber);
+            if (pppNumber == null) {
+                if (!mNewApn) {
+                    getPreferenceScreen().removePreference(mPppNumber);
+                } else if (getResources().getBoolean(R.bool.config_ppp_enabled)) {
+                    getPreferenceScreen().removePreference(mPppNumber);
+                }
+            }
         }
 
         mName.setSummary(checkNull(mName.getText()));
@@ -349,6 +363,13 @@ public class ApnEditor extends InstrumentedPreferenceActivity
         mMcc.setSummary(checkNull(mMcc.getText()));
         mMnc.setSummary(checkNull(mMnc.getText()));
         mApnType.setSummary(checkNull(mApnType.getText()));
+
+        String pppNumber = mPppNumber.getText();
+        if (pppNumber != null) {
+            // Remove this preference if PPP number is not present
+            // in the APN settings
+            mPppNumber.setSummary(checkNull(pppNumber));
+        }
 
         String authVal = mAuthType.getValue();
         if (authVal != null) {
@@ -629,6 +650,11 @@ public class ApnEditor extends InstrumentedPreferenceActivity
         values.put(Telephony.Carriers.MNC, mnc);
 
         values.put(Telephony.Carriers.NUMERIC, mcc + mnc);
+
+        String pppNumber = mPppNumber.getText();
+        if (pppNumber != null) {
+            values.put(getResources().getString(R.string.ppp_number), pppNumber);
+        }
 
         if (mCurMnc != null && mCurMcc != null) {
             if (mCurMnc.equals(mnc) && mCurMcc.equals(mcc)) {
