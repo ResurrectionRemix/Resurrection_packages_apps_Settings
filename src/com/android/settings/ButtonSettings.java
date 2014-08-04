@@ -166,6 +166,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Force Navigation bar related options
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
+
         mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
 
         // Navigation bar left
@@ -186,6 +187,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             } else {
                 // Remove keys that can be provided by the navbar
                 updateDisableNavkeysOption();
+                mNavigationPreferencesCat.setEnabled(mDisableNavigationKeys.isChecked());
+                updateDisableNavkeysCategories(mDisableNavigationKeys.isChecked());
             }
         } else {
             prefScreen.removePreference(mDisableNavigationKeys);
@@ -439,12 +442,16 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) != 0;
 
         mDisableNavigationKeys.setChecked(enabled);
+    }
 
+    private void updateDisableNavkeysCategories(boolean navbarEnabled) {
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         /* Disable hw-key options if they're disabled */
         final PreferenceCategory homeCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_HOME);
+        final PreferenceCategory backCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_BACK);
         final PreferenceCategory menuCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_MENU);
         final PreferenceCategory assistCategory =
@@ -457,25 +464,25 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         /* Toggle backlight control depending on navbar state, force it to
            off if enabling */
         if (backlight != null) {
-            backlight.setEnabled(!enabled);
+            backlight.setEnabled(!navbarEnabled);
             backlight.updateSummary();
         }
 
         /* Toggle hardkey control availability depending on navbar state */
         if (homeCategory != null) {
-            homeCategory.setEnabled(!enabled);
+            homeCategory.setEnabled(!navbarEnabled);
+        }
+        if (backCategory != null) {
+            backCategory.setEnabled(!navbarEnabled);
         }
         if (menuCategory != null) {
-            menuCategory.setEnabled(!enabled);
+            menuCategory.setEnabled(!navbarEnabled);
         }
         if (assistCategory != null) {
-            assistCategory.setEnabled(!enabled);
+            assistCategory.setEnabled(!navbarEnabled);
         }
         if (appSwitchCategory != null) {
-            appSwitchCategory.setEnabled(!enabled);
-        }
-        if (mNavigationBarLeftPref != null) {
-            mNavigationBarLeftPref.setEnabled(enabled);
+            appSwitchCategory.setEnabled(!navbarEnabled);
         }
     }
 
@@ -498,12 +505,16 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
         } else if (preference == mDisableNavigationKeys) {
             mDisableNavigationKeys.setEnabled(false);
+            mNavigationPreferencesCat.setEnabled(false);
             writeDisableNavkeysOption(getActivity(), mDisableNavigationKeys.isChecked());
             updateDisableNavkeysOption();
+            updateDisableNavkeysCategories(true);
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mDisableNavigationKeys.setEnabled(true);
+                    mNavigationPreferencesCat.setEnabled(mDisableNavigationKeys.isChecked());
+                    updateDisableNavkeysCategories(mDisableNavigationKeys.isChecked());
                 }
             }, 1000);
         } else if (preference == mPowerEndCall) {
