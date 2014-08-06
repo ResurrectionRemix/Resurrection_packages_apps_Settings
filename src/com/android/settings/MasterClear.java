@@ -56,6 +56,7 @@ public class MasterClear extends Fragment {
 
     private static final int KEYGUARD_REQUEST = 55;
 
+    static final String WIPE_MEDIA_EXTRA = "wipe_media";
     static final String ERASE_EXTERNAL_EXTRA = "erase_sd";
 
     private View mContentView;
@@ -96,7 +97,13 @@ public class MasterClear extends Fragment {
         Preference preference = new Preference(getActivity());
         preference.setFragment(MasterClearConfirm.class.getName());
         preference.setTitle(R.string.master_clear_confirm_title);
-        preference.getExtras().putBoolean(ERASE_EXTERNAL_EXTRA, mExternalStorage.isChecked());
+        if (mExternalStorage.isChecked()) {
+            if (Environment.isExternalStorageEmulated()) {
+                preference.getExtras().putBoolean(WIPE_MEDIA_EXTRA, true);
+            } else {
+                preference.getExtras().putBoolean(ERASE_EXTERNAL_EXTRA, true);
+            }
+        }
         ((SettingsActivity) getActivity()).onPreferenceStartFragment(null, preference);
     }
 
@@ -140,8 +147,9 @@ public class MasterClear extends Fragment {
          * encrypted, and will also need to be wiped.
          */
         boolean isExtStorageEmulated = Environment.isExternalStorageEmulated();
-        if (isExtStorageEmulated
-                || (!Environment.isExternalStorageRemovable() && isExtStorageEncrypted())) {
+        /* CM's recovery (and most custom ones) does NOT clear emulated
+         * storage when asked for a reset  */
+        if (!Environment.isExternalStorageRemovable() && isExtStorageEncrypted()) {
             mExternalStorageContainer.setVisibility(View.GONE);
 
             final View externalOption = mContentView.findViewById(R.id.erase_external_option_text);

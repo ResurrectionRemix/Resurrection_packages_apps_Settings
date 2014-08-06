@@ -45,6 +45,7 @@ import android.widget.Button;
 public class MasterClearConfirm extends Fragment {
 
     private View mContentView;
+    private boolean mWipeMedia;
     private boolean mEraseSdCard;
 
     /**
@@ -112,6 +113,7 @@ public class MasterClearConfirm extends Fragment {
             Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
             intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
             intent.putExtra(Intent.EXTRA_REASON, "MasterClearConfirm");
+            intent.putExtra(MasterClear.WIPE_MEDIA_EXTRA, mWipeMedia);
             getActivity().sendBroadcast(intent);
             // Intent handling is asynchronous -- assume it will happen soon.
         }
@@ -142,6 +144,7 @@ public class MasterClearConfirm extends Fragment {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
+        mWipeMedia = args != null && args.getBoolean(MasterClear.WIPE_MEDIA_EXTRA);
         mEraseSdCard = args != null && args.getBoolean(MasterClear.ERASE_EXTERNAL_EXTRA);
     }
 }
