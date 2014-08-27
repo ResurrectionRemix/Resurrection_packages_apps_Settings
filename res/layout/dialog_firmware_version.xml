@@ -25,6 +25,21 @@
         android:layout_height="match_parent"
         android:padding="@dimen/sim_content_padding">
 
+       <LinearLayout
+    	   android:gravity="center"
+	   android:layout_width="match_parent"
+	   android:layout_height="wrap_content"
+           android:selectable="false">
+
+           <ImageView
+	       android:layout_width="match_parent"
+ 	       android:layout_height="match_parent"
+	       android:src="@drawable/ic_rr_banner"
+	       android:adjustViewBounds="true"
+	       android:scaleType="centerInside" />
+
+        </LinearLayout>
+
         <TextView
             style="@style/device_info_dialog_label"
             android:id="@+id/firmware_version_label"
