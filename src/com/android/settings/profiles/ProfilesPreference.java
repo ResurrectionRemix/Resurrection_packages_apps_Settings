@@ -19,17 +19,16 @@ package com.android.settings.profiles;
 import android.content.ActivityNotFoundException;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.PreferenceActivity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.SubSettings;
 
-public class ProfilesPreference extends CheckBoxPreference {
+public class ProfilesPreference extends CheckBoxPreference implements View.OnClickListener {
     private static final String TAG = ProfilesPreference.class.getSimpleName();
     private static final float DISABLED_ALPHA = 0.4f;
     private final SettingsPreferenceFragment mFragment;
@@ -43,17 +42,6 @@ public class ProfilesPreference extends CheckBoxPreference {
     private TextView mSummaryText;
     private View mProfilesPref;
 
-    private final OnClickListener mPrefOnclickListener = new OnClickListener() {
-        @Override
-        public void onClick(View arg0) {
-            if (!isEnabled() || isChecked()) {
-                return;
-            }
-            setChecked(true);
-            callChangeListener(getKey());
-        }
-    };
-
     public ProfilesPreference(SettingsPreferenceFragment fragment, Bundle settingsBundle) {
         super(fragment.getActivity(), null, R.style.ProfilesPreferenceStyle);
         setLayoutResource(R.layout.preference_profiles);
@@ -65,30 +53,34 @@ public class ProfilesPreference extends CheckBoxPreference {
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
+
         mProfilesPref = view.findViewById(R.id.profiles_pref);
-        mProfilesPref.setOnClickListener(mPrefOnclickListener);
+        mProfilesPref.setOnClickListener(this);
         mProfilesSettingsButton = (ImageView)view.findViewById(R.id.profiles_settings);
         mTitleText = (TextView)view.findViewById(android.R.id.title);
         mSummaryText = (TextView)view.findViewById(android.R.id.summary);
 
         if (mSettingsBundle != null) {
-            mProfilesSettingsButton.setOnClickListener(
-                    new OnClickListener() {
-                        @Override
-                        public void onClick(View arg0) {
-                            try {
-                                startProfileConfigActivity();
-                            } catch (ActivityNotFoundException e) {
-                                // If the settings activity does not exist, we can just
-                                // do nothing...
-                            }
-                        }
-                    });
-        }
-        if (mSettingsBundle == null) {
-            mProfilesSettingsButton.setVisibility(View.GONE);
-        } else {
+            mProfilesSettingsButton.setOnClickListener(this);
             updatePreferenceViews();
+        } else {
+            mProfilesSettingsButton.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mProfilesSettingsButton) {
+            try {
+                startProfileConfigActivity();
+            } catch (ActivityNotFoundException e) {
+                // If the settings activity does not exist, we can just do nothing...
+            }
+        } else if (view == mProfilesPref) {
+            if (isEnabled() && !isChecked()) {
+                setChecked(true);
+                callChangeListener(getKey());
+            }
         }
     }
 
@@ -130,7 +122,7 @@ public class ProfilesPreference extends CheckBoxPreference {
             mProfilesPref.setEnabled(true);
             mProfilesPref.setLongClickable(checked);
             final boolean enabled = isEnabled();
-            mProfilesPref.setOnClickListener(enabled ? mPrefOnclickListener : null);
+            mProfilesPref.setOnClickListener(enabled ? this : null);
             if (!enabled) {
                 mProfilesPref.setBackgroundColor(0);
             }
@@ -139,13 +131,8 @@ public class ProfilesPreference extends CheckBoxPreference {
 
     // utility method used to start sub activity
     private void startProfileConfigActivity() {
-        SettingsActivity pa = (SettingsActivity) mFragment.getActivity();
-        pa.startPreferencePanel(ProfileConfig.class.getName(), mSettingsBundle,
-                R.string.profile_profile_manage, null, mFragment, PROFILE_DETAILS);
-    }
-
-    @Override
-    public void setChecked(boolean checked) {
-        super.setChecked(checked);
+        SubSettings pa = (SubSettings) mFragment.getActivity();
+        pa.startPreferencePanel(SetupActionsFragment.class.getCanonicalName(), mSettingsBundle,
+                R.string.profile_profile_manage, null, null, PROFILE_DETAILS);
     }
 }

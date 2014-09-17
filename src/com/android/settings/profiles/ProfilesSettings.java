@@ -21,7 +21,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.NotificationGroup;
 import android.app.Profile;
 import android.app.ProfileManager;
 import android.content.BroadcastReceiver;
@@ -30,11 +29,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.provider.Settings;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v13.app.FragmentStatePagerAdapter;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -42,25 +40,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.SubSettings;
 import com.android.settings.Utils;
 
-import java.util.HashMap;
-
 public class ProfilesSettings extends SettingsPreferenceFragment {
-
     private static final String TAG = "ProfilesSettings";
-    private static final String PROFILE_SERVICE = "profile";
+
+    public static final String EXTRA_PROFILE = "Profile";
+    public static final String EXTRA_NEW_PROFILE = "new_profile_mode";
 
     private static final int MENU_RESET = Menu.FIRST;
-    private static final int MENU_ADD = Menu.FIRST + 1;
 
     private final IntentFilter mFilter;
     private final BroadcastReceiver mReceiver;
@@ -68,11 +64,10 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     private ProfileManager mProfileManager;
     private ProfileEnabler mProfileEnabler;
 
-    private Switch mActionBarSwitch;
-
     private ViewPager mViewPager;
     private TextView mEmptyText;
     private ProfilesPagerAdapter mAdapter;
+    private ImageView mAddProfileFab;
     private boolean mEnabled;
 
     ViewGroup mContainer;
@@ -92,6 +87,8 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
                 }
             }
         };
+
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -102,47 +99,24 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         View view = inflater.inflate(R.layout.profile_tabs, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
         mEmptyText = (TextView) view.findViewById(R.id.empty);
+        mAddProfileFab = (ImageView) view.findViewById(R.id.floating_action_button);
+        mAddProfileFab.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        addProfile();
+                    }
+                });
 
-        mAdapter = new ProfilesPagerAdapter(getFragmentManager());
+        mAdapter = new ProfilesPagerAdapter(getChildFragmentManager());
         mViewPager.setAdapter(mAdapter);
-
-        PagerTabStrip tabs = (PagerTabStrip) view.findViewById(R.id.tabs);
-        tabs.setTabIndicatorColorResource(android.R.color.holo_blue_light);
-
-        mProfileManager = (ProfileManager) getActivity().getSystemService(PROFILE_SERVICE);
-
-        setHasOptionsMenu(true);
 
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        // We don't call super.onActivityCreated() here, since it assumes we already set up
-        // Preference (probably in onCreate()), while ProfilesSettings exceptionally set it up in
-        // this method.
-        // On/off switch
-        Activity activity = getActivity();
-        //Switch
-        mActionBarSwitch = new Switch(activity);
-
-        if (activity instanceof PreferenceActivity) {
-            PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
-            if (preferenceActivity.onIsHidingHeaders() || !preferenceActivity.onIsMultiPane()) {
-                final int padding = activity.getResources().getDimensionPixelSize(
-                        R.dimen.action_bar_switch_padding);
-                mActionBarSwitch.setPaddingRelative(0, 0, padding, 0);
-                activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
-                        ActionBar.DISPLAY_SHOW_CUSTOM);
-                activity.getActionBar().setCustomView(mActionBarSwitch, new ActionBar.LayoutParams(
-                        ActionBar.LayoutParams.WRAP_CONTENT,
-                        ActionBar.LayoutParams.WRAP_CONTENT,
-                        Gravity.CENTER_VERTICAL | Gravity.END));
-            }
-        }
-
-        mProfileEnabler = new ProfileEnabler(activity, mActionBarSwitch);
-
+        mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
         // After confirming PreferenceScreen is available, we call super.
         super.onActivityCreated(savedInstanceState);
     }
@@ -151,7 +125,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     public void onResume() {
         super.onResume();
         if (mProfileEnabler != null) {
-            mProfileEnabler.resume();
+            mProfileEnabler.resume(getActivity());
         }
         getActivity().registerReceiver(mReceiver, mFilter);
 
@@ -174,20 +148,27 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        final SettingsActivity activity = (SettingsActivity) getActivity();
+        mProfileEnabler = new ProfileEnabler(activity, activity.getSwitchBar());
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (mProfileEnabler != null) {
+            mProfileEnabler.teardownSwitchBar();
+        }
+        super.onDestroyView();
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
         menu.add(0, MENU_RESET, 0, R.string.profile_reset_title)
-                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setAlphabeticShortcut('r')
                 .setEnabled(mEnabled)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-
-        menu.add(0, MENU_ADD, 0, R.string.profiles_add)
-                .setIcon(R.drawable.ic_menu_add)
-                .setAlphabeticShortcut('a')
-                .setEnabled(mEnabled)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
     }
 
     @Override
@@ -196,99 +177,34 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
             case MENU_RESET:
                 resetAll();
                 return true;
-
-            case MENU_ADD:
-                // determine dialog to launch
-                if (mViewPager.getCurrentItem() == 0) {
-                    addProfile();
-                } else {
-                    addAppGroup();
-                }
-                return true;
-
-            default:
-                return false;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void addProfile() {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View content = inflater.inflate(R.layout.profile_name_dialog, null);
-        final TextView prompt = (TextView) content.findViewById(R.id.prompt);
-        final EditText entry = (EditText) content.findViewById(R.id.name);
+        Bundle args = new Bundle();
+        args.putBoolean(EXTRA_NEW_PROFILE, true);
+        args.putParcelable(EXTRA_PROFILE, new Profile(getString(R.string.new_profile_name)));
 
-        prompt.setText(R.string.profile_profile_name_prompt);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.menu_new_profile);
-        builder.setView(content);
-
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String name = entry.getText().toString();
-                if (!mProfileManager.profileExists(name)) {
-                    Profile profile = new Profile(name);
-                    mProfileManager.addProfile(profile);
-                    mAdapter.refreshProfiles();
-                } else {
-                    Toast.makeText(getActivity(),
-                            R.string.duplicate_profile_name, Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        builder.setNegativeButton(android.R.string.cancel, null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        SubSettings pa = (SubSettings) getActivity();
+        pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
+                0, null, this, 0);
     }
 
     private void resetAll() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-        alert.setTitle(R.string.profile_reset_title);
-        alert.setIconAttribute(android.R.attr.alertDialogIcon);
-        alert.setMessage(R.string.profile_reset_message);
-        alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                mProfileManager.resetAll();
-                mAdapter.refreshProfiles();
-                mAdapter.refreshAppGroups();
-            }
-        });
-        alert.setNegativeButton(R.string.cancel, null);
-        alert.show();
-    }
-
-    private void addAppGroup() {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View content = inflater.inflate(R.layout.profile_name_dialog, null);
-        final TextView prompt = (TextView) content.findViewById(R.id.prompt);
-        final EditText entry = (EditText) content.findViewById(R.id.name);
-
-        prompt.setText(R.string.profile_appgroup_name_prompt);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.profile_new_appgroup);
-        builder.setView(content);
-
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String name = entry.getText().toString();
-                if (!mProfileManager.notificationGroupExists(name)) {
-                    NotificationGroup newGroup = new NotificationGroup(name);
-                    mProfileManager.addNotificationGroup(newGroup);
-                    mAdapter.refreshAppGroups();
-                } else {
-                    Toast.makeText(getActivity(),
-                            R.string.duplicate_appgroup_name, Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        builder.setNegativeButton(android.R.string.cancel, null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.profile_reset_title)
+                .setIconAttribute(android.R.attr.alertDialogIcon)
+                .setMessage(R.string.profile_reset_message)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        mProfileManager.resetAll();
+                        mAdapter.refreshProfiles();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 
     private void updateProfilesEnabledState() {
@@ -298,14 +214,14 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
                 Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
         activity.invalidateOptionsMenu();
 
+        mAddProfileFab.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mViewPager.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mEmptyText.setVisibility(mEnabled ? View.GONE : View.VISIBLE);
     }
 
     class ProfilesPagerAdapter extends FragmentStatePagerAdapter {
-        Fragment[] frags = { new ProfilesList(), new AppGroupList() };
-        String[] titles = { getString(R.string.profile_profiles_manage),
-                            getString(R.string.profile_appgroups_manage) };
+        Fragment[] frags = { new ProfilesList() };
+        String[] titles = { getString(R.string.profile_profiles_manage) };
 
         ProfilesPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -330,8 +246,5 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
             ((ProfilesList) frags[0]).refreshList();
         }
 
-        public void refreshAppGroups() {
-            ((AppGroupList) frags[1]).refreshList();
-        }
     }
 }

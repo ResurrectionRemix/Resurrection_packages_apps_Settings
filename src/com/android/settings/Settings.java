@@ -17,7 +17,6 @@
 package com.android.settings;
 
 import com.android.settings.applications.AppOpsSummary;
-import com.android.settings.blacklist.BlacklistSettings;
 
 /**
  * Top-level Settings activity

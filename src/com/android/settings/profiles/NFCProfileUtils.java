@@ -37,7 +37,7 @@ public class NFCProfileUtils {
             0, 100, 10000
     };
 
-    static void vibrate(Context context) {
+    public static void vibrate(Context context) {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(VIBRATION_PATTERN, -1);
     }
@@ -45,7 +45,7 @@ public class NFCProfileUtils {
     /*
      * Writes an NdefMessage to a NFC tag
      */
-    static boolean writeTag(NdefMessage message, Tag tag) {
+    public static boolean writeTag(NdefMessage message, Tag tag) {
         int size = message.toByteArray().length;
         try {
             Ndef ndef = Ndef.get(tag);
@@ -120,7 +120,7 @@ public class NFCProfileUtils {
      * Convert a profiles into an NdefMessage. The profile UUID is 16 bytes and
      * stored with the cm/profile mimetype
      */
-    static NdefMessage getProfileAsNdef(Profile profile) {
+    public static NdefMessage getProfileAsNdef(Profile profile) {
         byte[] profileBytes = NFCProfileUtils.asByteArray(profile.getUuid());
 
         NdefRecord record = NdefRecord.createMime(NFCProfile.PROFILE_MIME_TYPE, profileBytes);
