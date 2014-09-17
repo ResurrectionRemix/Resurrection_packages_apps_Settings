@@ -30,20 +30,6 @@
         <item>3</item>
     </string-array>
 
-    <!-- Ring mode options. -->
-    <string-array name="ring_mode_entries" translatable="false">
-        <item>@string/ring_mode_normal</item>
-        <item>@string/ring_mode_vibrate</item>
-        <item>@string/ring_mode_mute</item>
-    </string-array>
-
-    <!-- Values for Ring mode. Do not translate. -->
-    <string-array name="ring_mode_values" translatable="false">
-        <item>normal</item>
-        <item>vibrate</item>
-        <item>mute</item>
-    </string-array>
-
     <!-- Profile mode options. -->
     <string-array name="profile_entries">
         <item>On</item>
@@ -78,13 +64,6 @@
         <item>2</item>
     </string-array>
 
-    <!--  Values for profile Wi-Fi triggers -->
-    <string-array name="profile_trigger_wifi_options" translatable="false">
-        <item>@string/profile_trigger_connect</item>
-        <item>@string/profile_trigger_disconnect</item>
-        <item>@string/profile_trigger_notrigger</item>
-    </string-array>
-
     <!--  Values for profile trigger types -->
     <string-array name="profile_trigger_filters" translatable="false">
         <item>@string/profile_trigger_filter_all</item>
@@ -111,5 +90,57 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <!-- Ring mode options. -->
+    <string-array name="ring_mode_entries" translatable="false">
+        <item>@string/ring_mode_normal</item>
+        <item>@string/ring_mode_vibrate</item>
+        <item>@string/ring_mode_mute</item>
+        <item>@string/ring_mode_unchanged</item>
+    </string-array>
+
+    <!-- Values for Ring mode. Do not translate. -->
+    <string-array name="ring_mode_values" translatable="false">
+        <item>normal</item>
+        <item>vibrate</item>
+        <item>mute</item>
+        <item></item>
+    </string-array>
+
+    <!--  Values for profile Wi-Fi triggers -->
+    <string-array name="profile_trigger_wifi_options" translatable="false">
+        <item>@string/profile_trigger_connect</item>
+        <item>@string/profile_trigger_disconnect</item>
+        <item>@string/profile_trigger_a2dp_connect</item>
+        <item>@string/profile_trigger_a2dp_disconnect</item>
+        <item>@string/profile_trigger_notrigger</item>
+    </string-array>
+
+    <!--  Values for profile Wi-Fi triggers.  Do not translate. -->
+    <string-array name="profile_trigger_wifi_options_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="profile_action_generic_connection_entries">
+        <item>@string/profile_action_none</item>
+        <item>@string/profile_action_disable</item>
+        <item>@string/profile_action_enable</item>
+    </string-array>
+
+    <string-array name="profile_action_generic_connection_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="trigger_page_title">
+        <item>WiFi</item>
+        <item>Bluetooth</item>
+        <item>NFC</item>
     </string-array>
 </resources>

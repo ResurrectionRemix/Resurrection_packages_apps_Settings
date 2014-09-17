@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,18 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.android.settings.profiles;
+package com.android.settings.profiles.triggers;
 
 import android.app.Profile;
-import android.content.Context;
-import android.preference.Preference;
 
-public class AbstractTriggerPreference extends Preference {
 
-    public AbstractTriggerPreference(Context context) {
-        super(context);
-    }
+public class AbstractTriggerItem {
+    private int mIcon;
+    private String mSummary;
+    private String mTitle;
 
     private int mTriggerState = Profile.TriggerState.DISABLED;
 
@@ -34,5 +31,29 @@ public class AbstractTriggerPreference extends Preference {
 
     public int getTriggerState() {
         return mTriggerState;
+    }
+
+    public void setSummary(String summary) {
+        mSummary = summary;
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
+    }
+
+    public String getSummary() {
+        return mSummary;
+    }
+
+    public void setIcon(int icon) {
+        mIcon = icon;
+    }
+
+    public int getIcon() {
+        return mIcon;
     }
 }
