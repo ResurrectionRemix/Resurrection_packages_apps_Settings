@@ -357,6 +357,10 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
 
             case BluetoothAdapter.STATE_OFF:
                 setOffMessage();
+                /* reset the progress icon only when available device category present */
+                if(mAvailableDevicesCategoryIsPresent) {
+                    ((BluetoothProgressCategory)mAvailableDevicesCategory).setProgress(false);
+                }
                 if (isUiRestricted()) {
                     messageId = R.string.bluetooth_empty_list_user_restricted;
                 }
