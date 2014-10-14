@@ -29,6 +29,7 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.storage.StorageManager;
 import android.preference.Preference;
 import android.text.TextUtils;
@@ -61,14 +62,15 @@ public class CryptKeeperSettings extends Fragment {
                 final int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
                 final int invalidCharger = intent.getIntExtra(
                     BatteryManager.EXTRA_INVALID_CHARGER, 0);
-
+                final String pfeState = SystemProperties.get("vold.pfe");
+                final boolean pfeActivated = "activated".equals(pfeState);
                 final boolean levelOk = level >= MIN_BATTERY_LEVEL;
                 final boolean pluggedOk =
                     ((plugged & BatteryManager.BATTERY_PLUGGED_ANY) != 0) &&
                      invalidCharger == 0;
 
                 // Update UI elements based on power/battery status
-                mInitiateButton.setEnabled(levelOk && pluggedOk);
+                mInitiateButton.setEnabled(levelOk && pluggedOk && !pfeActivated);
                 mPowerWarning.setVisibility(pluggedOk ? View.GONE : View.VISIBLE );
                 mBatteryWarning.setVisibility(levelOk ? View.GONE : View.VISIBLE);
             }
