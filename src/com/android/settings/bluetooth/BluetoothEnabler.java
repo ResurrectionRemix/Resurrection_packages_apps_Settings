@@ -134,9 +134,6 @@ public final class BluetoothEnabler implements SwitchBar.OnSwitchChangeListener 
                 setChecked(true);
                 mSwitch.setEnabled(true);
                 updateSearchIndex(true);
-                if (LocalBluetoothPreferences.getDiscoverableEndTimestamp(mContext) == 0) {
-                    mLocalAdapter.setScanMode(BluetoothAdapter.SCAN_MODE_CONNECTABLE);
-                }
                 break;
             case BluetoothAdapter.STATE_TURNING_OFF:
                 mSwitch.setEnabled(false);
