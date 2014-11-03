@@ -11,7 +11,6 @@
         android:minHeight="48dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingRight="?android:attr/scrollbarSize"
         android:background="?android:attr/selectableItemBackground"
         android:descendantFocusability="blocksDescendants">
 
@@ -40,7 +39,7 @@
         <LinearLayout
             android:id="@+id/launch_app"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:background="@drawable/launch_app"
             android:visibility="gone" >
@@ -54,6 +53,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_launch_app"
+                android:layout_gravity="center"
+                android:layout_marginRight="?android:attr/scrollbarSize"
                 android:paddingLeft="5dp" />
         </LinearLayout>
     </LinearLayout>
