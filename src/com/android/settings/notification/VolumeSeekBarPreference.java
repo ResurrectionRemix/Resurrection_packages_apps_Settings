@@ -90,6 +90,7 @@ public class VolumeSeekBarPreference extends SeekBarPreference
         mStopped = true;
         if (mVolumizer != null) {
             mVolumizer.stop();
+            mVolumizer = null;
         }
     }
 
