@@ -594,6 +594,7 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
     void onBondingStateChanged(int bondState) {
         if (bondState == BluetoothDevice.BOND_NONE) {
             mProfiles.clear();
+            mDevice.setAlias(null);
             mConnectAfterPairing = false;  // cancel auto-connect
             setPhonebookPermissionChoice(ACCESS_UNKNOWN);
             setMessagePermissionChoice(ACCESS_UNKNOWN);
