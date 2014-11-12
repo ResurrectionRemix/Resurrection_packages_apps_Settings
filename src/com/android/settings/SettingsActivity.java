@@ -1246,7 +1246,10 @@ public class SettingsActivity extends Activity
                         removeTile = true;
                     }
                 } else if (id == R.id.performance_settings) {
-                    if (!(pm.hasPowerProfiles() || (showDev && !Build.TYPE.equals("user")))) {
+                    final boolean forceHide =
+                            getResources().getBoolean(R.bool.config_hidePerformanceSettings);
+                    if (forceHide ||
+                            !(pm.hasPowerProfiles() || (showDev && !Build.TYPE.equals("user")))) {
                         removeTile = true;
                     }
                 }
