@@ -62,7 +62,14 @@
             android:summary="@string/master_clear_summary"
             settings:keywords="@string/keywords_factory_data_reset"
             android:fragment="com.android.settings.MasterClear" />
+    </PreferenceCategory>
 
+    <PreferenceCategory android:key="personalization"
+            android:title="@string/personalization">
+        <Preference
+                android:key="user_preferences_reset"
+                android:title="@string/reset_user_preferences_title"
+                android:summary="@string/reset_user_preferences_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>
