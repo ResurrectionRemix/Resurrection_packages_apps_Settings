@@ -177,6 +177,14 @@
             android:key="@string/category_key_personal"
             android:title="@string/header_category_personal" >
 
+        <!-- Profiles -->
+        <dashboard-tile
+                android:id="@+id/profile_settings"
+                android:fragment="com.android.settings.profiles.ProfilesSettings"
+                android:title="@string/profiles_settings_title"
+                android:icon="@drawable/ic_settings_location"
+                />
+
         <!-- Location -->
         <dashboard-tile
                 android:id="@+id/location_settings"
