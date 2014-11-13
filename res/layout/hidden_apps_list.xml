@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2012-2013 The CyanogenMod Project
+<!-- Copyright (C) 2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,12 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <dimen name="profile_instruction_padding">8dp</dimen>
-    <dimen name="fab_line_width">2dp</dimen>
-    <dimen name="oval_notification_size">26dp</dimen>
-    <!-- Width of the sliding KeyguardSecurityContainer (includes 2x keyguard_security_view_margin) -->
-    <dimen name="pa_security_width">320dp</dimen>
-    <!-- Height of the sliding KeyguardSecurityContainer (includes 2x keyguard_security_view_margin) -->
-    <dimen name="pa_security_height">400dp</dimen>
-</resources>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/protected_apps_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:choiceMode="multipleChoice" />
