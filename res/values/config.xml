@@ -37,7 +37,7 @@
 
     <!-- The duration (in milliseconds) of activity transitions -->
     <integer name="setup_wizard_transition_duration">300</integer>
-    
+
     <!-- Fling default long swipe thresholds as percentage of bar width/height-->
     <item name="config_flingMinLongSwipeThreshold" format="float" type="dimen">0.20</item>
     <item name="config_flingMaxLongSwipeThreshold" format="float" type="dimen">0.50</item>
@@ -121,4 +121,15 @@
 
     <!-- When true, weather options will be displayed in settings dashboard -->
     <bool name="config_showWeatherMenu">false</bool>
+
+    <!-- Possible storage sizes in giga bytes -->
+    <integer-array name="config_storageSizes">
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>64</item>
+        <item>128</item>
+    </integer-array>
+
 </resources>

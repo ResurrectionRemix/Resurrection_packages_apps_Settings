@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.deviceinfo.StorageSettings.UnmountTask;
 
 import java.io.File;
@@ -76,7 +77,13 @@ public class StorageVolumePreference extends Preference {
             // TODO: move statfs() to background thread
             final File path = volume.getPath();
             final long freeBytes = path.getFreeSpace();
-            final long totalBytes = path.getTotalSpace();
+            final long totalBytes;
+            if (VolumeInfo.ID_PRIVATE_INTERNAL.equals(volume.getId())) {
+                totalBytes = Utils.estimateTotalSpace(context,
+                        path.getTotalSpace() + Utils.getSystemTotalSpace());
+            } else {
+                totalBytes = path.getTotalSpace();
+            }
             final long usedBytes = totalBytes - freeBytes;
 
             final String used = Formatter.formatFileSize(context, usedBytes);
