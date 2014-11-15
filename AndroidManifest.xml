@@ -95,6 +95,8 @@
             android:usesCleartextTraffic="false">
 
         <!-- Settings -->
+        <uses-library android:name="org.cyanogenmod.hardware"
+                android:required="false" />
 
         <activity android:name="Settings"
                 android:taskAffinity="com.android.settings"
@@ -2507,6 +2509,12 @@
             <intent-filter>
                 <action android:name="android.bluetooth.intent.DISCOVERABLE_TIMEOUT" />
             </intent-filter>
+        </receiver>
+
+        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">$
+            <intent-filter android:priority="2147483647">$
+                <action android:name="android.intent.action.BOOT_COMPLETED" />$
+            </intent-filter>$
         </receiver>
 
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->

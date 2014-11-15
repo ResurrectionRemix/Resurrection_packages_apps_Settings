@@ -20,6 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.android.settings.ButtonSettings;
+import com.android.settings.DisplaySettings;
 
 public class BootReceiver extends BroadcastReceiver {
 
@@ -28,6 +29,7 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context ctx, Intent intent) {
         /* Restore the hardware tunable values */
+        DisplaySettings.restore(ctx);
         ButtonSettings.restoreKeyDisabler(ctx);
     }
 }
