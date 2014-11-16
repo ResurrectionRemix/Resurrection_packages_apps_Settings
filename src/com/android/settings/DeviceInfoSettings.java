@@ -36,6 +36,7 @@ import android.preference.PreferenceScreen;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.CarrierConfigManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -182,7 +183,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 PROPERTY_EQUIPMENT_ID);
 
         // Remove Baseband version if wifi-only device
-        if (Utils.isWifiOnly(getActivity())) {
+        if ((Utils.isWifiOnly(getActivity())
+                || (TelephonyManager.getDefault().getPhoneCount() > 1))
+                && !Utils.showSimCardTile(getActivity())) {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
 
@@ -539,7 +542,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     keys.add(KEY_EQUIPMENT_ID);
                 }
                 // Remove Baseband version if wifi-only device
-                if (Utils.isWifiOnly(context)) {
+                if (Utils.isWifiOnly(context) && !Utils.showSimCardTile(context)) {
                     keys.add((KEY_BASEBAND_VERSION));
                 }
                 // Dont show feedback option if there is no reporter.
