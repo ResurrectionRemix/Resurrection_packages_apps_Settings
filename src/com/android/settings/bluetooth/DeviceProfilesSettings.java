@@ -278,6 +278,7 @@ public final class DeviceProfilesSettings extends SettingsPreferenceFragment
                 if (which == OK_BUTTON) {
                     device.disconnect(profile);
                     profile.setPreferred(device.getDevice(), false);
+                    refreshProfiles();
                     if (profile instanceof MapProfile) {
                         device.setMessagePermissionChoice(BluetoothDevice.ACCESS_REJECTED);
                         refreshProfilePreference(
