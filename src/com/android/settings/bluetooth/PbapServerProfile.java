@@ -122,7 +122,17 @@ final class PbapServerProfile implements LocalBluetoothProfile {
     }
 
     public int getSummaryResourceForDevice(BluetoothDevice device) {
-        return R.string.bluetooth_profile_pbap_summary;
+        int state = getConnectionStatus(device);
+        switch (state) {
+            case BluetoothProfile.STATE_DISCONNECTED:
+                return R.string.bluetooth_pbap_profile_summary_use_for;
+
+            case BluetoothProfile.STATE_CONNECTED:
+                return R.string.bluetooth_pbap_profile_summary_connected;
+
+            default:
+                return Utils.getConnectionStateSummary(state);
+        }
     }
 
     public int getDrawableResource(BluetoothClass btClass) {

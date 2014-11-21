@@ -217,7 +217,8 @@ public final class BluetoothPermissionRequest extends BroadcastReceiver {
 
             if (phonebookPermission == CachedBluetoothDevice.ACCESS_UNKNOWN) {
                 // Leave 'processed' as false.
-            } else if (phonebookPermission == CachedBluetoothDevice.ACCESS_ALLOWED) {
+            } else if (phonebookPermission == CachedBluetoothDevice.ACCESS_ALLOWED ||
+                phonebookPermission == CachedBluetoothDevice.PBAP_CONNECT_RECEIVED) {
                 sendReplyIntentToReceiver(true);
                 processed = true;
             } else if (phonebookPermission == CachedBluetoothDevice.ACCESS_REJECTED) {
