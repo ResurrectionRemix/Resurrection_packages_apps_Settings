@@ -31,7 +31,9 @@ public class ProtectedAppsReceiver extends BroadcastReceiver {
                     PackageManager.COMPONENT_VISIBLE_STATUS);
             ArrayList<ComponentName> components =
                     intent.getParcelableArrayListExtra(PROTECTED_COMPONENTS);
-            updateProtectedAppComponentsAndNotify(context, components, protect);
+            if (components != null) {
+                updateProtectedAppComponentsAndNotify(context, components, protect);
+            }
         }
     }
 
