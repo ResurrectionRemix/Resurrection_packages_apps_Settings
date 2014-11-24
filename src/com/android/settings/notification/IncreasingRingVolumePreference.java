@@ -87,9 +87,11 @@ public class IncreasingRingVolumePreference extends Preference implements
 
     @Override
     public void onActivityStop() {
-        postStopSample();
-        mHandler.getLooper().quitSafely();
-        mHandler = null;
+        if (mHandler != null) {
+            postStopSample();
+            mHandler.getLooper().quitSafely();
+            mHandler = null;
+        }
     }
 
     @Override
@@ -205,7 +207,9 @@ public class IncreasingRingVolumePreference extends Preference implements
     }
 
     public void stopSample() {
-        postStopSample();
+        if (mHandler != null) {
+            postStopSample();
+        }
     }
 
     private void postStopSample() {
