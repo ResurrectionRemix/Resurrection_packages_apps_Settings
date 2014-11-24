@@ -16,6 +16,7 @@
 
 package com.android.settings.notification;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -51,6 +52,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String KEY_BLOCK = "block";
     private static final String KEY_PRIORITY = "priority";
     private static final String KEY_SENSITIVE = "sensitive";
+    private static final String KEY_SHOW_ON_KEYGUARD = "show_on_keyguard";
+    private static final String KEY_NO_ONGOING_ON_KEYGUARD = "no_ongoing_on_keyguard";
 
     static final String EXTRA_HAS_SETTINGS_INTENT = "has_settings_intent";
     static final String EXTRA_SETTINGS_INTENT = "settings_intent";
@@ -61,6 +64,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private SwitchPreference mBlock;
     private SwitchPreference mPriority;
     private SwitchPreference mSensitive;
+    private SwitchPreference mShowOnKeyguard;
+    private SwitchPreference mShowNoOngoingOnKeyguard;
     private AppRow mAppRow;
     private boolean mCreated;
 
@@ -135,6 +140,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mBlock = (SwitchPreference) findPreference(KEY_BLOCK);
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mSensitive = (SwitchPreference) findPreference(KEY_SENSITIVE);
+        mShowOnKeyguard = (SwitchPreference) findPreference(KEY_SHOW_ON_KEYGUARD);
+        mShowNoOngoingOnKeyguard = (SwitchPreference) findPreference(KEY_NO_ONGOING_ON_KEYGUARD);
 
         final boolean secure = new LockPatternUtils(getActivity()).isSecure();
         final boolean enabled = getLockscreenNotificationsEnabled();
@@ -188,8 +195,50 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             });
         }
 
+        int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, uid);
+        mShowOnKeyguard.setChecked((keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) != 0);
+        mShowNoOngoingOnKeyguard.setChecked(
+                (keyguard & Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD) != 0);
+
+        mShowOnKeyguard.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final boolean showOnKeyguard = (Boolean) newValue;
+                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, uid);
+
+                if (showOnKeyguard && (keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) == 0) {
+                    keyguard |= Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+                } else {
+                    keyguard &= ~Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+                }
+                return mBackend.setShowNotificationForPackageOnKeyguard(pkg, uid, keyguard);
+            }
+        });
+
+        mShowNoOngoingOnKeyguard.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final boolean showNoOngoingOnKeyguard = (Boolean) newValue;
+                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, uid);
+                if (showNoOngoingOnKeyguard
+                        && (keyguard & Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD) == 0) {
+                    keyguard |= Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+                } else {
+                    keyguard &= ~Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+                }
+                return mBackend.setShowNotificationForPackageOnKeyguard(pkg, uid, keyguard);
+            }
+        });
+
         // Users cannot block notifications from system/signature packages
-        if (Utils.isSystemPackage(pm, info)) {
+        final boolean isSystemPkg = Utils.isSystemPackage(pm, info);
+
+        if (isSystemPkg || !getLockscreenNotificationsEnabled()) {
+            getPreferenceScreen().removePreference(mShowNoOngoingOnKeyguard);
+            getPreferenceScreen().removePreference(mShowOnKeyguard);
+        }
+
+        if (isSystemPkg) {
             getPreferenceScreen().removePreference(mBlock);
             mPriority.setDependency(null); // don't have it depend on a preference that's gone
         }

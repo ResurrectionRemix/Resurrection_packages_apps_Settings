@@ -26,6 +26,21 @@
             android:disableDependentsState="true"
             android:persistent="false" />
 
+    <!-- Keyguard options -->
+    <SwitchPreference
+            android:key="show_on_keyguard"
+            android:title="@string/app_notification_show_on_keyguard_title"
+            android:summary="@string/app_notification_show_on_keyguard_summary"
+            android:dependency="block"
+            android:persistent="false" />
+
+    <SwitchPreference
+            android:key="no_ongoing_on_keyguard"
+            android:title="@string/app_notification_no_ongoing_on_keyguard_title"
+            android:summary="@string/app_notification_no_ongoing_on_keyguard_summary"
+            android:dependency="show_on_keyguard"
+            android:persistent="false" />
+
     <!-- Priority -->
     <SwitchPreference
             android:key="priority"

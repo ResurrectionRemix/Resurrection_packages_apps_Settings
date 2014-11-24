@@ -590,5 +590,24 @@ public class NotificationAppList extends PinnedHeaderListFragment
                 return false;
             }
         }
+
+        public int getShowNotificationForPackageOnKeyguard(String pkg, int uid) {
+            try {
+                return sINM.getShowNotificationForPackageOnKeyguard(pkg, uid);
+            } catch (Exception e) {
+                Log.w(TAG, "Error calling NoMan", e);
+                return Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+            }
+        }
+
+        public boolean setShowNotificationForPackageOnKeyguard(String pkg, int uid, int status) {
+            try {
+                sINM.setShowNotificationForPackageOnKeyguard(pkg, uid, status);
+                return true;
+            } catch (Exception e) {
+                Log.w(TAG, "Error calling NoMan", e);
+                return false;
+            }
+        }
     }
 }
