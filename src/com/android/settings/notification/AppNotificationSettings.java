@@ -59,6 +59,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String KEY_PEEKABLE = "peekable";
     private static final String KEY_SENSITIVE = "sensitive";
     private static final String KEY_APP_SETTINGS = "app_settings";
+    private static final String KEY_SHOW_ON_KEYGUARD = "show_on_keyguard";
+    private static final String KEY_NO_ONGOING_ON_KEYGUARD = "no_ongoing_on_keyguard";
 
     private static final Intent APP_NOTIFICATION_PREFS_CATEGORY_INTENT
             = new Intent(Intent.ACTION_MAIN)
@@ -71,6 +73,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private SwitchPreference mPriority;
     private SwitchPreference mPeekable;
     private SwitchPreference mSensitive;
+    private SwitchPreference mShowOnKeyguard;
+    private SwitchPreference mShowNoOngoingOnKeyguard;
     private AppRow mAppRow;
     private boolean mCreated;
     private boolean mIsSystemPackage;
@@ -137,6 +141,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mPeekable = (SwitchPreference) findPreference(KEY_PEEKABLE);
         mSensitive = (SwitchPreference) findPreference(KEY_SENSITIVE);
+        mShowOnKeyguard = (SwitchPreference) findPreference(KEY_SHOW_ON_KEYGUARD);
+        mShowNoOngoingOnKeyguard = (SwitchPreference) findPreference(KEY_NO_ONGOING_ON_KEYGUARD);
 
         mAppRow = mBackend.loadAppRow(pm, info.applicationInfo);
 
@@ -202,6 +208,47 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         } else {
             removePreference(KEY_APP_SETTINGS);
         }
+
+        int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
+        mShowOnKeyguard.setChecked((keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) != 0);
+        mShowNoOngoingOnKeyguard.setChecked(
+                (keyguard & Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD) != 0);
+
+        mShowOnKeyguard.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final boolean showOnKeyguard = (Boolean) newValue;
+                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
+
+                if (showOnKeyguard && (keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) == 0) {
+                    keyguard |= Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+                } else {
+                    keyguard &= ~Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
+                }
+                return mBackend.setShowNotificationForPackageOnKeyguard(pkg, mUid, keyguard);
+            }
+        });
+
+        mShowNoOngoingOnKeyguard.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final boolean showNoOngoingOnKeyguard = (Boolean) newValue;
+                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
+                if (showNoOngoingOnKeyguard
+                        && (keyguard & Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD) == 0) {
+                    keyguard |= Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+                } else {
+                    keyguard &= ~Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+                }
+                return mBackend.setShowNotificationForPackageOnKeyguard(pkg, mUid, keyguard);
+            }
+        });
+
+        // Users cannot block notifications from system/signature packages
+        if (mIsSystemPackage || !getLockscreenNotificationsEnabled()) {
+            getPreferenceScreen().removePreference(mShowNoOngoingOnKeyguard);
+            getPreferenceScreen().removePreference(mShowOnKeyguard);
+        }
     }
 
     @Override
@@ -226,6 +273,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         setVisible(mPeekable, mIsSystemPackage || !banned && headsUpEnabled);
         setVisible(mSensitive, mIsSystemPackage || !banned && lockscreenSecure
                 && lockscreenNotificationsEnabled && allowPrivate);
+        setVisible(mShowOnKeyguard, mIsSystemPackage || !banned);
+        setVisible(mShowNoOngoingOnKeyguard, mIsSystemPackage || !banned);
     }
 
     private void setVisible(Preference p, boolean visible) {
