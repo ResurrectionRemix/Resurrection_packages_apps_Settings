@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2013-2014 The CyanogenMod Project
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,14 +13,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <plurals name="backlight_timeout_time">
-        <item quantity="one"><xliff:g id="seconds">%d</xliff:g> second</item>
-        <item quantity="other"><xliff:g id="seconds">%d</xliff:g> seconds</item>
-    </plurals>
 
-    <plurals name="app_ops_count">
-        <item quantity="one">once</item>
-        <item quantity="other">%d times</item>
-    </plurals>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/show_user_apps"
+          android:title="@string/app_ops_show_user_apps"
+          android:checkable="true" />
+    <item android:id="@+id/show_system_apps"
+          android:title="@string/app_ops_show_system_apps"
+          android:checkable="true" />
+    <item android:id="@+id/reset_counters"
+          android:title="@string/app_ops_reset_counters" />
+</menu>
