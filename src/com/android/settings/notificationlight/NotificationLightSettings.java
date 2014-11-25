@@ -96,11 +96,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         PreferenceGroup mAdvancedPrefs = (PreferenceGroup) prefSet.findPreference("advanced_section");
 
         // Get the system defined default notification color
-        mDefaultColor = resources.getColor(com.android.internal.R.color.config_defaultNotificationColor);
-        if (mDefaultColor == Color.WHITE) {
-            // We cannot properly show white in the UI, change it to off white (#eeeeee)
-            mDefaultColor = 0xFFEEEEEE;
-        }
+        mDefaultColor =
+                resources.getColor(com.android.internal.R.color.config_defaultNotificationColor);
 
         mDefaultLedOn = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOn);
