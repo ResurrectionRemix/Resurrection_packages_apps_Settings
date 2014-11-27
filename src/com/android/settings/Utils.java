@@ -76,6 +76,7 @@ import android.widget.TabWidget;
 import com.android.internal.util.ImageUtils;
 import com.android.internal.util.UserIcons;
 import com.android.settings.UserSpinnerAdapter.UserDetails;
+import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardTile;
 import com.android.settings.drawable.CircleFramedDrawable;
@@ -691,7 +692,11 @@ public final class Utils {
     public static Intent onBuildStartFragmentIntent(Context context, String fragmentName,
             Bundle args, int titleResId, CharSequence title, boolean isShortcut) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClass(context, SubSettings.class);
+        if (BluetoothSettings.class.getName().equals(fragmentName)) {
+            intent.setClass(context, SubSettings.BluetoothSubSettings.class);
+        } else {
+            intent.setClass(context, SubSettings.class);
+        }
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT, fragmentName);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, args);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_TITLE_RESID, titleResId);
