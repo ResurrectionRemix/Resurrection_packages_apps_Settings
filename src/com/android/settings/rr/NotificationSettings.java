@@ -30,9 +30,10 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Intent;
 
 import android.provider.Settings;
-
+import android.content.res.Resources;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -59,6 +60,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
         int DisableIM = Settings.System.getInt(getContentResolver(),
                 DISABLE_IMMERSIVE_MESSAGE, 0);
         mDisableIM.setChecked(DisableIM != 0);
+
+       // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
+       boolean showCmImeSwitcher = getResources().getBoolean(
+                   com.android.internal.R.bool.config_show_cmIMESwitcher);
+           if (!showCmImeSwitcher) {
+               getPreferenceScreen().removePreference(
+                       findPreference(Settings.System.STATUS_BAR_IME_SWITCHER));
+           }
     }
 
 
