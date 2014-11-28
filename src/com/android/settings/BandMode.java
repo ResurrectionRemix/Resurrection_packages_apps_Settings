@@ -71,7 +71,7 @@ public class BandMode extends Activity {
         super.onCreate(icicle);
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        
+
         setContentView(R.layout.band_mode);
 
         setTitle(getString(R.string.band_mode_title));
@@ -85,8 +85,6 @@ public class BandMode extends Activity {
                 android.R.layout.simple_list_item_1);
         mBandList.setAdapter(mBandListAdapter);
         mBandList.setOnItemClickListener(mBandSelectionHandler);
-
-
 
         loadBandList();
     }
@@ -122,6 +120,7 @@ public class BandMode extends Activity {
         }
 
         public String toString() {
+            if (mBandMode >= BAND_NAMES.length) return "Band mode " + mBandMode;
             return BAND_NAMES[mBandMode];
         }
     }
@@ -154,10 +153,7 @@ public class BandMode extends Activity {
 
         if (result.result != null) {
             int bands[] = (int[])result.result;
-            //Always show Band 0, ie Automatic
-            item = new BandListItem(0);
-            mBandListAdapter.add(item);
-            if (DBG) log("Add " + item.toString());
+
             for (int i=0; i<bands.length; i++) {
                 item = new BandListItem(bands[i]);
                 mBandListAdapter.add(item);

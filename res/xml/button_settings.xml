@@ -17,35 +17,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceScreen
-        android:key="power_menu"
-        android:title="@string/power_menu_title"
-        android:fragment="com.android.settings.cyanogenmod.PowerMenu" />
-
-    <com.android.settings.cyanogenmod.ButtonBacklightBrightness
-        android:key="button_backlight"
-        android:title="@string/button_backlight_title"
-        android:dialogTitle="@string/button_backlight_title"
-        android:persistent="false" />
-
-    <!-- Device Specific Bluetooth Input settings -->
-    <Preference
-        android:key="bluetooth_input_settings">
-        <intent
-            android:action="com.cyanogenmod.action.LAUNCH_BLUETOOTH_INPUT_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
-    </Preference>
+    <CheckBoxPreference
+        android:key="disable_nav_keys"
+        android:title="@string/disable_navkeys_title"
+        android:summary="@string/disable_navkeys_summary"
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="home_wake_screen"
-            android:title="@string/home_wake_title"
-            android:summary="@string/home_wake_summary"
-            android:defaultValue="true" />
 
         <ListPreference
             android:key="hardware_keys_home_long_press"
@@ -84,104 +64,7 @@
             android:entries="@array/hardware_keys_action_entries"
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
-    </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="assist_key"
-        android:title="@string/hardware_keys_assist_key_title" >
-
-        <ListPreference
-            android:key="hardware_keys_assist_press"
-            android:dialogTitle="@string/hardware_keys_short_press_title"
-            android:title="@string/hardware_keys_short_press_title"
-            android:entries="@array/hardware_keys_action_entries"
-            android:entryValues="@array/hardware_keys_action_values"
-            android:persistent="false" />
-
-        <ListPreference
-            android:key="hardware_keys_assist_long_press"
-            android:dialogTitle="@string/hardware_keys_long_press_title"
-            android:title="@string/hardware_keys_long_press_title"
-            android:entries="@array/hardware_keys_action_entries"
-            android:entryValues="@array/hardware_keys_action_values"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="app_switch_key"
-        android:title="@string/hardware_keys_appswitch_key_title" >
-
-        <ListPreference
-            android:key="hardware_keys_app_switch_press"
-            android:dialogTitle="@string/hardware_keys_short_press_title"
-            android:title="@string/hardware_keys_short_press_title"
-            android:entries="@array/hardware_keys_action_entries"
-            android:entryValues="@array/hardware_keys_action_values"
-            android:persistent="false" />
-
-        <ListPreference
-            android:key="hardware_keys_app_switch_long_press"
-            android:dialogTitle="@string/hardware_keys_long_press_title"
-            android:title="@string/hardware_keys_long_press_title"
-            android:entries="@array/hardware_keys_action_entries"
-            android:entryValues="@array/hardware_keys_action_values"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="camera_key"
-        android:title="@string/hardware_keys_camera_key_title" >
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="camera_wake_screen"
-            android:title="@string/camera_wake_title"
-            android:summary="@string/camera_wake_summary"
-            android:defaultValue="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="camera_sleep_on_release"
-            android:title="@string/camera_sleep_on_release_title"
-            android:summary="@string/camera_sleep_on_release_summary"
-            android:defaultValue="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="camera_music_controls"
-            android:title="@string/camera_music_controls_title"
-            android:summary="@string/camera_music_controls_summary"
-            android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="volume_keys"
-        android:title="@string/hardware_keys_volume_keys_title" >
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="volume_wake_screen"
-            android:title="@string/volume_wake_title"
-            android:summary="@string/volume_wake_summary"
-            android:defaultValue="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="volbtn_music_controls"
-            android:title="@string/volbtn_music_controls_title"
-            android:summary="@string/volbtn_music_controls_summary"
-            android:defaultValue="true" />
-
-        <ListPreference
-            android:key="volume_key_cursor_control"
-            android:dialogTitle="@string/volbtn_cursor_control_title"
-            android:title="@string/volbtn_cursor_control_title"
-            android:entries="@array/volbtn_cursor_control_entries"
-            android:entryValues="@array/volbtn_cursor_control_values"
-            android:persistent="false" />
-
-        <CheckBoxPreference
-            android:key="swap_volume_buttons"
-            android:title="@string/swap_volume_buttons_title"
-            android:summary="@string/swap_volume_buttons_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>

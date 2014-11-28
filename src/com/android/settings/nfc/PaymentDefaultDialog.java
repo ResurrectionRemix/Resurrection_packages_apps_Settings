@@ -19,14 +19,7 @@ package com.android.settings.nfc;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.nfc.cardemulation.ApduServiceInfo;
 import android.nfc.cardemulation.CardEmulation;
-import android.nfc.cardemulation.HostApduService;
-import android.nfc.cardemulation.OffHostApduService;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -35,15 +28,13 @@ import com.android.internal.app.AlertController;
 import com.android.settings.R;
 import com.android.settings.nfc.PaymentBackend.PaymentAppInfo;
 
-import java.io.IOException;
 import java.util.List;
-
-import org.xmlpull.v1.XmlPullParserException;
 
 public final class PaymentDefaultDialog extends AlertActivity implements
         DialogInterface.OnClickListener {
 
     public static final String TAG = "PaymentDefaultDialog";
+    private static final int PAYMENT_APP_MAX_CAPTION_LENGTH = 40;
 
     private PaymentBackend mBackend;
     private ComponentName mNewDefault;
@@ -119,12 +110,14 @@ public final class PaymentDefaultDialog extends AlertActivity implements
         p.mTitle = getString(R.string.nfc_payment_set_default_label);
         if (defaultPaymentApp == null) {
             String formatString = getString(R.string.nfc_payment_set_default);
-            String msg = String.format(formatString, requestedPaymentApp.caption);
+            String msg = String.format(formatString,
+                    sanitizePaymentAppCaption(requestedPaymentApp.caption.toString()));
             p.mMessage = msg;
         } else {
             String formatString = getString(R.string.nfc_payment_set_default_instead_of);
-            String msg = String.format(formatString, requestedPaymentApp.caption,
-                    defaultPaymentApp.caption);
+            String msg = String.format(formatString,
+                    sanitizePaymentAppCaption(requestedPaymentApp.caption.toString()),
+                    sanitizePaymentAppCaption(defaultPaymentApp.caption.toString()));
             p.mMessage = msg;
         }
         p.mPositiveButtonText = getString(R.string.yes);
@@ -134,6 +127,17 @@ public final class PaymentDefaultDialog extends AlertActivity implements
         setupAlert();
 
         return true;
+    }
+
+    private String sanitizePaymentAppCaption(String input) {
+        String sanitizedString = input.replace('\n', ' ').replace('\r', ' ').trim();
+
+
+        if (sanitizedString.length() > PAYMENT_APP_MAX_CAPTION_LENGTH) {
+            return sanitizedString.substring(0, PAYMENT_APP_MAX_CAPTION_LENGTH);
+        }
+
+        return sanitizedString;
     }
 
 }

@@ -19,7 +19,6 @@ package com.android.settings.notificationlight;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -39,8 +38,6 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     private static final String MEDIUM_COLOR_PREF = "medium_color";
     private static final String FULL_COLOR_PREF = "full_color";
 
-    private boolean mMultiColorLed;
-    private CheckBoxPreference mEnabledPref;
     private PreferenceGroup mColorPrefs;
     private ApplicationLightPreference mLowColorPref;
     private ApplicationLightPreference mMediumColorPref;
@@ -69,6 +66,7 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
             mFullColorPref.setOnPreferenceChangeListener(this);
         } else {
             prefSet.removePreference(prefSet.findPreference("colors_list"));
+            resetColors();
         }
     }
 
@@ -122,7 +120,7 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.profile_reset_title)
-                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+                .setIcon(R.drawable.ic_settings_backup_restore)
                 .setAlphabeticShortcut('r')
                 .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }

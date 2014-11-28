@@ -16,20 +16,26 @@
 
 package com.android.settings.location;
 
-import android.app.ActivityManager;
+import android.app.AppGlobals;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.IPackageManager;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Process;
+import android.os.RemoteException;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.applications.InstalledAppDetails;
 
 import java.util.ArrayList;
@@ -44,10 +50,10 @@ public class RecentLocationApps {
 
     private static final int RECENT_TIME_INTERVAL_MILLIS = 15 * 60 * 1000;
 
-    private final PreferenceActivity mActivity;
+    private final SettingsActivity mActivity;
     private final PackageManager mPackageManager;
 
-    public RecentLocationApps(PreferenceActivity activity) {
+    public RecentLocationApps(SettingsActivity activity) {
         mActivity = activity;
         mPackageManager = activity.getPackageManager();
     }
@@ -71,12 +77,35 @@ public class RecentLocationApps {
         }
     }
 
-    private Preference createRecentLocationEntry(
+    /**
+     * Subclass of {@link Preference} to intercept views and allow content description to be set on
+     * them for accessibility purposes.
+     */
+    private static class AccessiblePreference extends DimmableIconPreference {
+        public CharSequence mContentDescription;
+
+        public AccessiblePreference(Context context, CharSequence contentDescription) {
+            super(context);
+            mContentDescription = contentDescription;
+        }
+
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+            if (mContentDescription != null) {
+                final TextView titleView = (TextView) view.findViewById(android.R.id.title);
+                titleView.setContentDescription(mContentDescription);
+            }
+        }
+    }
+
+    private AccessiblePreference createRecentLocationEntry(
             Drawable icon,
             CharSequence label,
             boolean isHighBattery,
+            CharSequence contentDescription,
             Preference.OnPreferenceClickListener listener) {
-        Preference pref = new Preference(mActivity);
+        AccessiblePreference pref = new AccessiblePreference(mActivity, contentDescription);
         pref.setIcon(icon);
         pref.setTitle(label);
         if (isHighBattery) {
@@ -89,33 +118,37 @@ public class RecentLocationApps {
     }
 
     /**
-     * Fills a list of applications which queried location recently within
-     * specified time.
+     * Fills a list of applications which queried location recently within specified time.
      */
     public List<Preference> getAppList() {
         // Retrieve a location usage list from AppOps
         AppOpsManager aoManager =
                 (AppOpsManager) mActivity.getSystemService(Context.APP_OPS_SERVICE);
-        List<AppOpsManager.PackageOps> appOps = aoManager.getPackagesForOps(
-                new int[] {
-                    AppOpsManager.OP_MONITOR_LOCATION,
-                    AppOpsManager.OP_MONITOR_HIGH_POWER_LOCATION,
-                });
+        List<AppOpsManager.PackageOps> appOps = aoManager.getPackagesForOps(new int[] {
+                AppOpsManager.OP_MONITOR_LOCATION, AppOpsManager.OP_MONITOR_HIGH_POWER_LOCATION, });
 
         // Process the AppOps list and generate a preference list.
         ArrayList<Preference> prefs = new ArrayList<Preference>();
-        long now = System.currentTimeMillis();
-        for (AppOpsManager.PackageOps ops : appOps) {
+        final long now = System.currentTimeMillis();
+        final UserManager um = (UserManager) mActivity.getSystemService(Context.USER_SERVICE);
+        final List<UserHandle> profiles = um.getUserProfiles();
+
+        final int appOpsN = appOps.size();
+        for (int i = 0; i < appOpsN; ++i) {
+            AppOpsManager.PackageOps ops = appOps.get(i);
             // Don't show the Android System in the list - it's not actionable for the user.
-            // Also don't show apps belonging to background users.
+            // Also don't show apps belonging to background users except managed users.
+            String packageName = ops.getPackageName();
             int uid = ops.getUid();
-            boolean isAndroidOs = (uid == Process.SYSTEM_UID)
-                    && ANDROID_SYSTEM_PACKAGE_NAME.equals(ops.getPackageName());
-            if (!isAndroidOs && ActivityManager.getCurrentUser() == UserHandle.getUserId(uid)) {
-                Preference pref = getPreferenceFromOps(now, ops);
-                if (pref != null) {
-                    prefs.add(pref);
-                }
+            int userId = UserHandle.getUserId(uid);
+            boolean isAndroidOs =
+                    (uid == Process.SYSTEM_UID) && ANDROID_SYSTEM_PACKAGE_NAME.equals(packageName);
+            if (isAndroidOs || !profiles.contains(new UserHandle(userId))) {
+                continue;
+            }
+            Preference preference = getPreferenceFromOps(um, now, ops);
+            if (preference != null) {
+                prefs.add(preference);
             }
         }
 
@@ -130,7 +163,8 @@ public class RecentLocationApps {
      * When the PackageOps is fresh enough, this method returns a Preference pointing to the App
      * Info page for that package.
      */
-    private Preference getPreferenceFromOps(long now, AppOpsManager.PackageOps ops) {
+    private Preference getPreferenceFromOps(final UserManager um, long now,
+            AppOpsManager.PackageOps ops) {
         String packageName = ops.getPackageName();
         List<AppOpsManager.OpEntry> entries = ops.getOps();
         boolean highBattery = false;
@@ -161,30 +195,34 @@ public class RecentLocationApps {
 
         // The package is fresh enough, continue.
 
-        Preference pref = null;
+        int uid = ops.getUid();
+        int userId = UserHandle.getUserId(uid);
+
+        AccessiblePreference preference = null;
         try {
-          ApplicationInfo appInfo = mPackageManager.getApplicationInfo(
-              packageName, PackageManager.GET_META_DATA);
-          // Multiple users can install the same package. Each user gets a different Uid for
-          // the same package.
-          //
-          // Here we retrieve the Uid with package name, that will be the Uid for that package
-          // associated with the current active user. If the Uid differs from the Uid in ops,
-          // that means this entry belongs to another inactive user and we should ignore that.
-          if (appInfo.uid == ops.getUid()) {
-            pref = createRecentLocationEntry(
-                mPackageManager.getApplicationIcon(appInfo),
-                mPackageManager.getApplicationLabel(appInfo),
-                highBattery,
-                new PackageEntryClickedListener(packageName));
-          } else if (Log.isLoggable(TAG, Log.VERBOSE)) {
-            Log.v(TAG, "package " + packageName + " with Uid " + ops.getUid() +
-                " belongs to another inactive account, ignored.");
-          }
-        } catch (PackageManager.NameNotFoundException e) {
-          Log.wtf(TAG, "Package not found: " + packageName, e);
+            IPackageManager ipm = AppGlobals.getPackageManager();
+            ApplicationInfo appInfo =
+                    ipm.getApplicationInfo(packageName, PackageManager.GET_META_DATA, userId);
+            if (appInfo == null) {
+                Log.w(TAG, "Null application info retrieved for package " + packageName
+                        + ", userId " + userId);
+                return null;
+            }
+            Resources res = mActivity.getResources();
+
+            final UserHandle userHandle = new UserHandle(userId);
+            Drawable appIcon = mPackageManager.getApplicationIcon(appInfo);
+            Drawable icon = mPackageManager.getUserBadgedIcon(appIcon, userHandle);
+            CharSequence appLabel = mPackageManager.getApplicationLabel(appInfo);
+            CharSequence badgedAppLabel = mPackageManager.getUserBadgedLabel(appLabel, userHandle);
+            preference = createRecentLocationEntry(icon,
+                    appLabel, highBattery, badgedAppLabel,
+                    new PackageEntryClickedListener(packageName));
+        } catch (RemoteException e) {
+            Log.w(TAG, "Error while retrieving application info for package " + packageName
+                    + ", userId " + userId, e);
         }
 
-        return pref;
+        return preference;
     }
 }

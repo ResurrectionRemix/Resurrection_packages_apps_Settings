@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.os.storage.IMountService;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,7 +33,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.android.internal.widget.LockPatternUtils;
+
+import java.util.Locale;
+
 public class CryptKeeperConfirm extends Fragment {
+
+    private static final String TAG = "CryptKeeperConfirm";
 
     public static class Blank extends Activity {
         private Handler mHandler = new Handler();
@@ -72,7 +79,7 @@ public class CryptKeeperConfirm extends Fragment {
                     IMountService mountService = IMountService.Stub.asInterface(service);
                     try {
                         Bundle args = getIntent().getExtras();
-                        mountService.encryptStorage(args.getString("password"));
+                        mountService.encryptStorage(args.getInt("type", -1), args.getString("password"));
                     } catch (Exception e) {
                         Log.e("CryptKeeper", "Error while encrypting...", e);
                     }
@@ -90,10 +97,40 @@ public class CryptKeeperConfirm extends Fragment {
                 return;
             }
 
+            /* WARNING - nasty hack!
+               Settings for the lock screen are not available to the crypto
+               screen (CryptKeeper) at boot. We duplicate the ones that
+               CryptKeeper needs to the crypto key/value store when they are
+               modified (see LockPatternUtils).
+               However, prior to encryption, the crypto key/value store is not
+               persisted across reboots, thus modified settings are lost to
+               CryptKeeper.
+               In order to make sure CryptKeeper had the correct settings after
+               first encrypting, we thus need to rewrite them, which ensures the
+               crypto key/value store is up to date. On encryption, this store
+               is then persisted, and the settings will be there on future
+               reboots.
+             */
+
+            // 1. The owner info.
+            LockPatternUtils utils = new LockPatternUtils(getActivity());
+            utils.setVisiblePatternEnabled(utils.isVisiblePatternEnabled());
+            if (utils.isOwnerInfoEnabled()) {
+                utils.setOwnerInfo(utils.getOwnerInfo(UserHandle.USER_OWNER),
+                                   UserHandle.USER_OWNER);
+            }
             Intent intent = new Intent(getActivity(), Blank.class);
             intent.putExtras(getArguments());
-
             startActivity(intent);
+
+            // 2. The system locale.
+            try {
+                IBinder service = ServiceManager.getService("mount");
+                IMountService mountService = IMountService.Stub.asInterface(service);
+                mountService.setField("SystemLocale", Locale.getDefault().toLanguageTag());
+            } catch (Exception e) {
+                Log.e(TAG, "Error storing locale for decryption UI", e);
+            }
         }
     };
 

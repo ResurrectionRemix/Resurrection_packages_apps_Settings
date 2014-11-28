@@ -18,7 +18,6 @@ package com.android.settings.accounts;
 
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
-import android.app.ActionBar;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,14 +26,18 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
-import android.view.MenuItem;
+
 import com.android.internal.util.CharSequences;
 import com.android.settings.R;
+import com.android.settings.Utils;
+
 import com.google.android.collect.Maps;
 
 import java.util.ArrayList;
@@ -43,8 +46,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+import static android.content.Intent.EXTRA_USER;
+
 /**
  * Activity asking a user to select an account to be set up.
+ *
+ * An extra {@link UserHandle} can be specified in the intent as {@link EXTRA_USER}, if the user for
+ * which the action needs to be performed is different to the one the Settings App will run in.
  */
 public class ChooseAccountActivity extends PreferenceActivity {
 
@@ -57,7 +65,10 @@ public class ChooseAccountActivity extends PreferenceActivity {
     private HashMap<String, ArrayList<String>> mAccountTypeToAuthorities = null;
     private Map<String, AuthenticatorDescription> mTypeToAuthDescription
             = new HashMap<String, AuthenticatorDescription>();
-    
+    // The UserHandle of the user we are choosing an account for
+    private UserHandle mUserHandle;
+    private UserManager mUm;
+
     private static class ProviderEntry implements Comparable<ProviderEntry> {
         private final CharSequence name;
         private final String type;
@@ -81,11 +92,6 @@ public class ChooseAccountActivity extends PreferenceActivity {
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        ActionBar mActionBar = getActionBar();
-        if (mActionBar != null) {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
         setContentView(R.layout.add_account_screen);
         addPreferencesFromResource(R.xml.add_account_settings);
         mAuthorities = getIntent().getStringArrayExtra(
@@ -99,16 +105,10 @@ public class ChooseAccountActivity extends PreferenceActivity {
             }
         }
         mAddAccountGroup = getPreferenceScreen();
+        mUm = UserManager.get(this);
+        mUserHandle = Utils.getSecureTargetUser(getActivityToken(), mUm, null /* arguments */,
+                getIntent().getExtras());
         updateAuthDescriptions();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -116,7 +116,8 @@ public class ChooseAccountActivity extends PreferenceActivity {
      * and update any UI that depends on AuthenticatorDescriptions in onAuthDescriptionsUpdated().
      */
     private void updateAuthDescriptions() {
-        mAuthDescs = AccountManager.get(this).getAuthenticatorTypes();
+        mAuthDescs = AccountManager.get(this).getAuthenticatorTypesAsUser(
+                mUserHandle.getIdentifier());
         for (int i = 0; i < mAuthDescs.length; i++) {
             mTypeToAuthDescription.put(mAuthDescs[i].type, mAuthDescs[i]);
         }
@@ -184,7 +185,8 @@ public class ChooseAccountActivity extends PreferenceActivity {
     public ArrayList<String> getAuthoritiesForAccountType(String type) {
         if (mAccountTypeToAuthorities == null) {
             mAccountTypeToAuthorities = Maps.newHashMap();
-            SyncAdapterType[] syncAdapters = ContentResolver.getSyncAdapterTypes();
+            SyncAdapterType[] syncAdapters = ContentResolver.getSyncAdapterTypesAsUser(
+                    mUserHandle.getIdentifier());
             for (int i = 0, n = syncAdapters.length; i < n; i++) {
                 final SyncAdapterType sa = syncAdapters[i];
                 ArrayList<String> authorities = mAccountTypeToAuthorities.get(sa.accountType);
@@ -212,8 +214,9 @@ public class ChooseAccountActivity extends PreferenceActivity {
         if (mTypeToAuthDescription.containsKey(accountType)) {
             try {
                 AuthenticatorDescription desc = mTypeToAuthDescription.get(accountType);
-                Context authContext = createPackageContext(desc.packageName, 0);
-                icon = authContext.getResources().getDrawable(desc.iconId);
+                Context authContext = createPackageContextAsUser(desc.packageName, 0, mUserHandle);
+                icon = getPackageManager().getUserBadgedIcon(
+                        authContext.getResources().getDrawable(desc.iconId), mUserHandle);
             } catch (PackageManager.NameNotFoundException e) {
                 // TODO: place holder icon for missing account icons?
                 Log.w(TAG, "No icon name for account type " + accountType);
@@ -235,7 +238,7 @@ public class ChooseAccountActivity extends PreferenceActivity {
         if (mTypeToAuthDescription.containsKey(accountType)) {
             try {
                 AuthenticatorDescription desc = mTypeToAuthDescription.get(accountType);
-                Context authContext = createPackageContext(desc.packageName, 0);
+                Context authContext = createPackageContextAsUser(desc.packageName, 0, mUserHandle);
                 label = authContext.getResources().getText(desc.labelId);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.w(TAG, "No label name for account type " + accountType);
@@ -261,6 +264,7 @@ public class ChooseAccountActivity extends PreferenceActivity {
     private void finishWithAccountType(String accountType) {
         Intent intent = new Intent();
         intent.putExtra(AddAccountSettings.EXTRA_SELECTED_ACCOUNT, accountType);
+        intent.putExtra(EXTRA_USER, mUserHandle);
         setResult(RESULT_OK, intent);
         finish();
     }

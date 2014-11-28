@@ -57,12 +57,12 @@
     </style>
 
 
-    <style name="TextAppearance" parent="android:TextAppearance">
+    <style name="TextAppearance" parent="android:TextAppearance.Material">
     </style>
 
     <style name="TextAppearance.info_label">
         <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.info_small">
@@ -75,18 +75,69 @@
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="TextAppearance.QuickSettings">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textAllCaps">true</item>
+    <style name="TextAppearance.PasswordEntry" parent="android:TextAppearance.Material">
         <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.CryptKeeper_PasswordEntry" parent="android:TextAppearance.Material">
+        <item name="android:textSize">36sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@null</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">flagForceAscii|actionDone</item>
     </style>
 
     <style name="TallTitleBarTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge">
+    <style name="PreferenceHeaderPanelSinglePane">
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="PreferencePanelSinglePane" parent="@*android:style/PreferencePanel">
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="PreferenceHeaderListSinglePane" parent="@*android:style/PreferenceHeaderList">
+        <item name="android:paddingStart">@dimen/settings_side_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_side_margin</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="PreferenceFragmentListSinglePane" parent="@*android:style/PreferenceFragmentList">
+        <item name="android:paddingStart">@dimen/settings_side_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_side_margin</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="SettingsPreferenceHeaderPanel" parent="@*android:style/PreferenceHeaderPanel">
+    </style>
+
+    <style name="SettingsPreferenceHeaderList" parent="@*android:style/PreferenceHeaderList">
+    </style>
+
+    <style name="PreferenceFragmentStyle" parent="@*android:style/PreferenceFragment">
+        <item name="android:layout">@layout/preference_list_fragment</item>
     </style>
 
     <style name="VertDivider">
@@ -110,14 +161,42 @@
     </style>
 
     <style name="SetupTitle">
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">@dimen/setup_title_size</item>
-        <item name="android:textColor">@color/title_color</item>
+        <item name="android:layout_marginBottom">@dimen/setup_title_margin_bottom</item>
+        <item name="android:layout_marginEnd">@dimen/setup_wizard_margin_sides</item>
+        <item name="android:layout_marginStart">@dimen/setup_wizard_margin_sides</item>
         <item name="android:clickable">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">@dimen/setup_title_line_spacing_extra</item>
         <item name="android:longClickable">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/setup_title_size</item>
+        <item name="android:paddingBottom">@dimen/setup_title_padding_bottom</item>
+        <item name="android:paddingTop">@dimen/setup_title_padding_top</item>
     </style>
 
-    <style name="wifi_item">
+    <!-- Alternate title style used for some tablet layouts -->
+    <style name="SetupCardTitle">
+        <item name="android:paddingBottom">@dimen/setup_wizard_card_title_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/setup_wizard_card_title_padding_end</item>
+        <item name="android:paddingStart">@dimen/setup_wizard_card_title_padding_start</item>
+        <item name="android:paddingTop">@dimen/setup_wizard_card_title_padding_top</item>
+        <item name="android:textAppearance">@style/TextAppearance.SetupWizardCardTitle</item>
+    </style>
+
+    <style name="TextAppearance.SetupWizardCardTitle" parent="@android:style/TextAppearance.Material.Display1">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SetupAddWifiNetwork">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">@dimen/setup_list_no_icon_padding</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
+        <item name="android:textColor">?android:attr/colorAccent</item>
+    </style>
+
+    <style name="bt_item">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">8dip</item>
@@ -127,29 +206,50 @@
         <item name="android:gravity">start</item>
     </style>
 
-    <style name="wifi_item_label">
+    <style name="bt_item_label">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
 
-    <style name="wifi_item_content">
+    <style name="bt_item_edit_content">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="wifi_item">
+        <item name="android:layout_marginTop">8dip</item>
+        <item name="android:layout_marginStart">8dip</item>
+        <item name="android:layout_marginEnd">8dip</item>
+        <item name="android:paddingStart">8dip</item>
+        <item name="android:paddingEnd">8dip</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="wifi_item_label">
+        <item name="android:paddingStart">8dip</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
+        <item name="android:textColor">@*android:color/secondary_text_default_material_light</item>
+    </style>
+
+    <style name="wifi_item_content">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
+        <item name="android:textColor">@*android:color/primary_text_default_material_light</item>
     </style>
 
     <style name="wifi_item_edit_content">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">4dip</item>
+        <item name="android:layout_marginStart">4dip</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="wifi_section">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
     </style>
 
@@ -164,18 +264,18 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
-    <style name="CryptKeeperBlankTheme" parent="@android:style/Theme.Holo.NoActionBar">
+    <style name="CryptKeeperBlankTheme" parent="@android:style/Theme.Material.NoActionBar">
         <item name="android:background">#ff000000</item>
     </style>
 
-    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Holo.SegmentedButton">
+    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.Light.SegmentedButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:weightSum">2</item>
         <item name="android:dividerPadding">8dip</item>
     </style>
 
-    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Holo.Button.Borderless">
+    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Light.Button.Borderless">
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
@@ -196,29 +296,71 @@
         <item name="android:singleLine">true</item>
     </style>
 
-    <style name="InputMethodPreferenceStyle">
-        <item name="android:layout">@layout/preference_inputmethod</item>
-        <item name="android:widgetLayout">@layout/preference_inputmethod_widget</item>
-    </style>
-
-    <style name="TextAppearance.Switch" parent="@*android:style/TextAppearance.Holo.Widget.Switch">
+    <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.Material.Small">
         <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.DeviceDefault.Small">
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="KeyguardAppWidgetItem">
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="WifiAssistantText">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="WifiAssistantButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:paddingStart">@dimen/wifi_assistant_text_padding</item>
+        <item name="android:paddingEnd">@dimen/wifi_assistant_text_padding</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="WifiAssistantButton.Negative">
+    </style>
+
+    <style name="WifiAssistantButton.Positive">
+        <item name="android:textColor">@color/wifi_assistant_color_accent</item>
+    </style>
+
     <!-- Scrollbar style OUTSIDE_OVERLAY -->
     <integer name="preference_scrollbar_style">33554432</integer>
 
     <style name="ApnPreference">
-        <item name="android:widgetLayout">@layout/preference_profiles_widget</item>
+        <item name="android:layout">@layout/apn_preference_layout</item>
+    </style>
+
+    <style name="TextAppearance.Medium" parent="@android:style/TextAppearance.Material.Medium">
+    </style>
+
+    <style name="TextAppearance.Small" parent="@android:style/TextAppearance.Material.Small">
+    </style>
+
+    <style name="TextAppearance.Switch" parent="TextAppearance.Medium">
+    </style>
+
+    <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.Material.Small">
+        <item name="android:textColor">@color/theme_accent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.TileTitle" parent="@android:style/TextAppearance.Material.Medium">
+    </style>
+
+    <style name="TextAppearance.TileSubTitle" parent="@android:style/TextAppearance.Material.Small">
+    </style>
+
+    <style name="TextAppearance.RecentsTitle" parent="TextAppearance.CategoryTitle">
+    </style>
+
+    <style name="TextAppearance.ResultTitle" parent="TextAppearance.CategoryTitle">
+    </style>
+
+    <style name="Widget.TimePicker" parent="@*android:style/Widget.Material.Light.TimePicker">
+        <item name="@android:numbersBackgroundColor">@android:color/white</item>
     </style>
 
     <style name="ProfilesPreferenceStyle">

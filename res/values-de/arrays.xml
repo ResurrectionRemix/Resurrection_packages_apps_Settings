@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -143,7 +142,7 @@
     <item msgid="8151962652413645395">"2 Minuten"</item>
     <item msgid="8675215713017289017">"5 Minuten"</item>
     <item msgid="477015974247590543">"1 Stunde"</item>
-    <item msgid="5198271470953124739">"Kein Timeout"</item>
+    <item msgid="5198271470953124739">"Keine Zeitüberschreitung"</item>
   </string-array>
   <string-array name="wifi_signal">
     <item msgid="2245412278046491293">"Schwach"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Immer"</item>
     <item msgid="844721238536786870">"Nur wenn angeschlossen"</item>
-    <item msgid="2990218920631468642">"Nie (erhöht den Datenverbrauch)"</item>
+    <item msgid="1986753720941888596">"Nie"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Immer"</item>
     <item msgid="7433294150916905997">"Nur wenn angeschlossen"</item>
     <item msgid="1390404486722375028">"Nie"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"Letzte 30 Tage"</item>
+    <item msgid="6600989128423965319">"Nutzungszyklus wählen…"</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"Letzte 4 Stellen"</item>
+    <item msgid="7841762954785375718">"Erste 4 Stellen"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Automatisch"</item>
+    <item msgid="1013988753804838790">"Automatisch"</item>
     <item msgid="6670588712989942178">"Nur 5 GHz"</item>
     <item msgid="2715516524973207876">"Nur 2,4 GHz"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Nutzungszeit"</item>
-    <item msgid="3703676222230317933">"Startzähler"</item>
+    <item msgid="4796160515314745154">"Zuletzt verwendet"</item>
     <item msgid="2502754479975776899">"App-Name"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"Keiner"</item>
     <item msgid="8673874894887358090">"Manuell"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Aus"</item>
-    <item msgid="3165868966179561687">"Benachrichtigung"</item>
-    <item msgid="6038758039030476855">"Vibration"</item>
+    <item msgid="168893341855953140">"Autom. Proxy-Konfig."</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"Keine"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"aktiv lassen"</item>
     <item msgid="26109888160231211">"Standort beobachten"</item>
     <item msgid="5753382310468855812">"Orte mit hohem Stromverbrauch überwachen"</item>
+    <item msgid="3356591542543137332">"Nutzungsstatistiken abrufen"</item>
+    <item msgid="3073734345226842233">"Mikrofon aus- oder einschalten"</item>
+    <item msgid="1148142988678569310">"Projektion von Medieninhalten"</item>
+    <item msgid="9130014005474445273">"VPN aktivieren"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Standort"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"Aktiv lassen"</item>
     <item msgid="8584357129746649222">"Standort"</item>
     <item msgid="7669257279311110599">"Ort"</item>
+    <item msgid="3459320345690097795">"Nutzungsstatistiken abrufen"</item>
+    <item msgid="1312534577834048535">"Mikrofon aus- oder einschalten"</item>
+    <item msgid="5906017727368097853">"Projektion von Medieninhalten"</item>
+    <item msgid="2486614710846178542">"VPN aktivieren"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Kurz"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"Standard"</item>
     <item msgid="1016452621833735880">"Sans Serif"</item>
     <item msgid="2496277987934654454">"Sans Serif, schmal"</item>
-    <item msgid="4406003087391086325">"Serife"</item>
-    <item msgid="1558362802170124073">"Festbreitenschrift"</item>
+    <item msgid="7247838127505318669">"Sans Serif mit Festbreite"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Serif mit Festbreite"</item>
+    <item msgid="639503332147461010">"Casual"</item>
+    <item msgid="7967169925231332424">"Kursiv"</item>
+    <item msgid="561832997193039673">"Kapitälchen"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"Sehr klein"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"Sehr groß"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"Ohne"</item>
-    <item msgid="1352974708028506778">"Kontur"</item>
-    <item msgid="5850876295428722675">"Schlagschatten"</item>
+    <item msgid="4733815704128258753">"Standard"</item>
+    <item msgid="3217099060748617005">"Keine"</item>
+    <item msgid="7467615139904599420">"Umriss"</item>
+    <item msgid="5623165557468608975">"Schlagschatten"</item>
+    <item msgid="8088451174058214588">"Erhöht"</item>
+    <item msgid="3821418743395480313">"Vertieft"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25 %"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100 %"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"Weiß auf Schwarz"</item>
-    <item msgid="4589278788192525675">"Schwarz auf Weiß"</item>
-    <item msgid="1309255027325660115">"Gelb auf Schwarz"</item>
-    <item msgid="2985943780939258562">"Gelb auf Blau"</item>
-    <item msgid="7520438652121629055">"Benutzerdefiniert"</item>
+    <item msgid="7009918361545506251">"App-Standard verwenden"</item>
+    <item msgid="1770533843436933500">"Weiß auf Schwarz"</item>
+    <item msgid="758587126802411846">"Schwarz auf Weiß"</item>
+    <item msgid="1495307195241623402">"Gelb auf Schwarz"</item>
+    <item msgid="6039700130994371612">"Gelb auf Blau"</item>
+    <item msgid="7169235156349580064">"Personalisiert"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (Debug)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64.000"</item>
+    <item msgid="505611754508988476">"256.000"</item>
+    <item msgid="6361286924268716397">"1 Mio."</item>
+    <item msgid="6405203239560695266">"4 Mio."</item>
+    <item msgid="3025431211013424097">"16 Mio."</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"Dalvik verwenden"</item>
-    <item msgid="5131846588686178907">"ART verwenden"</item>
-    <item msgid="4530003713865319928">"ART-Debug-Build verwenden"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64.000"</item>
+    <item msgid="3534782711045262344">"256.000"</item>
+    <item msgid="8085867209202153403">"1 Mio."</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"64.000 pro Puffer"</item>
+    <item msgid="2822309747675758628">"256.000 pro Puffer"</item>
+    <item msgid="6699306198357496731">"1 Mio. pro Puffer"</item>
+    <item msgid="5748528643937500349">"4 Mio. pro Puffer"</item>
+    <item msgid="1978629051085111592">"16 Mio. pro Puffer"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Nie prüfen"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Aus"</item>
     <item msgid="2751513398307949636">"Auf Bildschirm als Balken"</item>
-    <item msgid="8272260411216018353">"Auf Bildschirm als Linien"</item>
-    <item msgid="120512413928262547">"In adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"In adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"Aus"</item>
     <item msgid="7688197031296835369">"Überschneidungsbereiche anzeigen"</item>
     <item msgid="2290859360633824369">"Bereiche für Deuteranomalie anzeigen"</item>
-    <item msgid="3448087929560624983">"Überschneidungszähler anzeigen"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Standardlimit"</item>
@@ -464,7 +490,7 @@
     <item msgid="6692305604213080515">"Initialisierung läuft..."</item>
     <item msgid="8001704909356800092">"Verbindung wird hergestellt..."</item>
     <item msgid="4039737283841672166">"Verbunden"</item>
-    <item msgid="4042143101664725090">"Timeout"</item>
+    <item msgid="4042143101664725090">"Zeitüberschreitung"</item>
     <item msgid="7664124146786465092">"Nicht erfolgreich"</item>
   </string-array>
   <string-array name="security_settings_premium_sms_values">
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"mittel"</item>
     <item msgid="406385694840950802">"niedrig"</item>
     <item msgid="4212263919458209842">"kritisch"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"Deaktiviert"</item>
+    <item msgid="5656544177755411222">"Begrenzte Unterbrechungen"</item>
+    <item msgid="8735337502532332056">"Keine Unterbrechungen"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Mittel"</item>
+    <item msgid="866544120205026771">"Moderat"</item>
+    <item msgid="7851902244436886890">"Niedrig"</item>
+    <item msgid="3022922196817563960">"Kritisch"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Permanent"</item>
+    <item msgid="5779398140277006695">"Topaktivität"</item>
+    <item msgid="1439598363694578255">"Wichtig (Vordergrund)"</item>
+    <item msgid="3396458970745718652">"Wichtig (Hintergrund)"</item>
+    <item msgid="5214825238247511992">"Sicherung"</item>
+    <item msgid="311372689168254967">"Hohe Auslastung"</item>
+    <item msgid="7438189122367820362">"Dienst (aktiv)"</item>
+    <item msgid="918687422516982498">"Dienst (wird neu gestartet)"</item>
+    <item msgid="6807727069641853029">"Empfänger"</item>
+    <item msgid="6782857406100845127">"Startseite"</item>
+    <item msgid="2860945127596974299">"Letzte Aktivität"</item>
+    <item msgid="8610560843693675830">"Im Cache gespeichert (Aktivität)"</item>
+    <item msgid="4338089220026248848">"Im Cache gespeichert (Aktivitätsclient)"</item>
+    <item msgid="6652164677254579050">"Im Cache gespeichert (leer)"</item>
   </string-array>
 </resources>

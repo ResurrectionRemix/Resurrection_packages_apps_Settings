@@ -18,6 +18,8 @@
     android:layout_height="wrap_content"
     android:paddingBottom="6dp"
     android:paddingTop="6dp"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:orientation="vertical"
     android:background="?android:attr/selectableItemBackground"
     >
@@ -33,7 +35,7 @@
             android:layout_width="@*android:dimen/status_bar_icon_size"
             android:layout_height="@*android:dimen/status_bar_icon_size"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/pkgicon"
+            android:layout_toEndOf="@+id/pkgicon"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@null"
@@ -51,6 +53,7 @@
             android:layout_toEndOf="@android:id/icon"
             android:ellipsize="end"
             android:singleLine="true"
+            android:textColor="?android:attr/textColorPrimary"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold"
             android:textAlignment="viewStart"
@@ -66,6 +69,7 @@
             android:layout_centerVertical="true"
             android:ellipsize="end"
             android:singleLine="true"
+            android:textColor="?android:attr/textColorPrimary"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textAlignment="viewEnd"
             />
@@ -79,6 +83,7 @@
         android:layout_marginStart="30dp"
         android:ellipsize="end"
         android:singleLine="true"
+        android:textColor="?android:attr/textColorPrimary"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textAlignment="viewStart"
         />
@@ -109,6 +114,7 @@
             android:layout_gravity="left|center_vertical"
             android:ellipsize="end"
             android:singleLine="true"
+            android:textColor="?android:attr/textColorPrimary"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textAlignment="viewStart"
             />

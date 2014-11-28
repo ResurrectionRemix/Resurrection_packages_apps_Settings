@@ -42,6 +42,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import android.widget.Toast;
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.settings.R;
 
@@ -155,8 +156,8 @@ public class EntryEditDialogFragment extends DialogFragment
         mContactPickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent contactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                contactListIntent.setType(CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+                Intent contactListIntent = new Intent(Intent.ACTION_PICK);
+                contactListIntent.setType(CommonDataKinds.Phone.CONTENT_TYPE);
 
                 startActivityForResult(contactListIntent, REQUEST_CODE_PICKER, null);
             }
@@ -196,24 +197,20 @@ public class EntryEditDialogFragment extends DialogFragment
     }
 
     private void updateBlacklistEntry() {
-        ContentValues cv = new ContentValues();
         String number = mEditText.getText().toString();
-
-        cv.put(Blacklist.NUMBER, number);
-        cv.put(Blacklist.PHONE_MODE, mBlockCalls.isChecked() ? 1 : 0);
-        cv.put(Blacklist.MESSAGE_MODE, mBlockMessages.isChecked() ? 1 : 0);
-
-        long id = getEntryId();
-        Uri uri;
-
-        if (id < 0) {
-            uri = Blacklist.CONTENT_FILTER_BYNUMBER_URI.buildUpon()
-                    .appendPath(number)
-                    .build();
-        } else {
-            uri = ContentUris.withAppendedId(Blacklist.CONTENT_URI, id);
+        int flags = 0;
+        if (mBlockCalls.isChecked()) {
+            flags = flags | BlacklistUtils.BLOCK_CALLS;
         }
-        getActivity().getContentResolver().update(uri, cv, null, null);
+        if (mBlockMessages.isChecked()) {
+            flags = flags | BlacklistUtils.BLOCK_MESSAGES;
+        }
+        // Since BlacklistProvider enforces validity for a number to be added
+        // we should alert the user if and when it gets rejected
+        if (!BlacklistUtils.addOrUpdate(getActivity(), number, flags, flags)) {
+            Toast.makeText(getActivity(), getString(R.string.blacklist_bad_number_add),
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     private void updateOkButtonState() {

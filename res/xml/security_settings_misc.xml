@@ -14,68 +14,83 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:title="@string/security_settings_title">
 
     <PreferenceCategory android:key="sim_lock"
             android:title="@string/sim_lock_settings_title"
             android:persistent="false">
 
-        <Preference android:title="@string/sim_lock_settings_category"
+        <Preference android:key="sim_lock_settings"
+                android:title="@string/sim_lock_settings_category"
                 android:persistent="false">
+
             <intent android:action="android.intent.action.MAIN"
-                     android:targetPackage="com.android.settings"
-                     android:targetClass="com.android.settings.IccLockSettings"/>
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.IccLockSettings"/>
+
         </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="app_security"
+        android:title="@string/app_security_title">
+
+        <ListPreference
+            android:key="sms_security_check_limit"
+            android:dialogTitle="@string/sms_security_check_limit_title"
+            android:title="@string/sms_security_check_limit_title"
+            android:entries="@array/sms_security_check_limit_entries"
+            android:entryValues="@array/sms_security_check_limit_values"
+            android:defaultValue="30" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/security_passwords_title"
             android:persistent="false">
 
-        <CheckBoxPreference android:key="show_password"
+        <SwitchPreference android:key="show_password"
                 android:title="@string/show_password"
                 android:persistent="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory android:key="device_admin_category"
             android:title="@string/device_admin_title"
             android:persistent="false">
 
-        <Preference android:title="@string/manage_device_admin"
+        <Preference android:key="manage_device_admin"
+                android:title="@string/manage_device_admin"
                 android:summary="@string/manage_device_admin_summary"
                 android:persistent="false"
                 android:fragment="com.android.settings.DeviceAdminSettings"/>
 
-        <CheckBoxPreference
-                android:key="toggle_install_applications"
+        <Preference android:key="app_ops_summary"
+                android:title="@string/app_ops_settings"
+                android:summary="@string/app_ops_settings_summary"
+                android:persistent="false"
+                android:fragment="com.android.settings.applications.AppOpsSummary"/>
+
+        <SwitchPreference android:key="toggle_install_applications"
                 android:title="@string/install_applications"
                 android:summaryOff="@string/install_unknown_applications"
                 android:summaryOn="@string/install_unknown_applications"
                 android:persistent="false" />
-
-        <CheckBoxPreference
-                android:key="toggle_verify_applications"
-                android:title="@string/verify_applications"
-                android:summaryOff="@string/verify_applications_summary"
-                android:summaryOn="@string/verify_applications_summary"
-                android:persistent="false" />
-
-        <Preference
-                android:key="manage_notification_access"
-                android:title="@string/manage_notification_access"
-                android:persistent="false"
-                android:fragment="com.android.settings.NotificationAccessSettings"/>
 
     </PreferenceCategory>
 
     <PreferenceCategory android:key="credentials_management"
             android:title="@string/credentials_title"
             android:persistent="false">
+
         <Preference android:key="credential_storage_type"
                 android:title="@string/credential_storage_type"
                 style="?android:attr/preferenceInformationStyle"
                 android:persistent="false" />
 
-        <Preference android:title="@string/trusted_credentials"
+        <Preference android:key="trusted_credentials"
+                android:title="@string/trusted_credentials"
                 android:summary="@string/trusted_credentials_summary"
                 android:persistent="false"
                 android:fragment="com.android.settings.TrustedCredentialsSettings"/>
@@ -84,18 +99,46 @@
                 android:title="@string/credentials_install"
                 android:summary="@string/credentials_install_summary"
                 android:persistent="false">
+
             <intent android:action="android.credentials.INSTALL"
                     android:targetPackage="com.android.certinstaller"
                     android:targetClass="com.android.certinstaller.CertInstallerMain"/>
+
         </Preference>
 
-        <Preference android:key="reset_credentials"
+        <Preference android:key="credentials_reset"
                 android:title="@string/credentials_reset"
                 android:summary="@string/credentials_reset_summary"
                 android:persistent="false">
+
             <intent android:action="com.android.credentials.RESET"
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.CredentialStorage"/>
+
         </Preference>
+
     </PreferenceCategory>
+
+    <PreferenceCategory android:key="advanced_security"
+            android:title="@string/advanced_security_title"
+            android:persistent="false">
+
+        <Preference android:key="manage_trust_agents"
+                android:title="@string/manage_trust_agents"
+                android:summary="@string/manage_trust_agents_summary"
+                android:persistent="false"
+                android:fragment="com.android.settings.TrustAgentSettings"/>
+
+        <PreferenceScreen
+                android:key="screen_pinning_settings"
+                android:title="@string/screen_pinning_title"
+                android:summary="@string/switch_off_text"
+                android:fragment="com.android.settings.ScreenPinningSettings"/>
+
+        <Preference android:key="usage_access"
+                    android:title="@string/usage_access_title"
+                    android:fragment="com.android.settings.UsageAccessSettings"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

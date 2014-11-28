@@ -20,6 +20,7 @@ import static android.provider.Settings.Secure.TTS_DEFAULT_RATE;
 import static android.provider.Settings.Secure.TTS_DEFAULT_SYNTH;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.tts.TtsEnginePreference.RadioButtonGroupState;
 
@@ -27,12 +28,11 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
-import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.MissingResourceException;
+import java.util.Objects;
 import java.util.Set;
 
 public class TextToSpeechSettings extends SettingsPreferenceFragment implements
@@ -104,7 +105,7 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
     private TextToSpeech mTts = null;
     private TtsEngines mEnginesHelper = null;
 
-    private String mSampleText = "";
+    private String mSampleText = null;
 
     /**
      * Default locale used by selected TTS engine, null if not connected to any engine.
@@ -165,6 +166,9 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
 
         setTtsUtteranceProgressListener();
         initSettings();
+
+        // Prevent restarting the TTS connection on rotation
+        setRetainInstance(true);
     }
 
     @Override
@@ -213,7 +217,7 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
 
         // Set up the default rate.
         try {
-            mDefaultRate = Settings.Secure.getInt(resolver, TTS_DEFAULT_RATE);
+            mDefaultRate = android.provider.Settings.Secure.getInt(resolver, TTS_DEFAULT_RATE);
         } catch (SettingNotFoundException e) {
             // Default rate setting not found, initialize it
             mDefaultRate = TextToSpeech.Engine.DEFAULT_RATE;
@@ -223,12 +227,12 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
 
         mCurrentEngine = mTts.getCurrentEngine();
 
-        PreferenceActivity preferenceActivity = null;
-        if (getActivity() instanceof PreferenceActivity) {
-            preferenceActivity = (PreferenceActivity) getActivity();
+        SettingsActivity activity = null;
+        if (getActivity() instanceof SettingsActivity) {
+            activity = (SettingsActivity) getActivity();
         } else {
             throw new IllegalStateException("TextToSpeechSettings used outside a " +
-                    "PreferenceActivity");
+                    "Settings");
         }
 
         mEnginePreferenceCategory.removeAll();
@@ -236,7 +240,7 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
         List<EngineInfo> engines = mEnginesHelper.getEngines();
         for (EngineInfo engine : engines) {
             TtsEnginePreference enginePref = new TtsEnginePreference(getActivity(), engine,
-                    this, preferenceActivity);
+                    this, activity);
             mEnginePreferenceCategory.addPreference(enginePref);
         }
 
@@ -265,10 +269,16 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
             return;
         }
 
-        mCurrentDefaultLocale = defaultLocale;
+        // ISO-3166 alpha 3 country codes are out of spec. If we won't normalize,
+        // we may end up with English (USA)and German (DEU).
+        final Locale oldDefaultLocale = mCurrentDefaultLocale;
+        mCurrentDefaultLocale = mEnginesHelper.parseLocaleString(defaultLocale.toString());
+        if (!Objects.equals(oldDefaultLocale, mCurrentDefaultLocale)) {
+            mSampleText = null;
+        }
 
         int defaultAvailable = mTts.setLanguage(defaultLocale);
-        if (evaluateDefaultLocale()) {
+        if (evaluateDefaultLocale() && mSampleText == null) {
             getSampleText();
         }
     }
@@ -434,7 +444,8 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
             // Default rate
             mDefaultRate = Integer.parseInt((String) objValue);
             try {
-                Settings.Secure.putInt(getContentResolver(), TTS_DEFAULT_RATE, mDefaultRate);
+                android.provider.Settings.Secure.putInt(getContentResolver(),
+                        TTS_DEFAULT_RATE, mDefaultRate);
                 if (mTts != null) {
                     mTts.setSpeechRate(mDefaultRate / 100.0f);
                 }
@@ -478,11 +489,10 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
 
     private void displayNetworkAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(android.R.string.dialog_alert_title);
-        builder.setIconAttribute(android.R.attr.alertDialogIcon);
-        builder.setMessage(getActivity().getString(R.string.tts_engine_network_required));
-        builder.setCancelable(false);
-        builder.setPositiveButton(android.R.string.ok, null);
+        builder.setTitle(android.R.string.dialog_alert_title)
+                .setMessage(getActivity().getString(R.string.tts_engine_network_required))
+                .setCancelable(false)
+                .setPositiveButton(android.R.string.ok, null);
 
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -577,7 +587,7 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment implements
             return;
         }
 
-        Settings.Secure.putString(getContentResolver(), TTS_DEFAULT_SYNTH, engine);
+        android.provider.Settings.Secure.putString(getContentResolver(), TTS_DEFAULT_SYNTH, engine);
 
         mAvailableStrLocals = data.getStringArrayListExtra(
             TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);

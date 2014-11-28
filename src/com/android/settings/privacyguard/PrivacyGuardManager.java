@@ -34,7 +34,6 @@ import android.content.pm.Signature;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -52,6 +51,7 @@ import android.widget.TextView;
 
 import com.android.settings.R;
 import com.android.settings.Settings.AppOpsSummaryActivity;
+import com.android.settings.SubSettings;
 import com.android.settings.applications.AppOpsDetails;
 import com.android.settings.applications.AppOpsState;
 import com.android.settings.applications.AppOpsState.OpsTemplate;
@@ -260,8 +260,8 @@ public class PrivacyGuardManager extends Fragment
         Bundle args = new Bundle();
         args.putString(AppOpsDetails.ARG_PACKAGE_NAME, app.packageName);
 
-        PreferenceActivity pa = (PreferenceActivity)getActivity();
-        pa.startPreferencePanel(AppOpsDetails.class.getName(), args,
+        SubSettings ssa = (SubSettings) getActivity();
+        ssa.startPreferencePanel(AppOpsDetails.class.getName(), args,
                 R.string.app_ops_settings, null, this, 2);
         return true;
     }
@@ -335,7 +335,7 @@ public class PrivacyGuardManager extends Fragment
             return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.privacy_guard_help_title)
                     .setMessage(R.string.privacy_guard_help_text)
-                    .setNegativeButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.dlg_ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -361,7 +361,7 @@ public class PrivacyGuardManager extends Fragment
             return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.privacy_guard_reset_title)
                     .setMessage(R.string.privacy_guard_reset_text)
-                    .setPositiveButton(R.string.ok,
+                    .setPositiveButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // turn off privacy guard for all apps shown in the current list

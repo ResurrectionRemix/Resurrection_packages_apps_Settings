@@ -16,8 +16,6 @@
 
 package com.android.settings.deviceinfo;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.ActivityThread;
 import android.app.DownloadManager;
@@ -27,40 +25,30 @@ import android.content.pm.IPackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.hardware.usb.UsbManager;
-import android.media.MediaScannerConnection;
-import android.media.MediaScannerConnection.OnScanCompletedListener;
-import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.UserManager;
-import android.os.Environment.UserEnvironment;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.provider.MediaStore;
 import android.text.format.Formatter;
-import android.util.Log;
-import android.widget.Toast;
 
+import com.android.settings.MediaFormat;
 import com.android.settings.R;
+import com.android.settings.Settings;
 import com.android.settings.deviceinfo.StorageMeasurement.MeasurementDetails;
 import com.android.settings.deviceinfo.StorageMeasurement.MeasurementReceiver;
-import com.android.settings.deviceinfo.UsageBarPreference.OnRequestMediaRescanListener;
 import com.google.android.collect.Lists;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class StorageVolumePreferenceCategory extends PreferenceCategory
-    implements OnRequestMediaRescanListener, OnScanCompletedListener {
-
-    public static final String TAG = "StorageVolumePreferenceCategory";
-
+public class StorageVolumePreferenceCategory extends PreferenceCategory {
     public static final String KEY_CACHE = "cache";
 
     private static final int ORDER_USAGE_BAR = -2;
@@ -69,8 +57,6 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
     /** Physical volume being measured, or {@code null} for internal. */
     private final StorageVolume mVolume;
     private final StorageMeasurement mMeasure;
-    private final boolean mIsInternal;
-    private final boolean mIsPrimary;
 
     private final Resources mResources;
     private final StorageManager mStorageManager;
@@ -137,8 +123,6 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
         super(context);
 
         mVolume = volume;
-        mIsInternal = mVolume == null;
-        mIsPrimary = mVolume != null ? mVolume.isPrimary() : false;
         mMeasure = StorageMeasurement.getInstance(context, volume);
 
         mResources = context.getResources();
@@ -168,17 +152,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
         final List<UserInfo> otherUsers = getUsersExcluding(currentUser);
         final boolean showUsers = mVolume == null && otherUsers.size() > 0;
 
-        boolean allowMediaScan = false;
-        if ((mIsInternal && Environment.isExternalStorageEmulated()) || mIsPrimary) {
-            allowMediaScan = true;
-        } else if (mVolume != null && !mVolume.isRemovable()) {
-            allowMediaScan = true;
-        }
-
         mUsageBarPreference = new UsageBarPreference(context);
         mUsageBarPreference.setOrder(ORDER_USAGE_BAR);
-        mUsageBarPreference.setOnRequestMediaRescanListener(this);
-        mUsageBarPreference.setAllowMediaScan(allowMediaScan);
         addPreference(mUsageBarPreference);
 
         mItemTotal = buildItem(R.string.memory_size, 0);
@@ -224,45 +199,73 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
         }
 
         final boolean isRemovable = mVolume != null ? mVolume.isRemovable() : false;
-        final boolean isUsbStorage = mVolume != null ? (mVolume.getDescription(context).equals(
-                Resources.getSystem().getString(Resources.getSystem().getIdentifier(
-                "storage_usb", "string", "android"))) ? true : false) : false;
-        final boolean isAccessible = mResources.getBoolean(
-                com.android.internal.R.bool.config_batterySdCardAccessibility);
         // Always create the preference since many code rely on it existing
         mMountTogglePreference = new Preference(context);
-        if (isRemovable && (isUsbStorage || isAccessible)) {
-            mMountTogglePreference.setTitle(R.string.sd_eject);
-            mMountTogglePreference.setSummary(R.string.sd_eject_summary);
+
+        // resource IDs that are loaded appropriately based on the storage
+        // volume type
+        int titleResId = 0;
+        int summaryResId = 0;
+
+        if (isRemovable) {
+
+            // show appropriate title / summary based on volume type
+            if (MediaFormat.isUsbStorage(mVolume, context)) {
+                titleResId = R.string.usb_eject;
+                summaryResId = R.string.usb_eject_summary;
+
+            } else if (MediaFormat.isUiccStorage(mVolume, context)) {
+                titleResId = R.string.uicc_eject;
+                summaryResId = R.string.uicc_eject_summary;
+
+            } else {
+                titleResId = R.string.sd_eject;
+                summaryResId = R.string.sd_eject_summary;
+            }
+
+            mMountTogglePreference.setTitle(titleResId);
+            mMountTogglePreference.setSummary(summaryResId);
+
             addPreference(mMountTogglePreference);
         }
 
         final boolean allowFormat = mVolume != null;
         if (allowFormat) {
             mFormatPreference = new Preference(context);
-            mFormatPreference.setTitle(R.string.sd_format);
-            mFormatPreference.setSummary(R.string.sd_format_summary);
+
+            // show appropriate title / summary based on volume type
+            if (MediaFormat.isUsbStorage(mVolume, context)) {
+                titleResId = R.string.usb_format;
+                summaryResId = R.string.usb_format_summary;
+
+            } else if (MediaFormat.isUiccStorage(mVolume, context)) {
+                titleResId = R.string.uicc_format;
+                summaryResId = R.string.uicc_format_summary;
+
+            } else {
+                titleResId = R.string.sd_format;
+                summaryResId = R.string.sd_format_summary;
+            }
+
+            mFormatPreference.setTitle(titleResId);
+            mFormatPreference.setSummary(summaryResId);
+
             addPreference(mFormatPreference);
         }
 
-        // The low storage warning is only valid for the internal memory.
-        // Same condition as for (showDetails) above.
-        final boolean showLowStorage = mVolume == null || mVolume.isPrimary();
-        if (showLowStorage)  {
-            final IPackageManager pm = ActivityThread.getPackageManager();
-            try {
-                if (pm.isStorageLow()) {
-                    mStorageLow = new Preference(context);
-                    mStorageLow.setOrder(ORDER_STORAGE_LOW);
-                    mStorageLow.setTitle(R.string.storage_low_title);
-                    mStorageLow.setSummary(R.string.storage_low_summary);
-                    addPreference(mStorageLow);
-                } else if (mStorageLow != null) {
-                    removePreference(mStorageLow);
-                    mStorageLow = null;
-                }
-            } catch (RemoteException e) {
+        final IPackageManager pm = ActivityThread.getPackageManager();
+        try {
+            if (pm.isStorageLow()) {
+                mStorageLow = new Preference(context);
+                mStorageLow.setOrder(ORDER_STORAGE_LOW);
+                mStorageLow.setTitle(R.string.storage_low_title);
+                mStorageLow.setSummary(R.string.storage_low_summary);
+                addPreference(mStorageLow);
+            } else if (mStorageLow != null) {
+                removePreference(mStorageLow);
+                mStorageLow = null;
             }
+        } catch (RemoteException e) {
         }
     }
 
@@ -272,7 +275,15 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
 
     private void updatePreferencesFromState() {
         // Only update for physical volumes
-        if (mVolume == null) return;
+        if (mVolume == null)
+            return;
+
+        // resource IDs that are loaded appropriately based on the storage
+        // volume type
+        int titleResId = 0;
+        int summaryResId = 0;
+
+        Context context = getContext();
 
         mMountTogglePreference.setEnabled(true);
 
@@ -287,8 +298,23 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
         if (Environment.MEDIA_MOUNTED.equals(state)
                 || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
             mMountTogglePreference.setEnabled(true);
-            mMountTogglePreference.setTitle(mResources.getString(R.string.sd_eject));
-            mMountTogglePreference.setSummary(mResources.getString(R.string.sd_eject_summary));
+
+            if (MediaFormat.isUsbStorage(mVolume, context)) {
+                titleResId = R.string.usb_eject;
+                summaryResId = R.string.usb_eject_summary;
+
+            } else if (MediaFormat.isUiccStorage(mVolume, context)) {
+                titleResId = R.string.uicc_eject;
+                summaryResId = R.string.uicc_eject_summary;
+
+            } else {
+                titleResId = R.string.sd_eject;
+                summaryResId = R.string.sd_eject_summary;
+            }
+
+            mMountTogglePreference.setTitle(titleResId);
+            mMountTogglePreference.setSummary(summaryResId);
+
             addPreference(mUsageBarPreference);
             addPreference(mItemTotal);
             addPreference(mItemAvailable);
@@ -296,12 +322,41 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
             if (Environment.MEDIA_UNMOUNTED.equals(state) || Environment.MEDIA_NOFS.equals(state)
                     || Environment.MEDIA_UNMOUNTABLE.equals(state)) {
                 mMountTogglePreference.setEnabled(true);
-                mMountTogglePreference.setTitle(mResources.getString(R.string.sd_mount));
-                mMountTogglePreference.setSummary(mResources.getString(R.string.sd_mount_summary));
+
+                if (MediaFormat.isUsbStorage(mVolume, context)) {
+                    titleResId = R.string.usb_mount;
+                    summaryResId = R.string.usb_mount_summary;
+
+                } else if (MediaFormat.isUiccStorage(mVolume, context)) {
+                    titleResId = R.string.uicc_mount;
+                    summaryResId = R.string.uicc_mount_summary;
+
+                } else {
+                    titleResId = R.string.sd_mount;
+                    summaryResId = R.string.sd_mount_summary;
+                }
+
+                mMountTogglePreference.setTitle(mResources.getString(titleResId));
+                mMountTogglePreference.setSummary(mResources.getString(summaryResId));
+
             } else {
                 mMountTogglePreference.setEnabled(false);
-                mMountTogglePreference.setTitle(mResources.getString(R.string.sd_mount));
-                mMountTogglePreference.setSummary(mResources.getString(R.string.sd_insert_summary));
+
+                if (MediaFormat.isUsbStorage(mVolume, context)) {
+                    titleResId = R.string.usb_mount;
+                    summaryResId = R.string.usb_insert_summary;
+
+                } else if (MediaFormat.isUiccStorage(mVolume, context)) {
+                    titleResId = R.string.uicc_mount;
+                    summaryResId = R.string.uicc_insert_summary;
+
+                } else {
+                    titleResId = R.string.sd_mount;
+                    summaryResId = R.string.sd_insert_summary;
+                }
+
+                mMountTogglePreference.setTitle(mResources.getString(titleResId));
+                mMountTogglePreference.setSummary(mResources.getString(summaryResId));
             }
 
             removePreference(mUsageBarPreference);
@@ -324,7 +379,16 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
             }
         } else if (mFormatPreference != null) {
             mFormatPreference.setEnabled(mMountTogglePreference.isEnabled());
-            mFormatPreference.setSummary(mResources.getString(R.string.sd_format_summary));
+
+            if (MediaFormat.isUsbStorage(mVolume, context)) {
+                mFormatPreference.setSummary(R.string.usb_format_summary);
+
+            } else if (MediaFormat.isUiccStorage(mVolume, context)) {
+                mFormatPreference.setSummary(R.string.uicc_format_summary);
+
+            } else {
+                mFormatPreference.setSummary(R.string.sd_format_summary);
+            }
         }
     }
 
@@ -465,8 +529,7 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
             intent.putExtra(StorageVolume.EXTRA_STORAGE_VOLUME, mVolume);
         } else if (pref == mItemApps) {
             intent = new Intent(Intent.ACTION_MANAGE_PACKAGE_STORAGE);
-            intent.setClass(getContext(),
-                    com.android.settings.Settings.ManageApplicationsActivity.class);
+            intent.setClass(getContext(), Settings.ManageApplicationsActivity.class);
         } else if (pref == mItemDownloads) {
             intent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS).putExtra(
                     DownloadManager.INTENT_EXTRAS_SORT_BY_SIZE, true);
@@ -516,38 +579,5 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory
             }
         }
         return users;
-    }
-
-    @Override
-    public void onRequestMediaRescan() {
-        final int currentUser = ActivityManager.getCurrentUser();
-        final UserEnvironment currentEnv = new UserEnvironment(currentUser);
-
-        File path = null;
-        if ((mIsInternal && Environment.isExternalStorageEmulated()) || mIsPrimary) {
-            path = currentEnv.getExternalStorageDirectory();
-        } else {
-            path = mVolume.getPathFile();
-        }
-
-        Log.d(TAG, "Request scan of " + path.getAbsolutePath());
-        MediaScannerConnection.scanFile(
-                getContext(), new String[]{path.getAbsolutePath()}, null, this);
-    }
-
-    @Override
-    public void onScanCompleted(String path, final Uri uri) {
-        if (uri != null) {
-            measure();
-        }
-        ((Activity)getContext()).runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mUsageBarPreference.notifyScanCompleted();
-                if (uri != null) {
-                    Toast.makeText(getContext(), R.string.storage_rescan_media_complete, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 }

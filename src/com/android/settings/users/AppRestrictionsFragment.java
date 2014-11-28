@@ -17,7 +17,6 @@
 package com.android.settings.users;
 
 import android.app.Activity;
-import android.app.AppGlobals;
 import android.appwidget.AppWidgetManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -57,13 +56,13 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Switch;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.drawable.CircleFramedDrawable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -160,32 +159,15 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
         private boolean panelOpen;
         private boolean immutable;
         private List<Preference> mChildren = new ArrayList<Preference>();
-        private final ColorFilter grayscaleFilter;
 
         AppRestrictionsPreference(Context context, OnClickListener listener) {
             super(context);
             setLayoutResource(R.layout.preference_app_restrictions);
             this.listener = listener;
-
-            ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.setSaturation(0f);
-            float[] matrix = colorMatrix.getArray();
-            matrix[18] = 0.5f;
-            grayscaleFilter = new ColorMatrixColorFilter(colorMatrix);
         }
 
         private void setSettingsEnabled(boolean enable) {
             hasSettings = enable;
-        }
-
-        @Override
-        public void setChecked(boolean checked) {
-            if (checked) {
-                getIcon().setColorFilter(null);
-            } else {
-                getIcon().setColorFilter(grayscaleFilter);
-            }
-            super.setChecked(checked);
         }
 
         void setRestrictions(ArrayList<RestrictionEntry> restrictions) {
@@ -247,6 +229,8 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
                 final Switch toggle = (Switch) widget.getChildAt(0);
                 toggle.setEnabled(!isImmutable());
                 toggle.setTag(this);
+                toggle.setClickable(true);
+                toggle.setFocusable(true);
                 toggle.setOnCheckedChangeListener(new OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -345,7 +329,7 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
         return getPreferenceScreen();
     }
 
-    protected Drawable getCircularUserIcon() {
+    Drawable getCircularUserIcon() {
         Bitmap userIcon = mUserManager.getUserIcon(mUser.getIdentifier());
         if (userIcon == null) {
             return null;
@@ -386,12 +370,12 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
                         Log.d(TAG, "Installing " + packageName);
                     }
                 }
-                if (info != null && (info.flags&ApplicationInfo.FLAG_BLOCKED) != 0
+                if (info != null && (info.flags&ApplicationInfo.FLAG_HIDDEN) != 0
                         && (info.flags&ApplicationInfo.FLAG_INSTALLED) != 0) {
                     disableUiForPackage(packageName);
-                    mIPm.setApplicationBlockedSettingAsUser(packageName, false, userId);
+                    mIPm.setApplicationHiddenSettingAsUser(packageName, false, userId);
                     if (DEBUG) {
-                        Log.d(TAG, "Unblocking " + packageName);
+                        Log.d(TAG, "Unhiding " + packageName);
                     }
                 }
             } catch (RemoteException re) {
@@ -409,9 +393,9 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
                         }
                     } else {
                         disableUiForPackage(packageName);
-                        mIPm.setApplicationBlockedSettingAsUser(packageName, true, userId);
+                        mIPm.setApplicationHiddenSettingAsUser(packageName, true, userId);
                         if (DEBUG) {
-                            Log.d(TAG, "Blocking " + packageName);
+                            Log.d(TAG, "Hiding " + packageName);
                         }
                     }
                 }
@@ -653,9 +637,9 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
     private boolean isAppEnabledForUser(PackageInfo pi) {
         if (pi == null) return false;
         final int flags = pi.applicationInfo.flags;
-        // Return true if it is installed and not blocked
+        // Return true if it is installed and not hidden
         return ((flags&ApplicationInfo.FLAG_INSTALLED) != 0
-                && (flags&ApplicationInfo.FLAG_BLOCKED) == 0);
+                && (flags&ApplicationInfo.FLAG_HIDDEN) == 0);
     }
 
     private void populateApps() {
@@ -683,7 +667,7 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
                             app.masterEntry.activityName));
                 }
                 p.setKey(getKeyForPackage(packageName));
-                p.setSettingsEnabled(hasSettings || isSettingsApp);
+                p.setSettingsEnabled((hasSettings || isSettingsApp) && app.masterEntry == null);
                 p.setPersistent(false);
                 p.setOnPreferenceChangeListener(this);
                 p.setOnPreferenceClickListener(this);
@@ -702,7 +686,8 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
                     // Get and populate the defaults, since the user is not going to be
                     // able to toggle this app ON (it's ON by default and immutable).
                     // Only do this for restricted profiles, not single-user restrictions
-                    if (hasSettings) {
+                    // Also don't do this for slave icons
+                    if (hasSettings && app.masterEntry == null) {
                         requestRestrictionsForApp(packageName, p, false);
                     }
                 } else if (!mNewUser && isAppEnabledForUser(pi)) {
@@ -987,6 +972,7 @@ public class AppRestrictionsFragment extends SettingsPreferenceFragment implemen
                         + entry.getKey());
                 mAppList.addPreference(p);
                 p.setOnPreferenceChangeListener(AppRestrictionsFragment.this);
+                p.setIcon(R.drawable.empty_icon);
                 preference.mChildren.add(p);
                 count++;
             }

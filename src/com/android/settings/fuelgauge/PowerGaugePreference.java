@@ -25,31 +25,34 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 
 /**
  * Custom preference for displaying power consumption as a bar and an icon on
  * the left for the subsystem/app type.
  */
 public class PowerGaugePreference extends Preference {
-    private BatterySipper mInfo;
+    private BatteryEntry mInfo;
     private int mProgress;
     private CharSequence mProgressText;
+    private final CharSequence mContentDescription;
 
-    public PowerGaugePreference(Context context, Drawable icon, BatterySipper info) {
+    public PowerGaugePreference(Context context, Drawable icon, CharSequence contentDescription,
+            BatteryEntry info) {
         super(context);
-        setLayoutResource(R.layout.app_percentage_item);
+        setLayoutResource(R.layout.preference_app_percentage);
         setIcon(icon != null ? icon : new ColorDrawable(0));
         mInfo = info;
+        mContentDescription = contentDescription;
     }
 
     public void setPercent(double percentOfMax, double percentOfTotal) {
         mProgress = (int) Math.ceil(percentOfMax);
-        mProgressText = getContext().getResources().getString(
-                R.string.percentage, (int) Math.ceil(percentOfTotal));
+        mProgressText = Utils.formatPercentage((int) (percentOfTotal + 0.5));
         notifyChanged();
     }
 
-    BatterySipper getInfo() {
+    BatteryEntry getInfo() {
         return mInfo;
     }
 
@@ -62,5 +65,10 @@ public class PowerGaugePreference extends Preference {
 
         final TextView text1 = (TextView) view.findViewById(android.R.id.text1);
         text1.setText(mProgressText);
+
+        if (mContentDescription != null) {
+            final TextView titleView = (TextView) view.findViewById(android.R.id.title);
+            titleView.setContentDescription(mContentDescription);
+        }
     }
 }

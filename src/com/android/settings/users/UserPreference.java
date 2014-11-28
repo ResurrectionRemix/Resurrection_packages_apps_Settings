@@ -16,7 +16,6 @@
 
 package com.android.settings.users;
 
-import com.android.internal.util.CharSequences;
 import com.android.settings.R;
 
 import android.content.Context;
@@ -30,13 +29,12 @@ import android.view.View.OnClickListener;
 public class UserPreference extends Preference {
 
     public static final int USERID_UNKNOWN = -10;
+    public static final int USERID_GUEST_DEFAULTS = -11;
 
     private OnClickListener mDeleteClickListener;
     private OnClickListener mSettingsClickListener;
     private int mSerialNumber = -1;
     private int mUserId = USERID_UNKNOWN;
-    private boolean mRestricted;
-    private boolean mSelf;
     static final int SETTINGS_ID = R.id.manage_user;
     static final int DELETE_ID = R.id.trash_user;
 
@@ -58,11 +56,13 @@ public class UserPreference extends Preference {
 
     @Override
     protected void onBindView(View view) {
+        UserManager um = (UserManager) getContext().getSystemService(Context.USER_SERVICE);
         View deleteDividerView = view.findViewById(R.id.divider_delete);
         View manageDividerView = view.findViewById(R.id.divider_manage);
         View deleteView = view.findViewById(R.id.trash_user);
         if (deleteView != null) {
-            if (mDeleteClickListener != null) {
+            if (mDeleteClickListener != null
+                    && !um.hasUserRestriction(UserManager.DISALLOW_REMOVE_USER)) {
                 deleteView.setOnClickListener(mDeleteClickListener);
                 deleteView.setTag(this);
             } else {
@@ -90,7 +90,11 @@ public class UserPreference extends Preference {
         if (mUserId == UserHandle.myUserId()) return Integer.MIN_VALUE;
         if (mSerialNumber < 0) {
             // If the userId is unknown
-            if (mUserId == USERID_UNKNOWN) return Integer.MAX_VALUE;
+            if (mUserId == USERID_UNKNOWN) {
+                return Integer.MAX_VALUE;
+            } else if (mUserId == USERID_GUEST_DEFAULTS) {
+                return Integer.MAX_VALUE - 1;
+            }
             mSerialNumber = ((UserManager) getContext().getSystemService(Context.USER_SERVICE))
                     .getUserSerialNumber(mUserId);
             if (mSerialNumber < 0) return mUserId;

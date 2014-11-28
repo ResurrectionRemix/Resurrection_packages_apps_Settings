@@ -1,41 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/app_light_pref"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
-    android:background="?android:attr/selectableItemBackground" >
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:background="?android:attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+android:id/icon"
+        android:id="@android:id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dip"
+        android:layout_marginEnd="12dip"
+        android:padding="2dp"
         android:maxWidth="36dip"
         android:maxHeight="36dip"
         android:adjustViewBounds="true"
         android:layout_gravity="center" />
 
     <RelativeLayout
-        android:layout_width="0dip"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dip"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingTop="16dip"
+        android:paddingBottom="16dip">
 
-        <TextView android:id="@+android:id/title"
+        <TextView
+            android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+            android:textColor="?android:attr/textColorPrimary"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal" />
 
-        <TextView android:id="@+android:id/summary"
+        <TextView
+            android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone"
+            android:textAlignment="viewStart"
+            android:textAppearance="@android:style/TextAppearance.Material.Body1"
             android:textColor="?android:attr/textColorSecondary"
             android:maxLines="1" />
     </RelativeLayout>
@@ -50,20 +75,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="@android:style/TextAppearance.Material.Notification.Line2" />
 
         <TextView
             android:id="@+id/textViewTimeOffValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="@android:style/TextAppearance.Material.Notification.Line2" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/light_color"
         android:layout_width="32dip"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"/>
 
 </LinearLayout>

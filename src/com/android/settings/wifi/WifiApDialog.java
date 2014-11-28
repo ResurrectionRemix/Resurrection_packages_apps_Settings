@@ -32,7 +32,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.settings.R;
 
@@ -48,10 +47,7 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
     private final DialogInterface.OnClickListener mListener;
 
     public static final int OPEN_INDEX = 0;
-    public static final int WPA_INDEX = 1;
-    public static final int WPA2_INDEX = 2;
-
-    private static final int WIFI_SSID_MAX_LENGTH_BYTES = 32;
+    public static final int WPA2_INDEX = 1;
 
     private View mView;
     private TextView mSsid;
@@ -71,9 +67,7 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
     }
 
     public static int getSecurityTypeIndex(WifiConfiguration wifiConfig) {
-        if (wifiConfig.allowedKeyManagement.get(KeyMgmt.WPA_PSK)) {
-            return WPA_INDEX;
-        } else if (wifiConfig.allowedKeyManagement.get(KeyMgmt.WPA2_PSK)) {
+        if (wifiConfig.allowedKeyManagement.get(KeyMgmt.WPA2_PSK)) {
             return WPA2_INDEX;
         }
         return OPEN_INDEX;
@@ -94,15 +88,6 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
         switch (mSecurityTypeIndex) {
             case OPEN_INDEX:
                 config.allowedKeyManagement.set(KeyMgmt.NONE);
-                return config;
-
-            case WPA_INDEX:
-                config.allowedKeyManagement.set(KeyMgmt.WPA_PSK);
-                config.allowedAuthAlgorithms.set(AuthAlgorithm.OPEN);
-                if (mPassword.length() != 0) {
-                    String password = mPassword.getText().toString();
-                    config.preSharedKey = password;
-                }
                 return config;
 
             case WPA2_INDEX:
@@ -140,8 +125,7 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
         if (mWifiConfig != null) {
             mSsid.setText(mWifiConfig.SSID);
             mSecurity.setSelection(mSecurityTypeIndex);
-            if (mSecurityTypeIndex == WPA_INDEX ||
-                    mSecurityTypeIndex == WPA2_INDEX) {
+            if (mSecurityTypeIndex == WPA2_INDEX) {
                   mPassword.setText(mWifiConfig.preSharedKey);
             }
         }
@@ -159,23 +143,11 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
 
     private void validate() {
         if ((mSsid != null && mSsid.length() == 0) ||
-                   (((mSecurityTypeIndex == WPA_INDEX) || (mSecurityTypeIndex == WPA2_INDEX))&&
+                   ((mSecurityTypeIndex == WPA2_INDEX)&&
                         mPassword.length() < 8)) {
             getButton(BUTTON_SUBMIT).setEnabled(false);
         } else {
             getButton(BUTTON_SUBMIT).setEnabled(true);
-        }
-    }
-
-    // If the ssid size is beyond 32 bytes, limit the input.
-    private void LimitSsidLength(Editable editable) {
-        int editEnd = mSsid.getSelectionEnd();
-        int strlength = mSsid.getText().toString().getBytes().length;
-
-        if (strlength > WIFI_SSID_MAX_LENGTH_BYTES) {
-            editable.delete(editEnd - 1, editEnd);
-            Toast.makeText(getContext(), R.string.wifi_ssid_input_limit,
-                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -194,10 +166,6 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
 
     public void afterTextChanged(Editable editable) {
         validate();
-
-        if (mSsid.getEditableText() == editable) {
-            LimitSsidLength(editable);
-        }
     }
 
     @Override

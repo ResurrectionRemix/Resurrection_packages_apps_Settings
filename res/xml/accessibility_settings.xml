@@ -16,7 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/accessibility_settings_title">
+        android:title="@string/accessibility_settings">
 
     <PreferenceCategory
             android:key="services_category"
@@ -28,7 +28,7 @@
             android:title="@string/accessibility_system_title">
 
         <PreferenceScreen
-            android:fragment="com.android.settings.accessibility.ToggleCaptioningPreferenceFragment"
+            android:fragment="com.android.settings.accessibility.CaptionPropertiesFragment"
             android:key="captioning_preference_screen"
             android:title="@string/accessibility_captioning_title" />
 
@@ -43,13 +43,19 @@
                 android:persistent="false"/>
 
         <CheckBoxPreference
+                android:key="toggle_high_text_contrast_preference"
+                android:title="@string/accessibility_toggle_high_text_contrast_preference_title"
+                android:summary="@string/experimental_preference"
+                android:persistent="false"/>
+
+        <CheckBoxPreference
                 android:key="toggle_power_button_ends_call_preference"
                 android:title="@string/accessibility_power_button_ends_call_prerefence_title"
                 android:persistent="false"/>
 
         <CheckBoxPreference
-                android:key="toggle_home_button_answers_call_preference"
-                android:title="@string/accessibility_home_button_answers_call_prerefence_title"
+                android:key="toggle_lock_screen_rotation_preference"
+                android:title="@string/accelerometer_title"
                 android:persistent="false"/>
 
         <CheckBoxPreference
@@ -72,6 +78,20 @@
                 android:entryValues="@array/long_press_timeout_selector_values"
                 android:persistent="false"/>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="display_category"
+        android:title="@string/accessibility_display_title" >
+        <SwitchPreference
+            android:key="toggle_inversion_preference"
+            android:title="@string/accessibility_display_inversion_preference_title"
+            android:summary="@string/accessibility_display_inversion_preference_subtitle"
+            android:persistent="false" />
+        <PreferenceScreen
+            android:fragment="com.android.settings.accessibility.ToggleDaltonizerPreferenceFragment"
+            android:key="daltonizer_preference_screen"
+            android:title="@string/accessibility_display_daltonizer_preference_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

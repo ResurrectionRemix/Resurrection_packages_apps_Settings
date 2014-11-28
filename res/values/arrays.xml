@@ -293,6 +293,7 @@
         <item>@string/wifi_security_psk_generic</item>
         <!-- Do not translate. -->
         <item>@string/wifi_security_eap</item>
+
     </string-array>
 
     <!-- Match this with the constants in AccessPoint. --> <skip />
@@ -310,7 +311,6 @@
    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
     <string-array name="wifi_ap_security">
         <item>@string/wifi_security_none</item>
-        <item>@string/wifi_security_wpa</item>
         <item>@string/wifi_security_wpa2</item>
     </string-array>
 
@@ -374,8 +374,8 @@
         <item>Always</item>
         <!-- Keep Wi-Fi on when screen turns off and plugged in.  When on battery, go to sleep when screen turns off. -->
         <item>Only when plugged in</item>
-        <!-- Do not keep Wi-Fi on when screen turns off. -->
-        <item>Never (increases data usage)</item>
+        <!-- Do not keep Wi-Fi on when screen turns off.  [CHAR LIMIT=40] -->
+        <item>Never</item>
     </string-array>
 
     <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi sleep policy. Used when
@@ -400,10 +400,26 @@
         <item>0</item>
     </string-array>
 
+    <!-- Data Usage settings. Range of data usage. -->
+    <string-array name="data_usage_data_range">
+        <!-- Last 30 days [CHAR LIMIT=25]-->
+        <item>Last 30 days</item>
+        <!-- Set usage cycle [CHAR LIMIT=25]-->
+        <item>Set usage cycle...</item>
+    </string-array>
+
+    <!-- Sim Cards display numbers. Range of data usage. -->
+    <string-array name="sim_card_data_range">
+        <!-- Last 4 digits [CHAR LIMIT=40]-->
+        <item>Last 4 digits</item>
+        <!-- First 4 digits [CHAR LIMIT=40]-->
+        <item>First 4 digits</item>
+    </string-array>
+
     <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi frequency band. -->
     <string-array name="wifi_frequency_band_entries">
         <!-- Operation on both 2.4 GHz and 5 GHz [CHAR LIMIT=25]-->
-        <item>Auto</item>
+        <item>Automatic</item>
         <!-- Operation on 5 GHz alone [CHAR LIMIT=25]-->
         <item>5 GHz only</item>
         <!-- Operation on 2.4 GHz alone [CHAR LIMIT=25]-->
@@ -425,7 +441,7 @@
     <!-- Display options for UsageStats class -->
     <string-array name="usage_stats_display_order_types">
         <item>Usage time</item>
-        <item>Launch count</item>
+        <item>Last time used</item>
         <item>App name</item>
     </string-array>
 
@@ -469,33 +485,8 @@
         <item>None</item>
         <!-- Manual HTTP proxy settings are used for the current wifi network [CHAR LIMIT=25] -->
         <item>Manual</item>
-    </string-array>
-
-    <!-- Sound settings for emergency tone. -->
-    <string-array name="emergency_tone_entries">
-        <item>Off</item>
-        <item>Alert</item>
-        <item>Vibrate</item>
-    </string-array>
-
-    <!-- Do not translate. -->
-    <string-array name="emergency_tone_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <!-- Locales in this list are displayed with the corresponding
-         name from special_locale_names instead of using the name
-         from Locale.getDisplayName(). -->
-    <string-array translatable="false" name="special_locale_codes">
-        <item>zh_CN</item>
-        <item>zh_TW</item>
-    </string-array>
-
-    <string-array translatable="false" name="special_locale_names">
-        <item>中文 (简体)</item>
-        <item>中文 (繁體)</item>
+        <!-- Proxy Auto-Config URL that is used for the current wifi network [CHAR LIMIT=25] -->
+        <item>Proxy Auto-Config</item>
     </string-array>
 
     <!-- Authentication Types used in APN editor -->
@@ -586,6 +577,13 @@
         <item>auto</item>
     </string-array>
 
+    <!-- App ops permissions -->
+    <string-array name="app_ops_permissions">
+        <item>Allowed</item>
+        <item>Ignored</item>
+        <item>Always ask</item>
+    </string-array>
+
     <!-- Names of categories of app ops tabs -->
     <string-array name="app_ops_categories">
         <item>Location</item>
@@ -593,6 +591,7 @@
         <item>Messaging</item>
         <item>Media</item>
         <item>Device</item>
+        <item>Bootup</item>
     </string-array>
 
     <!-- User display names for app ops codes -->
@@ -602,9 +601,9 @@
         <item>GPS</item>
         <item>vibrate</item>
         <item>read contacts</item>
-        <item>modify contacts</item>
+        <item>write contacts</item>
         <item>read call log</item>
-        <item>modify call log</item>
+        <item>write call log</item>
         <item>read calendar</item>
         <item>modify calendar</item>
         <item>wi-fi scan</item>
@@ -640,12 +639,23 @@
         <item>keep awake</item>
         <item>monitor location</item>
         <item>monitor high power location</item>
-        <item>wifi change</item>
+        <item>get usage stats</item>
+        <item>mute/unmute microphone</item>
+        <item>toast window</item>
+        <item>project media</item>
+        <item>activate VPN</item>
+        <item>wlan change</item>
         <item>bluetooth change</item>
-        <item>data change</item>
         <item>send MMS</item>
         <item>read MMS</item>
         <item>write MMS</item>
+        <item>auto start</item>
+        <item>nfc change</item>
+        <item>delete SMS</item>
+        <item>delete MMS</item>
+        <item>delete contacts</item>
+        <item>delete call log</item>
+        <item>data change</item>
     </string-array>
 
     <!-- User display names for app ops codes -->
@@ -655,9 +665,9 @@
         <item>Location</item>
         <item>Vibrate</item>
         <item>Read contacts</item>
-        <item>Modify contacts</item>
+        <item>Write contacts</item>
         <item>Read call log</item>
-        <item>Modify call log</item>
+        <item>Write call log</item>
         <item>Read calendar</item>
         <item>Modify calendar</item>
         <item>Location</item>
@@ -693,12 +703,23 @@
         <item>Keep awake</item>
         <item>Location</item>
         <item>Location</item>
-        <item>Wifi change</item>
+        <item>Get usage stats</item>
+        <item>Mute/unmute microphone</item>
+        <item>Toast window</item>
+        <item>Project media</item>
+        <item>Activate VPN</item>
+        <item>WLAN change</item>
         <item>Bluetooth change</item>
-        <item>Data change</item>
         <item>Send MMS</item>
         <item>Read MMS</item>
         <item>Write MMS</item>
+        <item>Auto start</item>
+        <item>Nfc change</item>
+        <item>Delete SMS</item>
+        <item>Delete MMS</item>
+        <item>Delete contacts</item>
+        <item>Delete call log</item>
+        <item>Data change</item>
     </string-array>
 
     <!-- Titles for the list of long press timeout options. -->
@@ -723,8 +744,12 @@
         <item>Default</item>
         <item>Sans-serif</item>
         <item>Sans-serif condensed</item>
+        <item>Sans-serif monospace</item>
         <item>Serif</item>
-        <item>Monospace</item>
+        <item>Serif monospace</item>
+        <item>Casual</item>
+        <item>Cursive</item>
+        <item>Small capitals</item>
     </string-array>
 
     <!-- Values for captioning typeface preference. -->
@@ -732,8 +757,12 @@
         <item></item>
         <item>sans-serif</item>
         <item>sans-serif-condensed</item>
+        <item>sans-serif-monospace</item>
         <item>serif</item>
-        <item>monospace</item>
+        <item>serif-monospace</item>
+        <item>casual</item>
+        <item>cursive</item>
+        <item>sans-serif-smallcaps</item>
     </string-array>
 
     <!-- Titles for captioning font size preference. [CHAR LIMIT=35] -->
@@ -756,20 +785,27 @@
 
     <!-- Titles for captioning character edge type preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_edge_type_selector_titles">
+        <item>Default</item>
         <item>None</item>
         <item>Outline</item>
         <item>Drop shadow</item>
+        <item>Raised</item>
+        <item>Depressed</item>
     </string-array>
 
     <!-- Values for captioning character edge type preference. -->
     <integer-array name="captioning_edge_type_selector_values" translatable="false" >
+        <item>-1</item>
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </integer-array>
 
     <!-- Titles for captioning color preference. -->
     <string-array name="captioning_color_selector_titles" translatable="false" >
+        <item>@string/color_unspecified</item>
         <item>@string/color_white</item>
         <item>@string/color_black</item>
         <item>@string/color_red</item>
@@ -782,6 +818,7 @@
 
     <!-- Values for captioning color preference. -->
     <integer-array name="captioning_color_selector_values" translatable="false" >
+        <item>0x00000100</item>
         <item>0xFFFFFFFF</item>
         <item>0xFF000000</item>
         <item>0xFFFF0000</item>
@@ -866,6 +903,7 @@
 
     <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_preset_selector_titles" >
+        <item>Use app defaults</item>
         <item>White on black</item>
         <item>Black on white</item>
         <item>Yellow on black</item>
@@ -875,6 +913,7 @@
 
     <!-- Values for captioning text style preset preference. -->
     <integer-array name="captioning_preset_selector_values" translatable="false" >
+        <item>4</item>
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -882,25 +921,38 @@
         <item>-1</item>
     </integer-array>
 
-    <!-- Titles for runtime selection preference. [CHAR LIMIT=35] -->
-    <string-array name="select_runtime_titles">
-        <item>Dalvik</item>
-        <item>ART</item>
-        <item>ART (debug)</item>
+    <!-- Titles for logd limit size selection preference. [CHAR LIMIT=14] -->
+    <string-array name="select_logd_size_titles">
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
     </string-array>
 
-    <!-- Values for runtime selection preference. -->
-    <string-array name="select_runtime_values" translatable="false" >
-        <item>libdvm.so</item>
-        <item>libart.so</item>
-        <item>libartd.so</item>
+    <!-- Titles for logd limit size lowram selection preference. [CHAR LIMIT=14] -->
+    <string-array name="select_logd_size_lowram_titles">
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
     </string-array>
 
-    <!-- Summaries for runtime selection preference. [CHAR LIMIT=100]-->
-    <string-array name="select_runtime_summaries" >
-        <item>Use Dalvik</item>
-        <item>Use ART</item>
-        <item>Use ART debug build</item>
+    <!-- Values for logd limit size selection preference. -->
+    <string-array name="select_logd_size_values" translatable="false" >
+        <item>65536</item>
+        <item>262144</item>
+        <item>1048576</item>
+        <item>4194304</item>
+        <item>16777216</item>
+    </string-array>
+
+    <!-- Summaries for logd limit size selection preference. [CHAR LIMIT=30]-->
+    <string-array name="select_logd_size_summaries" >
+        <item>64K per log buffer</item>
+        <item>256K per log buffer</item>
+        <item>1M per log buffer</item>
+        <item>4M per log buffer</item>
+        <item>16M per log buffer</item>
     </string-array>
 
     <!-- Titles for HDCP checking preference. [CHAR LIMIT=35] -->
@@ -927,9 +979,7 @@
     <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
     <string-array name="window_animation_scale_entries">
         <item>Animation off</item>
-        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
-        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -940,9 +990,7 @@
     <!-- Values for window animation scale preference. -->
     <string-array name="window_animation_scale_values" translatable="false" >
         <item>0</item>
-        <item>.25</item>
         <item>.5</item>
-        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -953,9 +1001,7 @@
     <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
     <string-array name="transition_animation_scale_entries">
         <item>Animation off</item>
-        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
-        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -966,9 +1012,7 @@
     <!-- Values for transition animation scale preference. -->
     <string-array name="transition_animation_scale_values" translatable="false" >
         <item>0</item>
-        <item>.25</item>
         <item>.5</item>
-        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -979,9 +1023,7 @@
     <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
     <string-array name="animator_duration_scale_entries">
         <item>Animation off</item>
-        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
-        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -992,9 +1034,7 @@
     <!-- Values for animator duration scale preference. -->
     <string-array name="animator_duration_scale_values" translatable="false" >
         <item>0</item>
-        <item>.25</item>
         <item>.5</item>
-        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -1060,7 +1100,6 @@
     <string-array name="track_frame_time_entries">
         <item>Off</item>
         <item>On screen as bars</item>
-        <item>On screen as lines</item>
         <item>In adb shell dumpsys gfxinfo</item>
     </string-array>
 
@@ -1068,7 +1107,6 @@
     <string-array name="track_frame_time_values" translatable="false" >
         <item>false</item>
         <item>visual_bars</item>
-        <item>visual_lines</item>
         <item>true</item>
     </string-array>
 
@@ -1077,7 +1115,6 @@
         <item>Off</item>
         <item>Show overdraw areas</item>
         <item>Show areas for Deuteranomaly</item>
-        <item>Show overdraw counter</item>
     </string-array>
 
     <!-- Values for debug overdraw preference. -->
@@ -1085,7 +1122,6 @@
         <item>false</item>
         <item>show</item>
         <item>show_deuteranomaly</item>
-        <item>count</item>
     </string-array>
 
     <!-- Titles for app process limit preference. [CHAR LIMIT=35] -->
@@ -1187,10 +1223,82 @@
         <item>critical</item>
     </string-array>
 
-    <string-array name="screen_color_setting">
-        <item>Standard</item>
-        <item>Vivid</item>
-        <item>Custom</item>
+    <!-- Display color space adjustment modes for accessibility -->
+    <string-array name="daltonizer_type_entries" translatable="false">
+        <item>@string/daltonizer_mode_deuteranomaly</item>
+        <item>@string/daltonizer_mode_protanomaly</item>
+        <item>@string/daltonizer_mode_tritanomaly</item>
     </string-array>
 
+    <!-- Values for display color space adjustment modes for accessibility -->
+    <string-array name="daltonizer_type_values" translatable="false">
+        <item>12</item>
+        <item>11</item>
+        <item>13</item>
+    </string-array>
+
+    <!-- Display color space adjustment modes for developers -->
+    <string-array name="simulate_color_space_entries" translatable="false">
+        <item>@string/daltonizer_mode_disabled</item>
+        <item>@string/daltonizer_mode_monochromacy</item>
+        <item>@string/daltonizer_mode_deuteranomaly</item>
+        <item>@string/daltonizer_mode_protanomaly</item>
+        <item>@string/daltonizer_mode_tritanomaly</item>
+    </string-array>
+
+    <!-- Values for display color space adjustment modes for developers -->
+    <string-array name="simulate_color_space_values" translatable="false">
+        <item>-1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Setting display values for zen mode -->
+    <string-array name="entries_zen_mode">
+        <item>Off</item>
+        <item>Limited interruptions</item>
+        <item>Zero interruptions</item>
+    </string-array>
+
+    <!-- Setting values for zen mode, must match the Settings.Global.ZEN_MODE_ constants -->
+    <string-array name="entryvalues_zen_mode" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Battery saver mode: allowable trigger threshold levels. -->
+    <integer-array name="battery_saver_trigger_values" translatable="false" >
+        <item>0</item>
+        <item>5</item>
+        <item>15</item>
+    </integer-array>
+
+    <!-- Process stats memory use details: labels for memory states -->
+    <string-array name="proc_stats_memory_states" >
+        <item>Normal</item>
+        <item>Moderate</item>
+        <item>Low</item>
+        <item>Critical</item>
+    </string-array>
+
+    <!-- Process stats memory use details: labels for process -->
+    <string-array name="proc_stats_process_states" >
+        <item>Persistent</item>
+        <item>Top activity</item>
+        <item>Important (foreground)</item>
+        <item>Important (background)</item>
+        <item>Backup</item>
+        <item>Heavy weight</item>
+        <item>Service (running)</item>
+        <item>Service (restarting)</item>
+        <item>Receiver</item>
+        <item>Home</item>
+        <item>Last activity</item>
+        <item>Cached (activity)</item>
+        <item>Cached (activity client)</item>
+        <item>Cached (empty)</item>
+    </string-array>
 </resources>

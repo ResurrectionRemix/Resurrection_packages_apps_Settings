@@ -248,7 +248,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         alert.setTitle(R.string.profile_reset_title);
         alert.setIconAttribute(android.R.attr.alertDialogIcon);
         alert.setMessage(R.string.profile_reset_message);
-        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 mProfileManager.resetAll();
                 mAdapter.refreshProfiles();

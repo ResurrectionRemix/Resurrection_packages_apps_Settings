@@ -23,22 +23,24 @@
         android:id="@+id/tabs_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/default_preference_background">
 
         <include layout="@layout/tab_widget" />
 
         <!-- give an empty content area to make tabhost happy -->
         <FrameLayout
+            style="@style/PreferenceFragmentListSinglePane"
             android:id="@android:id/tabcontent"
             android:layout_width="0dip"
             android:layout_height="0dip" />
 
         <ListView
             android:id="@android:id/list"
+            style="@style/PreferenceFragmentListSinglePane"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:scrollbarStyle="@*android:integer/preference_fragment_scrollbarStyle"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:smoothScrollbar="false" />

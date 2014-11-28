@@ -25,6 +25,7 @@ import android.content.Intent;
 
 public final class ChooseLockSettingsHelper {
 
+    static final String EXTRA_KEY_TYPE = "type";
     static final String EXTRA_KEY_PASSWORD = "password";
 
     private LockPatternUtils mLockPatternUtils;
@@ -53,20 +54,32 @@ public final class ChooseLockSettingsHelper {
      * @see #onActivityResult(int, int, android.content.Intent)
      */
     boolean launchConfirmationActivity(int request, CharSequence message, CharSequence details) {
+        return launchConfirmationActivity(request, message, details, false);
+    }
+
+    /**
+     * If a pattern, password or PIN exists, prompt the user before allowing them to change it.
+     * @param message optional message to display about the action about to be done
+     * @param details optional detail message to display
+     * @param returnCredentials if true, put credentials into intent. Note that if this is true,
+                                this can only be called internally.
+     * @return true if one exists and we launched an activity to confirm it
+     * @see #onActivityResult(int, int, android.content.Intent)
+     */
+    boolean launchConfirmationActivity(int request, CharSequence message, CharSequence details,
+                                       boolean returnCredentials) {
         boolean launched = false;
         switch (mLockPatternUtils.getKeyguardStoredPasswordQuality()) {
             case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING:
-                launched = confirmPattern(request, message, details);
-                break;
-            case DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK:
-                launched = confirmGesture(request, message, details);
+                launched = confirmPattern(request, message, details, returnCredentials);
                 break;
             case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
+            case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX:
             case DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC:
             case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
             case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
                 // TODO: update UI layout for ConfirmPassword to show message and details
-                launched = confirmPassword(request);
+                launched = confirmPassword(request, message, returnCredentials);
                 break;
         }
         return launched;
@@ -76,10 +89,12 @@ public final class ChooseLockSettingsHelper {
      * Launch screen to confirm the existing lock pattern.
      * @param message shown in header of ConfirmLockPattern if not null
      * @param details shown in footer of ConfirmLockPattern if not null
+     * @param returnCredentials if true, put credentials into intent.
      * @see #onActivityResult(int, int, android.content.Intent)
      * @return true if we launched an activity to confirm pattern
      */
-    private boolean confirmPattern(int request, CharSequence message, CharSequence details) {
+    private boolean confirmPattern(int request, CharSequence message,
+                                   CharSequence details, boolean returnCredentials) {
         if (!mLockPatternUtils.isLockPatternEnabled() || !mLockPatternUtils.savedPatternExists()) {
             return false;
         }
@@ -87,31 +102,10 @@ public final class ChooseLockSettingsHelper {
         // supply header and footer text in the intent
         intent.putExtra(ConfirmLockPattern.HEADER_TEXT, message);
         intent.putExtra(ConfirmLockPattern.FOOTER_TEXT, details);
-        intent.setClassName("com.android.settings", "com.android.settings.ConfirmLockPattern");
-        if (mFragment != null) {
-            mFragment.startActivityForResult(intent, request);
-        } else {
-            mActivity.startActivityForResult(intent, request);
-        }
-        return true;
-    }
-
-    /**
-     * Launch screen to confirm the existing lock gesture.
-     * @param message shown in header of ConfirmLockGesture if not null
-     * @param details shown in footer of ConfirmLockGesture if not null
-     * @see #onActivityResult(int, int, android.content.Intent)
-     * @return true if we launched an activity to confirm gesture
-     */
-    private boolean confirmGesture(int request, CharSequence message, CharSequence details) {
-        if (!mLockPatternUtils.isLockGestureEnabled() || !mLockPatternUtils.savedGestureExists()) {
-            return false;
-        }
-        final Intent intent = new Intent();
-        // supply header and footer text in the intent
-        intent.putExtra(ConfirmLockPattern.HEADER_TEXT, message);
-        intent.putExtra(ConfirmLockPattern.FOOTER_TEXT, details);
-        intent.setClassName("com.android.settings", "com.android.settings.ConfirmLockGesture");
+        intent.setClassName("com.android.settings",
+                            returnCredentials
+                            ? ConfirmLockPattern.InternalActivity.class.getName()
+                            : ConfirmLockPattern.class.getName());
         if (mFragment != null) {
             mFragment.startActivityForResult(intent, request);
         } else {
@@ -122,13 +116,21 @@ public final class ChooseLockSettingsHelper {
 
     /**
      * Launch screen to confirm the existing lock password.
+     * @param message shown in header of ConfirmLockPassword if not null
+     * @param returnCredentials if true, put credentials into intent.
      * @see #onActivityResult(int, int, android.content.Intent)
      * @return true if we launched an activity to confirm password
      */
-    private boolean confirmPassword(int request) {
+    private boolean confirmPassword(int request, CharSequence message,
+            boolean returnCredentials) {
         if (!mLockPatternUtils.isLockPasswordEnabled()) return false;
         final Intent intent = new Intent();
-        intent.setClassName("com.android.settings", "com.android.settings.ConfirmLockPassword");
+        // supply header text in the intent
+        intent.putExtra(ConfirmLockPattern.HEADER_TEXT, message);
+        intent.setClassName("com.android.settings",
+                            returnCredentials
+                            ? ConfirmLockPassword.InternalActivity.class.getName()
+                            : ConfirmLockPassword.class.getName());
         if (mFragment != null) {
             mFragment.startActivityForResult(intent, request);
         } else {

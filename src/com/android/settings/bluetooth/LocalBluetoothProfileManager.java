@@ -17,13 +17,14 @@
 package com.android.settings.bluetooth;
 
 import android.bluetooth.BluetoothA2dp;
+import android.bluetooth.BluetoothA2dpSink;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothMap;
 import android.bluetooth.BluetoothInputDevice;
 import android.bluetooth.BluetoothPan;
-import android.bluetooth.BluetoothSap;
 import android.bluetooth.BluetoothDun;
+import android.bluetooth.BluetoothSap;
 import android.bluetooth.BluetoothPbap;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothUuid;
@@ -82,13 +83,14 @@ final class LocalBluetoothProfileManager {
     private final BluetoothEventManager mEventManager;
 
     private A2dpProfile mA2dpProfile;
+    private A2dpSinkProfile mA2dpSinkProfile;
     private HeadsetProfile mHeadsetProfile;
     private MapProfile mMapProfile;
     private final HidProfile mHidProfile;
     private OppProfile mOppProfile;
     private final PanProfile mPanProfile;
-    private SapServerProfile mSapProfile;
     private DunServerProfile mDunProfile;
+    private SapServerProfile mSapProfile;
     private final PbapServerProfile mPbapProfile;
 
     /**
@@ -131,17 +133,17 @@ final class LocalBluetoothProfileManager {
                 mDeviceManager, this);
         addProfile(mMapProfile, MapProfile.NAME,
                 BluetoothMap.ACTION_CONNECTION_STATE_CHANGED);
-        // enable SAP only if the property is set
-        if (SystemProperties.getBoolean("ro.bluetooth.sap", false) == true) {
-            mSapProfile = new SapServerProfile(context);
-            addProfile(mSapProfile, SapServerProfile.NAME,
-                    BluetoothSap.ACTION_CONNECTION_STATE_CHANGED);
-        }
         // enable DUN only if the property is set
         if (SystemProperties.getBoolean("ro.bluetooth.dun", false) == true) {
             mDunProfile = new DunServerProfile(context);
             addProfile(mDunProfile, DunServerProfile.NAME,
                     BluetoothDun.ACTION_CONNECTION_STATE_CHANGED);
+        }
+        // enable SAP only if the property is set
+        if(SystemProperties.getBoolean("ro.bluetooth.sap", false) == true) {
+            mSapProfile = new SapServerProfile(context);
+            addProfile(mSapProfile, SapServerProfile.NAME,
+                    BluetoothSap.ACTION_CONNECTION_STATE_CHANGED);
         }
 
 
@@ -160,16 +162,27 @@ final class LocalBluetoothProfileManager {
      * @param uuids
      */
     void updateLocalProfiles(ParcelUuid[] uuids) {
-        // A2DP
+        // A2DP SRC
         if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.AudioSource)) {
             if (mA2dpProfile == null) {
-                if(DEBUG) Log.d(TAG, "Adding local A2DP profile");
+                if(DEBUG) Log.d(TAG, "Adding local A2DP SRC profile");
                 mA2dpProfile = new A2dpProfile(mContext, mLocalAdapter, mDeviceManager, this);
                 addProfile(mA2dpProfile, A2dpProfile.NAME,
                         BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED);
             }
         } else if (mA2dpProfile != null) {
             Log.w(TAG, "Warning: A2DP profile was previously added but the UUID is now missing.");
+        }
+
+        if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.AudioSink)) {
+            if (mA2dpSinkProfile == null) {
+                if(DEBUG) Log.d(TAG, "Adding local A2DP Sink profile");
+                mA2dpSinkProfile = new A2dpSinkProfile(mContext, mLocalAdapter, mDeviceManager, this);
+                addProfile(mA2dpSinkProfile, A2dpSinkProfile.NAME,
+                        BluetoothA2dpSink.ACTION_CONNECTION_STATE_CHANGED);
+            }
+        } else if (mA2dpSinkProfile != null) {
+            Log.w(TAG, "Warning: A2DP Sink profile was previously added but the UUID is now missing.");
         }
 
         // Headset / Handsfree
@@ -242,29 +255,21 @@ final class LocalBluetoothProfileManager {
         }
 
         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
-            int newState = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, 0);
-            int oldState = intent.getIntExtra(BluetoothProfile.EXTRA_PREVIOUS_STATE, 0);
-            if (DEBUG) {
-                Log.d(TAG, mProfile + " state change " + oldState + " -> " + newState);
-            }
             CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
-
-            if ((cachedDevice == null) && ((newState != BluetoothProfile.STATE_DISCONNECTED)
-                && (newState != BluetoothProfile.STATE_DISCONNECTING))) {
+            if (cachedDevice == null) {
                 Log.w(TAG, "StateChangedHandler found new device: " + device);
                 cachedDevice = mDeviceManager.addDevice(mLocalAdapter,
                         LocalBluetoothProfileManager.this, device);
             }
-
+            int newState = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, 0);
+            int oldState = intent.getIntExtra(BluetoothProfile.EXTRA_PREVIOUS_STATE, 0);
             if (newState == BluetoothProfile.STATE_DISCONNECTED &&
                     oldState == BluetoothProfile.STATE_CONNECTING) {
                 Log.i(TAG, "Failed to connect " + mProfile + " device");
             }
 
-            if (cachedDevice != null) {
-               cachedDevice.onProfileStateChanged(mProfile, newState);
-               cachedDevice.refresh();
-            }
+            cachedDevice.onProfileStateChanged(mProfile, newState);
+            cachedDevice.refresh();
         }
     }
 
@@ -320,11 +325,25 @@ final class LocalBluetoothProfileManager {
         if (profile != null) {
             return profile.isProfileReady();
         }
+        profile = mA2dpSinkProfile;
+        if (profile != null) {
+            return profile.isProfileReady();
+        }
         return false;
     }
 
     A2dpProfile getA2dpProfile() {
-        return mA2dpProfile;
+        if ((mA2dpProfile != null)&&(mA2dpProfile.isProfileReady()))
+            return mA2dpProfile;
+        else
+            return null;
+    }
+
+    A2dpSinkProfile getA2dpSinkProfile() {
+        if ((mA2dpSinkProfile != null)&&(mA2dpSinkProfile.isProfileReady()))
+            return mA2dpSinkProfile;
+        else
+            return null;
     }
 
     HeadsetProfile getHeadsetProfile() {
@@ -333,6 +352,10 @@ final class LocalBluetoothProfileManager {
 
     PbapServerProfile getPbapProfile(){
         return mPbapProfile;
+    }
+
+    MapProfile getMapProfile(){
+        return mMapProfile;
     }
 
     /**
@@ -367,22 +390,17 @@ final class LocalBluetoothProfileManager {
             }
         }
 
-        if (SystemProperties.getBoolean("bluetooth.a2dp.sink.enabled", true)) {
-            Log.d(TAG, "a2dpSinkSupported, check for both sink and source UUIDs");
-            if ((BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SOURCE_UUIDS) ||
-                BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS))&&
-                mA2dpProfile != null) {
-                profiles.add(mA2dpProfile);
-                removedProfiles.remove(mA2dpProfile);
-            }
-        } else {
-            Log.d(TAG, "a2dpSinkNotSupported, check for only sink UUIDs");
-            if (BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS) &&
-                mA2dpProfile != null) {
-                profiles.add(mA2dpProfile);
-                removedProfiles.remove(mA2dpProfile);
-            }
+        if (BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS) &&
+            mA2dpProfile != null) {
+            profiles.add(mA2dpProfile);
+            removedProfiles.remove(mA2dpProfile);
         }
+
+        if (BluetoothUuid.containsAnyUuid(uuids, A2dpSinkProfile.SRC_UUIDS) &&
+                mA2dpSinkProfile != null) {
+                profiles.add(mA2dpSinkProfile);
+                removedProfiles.remove(mA2dpSinkProfile);
+            }
 
         if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.ObexObjectPush) &&
             mOppProfile != null) {

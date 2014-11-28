@@ -27,7 +27,7 @@ import com.android.internal.widget.SubtitleView;
 import com.android.settings.R;
 
 public class PresetPreference extends ListDialogPreference {
-    private static final float DEFAULT_FONT_SIZE = 96f;
+    private static final float DEFAULT_FONT_SIZE = 32f;
 
     private final CaptioningManager mCaptioningManager;
 
@@ -49,12 +49,14 @@ public class PresetPreference extends ListDialogPreference {
 
     @Override
     protected void onBindListItem(View view, int index) {
+        final View previewViewport = view.findViewById(R.id.preview_viewport);
         final SubtitleView previewText = (SubtitleView) view.findViewById(R.id.preview);
         final int value = getValueAt(index);
-        ToggleCaptioningPreferenceFragment.applyCaptionProperties(
-                mCaptioningManager, previewText, value);
+        CaptionPropertiesFragment.applyCaptionProperties(
+                mCaptioningManager, previewText, previewViewport, value);
 
-        previewText.setTextSize(DEFAULT_FONT_SIZE);
+        final float density = getContext().getResources().getDisplayMetrics().density;
+        previewText.setTextSize(DEFAULT_FONT_SIZE * density);
 
         final CharSequence title = getTitleAt(index);
         if (title != null) {

@@ -21,9 +21,9 @@
         android:key="general_section"
         android:title="@string/notification_light_general_title">
 
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="notification_light_pulse"
-            android:title="@string/notification_pulse_title" />
+            android:title="@string/notification_light_title" />
 
         <com.android.settings.notificationlight.ApplicationLightPreference
             android:key="default"
@@ -31,7 +31,7 @@
             android:persistent="false"
             android:dependency="notification_light_pulse" />
 
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="notification_light_pulse_custom_enable"
             android:title="@string/notification_light_use_custom"
             android:dependency="notification_light_pulse" />

@@ -52,6 +52,10 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
     private static final String KEY_ENGINE_SETTINGS = "tts_engine_settings";
     private static final String KEY_INSTALL_DATA = "tts_install_data";
 
+    private static final String STATE_KEY_LOCALE_ENTRIES = "locale_entries";
+    private static final String STATE_KEY_LOCALE_ENTRY_VALUES= "locale_entry_values";
+    private static final String STATE_KEY_LOCALE_VALUE = "locale_value";
+
     private static final int VOICE_DATA_INTEGRITY_CHECK = 1977;
 
     private TtsEngines mEnginesHelper;
@@ -64,7 +68,6 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
     private TextToSpeech mTts;
 
     private int mSelectedLocaleIndex = -1;
-    private int mSystemLocaleIndex = -1;
 
     private final TextToSpeech.OnInitListener mTtsInitListener = new TextToSpeech.OnInitListener() {
         @Override
@@ -120,10 +123,26 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
             mEngineSettingsPreference.setEnabled(false);
         }
         mInstallVoicesPreference.setEnabled(false);
-        mLocalePreference.setEnabled(false);
 
-        mLocalePreference.setEntries(new CharSequence[0]);
-        mLocalePreference.setEntryValues(new CharSequence[0]);
+        if (savedInstanceState == null) {
+            mLocalePreference.setEnabled(false);
+            mLocalePreference.setEntries(new CharSequence[0]);
+            mLocalePreference.setEntryValues(new CharSequence[0]);
+        } else {
+            // Repopulate mLocalePreference with saved state. Will be updated later with
+            // up-to-date values when checkTtsData() calls back with results.
+            final CharSequence[] entries =
+                    savedInstanceState.getCharSequenceArray(STATE_KEY_LOCALE_ENTRIES);
+            final CharSequence[] entryValues =
+                    savedInstanceState.getCharSequenceArray(STATE_KEY_LOCALE_ENTRY_VALUES);
+            final CharSequence value =
+                    savedInstanceState.getCharSequence(STATE_KEY_LOCALE_VALUE);
+
+            mLocalePreference.setEntries(entries);
+            mLocalePreference.setEntryValues(entryValues);
+            mLocalePreference.setValue(value != null ? value.toString() : null);
+            mLocalePreference.setEnabled(entries.length > 0);
+        }
 
         mVoiceDataDetails = getArguments().getParcelable(TtsEnginePreference.FRAGMENT_ARGS_VOICES);
 
@@ -144,6 +163,19 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
         super.onDestroy();
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save the mLocalePreference values, so we can repopulate it with entries.
+        outState.putCharSequenceArray(STATE_KEY_LOCALE_ENTRIES,
+                mLocalePreference.getEntries());
+        outState.putCharSequenceArray(STATE_KEY_LOCALE_ENTRY_VALUES,
+                mLocalePreference.getEntryValues());
+        outState.putCharSequence(STATE_KEY_LOCALE_VALUE,
+                mLocalePreference.getValue());
+    }
+
     private final void checkTtsData() {
         Intent intent = new Intent(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         intent.setPackage(getEngineName());
@@ -158,12 +190,22 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == VOICE_DATA_INTEGRITY_CHECK) {
-            mVoiceDataDetails = data;
-            updateVoiceDetails();
+            if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_FAIL) {
+                updateVoiceDetails(data);
+            } else {
+                Log.e(TAG, "CheckVoiceData activity failed");
+            }
         }
     }
 
-    private void updateVoiceDetails() {
+    private void updateVoiceDetails(Intent data) {
+        if (data == null){
+            Log.e(TAG, "Engine failed voice data integrity check (null return)" +
+                    mTts.getCurrentEngine());
+            return;
+        }
+        mVoiceDataDetails = data;
+
         if (DBG) Log.d(TAG, "Parsing voice data details, data: " + mVoiceDataDetails.toUri(0));
 
         final ArrayList<String> available = mVoiceDataDetails.getStringArrayListExtra(
@@ -191,53 +233,44 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
             mLocalePreference.setEnabled(false);
             return;
         }
-        String currentLocale = mEnginesHelper.getLocalePrefForEngine(
-                getEngineName());
+        Locale currentLocale = null;
+        if (!mEnginesHelper.isLocaleSetToDefaultForEngine(getEngineName())) {
+            currentLocale = mEnginesHelper.getLocalePrefForEngine(getEngineName());
+        }
 
-        ArrayList<Pair<String, String>> entryPairs =
-                new ArrayList<Pair<String, String>>(availableLangs.size());
+        ArrayList<Pair<String, Locale>> entryPairs =
+                new ArrayList<Pair<String, Locale>>(availableLangs.size());
         for (int i = 0; i < availableLangs.size(); i++) {
-            String[] langCountryVariant = availableLangs.get(i).split("-");
-            Locale loc = null;
-            if (langCountryVariant.length == 1){
-                loc = new Locale(langCountryVariant[0]);
-            } else if (langCountryVariant.length == 2){
-                loc = new Locale(langCountryVariant[0], langCountryVariant[1]);
-            } else if (langCountryVariant.length == 3){
-                loc = new Locale(langCountryVariant[0], langCountryVariant[1],
-                                 langCountryVariant[2]);
-            }
-            if (loc != null){
-                entryPairs.add(new Pair<String, String>(
-                        loc.getDisplayName(), availableLangs.get(i)));
+            Locale locale = mEnginesHelper.parseLocaleString(availableLangs.get(i));
+            if (locale != null){
+                entryPairs.add(new Pair<String, Locale>(
+                        locale.getDisplayName(), locale));
             }
         }
 
         // Sort it
-        Collections.sort(entryPairs, new Comparator<Pair<String, String>>() {
+        Collections.sort(entryPairs, new Comparator<Pair<String, Locale>>() {
             @Override
-            public int compare(Pair<String, String> lhs, Pair<String, String> rhs) {
+            public int compare(Pair<String, Locale> lhs, Pair<String, Locale> rhs) {
                 return lhs.first.compareToIgnoreCase(rhs.first);
             }
         });
 
-        String defaultLocaleStr = mEnginesHelper.getDefaultLocale();
-
         // Get two arrays out of one of pairs
-        mSelectedLocaleIndex = -1;
-        mSystemLocaleIndex = -1;
-        CharSequence[] entries = new CharSequence[availableLangs.size()];
-        CharSequence[] entryValues = new CharSequence[availableLangs.size()];
-        int i = 0;
-        for (Pair<String, String> entry : entryPairs) {
-            if (entry.second.equalsIgnoreCase(currentLocale)) {
+        mSelectedLocaleIndex = 0; // Will point to the R.string.tts_lang_use_system value
+        CharSequence[] entries = new CharSequence[availableLangs.size()+1];
+        CharSequence[] entryValues = new CharSequence[availableLangs.size()+1];
+
+        entries[0] = getActivity().getString(R.string.tts_lang_use_system);
+        entryValues[0] = "";
+
+        int i = 1;
+        for (Pair<String, Locale> entry : entryPairs) {
+            if (entry.second.equals(currentLocale)) {
                 mSelectedLocaleIndex = i;
             }
-            if (entry.second.equalsIgnoreCase(defaultLocaleStr)) {
-                mSystemLocaleIndex = i;
-            }
             entries[i] = entry.first;
-            entryValues[i++] = entry.second;
+            entryValues[i++] = entry.second.toString();
         }
 
         mLocalePreference.setEntries(entries);
@@ -264,7 +297,6 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
     private void installVoiceData() {
         if (TextUtils.isEmpty(getEngineName())) return;
         Intent intent = new Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setPackage(getEngineName());
         try {
             Log.v(TAG, "Installing voice data: " + intent.toUri(0));
@@ -290,16 +322,19 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mLocalePreference) {
-            updateLanguageTo((String) newValue);
+            String localeString = (String) newValue;
+            updateLanguageTo((!TextUtils.isEmpty(localeString) ?
+                    mEnginesHelper.parseLocaleString(localeString) : null));
             return true;
         }
         return false;
     }
 
-    private void updateLanguageTo(String locale) {
+    private void updateLanguageTo(Locale locale) {
         int selectedLocaleIndex = -1;
+        String localeString = (locale != null) ? locale.toString() : "";
         for (int i=0; i < mLocalePreference.getEntryValues().length; i++) {
-            if (locale.equalsIgnoreCase(mLocalePreference.getEntryValues()[i].toString())) {
+            if (localeString.equalsIgnoreCase(mLocalePreference.getEntryValues()[i].toString())) {
                 selectedLocaleIndex = i;
                 break;
             }
@@ -312,18 +347,11 @@ public class TtsEngineSettingsFragment extends SettingsPreferenceFragment implem
         mLocalePreference.setSummary(mLocalePreference.getEntries()[selectedLocaleIndex]);
         mSelectedLocaleIndex = selectedLocaleIndex;
 
-        if (mSelectedLocaleIndex == mSystemLocaleIndex) {
-            // Use empty locale, it will default to the system language
-            mEnginesHelper.updateLocalePrefForEngine(getEngineName(), "");
-        } else {
-            mEnginesHelper.updateLocalePrefForEngine(getEngineName(), locale);
-        }
+        mEnginesHelper.updateLocalePrefForEngine(getEngineName(), locale);
 
         if (getEngineName().equals(mTts.getCurrentEngine())) {
-            String[] localeArray = TtsEngines.parseLocalePref(locale);
-            if (localeArray != null) {
-                mTts.setLanguage(new Locale(localeArray[0], localeArray[1], localeArray[2]));
-            }
+            // Null locale means "use system default"
+            mTts.setLanguage((locale != null) ? locale : Locale.getDefault());
         }
     }
 

@@ -206,7 +206,7 @@ final class BluetoothEventManager {
             }
             cachedDevice.setRssi(rssi);
             cachedDevice.setBtClass(btClass);
-            cachedDevice.setName(name);
+            cachedDevice.setNewName(name);
             cachedDevice.setVisible(true);
         }
     }
@@ -359,9 +359,7 @@ final class BluetoothEventManager {
             }
             int errorMsg = R.string.bluetooth_pairing_error_message;
             CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
-            if (context != null && cachedDevice != null) {
-                Utils.showError(context, cachedDevice.getName(), errorMsg);
-            }
+            Utils.showError(context, cachedDevice.getName(), errorMsg);
         }
     }
 

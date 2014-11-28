@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Always"</item>
     <item msgid="844721238536786870">"Only when plugged in"</item>
-    <item msgid="2990218920631468642">"Never (increases data usage)"</item>
+    <item msgid="1986753720941888596">"Never"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Always"</item>
     <item msgid="7433294150916905997">"Only when plugged in"</item>
     <item msgid="1390404486722375028">"Never"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"Last 30 days"</item>
+    <item msgid="6600989128423965319">"Set usage cycle..."</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"Last 4 digits"</item>
+    <item msgid="7841762954785375718">"First 4 digits"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Auto"</item>
+    <item msgid="1013988753804838790">"Automatic"</item>
     <item msgid="6670588712989942178">"5 GHz only"</item>
     <item msgid="2715516524973207876">"2.4 GHz only"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Usage time"</item>
-    <item msgid="3703676222230317933">"Launch count"</item>
+    <item msgid="4796160515314745154">"Last time used"</item>
     <item msgid="2502754479975776899">"App name"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"None"</item>
     <item msgid="8673874894887358090">"Manual"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Off"</item>
-    <item msgid="3165868966179561687">"Alert"</item>
-    <item msgid="6038758039030476855">"Vibrate"</item>
+    <item msgid="168893341855953140">"Proxy Auto-Config"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"None"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"keep awake"</item>
     <item msgid="26109888160231211">"monitor location"</item>
     <item msgid="5753382310468855812">"monitor high power location"</item>
+    <item msgid="3356591542543137332">"get usage stats"</item>
+    <item msgid="3073734345226842233">"mute/unmute microphone"</item>
+    <item msgid="1148142988678569310">"project media"</item>
+    <item msgid="9130014005474445273">"activate VPN"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Location"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"Keep awake"</item>
     <item msgid="8584357129746649222">"Location"</item>
     <item msgid="7669257279311110599">"Location"</item>
+    <item msgid="3459320345690097795">"Get usage stats"</item>
+    <item msgid="1312534577834048535">"Mute/unmute microphone"</item>
+    <item msgid="5906017727368097853">"Project media"</item>
+    <item msgid="2486614710846178542">"Activate VPN"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Short"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"Default"</item>
     <item msgid="1016452621833735880">"Sans-serif"</item>
     <item msgid="2496277987934654454">"Sans-serif condensed"</item>
-    <item msgid="4406003087391086325">"Serif"</item>
-    <item msgid="1558362802170124073">"Monospace"</item>
+    <item msgid="7247838127505318669">"Sans-serif monospace"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Serif monospace"</item>
+    <item msgid="639503332147461010">"Casual"</item>
+    <item msgid="7967169925231332424">"Cursive"</item>
+    <item msgid="561832997193039673">"Small capitals"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"Very small"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"Very large"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"None"</item>
-    <item msgid="1352974708028506778">"Outline"</item>
-    <item msgid="5850876295428722675">"Drop shadow"</item>
+    <item msgid="4733815704128258753">"Default"</item>
+    <item msgid="3217099060748617005">"None"</item>
+    <item msgid="7467615139904599420">"Outline"</item>
+    <item msgid="5623165557468608975">"Drop shadow"</item>
+    <item msgid="8088451174058214588">"Raised"</item>
+    <item msgid="3821418743395480313">"Depressed"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25%"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"White on black"</item>
-    <item msgid="4589278788192525675">"Black on white"</item>
-    <item msgid="1309255027325660115">"Yellow on black"</item>
-    <item msgid="2985943780939258562">"Yellow on blue"</item>
-    <item msgid="7520438652121629055">"Custom"</item>
+    <item msgid="7009918361545506251">"Use app defaults"</item>
+    <item msgid="1770533843436933500">"White on black"</item>
+    <item msgid="758587126802411846">"Black on white"</item>
+    <item msgid="1495307195241623402">"Yellow on black"</item>
+    <item msgid="6039700130994371612">"Yellow on blue"</item>
+    <item msgid="7169235156349580064">"Customise"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (debug)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64 K"</item>
+    <item msgid="505611754508988476">"256 K"</item>
+    <item msgid="6361286924268716397">"1 M"</item>
+    <item msgid="6405203239560695266">"4 M"</item>
+    <item msgid="3025431211013424097">"16 M"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"Use Dalvik"</item>
-    <item msgid="5131846588686178907">"Use ART"</item>
-    <item msgid="4530003713865319928">"Use ART debug build"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64 K"</item>
+    <item msgid="3534782711045262344">"256 K"</item>
+    <item msgid="8085867209202153403">"1 M"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"64 K per log buffer"</item>
+    <item msgid="2822309747675758628">"256 K per log buffer"</item>
+    <item msgid="6699306198357496731">"1 M per log buffer"</item>
+    <item msgid="5748528643937500349">"4 M per log buffer"</item>
+    <item msgid="1978629051085111592">"16 M per log buffer"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Never check"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Off"</item>
     <item msgid="2751513398307949636">"On screen as bars"</item>
-    <item msgid="8272260411216018353">"On screen as lines"</item>
-    <item msgid="120512413928262547">"In adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"In adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"Off"</item>
     <item msgid="7688197031296835369">"Show overdraw areas"</item>
     <item msgid="2290859360633824369">"Show areas for Deuteranomaly"</item>
-    <item msgid="3448087929560624983">"Show overdraw counter"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Standard limit"</item>
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"moderate"</item>
     <item msgid="406385694840950802">"low"</item>
     <item msgid="4212263919458209842">"critical"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"Off"</item>
+    <item msgid="5656544177755411222">"Limited interruptions"</item>
+    <item msgid="8735337502532332056">"Zero interruptions"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Normal"</item>
+    <item msgid="866544120205026771">"Moderate"</item>
+    <item msgid="7851902244436886890">"Low"</item>
+    <item msgid="3022922196817563960">"Critical"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Persistent"</item>
+    <item msgid="5779398140277006695">"Top activity"</item>
+    <item msgid="1439598363694578255">"Important (foreground)"</item>
+    <item msgid="3396458970745718652">"Important (background)"</item>
+    <item msgid="5214825238247511992">"Backup"</item>
+    <item msgid="311372689168254967">"Heavy weight"</item>
+    <item msgid="7438189122367820362">"Service (running)"</item>
+    <item msgid="918687422516982498">"Service (restarting)"</item>
+    <item msgid="6807727069641853029">"Receiver"</item>
+    <item msgid="6782857406100845127">"Home"</item>
+    <item msgid="2860945127596974299">"Last activity"</item>
+    <item msgid="8610560843693675830">"Cached (activity)"</item>
+    <item msgid="4338089220026248848">"Cached (activity client)"</item>
+    <item msgid="6652164677254579050">"Cached (empty)"</item>
   </string-array>
 </resources>

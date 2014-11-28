@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,17 +14,23 @@
      limitations under the License.
 -->
 
-<com.android.settings.fuelgauge.BatteryHistoryChart
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:gravity="center_vertical"
-    android:id="@+id/battery_history_chart"
-    android:paddingEnd="?android:attr/scrollbarSize"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:shadowRadius="4"
-    android:shadowColor="?android:attr/colorBackground"
-    android:shadowDx="2"
-    android:shadowDy="2">
-</com.android.settings.fuelgauge.BatteryHistoryChart>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:minHeight="@dimen/battery_history_chart_height">
+
+    <include layout="@layout/battery_history_chart" />
+
+    <TextView android:id="@+id/labelsHeader"
+              android:layout_width="match_parent"
+              android:layout_height="48dp"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:textSize="14sp"
+              android:textColor="?android:attr/colorControlActivated"
+              android:gravity="start|center_vertical"
+              android:text="@string/power_usage_list_summary"
+              android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+              android:paddingEnd="?android:attr/listPreferredItemPaddingEnd" />
+
+</LinearLayout>

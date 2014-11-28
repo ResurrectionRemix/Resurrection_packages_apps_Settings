@@ -23,9 +23,11 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -35,8 +37,10 @@ import com.android.settings.Utils;
 
 import java.io.IOException;
 
+import static android.content.Intent.EXTRA_USER;
+
 /**
- * Entry point Actiivty for account setup. Works as follows
+ * Entry point Activity for account setup. Works as follows
  *
  * 1) When the other Activities launch this Activity, it launches {@link ChooseAccountActivity}
  *    without showing anything.
@@ -49,6 +53,9 @@ import java.io.IOException;
  * currently delegate the work to the other Activity. When we let this Activity do that work, users
  * would see the list of account types when leaving this Activity, since the UI is already ready
  * when returning from each account setup, which doesn't look good.
+ *
+ * An extra {@link UserHandle} can be specified in the intent as {@link EXTRA_USER}, if the user for
+ * which the action needs to be performed is different to the one the Settings App will run in.
  */
 public class AddAccountSettings extends Activity {
     /**
@@ -62,6 +69,7 @@ public class AddAccountSettings extends Activity {
      * application.
      */
     private static final String KEY_CALLER_IDENTITY = "pendingIntent";
+    private static final String SHOULD_NOT_RESOLVE = "SHOULDN'T RESOLVE!";
 
     private static final String TAG = "AccountSettings";
 
@@ -89,8 +97,9 @@ public class AddAccountSettings extends Activity {
                     addAccountOptions.putParcelable(KEY_CALLER_IDENTITY, mPendingIntent);
                     addAccountOptions.putBoolean(EXTRA_HAS_MULTIPLE_USERS,
                             Utils.hasMultipleUsers(AddAccountSettings.this));
+                    addAccountOptions.putParcelable(EXTRA_USER, mUserHandle);
                     intent.putExtras(addAccountOptions);
-                    startActivityForResult(intent, ADD_ACCOUNT_REQUEST);
+                    startActivityForResultAsUser(intent, ADD_ACCOUNT_REQUEST, mUserHandle);
                 } else {
                     setResult(RESULT_OK);
                     if (mPendingIntent != null) {
@@ -115,6 +124,7 @@ public class AddAccountSettings extends Activity {
     };
 
     private boolean mAddAccountCalled = false;
+    private UserHandle mUserHandle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,7 +136,9 @@ public class AddAccountSettings extends Activity {
         }
 
         final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
-        if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
+        mUserHandle = Utils.getSecureTargetUser(getActivityToken(), um, null /* arguments */,
+                getIntent().getExtras());
+        if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS, mUserHandle)) {
             // We aren't allowed to add an account.
             Toast.makeText(this, R.string.user_cannot_add_accounts_message, Toast.LENGTH_LONG)
                     .show();
@@ -149,6 +161,7 @@ public class AddAccountSettings extends Activity {
         if (accountTypes != null) {
             intent.putExtra(AccountPreferenceBase.ACCOUNT_TYPES_FILTER_KEY, accountTypes);
         }
+        intent.putExtra(EXTRA_USER, mUserHandle);
         startActivityForResult(intent, CHOOSE_ACCOUNT_REQUEST);
     }
 
@@ -184,17 +197,32 @@ public class AddAccountSettings extends Activity {
 
     private void addAccount(String accountType) {
         Bundle addAccountOptions = new Bundle();
-        mPendingIntent = PendingIntent.getBroadcast(this, 0, new Intent(), 0);
+        /*
+         * The identityIntent is for the purposes of establishing the identity
+         * of the caller and isn't intended for launching activities, services
+         * or broadcasts.
+         *
+         * Unfortunately for legacy reasons we still need to support this. But
+         * we can cripple the intent so that 3rd party authenticators can't
+         * fill in addressing information and launch arbitrary actions.
+         */
+        Intent identityIntent = new Intent();
+        identityIntent.setComponent(new ComponentName(SHOULD_NOT_RESOLVE, SHOULD_NOT_RESOLVE));
+        identityIntent.setAction(SHOULD_NOT_RESOLVE);
+        identityIntent.addCategory(SHOULD_NOT_RESOLVE);
+
+        mPendingIntent = PendingIntent.getBroadcast(this, 0, identityIntent, 0);
         addAccountOptions.putParcelable(KEY_CALLER_IDENTITY, mPendingIntent);
         addAccountOptions.putBoolean(EXTRA_HAS_MULTIPLE_USERS, Utils.hasMultipleUsers(this));
-        AccountManager.get(this).addAccount(
+        AccountManager.get(this).addAccountAsUser(
                 accountType,
                 null, /* authTokenType */
                 null, /* requiredFeatures */
                 addAccountOptions,
                 null,
                 mCallback,
-                null /* handler */);
+                null /* handler */,
+                mUserHandle);
         mAddAccountCalled  = true;
     }
 }

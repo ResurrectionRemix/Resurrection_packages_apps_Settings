@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2010 Daniel Nilsson
- * Copyright (C) 2012 THe CyanogenMod Project
+ * Copyright (C) 2012 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,8 @@ public class LightSettingsDialog extends AlertDialog implements
     private final static long LED_UPDATE_DELAY_MS = 250;
 
     private ColorPickerView mColorPicker;
+    private LinearLayout mColorPanel;
+    private View mLightsDialogDivider;
 
     private EditText mHexColorInput;
     private ColorPanelView mNewColor;
@@ -130,8 +132,10 @@ public class LightSettingsDialog extends AlertDialog implements
         View layout = mInflater.inflate(R.layout.dialog_light_settings, null);
 
         mColorPicker = (ColorPickerView) layout.findViewById(R.id.color_picker_view);
+        mColorPanel = (LinearLayout) layout.findViewById(R.id.color_panel_view);
         mHexColorInput = (EditText) layout.findViewById(R.id.hex_color_input);
         mNewColor = (ColorPanelView) layout.findViewById(R.id.color_panel);
+        mLightsDialogDivider = (View) layout.findViewById(R.id.lights_dialog_divider);
 
         mColorPicker.setOnColorChangedListener(this);
         mColorPicker.setColor(color, true);
@@ -159,6 +163,13 @@ public class LightSettingsDialog extends AlertDialog implements
 
         setView(layout);
         setTitle(R.string.edit_light_settings);
+
+        if (!getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_multiColorNotificationLed)) {
+            mColorPicker.setVisibility(View.GONE);
+            mColorPanel.setVisibility(View.GONE);
+            mLightsDialogDivider.setVisibility(View.GONE);
+        }
 
         mReadyForLed = true;
         updateLed();
@@ -364,7 +375,7 @@ public class LightSettingsDialog extends AlertDialog implements
         @Override
         public View getView(int position, View view, ViewGroup parent) {
             if (view == null) {
-                view = mInflater.inflate(R.layout.pulse_time_item, null);
+                view = mInflater.inflate(R.layout.pulse_time_item, parent, false);
             }
 
             Pair<String, Integer> entry = getItem(position);

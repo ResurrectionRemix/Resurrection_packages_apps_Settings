@@ -14,12 +14,8 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <Preference
-        android:summary="@string/data_usage_metered_body"
-        android:persistent="false"
-        android:selectable="false" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:title="@string/display_settings">
 
     <PreferenceCategory
         android:key="mobile"
@@ -38,5 +34,10 @@
             android:selectable="false" />
 
     </PreferenceCategory>
+
+    <Preference
+        android:summary="@string/data_usage_metered_body"
+        android:persistent="false"
+        android:selectable="false" />
 
 </PreferenceScreen>

@@ -16,7 +16,6 @@
 
 package com.android.settings;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -26,9 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,8 +37,6 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -49,10 +44,12 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.settings.DreamBackend.DreamInfo;
+import com.android.settings.widget.SwitchBar;
 
 import java.util.List;
 
-public class DreamSettings extends SettingsPreferenceFragment {
+public class DreamSettings extends SettingsPreferenceFragment implements
+        SwitchBar.OnSwitchChangeListener {
     private static final String TAG = DreamSettings.class.getSimpleName();
     static final boolean DEBUG = false;
     private static final int DIALOG_WHEN_TO_DREAM = 1;
@@ -63,7 +60,7 @@ public class DreamSettings extends SettingsPreferenceFragment {
     private Context mContext;
     private DreamBackend mBackend;
     private DreamInfoAdapter mAdapter;
-    private Switch mSwitch;
+    private SwitchBar mSwitchBar;
     private MenuItem[] mMenuItemsWhenEnabled;
     private boolean mRefreshing;
 
@@ -83,37 +80,33 @@ public class DreamSettings extends SettingsPreferenceFragment {
     public void onCreate(Bundle icicle) {
         logd("onCreate(%s)", icicle);
         super.onCreate(icicle);
-        Activity activity = getActivity();
 
-        mBackend = new DreamBackend(activity);
-        mSwitch = new Switch(activity);
-        mSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!mRefreshing) {
-                    mBackend.setEnabled(isChecked);
-                    refreshFromBackend();
-                }
-            }
-        });
-
-        final int padding = activity.getResources().getDimensionPixelSize(
-                R.dimen.action_bar_switch_padding);
-        mSwitch.setPaddingRelative(0, 0, padding, 0);
-        activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
-                ActionBar.DISPLAY_SHOW_CUSTOM);
-        activity.getActionBar().setCustomView(mSwitch, new ActionBar.LayoutParams(
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                Gravity.CENTER_VERTICAL | Gravity.END));
+        mBackend = new DreamBackend(getActivity());
 
         setHasOptionsMenu(true);
     }
 
     @Override
+    public void onSwitchChanged(Switch switchView, boolean isChecked) {
+        if (!mRefreshing) {
+            mBackend.setEnabled(isChecked);
+            refreshFromBackend();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        logd("onStart()");
+        super.onStart();
+    }
+
+    @Override
     public void onDestroyView() {
-        getActivity().getActionBar().setCustomView(null);
+        logd("onDestroyView()");
         super.onDestroyView();
+
+        mSwitchBar.removeOnSwitchChangeListener(this);
+        mSwitchBar.hide();
     }
 
     @Override
@@ -122,7 +115,6 @@ public class DreamSettings extends SettingsPreferenceFragment {
         super.onActivityCreated(savedInstanceState);
 
         ListView listView = getListView();
-
         listView.setItemsCanFocus(true);
 
         TextView emptyView = (TextView) getView().findViewById(android.R.id.empty);
@@ -131,6 +123,11 @@ public class DreamSettings extends SettingsPreferenceFragment {
 
         mAdapter = new DreamInfoAdapter(mContext);
         listView.setAdapter(mAdapter);
+
+        final SettingsActivity sa = (SettingsActivity) getActivity();
+        mSwitchBar = sa.getSwitchBar();
+        mSwitchBar.addOnSwitchChangeListener(this);
+        mSwitchBar.show();
     }
 
     @Override
@@ -141,7 +138,7 @@ public class DreamSettings extends SettingsPreferenceFragment {
 
         // create "start" action
         MenuItem start = createMenuItem(menu, R.string.screensaver_settings_dream_start,
-                MenuItem.SHOW_AS_ACTION_ALWAYS,
+                MenuItem.SHOW_AS_ACTION_NEVER,
                 isEnabled, new Runnable(){
                     @Override
                     public void run() {
@@ -151,7 +148,7 @@ public class DreamSettings extends SettingsPreferenceFragment {
         // create "when to dream" overflow menu item
         MenuItem whenToDream = createMenuItem(menu,
                 R.string.screensaver_settings_when_to_dream,
-                MenuItem.SHOW_AS_ACTION_IF_ROOM,
+                MenuItem.SHOW_AS_ACTION_NEVER,
                 isEnabled,
                 new Runnable() {
                     @Override
@@ -216,6 +213,7 @@ public class DreamSettings extends SettingsPreferenceFragment {
     public void onPause() {
         logd("onPause()");
         super.onPause();
+
         mContext.unregisterReceiver(mPackageReceiver);
     }
 
@@ -262,8 +260,8 @@ public class DreamSettings extends SettingsPreferenceFragment {
         logd("refreshFromBackend()");
         mRefreshing = true;
         boolean dreamsEnabled = mBackend.isEnabled();
-        if (mSwitch.isChecked() != dreamsEnabled)
-            mSwitch.setChecked(dreamsEnabled);
+        if (mSwitchBar.isChecked() != dreamsEnabled)
+            mSwitchBar.setChecked(dreamsEnabled);
 
         mAdapter.clear();
         if (dreamsEnabled) {

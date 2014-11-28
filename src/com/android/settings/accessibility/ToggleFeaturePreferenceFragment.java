@@ -16,16 +16,12 @@
 
 package com.android.settings.accessibility;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -35,11 +31,15 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SwitchBar;
+import com.android.settings.widget.ToggleSwitch;
 
 public abstract class ToggleFeaturePreferenceFragment
         extends SettingsPreferenceFragment {
 
+    protected SwitchBar mSwitchBar;
     protected ToggleSwitch mToggleSwitch;
 
     protected String mPreferenceKey;
@@ -55,10 +55,10 @@ public abstract class ToggleFeaturePreferenceFragment
                 getActivity());
         setPreferenceScreen(preferenceScreen);
         mSummaryPreference = new Preference(getActivity()) {
-                @Override
+            @Override
             protected void onBindView(View view) {
                 super.onBindView(view);
-                TextView summaryView = (TextView) view.findViewById(R.id.summary);
+                final TextView summaryView = (TextView) view.findViewById(android.R.id.summary);
                 summaryView.setText(getSummary());
                 sendAccessibilityEvent(summaryView);
             }
@@ -86,18 +86,26 @@ public abstract class ToggleFeaturePreferenceFragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        onInstallActionBarToggleSwitch();
+
+        SettingsActivity activity = (SettingsActivity) getActivity();
+        mSwitchBar = activity.getSwitchBar();
+        mToggleSwitch = mSwitchBar.getSwitch();
+
         onProcessArguments(getArguments());
-        // Set a transparent drawable to prevent use of the default one.
-        getListView().setSelector(new ColorDrawable(Color.TRANSPARENT));
-        getListView().setDivider(null);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        installActionBarToggleSwitch();
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getActionBar().setCustomView(null);
-        mToggleSwitch.setOnBeforeCheckedChangeListener(null);
         super.onDestroyView();
+
+        removeActionBarToggleSwitch();
     }
 
     protected abstract void onPreferenceToggled(String preferenceKey, boolean enabled);
@@ -110,38 +118,60 @@ public abstract class ToggleFeaturePreferenceFragment
         menuItem.setIntent(mSettingsIntent);
     }
 
-    protected void onInstallActionBarToggleSwitch() {
-        mToggleSwitch = createAndAddActionBarToggleSwitch(getActivity());
+    protected void onInstallSwitchBarToggleSwitch() {
+        // Implement this to set a checked listener.
     }
 
-    private ToggleSwitch createAndAddActionBarToggleSwitch(Activity activity) {
-        ToggleSwitch toggleSwitch = new ToggleSwitch(activity);
-        final int padding = activity.getResources().getDimensionPixelSize(
-                R.dimen.action_bar_switch_padding);
-        toggleSwitch.setPaddingRelative(0, 0, padding, 0);
-        activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
-                ActionBar.DISPLAY_SHOW_CUSTOM);
-        activity.getActionBar().setCustomView(toggleSwitch,
-                new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
-                        ActionBar.LayoutParams.WRAP_CONTENT,
-                                Gravity.CENTER_VERTICAL | Gravity.END));
-        return toggleSwitch;
+    protected void onRemoveSwitchBarToggleSwitch() {
+        // Implement this to reset a checked listener.
+    }
+
+    private void installActionBarToggleSwitch() {
+        mSwitchBar.show();
+        onInstallSwitchBarToggleSwitch();
+    }
+
+    private void removeActionBarToggleSwitch() {
+        mToggleSwitch.setOnBeforeCheckedChangeListener(null);
+        onRemoveSwitchBarToggleSwitch();
+        mSwitchBar.hide();
+    }
+
+    public void setTitle(String title) {
+        getActivity().setTitle(title);
     }
 
     protected void onProcessArguments(Bundle arguments) {
+        if (arguments == null) {
+            getPreferenceScreen().removePreference(mSummaryPreference);
+            return;
+        }
+
         // Key.
         mPreferenceKey = arguments.getString(AccessibilitySettings.EXTRA_PREFERENCE_KEY);
+
         // Enabled.
-        final boolean enabled = arguments.getBoolean(AccessibilitySettings.EXTRA_CHECKED);
-        mToggleSwitch.setCheckedInternal(enabled);
-        // Title.
-        PreferenceActivity activity = (PreferenceActivity) getActivity();
-        if (!activity.onIsMultiPane() || activity.onIsHidingHeaders()) {
-            String title = arguments.getString(AccessibilitySettings.EXTRA_TITLE);
-            getActivity().setTitle(title);
+        if (arguments.containsKey(AccessibilitySettings.EXTRA_CHECKED)) {
+            final boolean enabled = arguments.getBoolean(AccessibilitySettings.EXTRA_CHECKED);
+            mSwitchBar.setCheckedInternal(enabled);
         }
+
+        // Title.
+        if (arguments.containsKey(AccessibilitySettings.EXTRA_TITLE)) {
+            setTitle(arguments.getString(AccessibilitySettings.EXTRA_TITLE));
+        }
+
         // Summary.
-        CharSequence summary = arguments.getCharSequence(AccessibilitySettings.EXTRA_SUMMARY);
-        mSummaryPreference.setSummary(summary);
+        if (arguments.containsKey(AccessibilitySettings.EXTRA_SUMMARY)) {
+            final CharSequence summary = arguments.getCharSequence(
+                    AccessibilitySettings.EXTRA_SUMMARY);
+            mSummaryPreference.setSummary(summary);
+
+            // Set a transparent drawable to prevent use of the default one.
+            getListView().setSelector(new ColorDrawable(Color.TRANSPARENT));
+            getListView().setDivider(null);
+        } else {
+            getPreferenceScreen().removePreference(mSummaryPreference);
+        }
     }
 }

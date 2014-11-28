@@ -16,6 +16,7 @@
 
 package com.android.settings.applications;
 
+import android.content.res.Resources;
 import android.text.BidiFormatter;
 import com.android.internal.util.MemInfoReader;
 import com.android.settings.R;
@@ -28,7 +29,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.UserHandle;
-import android.preference.PreferenceActivity;
 import android.text.format.DateUtils;
 import android.text.format.Formatter;
 import android.util.AttributeSet;
@@ -42,6 +42,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AbsListView.RecyclerListener;
+import com.android.settings.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,19 +72,22 @@ public class RunningProcessesView extends FrameLayout
     RunningState.BaseItem mCurSelected;
     
     ListView mListView;
+    View mHeader;
     ServiceListAdapter mAdapter;
     LinearColorBar mColorBar;
+    TextView mBackgroundProcessPrefix;
+    TextView mAppsProcessPrefix;
+    TextView mForegroundProcessPrefix;
     TextView mBackgroundProcessText;
+    TextView mAppsProcessText;
     TextView mForegroundProcessText;
-    
-    int mLastNumBackgroundProcesses = -1;
-    int mLastNumForegroundProcesses = -1;
-    int mLastNumServiceProcesses = -1;
-    long mLastBackgroundProcessMemory = -1;
-    long mLastForegroundProcessMemory = -1;
-    long mLastServiceProcessMemory = -1;
-    long mLastAvailMemory = -1;
-    
+
+    long mCurTotalRam = -1;
+    long mCurHighRam = -1;      // "System" or "Used"
+    long mCurMedRam = -1;       // "Apps" or "Cached"
+    long mCurLowRam = -1;       // "Free"
+    boolean mCurShowCached = false;
+
     Dialog mCurDialog;
 
     MemInfoReader mMemInfoReader = new MemInfoReader();
@@ -95,7 +99,7 @@ public class RunningProcessesView extends FrameLayout
         ViewHolder mHolder;
         long mFirstRunTime;
         boolean mSetBackground;
-        
+
         void updateTime(Context context, StringBuilder builder) {
             TextView uptimeView = null;
             
@@ -123,7 +127,7 @@ public class RunningProcessesView extends FrameLayout
                     uptimeView = mHolder.uptime;
                 }
             }
-            
+
             if (uptimeView != null) {
                 mSetBackground = false;
                 if (mFirstRunTime >= 0) {
@@ -225,8 +229,7 @@ public class RunningProcessesView extends FrameLayout
                 mShowBackground = showBackground;
                 mState.setWatchingBackgroundItems(showBackground);
                 refreshItems();
-                notifyDataSetChanged();
-                mColorBar.setShowingGreen(mShowBackground);
+                refreshUi(true);
             }
         }
 
@@ -316,7 +319,7 @@ public class RunningProcessesView extends FrameLayout
 
     void refreshUi(boolean dataChanged) {
         if (dataChanged) {
-            ServiceListAdapter adapter = (ServiceListAdapter)(mListView.getAdapter());
+            ServiceListAdapter adapter = mAdapter;
             adapter.refreshItems();
             adapter.notifyDataSetChanged();
         }
@@ -326,56 +329,71 @@ public class RunningProcessesView extends FrameLayout
             mDataAvail = null;
         }
 
+        mMemInfoReader.readMemInfo();
+
+        /*
         // This is the amount of available memory until we start killing
         // background services.
-        mMemInfoReader.readMemInfo();
         long availMem = mMemInfoReader.getFreeSize() + mMemInfoReader.getCachedSize()
                 - SECONDARY_SERVER_MEM;
         if (availMem < 0) {
             availMem = 0;
         }
+        */
 
         synchronized (mState.mLock) {
-            if (mLastNumBackgroundProcesses != mState.mNumBackgroundProcesses
-                    || mLastBackgroundProcessMemory != mState.mBackgroundProcessMemory
-                    || mLastAvailMemory != availMem) {
-                mLastNumBackgroundProcesses = mState.mNumBackgroundProcesses;
-                mLastBackgroundProcessMemory = mState.mBackgroundProcessMemory;
-                mLastAvailMemory = availMem;
-                long freeMem = mLastAvailMemory + mLastBackgroundProcessMemory;
+            if (mCurShowCached != mAdapter.mShowBackground) {
+                mCurShowCached = mAdapter.mShowBackground;
+                if (mCurShowCached) {
+                    mForegroundProcessPrefix.setText(getResources().getText(
+                            R.string.running_processes_header_used_prefix));
+                    mAppsProcessPrefix.setText(getResources().getText(
+                            R.string.running_processes_header_cached_prefix));
+                } else {
+                    mForegroundProcessPrefix.setText(getResources().getText(
+                            R.string.running_processes_header_system_prefix));
+                    mAppsProcessPrefix.setText(getResources().getText(
+                            R.string.running_processes_header_apps_prefix));
+                }
+            }
+
+            final long totalRam = mMemInfoReader.getTotalSize();
+            final long medRam;
+            final long lowRam;
+            if (mCurShowCached) {
+                lowRam = mMemInfoReader.getFreeSize() + mMemInfoReader.getCachedSize();
+                medRam = mState.mBackgroundProcessMemory;
+            } else {
+                lowRam = mMemInfoReader.getFreeSize() + mMemInfoReader.getCachedSize()
+                        + mState.mBackgroundProcessMemory;
+                medRam = mState.mServiceProcessMemory;
+
+            }
+            final long highRam = totalRam - medRam - lowRam;
+
+            if (mCurTotalRam != totalRam || mCurHighRam != highRam || mCurMedRam != medRam
+                    || mCurLowRam != lowRam) {
+                mCurTotalRam = totalRam;
+                mCurHighRam = highRam;
+                mCurMedRam = medRam;
+                mCurLowRam = lowRam;
                 BidiFormatter bidiFormatter = BidiFormatter.getInstance();
                 String sizeStr = bidiFormatter.unicodeWrap(
-                        Formatter.formatShortFileSize(getContext(), freeMem));
+                        Formatter.formatShortFileSize(getContext(), lowRam));
                 mBackgroundProcessText.setText(getResources().getString(
-                        R.string.service_background_processes, sizeStr));
+                        R.string.running_processes_header_ram, sizeStr));
                 sizeStr = bidiFormatter.unicodeWrap(
-                        Formatter.formatShortFileSize(getContext(),
-                                mMemInfoReader.getTotalSize() - freeMem));
+                        Formatter.formatShortFileSize(getContext(), medRam));
+                mAppsProcessText.setText(getResources().getString(
+                        R.string.running_processes_header_ram, sizeStr));
+                sizeStr = bidiFormatter.unicodeWrap(
+                        Formatter.formatShortFileSize(getContext(), highRam));
                 mForegroundProcessText.setText(getResources().getString(
-                        R.string.service_foreground_processes, sizeStr));
+                        R.string.running_processes_header_ram, sizeStr));
+                mColorBar.setRatios(highRam/(float)totalRam,
+                        medRam/(float)totalRam,
+                        lowRam/(float)totalRam);
             }
-            if (mLastNumForegroundProcesses != mState.mNumForegroundProcesses
-                    || mLastForegroundProcessMemory != mState.mForegroundProcessMemory
-                    || mLastNumServiceProcesses != mState.mNumServiceProcesses
-                    || mLastServiceProcessMemory != mState.mServiceProcessMemory) {
-                mLastNumForegroundProcesses = mState.mNumForegroundProcesses;
-                mLastForegroundProcessMemory = mState.mForegroundProcessMemory;
-                mLastNumServiceProcesses = mState.mNumServiceProcesses;
-                mLastServiceProcessMemory = mState.mServiceProcessMemory;
-                /*
-                String sizeStr = Formatter.formatShortFileSize(getContext(),
-                        mLastForegroundProcessMemory + mLastServiceProcessMemory);
-                mForegroundProcessText.setText(getResources().getString(
-                        R.string.service_foreground_processes, sizeStr));
-                */
-            }
-            
-            float totalMem = mMemInfoReader.getTotalSize();
-            float totalShownMem = availMem + mLastBackgroundProcessMemory
-                    + mLastServiceProcessMemory;
-            mColorBar.setRatios((totalMem-totalShownMem)/totalMem,
-                    mLastServiceProcessMemory/totalMem,
-                    mLastBackgroundProcessMemory/totalMem);
         }
     }
     
@@ -397,9 +415,9 @@ public class RunningProcessesView extends FrameLayout
             }
             args.putInt(RunningServiceDetails.KEY_USER_ID, mi.mUserId);
             args.putBoolean(RunningServiceDetails.KEY_BACKGROUND, mAdapter.mShowBackground);
-    
-            PreferenceActivity pa = (PreferenceActivity)mOwner.getActivity();
-            pa.startPreferencePanel(RunningServiceDetails.class.getName(), args,
+
+            SettingsActivity sa = (SettingsActivity) mOwner.getActivity();
+            sa.startPreferencePanel(RunningServiceDetails.class.getName(), args,
                     R.string.runningservicedetails_settings_title, null, null, 0);
         }
     }
@@ -428,27 +446,19 @@ public class RunningProcessesView extends FrameLayout
         mListView.setRecyclerListener(this);
         mAdapter = new ServiceListAdapter(mState);
         mListView.setAdapter(mAdapter);
-        mColorBar = (LinearColorBar)findViewById(R.id.color_bar);
-        mBackgroundProcessText = (TextView)findViewById(R.id.backgroundText);
-        mBackgroundProcessText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAdapter.setShowBackground(true);
-                if (mOwner != null) {
-                    mOwner.getActivity().invalidateOptionsMenu();
-                }
-            }
-        });
-        mForegroundProcessText = (TextView)findViewById(R.id.foregroundText);
-        mForegroundProcessText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAdapter.setShowBackground(false);
-                if (mOwner != null) {
-                    mOwner.getActivity().invalidateOptionsMenu();
-                }
-            }
-        });
+        mHeader = inflater.inflate(R.layout.running_processes_header, null);
+        mListView.addHeaderView(mHeader, null, false /* set as not selectable */);
+        mColorBar = (LinearColorBar)mHeader.findViewById(R.id.color_bar);
+        Resources res = getResources();
+        mColorBar.setColors(res.getColor(R.color.running_processes_system_ram),
+                res.getColor(R.color.running_processes_apps_ram),
+                res.getColor(R.color.running_processes_free_ram));
+        mBackgroundProcessPrefix = (TextView)mHeader.findViewById(R.id.freeSizePrefix);
+        mAppsProcessPrefix = (TextView)mHeader.findViewById(R.id.appsSizePrefix);
+        mForegroundProcessPrefix = (TextView)mHeader.findViewById(R.id.systemSizePrefix);
+        mBackgroundProcessText = (TextView)mHeader.findViewById(R.id.freeSize);
+        mAppsProcessText = (TextView)mHeader.findViewById(R.id.appsSize);
+        mForegroundProcessText = (TextView)mHeader.findViewById(R.id.systemSize);
 
         ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
         mAm.getMemoryInfo(memInfo);

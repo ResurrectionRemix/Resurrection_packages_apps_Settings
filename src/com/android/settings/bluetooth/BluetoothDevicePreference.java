@@ -39,6 +39,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 import com.android.settings.R;
+import com.android.settings.search.Index;
+import com.android.settings.search.SearchIndexableRaw;
 
 import java.util.List;
 
@@ -72,6 +74,8 @@ public final class BluetoothDevicePreference extends Preference implements
         }
 
         mCachedDevice = cachedDevice;
+
+        setLayoutResource(R.layout.preference_bt_icon);
 
         if (cachedDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
             UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
@@ -139,10 +143,10 @@ public final class BluetoothDevicePreference extends Preference implements
 
         if (mCachedDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
             ImageView deviceDetails = (ImageView) view.findViewById(R.id.deviceDetails);
+
             if (deviceDetails != null) {
                 deviceDetails.setOnClickListener(this);
                 deviceDetails.setTag(mCachedDevice);
-                deviceDetails.setAlpha(isEnabled() ? 255 : sDimAlpha);
             }
         }
 
@@ -228,6 +232,17 @@ public final class BluetoothDevicePreference extends Preference implements
         if (!mCachedDevice.startPairing()) {
             Utils.showError(getContext(), mCachedDevice.getName(),
                     R.string.bluetooth_pairing_error_message);
+        } else {
+            final Context context = getContext();
+
+            SearchIndexableRaw data = new SearchIndexableRaw(context);
+            data.className = BluetoothSettings.class.getName();
+            data.title = mCachedDevice.getName();
+            data.screenTitle = context.getResources().getString(R.string.bluetooth_settings);
+            data.iconResId = R.drawable.ic_settings_bluetooth2;
+            data.enabled = true;
+
+            Index.getInstance(context).updateFromSearchIndexableData(data);
         }
     }
 
@@ -252,7 +267,8 @@ public final class BluetoothDevicePreference extends Preference implements
 
                 case BluetoothProfile.STATE_DISCONNECTED:
                     if (profile.isProfileReady()) {
-                        if (profile instanceof A2dpProfile) {
+                        if ((profile instanceof A2dpProfile) ||
+                            (profile instanceof A2dpSinkProfile)) {
                             a2dpNotConnected = true;
                         } else if (profile instanceof HeadsetProfile) {
                             headsetNotConnected = true;
@@ -324,7 +340,7 @@ public final class BluetoothDevicePreference extends Preference implements
                 return R.drawable.ic_bt_headset_hfp;
             }
         }
-        return 0;
+        return R.drawable.ic_settings_bluetooth2;
     }
 
     private final BroadcastReceiver mBluetoothReceiver = new BroadcastReceiver() {

@@ -22,8 +22,8 @@
     android:orientation="vertical"
     android:focusable="true"
     android:clickable="true"
-    android:paddingStart="@*android:dimen/preference_fragment_padding_side"
-    android:paddingEnd="@*android:dimen/preference_fragment_padding_side" >
+    android:paddingStart="@dimen/settings_side_margin"
+    android:paddingEnd="@dimen/settings_side_margin" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,13 +80,15 @@
                 android:maxLines="4" />
         </RelativeLayout>
         <ImageView
+                android:id="@+id/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:paddingStart="16dip"
                 android:paddingEnd="16dip"
-                android:src="@drawable/ic_sysbar_quicksettings"
-                android:contentDescription="@string/settings_label"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_menu_delete"
+                android:contentDescription="@string/user_delete_user_description"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackground" />
     </LinearLayout>
     <View android:layout_width="match_parent"
           android:layout_height="2dp"

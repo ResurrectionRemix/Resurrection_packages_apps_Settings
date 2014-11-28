@@ -19,6 +19,8 @@ package com.android.settings.wifi;
 import com.android.settings.R;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.net.NetworkInfo.DetailedState;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
@@ -28,11 +30,45 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.Map;
+
 
 class AccessPoint extends Preference {
     static final String TAG = "Settings.AccessPoint";
+
+    /**
+     * Lower bound on the 2.4 GHz (802.11b/g/n) WLAN channels
+     */
+    public static final int LOWER_FREQ_24GHZ = 2400;
+
+    /**
+     * Upper bound on the 2.4 GHz (802.11b/g/n) WLAN channels
+     */
+    public static final int HIGHER_FREQ_24GHZ = 2500;
+
+    /**
+     * Lower bound on the 5.0 GHz (802.11a/h/j/n/ac) WLAN channels
+     */
+    public static final int LOWER_FREQ_5GHZ = 4900;
+
+    /**
+     * Upper bound on the 5.0 GHz (802.11a/h/j/n/ac) WLAN channels
+     */
+    public static final int HIGHER_FREQ_5GHZ = 5900;
+
+    /**
+     * Experimental: we should be able to show the user the list of BSSIDs and bands
+     *  for that SSID.
+     *  For now this data is used only with Verbose Logging so as to show the band and number
+     *  of BSSIDs on which that network is seen.
+     */
+    public LruCache<String, ScanResult> mScanResultCache;
+
 
     private static final String KEY_DETAILEDSTATE = "key_detailedstate";
     private static final String KEY_WIFIINFO = "key_wifiinfo";
@@ -44,7 +80,11 @@ class AccessPoint extends Preference {
     };
     private static final int[] STATE_NONE = {};
 
-    /** These values are matched in string arrays -- changes must be kept in sync */
+    private static int[] wifi_signal_attributes = { R.attr.wifi_signal };
+
+    /**
+     * These values are matched in string arrays -- changes must be kept in sync
+     */
     static final int SECURITY_NONE = 0;
     static final int SECURITY_WEP = 1;
     static final int SECURITY_PSK = 2;
@@ -60,19 +100,24 @@ class AccessPoint extends Preference {
     String ssid;
     String bssid;
     int security;
-    int networkId;
+    int networkId = -1;
     boolean wpsAvailable = false;
-    boolean isIBSS = false;
-    int frequency;
+    boolean showSummary = true;
 
     PskType pskType = PskType.UNKNOWN;
 
     private WifiConfiguration mConfig;
     /* package */ScanResult mScanResult;
 
-    private int mRssi;
+    private int mRssi = Integer.MAX_VALUE;
+    private long mSeen = 0;
+
     private WifiInfo mInfo;
     private DetailedState mState;
+
+    private static final int VISIBILITY_MAX_AGE_IN_MILLI = 1000000;
+    private static final int VISIBILITY_OUTDATED_AGE_IN_MILLI = 20000;
+    private static final int SECOND_TO_MILLI = 1000;
 
     static int getSecurity(WifiConfiguration config) {
         if (config.allowedKeyManagement.get(KeyMgmt.WPA_PSK)) {
@@ -144,21 +189,18 @@ class AccessPoint extends Preference {
 
     AccessPoint(Context context, WifiConfiguration config) {
         super(context);
-        setWidgetLayoutResource(R.layout.preference_widget_wifi_signal);
         loadConfig(config);
         refresh();
     }
 
     AccessPoint(Context context, ScanResult result) {
         super(context);
-        setWidgetLayoutResource(R.layout.preference_widget_wifi_signal);
         loadResult(result);
         refresh();
     }
 
     AccessPoint(Context context, Bundle savedState) {
         super(context);
-        setWidgetLayoutResource(R.layout.preference_widget_wifi_signal);
 
         mConfig = savedState.getParcelable(KEY_CONFIG);
         if (mConfig != null) {
@@ -189,9 +231,6 @@ class AccessPoint extends Preference {
         bssid = config.BSSID;
         security = getSecurity(config);
         networkId = config.networkId;
-        mRssi = Integer.MAX_VALUE;
-        isIBSS = config.isIBSS;
-        frequency = config.frequency;
         mConfig = config;
     }
 
@@ -200,27 +239,50 @@ class AccessPoint extends Preference {
         bssid = result.BSSID;
         security = getSecurity(result);
         wpsAvailable = security != SECURITY_EAP && result.capabilities.contains("WPS");
-        isIBSS = result.capabilities.contains("[IBSS]");
-        frequency = result.frequency;
         if (security == SECURITY_PSK)
             pskType = getPskType(result);
-        networkId = -1;
         mRssi = result.level;
         mScanResult = result;
+        if (result.seen > mSeen) {
+            mSeen = result.seen;
+        }
     }
 
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
-        ImageView signal = (ImageView) view.findViewById(R.id.signal);
-        if (mRssi == Integer.MAX_VALUE) {
-            signal.setImageDrawable(null);
+        updateIcon(getLevel(), getContext());
+
+        final TextView summaryView = (TextView) view.findViewById(
+                com.android.internal.R.id.summary);
+        summaryView.setVisibility(showSummary ? View.VISIBLE : View.GONE);
+
+        notifyChanged();
+    }
+
+    protected void updateIcon(int level, Context context) {
+        if (level == -1) {
+            setIcon(null);
         } else {
-            signal.setImageLevel(getLevel());
-            signal.setImageDrawable(getContext().getTheme().obtainStyledAttributes(
-                    new int[] {R.attr.wifi_signal}).getDrawable(0));
-            signal.setImageState((security != SECURITY_NONE) ?
-                    STATE_SECURED : STATE_NONE, true);
+            Drawable drawable = getIcon();
+
+            if (drawable == null) {
+                // To avoid a drawing race condition, we first set the state (SECURE/NONE) and then
+                // set the icon (drawable) to that state's drawable.
+                StateListDrawable sld = (StateListDrawable) context.getTheme()
+                        .obtainStyledAttributes(wifi_signal_attributes).getDrawable(0);
+                // If sld is null then we are indexing and therefore do not have access to
+                // (nor need to display) the drawable.
+                if (sld != null) {
+                    sld.setState((security != SECURITY_NONE) ? STATE_SECURED : STATE_NONE);
+                    drawable = sld.getCurrent();
+                    setIcon(drawable);
+                }
+            }
+
+            if (drawable != null) {
+                drawable.setLevel(level);
+            }
         }
     }
 
@@ -236,6 +298,7 @@ class AccessPoint extends Preference {
 
         // Reachable one goes before unreachable one.
         if (mRssi != Integer.MAX_VALUE && other.mRssi == Integer.MAX_VALUE) return -1;
+        if (mRssi == Integer.MAX_VALUE && other.mRssi != Integer.MAX_VALUE) return 1;
         if (mRssi == Integer.MAX_VALUE && other.mRssi != Integer.MAX_VALUE) return 1;
 
         // Configured one goes before unconfigured one.
@@ -270,6 +333,16 @@ class AccessPoint extends Preference {
     }
 
     boolean update(ScanResult result) {
+        if (result.seen > mSeen) {
+            mSeen = result.seen;
+        }
+        if (WifiSettings.mVerboseLogging > 0) {
+            if (mScanResultCache == null) {
+                mScanResultCache = new LruCache<String, ScanResult>(32);
+            }
+            mScanResultCache.put(result.BSSID, result);
+        }
+
         if (ssid.equals(result.SSID) && security == getSecurity(result)) {
             if (WifiManager.compareSignalLevel(result.level, mRssi) > 0) {
                 int oldLevel = getLevel();
@@ -282,6 +355,7 @@ class AccessPoint extends Preference {
             if (security == SECURITY_PSK) {
                 pskType = getPskType(result);
             }
+            mScanResult = result;
             refresh();
             return true;
         }
@@ -340,59 +414,242 @@ class AccessPoint extends Preference {
         return "\"" + string + "\"";
     }
 
-    /** Updates the title and summary; may indirectly call notifyChanged()  */
+    /**
+     * Shows or Hides the Summary of an AccessPoint.
+     *
+     * @param showSummary true will show the summary, false will hide the summary
+     */
+    public void setShowSummary(boolean showSummary){
+        this.showSummary = showSummary;
+    }
+
+    /**
+     * Returns the visibility status of the WifiConfiguration.
+     *
+     * @return autojoin debugging information
+     * TODO: use a string formatter
+     * ["rssi 5Ghz", "num results on 5GHz" / "rssi 5Ghz", "num results on 5GHz"]
+     * For instance [-40,5/-30,2]
+     */
+    private String getVisibilityStatus() {
+        StringBuilder visibility = new StringBuilder();
+        StringBuilder scans24GHz = null;
+        StringBuilder scans5GHz = null;
+        String bssid = null;
+
+        long now = System.currentTimeMillis();
+
+        if (mInfo != null) {
+            bssid = mInfo.getBSSID();
+            if (bssid != null) {
+                visibility.append(" ").append(bssid);
+            }
+            visibility.append(" score=").append(mInfo.score);
+            visibility.append(" ");
+            visibility.append(String.format("tx=%.1f,", mInfo.txSuccessRate));
+            visibility.append(String.format("%.1f,", mInfo.txRetriesRate));
+            visibility.append(String.format("%.1f ", mInfo.txBadRate));
+            visibility.append(String.format("rx=%.1f", mInfo.rxSuccessRate));
+        }
+
+        if (mScanResultCache != null) {
+            int rssi5 = WifiConfiguration.INVALID_RSSI;
+            int rssi24 = WifiConfiguration.INVALID_RSSI;
+            int num5 = 0;
+            int num24 = 0;
+            int numBlackListed = 0;
+            int n24 = 0; // Number scan results we included in the string
+            int n5 = 0; // Number scan results we included in the string
+            Map<String, ScanResult> list = mScanResultCache.snapshot();
+            // TODO: sort list by RSSI or age
+            for (ScanResult result : list.values()) {
+                if (result.seen == 0)
+                    continue;
+
+                if (result.autoJoinStatus != ScanResult.ENABLED) numBlackListed++;
+
+                if (result.frequency >= LOWER_FREQ_5GHZ
+                        && result.frequency <= HIGHER_FREQ_5GHZ) {
+                    // Strictly speaking: [4915, 5825]
+                    // number of known BSSID on 5GHz band
+                    num5 = num5 + 1;
+                } else if (result.frequency >= LOWER_FREQ_24GHZ
+                        && result.frequency <= HIGHER_FREQ_24GHZ) {
+                    // Strictly speaking: [2412, 2482]
+                    // number of known BSSID on 2.4Ghz band
+                    num24 = num24 + 1;
+                }
+
+                // Ignore results seen, older than 20 seconds
+                if (now - result.seen > VISIBILITY_OUTDATED_AGE_IN_MILLI) continue;
+
+                if (result.frequency >= LOWER_FREQ_5GHZ
+                        && result.frequency <= HIGHER_FREQ_5GHZ) {
+                    if (result.level > rssi5) {
+                        rssi5 = result.level;
+                    }
+                    if (n5 < 4) {
+                        if (scans5GHz == null) scans5GHz = new StringBuilder();
+                        scans5GHz.append(" {").append(result.BSSID);
+                        if (bssid != null && result.BSSID.equals(bssid)) scans5GHz.append("*");
+                        scans5GHz.append("=").append(result.frequency);
+                        scans5GHz.append(",").append(result.level);
+                        if (result.autoJoinStatus != 0) {
+                            scans5GHz.append(",st=").append(result.autoJoinStatus);
+                        }
+                        if (result.numIpConfigFailures != 0) {
+                            scans5GHz.append(",ipf=").append(result.numIpConfigFailures);
+                        }
+                        scans5GHz.append("}");
+                        n5++;
+                    }
+                } else if (result.frequency >= LOWER_FREQ_24GHZ
+                        && result.frequency <= HIGHER_FREQ_24GHZ) {
+                    if (result.level > rssi24) {
+                        rssi24 = result.level;
+                    }
+                    if (n24 < 4) {
+                        if (scans24GHz == null) scans24GHz = new StringBuilder();
+                        scans24GHz.append(" {").append(result.BSSID);
+                        if (bssid != null && result.BSSID.equals(bssid)) scans24GHz.append("*");
+                        scans24GHz.append("=").append(result.frequency);
+                        scans24GHz.append(",").append(result.level);
+                        if (result.autoJoinStatus != 0) {
+                            scans24GHz.append(",st=").append(result.autoJoinStatus);
+                        }
+                        if (result.numIpConfigFailures != 0) {
+                            scans24GHz.append(",ipf=").append(result.numIpConfigFailures);
+                        }
+                        scans24GHz.append("}");
+                        n24++;
+                    }
+                }
+            }
+            visibility.append(" [");
+            if (num24 > 0) {
+                visibility.append("(").append(num24).append(")");
+                if (n24 <= 4) {
+                    if (scans24GHz != null) {
+                        visibility.append(scans24GHz.toString());
+                    }
+                } else {
+                    visibility.append("max=").append(rssi24);
+                    if (scans24GHz != null) {
+                        visibility.append(",").append(scans24GHz.toString());
+                    }
+                }
+            }
+            visibility.append(";");
+            if (num5 > 0) {
+                visibility.append("(").append(num5).append(")");
+                if (n5 <= 4) {
+                    if (scans5GHz != null) {
+                        visibility.append(scans5GHz.toString());
+                    }
+                } else {
+                    visibility.append("max=").append(rssi5);
+                    if (scans5GHz != null) {
+                        visibility.append(",").append(scans5GHz.toString());
+                    }
+                }
+            }
+            if (numBlackListed > 0)
+                visibility.append("!").append(numBlackListed);
+            visibility.append("]");
+        } else {
+            if (mRssi != Integer.MAX_VALUE) {
+                visibility.append(" rssi=");
+                visibility.append(mRssi);
+                if (mScanResult != null) {
+                    visibility.append(", f=");
+                    visibility.append(mScanResult.frequency);
+                }
+            }
+        }
+
+        return visibility.toString();
+    }
+
+    /**
+     * Updates the title and summary; may indirectly call notifyChanged().
+     */
     private void refresh() {
         setTitle(ssid);
 
-        Context context = getContext();
+        final Context context = getContext();
+        updateIcon(getLevel(), context);
+
+        // Force new summary
+        setSummary(null);
+
+        // Update to new summary
         StringBuilder summary = new StringBuilder();
 
-        if (isIBSS)
-            summary.append(context.getString(R.string.wifi_mode_ibss_short)).append(" ");
-
-        if (mConfig != null && mConfig.status == WifiConfiguration.Status.DISABLED) {
-            switch (mConfig.disableReason) {
-                case WifiConfiguration.DISABLED_AUTH_FAILURE:
-                    summary.append(context.getString(R.string.wifi_disabled_password_failure));
-                    break;
-                case WifiConfiguration.DISABLED_DHCP_FAILURE:
-                case WifiConfiguration.DISABLED_DNS_FAILURE:
+        if (mState != null) { // This is the active connection
+            summary.append(Summary.get(context, mState));
+        } else if (mConfig != null && ((mConfig.status == WifiConfiguration.Status.DISABLED &&
+                mConfig.disableReason != WifiConfiguration.DISABLED_UNKNOWN_REASON)
+               || mConfig.autoJoinStatus
+                >= WifiConfiguration.AUTO_JOIN_DISABLED_ON_AUTH_FAILURE)) {
+            if (mConfig.autoJoinStatus
+                    >= WifiConfiguration.AUTO_JOIN_DISABLED_ON_AUTH_FAILURE) {
+                if (mConfig.disableReason == WifiConfiguration.DISABLED_DHCP_FAILURE) {
                     summary.append(context.getString(R.string.wifi_disabled_network_failure));
-                    break;
-                case WifiConfiguration.DISABLED_ASSOCIATION_REJECT:
-                    summary.append(context.getString(R.string.wifi_disabled_association_rejected));
-                    break;
-                case WifiConfiguration.DISABLED_UNKNOWN_REASON:
-                    summary.append(context.getString(R.string.wifi_disabled_generic));
+                } else {
+                    summary.append(context.getString(R.string.wifi_disabled_password_failure));
+                }
+            } else {
+                switch (mConfig.disableReason) {
+                    case WifiConfiguration.DISABLED_AUTH_FAILURE:
+                        summary.append(context.getString(R.string.wifi_disabled_password_failure));
+                        break;
+                    case WifiConfiguration.DISABLED_DHCP_FAILURE:
+                    case WifiConfiguration.DISABLED_DNS_FAILURE:
+                        summary.append(context.getString(R.string.wifi_disabled_network_failure));
+                        break;
+                    case WifiConfiguration.DISABLED_UNKNOWN_REASON:
+                    case WifiConfiguration.DISABLED_ASSOCIATION_REJECT:
+                        summary.append(context.getString(R.string.wifi_disabled_generic));
+                        break;
+                }
             }
         } else if (mRssi == Integer.MAX_VALUE) { // Wifi out of range
             summary.append(context.getString(R.string.wifi_not_in_range));
-        } else if (mState != null) { // This is the active connection
-            summary.append(Summary.get(context, mState));
         } else { // In range, not disabled.
             if (mConfig != null) { // Is saved network
                 summary.append(context.getString(R.string.wifi_remembered));
             }
+        }
 
-            if (security != SECURITY_NONE) {
-                String securityStrFormat;
-                if (summary.length() == 0) {
-                    securityStrFormat = context.getString(R.string.wifi_secured_first_item);
-                } else {
-                    securityStrFormat = context.getString(R.string.wifi_secured_second_item);
-                }
-                summary.append(String.format(securityStrFormat, getSecurityString(true)));
+        if (WifiSettings.mVerboseLogging > 0) {
+            //add RSSI/band information for this config, what was seen up to 6 seconds ago
+            //verbose WiFi Logging is only turned on thru developers settings
+            if (mInfo != null && mState != null) { // This is the active connection
+                summary.append(" (f=" + Integer.toString(mInfo.getFrequency()) + ")");
             }
-
-            if (mConfig == null && wpsAvailable) { // Only list WPS available for unsaved networks
-                if (summary.length() == 0) {
-                    summary.append(context.getString(R.string.wifi_wps_available_first_item));
-                } else {
-                    summary.append(context.getString(R.string.wifi_wps_available_second_item));
+            summary.append(" " + getVisibilityStatus());
+            if (mConfig != null && mConfig.autoJoinStatus > 0) {
+                summary.append(" (" + mConfig.autoJoinStatus);
+                if (mConfig.blackListTimestamp > 0) {
+                    long now = System.currentTimeMillis();
+                    long diff = (now - mConfig.blackListTimestamp)/1000;
+                    long sec = diff%60; //seconds
+                    long min = (diff/60)%60; //minutes
+                    long hour = (min/60)%60; //hours
+                    summary.append(", ");
+                    if (hour > 0) summary.append(Long.toString(hour) + "h ");
+                    summary.append( Long.toString(min) + "m ");
+                    summary.append( Long.toString(sec) + "s ");
                 }
+                summary.append(")");
             }
         }
-        setSummary(summary.toString());
+
+        if (summary.length() > 0) {
+            setSummary(summary.toString());
+        } else {
+            showSummary = false;
+        }
     }
 
     /**

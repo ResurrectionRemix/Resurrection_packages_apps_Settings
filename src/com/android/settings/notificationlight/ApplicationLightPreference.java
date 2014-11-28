@@ -27,9 +27,7 @@ import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.settings.R;
@@ -38,7 +36,7 @@ public class ApplicationLightPreference extends DialogPreference {
 
     private static String TAG = "AppLightPreference";
     public static final int DEFAULT_TIME = 1000;
-    public static final int DEFAULT_COLOR = 0xFFFFFF; //White
+    public static final int DEFAULT_COLOR = 0xeeeeee; //off-White since white does not show in UI
 
     private ImageView mLightColorView;
     private TextView mOnValueView;
@@ -81,7 +79,6 @@ public class ApplicationLightPreference extends DialogPreference {
 
     /**
      * @param context
-     * @param onLongClickListener
      * @param color
      * @param onValue
      * @param offValue
@@ -127,6 +124,10 @@ public class ApplicationLightPreference extends DialogPreference {
         TextView tView = (TextView) view.findViewById(android.R.id.summary);
         tView.setVisibility(View.GONE);
 
+        if (!mResources.getBoolean(com.android.internal.R.bool.config_multiColorNotificationLed)) {
+            mLightColorView.setVisibility(View.GONE);
+        }
+
         updatePreferenceViews();
     }
 
@@ -164,7 +165,7 @@ public class ApplicationLightPreference extends DialogPreference {
                 0xFF000000 + mColorValue, mOnValue, mOffValue, mOnOffChangeable);
         d.setAlphaSliderVisible(false);
 
-        d.setButton(AlertDialog.BUTTON_POSITIVE, mResources.getString(R.string.ok),
+        d.setButton(AlertDialog.BUTTON_POSITIVE, mResources.getString(R.string.dlg_ok),
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

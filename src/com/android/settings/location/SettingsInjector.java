@@ -244,18 +244,21 @@ class SettingsInjector {
     }
 
     /**
-     * Adds an injected setting to the root with status "Loading...".
+     * Adds an injected setting to the root.
      */
     private Preference addServiceSetting(List<Preference> prefs, InjectedSetting info) {
-        Preference pref = new Preference(mContext);
+        Preference pref = new DimmableIconPreference(mContext);
         pref.setTitle(info.title);
-        pref.setSummary(R.string.location_loading_injected_setting);
+        pref.setSummary(null);
         PackageManager pm = mContext.getPackageManager();
         Drawable icon = pm.getDrawable(info.packageName, info.iconId, null);
         pref.setIcon(icon);
 
+        // Activity to start if they click on the preference. Must start in new task to ensure
+        // that "android.settings.LOCATION_SOURCE_SETTINGS" brings user back to Settings > Location.
         Intent settingIntent = new Intent();
         settingIntent.setClassName(info.packageName, info.settingsActivity);
+        settingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         pref.setIntent(settingIntent);
 
         prefs.add(pref);
@@ -425,12 +428,11 @@ class SettingsInjector {
                 @Override
                 public void handleMessage(Message msg) {
                     Bundle bundle = msg.getData();
-                    String summary = bundle.getString(SettingInjectorService.SUMMARY_KEY);
                     boolean enabled = bundle.getBoolean(SettingInjectorService.ENABLED_KEY, true);
                     if (Log.isLoggable(TAG, Log.DEBUG)) {
                         Log.d(TAG, setting + ": received " + msg + ", bundle: " + bundle);
                     }
-                    preference.setSummary(summary);
+                    preference.setSummary(null);
                     preference.setEnabled(enabled);
                     mHandler.sendMessage(
                             mHandler.obtainMessage(WHAT_RECEIVED_STATUS, Setting.this));

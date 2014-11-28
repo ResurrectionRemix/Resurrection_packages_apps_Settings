@@ -14,7 +14,8 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:title="@string/security_settings_title">
 
     <PreferenceCategory
         android:key="security_category"
@@ -30,12 +31,12 @@
             android:key="biometric_weak_improve_matching"
             android:title="@string/biometric_weak_improve_matching_title"/>
 
-        <CheckBoxPreference
+        <SwitchPreference
            android:key="biometric_weak_liveliness"
            android:title="@string/biometric_weak_liveliness_title"
            android:summary="@string/biometric_weak_liveliness_summary"/>
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="visiblepattern"
             android:title="@string/lockpattern_settings_enable_visible_pattern_title"/>
 
@@ -47,13 +48,13 @@
             android:entryValues="@array/lock_after_timeout_values"
             android:persistent="false"/>
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
 
         <PreferenceScreen
-            android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
+            android:fragment="com.android.settings.OwnerInfoSettings"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
 

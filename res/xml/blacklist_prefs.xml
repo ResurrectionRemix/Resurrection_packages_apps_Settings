@@ -17,7 +17,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/blacklist_title" >
 
-    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="phone_blacklist_notify_enabled"
         android:title="@string/blacklist_notify"
         android:defaultValue="true" />
@@ -38,7 +38,7 @@
         android:entryValues="@array/blacklist_policy_unknown_values"
         android:persistent="false" />
 
-    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="phone_blacklist_regex_enabled"
         android:title="@string/blacklist_regex_title"
         android:summary="@string/blacklist_regex_summary" />

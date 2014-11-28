@@ -16,8 +16,10 @@
 
 package com.android.settings.net;
 
+import android.app.AppGlobals;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -27,23 +29,36 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.TrafficStats;
 import android.os.UserManager;
+import android.os.UserHandle;
+import android.os.RemoteException;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
-import com.android.settings.users.UserUtils;
 
 /**
  * Return details about a specific UID, handling special cases like
  * {@link TrafficStats#UID_TETHERING} and {@link UserInfo}.
  */
 public class UidDetailProvider {
+    private static final String TAG = "DataUsage";
     private final Context mContext;
     private final SparseArray<UidDetail> mUidDetailCache;
 
+    public static final int OTHER_USER_RANGE_START = -2000;
+
     public static int buildKeyForUser(int userHandle) {
-        return -(2000 + userHandle);
+        return OTHER_USER_RANGE_START - userHandle;
+    }
+
+    public static boolean isKeyForUser(int key) {
+        return key <= OTHER_USER_RANGE_START;
+    }
+
+    public static int getUserIdForKey(int key) {
+        return OTHER_USER_RANGE_START - key;
     }
 
     public UidDetailProvider(Context context) {
@@ -97,7 +112,7 @@ public class UidDetailProvider {
         // handle special case labels
         switch (uid) {
             case android.os.Process.SYSTEM_UID:
-                detail.label = res.getString(com.android.internal.R.string.android_system_label);
+                detail.label = res.getString(R.string.process_kernel_label);
                 detail.icon = pm.getDefaultActivityIcon();
                 return detail;
             case TrafficStats.UID_REMOVED:
@@ -114,14 +129,22 @@ public class UidDetailProvider {
                 return detail;
         }
 
+        final UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+
         // Handle keys that are actually user handles
-        if (uid <= -2000) {
-            final int userHandle = (-uid) - 2000;
-            final UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+        if (isKeyForUser(uid)) {
+            final int userHandle = getUserIdForKey(uid);
             final UserInfo info = um.getUserInfo(userHandle);
             if (info != null) {
-                detail.label = res.getString(R.string.running_process_item_user_label, info.name);
-                detail.icon = UserUtils.getUserIcon(mContext, um, info, res);
+                if (info.isManagedProfile()) {
+                    detail.label = res.getString(R.string.managed_user_title);
+                    detail.icon = Resources.getSystem().getDrawable(
+                            com.android.internal.R.drawable.ic_corp_icon);
+                } else {
+                    detail.label = res.getString(R.string.running_process_item_user_label,
+                            info.name);
+                    detail.icon = Utils.getUserIcon(mContext, um, info);
+                }
                 return detail;
             }
         }
@@ -130,26 +153,43 @@ public class UidDetailProvider {
         final String[] packageNames = pm.getPackagesForUid(uid);
         final int length = packageNames != null ? packageNames.length : 0;
         try {
+            final int userId = UserHandle.getUserId(uid);
+            UserHandle userHandle = new UserHandle(userId);
+            IPackageManager ipm = AppGlobals.getPackageManager();
             if (length == 1) {
-                final ApplicationInfo info = pm.getApplicationInfo(packageNames[0], 0);
-                detail.label = info.loadLabel(pm).toString();
-                detail.icon = info.loadIcon(pm);
+                final ApplicationInfo info = ipm.getApplicationInfo(packageNames[0],
+                        0 /* no flags */, userId);
+                if (info != null) {
+                    detail.label = info.loadLabel(pm).toString();
+                    detail.icon = um.getBadgedIconForUser(info.loadIcon(pm),
+                            new UserHandle(userId));
+                }
             } else if (length > 1) {
                 detail.detailLabels = new CharSequence[length];
+                detail.detailContentDescriptions = new CharSequence[length];
                 for (int i = 0; i < length; i++) {
                     final String packageName = packageNames[i];
                     final PackageInfo packageInfo = pm.getPackageInfo(packageName, 0);
-                    final ApplicationInfo appInfo = pm.getApplicationInfo(packageName, 0);
+                    final ApplicationInfo appInfo = ipm.getApplicationInfo(packageName,
+                            0 /* no flags */, userId);
 
-                    detail.detailLabels[i] = appInfo.loadLabel(pm).toString();
-                    if (packageInfo.sharedUserLabel != 0) {
-                        detail.label = pm.getText(packageName, packageInfo.sharedUserLabel,
-                                packageInfo.applicationInfo).toString();
-                        detail.icon = appInfo.loadIcon(pm);
+                    if (appInfo != null) {
+                        detail.detailLabels[i] = appInfo.loadLabel(pm).toString();
+                        detail.detailContentDescriptions[i] = um.getBadgedLabelForUser(
+                                detail.detailLabels[i], userHandle);
+                        if (packageInfo.sharedUserLabel != 0) {
+                            detail.label = pm.getText(packageName, packageInfo.sharedUserLabel,
+                                    packageInfo.applicationInfo).toString();
+                            detail.icon = um.getBadgedIconForUser(appInfo.loadIcon(pm), userHandle);
+                        }
                     }
                 }
             }
+            detail.contentDescription = um.getBadgedLabelForUser(detail.label, userHandle);
         } catch (NameNotFoundException e) {
+            Log.w(TAG, "Error while building UI detail for uid "+uid, e);
+        } catch (RemoteException e) {
+            Log.w(TAG, "Error while building UI detail for uid "+uid, e);
         }
 
         if (TextUtils.isEmpty(detail.label)) {

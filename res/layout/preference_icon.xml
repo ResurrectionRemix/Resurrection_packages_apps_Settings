@@ -18,21 +18,25 @@
      Preference is able to place a specific widget for its particular
      type in the "widget_frame" layout. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+android:id/widget_frame"
+    android:id="@android:id/widget_frame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="56dp"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
-    android:paddingEnd="?android:attr/scrollbarSize">
-    
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:background="?android:attr/selectableItemBackground">
+
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="6dip"
-        android:layout_marginEnd="6dip"
-        android:layout_gravity="center"
-        android:contentDescription="@null" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dip"
+        android:padding="2dp"
+        android:maxWidth="36dip"
+        android:maxHeight="36dip"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -43,20 +47,22 @@
         android:layout_marginBottom="6dip"
         android:layout_weight="1">
 
-        <TextView android:id="@+android:id/title"
+        <TextView android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+            android:textColor="?android:attr/textColorPrimary"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal" />
 
-        <TextView android:id="@+android:id/summary"
+        <TextView android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="@android:style/TextAppearance.Material.Body1"
+            android:textColor="?android:attr/textColorSecondary"
             android:maxLines="2" />
 
     </RelativeLayout>

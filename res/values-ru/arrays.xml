@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Не выключать"</item>
     <item msgid="844721238536786870">"Только при питании от сети"</item>
-    <item msgid="2990218920631468642">"Всегда выключать (увеличивает объем моб. трафика)"</item>
+    <item msgid="1986753720941888596">"Всегда выключать"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Не выключать"</item>
     <item msgid="7433294150916905997">"Только при питании от сети"</item>
     <item msgid="1390404486722375028">"Всегда выключать"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"За последние 30 дней"</item>
+    <item msgid="6600989128423965319">"Цикл использования данных"</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"Последние 4 цифры"</item>
+    <item msgid="7841762954785375718">"Первые 4 цифры"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Авто"</item>
+    <item msgid="1013988753804838790">"Автоматически"</item>
     <item msgid="6670588712989942178">"Только 5 ГГц"</item>
     <item msgid="2715516524973207876">"Только 2,4 ГГц"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Время использования"</item>
-    <item msgid="3703676222230317933">"Подсчитать"</item>
+    <item msgid="4796160515314745154">"Последнее использование"</item>
     <item msgid="2502754479975776899">"Название приложения"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"Нет"</item>
     <item msgid="8673874894887358090">"Вручную"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Выкл."</item>
-    <item msgid="3165868966179561687">"Оповещение"</item>
-    <item msgid="6038758039030476855">"Виброзвонок"</item>
+    <item msgid="168893341855953140">"Автоконфигурация прокси"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"Нет"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"не отключать"</item>
     <item msgid="26109888160231211">"Отслеживать местоположение"</item>
     <item msgid="5753382310468855812">"контролировать использование энергии при определении местоположения"</item>
+    <item msgid="3356591542543137332">"посмотреть статистику использования"</item>
+    <item msgid="3073734345226842233">"включить/отключить микрофон"</item>
+    <item msgid="1148142988678569310">"трансляция контента"</item>
+    <item msgid="9130014005474445273">"активация VPN"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Местоположение"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"Не отключать"</item>
     <item msgid="8584357129746649222">"Местоположение"</item>
     <item msgid="7669257279311110599">"Определение местоположения"</item>
+    <item msgid="3459320345690097795">"Посмотреть статистику использования"</item>
+    <item msgid="1312534577834048535">"Включить/отключить микрофон"</item>
+    <item msgid="5906017727368097853">"Трансляция контента"</item>
+    <item msgid="2486614710846178542">"Активация VPN"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Небольшая"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"По умолчанию"</item>
     <item msgid="1016452621833735880">"Без засечек"</item>
     <item msgid="2496277987934654454">"Без засечек, сжатый"</item>
-    <item msgid="4406003087391086325">"С засечками"</item>
-    <item msgid="1558362802170124073">"Моноширинный"</item>
+    <item msgid="7247838127505318669">"Без засечек, моноширинный"</item>
+    <item msgid="4478414822462359763">"С засечками"</item>
+    <item msgid="7502451783483660829">"C засечками, моноширинный"</item>
+    <item msgid="639503332147461010">"Обычный"</item>
+    <item msgid="7967169925231332424">"Курсив"</item>
+    <item msgid="561832997193039673">"Капитель"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"Очень мелкий"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"Очень крупный"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"Нет"</item>
-    <item msgid="1352974708028506778">"Контур"</item>
-    <item msgid="5850876295428722675">"С тенью"</item>
+    <item msgid="4733815704128258753">"По умолчанию"</item>
+    <item msgid="3217099060748617005">"Нет"</item>
+    <item msgid="7467615139904599420">"Контур"</item>
+    <item msgid="5623165557468608975">"С тенью"</item>
+    <item msgid="8088451174058214588">"Приподнятый"</item>
+    <item msgid="3821418743395480313">"Утопленный"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25%"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"Белый на черном"</item>
-    <item msgid="4589278788192525675">"Черный на белом"</item>
-    <item msgid="1309255027325660115">"Желтый на черном"</item>
-    <item msgid="2985943780939258562">"Желтый на синем"</item>
-    <item msgid="7520438652121629055">"Пользовательский"</item>
+    <item msgid="7009918361545506251">"По умолчанию"</item>
+    <item msgid="1770533843436933500">"Белый на черном"</item>
+    <item msgid="758587126802411846">"Черный на белом"</item>
+    <item msgid="1495307195241623402">"Желтый на черном"</item>
+    <item msgid="6039700130994371612">"Желтый на синем"</item>
+    <item msgid="7169235156349580064">"Специальный"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (отладка)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64 КБ"</item>
+    <item msgid="505611754508988476">"256 КБ"</item>
+    <item msgid="6361286924268716397">"1 МБ"</item>
+    <item msgid="6405203239560695266">"4 МБ"</item>
+    <item msgid="3025431211013424097">"16 МБ"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"Использовать Dalvik"</item>
-    <item msgid="5131846588686178907">"Использовать ART"</item>
-    <item msgid="4530003713865319928">"Использовать отладочную версию ART"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64 КБ"</item>
+    <item msgid="3534782711045262344">"256 КБ"</item>
+    <item msgid="8085867209202153403">"1 МБ"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"Буфер: макс. 64 КБ"</item>
+    <item msgid="2822309747675758628">"Буфер: макс. 256 КБ"</item>
+    <item msgid="6699306198357496731">"Буфер: макс. 1 МБ"</item>
+    <item msgid="5748528643937500349">"Буфер: макс. 4 МБ"</item>
+    <item msgid="1978629051085111592">"Буфер: макс. 16 МБ"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Никогда не проверять"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Отключить"</item>
     <item msgid="2751513398307949636">"На экране в виде полос"</item>
-    <item msgid="8272260411216018353">"На экране в виде линий"</item>
-    <item msgid="120512413928262547">"В adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"В adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"ВЫКЛ"</item>
     <item msgid="7688197031296835369">"Показывать области наложения"</item>
     <item msgid="2290859360633824369">"Выделять области определенного цвета"</item>
-    <item msgid="3448087929560624983">"Показывать число объектов"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Стандартное ограничение"</item>
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"средний"</item>
     <item msgid="406385694840950802">"низкий"</item>
     <item msgid="4212263919458209842">"очень низкий"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"ВЫКЛ"</item>
+    <item msgid="5656544177755411222">"Ограниченное число прерываний"</item>
+    <item msgid="8735337502532332056">"Без прерываний"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Нормальное"</item>
+    <item msgid="866544120205026771">"Умеренное"</item>
+    <item msgid="7851902244436886890">"Низкое"</item>
+    <item msgid="3022922196817563960">"Высокое"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Стабильное"</item>
+    <item msgid="5779398140277006695">"Наиболее частое действие"</item>
+    <item msgid="1439598363694578255">"Важное (активный режим)"</item>
+    <item msgid="3396458970745718652">"Важное (фоновый режим)"</item>
+    <item msgid="5214825238247511992">"Резервное копирование"</item>
+    <item msgid="311372689168254967">"Большой объем данных"</item>
+    <item msgid="7438189122367820362">"Служба (работает)"</item>
+    <item msgid="918687422516982498">"Служба (перезапуск)"</item>
+    <item msgid="6807727069641853029">"Получатель"</item>
+    <item msgid="6782857406100845127">"Главная"</item>
+    <item msgid="2860945127596974299">"Последнее действие"</item>
+    <item msgid="8610560843693675830">"Кешировано (действие)"</item>
+    <item msgid="4338089220026248848">"Кешировано (клиент)"</item>
+    <item msgid="6652164677254579050">"Кешировано (пусто)"</item>
   </string-array>
 </resources>

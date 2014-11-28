@@ -17,12 +17,9 @@
 package com.android.settings.applications;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.AppOpsManager;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -31,7 +28,6 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,9 +37,11 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 
 import java.util.List;
@@ -66,8 +64,8 @@ public class AppOpsDetails extends Fragment {
     private final int MODE_IGNORED = 1;
     private final int MODE_ASK     = 2;
 
-    private int modeToPosition(int mode) {
-        switch (mode) {
+    private int modeToPosition (int mode) {
+        switch(mode) {
         case AppOpsManager.MODE_ALLOWED:
             return MODE_ALLOWED;
         case AppOpsManager.MODE_IGNORED:
@@ -79,8 +77,8 @@ public class AppOpsDetails extends Fragment {
         return MODE_IGNORED;
     }
 
-    private int positionToMode(int position) {
-        switch (position) {
+    private int positionToMode (int position) {
+        switch(position) {
         case MODE_ALLOWED:
             return AppOpsManager.MODE_ALLOWED;
         case MODE_IGNORED:
@@ -133,19 +131,6 @@ public class AppOpsDetails extends Fragment {
             mPackageInfo = null;
         }
 
-        if (packageName != null && packageName.equals("android")) {
-            final Resources r = getActivity().getResources();
-
-            new AlertDialog.Builder(getActivity()).setTitle(r.getString(R.string.appops_sysapp_beware))
-                .setMessage(r.getString(R.string.appops_sysapp_warning))
-                .setPositiveButton(r.getString(R.string.dlg_ok), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
-        }
-
         return packageName;
     }
 
@@ -185,16 +170,19 @@ public class AppOpsDetails extends Fragment {
                 }
                 ((TextView)view.findViewById(R.id.op_name)).setText(
                         entry.getSwitchText(mState));
-                ((TextView)view.findViewById(R.id.op_counts)).setText(
-                        entry.getCountsText(res));
                 ((TextView)view.findViewById(R.id.op_time)).setText(
                         entry.getTimeText(res, true));
-                Spinner sw = (Spinner)view.findViewById(R.id.spinnerWidget);
+
+                Spinner sp = (Spinner) view.findViewById(R.id.spinnerWidget);
+                sp.setVisibility(View.INVISIBLE);
+                Switch sw = (Switch) view.findViewById(R.id.switchWidget);
+                sw.setVisibility(View.INVISIBLE);
+
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
                 int mode = mAppOps.checkOp(switchOp, entry.getPackageOps().getUid(),
                         entry.getPackageOps().getPackageName());
-                sw.setSelection(modeToPosition(mode));
-                sw.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+                sp.setSelection(modeToPosition(mode));
+                sp.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
                     boolean firstMode = true;
 
                     @Override
@@ -209,9 +197,27 @@ public class AppOpsDetails extends Fragment {
 
                     @Override
                     public void onNothingSelected(AdapterView<?> parentView) {
-                        // Do nothing
+                        // your code here
                     }
                 });
+
+                sw.setChecked(mAppOps.checkOp(switchOp, entry.getPackageOps()
+                        .getUid(), entry.getPackageOps().getPackageName()) == AppOpsManager.MODE_ALLOWED);
+                sw.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+                    public void onCheckedChanged(CompoundButton buttonView,
+                            boolean isChecked) {
+                        mAppOps.setMode(switchOp, entry.getPackageOps()
+                                .getUid(), entry.getPackageOps()
+                                .getPackageName(),
+                                isChecked ? AppOpsManager.MODE_ALLOWED
+                                        : AppOpsManager.MODE_IGNORED);
+                    }
+                });
+                if (AppOpsManager.isStrictOp(switchOp)) {
+                    sp.setVisibility(View.VISIBLE);
+                } else {
+                    sw.setVisibility(View.VISIBLE);
+                }
             }
         }
 
@@ -221,8 +227,8 @@ public class AppOpsDetails extends Fragment {
     private void setIntentAndFinish(boolean finish, boolean appChanged) {
         Intent intent = new Intent();
         intent.putExtra(ManageApplications.APP_CHG, appChanged);
-        PreferenceActivity pa = (PreferenceActivity)getActivity();
-        pa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
+        SettingsActivity sa = (SettingsActivity)getActivity();
+        sa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
     }
 
     /** Called when the activity is first created. */
@@ -244,7 +250,7 @@ public class AppOpsDetails extends Fragment {
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.app_ops_details, container, false);
-        Utils.prepareCustomPreferencesList(container, view, view, true);
+        Utils.prepareCustomPreferencesList(container, view, view, false);
 
         mRootView = view;
         mOperationsSection = (LinearLayout)view.findViewById(R.id.operations_section);

@@ -166,7 +166,7 @@ final class HidProfile implements LocalBluetoothProfile {
 
     public int getDrawableResource(BluetoothClass btClass) {
         if (btClass == null) {
-            return R.drawable.ic_bt_keyboard_hid;
+            return R.drawable.ic_lockscreen_ime;
         }
         return getHidClassDrawable(btClass);
     }
@@ -175,7 +175,7 @@ final class HidProfile implements LocalBluetoothProfile {
         switch (btClass.getDeviceClass()) {
             case BluetoothClass.Device.PERIPHERAL_KEYBOARD:
             case BluetoothClass.Device.PERIPHERAL_KEYBOARD_POINTING:
-                return R.drawable.ic_bt_keyboard_hid;
+                return R.drawable.ic_lockscreen_ime;
             case BluetoothClass.Device.PERIPHERAL_POINTING:
                 return R.drawable.ic_bt_pointing_hid;
             default:

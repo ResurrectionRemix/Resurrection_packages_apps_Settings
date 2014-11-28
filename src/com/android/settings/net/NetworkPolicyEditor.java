@@ -17,8 +17,6 @@
 package com.android.settings.net;
 
 import static android.net.NetworkPolicy.CYCLE_NONE;
-import static android.net.NetworkPolicy.CYCLE_MONTHLY;
-import static android.net.NetworkPolicy.CYCLE_WEEKLY;
 import static android.net.NetworkPolicy.LIMIT_DISABLED;
 import static android.net.NetworkPolicy.SNOOZE_NEVER;
 import static android.net.NetworkPolicy.WARNING_DISABLED;
@@ -38,12 +36,12 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.text.format.Time;
 
-import com.android.internal.util.Objects;
 import com.google.android.collect.Lists;
 import com.google.android.collect.Sets;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 
 /**
  * Utility class to modify list of {@link NetworkPolicy}. Specifically knows
@@ -142,24 +140,22 @@ public class NetworkPolicyEditor {
     private static NetworkPolicy buildDefaultPolicy(NetworkTemplate template) {
         // TODO: move this into framework to share with NetworkPolicyManagerService
         final int cycleDay;
-        final int cycleLength;
         final String cycleTimezone;
         final boolean metered;
 
         if (template.getMatchRule() == MATCH_WIFI) {
-            cycleDay = cycleLength = CYCLE_NONE;
+            cycleDay = CYCLE_NONE;
             cycleTimezone = Time.TIMEZONE_UTC;
             metered = false;
         } else {
             final Time time = new Time();
             time.setToNow();
             cycleDay = time.monthDay;
-            cycleLength = CYCLE_MONTHLY;
             cycleTimezone = time.timezone;
             metered = true;
         }
 
-        return new NetworkPolicy(template, cycleDay, cycleLength, cycleTimezone, WARNING_DISABLED,
+        return new NetworkPolicy(template, cycleDay, cycleTimezone, WARNING_DISABLED,
                 LIMIT_DISABLED, SNOOZE_NEVER, SNOOZE_NEVER, metered, true);
     }
 
@@ -172,18 +168,6 @@ public class NetworkPolicyEditor {
         final NetworkPolicy policy = getOrCreatePolicy(template);
         policy.cycleDay = cycleDay;
         policy.cycleTimezone = cycleTimezone;
-        policy.inferred = false;
-        policy.clearSnooze();
-        writeAsync();
-    }
-
-    public int getPolicyCycleLength(NetworkTemplate template) {
-        return getPolicy(template).cycleLength;
-    }
-
-    public void setPolicyCycleLength(NetworkTemplate template, int cycleLength) {
-        final NetworkPolicy policy = getOrCreatePolicy(template);
-        policy.cycleLength = cycleLength;
         policy.inferred = false;
         policy.clearSnooze();
         writeAsync();
@@ -284,7 +268,7 @@ public class NetworkPolicyEditor {
         boolean has4g = false;
         for (NetworkPolicy policy : mPolicies) {
             final NetworkTemplate template = policy.template;
-            if (Objects.equal(subscriberId, template.getSubscriberId())) {
+            if (Objects.equals(subscriberId, template.getSubscriberId())) {
                 switch (template.getMatchRule()) {
                     case MATCH_MOBILE_3G_LOWER:
                         has3g = true;
@@ -341,9 +325,8 @@ public class NetworkPolicyEditor {
             mPolicies.remove(policy3g);
             mPolicies.remove(policy4g);
             mPolicies.add(new NetworkPolicy(templateAll, restrictive.cycleDay,
-                    restrictive.cycleLength, restrictive.cycleTimezone, restrictive.warningBytes,
-                    restrictive.limitBytes, SNOOZE_NEVER, SNOOZE_NEVER, restrictive.metered,
-                    restrictive.inferred));
+                    restrictive.cycleTimezone, restrictive.warningBytes, restrictive.limitBytes,
+                    SNOOZE_NEVER, SNOOZE_NEVER, restrictive.metered, restrictive.inferred));
             return true;
 
         } else if (!beforeSplit && split) {
@@ -353,12 +336,12 @@ public class NetworkPolicyEditor {
                 return false;
             }
             mPolicies.remove(policyAll);
-            mPolicies.add(new NetworkPolicy(template3g, policyAll.cycleDay, policyAll.cycleLength,
-                    policyAll.cycleTimezone, policyAll.warningBytes, policyAll.limitBytes,
-                    SNOOZE_NEVER, SNOOZE_NEVER, policyAll.metered, policyAll.inferred));
-            mPolicies.add(new NetworkPolicy(template4g, policyAll.cycleDay, policyAll.cycleLength,
-                    policyAll.cycleTimezone, policyAll.warningBytes, policyAll.limitBytes,
-                    SNOOZE_NEVER, SNOOZE_NEVER, policyAll.metered, policyAll.inferred));
+            mPolicies.add(new NetworkPolicy(template3g, policyAll.cycleDay, policyAll.cycleTimezone,
+                    policyAll.warningBytes, policyAll.limitBytes, SNOOZE_NEVER, SNOOZE_NEVER,
+                    policyAll.metered, policyAll.inferred));
+            mPolicies.add(new NetworkPolicy(template4g, policyAll.cycleDay, policyAll.cycleTimezone,
+                    policyAll.warningBytes, policyAll.limitBytes, SNOOZE_NEVER, SNOOZE_NEVER,
+                    policyAll.metered, policyAll.inferred));
             return true;
         } else {
             return false;

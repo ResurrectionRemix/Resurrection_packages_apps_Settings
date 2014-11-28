@@ -32,5 +32,12 @@
             android:title="@string/location_mode_sensors_only_title"
             android:summary="@string/location_mode_sensors_only_description"
             android:persistent="false" />
+        <PreferenceCategory
+            android:key="enhanced_location"
+            android:title="@string/location_category_enhanced_location">
+            <com.android.settings.location.WrappingIZatSwitchPreference
+                android:key="location_izat"
+                android:persistent="true" />
+        </PreferenceCategory>
 
 </PreferenceScreen>

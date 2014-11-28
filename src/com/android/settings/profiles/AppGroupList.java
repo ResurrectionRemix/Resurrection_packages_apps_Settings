@@ -27,6 +27,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
@@ -87,7 +88,7 @@ public class AppGroupList extends SettingsPreferenceFragment {
         Bundle args = new Bundle();
         args.putParcelable("NotificationGroup", group);
 
-        PreferenceActivity pa = (PreferenceActivity) getActivity();
+        SettingsActivity pa = (SettingsActivity) getActivity();
         pa.startPreferencePanel(AppGroupConfig.class.getName(), args,
                 R.string.profile_appgroup_manage, null, this, APP_GROUP_CONFIG);
     }

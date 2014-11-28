@@ -27,7 +27,7 @@ import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import android.os.storage.StorageManager;
 import android.widget.TextView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +41,10 @@ import java.util.List;
  * Sets an activity result of {@link Activity#RESULT_OK} when the user
  * successfully confirmed their pattern.
  */
-public class ConfirmLockPattern extends PreferenceActivity {
+public class ConfirmLockPattern extends SettingsActivity {
+
+    public static class InternalActivity extends ConfirmLockPattern {
+    }
 
     /**
      * Names of {@link CharSequence} fields within the originating {@link Intent}
@@ -65,14 +68,13 @@ public class ConfirmLockPattern extends PreferenceActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CharSequence msg = getText(R.string.lockpassword_confirm_your_pattern_header);
-        showBreadCrumbs(msg, msg);
+        setTitle(msg);
     }
 
     @Override
     public Intent getIntent() {
         Intent modIntent = new Intent(super.getIntent());
         modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ConfirmLockPatternFragment.class.getName());
-        modIntent.putExtra(EXTRA_NO_HEADERS, true);
         return modIntent;
     }
 
@@ -137,7 +139,6 @@ public class ConfirmLockPattern extends PreferenceActivity {
             }
 
             mLockPatternView.setTactileFeedbackEnabled(mLockPatternUtils.isTactileFeedbackEnabled());
-            mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize());
             mLockPatternView.setOnPatternListener(mConfirmExistingLockPatternListener);
             updateStage(Stage.NeedToUnlock);
 
@@ -268,8 +269,12 @@ public class ConfirmLockPattern extends PreferenceActivity {
                 if (mLockPatternUtils.checkPattern(pattern)) {
 
                     Intent intent = new Intent();
-                    intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD,
-                                    mLockPatternUtils.patternToString(pattern));
+                    if (getActivity() instanceof ConfirmLockPattern.InternalActivity) {
+                        intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_TYPE,
+                                        StorageManager.CRYPT_TYPE_PATTERN);
+                        intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD,
+                                        LockPatternUtils.patternToString(pattern));
+                    }
 
                     getActivity().setResult(Activity.RESULT_OK, intent);
                     getActivity().finish();

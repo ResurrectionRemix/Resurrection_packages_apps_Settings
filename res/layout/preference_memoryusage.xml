@@ -20,27 +20,8 @@
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
-    android:paddingEnd="?android:attr/scrollbarSize">
-
-    <ImageView android:id="@+id/memory_usage_rescan_media"
-        android:layout_width="48dip"
-        android:layout_height="48dip"
-        android:padding="6dp"
-        android:layout_gravity="center"
-        android:clickable="true"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:src="@drawable/ic_menu_refresh_holo_dark"
-        android:background="@*android:drawable/list_selector_holo_dark"
-        android:contentDescription="@string/storage_rescan_media"/>
-
-    <ProgressBar android:id="@+id/memory_usage_rescan_media_waiting"
-        android:layout_width="48dip"
-        android:layout_height="48dip"
-        android:padding="6dp"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        android:indeterminateOnly="true"/>
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
 
     <com.android.settings.deviceinfo.PercentageBarChart
         android:id="@+id/percentage_bar_chart"
@@ -49,7 +30,7 @@
         android:minHeight="?android:attr/listPreferredItemHeight"
         android:gravity="center_vertical"
         settings:minTickWidth="6dip"
-        settings:emptyColor="@color/memory_avail">
+        settings:emptyColor="@color/material_empty_color_light">
     </com.android.settings.deviceinfo.PercentageBarChart>
 
 </LinearLayout>

@@ -16,6 +16,7 @@
 
 package com.android.settings;
 
+import android.app.admin.DevicePolicyManager;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -28,20 +29,23 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.text.BidiFormatter;
+import android.text.TextDirectionHeuristics;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class DateTimeSettings extends SettingsPreferenceFragment
@@ -86,12 +90,23 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         boolean autoTimeEnabled = getAutoState(Settings.Global.AUTO_TIME);
         boolean autoTimeZoneEnabled = getAutoState(Settings.Global.AUTO_TIME_ZONE);
 
+        mAutoTimePref = (CheckBoxPreference) findPreference(KEY_AUTO_TIME);
+
+        DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context
+                .DEVICE_POLICY_SERVICE);
+        if (dpm.getAutoTimeRequired()) {
+            mAutoTimePref.setEnabled(false);
+
+            // If Settings.Global.AUTO_TIME is false it will be set to true
+            // by the device policy manager very soon.
+            // Note that this app listens to that change.
+        }
+
         Intent intent = getActivity().getIntent();
         boolean isFirstRun = intent.getBooleanExtra(EXTRA_IS_FIRST_RUN, false);
 
         mDummyDate = Calendar.getInstance();
 
-        mAutoTimePref = (CheckBoxPreference) findPreference(KEY_AUTO_TIME);
         mAutoTimePref.setChecked(autoTimeEnabled);
         mAutoTimeZonePref = (CheckBoxPreference) findPreference(KEY_AUTO_TIME_ZONE);
         // Override auto-timezone if it's a wifi-only device or if we're still in setup wizard.
@@ -182,7 +197,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         mDummyDate.set(now.get(Calendar.YEAR), 11, 31, 13, 0, 0);
         Date dummyDate = mDummyDate.getTime();
         mTimePref.setSummary(DateFormat.getTimeFormat(getActivity()).format(now.getTime()));
-        mTimeZone.setSummary(getTimeZoneText(now.getTimeZone()));
+        mTimeZone.setSummary(getTimeZoneText(now.getTimeZone(), true));
         mDatePref.setSummary(shortDateFormat.format(now.getTime()));
         mDateFormat.setSummary(shortDateFormat.format(dummyDate));
         mTime24Pref.setSummary(DateFormat.getTimeFormat(getActivity()).format(dummyDate));
@@ -303,9 +318,10 @@ public class DateTimeSettings extends SettingsPreferenceFragment
             removeDialog(DIALOG_TIMEPICKER);
             showDialog(DIALOG_TIMEPICKER);
         } else if (preference == mTime24Pref) {
-            set24Hour(((CheckBoxPreference)mTime24Pref).isChecked());
+            final boolean is24Hour = ((CheckBoxPreference)mTime24Pref).isChecked();
+            set24Hour(is24Hour);
             updateTimeAndDateDisplay(getActivity());
-            timeUpdated();
+            timeUpdated(is24Hour);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -316,8 +332,9 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         updateTimeAndDateDisplay(getActivity());
     }
 
-    private void timeUpdated() {
+    private void timeUpdated(boolean is24Hour) {
         Intent timeChanged = new Intent(Intent.ACTION_TIME_CHANGED);
+        timeChanged.putExtra(Intent.EXTRA_TIME_PREF_24_HOUR_FORMAT, is24Hour);
         getActivity().sendBroadcast(timeChanged);
     }
 
@@ -373,10 +390,32 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         }
     }
 
-    private static String getTimeZoneText(TimeZone tz) {
-        SimpleDateFormat sdf = new SimpleDateFormat("ZZZZ, zzzz");
-        sdf.setTimeZone(tz);
-        return sdf.format(new Date());
+    public static String getTimeZoneText(TimeZone tz, boolean includeName) {
+        Date now = new Date();
+
+        // Use SimpleDateFormat to format the GMT+00:00 string.
+        SimpleDateFormat gmtFormatter = new SimpleDateFormat("ZZZZ");
+        gmtFormatter.setTimeZone(tz);
+        String gmtString = gmtFormatter.format(now);
+
+        // Ensure that the "GMT+" stays with the "00:00" even if the digits are RTL.
+        BidiFormatter bidiFormatter = BidiFormatter.getInstance();
+        Locale l = Locale.getDefault();
+        boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
+        gmtString = bidiFormatter.unicodeWrap(gmtString,
+                isRtl ? TextDirectionHeuristics.RTL : TextDirectionHeuristics.LTR);
+
+        if (!includeName) {
+            return gmtString;
+        }
+
+        // Optionally append the time zone name.
+        SimpleDateFormat zoneNameFormatter = new SimpleDateFormat("zzzz");
+        zoneNameFormatter.setTimeZone(tz);
+        String zoneNameString = zoneNameFormatter.format(now);
+
+        // We don't use punctuation here to avoid having to worry about localizing that too!
+        return gmtString + " " + zoneNameString;
     }
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {

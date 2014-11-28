@@ -15,33 +15,43 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:key="language_keyboard_settings"
         android:title="@string/language_keyboard_settings_title">
 
     <PreferenceScreen
-            android:fragment="com.android.settings.LocalePicker"
             android:key="phone_language"
-            android:title="@string/phone_language"/>
+            android:title="@string/phone_language"
+            android:fragment="com.android.settings.LocalePicker"
+            />
 
-    <com.android.settings.inputmethod.SpellCheckersPreference
+    <!-- Spell checker preference title, summary and fragment will be set programmatically. -->
+    <!-- Note: Mark this as persistent="false" to remove unnecessarily saved shared preference.
+         See: InputMethodAndSubtypeUtil.removeUnnecessaryNonPersistentPreference. -->
+    <PreferenceScreen
             android:key="spellcheckers_settings"
-            android:title="@string/spellcheckers_settings_title"/>
+            android:title="@string/spellcheckers_settings_title"
+            settings:keywords="@string/keywords_spell_checker"
+            android:persistent="false"
+            />
 
     <!-- User dictionary preference title and fragment will be set programmatically. -->
     <PreferenceScreen
             android:key="key_user_dictionary_settings"
-            android:title="@string/user_dict_settings_title" />
+            android:title="@string/user_dict_settings_title"
+            />
 
-    <PreferenceCategory android:key="keyboard_settings_category"
-            android:title="@string/keyboard_settings_category">
-    <PreferenceScreen android:key="current_input_method"
-            android:title="@string/current_input_method" />
+    <PreferenceCategory
+            android:key="keyboard_settings_category"
+            android:title="@string/keyboard_settings_category"
+            settings:keywords="@string/keywords_keyboard_and_ime">
+
+        <PreferenceScreen
+                android:key="current_input_method"
+                android:title="@string/current_input_method"
+                />
+        <!-- Enabled input method list will be populated programmatically here. -->
     </PreferenceCategory>
-
-    <PreferenceScreen
-        android:key="keyboard_input_settings"
-        android:fragment="com.android.settings.slim.InputMethodsSettings"
-        android:title="@string/title_keyboard_input" />
 
     <PreferenceCategory
             android:key="hard_keyboard"
@@ -49,89 +59,52 @@
             android:persistent="false">
         <!-- Additional preference screens are inserted here programmatically
              with low order values to set the key map of each attached keyboard. -->
-
-        <CheckBoxPreference
-                android:key="auto_replace"
-                android:title="@string/auto_replace"
-                android:summaryOn="@string/auto_replace_summary"
-                android:summaryOff="@string/auto_replace_summary"
-                android:order="1000"
-                android:persistent="false"/>
-        <CheckBoxPreference
-                android:key="auto_caps"
-                android:title="@string/auto_caps"
-                android:summaryOn="@string/auto_caps_summary"
-                android:summaryOff="@string/auto_caps_summary"
-                android:order="1001"
-                android:persistent="false"/>
-        <CheckBoxPreference
-                android:key="auto_punctuate"
-                android:title="@string/auto_punctuate"
-                android:summaryOn="@string/auto_punctuate_summary"
-                android:summaryOff="@string/auto_punctuate_summary"
-                android:order="1002"
-                android:persistent="false"/>
     </PreferenceCategory>
 
-    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="status_bar_ime_switcher"
-            android:title="@string/ime_switcher_notify"
-            android:summary="@string/ime_switcher_notify_summary"
-            android:defaultValue="true" />
-
-    <PreferenceCategory android:key="voice_category"
+    <PreferenceCategory
+            android:key="voice_category"
             android:title="@string/voice_category" >
 
-        <!-- entries, entryValues, and defaultValue will be populated programmatically. -->
-        <ListPreference
-                android:key="recognizer"
-                android:title="@string/recognizer_title"
-                android:dialogTitle="@string/recognizer_title" />
+        <PreferenceScreen
+                android:key="voice_input_settings"
+                android:title="@string/voice_input_settings_title"
+                settings:keywords="@string/keywords_voice_input"
+                android:fragment="com.android.settings.voice.VoiceInputSettings"
+                />
 
-        <!-- An intent for this preference will be populated programmatically. -->
-        <PreferenceScreen android:key="recognizer_settings"
-                android:title="@string/recognizer_settings_title" />
-
-        <PreferenceScreen android:key="tts_settings"
+        <PreferenceScreen
+                android:key="tts_settings"
+                android:title="@string/tts_settings_title"
+                settings:keywords="@string/keywords_text_to_speech_output"
                 android:fragment="com.android.settings.tts.TextToSpeechSettings"
-                android:title="@string/tts_settings_title" />
+                />
+
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="pointer_settings_category"
+    <PreferenceCategory
+            android:key="pointer_settings_category"
             android:title="@string/pointer_settings_category">
+
         <com.android.settings.PointerSpeedPreference
                 android:key="pointer_speed"
                 android:title="@string/pointer_speed"
-                android:dialogTitle="@string/pointer_speed" />
+                android:dialogTitle="@string/pointer_speed"
+                />
 
-        <PreferenceScreen
-                android:fragment="com.android.settings.inputmethod.StylusGestures"
-                android:key="stylus_gestures"
-                android:title="@string/gestures_settings_title" />
-
-        <CheckBoxPreference android:key="stylus_icon_enabled"
-                android:title="@string/stylus_icon_enabled_title"
-                android:summary="@string/stylus_icon_enabled_summary"
-                android:defaultValue="false"
-                android:persistent="false" />
-
-            <!-- Gesture pad settings -->
-        <Preference
-            android:key="gesture_pad_settings">
-            <intent
-                android:action="com.cyanogenmod.action.LAUNCH_GESTURE_PAD_SETTINGS"
-                android:targetPackage="com.cyanogenmod.settings.device"
-                android:targetClass="com.cyanogenmod.settings.device.GesturePadSettings" />
-        </Preference>
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="game_controller_settings_category"
+    <PreferenceCategory
+            android:key="game_controller_settings_category"
             android:title="@string/game_controller_settings_category">
+
         <CheckBoxPreference
                 android:key="vibrate_input_devices"
                 android:title="@string/vibrate_input_devices"
                 android:summaryOn="@string/vibrate_input_devices_summary"
                 android:summaryOff="@string/vibrate_input_devices_summary"
-                android:persistent="false"/>
+                android:persistent="false"
+                />
+
     </PreferenceCategory>
+
 </PreferenceScreen>

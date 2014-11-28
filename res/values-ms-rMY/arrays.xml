@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Sentiasa"</item>
     <item msgid="844721238536786870">"Hanya apabila dipalamkan"</item>
-    <item msgid="2990218920631468642">"Jangan sekali-kali (menaikkan penggunaan data)"</item>
+    <item msgid="1986753720941888596">"Jangan sekali-kali"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Sentiasa"</item>
     <item msgid="7433294150916905997">"Hanya apabila dipasang"</item>
     <item msgid="1390404486722375028">"Jangan sekali-kali"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"30 hari terakhir"</item>
+    <item msgid="6600989128423965319">"Ttpkn kitar penggunaan..."</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"4 digit terakhir"</item>
+    <item msgid="7841762954785375718">"4 digit pertama"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Auto"</item>
+    <item msgid="1013988753804838790">"Automatik"</item>
     <item msgid="6670588712989942178">"5 GHz sahaja"</item>
     <item msgid="2715516524973207876">"2.4 GHz sahaja"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Masa penggunaan"</item>
-    <item msgid="3703676222230317933">"Lancarkan kiraan"</item>
+    <item msgid="4796160515314745154">"Kali terakhir digunakan"</item>
     <item msgid="2502754479975776899">"Nama aplikasi"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"Tiada"</item>
     <item msgid="8673874894887358090">"Manual"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Matikan"</item>
-    <item msgid="3165868966179561687">"Awasan"</item>
-    <item msgid="6038758039030476855">"Getar"</item>
+    <item msgid="168893341855953140">"Auto Konfigurasi Proksi"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"Tiada"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"kekal berjaga"</item>
     <item msgid="26109888160231211">"pantau lokasi"</item>
     <item msgid="5753382310468855812">"awasi lokasi kuasa tinggi"</item>
+    <item msgid="3356591542543137332">"dapatkan statistik penggunaan"</item>
+    <item msgid="3073734345226842233">"redam/nyahredam mikrofon"</item>
+    <item msgid="1148142988678569310">"media projek"</item>
+    <item msgid="9130014005474445273">"aktifkan VPN"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Lokasi"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"Kekal berjaga"</item>
     <item msgid="8584357129746649222">"Lokasi"</item>
     <item msgid="7669257279311110599">"Lokasi"</item>
+    <item msgid="3459320345690097795">"Dapatkan statistik penggunaan"</item>
+    <item msgid="1312534577834048535">"Redam/nyahredam mikrofon"</item>
+    <item msgid="5906017727368097853">"Media projek"</item>
+    <item msgid="2486614710846178542">"Aktifkan VPN"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Pendek"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"Lalai"</item>
     <item msgid="1016452621833735880">"Sans-serif"</item>
     <item msgid="2496277987934654454">"Sans-serif diringkaskan"</item>
-    <item msgid="4406003087391086325">"Serif"</item>
-    <item msgid="1558362802170124073">"Monospace"</item>
+    <item msgid="7247838127505318669">"Sans-serif monoruang"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Serif monoruang"</item>
+    <item msgid="639503332147461010">"Kasual"</item>
+    <item msgid="7967169925231332424">"Tulisan sambung"</item>
+    <item msgid="561832997193039673">"Huruf besar bersaiz kecil"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"Sangat kecil"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"Sangat besar"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"Tiada"</item>
-    <item msgid="1352974708028506778">"Garis bentuk"</item>
-    <item msgid="5850876295428722675">"Huruf bayang"</item>
+    <item msgid="4733815704128258753">"Lalai"</item>
+    <item msgid="3217099060748617005">"Tiada"</item>
+    <item msgid="7467615139904599420">"Garis bentuk"</item>
+    <item msgid="5623165557468608975">"Huruf bayang"</item>
+    <item msgid="8088451174058214588">"Ditinggikan"</item>
+    <item msgid="3821418743395480313">"Direndahkan"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25%"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"Putih pada hitam"</item>
-    <item msgid="4589278788192525675">"Hitam pada putih"</item>
-    <item msgid="1309255027325660115">"Kuning pada hitam"</item>
-    <item msgid="2985943780939258562">"Kuning pada biru"</item>
-    <item msgid="7520438652121629055">"Peribadi"</item>
+    <item msgid="7009918361545506251">"Gunakan tetapan lalai apl"</item>
+    <item msgid="1770533843436933500">"Putih pada hitam"</item>
+    <item msgid="758587126802411846">"Hitam pada putih"</item>
+    <item msgid="1495307195241623402">"Kuning pada hitam"</item>
+    <item msgid="6039700130994371612">"Kuning pada biru"</item>
+    <item msgid="7169235156349580064">"Peribadi"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (nyahpepijat)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64K"</item>
+    <item msgid="505611754508988476">"256K"</item>
+    <item msgid="6361286924268716397">"1M"</item>
+    <item msgid="6405203239560695266">"4M"</item>
+    <item msgid="3025431211013424097">"16M"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"Gunakan Dalvik"</item>
-    <item msgid="5131846588686178907">"Gunakan ART"</item>
-    <item msgid="4530003713865319928">"Gunakan binaan nyahpepijat ART"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64K"</item>
+    <item msgid="3534782711045262344">"256K"</item>
+    <item msgid="8085867209202153403">"1M"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"64K per pnimbal log"</item>
+    <item msgid="2822309747675758628">"256K per pnmbal log"</item>
+    <item msgid="6699306198357496731">"1M per penimbal log"</item>
+    <item msgid="5748528643937500349">"4M per penimbal log"</item>
+    <item msgid="1978629051085111592">"16M per pnimbal log"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Jangan sekali-kali semak"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Matikan"</item>
     <item msgid="2751513398307949636">"Pada skrin sebagai bar"</item>
-    <item msgid="8272260411216018353">"Pada skrin sebagai garis"</item>
-    <item msgid="120512413928262547">"Dalam adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"Dalam adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"Mati"</item>
     <item msgid="7688197031296835369">"Tunjukkan kawasan lebih lukis"</item>
     <item msgid="2290859360633824369">"Tunjukkan kawasan untuk Deuteranomaly"</item>
-    <item msgid="3448087929560624983">"Tunjukkan kaunter lebih lukis"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Had standard"</item>
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"sederhana"</item>
     <item msgid="406385694840950802">"rendah"</item>
     <item msgid="4212263919458209842">"kritikal"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"Mati"</item>
+    <item msgid="5656544177755411222">"Gangguan terhad"</item>
+    <item msgid="8735337502532332056">"Gangguan sifar"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Biasa"</item>
+    <item msgid="866544120205026771">"Sederhana"</item>
+    <item msgid="7851902244436886890">"Rendah"</item>
+    <item msgid="3022922196817563960">"Kritikal"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Berterusan"</item>
+    <item msgid="5779398140277006695">"Aktiviti popular"</item>
+    <item msgid="1439598363694578255">"Penting (latar depan)"</item>
+    <item msgid="3396458970745718652">"Penting (latar belakang)"</item>
+    <item msgid="5214825238247511992">"Sandaran"</item>
+    <item msgid="311372689168254967">"Berat"</item>
+    <item msgid="7438189122367820362">"Perkhidmatan (berjalan)"</item>
+    <item msgid="918687422516982498">"Perkhidmatan (bermula semula)"</item>
+    <item msgid="6807727069641853029">"Penerima"</item>
+    <item msgid="6782857406100845127">"Laman Utama"</item>
+    <item msgid="2860945127596974299">"Aktiviti terakhir"</item>
+    <item msgid="8610560843693675830">"Cache (aktiviti)"</item>
+    <item msgid="4338089220026248848">"Cache (klien aktiviti)"</item>
+    <item msgid="6652164677254579050">"Cache (kosong)"</item>
   </string-array>
 </resources>

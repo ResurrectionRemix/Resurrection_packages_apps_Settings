@@ -16,18 +16,23 @@
 
 package com.android.settings;
 
-import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.search.SearchIndexableRaw;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class WallpaperTypeSettings extends SettingsPreferenceFragment {
+public class WallpaperTypeSettings extends SettingsPreferenceFragment implements Indexable {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +43,9 @@ public class WallpaperTypeSettings extends SettingsPreferenceFragment {
 
     private void populateWallpaperTypes() {
         // Search for activities that satisfy the ACTION_SET_WALLPAPER action
-        Intent intent = new Intent(Intent.ACTION_SET_WALLPAPER);
+        final Intent intent = new Intent(Intent.ACTION_SET_WALLPAPER);
         final PackageManager pm = getPackageManager();
-        List<ResolveInfo> rList = pm.queryIntentActivities(intent,
+        final List<ResolveInfo> rList = pm.queryIntentActivities(intent,
                 PackageManager.MATCH_DEFAULT_ONLY);
 
         final PreferenceScreen parent = getPreferenceScreen();
@@ -58,4 +63,34 @@ public class WallpaperTypeSettings extends SettingsPreferenceFragment {
             parent.addPreference(pref);
         }
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
+
+                final Intent intent = new Intent(Intent.ACTION_SET_WALLPAPER);
+                final PackageManager pm = context.getPackageManager();
+                final List<ResolveInfo> rList = pm.queryIntentActivities(intent,
+                        PackageManager.MATCH_DEFAULT_ONLY);
+
+                // Add indexable data for each of the matching activities
+                for (ResolveInfo info : rList) {
+                    CharSequence label = info.loadLabel(pm);
+                    if (label == null) label = info.activityInfo.packageName;
+
+                    SearchIndexableRaw data = new SearchIndexableRaw(context);
+                    data.title = label.toString();
+                    data.screenTitle = context.getResources().getString(
+                            R.string.wallpaper_settings_fragment_title);
+                    data.intentAction = Intent.ACTION_SET_WALLPAPER;
+                    data.intentTargetPackage = info.activityInfo.packageName;
+                    data.intentTargetClass = info.activityInfo.name;
+                    result.add(data);
+                }
+
+                return result;
+            }
+        };
 }

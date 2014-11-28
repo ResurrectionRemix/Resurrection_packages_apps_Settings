@@ -49,7 +49,7 @@ public final class LocalBluetoothAdapter {
     private static final int SCAN_EXPIRATION_MS = 5 * 60 * 1000; // 5 mins
 
     private long mLastScan;
-    public static boolean isPairing = false;
+
     private LocalBluetoothAdapter(BluetoothAdapter adapter) {
         mAdapter = adapter;
     }
@@ -82,12 +82,10 @@ public final class LocalBluetoothAdapter {
     }
 
     boolean enable() {
-        isPairing = false;
         return mAdapter.enable();
     }
 
     boolean disable() {
-        isPairing = false;
         return mAdapter.disable();
     }
 
@@ -155,6 +153,10 @@ public final class LocalBluetoothAdapter {
                 if (a2dp != null && a2dp.isA2dpPlaying()) {
                     return;
                 }
+                A2dpSinkProfile a2dpSink = mProfileManager.getA2dpSinkProfile();
+                if ((a2dpSink != null) && (a2dpSink.isA2dpPlaying())){
+                    return;
+                }
             }
 
             if (mAdapter.startDiscovery()) {
@@ -201,7 +203,7 @@ public final class LocalBluetoothAdapter {
         boolean success = enabled
                 ? mAdapter.enable()
                 : mAdapter.disable();
-        isPairing = false;
+
         if (success) {
             setBluetoothStateInt(enabled
                 ? BluetoothAdapter.STATE_TURNING_ON
@@ -214,13 +216,5 @@ public final class LocalBluetoothAdapter {
 
             syncBluetoothState();
         }
-    }
-
-    public boolean checkPairingState(){
-       return isPairing;
-    }
-
-    public void setPairingState(boolean state){
-       isPairing = state;
     }
 }

@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
-import android.net.ConnectivityManager;
 import android.net.TrafficStats;
 import android.net.Uri;
 import android.os.AsyncResult;
@@ -32,6 +31,7 @@ import android.os.Message;
 import android.os.SystemProperties;
 import android.telephony.CellInfo;
 import android.telephony.CellLocation;
+import android.telephony.DataConnectionRealTimeInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
@@ -103,6 +103,7 @@ public class RadioInfo extends Activity {
     private TextView mLocation;
     private TextView mNeighboringCids;
     private TextView mCellInfo;
+    private TextView mDcRtInfoTv;
     private TextView resets;
     private TextView attempts;
     private TextView successes;
@@ -170,6 +171,12 @@ public class RadioInfo extends Activity {
         public void onCellInfoChanged(List<CellInfo> arrayCi) {
             log("onCellInfoChanged: arrayCi=" + arrayCi);
             updateCellInfoTv(arrayCi);
+        }
+
+        @Override
+        public void onDataConnectionRealTimeInfoChanged(DataConnectionRealTimeInfo dcRtInfo) {
+            log("onDataConnectionRealTimeInfoChanged: dcRtInfo=" + dcRtInfo);
+            updateDcRtInfoTv(dcRtInfo);
         }
     };
 
@@ -264,6 +271,7 @@ public class RadioInfo extends Activity {
         mLocation = (TextView) findViewById(R.id.location);
         mNeighboringCids = (TextView) findViewById(R.id.neighboring);
         mCellInfo = (TextView) findViewById(R.id.cellinfo);
+        mDcRtInfoTv = (TextView) findViewById(R.id.dcrtinfo);
 
         resets = (TextView) findViewById(R.id.resets);
         attempts = (TextView) findViewById(R.id.attempts);
@@ -366,7 +374,8 @@ public class RadioInfo extends Activity {
                 | PhoneStateListener.LISTEN_CELL_LOCATION
                 | PhoneStateListener.LISTEN_MESSAGE_WAITING_INDICATOR
                 | PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR
-                | PhoneStateListener.LISTEN_CELL_INFO);
+                | PhoneStateListener.LISTEN_CELL_INFO
+                | PhoneStateListener.LISTEN_DATA_CONNECTION_REAL_TIME_INFO);
     }
 
     @Override
@@ -539,6 +548,10 @@ public class RadioInfo extends Activity {
             }
         }
         mCellInfo.setText(value.toString());
+    }
+
+    private final void updateDcRtInfoTv(DataConnectionRealTimeInfo dcRtInfo) {
+        mDcRtInfoTv.setText(dcRtInfo.toString());
     }
 
     private final void
@@ -903,15 +916,13 @@ public class RadioInfo extends Activity {
 
     private MenuItem.OnMenuItemClickListener mToggleData = new MenuItem.OnMenuItemClickListener() {
         public boolean onMenuItemClick(MenuItem item) {
-            ConnectivityManager cm =
-                    (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
             int state = mTelephonyManager.getDataState();
             switch (state) {
                 case TelephonyManager.DATA_CONNECTED:
-                    cm.setMobileDataEnabled(false);
+                    phone.setDataEnabled(false);
                     break;
                 case TelephonyManager.DATA_DISCONNECTED:
-                    cm.setMobileDataEnabled(true);
+                    phone.setDataEnabled(true);
                     break;
                 default:
                     // do nothing
@@ -1090,6 +1101,17 @@ public class RadioInfo extends Activity {
             "LTE/GSM auto (PRL)",
             "LTE/GSM/CDMA auto (PRL)",
             "LTE only",
+            "LTE/WCDMA",
+            "TD-SCDMA only",
+            "TD-SCDMA and WCDMA",
+            "TD-SCDMA and LTE",
+            "TD-SCDMA and GSM",
+            "TD-SCDMA,GSM and LTE",
+            "TD-SCDMA, GSM/WCDMA",
+            "TD-SCDMA, WCDMA and LTE",
+            "TD-SCDMA, GSM/WCDMA and LTE",
+            "TD-SCDMA, GSM/WCDMA, CDMA and EvDo",
+            "TD-SCDMA, LTE, CDMA, EvDo GSM/WCDMA",
             "Unknown"};
 
     private void log(String s) {

@@ -22,9 +22,6 @@ import static android.net.ConnectivityManager.TYPE_WIFI;
 import static android.net.ConnectivityManager.TYPE_WIMAX;
 import static android.net.NetworkPolicy.LIMIT_DISABLED;
 import static android.net.NetworkPolicy.WARNING_DISABLED;
-import static android.net.NetworkPolicy.CYCLE_DAILY;
-import static android.net.NetworkPolicy.CYCLE_MONTHLY;
-import static android.net.NetworkPolicy.CYCLE_WEEKLY;
 import static android.net.NetworkPolicyManager.EXTRA_NETWORK_TEMPLATE;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
@@ -56,10 +53,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -67,6 +63,7 @@ import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -89,9 +86,9 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.provider.Settings;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
@@ -113,9 +110,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -139,9 +133,11 @@ import com.android.settings.net.NetworkPolicyEditor;
 import com.android.settings.net.SummaryForAllUidLoader;
 import com.android.settings.net.UidDetail;
 import com.android.settings.net.UidDetailProvider;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.search.SearchIndexableRaw;
 import com.android.settings.widget.ChartDataUsageView;
 import com.android.settings.widget.ChartDataUsageView.DataUsageChartListener;
-import com.android.settings.widget.PieChartView;
 import com.google.android.collect.Lists;
 
 import libcore.util.Objects;
@@ -155,7 +151,7 @@ import java.util.Locale;
  * Panel showing data usage history across various networks, including options
  * to inspect based on usage cycle and control through {@link NetworkPolicy}.
  */
-public class DataUsageSummary extends Fragment {
+public class DataUsageSummary extends HighlightingFragment implements Indexable {
     private static final String TAG = "DataUsage";
     private static final boolean LOGD = false;
 
@@ -171,9 +167,10 @@ public class DataUsageSummary extends Fragment {
     private static final String TAB_MOBILE = "mobile";
     private static final String TAB_WIFI = "wifi";
     private static final String TAB_ETHERNET = "ethernet";
+    // In multi-sim device, UI will show tab names as SIM1, SIM2, etc.
+    private static final String TAB_SIM = "SIM";
 
     private static final String TAG_CONFIRM_DATA_DISABLE = "confirmDataDisable";
-    private static final String TAG_CONFIRM_DATA_ROAMING = "confirmDataRoaming";
     private static final String TAG_CONFIRM_LIMIT = "confirmLimit";
     private static final String TAG_CYCLE_EDITOR = "cycleEditor";
     private static final String TAG_WARNING_EDITOR = "warningEditor";
@@ -181,8 +178,12 @@ public class DataUsageSummary extends Fragment {
     private static final String TAG_CONFIRM_RESTRICT = "confirmRestrict";
     private static final String TAG_DENIED_RESTRICT = "deniedRestrict";
     private static final String TAG_CONFIRM_APP_RESTRICT = "confirmAppRestrict";
-    private static final String TAG_CONFIRM_AUTO_SYNC_CHANGE = "confirmAutoSyncChange";
     private static final String TAG_APP_DETAILS = "appDetails";
+
+    private static final String DATA_USAGE_ENABLE_MOBILE_KEY = "data_usage_enable_mobile";
+    private static final String DATA_USAGE_DISABLE_MOBILE_LIMIT_KEY =
+            "data_usage_disable_mobile_limit";
+    private static final String DATA_USAGE_CYCLE_KEY = "data_usage_cycle";
 
     private static final int LOADER_CHART_DATA = 2;
     private static final int LOADER_SUMMARY = 3;
@@ -190,7 +191,7 @@ public class DataUsageSummary extends Fragment {
     private INetworkManagementService mNetworkService;
     private INetworkStatsService mStatsService;
     private NetworkPolicyManager mPolicyManager;
-    private ConnectivityManager mConnService;
+    private TelephonyManager mTelephonyManager;
 
     private INetworkStatsSession mStatsSession;
 
@@ -213,29 +214,33 @@ public class DataUsageSummary extends Fragment {
 
     private ViewGroup mNetworkSwitchesContainer;
     private LinearLayout mNetworkSwitches;
+    private boolean mDataEnabledSupported;
     private Switch mDataEnabled;
     private View mDataEnabledView;
-    private CheckBox mDisableAtLimit;
+    private boolean mDisableAtLimitSupported;
+    private Switch mDisableAtLimit;
     private View mDisableAtLimitView;
 
     private View mCycleView;
     private Spinner mCycleSpinner;
     private CycleAdapter mCycleAdapter;
+    private TextView mCycleSummary;
 
     private ChartDataUsageView mChart;
-    private TextView mUsageSummary;
+    private View mDisclaimer;
     private TextView mEmpty;
+    private View mStupidPadding;
 
     private View mAppDetail;
     private ImageView mAppIcon;
     private ViewGroup mAppTitles;
-    private PieChartView mAppPieChart;
+    private TextView mAppTotal;
     private TextView mAppForeground;
     private TextView mAppBackground;
     private Button mAppSettings;
 
     private LinearLayout mAppSwitches;
-    private CheckBox mAppRestrict;
+    private Switch mAppRestrict;
     private View mAppRestrictView;
 
     private boolean mShowWifi = false;
@@ -253,9 +258,11 @@ public class DataUsageSummary extends Fragment {
     private String mCurrentTab = null;
     private String mIntentTab = null;
 
-    private MenuItem mMenuDataRoaming;
     private MenuItem mMenuRestrictBackground;
-    private MenuItem mMenuAutoSync;
+    private MenuItem mMenuShowWifi;
+    private MenuItem mMenuShowEthernet;
+    private MenuItem mMenuSimCards;
+    private MenuItem mMenuCellularNetworks;
 
     /** Flag used to ignore listeners during binding. */
     private boolean mBinding;
@@ -272,7 +279,7 @@ public class DataUsageSummary extends Fragment {
         mStatsService = INetworkStatsService.Stub.asInterface(
                 ServiceManager.getService(Context.NETWORK_STATS_SERVICE));
         mPolicyManager = NetworkPolicyManager.from(context);
-        mConnService = ConnectivityManager.from(context);
+        mTelephonyManager = TelephonyManager.from(context);
 
         mPrefs = getActivity().getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);
 
@@ -325,15 +332,10 @@ public class DataUsageSummary extends Fragment {
         // on parent container for inset.
         final boolean shouldInset = mListView.getScrollBarStyle()
                 == View.SCROLLBARS_OUTSIDE_OVERLAY;
-        if (shouldInset) {
-            mInsetSide = view.getResources().getDimensionPixelOffset(
-                    com.android.internal.R.dimen.preference_fragment_padding_side);
-        } else {
-            mInsetSide = 0;
-        }
+        mInsetSide = 0;
 
         // adjust padding around tabwidget as needed
-        prepareCustomPreferencesList(container, view, mListView, true);
+        prepareCustomPreferencesList(container, view, mListView, false);
 
         mTabHost.setup();
         mTabHost.setOnTabChangedListener(mTabListener);
@@ -358,26 +360,36 @@ public class DataUsageSummary extends Fragment {
             mNetworkSwitches = (LinearLayout) mHeader.findViewById(R.id.network_switches);
 
             mDataEnabled = new Switch(inflater.getContext());
+            mDataEnabled.setClickable(false);
+            mDataEnabled.setFocusable(false);
             mDataEnabledView = inflatePreference(inflater, mNetworkSwitches, mDataEnabled);
-            mDataEnabled.setOnCheckedChangeListener(mDataEnabledListener);
+            mDataEnabledView.setTag(R.id.preference_highlight_key,
+                    DATA_USAGE_ENABLE_MOBILE_KEY);
+            mDataEnabledView.setClickable(true);
+            mDataEnabledView.setFocusable(true);
+            mDataEnabledView.setOnClickListener(mDataEnabledListener);
             mNetworkSwitches.addView(mDataEnabledView);
 
-            mDisableAtLimit = new CheckBox(inflater.getContext());
+            mDisableAtLimit = new Switch(inflater.getContext());
             mDisableAtLimit.setClickable(false);
             mDisableAtLimit.setFocusable(false);
             mDisableAtLimitView = inflatePreference(inflater, mNetworkSwitches, mDisableAtLimit);
+            mDisableAtLimitView.setTag(R.id.preference_highlight_key,
+                    DATA_USAGE_DISABLE_MOBILE_LIMIT_KEY);
             mDisableAtLimitView.setClickable(true);
             mDisableAtLimitView.setFocusable(true);
             mDisableAtLimitView.setOnClickListener(mDisableAtLimitListener);
             mNetworkSwitches.addView(mDisableAtLimitView);
-        }
 
-        // bind cycle dropdown
-        mCycleView = mHeader.findViewById(R.id.cycles);
-        mCycleSpinner = (Spinner) mCycleView.findViewById(R.id.cycles_spinner);
-        mCycleAdapter = new CycleAdapter(context);
-        mCycleSpinner.setAdapter(mCycleAdapter);
-        mCycleSpinner.setOnItemSelectedListener(mCycleListener);
+            mCycleView = inflater.inflate(R.layout.data_usage_cycles, mNetworkSwitches, false);
+            mCycleView.setTag(R.id.preference_highlight_key, DATA_USAGE_CYCLE_KEY);
+            mCycleSpinner = (Spinner) mCycleView.findViewById(R.id.cycles_spinner);
+            mCycleAdapter = new CycleAdapter(context);
+            mCycleSpinner.setAdapter(mCycleAdapter);
+            mCycleSpinner.setOnItemSelectedListener(mCycleListener);
+            mCycleSummary = (TextView) mCycleView.findViewById(R.id.cycle_summary);
+            mNetworkSwitches.addView(mCycleView);
+        }
 
         mChart = (ChartDataUsageView) mHeader.findViewById(R.id.chart);
         mChart.setListener(mChartListener);
@@ -388,15 +400,13 @@ public class DataUsageSummary extends Fragment {
             mAppDetail = mHeader.findViewById(R.id.app_detail);
             mAppIcon = (ImageView) mAppDetail.findViewById(R.id.app_icon);
             mAppTitles = (ViewGroup) mAppDetail.findViewById(R.id.app_titles);
-            mAppPieChart = (PieChartView) mAppDetail.findViewById(R.id.app_pie_chart);
             mAppForeground = (TextView) mAppDetail.findViewById(R.id.app_foreground);
             mAppBackground = (TextView) mAppDetail.findViewById(R.id.app_background);
             mAppSwitches = (LinearLayout) mAppDetail.findViewById(R.id.app_switches);
 
             mAppSettings = (Button) mAppDetail.findViewById(R.id.app_settings);
-            mAppSettings.setOnClickListener(mAppSettingsListener);
 
-            mAppRestrict = new CheckBox(inflater.getContext());
+            mAppRestrict = new Switch(inflater.getContext());
             mAppRestrict.setClickable(false);
             mAppRestrict.setFocusable(false);
             mAppRestrictView = inflatePreference(inflater, mAppSwitches, mAppRestrict);
@@ -406,10 +416,12 @@ public class DataUsageSummary extends Fragment {
             mAppSwitches.addView(mAppRestrictView);
         }
 
-        mUsageSummary = (TextView) mHeader.findViewById(R.id.usage_summary);
+        mDisclaimer = mHeader.findViewById(R.id.disclaimer);
         mEmpty = (TextView) mHeader.findViewById(android.R.id.empty);
+        mStupidPadding = mHeader.findViewById(R.id.stupid_padding);
 
-        mAdapter = new DataUsageAdapter(mUidDetailProvider, mInsetSide);
+        final UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        mAdapter = new DataUsageAdapter(um, mUidDetailProvider, mInsetSide);
         mListView.setOnItemClickListener(mListListener);
         mListView.setAdapter(mAdapter);
 
@@ -417,8 +429,8 @@ public class DataUsageSummary extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
 
         // pick default tab based on incoming intent
         final Intent intent = getActivity().getIntent();
@@ -427,6 +439,18 @@ public class DataUsageSummary extends Fragment {
         // this kicks off chain reaction which creates tabs, binds the body to
         // selected network, and binds chart, cycles and detail list.
         updateTabs();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        getView().post(new Runnable() {
+            @Override
+            public void run() {
+                highlightViewIfNeeded();
+            }
+        });
 
         // kick off background task to update stats
         new AsyncTask<Void, Void, Void>() {
@@ -462,38 +486,23 @@ public class DataUsageSummary extends Fragment {
         final boolean appDetailMode = isAppDetailMode();
         final boolean isOwner = ActivityManager.getCurrentUser() == UserHandle.USER_OWNER;
 
-        mMenuDataRoaming = menu.findItem(R.id.data_usage_menu_roaming);
-        mMenuDataRoaming.setVisible(hasReadyMobileRadio(context) && !appDetailMode);
-        mMenuDataRoaming.setChecked(getDataRoaming());
+        mMenuShowWifi = menu.findItem(R.id.data_usage_menu_show_wifi);
+        if (hasWifiRadio(context) && hasReadyMobileRadio(context)) {
+            mMenuShowWifi.setVisible(!appDetailMode);
+        } else {
+            mMenuShowWifi.setVisible(false);
+        }
+
+        mMenuShowEthernet = menu.findItem(R.id.data_usage_menu_show_ethernet);
+        if (hasEthernet(context) && hasReadyMobileRadio(context)) {
+            mMenuShowEthernet.setVisible(!appDetailMode);
+        } else {
+            mMenuShowEthernet.setVisible(false);
+        }
 
         mMenuRestrictBackground = menu.findItem(R.id.data_usage_menu_restrict_background);
         mMenuRestrictBackground.setVisible(
                 hasReadyMobileRadio(context) && isOwner && !appDetailMode);
-        mMenuRestrictBackground.setChecked(mPolicyManager.getRestrictBackground());
-
-        mMenuAutoSync = menu.findItem(R.id.data_usage_menu_auto_sync);
-        mMenuAutoSync.setChecked(ContentResolver.getMasterSyncAutomatically());
-        mMenuAutoSync.setVisible(!appDetailMode);
-
-        final MenuItem split4g = menu.findItem(R.id.data_usage_menu_split_4g);
-        split4g.setVisible(hasReadyMobile4gRadio(context) && isOwner && !appDetailMode);
-        split4g.setChecked(isMobilePolicySplit());
-
-        final MenuItem showWifi = menu.findItem(R.id.data_usage_menu_show_wifi);
-        if (hasWifiRadio(context) && hasReadyMobileRadio(context)) {
-            showWifi.setVisible(!appDetailMode);
-            showWifi.setChecked(mShowWifi);
-        } else {
-            showWifi.setVisible(false);
-        }
-
-        final MenuItem showEthernet = menu.findItem(R.id.data_usage_menu_show_ethernet);
-        if (hasEthernet(context) && hasReadyMobileRadio(context)) {
-            showEthernet.setVisible(!appDetailMode);
-            showEthernet.setChecked(mShowEthernet);
-        } else {
-            showEthernet.setVisible(false);
-        }
 
         final MenuItem metered = menu.findItem(R.id.data_usage_menu_metered);
         if (hasReadyMobileRadio(context) || hasWifiRadio(context)) {
@@ -502,6 +511,14 @@ public class DataUsageSummary extends Fragment {
             metered.setVisible(false);
         }
 
+        // TODO: show when multiple sims available
+        mMenuSimCards = menu.findItem(R.id.data_usage_menu_sim_cards);
+        mMenuSimCards.setVisible(false);
+
+        mMenuCellularNetworks = menu.findItem(R.id.data_usage_menu_cellular_networks);
+        mMenuCellularNetworks.setVisible(hasReadyMobileRadio(context)
+                && !appDetailMode && isOwner);
+
         final MenuItem help = menu.findItem(R.id.data_usage_menu_help);
         String helpUrl;
         if (!TextUtils.isEmpty(helpUrl = getResources().getString(R.string.help_url_data_usage))) {
@@ -509,23 +526,35 @@ public class DataUsageSummary extends Fragment {
         } else {
             help.setVisible(false);
         }
+
+        updateMenuTitles();
+    }
+
+    private void updateMenuTitles() {
+        if (mPolicyManager.getRestrictBackground()) {
+            mMenuRestrictBackground.setTitle(R.string.data_usage_menu_allow_background);
+        } else {
+            mMenuRestrictBackground.setTitle(R.string.data_usage_menu_restrict_background);
+        }
+
+        if (mShowWifi) {
+            mMenuShowWifi.setTitle(R.string.data_usage_menu_hide_wifi);
+        } else {
+            mMenuShowWifi.setTitle(R.string.data_usage_menu_show_wifi);
+        }
+
+        if (mShowEthernet) {
+            mMenuShowEthernet.setTitle(R.string.data_usage_menu_hide_ethernet);
+        } else {
+            mMenuShowEthernet.setTitle(R.string.data_usage_menu_show_ethernet);
+        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.data_usage_menu_roaming: {
-                final boolean dataRoaming = !item.isChecked();
-                if (dataRoaming) {
-                    ConfirmDataRoamingFragment.show(this);
-                } else {
-                    // no confirmation to disable roaming
-                    setDataRoaming(false);
-                }
-                return true;
-            }
             case R.id.data_usage_menu_restrict_background: {
-                final boolean restrictBackground = !item.isChecked();
+                final boolean restrictBackground = !mPolicyManager.getRestrictBackground();
                 if (restrictBackground) {
                     ConfirmRestrictFragment.show(this);
                 } else {
@@ -534,39 +563,44 @@ public class DataUsageSummary extends Fragment {
                 }
                 return true;
             }
-            case R.id.data_usage_menu_split_4g: {
-                final boolean mobileSplit = !item.isChecked();
-                setMobilePolicySplit(mobileSplit);
-                item.setChecked(isMobilePolicySplit());
-                updateTabs();
-                return true;
-            }
             case R.id.data_usage_menu_show_wifi: {
-                mShowWifi = !item.isChecked();
+                mShowWifi = !mShowWifi;
                 mPrefs.edit().putBoolean(PREF_SHOW_WIFI, mShowWifi).apply();
-                item.setChecked(mShowWifi);
+                updateMenuTitles();
                 updateTabs();
                 return true;
             }
             case R.id.data_usage_menu_show_ethernet: {
-                mShowEthernet = !item.isChecked();
+                mShowEthernet = !mShowEthernet;
                 mPrefs.edit().putBoolean(PREF_SHOW_ETHERNET, mShowEthernet).apply();
-                item.setChecked(mShowEthernet);
+                updateMenuTitles();
                 updateTabs();
                 return true;
             }
-            case R.id.data_usage_menu_metered: {
-                final PreferenceActivity activity = (PreferenceActivity) getActivity();
-                activity.startPreferencePanel(DataUsageMeteredSettings.class.getCanonicalName(), null,
-                        R.string.data_usage_metered_title, null, this, 0);
+            case R.id.data_usage_menu_sim_cards: {
+                // TODO: hook up to sim cards
                 return true;
             }
-            case R.id.data_usage_menu_auto_sync: {
-                if (ActivityManager.isUserAMonkey()) {
-                    Log.d("SyncState", "ignoring monkey's attempt to flip global sync state");
+            case R.id.data_usage_menu_cellular_networks: {
+                final Intent intent = new Intent(Intent.ACTION_MAIN);
+                if (TelephonyManager.getDefault().getPhoneCount() > 1) {
+                    intent.setClassName("com.android.phone",
+                            "com.android.phone.SelectSubscription");
+                    intent.putExtra(SelectSubscription.PACKAGE,
+                             "com.android.phone");
+                    intent.putExtra(SelectSubscription.TARGET_CLASS,
+                            "com.android.phone.MSimMobileNetworkSubSettings");
                 } else {
-                    ConfirmAutoSyncChangeFragment.show(this, !item.isChecked());
+                    intent.setComponent(new ComponentName("com.android.phone",
+                            "com.android.phone.MobileNetworkSettings"));
                 }
+                startActivity(intent);
+                return true;
+            }
+            case R.id.data_usage_menu_metered: {
+                final SettingsActivity sa = (SettingsActivity) getActivity();
+                sa.startPreferencePanel(DataUsageMeteredSettings.class.getCanonicalName(), null,
+                        R.string.data_usage_metered_title, null, this, 0);
                 return true;
             }
         }
@@ -582,11 +616,6 @@ public class DataUsageSummary extends Fragment {
         mUidDetailProvider = null;
 
         TrafficStats.closeQuietly(mStatsSession);
-
-        if (this.isRemoving()) {
-            getFragmentManager()
-                    .popBackStack(TAG_APP_DETAILS, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        }
 
         super.onDestroy();
     }
@@ -632,7 +661,15 @@ public class DataUsageSummary extends Fragment {
             mTabHost.addTab(buildTabSpec(TAB_3G, R.string.data_usage_tab_3g));
             mTabHost.addTab(buildTabSpec(TAB_4G, R.string.data_usage_tab_4g));
         } else if (hasReadyMobileRadio(context)) {
-            mTabHost.addTab(buildTabSpec(TAB_MOBILE, R.string.data_usage_tab_mobile));
+            int phoneCount = TelephonyManager.getDefault().getPhoneCount();
+            if (phoneCount > 1) {
+                for (int i = 0; i < phoneCount; i++) {
+                    mTabHost.addTab(buildTabSpec(getSubTag(i+1), getSubTitle(i+1)));
+                }
+            } else {
+                mTabHost.addTab(buildTabSpec(TAB_MOBILE,
+                        R.string.data_usage_tab_mobile));
+            }
         }
         if (mShowWifi && hasWifiRadio(context)) {
             mTabHost.addTab(buildTabSpec(TAB_WIFI, R.string.data_usage_tab_wifi));
@@ -678,6 +715,11 @@ public class DataUsageSummary extends Fragment {
                 mEmptyTabContent);
     }
 
+    private TabSpec buildTabSpec(String tag, String title) {
+        return mTabHost.newTabSpec(tag).setIndicator(title)
+                .setContent(mEmptyTabContent);
+    }
+
     private OnTabChangeListener mTabListener = new OnTabChangeListener() {
         @Override
         public void onTabChanged(String tabId) {
@@ -707,21 +749,31 @@ public class DataUsageSummary extends Fragment {
             mListView.setVisibility(View.VISIBLE);
         }
 
-        final boolean tabChanged = !currentTab.equals(mCurrentTab);
         mCurrentTab = currentTab;
 
         if (LOGD) Log.d(TAG, "updateBody() with currentTab=" + currentTab);
 
-        mDataEnabledView.setVisibility(isOwner ? View.VISIBLE : View.GONE);
+        mDataEnabledSupported = isOwner;
+        mDisableAtLimitSupported = true;
 
         // TODO: remove mobile tabs when SIM isn't ready
-        final TelephonyManager tele = TelephonyManager.from(context);
 
         if (TAB_MOBILE.equals(currentTab)) {
             setPreferenceTitle(mDataEnabledView, R.string.data_usage_enable_mobile);
             setPreferenceTitle(mDisableAtLimitView, R.string.data_usage_disable_mobile_limit);
             mTemplate = buildTemplateMobileAll(getActiveSubscriberId(context));
 
+        } else if (currentTab.startsWith(TAB_SIM)) {
+            for (int i = 0; i < TelephonyManager.getDefault()
+                    .getPhoneCount(); i++) {
+                if (currentTab.equals(getSubTag(i+1))) {
+                    setPreferenceTitle(mDataEnabledView,
+                            R.string.data_usage_enable_mobile);
+                    setPreferenceTitle(mDisableAtLimitView,
+                            R.string.data_usage_disable_mobile_limit);
+                    mTemplate = buildTemplateMobileAll(getActiveSubscriberId(i));
+                }
+            }
         } else if (TAB_3G.equals(currentTab)) {
             setPreferenceTitle(mDataEnabledView, R.string.data_usage_enable_3g);
             setPreferenceTitle(mDisableAtLimitView, R.string.data_usage_disable_3g_limit);
@@ -736,14 +788,14 @@ public class DataUsageSummary extends Fragment {
 
         } else if (TAB_WIFI.equals(currentTab)) {
             // wifi doesn't have any controls
-            mDataEnabledView.setVisibility(View.GONE);
-            mDisableAtLimitView.setVisibility(View.GONE);
+            mDataEnabledSupported = false;
+            mDisableAtLimitSupported = false;
             mTemplate = buildTemplateWifiWildcard();
 
         } else if (TAB_ETHERNET.equals(currentTab)) {
             // ethernet doesn't have any controls
-            mDataEnabledView.setVisibility(View.GONE);
-            mDisableAtLimitView.setVisibility(View.GONE);
+            mDataEnabledSupported = false;
+            mDisableAtLimitSupported = false;
             mTemplate = buildTemplateEthernet();
 
         } else {
@@ -796,12 +848,32 @@ public class DataUsageSummary extends Fragment {
         mAppIcon.setImageDrawable(detail.icon);
 
         mAppTitles.removeAllViews();
+
+        View title = null;
         if (detail.detailLabels != null) {
-            for (CharSequence label : detail.detailLabels) {
-                mAppTitles.addView(inflateAppTitle(inflater, mAppTitles, label));
+            final int n = detail.detailLabels.length;
+            for (int i = 0; i < n; ++i) {
+                CharSequence label = detail.detailLabels[i];
+                CharSequence contentDescription = detail.detailContentDescriptions[i];
+                title = inflater.inflate(R.layout.data_usage_app_title, mAppTitles, false);
+                TextView appTitle = (TextView) title.findViewById(R.id.app_title);
+                appTitle.setText(label);
+                appTitle.setContentDescription(contentDescription);
+                mAppTitles.addView(title);
             }
         } else {
-            mAppTitles.addView(inflateAppTitle(inflater, mAppTitles, detail.label));
+            title = inflater.inflate(R.layout.data_usage_app_title, mAppTitles, false);
+            TextView appTitle = (TextView) title.findViewById(R.id.app_title);
+            appTitle.setText(detail.label);
+            appTitle.setContentDescription(detail.contentDescription);
+            mAppTitles.addView(title);
+        }
+
+        // Remember last slot for summary
+        if (title != null) {
+            mAppTotal = (TextView) title.findViewById(R.id.app_summary);
+        } else {
+            mAppTotal = null;
         }
 
         // enable settings button when package provides it
@@ -820,11 +892,24 @@ public class DataUsageSummary extends Fragment {
                 }
             }
 
+            mAppSettings.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!isAdded()) {
+                        return;
+                    }
+
+                    // TODO: target towards entire UID instead of just first package
+                    getActivity().startActivityAsUser(mAppSettingsIntent,
+                            new UserHandle(UserHandle.getUserId(uid)));
+                }
+            });
             mAppSettings.setEnabled(matchFound);
             mAppSettings.setVisibility(View.VISIBLE);
 
         } else {
             mAppSettingsIntent = null;
+            mAppSettings.setOnClickListener(null);
             mAppSettings.setVisibility(View.GONE);
         }
 
@@ -863,18 +948,37 @@ public class DataUsageSummary extends Fragment {
     private Boolean mMobileDataEnabled;
 
     private boolean isMobileDataEnabled() {
+        // How about exposing sub based API like TelephonyManager.getDataEnabled(long subId);
+        if (mCurrentTab.startsWith(TAB_SIM)) {
+            // as per SUB, return the individual flag
+            return android.provider.Settings.Global.getInt(getActivity().getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA + multiSimGetCurrentSub(), 0) != 0;
+        }
+
         if (mMobileDataEnabled != null) {
             // TODO: deprecate and remove this once enabled flag is on policy
             return mMobileDataEnabled;
         } else {
-            return mConnService.getMobileDataEnabled();
+            return mTelephonyManager.getDataEnabled();
         }
     }
 
     private void setMobileDataEnabled(boolean enabled) {
         if (LOGD) Log.d(TAG, "setMobileDataEnabled()");
-        mConnService.setMobileDataEnabled(enabled);
-        mMobileDataEnabled = enabled;
+        // How about exposing sub based API like TelephonyManager.setDataEnabled(long subId);
+        if (mCurrentTab.startsWith(TAB_SIM)) {
+            int phoneId = multiSimGetCurrentSub();
+
+            // as per phone, set the individual flag
+            android.provider.Settings.Global.putInt(getActivity().getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA + phoneId, enabled ? 1 : 0);
+
+            long[] subId = SubscriptionManager.getSubId(phoneId);
+            mTelephonyManager.setDataEnabledUsingSubId(subId[0], enabled);
+        } else {
+            mTelephonyManager.setDataEnabled(enabled);
+            mMobileDataEnabled = enabled;
+        }
         updatePolicy(false);
     }
 
@@ -892,22 +996,9 @@ public class DataUsageSummary extends Fragment {
         }
     }
 
-    private boolean getDataRoaming() {
-        final ContentResolver resolver = getActivity().getContentResolver();
-        return Settings.Global.getInt(resolver, Settings.Global.DATA_ROAMING, 0) != 0;
-    }
-
-    private void setDataRoaming(boolean enabled) {
-        // TODO: teach telephony DataConnectionTracker to watch and apply
-        // updates when changed.
-        final ContentResolver resolver = getActivity().getContentResolver();
-        Settings.Global.putInt(resolver, Settings.Global.DATA_ROAMING, enabled ? 1 : 0);
-        mMenuDataRoaming.setChecked(enabled);
-    }
-
     public void setRestrictBackground(boolean restrictBackground) {
         mPolicyManager.setRestrictBackground(restrictBackground);
-        mMenuRestrictBackground.setChecked(restrictBackground);
+        updateMenuTitles();
     }
 
     private boolean getAppRestrictBackground() {
@@ -929,14 +1020,16 @@ public class DataUsageSummary extends Fragment {
      * current {@link #mTemplate}.
      */
     private void updatePolicy(boolean refreshCycle) {
+        boolean dataEnabledVisible = mDataEnabledSupported;
+        boolean disableAtLimitVisible = mDisableAtLimitSupported;
+
         if (isAppDetailMode()) {
-            mNetworkSwitches.setVisibility(View.GONE);
-        } else {
-            mNetworkSwitches.setVisibility(View.VISIBLE);
+            dataEnabledVisible = false;
+            disableAtLimitVisible = false;
         }
 
         // TODO: move enabled state directly into policy
-        if (TAB_MOBILE.equals(mCurrentTab)) {
+        if (TAB_MOBILE.equals(mCurrentTab) || mCurrentTab.startsWith(TAB_SIM)) {
             mBinding = true;
             mDataEnabled.setChecked(isMobileDataEnabled());
             mBinding = false;
@@ -944,7 +1037,6 @@ public class DataUsageSummary extends Fragment {
 
         final NetworkPolicy policy = mPolicyEditor.getPolicy(mTemplate);
         if (isNetworkPolicyModifiable(policy)) {
-            mDisableAtLimitView.setVisibility(View.VISIBLE);
             mDisableAtLimit.setChecked(policy != null && policy.limitBytes != LIMIT_DISABLED);
             if (!isAppDetailMode()) {
                 mChart.bindNetworkPolicy(policy);
@@ -952,9 +1044,12 @@ public class DataUsageSummary extends Fragment {
 
         } else {
             // controls are disabled; don't bind warning/limit sweeps
-            mDisableAtLimitView.setVisibility(View.GONE);
+            disableAtLimitVisible = false;
             mChart.bindNetworkPolicy(null);
         }
+
+        mDataEnabledView.setVisibility(dataEnabledVisible ? View.VISIBLE : View.GONE);
+        mDisableAtLimitView.setVisibility(disableAtLimitVisible ? View.VISIBLE : View.GONE);
 
         if (refreshCycle) {
             // generate cycle list based on policy and available history
@@ -1035,14 +1130,14 @@ public class DataUsageSummary extends Fragment {
         }
     }
 
-    private OnCheckedChangeListener mDataEnabledListener = new OnCheckedChangeListener() {
+    private View.OnClickListener mDataEnabledListener = new View.OnClickListener() {
         @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        public void onClick(View v) {
             if (mBinding) return;
 
-            final boolean dataEnabled = isChecked;
+            final boolean dataEnabled = !mDataEnabled.isChecked();
             final String currentTab = mCurrentTab;
-            if (TAB_MOBILE.equals(currentTab)) {
+            if (TAB_MOBILE.equals(currentTab) || currentTab.startsWith(TAB_SIM)) {
                 if (dataEnabled) {
                     setMobileDataEnabled(true);
                 } else {
@@ -1083,16 +1178,6 @@ public class DataUsageSummary extends Fragment {
             } else {
                 setAppRestrictBackground(false);
             }
-        }
-    };
-
-    private OnClickListener mAppSettingsListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (!isAdded()) return;
-
-            // TODO: target torwards entire UID instead of just first package
-            startActivity(mAppSettingsIntent);
         }
     };
 
@@ -1164,15 +1249,11 @@ public class DataUsageSummary extends Fragment {
             final long defaultBytes = entry.rxBytes + entry.txBytes;
             entry = mChartData.detailForeground.getValues(start, end, now, entry);
             final long foregroundBytes = entry.rxBytes + entry.txBytes;
+            final long totalBytes = defaultBytes + foregroundBytes;
 
-            mAppPieChart.setOriginAngle(175);
-
-            mAppPieChart.removeAllSlices();
-            mAppPieChart.addSlice(foregroundBytes, Color.parseColor("#d88d3a"));
-            mAppPieChart.addSlice(defaultBytes, Color.parseColor("#666666"));
-
-            mAppPieChart.generatePath();
-
+            if (mAppTotal != null) {
+                mAppTotal.setText(Formatter.formatFileSize(context, totalBytes));
+            }
             mAppBackground.setText(Formatter.formatFileSize(context, defaultBytes));
             mAppForeground.setText(Formatter.formatFileSize(context, foregroundBytes));
 
@@ -1181,10 +1262,14 @@ public class DataUsageSummary extends Fragment {
 
             getLoaderManager().destroyLoader(LOADER_SUMMARY);
 
+            mCycleSummary.setVisibility(View.GONE);
+
         } else {
             if (mChartData != null) {
                 entry = mChartData.network.getValues(start, end, now, null);
             }
+
+            mCycleSummary.setVisibility(View.VISIBLE);
 
             // kick off loader for detailed stats
             getLoaderManager().restartLoader(LOADER_SUMMARY,
@@ -1193,17 +1278,18 @@ public class DataUsageSummary extends Fragment {
 
         final long totalBytes = entry != null ? entry.rxBytes + entry.txBytes : 0;
         final String totalPhrase = Formatter.formatFileSize(context, totalBytes);
-        final String rangePhrase = formatDateRange(context, start, end);
+        mCycleSummary.setText(totalPhrase);
 
-        final int summaryRes;
         if (TAB_MOBILE.equals(mCurrentTab) || TAB_3G.equals(mCurrentTab)
                 || TAB_4G.equals(mCurrentTab)) {
-            summaryRes = R.string.data_usage_total_during_range_mobile;
+            if (isAppDetailMode()) {
+                mDisclaimer.setVisibility(View.GONE);
+            } else {
+                mDisclaimer.setVisibility(View.VISIBLE);
+            }
         } else {
-            summaryRes = R.string.data_usage_total_during_range;
+            mDisclaimer.setVisibility(View.GONE);
         }
-
-        mUsageSummary.setText(getString(summaryRes, totalPhrase, rangePhrase));
 
         // initial layout is finished above, ensure we have transitions
         ensureLayoutTransitions();
@@ -1264,6 +1350,7 @@ public class DataUsageSummary extends Fragment {
         private void updateEmptyVisible() {
             final boolean isEmpty = mAdapter.isEmpty() && !isAppDetailMode();
             mEmpty.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+            mStupidPadding.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
         }
     };
 
@@ -1293,13 +1380,12 @@ public class DataUsageSummary extends Fragment {
         return SystemProperties.get(TEST_SUBSCRIBER_PROP, actualSubscriberId);
     }
 
-    private DataUsageChartListener mChartListener = new DataUsageChartListener() {
-        @Override
-        public void onInspectRangeChanged() {
-            if (LOGD) Log.d(TAG, "onInspectRangeChanged()");
-            updateDetailData();
-        }
+    private static String getActiveSubscriberId(int phoneId) {
+        long[] subId = SubscriptionManager.getSubId(phoneId);
+        return TelephonyManager.getDefault().getSubscriberId(subId[0]);
+    }
 
+    private DataUsageChartListener mChartListener = new DataUsageChartListener() {
         @Override
         public void onWarningChanged() {
             setPolicyWarningBytes(mChart.getWarningBytes());
@@ -1390,8 +1476,8 @@ public class DataUsageSummary extends Fragment {
         private final CycleChangeItem mChangeItem;
 
         public CycleAdapter(Context context) {
-            super(context, android.R.layout.simple_spinner_item);
-            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            super(context, R.layout.data_usage_cycle_item);
+            setDropDownViewResource(R.layout.data_usage_cycle_item_dropdown);
             mChangeItem = new CycleChangeItem(context);
         }
 
@@ -1433,10 +1519,20 @@ public class DataUsageSummary extends Fragment {
     }
 
     public static class AppItem implements Comparable<AppItem>, Parcelable {
+        public static final int CATEGORY_USER = 0;
+        public static final int CATEGORY_APP_TITLE = 1;
+        public static final int CATEGORY_APP = 2;
+
         public final int key;
         public boolean restricted;
+        public int category;
+
         public SparseBooleanArray uids = new SparseBooleanArray();
         public long total;
+
+        public AppItem() {
+            this.key = 0;
+        }
 
         public AppItem(int key) {
             this.key = key;
@@ -1466,7 +1562,11 @@ public class DataUsageSummary extends Fragment {
 
         @Override
         public int compareTo(AppItem another) {
-            return Long.compare(another.total, total);
+            int comparison = Integer.compare(category, another.category);
+            if (comparison == 0) {
+                comparison = Long.compare(another.total, total);
+            }
+            return comparison;
         }
 
         public static final Creator<AppItem> CREATOR = new Creator<AppItem>() {
@@ -1488,13 +1588,15 @@ public class DataUsageSummary extends Fragment {
     public static class DataUsageAdapter extends BaseAdapter {
         private final UidDetailProvider mProvider;
         private final int mInsetSide;
+        private final UserManager mUm;
 
         private ArrayList<AppItem> mItems = Lists.newArrayList();
         private long mLargest;
 
-        public DataUsageAdapter(UidDetailProvider provider, int insetSide) {
+        public DataUsageAdapter(final UserManager userManager, UidDetailProvider provider, int insetSide) {
             mProvider = checkNotNull(provider);
             mInsetSide = insetSide;
+            mUm = userManager;
         }
 
         /**
@@ -1502,8 +1604,10 @@ public class DataUsageSummary extends Fragment {
          */
         public void bindStats(NetworkStats stats, int[] restrictedUids) {
             mItems.clear();
+            mLargest = 0;
 
             final int currentUserId = ActivityManager.getCurrentUser();
+            final List<UserHandle> profiles = mUm.getUserProfiles();
             final SparseArray<AppItem> knownItems = new SparseArray<AppItem>();
 
             NetworkStats.Entry entry = null;
@@ -1513,32 +1617,43 @@ public class DataUsageSummary extends Fragment {
 
                 // Decide how to collapse items together
                 final int uid = entry.uid;
+
                 final int collapseKey;
+                final int category;
+                final int userId = UserHandle.getUserId(uid);
                 if (UserHandle.isApp(uid)) {
-                    if (UserHandle.getUserId(uid) == currentUserId) {
+                    if (profiles.contains(new UserHandle(userId))) {
+                        if (userId != currentUserId) {
+                            // Add to a managed user item.
+                            final int managedKey = UidDetailProvider.buildKeyForUser(userId);
+                            accumulate(managedKey, knownItems, entry,
+                                    AppItem.CATEGORY_USER);
+                        }
+                        // Add to app item.
                         collapseKey = uid;
+                        category = AppItem.CATEGORY_APP;
                     } else {
-                        collapseKey = UidDetailProvider.buildKeyForUser(UserHandle.getUserId(uid));
+                        // Add to other user item.
+                        collapseKey = UidDetailProvider.buildKeyForUser(userId);
+                        category = AppItem.CATEGORY_USER;
                     }
                 } else if (uid == UID_REMOVED || uid == UID_TETHERING) {
                     collapseKey = uid;
+                    category = AppItem.CATEGORY_APP;
                 } else {
                     collapseKey = android.os.Process.SYSTEM_UID;
+                    category = AppItem.CATEGORY_APP;
                 }
-
-                AppItem item = knownItems.get(collapseKey);
-                if (item == null) {
-                    item = new AppItem(collapseKey);
-                    mItems.add(item);
-                    knownItems.put(item.key, item);
-                }
-                item.addUid(uid);
-                item.total += entry.rxBytes + entry.txBytes;
+                accumulate(collapseKey, knownItems, entry, category);
             }
 
-            for (int uid : restrictedUids) {
-                // Only splice in restricted state for current user
-                if (UserHandle.getUserId(uid) != currentUserId) continue;
+            final int restrictedUidsMax = restrictedUids.length;
+            for (int i = 0; i < restrictedUidsMax; ++i) {
+                final int uid = restrictedUids[i];
+                // Only splice in restricted state for current user or managed users
+                if (!profiles.contains(new UserHandle(UserHandle.getUserId(uid)))) {
+                    continue;
+                }
 
                 AppItem item = knownItems.get(uid);
                 if (item == null) {
@@ -1550,9 +1665,41 @@ public class DataUsageSummary extends Fragment {
                 item.restricted = true;
             }
 
+            if (!mItems.isEmpty()) {
+                final AppItem title = new AppItem();
+                title.category = AppItem.CATEGORY_APP_TITLE;
+                mItems.add(title);
+            }
+
             Collections.sort(mItems);
-            mLargest = (mItems.size() > 0) ? mItems.get(0).total : 0;
             notifyDataSetChanged();
+        }
+
+        /**
+         * Accumulate data usage of a network stats entry for the item mapped by the collapse key.
+         * Creates the item if needed.
+         *
+         * @param collapseKey the collapse key used to map the item.
+         * @param knownItems collection of known (already existing) items.
+         * @param entry the network stats entry to extract data usage from.
+         * @param itemCategory the item is categorized on the list view by this category. Must be
+         *            either AppItem.APP_ITEM_CATEGORY or AppItem.MANAGED_USER_ITEM_CATEGORY
+         */
+        private void accumulate(int collapseKey, final SparseArray<AppItem> knownItems,
+                NetworkStats.Entry entry, int itemCategory) {
+            final int uid = entry.uid;
+            AppItem item = knownItems.get(collapseKey);
+            if (item == null) {
+                item = new AppItem(collapseKey);
+                item.category = itemCategory;
+                mItems.add(item);
+                knownItems.put(item.key, item);
+            }
+            item.addUid(uid);
+            item.total += entry.rxBytes + entry.txBytes;
+            if (mLargest < item.total) {
+                mLargest = item.total;
+            }
         }
 
         @Override
@@ -1570,37 +1717,82 @@ public class DataUsageSummary extends Fragment {
             return mItems.get(position).key;
         }
 
+        /**
+         * See {@link #getItemViewType} for the view types.
+         */
+        @Override
+        public int getViewTypeCount() {
+            return 2;
+        }
+
+        /**
+         * Returns 1 for separator items and 0 for anything else.
+         */
+        @Override
+        public int getItemViewType(int position) {
+            final AppItem item = mItems.get(position);
+            if (item.category == AppItem.CATEGORY_APP_TITLE) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            if (position > mItems.size()) {
+                throw new ArrayIndexOutOfBoundsException();
+            }
+            return getItemViewType(position) == 0;
+        }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext()).inflate(
-                        R.layout.data_usage_item, parent, false);
-
-                if (mInsetSide > 0) {
-                    convertView.setPaddingRelative(mInsetSide, 0, mInsetSide, 0);
-                }
-            }
-
-            final Context context = parent.getContext();
-
-            final TextView text1 = (TextView) convertView.findViewById(android.R.id.text1);
-            final ProgressBar progress = (ProgressBar) convertView.findViewById(
-                    android.R.id.progress);
-
-            // kick off async load of app details
             final AppItem item = mItems.get(position);
-            UidDetailTask.bindView(mProvider, item, convertView);
+            if (getItemViewType(position) == 1) {
+                if (convertView == null) {
+                    convertView = inflateCategoryHeader(LayoutInflater.from(parent.getContext()),
+                            parent);
+                }
 
-            if (item.restricted && item.total <= 0) {
-                text1.setText(R.string.data_usage_app_restricted);
-                progress.setVisibility(View.GONE);
+                final TextView title = (TextView) convertView.findViewById(android.R.id.title);
+                title.setText(R.string.data_usage_app);
+
             } else {
-                text1.setText(Formatter.formatFileSize(context, item.total));
-                progress.setVisibility(View.VISIBLE);
-            }
+                if (convertView == null) {
+                    convertView = LayoutInflater.from(parent.getContext()).inflate(
+                            R.layout.data_usage_item, parent, false);
 
-            final int percentTotal = mLargest != 0 ? (int) (item.total * 100 / mLargest) : 0;
-            progress.setProgress(percentTotal);
+                    if (mInsetSide > 0) {
+                        convertView.setPaddingRelative(mInsetSide, 0, mInsetSide, 0);
+                    }
+                }
+
+                final Context context = parent.getContext();
+
+                final TextView text1 = (TextView) convertView.findViewById(android.R.id.text1);
+                final ProgressBar progress = (ProgressBar) convertView.findViewById(
+                        android.R.id.progress);
+
+                // kick off async load of app details
+                UidDetailTask.bindView(mProvider, item, convertView);
+
+                if (item.restricted && item.total <= 0) {
+                    text1.setText(R.string.data_usage_app_restricted);
+                    progress.setVisibility(View.GONE);
+                } else {
+                    text1.setText(Formatter.formatFileSize(context, item.total));
+                    progress.setVisibility(View.VISIBLE);
+                }
+
+                final int percentTotal = mLargest != 0 ? (int) (item.total * 100 / mLargest) : 0;
+                progress.setProgress(percentTotal);
+            }
 
             return convertView;
         }
@@ -1625,7 +1817,8 @@ public class DataUsageSummary extends Fragment {
             final FragmentTransaction ft = parent.getFragmentManager().beginTransaction();
             ft.add(fragment, TAG_APP_DETAILS);
             ft.addToBackStack(TAG_APP_DETAILS);
-            ft.setBreadCrumbTitle(label);
+            ft.setBreadCrumbTitle(
+                    parent.getResources().getString(R.string.data_usage_app_summary_title));
             ft.commitAllowingStateLoss();
         }
 
@@ -1657,10 +1850,12 @@ public class DataUsageSummary extends Fragment {
         public static void show(DataUsageSummary parent) {
             if (!parent.isAdded()) return;
 
+            final NetworkPolicy policy = parent.mPolicyEditor.getPolicy(parent.mTemplate);
+            if (policy == null) return;
+
             final Resources res = parent.getResources();
             final CharSequence message;
-            final long minLimitBytes = (long) (
-                    parent.mPolicyEditor.getPolicy(parent.mTemplate).warningBytes * 1.2f);
+            final long minLimitBytes = (long) (policy.warningBytes * 1.2f);
             final long limitBytes;
 
             // TODO: customize default limits based on network template
@@ -1674,6 +1869,10 @@ public class DataUsageSummary extends Fragment {
             } else if (TAB_MOBILE.equals(currentTab)) {
                 message = res.getString(R.string.data_usage_limit_dialog_mobile);
                 limitBytes = Math.max(5 * GB_IN_BYTES, minLimitBytes);
+            } else if (currentTab.startsWith(TAB_SIM)) {
+                message = res.getString(R.string.data_usage_limit_dialog_mobile);
+                limitBytes = Math.max(5 * GB_IN_BYTES, minLimitBytes);
+
             } else {
                 throw new IllegalArgumentException("unknown current tab: " + currentTab);
             }
@@ -1731,23 +1930,6 @@ public class DataUsageSummary extends Fragment {
             dialog.show(parent.getFragmentManager(), TAG_CYCLE_EDITOR);
         }
 
-        private void updatePicker(int cycleLength, int cycleDay, NumberPicker cycleDayPicker,
-                NumberPicker cycleWeekDayPicker,View cdEditor) {
-            if (cycleLength == CYCLE_MONTHLY) {
-                cdEditor.setVisibility(View.VISIBLE);
-                cycleWeekDayPicker.setVisibility(View.GONE);
-                cycleDayPicker.setVisibility(View.VISIBLE);
-                cycleDayPicker.setValue(cycleDay);
-            } else if (cycleLength == CYCLE_WEEKLY) {
-                cdEditor.setVisibility(View.VISIBLE);
-                cycleWeekDayPicker.setVisibility(View.VISIBLE);
-                cycleDayPicker.setVisibility(View.GONE);
-                cycleWeekDayPicker.setValue(cycleDay);
-            } else if (cycleLength == CYCLE_DAILY) {
-                cdEditor.setVisibility(View.GONE);
-            }
-        }
-
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Context context = getActivity();
@@ -1757,57 +1939,16 @@ public class DataUsageSummary extends Fragment {
             final AlertDialog.Builder builder = new AlertDialog.Builder(context);
             final LayoutInflater dialogInflater = LayoutInflater.from(builder.getContext());
 
+            final View view = dialogInflater.inflate(R.layout.data_usage_cycle_editor, null, false);
+            final NumberPicker cycleDayPicker = (NumberPicker) view.findViewById(R.id.cycle_day);
+
             final NetworkTemplate template = getArguments().getParcelable(EXTRA_TEMPLATE);
-            final int cycleLength = editor.getPolicyCycleLength(template);
             final int cycleDay = editor.getPolicyCycleDay(template);
 
-            final View view = dialogInflater.inflate(R.layout.data_usage_cycle_editor, null, false);
-            final View cdEditor = view.findViewById(R.id.cycle_day_editor);
-
-            final NumberPicker cycleDayPicker = (NumberPicker) view.findViewById(R.id.cycle_day);
             cycleDayPicker.setMinValue(1);
             cycleDayPicker.setMaxValue(31);
+            cycleDayPicker.setValue(cycleDay);
             cycleDayPicker.setWrapSelectorWheel(true);
-
-            final NumberPicker cycleWeekDayPicker = (NumberPicker) view.findViewById(
-                    R.id.cycle_weekday);
-            cycleWeekDayPicker.setMinValue(0);
-            cycleWeekDayPicker.setMaxValue(6);
-            cycleWeekDayPicker.setDisplayedValues(getResources().getStringArray(
-                    R.array.data_usage_cycle_weekdays));
-            cycleWeekDayPicker.setWrapSelectorWheel(true);
-
-            final Spinner cycleLengthSpinner = (Spinner) view.findViewById(
-                    R.id.cycle_lengths_spinner);
-            ArrayAdapter<CharSequence> cycleLengthAdapter = ArrayAdapter.createFromResource(context,
-                    R.array.data_usage_cycle_length,
-                    android.R.layout.simple_spinner_item);
-            cycleLengthAdapter.setDropDownViewResource(
-                    android.R.layout.simple_spinner_dropdown_item);
-            cycleLengthSpinner.setAdapter(cycleLengthAdapter);
-            cycleLengthSpinner.setSelection(cycleLength);
-            cycleLengthSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-                private int lastCycleLength = cycleLength;
-
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view,
-                        int position, long id) {
-                    if (position != lastCycleLength) {
-                        editor.setPolicyCycleLength(template, position);
-                        updatePicker(position, cycleDay, cycleDayPicker, cycleWeekDayPicker,
-                                cdEditor);
-                        lastCycleLength = position;
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    // ignored
-                }
-            });
-
-            updatePicker(cycleLength, cycleDay, cycleDayPicker, cycleWeekDayPicker, cdEditor);
 
             builder.setTitle(R.string.data_usage_cycle_editor_title);
             builder.setView(view);
@@ -1818,17 +1959,8 @@ public class DataUsageSummary extends Fragment {
                         public void onClick(DialogInterface dialog, int which) {
                             // clear focus to finish pending text edits
                             cycleDayPicker.clearFocus();
-                            cycleWeekDayPicker.clearFocus();
 
-                            final int cycleDay;
-                            final int cycleLength = editor.getPolicyCycleLength(template);
-                            if (cycleLength == CYCLE_MONTHLY) {
-                                cycleDay = cycleDayPicker.getValue();
-                            } else if (cycleLength == CYCLE_WEEKLY) {
-                                cycleDay = cycleWeekDayPicker.getValue();
-                            } else {
-                                cycleDay = 0;
-                            }
+                            final int cycleDay = cycleDayPicker.getValue();
                             final String cycleTimezone = new Time().timezone;
                             editor.setPolicyCycleDay(template, cycleDay, cycleTimezone);
                             target.updatePolicy(true);
@@ -2001,46 +2133,6 @@ public class DataUsageSummary extends Fragment {
 
     /**
      * Dialog to request user confirmation before setting
-     * {@link android.provider.Settings.Global#DATA_ROAMING}.
-     */
-    public static class ConfirmDataRoamingFragment extends DialogFragment {
-        public static void show(DataUsageSummary parent) {
-            if (!parent.isAdded()) return;
-
-            final ConfirmDataRoamingFragment dialog = new ConfirmDataRoamingFragment();
-            dialog.setTargetFragment(parent, 0);
-            dialog.show(parent.getFragmentManager(), TAG_CONFIRM_DATA_ROAMING);
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final Context context = getActivity();
-
-            final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle(R.string.roaming_reenable_title);
-            if (Utils.hasMultipleUsers(context)) {
-                builder.setMessage(R.string.roaming_warning_multiuser);
-            } else {
-                builder.setMessage(R.string.roaming_warning);
-            }
-
-            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    final DataUsageSummary target = (DataUsageSummary) getTargetFragment();
-                    if (target != null) {
-                        target.setDataRoaming(true);
-                    }
-                }
-            });
-            builder.setNegativeButton(android.R.string.cancel, null);
-
-            return builder.create();
-        }
-    }
-
-    /**
-     * Dialog to request user confirmation before setting
      * {@link INetworkPolicyManager#setRestrictBackground(boolean)}.
      */
     public static class ConfirmRestrictFragment extends DialogFragment {
@@ -2143,56 +2235,6 @@ public class DataUsageSummary extends Fragment {
     }
 
     /**
-     * Dialog to inform user about changing auto-sync setting
-     */
-    public static class ConfirmAutoSyncChangeFragment extends DialogFragment {
-        private static final String SAVE_ENABLING = "enabling";
-        private boolean mEnabling;
-
-        public static void show(DataUsageSummary parent, boolean enabling) {
-            if (!parent.isAdded()) return;
-
-            final ConfirmAutoSyncChangeFragment dialog = new ConfirmAutoSyncChangeFragment();
-            dialog.mEnabling = enabling;
-            dialog.setTargetFragment(parent, 0);
-            dialog.show(parent.getFragmentManager(), TAG_CONFIRM_AUTO_SYNC_CHANGE);
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final Context context = getActivity();
-            if (savedInstanceState != null) {
-                mEnabling = savedInstanceState.getBoolean(SAVE_ENABLING);
-            }
-
-            final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            if (!mEnabling) {
-                builder.setTitle(R.string.data_usage_auto_sync_off_dialog_title);
-                builder.setMessage(R.string.data_usage_auto_sync_off_dialog);
-            } else {
-                builder.setTitle(R.string.data_usage_auto_sync_on_dialog_title);
-                builder.setMessage(R.string.data_usage_auto_sync_on_dialog);
-            }
-
-            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    ContentResolver.setMasterSyncAutomatically(mEnabling);
-                }
-            });
-            builder.setNegativeButton(android.R.string.cancel, null);
-
-            return builder.create();
-        }
-
-        @Override
-        public void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            outState.putBoolean(SAVE_ENABLING, mEnabling);
-        }
-    }
-
-    /**
      * Compute default tab that should be selected, based on
      * {@link NetworkPolicyManager#EXTRA_NETWORK_TEMPLATE} extra.
      */
@@ -2252,6 +2294,7 @@ public class DataUsageSummary extends Fragment {
             if (detail != null) {
                 icon.setImageDrawable(detail.icon);
                 title.setText(detail.label);
+                title.setContentDescription(detail.contentDescription);
             } else {
                 icon.setImageDrawable(null);
                 title.setText(null);
@@ -2286,7 +2329,10 @@ public class DataUsageSummary extends Fragment {
         final TelephonyManager tele = TelephonyManager.from(context);
 
         // require both supported network and ready SIM
-        return conn.isNetworkSupported(TYPE_MOBILE) && tele.getSimState() == SIM_STATE_READY;
+        long defaultSubId = SubscriptionManager.getDefaultDataSubId();
+        int slotId = SubscriptionManager.getSlotId(defaultSubId);
+        return conn.isNetworkSupported(TYPE_MOBILE) &&
+                tele.getSimState(slotId) == SIM_STATE_READY;
     }
 
     /**
@@ -2361,12 +2407,12 @@ public class DataUsageSummary extends Fragment {
         return view;
     }
 
-    private static View inflateAppTitle(
-            LayoutInflater inflater, ViewGroup root, CharSequence label) {
-        final TextView view = (TextView) inflater.inflate(
-                R.layout.data_usage_app_title, root, false);
-        view.setText(label);
-        return view;
+    private static View inflateCategoryHeader(LayoutInflater inflater, ViewGroup root) {
+        final TypedArray a = inflater.getContext().obtainStyledAttributes(null,
+                com.android.internal.R.styleable.Preference,
+                com.android.internal.R.attr.preferenceCategoryStyle, 0);
+        final int resId = a.getResourceId(com.android.internal.R.styleable.Preference_layout, 0);
+        return inflater.inflate(resId, root, false);
     }
 
     /**
@@ -2462,5 +2508,80 @@ public class DataUsageSummary extends Fragment {
         final TextView summary = (TextView) parent.findViewById(android.R.id.summary);
         summary.setVisibility(View.VISIBLE);
         summary.setText(string);
+    }
+
+    /**
+     * For search
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+                final List<SearchIndexableRaw> result = new ArrayList<SearchIndexableRaw>();
+
+                final Resources res = context.getResources();
+
+                // Add fragment title
+                SearchIndexableRaw data = new SearchIndexableRaw(context);
+                data.title = res.getString(R.string.data_usage_summary_title);
+                data.screenTitle = res.getString(R.string.data_usage_summary_title);
+                result.add(data);
+
+                // Mobile data
+                data = new SearchIndexableRaw(context);
+                data.key = DATA_USAGE_ENABLE_MOBILE_KEY;
+                data.title = res.getString(R.string.data_usage_enable_mobile);
+                data.screenTitle = res.getString(R.string.data_usage_summary_title);
+                result.add(data);
+
+                // Set mobile data limit
+                data = new SearchIndexableRaw(context);
+                data.key = DATA_USAGE_DISABLE_MOBILE_LIMIT_KEY;
+                data.title = res.getString(R.string.data_usage_disable_mobile_limit);
+                data.screenTitle = res.getString(R.string.data_usage_summary_title);
+                result.add(data);
+
+                // Data usage cycle
+                data = new SearchIndexableRaw(context);
+                data.key = DATA_USAGE_CYCLE_KEY;
+                data.title = res.getString(R.string.data_usage_cycle);
+                data.screenTitle = res.getString(R.string.data_usage_summary_title);
+                result.add(data);
+
+                return result;
+            }
+        };
+
+    // Utility function for support Mobile data per sub support.
+    // get tab name for a special sub when there are more than one sub.
+    private String getSubTag(int i) {
+        if (i <= 0) {
+            return "";
+       } else {
+            return TAB_SIM + i;
+        }
+    }
+
+    // get title of a special sub when there are more than one sub.
+    private String getSubTitle(int i) {
+        if (i <= 0) {
+            return "";
+        } else {
+            return getText(R.string.data_usage_tab_slot).toString() + i;
+        }
+    }
+
+    // Get current sub from the tab name.
+    private int multiSimGetCurrentSub() {
+        // Findout the current sub
+        for (int i = 0; i < TelephonyManager.getDefault()
+                    .getPhoneCount(); i++) {
+            if (mCurrentTab.equals(getSubTag(i+1))) {
+                return i;
+            }
+        }
+
+        // only as a default support, should not be hit.
+        return 0;
     }
 }

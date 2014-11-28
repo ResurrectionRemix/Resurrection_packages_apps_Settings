@@ -15,18 +15,10 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/storage_settings_title">
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/storage_settings"
+        settings:keywords="@string/keywords_storage">
 
 <!-- Preference categories are dynamically created based on the list of available storage volumes -->
-    <!-- Partition info -->
-
-        <Preference
-            android:icon="@drawable/ic_tab_selected_sdcard"
-            android:title="@string/partition_info_title">
-        <intent
-            android:action="com.android.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.PartitionInfo" />
-        </Preference>
 
 </PreferenceScreen>

@@ -19,17 +19,19 @@ package com.android.settings;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.PasswordEntryKeyboardHelper;
 import com.android.internal.widget.PasswordEntryKeyboardView;
-import com.android.settings.ChooseLockGeneric.ChooseLockGenericFragment;
+import com.android.settings.notification.RedactionInterstitial;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.admin.DevicePolicyManager;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceActivity;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
@@ -41,13 +43,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.view.accessibility.AccessibilityEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-public class ChooseLockPassword extends PreferenceActivity {
+public class ChooseLockPassword extends SettingsActivity {
     public static final String PASSWORD_MIN_KEY = "lockscreen.password_min";
     public static final String PASSWORD_MAX_KEY = "lockscreen.password_max";
     public static final String PASSWORD_MIN_LETTERS_KEY = "lockscreen.password_min_letters";
@@ -61,8 +62,20 @@ public class ChooseLockPassword extends PreferenceActivity {
     public Intent getIntent() {
         Intent modIntent = new Intent(super.getIntent());
         modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ChooseLockPasswordFragment.class.getName());
-        modIntent.putExtra(EXTRA_NO_HEADERS, true);
         return modIntent;
+    }
+
+    public static Intent createIntent(Context context, int quality, final boolean isFallback,
+            int minLength, final int maxLength, boolean requirePasswordToDecrypt,
+            boolean confirmCredentials) {
+        Intent intent = new Intent().setClass(context, ChooseLockPassword.class);
+        intent.putExtra(LockPatternUtils.PASSWORD_TYPE_KEY, quality);
+        intent.putExtra(PASSWORD_MIN_KEY, minLength);
+        intent.putExtra(PASSWORD_MAX_KEY, maxLength);
+        intent.putExtra(ChooseLockGeneric.CONFIRM_CREDENTIALS, confirmCredentials);
+        intent.putExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, isFallback);
+        intent.putExtra(EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, requirePasswordToDecrypt);
+        return intent;
     }
 
     @Override
@@ -79,7 +92,7 @@ public class ChooseLockPassword extends PreferenceActivity {
                 //WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         super.onCreate(savedInstanceState);
         CharSequence msg = getText(R.string.lockpassword_choose_your_password_header);
-        showBreadCrumbs(msg, msg);
+        setTitle(msg);
     }
 
     public static class ChooseLockPasswordFragment extends Fragment
@@ -99,6 +112,7 @@ public class ChooseLockPassword extends PreferenceActivity {
         private int mRequestedQuality = DevicePolicyManager.PASSWORD_QUALITY_NUMERIC;
         private ChooseLockSettingsHelper mChooseLockSettingsHelper;
         private Stage mUiStage = Stage.Introduction;
+        private boolean mDone = false;
         private TextView mHeaderText;
         private String mFirstPin;
         private KeyboardView mKeyboardView;
@@ -137,9 +151,6 @@ public class ChooseLockPassword extends PreferenceActivity {
                     R.string.lockpassword_confirm_pins_dont_match,
                     R.string.lockpassword_continue_label);
 
-            /**
-             * @param headerMessage The message displayed at the top.
-             */
             Stage(int hintInAlpha, int hintInNumeric, int nextButtonText) {
                 this.alphaHint = hintInAlpha;
                 this.numericHint = hintInNumeric;
@@ -235,13 +246,13 @@ public class ChooseLockPassword extends PreferenceActivity {
                     updateStage(mUiStage);
                 }
             }
-            // Update the breadcrumb (title) if this is embedded in a PreferenceActivity
-            if (activity instanceof PreferenceActivity) {
-                final PreferenceActivity preferenceActivity = (PreferenceActivity) activity;
+            mDone = false;
+            if (activity instanceof SettingsActivity) {
+                final SettingsActivity sa = (SettingsActivity) activity;
                 int id = mIsAlphaMode ? R.string.lockpassword_choose_your_password_header
                         : R.string.lockpassword_choose_your_pin_header;
                 CharSequence title = getText(id);
-                preferenceActivity.showBreadCrumbs(title, title);
+                sa.setTitle(title);
             }
 
             return view;
@@ -337,10 +348,18 @@ public class ChooseLockPassword extends PreferenceActivity {
                 }
             }
             if (DevicePolicyManager.PASSWORD_QUALITY_NUMERIC == mRequestedQuality
-                    && (letters > 0 || symbols > 0)) {
-                // This shouldn't be possible unless user finds some way to bring up
-                // soft keyboard
-                return getString(R.string.lockpassword_pin_contains_non_digits);
+                    || DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX == mRequestedQuality) {
+                if (letters > 0 || symbols > 0) {
+                    // This shouldn't be possible unless user finds some way to bring up
+                    // soft keyboard
+                    return getString(R.string.lockpassword_pin_contains_non_digits);
+                }
+                // Check for repeated characters or sequences (e.g. '1234', '0000', '2468')
+                final int sequence = LockPatternUtils.maxLengthSequence(password);
+                if (DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX == mRequestedQuality
+                        && sequence > LockPatternUtils.MAX_ALLOWED_SEQUENCE) {
+                    return getString(R.string.lockpassword_pin_no_sequential_digits);
+                }
             } else if (DevicePolicyManager.PASSWORD_QUALITY_COMPLEX == mRequestedQuality) {
                 if (letters < mPasswordMinLetters) {
                     return String.format(getResources().getQuantityString(
@@ -383,10 +402,13 @@ public class ChooseLockPassword extends PreferenceActivity {
                 return getString(mIsAlphaMode ? R.string.lockpassword_password_recently_used
                         : R.string.lockpassword_pin_recently_used);
             }
+
             return null;
         }
 
         private void handleNext() {
+            if (mDone) return;
+
             final String pin = mPasswordEntry.getText().toString();
             if (TextUtils.isEmpty(pin)) {
                 return;
@@ -404,9 +426,14 @@ public class ChooseLockPassword extends PreferenceActivity {
                     final boolean isFallback = getActivity().getIntent().getBooleanExtra(
                             LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, false);
                     mLockPatternUtils.clearLock(isFallback);
+                    final boolean required = getActivity().getIntent().getBooleanExtra(
+                            EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, true);
+                    mLockPatternUtils.setCredentialRequiredToDecrypt(required);
                     mLockPatternUtils.saveLockPassword(pin, mRequestedQuality, isFallback);
                     getActivity().setResult(RESULT_FINISHED);
                     getActivity().finish();
+                    mDone = true;
+                    startActivity(RedactionInterstitial.createStartIntent(getActivity()));
                 } else {
                     CharSequence tmp = mPasswordEntry.getText();
                     if (tmp != null) {

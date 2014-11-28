@@ -16,22 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/development_settings_title">
-        
-        <CheckBoxPreference
-            android:key="kill_app_longpress_back"
-            android:title="@string/kill_app_longpress_back"
-            android:summary="@string/kill_app_longpress_back_summary"
-            android:persistent="true"/>
-            
-        <ListPreference
-            android:key="kill_app_longpress_timeout"
-            android:title="@string/kill_app_longpress_timeout_title"
-            android:persistent="false"
-            android:entries="@array/kill_app_longpress_timeout_entries"
-            android:entryValues="@array/kill_app_longpress_timeout_values"
-            android:defaultValue="1500"
-            android:dependency="kill_app_longpress_back" />
-                        
+
     <PreferenceScreen
             android:key="development_tools"
             android:title="@string/development_tools_title"
@@ -80,11 +65,21 @@
         android:title="@string/bt_hci_snoop_log"
         android:summary="@string/bt_hci_snoop_log_summary"/>
 
+    <CheckBoxPreference
+        android:key="oem_unlock_enable"
+        android:title="@string/oem_unlock_enable"
+        android:summary="@string/oem_unlock_enable_summary"/>
+
     <PreferenceScreen android:key="proc_stats"
             android:title="@string/process_stats_summary_title"
             android:summary="@string/process_stats_summary"
             android:fragment="com.android.settings.applications.ProcessStatsUi">
     </PreferenceScreen>
+
+    <CheckBoxPreference
+        android:key="enable_quickboot"
+        android:title="@string/enable_quickboot_title"
+        android:summary="@string/enable_quickboot_summary" />
 
     <ListPreference
         android:key="root_access"
@@ -93,16 +88,6 @@
         android:entries="@array/root_access_entries"
         android:entryValues="@array/root_access_values" />
 
-    <CheckBoxPreference
-        android:key="enable_quickboot"
-        android:title="@string/enable_quickboot_title"
-        android:summary="@string/enable_quickboot_summary" />
-
-    <CheckBoxPreference
-        android:key="update_recovery"
-        android:title="@string/update_recovery_title"
-        android:summary="@string/update_recovery_summary" />
-
     <PreferenceCategory android:key="debug_debugging_category"
             android:title="@string/debug_debugging_category">
 
@@ -110,6 +95,15 @@
             android:key="enable_adb"
             android:title="@string/enable_adb"
             android:summary="@string/enable_adb_summary"/>
+
+        <CheckBoxPreference
+            android:key="adb_notify"
+            android:title="@string/adb_notify"
+            android:summary="@string/adb_notify_summary"
+            android:dependency="enable_adb"/>
+
+        <Preference android:key="clear_adb_keys"
+                android:title="@string/clear_adb_keys" />
 
         <com.android.settings.HostnamePreference
             android:key="device_hostname"
@@ -121,21 +115,6 @@
             android:imeOptions="actionDone"
             android:inputType="textNoSuggestions"
             android:persistent="false" />
-
-        <CheckBoxPreference
-            android:key="adb_notify"
-            android:title="@string/adb_notify"
-            android:summary="@string/adb_notify_summary"
-            android:dependency="enable_adb"/>
-
-        <CheckBoxPreference
-            android:key="adb_over_network"
-            android:title="@string/adb_over_network"
-            android:summary="@string/adb_over_network_summary"
-            android:dependency="enable_adb"/>
-
-        <Preference android:key="clear_adb_keys"
-                android:title="@string/clear_adb_keys" />
 
         <CheckBoxPreference
             android:key="enable_terminal"
@@ -153,16 +132,11 @@
             android:summary="@string/allow_mock_location_summary"/>
 
         <CheckBoxPreference
-            android:key="allow_mock_sms"
-            android:title="@string/allow_mock_sms"/>
-
-        <CheckBoxPreference
-            android:key="development_shortcut"
-            android:title="@string/development_shortcut_title"
-            android:summary="@string/development_shortcut_summary" />
+                android:key="debug_view_attributes"
+                android:title="@string/debug_view_attributes" />
 
         <PreferenceScreen android:key="debug_app"
-            android:title="@string/debug_app" />
+                android:title="@string/debug_app" />
 
         <CheckBoxPreference
             android:key="wait_for_debugger"
@@ -178,6 +152,29 @@
             android:key="wifi_display_certification"
             android:title="@string/wifi_display_certification"
             android:summary="@string/wifi_display_certification_summary"/>
+
+        <CheckBoxPreference
+            android:key="wifi_verbose_logging"
+            android:title="@string/wifi_verbose_logging"
+            android:summary="@string/wifi_verbose_logging_summary"/>
+
+        <CheckBoxPreference
+            android:key="wifi_aggressive_handover"
+            android:title="@string/wifi_aggressive_handover"
+            android:summary="@string/wifi_aggressive_handover_summary"/>
+
+        <CheckBoxPreference
+            android:key="wifi_allow_scan_with_traffic"
+            android:title="@string/wifi_allow_scan_with_traffic"
+            android:summary="@string/wifi_allow_scan_with_traffic_summary"/>
+
+        <ListPreference
+            android:key="select_logd_size"
+            android:title="@string/select_logd_size_title"
+            android:dialogTitle="@string/select_logd_size_dialog_title"
+            android:entries="@array/select_logd_size_titles"
+            android:entryValues="@array/select_logd_size_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:key="debug_input_category"
@@ -192,12 +189,6 @@
             android:key="pointer_location"
             android:title="@string/pointer_location"
             android:summary="@string/pointer_location_summary"/>
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-            android:key="edge_service_for_gestures"
-            android:title="@string/edge_gesture_service_title"
-            android:summary="@string/edge_gesture_service_summary"
-            android:defaultValue="1"/>
 
     </PreferenceCategory>
 
@@ -291,6 +282,29 @@
                 android:title="@string/disable_overlays"
                 android:summary="@string/disable_overlays_summary"/>
 
+        <ListPreference
+                android:entries="@array/simulate_color_space_entries"
+                android:entryValues="@array/simulate_color_space_values"
+                android:key="simulate_color_space"
+                android:persistent="false"
+                android:summary="%s"
+                android:title="@string/simulate_color_space" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="media_category"
+            android:title="@string/media_category">
+
+        <CheckBoxPreference
+                android:key="use_nuplayer"
+                android:title="@string/use_nuplayer"
+                android:summary="@string/use_nuplayer_summary"/>
+
+        <CheckBoxPreference
+                android:key="usb_audio"
+                android:title="@string/usb_audio_disable_routing"
+                android:summary="@string/usb_audio_disable_routing_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:key="debug_monitoring_category"
@@ -305,11 +319,6 @@
             android:key="show_cpu_usage"
             android:title="@string/show_cpu_usage"
             android:summary="@string/show_cpu_usage_summary"/>
-
-        <CheckBoxPreference
-            android:key="show_cpu_info"
-            android:title="@string/show_cpu_info"
-            android:summary="@string/show_cpu_info_summary"/>
 
         <ListPreference
             android:key="track_frame_time"
@@ -336,13 +345,6 @@
             android:summary="@string/immediately_destroy_activities_summary"/>
 
         <ListPreference
-            android:key="select_runtime"
-            android:title="@string/select_runtime_title"
-            android:dialogTitle="@string/select_runtime_dialog_title"
-            android:entries="@array/select_runtime_titles"
-            android:entryValues="@array/select_runtime_values" />
-
-        <ListPreference
             android:key="app_process_limit"
             android:title="@string/app_process_limit_title"
             android:persistent="false"
@@ -353,13 +355,12 @@
             android:key="show_all_anrs"
             android:title="@string/show_all_anrs"
             android:summary="@string/show_all_anrs_summary"/>
-            
-        <!-- Allow disabling of FC dialogs -->
-        <CheckBoxPreference
-            android:key="disable_fc_notifications"
-            android:title="@string/disable_fc_notifications_title"
-            android:summary="@string/disable_fc_notifications_summary" /> 
 
-    </PreferenceCategory>
+        <CheckBoxPreference
+            android:key="kill_app_longpress_back"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"/>
+
+     </PreferenceCategory>
 
 </PreferenceScreen>

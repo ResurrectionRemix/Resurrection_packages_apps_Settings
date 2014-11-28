@@ -31,6 +31,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.UserHandle;
+import android.os.UserManager;
+import android.os.Process;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
@@ -40,6 +43,7 @@ import android.print.PrintJobInfo;
 import android.print.PrintManager;
 import android.print.PrintManager.PrintJobStateChangeListener;
 import android.printservice.PrintServiceInfo;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
@@ -49,24 +53,32 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.android.internal.content.PackageMonitor;
+import com.android.settings.UserSpinnerAdapter;
+import com.android.settings.UserSpinnerAdapter.UserDetails;
 import com.android.settings.DialogCreatable;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.search.SearchIndexableRaw;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Spinner;
+
 /**
  * Fragment with the top level print settings.
  */
-public class PrintSettingsFragment extends SettingsPreferenceFragment implements DialogCreatable {
-
-    static final char ENABLED_PRINT_SERVICES_SEPARATOR = ':';
+public class PrintSettingsFragment extends SettingsPreferenceFragment
+        implements DialogCreatable, Indexable, OnItemSelectedListener {
 
     private static final int LOADER_ID_PRINT_JOBS_LOADER = 1;
 
@@ -111,6 +123,7 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
     private PreferenceCategory mPrintServicesCategory;
 
     private PrintJobsController mPrintJobsController;
+    private UserSpinnerAdapter mProfileSpinnerAdapter;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -119,7 +132,7 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
 
         mActivePrintJobsCategory = (PreferenceCategory) findPreference(
                 PRINT_JOBS_CATEGORY);
-        mPrintServicesCategory= (PreferenceCategory) findPreference(
+        mPrintServicesCategory = (PreferenceCategory) findPreference(
                 PRINT_SERVICES_CATEGORY);
         getPreferenceScreen().removePreference(mActivePrintJobsCategory);
 
@@ -152,8 +165,8 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
                 Settings.Secure.PRINT_SERVICE_SEARCH_URI);
         if (!TextUtils.isEmpty(searchUri)) {
             MenuItem menuItem = menu.add(R.string.print_menu_item_add_service);
-            menuItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-            menuItem.setIntent(new Intent(Intent.ACTION_VIEW,Uri.parse(searchUri)));
+            menuItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_NEVER);
+            menuItem.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(searchUri)));
         }
     }
 
@@ -162,11 +175,21 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
         super.onViewCreated(view, savedInstanceState);
         ViewGroup contentRoot = (ViewGroup) getListView().getParent();
         View emptyView = getActivity().getLayoutInflater().inflate(
-                    R.layout.empty_print_state, contentRoot, false);
+                R.layout.empty_print_state, contentRoot, false);
         TextView textView = (TextView) emptyView.findViewById(R.id.message);
         textView.setText(R.string.print_no_services_installed);
         contentRoot.addView(emptyView);
         getListView().setEmptyView(emptyView);
+
+        final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
+        mProfileSpinnerAdapter = Utils.createUserSpinnerAdapter(um, getActivity());
+        if (mProfileSpinnerAdapter != null) {
+            Spinner spinner = (Spinner) getActivity().getLayoutInflater().inflate(
+                    R.layout.spinner_view, null);
+            spinner.setAdapter(mProfileSpinnerAdapter);
+            spinner.setOnItemSelectedListener(this);
+            setPinnedHeaderView(spinner);
+        }
     }
 
     private void updateServicesPreferences() {
@@ -178,7 +201,7 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
             mPrintServicesCategory.removeAll();
         }
 
-        List<ComponentName> enabledServices = SettingsUtils
+        List<ComponentName> enabledServices = PrintSettingsUtils
                 .readEnabledPrintServices(getActivity());
 
         List<ResolveInfo> installedServices = getActivity().getPackageManager()
@@ -269,10 +292,26 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
         }
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        UserHandle selectedUser = mProfileSpinnerAdapter.getUserHandle(position);
+        if (selectedUser.getIdentifier() != UserHandle.myUserId()) {
+            Intent intent = new Intent(Settings.ACTION_PRINT_SETTINGS);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            getActivity().startActivityAsUser(intent, selectedUser);
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Nothing to do
+    }
+
     private class SettingsPackageMonitor extends PackageMonitor {
         @Override
         public void onPackageAdded(String packageName, int uid) {
-           mHandler.obtainMessage().sendToTarget();
+            mHandler.obtainMessage().sendToTarget();
         }
 
         @Override
@@ -288,36 +327,6 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
         @Override
         public void onPackageRemoved(String packageName, int uid) {
             mHandler.obtainMessage().sendToTarget();
-        }
-    }
-
-    public static class ToggleSwitch extends Switch {
-
-        private OnBeforeCheckedChangeListener mOnBeforeListener;
-
-        public static interface OnBeforeCheckedChangeListener {
-            public boolean onBeforeCheckedChanged(ToggleSwitch toggleSwitch, boolean checked);
-        }
-
-        public ToggleSwitch(Context context) {
-            super(context);
-        }
-
-        public void setOnBeforeCheckedChangeListener(OnBeforeCheckedChangeListener listener) {
-            mOnBeforeListener = listener;
-        }
-
-        @Override
-        public void setChecked(boolean checked) {
-            if (mOnBeforeListener != null
-                    && mOnBeforeListener.onBeforeCheckedChanged(this, checked)) {
-                return;
-            }
-            super.setChecked(checked);
-        }
-
-        public void setCheckedInternal(boolean checked) {
-            super.setChecked(checked);
         }
     }
 
@@ -414,12 +423,12 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
                     switch (printJob.getState()) {
                         case PrintJobInfo.STATE_QUEUED:
                         case PrintJobInfo.STATE_STARTED: {
-                            preference.setIcon(com.android.internal.R.drawable.ic_print);
+                            preference.setIcon(R.drawable.ic_print);
                         } break;
 
                         case PrintJobInfo.STATE_FAILED:
                         case PrintJobInfo.STATE_BLOCKED: {
-                            preference.setIcon(com.android.internal.R.drawable.ic_print_error);
+                            preference.setIcon(R.drawable.ic_print_error);
                         } break;
                     }
 
@@ -443,7 +452,7 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
 
         private static final boolean DEBUG = false;
 
-        private List <PrintJobInfo> mPrintJobs = new ArrayList<PrintJobInfo>();
+        private List<PrintJobInfo> mPrintJobs = new ArrayList<PrintJobInfo>();
 
         private final PrintManager mPrintManager;
 
@@ -453,7 +462,7 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
             super(context);
             mPrintManager = ((PrintManager) context.getSystemService(
                     Context.PRINT_SERVICE)).getGlobalPrintManagerForUser(
-                            ActivityManager.getCurrentUser());
+                        ActivityManager.getCurrentUser());
         }
 
         @Override
@@ -544,4 +553,53 @@ public class PrintSettingsFragment extends SettingsPreferenceFragment implements
             return false;
         }
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+        @Override
+        public List<SearchIndexableRaw> getRawDataToIndex(Context context, boolean enabled) {
+            List<SearchIndexableRaw> indexables = new ArrayList<SearchIndexableRaw>();
+
+            PackageManager packageManager = context.getPackageManager();
+            PrintManager printManager = (PrintManager) context.getSystemService(
+                    Context.PRINT_SERVICE);
+
+            String screenTitle = context.getResources().getString(R.string.print_settings);
+            SearchIndexableRaw data = new SearchIndexableRaw(context);
+            data.title = screenTitle;
+            data.screenTitle = screenTitle;
+            indexables.add(data);
+
+            // Indexing all services, regardless if enabled.
+            List<PrintServiceInfo> services = printManager.getInstalledPrintServices();
+            final int serviceCount = services.size();
+            for (int i = 0; i < serviceCount; i++) {
+                PrintServiceInfo service = services.get(i);
+
+                ComponentName componentName = new ComponentName(
+                        service.getResolveInfo().serviceInfo.packageName,
+                        service.getResolveInfo().serviceInfo.name);
+
+                data = new SearchIndexableRaw(context);
+                data.key = componentName.flattenToString();
+                data.title = service.getResolveInfo().loadLabel(packageManager).toString();
+                data.summaryOn = context.getString(R.string.print_feature_state_on);
+                data.summaryOff = context.getString(R.string.print_feature_state_off);
+                data.screenTitle = screenTitle;
+                indexables.add(data);
+            }
+
+            return indexables;
+        }
+
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            List<SearchIndexableResource> indexables = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource indexable = new SearchIndexableResource(context);
+            indexable.xmlResId = R.xml.print_settings;
+            indexables.add(indexable);
+            return indexables;
+        }
+    };
 }

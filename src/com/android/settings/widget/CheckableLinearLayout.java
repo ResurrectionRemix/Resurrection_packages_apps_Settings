@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.widget.CheckBox;
 import android.widget.Checkable;
 import android.widget.LinearLayout;
-
 import com.android.settings.R;
 
 /*

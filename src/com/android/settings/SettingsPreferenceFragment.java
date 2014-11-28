@@ -16,27 +16,32 @@
 
 package com.android.settings;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.Uri;
+import android.database.DataSetObserver;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroupAdapter;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 /**
  * Base class for Settings fragments, with some helper functions and dialog management.
@@ -46,27 +51,44 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     private static final String TAG = "SettingsPreferenceFragment";
 
     private static final int MENU_HELP = Menu.FIRST + 100;
+    private static final int DELAY_HIGHLIGHT_DURATION_MILLIS = 600;
+
+    private static final String SAVE_HIGHLIGHTED_KEY = "android:preference_highlighted";
 
     private SettingsDialogFragment mDialogFragment;
 
     private String mHelpUrl;
 
-    protected Context mContext;
-
-    // Need to use AOKP Custom system animation
-    protected ContentResolver mContentRes;
-
     // Cache the content resolver for async callbacks
     private ContentResolver mContentResolver;
+
+    private String mPreferenceKey;
+    private boolean mPreferenceHighlighted = false;
+    private Drawable mHighlightDrawable;
+
+    private ListAdapter mCurrentRootAdapter;
+    private boolean mIsDataSetObserverRegistered = false;
+    private DataSetObserver mDataSetObserver = new DataSetObserver() {
+        @Override
+        public void onChanged() {
+            highlightPreferenceIfNeeded();
+        }
+
+        @Override
+        public void onInvalidated() {
+            highlightPreferenceIfNeeded();
+        }
+    };
+
+    private ViewGroup mPinnedHeaderFrameLayout;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        mContext = getActivity().getApplicationContext();
-
-        // Need to use AOKP Custom system animation
-        mContentRes = getActivity().getContentResolver();
+        if (icicle != null) {
+            mPreferenceHighlighted = icicle.getBoolean(SAVE_HIGHLIGHTED_KEY);
+        }
 
         // Prepare help url and enable menu if necessary
         int helpResource = getHelpResource();
@@ -76,11 +98,167 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        final View root = super.onCreateView(inflater, container, savedInstanceState);
+        mPinnedHeaderFrameLayout = (ViewGroup) root.findViewById(R.id.pinned_header);
+        return root;
+    }
+
+    public void setPinnedHeaderView(View pinnedHeader) {
+        mPinnedHeaderFrameLayout.addView(pinnedHeader);
+        mPinnedHeaderFrameLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void clearPinnedHeaderView() {
+        mPinnedHeaderFrameLayout.removeAllViews();
+        mPinnedHeaderFrameLayout.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(SAVE_HIGHLIGHTED_KEY, mPreferenceHighlighted);
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (!TextUtils.isEmpty(mHelpUrl)) {
             setHasOptionsMenu(true);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        final Bundle args = getArguments();
+        if (args != null) {
+            mPreferenceKey = args.getString(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY);
+            highlightPreferenceIfNeeded();
+        }
+    }
+
+    @Override
+    protected void onBindPreferences() {
+        registerObserverIfNeeded();
+    }
+
+    @Override
+    protected void onUnbindPreferences() {
+        unregisterObserverIfNeeded();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        unregisterObserverIfNeeded();
+    }
+
+    public void registerObserverIfNeeded() {
+        if (!mIsDataSetObserverRegistered) {
+            if (mCurrentRootAdapter != null) {
+                mCurrentRootAdapter.unregisterDataSetObserver(mDataSetObserver);
+            }
+            mCurrentRootAdapter = getPreferenceScreen().getRootAdapter();
+            mCurrentRootAdapter.registerDataSetObserver(mDataSetObserver);
+            mIsDataSetObserverRegistered = true;
+        }
+    }
+
+    public void unregisterObserverIfNeeded() {
+        if (mIsDataSetObserverRegistered) {
+            if (mCurrentRootAdapter != null) {
+                mCurrentRootAdapter.unregisterDataSetObserver(mDataSetObserver);
+                mCurrentRootAdapter = null;
+            }
+            mIsDataSetObserverRegistered = false;
+        }
+    }
+
+    public void highlightPreferenceIfNeeded() {
+        if (isAdded() && !mPreferenceHighlighted &&!TextUtils.isEmpty(mPreferenceKey)) {
+            highlightPreference(mPreferenceKey);
+        }
+    }
+
+    private Drawable getHighlightDrawable() {
+        if (mHighlightDrawable == null) {
+            mHighlightDrawable = getActivity().getDrawable(R.drawable.preference_highlight);
+        }
+        return mHighlightDrawable;
+    }
+
+    /**
+     * Return a valid ListView position or -1 if none is found
+     */
+    private int canUseListViewForHighLighting(String key) {
+        if (!hasListView()) {
+            return -1;
+        }
+
+        ListView listView = getListView();
+        ListAdapter adapter = listView.getAdapter();
+
+        if (adapter != null && adapter instanceof PreferenceGroupAdapter) {
+            return findListPositionFromKey(adapter, key);
+        }
+
+        return -1;
+    }
+
+    private void highlightPreference(String key) {
+        final Drawable highlight = getHighlightDrawable();
+
+        final int position = canUseListViewForHighLighting(key);
+        if (position >= 0) {
+            mPreferenceHighlighted = true;
+
+            final ListView listView = getListView();
+            final ListAdapter adapter = listView.getAdapter();
+
+            ((PreferenceGroupAdapter) adapter).setHighlightedDrawable(highlight);
+            ((PreferenceGroupAdapter) adapter).setHighlighted(position);
+
+            listView.post(new Runnable() {
+                @Override
+                public void run() {
+                    listView.setSelection(position);
+                    listView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            final int index = position - listView.getFirstVisiblePosition();
+                            if (index >= 0 && index < listView.getChildCount()) {
+                                final View v = listView.getChildAt(index);
+                                final int centerX = v.getWidth() / 2;
+                                final int centerY = v.getHeight() / 2;
+                                highlight.setHotspot(centerX, centerY);
+                                v.setPressed(true);
+                                v.setPressed(false);
+                            }
+                        }
+                    }, DELAY_HIGHLIGHT_DURATION_MILLIS);
+                }
+            });
+        }
+    }
+
+    private int findListPositionFromKey(ListAdapter adapter, String key) {
+        final int count = adapter.getCount();
+        for (int n = 0; n < count; n++) {
+            final Object item = adapter.getItem(n);
+            if (item instanceof Preference) {
+                Preference preference = (Preference) item;
+                final String preferenceKey = preference.getKey();
+                if (preferenceKey != null && preferenceKey.equals(key)) {
+                    return n;
+                }
+            }
+        }
+        return -1;
     }
 
     protected void removePreference(String key) {
@@ -159,7 +337,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
             Log.e(TAG, "Old dialog fragment not null!");
         }
         mDialogFragment = new SettingsDialogFragment(this, dialogId);
-        mDialogFragment.show(getActivity().getFragmentManager(), Integer.toString(dialogId));
+        mDialogFragment.show(getChildFragmentManager(), Integer.toString(dialogId));
     }
 
     public Dialog onCreateDialog(int dialogId) {
@@ -248,17 +426,18 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             if (savedInstanceState != null) {
                 mDialogId = savedInstanceState.getInt(KEY_DIALOG_ID, 0);
+                mParentFragment = getParentFragment();
                 int mParentFragmentId = savedInstanceState.getInt(KEY_PARENT_FRAGMENT_ID, -1);
-                if (mParentFragmentId > -1) {
+                if (mParentFragment == null) {
                     mParentFragment = getFragmentManager().findFragmentById(mParentFragmentId);
-                    if (!(mParentFragment instanceof DialogCreatable)) {
-                        throw new IllegalArgumentException(
-                                (mParentFragment != null
-                                        ? mParentFragment.getClass().getName()
-                                        : mParentFragmentId)
-                                + " must implement "
-                                + DialogCreatable.class.getName());
-                    }
+                }
+                if (!(mParentFragment instanceof DialogCreatable)) {
+                    throw new IllegalArgumentException(
+                            (mParentFragment != null
+                                    ? mParentFragment.getClass().getName()
+                                    : mParentFragmentId)
+                                    + " must implement "
+                                    + DialogCreatable.class.getName());
                 }
                 // This dialog fragment could be created from non-SettingsPreferenceFragment
                 if (mParentFragment instanceof SettingsPreferenceFragment) {
@@ -315,24 +494,23 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         getActivity().onBackPressed();
     }
 
-    public boolean startFragment(
-            Fragment caller, String fragmentClass, int requestCode, Bundle extras) {
-        if (getActivity() instanceof PreferenceActivity) {
-            PreferenceActivity preferenceActivity = (PreferenceActivity)getActivity();
-            preferenceActivity.startPreferencePanel(fragmentClass, extras,
-                    R.string.lock_settings_picker_title, null, caller, requestCode);
+    public boolean startFragment(Fragment caller, String fragmentClass, int titleRes,
+            int requestCode, Bundle extras) {
+        final Activity activity = getActivity();
+        if (activity instanceof SettingsActivity) {
+            SettingsActivity sa = (SettingsActivity) activity;
+            sa.startPreferencePanel(fragmentClass, extras, titleRes, null, caller, requestCode);
+            return true;
+        } else if (activity instanceof PreferenceActivity) {
+            PreferenceActivity sa = (PreferenceActivity) activity;
+            sa.startPreferencePanel(fragmentClass, extras, titleRes, null, caller, requestCode);
             return true;
         } else {
-            Log.w(TAG, "Parent isn't PreferenceActivity, thus there's no way to launch the "
-                    + "given Fragment (name: " + fragmentClass + ", requestCode: " + requestCode
-                    + ")");
+            Log.w(TAG,
+                    "Parent isn't SettingsActivity nor PreferenceActivity, thus there's no way to "
+                    + "launch the given Fragment (name: " + fragmentClass
+                    + ", requestCode: " + requestCode + ")");
             return false;
         }
     }
-
-    // Need to AOKP Custom system animation
-    public void setTitle(int resId) {
-        getActivity().setTitle(resId);
-    }
-
 }

@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Mindig"</item>
     <item msgid="844721238536786870">"Csak ha töltőn van"</item>
-    <item msgid="2990218920631468642">"Soha (növeli az adatforgalmat)"</item>
+    <item msgid="1986753720941888596">"Soha"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Mindig"</item>
     <item msgid="7433294150916905997">"Csak ha töltőn van"</item>
     <item msgid="1390404486722375028">"Soha"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"Legutóbbi 30 nap"</item>
+    <item msgid="6600989128423965319">"Ciklus beállítása…"</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"Utolsó négy számjegy"</item>
+    <item msgid="7841762954785375718">"Első négy számjegy"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Automatikus"</item>
+    <item msgid="1013988753804838790">"Automatikus"</item>
     <item msgid="6670588712989942178">"Csak 5 GHz"</item>
     <item msgid="2715516524973207876">"Csak 2,4 GHz"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Használat ideje"</item>
-    <item msgid="3703676222230317933">"Elindítások száma"</item>
+    <item msgid="4796160515314745154">"Utoljára használva"</item>
     <item msgid="2502754479975776899">"Alkalmazás neve"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"Nincs"</item>
     <item msgid="8673874894887358090">"Kézi"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Ki"</item>
-    <item msgid="3165868966179561687">"Riasztás"</item>
-    <item msgid="6038758039030476855">"Rezgés"</item>
+    <item msgid="168893341855953140">"Proxy auto. beállítása"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"Nincs"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"ébren tartás"</item>
     <item msgid="26109888160231211">"hely figyelése"</item>
     <item msgid="5753382310468855812">"magas energiaszintű helyek figyelése"</item>
+    <item msgid="3356591542543137332">"használati statisztikák lekérése"</item>
+    <item msgid="3073734345226842233">"mikrofon némítása és a némítás feloldása"</item>
+    <item msgid="1148142988678569310">"médiatartalom kivetítése"</item>
+    <item msgid="9130014005474445273">"VPN aktiválása"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Hely"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"Ébren tartás"</item>
     <item msgid="8584357129746649222">"Tartózkodási hely"</item>
     <item msgid="7669257279311110599">"Tartózkodási hely"</item>
+    <item msgid="3459320345690097795">"Használati statisztikák lekérése"</item>
+    <item msgid="1312534577834048535">"Mikrofon némítása és a némítás feloldása"</item>
+    <item msgid="5906017727368097853">"Médiatartalom kivetítése"</item>
+    <item msgid="2486614710846178542">"VPN aktiválása"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Rövid"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"Alapértelmezett"</item>
     <item msgid="1016452621833735880">"Sans-serif"</item>
     <item msgid="2496277987934654454">"Sans-serif, sűrű betűköz"</item>
-    <item msgid="4406003087391086325">"Serif"</item>
-    <item msgid="1558362802170124073">"Monospace"</item>
+    <item msgid="7247838127505318669">"Nem proporcionális sans-serif"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Nem proporcionális serif"</item>
+    <item msgid="639503332147461010">"Általános"</item>
+    <item msgid="7967169925231332424">"Kurzív"</item>
+    <item msgid="561832997193039673">"Kiskapitális"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"Nagyon kicsi"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"Nagyon nagy"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"Semelyik"</item>
-    <item msgid="1352974708028506778">"Vázlat"</item>
-    <item msgid="5850876295428722675">"Árnyékolás"</item>
+    <item msgid="4733815704128258753">"Alapértelmezett"</item>
+    <item msgid="3217099060748617005">"Nincs"</item>
+    <item msgid="7467615139904599420">"Körvonal"</item>
+    <item msgid="5623165557468608975">"Árnyékolás"</item>
+    <item msgid="8088451174058214588">"Emelt"</item>
+    <item msgid="3821418743395480313">"Nyomott"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25%"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"Fekete alapon fehér"</item>
-    <item msgid="4589278788192525675">"Fehér alapon fekete"</item>
-    <item msgid="1309255027325660115">"Fekete alapon sárga"</item>
-    <item msgid="2985943780939258562">"Kék alapon sárga"</item>
-    <item msgid="7520438652121629055">"Egyéni"</item>
+    <item msgid="7009918361545506251">"Alapbeállítások használata"</item>
+    <item msgid="1770533843436933500">"Fekete alapon fehér"</item>
+    <item msgid="758587126802411846">"Fehér alapon fekete"</item>
+    <item msgid="1495307195241623402">"Fekete alapon sárga"</item>
+    <item msgid="6039700130994371612">"Kék alapon sárga"</item>
+    <item msgid="7169235156349580064">"Egyedi"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (hibakeresési)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64 KB"</item>
+    <item msgid="505611754508988476">"256 KB"</item>
+    <item msgid="6361286924268716397">"1 MB"</item>
+    <item msgid="6405203239560695266">"4 MB"</item>
+    <item msgid="3025431211013424097">"16 MB"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"A Dalvik használata"</item>
-    <item msgid="5131846588686178907">"Az ART használata"</item>
-    <item msgid="4530003713865319928">"Az ART hibakeresési verziójának használata"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64 KB"</item>
+    <item msgid="3534782711045262344">"256 KB"</item>
+    <item msgid="8085867209202153403">"1 MB"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"64 KB/naplópuffer"</item>
+    <item msgid="2822309747675758628">"256 KB/naplópuffer"</item>
+    <item msgid="6699306198357496731">"1 MB/naplópuffer"</item>
+    <item msgid="5748528643937500349">"4 MB/naplópuffer"</item>
+    <item msgid="1978629051085111592">"16 MB/naplópuffer"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Ellenőrzés soha"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Ki"</item>
     <item msgid="2751513398307949636">"A képernyőn sávként"</item>
-    <item msgid="8272260411216018353">"A képernyőn sorként"</item>
-    <item msgid="120512413928262547">"adb shell dumpsys gfxinfo elemben"</item>
+    <item msgid="1851438178120770973">"adb shell dumpsys gfxinfo elemben"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"Ki"</item>
     <item msgid="7688197031296835369">"Tartalom-felülírási területek mutatása"</item>
     <item msgid="2290859360633824369">"A deuteranomália területeinek megjelenítése"</item>
-    <item msgid="3448087929560624983">"Tartalom-felülírási számláló megjelenítése"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Normál korlátozás"</item>
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"közepes"</item>
     <item msgid="406385694840950802">"alacsony"</item>
     <item msgid="4212263919458209842">"kritikus"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"Ki"</item>
+    <item msgid="5656544177755411222">"Korlátozott megszakítások"</item>
+    <item msgid="8735337502532332056">"Nincs megszakítás"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Normál"</item>
+    <item msgid="866544120205026771">"Mérsékelt"</item>
+    <item msgid="7851902244436886890">"Alacsony"</item>
+    <item msgid="3022922196817563960">"Kritikus"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Állandó"</item>
+    <item msgid="5779398140277006695">"Leggyakoribb tevékenység"</item>
+    <item msgid="1439598363694578255">"Fontos (előtérben)"</item>
+    <item msgid="3396458970745718652">"Fontos (háttérben)"</item>
+    <item msgid="5214825238247511992">"Biztonsági másolat"</item>
+    <item msgid="311372689168254967">"Számottevő"</item>
+    <item msgid="7438189122367820362">"Szolgáltatás (fut)"</item>
+    <item msgid="918687422516982498">"Szolgáltatás (újraindul)"</item>
+    <item msgid="6807727069641853029">"Fogadó"</item>
+    <item msgid="6782857406100845127">"Otthon"</item>
+    <item msgid="2860945127596974299">"Legutóbbi tevékenység"</item>
+    <item msgid="8610560843693675830">"Gyorsítótárazott (tevékenység)"</item>
+    <item msgid="4338089220026248848">"Gyorsítótárazott (tevékenységkliens)"</item>
+    <item msgid="6652164677254579050">"Gyorsítótárazott (üres)"</item>
   </string-array>
 </resources>

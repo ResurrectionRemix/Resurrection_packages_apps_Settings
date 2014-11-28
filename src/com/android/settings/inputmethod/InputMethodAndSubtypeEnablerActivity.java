@@ -15,27 +15,42 @@
  */
 package com.android.settings.inputmethod;
 
-import android.app.Fragment;
+import android.app.ActionBar;
 import android.content.Intent;
-import android.preference.PreferenceActivity;
+import android.os.Bundle;
 
-import com.android.settings.ChooseLockPassword.ChooseLockPasswordFragment;
+import com.android.settings.SettingsActivity;
 
-public class InputMethodAndSubtypeEnablerActivity extends PreferenceActivity {
+public class InputMethodAndSubtypeEnablerActivity extends SettingsActivity {
+    private static final String FRAGMENT_NAME = InputMethodAndSubtypeEnabler.class.getName();
+
+    @Override
+    protected void onCreate(final Bundle savedState) {
+        super.onCreate(savedState);
+        final ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeButtonEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onNavigateUp() {
+        finish();
+        return true;
+    }
+
     @Override
     public Intent getIntent() {
         final Intent modIntent = new Intent(super.getIntent());
         if (!modIntent.hasExtra(EXTRA_SHOW_FRAGMENT)) {
-            modIntent.putExtra(EXTRA_SHOW_FRAGMENT, InputMethodAndSubtypeEnabler.class.getName());
-            modIntent.putExtra(EXTRA_NO_HEADERS, true);
+            modIntent.putExtra(EXTRA_SHOW_FRAGMENT, FRAGMENT_NAME);
         }
         return modIntent;
     }
 
     @Override
     protected boolean isValidFragment(String fragmentName) {
-        if (InputMethodAndSubtypeEnabler.class.getName().equals(fragmentName)) return true;
-        return false;
+        return FRAGMENT_NAME.equals(fragmentName);
     }
-
 }

@@ -29,9 +29,11 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.telephony.SubscriptionManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.internal.telephony.CommandException;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
@@ -104,10 +106,10 @@ public class IccLockSettings extends PreferenceActivity
             AsyncResult ar = (AsyncResult) msg.obj;
             switch (msg.what) {
                 case MSG_ENABLE_ICC_PIN_COMPLETE:
-                    iccLockChanged(ar.exception == null, msg.arg1);
+                    iccLockChanged(ar.exception, msg.arg1);
                     break;
                 case MSG_CHANGE_ICC_PIN_COMPLETE:
-                    iccPinChanged(ar.exception == null, msg.arg1);
+                    iccPinChanged(ar.exception, msg.arg1);
                     break;
                 case MSG_SIM_STATE_CHANGED:
                     updatePreferences();
@@ -122,7 +124,15 @@ public class IccLockSettings extends PreferenceActivity
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
             if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
-                mHandler.sendMessage(mHandler.obtainMessage(MSG_SIM_STATE_CHANGED));
+                if (mPhone.getIccCard().getState().isPinLocked()) {
+                    //Code control lands up here only if user pressed cancel for PIN unlock.
+                    //So disable the pin toggle option as card is in LOCKED state.
+                    mPinToggle.setChecked(true);
+                    mPinToggle.setEnabled(false);
+                } else {
+                    mPinToggle.setEnabled(true);
+                    mHandler.sendMessage(mHandler.obtainMessage(MSG_SIM_STATE_CHANGED));
+                }
             }
         }
     };
@@ -153,7 +163,8 @@ public class IccLockSettings extends PreferenceActivity
 
         mPinDialog = (EditPinPreference) findPreference(PIN_DIALOG);
         mPinToggle = (CheckBoxPreference) findPreference(PIN_TOGGLE);
-        if (savedInstanceState != null && savedInstanceState.containsKey(DIALOG_STATE)) {
+        if (savedInstanceState != null &&
+               savedInstanceState.containsKey(DIALOG_STATE)) {
             mDialogState = savedInstanceState.getInt(DIALOG_STATE);
             mPin = savedInstanceState.getString(DIALOG_PIN);
             mError = savedInstanceState.getString(DIALOG_ERROR);
@@ -182,7 +193,12 @@ public class IccLockSettings extends PreferenceActivity
         // Don't need any changes to be remembered
         getPreferenceScreen().setPersistent(false);
 
-        mPhone = PhoneFactory.getDefaultPhone();
+        Intent intent = getIntent();
+        long subId = intent.getLongExtra(SelectSubscription.SUBSCRIPTION_KEY,
+                SubscriptionManager.getDefaultSubId());
+        // Use the right phone based on the subscription selected.
+        int phoneId = SubscriptionManager.getPhoneId(subId);
+        mPhone = PhoneFactory.getPhone(phoneId);
         mRes = getResources();
         updatePreferences();
     }
@@ -195,9 +211,10 @@ public class IccLockSettings extends PreferenceActivity
     protected void onResume() {
         super.onResume();
 
-        // ACTION_SIM_STATE_CHANGED is sticky, so we'll receive current state after this call,
-        // which will call updatePreferences().
-        final IntentFilter filter = new IntentFilter(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+        // ACTION_SIM_STATE_CHANGED is sticky, so we'll receive current state
+        // after this call, which will call updatePreferences().
+        final IntentFilter filter = new IntentFilter(
+            TelephonyIntents.ACTION_SIM_STATE_CHANGED);
         registerReceiver(mSimStateReceiver, filter);
 
         if (mDialogState != OFF_MODE) {
@@ -223,7 +240,8 @@ public class IccLockSettings extends PreferenceActivity
         // the dialog, store the state of the dialog.
         if (mPinDialog.isDialogOpen()) {
             out.putInt(DIALOG_STATE, mDialogState);
-            out.putString(DIALOG_PIN, mPinDialog.getEditText().getText().toString());
+            out.putString(DIALOG_PIN,
+                mPinDialog.getEditText().getText().toString());
             out.putString(DIALOG_ERROR, mError);
             out.putBoolean(ENABLE_TO_STATE, mToState);
 
@@ -331,7 +349,8 @@ public class IccLockSettings extends PreferenceActivity
         }
     }
 
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+        Preference preference) {
         if (preference == mPinToggle) {
             // Get the new, preferred state
             mToState = mPinToggle.isChecked();
@@ -354,28 +373,77 @@ public class IccLockSettings extends PreferenceActivity
         // Disable the setting till the response is received.
         mPinToggle.setEnabled(false);
     }
+    /**
+     * Handles exceptions encountered when performing operations like
+     * PIN enable/disable, PIN change, etc.
+     * Displays appropriate Toast message depending on the exception
+     */
+    private void handleException(Throwable exception, int requestType,
+        int attemptsRemaining) {
+        if (exception instanceof CommandException) {
+            CommandException.Error err = ((CommandException)
+                (exception)).getCommandError();
+            if (err == CommandException.Error.REQUEST_NOT_SUPPORTED) {
+                int id;
+                if (requestType == MSG_ENABLE_ICC_PIN_COMPLETE) {
+                    id = R.string.sim_enable_disable_lock_not_supported;
+                } else {
+                    id = R.string.sim_pin_change_failed_enable_sim_lock;
+                }
+                Toast.makeText(this, mRes.getString(id),Toast.LENGTH_SHORT).show();
+            } else {
+                 if (requestType == MSG_ENABLE_ICC_PIN_COMPLETE) {
+                     if (mToState) {
+                         displayRetryCounter(
+                             mRes.getString(R.string.sim_pin_enable_failed),
+                             attemptsRemaining);
+                     } else {
+                         displayRetryCounter(
+                             mRes.getString(R.string.sim_pin_disable_failed),
+                             attemptsRemaining);
+                     }
+                 } else {
+                     displayRetryCounter(
+                         mRes.getString(R.string.sim_change_failed),
+                         attemptsRemaining);
+                 }
+            }
+        } else if (exception instanceof RuntimeException) {
+            Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
 
-    private void iccLockChanged(boolean success, int attemptsRemaining) {
-        if (success) {
+
+    private void iccLockChanged(Throwable exception, int attemptsRemaining) {
+        if (exception == null) {
+            if (mToState) {
+                Toast.makeText(this, mRes.getString(R.string.sim_pin_enabled),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, mRes.getString(R.string.sim_pin_disabled),
+                        Toast.LENGTH_SHORT).show();
+            }
             mPinToggle.setChecked(mToState);
         } else {
-            Toast.makeText(this, getPinPasswordErrorMessage(attemptsRemaining), Toast.LENGTH_LONG)
-                    .show();
+            handleException(exception, MSG_ENABLE_ICC_PIN_COMPLETE,
+                attemptsRemaining);
+            Toast.makeText(this, getPinPasswordErrorMessage(attemptsRemaining),
+                    Toast.LENGTH_LONG).show();
         }
         mPinToggle.setEnabled(true);
         resetDialogState();
     }
 
-    private void iccPinChanged(boolean success, int attemptsRemaining) {
-        if (!success) {
+    private void iccPinChanged(Throwable exception, int attemptsRemaining) {
+        if (exception != null) {
+            handleException(exception, MSG_CHANGE_ICC_PIN_COMPLETE,
+                attemptsRemaining);
             Toast.makeText(this, getPinPasswordErrorMessage(attemptsRemaining),
-                    Toast.LENGTH_LONG)
-                    .show();
+                    Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, mRes.getString(R.string.sim_change_succeeded),
                     Toast.LENGTH_SHORT)
                     .show();
-
         }
         resetDialogState();
     }
@@ -392,19 +460,20 @@ public class IccLockSettings extends PreferenceActivity
         if (attemptsRemaining == 0) {
             displayMessage = mRes.getString(R.string.wrong_pin_code_pukked);
         } else if (attemptsRemaining > 0) {
-            displayMessage = mRes
-                    .getQuantityString(R.plurals.wrong_pin_code, attemptsRemaining,
-                            attemptsRemaining);
+            displayMessage = mRes.getQuantityString(
+                R.plurals.wrong_pin_code, attemptsRemaining, attemptsRemaining);
         } else {
             displayMessage = mRes.getString(R.string.pin_failed);
         }
         if (DBG) Log.d(TAG, "getPinPasswordErrorMessage:"
-                + " attemptsRemaining=" + attemptsRemaining + " displayMessage=" + displayMessage);
+                + " attemptsRemaining=" + attemptsRemaining + " displayMessage="
+                + displayMessage);
         return displayMessage;
     }
 
     private boolean reasonablePin(String pin) {
-        if (pin == null || pin.length() < MIN_PIN_LENGTH || pin.length() > MAX_PIN_LENGTH) {
+        if (pin == null || pin.length() < MIN_PIN_LENGTH ||
+               pin.length() > MAX_PIN_LENGTH) {
             return false;
         } else {
             return true;
@@ -417,5 +486,16 @@ public class IccLockSettings extends PreferenceActivity
         mPin = "";
         setDialogValues();
         mDialogState = OFF_MODE;
+    }
+
+    private void displayRetryCounter(String s, int attemptsRemaining) {
+        if (attemptsRemaining >= 0) {
+            String displayMsg = s + mRes.getString(R.string.sim_pin_attempts)
+                + attemptsRemaining;
+            Toast.makeText(this, displayMsg, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, mRes.getString(R.string.sim_lock_failed),
+                Toast.LENGTH_SHORT).show();
+        }
     }
 }

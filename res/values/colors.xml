@@ -18,8 +18,10 @@
     <color name="black">#000</color>
     <color name="red">#F00</color>
 
+    <color name="material_empty_color_light">#FFCED7DB</color>
+
     <color name="memory_used">#F00</color>
-    <color name="memory_avail">#333333</color>
+    <color name="memory_avail">@color/material_empty_color_light</color>
     <color name="memory_apps_usage">#77831A</color>
     <color name="memory_downloads">#476093</color>
     <color name="memory_dcim">#793A7F</color>
@@ -32,21 +34,45 @@
     <color name="crypt_keeper_clock_background">#ff9a9a9a</color>
     <color name="crypt_keeper_clock_foreground">#ff666666</color>
     <color name="crypt_keeper_clock_am_pm">#ff9a9a9a</color>
+    <color name="crypt_keeper_password_background">#70606060</color>
 
     <color name="divider_color">#20ffffff</color>
     <color name="title_color">@android:color/holo_blue_light</color>
     <color name="setup_divider_color_dark">#33ffffff</color>
     <color name="setup_divider_color_light">#33000000</color>
+    <color name="setup_wizard_color_accent_dark">#ff00e4ff</color>
+    <color name="setup_wizard_color_accent_light">#ff00828e</color>
+    <color name="setup_wizard_wifi_color_dark">#ff00e4ff</color>
+    <color name="setup_wizard_wifi_color_light">#ff0096a6</color>
+
+    <color name="wifi_assistant_color_accent">#ff009587</color>
 
     <color name="circle_avatar_frame_color">#ffffffff</color>
     <color name="circle_avatar_frame_shadow_color">#80000000</color>
     <color name="circle_avatar_frame_pressed_color">#ffffffff</color>
 
-    <color name="auto_brightness_preview_background">@android:color/black</color>
-    <color name="auto_brightness_preview_foreground">@android:color/white</color>
-    <color name="auto_brightness_preview_markers">@android:color/holo_blue_light</color>
-    <color name="auto_brightness_preview_grid">#44ffffff</color>
+    <color name="lock_pattern_background">#00000000</color>
+    <color name="lock_pattern_view_regular_color">#ff37474f</color>
+    <color name="lock_pattern_view_success_color">@color/theme_accent</color>
+    <color name="lock_pattern_view_error_color">#fff4511e</color>
 
-    <color name="screencolor_background">#50000000</color>
-    <drawable name="transparent_background">#00000000</drawable>
+    <color name="unlock_pattern_view_regular_color">@android:color/white</color>
+    <color name="unlock_pattern_view_success_color">@color/theme_accent</color>
+    <color name="unlock_pattern_view_error_color">#fff4511e</color>
+
+    <color name="running_processes_system_ram">#ff384248</color>
+    <color name="running_processes_apps_ram">#ff009587</color>
+    <color name="running_processes_free_ram">#ffced7db</color>
+
+    <!-- Palette colors referenced by top-level themes. -->
+    <color name="theme_primary">#ff263238</color>
+    <color name="theme_primary_dark">#ff21272b</color>
+    <color name="theme_accent">#ff009688</color>
+
+    <color name="dashboard_background_color">#ffe1e1e0</color>
+    <color name="switchbar_background_color">#ff37474f</color>
+    <color name="switch_accent_color">#ff7fcac3</color>
+
+    <color name="wifi_divider">#ffe0e0e0</color>
+
 </resources>

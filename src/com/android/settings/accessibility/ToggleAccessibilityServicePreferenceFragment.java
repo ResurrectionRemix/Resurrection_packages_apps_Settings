@@ -17,8 +17,10 @@
 package com.android.settings.accessibility;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -36,8 +38,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.ConfirmDeviceCredentialActivity;
 import com.android.settings.R;
-import com.android.settings.accessibility.ToggleSwitch.OnBeforeCheckedChangeListener;
+import com.android.settings.widget.ToggleSwitch;
+import com.android.settings.widget.ToggleSwitch.OnBeforeCheckedChangeListener;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -50,6 +55,10 @@ public class ToggleAccessibilityServicePreferenceFragment
     private static final int DIALOG_ID_ENABLE_WARNING = 1;
     private static final int DIALOG_ID_DISABLE_WARNING = 2;
 
+    public static final int ACTIVITY_REQUEST_CONFIRM_CREDENTIAL_FOR_WEAKER_ENCRYPTION = 1;
+
+    private LockPatternUtils mLockPatternUtils;
+
     private final SettingsContentObserver mSettingsContentObserver =
             new SettingsContentObserver(new Handler()) {
             @Override
@@ -57,13 +66,19 @@ public class ToggleAccessibilityServicePreferenceFragment
                     String settingValue = Settings.Secure.getString(getContentResolver(),
                             Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
                     final boolean enabled = settingValue.contains(mComponentName.flattenToString());
-                    mToggleSwitch.setCheckedInternal(enabled);
+                    mSwitchBar.setCheckedInternal(enabled);
                 }
             };
 
     private ComponentName mComponentName;
 
     private int mShownDialogId;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mLockPatternUtils = new LockPatternUtils(getActivity());
+    }
 
     @Override
     public void onResume() {
@@ -154,41 +169,42 @@ public class ToggleAccessibilityServicePreferenceFragment
     public Dialog onCreateDialog(int dialogId) {
         switch (dialogId) {
             case DIALOG_ID_ENABLE_WARNING: {
-            mShownDialogId = DIALOG_ID_ENABLE_WARNING;
-            AccessibilityServiceInfo info = getAccessibilityServiceInfo();
-            if (info == null) {
-                return null;
+                mShownDialogId = DIALOG_ID_ENABLE_WARNING;
+                AccessibilityServiceInfo info = getAccessibilityServiceInfo();
+                if (info == null) {
+                    return null;
+                }
+                AlertDialog ad = new AlertDialog.Builder(getActivity())
+                        .setTitle(getString(R.string.enable_service_title,
+                                info.getResolveInfo().loadLabel(getPackageManager())))
+                        .setView(createEnableDialogContentView(info))
+                        .setCancelable(true)
+                        .setPositiveButton(android.R.string.ok, this)
+                        .setNegativeButton(android.R.string.cancel, this)
+                        .create();
+                ad.create();
+                ad.getButton(AlertDialog.BUTTON_POSITIVE).setFilterTouchesWhenObscured(true);
+                return ad;
             }
-            return new AlertDialog.Builder(getActivity())
-            .setTitle(getString(R.string.enable_service_title,
-                    info.getResolveInfo().loadLabel(getPackageManager())))
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .setView(createEnableDialogContentView(info))
-                    .setCancelable(true)
-                    .setPositiveButton(android.R.string.ok, this)
-                    .setNegativeButton(android.R.string.cancel, this)
-                    .create();
-        }
             case DIALOG_ID_DISABLE_WARNING: {
-            mShownDialogId = DIALOG_ID_DISABLE_WARNING;
-            AccessibilityServiceInfo info = getAccessibilityServiceInfo();
-            if (info == null) {
-                return null;
+                mShownDialogId = DIALOG_ID_DISABLE_WARNING;
+                AccessibilityServiceInfo info = getAccessibilityServiceInfo();
+                if (info == null) {
+                    return null;
+                }
+                return new AlertDialog.Builder(getActivity())
+                        .setTitle(getString(R.string.disable_service_title,
+                                info.getResolveInfo().loadLabel(getPackageManager())))
+                        .setMessage(getString(R.string.disable_service_message,
+                                info.getResolveInfo().loadLabel(getPackageManager())))
+                        .setCancelable(true)
+                        .setPositiveButton(android.R.string.ok, this)
+                        .setNegativeButton(android.R.string.cancel, this)
+                        .create();
             }
-            return new AlertDialog.Builder(getActivity())
-            .setTitle(getString(R.string.disable_service_title,
-                    info.getResolveInfo().loadLabel(getPackageManager())))
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .setMessage(getString(R.string.disable_service_message,
-                            info.getResolveInfo().loadLabel(getPackageManager())))
-                    .setCancelable(true)
-                    .setPositiveButton(android.R.string.ok, this)
-                    .setNegativeButton(android.R.string.cancel, this)
-                    .create();
-        }
             default: {
-            throw new IllegalArgumentException();
-        }
+                throw new IllegalArgumentException();
+            }
         }
     }
 
@@ -198,6 +214,17 @@ public class ToggleAccessibilityServicePreferenceFragment
 
         View content = inflater.inflate(R.layout.enable_accessibility_service_dialog_content,
                 null);
+
+        TextView encryptionWarningView = (TextView) content.findViewById(
+                R.id.encryption_warning);
+        if (LockPatternUtils.isDeviceEncrypted()) {
+            String text = getString(R.string.enable_service_encryption_warning,
+                    info.getResolveInfo().loadLabel(getPackageManager()));
+            encryptionWarningView.setText(text);
+            encryptionWarningView.setVisibility(View.VISIBLE);
+        } else {
+            encryptionWarningView.setVisibility(View.GONE);
+        }
 
         TextView capabilitiesHeaderView = (TextView) content.findViewById(
                 R.id.capabilities_header);
@@ -256,38 +283,84 @@ public class ToggleAccessibilityServicePreferenceFragment
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ACTIVITY_REQUEST_CONFIRM_CREDENTIAL_FOR_WEAKER_ENCRYPTION) {
+            if (resultCode == Activity.RESULT_OK) {
+                handleConfirmServiceEnabled(true);
+                // The user confirmed that they accept weaker encryption when
+                // enabling the accessibility service, so change encryption.
+                // Since we came here asynchronously, check encryption again.
+                if (LockPatternUtils.isDeviceEncrypted()) {
+                    mLockPatternUtils.clearEncryptionPassword();
+                    Settings.Global.putInt(getContentResolver(),
+                            Settings.Global.REQUIRE_PASSWORD_TO_DECRYPT, 0);
+                }
+            } else {
+                handleConfirmServiceEnabled(false);
+            }
+        }
+    }
+
+    @Override
     public void onClick(DialogInterface dialog, int which) {
         final boolean checked;
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                checked = (mShownDialogId == DIALOG_ID_ENABLE_WARNING);
-                mToggleSwitch.setCheckedInternal(checked);
-                getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, checked);
-                onPreferenceToggled(mPreferenceKey, checked);
+                if (mShownDialogId == DIALOG_ID_ENABLE_WARNING) {
+                    if (LockPatternUtils.isDeviceEncrypted()) {
+                        String title = createConfirmCredentialReasonMessage();
+                        Intent intent = ConfirmDeviceCredentialActivity.createIntent(title, null);
+                        startActivityForResult(intent,
+                                ACTIVITY_REQUEST_CONFIRM_CREDENTIAL_FOR_WEAKER_ENCRYPTION);
+                    } else {
+                        handleConfirmServiceEnabled(true);
+                    }
+                } else {
+                    handleConfirmServiceEnabled(false);
+                }
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
                 checked = (mShownDialogId == DIALOG_ID_DISABLE_WARNING);
-                mToggleSwitch.setCheckedInternal(checked);
-                getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, checked);
-                onPreferenceToggled(mPreferenceKey, checked);
+                handleConfirmServiceEnabled(checked);
                 break;
             default:
                 throw new IllegalArgumentException();
         }
     }
 
+    private void handleConfirmServiceEnabled(boolean confirmed) {
+        mSwitchBar.setCheckedInternal(confirmed);
+        getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, confirmed);
+        onPreferenceToggled(mPreferenceKey, confirmed);
+    }
+
+    private String createConfirmCredentialReasonMessage() {
+        int resId = R.string.enable_service_password_reason;
+        switch (mLockPatternUtils.getKeyguardStoredPasswordQuality()) {
+            case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING: {
+                resId = R.string.enable_service_pattern_reason;
+            } break;
+            case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
+            case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX: {
+                resId = R.string.enable_service_pin_reason;
+            } break;
+        }
+        return getString(resId, getAccessibilityServiceInfo().getResolveInfo()
+                .loadLabel(getPackageManager()));
+    }
+
     @Override
-    protected void onInstallActionBarToggleSwitch() {
-        super.onInstallActionBarToggleSwitch();
+    protected void onInstallSwitchBarToggleSwitch() {
+        super.onInstallSwitchBarToggleSwitch();
         mToggleSwitch.setOnBeforeCheckedChangeListener(new OnBeforeCheckedChangeListener() {
                 @Override
             public boolean onBeforeCheckedChanged(ToggleSwitch toggleSwitch, boolean checked) {
                 if (checked) {
-                    toggleSwitch.setCheckedInternal(false);
+                    mSwitchBar.setCheckedInternal(false);
                     getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, false);
                     showDialog(DIALOG_ID_ENABLE_WARNING);
                 } else {
-                    toggleSwitch.setCheckedInternal(true);
+                    mSwitchBar.setCheckedInternal(true);
                     getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, true);
                     showDialog(DIALOG_ID_DISABLE_WARNING);
                 }

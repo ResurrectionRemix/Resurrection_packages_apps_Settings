@@ -87,7 +87,7 @@
     <item msgid="1922181315419294640"></item>
     <item msgid="8934131797783724664">"Скенирање..."</item>
     <item msgid="8513729475867537913">"Повезивање…"</item>
-    <item msgid="515055375277271756">"Проверавање идентитета…"</item>
+    <item msgid="515055375277271756">"Потврђује се аутентичност..."</item>
     <item msgid="1943354004029184381">"Преузимање IP адресе..."</item>
     <item msgid="4221763391123233270">"Повезано"</item>
     <item msgid="624838831631122137">"Обустављено"</item>
@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -146,7 +145,7 @@
     <item msgid="5198271470953124739">"Без чекања"</item>
   </string-array>
   <string-array name="wifi_signal">
-    <item msgid="2245412278046491293">"Слабо"</item>
+    <item msgid="2245412278046491293">"Слаба"</item>
     <item msgid="5615082285463430971">"Задовољавајућа"</item>
     <item msgid="3565079809875324621">"Добро"</item>
     <item msgid="5702329417707689835">"Одлично"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Увек"</item>
     <item msgid="844721238536786870">"Само када је укључен"</item>
-    <item msgid="2990218920631468642">"Никад (повећава искоришћеност података)"</item>
+    <item msgid="1986753720941888596">"Никад"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Увек"</item>
     <item msgid="7433294150916905997">"Само када је укључен"</item>
     <item msgid="1390404486722375028">"Никада"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"Последњих 30 дана"</item>
+    <item msgid="6600989128423965319">"Подеси циклус потрошње..."</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"Последње 4 цифре"</item>
+    <item msgid="7841762954785375718">"Прве 4 цифре"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Аутоматски"</item>
+    <item msgid="1013988753804838790">"Аутоматски"</item>
     <item msgid="6670588712989942178">"Само на 5 GHz"</item>
     <item msgid="2715516524973207876">"Само на 2,4 GHz"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Време коришћења"</item>
-    <item msgid="3703676222230317933">"Покрени бројање"</item>
+    <item msgid="4796160515314745154">"Последњи пут коришћено"</item>
     <item msgid="2502754479975776899">"Назив апликације"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -194,13 +201,9 @@
     <item msgid="628395202971532382">"Статички"</item>
   </string-array>
   <string-array name="wifi_proxy_settings">
-    <item msgid="4473276491748503377">"Ништа"</item>
+    <item msgid="4473276491748503377">"Нема"</item>
     <item msgid="8673874894887358090">"Ручно"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Искључено"</item>
-    <item msgid="3165868966179561687">"Обавештење"</item>
-    <item msgid="6038758039030476855">"Вибрација"</item>
+    <item msgid="168893341855953140">"Аутом. конфиг. проксија"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"Ништа"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"задржавање ван стања спавања"</item>
     <item msgid="26109888160231211">"праћење локације"</item>
     <item msgid="5753382310468855812">"надгледање локације са високим напоном"</item>
+    <item msgid="3356591542543137332">"преузми статистику о коришћењу"</item>
+    <item msgid="3073734345226842233">"искључи/укључи звук микрофона"</item>
+    <item msgid="1148142988678569310">"медији за пројекат"</item>
+    <item msgid="9130014005474445273">"активирај VPN"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Локација"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"Задржи ван стања спавања"</item>
     <item msgid="8584357129746649222">"Локација"</item>
     <item msgid="7669257279311110599">"Локација"</item>
+    <item msgid="3459320345690097795">"Преузми статистику о коришћењу"</item>
+    <item msgid="1312534577834048535">"Искључи/укључи звук микрофона"</item>
+    <item msgid="5906017727368097853">"Медији за пројекат"</item>
+    <item msgid="2486614710846178542">"Активирај VPN"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Кратко"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"Подразумевано"</item>
     <item msgid="1016452621833735880">"Sans-serif"</item>
     <item msgid="2496277987934654454">"Скупљени sans-serif"</item>
-    <item msgid="4406003087391086325">"Serif"</item>
-    <item msgid="1558362802170124073">"Непропорционално"</item>
+    <item msgid="7247838127505318669">"Sans-serif фиксне ширине"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Serif фиксне ширине"</item>
+    <item msgid="639503332147461010">"Опуштено"</item>
+    <item msgid="7967169925231332424">"Курзив"</item>
+    <item msgid="561832997193039673">"Мала почетна слова"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"Веома мала"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"Веома велика"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"Ништа"</item>
-    <item msgid="1352974708028506778">"Контура"</item>
-    <item msgid="5850876295428722675">"Падајућа сенка"</item>
+    <item msgid="4733815704128258753">"Подразумевана"</item>
+    <item msgid="3217099060748617005">"Ниједна"</item>
+    <item msgid="7467615139904599420">"Контура"</item>
+    <item msgid="5623165557468608975">"Падајућа сенка"</item>
+    <item msgid="8088451174058214588">"Испупчена"</item>
+    <item msgid="3821418743395480313">"Удубљена"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25%"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"Бело на црно"</item>
-    <item msgid="4589278788192525675">"Црно на бело"</item>
-    <item msgid="1309255027325660115">"Жуто на црно"</item>
-    <item msgid="2985943780939258562">"Жуто на плаво"</item>
-    <item msgid="7520438652121629055">"Прилагођено"</item>
+    <item msgid="7009918361545506251">"Користи подразумевано за апликацију"</item>
+    <item msgid="1770533843436933500">"Бело на црно"</item>
+    <item msgid="758587126802411846">"Црно на бело"</item>
+    <item msgid="1495307195241623402">"Жуто на црно"</item>
+    <item msgid="6039700130994371612">"Жуто на плаво"</item>
+    <item msgid="7169235156349580064">"Прилагођена"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (отклањање грешака)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64 kB"</item>
+    <item msgid="505611754508988476">"256 kB"</item>
+    <item msgid="6361286924268716397">"1 MB"</item>
+    <item msgid="6405203239560695266">"4 MB"</item>
+    <item msgid="3025431211013424097">"16 MB"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"Коришћење Dalvik-а"</item>
-    <item msgid="5131846588686178907">"Коришћење ART-а"</item>
-    <item msgid="4530003713865319928">"Коришћење ART верзије за отклањање грешака"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64 kB"</item>
+    <item msgid="3534782711045262344">"256 kB"</item>
+    <item msgid="8085867209202153403">"1 MB"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"64 kB по баферу евиденције"</item>
+    <item msgid="2822309747675758628">"256 kB по баферу евиденције"</item>
+    <item msgid="6699306198357496731">"1 MB по баферу евиденције"</item>
+    <item msgid="5748528643937500349">"4 MB по баферу евиденције"</item>
+    <item msgid="1978629051085111592">"16 MB по баферу евиденције"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Никад не проверавај"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Искључено"</item>
     <item msgid="2751513398307949636">"На екрану у виду трака"</item>
-    <item msgid="8272260411216018353">"На екрану у виду линија"</item>
-    <item msgid="120512413928262547">"У adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"У adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"Искључи"</item>
     <item msgid="7688197031296835369">"Прикажи области преклапања"</item>
     <item msgid="2290859360633824369">"Приказ области за деутераномалију"</item>
-    <item msgid="3448087929560624983">"Приказ бројача преклапања"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Стандардно ограничење"</item>
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"средња"</item>
     <item msgid="406385694840950802">"мала"</item>
     <item msgid="4212263919458209842">"критична"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"Искључено"</item>
+    <item msgid="5656544177755411222">"Ограничен број прекида"</item>
+    <item msgid="8735337502532332056">"Без прекида"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Нормална"</item>
+    <item msgid="866544120205026771">"Умерена"</item>
+    <item msgid="7851902244436886890">"Ниска"</item>
+    <item msgid="3022922196817563960">"Критична"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Непрекидна"</item>
+    <item msgid="5779398140277006695">"Највећа активност"</item>
+    <item msgid="1439598363694578255">"Важна (први план)"</item>
+    <item msgid="3396458970745718652">"Важна (други план)"</item>
+    <item msgid="5214825238247511992">"Резервна копија"</item>
+    <item msgid="311372689168254967">"Тешка"</item>
+    <item msgid="7438189122367820362">"Услуга (активна)"</item>
+    <item msgid="918687422516982498">"Услуга (поново се покреће)"</item>
+    <item msgid="6807727069641853029">"Пријемник"</item>
+    <item msgid="6782857406100845127">"Почетна"</item>
+    <item msgid="2860945127596974299">"Последња активност"</item>
+    <item msgid="8610560843693675830">"Кеширана (активност)"</item>
+    <item msgid="4338089220026248848">"Кеширана (клијент активности)"</item>
+    <item msgid="6652164677254579050">"Кеширана (празно)"</item>
   </string-array>
 </resources>

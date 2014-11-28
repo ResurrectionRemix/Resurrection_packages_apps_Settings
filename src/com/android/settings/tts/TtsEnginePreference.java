@@ -22,7 +22,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.speech.tts.TextToSpeech.EngineInfo;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +32,7 @@ import android.widget.RadioButton;
 
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 
 
@@ -63,7 +63,7 @@ public class TtsEnginePreference extends Preference {
      * The preference activity that owns this preference. Required
      * for instantiating the engine specific settings screen.
      */
-    private final PreferenceActivity mPreferenceActivity;
+    private final SettingsActivity mSettingsActivity;
 
     /**
      * The engine information for the engine this preference represents.
@@ -95,12 +95,12 @@ public class TtsEnginePreference extends Preference {
         };
 
     public TtsEnginePreference(Context context, EngineInfo info, RadioButtonGroupState state,
-            PreferenceActivity prefActivity) {
+            SettingsActivity prefActivity) {
         super(context);
         setLayoutResource(R.layout.preference_tts_engine);
 
         mSharedState = state;
-        mPreferenceActivity = prefActivity;
+        mSettingsActivity = prefActivity;
         mEngineInfo = info;
         mPreventRadioButtonCallbacks = false;
 
@@ -156,10 +156,10 @@ public class TtsEnginePreference extends Preference {
                 }
 
                 // Note that we use this instead of the (easier to use)
-                // PreferenceActivity.startPreferenceFragment because the
+                // SettingsActivity.startPreferenceFragment because the
                 // title will not be updated correctly in the fragment
                 // breadcrumb since it isn't inflated from the XML layout.
-                mPreferenceActivity.startPreferencePanel(
+                mSettingsActivity.startPreferencePanel(
                         TtsEngineSettingsFragment.class.getName(),
                         args, 0, mEngineInfo.label, null, 0);
             }
@@ -198,13 +198,12 @@ public class TtsEnginePreference extends Preference {
         Log.i(TAG, "Displaying data alert for :" + mEngineInfo.name);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle(android.R.string.dialog_alert_title);
-        builder.setIconAttribute(android.R.attr.alertDialogIcon);
-        builder.setMessage(getContext().getString(
-                R.string.tts_engine_security_warning, mEngineInfo.label));
-        builder.setCancelable(true);
-        builder.setPositiveButton(android.R.string.ok, positiveOnClickListener);
-        builder.setNegativeButton(android.R.string.cancel, negativeOnClickListener);
+        builder.setTitle(android.R.string.dialog_alert_title)
+                .setMessage(getContext().getString(
+                        R.string.tts_engine_security_warning, mEngineInfo.label))
+                .setCancelable(true)
+                .setPositiveButton(android.R.string.ok, positiveOnClickListener)
+                .setNegativeButton(android.R.string.cancel, negativeOnClickListener);
 
         AlertDialog dialog = builder.create();
         dialog.show();

@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -154,21 +153,29 @@
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"ทุกครั้ง"</item>
     <item msgid="844721238536786870">"เมื่อเสียบปลั๊กเท่านั้น"</item>
-    <item msgid="2990218920631468642">"ไม่เลย (เพิ่มการใช้งานข้อมูล)"</item>
+    <item msgid="1986753720941888596">"ไม่ต้องเลย"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"ทุกครั้ง"</item>
     <item msgid="7433294150916905997">"เมื่อเสียบปลั๊กเท่านั้น"</item>
     <item msgid="1390404486722375028">"ไม่เลย"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"30 วันที่ผ่านมา"</item>
+    <item msgid="6600989128423965319">"ตั้งรอบการใช้..."</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"หมายเลข 4 หลักสุดท้าย"</item>
+    <item msgid="7841762954785375718">"หมายเลข 4 หลักแรก"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"อัตโนมัติ"</item>
+    <item msgid="1013988753804838790">"อัตโนมัติ"</item>
     <item msgid="6670588712989942178">"5 GHz เท่านั้น"</item>
     <item msgid="2715516524973207876">"2.4 GHz เท่านั้น"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"เวลาในการใช้งาน"</item>
-    <item msgid="3703676222230317933">"นับจำนวนครั้งที่เปิดใช้งาน"</item>
+    <item msgid="4796160515314745154">"ครั้งสุดท้ายที่ใช้"</item>
     <item msgid="2502754479975776899">"ชื่อแอปพลิเคชัน"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"ไม่มี"</item>
     <item msgid="8673874894887358090">"ด้วยตนเอง"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"ปิด"</item>
-    <item msgid="3165868966179561687">"การเตือน"</item>
-    <item msgid="6038758039030476855">"สั่น"</item>
+    <item msgid="168893341855953140">"กำหนดค่าพร็อกซีอัตโนมัติ"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"ไม่มี"</item>
@@ -280,6 +283,10 @@
     <item msgid="2029227495214047094">"ทำงานตลอดเวลา"</item>
     <item msgid="26109888160231211">"ตำแหน่งจอภาพ"</item>
     <item msgid="5753382310468855812">"ติดตามตำแหน่งโดยใช้พลังงานมาก"</item>
+    <item msgid="3356591542543137332">"ดูสถิติการใช้งาน"</item>
+    <item msgid="3073734345226842233">"ปิด/เปิดเสียงไมโครโฟน"</item>
+    <item msgid="1148142988678569310">"สื่อของโครงการ"</item>
+    <item msgid="9130014005474445273">"เปิดใช้งาน VPN"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"ตำแหน่ง"</item>
@@ -325,6 +332,10 @@
     <item msgid="4665183401128289653">"ทำงานตลอดเวลา"</item>
     <item msgid="8584357129746649222">"ตำแหน่ง"</item>
     <item msgid="7669257279311110599">"ตำแหน่ง"</item>
+    <item msgid="3459320345690097795">"ดูสถิติการใช้งาน"</item>
+    <item msgid="1312534577834048535">"ปิด/เปิดเสียงไมโครโฟน"</item>
+    <item msgid="5906017727368097853">"สื่อของโครงการ"</item>
+    <item msgid="2486614710846178542">"เปิดใช้งาน VPN"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"สั้น"</item>
@@ -335,8 +346,12 @@
     <item msgid="1319652728542138112">"ค่าเริ่มต้น"</item>
     <item msgid="1016452621833735880">"Sans Serif"</item>
     <item msgid="2496277987934654454">"Sans-serif แบบย่อ"</item>
-    <item msgid="4406003087391086325">"Serif"</item>
-    <item msgid="1558362802170124073">"ช่องว่างเดี่ยว"</item>
+    <item msgid="7247838127505318669">"Sans-serif ความกว้างคงที่"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Serif ความกว้างคงที่"</item>
+    <item msgid="639503332147461010">"แบบไม่เป็นทางการ"</item>
+    <item msgid="7967169925231332424">"คัดลายมือ"</item>
+    <item msgid="561832997193039673">"อักษรตัวพิมพ์ใหญ่ขนาดเล็ก"</item>
   </string-array>
   <string-array name="captioning_font_size_selector_titles">
     <item msgid="4800919809575254054">"เล็กมาก"</item>
@@ -346,9 +361,12 @@
     <item msgid="9044232017390975191">"ใหญ่มาก"</item>
   </string-array>
   <string-array name="captioning_edge_type_selector_titles">
-    <item msgid="6022616153255438487">"ไม่มี"</item>
-    <item msgid="1352974708028506778">"ตีกรอบ"</item>
-    <item msgid="5850876295428722675">"เงาตกกระทบ"</item>
+    <item msgid="4733815704128258753">"ค่าเริ่มต้น"</item>
+    <item msgid="3217099060748617005">"ไม่มี"</item>
+    <item msgid="7467615139904599420">"ตีกรอบ"</item>
+    <item msgid="5623165557468608975">"เงาตกกระทบ"</item>
+    <item msgid="8088451174058214588">"ยกขึ้น"</item>
+    <item msgid="3821418743395480313">"ลดต่ำ"</item>
   </string-array>
   <string-array name="captioning_opacity_selector_titles">
     <item msgid="7622491218136667566">"25%"</item>
@@ -357,21 +375,31 @@
     <item msgid="8342334626783983353">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="1630625150404038035">"สีขาวบนพื้นสีดำ"</item>
-    <item msgid="4589278788192525675">"สีดำบนพื้นสีขาว"</item>
-    <item msgid="1309255027325660115">"สีเหลืองบนพื้นสีดำ"</item>
-    <item msgid="2985943780939258562">"สีเหลืองบนพื้นสีน้ำเงิน"</item>
-    <item msgid="7520438652121629055">"กำหนดเอง"</item>
+    <item msgid="7009918361545506251">"ใช้ค่าเริ่มต้นของแอป"</item>
+    <item msgid="1770533843436933500">"สีขาวบนพื้นสีดำ"</item>
+    <item msgid="758587126802411846">"สีดำบนพื้นสีขาว"</item>
+    <item msgid="1495307195241623402">"สีเหลืองบนพื้นสีดำ"</item>
+    <item msgid="6039700130994371612">"สีเหลืองบนพื้นสีน้ำเงิน"</item>
+    <item msgid="7169235156349580064">"กำหนดเอง"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (ดีบัก)"</item>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"64 K"</item>
+    <item msgid="505611754508988476">"256 K"</item>
+    <item msgid="6361286924268716397">"1 M"</item>
+    <item msgid="6405203239560695266">"4 M"</item>
+    <item msgid="3025431211013424097">"16 M"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"ใช้ Dalvik"</item>
-    <item msgid="5131846588686178907">"ใช้ ART"</item>
-    <item msgid="4530003713865319928">"ใช้บิวด์ดีบัก ART"</item>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"64 K"</item>
+    <item msgid="3534782711045262344">"256 K"</item>
+    <item msgid="8085867209202153403">"1 M"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"64 K ต่อบัฟเฟอร์ไฟล์บันทึก"</item>
+    <item msgid="2822309747675758628">"256 K ต่อบัฟเฟอร์ไฟล์บันทึก"</item>
+    <item msgid="6699306198357496731">"1 M ต่อบัฟเฟอร์ไฟล์บันทึก"</item>
+    <item msgid="5748528643937500349">"4 M ต่อบัฟเฟอร์ไฟล์บันทึก"</item>
+    <item msgid="1978629051085111592">"16 M ต่อบัฟเฟอร์ไฟล์บันทึก"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"ไม่ต้องตรวจสอบ"</item>
@@ -434,14 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"ปิด"</item>
     <item msgid="2751513398307949636">"เป็นแถบบนหน้าจอ"</item>
-    <item msgid="8272260411216018353">"เป็นเส้นบนหน้าจอ"</item>
-    <item msgid="120512413928262547">"ใน adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"ใน adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"ปิด"</item>
     <item msgid="7688197031296835369">"แสดงพื้นที่การวาดทับ"</item>
     <item msgid="2290859360633824369">"แสดงพื้นที่สำหรับคนตาบอดสีเขียว"</item>
-    <item msgid="3448087929560624983">"แสดงตัวนับการวาดทับ"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"ขีดจำกัดมาตรฐาน"</item>
@@ -453,9 +479,9 @@
   </string-array>
   <string-array name="vpn_types_long">
     <item msgid="2732002039459078847">"PPTP VPN"</item>
-    <item msgid="3799752201662127867">"L2TP/IPSec VPN พร้อมด้วยคีย์ที่แบ่งปันไว้ล่วงหน้า"</item>
+    <item msgid="3799752201662127867">"L2TP/IPSec VPN พร้อมด้วยคีย์ที่แชร์ไว้ล่วงหน้า"</item>
     <item msgid="4725504331295252103">"L2TP/IPSec VPN พร้อมด้วยใบรับรอง"</item>
-    <item msgid="7526551163264034377">"IPSec VPN พร้อมด้วยคีย์ที่แบ่งปันไว้ล่วงหน้าและการตรวจสอบสิทธิ์ Xauth"</item>
+    <item msgid="7526551163264034377">"IPSec VPN พร้อมด้วยคีย์ที่แชร์ไว้ล่วงหน้าและการตรวจสอบสิทธิ์ Xauth"</item>
     <item msgid="8064740940687465039">"IPSec VPN พร้อมด้วยใบรับรองและการตรวจสอบสิทธิ์ Xauth"</item>
     <item msgid="4946199982372391490">"IPSec VPN พร้อมด้วยใบรับรองและการตรวจสอบสิทธิ์แบบผสม"</item>
   </string-array>
@@ -477,5 +503,32 @@
     <item msgid="4517779899383204000">"ปานกลาง"</item>
     <item msgid="406385694840950802">"ต่ำ"</item>
     <item msgid="4212263919458209842">"วิกฤต"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"ปิด"</item>
+    <item msgid="5656544177755411222">"การรบกวนที่จำกัด"</item>
+    <item msgid="8735337502532332056">"การรบกวนเป็นศูนย์"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"ปกติ"</item>
+    <item msgid="866544120205026771">"ปานกลาง"</item>
+    <item msgid="7851902244436886890">"ต่ำ"</item>
+    <item msgid="3022922196817563960">"วิกฤต"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"ต่อเนื่อง"</item>
+    <item msgid="5779398140277006695">"กิจกรรมแรก"</item>
+    <item msgid="1439598363694578255">"สำคัญ (พื้นหน้า)"</item>
+    <item msgid="3396458970745718652">"สำคัญ (พื้นหลัง)"</item>
+    <item msgid="5214825238247511992">"การสำรองข้อมูล"</item>
+    <item msgid="311372689168254967">"ใช้หน่วยความจำมาก"</item>
+    <item msgid="7438189122367820362">"บริการ (กำลังทำงาน)"</item>
+    <item msgid="918687422516982498">"บริการ (กำลังรีสตาร์ท)"</item>
+    <item msgid="6807727069641853029">"ผู้รับ"</item>
+    <item msgid="6782857406100845127">"หน้าแรก"</item>
+    <item msgid="2860945127596974299">"กิจกรรมสุดท้าย"</item>
+    <item msgid="8610560843693675830">"แคชไว้ (กิจกรรม)"</item>
+    <item msgid="4338089220026248848">"แคชไว้ (ไคลเอ็นต์กิจกรรม)"</item>
+    <item msgid="6652164677254579050">"แคชไว้ (ว่างเปล่า)"</item>
   </string-array>
 </resources>

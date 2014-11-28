@@ -18,7 +18,8 @@ package com.android.settings.accessibility;
 
 import android.provider.Settings;
 
-import com.android.settings.accessibility.ToggleSwitch.OnBeforeCheckedChangeListener;
+import com.android.settings.widget.ToggleSwitch;
+import com.android.settings.widget.ToggleSwitch.OnBeforeCheckedChangeListener;
 
 public class ToggleGlobalGesturePreferenceFragment
         extends ToggleFeaturePreferenceFragment {
@@ -29,12 +30,12 @@ public class ToggleGlobalGesturePreferenceFragment
     }
 
     @Override
-    protected void onInstallActionBarToggleSwitch() {
-        super.onInstallActionBarToggleSwitch();
+    protected void onInstallSwitchBarToggleSwitch() {
+        super.onInstallSwitchBarToggleSwitch();
         mToggleSwitch.setOnBeforeCheckedChangeListener(new OnBeforeCheckedChangeListener() {
                 @Override
             public boolean onBeforeCheckedChanged(ToggleSwitch toggleSwitch, boolean checked) {
-                toggleSwitch.setCheckedInternal(checked);
+                mSwitchBar.setCheckedInternal(checked);
                 getArguments().putBoolean(AccessibilitySettings.EXTRA_CHECKED, checked);
                 onPreferenceToggled(mPreferenceKey, checked);
                 return false;

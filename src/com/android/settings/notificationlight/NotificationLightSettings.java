@@ -21,47 +21,36 @@ import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cyanogenmod.PackageListAdapter;
+import com.android.settings.cyanogenmod.PackageListAdapter.PackageItem;
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
 public class NotificationLightSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, AdapterView.OnItemLongClickListener {
@@ -69,35 +58,33 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR = "notification_light_pulse_default_color";
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON = "notification_light_pulse_default_led_on";
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF = "notification_light_pulse_default_led_off";
-    private static final String NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE = "notification_light_pulse_custom_enable";
-    private static final String NOTIFICATION_LIGHT_PULSE = "notification_light_pulse";
     private static final String NOTIFICATION_LIGHT_PULSE_CALL_COLOR = "notification_light_pulse_call_color";
     private static final String NOTIFICATION_LIGHT_PULSE_CALL_LED_ON = "notification_light_pulse_call_led_on";
     private static final String NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF = "notification_light_pulse_call_led_off";
     private static final String NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR = "notification_light_pulse_vmail_color";
     private static final String NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON = "notification_light_pulse_vmail_led_on";
     private static final String NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF = "notification_light_pulse_vmail_led_off";
-    private static final String PULSE_PREF = "pulse_enabled";
     private static final String DEFAULT_PREF = "default";
-    private static final String CUSTOM_PREF = "custom_enabled";
     private static final String MISSED_CALL_PREF = "missed_call";
     private static final String VOICEMAIL_PREF = "voicemail";
     public static final int ACTION_TEST = 0;
     public static final int ACTION_DELETE = 1;
     private static final int MENU_ADD = 0;
     private static final int DIALOG_APPS = 0;
+
+    private boolean mMultiColorNotificationLed;
     private int mDefaultColor;
     private int mDefaultLedOn;
     private int mDefaultLedOff;
     private PackageManager mPackageManager;
     private PreferenceGroup mApplicationPrefList;
-    private CheckBoxPreference mEnabledPref;
-    private CheckBoxPreference mCustomEnabledPref;
+    private SystemSettingSwitchPreference mEnabledPref;
+    private SystemSettingSwitchPreference mCustomEnabledPref;
     private ApplicationLightPreference mDefaultPref;
     private ApplicationLightPreference mCallPref;
     private ApplicationLightPreference mVoicemailPref;
     private Menu mMenu;
-    private PackageAdapter mPackageAdapter;
+    private PackageListAdapter mPackageAdapter;
     private String mPackageList;
     private Map<String, Package> mPackages;
 
@@ -106,18 +93,31 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_light_settings);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
         Resources resources = getResources();
-        mDefaultColor = resources.getColor(
-                com.android.internal.R.color.config_defaultNotificationColor);
+
+        PreferenceGroup mGeneralPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
+        PreferenceGroup mPhonePrefs = (PreferenceGroup) prefSet.findPreference("phone_list");
+
+        mMultiColorNotificationLed = resources.getBoolean(
+                com.android.internal.R.bool.config_multiColorNotificationLed);
+
+        // Get the system defined default notification color
+        mDefaultColor = resources.getColor(com.android.internal.R.color.config_defaultNotificationColor);
+        if (mDefaultColor == Color.WHITE) {
+            // We cannot properly show white in the UI, change it to off white (#eeeeee)
+            mDefaultColor = 0xFFEEEEEE;
+        }
+
         mDefaultLedOn = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOn);
         mDefaultLedOff = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOff);
 
-        mEnabledPref = (CheckBoxPreference)
+        mEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE);
         mEnabledPref.setOnPreferenceChangeListener(this);
-        mCustomEnabledPref = (CheckBoxPreference)
+        mCustomEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         mCustomEnabledPref.setOnPreferenceChangeListener(this);
 
@@ -141,11 +141,18 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
         // Get launch-able applications
         mPackageManager = getPackageManager();
-        mPackageAdapter = new PackageAdapter();
+        mPackageAdapter = new PackageListAdapter(getActivity());
 
         mPackages = new HashMap<String, Package>();
 
-        setHasOptionsMenu(true);
+        if (mMultiColorNotificationLed) {
+            setHasOptionsMenu(true);
+        } else {
+            mGeneralPrefs.removePreference(mCustomEnabledPref);
+            prefSet.removePreference(mPhonePrefs);
+            prefSet.removePreference(mApplicationPrefList);
+            resetColors();
+        }
     }
 
     @Override
@@ -220,8 +227,10 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             mVoicemailPref.setAllValues(vmailColor, vmailTimeOn, vmailTimeOff);
         }
 
-        mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
-        mApplicationPrefList.setOrderingAsAdded(false);
+        if (mMultiColorNotificationLed) {
+            mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
+            mApplicationPrefList.setOrderingAsAdded(false);
+        }
     }
 
     private void refreshCustomApplicationPrefs() {
@@ -354,6 +363,24 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         }
     }
 
+    protected void resetColors() {
+        ContentResolver resolver = getContentResolver();
+
+        // Reset to the framework default colors
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_CALL_COLOR, mDefaultColor);
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, mDefaultColor);
+
+        // Reset to the framework default custom pulse length & speed
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_CALL_LED_ON, mDefaultLedOn);
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF, mDefaultLedOff);
+
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, mDefaultLedOn);
+        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, mDefaultLedOff);
+
+        refreshDefault();
+    }
+
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         final Preference pref = (Preference) getPreferenceScreen().getRootAdapter().getItem(position);
 
@@ -393,7 +420,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         mMenu = menu;
         mMenu.add(0, MENU_ADD, 0, R.string.profiles_add)
-                .setIcon(R.drawable.ic_menu_add)
+                .setIcon(R.drawable.ic_menu_add_white)
                 .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
 
@@ -501,139 +528,5 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             }
         }
 
-    };
-
-    /**
-     * AppItem class
-     */
-    private static class PackageItem implements Comparable<PackageItem> {
-        CharSequence title;
-        TreeSet<CharSequence> activityTitles = new TreeSet<CharSequence>();
-        String packageName;
-        Drawable icon;
-
-        @Override
-        public int compareTo(PackageItem another) {
-            int result = title.toString().compareToIgnoreCase(another.title.toString());
-            return result != 0 ? result : packageName.compareTo(another.packageName);
-        }
-    }
-
-    /**
-     * AppAdapter class
-     */
-    private class PackageAdapter extends BaseAdapter {
-        private List<PackageItem> mInstalledPackages = new LinkedList<PackageItem>();
-
-        private void reloadList() {
-            final Handler handler = new Handler();
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    synchronized (mInstalledPackages) {
-                        mInstalledPackages.clear();
-                    }
-
-                    final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-                    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-                    List<ResolveInfo> installedAppsInfo =
-                            mPackageManager.queryIntentActivities(mainIntent, 0);
-
-                    for (ResolveInfo info : installedAppsInfo) {
-                        ApplicationInfo appInfo = info.activityInfo.applicationInfo;
-
-                        final PackageItem item = new PackageItem();
-                        item.title = appInfo.loadLabel(mPackageManager);
-                        item.activityTitles.add(info.loadLabel(mPackageManager));
-                        item.icon = appInfo.loadIcon(mPackageManager);
-                        item.packageName = appInfo.packageName;
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                // NO synchronize here: We know that mInstalledApps.clear()
-                                // was called and will never be called again.
-                                // At this point the only thread modifying mInstalledApp is main
-                                int index = Collections.binarySearch(mInstalledPackages, item);
-                                if (index < 0) {
-                                    mInstalledPackages.add(-index - 1, item);
-                                } else {
-                                    mInstalledPackages.get(index).activityTitles.addAll(item.activityTitles);
-                                }
-                                notifyDataSetChanged();
-                            }
-                        });
-                    }
-                }
-            }).start();
-        }
-
-        public PackageAdapter() {
-            reloadList();
-        }
-
-        @Override
-        public int getCount() {
-            synchronized (mInstalledPackages) {
-                return mInstalledPackages.size();
-            }
-        }
-
-        @Override
-        public PackageItem getItem(int position) {
-            synchronized (mInstalledPackages) {
-                return mInstalledPackages.get(position);
-            }
-        }
-
-        @Override
-        public long getItemId(int position) {
-            synchronized (mInstalledPackages) {
-                // packageName is guaranteed to be unique in mInstalledPackages
-                return mInstalledPackages.get(position).packageName.hashCode();
-            }
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            if (convertView != null) {
-                holder = (ViewHolder) convertView.getTag();
-            } else {
-                final LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = layoutInflater.inflate(R.layout.preference_icon, null, false);
-                holder = new ViewHolder();
-                convertView.setTag(holder);
-                holder.title = (TextView) convertView.findViewById(com.android.internal.R.id.title);
-                holder.summary = (TextView) convertView.findViewById(com.android.internal.R.id.summary);
-                holder.icon = (ImageView) convertView.findViewById(R.id.icon);
-            }
-            PackageItem applicationInfo = getItem(position);
-
-            holder.title.setText(applicationInfo.title);
-            holder.icon.setImageDrawable(applicationInfo.icon);
-
-            boolean needSummary = applicationInfo.activityTitles.size() > 0;
-            if (applicationInfo.activityTitles.size() == 1) {
-                if (TextUtils.equals(applicationInfo.title, applicationInfo.activityTitles.first())) {
-                    needSummary = false;
-                }
-            }
-
-            if (needSummary) {
-                holder.summary.setText(TextUtils.join(", ", applicationInfo.activityTitles));
-                holder.summary.setVisibility(View.VISIBLE);
-            } else {
-                holder.summary.setVisibility(View.GONE);
-            }
-
-            return convertView;
-        }
-    }
-
-    static class ViewHolder {
-        TextView title;
-        TextView summary;
-        ImageView icon;
     }
 }

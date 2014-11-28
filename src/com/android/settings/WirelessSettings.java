@@ -21,24 +21,28 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.nfc.NfcAdapter;
+import android.nfc.NfcManager;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -49,11 +53,16 @@ import com.android.internal.telephony.SmsApplication.SmsApplicationData;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.settings.nfc.NfcEnabler;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
-public class WirelessSettings extends RestrictedSettingsFragment
-        implements OnPreferenceChangeListener {
+public class WirelessSettings extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener, Indexable {
     private static final String TAG = "WirelessSettings";
 
     private static final String KEY_TOGGLE_AIRPLANE = "toggle_airplane";
@@ -66,44 +75,35 @@ public class WirelessSettings extends RestrictedSettingsFragment
     private static final String KEY_MOBILE_NETWORK_SETTINGS = "mobile_network_settings";
     private static final String KEY_MANAGE_MOBILE_PLAN = "manage_mobile_plan";
     private static final String KEY_SMS_APPLICATION = "sms_application";
-    private static final String KEY_VOICE_PLUS_ACCOUNT = "voice_plus";
     private static final String KEY_TOGGLE_NSD = "toggle_nsd"; //network service discovery
     private static final String KEY_CELL_BROADCAST_SETTINGS = "cell_broadcast_settings";
-
-    private static final String GOOGLE_VOICE_PACKAGE = "com.google.android.apps.googlevoice";
-    private static final ComponentName VOICE_PLUS_SETUP =
-            new ComponentName("org.cyanogenmod.voiceplus", "org.cyanogenmod.voiceplus.VoicePlusSetup");
 
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
 
     private AirplaneModeEnabler mAirplaneModeEnabler;
-    private CheckBoxPreference mAirplaneModePreference;
+    private SwitchPreference mAirplaneModePreference;
     private NfcEnabler mNfcEnabler;
     private NfcAdapter mNfcAdapter;
     private NsdEnabler mNsdEnabler;
 
     private ConnectivityManager mCm;
     private TelephonyManager mTm;
+    private PackageManager mPm;
+    private UserManager mUm;
 
     private static final int MANAGE_MOBILE_PLAN_DIALOG_ID = 1;
     private static final String SAVED_MANAGE_MOBILE_PLAN_MSG = "mManageMobilePlanMessage";
 
-    private SmsListPreference mSmsApplicationPreference;
+    private AppListPreference mSmsApplicationPreference;
 
-    public WirelessSettings() {
-        super(null);
-    }
     /**
      * Invoked on each preference click in this hierarchy, overrides
-     * PreferenceActivity's implementation.  Used to make sure we track the
+     * PreferenceFragment's implementation.  Used to make sure we track the
      * preference click events.
      */
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (ensurePinRestrictedPreference(preference)) {
-            return true;
-        }
         log("onPreferenceTreeClick: preference=" + preference);
         if (preference == mAirplaneModePreference && Boolean.parseBoolean(
                 SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) {
@@ -114,19 +114,12 @@ public class WirelessSettings extends RestrictedSettingsFragment
             return true;
         } else if (preference == findPreference(KEY_MANAGE_MOBILE_PLAN)) {
             onManageMobilePlanClick();
-        } else if (preference == findPreference(KEY_VOICE_PLUS_ACCOUNT)) {
-            Intent chooseVoicePlusAccount = new Intent();
-            chooseVoicePlusAccount.setComponent(VOICE_PLUS_SETUP);
-            chooseVoicePlusAccount.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(chooseVoicePlusAccount);
         }
         // Let the intents be launched by the Preference manager
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private String mManageMobilePlanMessage;
-    private static final String CONNECTED_TO_PROVISIONING_NETWORK_ACTION
-            = "com.android.server.connectivityservice.CONNECTED_TO_PROVISIONING_NETWORK_ACTION";
     public void onManageMobilePlanClick() {
         log("onManageMobilePlanClick:");
         mManageMobilePlanMessage = null;
@@ -134,14 +127,32 @@ public class WirelessSettings extends RestrictedSettingsFragment
 
         NetworkInfo ni = mCm.getProvisioningOrActiveNetworkInfo();
         if (mTm.hasIccCard() && (ni != null)) {
+            // Check for carrier apps that can handle provisioning first
+            Intent provisioningIntent = new Intent(TelephonyIntents.ACTION_CARRIER_SETUP);
+            List<String> carrierPackages =
+                    mTm.getCarrierPackageNamesForIntent(provisioningIntent);
+            if (carrierPackages != null && !carrierPackages.isEmpty()) {
+                if (carrierPackages.size() != 1) {
+                    Log.w(TAG, "Multiple matching carrier apps found, launching the first.");
+                }
+                provisioningIntent.setPackage(carrierPackages.get(0));
+                startActivity(provisioningIntent);
+                return;
+            }
+
             // Get provisioning URL
             String url = mCm.getMobileProvisioningUrl();
             if (!TextUtils.isEmpty(url)) {
-                Intent intent = new Intent(CONNECTED_TO_PROVISIONING_NETWORK_ACTION);
-                intent.putExtra("EXTRA_URL", url);
-                Context context = getActivity().getBaseContext();
-                context.sendBroadcast(intent);
-                mManageMobilePlanMessage = null;
+                Intent intent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN,
+                        Intent.CATEGORY_APP_BROWSER);
+                intent.setData(Uri.parse(url));
+                intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    Log.w(TAG, "onManageMobilePlanClick: startActivity failed" + e);
+                }
             } else {
                 // No provisioning URL
                 String operatorName = mTm.getSimOperatorName();
@@ -174,23 +185,6 @@ public class WirelessSettings extends RestrictedSettingsFragment
         }
     }
 
-    private void updateSmsApplicationSetting() {
-        log("updateSmsApplicationSetting:");
-        ComponentName appName = SmsApplication.getDefaultSmsApplication(getActivity(), true);
-        if (appName != null) {
-            String packageName = appName.getPackageName();
-
-            CharSequence[] values = mSmsApplicationPreference.getEntryValues();
-            for (int i = 0; i < values.length; i++) {
-                if (packageName.contentEquals(values[i])) {
-                    mSmsApplicationPreference.setValueIndex(i);
-                    mSmsApplicationPreference.setSummary(mSmsApplicationPreference.getEntries()[i]);
-                    break;
-                }
-            }
-        }
-    }
-
     private void initSmsApplicationSetting() {
         log("initSmsApplicationSetting:");
         Collection<SmsApplicationData> smsApplications =
@@ -198,26 +192,18 @@ public class WirelessSettings extends RestrictedSettingsFragment
 
         // If the list is empty the dialog will be empty, but we will not crash.
         int count = smsApplications.size();
-        CharSequence[] entries = new CharSequence[count];
-        CharSequence[] entryValues = new CharSequence[count];
-        Drawable[] entryImages = new Drawable[count];
-
-        PackageManager packageManager = getPackageManager();
+        String[] packageNames = new String[count];
         int i = 0;
         for (SmsApplicationData smsApplicationData : smsApplications) {
-            entries[i] = smsApplicationData.mApplicationName;
-            entryValues[i] = smsApplicationData.mPackageName;
-            try {
-                entryImages[i] = packageManager.getApplicationIcon(smsApplicationData.mPackageName);
-            } catch (NameNotFoundException e) {
-                entryImages[i] = packageManager.getDefaultActivityIcon();
-            }
+            packageNames[i] = smsApplicationData.mPackageName;
             i++;
         }
-        mSmsApplicationPreference.setEntries(entries);
-        mSmsApplicationPreference.setEntryValues(entryValues);
-        mSmsApplicationPreference.setEntryDrawables(entryImages);
-        updateSmsApplicationSetting();
+        String defaultPackageName = null;
+        ComponentName appName = SmsApplication.getDefaultSmsApplication(getActivity(), true);
+        if (appName != null) {
+            defaultPackageName = appName.getPackageName();
+        }
+        mSmsApplicationPreference.setPackageNames(packageNames, defaultPackageName);
     }
 
     @Override
@@ -270,21 +256,40 @@ public class WirelessSettings extends RestrictedSettingsFragment
 
         mCm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         mTm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        mPm = getPackageManager();
+        mUm = (UserManager) getSystemService(Context.USER_SERVICE);
 
         addPreferencesFromResource(R.xml.wireless_settings);
 
         final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
 
         final Activity activity = getActivity();
-        mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
-        CheckBoxPreference nfc = (CheckBoxPreference) findPreference(KEY_TOGGLE_NFC);
+        mAirplaneModePreference = (SwitchPreference) findPreference(KEY_TOGGLE_AIRPLANE);
+        SwitchPreference nfc = (SwitchPreference) findPreference(KEY_TOGGLE_NFC);
+
+        if (TelephonyManager.getDefault().getPhoneCount() > 1) {
+            // Mobile Networks menu will traverse to Select Subscription menu.
+            PreferenceScreen manageSub =
+                    (PreferenceScreen) findPreference(KEY_MOBILE_NETWORK_SETTINGS);
+
+            if (manageSub != null) {
+                Intent intent = manageSub.getIntent();
+                intent.setClassName("com.android.phone",
+                                    "com.android.phone.SelectSubscription");
+                intent.putExtra(SelectSubscription.PACKAGE,
+                                    "com.android.phone");
+                intent.putExtra(SelectSubscription.TARGET_CLASS,
+                                "com.android.phone.MSimMobileNetworkSubSettings");
+            }
+        }
+
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
         CheckBoxPreference nsd = (CheckBoxPreference) findPreference(KEY_TOGGLE_NSD);
 
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
 
-        mSmsApplicationPreference = (SmsListPreference) findPreference(KEY_SMS_APPLICATION);
+        mSmsApplicationPreference = (AppListPreference) findPreference(KEY_SMS_APPLICATION);
         mSmsApplicationPreference.setOnPreferenceChangeListener(this);
         initSmsApplicationSetting();
 
@@ -296,9 +301,10 @@ public class WirelessSettings extends RestrictedSettingsFragment
                 Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS);
 
         //enable/disable wimax depending on the value in config.xml
-        boolean isWimaxEnabled = !isSecondaryUser && this.getResources().getBoolean(
+        final boolean isWimaxEnabled = !isSecondaryUser && this.getResources().getBoolean(
                 com.android.internal.R.bool.config_wimaxEnabled);
-        if (!isWimaxEnabled) {
+        if (!isWimaxEnabled
+                || mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS)) {
             PreferenceScreen root = getPreferenceScreen();
             Preference ps = (Preference) findPreference(KEY_WIMAX_SETTINGS);
             if (ps != null) root.removePreference(ps);
@@ -309,16 +315,16 @@ public class WirelessSettings extends RestrictedSettingsFragment
                 ps.setDependency(KEY_TOGGLE_AIRPLANE);
             }
         }
-        protectByRestrictions(KEY_WIMAX_SETTINGS);
 
         // Manually set dependencies for Wifi when not toggleable.
         if (toggleable == null || !toggleable.contains(Settings.Global.RADIO_WIFI)) {
             findPreference(KEY_VPN_SETTINGS).setDependency(KEY_TOGGLE_AIRPLANE);
         }
-        if (isSecondaryUser) { // Disable VPN
+        // Disable VPN.
+        if (isSecondaryUser || mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_VPN)) {
             removePreference(KEY_VPN_SETTINGS);
         }
-        protectByRestrictions(KEY_VPN_SETTINGS);
+
         // Manually set dependencies for Bluetooth when not toggleable.
         if (toggleable == null || !toggleable.contains(Settings.Global.RADIO_BLUETOOTH)) {
             // No bluetooth-dependent items in the list. Code kept in case one is added later.
@@ -330,7 +336,7 @@ public class WirelessSettings extends RestrictedSettingsFragment
             findPreference(KEY_ANDROID_BEAM_SETTINGS).setDependency(KEY_TOGGLE_AIRPLANE);
         }
 
-        // Remove NFC if its not available
+        // Remove NFC if not available
         mNfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if (mNfcAdapter == null) {
             getPreferenceScreen().removePreference(nfc);
@@ -338,14 +344,16 @@ public class WirelessSettings extends RestrictedSettingsFragment
             mNfcEnabler = null;
         }
 
-        // Remove Mobile Network Settings and Manage Mobile Plan if it's a wifi-only device.
-        if (isSecondaryUser || Utils.isWifiOnly(getActivity())) {
+        // Remove Mobile Network Settings and Manage Mobile Plan for secondary users,
+        // if it's a wifi-only device, or if the settings are restricted.
+        if (isSecondaryUser || Utils.isWifiOnly(getActivity())
+                || mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS)) {
             removePreference(KEY_MOBILE_NETWORK_SETTINGS);
             removePreference(KEY_MANAGE_MOBILE_PLAN);
         }
         // Remove Mobile Network Settings and Manage Mobile Plan
         // if config_show_mobile_plan sets false.
-        boolean isMobilePlanEnabled = this.getResources().getBoolean(
+        final boolean isMobilePlanEnabled = this.getResources().getBoolean(
                 R.bool.config_show_mobile_plan);
         if (!isMobilePlanEnabled) {
             Preference pref = findPreference(KEY_MANAGE_MOBILE_PLAN);
@@ -353,67 +361,59 @@ public class WirelessSettings extends RestrictedSettingsFragment
                 removePreference(KEY_MANAGE_MOBILE_PLAN);
             }
         }
-        protectByRestrictions(KEY_MOBILE_NETWORK_SETTINGS);
-        protectByRestrictions(KEY_MANAGE_MOBILE_PLAN);
 
         // Remove SMS Application if the device does not support SMS
         if (!isSmsSupported()) {
             removePreference(KEY_SMS_APPLICATION);
         }
 
-        // Remove Voice+ option if Google Voice is not installed
-        if (!Utils.isPackageInstalled(getActivity(), GOOGLE_VOICE_PACKAGE)) {
-            removePreference(KEY_VOICE_PLUS_ACCOUNT);
-        }
-
         // Remove Airplane Mode settings if it's a stationary device such as a TV.
-        if (getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEVISION)) {
+        if (mPm.hasSystemFeature(PackageManager.FEATURE_TELEVISION)) {
             removePreference(KEY_TOGGLE_AIRPLANE);
         }
 
         // Enable Proxy selector settings if allowed.
         Preference mGlobalProxy = findPreference(KEY_PROXY_SETTINGS);
-        DevicePolicyManager mDPM = (DevicePolicyManager)
+        final DevicePolicyManager mDPM = (DevicePolicyManager)
                 activity.getSystemService(Context.DEVICE_POLICY_SERVICE);
         // proxy UI disabled until we have better app support
         getPreferenceScreen().removePreference(mGlobalProxy);
         mGlobalProxy.setEnabled(mDPM.getGlobalProxyAdmin() == null);
 
         // Disable Tethering if it's not allowed or if it's a wifi-only device
-        ConnectivityManager cm =
+        final ConnectivityManager cm =
                 (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (isSecondaryUser || !cm.isTetheringSupported()) {
+        if (isSecondaryUser || !cm.isTetheringSupported()
+                || mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_TETHERING)) {
             getPreferenceScreen().removePreference(findPreference(KEY_TETHER_SETTINGS));
         } else {
             Preference p = findPreference(KEY_TETHER_SETTINGS);
             p.setTitle(Utils.getTetheringLabel(cm));
+
+            // Grey out if provisioning is not available.
+            p.setEnabled(!TetherSettings
+                    .isProvisioningNeededButUnavailable(getActivity()));
         }
-        protectByRestrictions(KEY_TETHER_SETTINGS);
 
         // Enable link to CMAS app settings depending on the value in config.xml.
-        PackageManager pm = getPackageManager();
-        // boolean hasPhoneFeatures = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
-        boolean isCellBroadcastAppLinkEnabled = false;
-        if (isSmsSupported()) {
-            isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
-                    com.android.internal.R.bool.config_cellBroadcastAppLinks);
-            try {
-                if (isCellBroadcastAppLinkEnabled) {
-                    if (pm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
-                            == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
-                        isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
-                    }
+        boolean isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
+                com.android.internal.R.bool.config_cellBroadcastAppLinks);
+        try {
+            if (isCellBroadcastAppLinkEnabled) {
+                if (mPm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
+                        == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+                    isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
                 }
-            } catch (IllegalArgumentException ignored) {
-                isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
             }
+        } catch (IllegalArgumentException ignored) {
+            isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
         }
-        if (isSecondaryUser || !isCellBroadcastAppLinkEnabled) {
+        if (isSecondaryUser || !isCellBroadcastAppLinkEnabled
+                || mUm.hasUserRestriction(UserManager.DISALLOW_CONFIG_CELL_BROADCASTS)) {
             PreferenceScreen root = getPreferenceScreen();
             Preference ps = findPreference(KEY_CELL_BROADCAST_SETTINGS);
             if (ps != null) root.removePreference(ps);
         }
-        protectByRestrictions(KEY_CELL_BROADCAST_SETTINGS);
     }
 
     @Override
@@ -478,9 +478,109 @@ public class WirelessSettings extends RestrictedSettingsFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mSmsApplicationPreference && newValue != null) {
             SmsApplication.setDefaultApplication(newValue.toString(), getActivity());
-            updateSmsApplicationSetting();
             return true;
         }
         return false;
     }
+
+    /**
+     * For Search.
+     */
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.wireless_settings;
+                return Arrays.asList(sir);
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                final ArrayList<String> result = new ArrayList<String>();
+
+                result.add(KEY_TOGGLE_NSD);
+
+                final UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+                final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
+                final boolean isWimaxEnabled = !isSecondaryUser && context.getResources().getBoolean(
+                        com.android.internal.R.bool.config_wimaxEnabled);
+                if (!isWimaxEnabled
+                        || um.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS)) {
+                    result.add(KEY_WIMAX_SETTINGS);
+                }
+
+                if (isSecondaryUser) { // Disable VPN
+                    result.add(KEY_VPN_SETTINGS);
+                }
+
+                // Remove NFC if not available
+                final NfcManager manager = (NfcManager) context.getSystemService(Context.NFC_SERVICE);
+                if (manager != null) {
+                    NfcAdapter adapter = manager.getDefaultAdapter();
+                    if (adapter == null) {
+                        result.add(KEY_TOGGLE_NFC);
+                        result.add(KEY_ANDROID_BEAM_SETTINGS);
+                    }
+                }
+
+                // Remove Mobile Network Settings and Manage Mobile Plan if it's a wifi-only device.
+                if (isSecondaryUser || Utils.isWifiOnly(context)) {
+                    result.add(KEY_MOBILE_NETWORK_SETTINGS);
+                    result.add(KEY_MANAGE_MOBILE_PLAN);
+                }
+
+                // Remove Mobile Network Settings and Manage Mobile Plan
+                // if config_show_mobile_plan sets false.
+                final boolean isMobilePlanEnabled = context.getResources().getBoolean(
+                        R.bool.config_show_mobile_plan);
+                if (!isMobilePlanEnabled) {
+                    result.add(KEY_MANAGE_MOBILE_PLAN);
+                }
+
+                // Remove SMS Application if the device does not support SMS
+                TelephonyManager tm =
+                        (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                if (!tm.isSmsCapable()) {
+                    result.add(KEY_SMS_APPLICATION);
+                }
+
+                final PackageManager pm = context.getPackageManager();
+
+                // Remove Airplane Mode settings if it's a stationary device such as a TV.
+                if (pm.hasSystemFeature(PackageManager.FEATURE_TELEVISION)) {
+                    result.add(KEY_TOGGLE_AIRPLANE);
+                }
+
+                // proxy UI disabled until we have better app support
+                result.add(KEY_PROXY_SETTINGS);
+
+                // Disable Tethering if it's not allowed or if it's a wifi-only device
+                ConnectivityManager cm =
+                        (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (isSecondaryUser || !cm.isTetheringSupported()) {
+                    result.add(KEY_TETHER_SETTINGS);
+                }
+
+                // Enable link to CMAS app settings depending on the value in config.xml.
+                boolean isCellBroadcastAppLinkEnabled = context.getResources().getBoolean(
+                        com.android.internal.R.bool.config_cellBroadcastAppLinks);
+                try {
+                    if (isCellBroadcastAppLinkEnabled) {
+                        if (pm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
+                                == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+                            isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
+                        }
+                    }
+                } catch (IllegalArgumentException ignored) {
+                    isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
+                }
+                if (isSecondaryUser || !isCellBroadcastAppLinkEnabled) {
+                    result.add(KEY_CELL_BROADCAST_SETTINGS);
+                }
+
+                return result;
+            }
+        };
 }

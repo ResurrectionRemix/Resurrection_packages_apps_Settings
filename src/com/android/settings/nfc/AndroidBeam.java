@@ -17,89 +17,85 @@
 package com.android.settings.nfc;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceActivity;
-import android.view.Gravity;
+import android.os.UserManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.Switch;
+
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
+import com.android.settings.widget.SwitchBar;
 
 public class AndroidBeam extends Fragment
-        implements CompoundButton.OnCheckedChangeListener {
+        implements SwitchBar.OnSwitchChangeListener {
     private View mView;
     private NfcAdapter mNfcAdapter;
-    private Switch mActionBarSwitch;
+    private SwitchBar mSwitchBar;
     private CharSequence mOldActivityTitle;
+    private boolean mBeamDisallowed;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Activity activity = getActivity();
 
-        mActionBarSwitch = new Switch(activity);
+        final ActionBar actionBar = getActivity().getActionBar();
 
-        if (activity instanceof PreferenceActivity) {
-            final int padding = activity.getResources().getDimensionPixelSize(
-                    R.dimen.action_bar_switch_padding);
-            mActionBarSwitch.setPaddingRelative(0, 0, padding, 0);
-            activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
-                    ActionBar.DISPLAY_SHOW_CUSTOM);
-            activity.getActionBar().setCustomView(mActionBarSwitch, new ActionBar.LayoutParams(
-                    ActionBar.LayoutParams.WRAP_CONTENT,
-                    ActionBar.LayoutParams.WRAP_CONTENT,
-                    Gravity.CENTER_VERTICAL | Gravity.END));
-            mOldActivityTitle = activity.getActionBar().getTitle();
-            activity.getActionBar().setTitle(R.string.android_beam_settings_title);
-        }
-
-        mActionBarSwitch.setOnCheckedChangeListener(this);
+        mOldActivityTitle = actionBar.getTitle();
+        actionBar.setTitle(R.string.android_beam_settings_title);
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(getActivity());
-        mActionBarSwitch.setChecked(mNfcAdapter.isNdefPushEnabled());
+        mBeamDisallowed = ((UserManager) getActivity().getSystemService(Context.USER_SERVICE))
+                .hasUserRestriction(UserManager.DISALLOW_OUTGOING_BEAM);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.android_beam, container, false);
-        initView(mView);
+
         return mView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        SettingsActivity activity = (SettingsActivity) getActivity();
+
+        mSwitchBar = activity.getSwitchBar();
+        mSwitchBar.setChecked(!mBeamDisallowed && mNfcAdapter.isNdefPushEnabled());
+        mSwitchBar.addOnSwitchChangeListener(this);
+        mSwitchBar.setEnabled(!mBeamDisallowed);
+        mSwitchBar.show();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        getActivity().getActionBar().setCustomView(null);
         if (mOldActivityTitle != null) {
             getActivity().getActionBar().setTitle(mOldActivityTitle);
         }
-    }
-
-    private void initView(View view) {
-        mActionBarSwitch.setOnCheckedChangeListener(this);
-        mActionBarSwitch.setChecked(mNfcAdapter.isNdefPushEnabled());
+        mSwitchBar.removeOnSwitchChangeListener(this);
+        mSwitchBar.hide();
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean desiredState) {
+    public void onSwitchChanged(Switch switchView, boolean desiredState) {
         boolean success = false;
-        mActionBarSwitch.setEnabled(false);
+        mSwitchBar.setEnabled(false);
         if (desiredState) {
             success = mNfcAdapter.enableNdefPush();
         } else {
             success = mNfcAdapter.disableNdefPush();
         }
         if (success) {
-            mActionBarSwitch.setChecked(desiredState);
+            mSwitchBar.setChecked(desiredState);
         }
-        mActionBarSwitch.setEnabled(true);
+        mSwitchBar.setEnabled(true);
     }
 }
