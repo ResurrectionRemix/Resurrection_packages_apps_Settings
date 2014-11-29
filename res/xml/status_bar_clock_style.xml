@@ -22,7 +22,13 @@
             android:key="status_bar_show_clock"
             android:title="@string/status_bar_show_clock_title"
             android:defaultValue="true" />
-
+            
+       <SwitchPreference
+            android:key="clock_use_second"
+            android:title="@string/clock_use_second"
+            android:summary="@string/clock_use_second_summary"
+            android:defaultValue="false" />
+            
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="clock_color"
             android:title="@string/clock_color_title"
@@ -35,7 +41,7 @@
             android:entryValues="@array/clock_style_values"
             android:title="@string/clock_title_enable"
             android:dependency="status_bar_show_clock" />
-
+            
         <ListPreference
             android:key="status_bar_am_pm"
             android:dialogTitle="@string/status_bar_am_pm_title"
