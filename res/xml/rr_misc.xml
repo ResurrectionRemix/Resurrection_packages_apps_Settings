@@ -82,6 +82,13 @@
         android:summary="@string/disable_fc_notifications_summary"
         android:defaultValue="false" />
 
+        <!-- Advanced options -->
+        <PreferenceScreen
+                android:key="advanced_sound_settings"
+                android:title="@string/advanced_sound_title"
+                android:persistent="false"
+                android:fragment="com.android.settings.slim.SoundSettings" />
+
 </PreferenceCategory>
 
 
