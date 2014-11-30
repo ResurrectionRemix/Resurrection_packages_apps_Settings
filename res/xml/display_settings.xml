@@ -144,6 +144,12 @@
         android:summary="@string/status_bar_double_tap_to_sleep_summary"
         android:defaultValue="true" />
 
+    <lineageos.preference.LineageGlobalSettingSwitchPreference
+        android:key="wake_when_plugged_or_unplugged"
+        android:title="@string/wake_when_plugged_or_unplugged_title"
+        android:summary="@string/wake_when_plugged_or_unplugged_summary"
+        android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
+
     <!-- Prevent accidental wake-up -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
         android:key="proximity_on_wake"
