@@ -219,6 +219,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
              Settings.System.putInt(getActivity().getContentResolver(),
                      Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
              mFontStyle.setSummary(mFontStyle.getEntries()[index]);
+             return true;
         } else if (preference == mColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
                     .valueOf(newValue)));
