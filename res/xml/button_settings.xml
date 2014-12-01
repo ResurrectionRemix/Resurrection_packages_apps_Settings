@@ -27,6 +27,12 @@
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="home_wake_screen"
+            android:title="@string/button_wake_title"
+            android:summary="@string/home_wake_summary"
+            android:defaultValue="true" />
+
         <ListPreference
             android:key="hardware_keys_home_long_press"
             android:dialogTitle="@string/hardware_keys_long_press_title"
