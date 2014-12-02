@@ -49,7 +49,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -120,10 +119,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     // Only allow one trust agent on the platform.
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
 
-    // CyanogenMod Additions
-    private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
-    private static final String KEY_BLACKLIST = "blacklist";
-
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
 
@@ -148,8 +143,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private boolean mIsPrimary;
 
     private Intent mTrustAgentClickIntent;
-    // CyanogenMod Additions
-    private PreferenceScreen mBlacklist;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -425,18 +418,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
-        // App security settings
-        addPreferencesFromResource(R.xml.security_settings_app_cyanogenmod);
-        mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
-
-        // Determine options based on device telephony support
-        if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-            // No telephony, remove dependent options
-            PreferenceGroup appCategory = (PreferenceGroup)
-                    root.findPreference(KEY_APP_SECURITY_CATEGORY);
-            appCategory.removePreference(mBlacklist);
-        }
-
         // The above preferences come and go based on security state, so we need to update
         // the index. This call is expected to be fairly cheap, but we may want to do something
         // smarter in the future.
@@ -630,8 +611,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
-
-        updateBlacklistSummary();
     }
 
     @Override
@@ -913,16 +892,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
 
             return keys;
-        }
-    }
-
-    private void updateBlacklistSummary() {
-        if (mBlacklist != null) {
-            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
-                mBlacklist.setSummary(R.string.blacklist_summary);
-            } else {
-                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
-            }
         }
     }
 }

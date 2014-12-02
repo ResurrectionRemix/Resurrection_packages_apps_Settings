@@ -23,4 +23,15 @@
             android:summary="@string/privacy_guard_manager_summary"
             android:title="@string/privacy_guard_manager_title" />
 
+        <PreferenceScreen
+            android:key="blacklist"
+            android:title="@string/blacklist_title"
+            android:summary="@string/blacklist_summary"
+            android:fragment="com.android.settings.blacklist.BlacklistSettings" />
+
+        <PreferenceScreen
+            android:title="@string/block_notifications_title"
+            android:summary="@string/block_notifications_summary"
+            android:fragment="com.android.settings.cyanogenmod.SpamList" />
+
 </PreferenceScreen>
