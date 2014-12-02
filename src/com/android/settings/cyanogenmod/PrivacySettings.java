@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 The Android Open Source Project
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,10 @@ package com.android.settings.cyanogenmod;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceScreen;
-//import com.android.settings.Utils;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.telephony.util.BlacklistUtils;
 
 /**
  * Privacy settings
