@@ -52,7 +52,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.logging.MetricsLogger;
-import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
 import com.android.settings.fingerprint.FingerprintEnrollIntroduction;
@@ -61,7 +60,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.SearchIndexableRaw;
-import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,11 +103,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
-    private static final String KEY_TOGGLE_DM_AUTOBOOT = "toggle_dm_autoboot";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
-    private static final String DM_AUTOBOOT_SETTING = "dm_selfregist_autoboot";
-    private static final int DM_AUTOBOOT_SETTING_ENABLE = 1;
-    private static final int DM_AUTOBOOT_SETTING_DISABLE = 0;
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -120,10 +114,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
-
-    // CyanogenMod Additions
-    private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
-    private static final String KEY_BLACKLIST = "blacklist";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -157,9 +147,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         return MetricsLogger.SECURITY;
     }
 
-    // CyanogenMod Additions
-    private PreferenceScreen mBlacklist;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,7 +167,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private static int getResIdForLockUnlockScreen(Context context,
             LockPatternUtils lockPatternUtils) {
-        // Add options for lock/unlock screen
         int resid = 0;
         if (!lockPatternUtils.isSecure(MY_USER_ID)) {
             if (lockPatternUtils.isLockScreenDisabled(MY_USER_ID)) {
@@ -359,18 +345,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 manageAgents.setEnabled(false);
                 manageAgents.setSummary(R.string.disabled_because_no_backup_security);
             }
-        }
-
-        // App security settings
-        addPreferencesFromResource(R.xml.security_settings_app_cyanogenmod);
-        mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
-
-        // Determine options based on device telephony support
-        if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-            // No telephony, remove dependent options
-            PreferenceGroup appCategory = (PreferenceGroup)
-                    root.findPreference(KEY_APP_SECURITY_CATEGORY);
-            appCategory.removePreference(mBlacklist);
         }
 
         // The above preferences come and go based on security state, so we need to update
@@ -674,7 +648,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
 
         updateOwnerInfo();
-        updateBlacklistSummary();
     }
 
     public void updateOwnerInfo() {
@@ -928,13 +901,4 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
     }
 
-    private void updateBlacklistSummary() {
-        if (mBlacklist != null) {
-            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
-                mBlacklist.setSummary(R.string.blacklist_summary);
-            } else {
-                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
-            }
-        }
-    }
 }
