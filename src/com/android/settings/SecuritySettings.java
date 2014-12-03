@@ -120,13 +120,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
     // Only allow one trust agent on the platform.
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
 
-<<<<<<< .merge_file_gm2Lav
     // CyanogenMod Additions
     private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
     private static final String KEY_BLACKLIST = "blacklist";
 
-=======
->>>>>>> .merge_file_ofLKLq
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
 
@@ -151,11 +148,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private boolean mIsPrimary;
 
     private Intent mTrustAgentClickIntent;
-<<<<<<< .merge_file_gm2Lav
     // CyanogenMod Additions
     private PreferenceScreen mBlacklist;
-=======
->>>>>>> .merge_file_ofLKLq
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -209,7 +203,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
         return resid;
     }
-<<<<<<< .merge_file_gm2Lav
 
     /**
      * Important!
@@ -228,26 +221,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // Add package manager to check if features are available
         PackageManager pm = getPackageManager();
 
-=======
-
-    /**
-     * Important!
-     *
-     * Don't forget to update the SecuritySearchIndexProvider if you are doing any change in the
-     * logic or adding/removing preferences here.
-     */
-    private PreferenceScreen createPreferenceHierarchy() {
-        PreferenceScreen root = getPreferenceScreen();
-        if (root != null) {
-            root.removeAll();
-        }
-        addPreferencesFromResource(R.xml.security_settings);
-        root = getPreferenceScreen();
-
-        // Add package manager to check if features are available
-        PackageManager pm = getPackageManager();
-
->>>>>>> .merge_file_ofLKLq
         // Add options for lock/unlock screen
         final int resid = getResIdForLockUnlockScreen(getActivity(), mLockPatternUtils);
         addPreferencesFromResource(resid);
@@ -438,7 +411,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             Preference appOpsSummary = findPreference(KEY_APP_OPS_SUMMARY);
             if (deviceAdminCategory != null) {
                 deviceAdminCategory.removePreference(appOpsSummary);
-<<<<<<< .merge_file_gm2Lav
             }
         }
 
@@ -465,22 +437,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             appCategory.removePreference(mBlacklist);
         }
 
-=======
-            }
-        }
-
-        // Advanced Security features
-        PreferenceGroup advancedCategory =
-                (PreferenceGroup)root.findPreference(KEY_ADVANCED_SECURITY);
-        if (advancedCategory != null) {
-            Preference manageAgents = advancedCategory.findPreference(KEY_MANAGE_TRUST_AGENTS);
-            if (manageAgents != null && !mLockPatternUtils.isSecure()) {
-                manageAgents.setEnabled(false);
-                manageAgents.setSummary(R.string.disabled_because_no_backup_security);
-            }
-        }
-
->>>>>>> .merge_file_ofLKLq
         // The above preferences come and go based on security state, so we need to update
         // the index. This call is expected to be fairly cheap, but we may want to do something
         // smarter in the future.
@@ -959,7 +915,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             return keys;
         }
     }
-<<<<<<< .merge_file_gm2Lav
 
     private void updateBlacklistSummary() {
         if (mBlacklist != null) {
@@ -970,6 +925,4 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
     }
-=======
->>>>>>> .merge_file_ofLKLq
 }
