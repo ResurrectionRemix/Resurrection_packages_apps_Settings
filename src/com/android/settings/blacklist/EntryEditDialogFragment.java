@@ -21,7 +21,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,10 +30,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Telephony.Blacklist;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.DialerKeyListener;
-import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -199,6 +199,7 @@ public class EntryEditDialogFragment extends DialogFragment
     private void updateBlacklistEntry() {
         String number = mEditText.getText().toString();
         int flags = 0;
+        int valid = BlacklistUtils.BLOCK_CALLS | BlacklistUtils.BLOCK_MESSAGES;
         if (mBlockCalls.isChecked()) {
             flags = flags | BlacklistUtils.BLOCK_CALLS;
         }
@@ -207,7 +208,7 @@ public class EntryEditDialogFragment extends DialogFragment
         }
         // Since BlacklistProvider enforces validity for a number to be added
         // we should alert the user if and when it gets rejected
-        if (!BlacklistUtils.addOrUpdate(getActivity(), number, flags, flags)) {
+        if (!BlacklistUtils.addOrUpdate(getActivity(), number, flags, valid)) {
             Toast.makeText(getActivity(), getString(R.string.blacklist_bad_number_add),
                     Toast.LENGTH_LONG).show();
         }
@@ -221,8 +222,24 @@ public class EntryEditDialogFragment extends DialogFragment
             }
         }
 
+        boolean validInput = false;
+        String input = mEditText.getText().toString();
+        if (!TextUtils.isEmpty(input)) {
+            Pair<String, Boolean> normalizeResult =
+                    BlacklistUtils.isValidBlacklistInput(getActivity(), input);
+            if (normalizeResult.second) {
+                validInput = true;
+            }
+        }
+
+        if (!validInput && !TextUtils.isEmpty(input)) {
+            mEditText.setError(getString(R.string.wifi_error));
+        } else {
+            mEditText.setError(null);
+        }
+
         if (mOkButton != null) {
-            mOkButton.setEnabled(mEditText.getText().length() != 0);
+            mOkButton.setEnabled(validInput);
         }
     }
 
@@ -269,8 +286,10 @@ public class EntryEditDialogFragment extends DialogFragment
         }
     }
 
-    private static class DeleteConfirmationFragment extends DialogFragment
+    public static class DeleteConfirmationFragment extends DialogFragment
             implements DialogInterface.OnClickListener {
+        public DeleteConfirmationFragment() {
+        }
         public static DialogFragment newInstance(EntryEditDialogFragment parent) {
             DialogFragment fragment = new DeleteConfirmationFragment();
             fragment.setTargetFragment(parent, 0);
