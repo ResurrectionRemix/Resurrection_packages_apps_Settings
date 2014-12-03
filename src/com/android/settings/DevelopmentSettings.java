@@ -648,7 +648,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void updateDevelopmentShortcutOptions() {
-        mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
+        mDevelopmentShortcut.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.DEVELOPMENT_SHORTCUT, 0) != 0);
     }
 
