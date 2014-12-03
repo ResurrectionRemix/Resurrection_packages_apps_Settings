@@ -33,6 +33,13 @@
                 android:summary="@string/auto_brightness_summary"
                 android:persistent="false" />
 
+         <com.android.settings.disco.SystemSettingSwitchPreference
+		android:key="recents_show_hide_search_bar"
+		android:title="@string/recents_show_searchbar"
+		android:summary="@string/recents_show_searchbar_summary"
+		settings:keywords="@string/keywords_recents_show_searchbar"
+                android:defaultValue="false" />
+
         <PreferenceScreen
                 android:key="wallpaper"
                 android:title="@string/wallpaper_settings_title"
