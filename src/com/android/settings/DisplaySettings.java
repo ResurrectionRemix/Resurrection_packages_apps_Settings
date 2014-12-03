@@ -77,6 +77,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
+<<<<<<< .merge_file_lJiauq
+=======
+    private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+>>>>>>> .merge_file_QxOgin
 
     private static final String CATEGORY_ADVANCED = "advanced_display_prefs";
 
@@ -92,6 +96,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mDozePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mTapToWake;
+<<<<<<< .merge_file_lJiauq
+=======
+    private SwitchPreference mWakeWhenPluggedOrUnplugged;
+>>>>>>> .merge_file_QxOgin
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -174,6 +182,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             });
         } else {
             removePreference(KEY_AUTO_ROTATE);
+<<<<<<< .merge_file_lJiauq
         }
 
         PreferenceCategory advancedPrefs = (PreferenceCategory) findPreference(CATEGORY_ADVANCED);
@@ -189,6 +198,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (!proximityCheckOnWait) {
             advancedPrefs.removePreference(findPreference(KEY_PROXIMITY_WAKE));
             Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
+=======
+>>>>>>> .merge_file_QxOgin
         }
     }
 
@@ -197,6 +208,33 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 com.android.internal.R.bool.config_allowAllRotations);
     }
 
+<<<<<<< .merge_file_lJiauq
+=======
+        PreferenceCategory advancedPrefs = (PreferenceCategory) findPreference(CATEGORY_ADVANCED);
+
+        mTapToWake = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
+        if (!isTapToWakeSupported()) {
+            advancedPrefs.removePreference(mTapToWake);
+            mTapToWake = null;
+        }
+
+        boolean proximityCheckOnWait = getResources().getBoolean(
+                com.android.internal.R.bool.config_proximityCheckOnWake);
+        if (!proximityCheckOnWait) {
+            advancedPrefs.removePreference(findPreference(KEY_PROXIMITY_WAKE));
+            Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
+        }
+
+        mWakeWhenPluggedOrUnplugged =
+                (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
+    }
+
+    private static boolean allowAllRotations(Context context) {
+        return Resources.getSystem().getBoolean(
+                com.android.internal.R.bool.config_allowAllRotations);
+    }
+
+>>>>>>> .merge_file_QxOgin
     private static boolean isLiftToWakeAvailable(Context context) {
         SensorManager sensors = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         return sensors != null && sensors.getDefaultSensor(Sensor.TYPE_WAKE_GESTURE) != null;
@@ -321,6 +359,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mTapToWake.setChecked(TapToWake.isEnabled());
         }
 
+<<<<<<< .merge_file_lJiauq
+=======
+        // Default value for wake-on-plug behavior from config.xml
+        boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
+                com.android.internal.R.bool.config_unplugTurnsOnScreen);
+
+        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(getContentResolver(),
+                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
+
+>>>>>>> .merge_file_QxOgin
         updateState();
     }
 
@@ -391,6 +440,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mTapToWake) {
             return TapToWake.setEnabled(mTapToWake.isChecked());
+<<<<<<< .merge_file_lJiauq
+=======
+        } else if (preference == mWakeWhenPluggedOrUnplugged) {
+            Settings.Global.putInt(getContentResolver(),
+                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
+            return true;
+>>>>>>> .merge_file_QxOgin
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);

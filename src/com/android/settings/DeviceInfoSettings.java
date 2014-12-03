@@ -191,7 +191,67 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
+<<<<<<< .merge_file_BnoIlq
 
+        } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
+            sendFeedback();
+        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
+            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
+            mHits[mHits.length-1] = SystemClock.uptimeMillis();
+            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.putExtra("is_cm", true);
+                intent.setClassName("android",
+                        com.android.internal.app.PlatLogoActivity.class.getName());
+                try {
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
+                }
+=======
+        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
+            // Don't enable developer options for secondary users.
+            if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
+
+            final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
+            if (um.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES)) return true;
+
+            if (mDevHitCountdown > 0) {
+                mDevHitCountdown--;
+                if (mDevHitCountdown == 0) {
+                    getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
+                            Context.MODE_PRIVATE).edit().putBoolean(
+                                    DevelopmentSettings.PREF_SHOW, true).apply();
+                    if (mDevHitToast != null) {
+                        mDevHitToast.cancel();
+                    }
+                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on_cm,
+                            Toast.LENGTH_LONG);
+                    mDevHitToast.show();
+                    // This is good time to index the Developer Options
+                    Index.getInstance(
+                            getActivity().getApplicationContext()).updateFromClassNameResource(
+                                    DevelopmentSettings.class.getName(), true, true);
+
+                } else if (mDevHitCountdown > 0
+                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
+                    if (mDevHitToast != null) {
+                        mDevHitToast.cancel();
+                    }
+                    mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
+                            R.plurals.show_dev_countdown_cm, mDevHitCountdown, mDevHitCountdown),
+                            Toast.LENGTH_SHORT);
+                    mDevHitToast.show();
+                }
+            } else if (mDevHitCountdown < 0) {
+                if (mDevHitToast != null) {
+                    mDevHitToast.cancel();
+                }
+                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already_cm,
+                        Toast.LENGTH_LONG);
+                mDevHitToast.show();
+>>>>>>> .merge_file_9qIipr
+            }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();
         } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
