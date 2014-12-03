@@ -25,6 +25,9 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ListView;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -53,6 +56,19 @@ public class ProfilesList extends SettingsPreferenceFragment implements
         if (Utils.isTablet(getActivity())) {
             getListView().setPadding(0, 0, 0, 0);
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Add a footer to avoid a situation where the FAB would cover the last
+        // item's options in a non-scrollable listview.
+        ListView listView = getListView();
+        View footer = LayoutInflater.from(getActivity())
+                .inflate(R.layout.empty_list_entry_footer, listView, false);
+        listView.addFooterView(footer);
+        listView.setFooterDividersEnabled(false);
+        footer.setOnClickListener(null);
     }
 
     public void refreshList() {

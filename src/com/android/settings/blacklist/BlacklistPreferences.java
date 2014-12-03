@@ -27,11 +27,12 @@ import android.provider.Settings;
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.SubSettings;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class PreferenceFragment extends SettingsPreferenceFragment implements
+public class BlacklistPreferences extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String BUTTON_BLACKLIST_PRIVATE = "button_blacklist_private_numbers";
