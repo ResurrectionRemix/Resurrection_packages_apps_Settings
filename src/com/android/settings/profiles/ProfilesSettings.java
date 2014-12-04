@@ -67,7 +67,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     private ViewPager mViewPager;
     private TextView mEmptyText;
     private ProfilesPagerAdapter mAdapter;
-    private ImageView mAddProfileFab;
+    private View mAddProfileFab;
     private boolean mEnabled;
 
     ViewGroup mContainer;
@@ -99,7 +99,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         View view = inflater.inflate(R.layout.profile_tabs, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
         mEmptyText = (TextView) view.findViewById(R.id.empty);
-        mAddProfileFab = (ImageView) view.findViewById(R.id.floating_action_button);
+        mAddProfileFab = view.findViewById(R.id.floating_action_button);
         mAddProfileFab.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
