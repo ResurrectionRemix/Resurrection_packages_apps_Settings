@@ -75,13 +75,16 @@
             android:id="@+id/device_personalization"
             android:title="@string/header_category_personalization" >
 
-        <!-- Status bar -->
+        <!-- ResurrectionRemix -->
         <dashboard-tile
-                android:id="@+id/status_bar_settings"
-                android:title="@string/status_bar_title"
-                android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-                android:icon="@drawable/ic_settings_interface"
-                />
+                android:id="@+id/main_settings"
+                android:title="@string/rr_settings_title"
+                android:fragment="com.android.settings.rr.MainSettings"
+                android:icon="@drawable/ic_ic_settings_about_rr"
+                />        
+                
+         <!-- button -->
+
         <dashboard-tile
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
@@ -178,7 +181,7 @@
                 android:id="@+id/profile_settings"
                 android:fragment="com.android.settings.profiles.ProfilesSettings"
                 android:title="@string/profiles_settings_title"
-                android:icon="@drawable/ic_settings_profiles"
+                android:icon="@drawable/ic_action_action_perm_identity"
                 />
 
         <!-- Location -->

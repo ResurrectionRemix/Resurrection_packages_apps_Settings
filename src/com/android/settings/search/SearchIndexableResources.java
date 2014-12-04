@@ -26,6 +26,7 @@ import com.android.settings.DisplaySettings;
 import com.android.settings.HomeSettings;
 import com.android.settings.ScreenPinningSettings;
 import com.android.settings.PrivacySettings;
+import com.android.settings.rr.MainSettings;
 import com.android.settings.R;
 import com.android.settings.SecuritySettings;
 import com.android.settings.WallpaperTypeSettings;
@@ -87,7 +88,14 @@ public final class SearchIndexableResources {
                         NO_DATA_RES_ID,
                         BluetoothSettings.class.getName(),
                         R.drawable.ic_settings_bluetooth2));
-
+                        
+        sResMap.put(MainSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(MainSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        MainSettings.class.getName(),
+                        R.drawable.ic_settings_interface));
+                        
         sResMap.put(SimSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(SimSettings.class.getName()),
