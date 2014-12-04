@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -27,22 +28,7 @@
 
     </android.support.v4.view.ViewPager>
 
-    <FrameLayout
-        android:id="@+id/floating_action_button_container"
-        android:background="@drawable/fab_accent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:elevation="4dp"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
-        <ImageButton
-            android:id="@+id/floating_action_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:background="@drawable/floating_action_button"
-            android:src="@drawable/ic_menu_add"/>
-    </FrameLayout>
+    <include layout="@layout/fab" />
 
     <TextView
         android:id="@+id/empty"
