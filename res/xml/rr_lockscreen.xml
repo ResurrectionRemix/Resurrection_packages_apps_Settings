@@ -52,7 +52,25 @@
 
     </PreferenceCategory>
 
-    <!--PreferenceCategory
+    <PreferenceCategory
+        android:key="locksystem_category"
+        android:title="@string/lockscreen_shortcuts_category">
+
+        <PreferenceScreen
+                 android:key="lockscreen_shortcuts"
+                 android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+                 android:summary="@string/lockscreen_shortcuts_summary"
+                 android:title="@string/lockscreen_shortcuts_title">
+             <extra android:name="actionMode" android:value="4" />
+             <extra android:name="maxAllowedActions" android:value="5" />
+             <extra android:name="disableLongpress" android:value="true" />
+             <extra android:name="useAppPickerOnly" android:value="true" />
+             <extra android:name="fragment" android:value="com.android.settings.slim.fragments.LockscreenShortcutFragment" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+       <!--PreferenceCategory
         android:key="lockscreen_wallpaper"
         android:title="@string/lockscreen_wallpaper_title" >
 
