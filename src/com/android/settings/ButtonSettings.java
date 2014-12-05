@@ -185,14 +185,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             int defaultLongPressAction = res.getInteger(
                     com.android.internal.R.integer.config_longPressOnHomeBehavior);
             if (defaultLongPressAction < ACTION_NOTHING ||
-                    defaultLongPressAction > ACTION_IN_APP_SEARCH) {
+                    defaultLongPressAction > ACTION_SLEEP) {
                 defaultLongPressAction = ACTION_NOTHING;
             }
 
             int defaultDoubleTapAction = res.getInteger(
                     com.android.internal.R.integer.config_doubleTapOnHomeBehavior);
             if (defaultDoubleTapAction < ACTION_NOTHING ||
-                    defaultDoubleTapAction > ACTION_IN_APP_SEARCH) {
+                    defaultDoubleTapAction > ACTION_SLEEP) {
                 defaultDoubleTapAction = ACTION_NOTHING;
             }
 
