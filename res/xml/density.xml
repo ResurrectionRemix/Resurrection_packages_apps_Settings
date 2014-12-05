@@ -1,0 +1,35 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:layout="@layout/preference_warning"
+        android:selectable="false" />
+
+    <Preference
+        android:title="@string/su_dialog_error_title"
+        android:summary="@string/follow_through_summary"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="density_category"
+        android:title="@string/lcd_density_category"/>
+
+    <ListPreference
+        android:entries="@array/lcd_density_stock_entries"
+        android:entryValues="@array/lcd_density_stock_values"
+        android:key="stock_density"
+        android:title="@string/stock_density_title"
+        android:summary="@string/stock_density_summary" />
+
+    <ListPreference
+        android:entries="@array/lcd_density_entries"
+        android:entryValues="@array/lcd_density_entries"
+        android:key="lcd_density"
+        android:title="@string/custom_density_title" />
+
+    <Preference
+        android:key="reboot"
+        android:title="@string/reboot_title"
+        android:summary="@string/reboot_summary" />
+
+</PreferenceScreen>
