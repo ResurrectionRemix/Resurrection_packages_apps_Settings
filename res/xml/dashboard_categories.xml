@@ -82,7 +82,15 @@
                 android:fragment="com.android.settings.rr.MainSettings"
                 android:icon="@drawable/ic_ic_settings_about_rr"
                 />        
+                
+         <!-- button -->
 
+        <dashboard-tile
+                android:id="@+id/button_settings"
+                android:title="@string/button_pref_title"
+                android:fragment="com.android.settings.ButtonSettings"
+                android:icon="@drawable/ic_settings_home"
+                />
     </dashboard-category>
 
     <!-- DEVICE -->
@@ -105,16 +113,7 @@
                 android:fragment="com.android.settings.DisplaySettings"
                 android:icon="@drawable/ic_settings_display"
                 />
-                
-         <!-- button -->
 
-        <dashboard-tile
-                android:id="@+id/button_settings"
-                android:title="@string/button_pref_title"
-                android:fragment="com.android.settings.ButtonSettings"
-                android:icon="@drawable/ic_settings_home"
-                />
-                
         <!-- Notifications -->
         <dashboard-tile
                 android:id="@+id/notification_settings"
