@@ -21,9 +21,9 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.os.Bundle;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -61,6 +61,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
     private static final String STATUS_BAR_CLOCK = "status_bar_show_clock";
+    private static final String KEY_STATUS_BAR_TICKER = "status_bar_ticker_enabled";
     private static final String CLOCK_USE_SECOND = "clock_use_second";
     
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
@@ -72,6 +73,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     private static final int DLG_RESET = 0;
 
     private ListPreference mClockStyle;
+    private SwitchPreference mTicker;
     private ListPreference mFontStyle;
     private ListPreference mClockAmPmStyle;
     private ColorPickerPreference mColorPicker;
@@ -114,6 +116,13 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_STYLE,
                 0)));
         mClockStyle.setSummary(mClockStyle.getEntry());
+        
+        mTicker = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_TICKER);
+        final boolean tickerEnabled = systemUiResources.getBoolean(systemUiResources.getIdentifier(
+                    "com.android.systemui:bool/enable_ticker", null, null));
+        mTicker.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_TICKER_ENABLED, tickerEnabled ? 1 : 0) == 1);
+        mTicker.setOnPreferenceChangeListener(this);
         
         mFontStyle = (ListPreference) findPreference(PREF_FONT_STYLE);
         mFontStyle.setOnPreferenceChangeListener(this);
@@ -253,6 +262,11 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
         } else if (preference == mStatusBarClock) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_CLOCK,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mTicker) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_TICKER_ENABLED,
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mClockDateFormat) {
