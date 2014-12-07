@@ -1135,9 +1135,6 @@
     <!-- Message when bluetooth is informing the user of the pairing key. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_pairing_key_msg">Pairing code</string>
 
-    <!-- Message when bluetooth dialog for pin entry is showing  when HIGH security enabled-->
-    <string name="bluetooth_enter_pin_msg_hs">Device requires High Security 16 character passkey</string>
-
     <!-- Message when bluetooth dialog for passkey entry is showing. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_enter_passkey_msg">Type the pairing code then press Return or Enter</string>
 
@@ -1259,10 +1256,7 @@
     <string name="bluetooth_profile_pan_nap">Internet connection sharing</string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the map profile. -->
     <string name="bluetooth_profile_map">Message Access</string>
-    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the DUN profile. -->
-    <string name="bluetooth_profile_dun">Dial-up Network Access</string>
-    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the SAP profile. -->
-    <string name="bluetooth_profile_sap">SIM Access</string>
+
     <!-- Bluetooth settings.  Message for disconnecting from the A2DP profile. [CHAR LIMIT=80] -->
     <string name="bluetooth_disconnect_a2dp_profile"><xliff:g id="device_name">%1$s</xliff:g> will be disconnected from media audio.</string>
     <!-- Bluetooth settings.  Message for disconnecting from the headset profile. [CHAR LIMIT=80] -->
@@ -1297,10 +1291,6 @@
     <string name="bluetooth_opp_profile_summary_connected">Connected to file transfer server</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the map checkbox preference when map is connected. -->
     <string name="bluetooth_map_profile_summary_connected">Connected to map</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the DUN checkbox preference when DUN is connected. -->
-    <string name="bluetooth_dun_profile_summary_connected">Connected to DUN Server</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the SAP checkbox preference when SAP is connected. -->
-    <string name="bluetooth_sap_profile_summary_connected">Connected to SIM Access Server</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is not connected. -->
     <string name="bluetooth_opp_profile_summary_not_connected">Not connected to file transfer server</string>
     <!-- Bluetooth settings. Connection options screen. The summary for the HID checkbox preference when HID is connected. -->
@@ -1316,10 +1306,6 @@
     <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
     <string name="bluetooth_opp_profile_summary_use_for">Use for file transfer</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the DUN checkbox preference that describes how checking it will set the DUN profile as preferred. -->
-    <string name="bluetooth_dun_profile_summary_use_for">Use for Dial-up Network Access</string>
-    <!-- Bluetooth settings.  Connection options screen.  The summary for the SAP checkbox preference that describes how checking it will set the SAP profile as preferred. -->
-    <string name="bluetooth_sap_profile_summary_use_for">Use for SIM Access</string>
     <!-- Bluetooth settings. Connection options screen. The summary
          for the HID checkbox preference that describes how checking it
          will set the HID profile as preferred. -->
@@ -1469,10 +1455,6 @@
     <string name="wifi_poor_network_detection">Avoid poor connections</string>
     <!-- Checkbox summary for option to toggle poor network detection -->
     <string name="wifi_poor_network_detection_summary">Don\'t use a Wi\u2011Fi network unless it has a good Internet connection</string>
-    <!-- Checkbox title for option to toggle wifi RSSI threshold check -->
-    <string name="wifi_rssi_threshold_check">Enable RSSI threshold</string>
-    <!-- Checkbox summary for option to toggle poor network detection -->
-    <string name="wifi_rssi_threshold_check_summary">Do not connect to an AP if RSSI is poor</string>
     <!-- Checkbox summary for option to toggle poor network detection [CHAR LIMIT=60] -->
     <string name="wifi_avoid_poor_network_detection_summary">Only use networks that have a good Internet connection</string>
     <!-- Checkbox title for option to scan always available setting -->
@@ -2085,11 +2067,11 @@
     <string name="dialog_title_font_size">Font size</string>
 
     <!-- SIM lock settings title  [CHAR LIMIT=40] -->
-    <string name="sim_lock_settings">SIM/RUIM card lock settings</string>
+    <string name="sim_lock_settings">SIM card lock settings</string>
     <!-- Security & location settings screen, setting option name  [CHAR LIMIT=40] -->
-    <string name="sim_lock_settings_category">Set up SIM/RUIM card lock</string>
+    <string name="sim_lock_settings_category">Set up SIM card lock</string>
     <!-- Security & location settings screen, section heading for settings related to sim card locking  [CHAR LIMIT=40] -->
-    <string name="sim_lock_settings_title">SIM/RUIM card lock</string>
+    <string name="sim_lock_settings_title">SIM card lock</string>
     <!-- SIM card lock settings screen, setting check box label  [CHAR LIMIT=40] -->
     <string name="sim_pin_toggle">Lock SIM card</string>
     <!-- SIM card lock settings screen, setting option summary text when SIM lock check box is selected  [CHAR LIMIT=40] -->
@@ -2120,15 +2102,9 @@
     <string name="sim_bad_pin">Incorrect PIN</string>
     <!-- SIM card lock settings screen, SIM PIN dialog message when PINs don't match  [CHAR LIMIT=40] -->
     <string name="sim_pins_dont_match">PINs don\'t match</string>
-    <!-- SIM card lock settings screen, SIM PIN dialog message when SIM card is absent-->
-    <string name="sim_absent">No SIM/RUIM</string>
     <!-- SIM card lock settings screen, toast after not entering correct SIM PIN  [CHAR LIMIT=40] -->
     <string name="sim_change_failed">Can\'t change PIN.\nPossibly incorrect PIN.</string>
-    <!-- SIM card lock settings screen, SIM PIN dialog message when PIN disable fails-->
-    <string name="sim_pin_disable_failed">Can\'t disable PIN.</string>
-    <!-- SIM card lock settings screen, SIM PIN dialog message when PIN enable fails-->
-    <string name="sim_pin_enable_failed">Can\'t enable PIN.</string>
-    <!-- SIM card lock settings screen, SIM PIN dialog message when the entered PIN is correct-->
+    <!-- SIM card lock settings screen, SIM PIN dialog message when the entered PIN is correct [CHAR LIMIT=40] -->
     <string name="sim_change_succeeded">SIM PIN changed successfully</string>
     <!-- SIM card lock settings screen, toast after not entering correct SIM PIN [CHAR LIMIT=40] -->
     <string name="sim_lock_failed">Can\'t change SIM card lock state.\nPossibly incorrect PIN.</string>
@@ -2140,16 +2116,6 @@
     <string name="sim_multi_sims_title">Multiple SIMs found</string>
     <!-- Multiple SIMs found summary.  [CHAR LIMIT=100] -->
     <string name="sim_multi_sims_summary">Choose the SIM you prefer for cellular data.</string>
-    <!-- SIM password can't be changed as SIM LOCK is not enabled: -->
-    <string name="sim_pin_change_failed_enable_sim_lock">Unable to Change SIM/RUIM PIN.\n Enable SIM/RUIM Lock.</string>
-    <!-- SIM lock can't be changed - not supported -->
-    <string name="sim_enable_disable_lock_not_supported">Unable to Change SIM/RUIM Lock.\n SIM/RUIM doesn\'t support it.</string>
-    <!-- SIM card lock settings screen, toast displayed on wrong PIN1: -->
-    <string name="sim_pin_attempts">\nAttempts Remaining :</string>
-    <!-- SIM card lock settings screen, toast displayed on PIN1 enable: -->
-    <string name="sim_pin_enabled">PIN1 Enabled!</string>
-    <!-- SIM card lock settings screen, toast displayed on PIN1 disable: -->
-    <string name="sim_pin_disabled">PIN1 Disabled!</string>
 
     <!-- Instructions telling the user that they entered the wrong SIM PIN for the last time.
          Displayed in a dialog box.  [CHAR LIMIT=100] -->
@@ -2196,12 +2162,7 @@
     <!-- About tablet screen, summary of the item that takes you to tablet status screen -->
     <string name="device_status_summary" product="tablet">Status of the battery, network, and other information</string>
     <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_status_summary" product="default">Battery Status, battery level, etc.</string>
-    <string name="subs_settings">SUBS Status</string>
-    <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_additional_status_summary">Phone number, Signal, IMEI, etc.</string>
-    <!-- In About phone->Status screen, title of the item to go into the subscription status screen -->
-    <string name="device_additional_status">Additional Status Info</string>
+    <string name="device_status_summary" product="default">Phone number, signal, etc.</string>
     <!-- Main settings screen item's title to go into the storage settings screen [CHAR LIMIT=25] -->
     <string name="storage_settings" >Storage</string>
     <!-- Storage settings screen title -->
@@ -2315,46 +2276,6 @@
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.   [CHAR LIMIT=80] -->
     <string name="sd_format_summary" product="default">Erases all data on the SD card, such as music and photos</string>
     <!-- SD card status when it is mounted as read only. Will be appended to size, starts with an unbreakable space -->
-
-    <!-- string resources for USB OTG & UICC features -->
-    <string name="storage_usb">USB storage</string>
-    <string name="storage_uicc">UICC storage</string>
-    <string name="usb_eject" product="default">Unmount USB storage</string>
-    <string name="usb_eject_summary" product="default">Unmount the USB storage so you can safely remove it</string>
-    <string name="usb_format" product="default">Erase USB storage</string>
-    <string name="usb_format_summary" product="default">Erases all data on the USB storage, such as music and photos</string>
-    <string name="usb_mount" product="default">Mount USB storage</string>
-    <string name="usb_mount_summary" product="default"></string>
-    <string name="usb_insert_summary" product="default">Insert an USB storage for mounting</string>
-    <string name="uicc_eject" product="default">Unmount UICC storage</string>
-    <string name="uicc_eject_summary" product="default">Unmount the UICC storage so you can safely remove it</string>
-    <string name="uicc_format" product="default">Erase UICC storage</string>
-    <string name="uicc_format_summary" product="default">Erases all data on the UICC storage, such as music and photos</string>
-    <string name="uicc_mount" product="default">Mount UICC storage</string>
-    <string name="uicc_mount_summary" product="default"></string>
-    <string name="uicc_insert_summary" product="default">Insert an UICC storage for mounting</string>
-
-    <string name="dlg_confirm_usb_unmount_title" product="default">Unmount USB storage?</string>
-    <string name="dlg_confirm_uicc_unmount_title" product="default">Unmount UICC storage?</string>
-    <string name="dlg_confirm_usb_unmount_text" product="default">If you unmount the USB storage, some apps you are using will stop and may be unavailable until you remount the USB storage.</string>
-    <string name="dlg_confirm_uicc_unmount_text" product="default">If you unmount the UICC storage, some apps you are using will stop and may be unavailable until you remount the UICC storage.</string>
-    <string name="dlg_error_usb_unmount_text" product="default">Couldn\'t unmount USB storage. Try again later.</string>
-    <string name="dlg_error_uicc_unmount_text" product="default">Couldn\'t unmount UICC storage. Try again later.</string>
-    <string name="usb_unmount_inform_text" product="default">USB storage will be unmounted.</string>
-    <string name="uicc_unmount_inform_text" product="default">UICC storage will be unmounted.</string>
-
-    <string name="usb_media_format_title" product="default">Erase USB storage</string>
-    <string name="uicc_media_format_title" product="default">Erase UICC storage</string>
-    <string name="usb_media_format_summary" product="default">Erases all data on the USB storage</string>
-    <string name="uicc_media_format_summary" product="default">Erases all data on the UICC storage</string>
-    <string name="usb_media_format_desc" product="default">Erase the USB storage? You will lose <b>all</b> data on the storage!</string>
-    <string name="uicc_media_format_desc" product="default">Erase the UICC storage? You will lose <b>all</b> data on the storage!</string>
-    <string name="usb_media_format_button_text" product="default">Erase USB storage</string>
-    <string name="uicc_media_format_button_text" product="default">Erase UICC storage</string>
-    <string name="usb_media_format_final_desc" product="default">Erase the USB storage, deleting all files stored there? You can\'t reverse this action!</string>
-    <string name="uicc_media_format_final_desc" product="default">Erase the UICC storage, deleting all files stored there? You can\'t reverse this action!</string>
-    <string name="usb_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the USB storage.</string>
-    <string name="uicc_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the UICC storage.</string>
 
     <!-- Title of dialog asking user to confirm before clearing all caches. [CHAR LIMIT=48] -->
     <string name="memory_clear_cache_title">Clear cached data?</string>
@@ -2709,8 +2630,7 @@
     <string name="location_mode_battery_saving_description">Use Wi\u2011Fi and cellular networks to determine location</string>
     <!-- [CHAR LIMIT=130] Location mode screen, description for sensors only mode -->
     <string name="location_mode_sensors_only_description">Use GPS to determine your location</string>
-    <!-- [CHAR LIMIT=130] Location mode screen, sub category for IZat Location -->
-    <string name="location_category_enhanced_location">Enhanced Location</string>
+
     <!-- [CHAR LIMIT=30] Security & location settings screen, setting check box label for Google location service (cell ID, wifi, etc.) -->
     <string name="location_network_based">Wi\u2011Fi &amp; cellular network location</string>
     <!-- [CHAR LIMIT=130] Security & location settings screen, setting summary for Google location service check box-->
@@ -3140,8 +3060,6 @@
     <!-- App Ops Settings --> <skip />
     <!-- [CHAR LIMIT=NONE] App ops settings title, on main settings screen. If clicked, the user is taken to a settings screen for app operations -->
     <string name="app_ops_settings">App ops</string>
-    <!-- [CHAR LIMIT=NONE] App ops settings summary, on main settings screen. If clicked, the user is taken to a settings screen for app operations -->
-    <string name="app_ops_settings_summary">View or change app permissions</string>
     <!-- [CHAR LIMIT=NONE] Time label for an operation that is currently running. -->
     <string name="app_ops_running">Running</string>
     <!-- [CHAR LIMIT=NONE] Time label for an operation that has never executed. -->
@@ -3458,8 +3376,6 @@
     <string name="enable_adb">USB debugging</string>
     <!-- Setting checkbox summary for Whether to enable USB debugging support on the phone -->
     <string name="enable_adb_summary">Debug mode when USB is connected</string>
-    <!-- Setting checkbox summary when device is in Charging mode -->
-    <string name="enable_adb_summary_charging">Device is in Charging mode, USB debugging is disabled</string>
     <!-- Setting title to revoke secure USB debugging authorizations -->
     <string name="clear_adb_keys">Revoke USB debugging authorizations</string>
     <!-- [CHAR LIMIT=NONE] Setting checkbox title for Whether to include bug report item in power menu. -->
@@ -3515,10 +3431,6 @@
     <string name="dev_settings_warning_title">Allow development settings?</string>
     <!-- Warning text to user about the implications of enabling USB debugging -->
     <string name="dev_settings_warning_message">These settings are intended for development use only.  They can cause your device and the applications on it to break or misbehave.</string>
-    <!-- Title of checkbox setting that enable quickboot. [CHAR LIMIT=32] -->
-    <string name="enable_quickboot_title">Enable QuickBoot mode</string>
-    <!-- Summary of checkbox setting that enable quickboot. [CHAR LIMIT=64] -->
-    <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off</string>
     <!-- Title of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=32] -->
     <string name="verify_apps_over_usb_title">Verify apps over USB</string>
     <!-- Summary of checkbox setting to perform package verification on apps installed over USB/ADT/ADB [CHAR LIMIT=NONE] -->
@@ -5010,7 +4922,6 @@
     <string name="data_usage_tab_ethernet">Ethernet</string>
     <!-- Tab title for showing combined mobile data usage. [CHAR LIMIT=20] -->
     <string name="data_usage_tab_mobile">Cellular</string>
-    <string name="data_usage_tab_slot">SIM </string>
     <!-- Tab title for showing 4G data usage. [CHAR LIMIT=10] -->
     <string name="data_usage_tab_4g">4G</string>
     <!-- Tab title for showing 2G and 3G data usage. [CHAR LIMIT=10] -->
@@ -5229,28 +5140,6 @@
     <string name="backup_pw_set_button_text">Set backup password</string>
     <!-- Button label for cancelling the new-password operation and retaining the user's previous full-backup password -->
     <string name="backup_pw_cancel_button_text">Cancel</string>
-
-    <!-- MultiSim Settings changes-->
-    <string name="close_dialog">OK</string>
-    <string name="sim_enabler_title">SIM Enablers</string>
-    <string name="sim_enabler_summary">SIM is %1$s</string>
-    <string name="sim_enabled">enabled</string>
-    <string name="sim_disabled">disabled</string>
-    <string name="sim_missing">missing or error</string>
-    <string name="sim_enabler_need_enable_sim">Activating the SIM, are you sure?</string>
-    <string name="sim_enabler_need_disable_sim">Deactivating the SIM, are you sure?</string>
-    <string name="sim_enabler_airplane_on">ERROR, airplane mode is on!</string>
-    <string name="sim_enabler_in_call">ERROR, in call!</string>
-    <string name="sim_enabler_both_inactive">"Error, can't disable all the SIMs"</string>
-    <string name="sim_enabler_enabling">Activating...</string>
-    <string name="sim_enabler_disabling">Deactivating...</string>
-    <string name="sub_activate_success">Successfully Activated.</string>
-    <string name="sub_activate_failed">Activation failed.</string>
-    <string name="sub_deactivate_success">Successfully Deactivated.</string>
-    <string name="sub_deactivate_failed">Deactivation failed.</string>
-    <string name="sub_deactivate_not_supported">Deactivation not supported</string>
-    <string name="sub_activate_not_supported">Activation not supported</string>
-    <string name="slot_name">SIM <xliff:g id="sub">%d</xliff:g></string>
 
     <!-- A menu item in "About phone" that allows the user to update the phone with settings
     from their cell phone carrier. The use of the string is similar to the string
@@ -6089,20 +5978,5 @@
 
    <!-- Message for encryption dialog telling the user that Talkback and other accessibility services will be disabled. -->
    <string name="encrypt_talkback_dialog_message_password">When you enter your password to start this device, accessibility services like <xliff:g id="service" example="TalkBack">%1$s</xliff:g> won\'t yet be available.</string>
-
-    <string name="usb_charging_title">Charging</string>
-    <string name="usb_charging_summary">Lets you disable all data and file transfer connection with computer and put device in charging only mode.</string>
-    <string name="primary_sub_select_title">Default 4G/3G Subscription</string>
-
-    <string name="usb_sdcard_summary">Lets you transfer media files in the SD card on computer</string>
-    <string name="usb_sdcard_title">Mount SD card</string>
-    <string name="external_storage_turn_on">External storage has been turned on</string>
-    <string name="external_storage_turn_off">External storage has been turned off</string>
-
-    <!-- Protected Apps -->
-    <string name="menu_hidden_apps_delete">Reset</string>
-    <string name="menu_hidden_apps_reset_lock">Reset pattern lock</string>
-    <string name="protected_apps">Protected apps</string>
-    <string name="saving_protected_components">Saving component state</string>
 
 </resources>
