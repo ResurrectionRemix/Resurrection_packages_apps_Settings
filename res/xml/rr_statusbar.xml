@@ -50,36 +50,11 @@
 
      </PreferenceCategory>
 
-     <PreferenceCategory
-            android:key="battery_bar"
-            android:title="@string/battery_bar">
-    
-            <ListPreference
-                android:key="battery_bar_list"
-                android:title="@string/battery_bar_location"
-                android:entries="@array/battery_bar_entries"
-                android:entryValues="@array/battery_bar_values" />
-    
-            <ListPreference
-                android:key="battery_bar_style"
-                android:title="@string/battery_bar_style_title"
-                android:entries="@array/battery_bar_style_entries"
-                android:entryValues="@array/battery_bar_style_values" />
-    
-            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="battery_bar_animate"
-                android:title="@string/battery_bar_animate_title"
-                android:summary="@string/battery_bar_animate_summary" />
-    
-            <ListPreference
-                android:key="battery_bar_thickness"
-                android:title="@string/battery_bar_thickness_title"
-                android:entries="@array/battery_bar_thickness_entries"
-                android:entryValues="@array/battery_bar_thickness_values" />
-    
-        </PreferenceCategory>
+    	 <PreferenceScreen
+           android:key="network_traffic_settings"
+           android:title="@string/battery_bar"
+           android:fragment="com.android.settings.rr.BatteryBar" />
 
- 
     	 <PreferenceScreen
            android:key="network_traffic_settings"
            android:title="@string/network_traffic_title"
