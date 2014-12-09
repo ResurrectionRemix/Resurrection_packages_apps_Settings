@@ -38,7 +38,6 @@
         android:layout_marginTop="20dip"
         android:layout_gravity="center"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/white"
         android:text="@string/shortcut_action_disable_message"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:visibility="gone" />
@@ -63,5 +62,6 @@
         settings:sortEnabled="true"
         settings:removeEnabled="true"
         settings:dragStartMode="onMove"
-        settings:removeMode="flingRemove" />
+        settings:removeMode="flingRemove"
+        settings:floatBackgroundColor="@color/dslv_float_cackground_color" />
 </LinearLayout>
