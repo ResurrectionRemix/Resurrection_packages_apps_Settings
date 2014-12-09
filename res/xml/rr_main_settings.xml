@@ -38,7 +38,14 @@
                 android:fragment="com.android.settings.ButtonSettings"
                 android:icon="@drawable/ic_buttons_tint"
 
-                />		               
+                />
+                
+        <!-- Change Log -->
+    <PreferenceScreen android:key="changelog"
+        android:title="@string/changelog_title"
+        android:icon="@drawable/ic_changelog_tint"
+        android:fragment="com.android.settings.rr.ChangeLog" />
+               
 </PreferenceCategory>
 
 </PreferenceScreen>

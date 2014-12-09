@@ -40,6 +40,7 @@ public class Settings extends SettingsActivity {
     public static class InputMethodAndSubtypeEnablerActivity extends SettingsActivity { /* empty */ }
     public static class VoiceInputSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SpellCheckersSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ChangeLog extends SettingsActivity { /* empty */ }  
     public static class LocalePickerActivity extends SettingsActivity { /* empty */ }
     public static class UserDictionarySettingsActivity extends SettingsActivity { /* empty */ }
     public static class HomeSettingsActivity extends SettingsActivity { /* empty */ }
