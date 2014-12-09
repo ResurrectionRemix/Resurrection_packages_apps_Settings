@@ -19,10 +19,10 @@ package com.android.settings.cyanogenmod;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.internal.view.RotationPolicy;
@@ -39,11 +39,11 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     private static final String ROTATION_180_PREF = "display_rotation_180";
     private static final String ROTATION_270_PREF = "display_rotation_270";
 
-    private CheckBoxPreference mAccelerometer;
-    private CheckBoxPreference mRotation0Pref;
-    private CheckBoxPreference mRotation90Pref;
-    private CheckBoxPreference mRotation180Pref;
-    private CheckBoxPreference mRotation270Pref;
+    private SwitchPreference mAccelerometer;
+    private SwitchPreference mRotation0Pref;
+    private SwitchPreference mRotation90Pref;
+    private SwitchPreference mRotation180Pref;
+    private SwitchPreference mRotation270Pref;
 
     public static final int ROTATION_0_MODE = 1;
     public static final int ROTATION_90_MODE = 2;
@@ -53,7 +53,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     private ContentObserver mAccelerometerRotationObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
-            updateAccelerometerRotationCheckbox();
+            updateAccelerometerRotationSwitch();
         }
     };
 
@@ -65,13 +65,13 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
+        mAccelerometer = (SwitchPreference) findPreference(KEY_ACCELEROMETER);
         mAccelerometer.setPersistent(false);
 
-        mRotation0Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_0_PREF);
-        mRotation90Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_90_PREF);
-        mRotation180Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_180_PREF);
-        mRotation270Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_270_PREF);
+        mRotation0Pref = (SwitchPreference) prefSet.findPreference(ROTATION_0_PREF);
+        mRotation90Pref = (SwitchPreference) prefSet.findPreference(ROTATION_90_PREF);
+        mRotation180Pref = (SwitchPreference) prefSet.findPreference(ROTATION_180_PREF);
+        mRotation270Pref = (SwitchPreference) prefSet.findPreference(ROTATION_270_PREF);
 
         int mode = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION_ANGLES,
@@ -87,7 +87,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 //                com.android.internal.R.bool.config_hasRotationLockSwitch);
 
         if (hasRotationLock) {
-            // Disable accelerometer checkbox, but leave others enabled
+            // Disable accelerometer switch, but leave others enabled
             mAccelerometer.setEnabled(false);
             mRotation0Pref.setDependency(null);
             mRotation90Pref.setDependency(null);
@@ -95,8 +95,8 @@ public class DisplayRotation extends SettingsPreferenceFragment {
             mRotation270Pref.setDependency(null);
         }
 
-        final CheckBoxPreference lockScreenRotation =
-                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
+        final SwitchPreference lockScreenRotation =
+                (SwitchPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
         boolean canRotateLockscreen = getResources().getBoolean(
                 com.android.internal.R.bool.config_enableLockScreenRotation);
 
@@ -123,10 +123,10 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     }
 
     private void updateState() {
-        updateAccelerometerRotationCheckbox();
+        updateAccelerometerRotationSwitch();
     }
 
-    private void updateAccelerometerRotationCheckbox() {
+    private void updateAccelerometerRotationSwitch() {
         mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
     }
 
