@@ -64,6 +64,7 @@ public class Settings extends SettingsActivity {
     public static class AccessibilityContrastSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccessibilityDaltonizerSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SecuritySettingsActivity extends SettingsActivity { /* empty */ }
+    public static class InterfaceSettings extends SettingsActivity { /* empty */ }
     public static class UsageAccessSettingsActivity extends SettingsActivity { /* empty */ }
     public static class LocationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrivacySettingsActivity extends SettingsActivity { /* empty */ }

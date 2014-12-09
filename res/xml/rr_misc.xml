@@ -16,6 +16,10 @@
     android:title="@string/misc_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     
+        <!-- animations -->
+    <PreferenceCategory
+        android:title="@string/rr_animations_title">
+        
         <ListPreference
                 android:key="toast_animation"
                 android:title="@string/toast_animation_title"
@@ -25,5 +29,21 @@
     <PreferenceScreen
         android:id="@+id/listview"
         android:fragment="com.android.settings.rr.Listview"
+        android:summary="@string/listview_category_summary"
         android:title="@string/listview_category" />
+</PreferenceCategory>
+      
+    <!-- display -->
+    <PreferenceCategory
+        android:title="@string/rr_display_title">
+                
+    <!-- Density Changer -->
+	<PreferenceScreen
+        android:key="density_changer"
+        android:title="@string/lcd_density_title"
+        android:fragment="com.android.settings.rr.Density" />
+        
+</PreferenceCategory>
+
+
 </PreferenceScreen>
