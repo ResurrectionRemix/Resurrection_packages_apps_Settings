@@ -30,7 +30,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -171,9 +170,9 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mServicesCategory;
     private PreferenceCategory mSystemsCategory;
 
-    private CheckBoxPreference mToggleLargeTextPreference;
-    private CheckBoxPreference mToggleHighTextContrastPreference;
-    private CheckBoxPreference mToggleSpeakPasswordPreference;
+    private SwitchPreference mToggleLargeTextPreference;
+    private SwitchPreference mToggleHighTextContrastPreference;
+    private SwitchPreference mToggleSpeakPasswordPreference;
     private ListPreference mSelectLongPressTimeoutPreference;
     private Preference mNoServicesMessagePreference;
     private PreferenceScreen mCaptioningPreferenceScreen;
@@ -308,11 +307,11 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
 
         // Large text.
         mToggleLargeTextPreference =
-                (CheckBoxPreference) findPreference(TOGGLE_LARGE_TEXT_PREFERENCE);
+                (SwitchPreference) findPreference(TOGGLE_LARGE_TEXT_PREFERENCE);
 
         // Text contrast.
         mToggleHighTextContrastPreference =
-                (CheckBoxPreference) findPreference(TOGGLE_HIGH_TEXT_CONTRAST_PREFERENCE);
+                (SwitchPreference) findPreference(TOGGLE_HIGH_TEXT_CONTRAST_PREFERENCE);
 
         // Display inversion.
         mToggleInversionPreference = (SwitchPreference) findPreference(TOGGLE_INVERSION_PREFERENCE);
@@ -320,7 +319,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
 
         // Speak passwords.
         mToggleSpeakPasswordPreference =
-                (CheckBoxPreference) findPreference(TOGGLE_SPEAK_PASSWORD_PREFERENCE);
+                (SwitchPreference) findPreference(TOGGLE_SPEAK_PASSWORD_PREFERENCE);
 
         // Long press timeout.
         mSelectLongPressTimeoutPreference =
