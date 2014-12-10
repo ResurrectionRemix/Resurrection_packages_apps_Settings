@@ -63,7 +63,7 @@ public class VibratorIntensity extends DialogPreference implements
 
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
-        builder.setNeutralButton(R.string.auto_brightness_reset_button,
+        builder.setNeutralButton(R.string.settings_reset_button,
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
