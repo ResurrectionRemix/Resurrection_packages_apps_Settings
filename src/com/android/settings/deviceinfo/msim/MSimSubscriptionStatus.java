@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.deviceinfo;
+package com.android.settings.deviceinfo.msim;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
