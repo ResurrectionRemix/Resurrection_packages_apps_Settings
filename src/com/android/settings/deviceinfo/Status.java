@@ -407,7 +407,7 @@ public class Status extends PreferenceActivity {
             Intent intent = selectSub.getIntent();
             intent.putExtra(SelectSubscription.PACKAGE, "com.android.settings");
             intent.putExtra(SelectSubscription.TARGET_CLASS,
-                    "com.android.settings.deviceinfo.MSimSubscriptionStatus");
+                    "com.android.settings.deviceinfo.msim.MSimSubscriptionStatus");
         }
     }
 
