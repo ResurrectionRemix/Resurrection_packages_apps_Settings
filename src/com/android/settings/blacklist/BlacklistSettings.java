@@ -50,6 +50,7 @@ import android.widget.TextView;
 
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SubSettings;
 import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 
@@ -146,7 +147,7 @@ public class BlacklistSettings extends ListFragment
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.blacklist_prefs:
-                SubSettings pa = (SubSettings) getActivity();
+                SettingsActivity pa = (SettingsActivity) getActivity();
                 pa.startPreferencePanel(BlacklistPreferences.class.getCanonicalName(), null,
                         0, null, this, 0);
                 return true;
@@ -158,7 +159,7 @@ public class BlacklistSettings extends ListFragment
     @Override
     public void onStart() {
         super.onStart();
-        final SubSettings activity = (SubSettings) getActivity();
+        final SettingsActivity activity = (SettingsActivity) getActivity();
         mEnabledSwitch = new BaseSystemSettingSwitchBar(activity, activity.getSwitchBar(),
                 Settings.System.PHONE_BLACKLIST_ENABLED, true, this);
     }
@@ -167,7 +168,7 @@ public class BlacklistSettings extends ListFragment
     public void onResume() {
         super.onResume();
 
-        final SubSettings activity = (SubSettings) getActivity();
+        final SettingsActivity activity = (SettingsActivity) getActivity();
         if (mEnabledSwitch != null) {
             mEnabledSwitch.resume(activity);
         }
