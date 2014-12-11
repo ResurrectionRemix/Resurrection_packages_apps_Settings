@@ -44,12 +44,19 @@ public class PrivacySettings extends SettingsPreferenceFragment {
         // Add package manager to check if features are available
         PackageManager pm = getPackageManager();
 
+        // WhisperPush
+        // Only add if device has telephony support and has WhisperPush installed.
+        if (Utils.isPackageInstalled(getActivity(), "org.whispersystems.whisperpush")) {
+            addPreferencesFromResource(R.xml.privacy_settings_whisperpush);
+        }
+
         // Determine options based on device telephony support
         if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             // No telephony, remove dependent options
             PreferenceScreen root = getPreferenceScreen();
             root.removePreference(mBlacklist);
         }
+
     }
 
     @Override
