@@ -1,44 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 
 <PreferenceScreen
     android:title="@string/network_traffic_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <ListPreference
-                android:key="network_traffic_state"
-                android:title="@string/show_network_traffic_state"
-                android:entries="@array/show_network_traffic_state_entries"
-                android:entryValues="@array/show_network_traffic_state_values"
-                android:persistent="false" />
+    <ListPreference
+        android:key="network_traffic_state"
+        android:title="@string/show_network_traffic_state"
+        android:entries="@array/show_network_traffic_state_entries"
+        android:entryValues="@array/show_network_traffic_state_values"
+        android:persistent="false" />
 
-        <ListPreference
-                android:key="network_traffic_unit"
-                android:title="@string/show_network_traffic_unit"
-                android:entries="@array/show_network_traffic_unit_entries"
-                android:entryValues="@array/show_network_traffic_unit_values"
-                android:persistent="false" />
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="network_traffic_color"
+        android:title="@string/network_traffic_color_style"
+        android:defaultValue="0xffffffff"
+        android:dependency="network_traffic_state" />
 
-        <ListPreference
-                android:key="network_traffic_period"
-                android:title="@string/show_network_traffic_frequency"
-                android:entries="@array/show_network_traffic_frequency_entries"
-                android:entryValues="@array/show_network_traffic_frequency_values"
-                android:persistent="false" />
+    <ListPreference
+        android:key="network_traffic_unit"
+        android:title="@string/show_network_traffic_unit"
+        android:entries="@array/show_network_traffic_unit_entries"
+        android:entryValues="@array/show_network_traffic_unit_values"
+        android:dependency="network_traffic_state"
+        android:persistent="false" />
 
-        <CheckBoxPreference
-                android:key="network_traffic_autohide"
-                android:title="@string/network_traffic_autohide"
-                android:summary="@string/network_traffic_autohide_summary"
-                android:defaultValue="false" />
+    <ListPreference
+        android:key="network_traffic_period"
+        android:title="@string/show_network_traffic_frequency"
+        android:entries="@array/show_network_traffic_frequency_entries"
+        android:entryValues="@array/show_network_traffic_frequency_values"
+        android:dependency="network_traffic_state"
+        android:persistent="false" />
 
-        <com.android.settings.rr.SeekBarPreference
-                android:key="network_traffic_autohide_threshold"
-                android:title="@string/network_traffic_autohide_threshold"
-                android:max="100"
-                settings:min="0"
-                settings:unitsLeft=""
-                settings:unitsRight="kB/s"
-                android:dependency="network_traffic_autohide"
-                android:persistent="false" />
+    <CheckBoxPreference
+        android:key="network_traffic_autohide"
+        android:title="@string/network_traffic_autohide"
+        android:summary="@string/network_traffic_autohide_summary"
+        android:dependency="network_traffic_state"
+        android:defaultValue="false" />
+
+    <com.android.settings.widget.SeekBarPreferenceCham
+        android:key="network_traffic_autohide_threshold"
+        android:title="@string/network_traffic_autohide_threshold"
+        android:max="100"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="kB/s"
+        android:dependency="network_traffic_autohide"
+        android:persistent="false" />
+        
 </PreferenceScreen>
