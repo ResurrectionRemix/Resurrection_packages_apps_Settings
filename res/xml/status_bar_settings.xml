@@ -42,6 +42,7 @@
         android:title="@string/status_bar_show_weather_title"
         android:summary="@string/status_bar_show_weather_summary"
         android:defaultValue="true" />
+
         
     <!-- Status bar tweaks -->
     <PreferenceCategory
@@ -52,19 +53,21 @@
             android:key="clock_style_pref"
             android:title="@string/status_bar_clock" />
             
-        <PreferenceScreen
-	        android:key="network_traffic_state"
-	        android:fragment="com.android.settings.rr.NetworkTraffic"
- 	        android:summary="@string/network_traffic_summary"
-	        android:title="@string/network_traffic_title" />
-
-    </PreferenceCategory>
-
-    <ListPreference
+     <ListPreference
         android:key="status_bar_show_battery_percent"
         android:title="@string/status_bar_battery_percentage_title"
         android:dialogTitle="@string/status_bar_battery_percentage_dialog_title"
         android:entries="@array/status_bar_battery_percentage_entries"
         android:entryValues="@array/status_bar_battery_percentage_values" />
+                   
+        <PreferenceScreen
+	        android:key="network_traffic_state"
+	        android:fragment="com.android.settings.rr.NetworkTraffic"
+ 	        android:summary="@string/network_traffic_summary"
+	        android:title="@string/network_traffic_title" />
+	        
+
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

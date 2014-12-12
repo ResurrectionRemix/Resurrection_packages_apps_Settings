@@ -82,8 +82,6 @@ public final class Ranking {
 
     public static int sCurrentBaseRank = BASE_RANK_DEFAULT;
 
-    public static int sCurrentBaseRank = BASE_RANK_DEFAULT;
-
     private static HashMap<String, Integer> sRankMap = new HashMap<String, Integer>();
     private static HashMap<String, Integer> sBaseRankMap = new HashMap<String, Integer>();
 
