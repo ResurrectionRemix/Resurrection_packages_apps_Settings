@@ -315,7 +315,9 @@ public class RunningServiceDetails extends Fragment
             // check if error reporting is enabled in secure settings
             int enabled = Settings.Global.getInt(getActivity().getContentResolver(),
                     Settings.Global.SEND_ACTION_APP_ERROR, 0);
-            if (enabled != 0 && si != null) {
+            boolean systemApp = (detail.mServiceItem.mServiceInfo.applicationInfo.flags
+                    & ApplicationInfo.FLAG_SYSTEM) != 0;
+            if (enabled != 0 && !systemApp && si != null) {
                 detail.mInstaller = ApplicationErrorReport.getErrorReportReceiver(
                         getActivity(), si.mServiceInfo.packageName,
                         si.mServiceInfo.applicationInfo.flags);
