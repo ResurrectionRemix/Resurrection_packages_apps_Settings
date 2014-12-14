@@ -16,13 +16,7 @@
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_g3_summary"
         android:selectable="false" 
-        android:title="@string/device_g3" />        
-    <Preference
-        android:id="@+id/device_n6"
-        android:icon="@drawable/phone_tint"
-        android:summary="@string/device_n6_summary"
-        android:selectable="false" 
-        android:title="@string/device_n6" />        
+        android:title="@string/device_g3" />               
     <Preference
         android:id="@+id/device_n5"
         android:icon="@drawable/phone_tint"
@@ -35,7 +29,19 @@
         android:summary="@string/device_n4_summary"
         android:selectable="false" 
         android:title="@string/device_n4" />
+
+  </PreferenceCategory>
+   
+    <PreferenceCategory
+        android:id="@+id/device_category_motorola"
+        android:title="@string/device_category_motorola_title" >
         
+    <Preference
+        android:id="@+id/device_n6"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_n6_summary"
+        android:selectable="false" 
+        android:title="@string/device_n6" />        
          
   </PreferenceCategory>       
 
