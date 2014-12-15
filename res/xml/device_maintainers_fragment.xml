@@ -16,7 +16,13 @@
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_g3_summary"
         android:selectable="false" 
-        android:title="@string/device_g3" />               
+        android:title="@string/device_g3" />
+    <Preference
+        android:id="@+id/device_g2"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_g2_summary"
+        android:selectable="false" 
+        android:title="@string/device_g2" />               
     <Preference
         android:id="@+id/device_n5"
         android:icon="@drawable/phone_tint"
@@ -41,8 +47,40 @@
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_n6_summary"
         android:selectable="false" 
-        android:title="@string/device_n6" />        
-         
-  </PreferenceCategory>       
-
+        android:title="@string/device_n6" />
+                 
+    <Preference
+        android:id="@+id/device_falcon"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_falcon_summary"
+        android:selectable="false" 
+        android:title="@string/device_falcon" />
+                       
+  </PreferenceCategory> 
+        
+    <PreferenceCategory
+        android:id="@+id/device_category_samsung"
+        android:title="@string/device_category_samsung_title" >
+        
+    <Preference
+        android:id="@+id/device_i9300"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_i9300_summary"
+        android:selectable="false" 
+        android:title="@string/device_i9300" />        
+        
+       </PreferenceCategory>
+       
+    <PreferenceCategory
+        android:id="@+id/device_category_oneplus"
+        android:title="@string/device_category_oneplus_title" >
+        
+    <Preference
+        android:id="@+id/device_oneplus"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_oneplus_summary"
+        android:selectable="false" 
+        android:title="@string/device_oneplus" />        
+        
+       </PreferenceCategory>
 </PreferenceScreen> 
