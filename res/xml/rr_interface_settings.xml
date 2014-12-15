@@ -16,11 +16,18 @@
     android:title="@string/interface_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     
-            <PreferenceScreen
+        <PreferenceScreen
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
                 android:summary="@string/status_bar_title_summary"
                 android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
                 />
-         
+                       
+        <PreferenceScreen
+                android:key="navbar_dimensions"
+                android:fragment="com.android.settings.rr.NavBarDimensions"
+                android:summary="@string/navigation_bar_dimensions_title_summary"
+                android:title="@string/navigation_bar_dimensions_title" 
+                />
+
 </PreferenceScreen>

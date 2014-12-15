@@ -237,6 +237,27 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(volumeCategory);
         }
+
+        try {
+            // Only show the navigation bar category on devices that has a navigation bar
+            // unless we are forcing it via development settings
+            boolean forceNavbar = android.provider.Settings.System.getInt(getContentResolver(),
+                    android.provider.Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) == 1;
+            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar()
+                    || forceNavbar;
+
+            if (hasNavBar) {
+                if (!Utils.isPhone(getActivity())) {
+                    PreferenceCategory navCategory =
+                            (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
+                }
+            } else {
+                // Hide navigation bar category
+                prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
+        }
     }
 
     @Override
