@@ -172,7 +172,7 @@ public class WifiTriggerFragment extends ListFragment {
             for (WifiConfiguration config : configs) {
                 WifiTrigger accessPoint = new WifiTrigger(config);
                 int state = mProfile.getTrigger(Profile.TriggerType.WIFI, accessPoint.getSSID());
-                initPreference(accessPoint, state, res, R.drawable.ic_wifi_signal_4_dark);
+                initPreference(accessPoint, state, res, R.drawable.ic_wifi_signal_4_teal);
                 mTriggers.add(accessPoint);
             }
         } else {
@@ -181,7 +181,7 @@ public class WifiTriggerFragment extends ListFragment {
             for (Profile.ProfileTrigger trigger : triggers) {
                 WifiTrigger accessPoint = new WifiTrigger(trigger.getName());
                 initPreference(accessPoint, trigger.getState(), res,
-                        R.drawable.ic_wifi_signal_4_dark);
+                        R.drawable.ic_wifi_signal_4_teal);
                 mTriggers.add(accessPoint);
             }
         }
