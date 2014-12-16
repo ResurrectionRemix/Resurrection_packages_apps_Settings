@@ -20,6 +20,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textAppearance">@style/TextAppearance.info_label</item>
+        <item name="android:textColor">@*android:color/primary_text_default_material_dark</item>
         <item name="android:paddingEnd">4dip</item>
     </style>
 
@@ -27,6 +28,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textAppearance">@style/TextAppearance.info_value</item>
+        <item name="android:textColor">@*android:color/primary_text_default_material_dark</item>
     </style>
 
     <style name="info_small">
@@ -227,6 +229,7 @@
         <item name="android:paddingEnd">8dip</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">start</item>
+        <item name="android:textColor">@*android:color/primary_text_default_material_dark</item>
     </style>
 
     <style name="wifi_item_label">
@@ -234,13 +237,13 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
-        <item name="android:textColor">@*android:color/secondary_text_default_material_light</item>
+        <item name="android:textColor">@*android:color/secondary_text_default_material_dark</item>
     </style>
 
     <style name="wifi_item_content">
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
-        <item name="android:textColor">@*android:color/primary_text_default_material_light</item>
+        <item name="android:textColor">@*android:color/primary_text_default_material_dark</item>
     </style>
 
     <style name="wifi_item_edit_content">
@@ -268,14 +271,14 @@
         <item name="android:background">#ff000000</item>
     </style>
 
-    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.Light.SegmentedButton">
+    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.SegmentedButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:weightSum">2</item>
         <item name="android:dividerPadding">8dip</item>
     </style>
 
-    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Light.Button.Borderless">
+    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Button.Borderless">
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
@@ -359,8 +362,8 @@
     <style name="TextAppearance.ResultTitle" parent="TextAppearance.CategoryTitle">
     </style>
 
-    <style name="Widget.TimePicker" parent="@*android:style/Widget.Material.Light.TimePicker">
-        <item name="@android:numbersBackgroundColor">@android:color/white</item>
+    <style name="Widget.TimePicker" parent="@*android:style/Widget.Material.TimePicker">
+        <item name="@android:numbersBackgroundColor">@android:color/black</item>
     </style>
 
     <style name="ProfilesPreferenceStyle">
