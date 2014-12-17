@@ -189,9 +189,14 @@ public class AppOpsState {
             new boolean[] { true, }
             );
 
+    public static final OpsTemplate SU_TEMPLATE = new OpsTemplate(
+            new int[] { AppOpsManager.OP_SU },
+            new boolean[] { false }
+            );
+
     public static final OpsTemplate[] ALL_TEMPLATES = new OpsTemplate[] {
             LOCATION_TEMPLATE, PERSONAL_TEMPLATE, MESSAGING_TEMPLATE,
-            MEDIA_TEMPLATE, DEVICE_TEMPLATE, BOOTUP_TEMPLATE
+            MEDIA_TEMPLATE, DEVICE_TEMPLATE, BOOTUP_TEMPLATE, SU_TEMPLATE
     };
 
     /**
