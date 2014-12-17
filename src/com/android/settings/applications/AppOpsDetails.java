@@ -60,6 +60,41 @@ public class AppOpsDetails extends InstrumentedFragment {
     private View mRootView;
     private LinearLayout mOperationsSection;
 
+    private final int MODE_ALLOWED = 0;
+    private final int MODE_IGNORED = 1;
+    private final int MODE_ASK     = 2;
+
+    private int modeToPosition (int mode) {
+        switch(mode) {
+        case AppOpsManager.MODE_ALLOWED:
+            return MODE_ALLOWED;
+        case AppOpsManager.MODE_IGNORED:
+            return MODE_IGNORED;
+        case AppOpsManager.MODE_ASK:
+            return MODE_ASK;
+        };
+
+        return MODE_IGNORED;
+    }
+
+    private int positionToMode (int position) {
+        switch(position) {
+        case MODE_ALLOWED:
+            return AppOpsManager.MODE_ALLOWED;
+        case MODE_IGNORED:
+            return AppOpsManager.MODE_IGNORED;
+        case MODE_ASK:
+            return AppOpsManager.MODE_ASK;
+        };
+
+        return AppOpsManager.MODE_IGNORED;
+    }
+
+    private boolean isPlatformSigned() {
+        final int match = mPm.checkSignatures("android", mPackageInfo.packageName);
+        return match >= PackageManager.SIGNATURE_MATCH;
+    }
+
     // Utility method to set application label and icon.
     private void setAppLabelAndIcon(PackageInfo pkgInfo) {
         final View appSnippet = mRootView.findViewById(R.id.app_snippet);
@@ -102,7 +137,15 @@ public class AppOpsDetails extends InstrumentedFragment {
 
         mOperationsSection.removeAllViews();
         String lastPermGroup = "";
+        boolean isPlatformSigned = isPlatformSigned();
         for (AppOpsState.OpsTemplate tpl : AppOpsState.ALL_TEMPLATES) {
+            /* If we are platform signed, only show the root switch, this
+             * one is safe to toggle while other permission-based ones could
+             * certainly cause system-wide problems
+             */
+            if (isPlatformSigned && tpl != AppOpsState.SU_TEMPLATE) {
+                 continue;
+            }
             List<AppOpsState.AppOpEntry> entries = mState.buildState(tpl,
                     mPackageInfo.applicationInfo.uid, mPackageInfo.packageName);
             for (final AppOpsState.AppOpEntry entry : entries) {
