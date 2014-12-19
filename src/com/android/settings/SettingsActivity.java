@@ -1200,6 +1200,10 @@ public class SettingsActivity extends Activity
                     if (!hasPrintingSupport) {
                         removeTile = true;
                     }
+                } else if (id == R.id.superuser_settings) {
+                    if (!DevelopmentSettings.isRootForAppsEnabled()) {
+                        removeTile = true;
+                    }
                 } else if (id == R.id.development_settings) {
                     if (!showDev || um.hasUserRestriction(
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
