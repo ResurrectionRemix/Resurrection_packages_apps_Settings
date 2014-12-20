@@ -51,13 +51,6 @@
                 android:title="@string/display_rotation_title"
                 android:fragment="com.android.settings.cyanogenmod.DisplayRotation"/>
 
-        <!-- Doze // Ambient display -->
-        <SwitchPreference
-                android:key="doze"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary"
-                android:persistent="false" />
-
         <!-- Lift to wake -->
         <SwitchPreference
                 android:key="lift_to_wake"
@@ -117,6 +110,25 @@
                 android:title="@string/wifi_display_settings_title"
                 settings:keywords="@string/keywords_display_cast_screen"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+      android:key="category_doze_options"
+      android:title="@string/display_category_doze_options_title" >
+
+        <!-- Doze // Ambient display -->s
+        <SwitchPreference
+                android:key="doze"
+                android:title="@string/doze_title"
+                android:summary="@string/doze_summary"
+                android:persistent="false" />
+
+        <PreferenceScreen
+                android:fragment="com.android.settings.slim.fragments.DozeSettingsFragment"
+                android:key="advanced_doze_options"
+                android:title="@string/doze_settings_title"
+                android:dependency="doze" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
