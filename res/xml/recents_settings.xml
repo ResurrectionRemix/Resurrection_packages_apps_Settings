@@ -19,6 +19,12 @@
         android:key="recents_panel"
         android:title="@string/recents_panel_category" >
 
+        <com.android.settings.preference.SystemSettingSwitchPreference
+            android:key="recents_search_bar"
+            android:title="@string/recents_searchbar_title"
+            android:defaultValue="true" />
+
+
         <SwitchPreference
             android:key="show_clear_all_recents"
             android:title="@string/show_clear_all_recents_button_title"
