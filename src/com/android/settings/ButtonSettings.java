@@ -144,6 +144,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean showHomeWake = (deviceWakeKeys & KEY_MASK_HOME) != 0;
         final boolean showBackWake = (deviceWakeKeys & KEY_MASK_BACK) != 0;
         final boolean showMenuWake = (deviceWakeKeys & KEY_MASK_MENU) != 0;
+        final boolean showAssistWake = (deviceWakeKeys & KEY_MASK_ASSIST) != 0;
+        final boolean showAppSwitchWake = (deviceWakeKeys & KEY_MASK_APP_SWITCH) != 0;
         final boolean showVolumeWake = (deviceWakeKeys & KEY_MASK_VOLUME) != 0;
 
         boolean hasAnyBindableKey = false;
@@ -278,6 +280,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         if (hasAssistKey) {
+            if (!showAssistWake) {
+                assistCategory.removePreference(findPreference(Settings.System.ASSIST_WAKE_SCREEN));
+            }
+
             int pressAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_ASSIST_ACTION, ACTION_SEARCH);
             mAssistPressAction = initActionList(KEY_ASSIST_PRESS, pressAction);
@@ -292,6 +298,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         if (hasAppSwitchKey) {
+            if (!showAppSwitchWake) {
+                appSwitchCategory.removePreference(findPreference(
+                        Settings.System.APP_SWITCH_WAKE_SCREEN));
+            }
+
             int pressAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_APP_SWITCH_ACTION, ACTION_APP_SWITCH);
             mAppSwitchPressAction = initActionList(KEY_APP_SWITCH_PRESS, pressAction);
