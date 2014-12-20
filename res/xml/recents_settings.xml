@@ -15,4 +15,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/recents_settings_title">
 
+    <PreferenceCategory
+        android:key="recents_panel"
+        android:title="@string/recents_panel_category" >
+
+        <SwitchPreference
+            android:key="show_clear_all_recents"
+            android:title="@string/show_clear_all_recents_button_title"
+            android:summary="@string/show_clear_all_recents_button_summary"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="recents_clear_all_location"
+            android:title="@string/recents_clear_all_location_title"
+            android:entries="@array/recents_clear_all_location_entries"
+            android:entryValues="@array/recents_clear_all_location_values"
+            android:defaultValue="0"
+            android:dependency="show_clear_all_recents" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
