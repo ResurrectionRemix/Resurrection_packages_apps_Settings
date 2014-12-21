@@ -26,6 +26,14 @@
             android:disableDependentsState="true"
             android:persistent="false" />
 
+    <!-- Heads up -->
+    <SwitchPreference
+            android:key="heads_up"
+            android:title="@string/app_notification_enable_heads_up_title"
+            android:summary="@string/app_notification_enable_heads_up_summary"
+            android:dependency="block"
+            android:persistent="false" />
+
     <!-- Keyguard options -->
     <SwitchPreference
             android:key="show_on_keyguard"

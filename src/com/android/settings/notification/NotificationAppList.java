@@ -609,5 +609,24 @@ public class NotificationAppList extends PinnedHeaderListFragment
                 return false;
             }
         }
+
+        public int getHeadsUpNotificationsEnabledForPackage(String pkg, int uid) {
+            try {
+                return sINM.getHeadsUpNotificationsEnabledForPackage(pkg, uid);
+            } catch (Exception e) {
+                Log.w(TAG, "Error calling NoMan", e);
+                return Notification.HEADS_UP_NEVER;
+            }
+        }
+
+        public boolean setHeadsUpNotificationsEnabledForPackage(String pkg, int uid, int status) {
+            try {
+                sINM.setHeadsUpNotificationsEnabledForPackage(pkg, uid, status);
+                return true;
+            } catch (Exception e) {
+                Log.w(TAG, "Error calling NoMan", e);
+                return false;
+            }
+        }
     }
 }
