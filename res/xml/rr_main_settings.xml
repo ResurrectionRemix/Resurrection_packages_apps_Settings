@@ -36,15 +36,21 @@
                 android:title="@string/misc_settings_title"
                 android:fragment="com.android.settings.rr.MiscSettings"
                 android:icon="@drawable/ic_rrutilities_tint"
-                />               
+                />
+                
+        <PreferenceScreen
+                android:id="@+id/lock_settings"
+                android:title="@string/rr_lockscreen_title"
+                android:fragment="com.android.settings.rr.LockSettings"
+                android:icon="@drawable/ic_rrlocked_tint"
+
+                />                 
         <PreferenceScreen
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
                 android:fragment="com.android.settings.ButtonSettings"
                 android:icon="@drawable/ic_buttons_tint"
-
                 />
-                
         <!-- Change Log -->
     <PreferenceScreen android:key="changelog"
         android:title="@string/changelog_title"
