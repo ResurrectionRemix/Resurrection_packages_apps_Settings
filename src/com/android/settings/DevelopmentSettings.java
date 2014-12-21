@@ -107,6 +107,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String HDCP_CHECKING_KEY = "hdcp_checking";
     private static final String HDCP_CHECKING_PROPERTY = "persist.sys.hdcp_checking";
     private static final String ENABLE_QUICKBOOT= "enable_quickboot";
+    private static final String QUICKBOOT_PACKAGE_NAME = "com.qapp.quickboot";
     private static final String LOCAL_BACKUP_PASSWORD = "local_backup_password";
     private static final String HARDWARE_UI_PROPERTY = "persist.sys.ui.hw";
     private static final String MSAA_PROPERTY = "debug.egl.force_msaa";
@@ -329,7 +330,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             removePreference(mEnableOemUnlock);
             mEnableOemUnlock = null;
         }
-        mQuickBoot= findAndInitCheckboxPref(ENABLE_QUICKBOOT);
+        mQuickBoot = findAndInitCheckboxPref(ENABLE_QUICKBOOT);
         mAllowMockLocation = findAndInitCheckboxPref(ALLOW_MOCK_LOCATION);
         mDebugViewAttributes = findAndInitCheckboxPref(DEBUG_VIEW_ATTRIBUTES);
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
@@ -345,6 +346,11 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
             disableForUser(mDevelopmentShortcut);
+            disableForUser(mQuickBoot);
+        }
+
+        if (!isPackageInstalled(getActivity(), QUICKBOOT_PACKAGE_NAME)) {
+            removePreference(mQuickBoot);
         }
 
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
