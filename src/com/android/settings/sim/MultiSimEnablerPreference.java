@@ -199,7 +199,7 @@ public class MultiSimEnablerPreference extends SwitchPreference implements
             public void onClick(DialogInterface dialog, int whichButton) {
                 mSir.setDisplayName(nameText.getText());
                 mSubscriptionManager.setDisplayName(mSir.getDisplayName().toString(),
-                        mSir.getSubscriptionId());
+                        mSir.getSubscriptionId(), SubscriptionManager.NAME_SOURCE_USER_INPUT);
 
                 final int tintSelected = tintSpinner.getSelectedItemPosition();
                 int subscriptionId = mSir.getSubscriptionId();
