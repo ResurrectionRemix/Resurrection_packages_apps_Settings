@@ -27,6 +27,7 @@ import android.net.NetworkScorerAppManager;
 import android.net.NetworkScorerAppManager.NetworkScorerAppData;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import com.android.server.wifi.WifiWatchdogStateMachine;
 import android.net.wifi.WpsInfo;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -58,6 +59,7 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
     private static final String KEY_FREQUENCY_BAND = "frequency_band";
     private static final String KEY_NOTIFY_OPEN_NETWORKS = "notify_open_networks";
     private static final String KEY_SLEEP_POLICY = "sleep_policy";
+    private static final String KEY_POOR_NETWORK_DETECTION = "wifi_poor_network_detection";
     private static final String KEY_SCAN_ALWAYS_AVAILABLE = "wifi_scan_always_available";
     private static final String KEY_INSTALL_CREDENTIALS = "install_credentials";
     private static final String KEY_WIFI_ASSISTANT = "wifi_assistant";
@@ -130,6 +132,19 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
         notifyOpenNetworks.setChecked(Settings.Global.getInt(getContentResolver(),
                 Settings.Global.WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON, 0) == 1);
         notifyOpenNetworks.setEnabled(mWifiManager.isWifiEnabled());
+
+        SwitchPreference poorNetworkDetection =
+            (SwitchPreference) findPreference(KEY_POOR_NETWORK_DETECTION);
+        if (poorNetworkDetection != null) {
+            if (Utils.isWifiOnly(getActivity())) {
+                getPreferenceScreen().removePreference(poorNetworkDetection);
+            } else {
+                poorNetworkDetection.setChecked(Global.getInt(getContentResolver(),
+                        Global.WIFI_WATCHDOG_POOR_NETWORK_TEST_ENABLED,
+                        WifiWatchdogStateMachine.DEFAULT_POOR_NETWORK_AVOIDANCE_ENABLED ?
+                        1 : 0) == 1);
+            }
+        }
 
         SwitchPreference scanAlwaysAvailable =
             (SwitchPreference) findPreference(KEY_SCAN_ALWAYS_AVAILABLE);
@@ -246,6 +261,10 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
         if (KEY_NOTIFY_OPEN_NETWORKS.equals(key)) {
             Global.putInt(getContentResolver(),
                     Settings.Global.WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON,
+                    ((SwitchPreference) preference).isChecked() ? 1 : 0);
+        } else if (KEY_POOR_NETWORK_DETECTION.equals(key)) {
+            Global.putInt(getContentResolver(),
+                    Global.WIFI_WATCHDOG_POOR_NETWORK_TEST_ENABLED,
                     ((SwitchPreference) preference).isChecked() ? 1 : 0);
         } else if (KEY_SCAN_ALWAYS_AVAILABLE.equals(key)) {
             Global.putInt(getContentResolver(),

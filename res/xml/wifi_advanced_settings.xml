@@ -42,6 +42,13 @@
             android:entries="@array/wifi_sleep_policy_entries"
             android:entryValues="@array/wifi_sleep_policy_values" />
 
+    <!-- android:dependency="enable_wifi" -->
+    <SwitchPreference
+            android:key="wifi_poor_network_detection"
+            android:title="@string/wifi_poor_network_detection"
+            android:summary="@string/wifi_poor_network_detection_summary"
+            android:persistent="false" />
+
     <ListPreference
             android:key="frequency_band"
             android:title="@string/wifi_setting_frequency_band_title"
