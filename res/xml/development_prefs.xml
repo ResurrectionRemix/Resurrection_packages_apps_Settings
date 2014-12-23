@@ -37,6 +37,11 @@
         android:title="@string/advanced_reboot_title"
         android:summary="@string/advanced_reboot_summary" />
 
+    <SwitchPreference
+        android:key="enable_quickboot"
+        android:title="@string/enable_quickboot_title"
+        android:summary="@string/enable_quickboot_summary" />
+
     <PreferenceScreen
             android:key="local_backup_password"
             android:title="@string/local_backup_password_title"
@@ -75,11 +80,6 @@
             android:summary="@string/process_stats_summary"
             android:fragment="com.android.settings.applications.ProcessStatsUi">
     </PreferenceScreen>
-
-    <SwitchPreference
-        android:key="enable_quickboot"
-        android:title="@string/enable_quickboot_title"
-        android:summary="@string/enable_quickboot_summary" />
 
     <ListPreference
         android:key="root_access"
