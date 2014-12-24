@@ -24,6 +24,18 @@
         android:defaultValue="false" />
 
     <PreferenceCategory
+        android:key="navigation_bar"
+        android:title="@string/navigation_bar_category" >
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navigation_bar_left"
+            android:title="@string/navigation_bar_left_title"
+            android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="power_key"
         android:title="@string/hardware_keys_power_key_title" >
 
