@@ -32,6 +32,16 @@
         android:summary="@string/listview_category_summary"
         android:title="@string/listview_category" />
 </PreferenceCategory>
+        <!-- animations -->
+    <PreferenceCategory
+        android:title="@string/rr_gesture_title">
+        
+    <!-- Gesture anywhere -->
+    <PreferenceScreen
+    	android:key="gesture_anywhere"
+    	android:fragment="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings"
+	    android:title="@string/gesture_anywhere_title" />
 
+</PreferenceCategory>
 
 </PreferenceScreen>
