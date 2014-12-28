@@ -162,6 +162,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Force Navigation bar related options
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
+        mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
+
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
 
