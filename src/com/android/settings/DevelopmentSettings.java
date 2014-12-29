@@ -719,21 +719,21 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void updateRootAccessOptions() {
-        String value = SystemProperties.get(ROOT_ACCESS_PROPERTY, "1");
+        String value = SystemProperties.get(ROOT_ACCESS_PROPERTY, "0");
         mRootAccess.setValue(value);
         mRootAccess.setSummary(getResources()
                 .getStringArray(R.array.root_access_entries)[Integer.valueOf(value)]);
     }
 
     /* package */ static boolean isRootForAppsEnabled() {
-        int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 1);
+        int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 0);
         boolean daemonState =
                 SystemProperties.get("init.svc.su_daemon", "absent").equals("running");
         return daemonState && (value == 1 || value == 3);
     }
 
     private void writeRootAccessOptions(Object newValue) {
-        String oldValue = SystemProperties.get(ROOT_ACCESS_PROPERTY, "1");
+        String oldValue = SystemProperties.get(ROOT_ACCESS_PROPERTY, "0");
         SystemProperties.set(ROOT_ACCESS_PROPERTY, newValue.toString());
         if (Integer.valueOf(newValue.toString()) < 2 && !oldValue.equals(newValue)
                 && "1".equals(SystemProperties.get("service.adb.root", "0"))) {
@@ -747,9 +747,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void resetRootAccessOptions() {
-        String oldValue = SystemProperties.get(ROOT_ACCESS_PROPERTY, "1");
-        SystemProperties.set(ROOT_ACCESS_PROPERTY, "1");
-        if (!oldValue.equals("1") && "1".equals(SystemProperties.get("service.adb.root", "0"))) {
+        String oldValue = SystemProperties.get(ROOT_ACCESS_PROPERTY, "0");
+        SystemProperties.set(ROOT_ACCESS_PROPERTY, "0");
+        if (!oldValue.equals("0") && "1".equals(SystemProperties.get("service.adb.root", "0"))) {
             SystemProperties.set("service.adb.root", "0");
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.ADB_ENABLED, 0);
@@ -1719,7 +1719,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             writeSimulateColorSpace(newValue);
             return true;
         } else if (preference == mRootAccess) {
-            if ("0".equals(SystemProperties.get(ROOT_ACCESS_PROPERTY, "1"))
+            if ("0".equals(SystemProperties.get(ROOT_ACCESS_PROPERTY, "0"))
                     && !"0".equals(newValue)) {
                 mSelectedRootValue = newValue;
                 mDialogClicked = false;
