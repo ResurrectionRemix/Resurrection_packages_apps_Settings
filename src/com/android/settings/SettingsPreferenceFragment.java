@@ -60,6 +60,10 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
 
     private String mHelpUri;
 
+    protected Context mContext;
+
+    protected ContentResolver mContentRes;
+
     // Cache the content resolver for async callbacks
     private ContentResolver mContentResolver;
 
@@ -87,6 +91,10 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        mContext = getActivity().getApplicationContext();
+
+        mContentRes = getActivity().getContentResolver();
 
         if (icicle != null) {
             mPreferenceHighlighted = icicle.getBoolean(SAVE_HIGHLIGHTED_KEY);
@@ -531,5 +539,9 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
                     + ", requestCode: " + requestCode + ")");
             return false;
         }
+    }
+
+    public void setTitle(int resId) {
+        getActivity().setTitle(resId);
     }
 }
