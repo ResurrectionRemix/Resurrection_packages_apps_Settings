@@ -84,11 +84,28 @@
                 />        
         <!-- Performance -->
         <dashboard-tile
+<<<<<<< HEAD
                 android:id="@+id/performance_settings"
                 android:title="@string/rr_performance_settings_title"
                 android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
                 android:icon="@drawable/ic_performance_icon_tint"
                 />                
+=======
+                android:id="@+id/status_bar_settings"
+                android:title="@string/status_bar_title"
+                android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
+                android:icon="@drawable/ic_settings_home"
+                />
+
+        <!-- Notification drawer -->
+        <dashboard-tile
+                android:id="@+id/notification_drawer_settings"
+                android:title="@string/notification_drawer_title"
+                android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
+                android:icon="@drawable/ic_settings_notification_drawer"
+                />
+
+>>>>>>> b4915c1... Add customization for Quick Settings [2/2]
     </dashboard-category>
 
     <!-- DEVICE -->
