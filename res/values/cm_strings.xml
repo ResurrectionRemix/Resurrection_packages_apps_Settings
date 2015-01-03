@@ -154,7 +154,7 @@
     <string name="toggleBluetooth">Bluetooth</string>
     <string name="toggleGPS">GPS</string>
     <string name="toggleData">Mobile Data</string>
-    <string name="toggleSync">Data Sync</string>
+    <string name="toggleSync">Auto-sync data</string>
     <string name="toggle2g3g">2G/3G</string>
     <string name="toggleWimax">WiMAX</string>
     <string name="toggleNfc">NFC</string>
@@ -472,7 +472,7 @@
     <string name="app_ops_summaries_modify_call_log">modify call log</string>
     <string name="app_ops_summaries_read_calendar">read calendar</string>
     <string name="app_ops_summaries_modify_calendar">modify calendar</string>
-    <string name="app_ops_summaries_wifi_scan">wi-fi scan</string>
+    <string name="app_ops_summaries_wifi_scan">Wi-Fi scan</string>
     <string name="app_ops_summaries_notification">notification</string>
     <string name="app_ops_summaries_cell_scan">cell scan</string>
     <string name="app_ops_summaries_call_phone">call phone</string>
@@ -501,7 +501,7 @@
     <string name="app_ops_summaries_media_volume">media volume</string>
     <string name="app_ops_summaries_alarm_volume">alarm volume</string>
     <string name="app_ops_summaries_notification_volume">notification volume</string>
-    <string name="app_ops_summaries_bluetooth_volume">bluetooth volume</string>
+    <string name="app_ops_summaries_bluetooth_volume">Bluetooth volume</string>
     <string name="app_ops_summaries_keep_awake">keep awake</string>
     <string name="app_ops_summaries_monitor_location">monitor location</string>
     <string name="app_ops_summaries_monitor_high_power_location">monitor high power location</string>
@@ -509,9 +509,9 @@
     <string name="app_ops_summaries_mute_unmute_microphone">mute/unmute microphone</string>
     <string name="app_ops_summaries_toast_window">display toasts</string>
     <string name="app_ops_summaries_project_media">project media</string>
-    <string name="app_ops_summaries_activate_vpn">activate vpn</string>
-    <string name="app_ops_summaries_wifi_change">wi-fi change</string>
-    <string name="app_ops_summaries_bluetooth_change">bluetooth change</string>
+    <string name="app_ops_summaries_activate_vpn">activate VPN</string>
+    <string name="app_ops_summaries_wifi_change">Wi-Fi change</string>
+    <string name="app_ops_summaries_bluetooth_change">Bluetooth change</string>
     <string name="app_ops_summaries_send_mms">send MMS</string>
     <string name="app_ops_summaries_read_mms">read MMS</string>
     <string name="app_ops_summaries_write_mms">write MMS</string>
@@ -659,7 +659,7 @@
 
     <!-- Display settings.  Screen color. -->
     <string name="screencolor">Screen color</string>
-    <string name="screencolor_summary">Tune screen Hue, Saturation, Contrast and Intensity</string>
+    <string name="screencolor_summary">Tune screen hue, saturation, contrast or intensity</string>
     <string name="custom_screencolor">Custom screen color</string>
     <string name="screencolor_save">Save</string>
     <string name="screencolor_cancel">Cancel</string>
@@ -677,7 +677,7 @@
     <string name="settings_reset_button">Reset</string>
 
     <!-- Message when bluetooth dialog for pin entry is showing  when HIGH security enabled-->
-    <string name="bluetooth_enter_pin_msg_hs">Device requires High Security 16 character passkey</string>
+    <string name="bluetooth_enter_pin_msg_hs">To pair with:<xliff:g id="bold">&lt;br>&lt;b></xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b>&lt;br>&lt;br></xliff:g>Type the device\'s required PIN (16 digits or more):</string>
 
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the DUN profile. -->
     <string name="bluetooth_profile_dun">Dial-up Network Access</string>
@@ -715,25 +715,25 @@
     <string name="sim_pin_enable_failed">Can\'t enable PIN.</string>
 
     <!-- SIM password can't be changed as SIM LOCK is not enabled: -->
-    <string name="sim_pin_change_failed_enable_sim_lock">Unable to Change SIM/RUIM PIN.\n Enable SIM/RUIM Lock.</string>
+    <string name="sim_pin_change_failed_enable_sim_lock">To change SIM/RUIM PIN, enable SIM/RUIM lock first.</string>
     <!-- SIM lock can't be changed - not supported -->
-    <string name="sim_enable_disable_lock_not_supported">Unable to Change SIM/RUIM Lock.\n SIM/RUIM doesn\'t support it.</string>
+    <string name="sim_enable_disable_lock_not_supported">SIM/RUIM lock is not supported by the card.</string>
     <!-- SIM card lock settings screen, toast displayed on wrong PIN1: -->
-    <string name="sim_pin_attempts">\nAttempts Remaining :</string>
+    <string name="sim_pin_attempts">\nAttempts remaining:</string>
     <!-- SIM card lock settings screen, toast displayed on PIN1 enable: -->
-    <string name="sim_pin_enabled">PIN1 Enabled!</string>
+    <string name="sim_pin_enabled">PIN1 enabled</string>
     <!-- SIM card lock settings screen, toast displayed on PIN1 disable: -->
-    <string name="sim_pin_disabled">PIN1 Disabled!</string>
+    <string name="sim_pin_disabled">PIN1 disabled</string>
 
     <!-- About tablet screen, summary of the item that takes you to tablet status screen -->
     <string name="device_status_summary_cm" product="tablet">Status of the battery, network, and other information</string>
     <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_status_summary_cm" product="default">Battery Status, battery level, etc.</string>
-    <string name="subs_settings">SUBS Status</string>
+    <string name="device_status_summary_cm" product="default">Battery status, battery level, etc.</string>
+    <string name="subs_settings">SIM card status</string>
     <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_additional_status_summary">Phone number, Signal, IMEI, etc.</string>
+    <string name="device_additional_status_summary">Phone number, signal, IMEI, etc.</string>
     <!-- In About phone->Status screen, title of the item to go into the subscription status screen -->
-    <string name="device_additional_status">Additional Status Info</string>
+    <string name="device_additional_status">Additional status info</string>
 
     <!-- string resources for USB OTG & UICC features -->
     <string name="storage_usb">USB storage</string>
@@ -776,7 +776,7 @@
     <string name="uicc_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the UICC storage.</string>
 
     <!-- [CHAR LIMIT=130] Location mode screen, sub category for IZat Location -->
-    <string name="location_category_enhanced_location">Enhanced Location</string>
+    <string name="location_category_enhanced_location">Enhanced location</string>
 
     <!-- [CHAR LIMIT=NONE] App ops settings summary, on main settings screen. If clicked, the user is taken to a settings screen for app operations -->
     <string name="app_ops_settings_summary">View or change app permissions</string>
@@ -793,32 +793,32 @@
 
     <!-- MultiSim Settings changes-->
     <string name="close_dialog">OK</string>
-    <string name="sim_enabler_title">SIM Enablers</string>
+    <string name="sim_enabler_title">SIM status</string>
     <string name="sim_enabler_summary">SIM is %1$s</string>
     <string name="sim_enabled">enabled</string>
     <string name="sim_disabled">disabled</string>
-    <string name="sim_missing">missing or error</string>
-    <string name="sim_enabler_need_enable_sim">Activating the SIM, are you sure?</string>
-    <string name="sim_enabler_need_disable_sim">Deactivating the SIM, are you sure?</string>
-    <string name="sim_enabler_airplane_on">ERROR, airplane mode is on!</string>
-    <string name="sim_enabler_in_call">ERROR, in call!</string>
-    <string name="sim_enabler_both_inactive">"Error, can't disable all the SIMs"</string>
-    <string name="sim_enabler_enabling">Activating...</string>
-    <string name="sim_enabler_disabling">Deactivating...</string>
-    <string name="sub_activate_success">Successfully Activated.</string>
+    <string name="sim_missing">missing or faulty</string>
+    <string name="sim_enabler_need_enable_sim">SIM card will be activated. Do you want to continue?</string>
+    <string name="sim_enabler_need_disable_sim">SIM card will be deactivated. Do you want to continue?</string>
+    <string name="sim_enabler_airplane_on">Unable to perform the operation while airplane mode is on.</string>
+    <string name="sim_enabler_in_call">Unable to perform the operation while in call.</string>
+    <string name="sim_enabler_both_inactive">"Can't disable all SIM cards"</string>
+    <string name="sim_enabler_enabling">Activating\2026</string>
+    <string name="sim_enabler_disabling">Deactivating\2026</string>
+    <string name="sub_activate_success">SIM activated.</string>
     <string name="sub_activate_failed">Activation failed.</string>
-    <string name="sub_deactivate_success">Successfully Deactivated.</string>
+    <string name="sub_deactivate_success">SIM deactivated.</string>
     <string name="sub_deactivate_failed">Deactivation failed.</string>
     <string name="sub_deactivate_not_supported">Deactivation not supported</string>
     <string name="sub_activate_not_supported">Activation not supported</string>
     <string name="slot_name">SIM <xliff:g id="sub">%d</xliff:g></string>
 
-    <string name="usb_charging_title">Charging</string>
-    <string name="usb_charging_summary">Lets you disable all data and file transfer connection with computer and put device in charging only mode.</string>
-    <string name="primary_sub_select_title">Default 4G/3G Subscription</string>
+    <string name="usb_charging_title">Charge only</string>
+    <string name="usb_charging_summary">Disables all data transfers with computer and charges device over USB port</string>
+    <string name="primary_sub_select_title">Default 4G/3G subscription</string>
 
     <string name="usb_sdcard_summary">Lets you transfer media files in the SD card on computer</string>
-    <string name="usb_sdcard_title">Mount SD card</string>
+    <string name="usb_sdcard_title">USB storage</string>
     <string name="external_storage_turn_on">External storage has been turned on</string>
     <string name="external_storage_turn_off">External storage has been turned off</string>
 
