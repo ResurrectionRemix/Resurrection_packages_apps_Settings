@@ -172,7 +172,12 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             getPreferenceScreen().removePreference(
                     findPreference(Settings.System.STATUS_BAR_IME_SWITCHER));
         }
-
+        
+        if (!Utils.isPhone(getActivity())) {
+            getPreferenceScreen().removePreference(
+                    findPreference(Settings.System.FULLSCREEN_KEYBOARD_MODE));
+        }
+        
         // Spell Checker
         final Preference spellChecker = findPreference(KEY_SPELL_CHECKERS);
         if (spellChecker != null) {
