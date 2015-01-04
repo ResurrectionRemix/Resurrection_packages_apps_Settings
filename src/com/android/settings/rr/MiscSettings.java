@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,10 +28,12 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
+import android.os.UserHandle;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
 import android.provider.MediaStore;
@@ -39,8 +42,10 @@ import android.view.Display;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,9 +54,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "MiscSettings";
-
+    private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
+    private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+    
     private ListPreference mToastAnimation;
-
+    private SwitchPreference mRecentsClearAll;
+    private ListPreference mRecentsClearAllLocation;
      
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
@@ -67,9 +75,20 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
 
-       mContext = getActivity();
+        mContext = getActivity();
        
-                 
+        mRecentsClearAll = (SwitchPreference) prefSet.findPreference(SHOW_CLEAR_ALL_RECENTS);
+        mRecentsClearAll.setChecked(Settings.System.getIntForUser(resolver,
+            Settings.System.SHOW_CLEAR_ALL_RECENTS, 1, UserHandle.USER_CURRENT) == 1);
+        mRecentsClearAll.setOnPreferenceChangeListener(this);
+
+        mRecentsClearAllLocation = (ListPreference) prefSet.findPreference(RECENTS_CLEAR_ALL_LOCATION);
+        int location = Settings.System.getIntForUser(resolver,
+                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0, UserHandle.USER_CURRENT);
+        mRecentsClearAllLocation.setValue(String.valueOf(location));
+        mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
+        updateRecentsLocation(location);
+                         
 	// Toast animation
         mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
         mToastAnimation.setSummary(mToastAnimation.getEntry());
@@ -87,16 +106,47 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
-        final String key = preference.getKey();
+       ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mToastAnimation) {
             int index = mToastAnimation.findIndexOfValue((String) newValue);
             Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
             mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
             Toast.makeText(mContext, "Toast Test", Toast.LENGTH_SHORT).show();
             return true;
-    }
+        } else if (preference == mRecentsClearAll) {
+            boolean show = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.SHOW_CLEAR_ALL_RECENTS, show ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mRecentsClearAllLocation) {
+            int location = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
+            updateRecentsLocation(location);
+            return true;
+         }
         return false;
+     }
+    
+    private void updateRecentsLocation(int value) {
+        ContentResolver resolver = getContentResolver();
+        Resources res = getResources();
+        int summary = -1;
+
+        Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, value);
+
+        if (value == 0) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
+            summary = R.string.recents_clear_all_location_right;
+        } else if (value == 1) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 1);
+            summary = R.string.recents_clear_all_location_left;
+        }
+        if (mRecentsClearAllLocation != null && summary != -1) {
+            mRecentsClearAllLocation.setSummary(res.getString(summary));
+
     }
 
 }
+    
+ }
