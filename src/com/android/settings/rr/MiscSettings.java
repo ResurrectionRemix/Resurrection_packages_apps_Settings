@@ -147,6 +147,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         } else if (value == 3) {
             Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3);
             summary = R.string.recents_clear_all_location_bottom_left;
+        } else if (value == 4) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 4);
+            summary = R.string.recents_clear_all_location_bottom_center;
         }
         if (mRecentsClearAllLocation != null && summary != -1) {
             mRecentsClearAllLocation.setSummary(res.getString(summary));
