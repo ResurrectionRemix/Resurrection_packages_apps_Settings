@@ -1098,6 +1098,11 @@ public class SettingsActivity extends Activity
                                     com.android.internal.R.styleable.PreferenceHeader_fragment);
                             sa.recycle();
 
+                            sa = obtainStyledAttributes(attrs, R.styleable.DashboardTile);
+                            tile.switchControl = sa.getString(
+                                    R.styleable.DashboardTile_switchClass);
+                            sa.recycle();
+
                             if (curBundle == null) {
                                 curBundle = new Bundle();
                             }

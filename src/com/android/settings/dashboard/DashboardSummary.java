@@ -31,9 +31,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
+import com.android.settings.widget.SwitchBar;
 
 import java.util.List;
 
@@ -131,7 +133,8 @@ public class DashboardSummary extends Fragment {
 
                 DashboardTileView tileView = new DashboardTileView(context);
                 updateTileView(context, res, tile, tileView.getImageView(),
-                        tileView.getTitleTextView(), tileView.getStatusTextView());
+                        tileView.getTitleTextView(), tileView.getStatusTextView(),
+                        tileView.getSwitchView());
 
                 tileView.setTile(tile);
 
@@ -146,7 +149,7 @@ public class DashboardSummary extends Fragment {
     }
 
     private void updateTileView(Context context, Resources res, DashboardTile tile,
-            ImageView tileIcon, TextView tileTextView, TextView statusTextView) {
+            ImageView tileIcon, TextView tileTextView, TextView statusTextView, Switch switchBar) {
 
         if (tile.iconRes > 0) {
             tileIcon.setImageResource(tile.iconRes);
@@ -163,6 +166,12 @@ public class DashboardSummary extends Fragment {
             statusTextView.setText(summary);
         } else {
             statusTextView.setVisibility(View.GONE);
+        }
+
+        if (tile.switchControl != null) {
+            switchBar.setVisibility(View.VISIBLE);
+        } else {
+            switchBar.setVisibility(View.GONE);
         }
     }
 
