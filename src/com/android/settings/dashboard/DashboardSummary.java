@@ -35,6 +35,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
@@ -42,6 +43,7 @@ import com.android.settings.HelpUtils;
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
+import com.android.settings.widget.SwitchBar;
 
 import java.util.List;
 
@@ -158,7 +160,8 @@ public class DashboardSummary extends InstrumentedFragment {
 
                 DashboardTileView tileView = new DashboardTileView(context);
                 updateTileView(context, res, tile, tileView.getImageView(),
-                        tileView.getTitleTextView(), tileView.getStatusTextView());
+                        tileView.getTitleTextView(), tileView.getStatusTextView(),
+                        tileView.getSwitchView());
 
                 tileView.setTile(tile);
 
@@ -173,7 +176,7 @@ public class DashboardSummary extends InstrumentedFragment {
     }
 
     private void updateTileView(Context context, Resources res, DashboardTile tile,
-            ImageView tileIcon, TextView tileTextView, TextView statusTextView) {
+            ImageView tileIcon, TextView tileTextView, TextView statusTextView, Switch switchBar) {
 
         if (!TextUtils.isEmpty(tile.iconPkg)) {
             try {
@@ -212,6 +215,12 @@ public class DashboardSummary extends InstrumentedFragment {
             statusTextView.setText(summary);
         } else {
             statusTextView.setVisibility(View.GONE);
+        }
+
+        if (tile.switchControl != null) {
+            switchBar.setVisibility(View.VISIBLE);
+        } else {
+            switchBar.setVisibility(View.GONE);
         }
     }
 

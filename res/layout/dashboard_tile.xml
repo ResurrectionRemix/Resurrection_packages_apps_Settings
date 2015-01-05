@@ -45,13 +45,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
+                <Switch
+                        android:id="@+id/dashboard_switch"
+                        android:visibility="gone"
+                        android:layout_alignParentRight="true"
+                        android:paddingRight="@dimen/action_bar_switch_padding"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+
                 <TextView android:id="@+id/title"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:singleLine="true"
                           android:textAppearance="@style/TextAppearance.TileTitle"
                           android:ellipsize="marquee"
-                          android:fadingEdge="horizontal" />
+                          android:layout_alignParentStart="true"
+                          android:layout_toStartOf="@+id/dashboard_switch"
+                          android:fadingEdge="horizontal"
+                          android:layout_alignParentEnd="false"/>
 
                 <TextView android:id="@+id/status"
                           android:layout_width="wrap_content"
@@ -59,6 +70,8 @@
                           android:layout_below="@id/title"
                           android:layout_alignStart="@android:id/title"
                           android:textAppearance="@style/TextAppearance.Small"
+                          android:layout_alignParentStart="true"
+                          android:layout_toStartOf="@+id/dashboard_switch"
                           android:textColor="?android:attr/textColorSecondary" />
 
             </RelativeLayout>

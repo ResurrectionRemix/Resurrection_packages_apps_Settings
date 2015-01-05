@@ -533,4 +533,5 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
                 return result;
             }
         };
+
 }

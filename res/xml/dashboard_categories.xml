@@ -15,7 +15,8 @@
 -->
 
 <dashboard-categories
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <!-- WIRELESS and NETWORKS -->
     <dashboard-category
@@ -29,6 +30,7 @@
                 android:title="@string/wifi_settings_title"
                 android:fragment="com.android.settings.wifi.WifiSettings"
                 android:icon="@drawable/ic_settings_wireless"
+                settings:switchClass="com.android.settings.wifi.WifiEnabler"
                 />
 
         <!-- Bluetooth -->
@@ -37,12 +39,15 @@
                 android:title="@string/bluetooth_settings_title"
                 android:fragment="com.android.settings.bluetooth.BluetoothSettings"
                 android:icon="@drawable/ic_settings_bluetooth"
+                settings:switchClass="com.android.settings.bluetooth.BluetoothEnabler"
                 />
 
         <dashboard-tile
                 android:id="@+id/mobile_networks"
                 android:title="@string/network_settings_title"
-                android:icon="@drawable/ic_settings_cellular">
+                android:icon="@drawable/ic_settings_cellular"
+                settings:switchClass="com.android.settings.dashboard.MobileNetworksEnabler"
+                >
             <intent
                     android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.phone"
