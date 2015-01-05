@@ -24,7 +24,6 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFrameLayout;
@@ -39,7 +38,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.android.internal.logging.MetricsLogger;
+import com.android.settings.DevelopmentSettings;
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 
@@ -57,13 +60,6 @@ public class AppOpsSummary extends InstrumentedFragment {
     private SharedPreferences mPreferences;
 
     CharSequence[] mPageNames;
-    static AppOpsState.OpsTemplate[] sPageTemplates = new AppOpsState.OpsTemplate[] {
-        AppOpsState.LOCATION_TEMPLATE,
-        AppOpsState.PERSONAL_TEMPLATE,
-        AppOpsState.MESSAGING_TEMPLATE,
-        AppOpsState.MEDIA_TEMPLATE,
-        AppOpsState.DEVICE_TEMPLATE
-    };
 
     int mCurPos;
 
@@ -73,19 +69,21 @@ public class AppOpsSummary extends InstrumentedFragment {
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+        private AppOpsState.OpsTemplate[] mPageTemplates;
 
-        public MyPagerAdapter(FragmentManager fm) {
+        public MyPagerAdapter(FragmentManager fm, AppOpsState.OpsTemplate[] templates) {
             super(fm);
+            mPageTemplates = templates;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return new AppOpsCategory(sPageTemplates[position]);
+            return new AppOpsCategory(mPageTemplates[position]);
         }
 
         @Override
         public int getCount() {
-            return sPageTemplates.length;
+            return mPageTemplates.length;
         }
 
         @Override
@@ -135,7 +133,8 @@ public class AppOpsSummary extends InstrumentedFragment {
         mPageNames = getResources().getTextArray(R.array.app_ops_categories_cm);
 
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
-        mAdapter = new MyPagerAdapter(getChildFragmentManager());
+        mAdapter = new MyPagerAdapter(getChildFragmentManager(),
+                filterTemplates(AppOpsState.ALL_TEMPLATES));
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOnPageChangeListener(mAdapter);
         PagerTabStrip tabs = (PagerTabStrip) rootView.findViewById(R.id.tabs);
@@ -155,6 +154,18 @@ public class AppOpsSummary extends InstrumentedFragment {
         mActivity = getActivity();
 
         return rootView;
+    }
+
+    private AppOpsState.OpsTemplate[] filterTemplates(AppOpsState.OpsTemplate[] templates) {
+        List<AppOpsState.OpsTemplate> validTemplates = new ArrayList(templates.length);
+        for (AppOpsState.OpsTemplate template : templates) {
+            if (template == AppOpsState.SU_TEMPLATE
+                    && !DevelopmentSettings.isRootForAppsEnabled()) {
+                continue;
+            }
+            validTemplates.add(template);
+        }
+        return validTemplates.toArray(new AppOpsState.OpsTemplate[0]);
     }
 
     private boolean shouldShowUserApps() {
