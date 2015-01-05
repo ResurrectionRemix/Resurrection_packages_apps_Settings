@@ -19,10 +19,10 @@ package com.android.settings.privacyguard;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.view.LayoutInflater;
@@ -43,7 +43,7 @@ public class PrivacyGuardPrefs extends SettingsPreferenceFragment implements
 
     private static final String KEY_PRIVACY_GUARD_DEFAULT = "privacy_guard_default";
 
-    private CheckBoxPreference mPrivacyGuardDefault;
+    private SwitchPreference mPrivacyGuardDefault;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class PrivacyGuardPrefs extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.privacy_guard_prefs);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mPrivacyGuardDefault = (CheckBoxPreference) findPreference(KEY_PRIVACY_GUARD_DEFAULT);
+        mPrivacyGuardDefault = (SwitchPreference) findPreference(KEY_PRIVACY_GUARD_DEFAULT);
         mPrivacyGuardDefault.setOnPreferenceChangeListener(this);
 
         mPrivacyGuardDefault.setChecked(Settings.Secure.getInt(getContentResolver(),
