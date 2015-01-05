@@ -347,7 +347,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 mNavigationPreferencesCat.removePreference(mNavigationBarLeftPref);
             }
 
-            if (!hasNavBar && (needsNavigationBar || !isKeyDisablerSupported())) {
+            if ((!hasNavBar && (needsNavigationBar || !isKeyDisablerSupported())) ||
+                (mNavigationPreferencesCat.getPreferenceCount() == 0)
+            ) {
                 // Hide navigation bar category
                 prefScreen.removePreference(mNavigationPreferencesCat);
             }
