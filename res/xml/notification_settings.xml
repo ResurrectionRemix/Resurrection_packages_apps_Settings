@@ -41,7 +41,12 @@
                 android:key="ring_volume"
                 android:icon="@drawable/ring_notif"
                 android:title="@string/ring_volume_option_title" />
-
+                
+        <PreferenceScreen
+                android:key="volume_steps"
+                android:fragment="com.android.settings.rr.VolumeSteps"
+                android:title="@string/volume_steps_title" />
+                
         <!-- Increasing ring -->
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="increasing_ring"
