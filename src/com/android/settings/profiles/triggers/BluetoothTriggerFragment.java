@@ -24,8 +24,10 @@ import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.profiles.ProfilesSettings;
 
 import java.util.ArrayList;
@@ -47,6 +50,8 @@ public class BluetoothTriggerFragment extends ListFragment {
 
     Profile mProfile;
     ProfileManager mProfileManager;
+
+    private View mEmptyView;
 
     private List<BluetoothTrigger> mTriggers = new ArrayList<BluetoothTrigger>();
     private BluetoothTriggerAdapter mListAdapter;
@@ -151,12 +156,35 @@ public class BluetoothTriggerFragment extends ListFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        getListView().setEmptyView(mEmptyView);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mEmptyView = inflater.inflate(R.layout.profile_bluetooth_empty_view, container, false);
+        mEmptyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent bluetoothSettings = new Intent();
+                bluetoothSettings.setAction(
+                        Settings.ACTION_BLUETOOTH_SETTINGS);
+                startActivity(bluetoothSettings);
+            }
+        });
+
+        ViewGroup view = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+        view.addView(mEmptyView);
+        return view;
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         reloadTriggerListItems();
         mListAdapter = new BluetoothTriggerAdapter(getActivity());
         setListAdapter(mListAdapter);
-        setEmptyText(getString(R.string.no_bluetooth_triggers));
     }
 
     private void removeTrigger(List<Trigger> triggers, int value) {

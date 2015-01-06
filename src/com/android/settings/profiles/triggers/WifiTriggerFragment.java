@@ -21,10 +21,12 @@ import android.app.Profile;
 import android.app.ProfileManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,8 @@ public class WifiTriggerFragment extends ListFragment {
     WifiManager mWifiManager;
     Profile mProfile;
     private ProfileManager mProfileManager;
+
+    private View mEmptyView;
 
     private List<WifiTrigger> mTriggers = new ArrayList<WifiTrigger>();
     private WifiTriggerAdapter mListAdapter;
@@ -71,6 +75,31 @@ public class WifiTriggerFragment extends ListFragment {
         }
         mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
         mWifiManager = (WifiManager) getActivity().getSystemService(Context.WIFI_SERVICE);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getListView().setEmptyView(mEmptyView);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mEmptyView = inflater.inflate(R.layout.profile_bluetooth_empty_view, container, false);
+        mEmptyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent wifiSettings = new Intent();
+                wifiSettings.setAction(
+                        Settings.ACTION_WIFI_SETTINGS);
+                startActivity(wifiSettings);
+            }
+        });
+
+        ViewGroup view = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+        view.addView(mEmptyView);
+        return view;
     }
 
     @Override
