@@ -198,8 +198,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_REMOVE:
-                mProfileManager.removeProfile(mProfile);
-                finishFragment();
+                requestRemoveProfileDialog();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -248,6 +247,21 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         getActivity().getActionBar().setTitle(mNewProfileMode
                 ? R.string.profile_setup_actions_title
                 : R.string.profile_setup_actions_title_config);
+    }
+
+    private void requestRemoveProfileDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(getString(R.string.profile_remove_dialog_message, mProfile.getName()));
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                mProfileManager.removeProfile(mProfile);
+                finishFragment();
+            }
+        });
+        builder.setNegativeButton(R.string.no, null);
+        builder.show();
     }
 
     private void requestLockscreenModeDialog() {
