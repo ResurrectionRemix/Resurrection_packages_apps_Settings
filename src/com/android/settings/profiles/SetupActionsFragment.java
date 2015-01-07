@@ -59,6 +59,7 @@ import com.android.settings.profiles.actions.item.Item;
 import com.android.settings.profiles.actions.item.LockModeItem;
 import com.android.settings.profiles.actions.item.ProfileNameItem;
 import com.android.settings.profiles.actions.item.RingModeItem;
+import com.android.settings.profiles.actions.item.TriggerItem;
 import com.android.settings.profiles.actions.item.VolumeStreamItem;
 
 import java.util.ArrayList;
@@ -126,6 +127,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         items.add(new Header(getString(R.string.profile_name_title)));
         items.add(new ProfileNameItem(mProfile));
 
+        // triggers
+        items.add(new Header(getString(R.string.profile_triggers_header)));
+        items.add(generateTriggerItem(TriggerItem.WIFI));
+        items.add(generateTriggerItem(TriggerItem.BLUETOOTH));
+        items.add(generateTriggerItem(TriggerItem.NFC));
+
         // connection overrides
         items.add(new Header(getString(R.string.profile_connectionoverrides_title)));
         if (DeviceUtils.deviceSupportsBluetooth()) {
@@ -170,6 +177,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         setHasOptionsMenu(true);
     }
 
+    private TriggerItem generateTriggerItem(int whichTrigger) {
+        return new TriggerItem(mProfile, whichTrigger);
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -177,13 +188,6 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             menu.add(0, MENU_REMOVE, 0, R.string.profile_menu_delete_title)
                     .setIcon(R.drawable.ic_menu_trash_holo_dark)
                     .setAlphabeticShortcut('d')
-                    .setEnabled(true)
-                    .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                            MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-
-            menu.add(0, MENU_TRIGGERS, 0, R.string.profile_menu_triggers_title)
-                    .setIcon(R.drawable.ic_location)
-                    .setAlphabeticShortcut('t')
                     .setEnabled(true)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                             MenuItem.SHOW_AS_ACTION_WITH_TEXT);
@@ -196,17 +200,6 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             case MENU_REMOVE:
                 mProfileManager.removeProfile(mProfile);
                 finishFragment();
-                return true;
-
-            case MENU_TRIGGERS:
-                Bundle args = new Bundle();
-                args.putParcelable(ProfilesSettings.EXTRA_PROFILE,  mProfile);
-                args.putBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, false);
-
-                SubSettings pa = (SubSettings) getActivity();
-                pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
-                        R.string.profile_profile_manage, null, null, 0);
-
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -560,6 +553,20 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             requestVolumeDialog(item.getStreamType(), item.getSettings());
         } else if (itemAtPosition instanceof ProfileNameItem) {
             requestProfileName();
+        } else if (itemAtPosition instanceof TriggerItem) {
+            TriggerItem item = (TriggerItem) itemAtPosition;
+            openTriggersFragment(item.getTriggerType());
         }
+    }
+
+    private void openTriggersFragment(int openTo) {
+        Bundle args = new Bundle();
+        args.putParcelable(ProfilesSettings.EXTRA_PROFILE,  mProfile);
+        args.putBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, false);
+        args.putInt(SetupTriggersFragment.EXTRA_INITIAL_PAGE, openTo);
+
+        SubSettings pa = (SubSettings) getActivity();
+        pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
+                R.string.profile_profile_manage, null, null, 0);
     }
 }
