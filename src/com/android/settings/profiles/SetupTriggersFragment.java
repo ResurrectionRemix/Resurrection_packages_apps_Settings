@@ -15,6 +15,7 @@
  */
 package com.android.settings.profiles;
 
+import android.annotation.Nullable;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Profile;
@@ -41,6 +42,9 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
     ProfileManager mProfileManager;
     TriggerPagerAdapter mAdapter;
     boolean mNewProfileMode;
+    int mPreselectedItem;
+
+    public static final String EXTRA_INITIAL_PAGE = "current_item";
 
     private static final int REQUEST_SETUP_ACTIONS = 5;
 
@@ -64,8 +68,14 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
         if (getArguments() != null) {
             mProfile = getArguments().getParcelable(ProfilesSettings.EXTRA_PROFILE);
             mNewProfileMode = getArguments().getBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, false);
+            mPreselectedItem = getArguments().getInt(EXTRA_INITIAL_PAGE, 0);
         }
         mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -82,12 +92,18 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mPager.setCurrentItem(mPreselectedItem);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_setup_triggers, container, false);
 
-        ViewPager pager = (ViewPager) root.findViewById(R.id.view_pager);
+        mPager = (ViewPager) root.findViewById(R.id.view_pager);
         mAdapter = new TriggerPagerAdapter(getActivity(), getChildFragmentManager());
 
         Bundle profileArgs = new Bundle();
@@ -107,7 +123,7 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
             mAdapter.add(fragment.getFragmentClass(), profileArgs, fragment.getTitleRes());
         }
 
-        pager.setAdapter(mAdapter);
+        mPager.setAdapter(mAdapter);
 
         PagerTabStrip tabs = (PagerTabStrip) root.findViewById(R.id.tabs);
         tabs.setTabIndicatorColorResource(R.color.theme_accent);
