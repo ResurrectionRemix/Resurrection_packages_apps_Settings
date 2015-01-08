@@ -56,7 +56,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
     // may be defined in some sh source file. So here use a hard code for reference,
     // you should modify this value according to device usb init config.
     private static final String USB_FUNCTION_DEFAULT = SystemProperties.get(
-            "ro.sys.usb.default.config", "diag,serial_smd,serial_tty,rmnet_bam,mass_storage");
+            "ro.sys.usb.default.config", "mtp");
 
     private UsbManager mUsbManager;
     private CheckBoxPreference mMtp;
