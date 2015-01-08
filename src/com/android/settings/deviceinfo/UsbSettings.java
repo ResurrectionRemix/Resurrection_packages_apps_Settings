@@ -16,8 +16,11 @@
 
 package com.android.settings.deviceinfo;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.hardware.usb.UsbManager;
@@ -46,6 +49,8 @@ public class UsbSettings extends SettingsPreferenceFragment {
 
     private static final boolean DEBUG = false;
     private static final String TAG = "UsbSettings";
+
+    private static final int USB_CONFIRM_UMS = 1;
 
     private static final String KEY_MTP = "usb_mtp";
     private static final String KEY_PTP = "usb_ptp";
@@ -258,6 +263,10 @@ public class UsbSettings extends SettingsPreferenceFragment {
             function = UsbManager.USB_FUNCTION_PTP;
         } else if (preference == mCharging && mCharging.isChecked()) {
             function = UsbManager.USB_FUNCTION_CHARGING;
+        } else if (preference == mSDCard && mSDCard.isChecked()
+                && isPrimaryMassStorage()) {
+            showDialogInner(USB_CONFIRM_UMS);
+            return true;
         } else if (preference == mSDCard && mSDCard.isChecked()) {
             function = UsbManager.USB_FUNCTION_MASS_STORAGE;
         }
@@ -267,5 +276,44 @@ public class UsbSettings extends SettingsPreferenceFragment {
         updateToggles(function);
 
         return true;
+    }
+
+    private boolean isPrimaryMassStorage() {
+        final StorageVolume[] volumes = mStorageManager.getVolumeList();
+        final StorageVolume primary = StorageManager.getPrimaryVolume(volumes);
+        return primary != null && primary.allowMassStorage();
+    }
+
+    private void enableUms() {
+        operateInprogress = true;
+        mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_MASS_STORAGE, true);
+        updateToggles(UsbManager.USB_FUNCTION_MASS_STORAGE);
+    }
+
+    @Override
+    public Dialog onCreateDialog(int id) {
+        switch (id) {
+            case USB_CONFIRM_UMS:
+                return new AlertDialog.Builder(getActivity())
+                        .setTitle(R.string.usb_settings_enable_ums_title)
+                        .setMessage(R.string.usb_settings_enable_ums_message)
+                        .setPositiveButton(R.string.dlg_ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                enableUms();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                mSDCard.setChecked(false);
+                            }
+                        })
+                        .create();
+        }
+        return null;
+    }
+
+    private void showDialogInner(int id) {
+        removeDialog(id);
+        showDialog(id);
     }
 }
