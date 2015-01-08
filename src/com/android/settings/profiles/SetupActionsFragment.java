@@ -25,13 +25,22 @@ import android.app.Profile;
 import android.app.ProfileManager;
 import android.app.RingModeSettings;
 import android.app.StreamSettings;
+import android.bluetooth.BluetoothAdapter;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiManager;
 import android.net.wimax.WimaxHelper;
+import android.nfc.NfcManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -81,7 +90,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     private static final int RINGTONE_REQUEST_CODE = 1000;
 
     private static final int MENU_REMOVE = Menu.FIRST;
-    private static final int MENU_TRIGGERS = Menu.FIRST + 1;
+    private static final int MENU_FILL_PROFILE = Menu.FIRST + 1;
 
     Profile mProfile;
     ItemListAdapter mAdapter;
@@ -98,6 +107,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         Profile.ExpandedDesktopMode.ENABLE,
         Profile.ExpandedDesktopMode.DISABLE
     };
+    private List<Item> mItems = new ArrayList<Item>();
 
     public static SetupActionsFragment newInstance(Profile profile, boolean newProfile) {
         SetupActionsFragment fragment = new SetupActionsFragment();
@@ -122,63 +132,71 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
 
         mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
-        List<Item> items = new ArrayList<Item>();
+        mAdapter = new ItemListAdapter(getActivity(), mItems);
+        rebuildItemList();
+
+        setHasOptionsMenu(true);
+        if (mNewProfileMode) {
+            requestFillProfileFromSettingsDialog();
+        }
+    }
+
+    private void rebuildItemList() {
+        mItems.clear();
         // general prefs
-        items.add(new Header(getString(R.string.profile_name_title)));
-        items.add(new ProfileNameItem(mProfile));
+        mItems.add(new Header(getString(R.string.profile_name_title)));
+        mItems.add(new ProfileNameItem(mProfile));
 
         // triggers
-        items.add(new Header(getString(R.string.profile_triggers_header)));
-        items.add(generateTriggerItem(TriggerItem.WIFI));
-        items.add(generateTriggerItem(TriggerItem.BLUETOOTH));
-        items.add(generateTriggerItem(TriggerItem.NFC));
+        mItems.add(new Header(getString(R.string.profile_triggers_header)));
+        mItems.add(generateTriggerItem(TriggerItem.WIFI));
+        mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
+        mItems.add(generateTriggerItem(TriggerItem.NFC));
 
         // connection overrides
-        items.add(new Header(getString(R.string.profile_connectionoverrides_title)));
+        mItems.add(new Header(getString(R.string.profile_connectionoverrides_title)));
         if (DeviceUtils.deviceSupportsBluetooth()) {
-            items.add(new ConnectionOverrideItem(PROFILE_CONNECTION_BLUETOOTH,
+            mItems.add(new ConnectionOverrideItem(PROFILE_CONNECTION_BLUETOOTH,
                     mProfile.getSettingsForConnection(PROFILE_CONNECTION_BLUETOOTH)));
         }
-        items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_GPS));
-        items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIFI));
-        items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_SYNC));
+        mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_GPS));
+        mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIFI));
+        mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_SYNC));
         if (DeviceUtils.deviceSupportsMobileData(getActivity())) {
-            items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_MOBILEDATA));
-            items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIFIAP));
+            mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_MOBILEDATA));
+            mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIFIAP));
 
             final TelephonyManager tm =
                     (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
             if (tm.getPhoneType() == TelephonyManager.PHONE_TYPE_GSM) {
-                items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_2G3G));
+                mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_2G3G));
             }
         }
         if (WimaxHelper.isWimaxSupported(getActivity())) {
-            items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIMAX));
+            mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIMAX));
         }
         if (DeviceUtils.deviceSupportsNfc(getActivity())) {
-            items.add(generateConnectionOverrideItem(PROFILE_CONNECTION_NFC));
+            mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_NFC));
         }
 
         // add volume streams
-        items.add(new Header(getString(R.string.profile_volumeoverrides_title)));
-        items.add(generateVolumeStreamItem(AudioManager.STREAM_ALARM));
-        items.add(generateVolumeStreamItem(AudioManager.STREAM_MUSIC));
-        items.add(generateVolumeStreamItem(AudioManager.STREAM_RING));
-        items.add(generateVolumeStreamItem(AudioManager.STREAM_NOTIFICATION));
+        mItems.add(new Header(getString(R.string.profile_volumeoverrides_title)));
+        mItems.add(generateVolumeStreamItem(AudioManager.STREAM_ALARM));
+        mItems.add(generateVolumeStreamItem(AudioManager.STREAM_MUSIC));
+        mItems.add(generateVolumeStreamItem(AudioManager.STREAM_RING));
+        mItems.add(generateVolumeStreamItem(AudioManager.STREAM_NOTIFICATION));
 
         // system settings
-        items.add(new Header(getString(R.string.profile_system_settings_title)));
-        items.add(new RingModeItem(mProfile.getRingMode()));
-        items.add(new AirplaneModeItem(mProfile.getAirplaneMode()));
-        items.add(new LockModeItem(mProfile));
-
-        mAdapter = new ItemListAdapter(getActivity(), items);
-
-        setHasOptionsMenu(true);
+        mItems.add(new Header(getString(R.string.profile_system_settings_title)));
+        mItems.add(new RingModeItem(mProfile.getRingMode()));
+        mItems.add(new AirplaneModeItem(mProfile.getAirplaneMode()));
+        mItems.add(new LockModeItem(mProfile));
+        mAdapter.notifyDataSetChanged();
     }
 
-    private TriggerItem generateTriggerItem(int whichTrigger) {
-        return new TriggerItem(mProfile, whichTrigger);
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -191,6 +209,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     .setEnabled(true)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                             MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+
+            menu.add(0, MENU_FILL_PROFILE, 0, R.string.profile_menu_fill_from_state)
+                    .setAlphabeticShortcut('f')
+                    .setEnabled(true)
+                    .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         }
     }
 
@@ -199,6 +222,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         switch (item.getItemId()) {
             case MENU_REMOVE:
                 requestRemoveProfileDialog();
+                return true;
+            case MENU_FILL_PROFILE:
+                requestFillProfileFromSettingsDialog();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -220,6 +246,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             mProfile.setStreamSettings(settings);
         }
         return new VolumeStreamItem(stream, settings);
+    }
+
+    private TriggerItem generateTriggerItem(int whichTrigger) {
+        return new TriggerItem(mProfile, whichTrigger);
     }
 
     @Override
@@ -247,6 +277,126 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         getActivity().getActionBar().setTitle(mNewProfileMode
                 ? R.string.profile_setup_actions_title
                 : R.string.profile_setup_actions_title_config);
+    }
+
+    private void requestFillProfileFromSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(R.string.profile_populate_profile_from_state);
+        builder.setNegativeButton(R.string.no, null);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                fillProfileFromCurrentSettings();
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    private void fillProfileFromCurrentSettings() {
+        new AsyncTask<Profile, Void, Void>() {
+            @Override
+            protected Void doInBackground(Profile... params) {
+                // bt
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
+                                BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+
+                // gps
+                LocationManager locationManager = (LocationManager)
+                        getSystemService(Context.LOCATION_SERVICE);
+                boolean gpsEnabled = locationManager.
+                        isProviderEnabled(LocationManager.GPS_PROVIDER);
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_GPS,
+                                gpsEnabled ? 1 : 0, true));
+
+                // wifi
+                WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_WIFI,
+                                wifiManager.isWifiEnabled() ? 1 : 0, true));
+
+                // auto sync data
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_SYNC,
+                                ContentResolver.getMasterSyncAutomatically() ? 1 : 0, true));
+
+                // mobile data
+                ConnectivityManager cm = (ConnectivityManager)
+                        getSystemService(Context.CONNECTIVITY_SERVICE);
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
+                                cm.getMobileDataEnabled() ? 1 : 0, true));
+
+                // wifi hotspot
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_WIFIAP,
+                                wifiManager.isWifiApEnabled() ? 1 : 0, true));
+
+                // 2g/3g/4g
+                // skipping this one
+
+                // nfc
+                NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
+                mProfile.setConnectionSettings(
+                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
+                                nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+
+                // alarm volume
+                final AudioManager am = (AudioManager) getActivity()
+                        .getSystemService(Context.AUDIO_SERVICE);
+                mProfile.setStreamSettings(new StreamSettings(AudioManager.STREAM_ALARM,
+                        am.getStreamVolume(AudioManager.STREAM_ALARM), true));
+
+                // media volume
+                mProfile.setStreamSettings(new StreamSettings(AudioManager.STREAM_MUSIC,
+                        am.getStreamVolume(AudioManager.STREAM_MUSIC), true));
+
+                // ringtone volume
+                mProfile.setStreamSettings(new StreamSettings(AudioManager.STREAM_RING,
+                        am.getStreamVolume(AudioManager.STREAM_RING), true));
+
+                // notification volume
+                mProfile.setStreamSettings(new StreamSettings(AudioManager.STREAM_NOTIFICATION,
+                        am.getStreamVolume(AudioManager.STREAM_NOTIFICATION), true));
+
+                // ring mode
+                String ringValue;
+                switch (am.getRingerMode()) {
+                    default:
+                    case AudioManager.RINGER_MODE_NORMAL:
+                        ringValue = "normal";
+                        break;
+                    case AudioManager.RINGER_MODE_SILENT:
+                        ringValue = "mute";
+                        break;
+                    case AudioManager.RINGER_MODE_VIBRATE:
+                        ringValue = "vibrate";
+                        break;
+                }
+                mProfile.setRingMode(new RingModeSettings(ringValue, true));
+
+                // airplane mode
+                boolean airplaneMode = Settings.Global.getInt(getActivity().getContentResolver(),
+                        Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+                mProfile.setAirplaneMode(new AirplaneModeSettings(airplaneMode ? 1 : 0, true));
+
+                // lock screen mode
+                // populated only from profiles, so we can read the current profile,
+                // but let's skip this one
+
+                updateProfile();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                rebuildItemList();
+
+            }
+        }.execute(mProfile);
     }
 
     private void requestRemoveProfileDialog() {
