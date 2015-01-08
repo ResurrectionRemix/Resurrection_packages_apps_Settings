@@ -39,8 +39,15 @@
         <!-- Ring volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="ring_volume"
-                android:icon="@*android:drawable/ic_audio_ring_notif"
+                android:icon="@drawable/ring_ring"
                 android:title="@string/ring_volume_option_title" />
+
+        <!-- Link Volume Notification -->
+        <SwitchPreference
+                android:key="volume_link_notification"
+                android:title="@string/link_volume_option_title"
+                android:persistent = "false"
+                android:defaultValue = "true" />
 
         <!-- Increasing ring -->
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
