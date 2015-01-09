@@ -1,5 +1,4 @@
 /*
- * Copyright 2012 Carl Bauer
  * Copyright (C) 2014 SlimRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -326,7 +325,6 @@ public class DragSortController extends SimpleFloatViewManager
      * if a drag handle touch was detected.
      *
      * @param ev The ACTION_DOWN MotionEvent.
-
      * @return The list position of the item whose drag handle was
      * touched; MISS if unsuccessful.
      */
