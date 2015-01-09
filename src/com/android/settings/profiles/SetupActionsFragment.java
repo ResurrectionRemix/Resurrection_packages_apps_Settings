@@ -158,7 +158,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         mItems.add(generateTriggerItem(TriggerItem.NFC));
 
         // connection overrides
-        mItems.add(new Header(getString(R.string.profile_connectionoverrides_title)));
+        mItems.add(new Header(getString(R.string.wireless_networks_settings_title)));
         if (DeviceUtils.deviceSupportsBluetooth()) {
             mItems.add(new ConnectionOverrideItem(PROFILE_CONNECTION_BLUETOOTH,
                     mProfile.getSettingsForConnection(PROFILE_CONNECTION_BLUETOOTH)));

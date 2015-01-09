@@ -49,7 +49,7 @@ public class QSTileHolder {
             stringId = R.string.accessibility_display_inversion_preference_title;
         } else if (tileType.equals("cell")) {
             resId = R.drawable.ic_qs_signal;
-            stringId = R.string.cellular_data_title;
+            stringId = R.string.data_usage_cellular_data;
         } else if (tileType.equals("airplane")) {
             resId = R.drawable.ic_qs_airplane;
             stringId = R.string.airplane_mode;

@@ -31,7 +31,7 @@
     <!-- Setting checkbox title for root access -->
     <string name="root_access">Root access</string>
     <string name="root_access_warning_title">Allow root access?</string>
-    <string name="root_access_warning_message">Allowing applications to request root access is very dangerous and could compromise the security of your system!</string>
+    <string name="root_access_warning_message">Allowing apps to request root access is very dangerous and could compromise the security of your system!</string>
     <string name="root_access_none">Disabled</string>
     <string name="root_access_apps">Apps only</string>
     <string name="root_access_adb">ADB only</string>
@@ -43,19 +43,12 @@
     <string name="ring_mode_vibrate">Vibrate</string>
     <string name="ring_mode_mute">Mute</string>
 
-    <string name="ring_mode_unchanged">Unchanged</string>
-
     <!-- Profiles settings  -->
     <string name="profiles_settings_title">System profiles</string>
     <string name="profiles_add">Add</string>
-    <string name="profile_menu_delete">Delete</string>
     <string name="profile_settings_title">Profile</string>
     <string name="profile_empty_list_profiles_off">To configure and use system profiles, turn profiles on.</string>
     <string name="profile_trigger_configure">Configure trigger</string>
-    <string name="profile_triggers">Triggers</string>
-    <string name="profile_trigger_filter_all">All triggers</string>
-    <string name="profile_trigger_filter_wifi">Wi-Fi triggers</string>
-    <string name="profile_trigger_filter_bluetooth">Bluetooth triggers</string>
     <string name="profile_write_nfc_tag">Write to NFC tag</string>
     <string name="profile_write_touch_tag">Touch tag to write</string>
     <string name="profile_write_success">Tag successfully written</string>
@@ -71,49 +64,33 @@
     <string name="profile_remove_current_profile">Cannot delete current profile!</string>
 
     <!-- Add Profile -->
-    <string name="add_profile_dialog_title">Create new profile</string>
     <string name="profile_name_title">Name</string>
-    <string name="profile_profile_name_prompt">Enter a name for the new profile</string>
-    <string name="menu_new_profile">New profile</string>
     <string name="new_profile_name">&lt;new profile&gt;</string>
 
     <!-- Rename Dialog  -->
     <string name="rename_dialog_title">Rename</string>
     <string name="rename_dialog_message">Enter a new name</string>
-    <string name="duplicate_profile_name">Duplicate profile name!</string>
-    <string name="duplicate_appgroup_name">Duplicate app group name!</string>
     <string name="rename_dialog_hint">Enter profile name</string>
 
     <!-- Reset Profiles -->
     <string name="profile_reset_title">Reset</string>
-    <string name="profile_reset_message">Delete all user created profiles and app groups and restore them to default?</string>
-
-    <!-- Delete confimation messages -->
-    <string name="profile_delete_confirm">Delete this profile?</string>
-    <string name="profile_app_delete_confirm">Remove this app?</string>
-    <string name="profile_cannot_delete">An active profile cannot be deleted</string>
+    <string name="profile_reset_message">Delete all user created profiles and restore them to default?</string>
 
     <!-- Profile network mode -->
     <string name="profile_networkmode_2g">2G</string>
     <string name="profile_networkmode_3g">3G</string>
-    <string name="profile_networkmode_4g">4G</string>
+    <string name="profile_networkmode_4g">LTE</string>
     <string name="profile_networkmode_2g3g">2G/3G</string>
-    <string name="profile_networkmode_2g3g4g">2G/3G/4G</string>
+    <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
 
     <!-- Profile Config screen PreferenceGroup titles -->
-    <string name="profile_connectionoverrides_title">Connection overrides</string>
     <string name="profile_volumeoverrides_title">Volume overrides</string>
-    <string name="connection_state_disabled">Disable</string>
-    <string name="connection_state_enabled">Enable</string>
     <string name="volume_override_summary">Set to %1$s/%2$s</string>
-    <string name="volume_override_summary_no_override">Do not override</string>
     <string name="profile_volume_override_checkbox_label">Override volume</string>
 
     <!-- Menu item for managing profiles -->
     <string name="profile_profiles_manage">Profiles</string>
     <string name="profile_profile_manage">Manage profile</string>
-    <string name="profile_appgroups_manage">App groups</string>
-    <string name="profile_appgroup_manage">Manage app group</string>
 
     <!-- Profile settings screen, section header for settings related to notification profiles -->
     <string name="profile_settings">Profile settings</string>
@@ -126,20 +103,13 @@
     <string name="ringer_mode">Ring mode</string>
     <string name="lights_mode">Lights mode</string>
     <string name="vibrate_mode">Vibrate mode</string>
-    <string name="choose_soundtone">Choose notification tone</string>
-    <string name="choose_ringtone">Choose ringtone</string>
 
     <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
     <string name="soundtone_title">Notification tone</string>
     <string name="soundtone_summary" translatable="false">""</string>
 
     <!-- Title for application group setting screen -->
-    <string name="profile_appgroups_title">App groups</string>
     <string name="profile_applist_title">Apps</string>
-    <string name="profile_new_appgroup">New app group</string>
-    <string name="profile_delete_appgroup">Delete this app group?</string>
-    <string name="profile_appgroup_name_prompt">Enter a name for the new app group</string>
-    <string name="profile_appgroup_name_title">Name</string>
 
     <!-- Add application dialog box title -->
     <string name="profile_choose_app">Choose app</string>
@@ -147,24 +117,18 @@
     <!-- Profiles - system settings -->
     <string name="profile_system_settings_title">System settings</string>
     <string name="profile_lockmode_title">Lock screen mode</string>
-    <string name="profile_lockmode_default">Default</string>
-    <string name="profile_lockmode_insecure">Insecure</string>
-    <string name="profile_lockmode_disabled">Disabled</string>
-    <string name="profile_lockmode_default_summary">Use system default</string>
-    <string name="profile_lockmode_insecure_summary">Use insecure lock screen</string>
-    <string name="profile_lockmode_disabled_summary">Lock screen is disabled</string>
+    <string name="profile_lockmode_insecure_summary">Don\'t ask for PIN or password</string>
+    <string name="profile_lockmode_disabled_summary">Disable lock screen</string>
     <string name="profile_airplanemode_title">Airplane mode</string>
 
     <!-- Connection override toggles (not all are used at this time ) -->
-    <string name="toggleWifi">Wi-Fi</string>
-    <string name="toggleWifiAp">Portable Wi-Fi hotspot</string>
+    <string name="toggleWifi">Wi\u2011Fi</string>
+    <string name="toggleWifiAp">Portable Wi\u2011Fi hotspot</string>
     <string name="toggleBluetooth">Bluetooth</string>
     <string name="toggleGPS">GPS</string>
-    <string name="toggleData">Mobile Data</string>
+    <string name="toggleData">Data connection</string>
     <string name="toggleSync">Auto-sync data</string>
-    <string name="toggle2g3g">2G/3G</string>
-    <string name="toggle2g3g4g">2G/3G/4G</string>
-    <string name="toggleWimax">WiMAX</string>
+    <string name="toggle2g3g4g">Preferred network type</string>
     <string name="toggleNfc">NFC</string>
 
     <!-- Hardware keys -->
@@ -269,7 +233,6 @@
     <string name="blacklist_bad_number_add">Unable to add invalid number to blacklist</string>
 
     <!-- Blacklist management -->
-    <string name="add_blacklist_number">Add number</string>
     <string name="remove_blacklist_number_title">Remove number</string>
     <string name="remove_blacklist_entry">Do you want to remove this blacklist entry?</string>
     <string name="select_contact">Select contact</string>
@@ -283,7 +246,6 @@
     <string name="menu_hidden_apps_reset_lock">Reset pattern lock</string>
     <string name="protected_apps">Protected apps</string>
     <string name="saving_protected_components">Saving component state\u2026</string>
-    <string name="launch_app">Launch app</string>
 
     <string name="pa_login_username_hint">Username (email)</string>
     <string name="pa_login_password_hint">Password</string>
@@ -305,8 +267,8 @@
     <!--- Sms security limit -->
     <string name="app_security_title">App security</string>
     <string name="sms_security_check_limit_title">SMS message limit</string>
-    <string name="sms_security_check_limit_summary">Display an alert dialog to prevent applications from sending SMS messages too frequently. Current limit: %d messages in 15 minutes</string>
-    <string name="sms_security_check_limit_default">30 (Default)</string>
+    <string name="sms_security_check_limit_summary">Apps can send %d messages in 30 minutes before requiring confirmation</string>
+    <string name="sms_security_check_limit_default">30 (default)</string>
 
     <string name="spam_added_title">Added %1$s</string>
     <string name="spam_last_blocked_title">Last blocked %1$s</string>
@@ -339,13 +301,8 @@
 
     <!-- Privacy Settings Header item -->
     <string name="privacy_settings_cyanogenmod_title">Privacy</string>
-    <string name="privacy_settings_cyanogenmod_category" translatable="false">CyanogenMod</string>
 
     <!-- Privacy Guard -->
-    <string name="privacy_guard_switch_label">Enable Privacy Guard</string>
-    <string name="privacy_guard_dlg_title">Enable Privacy Guard?</string>
-    <string name="privacy_guard_dlg_text">When Privacy Guard is enabled, the app will not be able to access personal data such as contacts, messages or call logs.</string>
-    <string name="privacy_guard_dlg_system_app_text">When enabling Privacy Guard for a built-in app, the app will not be able to access or provide personal data. This may cause other apps to misbehave.</string>
     <string name="privacy_guard_default_title">Enabled by default</string>
     <string name="privacy_guard_default_summary">Enable by default for newly-installed apps</string>
     <string name="privacy_guard_manager_title">Privacy Guard</string>
@@ -372,22 +329,22 @@
     <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
     <string name="enable_adb_summary_cm">Enable the Android Debug Bridge (adb) interface</string>
 
-    <!-- Setting checkbox summary for displaying USB debugging notification -->
-    <string name="adb_notify">USB debugging notify</string>
-    <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
-
     <!-- Android debugging over WiFi -->
     <string name="adb_over_network">ADB over network</string>
     <string name="adb_over_network_summary">Enable TCP/IP debugging over network interfaces (Wi\u2011Fi, USB networks). This setting is reset on reboot</string>
     <!-- Warning for Adb over Network -->
-    <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your phone is open for intrusions on all connected networks, including GSM data network!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
+    <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your phone is open for intrusions on all connected networks!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
+
+    <!-- Setting checkbox summary for displaying USB debugging notification -->
+    <string name="adb_notify">Debugging notify</string>
+    <string name="adb_notify_summary">Display a notification when USB or network debugging is enabled</string>
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
     <!-- Development shortcut -->
     <string name="development_shortcut_title">Development shortcut</string>
-    <string name="development_shortcut_summary">Enable application management shortcuts in recent apps list</string>
+    <string name="development_shortcut_summary">Enable app management shortcuts in recent apps list</string>
 
     <!-- tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
@@ -480,8 +437,8 @@
     <string name="notification_ringtone_title_cm">Notification tone</string>
 
     <!-- Whether to display IME switcher notifcation -->
-    <string name="ime_switcher_notify">Selector notification</string>
-    <string name="ime_switcher_notify_summary">Display input method selector notification</string>
+    <string name="ime_switcher_notify">Selector icon</string>
+    <string name="ime_switcher_notify_summary">Display input method selector icon</string>
 
     <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">High touch sensitivity</string>
@@ -498,7 +455,7 @@
     <string name="app_ops_summaries_modify_call_log">modify call log</string>
     <string name="app_ops_summaries_read_calendar">read calendar</string>
     <string name="app_ops_summaries_modify_calendar">modify calendar</string>
-    <string name="app_ops_summaries_wifi_scan">Wi-Fi scan</string>
+    <string name="app_ops_summaries_wifi_scan">Wi\u2011Fi scan</string>
     <string name="app_ops_summaries_notification">notification</string>
     <string name="app_ops_summaries_cell_scan">cell scan</string>
     <string name="app_ops_summaries_call_phone">call phone</string>
@@ -536,7 +493,7 @@
     <string name="app_ops_summaries_toast_window">display toasts</string>
     <string name="app_ops_summaries_project_media">project media</string>
     <string name="app_ops_summaries_activate_vpn">activate VPN</string>
-    <string name="app_ops_summaries_wifi_change">Wi-Fi change</string>
+    <string name="app_ops_summaries_wifi_change">Wi\u2011Fi change</string>
     <string name="app_ops_summaries_bluetooth_change">Bluetooth change</string>
     <string name="app_ops_summaries_send_mms">send MMS</string>
     <string name="app_ops_summaries_read_mms">read MMS</string>
@@ -549,7 +506,7 @@
     <string name="app_ops_summaries_delete_call_log">delete call log</string>
     <string name="app_ops_summaries_data_change">data change</string>
     <string name="app_ops_summaries_wake_up">wake up</string>
-    <string name="app_ops_summaries_su">Superuser</string>
+    <string name="app_ops_summaries_su">root access</string>
 
     <string name="app_ops_labels_location">Location</string>
     <string name="app_ops_labels_vibrate">Vibrate</string>
@@ -589,7 +546,7 @@
     <string name="app_ops_labels_toast_window">Display toasts</string>
     <string name="app_ops_labels_project_media">Project media</string>
     <string name="app_ops_labels_activate_vpn">Activate VPN</string>
-    <string name="app_ops_labels_wifi_change">Wi-Fi change</string>
+    <string name="app_ops_labels_wifi_change">Wi\u2011Fi change</string>
     <string name="app_ops_labels_bluetooth_change">Bluetooth change</string>
     <string name="app_ops_labels_send_mms">Send MMS</string>
     <string name="app_ops_labels_read_mms">Read MMS</string>
@@ -611,7 +568,7 @@
     <string name="app_ops_categories_media">Media</string>
     <string name="app_ops_categories_device">Device</string>
     <string name="app_ops_categories_bootup">Bootup</string>
-    <string name="app_ops_categories_su">Superuser</string>
+    <string name="app_ops_categories_su">Root access</string>
 
     <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Allowed</string>
@@ -622,16 +579,15 @@
 
     <!-- Profiles -->
     <string name="profile_menu_delete_title">Delete</string>
-    <string name="profile_menu_triggers_title">Modify triggers</string>
 
-    <string name="profile_action_none">No action</string>
-    <string name="profile_action_disabled">Disable</string>
-    <string name="profile_action_enable">Enable</string>
+    <string name="profile_action_none">Leave unchanged</string>
+    <string name="profile_action_disable">Turn off</string>
+    <string name="profile_action_enable">Turn on</string>
 
     <string name="profile_trigger_a2dp_connect">On A2DP connect</string>
     <string name="profile_trigger_a2dp_disconnect">On A2DP disconnect</string>
 
-    <string name="profile_tabs_wifi">Wi-Fi</string>
+    <string name="profile_tabs_wifi">Wi\u2011Fi</string>
     <string name="profile_tabs_bluetooth">Bluetooth</string>
     <string name="profile_tabs_nfc">NFC</string>
 
@@ -644,7 +600,7 @@
     <string name="profile_setup_actions_title_config">Reconfigure actions</string>
 
     <string name="no_bluetooth_triggers">No Bluetooth devices paired.\nTap to pair Bluetooth device before configuring triggers.</string>
-    <string name="no_wifi_triggers">No Wi-Fi access points configured.\nTap to connect Wi-Fi before configuring triggers.</string>
+    <string name="no_wifi_triggers">No Wi\u2011Fi access points configured.\nTap to connect Wi\u2011Fi before configuring triggers.</string>
     <string name="no_triggers_configured">No triggers configured. Tap to add more.</string>
     <string name="no_triggers_configured_nfc">Tap to setup a new NFC trigger.</string>
 
@@ -696,8 +652,6 @@
     <string name="custom_screencolor">Custom screen color</string>
     <string name="screencolor_save">Save</string>
     <string name="screencolor_cancel">Cancel</string>
-    <string name="previous_str">Previous</string>
-    <string name="new_str">New</string>
     <string name="restore_preview">View default picture</string>
     <string name="selectnewfile_menu">View new picture from Gallery</string>
     <string name="selectfile_menu">View picture from Gallery</string>
@@ -706,6 +660,10 @@
     <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
     <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
     <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+
+    <string name="screen_color_setting_standard">Standard</string>
+    <string name="screen_color_setting_vivid">Vivid</string>
+    <string name="screen_color_setting_custom">Custom</string>
 
     <string name="settings_reset_button">Reset</string>
 
@@ -727,20 +685,12 @@
     <!-- Bluetooth settings.  Connection options screen.  The summary for the SAP checkbox preference that describes how checking it will set the SAP profile as preferred. -->
     <string name="bluetooth_sap_profile_summary_use_for">Use for SIM Access</string>
 
-    <!-- Checkbox title for option to toggle wifi RSSI threshold check -->
-    <string name="wifi_rssi_threshold_check">Enable RSSI threshold</string>
-    <!-- Checkbox summary for option to toggle poor network detection -->
-    <string name="wifi_rssi_threshold_check_summary">Do not connect to an AP if RSSI is poor</string>
-
     <!-- SIM lock settings title  [CHAR LIMIT=40] -->
     <string name="sim_lock_settings_cm">SIM/RUIM card lock settings</string>
     <!-- Security & location settings screen, setting option name  [CHAR LIMIT=40] -->
     <string name="sim_lock_settings_category_cm">Set up SIM/RUIM card lock</string>
     <!-- Security & location settings screen, section heading for settings related to sim card locking  [CHAR LIMIT=40] -->
     <string name="sim_lock_settings_title_cm">SIM/RUIM card lock</string>
-
-    <!-- SIM card lock settings screen, SIM PIN dialog message when SIM card is absent-->
-    <string name="sim_absent">No SIM/RUIM</string>
 
     <!-- SIM card lock settings screen, SIM PIN dialog message when PIN disable fails-->
     <string name="sim_pin_disable_failed">Can\'t disable PIN.</string>
@@ -758,15 +708,7 @@
     <!-- SIM card lock settings screen, toast displayed on PIN1 disable: -->
     <string name="sim_pin_disabled">PIN1 disabled</string>
 
-    <!-- About tablet screen, summary of the item that takes you to tablet status screen -->
-    <string name="device_status_summary_cm" product="tablet">Status of the battery, network, and other information</string>
-    <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_status_summary_cm" product="default">Battery status, battery level, etc.</string>
     <string name="subs_settings">SIM card status</string>
-    <!-- About phone screen, summary of the item to go into the phone status screen -->
-    <string name="device_additional_status_summary">Phone number, signal, IMEI, etc.</string>
-    <!-- In About phone->Status screen, title of the item to go into the subscription status screen -->
-    <string name="device_additional_status">Additional status info</string>
 
     <!-- string resources for USB OTG & UICC features -->
     <string name="storage_usb">USB storage</string>
@@ -786,9 +728,9 @@
     <string name="uicc_mount_summary" product="default"></string>
     <string name="uicc_insert_summary" product="default">Insert an UICC storage for mounting</string>
     <!-- Title of dialog asking user to confirm before enabling UMS. [CHAR LIMIT=48] -->
-    <string name="usb_settings_enable_ums_title">Enable USB storage?</string>
+    <string name="usb_settings_enable_ums_title">Enable mass storage?</string>
     <!-- Message of dialog asking user to confirm before enabling UMS. [CHAR LIMIT=NONE] -->
-    <string name="usb_settings_enable_ums_message">System components and apps rely on primary storage always being available. This feature breaks that functionality. It is strongly recommended to use MTP instead. Are you sure you want to enable USB storage?</string>
+    <string name="usb_settings_enable_ums_message">System components and apps rely on primary storage always being available. This feature breaks that functionality. It is strongly recommended to use MTP instead. Are you sure you want to enable mass storage?</string>
 
     <string name="dlg_confirm_usb_unmount_title" product="default">Unmount USB storage?</string>
     <string name="dlg_confirm_uicc_unmount_title" product="default">Unmount UICC storage?</string>
@@ -813,7 +755,7 @@
     <string name="uicc_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the UICC storage.</string>
 
     <!-- [CHAR LIMIT=130] Location mode screen, sub category for IZat Location -->
-    <string name="location_category_enhanced_location">Enhanced location</string>
+    <string name="location_category_enhanced_location">Enhanced location (IZat)</string>
 
     <!-- [CHAR LIMIT=NONE] App ops settings summary, on main settings screen. If clicked, the user is taken to a settings screen for app operations -->
     <string name="app_ops_settings_summary">View or change app permissions</string>
@@ -826,36 +768,32 @@
     <!-- Summary of checkbox setting that enable quickboot. [CHAR LIMIT=64] -->
     <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off</string>
 
-    <string name="data_usage_tab_slot">SIM </string>
+    <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
 
     <!-- MultiSim Settings changes-->
-    <string name="close_dialog">OK</string>
     <string name="sim_enabler_title">SIM status</string>
-    <string name="sim_enabler_summary">SIM is %1$s</string>
+    <string name="sim_enabler_summary">SIM is <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
     <string name="sim_enabled">enabled</string>
     <string name="sim_disabled">disabled</string>
     <string name="sim_missing">missing or faulty</string>
-    <string name="sim_enabler_need_enable_sim">SIM card will be activated. Do you want to continue?</string>
     <string name="sim_enabler_need_disable_sim">SIM card will be deactivated. Do you want to continue?</string>
     <string name="sim_enabler_airplane_on">Unable to perform the operation while airplane mode is on.</string>
     <string name="sim_enabler_in_call">Unable to perform the operation while in call.</string>
-    <string name="sim_enabler_both_inactive">"Can't disable all SIM cards"</string>
+    <string name="sim_enabler_both_inactive">Can\'t disable all SIM cards</string>
+    <string name="sim_enabler_sim">SIM</string>
     <string name="sim_enabler_enabling">Activating\2026</string>
     <string name="sim_enabler_disabling">Deactivating\2026</string>
     <string name="sub_activate_success">SIM activated.</string>
-    <string name="sub_activate_failed">Activation failed.</string>
     <string name="sub_deactivate_success">SIM deactivated.</string>
-    <string name="sub_deactivate_failed">Deactivation failed.</string>
-    <string name="sub_deactivate_not_supported">Deactivation not supported</string>
-    <string name="sub_activate_not_supported">Activation not supported</string>
-    <string name="slot_name">SIM <xliff:g id="sub">%d</xliff:g></string>
+
+    <string name="primary_sub_select_title">Default 3G/LTE subscription</string>
 
     <string name="usb_charging_title">Charge only</string>
     <string name="usb_charging_summary">Disables all data transfers with computer and charges device over USB port</string>
-    <string name="primary_sub_select_title">Default 4G/3G subscription</string>
 
-    <string name="usb_sdcard_summary">Lets you transfer media files in the SD card on computer</string>
-    <string name="usb_sdcard_title">USB storage</string>
+    <string name="usb_sdcard_title">Mass storage (UMS)</string>
+    <string name="usb_sdcard_summary">Lets you transfer files between your computer and SD card by mounting it as a flash device</string>
+
     <string name="external_storage_turn_on">External storage has been turned on</string>
     <string name="external_storage_turn_off">External storage has been turned off</string>
 
@@ -866,7 +804,7 @@
     <string name="saving_protected_components">Saving component state</string>
 
     <string name="stats_collection_title">Stats collection</string>
-    <string name="stats_collection_summary">When enabled, allows metrics collection.</string>
+    <string name="stats_collection_summary">When enabled, allows metrics collection</string>
 
     <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
@@ -874,7 +812,7 @@
 
     <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
     <string name="power_notifications_enable_title">Enable</string>
-    <string name="power_notifications_enable_summary">Play a sound when connecting or disconnecting the charger</string>
+    <string name="power_notifications_enable_summary">Play a sound when connecting or disconnecting a power source</string>
     <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
     <string name="power_notifications_vibrate_title">Vibrate</string>
     <!-- Sound settings, Charging sounds ringtone selection, preference label -->
@@ -905,15 +843,14 @@
 
     <!-- Performance Settings : Performance profile settings -->
     <string name="perf_profile_title">Profile</string>
-    <string name="perf_profile_summary" translatable="false">%s</string>
 
     <!-- Performance : Force high-end graphics -->
     <string name="pref_force_highend_gfx_title">Force high-end graphics</string>
     <string name="pref_force_highend_gfx_summary">Enables high-end visual effects such as transparent status/navigation bar (requires reboot)</string>
 
     <!-- Performance Settings : Warning dialog -->
-    <string name="performance_settings_warning_title">Proceed with Caution</string>
-    <string name="performance_settings_warning">These settings are included for experimentation and any changes made to them have the potential to cause instability, crashes, data loss or hardware failures.\n\nWe request you do not file bug reports if any of these settings have been changed from the defaults.</string>
+    <string name="performance_settings_warning_title">Proceed with caution</string>
+    <string name="performance_settings_warning">These settings are experimental and any applied changes have the potential to cause instability, crashes, data loss or hardware failures.\n\nWe request that you do not file bug reports if any settings are changed from their defaults.</string>
 
     <!-- Performance Settings : Set on boot option -->
     <string name="performance_set_on_boot">Set on boot</string>
@@ -934,7 +871,7 @@
 
     <!-- Automatic performance profiles -->
     <string name="autoperf_title">Enable per-app profiles</string>
-    <string name="autoperf_summary">Automatically choose an appropriate performance profile for various applications</string>
+    <string name="autoperf_summary">Automatically choose an appropriate performance profile for various apps</string>
 
     <!-- Performance menu, graphics options category -->
     <string name="graphics_title">Graphics and rendering</string>
@@ -942,6 +879,17 @@
     <!-- EdgeGesture service -->
     <string name="edge_gesture_service_title">Block gesture touch events</string>
     <string name="edge_gesture_service_summary">Don\'t send touch events for navigation and status bar gestures to apps</string>
+
+    <!-- CM Legal -->
+    <string name="cmlicense_title">CyanogenMod legal</string>
+    <string name="settings_cmlicense_activity_title">CyanogenMod legal</string>
+    <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
+
+    <!-- Screen security -->
+    <string name="unlock_quick_unlock_control_title">Quick unlock</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
+    <string name="unlock_scramble_pin_layout_title">Scramble layout</string>
+    <string name="unlock_scramble_pin_layout_summary">Scramble PIN layout when unlocking device</string>
 
     <string name="link_volume_option_title">Link ringtone &amp; notification volumes</string>
     <string name="notification_volume_option_title">Notification volume</string>
@@ -967,7 +915,7 @@
 
     <!-- WiFi Ad-Hoc mode -->
     <string name="wifi_mode">Mode</string>
-    <string name="wifi_mode_ibss">Ad-Hoc (IBSS) Network</string>
+    <string name="wifi_mode_ibss">Ad-Hoc (IBSS) network</string>
     <string name="wifi_mode_ibss_short">Ad-Hoc</string>
 
     <string name="wifi_ibss_freq_title">Channel / Frequency</string>
@@ -975,7 +923,7 @@
     <string name="wifi_mhz">MHz</string>
 
     <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
-    <string name="regulatory_information_dialog_title">@string/regulatory_information</string>
+    <string name="regulatory_information_dialog_title" translatable="false">@string/regulatory_information</string>
 
     <!-- SAR information -->
     <string name="maximum_head_level">Head: %1$s W/kg</string>
