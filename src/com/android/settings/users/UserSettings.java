@@ -345,7 +345,7 @@ public class UserSettings extends SettingsPreferenceFragment
 
     private boolean hasLockscreenSecurity() {
         LockPatternUtils lpu = new LockPatternUtils(getActivity());
-        return lpu.isLockPasswordEnabled() || lpu.isLockPatternEnabled();
+        return lpu.isLockPasswordEnabled() || lpu.isLockPatternEnabled() || lpu.isLockGestureEnabled();
     }
 
     private void launchChooseLockscreen() {
