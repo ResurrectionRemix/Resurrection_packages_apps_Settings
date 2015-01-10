@@ -1208,7 +1208,7 @@ public class SettingsActivity extends Activity
                 } else if (id == R.id.development_settings) {
                     if (!showDev || um.hasUserRestriction(
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
-                        removeTile = true;
+                        removeTile = false;
                     }
                 } else if (id == R.id.button_settings) {
                     boolean hasDeviceKeys = getResources().getInteger(
