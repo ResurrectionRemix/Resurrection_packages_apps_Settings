@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/battery_bar"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+  <PreferenceCategory
+    android:key="battery_bar"
+    android:title="@string/battery_bar">
+
+    <ListPreference
+      android:key="battery_bar_list"
+      android:title="@string/battery_bar_location"
+      android:entries="@array/battery_bar_entries"
+      android:entryValues="@array/battery_bar_values" />
+
+    <ListPreference
+      android:key="battery_bar_style"
+      android:title="@string/battery_bar_style_title"
+      android:entries="@array/battery_bar_style_entries"
+      android:entryValues="@array/battery_bar_style_values" />
+
+    <CheckBoxPreference
+      android:key="battery_bar_animate"
+      android:title="@string/battery_bar_animate_title"
+      android:summary="@string/battery_bar_animate_summary" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+      android:key="battery_bar_color"
+      android:title="@string/battery_bar_color"
+      android:defaultValue="#FFFFFF" />
+
+    <ListPreference
+      android:key="battery_bar_thickness"
+      android:title="@string/battery_bar_thickness_title"
+      android:entries="@array/battery_bar_thickness_entries"
+      android:entryValues="@array/battery_bar_thickness_values" />
+  </PreferenceCategory>
+
+</PreferenceScreen>
