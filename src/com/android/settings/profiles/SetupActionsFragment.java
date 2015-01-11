@@ -204,7 +204,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         super.onCreateOptionsMenu(menu, inflater);
         if (!mNewProfileMode) {
             menu.add(0, MENU_REMOVE, 0, R.string.profile_menu_delete_title)
-                    .setIcon(R.drawable.ic_menu_trash_holo_dark)
+                    .setIcon(R.drawable.ic_actionbar_delete)
                     .setAlphabeticShortcut('d')
                     .setEnabled(true)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
