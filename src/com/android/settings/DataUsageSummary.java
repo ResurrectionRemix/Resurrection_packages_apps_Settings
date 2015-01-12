@@ -88,6 +88,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
+import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -2567,7 +2568,20 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         if (i <= 0) {
             return "";
         } else {
-            return getText(R.string.data_usage_tab_slot).toString() + i;
+            // i-1 is supposed to be the phoneId
+            long[] mSubId = SubscriptionManager.getSubId(i-1);
+            if (mSubId.length > 0) {
+                SubInfoRecord mSubInfo = null;
+                for (int j = 0; j < mSubId.length && mSubInfo == null; j++) {
+                    mSubInfo = SubscriptionManager.getSubInfoForSubscriber(mSubId[j]);
+                }
+                if (mSubInfo != null &&
+                        mSubInfo.displayName != null &&
+                        mSubInfo.displayName != "") {
+                   return mSubInfo.displayName;
+                }
+            }
+            return getText(R.string.data_usage_tab_slot).toString() + " " + i;
         }
     }
 
