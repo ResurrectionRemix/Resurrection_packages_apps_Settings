@@ -768,6 +768,17 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             for (int i = 0; i < TelephonyManager.getDefault()
                     .getPhoneCount(); i++) {
                 if (currentTab.equals(getSubTag(i+1))) {
+                    if (TelephonyManager.getDefault().getMultiSimConfiguration() ==
+                            TelephonyManager.MultiSimVariants.DSDS ||
+                            TelephonyManager.getDefault().getMultiSimConfiguration() ==
+                            TelephonyManager.MultiSimVariants.TSTS) {
+                        // only one of the SIMs can have Data enabled, so...
+                        if (SubscriptionManager.getDefaultDataPhoneId() == i) {
+                            mDataEnabledView.setVisibility(View.VISIBLE);
+                        } else {
+                            mDataEnabledView.setVisibility(View.GONE);
+                        }
+                    }
                     setPreferenceTitle(mDataEnabledView,
                             R.string.data_usage_enable_mobile);
                     setPreferenceTitle(mDisableAtLimitView,
@@ -1023,6 +1034,16 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
     private void updatePolicy(boolean refreshCycle) {
         boolean dataEnabledVisible = mDataEnabledSupported;
         boolean disableAtLimitVisible = mDisableAtLimitSupported;
+
+        if (dataEnabledVisible &&
+            (TelephonyManager.getDefault().getMultiSimConfiguration()
+                == TelephonyManager.MultiSimVariants.DSDS
+            || TelephonyManager.getDefault().getMultiSimConfiguration()
+                == TelephonyManager.MultiSimVariants.TSTS) &&
+            (!mTabHost.getCurrentTabTag().equals(getSubTag(SubscriptionManager.getDefaultDataPhoneId()+1)))
+        ) {
+            dataEnabledVisible = false;
+        }
 
         if (isAppDetailMode()) {
             dataEnabledVisible = false;
