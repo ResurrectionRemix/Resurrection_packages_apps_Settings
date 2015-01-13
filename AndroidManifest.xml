@@ -706,7 +706,8 @@
         <activity android:name="SettingsLicenseActivity"
                 android:label="@string/settings_license_activity_title"
                 android:theme="@android:style/Theme.Material.Light.Panel"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="Settings$DeviceInfoSettingsActivity">
             <intent-filter>
                 <action android:name="android.settings.LICENSE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -717,7 +718,8 @@
 
         <activity android:name="SettingsSafetyLegalActivity"
                 android:label="@string/settings_safetylegal_activity_title"
-                android:theme="@*android:style/Theme.Material.Light.Dialog.Alert">
+                android:theme="@*android:style/Theme.Material.Light.Dialog.Alert"
+                android:parentActivityName="Settings$DeviceInfoSettingsActivity">
             <intent-filter>
                 <action android:name="android.settings.SAFETY" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1051,7 +1053,8 @@
         <activity android:name="IccLockSettings"
                 android:label="@string/sim_lock_settings_cm"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
-                android:process="com.android.phone">
+                android:process="com.android.phone"
+                android:parentActivityName="Settings$SecuritySettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1207,7 +1210,8 @@
         <activity android:name=".deviceinfo.Status"
                 android:label="@string/device_status_activity_title"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
-                android:process="com.android.phone">
+                android:process="com.android.phone"
+                android:parentActivityName="Settings$DeviceInfoSettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1702,7 +1706,8 @@
         <activity android:name="com.android.settings.accounts.ChooseAccountActivity"
             android:label="@string/header_add_an_account"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.SubSettingsDialogWhenLarge"/>
+            android:theme="@style/Theme.SubSettingsDialogWhenLarge"
+            android:parentActivityName="Settings"/>
 
         <activity android:name=".CryptKeeper"
                   android:immersive="true"
