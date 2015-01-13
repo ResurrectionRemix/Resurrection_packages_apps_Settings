@@ -400,6 +400,20 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     }
 
     private void requestRemoveProfileDialog() {
+        Profile current = mProfileManager.getActiveProfile();
+        if (mProfile.getUuid().equals(current.getUuid())) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(getString(R.string.profile_remove_current_profile));
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+            return;
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(getString(R.string.profile_remove_dialog_message, mProfile.getName()));
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
