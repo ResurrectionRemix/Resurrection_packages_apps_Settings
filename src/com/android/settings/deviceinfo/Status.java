@@ -307,6 +307,11 @@ public class Status extends PreferenceActivity {
                 removePreferenceFromScreen(key);
             }
         } else {
+            if (SubscriptionManager.getActiveSubInfoCount() == 0) {
+                for (String key : PHONE_RELATED_ENTRIES) {
+                    removePreferenceFromScreen(key);
+                }
+            }
             // NOTE "imei" is the "Device ID" since it represents
             //  the IMEI in GSM and the MEID in CDMA
             if (mPhone.getPhoneName().equals("CDMA")) {
