@@ -38,7 +38,16 @@
                 android:fragment="com.android.settings.rr.LockSettings"
                 android:icon="@drawable/ic_rrlocked_tint"
 
-                />                 
+                />
+                
+        <!-- Notification drawer -->
+        <PreferenceScreen
+                android:id="@+id/notification_drawer_settings"
+                android:title="@string/notification_drawer_title"
+                android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
+                android:icon="@drawable/ic_rrmagic_tint"
+                />
+                                 
         <PreferenceScreen
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
