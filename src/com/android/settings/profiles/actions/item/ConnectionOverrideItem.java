@@ -28,6 +28,13 @@ public class ConnectionOverrideItem implements Item {
     int mConnectionId;
     ConnectionSettings mConnectionSettings;
 
+    public static final int CM_MODE_2G = 0;
+    public static final int CM_MODE_3G = 1;
+    public static final int CM_MODE_4G = 2;
+    public static final int CM_MODE_2G3G = 3;
+    public static final int CM_MODE_ALL = 4;
+    public static final int CM_MODE_UNCHANGED = 5;
+
     public ConnectionOverrideItem(int connectionId, ConnectionSettings settings) {
         mConnectionId = connectionId;
         if (settings == null) {
@@ -71,8 +78,8 @@ public class ConnectionOverrideItem implements Item {
                 return R.string.toggleBluetooth;
             case ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA:
                 return R.string.toggleData;
-            case ConnectionSettings.PROFILE_CONNECTION_2G3G:
-                return R.string.toggle2g3g;
+            case ConnectionSettings.PROFILE_CONNECTION_2G3G4G:
+                return R.string.toggle2g3g4g;
             case ConnectionSettings.PROFILE_CONNECTION_GPS:
                 return R.string.toggleGPS;
             case ConnectionSettings.PROFILE_CONNECTION_NFC:
@@ -89,11 +96,33 @@ public class ConnectionOverrideItem implements Item {
     }
 
     public int getSummary() {
-        if (mConnectionSettings != null && mConnectionSettings.isOverride()) {
-            if (mConnectionSettings.getValue() == 1) {
-                return R.string.profile_action_enable;
+        if (mConnectionSettings != null) {
+            if (mConnectionId == ConnectionSettings.PROFILE_CONNECTION_2G3G4G) { // different options
+                if (mConnectionSettings.isOverride()) {
+                    switch (mConnectionSettings.getValue()) {
+                        case CM_MODE_2G:
+                            return R.string.profile_networkmode_2g;
+                        case CM_MODE_3G:
+                            return R.string.profile_networkmode_3g;
+                        case CM_MODE_4G:
+                            return R.string.profile_networkmode_4g;
+                        case CM_MODE_2G3G:
+                            return R.string.profile_networkmode_2g3g;
+                        default:
+                        case CM_MODE_ALL:
+                            return R.string.profile_networkmode_2g3g4g;
+                    }
+                } else {
+                    return R.string.profile_action_none;
+                }
+            } else if (mConnectionSettings.isOverride()) { // enabled, disabled, or none
+                if (mConnectionSettings.getValue() == 1) {
+                    return R.string.profile_action_enable;
+                } else {
+                    return R.string.profile_action_disabled;
+                }
             } else {
-                return R.string.profile_action_disabled;
+                return R.string.profile_action_none;
             }
         } else {
             return R.string.profile_action_none;
