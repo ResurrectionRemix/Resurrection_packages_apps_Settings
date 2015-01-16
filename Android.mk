@@ -2,7 +2,11 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common
-LOCAL_STATIC_JAVA_LIBRARIES := android-support-v4 android-support-v13 jsr305
+LOCAL_STATIC_JAVA_LIBRARIES := \
+	android-support-v4 \
+	android-support-v7-cardview \
+	android-support-v13 \
+	jsr305
 
 LOCAL_MODULE_TAGS := optional
 
@@ -10,7 +14,8 @@ LOCAL_SRC_FILES := \
         $(call all-java-files-under, src) \
         src/com/android/settings/EventLogTags.logtags
 
-LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
+    frameworks/support/v7/cardview/res
 
 LOCAL_SRC_FILES += \
         src/com/android/location/XT/IXTSrv.aidl \
@@ -24,6 +29,10 @@ LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
+LOCAL_AAPT_FLAGS := \
+    --auto-add-overlay \
+    --extra-packages android.support.v7.cardview
 
 LOCAL_AAPT_INCLUDE_ALL_RESOURCES := true
 

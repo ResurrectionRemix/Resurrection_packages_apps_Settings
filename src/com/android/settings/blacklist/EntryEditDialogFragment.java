@@ -199,6 +199,7 @@ public class EntryEditDialogFragment extends DialogFragment
     private void updateBlacklistEntry() {
         String number = mEditText.getText().toString();
         int flags = 0;
+        int valid = BlacklistUtils.BLOCK_CALLS | BlacklistUtils.BLOCK_MESSAGES;
         if (mBlockCalls.isChecked()) {
             flags = flags | BlacklistUtils.BLOCK_CALLS;
         }
@@ -207,7 +208,7 @@ public class EntryEditDialogFragment extends DialogFragment
         }
         // Since BlacklistProvider enforces validity for a number to be added
         // we should alert the user if and when it gets rejected
-        if (!BlacklistUtils.addOrUpdate(getActivity(), number, flags, flags)) {
+        if (!BlacklistUtils.addOrUpdate(getActivity(), number, flags, valid)) {
             Toast.makeText(getActivity(), getString(R.string.blacklist_bad_number_add),
                     Toast.LENGTH_LONG).show();
         }

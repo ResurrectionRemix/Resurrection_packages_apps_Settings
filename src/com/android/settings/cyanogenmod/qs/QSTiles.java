@@ -18,41 +18,43 @@ package com.android.settings.cyanogenmod.qs;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class QSTiles extends Fragment {
+public class QSTiles extends Fragment implements
+        DraggableGridView.OnRearrangeListener, AdapterView.OnItemClickListener {
 
     private static final String[] AVAILABLE_TILES = {
-        "wifi" ,"bt", "cell", "airplane", "rotation", "flashlight", "location", "cast",
-            "inversion", "hotspot"
+        "wifi" ,"bt", "cell", "airplane", "rotation", "flashlight",
+        "location", "cast", "inversion", "hotspot"
     };
 
     private static final String QS_DEFAULT_ORDER =
-            "wifi,bt,inversion,cell,airplane,rotation,flashlight,location,cast,hotspot";
+            "wifi,bt,cell,airplane,rotation,flashlight,location,cast";
 
-    DraggableGridView draggableGridView;
-
-    private static final String TILES_SETTING = "sysui_qs_tiles";
+    private DraggableGridView mDraggableGridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.settings_qs_tiles, container, false);
-        draggableGridView = (DraggableGridView) v.findViewById(R.id.qs_gridview);
+        mDraggableGridView = (DraggableGridView) v.findViewById(R.id.qs_gridview);
         return v;
     }
 
@@ -61,48 +63,42 @@ public class QSTiles extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         ContentResolver resolver = getActivity().getContentResolver();
-        String order = Settings.Secure.getStringForUser(resolver, TILES_SETTING,
-                UserHandle.myUserId());
+        String order = Settings.System.getString(resolver, Settings.System.QS_TILES);
         if (TextUtils.isEmpty(order)) {
             order = QS_DEFAULT_ORDER;
-            Settings.Secure.putStringForUser(resolver, TILES_SETTING, order, UserHandle.myUserId());
+            Settings.System.putString(resolver, Settings.System.QS_TILES, order);
         }
 
-        String[] tiles = order.split(",");
-        for (String tileType: tiles) {
-            draggableGridView.addView(QSUtils.parseQSTile(getActivity(), tileType));
+        for (String tileType: order.split(",")) {
+            mDraggableGridView.addView(buildQSTile(tileType));
         }
-        // Add a false tile for the "Add / Delete" tile
-        draggableGridView.addView(QSUtils.parseQSTile(getActivity(), ""));
+        // Add a dummy tile for the "Add / Delete" tile
+        mDraggableGridView.addView(buildQSTile(""));
 
-        draggableGridView.setOnRearrangeListener(new DraggableGridView.OnRearrangeListener() {
-
-            @Override
-            public void onChange() {
-                updateSettings();
-            }
-        });
-
-        draggableGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // Add / delete button clicked
-                if (i == draggableGridView.getChildCount()-1) {
-                    addTile();
-                }
-            }
-        });
-
-        draggableGridView.toggleAddDelete(false);
+        mDraggableGridView.setOnRearrangeListener(this);
+        mDraggableGridView.setOnItemClickListener(this);
+        mDraggableGridView.setMaxItemCount(AVAILABLE_TILES.length);
     }
 
-    public void addTile() {
+    @Override
+    public void onChange() {
+        updateSettings();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Add / delete button clicked
+        if (position == mDraggableGridView.getChildCount() - 1) {
+            addTile();
+        }
+    }
+
+    private void addTile() {
         ContentResolver resolver = getActivity().getContentResolver();
 
         // We load the added tiles and compare it to the list of available tiles.
         // We only show the tiles that aren't already on the grid.
-        String order = Settings.Secure.getStringForUser(resolver, TILES_SETTING,
-                UserHandle.myUserId());
+        String order = Settings.System.getString(resolver, Settings.System.QS_TILES);
 
         List<String> savedTiles = Arrays.asList(order.split(","));
 
@@ -110,39 +106,38 @@ public class QSTiles extends Fragment {
         for (String tile : AVAILABLE_TILES) {
             // Don't count the already added tiles
             if (savedTiles.contains(tile)) continue;
-            // Don't count the false tile
+            // Don't count the dummy tile
             if (tile.equals("")) continue;
-            tilesList.add(QSUtils.getAdapterItem(getActivity(), tile));
+            tilesList.add(QSTileHolder.from(getActivity(), tile));
         }
 
-        if (!tilesList.isEmpty()) {
-            ListView listView = new ListView(getActivity());
-            listView.setAdapter(new QSListAdapter(getActivity(), -1, tilesList));
-
-            final AlertDialog addTileDialog = new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.add_qs)
-                    .setView(listView)
-                    .setNegativeButton(R.string.cancel, null)
-                    .show();
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    // Close dialog and add the new tile to the last available position
-                    // before "Add / Delete" tile
-                    int newPosition = draggableGridView.getChildCount()-1;
-                    if (newPosition < 0) newPosition = 0;
-                    addTileDialog.dismiss();
-                    draggableGridView.addView(QSUtils.parseQSTile(getActivity(),
-                            ((QSTileHolder) adapterView.getItemAtPosition(i)).getValue()),
-                            newPosition);
-                }
-            });
-        } else {
-            // If there aren't any tiles to add, just show an error toast
-            Toast.makeText(getActivity(), getString(R.string.qs_already_added_all),
-                    Toast.LENGTH_SHORT).show();
+        if (tilesList.isEmpty()) {
+            return;
         }
+
+        ListView listView = new ListView(getActivity());
+        listView.setAdapter(new QSListAdapter(getActivity(), tilesList));
+
+        final AlertDialog addTileDialog = new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.add_qs)
+                .setView(listView)
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Close dialog and add the new tile to the last available position
+                // before "Add / Delete" tile
+                int newPosition = mDraggableGridView.getChildCount() - 1;
+                if (newPosition < 0) newPosition = 0;
+                addTileDialog.dismiss();
+
+                QSTileHolder holder = (QSTileHolder) parent.getItemAtPosition(position);
+                mDraggableGridView.addView(buildQSTile(holder.value), newPosition);
+                mDraggableGridView.updateAddDeleteState();
+            }
+        });
     }
 
     public void updateSettings() {
@@ -150,13 +145,37 @@ public class QSTiles extends Fragment {
         String order = "";
 
         // Add every tile except the last one (Add / Delete) to the list
-        for (int i = 0; i < draggableGridView.getChildCount()-1; i++) {
+        for (int i = 0; i < mDraggableGridView.getChildCount()-1; i++) {
             if (i > 0) {
                 order += ",";
             }
-            order += draggableGridView.getChildAt(i).getTag();
+            order += mDraggableGridView.getChildAt(i).getTag();
         }
 
-        Settings.Secure.putStringForUser(resolver, TILES_SETTING, order, UserHandle.myUserId());
+        Settings.System.putString(resolver, Settings.System.QS_TILES, order);
+    }
+
+    private View buildQSTile(String tileType) {
+        QSTileHolder item = QSTileHolder.from(getActivity(), tileType);
+        View qsTile = getLayoutInflater(null).inflate(R.layout.qs_item, null);
+
+        if (item.name != null) {
+            ImageView icon = (ImageView) qsTile.findViewById(android.R.id.icon);
+            icon.setImageResource(item.drawableId);
+            TextView title = (TextView) qsTile.findViewById(android.R.id.title);
+            title.setText(item.name);
+        }
+        qsTile.setTag(tileType);
+
+        return qsTile;
+    }
+
+    public static int determineTileCount(Context context) {
+        String order = Settings.System.getString(context.getContentResolver(),
+                Settings.System.QS_TILES);
+        if (TextUtils.isEmpty(order)) {
+            order = QS_DEFAULT_ORDER;
+        }
+        return order.split(",").length;
     }
 }
