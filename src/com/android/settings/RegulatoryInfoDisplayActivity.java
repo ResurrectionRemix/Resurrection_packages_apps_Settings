@@ -28,6 +28,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.android.settings.deviceinfo.Status;
 
 /**
  * {@link Activity} that displays regulatory information for the "Regulatory information"
@@ -56,7 +57,7 @@ public class RegulatoryInfoDisplayActivity extends Activity implements
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle(R.string.regulatory_information)
+                .setTitle(R.string.regulatory_information_dialog_title)
                 .setOnDismissListener(this);
 
         boolean regulatoryInfoDrawableExists = false;
@@ -73,20 +74,20 @@ public class RegulatoryInfoDisplayActivity extends Activity implements
             }
         }
 
-        CharSequence regulatoryText = resources.getText(R.string.regulatory_info_text);
+        String regulatoryText = Status.getSarValues(getResources());
 
-        if (regulatoryInfoDrawableExists) {
-            View view = getLayoutInflater().inflate(R.layout.regulatory_info, null);
-            ImageView image = (ImageView) view.findViewById(R.id.regulatoryInfo);
-            image.setImageResource(resId);
-            builder.setView(view);
-            builder.show();
-        } else if (regulatoryText.length() > 0) {
+        if (regulatoryText.length() > 0) {
             builder.setMessage(regulatoryText);
             AlertDialog dialog = builder.show();
             // we have to show the dialog first, or the setGravity() call will throw a NPE
             TextView messageText = (TextView) dialog.findViewById(android.R.id.message);
             messageText.setGravity(Gravity.CENTER);
+        } else if (regulatoryInfoDrawableExists) {
+            View view = getLayoutInflater().inflate(R.layout.regulatory_info, null);
+            ImageView image = (ImageView) view.findViewById(R.id.regulatoryInfo);
+            image.setImageResource(resId);
+            builder.setView(view);
+            builder.show();
         } else {
             // neither drawable nor text resource exists, finish activity
             finish();
