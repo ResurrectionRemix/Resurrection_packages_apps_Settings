@@ -82,15 +82,27 @@
                 android:fragment="com.android.settings.rr.MainSettings"
                 android:icon="@drawable/ic_rr_tools_tint"
                 />        
+                 
+        <!-- Themes -->
+        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+        <dashboard-tile
+            android:id="@+id/theme_settings"
+            android:title="@string/themes_settings_title"
+            android:icon="@drawable/ic_settings_themes">
+            <intent
+                android:action="android.intent.action.MAIN" >
+                <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
+            </intent>
+        </dashboard-tile>
         <!-- Performance -->
         <dashboard-tile
                 android:id="@+id/performance_settings"
                 android:title="@string/rr_performance_settings_title"
                 android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
                 android:icon="@drawable/ic_performance_icon_tint"
-                />                
+                /> 
+                                      
     </dashboard-category>
-
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"

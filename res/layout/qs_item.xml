@@ -14,26 +14,34 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.android.settings.cyanogenmod.qs.ColoringCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:background="@drawable/card_back"
-    android:gravity="center"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@android:id/icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"/>
-
-    <TextView
-        android:id="@android:id/title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="11sp"
-        android:textColor="#F5F5F5"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="4dp">
 
-</LinearLayout>
+        <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="#24a599"
+            android:textStyle="normal|bold"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+</com.android.settings.cyanogenmod.qs.ColoringCardView>

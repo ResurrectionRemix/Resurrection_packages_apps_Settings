@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2015 The CyanogenMod Project
+<!-- Copyright (C) 2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,22 +13,22 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#263238"/>
-            <corners android:radius="2dp" />
-        </shape>
-    </item>
 
-    <item
-        android:left="0dp"
-        android:right="0dp"
-        android:top="0dp"
-        android:bottom="2dp">
-        <shape android:shape="rectangle">
-            <solid android:color="#263238"/>
-            <corners android:radius="2dp" />
-        </shape>
-    </item>
-</layer-list>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/prefs_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/disabled_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/heads_up_disabled_notice" />
+
+</FrameLayout>

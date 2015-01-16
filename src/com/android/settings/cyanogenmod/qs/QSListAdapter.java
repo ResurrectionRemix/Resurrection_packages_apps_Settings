@@ -16,27 +16,29 @@
 package com.android.settings.cyanogenmod.qs;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.settings.R;
 
 import java.util.List;
 
 public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
-
-    public QSListAdapter(Context context, int textViewResourceId, List<QSTileHolder> objects) {
-        super(context, textViewResourceId, objects);
+    private LayoutInflater mInflater;
+    public QSListAdapter(Context context, List<QSTileHolder> objects) {
+        super(context, 0, objects);
+        mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Holder holder = null;
+        final Holder holder;
         if (convertView == null) {
-            convertView = View.inflate(getContext(), R.layout.add_qs_list_item, null);
+            convertView = mInflater.inflate(R.layout.add_qs_list_item, parent, false);
             holder = new Holder();
             holder.entry = (TextView) convertView.findViewById(android.R.id.text1);
             holder.icon = (ImageView) convertView.findViewById(android.R.id.icon);
@@ -45,12 +47,15 @@ public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
             holder = (Holder) convertView.getTag();
         }
 
-        holder.entry.setText(getItem(position).getName());
-        Drawable icon = null;
-        if (getItem(position).getDrawableId() != -1) {
-            icon = getContext().getResources().getDrawable(getItem(position).getDrawableId());
+        QSTileHolder item = getItem(position);
+
+        holder.entry.setText(item.name);
+        if (item.drawableId != -1) {
+            holder.icon.setImageResource(item.drawableId);
+            holder.icon.setVisibility(View.VISIBLE);
+        } else {
+            holder.icon.setVisibility(View.GONE);
         }
-        holder.icon.setImageDrawable(icon);
 
         return convertView;
     }
