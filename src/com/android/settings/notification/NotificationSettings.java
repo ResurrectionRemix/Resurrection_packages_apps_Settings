@@ -63,6 +63,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_ALARM_VOLUME = "alarm_volume";
     private static final String KEY_RING_VOLUME = "ring_volume";
     private static final String KEY_NOTIFICATION_VOLUME = "notification_volume";
+    private static final String KEY_VOLUME_LINK_NOTIFICATION = "volume_link_notification";
     private static final String KEY_PHONE_RINGTONE = "ringtone";
     private static final String KEY_NOTIFICATION_RINGTONE = "notification_ringtone";
     private static final String KEY_VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
@@ -131,6 +132,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                     initVolumePreference(KEY_RING_VOLUME, AudioManager.STREAM_RING);
         } else {
             sound.removePreference(sound.findPreference(KEY_RING_VOLUME));
+            sound.removePreference(sound.findPreference(KEY_VOLUME_LINK_NOTIFICATION));
         }
 
         initRingtones(sound);
@@ -428,12 +430,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mNotificationPreference = initVolumePreference(KEY_NOTIFICATION_VOLUME,
                 AudioManager.STREAM_NOTIFICATION);
 
-        final boolean enabled = Settings.System.getInt(getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        if (mVoiceCapable) {
+            final boolean enabled = Settings.System.getInt(getContentResolver(),
+                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
 
-        if (mNotificationPreference != null) {
-            boolean show = !enabled && mVoiceCapable;
-            mNotificationPreference.setEnabled(show);
+            if (mNotificationPreference != null) {
+                boolean show = !enabled;
+                mNotificationPreference.setEnabled(show);
+            }
         }
     }
 
