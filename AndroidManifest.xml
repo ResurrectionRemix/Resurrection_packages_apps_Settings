@@ -71,9 +71,6 @@
     <uses-permission android:name="android.permission.OEM_UNLOCK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- Heads up -->
-    <uses-permission android:name="android.permission.CHANGE_HEADS_UP_STATE" />
-
     <permission
         android:name="cyanogenmod.permission.PROTECTED_APP"
         android:protectionLevel="signatureOrSystem" />
@@ -1752,6 +1749,8 @@
                 android:resource="@id/voice_wakeup_settings" />
         </activity>
 
+        <activity android:name=".headsup.HeadsUpSettings" />
+        
         <activity android:name=".profiles.ProfilesSettings" />
         <activity android:name="Settings$ProfilesSettingsActivity"
                 android:label="@string/profile_settings"

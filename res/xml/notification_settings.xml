@@ -27,19 +27,19 @@
         <!-- Media volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="media_volume"
-                android:icon="@drawable/ic_audio_vol_24dp"
+                android:icon="@drawable/ic_audio_ring_24dp_tint"
                 android:title="@string/media_volume_option_title" />
 
         <!-- Alarm volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="alarm_volume"
-                android:icon="@drawable/ic_audio_alarm_24dp"
+                android:icon="@drawable/ic_audio_ring_24dp_tint"
                 android:title="@string/alarm_volume_option_title" />
 
         <!-- Ring volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="ring_volume"
-                android:icon="@drawable/ic_audio_ring_24dp"
+                android:icon="@drawable/ic_audio_ring_24dp_tint"
                 android:title="@string/ring_volume_option_title" />
                 
         <PreferenceScreen
@@ -129,6 +129,12 @@
                 android:title="@string/lock_screen_notifications_title"
                 android:persistent="false" />
 
+        <!-- Heads up notifications -->
+        <Preference
+                android:key="heads_up_enabled"
+                android:fragment="com.android.settings.headsup.HeadsUpSettings"
+                android:title="@string/category_heads_up" />
+
         <!-- App notifications -->
         <PreferenceScreen
                 android:key="app_notifications"
@@ -141,26 +147,6 @@
                 android:title="@string/manage_notification_access_title"
                 android:persistent="false"
                 android:fragment="com.android.settings.notification.NotificationAccessSettings" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="heads_up_notification"
-        android:title="@string/heads_up_title" >
-
-        <ListPreference
-                android:key="heads_up_snooze_time"
-                android:title="@string/heads_up_snooze_title"
-                android:entries="@array/heads_up_snooze_entries"
-                android:entryValues="@array/heads_up_snooze_values"
-                android:persistent="false" />
-
-        <ListPreference
-                android:key="heads_up_time_out"
-                android:title="@string/heads_up_time_out_title"
-                android:entries="@array/heads_up_time_out_entries"
-                android:entryValues="@array/heads_up_time_out_values"
-                android:persistent="false" />
 
     </PreferenceCategory>
 
