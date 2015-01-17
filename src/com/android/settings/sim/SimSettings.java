@@ -484,7 +484,14 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             TextView carrierView = (TextView)dialogLayout.findViewById(R.id.carrier);
             TelephonyManager tm = (TelephonyManager)
                     getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-            carrierView.setText(tm.getNetworkOperatorName());
+            String spn = tm.getSimOperatorName(mSubInfoRecord.subId);
+            if (TextUtils.isEmpty(spn) && !tm.isNetworkRoaming(mSubInfoRecord.subId)) {
+                // Operator did not write the SPN inside the SIM, so set
+                // the current network operator as the SIM name, but only if
+                // we're not roaming.
+                spn = tm.getNetworkOperatorName(mSubInfoRecord.subId);
+            }
+            carrierView.setText(spn);
 
             builder.setTitle(R.string.sim_editor_title);
 
