@@ -725,7 +725,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 .getStringArray(R.array.root_access_entries)[Integer.valueOf(value)]);
     }
 
-    /* package */ static boolean isRootForAppsEnabled() {
+    public static boolean isRootForAppsEnabled() {
         int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 0);
         boolean daemonState =
                 SystemProperties.get("init.svc.su_daemon", "absent").equals("running");
