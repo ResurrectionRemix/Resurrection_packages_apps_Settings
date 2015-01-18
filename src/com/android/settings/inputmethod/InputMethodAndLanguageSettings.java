@@ -175,11 +175,18 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                         findPreference(KEY_POINTER_SETTINGS_CATEGORY);
 
         mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
-        if (!isHighTouchSensitivitySupported()) {
-            pointerSettingsCategory.removePreference(mHighTouchSensitivity);
-            mHighTouchSensitivity = null;
-        } else {
-            mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+
+        if (pointerSettingsCategory != null) {
+            if (!isHighTouchSensitivitySupported()) {
+                pointerSettingsCategory.removePreference(mHighTouchSensitivity);
+                mHighTouchSensitivity = null;
+            } else {
+                mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+            }
+
+            if (pointerSettingsCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(pointerSettingsCategory);
+            }
         }
 
         // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
