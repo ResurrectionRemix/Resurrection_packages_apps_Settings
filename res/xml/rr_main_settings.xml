@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The LiquidSmooth Project
+<!-- Copyright (C) 2014 Resurrection Remix
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -10,7 +10,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
@@ -23,20 +22,20 @@
                 android:id="@+id/rr_interface_settings"
                 android:title="@string/interface_settings_title"
                 android:fragment="com.android.settings.rr.InterfaceSettings"
-                android:icon="@drawable/ic_rrequalizer_tint"
+                android:icon="@drawable/ic_rrequalizer"
                 />   
          <PreferenceScreen
                 android:id="@+id/rr_misc_settings"
                 android:title="@string/misc_settings_title"
                 android:fragment="com.android.settings.rr.MiscSettings"
-                android:icon="@drawable/ic_rrutilities_tint"
+                android:icon="@drawable/ic_rrutilities"
                 />
                 
         <PreferenceScreen
                 android:id="@+id/lock_settings"
                 android:title="@string/rr_lockscreen_title"
                 android:fragment="com.android.settings.rr.LockSettings"
-                android:icon="@drawable/ic_rrlocked_tint"
+                android:icon="@drawable/ic_rrlocked"
 
                 />
         <!-- Notification drawer -->
@@ -44,18 +43,18 @@
                 android:id="@+id/notification_drawer_settings"
                 android:title="@string/notification_drawer_title"
                 android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
-                android:icon="@drawable/ic_rrmagic_tint"
+                android:icon="@drawable/ic_rrmagic"
                 />        
         <PreferenceScreen
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
                 android:fragment="com.android.settings.ButtonSettings"
-                android:icon="@drawable/ic_buttons_tint"
+                android:icon="@drawable/ic_rrtasks"
                 />
         <!-- Change Log -->
     <PreferenceScreen android:key="changelog"
         android:title="@string/changelog_title"
-        android:icon="@drawable/ic_changelog_tint"
+        android:icon="@drawable/ic_rrdocument"
         android:fragment="com.android.settings.rr.ChangeLog" />
                
 </PreferenceCategory>
