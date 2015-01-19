@@ -77,6 +77,8 @@ public class ShortcutPickHelper {
                 processShortcut(data, REQUEST_PICK_APPLICATION, REQUEST_CREATE_SHORTCUT);
                 break;
             }
+        } else {
+            mListener.shortcutPicked(null, null, false);
         }
     }
 
@@ -253,10 +255,10 @@ public class ShortcutPickHelper {
                 ViewGroup parent) {
             if (convertView == null) {
                 convertView = View.inflate(mParent, android.R.layout.simple_list_item_1, null);
-                convertView.setPadding(70, 0, 0, 0);
+                convertView.setPadding(groupPadding, 0, 0, 0);
             }
             TextView textView = (TextView)convertView.findViewById(android.R.id.text1);
-            textView.setText(getGroup(groupPosition).label.toString());
+            textView.setText(getGroup(groupPosition).label);
             return convertView;
         }
 
