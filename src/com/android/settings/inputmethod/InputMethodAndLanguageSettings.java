@@ -175,19 +175,28 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                         findPreference(KEY_POINTER_SETTINGS_CATEGORY);
 
         mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
-        if (!isHighTouchSensitivitySupported()) {
-            pointerSettingsCategory.removePreference(mHighTouchSensitivity);
-            mHighTouchSensitivity = null;
-        } else {
-            mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+
+        if (pointerSettingsCategory != null) {
+            if (!isHighTouchSensitivitySupported()) {
+                pointerSettingsCategory.removePreference(mHighTouchSensitivity);
+                mHighTouchSensitivity = null;
+            } else {
+                mHighTouchSensitivity.setChecked(HighTouchSensitivity.isEnabled());
+            }
+
+            if (pointerSettingsCategory.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(pointerSettingsCategory);
+            }
         }
 
         // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
         boolean showCmImeSwitcher = getResources().getBoolean(
                 com.android.internal.R.bool.config_show_cmIMESwitcher);
         if (!showCmImeSwitcher) {
-            getPreferenceScreen().removePreference(
-                    findPreference(Settings.System.STATUS_BAR_IME_SWITCHER));
+            Preference pref = findPreference(Settings.System.STATUS_BAR_IME_SWITCHER);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
         }
         
         if (!Utils.isPhone(getActivity())) {
