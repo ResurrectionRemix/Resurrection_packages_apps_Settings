@@ -16,6 +16,10 @@
 package com.android.settings.cyanogenmod.qs;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,14 +28,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 
 import java.util.List;
 
 public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
+    private Resources mSystemUIResources;
     private LayoutInflater mInflater;
     public QSListAdapter(Context context, List<QSTileHolder> objects) {
         super(context, 0, objects);
         mInflater = LayoutInflater.from(context);
+        try {
+            Context sysUIContext = context.createPackageContext(Utils.SYSTEM_UI_PACKAGE_NAME, 0);
+            mSystemUIResources = sysUIContext.getResources();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -50,8 +62,11 @@ public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
         QSTileHolder item = getItem(position);
 
         holder.entry.setText(item.name);
-        if (item.drawableId != -1) {
-            holder.icon.setImageResource(item.drawableId);
+        if (item.resourceName != null) {
+            Drawable d = Utils.getNamedDrawableFromSystemUI(mSystemUIResources, item.resourceName);
+            d.setColorFilter(getContext().getResources().getColor(R.color.qs_tile_tint_color),
+                    PorterDuff.Mode.SRC_ATOP);
+            holder.icon.setImageDrawable(d);
             holder.icon.setVisibility(View.VISIBLE);
         } else {
             holder.icon.setVisibility(View.GONE);
