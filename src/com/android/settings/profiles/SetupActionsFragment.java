@@ -734,7 +734,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
             @Override
             public void afterTextChanged(Editable s) {
-                final boolean empty = TextUtils.isEmpty(s.toString());
+                final String str = s.toString();
+                final boolean empty = TextUtils.isEmpty(str)
+                        || TextUtils.getTrimmedLength(str) == 0;
                 alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(!empty);
             }
         });
