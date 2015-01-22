@@ -95,13 +95,14 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
         mSession.resume();
         mActivityFilter = new ActivityFilter(getActivity().getPackageManager());
 
-        WindowManagerPolicyControl.reloadFromSetting(getActivity(),
-                Settings.Global.POLICY_CONTROL);
+        mExpandedDesktopState = getExpandedDesktopState(getActivity().getContentResolver());
+        if (mExpandedDesktopState == STATE_USER_CONFIGURABLE) {
+            WindowManagerPolicyControl.reloadFromSetting(getActivity(),
+                    Settings.Global.POLICY_CONTROL);
+        }
         mAllPackagesAdapter = new AllPackagesAdapter(getActivity());
 
         mAllPackagesAdapter.notifyDataSetChanged();
-
-        mExpandedDesktopState = getExpandedDesktopState(getActivity().getContentResolver());
 
         setHasOptionsMenu(true);
     }
@@ -171,7 +172,6 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
     private void enableForAll() {
         mExpandedDesktopState = STATE_ENABLE_FOR_ALL;
         writeValue("immersive.full=*");
-        WindowManagerPolicyControl.reloadFromSetting(getActivity());
         mAllPackagesAdapter.notifyDataSetInvalidated();
         hideListView();
     }
