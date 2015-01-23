@@ -29,9 +29,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 
+import com.android.internal.util.cm.ScreenType;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class ProfilesList extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -53,7 +54,7 @@ public class ProfilesList extends SettingsPreferenceFragment implements
         refreshList();
 
         // On tablet devices remove the padding
-        if (Utils.isTablet(getActivity())) {
+        if (ScreenType.isTablet(getActivity())) {
             getListView().setPadding(0, 0, 0, 0);
         }
     }

@@ -37,10 +37,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.internal.util.cm.ScreenType;
+
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 import com.android.settings.cyanogenmod.ShortcutPickHelper;
 
@@ -136,7 +137,7 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
         }
 
         // If running on a phone, remove padding around tabs
-        if (!Utils.isTablet(getActivity())) {
+        if (!ScreenType.isTablet(getActivity())) {
             mContainer.setPadding(0, 0, 0, 0);
         }
     }

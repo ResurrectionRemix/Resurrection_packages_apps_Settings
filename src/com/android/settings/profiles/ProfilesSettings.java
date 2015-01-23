@@ -45,11 +45,12 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.android.internal.util.cm.ScreenType;
+
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.SubSettings;
-import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 
 public class ProfilesSettings extends SettingsPreferenceFragment
@@ -136,7 +137,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment
         updateProfilesEnabledState();
 
         // If running on a phone, remove padding around tabs
-        if (!Utils.isTablet(getActivity())) {
+        if (!ScreenType.isTablet(getActivity())) {
             mContainer.setPadding(0, 0, 0, 0);
         }
     }
