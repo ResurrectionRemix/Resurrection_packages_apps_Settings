@@ -922,13 +922,20 @@
     <string name="memory_music_usage" msgid="1363785144783011606">"音频（音乐、铃声、播客等）"</string>
     <string name="memory_media_misc_usage" msgid="235452944021647124">"其他"</string>
     <string name="memory_media_cache_usage" msgid="6704293333141177910">"缓存数据"</string>
-    <string name="sd_eject" msgid="6915293408836853020">"卸载SD卡"</string>
-    <string name="sd_eject_summary" msgid="3300599435073550246">"需要先卸载SD卡，然后才能将其安全移除"</string>
-    <string name="sd_insert_summary" msgid="2048640010381803841">"插入SD卡进行安装"</string>
-    <string name="sd_mount" msgid="5940523765187704135">"安装SD卡"</string>
-    <string name="sd_mount_summary" msgid="4673411327373419641"></string>
-    <string name="sd_format" msgid="2576054280507119870">"格式化SD卡"</string>
-    <string name="sd_format_summary" msgid="212703692181793109">"清除SD卡中的全部数据，例如音乐和照片"</string>
+    <string name="sd_eject" product="nosdcard" msgid="4988563376492400073">"卸载共享存储设备"</string>
+    <string name="sd_eject" product="default" msgid="6915293408836853020">"卸载SD卡"</string>
+    <string name="sd_eject_summary" product="nosdcard" msgid="5009296896648072891">"卸载内部USB存储设备"</string>
+    <string name="sd_eject_summary" product="default" msgid="3300599435073550246">"需要先卸载SD卡，然后才能将其安全移除"</string>
+    <string name="sd_insert_summary" product="nosdcard" msgid="5264016886409577313">"插入要装载的USB存储设备"</string>
+    <string name="sd_insert_summary" product="default" msgid="2048640010381803841">"插入SD卡进行安装"</string>
+    <string name="sd_mount" product="nosdcard" msgid="8966695015677343116">"装载USB存储设备"</string>
+    <string name="sd_mount" product="default" msgid="5940523765187704135">"安装SD卡"</string>
+    <string name="sd_mount_summary" product="nosdcard" msgid="4673411327373419641"></string>
+    <string name="sd_mount_summary" product="default" msgid="4673411327373419641"></string>
+    <string name="sd_format" product="nosdcard" msgid="2148179271623099054">"格式化USB存储设备"</string>
+    <string name="sd_format" product="default" msgid="2576054280507119870">"格式化SD卡"</string>
+    <string name="sd_format_summary" product="nosdcard" msgid="6331905044907914603">"清除内部USB存储设备中的全部数据，例如音乐和照片"</string>
+    <string name="sd_format_summary" product="default" msgid="212703692181793109">"清除SD卡中的全部数据，例如音乐和照片"</string>
     <string name="memory_clear_cache_title" msgid="5423840272171286191">"是否清除缓存数据？"</string>
     <string name="memory_clear_cache_message" msgid="4550262490807415948">"此操作会清除所有应用的缓存数据。"</string>
     <string name="mtp_ptp_mode_summary" msgid="3710436114807789270">"已开启MTP或PTP功能"</string>
@@ -1095,7 +1102,6 @@
     <string name="location_mode_battery_saving_description" msgid="7581657383062066461">"使用WLAN和移动网络确定位置"</string>
     <string name="location_mode_sensors_only_description" msgid="7178415350457794366">"使用GPS确定位置"</string>
     <string name="location_network_based" msgid="6010456018401296590">"WLAN和移动网络位置信息"</string>
-    <string name="location_category_enhanced_location">增强定位</string>
     <string name="location_neighborhood_level" msgid="5626515380188353712">"允许应用使用Google位置信息服务更快地大致了解您所在的位置。系统将收集匿名位置数据并将其发送给Google。"</string>
     <string name="location_neighborhood_level_wifi" msgid="4234820941954812210">"通过WLAN确定位置"</string>
     <string name="location_gps" msgid="8392461023569708478">"GPS卫星定位"</string>
@@ -1286,7 +1292,6 @@
     <string name="app_disable_notifications_dlg_title" msgid="7669264654851761857">"要关闭通知吗？"</string>
     <string name="app_disable_notifications_dlg_text" msgid="5088484670924769845">"如果关闭此应用的通知，您可能会错过重要提醒和最新动态信息。"</string>
     <string name="app_ops_settings" msgid="5108481883575527511">"应用操作"</string>
-    <string name="app_ops_settings_summary">"查看或更改应用权限"</string>
     <string name="app_ops_running" msgid="7706949900637284122">"正在运行"</string>
     <string name="app_ops_never_used" msgid="9114608022906887802">"（从未使用）"</string>
     <string name="storageuse_settings_title" msgid="5657014373502630403">"存储空间使用情况"</string>
@@ -1422,7 +1427,6 @@
     <string name="apn_settings_not_available" msgid="7873729032165324000">"此用户无权修改接入点名称设置"</string>
     <string name="enable_adb" msgid="7982306934419797485">"USB调试"</string>
     <string name="enable_adb_summary" msgid="4881186971746056635">"连接USB后启用调试模式"</string>
-    <string name="enable_adb_summary_charging">"设备处于充电模式，USB调试已被禁用"</string>
     <string name="clear_adb_keys" msgid="4038889221503122743">"撤消USB调试授权"</string>
     <string name="bugreport_in_power" msgid="7923901846375587241">"错误报告快捷方式"</string>
     <string name="bugreport_in_power_summary" msgid="1778455732762984579">"在电源菜单中显示用于提交错误报告的按钮"</string>
@@ -1450,8 +1454,6 @@
     <string name="adb_keys_warning_message" msgid="6932230298032192937">"是否针对您之前授权的所有计算机撤消USB调试的访问权限？"</string>
     <string name="dev_settings_warning_title" msgid="7244607768088540165">"允许开发设置？"</string>
     <string name="dev_settings_warning_message" msgid="2298337781139097964">"这些设置仅适用于开发工作。一旦启用，会导致您的设备以及设备上的应用崩溃或出现异常。"</string>
-    <string name="enable_quickboot_title">启用快速开关机模式</string>
-    <string name="enable_quickboot_summary">关机行为将采用快速开关机模式</string>
     <string name="verify_apps_over_usb_title" msgid="4177086489869041953">"通过USB验证应用"</string>
     <string name="verify_apps_over_usb_summary" msgid="9164096969924529200">"通过 ADB/ADT 检查安装的应用是否存在有害行为。"</string>
     <string name="enforce_read_external_title" product="nosdcard" msgid="7733257271454664956">"对USB存储设备进行读写保护"</string>
@@ -2480,49 +2482,4 @@
     <string name="encrypt_talkback_dialog_message_pin" msgid="1890374082842868489">"当您输入 PIN 码以启动此设备时，<xliff:g id="SERVICE">%1$s</xliff:g>等辅助功能服务还未开启。"</string>
     <string name="encrypt_talkback_dialog_message_pattern" msgid="4474332516537386384">"当您绘制解锁图案以启动此设备时，<xliff:g id="SERVICE">%1$s</xliff:g>等辅助功能服务还未开启。"</string>
     <string name="encrypt_talkback_dialog_message_password" msgid="8166099418487083927">"当您输入密码以启动此设备时，<xliff:g id="SERVICE">%1$s</xliff:g>等辅助功能服务还未开启。"</string>
-    <string name="primary_sub_select_title">默认4G/3G SIM卡</string>
-
-    <!-- string resources for USB OTG & UICC features -->
-    <string name="storage_usb">"USB 存储器"</string>
-    <string name="storage_uicc">"电话卡存储设备"</string>
-    <string name="usb_eject" product="default">"卸载 USB 存储设备"</string>
-    <string name="usb_eject_summary" product="default">"需要先卸载 USB 存储设备，然后才能将其安全移除"</string>
-    <string name="usb_format" product="default">"格式化 USB 存储设备"</string>
-    <string name="usb_format_summary" product="default">"清除 USB 存储设备中的全部数据，例如音乐和照片"</string>
-    <string name="usb_mount" product="default">"装载 USB 存储设备"</string>
-    <string name="usb_mount_summary" product="default"></string>
-    <string name="usb_insert_summary" product="default">"插入要装载的 USB 存储设备"</string>
-    <string name="uicc_eject" product="default">"卸载 UICC 存储设备"</string>
-    <string name="uicc_eject_summary" product="default">"需要先卸载 UICC 存储设备，然后才能将其安全移除"</string>
-    <string name="uicc_format" product="default">"格式化 UICC 存储设备"</string>
-    <string name="uicc_format_summary" product="default">"清除 UICC 存储设备中的全部数据，例如音乐和照片"</string>
-    <string name="uicc_mount" product="default">"装载 UICC 存储设备"</string>
-    <string name="uicc_mount_summary" product="default"></string>
-    <string name="uicc_insert_summary" product="default">"插入要装载的 UICC 存储设备"</string>
-
-    <string name="dlg_confirm_usb_unmount_title" product="default">"要卸载 USB 存储设备吗？"</string>
-    <string name="dlg_confirm_uicc_unmount_title" product="default">"要卸载 UICC 存储设备吗？"</string>
-    <string name="dlg_confirm_usb_unmount_text" product="default">"如果卸载该 USB 存储设备，您当前使用的某些应用会停止运行，并且在您重新装载该设备前可能都无法使用。"</string>
-    <string name="dlg_confirm_uicc_unmount_text" product="default">"如果卸载该 UICC 存储设备，您当前使用的某些应用会停止运行，并且在您重新装载该设备前可能都无法使用。"</string>
-    <string name="dlg_error_usb_unmount_text" product="default">"无法卸载 USB 存储设备，请稍后重试。"</string>
-    <string name="dlg_error_uicc_unmount_text" product="default">"无法卸载 UICC 存储设备，请稍后重试。"</string>
-    <string name="usb_unmount_inform_text" product="default">"系统将会卸载 USB 存储设备。"</string>
-    <string name="uicc_unmount_inform_text" product="default">"系统将会卸载 UICC 存储设备。"</string>
-
-    <string name="usb_media_format_title" product="default">"格式化 USB 存储设备"</string>
-    <string name="uicc_media_format_title" product="default">"格式化 UICC 存储设备"</string>
-    <string name="usb_media_format_summary" product="default">"清除 USB 存储设备中的全部数据"</string>
-    <string name="uicc_media_format_summary" product="default">"清除 UICC 存储设备中的全部数据"</string>
-    <string name="usb_media_format_desc" product="default">"要清空 USB 存储设备吗？如果这样做，您会丢失其中存储的"<b>"全部"</b>"数据！"</string>
-    <string name="uicc_media_format_desc" product="default">"要清空 UICC 存储设备吗？如果这样做，您会丢失其中存储的"<b>"全部"</b>"数据！"</string>
-    <string name="usb_media_format_button_text" product="default">"格式化 USB 存储设备"</string>
-    <string name="uicc_media_format_button_text" product="default">"格式化 UICC 存储设备"</string>
-    <string name="usb_media_format_final_desc" product="default">"要清空 USB 存储设备（此操作会删除其中存储的全部文件）吗？请注意，此操作无法撤消！"</string>
-    <string name="uicc_media_format_final_desc" product="default">"要清空 UICC 存储设备（此操作会删除其中存储的全部文件）吗？请注意，此操作无法撤消！"</string>
-    <string name="usb_media_format_gesture_explanation" product="default">"您需要绘制解锁图案以确认要格式化 USB 存储设备。"</string>
-    <string name="uicc_media_format_gesture_explanation" product="default">"您需要绘制解锁图案以确认要格式化 UICC 存储设备。"</string>
-    <string name="usb_sdcard_title">挂载SD 卡</string>
-    <string name="usb_sdcard_summary">"让您在电脑上传输SD 卡上的媒体文件"</string>
-    <string name="external_storage_turn_on">"外部存储器已打开"</string>
-    <string name="external_storage_turn_off">"外部存储器已关闭"</string>
 </resources>

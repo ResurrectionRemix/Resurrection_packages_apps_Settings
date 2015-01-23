@@ -97,15 +97,15 @@
             android:summary="@string/enable_adb_summary_cm"/>
 
         <SwitchPreference
-            android:key="adb_notify"
-            android:title="@string/adb_notify"
-            android:summary="@string/adb_notify_summary"
-            android:dependency="enable_adb"/>
-
-        <SwitchPreference
             android:key="adb_over_network"
             android:title="@string/adb_over_network"
             android:summary="@string/adb_over_network_summary"
+            android:dependency="enable_adb"/>
+
+        <SwitchPreference
+            android:key="adb_notify"
+            android:title="@string/adb_notify"
+            android:summary="@string/adb_notify_summary"
             android:dependency="enable_adb"/>
 
         <Preference android:key="clear_adb_keys"
