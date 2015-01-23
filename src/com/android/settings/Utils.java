@@ -98,8 +98,6 @@ import java.util.Locale;
 public final class Utils {
     private static final String TAG = "Settings";
 
-    public static final String SYSTEM_UI_PACKAGE_NAME = "com.android.systemui";
-
     /**
      * Set the preference's title to the matching activity's label.
      */
@@ -1092,16 +1090,21 @@ public final class Utils {
         return isPackageInstalled(context, pkg, true);
     }
 
-    public static Drawable getNamedDrawableFromSystemUI(Resources res, String name) {
-        if (res == null) {
-            return null;
-        }
-        int resId = res.getIdentifier(name, "drawable", SYSTEM_UI_PACKAGE_NAME);
-        if (resId > 0) {
-            Drawable d = res.getDrawable(resId);
-            return d;
+    public static Context createPackageContext(Context context, String packageName) {
+        try {
+            return context.createPackageContext(packageName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            // fall through
         }
         return null;
     }
 
+    public static Drawable getNamedDrawable(Context context, String name) {
+        if (context == null) {
+            return null;
+        }
+        final Resources res = context.getResources();
+        final int resId = res.getIdentifier(name, "drawable", context.getPackageName());
+        return resId > 0 ? res.getDrawable(resId) : null;
+    }
 }
