@@ -43,16 +43,18 @@ import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.logging.MetricsLogger;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
-import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 
-import cyanogenmod.providers.CMSettings;
+import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
+import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 import cyanogenmod.hardware.CMHardwareManager;
+import cyanogenmod.providers.CMSettings;
+
+import org.cyanogenmod.internal.util.ScreenType;
 
 import java.util.List;
 
@@ -391,7 +393,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar()
                     || forceNavbar;
 
-            if (!Utils.isPhone(getActivity())) {
+            if (!ScreenType.isPhone(getActivity())) {
                 mNavigationPreferencesCat.removePreference(mNavigationBarLeftPref);
             }
 
@@ -698,7 +700,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSwapVolumeButtons) {
             int value = mSwapVolumeButtons.isChecked()
-                    ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
+                    ? (ScreenType.isTablet(getActivity()) ? 2 : 1) : 0;
             CMSettings.System.putInt(getActivity().getContentResolver(),
                     CMSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
         } else if (preference == mVolumeControlRingStream) {
