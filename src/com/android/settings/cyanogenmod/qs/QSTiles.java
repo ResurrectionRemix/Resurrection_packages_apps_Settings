@@ -40,6 +40,8 @@ import com.android.settings.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class QSTiles extends Fragment implements
@@ -174,6 +176,13 @@ public class QSTiles extends Fragment implements
                 dialog.dismiss();
             }
         };
+
+        Collections.sort(tilesList, new Comparator<QSTileHolder>() {
+            @Override
+            public int compare(QSTileHolder lhs, QSTileHolder rhs) {
+                return lhs.name.compareTo(rhs.name);
+            }
+        });
 
         final QSListAdapter adapter = new QSListAdapter(getActivity(),
                 mSystemUiContext, tilesList);
