@@ -18,8 +18,6 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.graphics.Color;
-import android.database.ContentObserver;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -33,7 +31,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.slim.DeviceUtils;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.internal.widget.LockPatternUtils;
 import java.util.Locale;
 
@@ -42,20 +39,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 			
     private static final String PREF_QUICK_PULLDOWN = "quick_pulldown";
-    private static final String STATUS_BAR_CARRIER = "status_bar_carrier";
-    private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
-    
-    static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
-            
+        
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
-    
-    SwitchPreference mStatusBarCarrier;
-    ColorPickerPreference mCarrierColorPicker;
-    
+
     private static final String TAG = "StatusBar";
 
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
@@ -66,9 +56,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
-
-        int intColor;
-        String hexColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -94,20 +81,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setValue(String.valueOf(batteryShowPercent));
         mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
-        
-        //carrier Label
-        mStatusBarCarrier = (SwitchPreference) findPreference(STATUS_BAR_CARRIER);
-        mStatusBarCarrier.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_CARRIER, 0) == 1));
-
-        //carrier Label color
-        mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
-        mCarrierColorPicker.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mCarrierColorPicker.setSummary(hexColor);
-        mCarrierColorPicker.setNewPreviewColor(intColor);
                
         mQuickPulldown = (ListPreference) findPreference(PREF_QUICK_PULLDOWN);
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
@@ -147,16 +120,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
 
     }
-    
-     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-       if (preference == mStatusBarCarrier) {
-           Settings.System.putInt(getContentResolver(),
-                   Settings.System.STATUS_BAR_CARRIER, mStatusBarCarrier.isChecked() ? 1 : 0);
-           return true;
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -191,13 +154,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     Settings.System.QS_SMART_PULLDOWN,
                     smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
-            return true;
-        } else if (preference == mCarrierColorPicker) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
         } else if (preference == mBlockOnSecureKeyguard) {
             Settings.Secure.putInt(getContentResolver(),
