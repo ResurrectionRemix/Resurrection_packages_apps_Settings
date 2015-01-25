@@ -156,7 +156,7 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment
                 mDefaultActivityString
             };
             ShortcutIconResource[] icons = new ShortcutIconResource[] {
-                    ShortcutIconResource.fromContext(getActivity(), R.drawable.ic_voice_wakeup)
+                    ShortcutIconResource.fromContext(getActivity(), R.drawable.ic_settings_voice_wakeup)
             };
             mPicker.pickShortcut(names, icons, getId());
             return true;
