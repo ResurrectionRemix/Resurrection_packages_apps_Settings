@@ -29,6 +29,11 @@
         android:title="@string/power_menu_screenshot_title"
         android:defaultValue="false" />
 
+    <com.android.settings.widget.NumberPickerPreference
+        android:key="screenshot_delay"
+        android:title="@string/powermenu_screenshot_delay_title"
+        android:dependency="screenshot" />
+
     <CheckBoxPreference
         android:key="screenrecord"
         android:title="@string/power_menu_screenrecord_title"
