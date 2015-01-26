@@ -35,13 +35,7 @@
         android:key="show_su_icon"
         android:title="@string/su_indicator"
         android:summary="@string/su_indicator_summary"
-        android:defaultValue="true" /> 
-                         
-     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="status_bar_ticker_enabled"
-        android:title="@string/status_bar_ticker_title"
-        android:summary="@string/status_bar_ticker_summary"
-        android:defaultValue="false" />      
+        android:defaultValue="true" />    
     
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="status_bar_carrier"
@@ -53,7 +47,8 @@
         android:key="status_bar_carrier_color"
         android:title="@string/status_bar_carrier_color"
         android:defaultValue="0xffffffff"
-        android:dependency="status_bar_carrier" />	               
+        android:dependency="status_bar_carrier" />	                                
+
 
     <SwitchPreference
         android:key="block_on_secure_keyguard"
@@ -113,4 +108,3 @@
     </PreferenceCategory>
 
 </PreferenceScreen>
-

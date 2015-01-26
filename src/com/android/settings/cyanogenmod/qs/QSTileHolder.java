@@ -90,6 +90,30 @@ public class QSTileHolder {
                 resourceName = "ic_qs_hotspot_on";
                 stringId = R.string.hotspot;
                 break;
+            case QSConstants.TILE_ADB_NETWORK:
+                resourceName = "ic_qs_network_adb_on";
+                stringId = R.string.adb_over_network;
+                break;
+            case QSConstants.TILE_PROFILES:
+                resourceName = "ic_qs_system_profiles";
+                stringId = R.string.qs_title_profiles;
+                break;
+            case QSConstants.TILE_PERFORMANCE:
+                resourceName = "ic_qs_perf_profile_highperf_avd";
+                stringId = R.string.qs_title_performance;
+                break;
+            case QSConstants.TILE_NFC:
+                resourceName = "ic_qs_nfc_on";
+                stringId = R.string.qs_title_nfc;
+                break;
+            case QSConstants.TILE_COMPASS:
+                resourceName = "ic_qs_compass_on";
+                stringId = R.string.qs_title_compass;
+                break;
+            case QSConstants.TILE_LOCKSCREEN:
+                resourceName = "ic_qs_lock_screen_on";
+                stringId = R.string.qs_title_lockscreen;
+                break;
             default:
                 return null;
         }

@@ -16,6 +16,7 @@
 
 package com.android.settings.privacyguard;
 
+import android.view.animation.AnimationUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AppOpsManager;
@@ -23,13 +24,12 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.LoaderManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -54,23 +54,24 @@ import com.android.settings.SubSettings;
 import com.android.settings.applications.AppOpsDetails;
 import com.android.settings.applications.AppOpsState;
 import com.android.settings.applications.AppOpsState.OpsTemplate;
+import com.android.settings.privacyguard.AppInfoLoader;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class PrivacyGuardManager extends Fragment
-        implements OnItemClickListener, OnItemLongClickListener {
+        implements OnItemClickListener, OnItemLongClickListener,
+                   LoaderManager.LoaderCallbacks<List<PrivacyGuardManager.AppInfo>> {
 
     private static final String TAG = "PrivacyGuardManager";
 
     private TextView mNoUserAppsInstalled;
     private ListView mAppsList;
+    private View mLoadingContainer;
     private PrivacyGuardAppListAdapter mAdapter;
     private List<AppInfo> mApps;
 
-    private PackageManager mPm;
     private Activity mActivity;
 
     private SharedPreferences mPreferences;
@@ -97,7 +98,6 @@ public class PrivacyGuardManager extends Fragment
             Bundle savedInstanceState) {
 
         mActivity = getActivity();
-        mPm = mActivity.getPackageManager();
         mAppOps = (AppOpsManager)getActivity().getSystemService(Context.APP_OPS_SERVICE);
 
         return inflater.inflate(R.layout.privacy_guard_manager, container, false);
@@ -123,6 +123,8 @@ public class PrivacyGuardManager extends Fragment
         mAppsList.setOnItemClickListener(this);
         mAppsList.setOnItemLongClickListener(this);
 
+        mLoadingContainer = mActivity.findViewById(R.id.loading_container);
+
         // get shared preference
         mPreferences = mActivity.getSharedPreferences("privacy_guard_manager", Activity.MODE_PRIVATE);
         if (!mPreferences.getBoolean("first_help_shown", false)) {
@@ -139,7 +141,7 @@ public class PrivacyGuardManager extends Fragment
         }
 
         // load apps and construct the list
-        loadApps();
+        scheduleAppsLoad();
 
         setHasOptionsMenu(true);
     }
@@ -174,7 +176,7 @@ public class PrivacyGuardManager extends Fragment
         super.onResume();
 
         // rebuild the list; the user might have changed settings inbetween
-        loadApps();
+        scheduleAppsLoad();
 
         if (mSavedFirstVisiblePosition != AdapterView.INVALID_POSITION) {
             mAppsList.setSelectionFromTop(mSavedFirstVisiblePosition, mSavedFirstItemOffset);
@@ -182,9 +184,41 @@ public class PrivacyGuardManager extends Fragment
         }
     }
 
-    private void loadApps() {
-        mApps = loadInstalledApps();
+    @Override
+    public Loader<List<AppInfo>> onCreateLoader(int id, Bundle args) {
+        mLoadingContainer.startAnimation(AnimationUtils.loadAnimation(
+              mActivity, android.R.anim.fade_in));
+        mAppsList.startAnimation(AnimationUtils.loadAnimation(
+              mActivity, android.R.anim.fade_out));
 
+        mAppsList.setVisibility(View.INVISIBLE);
+        mLoadingContainer.setVisibility(View.VISIBLE);
+        return new AppInfoLoader(mActivity, shouldShowSystemApps());
+    }
+
+    @Override
+    public void onLoadFinished(Loader<List<AppInfo>> loader, List<AppInfo> apps) {
+        mApps = apps;
+        prepareAppAdapter();
+
+        mLoadingContainer.startAnimation(AnimationUtils.loadAnimation(
+              mActivity, android.R.anim.fade_out));
+        mAppsList.startAnimation(AnimationUtils.loadAnimation(
+              mActivity, android.R.anim.fade_in));
+
+        mLoadingContainer.setVisibility(View.INVISIBLE);
+        mAppsList.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<AppInfo>> loader) {
+    }
+
+    private void scheduleAppsLoad() {
+        getLoaderManager().restartLoader(0, null, this);
+    }
+
+    private void prepareAppAdapter() {
         // if app list is empty inform the user
         // else go ahead and construct the list
         if (mApps == null || mApps.isEmpty()) {
@@ -265,49 +299,6 @@ public class PrivacyGuardManager extends Fragment
         return true;
     }
 
-    /**
-    * Uses the package manager to query for all currently installed apps
-    * for the list.
-    *
-    * @return the complete List off installed applications (@code PrivacyGuardAppInfo)
-    */
-    private List<AppInfo> loadInstalledApps() {
-        List<AppInfo> apps = new ArrayList<AppInfo>();
-        List<PackageInfo> packages = mPm.getInstalledPackages(
-            PackageManager.GET_PERMISSIONS | PackageManager.GET_SIGNATURES);
-        boolean showSystemApps = shouldShowSystemApps();
-
-        for (PackageInfo info : packages) {
-            final ApplicationInfo appInfo = info.applicationInfo;
-
-            // skip all system apps if they shall not be included
-            if (!showSystemApps && (appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                continue;
-            }
-
-            AppInfo app = new AppInfo();
-            app.title = appInfo.loadLabel(mPm).toString();
-            app.packageName = info.packageName;
-            app.enabled = appInfo.enabled;
-            app.uid = info.applicationInfo.uid;
-            app.privacyGuardEnabled = mAppOps.getPrivacyGuardSettingForPackage(
-                    app.uid, app.packageName);
-            apps.add(app);
-        }
-
-        // sort the apps by their enabled state, then by title
-        Collections.sort(apps, new Comparator<AppInfo>() {
-            @Override
-            public int compare(AppInfo lhs, AppInfo rhs) {
-                if (lhs.enabled != rhs.enabled) {
-                    return lhs.enabled ? -1 : 1;
-                }
-                return lhs.title.compareToIgnoreCase(rhs.title);
-            }
-        });
-
-        return apps;
-    }
 
     private boolean shouldShowSystemApps() {
         return mPreferences.getBoolean("show_system_apps", false);
@@ -393,7 +384,7 @@ public class PrivacyGuardManager extends Fragment
                 // shared preference and rebuild the list
                 item.setChecked(!item.isChecked());
                 mPreferences.edit().putBoolean(prefName, item.isChecked()).commit();
-                loadApps();
+                scheduleAppsLoad();
                 return true;
             case R.id.advanced:
                 Intent i = new Intent(Intent.ACTION_MAIN);

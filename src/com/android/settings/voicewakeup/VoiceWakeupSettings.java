@@ -44,8 +44,8 @@ import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 import com.android.settings.cyanogenmod.ShortcutPickHelper;
 
-public class VoiceWakeupSettings extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener, ShortcutPickHelper.OnPickListener,
+public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener, ShortcutPickHelper.OnPickListener,
         BaseSystemSettingSwitchBar.SwitchBarChangeCallback {
     private static final String TAG = "VoiceWakeupSettings";
 
@@ -114,16 +114,10 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
         mContainer = container;
         return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-
-        // After confirming PreferenceScreen is available, we call super.
-        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
@@ -147,16 +141,19 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment
         }
     }
 
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+            Preference preference) {
         if (preference == mRetrainPreference) {
             retrain();
             return true;
         } else if (preference == mPickShortcutPreference) {
+            final Activity activity = getActivity();
             String[] names = new String[] {
                 mDefaultActivityString
             };
             ShortcutIconResource[] icons = new ShortcutIconResource[] {
-                    ShortcutIconResource.fromContext(getActivity(), R.drawable.ic_voice_wakeup)
+                ShortcutIconResource.fromContext(activity, R.drawable.ic_settings_voice_wakeup)
             };
             mPicker.pickShortcut(names, icons, getId());
             return true;

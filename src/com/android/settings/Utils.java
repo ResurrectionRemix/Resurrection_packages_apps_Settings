@@ -77,6 +77,7 @@ import android.widget.TabWidget;
 import com.android.internal.util.ImageUtils;
 import com.android.internal.util.UserIcons;
 import com.android.settings.UserSpinnerAdapter.UserDetails;
+import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardTile;
 import com.android.settings.drawable.CircleFramedDrawable;
@@ -194,6 +195,98 @@ public final class Utils {
                     }
 
                     return true;
+                }
+            }
+        }
+
+        // Did not find a matching activity, so remove the preference
+        parentPreferenceGroup.removePreference(preference);
+
+        return false;
+    }
+
+    /**
+     * Finds a matching activity for a preference's intent. If a matching
+     * activity is not found, it will remove the preference. The icon, title and
+     * summary of the preference will also be updated with the values retrieved
+     * from the activity's meta-data elements. If no meta-data elements are
+     * specified then the preference title will be set to match the label of the
+     * activity, an icon and summary text will not be displayed.
+     *
+     * @param context The context.
+     * @param parentPreferenceGroup The preference group that contains the
+     *            preference whose intent is being resolved.
+     * @param preferenceKey The key of the preference whose intent is being
+     *            resolved.
+     *
+     * @return Whether an activity was found. If false, the preference was
+     *         removed.
+     *
+     * @see {@link #META_DATA_PREFERENCE_ICON}
+     *      {@link #META_DATA_PREFERENCE_TITLE}
+     *      {@link #META_DATA_PREFERENCE_SUMMARY}
+     */
+    public static boolean updatePreferenceToSpecificActivityFromMetaDataOrRemove(Context context,
+            PreferenceGroup parentPreferenceGroup, String preferenceKey) {
+
+        Preference preference = parentPreferenceGroup.findPreference(preferenceKey);
+        if (preference == null) {
+            return false;
+        }
+
+        Intent intent = preference.getIntent();
+        if (intent != null) {
+            // Find the activity that is in the system image
+            PackageManager pm = context.getPackageManager();
+            List<ResolveInfo> list = pm.queryIntentActivities(intent, PackageManager.GET_META_DATA);
+            int listSize = list.size();
+            for (int i = 0; i < listSize; i++) {
+                ResolveInfo resolveInfo = list.get(i);
+                if ((resolveInfo.activityInfo.applicationInfo.flags
+                        & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    Drawable icon = null;
+                    String title = null;
+                    String summary = null;
+
+                    // Get the activity's meta-data
+                    try {
+                        Resources res = pm
+                                .getResourcesForApplication(resolveInfo.activityInfo.packageName);
+                        Bundle metaData = resolveInfo.activityInfo.metaData;
+
+                        if (res != null && metaData != null) {
+                            if (preference instanceof IconPreferenceScreen) {
+                                icon = res.getDrawable(metaData.getInt(META_DATA_PREFERENCE_ICON));
+                            }
+                            title = res.getString(metaData.getInt(META_DATA_PREFERENCE_TITLE));
+                            summary = res.getString(metaData.getInt(META_DATA_PREFERENCE_SUMMARY));
+                        }
+                    } catch (NameNotFoundException e) {
+                        // Ignore
+                    } catch (NotFoundException e) {
+                        // Ignore
+                    }
+
+                    // Set the preference title to the activity's label if no
+                    // meta-data is found
+                    if (TextUtils.isEmpty(title)) {
+                        title = resolveInfo.loadLabel(pm).toString();
+                    }
+
+                    // Set icon, title and summary for the preference
+                    preference.setTitle(title);
+                    preference.setSummary(summary);
+                    if (preference instanceof IconPreferenceScreen) {
+                        IconPreferenceScreen iconPreference = (IconPreferenceScreen) preference;
+                        iconPreference.setIcon(icon);
+                    }
+
+                    // Replace the intent with this specific activity
+                    preference.setIntent(new Intent().setClassName(
+                            resolveInfo.activityInfo.packageName,
+                            resolveInfo.activityInfo.name));
+
+                   return true;
                 }
             }
         }
@@ -744,7 +837,12 @@ public final class Utils {
     public static Intent onBuildStartFragmentIntent(Context context, String fragmentName,
             Bundle args, int titleResId, CharSequence title, boolean isShortcut) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClass(context, SubSettings.class);
+        if (BluetoothSettings.class.getName().equals(fragmentName)) {
+            intent.setClass(context, SubSettings.BluetoothSubSettings.class);
+            intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+        } else {
+            intent.setClass(context, SubSettings.class);
+        }
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT, fragmentName);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, args);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_TITLE_RESID, titleResId);
