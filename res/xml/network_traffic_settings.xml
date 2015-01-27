@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/network_traffic_title">
+
+    <ListPreference
+        android:key="network_traffic_state"
+        android:title="@string/show_network_traffic_state"
+        android:entries="@array/show_network_traffic_state_entries"
+        android:entryValues="@array/show_network_traffic_state_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="network_traffic_unit"
+        android:title="@string/show_network_traffic_unit"
+        android:entries="@array/show_network_traffic_unit_entries"
+        android:entryValues="@array/show_network_traffic_unit_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="network_traffic_period"
+        android:title="@string/show_network_traffic_frequency"
+        android:entries="@array/show_network_traffic_frequency_entries"
+        android:entryValues="@array/show_network_traffic_frequency_values"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="network_traffic_autohide"
+        android:title="@string/network_traffic_autohide"
+        android:summary="@string/network_traffic_autohide_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="network_traffic_autohide_threshold"
+        android:title="@string/network_traffic_autohide_threshold"
+        android:max="100"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="kB/s"
+        android:dependency="network_traffic_autohide"
+        android:persistent="false" />
+
+</PreferenceScreen>
