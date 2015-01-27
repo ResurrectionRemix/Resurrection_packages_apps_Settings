@@ -298,7 +298,10 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
     }
 
     private void save() {
-        WindowManagerPolicyControl.saveToSettings(getActivity(), Settings.Global.POLICY_CONTROL);
+        if (mExpandedDesktopState == STATE_USER_CONFIGURABLE) {
+            WindowManagerPolicyControl.saveToSettings(getActivity(),
+                    Settings.Global.POLICY_CONTROL);
+        }
     }
 
     int getStateDrawable(int state) {
