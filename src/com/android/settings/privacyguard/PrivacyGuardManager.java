@@ -252,11 +252,9 @@ public class PrivacyGuardManager extends Fragment
             } else {
                 sectionIndex = app.title.substring(0, 1).toUpperCase();
             }
-            if (lastSectionIndex == null) {
-                lastSectionIndex = sectionIndex;
-            }
 
-            if (!TextUtils.equals(sectionIndex, lastSectionIndex)) {
+            if (lastSectionIndex == null ||
+                    !TextUtils.equals(sectionIndex, lastSectionIndex)) {
                 sections.add(sectionIndex);
                 positions.add(offset);
                 lastSectionIndex = sectionIndex;
