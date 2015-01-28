@@ -46,20 +46,6 @@
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
 
-        <SwitchPreference
-            android:key="quick_unlock_control"
-            android:title="@string/unlock_quick_unlock_control_title"
-            android:summary="@string/unlock_quick_unlock_control_summary"
-            android:persistent="false"/>
-            
-        <ListPreference
-            android:key="lock_numpad_random"
-            android:entries="@array/lock_numpad_random_entries"
-            android:entryValues="@array/lock_numpad_random_values"
-            android:title="@string/lock_numpad_random_title"
-            android:dialogTitle="@string/lock_numpad_random_dialog_title"
-            android:persistent="false"/>
-
          <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
@@ -71,7 +57,7 @@
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
         </PreferenceScreen>
-            
+
         <PreferenceScreen
             android:key="owner_info_settings"
             android:fragment="com.android.settings.OwnerInfoSettings"
