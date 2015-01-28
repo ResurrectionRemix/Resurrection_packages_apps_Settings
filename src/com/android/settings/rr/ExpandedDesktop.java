@@ -64,8 +64,8 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
     private static final int STATE_NAVIGATION_HIDDEN = 2;
     private static final int STATE_BOTH_HIDDEN = 3;
 
-    private static final int STATE_ENABLE_FOR_ALL = 1;
-    private static final int STATE_USER_CONFIGURABLE = 2;
+    private static final int STATE_ENABLE_FOR_ALL = 0;
+    private static final int STATE_USER_CONFIGURABLE = 1;
 
     private AllPackagesAdapter mAllPackagesAdapter;
     private ApplicationsState mApplicationsState;
@@ -262,15 +262,14 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
             } else {
                 sectionIndex = label.substring(0, 1).toUpperCase();
             }
-            if (lastSectionIndex == null) {
-                lastSectionIndex = sectionIndex;
-            }
 
-            if (!TextUtils.equals(sectionIndex, lastSectionIndex)) {
+            if (lastSectionIndex == null ||
+                    !TextUtils.equals(sectionIndex, lastSectionIndex)) {
                 sections.add(sectionIndex);
                 positions.add(offset);
                 lastSectionIndex = sectionIndex;
             }
+
             offset++;
         }
 
@@ -447,14 +446,14 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
 
             int index = Arrays.binarySearch(mPositions, position);
 
-        /*
-         * Consider this example: section positions are 0, 3, 5; the supplied
-         * position is 4. The section corresponding to position 4 starts at
-         * position 3, so the expected return value is 1. Binary search will not
-         * find 4 in the array and thus will return -insertPosition-1, i.e. -3.
-         * To get from that number to the expected value of 1 we need to negate
-         * and subtract 2.
-         */
+            /*
+             * Consider this example: section positions are 0, 3, 5; the supplied
+             * position is 4. The section corresponding to position 4 starts at
+             * position 3, so the expected return value is 1. Binary search will not
+             * find 4 in the array and thus will return -insertPosition-1, i.e. -3.
+             * To get from that number to the expected value of 1 we need to negate
+             * and subtract 2.
+             */
             return index >= 0 ? index : -index - 2;
         }
 
