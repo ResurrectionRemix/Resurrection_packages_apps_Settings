@@ -947,7 +947,6 @@ public class ActionListViewSettings extends ListFragment implements
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
                 Drawable ic = ((Drawable) getItem(position)).mutate();
-                ic.setTint(color);
                 tt.setCompoundDrawablePadding(15);
                 tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);
                 return iView;
