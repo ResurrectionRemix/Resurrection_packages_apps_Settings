@@ -218,7 +218,6 @@ public class ColorPickerView extends View {
         return hue;
     }
 
-
     @Override
     protected void onDraw(Canvas canvas) {
 
