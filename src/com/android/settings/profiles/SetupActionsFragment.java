@@ -154,8 +154,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         // triggers
         mItems.add(new Header(getString(R.string.profile_triggers_header)));
         mItems.add(generateTriggerItem(TriggerItem.WIFI));
-        mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
-        mItems.add(generateTriggerItem(TriggerItem.NFC));
+        if (DeviceUtils.deviceSupportsBluetooth()) {
+            mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
+        }
+        if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+            mItems.add(generateTriggerItem(TriggerItem.NFC));
+        }
 
         // connection overrides
         mItems.add(new Header(getString(R.string.wireless_networks_settings_title)));
@@ -302,9 +306,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             @Override
             protected Void doInBackground(Profile... params) {
                 // bt
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
-                                BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsBluetooth()) {
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
+                                    BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0,
+                                    true));
+                }
 
                 // gps
                 LocationManager locationManager = (LocationManager)
@@ -327,11 +334,13 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                                 ContentResolver.getMasterSyncAutomatically() ? 1 : 0, true));
 
                 // mobile data
-                ConnectivityManager cm = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
-                                cm.getMobileDataEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsMobileData(getActivity())) {
+                    ConnectivityManager cm = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
+                                    cm.getMobileDataEnabled() ? 1 : 0, true));
+                }
 
                 // wifi hotspot
                 mProfile.setConnectionSettings(
@@ -342,10 +351,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 // skipping this one
 
                 // nfc
-                NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
-                                nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+                    NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
+                                    nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                }
 
                 // alarm volume
                 final AudioManager am = (AudioManager) getActivity()
