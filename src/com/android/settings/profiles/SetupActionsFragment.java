@@ -36,6 +36,7 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.net.wimax.WimaxHelper;
+import android.nfc.NfcAdapter;
 import android.nfc.NfcManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -154,8 +155,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         // triggers
         mItems.add(new Header(getString(R.string.profile_triggers_header)));
         mItems.add(generateTriggerItem(TriggerItem.WIFI));
-        mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
-        mItems.add(generateTriggerItem(TriggerItem.NFC));
+        if (DeviceUtils.deviceSupportsBluetooth()) {
+            mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
+        }
+        if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+            mItems.add(generateTriggerItem(TriggerItem.NFC));
+        }
 
         // connection overrides
         mItems.add(new Header(getString(R.string.profile_connectionoverrides_title)));
@@ -302,9 +307,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             @Override
             protected Void doInBackground(Profile... params) {
                 // bt
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
-                                BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+                if (btAdapter != null) {
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
+                                    btAdapter.isEnabled() ? 1 : 0, true));
+                }
 
                 // gps
                 LocationManager locationManager = (LocationManager)
@@ -343,9 +351,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
                 // nfc
                 NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
-                                nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                NfcAdapter nfcAdapter = nfcManager.getDefaultAdapter();
+                if (nfcAdapter != null) {
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
+                                    nfcAdapter.isEnabled() ? 1 : 0, true));
+                }
 
                 // alarm volume
                 final AudioManager am = (AudioManager) getActivity()
