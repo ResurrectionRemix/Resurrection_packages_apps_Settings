@@ -209,6 +209,11 @@ public final class Utils {
         return false;
     }
 
+    public static boolean doesIntentResolve(Context context, Intent intent) {
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.queryIntentActivities(intent, 0).size() > 0;
+    }
+
     /**
      * Finds a matching activity for a preference's intent. If a matching
      * activity is not found, it will remove the preference. The icon, title and
