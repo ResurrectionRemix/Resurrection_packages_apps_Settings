@@ -939,7 +939,7 @@ public class ActionListViewSettings extends ListFragment implements
             public View getView(int position, View convertView, ViewGroup parent) {
                 View iView = convertView;
                 if (convertView == null) {
-                    iView = View.inflate(getActivity(), android.R.layout.simple_list_item_2, null);
+                    iView = View.inflate(getActivity(), android.R.layout.simple_list_item_1, null);
                 }
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
