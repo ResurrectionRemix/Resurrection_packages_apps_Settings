@@ -36,7 +36,6 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.net.wimax.WimaxHelper;
-import android.nfc.NfcAdapter;
 import android.nfc.NfcManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -307,11 +306,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             @Override
             protected Void doInBackground(Profile... params) {
                 // bt
-                BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
-                if (btAdapter != null) {
+                if (DeviceUtils.deviceSupportsBluetooth()) {
                     mProfile.setConnectionSettings(
                             new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
-                                    btAdapter.isEnabled() ? 1 : 0, true));
+                                    BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0,
+                                    true));
                 }
 
                 // gps
@@ -335,11 +334,13 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                                 ContentResolver.getMasterSyncAutomatically() ? 1 : 0, true));
 
                 // mobile data
-                ConnectivityManager cm = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
-                                cm.getMobileDataEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsMobileData(getActivity())) {
+                    ConnectivityManager cm = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
+                                    cm.getMobileDataEnabled() ? 1 : 0, true));
+                }
 
                 // wifi hotspot
                 mProfile.setConnectionSettings(
@@ -350,12 +351,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 // skipping this one
 
                 // nfc
-                NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
-                NfcAdapter nfcAdapter = nfcManager.getDefaultAdapter();
-                if (nfcAdapter != null) {
+                if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+                    NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
                     mProfile.setConnectionSettings(
                             new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
-                                    nfcAdapter.isEnabled() ? 1 : 0, true));
+                                    nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
                 }
 
                 // alarm volume
