@@ -18,6 +18,8 @@ package com.android.settings.cyanogenmod;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.os.Message;
 import android.os.SystemProperties;
 import android.os.SystemService;
@@ -57,6 +59,8 @@ public class Processor extends SettingsPreferenceFragment implements
 
     private static final String TAG = "CPUSettings";
 
+    private static final int UI_UPDATE_DELAY = 500;
+
     private String mGovernorFormat;
     private String mMinFrequencyFormat;
     private String mMaxFrequencyFormat;
@@ -66,33 +70,58 @@ public class Processor extends SettingsPreferenceFragment implements
     private ListPreference mMinFrequencyPref;
     private ListPreference mMaxFrequencyPref;
 
-    private class CurCPUThread extends Thread {
-        private boolean mInterrupt = false;
+    private HandlerThread mCpuInfoThread;
+    private Handler mCpuInfoHandler;
+    private CpuUiUpdate mCpuUiUpdate;
 
-        public void interrupt() {
-            mInterrupt = true;
-        }
+    private class CpuUiUpdate implements Runnable {
+        public String currentFrequency;
+        public String maxFrequency;
+        public String minFrequency;
+        public String currentGovernor;
 
-        @Override
         public void run() {
-            try {
-                while (!mInterrupt) {
-                    sleep(500);
-                    final String curFreq = Utils.fileReadOneLine(FREQ_CUR_FILE);
-                    if (curFreq != null)
-                        mCurCPUHandler.sendMessage(mCurCPUHandler.obtainMessage(0, curFreq));
-                }
-            } catch (InterruptedException e) {
+            if (currentFrequency != null) {
+                mCurFrequencyPref.setSummary(toMHz(currentFrequency));
+            }
+            if (maxFrequency != null) {
+                mMinFrequencyPref.setValue(maxFrequency);
+                mMinFrequencyPref.setSummary(String.format(mMinFrequencyFormat,
+                    toMHz(maxFrequency)));
+            }
+            if (minFrequency != null) {
+                mMaxFrequencyPref.setValue(minFrequency);
+                mMaxFrequencyPref.setSummary(String.format(mMaxFrequencyFormat,
+                    toMHz(minFrequency)));
+            }
+            if (currentGovernor != null) {
+                mGovernorPref.setSummary(String.format(mGovernorFormat, currentGovernor));
             }
         }
     };
 
-    private CurCPUThread mCurCPUThread = new CurCPUThread();
+    private Runnable mUpdateCpuFreqValues = new Runnable() {
 
-    private Handler mCurCPUHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            mCurFrequencyPref.setSummary(toMHz((String) msg.obj));
-            updateCpufreqValues();
+        @Override
+        public void run() {
+            if (Utils.fileExists(FREQ_CUR_FILE)) {
+                mCpuUiUpdate.currentFrequency = Utils.fileReadOneLine(FREQ_CUR_FILE);
+            }
+
+            if (Utils.fileExists(FREQ_MIN_FILE)) {
+                mCpuUiUpdate.minFrequency = Utils.fileReadOneLine(FREQ_MIN_FILE);
+            }
+
+            if (Utils.fileExists(FREQ_MAX_FILE)) {
+                mCpuUiUpdate.maxFrequency = Utils.fileReadOneLine(FREQ_MAX_FILE);
+            }
+
+            if (Utils.fileExists(GOV_FILE)) {
+                mCpuUiUpdate.currentGovernor = Utils.fileReadOneLine(GOV_FILE);
+            }
+
+            Processor.this.getActivity().runOnUiThread(mCpuUiUpdate);
+            mCpuInfoHandler.postDelayed(mUpdateCpuFreqValues, UI_UPDATE_DELAY);
         }
     };
 
@@ -194,25 +223,10 @@ public class Processor extends SettingsPreferenceFragment implements
         } else {
             mCurFrequencyPref.setSummary(toMHz(temp));
 
-            mCurCPUThread.start();
-        }
-    }
-
-    private void updateCpufreqValues() {
-        String temp;
-
-        if (Utils.fileExists(FREQ_MIN_FILE) && (temp = Utils.fileReadOneLine(FREQ_MIN_FILE)) != null) {
-            mMinFrequencyPref.setValue(temp);
-            mMinFrequencyPref.setSummary(String.format(mMinFrequencyFormat, toMHz(temp)));
-        }
-
-        if (Utils.fileExists(FREQ_MAX_FILE) && (temp = Utils.fileReadOneLine(FREQ_MAX_FILE)) != null) {
-            mMaxFrequencyPref.setValue(temp);
-            mMaxFrequencyPref.setSummary(String.format(mMaxFrequencyFormat, toMHz(temp)));
-        }
-
-        if (Utils.fileExists(GOV_FILE) && (temp = Utils.fileReadOneLine(GOV_FILE)) != null) {
-            mGovernorPref.setSummary(String.format(mGovernorFormat, temp));
+            mCpuInfoThread = new HandlerThread("CPUInfoThread");
+            mCpuInfoThread.start();
+            mCpuInfoHandler = new Handler(mCpuInfoThread.getLooper());
+            mCpuUiUpdate = new CpuUiUpdate();
         }
     }
 
@@ -220,16 +234,24 @@ public class Processor extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         initFreqCapFiles();
-        updateCpufreqValues();
+        if (mCpuInfoHandler != null) {
+            mCpuInfoHandler.post(mUpdateCpuFreqValues);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mCpuInfoHandler != null) {
+            mCpuInfoHandler.removeCallbacks(mUpdateCpuFreqValues);
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mCurCPUThread.interrupt();
-        try {
-            mCurCPUThread.join();
-        } catch (InterruptedException e) {
+        if (mCpuInfoThread != null) {
+            mCpuInfoThread.quit();
         }
     }
 
