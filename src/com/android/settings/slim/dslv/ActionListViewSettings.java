@@ -626,9 +626,6 @@ public class ActionListViewSettings extends ListFragment implements
                         iconUri), 36);
             }
 
-            if (iconUri != null && iconUri.startsWith(ActionConstants.SYSTEM_ICON_IDENTIFIER)) {
-                d.setTint(getResources().getColor(R.color.dslv_icon_dark));
-            }
             holder.iconView.setImageDrawable(d);
 
             if (!mDisableIconPicker && holder.iconView.getDrawable() != null) {
@@ -912,7 +909,7 @@ public class ActionListViewSettings extends ListFragment implements
             public IconAdapter() {
                 labels = getResources().getStringArray(R.array.shortcut_icon_picker_labels);
                 icons = getResources().obtainTypedArray(R.array.shortcut_icon_picker_icons);
-                color = getResources().getColor(R.color.dslv_icon_dark);
+
             }
 
             @Override
@@ -947,7 +944,6 @@ public class ActionListViewSettings extends ListFragment implements
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
                 Drawable ic = ((Drawable) getItem(position)).mutate();
-                ic.setTint(color);
                 tt.setCompoundDrawablePadding(15);
                 tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);
                 return iView;

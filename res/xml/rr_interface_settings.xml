@@ -35,14 +35,23 @@
             android:key="navigation_bar_show"
             android:title="@string/navbar_enable_bar"
             android:summary="@string/navbar_enable_bar_summary"
-            android:defaultValue="true" />                       
+            android:defaultValue="true" /> 
+        <PreferenceScreen
+            android:key="navigation_bar"
+            android:fragment="com.android.settings.cyanogenmod.NavBar"
+            android:summary="@string/navigation_bar_title_summary"
+            android:title="@string/navigation_bar_title" />                      
         <PreferenceScreen
                 android:key="navbar_dimensions"
                 android:fragment="com.android.settings.rr.NavBarDimensions"
                 android:summary="@string/navigation_bar_dimensions_title_summary"
                 android:title="@string/navigation_bar_dimensions_title" 
                 />
-
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="navigation_bar_menu_arrow_keys"
+                android:title="@string/navigation_bar_arrow_keys_title"
+                android:summary="@string/navigation_bar_arrow_keys_summary"
+                android:defaultValue="false" />
 </PreferenceCategory>
 
 </PreferenceScreen>

@@ -133,6 +133,14 @@ public class QSTileHolder {
                 resourceName = "ic_qs_lock_screen_on";
                 stringId = R.string.qs_tile_lockscreen;
                 break;
+            case QSConstants.TILE_VISUALIZER:
+                resourceName = "ic_qs_visualizer_static";
+                stringId = R.string.qs_tile_visualizer;
+                break;
+            case QSConstants.TILE_SCREEN_TIMEOUT:
+                resourceName = "ic_qs_screen_timeout_vector";
+                stringId = R.string.qs_tile_screen_timeout;
+                break;
             default:
                 return null;
         }
