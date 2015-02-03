@@ -86,7 +86,7 @@ public class WifiTriggerFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mEmptyView = inflater.inflate(R.layout.profile_bluetooth_empty_view, container, false);
+        mEmptyView = inflater.inflate(R.layout.profile_wifi_empty_view, container, false);
         mEmptyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,7 +189,6 @@ public class WifiTriggerFragment extends ListFragment {
         reloadTriggerListItems();
         mListAdapter = new WifiTriggerAdapter(getActivity());
         setListAdapter(mListAdapter);
-        setEmptyText(getString(R.string.no_wifi_triggers));
     }
 
     private void reloadTriggerListItems() {

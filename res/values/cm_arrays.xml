@@ -17,38 +17,18 @@ limitations under the License.
 -->
 <resources>
     <!-- Arrays for root access capability -->
-    <string-array name="root_access_entries">
+    <string-array name="root_access_entries" translatable="false">
         <item>@string/root_access_none</item>
         <item>@string/root_access_apps</item>
         <item>@string/root_access_adb</item>
         <item>@string/root_access_all</item>
     </string-array>
 
-    <string-array name="root_access_values">
+    <string-array name="root_access_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>
-
-    <!-- Profile mode options. -->
-    <string-array name="profile_entries">
-        <item>On</item>
-        <item>Off</item>
-        <item>No override</item>
-    </string-array>
-
-    <!-- Values for vibrate_entries matching constants in SoundSettings. Do not translate. -->
-    <string-array name="profile_values" translatable="false">
-        <item>OVERRIDE</item>
-        <item>SUPPRESS</item>
-        <item>DEFAULT</item>
-    </string-array>
-
-    <!-- Profile mode options. -->
-    <string-array name="profile_connection_entries">
-        <item>Disable</item>
-        <item>Enable</item>
     </string-array>
 
     <!-- Profile 2G-3G and 4G mode options. -->
@@ -61,46 +41,11 @@ limitations under the License.
         <item>@string/profile_action_none</item>
     </string-array>
 
-    <!-- Profile 2G-3G mode options. -->
-    <string-array name="profile_networkmode_entries" translatable="false">
-        <item>@string/profile_networkmode_2g</item>
-        <item>@string/profile_networkmode_3g</item>
-        <item>@string/profile_networkmode_2g3g</item>
-    </string-array>
-
-    <!-- Values for profile connections. Do not translate. -->
-    <string-array name="profile_connection_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <!--  Values for profile trigger types -->
-    <string-array name="profile_trigger_filters" translatable="false">
-        <item>@string/profile_trigger_filter_all</item>
-        <item>@string/profile_trigger_filter_wifi</item>
-        <item>@string/profile_trigger_filter_bluetooth</item>
-    </string-array>
-
-    <!-- Profile lock mode options. Do not translate. -->
-    <string-array name="profile_lockmode_entries" translatable="false">
-        <item>@string/profile_lockmode_default</item>
-        <item>@string/profile_lockmode_insecure</item>
-        <item>@string/profile_lockmode_disabled</item>
-    </string-array>
-
     <!-- Profile lock mode summaries. Do not translate. -->
-    <string-array name="profile_lockmode_summaries" translatable="false">
-        <item>@string/profile_lockmode_default_summary</item>
+    <string-array name="profile_lockmode_entries" translatable="false">
+        <item>@string/profile_action_none</item>
         <item>@string/profile_lockmode_insecure_summary</item>
         <item>@string/profile_lockmode_disabled_summary</item>
-    </string-array>
-
-    <!-- Values for profile lock mode. Do not translate. -->
-    <string-array name="profile_lockmode_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <!-- Hardware key rebinding -->
@@ -166,7 +111,7 @@ limitations under the License.
         <item>@string/ring_mode_normal</item>
         <item>@string/ring_mode_vibrate</item>
         <item>@string/ring_mode_mute</item>
-        <item>@string/ring_mode_unchanged</item>
+        <item>@string/profile_action_none</item>
     </string-array>
 
     <!-- Values for Ring mode. Do not translate. -->
@@ -179,7 +124,7 @@ limitations under the License.
 
     <!-- Sms security limit -->
     <string-array name="sms_security_check_limit_entries" translatable="false">
-        <item>@string/sms_security_check_limit_default</item>
+        <item>30</item>
         <item>50</item>
         <item>100</item>
         <item>200</item>
@@ -370,7 +315,7 @@ limitations under the License.
     </string-array>
 
     <!-- App ops permissions -->
-    <string-array name="app_ops_permissions">
+    <string-array name="app_ops_permissions" translatable="false">
         <item>@string/app_ops_permissions_allowed</item>
         <item>@string/app_ops_permissions_ignored</item>
         <item>@string/app_ops_permissions_always_ask</item>
@@ -394,22 +339,10 @@ limitations under the License.
         <item>2</item>
     </string-array>
 
-    <string-array name="profile_action_generic_connection_entries">
+    <string-array name="profile_action_generic_connection_entries" translatable="false">
         <item>@string/profile_action_none</item>
-        <item>@string/profile_action_disabled</item>
+        <item>@string/profile_action_disable</item>
         <item>@string/profile_action_enable</item>
-    </string-array>
-
-    <string-array name="profile_action_generic_connection_values">
-        <item>-1</item>
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-    <string-array name="trigger_page_title">
-        <item>WiFi</item>
-        <item>Bluetooth</item>
-        <item>NFC</item>
     </string-array>
 
     <!-- Gamma calibration descriptors, deliberately empty as string values populated via
@@ -418,10 +351,10 @@ limitations under the License.
     </string-array>
 
     <!-- Values for screen color  -->
-    <string-array name="screen_color_setting">
-        <item>Standard</item>
-        <item>Vivid</item>
-        <item>Custom</item>
+    <string-array name="screen_color_setting" translatable="false">
+        <item>@string/screen_color_setting_standard</item>
+        <item>@string/screen_color_setting_vivid</item>
+        <item>@string/screen_color_setting_custom</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_entries" translatable="false">

@@ -16,15 +16,11 @@
 
 package com.android.settings.privacyguard;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +28,6 @@ import android.widget.ListView;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class PrivacyGuardPrefs extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -43,12 +38,16 @@ public class PrivacyGuardPrefs extends SettingsPreferenceFragment implements
 
     private SwitchPreference mPrivacyGuardDefault;
 
+    public static PrivacyGuardPrefs newInstance() {
+        PrivacyGuardPrefs privacyGuardFragment = new PrivacyGuardPrefs();
+        return privacyGuardFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.privacy_guard_prefs);
-        PreferenceScreen prefSet = getPreferenceScreen();
 
         mPrivacyGuardDefault = (SwitchPreference) findPreference(KEY_PRIVACY_GUARD_DEFAULT);
         mPrivacyGuardDefault.setOnPreferenceChangeListener(this);

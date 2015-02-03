@@ -32,14 +32,13 @@
                 settings:keywords="@string/keywords_display_auto_brightness"
                 android:summary="@string/auto_brightness_summary"
                 android:persistent="false" />
-
-         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-		android:key="recents_show_hide_search_bar"
-		android:title="@string/recents_show_searchbar"
-		android:summary="@string/recents_show_searchbar_summary"
-		settings:keywords="@string/keywords_recents_show_searchbar"
-                android:defaultValue="false" />
-
+                
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_search_bar"
+		    android:title="@string/recents_show_searchbar"
+		    android:summary="@string/recents_show_searchbar_summary"
+            android:defaultValue="true" />
+            
         <PreferenceScreen
                 android:key="display_rotation"
                 android:title="@string/display_rotation_title"
@@ -63,17 +62,17 @@
                 android:title="@string/lift_to_wake_title"
                 android:persistent="false" />
 
-        <SwitchPreference
-                android:key="doze"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary"
-                android:persistent="false" />
+        <PreferenceScreen
+                android:key="expanded_desktop"
+                android:title="@string/power_menu_expanded_desktop"
+                android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
 
         <ListPreference
                 android:key="lcd_density"
                 android:title="@string/lcd_density"
                 android:summary="@string/lcd_density_summary"
                 android:persistent="false" />
+
 
         <com.android.settings.FontDialogPreference
                 android:key="font_size"
@@ -87,6 +86,25 @@
                 android:title="@string/wifi_display_settings_title"
                 settings:keywords="@string/keywords_display_cast_screen"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+
+        <PreferenceCategory
+            android:key="category_doze_options"
+            android:title="@string/display_category_doze_options_title" >
+
+            <SwitchPreference
+                    android:key="doze"
+                    android:title="@string/doze_title"
+                    android:summary="@string/doze_summary"
+                    android:persistent="false" />
+
+            <!-- Ambient display timeout -->
+            <SlimSeekBarPreference
+                    android:key="doze_timeout"
+                    android:title="@string/doze_timeout_title"
+                    android:summary="@string/doze_timeout_summary"
+                    android:dependency="doze" />
+
+        </PreferenceCategory>
 
         <PreferenceCategory
                 android:key="advanced_display_prefs"

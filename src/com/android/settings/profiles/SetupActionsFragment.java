@@ -42,6 +42,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -50,6 +53,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -150,11 +154,15 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         // triggers
         mItems.add(new Header(getString(R.string.profile_triggers_header)));
         mItems.add(generateTriggerItem(TriggerItem.WIFI));
-        mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
-        mItems.add(generateTriggerItem(TriggerItem.NFC));
+        if (DeviceUtils.deviceSupportsBluetooth()) {
+            mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
+        }
+        if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+            mItems.add(generateTriggerItem(TriggerItem.NFC));
+        }
 
         // connection overrides
-        mItems.add(new Header(getString(R.string.profile_connectionoverrides_title)));
+        mItems.add(new Header(getString(R.string.wireless_networks_settings_title)));
         if (DeviceUtils.deviceSupportsBluetooth()) {
             mItems.add(new ConnectionOverrideItem(PROFILE_CONNECTION_BLUETOOTH,
                     mProfile.getSettingsForConnection(PROFILE_CONNECTION_BLUETOOTH)));
@@ -298,9 +306,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             @Override
             protected Void doInBackground(Profile... params) {
                 // bt
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
-                                BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsBluetooth()) {
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH,
+                                    BluetoothAdapter.getDefaultAdapter().isEnabled() ? 1 : 0,
+                                    true));
+                }
 
                 // gps
                 LocationManager locationManager = (LocationManager)
@@ -323,11 +334,13 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                                 ContentResolver.getMasterSyncAutomatically() ? 1 : 0, true));
 
                 // mobile data
-                ConnectivityManager cm = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
-                                cm.getMobileDataEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsMobileData(getActivity())) {
+                    ConnectivityManager cm = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA,
+                                    cm.getMobileDataEnabled() ? 1 : 0, true));
+                }
 
                 // wifi hotspot
                 mProfile.setConnectionSettings(
@@ -338,10 +351,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 // skipping this one
 
                 // nfc
-                NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
-                mProfile.setConnectionSettings(
-                        new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
-                                nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+                    NfcManager nfcManager = (NfcManager) getSystemService(Context.NFC_SERVICE);
+                    mProfile.setConnectionSettings(
+                            new ConnectionSettings(ConnectionSettings.PROFILE_CONNECTION_NFC,
+                                    nfcManager.getDefaultAdapter().isEnabled() ? 1 : 0, true));
+                }
 
                 // alarm volume
                 final AudioManager am = (AudioManager) getActivity()
@@ -702,7 +717,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         entry.setText(mProfile.getName());
         entry.setSelectAllOnFocus(true);
 
-        new AlertDialog.Builder(getActivity())
+        final AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.rename_dialog_title)
                 .setView(dialogView)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -715,7 +730,29 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
-                .show();
+                .create();
+
+        entry.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                final String str = s.toString();
+                final boolean empty = TextUtils.isEmpty(str)
+                        || TextUtils.getTrimmedLength(str) == 0;
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(!empty);
+            }
+        });
+
+        alertDialog.show();
     }
 
     @Override

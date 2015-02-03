@@ -29,8 +29,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.android.settings.R;
 
@@ -44,7 +42,7 @@ public class DraggableGridView extends ViewGroup implements
 
     private static final float CHILD_RATIO = .95f;
     private static final int ANIM_DURATION = 150;
-    private static final int COL_COUNT = 3;
+    private int COL_COUNT;
 
     protected int mChildSize, mPadding, mLeftOffset, mScroll = 0;
     protected float mLastDelta = 0;
@@ -55,9 +53,22 @@ public class DraggableGridView extends ViewGroup implements
     protected OnRearrangeListener mOnRearrangeListener;
     protected OnClickListener mSecondaryOnClickListener;
     private AdapterView.OnItemClickListener mOnItemClickListener;
+    private boolean mUseLargerFirstRow = false;
 
-    private boolean mUseMainTiles = false;
-    private int mMaxItemCount = -1;
+    /**
+     * Use three or four columns.
+     */
+    private int columnCount() {
+        boolean shouldUseFourColumns = Settings.Secure.getInt(
+            mContext.getContentResolver(), Settings.Secure.QS_USE_FOUR_COLUMNS,
+                0) == 1;
+        if (shouldUseFourColumns) {
+            COL_COUNT = 4;
+        } else {
+            COL_COUNT = 3;
+        }
+        return COL_COUNT;
+    }
 
     protected Runnable mUpdateTask = new Runnable() {
         public void run() {
@@ -86,14 +97,10 @@ public class DraggableGridView extends ViewGroup implements
 
         setListeners();
         setChildrenDrawingOrderEnabled(true);
-
-        mUseMainTiles = Settings.System.getInt(getContext().getContentResolver(),
-                Settings.System.QS_USE_MAIN_TILES, 1) == 1;
     }
 
-    public void setMaxItemCount(int count) {
-        mMaxItemCount = count;
-        updateAddDeleteState();
+    public void setUseLargeFirstRow(boolean largeFirstRow) {
+        mUseLargerFirstRow = largeFirstRow;
     }
 
     protected void setListeners() {
@@ -123,42 +130,33 @@ public class DraggableGridView extends ViewGroup implements
     public void addView(View child, int index) {
         super.addView(child, index);
         mNewPositions.add(-1);
-        if (mOnRearrangeListener != null) {
-            mOnRearrangeListener.onChange();
-        }
     }
 
     @Override
     public void addView(View child) {
         super.addView(child);
         mNewPositions.add(-1);
-        if (mOnRearrangeListener != null) {
-            mOnRearrangeListener.onChange();
-        }
     };
 
     @Override
     public void removeViewAt(int index) {
         super.removeViewAt(index);
         mNewPositions.remove(index);
-        if (mOnRearrangeListener != null) {
-            mOnRearrangeListener.onChange();
-        }
     };
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int width = r - l;
-        mPadding = Math.min((width - (mChildSize * COL_COUNT)) / (COL_COUNT + 1),
+        mPadding = Math.min((width - (mChildSize * columnCount())) / (columnCount() + 1),
                 getResources().getDimensionPixelSize(R.dimen.qs_tile_max_padding));
-        mLeftOffset = (width - mChildSize * COL_COUNT - mPadding * (COL_COUNT - 1)) / 2;
+        mLeftOffset = (width - mChildSize * columnCount() - mPadding * (columnCount() - 1)) / 2;
 
         for (int i = 0; i < getChildCount(); i++) {
             if (i != mDragged) {
                 Point xy = getCoordinateFromIndex(i);
                 int left = xy.x;
                 // If using main tiles and index == 0 or 1, we need to offset the tiles
-                if (mUseMainTiles && i < (COL_COUNT - 1)) {
+                if (mUseLargerFirstRow && i < (columnCount() - 1)) {
                     left += mChildSize / 2;
                 }
                 getChildAt(i).layout(left, xy.y, left + mChildSize, xy.y + mChildSize);
@@ -171,7 +169,7 @@ public class DraggableGridView extends ViewGroup implements
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int availableWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
-        mChildSize = Math.min(Math.round((float) availableWidth * CHILD_RATIO / COL_COUNT),
+        mChildSize = Math.min(Math.round((float) availableWidth * CHILD_RATIO / columnCount()),
                 getResources().getDimensionPixelSize(R.dimen.qs_tile_max_size));
 
         // Update each of the children's widths accordingly to the cell width
@@ -214,12 +212,12 @@ public class DraggableGridView extends ViewGroup implements
         }
         int index = 0;
 
-        index = row * COL_COUNT + col;
+        index = row * columnCount() + col;
 
-        if (mUseMainTiles) {
+        if (mUseLargerFirstRow) {
             // If we click on (0, 2) and are using main tiles, that
             // position is empty
-            if (row == 0 && col == COL_COUNT - 1) {
+            if (row == 0 && col == columnCount() - 1) {
                 return -1;
             }
 
@@ -237,10 +235,10 @@ public class DraggableGridView extends ViewGroup implements
 
     protected int getColFromCoordinate(int row, int coordinate) {
         // If we are using main tiles, we have offset the click position
-        if (mUseMainTiles && row == 0) {
+        if (mUseLargerFirstRow && row == 0) {
             coordinate -= mChildSize / 2;
         }
-        return getColOrRowFromCoordinate(coordinate);
+        return getColOrRowFromCoordinate(coordinate - mLeftOffset);
     }
 
     protected int getColOrRowFromCoordinate(int coordinate) {
@@ -286,22 +284,22 @@ public class DraggableGridView extends ViewGroup implements
     }
 
     protected Point getCoordinateFromIndex(int index) {
-        int col = index % COL_COUNT;
-        int row = index / COL_COUNT;
+        int col = index % columnCount();
+        int row = index / columnCount();
 
-        if (mUseMainTiles) {
+        if (mUseLargerFirstRow) {
             // If on (0,2) and main tiles, (0,2) -> (1,0)
-            if (row == 0 && col == COL_COUNT - 1) {
+            if (row == 0 && col == columnCount() - 1) {
                 col = 0;
                 row = 1;
             }
             // If on row > 0, we skipped a column
-            if (index >= COL_COUNT) {
+            if (index >= columnCount()) {
                 col++;
             }
         }
 
-        if (col == COL_COUNT) {
+        if (col == columnCount()) {
             col = 0;
             row++;
         }
@@ -329,28 +327,9 @@ public class DraggableGridView extends ViewGroup implements
             if (mOnItemClickListener != null) {
                 mOnItemClickListener.onItemClick(null,
                         getChildAt(getLastIndex()), getLastIndex(),
-                        getLastIndex() / COL_COUNT);
+                        getLastIndex() / columnCount());
             }
         }
-    }
-
-    void updateAddDeleteState() {
-        boolean dragging = mDragged != -1;
-        int activeTiles = getChildCount() - (dragging ? 2 : 1);
-        boolean limitReached = mMaxItemCount > 0 && activeTiles >= mMaxItemCount;
-        int iconResId = dragging ? R.drawable.ic_menu_delete : R.drawable.ic_menu_add_dark;
-        int titleResId = dragging ? R.string.qs_action_delete :
-                limitReached ? R.string.qs_action_no_more_tiles : R.string.qs_action_add;
-
-        View tile = getChildAt(getChildCount() - 1);
-        TextView title = (TextView) tile.findViewById(android.R.id.title);
-        ImageView icon = (ImageView) tile.findViewById(android.R.id.icon);
-
-        title.setText(titleResId);
-        title.setEnabled(!limitReached);
-
-        icon.setImageResource(iconResId);
-        icon.setEnabled(!limitReached);
     }
 
     @Override
@@ -359,13 +338,17 @@ public class DraggableGridView extends ViewGroup implements
             return false;
         }
         int index = getLastIndex();
-        if (index != -1 && index != getChildCount() - 1) {
-            mDragged = index;
-            updateAddDeleteState();
-            startAnimation(animateDragging(true));
-            return true;
+        if (index == -1) {
+            return false;
         }
-        return false;
+
+        if (mOnRearrangeListener != null && !mOnRearrangeListener.onStartDrag(index)) {
+            return false;
+        }
+
+        mDragged = index;
+        startAnimation(animateDragging(true));
+        return true;
     }
 
     @Override
@@ -389,7 +372,9 @@ public class DraggableGridView extends ViewGroup implements
                     draggedView.setTranslationY(draggedView.getTranslationY() + y - mLastY);
 
                     //Check if hovering over delete target
-                    mIsDelete = getIndexFromCoordinate(x, y) == getChildCount() - 1;
+                    mIsDelete = mOnRearrangeListener != null
+                            && mOnRearrangeListener.isDeleteTarget(getIndexFromCoordinate(x, y));
+
                     draggedView.setColor(mIsDelete ? Color.RED : Color.TRANSPARENT);
 
                     // check for new target hover
@@ -416,7 +401,6 @@ public class DraggableGridView extends ViewGroup implements
                     List<Animator> animators = animateDragging(false);
 
                     mDragged = -1;
-                    updateAddDeleteState();
 
                     if (mLastTarget != -1 && !mIsDelete) {
                         reorderChildren(dragged, animators);
@@ -431,7 +415,10 @@ public class DraggableGridView extends ViewGroup implements
                         animators.add(ObjectAnimator.ofFloat(v, "translationY",
                                     v.getTranslationY(), 0));
                     }
-                    updateAddDeleteState();
+
+                    if (mOnRearrangeListener != null) {
+                        mOnRearrangeListener.onEndDrag();
+                    }
                     startAnimation(animators);
                     mLastTarget = -1;
                 }
@@ -500,14 +487,14 @@ public class DraggableGridView extends ViewGroup implements
             Point newXY = getCoordinateFromIndex(newPos);
 
             int offsetOld = 0;
-            if (mUseMainTiles && oldPos < 2) {
+            if (mUseLargerFirstRow && oldPos < 2) {
                 offsetOld = mChildSize / 2;
             }
             Point oldOffset = new Point(oldXY.x + offsetOld - v.getLeft(),
                     oldXY.y - v.getTop());
 
             int offsetNew = 0;
-            if (mUseMainTiles && newPos < 2) {
+            if (mUseLargerFirstRow && newPos < 2) {
                 offsetNew = mChildSize / 2;
             }
             Point newOffset = new Point(newXY.x + offsetNew - v.getLeft(),
@@ -574,10 +561,6 @@ public class DraggableGridView extends ViewGroup implements
                             "translationY", info.lastY - info.view.getTop(), 0));
             }
         }
-
-        if (mOnRearrangeListener != null) {
-            mOnRearrangeListener.onChange();
-        }
     }
 
     public void scrollToTop() {
@@ -617,10 +600,10 @@ public class DraggableGridView extends ViewGroup implements
 
     protected int getMaxScroll() {
         int childCount = getChildCount();
-        if (childCount >= COL_COUNT && mUseMainTiles) {
+        if (childCount >= columnCount() && mUseLargerFirstRow) {
             childCount++;
         }
-        int rowCount = (childCount + COL_COUNT - 1 /* round up */) / COL_COUNT;
+        int rowCount = (childCount + columnCount() - 1 /* round up */) / columnCount();
         return rowCount * mChildSize + (rowCount + 1) * mPadding - getHeight();
     }
 
@@ -637,6 +620,8 @@ public class DraggableGridView extends ViewGroup implements
     }
 
     public interface OnRearrangeListener {
-        public abstract void onChange();
+        boolean onStartDrag(int position);
+        void onEndDrag();
+        boolean isDeleteTarget(int position);
     }
 }

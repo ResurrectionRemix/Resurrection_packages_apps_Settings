@@ -119,7 +119,7 @@ public class ConnectionOverrideItem implements Item {
                 if (mConnectionSettings.getValue() == 1) {
                     return R.string.profile_action_enable;
                 } else {
-                    return R.string.profile_action_disabled;
+                    return R.string.profile_action_disable;
                 }
             } else {
                 return R.string.profile_action_none;

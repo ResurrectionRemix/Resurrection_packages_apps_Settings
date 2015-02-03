@@ -40,4 +40,12 @@
             android:summary="@string/stats_collection_summary"
             android:defaultValue="true" />
 
+        <Preference
+            android:key="whisperpush"
+            android:title="@string/whisperpush_title"
+            android:summary="@string/whisperpush_summary">
+            <intent android:targetPackage="org.whispersystems.whisperpush"
+                    android:targetClass="org.whispersystems.whisperpush.ui.PreferenceActivity" />
+        </Preference>
+
 </PreferenceScreen>
