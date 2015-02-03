@@ -349,9 +349,15 @@ public class Memory extends SettingsPreferenceFragment implements Indexable {
 
     private void doUnmount() {
         // Present a toast here
-        if (mStorageVolume != null && MediaFormat.isUsbStorage(mStorageVolume, getActivity())) {
-            Toast.makeText(getActivity(), R.string.usb_unmount_inform_text,
-                    Toast.LENGTH_SHORT).show();
+        if (mStorageVolume != null) {
+            // set the strings based on volume
+            if (MediaFormat.isUsbStorage(mStorageVolume, getActivity())) {
+                Toast.makeText(getActivity(), R.string.usb_unmount_inform_text,
+                        Toast.LENGTH_SHORT).show();
+            } else if (MediaFormat.isUiccStorage(mStorageVolume, getActivity())) {
+                Toast.makeText(getActivity(), R.string.uicc_unmount_inform_text,
+                        Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(getActivity(), R.string.unmount_inform_text, Toast.LENGTH_SHORT).show();
         }
