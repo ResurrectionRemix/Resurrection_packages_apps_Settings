@@ -16,7 +16,6 @@
 
 package com.android.settings.cyanogenmod;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
@@ -30,11 +29,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.internal.util.cm.NavigationRingConstants;
 
 public class NavRing extends Fragment implements View.OnClickListener {
     private LinearLayout mRestore, mSave, mEdit;
     private final static Intent TRIGGER_INTENT =
-            new Intent("android.intent.action.NAVBAR_RING_EDIT");
+            new Intent(NavigationRingConstants.BROADCAST);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,9 +55,26 @@ public class NavRing extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        setEditMode(false);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        setEditMode(false);
+    }
+
+    private void setEditMode(boolean on) {
+        TRIGGER_INTENT.putExtra(NavigationRingConstants.EDIT_STATE_EXTRA, on);
+        getActivity().sendBroadcast(TRIGGER_INTENT);
+    }
+
+    @Override
     public void onClick(View v) {
         if (v == mEdit) {
-            getActivity().sendBroadcast(TRIGGER_INTENT);
+            setEditMode(true);
         } else if (v == mRestore) {
             new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.profile_reset_title)
