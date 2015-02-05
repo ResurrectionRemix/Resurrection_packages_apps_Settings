@@ -108,16 +108,12 @@ public class CustomScreenColor extends Activity implements SeekBar.OnSeekBarChan
     private int mIntensityValue = 0;
     private int mContrastValue = 0;
 
-    private int mMinHueValue = 0;
     private int mMaxHueValue = 0;
     private int mDefaultHueValue = 0;
-    private int mMinSaturationValue = 0;
     private int mMaxSaturationValue = 0;
     private int mDefaultSaturationValue = 0;
-    private int mMinIntensityValue = 0;
     private int mMaxIntensityValue = 0;
     private int mDefaultIntensityValue = 0;
-    private int mMinContrastValue = 0;
     private int mMaxContrastValue = 0;
     private int mDefaultContrastValue = 0;
 
@@ -157,16 +153,12 @@ public class CustomScreenColor extends Activity implements SeekBar.OnSeekBarChan
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        mMinHueValue = getResources().getInteger(R.integer.minimum_hue_value);
         mMaxHueValue = getResources().getInteger(R.integer.maximum_hue_value);
         mDefaultHueValue = getResources().getInteger(R.integer.default_hue_value);
-        mMinSaturationValue = getResources().getInteger(R.integer.minimum_saturation_value);
         mMaxSaturationValue = getResources().getInteger(R.integer.maximum_saturation_value);
         mDefaultSaturationValue = getResources().getInteger(R.integer.default_saturation_value);
-        mMinIntensityValue = getResources().getInteger(R.integer.minimum_intensity_value);
         mMaxIntensityValue = getResources().getInteger(R.integer.maximum_intensity_value);
         mDefaultIntensityValue = getResources().getInteger(R.integer.default_intensity_value);
-        mMinContrastValue = getResources().getInteger(R.integer.minimum_contrast_value);
         mMaxContrastValue = getResources().getInteger(R.integer.maximum_contrast_value);
         mDefaultContrastValue = getResources().getInteger(R.integer.default_contrast_value);
 
@@ -197,13 +189,9 @@ public class CustomScreenColor extends Activity implements SeekBar.OnSeekBarChan
         mCBar.setOnSeekBarChangeListener(this);
 
         mHTv = (TextView) findViewById(R.id.hue);
-        mHTv.setText(getString(R.string.hue_str, mHBar.getProgress()));
         mSTv = (TextView) findViewById(R.id.saturation);
-        mSTv.setText(getString(R.string.saturation_str, mSBar.getProgress()));
         mITv = (TextView) findViewById(R.id.intensity);
-        mITv.setText(getString(R.string.intensity_str, mIBar.getProgress()));
         mCTv = (TextView) findViewById(R.id.contrast);
-        mCTv.setText(getString(R.string.contrast_str, mCBar.getProgress()));
 
         mReduceH = (ImageView) findViewById(R.id.reduce_hue);
         mReduceH.setOnClickListener(this);
@@ -351,28 +339,35 @@ public class CustomScreenColor extends Activity implements SeekBar.OnSeekBarChan
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         setNewBtnHighlight();
         int id = seekBar.getId();
+        int mid = 0;
+
         switch (id) {
             case R.id.hcontrol:
                 mHueValue = progress;
                 //The screen hue display value varies from -180 to 180.
-                mHTv.setText(getString(R.string.hue_str, progress - 180));
+                mid = mMaxHueValue / 2;
+                mHTv.setText(getString(R.string.hue_str, progress - mid));
                 break;
             case R.id.scontrol:
                 mSaturationValue = progress;
                 //Change the saturation display value varies from (-180, 180) to (-1.0, 1.0).
+                mid = mMaxSaturationValue / 2;
                 mSTv.setText(getString(R.string.saturation_str,
-                        ((int) (((progress - 180) * 100) / 180.0)) / 100.0));
+                        ((int) (((progress - mid) * 100) / mid))));
                 break;
             case R.id.ccontrol:
                 mContrastValue = progress;
                 //Change the contrast display value varies from (-180, 180) to (-1.0, 1.0).
+                mid = mMaxContrastValue / 2;
                 mCTv.setText(getString(R.string.contrast_str,
-                        ((int) (((progress - 180) * 100) / 180.0)) / 100.0));
+                        ((int) (((progress - mid) * 100) / mid))));
                 break;
             case R.id.icontrol:
                 mIntensityValue = progress;
-                //The screen intensity display value varies from -200 to 200.
-                mITv.setText(getString(R.string.intensity_str, progress - 200));
+                //Change the intensity display value varies from (-255, 255) to (-1.0, 1.0).
+                mid = mMaxIntensityValue / 2;
+                mITv.setText(getString(R.string.intensity_str,
+                        ((int) (((progress - mid) * 100) / mid))));
                 break;
             default:
                 break;
@@ -448,30 +443,30 @@ public class CustomScreenColor extends Activity implements SeekBar.OnSeekBarChan
                 showMoreMenus();
                 break;
             case R.id.reduce_hue:
-                mHBar.setProgress((mHueValue - 1 > mMinHueValue) ? (mHueValue - 1) : mMinHueValue);
+                mHBar.setProgress((mHueValue - 1 > 0) ? (mHueValue - 1) : 0);
                 break;
             case R.id.increase_hue:
                 mHBar.setProgress((mHueValue + 1 < mMaxHueValue) ? (mHueValue + 1) : mMaxHueValue);
                 break;
             case R.id.reduce_saturation:
-                mSBar.setProgress((mSaturationValue - 1 > mMinSaturationValue) ?
-                    (mSaturationValue - 1) : mMinSaturationValue);
+                mSBar.setProgress((mSaturationValue - 1 > 0) ?
+                    (mSaturationValue - 1) : 0);
                 break;
             case R.id.increase_saturation:
                 mSBar.setProgress((mSaturationValue + 1 < mMaxSaturationValue) ?
                     (mSaturationValue + 1) : mMaxSaturationValue);
                 break;
             case R.id.reduce_intensity:
-                mIBar.setProgress((mIntensityValue - 1 > mMinIntensityValue) ?
-                    (mIntensityValue - 1) : mMinIntensityValue);
+                mIBar.setProgress((mIntensityValue - 1 > 0) ?
+                    (mIntensityValue - 1) : 0);
                 break;
             case R.id.increase_intensity:
                 mIBar.setProgress((mIntensityValue + 1 < mMaxIntensityValue) ?
                     (mIntensityValue + 1) : mMaxIntensityValue);
                 break;
             case R.id.reduce_contrast:
-                mCBar.setProgress((mContrastValue - 1 > mMinContrastValue) ?
-                    (mContrastValue - 1) : mMinContrastValue);
+                mCBar.setProgress((mContrastValue - 1 > 0) ?
+                    (mContrastValue - 1) : 0);
                 break;
             case R.id.increase_contrast:
                 mCBar.setProgress((mContrastValue + 1 < mMaxContrastValue) ?
