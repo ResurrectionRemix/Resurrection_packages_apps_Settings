@@ -26,7 +26,6 @@ import android.widget.TextView;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SubSettings;
 
 public class ProfilesPreference extends CheckBoxPreference implements View.OnClickListener {
     private static final String TAG = ProfilesPreference.class.getSimpleName();
@@ -131,7 +130,7 @@ public class ProfilesPreference extends CheckBoxPreference implements View.OnCli
 
     // utility method used to start sub activity
     private void startProfileConfigActivity() {
-        SubSettings pa = (SubSettings) mFragment.getActivity();
+        SettingsActivity pa = (SettingsActivity) mFragment.getActivity();
         pa.startPreferencePanel(SetupActionsFragment.class.getCanonicalName(), mSettingsBundle,
                 R.string.profile_profile_manage, null, null, PROFILE_DETAILS);
     }
