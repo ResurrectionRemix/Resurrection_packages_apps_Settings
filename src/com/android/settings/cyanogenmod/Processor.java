@@ -85,13 +85,13 @@ public class Processor extends SettingsPreferenceFragment implements
                 mCurFrequencyPref.setSummary(toMHz(currentFrequency));
             }
             if (maxFrequency != null) {
-                mMinFrequencyPref.setValue(maxFrequency);
-                mMinFrequencyPref.setSummary(String.format(mMinFrequencyFormat,
+                mMaxFrequencyPref.setValue(maxFrequency);
+                mMaxFrequencyPref.setSummary(String.format(mMaxFrequencyFormat,
                     toMHz(maxFrequency)));
             }
             if (minFrequency != null) {
-                mMaxFrequencyPref.setValue(minFrequency);
-                mMaxFrequencyPref.setSummary(String.format(mMaxFrequencyFormat,
+                mMinFrequencyPref.setValue(minFrequency);
+                mMinFrequencyPref.setSummary(String.format(mMinFrequencyFormat,
                     toMHz(minFrequency)));
             }
             if (currentGovernor != null) {
