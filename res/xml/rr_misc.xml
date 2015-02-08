@@ -81,4 +81,20 @@
             android:dependency="show_clear_all_recents" />
 
     </PreferenceCategory>
+    
+     <PreferenceCategory
+        android:key="widgets"
+        android:title="@string/widgets_category" >
+          
+      <PreferenceScreen
+        android:key="lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.cyanogenmod.lockclock"
+            android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+        </PreferenceScreen>
+
+</PreferenceCategory>
+         
 </PreferenceScreen>
