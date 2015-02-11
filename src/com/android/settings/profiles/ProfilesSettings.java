@@ -30,9 +30,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 import android.support.v13.app.FragmentStatePagerAdapter;
-import android.util.Log;
-import android.view.Gravity;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -143,11 +140,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
 
         // check if we are enabled
         updateProfilesEnabledState();
-
-        // If running on a phone, remove padding around tabs
-        if (!Utils.isTablet(getActivity())) {
-            mContainer.setPadding(0, 0, 0, 0);
-        }
     }
 
     @Override
