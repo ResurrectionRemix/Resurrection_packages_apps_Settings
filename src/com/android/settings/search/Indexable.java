@@ -65,5 +65,10 @@ public interface Indexable {
          * @return a list of {@link SearchIndexableRaw} references. Can be null.
          */
         List<String> getNonIndexableKeys(Context context);
+
+        /**
+         * Prepare for indexing. Guaranteed to be called from the main thread.
+         */
+        void prepare();
     }
 }

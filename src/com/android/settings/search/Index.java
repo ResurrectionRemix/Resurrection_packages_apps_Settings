@@ -529,6 +529,18 @@ public class Index {
         synchronized (mDataToProcess) {
             final UpdateIndexTask task = new UpdateIndexTask();
             UpdateData copy = mDataToProcess.copy();
+            for (SearchIndexableData data : copy.dataToUpdate) {
+                if (data instanceof SearchIndexableResource) {
+                    SearchIndexableResource sir = (SearchIndexableResource) data;
+                    final Class<?> clazz = sir.className != null
+                            ? getIndexableClass(sir.className) : null;
+                    final Indexable.SearchIndexProvider provider = clazz != null
+                            ? getSearchIndexProvider(clazz) : null;
+                    if (provider != null) {
+                        provider.prepare();
+                    }
+                }
+            }
             task.execute(copy);
             mDataToProcess.clear();
         }
