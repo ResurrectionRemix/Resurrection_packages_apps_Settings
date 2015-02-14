@@ -62,10 +62,10 @@ public class RecentsSettings extends SettingsPreferenceFragment
 
         mRecentsClearAllLocation = (ListPreference) prefSet.findPreference(RECENTS_CLEAR_ALL_LOCATION);
         int location = Settings.System.getIntForUser(resolver,
-                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0, UserHandle.USER_CURRENT);
+                Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3, UserHandle.USER_CURRENT);
         mRecentsClearAllLocation.setValue(String.valueOf(location));
+        mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
-        updateRecentsLocation(location);
     }
 
     @Override
@@ -83,36 +83,12 @@ public class RecentsSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mRecentsClearAllLocation) {
             int location = Integer.valueOf((String) newValue);
+            int index = mRecentsClearAllLocation.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
-            updateRecentsLocation(location);
+            mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
             return true;
         }
         return false;
-    }
-
-    private void updateRecentsLocation(int value) {
-        ContentResolver resolver = getContentResolver();
-        Resources res = getResources();
-        int summary = -1;
-
-        Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, value);
-
-        if (value == 0) {
-            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
-            summary = R.string.recents_clear_all_location_top_right;
-        } else if (value == 1) {
-            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 1);
-            summary = R.string.recents_clear_all_location_top_left;
-        } else if (value == 2) {
-            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 2);
-            summary = R.string.recents_clear_all_location_bottom_right;
-        } else if (value == 3) {
-            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3);
-            summary = R.string.recents_clear_all_location_bottom_left;
-        }
-        if (mRecentsClearAllLocation != null && summary != -1) {
-            mRecentsClearAllLocation.setSummary(res.getString(summary));
-        }
     }
 }
