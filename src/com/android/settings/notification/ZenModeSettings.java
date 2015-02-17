@@ -83,11 +83,27 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
     private static final String KEY_AUTOMATION = "automation";
     private static final String KEY_ENTRY = "entry";
     private static final String KEY_CONDITION_PROVIDERS = "manage_condition_providers";
+    private static final String KEY_MUSIC_INTERRUPTIONS = "music_interruptions";
 
     private static final SettingPrefWithCallback PREF_ZEN_MODE = new SettingPrefWithCallback(
             SettingPref.TYPE_GLOBAL, KEY_ZEN_MODE, Global.ZEN_MODE, Global.ZEN_MODE_OFF,
             Global.ZEN_MODE_OFF, Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS,
             Global.ZEN_MODE_NO_INTERRUPTIONS) {
+        protected String getCaption(Resources res, int value) {
+            switch (value) {
+                case Global.ZEN_MODE_NO_INTERRUPTIONS:
+                    return res.getString(R.string.zen_mode_option_no_interruptions);
+                case Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS:
+                    return res.getString(R.string.zen_mode_option_important_interruptions);
+                default:
+                    return res.getString(R.string.zen_mode_option_off);
+            }
+        }
+    };
+
+    private static final SettingPrefWithCallback PREF_ZEN_MUSIC_NOTIFICATIONS =
+            new SettingPrefWithCallback(SettingPref.TYPE_GLOBAL, KEY_MUSIC_INTERRUPTIONS,
+                    Global.ZEN_DISABLE_DUCKING_DURING_MEDIA_PLAYBACK, 0, 1) {
         protected String getCaption(Resources res, int value) {
             switch (value) {
                 case Global.ZEN_MODE_NO_INTERRUPTIONS:
@@ -167,6 +183,8 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
         if (!Utils.isVoiceCapable(mContext)) {
             zenMode.setTitle(R.string.zen_mode_option_title_novoice);
         }
+
+        final Preference musicNotifications = PREF_ZEN_MUSIC_NOTIFICATIONS.init(this);
 
         final PreferenceCategory important =
                 (PreferenceCategory) root.findPreference(KEY_IMPORTANT);
