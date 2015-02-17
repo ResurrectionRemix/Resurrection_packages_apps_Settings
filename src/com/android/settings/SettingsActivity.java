@@ -1438,11 +1438,9 @@ public class SettingsActivity extends Activity
         super.onNewIntent(intent);
     }
     public static boolean showAdvancedPreferences(Context context) {
-        boolean defValue = context.getResources().getBoolean(
-                R.bool.config_default_advanced_mode_enabled) || !Build.TYPE.equals("user");
-
-        return context.getSharedPreferences(DeviceInfoSettings.PREFS_FILE, 0)
-                .getBoolean(DeviceInfoSettings.KEY_ADVANCED_MODE, defValue);
+        return android.provider.Settings.Secure.getInt(
+                context.getContentResolver(),
+                android.provider.Settings.Secure.ADVANCED_MODE, 1) == 1;
     }
 
 

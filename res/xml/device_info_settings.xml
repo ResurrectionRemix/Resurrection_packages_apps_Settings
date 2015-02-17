@@ -44,6 +44,11 @@
                     android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
         </PreferenceScreen>
 
+        <!-- Advanced mode -->
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="advanced_mode"
+            android:title="@string/advanced_mode_title"/>
+
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status" 
@@ -52,12 +57,6 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
-        
-        <!-- Advanced mode -->
-        <SwitchPreference
-                android:key="advanced_mode"
-                android:title="@string/advanced_mode_title"
-                android:summary="@string/advanced_mode_summary"/>
                 
         <!-- Legal Information -->
         <PreferenceScreen
