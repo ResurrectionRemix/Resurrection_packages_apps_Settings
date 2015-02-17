@@ -26,6 +26,9 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 

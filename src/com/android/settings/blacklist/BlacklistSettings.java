@@ -91,7 +91,7 @@ public class BlacklistSettings extends ListFragment
     @Override
     public View onCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.preference_blacklist, container, false);
+        return inflater.inflate(R.layout.preference_list_with_fab, container, false);
     }
 
     @Override

@@ -21,7 +21,9 @@ import android.app.AlertDialog;
 import android.app.ConnectionSettings;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.app.NotificationGroup;
 import android.app.Profile;
+import android.app.ProfileGroup;
 import android.app.ProfileManager;
 import android.app.RingModeSettings;
 import android.app.StreamSettings;
@@ -61,11 +63,13 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SubSettings;
 import com.android.settings.cyanogenmod.DeviceUtils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.profiles.actions.ItemListAdapter;
 import com.android.settings.profiles.actions.item.AirplaneModeItem;
+import com.android.settings.profiles.actions.item.AppGroupItem;
 import com.android.settings.profiles.actions.item.ConnectionOverrideItem;
 import com.android.settings.profiles.actions.item.Header;
 import com.android.settings.profiles.actions.item.Item;
@@ -202,6 +206,38 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         mItems.add(new RingModeItem(mProfile.getRingMode()));
         mItems.add(new AirplaneModeItem(mProfile.getAirplaneMode()));
         mItems.add(new LockModeItem(mProfile));
+
+        // app groups
+        if (SettingsActivity.showAdvancedPreferences(getActivity())) {
+            mItems.add(new Header(getString(R.string.profile_app_group_category_title)));
+
+            int groupsAdded = 0;
+            ProfileGroup[] profileGroups = mProfile.getProfileGroups();
+            if (profileGroups != null && profileGroups.length > 1) { // it will always have "other"
+                for (ProfileGroup profileGroup : profileGroups) {
+                    // only display profile group if there's a matching notification group
+                    // and don't' show the wildcard group
+                    if (mProfileManager.getNotificationGroup(profileGroup.getUuid()) != null
+                            && !mProfile.getDefaultGroup().getUuid().equals(
+                                profileGroup.getUuid())) {
+                        mItems.add(new AppGroupItem(mProfile, profileGroup));
+                        groupsAdded++;
+                    }
+                }
+                if (groupsAdded > 0) {
+                    // add "Other" at the end
+                    mItems.add(new AppGroupItem(mProfile, mProfile.getDefaultGroup()));
+                }
+            }
+            if (groupsAdded > 0) {
+                // add dummy "add/remove app groups" entry
+                mItems.add(new AppGroupItem());
+            } else {
+                // remove the header since there are no options
+                mItems.remove(mItems.get(mItems.size() - 1));
+            }
+        }
+
         mAdapter.notifyDataSetChanged();
     }
 
@@ -764,6 +800,37 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         alertDialog.show();
     }
 
+    private void requestActiveAppGroupsDialog() {
+        final NotificationGroup[] notificationGroups = mProfileManager.getNotificationGroups();
+
+        CharSequence[] items = new CharSequence[notificationGroups.length];
+        boolean[] checked = new boolean[notificationGroups.length];
+
+        for (int i = 0; i < notificationGroups.length; i++) {
+            items[i] = notificationGroups[i].getName();
+            checked[i] = mProfile.getProfileGroup(notificationGroups[i].getUuid()) != null;
+        }
+        DialogInterface.OnMultiChoiceClickListener listener =
+                new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                if (isChecked) {
+                    mProfile.addProfileGroup(new ProfileGroup(notificationGroups[which].getUuid(), false));
+                } else {
+                    mProfile.removeProfileGroup(notificationGroups[which].getUuid());
+                }
+                updateProfile();
+                rebuildItemList();
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                .setMultiChoiceItems(items, checked, listener)
+                .setTitle(R.string.profile_appgroups_title)
+                .setPositiveButton(R.string.ok, null);
+        builder.show();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -822,7 +889,22 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         } else if (itemAtPosition instanceof TriggerItem) {
             TriggerItem item = (TriggerItem) itemAtPosition;
             openTriggersFragment(item.getTriggerType());
+        } else if (itemAtPosition instanceof AppGroupItem) {
+            AppGroupItem item = (AppGroupItem) itemAtPosition;
+            if (item.getGroupUuid() == null) {
+                requestActiveAppGroupsDialog();
+            } else {
+                startProfileGroupActivity(item);
+            }
         }
+    }
+
+    private void startProfileGroupActivity(AppGroupItem item) {
+            Bundle args = new Bundle();
+        args.putString("ProfileGroup", item.getGroupUuid().toString());
+        args.putParcelable("Profile", mProfile);
+
+        startFragment(this, ProfileGroupConfig.class.getName(), 0, 0, args);
     }
 
     private void openTriggersFragment(int openTo) {
