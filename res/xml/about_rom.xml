@@ -8,7 +8,11 @@
  	<PreferenceCategory
 		android:key="links"
 		android:title="@string/rr"> 
-		              		
+        <!-- Change Log -->
+    <PreferenceScreen android:key="changelog"
+        android:title="@string/changelog_title"
+        android:summary="@string/changelog_title_summary"
+        android:fragment="com.android.settings.rr.ChangeLog" />		              		
         <!-- Share RR ROM -->
          <Preference
              android:key="share"
@@ -45,8 +49,7 @@
 			android:key="rr_donate"
 			android:title="@string/rr_donate"
 			android:summary="@string/rr_donate_summary" />
-			
-			
+                			
 </PreferenceCategory>
 				
 	<PreferenceCategory
