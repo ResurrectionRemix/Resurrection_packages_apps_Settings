@@ -97,12 +97,11 @@
                     android:summary="@string/doze_summary"
                     android:persistent="false" />
 
-            <!-- Ambient display timeout -->
-            <SlimSeekBarPreference
-                    android:key="doze_timeout"
-                    android:title="@string/doze_timeout_title"
-                    android:summary="@string/doze_timeout_summary"
-                    android:dependency="doze" />
+            <PreferenceScreen
+                android:fragment="com.android.settings.slim.fragments.DozeSettingsFragment"
+                android:key="advanced_doze_options"
+                android:title="@string/doze_settings_title"
+                android:dependency="doze" />
 
         </PreferenceCategory>
 
