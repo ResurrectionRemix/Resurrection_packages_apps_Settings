@@ -92,6 +92,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         implements AdapterView.OnItemClickListener {
 
     private static final int RINGTONE_REQUEST_CODE = 1000;
+    private static final int NEW_TRIGGER_REQUEST_CODE = 1001;
 
     private static final int MENU_REMOVE = Menu.FIRST;
     private static final int MENU_FILL_PROFILE = Menu.FIRST + 1;
@@ -529,6 +530,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == NEW_TRIGGER_REQUEST_CODE) {
+            mProfile = mProfileManager.getProfile(mProfile.getUuid());
+            rebuildItemList();
+        }
     }
 
     private void requestRingModeDialog(final RingModeSettings setting) {
@@ -826,6 +831,6 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
         SubSettings pa = (SubSettings) getActivity();
         pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
-                R.string.profile_profile_manage, null, null, 0);
+                R.string.profile_profile_manage, null, this, NEW_TRIGGER_REQUEST_CODE);
     }
 }
