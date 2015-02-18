@@ -67,6 +67,13 @@
                 android:title="@string/screensaver_settings_title"
                 android:fragment="com.android.settings.DreamSettings" />
 
+        <!-- LiveDisplay -->
+        <PreferenceScreen
+                android:key="live_display"
+                android:title="@string/live_display_title"
+                android:summary="@string/live_display_summary"
+                android:fragment="com.android.settings.livedisplay.LiveDisplay" />
+
         <SwitchPreference
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title"
@@ -128,43 +135,6 @@
                     android:title="@string/adaptive_backlight_title"
                     android:summary="@string/adaptive_backlight_summary"
                     android:defaultValue="true" />
-
-                <SwitchPreference
-                    android:key="sunlight_enhancement"
-                    android:title="@string/sunlight_enhancement_title"
-                    android:summary="@string/sunlight_enhancement_summary"
-                    android:defaultValue="true" />
-
-                <SwitchPreference
-                    android:key="color_enhancement"
-                    android:title="@string/color_enhancement_title"
-                    android:summary="@string/color_enhancement_summary"
-                    android:defaultValue="true" />
-
-                <com.android.settings.hardware.DisplayColor
-                    android:key="color_calibration"
-                    android:title="@string/color_calibration_title"
-                    android:dialogTitle="@string/color_calibration_title"
-                    android:summary="@string/color_calibration_summary"
-                    android:persistent="false" />
-
-                <com.android.settings.hardware.DisplayGamma
-                    android:key="gamma_tuning"
-                    android:title="@string/gamma_tuning_title_head"
-                    android:dialogTitle="@string/gamma_tuning_title_head"
-                    android:summary="@string/gamma_tuning_summary_head"
-                    android:persistent="false" />
         </PreferenceCategory>
-
-        <PreferenceScreen
-                android:persistent="false"
-                android:key="screencolor_settings"
-                android:title="@string/screencolor"
-                android:summary="@string/screencolor_summary">
-            <intent
-                android:action="com.qualcomm.display.PPService"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.ScreenColorSettings" />
-         </PreferenceScreen>
 
 </PreferenceScreen>

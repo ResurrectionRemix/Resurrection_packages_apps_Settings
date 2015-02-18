@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceCategory
+        android:key="live_display_options"
+        android:title="@string/live_display_title">
+
+        <ListPreference
+                android:key="live_display"
+                android:title="@string/live_display_mode"
+                android:persistent="false" />
+
+        <!-- Manual temperature selection -->
+        <com.android.settings.livedisplay.DisplayTemperature
+                android:key="live_display_color_temperature"
+                android:title="@string/live_display_color_temperature_title"
+                android:dialogTitle="@string/live_display_title"
+                android:persistent="false" />
+
+        <!-- Outdoor mode / SRE -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="live_display_auto_outdoor_mode"
+                android:title="@string/live_display_outdoor_mode_title"
+                android:summary="@string/live_display_outdoor_mode_summary"
+                android:defaultValue="true" />
+
+        <!-- Adaptive backlight -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="live_display_low_power"
+                android:title="@string/live_display_low_power_title"
+                android:summary="@string/live_display_low_power_summary"
+                android:defaultValue="true"
+                settings:advanced="true" />
+
+        <!-- Color enhancement -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="live_display_color_enhance"
+                android:title="@string/live_display_enhance_color_title"
+                android:summary="@string/live_display_enhance_color_summary"
+                android:defaultValue="true"
+                settings:advanced="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="calibration"
+            android:title="@string/category_calibration"
+            settings:advanced="true">
+
+        <!-- screen color -->
+        <PreferenceScreen
+                android:persistent="false"
+                android:key="screencolor_settings"
+                android:title="@string/screencolor"
+                android:summary="@string/screencolor_summary"
+                settings:advanced="true">
+            <intent
+                    android:action="com.qualcomm.display.PPService"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.ScreenColorSettings" />
+        </PreferenceScreen>
+
+        <com.android.settings.livedisplay.DisplayColor
+                android:key="color_calibration"
+                android:title="@string/color_calibration_title"
+                android:dialogTitle="@string/color_calibration_title"
+                android:summary="@string/color_calibration_summary"
+                android:persistent="false"
+                settings:advanced="true"/>
+
+        <com.android.settings.livedisplay.DisplayGamma
+                android:key="gamma_tuning"
+                android:title="@string/gamma_tuning_title_head"
+                android:dialogTitle="@string/gamma_tuning_title_head"
+                android:summary="@string/gamma_tuning_summary_head"
+                android:persistent="false"
+                settings:advanced="true"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
