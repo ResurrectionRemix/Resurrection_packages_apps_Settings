@@ -772,12 +772,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
                             TelephonyManager.MultiSimVariants.DSDS ||
                             TelephonyManager.getDefault().getMultiSimConfiguration() ==
                             TelephonyManager.MultiSimVariants.TSTS) {
-                        // only one of the SIMs can have Data enabled, so...
-                        if (SubscriptionManager.getDefaultDataPhoneId() == i) {
-                            mDataEnabledView.setVisibility(View.VISIBLE);
-                        } else {
                             mDataEnabledView.setVisibility(View.GONE);
-                        }
                     }
                     setPreferenceTitle(mDataEnabledView,
                             R.string.data_usage_enable_mobile);
@@ -1035,13 +1030,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         boolean dataEnabledVisible = mDataEnabledSupported;
         boolean disableAtLimitVisible = mDisableAtLimitSupported;
 
-        if (dataEnabledVisible &&
-            (TelephonyManager.getDefault().getMultiSimConfiguration()
-                == TelephonyManager.MultiSimVariants.DSDS
-            || TelephonyManager.getDefault().getMultiSimConfiguration()
-                == TelephonyManager.MultiSimVariants.TSTS) &&
-            (!mTabHost.getCurrentTabTag().equals(getSubTag(SubscriptionManager.getDefaultDataPhoneId()+1)))
-        ) {
+        if (dataEnabledVisible && TelephonyManager.getDefault().isMultiSimEnabled()) {
             dataEnabledVisible = false;
         }
 
