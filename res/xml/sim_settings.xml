@@ -20,6 +20,14 @@
             android:key="sim_enablers"
             android:title="@string/sim_settings_title"/>
 
+     <PreferenceCategory
+        android:key="sim_data_category"
+        android:title="@string/data_size_label">
+        <SwitchPreference
+            android:key="sim_data"
+            android:title="@string/toggleData" />
+    </PreferenceCategory>
+
     <PreferenceCategory
             android:key="sim_activities"
             android:title="@string/sim_pref_divider" >
