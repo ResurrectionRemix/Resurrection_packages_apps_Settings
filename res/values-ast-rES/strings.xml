@@ -724,7 +724,11 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="wifi_skipped_message" product="tablet">AVISU: Si omites la conexón Wi‑Fi, la tablet namái va usar datos móviles pa facer descargues y anovamientos iniciales. Conéutate al Wi‑Fi pa evitar posibles cargos de datos.</string>
   <string name="wifi_skipped_message" product="device">AVISU: Si omites la conexón Wi‑Fi, el preséu namái va usar datos móviles pa facer descargues y anovamientos iniciales. Conéutate al Wi‑Fi pa evitar posibles cargos de datos.</string>
   <string name="wifi_skipped_message" product="default">AVISU: Si omites la conexón Wi‑Fi, el smartphone namái va usar datos móviles pa facer descargues y anovamientos iniciales. Conéutate al Wi‑Fi pa evitar posibles cargos de datos.</string>
+  <string name="wifi_and_mobile_skipped_message" product="tablet">AVISU: Si omites la conexón Wi‑Fi, la tablet nun va tener conexón a Internet pa facer descargues nin anovamientos iniciales.</string>
+  <string name="wifi_and_mobile_skipped_message" product="device">AVISU: Si omites la conexón Wi‑Fi, el preséu nun va tener conexón a Internet pa facer descargues nin anovamientos iniciales.</string>
+  <string name="wifi_and_mobile_skipped_message" product="default">AVISU: Si omites la conexón Wi‑Fi, el tefnu nun va tener conexón a Internet pa facer descargues nin anovamientos iniciales.</string>
   <string name="wifi_connect_failed_message" product="tablet">La tablet nun pudo coneutase a esta rede Wi-Fi.</string>
+  <string name="wifi_connect_failed_message" product="device">El teléfonu nun pudo coneutase a esta rede Wi‑Fi.</string>
   <string name="wifi_connect_failed_message" product="default">El teléfonu nun pudo coneutase a esta rede Wi‑Fi.</string>
   <string name="wifi_saved_access_points_titlebar">Redes guardaes</string>
   <string name="wifi_advanced_titlebar">Axustes avanzaos de Wi-Fi</string>
@@ -763,11 +767,14 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="wifi_p2p_delete_group_message">¿Desaniciar esti grupu?</string>
   <string name="wifi_tether_checkbox_text">Zona Wi-Fi portátil</string>
   <string name="wifi_hotspot_checkbox_text">Puntu d\'accesu Wi\u2011Fi</string>
+  <string name="wifi_hotspot_checkbox_text_summary">Usar la conexón móvil pa ufrir rede Wii\u2011Fi</string>
   <string name="wifi_tether_starting">Activando zona Wi-Fi…</string>
   <string name="wifi_tether_stopping">Desactivando zona Wi-Fi…</string>
   <string name="wifi_tether_enabled_subtext">Zona Wi-Fi portátil <xliff:g id="NETWORK_SSID">%1$s</xliff:g> activa</string>
   <string name="wifi_tether_failed_subtext">Fallu de zona Wi-Fi portátil</string>
   <string name="wifi_tether_configure_ap_text">Configurar zona Wi-Fi</string>
+  <string name="wifi_hotspot_configure_ap_text">Configuración zona Wi‑Fi</string>
+  <string name="wifi_hotspot_configure_ap_text_summary">Zona Wi-Fi portátil AndroidAP WPA2 PSK</string>
   <string name="wifi_tether_configure_subtext">Zona Wi-Fi portátil de <xliff:g id="NETWORK_SSID">%1$s</xliff:g> de <xliff:g id="NETWORK_SECURITY">%2$s</xliff:g></string>
   <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>
   <string name="home_settings">Aniciu</string>
@@ -782,6 +789,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="incoming_call_volume_title">Tonu</string>
   <string name="notification_volume_title">Notificación</string>
   <string name="checkbox_notification_same_as_incoming_call">Usar volume de llamada entrante pa notificaciones</string>
+  <string name="home_work_profile_not_supported">Nun sofita perfiles de trabayu</string>
   <string name="notification_sound_dialog_title">Soníu de notificación predetermináu</string>
   <string name="media_volume_title">Multimedia</string>
   <string name="media_volume_summary">Afitar volume pa música y vídeos</string>
@@ -831,7 +839,9 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="brightness_title">Brillu</string>
   <string name="brightness_summary">Axustar el brillu de la pantalla</string>
   <string name="auto_brightness_title">Brillu adautativu</string>
+  <string name="auto_brightness_summary">Optimiza\'l nivel de rellumu pa la lluz disponible</string>
   <string name="screen_timeout">Suspender dempués de</string>
+  <string name="screen_timeout_title">La pantalla apágase</string>
   <string name="screen_timeout_summary"><xliff:g id="TIMEOUT_DESCRIPTION">%1$s</xliff:g> d\'inactividá</string>
   <string name="wallpaper_settings_title">Fondu de pantalla</string>
   <string name="wallpaper_settings_fragment_title">Esbilla una categoría</string>
@@ -846,6 +856,9 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="screensaver_settings_dream_start">Aniciar agora</string>
   <string name="screensaver_settings_button">Axustes</string>
   <string name="automatic_brightness">Brillu automáticu</string>
+  <string name="lift_to_wake_title">Llevantar el preséu p\'activalu</string>
+  <string name="doze_title">Pantalla ambiente</string>
+  <string name="doze_summary">Activa la pantalla si se garra\'l preséu o si aporta una notificación</string>
   <string name="title_font_size">Tamañu de fonte</string>
   <string name="dialog_title_font_size">Tamañu de fonte</string>
   <string name="sim_lock_settings">Axustes de bloquéu tarxeta SIM</string>
@@ -862,6 +875,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="sim_disable_sim_lock">Desbloquiar tarxeta SIM</string>
   <string name="sim_enter_old">PIN de tarxeta SIM antiguu</string>
   <string name="sim_enter_new">Nuevu PIN de tarxeta SIM</string>
+  <string name="sim_reenter_new">Volver a introducir PIN nuevu</string>
   <string name="sim_change_pin">PIN de tarxeta SIM</string>
   <string name="sim_bad_pin">PIN incorreutu</string>
   <string name="sim_pins_dont_match">Los númberos PIN nun concasen.</string>
@@ -870,6 +884,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="sim_lock_failed">Nun pue modificase l\'estáu de bloquéu de la tarxeta SIM.\nYe dable que\'l PIN nun seya correutu.</string>
   <string name="sim_enter_ok">Aceutar</string>
   <string name="sim_enter_cancel">Encaboxar</string>
+  <string name="sim_multi_sims_title">Atopáronse delles SIM</string>
   <string name="sim_multi_sims_summary">Escueyi la SIM que prefieres pa los datos móviles.</string>
   <string name="wrong_pin_code_pukked">Códigu PIN de la tarxeta SIM incorreutu. Tienes de contautar col operador pa desbloquiar el preséu.</string>
   <plurals name="wrong_pin_code">
@@ -1010,6 +1025,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="restore_default_apn">Restaurando la configuración de APN predeterminada</string>
   <string name="menu_restore">Reafitar configuración</string>
   <string name="restore_default_apn_completed">Reafitóse la configuración predeterminada de APN.</string>
+  <string name="device_reset_title">Resetiar preséu</string>
   <string name="master_clear_title">Reafitar datos de fábrica</string>
   <string name="master_clear_summary" product="tablet">Desanicia tolos datos de la tablet.</string>
   <string name="master_clear_summary" product="default">Desaniciar tolos datos del teléfonu</string>
@@ -1031,6 +1047,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="master_clear_gesture_explanation">Has dibuxar un patrón de desbloquéu pa confirmar que quies restablecer los datos de fábrica.</string>
   <string name="master_clear_failed">Nun se reanició\'l sistema porque\'l serviciu Desaniciar del sistema nun ta disponible.</string>
   <string name="master_clear_confirm_title">¿Restablecer?</string>
+  <string name="master_clear_not_available">El reaniciu de fábrica nun ta disponible pa esti usuariu</string>
   <string name="master_clear_progress_title">Desaniciando</string>
   <string name="master_clear_progress_text">Por favor espera...</string>
   <string name="media_format_title" product="nosdcard">Desaniciar almacenamientu USB</string>
@@ -1060,6 +1077,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="usb_tethering_active_subtext">Ancláu a rede</string>
   <string name="usb_tethering_storage_active_subtext">Nun pue facese l\'anclaxe a rede si l\'almacenamientu USB ta n\'usu</string>
   <string name="usb_tethering_unavailable_subtext">USB non coneutáu</string>
+  <string name="usb_tethering_turnon_subtext">Coneutar p\'activar</string>
   <string name="usb_tethering_errored_subtext">Fallu d\'anclaxe de USB</string>
   <string name="bluetooth_tether_checkbox_text">Anclaxe de Bluetooth</string>
   <string name="bluetooth_tethering_available_subtext" product="tablet">Compartiendo conexón a Internet de la tablet</string>
@@ -1068,6 +1086,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="bluetooth_tethering_device_connected_subtext" product="default">Compartiendo conexón a Internet del teléfonu con 1 preséu</string>
   <string name="bluetooth_tethering_devices_connected_subtext" product="tablet">Compartiendo conexón a Internet de la tablet con <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g> preseos</string>
   <string name="bluetooth_tethering_devices_connected_subtext" product="default">Compartiendo conexón a Internet con <xliff:g id="CONNECTEDDEVICECOUNT">%1$d</xliff:g> preseos</string>
+  <string name="bluetooth_tethering_off_subtext_config">Compartiendo la conexón a Internet de <xliff:g id="device_name">%1$d</xliff:g></string>
   <string name="bluetooth_tethering_off_subtext" product="tablet">Nun se comparte la conexón a Internet d\'esti tablet</string>
   <string name="bluetooth_tethering_off_subtext" product="default">Nun se comparte la conexón a Internet d\'esti teléfonu</string>
   <string name="bluetooth_tethering_errored_subtext">Non ancláu</string>
@@ -1080,6 +1099,10 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="sms_change_default_dialog_title" translatable="true">¿Camudar aplicación de SMS?</string>
   <string name="sms_change_default_dialog_text" translatable="true">Usar <xliff:g id="new_app">%1$s</xliff:g> en cuenta de <xliff:g id="current_app">%2$s</xliff:g> como aplicación de SMS?</string>
   <string name="sms_change_default_no_previous_dialog_text" translatable="true">¿Usar <xliff:g id="NEW_APP">%s</xliff:g> como aplicación de SMS?</string>
+  <string name="network_scorer_change_active_dialog_title">Camudar Encontu Wi\u2011Fi?</string>
+  <string name="network_scorer_change_active_dialog_text">¿Quies usar <xliff:g id="new_app">%1$s</xliff:g> en cuenta de <xliff:g id="current_app">%2$s</xliff:g> p\'alministrar conexones de rede?</string>
+  <string name="network_scorer_change_active_no_previous_dialog_text">¿Usar <xliff:g id="new_app">%s</xliff:g> p\'alministrar conexones de rede?</string>
+  <string name="mobile_unknown_sim_operator" translatable="true">Operador de SIM desconocíu</string>
   <string name="mobile_no_provisioning_url" translatable="true">%1$s nun tien nengún sitiu web d\'aprovisionamientu</string>
   <string name="mobile_insert_sim_card" translatable="true">Inxerta la tarxeta SIM y reanicia\'l preséu</string>
   <string name="mobile_connect_to_internet" translatable="true">Tienes de coneutate a Internet</string>
@@ -1122,6 +1145,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="license_title">Llicencia</string>
   <string name="terms_title">Términos y condiciones</string>
   <string name="wallpaper_attributions">Fondos de pantalla</string>
+  <string name="wallpaper_attributions_values">Fornidores d\'imáxenes de satélite:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
   <string name="settings_license_activity_title">Llicencies de códigu abiertu</string>
   <string name="settings_license_activity_unavailable">Hebo un fallu al intentar cargar les llicencies.</string>
   <string name="settings_license_activity_loading">Cargando…</string>
@@ -1163,6 +1187,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="lockpattern_settings_enable_visible_pattern_title">Amosar el patrón dibuxáu</string>
   <string name="lockpattern_settings_enable_tactile_feedback_title">Vibrar al tocar</string>
   <string name="lockpattern_settings_enable_power_button_instantly_locks">Bloquiar al prender</string>
+  <string name="lockpattern_settings_power_button_instantly_locks_summary">Sacante si <xliff:g id="TRUST_AGENT_NAME">%1$s</xliff:g> caltién el preséu desbloquiáu</string>
   <string name="lockpattern_settings_choose_lock_pattern">Patrón de desbloquéu</string>
   <string name="lockpattern_settings_change_lock_pattern">Camudar patrón desbloquéu</string>
   <string name="lockpattern_settings_help_how_to_record">Cómo crear un patrón de desbloquéu</string>
@@ -1175,6 +1200,8 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="applications_settings_summary">Alministrar aplicaciones y configurar accesos direutos d\'aniciu rápidu</string>
   <string name="applications_settings_header">Axustes d\'aplicación</string>
   <string name="install_applications">Fontes desconocíes</string>
+  <string name="install_applications_title">Permitir toles fontes d\'apps</string>
+  <string name="install_unknown_applications_title">Permítete instalar aplicaciones que nun sían de Google Play</string>
   <string name="install_unknown_applications">Permitir la instalación d\'aplicaciones d\'orixe desconocíu</string>
   <string name="install_all_warning" product="tablet">La tablet y los datos personales son más vulnerables a los ataques d\'aplicaciones d\'orixe desconocíu. L\'usuariu aceuta ser l\'únicu responsable de cualquier dañu na tablet o perda de datos que pueda derivase del usu d\'estes aplicaciones.</string>
   <string name="install_all_warning" product="default">El teléfonu y los datos personales son más vulnerables a los ataques d\'aplicaciones d\'orixe desconocíu. L\'usuariu aceuta ser l\'únicu responsable de cualquier dañu nel teléfonu o perda de datos que pueda derivase del usu d\'estes aplicaciones.</string>
@@ -1305,6 +1332,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="running_processes_item_description_p_s"><xliff:g id="NUMPROCESS">%1$d</xliff:g> procesos y <xliff:g id="NUMSERVICES">%2$d</xliff:g> serviciu</string>
   <string name="running_processes_item_description_p_p"><xliff:g id="NUMPROCESS">%1$d</xliff:g> procesos y <xliff:g id="NUMSERVICES">%2$d</xliff:g> servicios</string>
   <string name="running_processes_header_title">Memoria del preséu</string>
+  <string name="running_processes_header_footer">Usu de RAM de la app</string>
   <string name="running_processes_header_system_prefix">Sistema</string>
   <string name="running_processes_header_apps_prefix">Aplicaciones</string>
   <string name="running_processes_header_free_prefix">Llibre</string>
@@ -1415,6 +1443,8 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="enable_adb">Depuración USB</string>
   <string name="enable_adb_summary">Mou depuración cuando l\'USB tea coneutáu</string>
   <string name="clear_adb_keys">Revocar autorizaciones depur. USB</string>
+  <string name="bugreport_in_power">Accesu direutu a informe de fallos</string>
+  <string name="bugreport_in_power_summary">Amosar un botón nel menú d\'encendíu pa recopilar un informe de fallu</string>
   <string name="keep_screen_on">Pantalla activa</string>
   <string name="keep_screen_on_summary">La pantalla enxamás entra en mou de suspensión si\'l preséu se ta cargando</string>
   <string name="bt_hci_snoop_log">Rexistru de busca de HCI Bluetooth</string>
@@ -1422,9 +1452,18 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="oem_unlock_enable">Habilitar desbloquéu OEM</string>
   <string name="oem_unlock_enable_summary">Permite al preséu facer un desbloquéu d\'OEM</string>
   <string name="wifi_display_certification">Certificación de pantalla inalámbrica</string>
+  <string name="wifi_verbose_logging">Habilitar rexistru Wi-Fi detalláu</string>
+  <string name="wifi_aggressive_handover">Tresferencia total de Wi‑Fi a móvil</string>
+  <string name="wifi_allow_scan_with_traffic">Permitir siempre guetar redes Wi-Fi</string>
   <string name="wifi_display_certification_summary">Amosar opciones de certificación de pantalla inalámbrica</string>
+  <string name="wifi_verbose_logging_summary">Aumentar nivel rexistru sesión Wi-Fi, amosar por SSID RSSI en seleutor Wi-Fi</string>
+  <string name="wifi_aggressive_handover_summary">Si ta habilitada, la conexón Wi‑Fi va ser más agresiva al tresferir conexón de datos al móvil (si la señal Wi‑Fi nun ye estable)</string>
+  <string name="wifi_allow_scan_with_traffic_summary">Permitir/Nun permitir busques de Wi-Fi basaes na cantidá de tráficu de datos presente na interfaz</string>
+  <string name="select_logd_size_title">Tamaños de búfer de Logger</string>
+  <string name="select_logd_size_dialog_title">Elexir tamaños Logger/búfer rexistru</string>
   <string name="allow_mock_location">Llocalizaciones simulaes</string>
   <string name="allow_mock_location_summary">Permitir llocalizaciones simulaes</string>
+  <string name="debug_view_attributes">Habilitar inspeición d\'atributos de vista</string>
   <string name="adb_warning_title">¿Permitir depuración USB?</string>
   <string name="adb_warning_message">La depuración USB namái ta indicada p\'actividaes de desendolcu. Pues usala pa intercambiar datos ente l\'equipu y el preséu, pa instalar aplicaciones nel preséu ensin recibir notificaciones y pa lleer datos de rexistru.</string>
   <string name="adb_keys_warning_message">¿Quies revocar l\'accesu a la depuración USB de tolos equipos qu\'autorizares anteriormente?</string>
@@ -1458,11 +1497,13 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="testing_usage_stats">Estadístiques d\'usu</string>
   <string name="display_order_text">Ordenar por:</string>
   <string name="app_name_label">Aplicación</string>
+  <string name="last_time_used_label">Usáu per postrer vegada</string>
   <string name="usage_time_label">Tiempu d\'usu</string>
   <string name="accessibility_settings">Accesibilidá</string>
   <string name="accessibility_settings_title">Axustes d\'accesibilidá</string>
   <string name="accessibility_services_title">Servicios</string>
   <string name="accessibility_system_title">Sistema</string>
+  <string name="accessibility_display_title">Pantalla</string>
   <string name="accessibility_captioning_title">Subtítulos</string>
   <string name="accessibility_screen_magnification_title">Xestos d\'ampliación</string>
   <string name="accessibility_screen_magnification_summary">Cuando esta función ta activada, pues acercar y allonxar la imaxe tocando trés vegaes la pantalla.\n\nDarréu indíquense les aiciones que pues facer cola imaxe acercada.\n<ul><li>Desplazar la imaxe: arrastra dos o más deos pela pantalla.</li>\n<li>Modificar el nivel de zoom: xuni dos o más deos o sepártalos.</li></ul>\n\nTamién pues ampliar el conteníu esbilláu de mou temporal con tocando trés vegaes la pantalla y calteniéndola primida. Col conteníu ampliáu, pues arrastrar el deu pa esplorar diferentes partes de la pantalla. Llevanta\'l deu pa volver al estáu anterior.\n\nNota: pues tocar trés vegaes la pantalla p\'ampliar el conteníu en cualquier parte, sacantes nel tecláu y na barra de navegación.</string>
@@ -1471,20 +1512,29 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="accessibility_global_gesture_preference_summary_off">Non</string>
   <string name="accessibility_global_gesture_preference_description">Cuando esta función ta activada, pues habilitar les funciones d\'accesibilidá rápidamente en dos pasos.\n\nPasu 1: caltén primíu\'l botón d\'encendíu hasta que sientas un soníu o notes una vibración.\n\nPasu 2: caltén la pantalla primida con dos deos hasta que sientas una confirmación.\n\nSi hai dellos usuarios nel preséu, esti accesu direutu na pantalla de bloquéu permite habilitar l\'accesibilidá de mou temporal hasta que\'l preséu se desbloquie.</string>
   <string name="accessibility_toggle_large_text_preference_title">Testu grande</string>
+  <string name="accessibility_toggle_high_text_contrast_preference_title">Testu de contraste altu</string>
   <string name="accessibility_toggle_screen_magnification_preference_title">Ampliación de pantalla</string>
   <string name="accessibility_toggle_screen_magnification_auto_update_preference_title">Anovar ampliación automáticamente</string>
   <string name="accessibility_toggle_screen_magnification_auto_update_preference_summary">Anovar ampliación de la pantalla al camudar aplicaciones</string>
   <string name="accessibility_power_button_ends_call_prerefence_title">Botón encendíu cuelga</string>
   <string name="accessibility_toggle_speak_password_preference_title">Dicir contraseñes</string>
   <string name="accessibility_long_press_timeout_preference_title">Retrasu pulsación prollongada</string>
+  <string name="accessibility_display_inversion_preference_title">Inversión de color</string>
   <string name="accessibility_display_inversion_preference_subtitle">(Esperimental) Podría afeutar el rindimientu</string>
   <string name="accessibility_display_daltonizer_preference_title">Correición de color</string>
   <string name="accessibility_display_daltonizer_preference_subtitle">Esta carauterística ye esperimental y podría afeutar al rindimientu.</string>
   <string name="enable_quick_setting">Amosar nos axustes rápidos</string>
   <string name="daltonizer_type">Mou de correición</string>
+  <string name="daltonizer_type_overridden">Sobrescritu por <xliff:g id="title" example="Simulate color space">%1$s</xliff:g></string>
+  <string name="daltonizer_mode_disabled">Deshabilitáu</string>
+  <string name="daltonizer_mode_monochromacy">Monocromancia</string>
+  <string name="daltonizer_mode_deuteranomaly">Deuteronomalía (bermeyu-verde)</string>
+  <string name="daltonizer_mode_protanomaly">Protanomalía (bermeyu-verde)</string>
+  <string name="daltonizer_mode_tritanomaly">Tritanomalía (azul-mariellu)</string>
   <string name="accessibility_menu_item_settings">Axustes</string>
   <string name="accessibility_feature_state_on">Activáu</string>
   <string name="accessibility_feature_state_off">Desactiváu</string>
+  <string name="accessibility_feature_or_input_method_not_allowed">Non permitío pola to organiación</string>
   <string name="captioning_preview_title">Vista previa</string>
   <string name="captioning_standard_options_title">Opciones estándar</string>
   <string name="captioning_locale">Llingua</string>
@@ -1493,6 +1543,8 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="captioning_custom_options_title">Opciones personalizaes</string>
   <string name="captioning_background_color">Color de fondu</string>
   <string name="captioning_background_opacity">Opacidad del fondu</string>
+  <string name="captioning_window_color">Color de la ventana de sotítulos</string>
+  <string name="captioning_window_opacity">Opacidá de ventana de sotítulos</string>
   <string name="captioning_foreground_color">Color del testu</string>
   <string name="captioning_foreground_opacity">Opacidá del testu</string>
   <string name="captioning_edge_color">Color del berbesu</string>
@@ -1514,6 +1566,16 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="color_magenta">Maxenta</string>
   <string name="enable_service_title">¿Usar <xliff:g id="SERVICE">%1$s</xliff:g>?</string>
   <string name="capabilities_list_title"><xliff:g id="SERVICE">%1$s</xliff:g> necesita:</string>
+  <string name="enable_service_encryption_warning">Si actives <xliff:g id="service" example="TalkBack">%1$s</xliff:g>, el to preséu nun usará la pantalla de bloquéu p\'ameyorar
+        el cifráu de datos.</string>
+  <string name="secure_lock_encryption_warning">Activasti un serviciu d\'accesibilidá, polo que\'l preséu nun va
+        usar el bloquéu de pantalla p\'ameyorar el cifráu de datos</string>
+  <string name="enable_service_pattern_reason">Activar <xliff:g id="service" example="TalkBack">%1$s</xliff:g> afeuta al cifráu de datos. Poro, has de confirmar el patrón.
+    </string>
+  <string name="enable_service_pin_reason">Activar <xliff:g id="service" example="TalkBack">%1$s</xliff:g> afeuta al cifráu de datos. Poro, has de confirmar el PIN.
+    </string>
+  <string name="enable_service_password_reason">Activar <xliff:g id="service" example="TalkBack">%1$s</xliff:g> afeuta al cifráu de datos. Poro, has de confirmar la contraseña.
+    </string>
   <string name="capability_title_receiveAccessibilityEvents">Observar les aiciones</string>
   <string name="capability_desc_receiveAccessibilityEvents">Recibir notificaciones cuando interactúes con una aplicación.</string>
   <string name="disable_service_title">¿Detener <xliff:g id="SERVICE">%1$s</xliff:g>?</string>
@@ -1550,6 +1612,23 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="power_usage_summary_title">Batería</string>
   <string name="power_usage_summary">Consumu de la batería</string>
   <string name="power_usage_not_available">Los datos d\'usu de la batería nun tán disponibles</string>
+  <string name="power_usage_level_and_status"><xliff:g id="level">%1$s</xliff:g>
+            - <xliff:g id="status">%2$s</xliff:g></string>
+  <string name="power_discharge_remaining">falten <xliff:g id="remain">%1$s</xliff:g></string>
+  <string name="power_charge_remaining"><xliff:g id="until_charged">%1$s</xliff:g> pa cargar</string>
+  <string name="power_discharging_duration"><xliff:g id="level">%1$d</xliff:g>%%
+            - Queden <xliff:g id="time">%2$s</xliff:g> aproximadamente</string>
+  <string name="power_charging"><xliff:g id="level">%1$d</xliff:g>%% -
+            <xliff:g id="state">%2$s</xliff:g></string>
+  <string name="power_charging_duration"><xliff:g id="level">%1$d</xliff:g>%% -
+            <xliff:g id="time">%2$s</xliff:g> hasta enllenase</string>
+  <string name="power_charging_duration_ac"><xliff:g id="level">%1$d</xliff:g>%% -
+            <xliff:g id="time">%2$s</xliff:g> hasta carga completa</string>
+  <string name="power_charging_duration_usb"><xliff:g id="level">%1$d</xliff:g>%% -
+            <xliff:g id="time">%2$s</xliff:g> hasta carga completa per USB</string>
+  <string name="power_charging_duration_wireless"><xliff:g id="level">%1$d</xliff:g>%% -
+            <xliff:g id="time">%2$s</xliff:g> pa completar por Wifi</string>
+  <string name="power_usage_list_summary">Usu dende la postrer carga completa</string>
   <string name="battery_since_unplugged">Usu de la batería dende que se cargó</string>
   <string name="battery_since_reset">Usu de la batería dende que se restableció</string>
   <string name="battery_stats_on_battery"><xliff:g id="TIME">%1$s</xliff:g> usando batería</string>
@@ -1578,6 +1657,8 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="power_phone">Llamaes de voz</string>
   <string name="power_idle" product="tablet">Tablet inactivu</string>
   <string name="power_idle" product="default">Teléfonu inactivu</string>
+  <string name="power_unaccounted">Varios</string>
+  <string name="power_overcounted">Sobrecalculada</string>
   <string name="usage_type_cpu">Total de CPU</string>
   <string name="usage_type_cpu_foreground">Primer planu de la CPU</string>
   <string name="usage_type_wake_lock">Activu</string>
@@ -1585,10 +1666,18 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="usage_type_wifi_running">Wi‑Fi activáu</string>
   <string name="usage_type_phone" product="tablet">Tablet</string>
   <string name="usage_type_phone" product="default">Teléfonu</string>
+  <string name="usage_type_data_send">Paquetes móvil unviaos</string>
+  <string name="usage_type_data_recv">Paquetes móvil recibíos</string>
+  <string name="usage_type_radio_active">Radio móvil activada</string>
+  <string name="usage_type_data_wifi_send">Paquetes Wi\u2011Fi unviaos</string>
+  <string name="usage_type_data_wifi_recv">Paquetes Wi\u2011Fi recibíos</string>
   <string name="usage_type_audio">Audiu</string>
   <string name="usage_type_video">Videu</string>
   <string name="usage_type_on_time">Tiempu encendida</string>
   <string name="usage_type_no_coverage">Tiempu ensin señal</string>
+  <string name="usage_type_total_battery_capacity">Capacidá total de la batería</string>
+  <string name="usage_type_computed_power">Usu de batería calculáu</string>
+  <string name="usage_type_actual_power">Usu batería observáu</string>
   <string name="battery_action_stop">Forciar detención</string>
   <string name="battery_action_app_details">Información de l\'aplicación</string>
   <string name="battery_action_app_settings">Axustes d\'aplicación</string>
@@ -1600,6 +1689,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="battery_desc_standby" product="default">Batería usada cuando\'l teléfonu ta inactivu</string>
   <string name="battery_desc_radio">Batería usada pola señal móvil</string>
   <string name="battery_sugg_radio">Camudar a mou avión p\'aforrar batería en zones ensin cobertura.</string>
+  <string name="battery_desc_flashlight">Batería usada pol flax</string>
   <string name="battery_desc_display">Batería usada pola pantalla y pola retroilluminación</string>
   <string name="battery_sugg_display">Amenorga\'l brillu y el tiempu que ta encesa la pantalla.</string>
   <string name="battery_desc_wifi">Batería usada pola conexón Wi-Fi</string>
@@ -1612,6 +1702,13 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="battery_sugg_apps_gps">Esbilla\'l mou d\'aforru de batería</string>
   <string name="battery_sugg_apps_settings">Ye dable que l\'aplicación incluya opciones que permitan amenorgar l\'usu de la batería.</string>
   <string name="battery_desc_users">Batería usada pol usuariu</string>
+  <string name="battery_desc_unaccounted">Usu batería variáu</string>
+  <string name="battery_msg_unaccounted">L\'usu de batería ye un cálculu aproximáu
+        de consumu d\'enerxía que nun inclúi toles fontes de consumu de batería. L\'usu de batería
+        variáu ye la diferencia ente\'l consumu d\'enerxía aproximáu calculáu y el consumu
+        real de batería.</string>
+  <string name="battery_desc_overcounted">Usu de potencia sobrecalculáu</string>
+  <string name="mah"><xliff:g id="number" example="30">%d</xliff:g> mAh</string>
   <string name="menu_stats_unplugged"><xliff:g id="UNPLUGGED">%1$s</xliff:g> dende que se desenchufó</string>
   <string name="menu_stats_last_unplugged">Dende la cabera vegada que se desenchufó pa <xliff:g id="UNPLUGGED">%1$s</xliff:g></string>
   <string name="menu_stats_total">Total de consumu</string>
@@ -1619,7 +1716,9 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="process_kernel_label">Android OS</string>
   <string name="process_mediaserver_label">Sirvidor multimedia</string>
   <string name="battery_saver">Aforrador d\'enerxía</string>
+  <string name="battery_saver_turn_on_automatically_title">Activar automáticamente</string>
   <string name="battery_saver_turn_on_automatically_never">Enxamás</string>
+  <string name="battery_saver_turn_on_automatically_pct">con %1$d%% de batería</string>
   <string name="process_stats_summary_title">Estadístiques de procesos</string>
   <string name="process_stats_summary">Estadístiques téuniques sobre procesos n\'execución</string>
   <string name="app_memory_use">Usu de memoria</string>
@@ -1634,7 +1733,12 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="services_subtitle">Servicios</string>
   <string name="menu_proc_stats_duration">Duración</string>
   <string name="mem_details_title">Detalles de memoria</string>
+  <string name="mem_state_subtitle">Estaos de memoria</string>
+  <string name="mem_use_subtitle">Usu de memoria</string>
   <string name="mem_use_kernel_type">Kernel</string>
+  <string name="mem_use_native_type">Nativu</string>
+  <string name="mem_use_kernel_cache_type">Cachés del kernel</string>
+  <string name="mem_use_zram_type">intercambéu ZRam</string>
   <string name="mem_use_free_type">Llibre</string>
   <string name="mem_use_total">Total</string>
   <string name="menu_duration_3h">3 hores</string>
@@ -1655,6 +1759,12 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="voice_input_settings">Axustes d\'entrada de voz</string>
   <string name="voice_input_settings_title">Entrada de voz</string>
   <string name="voice_service_preference_section_title">Servicios d\'entrada de voz</string>
+  <string name="voice_interactor_preference_summary">Interaición y pallabra activa completa</string>
+  <string name="voice_recognizer_preference_summary">Síntesis de voz cenciella</string>
+  <string name="voice_interaction_security_warning">Esti serviciu d\'entrada de voz va poder
+        supervisar que la voz siempre tea activada y remanar les aplicaciones compatibles cola
+        entrada de voz en to nome. Remanez de l\'aplicación <xliff:g id="VOICE_INPUT_SERVICE_APP_NAME">%s</xliff:g>.
+        ¿Quies habilitar l\'usu d\'esti serviciu?</string>
   <string name="tts_settings">Configuración síntesis voz</string>
   <string name="tts_settings_title">Síntesis de voz</string>
   <string name="use_default_tts_settings_title">Usar siempre la mio configuración</string>
@@ -1761,6 +1871,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="backup_data_summary">Crear copia de seguranza de datos d\'aplicaciones, contraseñes Wi-Fi y otros axustes nos sirvidores de Google</string>
   <string name="backup_configure_account_title">Cuenta de copia de seguranza</string>
   <string name="backup_configure_account_default_summary">Nestos momentos, nun hai denguna cuenta almacenando datos con copia de seguranza</string>
+  <string name="include_app_data_title">Incluyir datos d\'aplicación</string>
   <string name="auto_restore_title">Restauración automática</string>
   <string name="auto_restore_summary">Cuando vuelvas a instalar una aplicación, restaurar la configuración y los datos incluyíos na copia</string>
   <string name="local_backup_password_title">Contraseña pa copies d\'ordenador</string>
@@ -1775,15 +1886,20 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="remove_device_admin">Desactivar</string>
   <string name="select_device_admin_msg">Alministradores de preseos</string>
   <string name="no_device_admins">Nun hai dengún alministrador de preseos disponible.</string>
+  <string name="managed_profile_device_admin_info">Pa evitar que <xliff:g id="APP_NAME">%1$s</xliff:g> acceda al to perfil de trabayu, desanicia\'l perfil n\'Axustes &gt; Cuentes</string>
   <string name="personal_device_admin_title">Personal</string>
   <string name="managed_device_admin_title">Trabayu</string>
+  <string name="no_trust_agents">Nun hai axentes de confianza disponibles</string>
   <string name="add_device_admin_msg">¿Activar alministrador de preseos?</string>
   <string name="add_device_admin">Activar</string>
   <string name="device_admin_add_title">Alministrador de preseos</string>
   <string name="device_admin_warning">Al activar esti alministrador, l\'aplicación <xliff:g id="APP_NAME">%1$s</xliff:g> va poder facer les siguientes operaciones:</string>
   <string name="device_admin_status">Esti alministrador ta activu y permite que l\'aplicación <xliff:g id="APP_NAME">%1$s</xliff:g> faiga les siguientes operaciones:</string>
+  <string name="profile_owner_add_title">¿Activar el xestor de perfiles?</string>
+  <string name="adding_profile_owner_warning">Siguiendo, el to usuariu xestionaráse pel to Alministrador que podría tamién atroxar datos asociaos, amás de los tos datos personales.\n\nEl to Alministrador tendrá l\'habilidá de monitorizar y xestionar axustes, accesos, aplicaciones, y datos asociaos con esti usuariu, incluyendo l\'actividá de rede y la información d\'allugamientu del to preséu.</string>
   <string name="untitled_apn">Ensin títulu</string>
   <string name="sound_category_sound_title">Xeneral</string>
+  <string name="notification_log_title">Rexistru de notificaciones</string>
   <string name="sound_category_call_ringtone_vibrate_title">Tonu de llamada y vibración</string>
   <string name="sound_category_system_title">Sistema</string>
   <string name="wifi_setup_title">Configuración de Wi-Fi</string>
@@ -1816,12 +1932,15 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="wifi_setup_description_connected">Toca \"<b>Siguiente"</b> pa continuar col procesu de configuración.\n\nToca \"<b>Atrás"</b> pa coneutate a otra rede Wi-Fi.</string>
   <string name="accessibility_sync_enabled">Sincronización habilitada</string>
   <string name="accessibility_sync_disabled">Sincronización inhabilitada</string>
+  <string name="accessibility_sync_in_progress">Sincronizando agora</string>
   <string name="accessibility_sync_error">Fallu de sincronización</string>
   <string name="sync_failed">Fallu de sincronización</string>
   <string name="sync_active">Sincronización activa</string>
   <string name="account_sync_settings_title">Sincronización</string>
   <string name="sync_is_failing">Nesti momentu hai incidencies cola sincronización. Va restablecese aína.</string>
   <string name="add_account_label">Amestar cuenta</string>
+  <string name="managed_profile_not_available_label">El perfil de trabayu entá nun ta disponible</string>
+  <string name="remove_managed_profile_label">Desaniciar perfil de trabayu</string>
   <string name="background_data">Conexones automátiques</string>
   <string name="background_data_summary">Les aplicaciones puen sincronizar datos, unvialos y recibilos.</string>
   <string name="background_data_dialog_title">¿Inhabilitar conexones automátiques?</string>
@@ -1852,12 +1971,16 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="really_remove_account_title">¿Desaniciar cuenta?</string>
   <string name="really_remove_account_message" product="tablet">Si desanicies esta cuenta, van desaniciase tolos mensaxes, contautos y otros datos de la tablet.</string>
   <string name="really_remove_account_message" product="default">Si desanicies esta cuenta, van desaniciase tolos mensaxes, contautos y otros datos del teléfonu.</string>
+  <string name="remove_account_failed">Esti cambéu nun ta permitíu pol to alministrador</string>
   <string name="provider_label">Unviar soscripciones</string>
   <string name="sync_item_title"><xliff:g id="authority" example="Calendar">%s</xliff:g></string>
   <string name="cant_sync_dialog_title">Nun pue facer la sincronización de mou manual.</string>
   <string name="cant_sync_dialog_message">La sincronización d\'esti elementu nun ta disponible nesti momentu. Pa modificar la preferencia, activa temporalmente les conexones automátiques y la sincronización automática.</string>
   <string name="wimax_settings">4G</string>
   <string name="status_wimax_mac_address">Direición MAC 4G</string>
+  <string name="enter_password">P\'aniciar Android, introduz la to contraseña</string>
+  <string name="enter_pin">P\'aniciar Android, introduz el to PIN</string>
+  <string name="enter_pattern">P\'aniciar Android, dibuxa\'l to patrón</string>
   <string name="try_again">Inténtalo de nueves.</string>
   <string name="delete">Desaniciar</string>
   <string name="misc_files">Archivos variaos</string>
@@ -1877,6 +2000,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="debug_input_category">Entrada</string>
   <string name="debug_drawing_category">Dibuxu</string>
   <string name="debug_hw_drawing_category">Renderización acelerada por hardware</string>
+  <string name="media_category">Multimedia</string>
   <string name="debug_monitoring_category">Supervisión</string>
   <string name="strict_mode">Mou estrictu</string>
   <string name="strict_mode_summary">Rellumar si les aplicaciones tarden muncho nel procesu principal</string>
@@ -1893,7 +2017,12 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="debug_hw_overdraw">Depurar sobredibuxos de GPU</string>
   <string name="disable_overlays">Inhabilitar superposiciones HW</string>
   <string name="disable_overlays_summary">Usar siempre GPU pa combinar pantalles</string>
+  <string name="simulate_color_space">Simular espaciu de color</string>
   <string name="enable_opengl_traces_title">Habilitar siguimientu OpenGL</string>
+  <string name="use_nuplayer">Usar NuPlayer (esperimental)</string>
+  <string name="use_nuplayer_summary">Usa NuPlayer en cuantes d\'AwesomePlayer</string>
+  <string name="usb_audio_disable_routing">Deshabilitar enrutamientu d\'audiu USB</string>
+  <string name="usb_audio_disable_routing_summary">Deshabilita l\'enrutamientu pa periféricos d\'audiu USB</string>
   <string name="debug_layout">Amosar llendes de diseñu</string>
   <string name="debug_layout_summary">Amosar llendes de videu, márxenes, etc.</string>
   <string name="force_rtl_layout_all_locales">Forciar direición diseñu RTL</string>
@@ -1917,23 +2046,36 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="show_all_anrs">Fallos ensin rempuesta</string>
   <string name="show_all_anrs_summary">Informar de qu\'una aplicación en segundu planu nun respuende</string>
   <string name="data_usage_summary_title">Usu de datos</string>
+  <string name="data_usage_app_summary_title">Usu de datos d\'aplicación</string>
+  <string name="data_usage_accounting">Los datos del to fornidor podríen diferir del to preséu.</string>
+  <string name="data_usage_app">Usu d\'aplicación</string>
+  <string name="data_usage_app_info_label">INFORMACIÓN D\'APLICACIÓN</string>
+  <string name="data_usage_cellular_data">Conexón de datos</string>
+  <string name="data_usage_data_limit">Afitar llende de datos</string>
   <string name="data_usage_cycle">Ciclu d\'usu</string>
+  <string name="data_usage_app_items_header_text">Usu d\'aplicación</string>
   <string name="data_usage_menu_roaming">Itinerancia de datos</string>
   <string name="data_usage_menu_restrict_background">Restrinxir conexones automátiques</string>
+  <string name="data_usage_menu_allow_background">Permitir datos de fondu</string>
   <string name="data_usage_menu_split_4g">Dividir usu de 4G</string>
   <string name="data_usage_menu_show_wifi">Amosar Wi\u2011Fi</string>
   <string name="data_usage_menu_hide_wifi">Anubrir Wi\u2011Fi</string>
   <string name="data_usage_menu_show_ethernet">Amosar usu d\'Ethernet</string>
+  <string name="data_usage_menu_hide_ethernet">Anubrir usu d\'ethernet</string>
+  <string name="data_usage_menu_metered">Restrinciones de redes</string>
   <string name="data_usage_menu_auto_sync">Sincronización automática</string>
   <string name="data_usage_menu_sim_cards">Tarxetes SIM</string>
   <string name="data_usage_menu_cellular_networks">Redes móviles</string>
   <string name="account_settings_menu_auto_sync">Sincronización automática</string>
+  <string name="account_settings_menu_auto_sync_personal">Auto-sinc datos personales</string>
+  <string name="account_settings_menu_auto_sync_work">Auto-sinc datos de trabayu</string>
   <string name="data_usage_change_cycle">Camudar ciclu…</string>
   <string name="data_usage_pick_cycle_day">Día del mes pa restablecer ciclu d\'usu de datos:</string>
   <string name="data_usage_empty">Nenguna aplicación usó datos nesti periodu.</string>
   <string name="data_usage_label_foreground">Primer planu</string>
   <string name="data_usage_label_background">Segundo planu</string>
   <string name="data_usage_app_restricted">con restricción</string>
+  <string name="data_usage_disable_mobile">¿Apagar datos móviles?</string>
   <string name="data_usage_disable_mobile_limit">Llendar datos móviles</string>
   <string name="data_usage_disable_4g_limit">Llendar datos 4G</string>
   <string name="data_usage_disable_3g_limit">Llendar datos 2G-3G</string>
@@ -1951,11 +2093,15 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="data_usage_forground_label">En primer planu:</string>
   <string name="data_usage_background_label">En segundu planu:</string>
   <string name="data_usage_app_settings">Axustes d\'aplicación</string>
+  <string name="data_usage_app_restrict_background">Restrinxir datos d\'apps de fondu</string>
+  <string name="data_usage_app_restrict_background_summary">Deshabilita los datos de fondu en redes móviles.</string>
   <string name="data_usage_app_restrict_background_summary_disabled">Pa restrinxir les conexones automátiques, afita una llende de datos móviles.</string>
   <string name="data_usage_app_restrict_dialog_title">¿Restrinxir conexones automátiques?</string>
   <string name="data_usage_app_restrict_dialog">Esta función pue facer que dexe de funcionar una aplicación que tenga que usar conexones automátiques cuando namái esistan redes móviles disponibles.\n\nPues alcontrar controles d\'usu de datos más afayadizos nes opciones de configuración disponibles na aplicación.</string>
   <string name="data_usage_restrict_denied_dialog">Namái pues restrinxir les conexones automátiques si afites una llende de datos móviles.</string>
   <string name="data_usage_auto_sync_on_dialog_title">¿Activar sincronización automática?</string>
+  <string name="data_usage_auto_sync_on_dialog" product="tablet">Cualesquier cambéu que faigas a les tos cuentes na web van copiase automáticamente a la to tableta. .\n\nDalgunes cuentes podríen tamién copiar cualesquier cambéu que faigas automáticamente dende la tableta a la web. Una cuenta de Google furrula d\'esti mou.</string>
+  <string name="data_usage_auto_sync_on_dialog" product="default">Cualesquier cambéu que faigas a les tos cuentes na web van copiase automáticamente al to teléfonu. .\n\nDalgunes cuentes podríen tamién copiar cualesquier cambéu que faigas automáticamente dende\'l teléfonu a la web. Una cuenta de Google furrula d\'esti mou.</string>
   <string name="data_usage_auto_sync_off_dialog_title">¿Desactivar sincronización automática?</string>
   <string name="data_usage_auto_sync_off_dialog">Esto permite aforrar datos y batería, pero vas tener de sincronizar cada cuenta de mou manual pa recopilar información recién y nun vas recibir notificaciones cuando esistan anovamientos.</string>
   <string name="data_usage_cycle_editor_title">Esbilla\'l día nel que va entamar cada ciclu</string>
@@ -1964,6 +2110,8 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="data_usage_warning_editor_title">Afitar avisu d\'usu de datos</string>
   <string name="data_usage_limit_editor_title">Llendar usu de datos</string>
   <string name="data_usage_limit_dialog_title">Llendar usu de datos</string>
+  <string name="data_usage_limit_dialog_mobile" product="tablet">La to tableta va apagar los datos móviles cuando algame la llende qu\'afitasti.\n\nYá que\'l usu de datos mídese pela to tableta, y el to fornidor podría tener unos datos distintos, considera axustar una llende conservadora.</string>
+  <string name="data_usage_limit_dialog_mobile" product="default">El to móvil va apagar los datos móviles cuando algame la llende qu\'afitasti.\n\nYá que\'l usu de datos mídese pel to móvil, y el to fornidor podría tener unos datos distintos, considera axustar una llende conservadora.</string>
   <string name="data_usage_restrict_background_title">¿Restrinxir conexones automátiques?</string>
   <string name="data_usage_restrict_background">Si restrinxes les conexones automátiques, dalgunes aplicaciones y dalgunos servicios nun van funcionar ensin conexón Wi-Fi.</string>
   <string name="data_usage_restrict_background_multiuser" product="tablet">Si restrinxes les conexones automátiques, dalgunes aplicaciones y dalgunos servicios nun van funcionar ensin conexón Wi-Fi.\n\nEsta configuración afeuta a tolos usuarios de la tablet.</string>
@@ -1976,7 +2124,12 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="data_usage_total_during_range"><xliff:g id="RANGE">%2$s</xliff:g>: unos <xliff:g id="TOTAL">%1$s</xliff:g> usaos</string>
   <string name="data_usage_total_during_range_mobile" product="tablet"><xliff:g id="RANGE">%2$s</xliff:g>: unos <xliff:g id="TOTAL">%1$s</xliff:g> usaos (según el cálculu de la tablet). El cálculu del usu de datos del operador pue variar.</string>
   <string name="data_usage_total_during_range_mobile" product="default"><xliff:g id="RANGE">%2$s</xliff:g>: unos <xliff:g id="TOTAL">%1$s</xliff:g> usaos (según el cálculu del teléfonu). El cálculu del usu de datos del operador pue variar.</string>
+  <string name="data_usage_metered_title">Restricciones de rede</string>
+  <string name="data_usage_metered_body">Les redes d\'usu midíu trátense como redes móviles cuando se restrinxen les conexones automátiques. Les aplicaciones puen amosar una avisu enantes d\'usar estes redes.</string>
   <string name="data_usage_metered_mobile">Redes móviles</string>
+  <string name="data_usage_metered_wifi">Redes Wi‑Fi d\'usu midíu</string>
+  <string name="data_usage_metered_wifi_disabled">Pa seleicionar redes d\'usu midíu, coneuta la Wi\u2011Fi</string>
+  <string name="data_usage_disclaimer">Los datos del to fornidor podríen diferir del to preséu.</string>
   <string name="cryptkeeper_emergency_call">Llamada d\'emerxencia</string>
   <string name="cryptkeeper_return_to_call">Volver a llamada</string>
   <string name="vpn_name">Nome</string>
@@ -2048,6 +2201,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="user_set_lock_button">Afitar bloquéu</string>
   <string name="user_summary_not_set_up">Ensin configurar</string>
   <string name="user_summary_restricted_not_set_up">Nun se configuró: perfil llendáu</string>
+  <string name="user_summary_managed_profile_not_set_up">Ensin configurar - Perfil de trabayu</string>
   <string name="user_owner">Propietariu</string>
   <string name="user_you">Tu (<xliff:g id="NAME">%s</xliff:g>)</string>
   <string name="user_nickname">Nomatu</string>
@@ -2057,6 +2211,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="user_add_user_item_title">Usuariu</string>
   <string name="user_add_profile_item_title">Perfil llendáu</string>
   <string name="user_add_user_title">Amestar usuariu nuevu?</string>
+  <string name="user_add_user_message_long">Pues crear usuarios adicionales pa compartir esti preséu con otros usuarios. Cada usuariu tien el so propiu espaciu y pue personalizalu coles sos aplicaciones, fondos de pantalla, etc. Los usuarios tamién puen modificar opciones de configuración del preséu, como la conexón Wi‑Fi, qu\'afeuten a tolos usuarios.\n\nAl amestar un usuariu nuevu, este tien de configurar el so espaciu.\n\nCualesquier usuariu pue anovar les aplicaciones del restu d\'usuarios.</string>
   <string name="user_add_user_message_short">Cuando amiestes un usuariu nuevu, esa persona necesita configurar el so espaciu.\n\nCualesquier usuariu pue anovar les aplicaciones pa tolos otros usuarios. </string>
   <string name="user_setup_dialog_title">¿Configurar usuariu agora?</string>
   <string name="user_setup_dialog_message">Comprueba que l\'usuariu tien accesu al preséu y pue configurar el so espaciu</string>
@@ -2067,6 +2222,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="user_cannot_manage_message" product="default">Namái el propietariu del teléfonu pue alministrar los usuarios.</string>
   <string name="user_cannot_add_accounts_message">Los perfiles restrinxíos nun puen amestar cuentes</string>
   <string name="user_remove_user_menu">Desaniciar a <xliff:g id="USER_NAME">%1$s</xliff:g> d\'esti preséu</string>
+  <string name="user_add_on_lockscreen_menu">Amestar usuarios preséu bloq</string>
   <string name="user_new_user_name">Usuariu nuevu</string>
   <string name="user_new_profile_name">Perfil nuevu</string>
   <string name="user_confirm_remove_self_title">¿Desaniciate a ti mesmu?</string>
@@ -2084,6 +2240,15 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="user_guest">Convidáu</string>
   <string name="user_exit_guest_title">Desaniciar convidáu</string>
   <string name="user_exit_guest_confirm_title">Desaniciar convidáu?</string>
+  <string name="user_exit_guest_confirm_message">Van desaniciase toles apps y datos nesta sesión.</string>
+  <string name="user_exit_guest_dialog_remove">Desaniciar</string>
+  <string name="user_enable_calling">Permitir llamaes de teléfonu</string>
+  <string name="user_enable_calling_sms">Permitir llamaes de teléfonu y SMS</string>
+  <string name="user_remove_user">Desaniciar usuariu</string>
+  <string name="user_enable_calling_confirm_title">¿Permitir llamaes de teléfonu?</string>
+  <string name="user_enable_calling_confirm_message">L\'historial de llamaes va compartise con esti usuariu</string>
+  <string name="user_enable_calling_sms_confirm_title">¿Permitir llamaes de teléfonu y SMS?</string>
+  <string name="user_enable_calling_sms_confirm_message">L\'historial de llamaes y SMS va compartise con esti usuariu.</string>
   <string name="application_restrictions">Permitir aplicaciones y conteníu</string>
   <string name="apps_with_restrictions_header">Aplicaciones con restricciones</string>
   <string name="apps_with_restrictions_settings_button">Ampliar axustes d\'aplicación</string>
@@ -2096,6 +2261,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="nfc_payment_settings_title">Tocar y pagar</string>
   <string name="google_wallet">Google Wallet</string>
   <string name="nfc_payment_no_apps">Paga con dar un toque namái</string>
+  <string name="nfc_payment_favor_foreground">Favorecer aplicación en primer planu</string>
   <string name="nfc_payment_learn_more">Más información</string>
   <string name="nfc_more_title">Más...</string>
   <string name="nfc_payment_menu_item_add_service">Guetar aplicaciones</string>
@@ -2106,13 +2272,29 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="restriction_menu_reset">Desaniciar restricciones</string>
   <string name="restriction_menu_change_pin">Camudar PIN</string>
   <string name="app_notifications_switch_label">Amosar notificaciones</string>
+  <string name="help_label">Ayuda &amp; comentarios</string>
   <string name="user_account_title">Cuenta pa conteníu</string>
   <string name="user_picture_title">ID de semeya</string>
+  <string name="extreme_threats_title">Amenaces graves</string>
+  <string name="extreme_threats_summary">Recibe alertes d\'amenaces graves escontra la vida y propiedá</string>
+  <string name="severe_threats_title">Amenaces severes</string>
+  <string name="severe_threats_summary">Recibe alertes d\'amenaces severes escontra la vida/propiedá</string>
+  <string name="amber_alerts_title">Alertes AMBER</string>
+  <string name="amber_alerts_summary">Recibir boletines tocante a secuestros de menores</string>
   <string name="repeat_title">Repitir</string>
+  <string name="call_manager_enable_title">Habilitar l\'alministrador de llamaes</string>
+  <string name="call_manager_enable_summary">Permite qu\'esti serviciu xestione\'l mou de facer llamaes.</string>
+  <string name="call_manager_title">Alministrador de llamaes</string>
+  <string name="call_manager_summary"><xliff:g id="app">%1$s</xliff:g></string>
+  <string name="cell_broadcast_settings">Difusión d\'emerxencia</string>
+  <string name="network_operators_settings">Operadores de rede</string>
+  <string name="access_point_names">Nomes de puntu d\'accesu</string>
   <string name="enhanced_4g_lte_mode_title">Mou 4G LTE ameyoráu</string>
+  <string name="enhanced_4g_lte_mode_summary">Usar datos LTE p\'ameyorar la voz y les comunicaciones (recomiéndase)</string>
   <string name="preferred_network_type_title">Triba de rede preferida</string>
   <string name="preferred_network_type_summary">LTE (recomendáu)</string>
   <string name="work_sim_title">SIM trabayu</string>
+  <string name="user_restrictions_title">Accesu a conteníos y aplicaciones</string>
   <string name="user_rename">CAMUDAR NOME</string>
   <string name="app_restrictions_custom_label">Definir restricciones d\'aplicación</string>
   <string name="user_restrictions_controlled_by">Remanaes por <xliff:g id="APP">%1$s</xliff:g></string>
@@ -2123,6 +2305,7 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="restriction_bluetooth_config_title">Bluetooth</string>
   <string name="restriction_bluetooth_config_summary">Permitir modificar los axustes y los enllaces de Bluetooth</string>
   <string name="restriction_nfc_enable_title">NFC</string>
+  <string name="restriction_nfc_enable_summary_config">Permitir l\'intercambéu de datos cuando <xliff:g id="DEVICE_NAME">%1$s</xliff:g> toque otru preséu NFC</string>
   <string name="restriction_nfc_enable_summary" product="tablet">Permitir intercambéu de datos cuando la tablet toque otru preséu</string>
   <string name="restriction_nfc_enable_summary" product="default">Permitir intercambéu de datos cuando\'l teléfonu toque otru preséu</string>
   <string name="restriction_location_enable_title">Llocalización</string>
@@ -2136,18 +2319,33 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="sim_setup_wizard_title">Tarxetes SIM</string>
   <string name="sim_settings_title">Tarxetes SIM</string>
   <string name="sim_settings_summary"><xliff:g id="sim_name">%1$s</xliff:g> - <xliff:g id="sim_number">%2$s</xliff:g></string>
+  <string name="sim_cards_changed_message">Les tarxetes SIM cambiaron</string>
+  <string name="sim_cards_changed_message_summary">Toca p\'afitar actividaes</string>
+  <string name="sim_cellular_data_unavailable">Datos móviles non disponibles</string>
+  <string name="sim_cellular_data_unavailable_summary">Toca pa esbillar una SIM de datos</string>
+  <string name="sim_calls_always_use">Usar siempre esta pa llamaes</string>
   <string name="sim_select_card">Seleicionar una tarxeta SIM</string>
   <string name="sim_card_number_title">SIM <xliff:g id="card_number">%1$d</xliff:g></string>
+  <string name="sim_slot_empty">SIM balera</string>
   <string name="sim_editor_name">Nome de la SIM</string>
   <string name="sim_editor_title">Tarxeta SIM</string>
   <string name="sim_editor_carrier">Operadora móvil</string>
   <string name="sim_editor_number">Númberu</string>
+  <string name="sim_editor_color">Color de SIM</string>
+  <string name="sim_editor_num_format">Amosar númberos</string>
   <string name="sim_card_select_title">Seleicionar tarxeta SIM</string>
   <string name="color_orange">Naranxa</string>
   <string name="color_purple">Moráu</string>
   <string name="sim_no_inserted_msg">Nun hai tarxetes SIM inxertaes</string>
   <string name="sim_status_title">Estáu SIM</string>
+  <string name="sim_status_summary">Información rellacionada cola tarxeta SIM</string>
+  <string name="sim_call_back_title">Volver a llamar dende tarxeta SIM predefinida</string>
+  <string name="sim_outgoing_call_title">SIM pa facer llamaes</string>
   <string name="sim_other_call_settings">Otres opciones de llamada</string>
+  <string name="preferred_network_offload_title">Descarga de rede preferida</string>
+  <string name="preferred_network_offload_header">Inhab. emisión nome de rede</string>
+  <string name="preferred_network_offload_footer">Si nun emites el nome de rede, los usuarios esternos nun van poder acceder a la información de rede.</string>
+  <string name="preferred_network_offload_popup">Si nun emites el nome de rede, les conexones automátiques nun van poder anubrir les redes.</string>
   <string name="sim_pref_divider">Actividaes</string>
   <string name="sim_calls_ask_first_prefs_title">Entrugar primero</string>
   <string name="sim_selection_required_pref">Esbilla riquida</string>
@@ -2159,24 +2357,70 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="search_results_label">Resultaos</string>
   <string name="keywords_wifi">wifi wi-fi rede conexón</string>
   <string name="keywords_more_default_sms_app">mensaxe de testu</string>
+  <string name="keywords_more_mobile_networks">móvil, operador móvil, conexón inalámbrica</string>
   <string name="keywords_home">llanzador</string>
   <string name="keywords_display">pantalla táctil</string>
+  <string name="keywords_display_brightness_level">amatagar pantalla táctil</string>
+  <string name="keywords_display_auto_brightness">amatagar pantalla táctil</string>
   <string name="keywords_display_wallpaper">fondu</string>
   <string name="keywords_display_font_size">tamañu de testu</string>
+  <string name="keywords_display_cast_screen">proyeutu</string>
+  <string name="keywords_storage">espaciu, discu, discu duru</string>
+  <string name="keywords_battery">potencia</string>
+  <string name="keywords_spell_checker">ortografía</string>
+  <string name="keywords_voice_input">ferramienta de reconocimientu, entrada, voz, falar, idioma, manos llibres, reconocimientu, pallabra ofensiva, historial d\'audiu, auriculares bluetooth</string>
+  <string name="keywords_text_to_speech_output">valorar, idioma, predetermináu, falar</string>
+  <string name="keywords_date_and_time">reló</string>
+  <string name="keywords_factory_data_reset">desaniciar</string>
+  <string name="keywords_printing">imprentadora</string>
+  <string name="keywords_sounds_and_notifications">soníu del altavoz</string>
+  <string name="keywords_sounds_and_notifications_interruptions">nun molestar, interrumpir, interrupción, descansu</string>
   <string name="keywords_app">RAM</string>
+  <string name="keywords_location">llocalización cercana, informes de llocalización</string>
+  <string name="keywords_location_mode">precisión</string>
+  <string name="keywords_accounts">cuenta</string>
+  <string name="keywords_users">restricción restrinxir restrinxíu</string>
+  <string name="keywords_keyboard_and_ime">testu, correición, correxir, soníu, vibrar, automáticu, idioma, xestu, suxerir, suxerencia, tema, pallabra ofensiva, escribir, emoji</string>
+  <string name="keywords_lockscreen">eslizar, contraseña, patrón, pin</string>
+  <string name="setup_wifi_nfc_tag">Configurar etiqueta NFC Wi-Fi</string>
+  <string name="write_tag">Editar</string>
+  <string name="status_awaiting_tap">Toca una etiqueta pa editar...</string>
+  <string name="status_invalid_password">Contraseña inválida, inténtalo otra vuelta.</string>
+  <string name="status_write_success">Ensin fallos!</string>
+  <string name="status_failed_to_write">Imposible escribir datos a etiqueta NFC. Si\'l problema persiste, inténtalo con otra etiqueta distinta.</string>
+  <string name="status_tag_not_writable">La etiqueta NFC nun ye escribible. Usa otra etiqueta distinta.</string>
+  <string name="default_sound">Soníu predefiníu</string>
+  <string name="notification_settings">Soníu y notificaciones</string>
   <string name="media_volume_option_title">Volume multimedia</string>
   <string name="alarm_volume_option_title">Volume d\'alarma</string>
   <string name="ring_volume_option_title">Volume del tonu</string>
   <string name="notification_volume_option_title">Volume de notificación</string>
   <string name="zen_mode_settings_title">Interrupciones</string>
+  <string name="zen_mode_option_title">Al recibir llamaes o notificaciones</string>
+  <string name="zen_mode_option_title_novoice">Al recibir notificaciones</string>
+  <string name="zen_mode_option_off">Interrumpir siempre</string>
+  <string name="zen_mode_option_important_interruptions">Permitir namái interrupciones de prioridá</string>
+  <string name="zen_mode_option_no_interruptions">Nun interrumpir</string>
   <string name="ringtone_title">Tonu del teléfonu</string>
+  <string name="notification_ringtone_title">Tonu de notificación predefiníu</string>
   <string name="vibrate_when_ringing_title">Vibrar tamién nes llamaes</string>
   <string name="notification_section_header">Notificación</string>
   <string name="notification_pulse_title">Usar LED de notificación</string>
+  <string name="lock_screen_notifications_title">Con preséu bloquiáu</string>
+  <string name="lock_screen_notifications_summary_show">Amosar toles notificaciones</string>
+  <string name="lock_screen_notifications_summary_hide">Anubrir notificaciones de calter sensible</string>
+  <string name="lock_screen_notifications_summary_disable">Nun amosar notificaciones</string>
+  <string name="lock_screen_notifications_interstitial_message">Cuando\'l preséu tea bloquiáu, ¿Qué notificaciones quies que s\'amuesen?</string>
+  <string name="app_notifications_title">Notificaciones apps</string>
   <string name="other_sound_settings">Otros soníos</string>
   <string name="dial_pad_tones_title">Tonos del tecláu</string>
+  <string name="screen_locking_sounds_title">Soníos al bloquiar pantalla</string>
+  <string name="docking_sounds_title">Soníos al coneutar</string>
   <string name="touch_sounds_title">Sonar al tocar</string>
   <string name="vibrate_on_touch_title">Vibrar al tocar</string>
+  <string name="dock_audio_media_title">Reproducciones altavoz base</string>
+  <string name="dock_audio_media_disabled">Tol audiu</string>
+  <string name="dock_audio_media_enabled">Namái audiu multimedia</string>
   <string name="emergency_tone_silent">Silenciu</string>
   <string name="emergency_tone_alert">Alerta</string>
   <string name="emergency_tone_vibrate">Vibrar</string>
@@ -2189,37 +2433,93 @@ Pues cifrar les cuentes, los axustes, les aplicaciones descargaes y datos, fiche
   <string name="no_notification_listeners">Nun hai deteutores de notificaciones instalaos.</string>
   <string name="notification_listener_security_warning_title">¿Quies habilitar <xliff:g id="SERVICE">%1$s</xliff:g>?</string>
   <string name="notification_listener_security_warning_summary"><xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> va poder lleer toles notificaciones que\'l sistema o cualquier aplicación instalada espublice. Estes notificaciones puen incluyir información personal, como nomes de contautos y testu de mensaxes que recibieras. Tamién va poder inorar estes notificaciones o tocar botones d\'aición de les mesmes.</string>
+  <string name="manage_condition_providers">Fornidor de condiciones</string>
+  <string name="manage_condition_providers_summary_zero">Nenguna aplicación proporciona condiciones</string>
+  <plurals name="manage_condition_providers_summary_nonzero">
+    <item quantity="one">L\'aplicación %d proporciona condiciones</item>
+    <item quantity="other">Les aplicaciones %d proporcionen condiciones</item>
+  </plurals>
+  <string name="no_condition_providers">Nun s\'instaló nengún fornidor de condiciones.</string>
+  <string name="condition_provider_security_warning_title">¿Habilitar
+         <xliff:g id="service" example="ConditionProvider">%1$s</xliff:g>?</string>
+  <string name="condition_provider_security_warning_summary">
+        <xliff:g id="CONDITION_PROVIDER_NAME">%1$s</xliff:g> podrá amestar
+        condiciones de salida al mou Nun molestar.
+    </string>
   <string name="loading_notification_apps">Cargando apps...</string>
   <string name="app_notification_block_title">Bloquiar</string>
+  <string name="app_notification_block_summary">Nunca nun amosar notificaciones d\'esta aplicación</string>
   <string name="app_notification_priority_title">Prioridá</string>
+  <string name="app_notification_priority_summary">Amosar notificaciones na parte superior de la llista y siguir recibiéndoles cuando\'l preséu tea configuráu namái pa interrupciones de prioridá</string>
+  <string name="app_notification_sensitive_title">Sensible</string>
+  <string name="app_notification_sensitive_summary">Cuando\'l preséu tea bloquiáu, anubrir el conteníu de calter sensible nes notificaciones d\'esta aplicación</string>
   <string name="app_notification_row_banned">Bloquiada</string>
   <string name="app_notification_row_priority">Prioridá</string>
+  <string name="app_notification_row_sensitive">Sensible</string>
   <string name="app_notifications_dialog_done">Fecho</string>
   <string name="zen_mode_default_option">Hasta qu\'apagues esto</string>
   <string name="zen_mode_important_category">Interrupciones de prioridá</string>
+  <string name="zen_mode_downtime_category">Tiempu inactivu (namái interrupciones de prioridá)</string>
+  <string name="zen_mode_downtime_days">Díes</string>
+  <string name="zen_mode_downtime_days_none">Nengún</string>
+  <string name="zen_mode_automation_category">Automáticu</string>
+  <string name="zen_mode_entry_conditions_title">Activar automáticamente</string>
+  <string name="summary_divider_text">,\u0020</string>
   <string name="zen_mode_entry_conditions_summary_none">Enxamás</string>
   <string name="zen_mode_phone_calls">Llamaes</string>
   <string name="zen_mode_messages">Mensaxes</string>
+  <string name="zen_mode_from">Llamaes/mensaxes de</string>
   <string name="zen_mode_from_anyone">Tol mundiu</string>
   <string name="zen_mode_from_contacts">Namái contautos</string>
   <string name="zen_mode_from_starred">Namái contautos favoritos</string>
+  <string name="zen_mode_events">Eventos y recordatorios</string>
+  <string name="zen_mode_alarm_info">Les alarmes son siempre interrupciones de prioridá</string>
+  <string name="zen_mode_when">Activar automáticamente</string>
   <string name="zen_mode_when_never">Enxamás</string>
   <string name="zen_mode_when_every_night">Cada nueche</string>
+  <string name="zen_mode_when_weeknights">Nueches ente selmana</string>
   <string name="zen_mode_start_time">Hora d\'aniciu</string>
   <string name="zen_mode_end_time">Hora de finalización</string>
+  <string name="zen_mode_end_time_summary_format">Día siguiente a les <xliff:g id="formatted_time">%s</xliff:g></string>
+  <string name="notification_settings_apps_title">Notificaciones apps</string>
   <string name="notification_app_settings_button">Axustes de notificaciones</string>
+  <string name="device_feedback">Unviar coment. tocante a preséu</string>
   <string name="restr_pin_enter_admin_pin">Introduz el PIN del alministrador</string>
   <string name="switch_on_text">Sí</string>
   <string name="switch_off_text">Non</string>
+  <string name="screen_pinning_title">Fixar pantalla</string>
+  <string name="screen_pinning_description">Si actives la opción, pues usar l\'activación de pantalla pa caltener visible la pantalla actual hasta que desactives la pantalla.\n\nPa ello:\n\n1. Asegúrate de seleicionar l\'activación de pantalla.\n\n2. Abri la pantalla que quieras activar.\n\n3. Toca Visión xeneral.\n\n4. Toca l\'iconu d\'activación.</string>
   <string name="managed_user_title">Perfil de trabayu</string>
   <string name="experimental_preference">(Esperimental)</string>
   <string name="display_auto_rotate_title">Cuando\'l preséu tea rotáu</string>
+  <string name="display_auto_rotate_rotate">Xirar el conteníu de la pantalla</string>
+  <string name="display_auto_rotate_stay_in_portrait">Caltener vista vertical</string>
+  <string name="display_auto_rotate_stay_in_landscape">Caltener vista horizontal</string>
+  <string name="display_auto_rotate_stay_in_current">Caltener na orientación actual</string>
   <string name="encryption_interstitial_header">Cifráu</string>
   <string name="encryption_continue_button">Siguir</string>
+  <string name="encryption_interstitial_message_pin">   
+   Pues solicitar el PIN del preséu enantes d\'anicialu p\'aumentar la proteición. Hasta que\'l preséu nun s\'anicie, nun vas poder recibir llamaes, mensaxes nin notificaciones, como alarmes.
+   \n\nEsta opción ayuda a protexer los datos en preseos perdíos o robaos.
+   </string>
+  <string name="encryption_interstitial_message_pattern">
+   Pues solicitar el patrón del preséu enantes d\'anicialu p\'aumentar la proteición. Hasta que\'l preséu nun s\'anicie, nun vas poder recibir llamaes, mensaxes nin notificaciones, como alarmes.
+   \n\nEsta opción ayuda a protexer los datos en preseos perdíos o robaos.
+   </string>
+  <string name="encryption_interstitial_message_password">
+   Pues solicitar la contraseña del preséu enantes d\'anicialu p\'aumentar la proteición. Hasta que\'l preséu nun s\'anicie, nun vas poder recibir llamaes, mensaxes nin notificaciones, como alarmes.
+   \n\nEsta opción ayuda a protexer los datos en preseos perdíos o robaos.
+   </string>
+  <string name="encrypt_require_pin">Solicitar PIN p\'aniciar el preséu</string>
+  <string name="encrypt_require_pattern">Solicitar patrón p\'aniciar el preséu</string>
+  <string name="encrypt_require_password">Solicitar contraseña p\'aniciar el preséu</string>
   <string name="encrypt_dont_require_pin">Non, gracies</string>
   <string name="encrypt_dont_require_pattern">Non, gracies</string>
   <string name="encrypt_dont_require_password">Non, gracies</string>
   <string name="encrypt_talkback_dialog_require_pin">Necesita PIN?</string>
   <string name="encrypt_talkback_dialog_require_pattern">Patrón obligatoriu?</string>
   <string name="encrypt_talkback_dialog_require_password">Necesita contraseña?</string>
+  <string name="encrypt_talkback_dialog_message_pin">Cuando introduzas el PIN p\'aniciar esti preséu, los servicios d\'accesibilidá como <xliff:g id="SERVICE">%1$s</xliff:g> nun van tar aínda disponibles.</string>
+  <string name="encrypt_talkback_dialog_message_pattern">Cuando introduzas el patrón p\'aniciar esti preséu, los servicios d\'accesibilidá como <xliff:g id="SERVICE">%1$s</xliff:g> nun van tar aínda disponibles.</string>
+  <string name="encrypt_talkback_dialog_message_password">Cuando introduzas la contraseña p\'aniciar esti preséu, los servicios d\'accesibilidá como <xliff:g id="SERVICE">%1$s</xliff:g> nun van tar aínda disponibles.</string>
 </resources>

@@ -217,6 +217,7 @@
   <string name="model_name">Модель</string>
   <string name="build_date">Дата сборки</string>
   <string name="contributor_cloud_title">Имена разработчиков</string>
+  <string name="phone_service_state">Голосовая связь: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача данных: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Включение при двойном нажатии</string>
   <string name="proximity_wake_title">Предотвращать случайное включение</string>
   <string name="proximity_wake_summary">Проверять датчик приближения при выходе из режима сна</string>
@@ -231,7 +232,6 @@
   <string name="privacy_guard_reset_text">Сбросить разрешения?</string>
   <string name="privacy_guard_help_text">В этом разделе вы можете выбрать приложения, которые будут работать в защищенном режиме, нажав на них. Такие приложения не будут иметь доступа к персональным данным, таким как контакты, сообщения или журнал вызовов. Долгое нажатие откроет подробные сведения о разрешениях данного приложения.\n\nПо умолчанию системные приложения скрыты. Для их отображения или для перехода к расширенным настройкам выберите соответствующий пункт в меню.</string>
   <string name="privacy_guard_manager_show_system_apps">Системные приложения</string>
-  <string name="privacy_guard_advanced_settings_title">Дополнительные функции</string>
   <string name="increasing_ring_volume_option_title">Возрастающая громкость звонка</string>
   <string name="increasing_ring_min_volume_title">Начальная громкость</string>
   <string name="increasing_ring_ramp_up_time_title">Время увеличения</string>
@@ -259,11 +259,11 @@
   <string name="navigation_bar_left_title">Режим левши</string>
   <string name="navigation_bar_left_summary">Отображать панель навигации слева в альбомной ориентации экрана</string>
   <string name="navigation_bar_title">Кнопки и их расположение</string>
-  <string name="navigation_bar_help_text">Для разблокировки панели навигации и начала редактирования коснитесь значка правки.\n\nКоснитесь виртуальной кнопки для изменения функции или удерживайте ее для перемещения.\n\nПосле этого нажмите «Сохранить» для подтверждения изменений или «Сбросить» для восстановления настроек по умолчанию.</string>
-  <string name="navigation_restore_button_text">Сброс\nнастроек</string>
+  <string name="navigation_bar_help_text">Для разблокировки панели навигации и начала редактирования коснитесь значка правки.\n\nКоснитесь виртуальной кнопки для изменения функции или удерживайте ее для перемещения.\n\nПосле этого нажмите «Сохранить» для подтверждения изменений или «Восстановить», чтобы вернуть стандартные настройки.</string>
+  <string name="navigation_restore_button_text">Восстановить</string>
   <string name="navigation_edit_button_text">Изменить</string>
   <string name="navigation_save_button_text">Сохранить</string>
-  <string name="navigation_bar_reset_message">Удалить текущие настройки и восстановить расположение по умолчанию?</string>
+  <string name="navigation_bar_reset_message">Удалить текущие настройки и восстановить стандартный набор?</string>
   <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
   <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
   <string name="header_category_personalization">Персонализация</string>
@@ -332,6 +332,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Не показывать постоянные уведомления из этого приложения на экране блокировки</string>
   <string name="high_touch_sensitivity_title">Режим перчаток</string>
   <string name="high_touch_sensitivity_summary">Увеличивать чувствительность экрана для возможности работы в перчатках</string>
+  <string name="touchscreen_hovering_title">Наведение пальца</string>
+  <string name="touchscreen_hovering_summary">Распознавать приближение пальца к экрану для событий наведения курсора в браузере или других приложениях</string>
   <string name="app_ops_summaries_coarse_location">приблизительное местоположение</string>
   <string name="app_ops_summaries_fine_location">точное местоположение</string>
   <string name="app_ops_summaries_gps">GPS-модуль</string>
@@ -616,11 +618,9 @@
   <string name="picker_activities">Действия</string>
   <string name="select_custom_app_title">Выбор приложения</string>
   <string name="select_custom_activity_title">Выбор действия</string>
-  <string name="title_tile_performance_profile">Профиль производительности</string>
   <string name="performance_settings_title">Производительность</string>
   <string name="io_scheds_title">Планировщик I/O</string>
   <string name="io_sched_title">Планировщик I/O</string>
-  <string name="perf_profile_title">Профиль</string>
   <string name="pref_force_highend_gfx_title">Высококачественная графика</string>
   <string name="pref_force_highend_gfx_summary">Использовать эффекты, отключенные для устройств с низкой производительностью, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
   <string name="performance_settings_warning_title">Соблюдайте осторожность</string>
@@ -652,7 +652,7 @@
   <string name="status_bar_show_weather_title">Сведения о погоде</string>
   <string name="status_bar_show_weather_summary">Показывать погоду над панелью быстрых настроек</string>
   <string name="qs_category_title">Панель быстрых настроек</string>
-  <string name="qs_brightness_slider_title">Управление яркостью</string>
+  <string name="qs_brightness_slider_title">Показывать регулятор яркости</string>
   <string name="qs_order_title">Выбрать и упорядочить плитки</string>
   <string name="add_qs">Добавление плитки</string>
   <string name="qs_action_delete">Удалить</string>
@@ -670,7 +670,6 @@
   <string name="qs_tile_hotspot">Точка доступа</string>
   <string name="qs_tile_adb_over_network">Отладка по сети</string>
   <string name="qs_tile_profiles">Профили системы</string>
-  <string name="qs_tile_performance">Производительность</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Экран блокировки</string>
@@ -698,6 +697,9 @@
   <string name="expanded_hide_both">Скрывать обе</string>
   <string name="expanded_nothing_to_show">Для настройки параметров расширенного экрана для отдельных приложений, переведите переключатель «Включить для всех» в отключенное состояние.</string>
   <string name="expanded_enabled_for_all">Включить для всех</string>
+  <string name="expanded_desktop_style">Режим расширенного экрана</string>
+  <string name="expanded_desktop_style_description">Выбрать режим расширенного экрана по умолчанию</string>
+  <string name="expanded_desktop_title">Настройки расширенного экрана</string>
   <string name="lockscreen_targets_message">Ярлыки экрана блокировки</string>
   <string name="lockscreen_default_target">По умолчанию</string>
   <string name="lockscreen_none_target">Нет</string>
@@ -706,7 +708,7 @@
   <string name="whisperpush_title">Технология WhisperPush</string>
   <string name="whisperpush_summary">Настройка шифрования SMS-сообщений</string>
   <string name="navigation_ring_title">Ярлыки навигационного кольца</string>
-  <string name="navigation_ring_message">Коснитесь значка правки для изменения навигационного кольца.\n\nВыберите ярлык для настройки его поведения.\n\nКоснитесь галочки (\u2713) для сохранения изменений, или значка сброса для восстановления настроек по умолчанию.</string>
+  <string name="navigation_ring_message">Коснитесь значка правки для изменения навигационного кольца.\n\nВыберите ярлык для настройки его поведения.\n\nКоснитесь галочки (\u2713) для выхода из режима редактирования и сохранения изменений, а для возврата ярлыков по умолчанию — коснитесь кнопки «Восстановить».</string>
   <string name="stylus_icon_enabled_title">Курсор при использовании стилуса</string>
   <string name="stylus_icon_enabled_summary">Показывать значок указателя при работе со стилусом</string>
   <string name="gestures_settings_title">Поддержка стилуса</string>
@@ -728,4 +730,14 @@
   <string name="gestures_action_search">Открыть поиск</string>
   <string name="gestures_action_recent">Недавние приложения</string>
   <string name="stylus_app_not_installed">«%s» не установлено</string>
+  <string name="category_misc">Прочее</string>
+  <string name="category_vibrate">Вибрация</string>
+  <string name="category_volume">Громкость</string>
+  <string name="category_sounds">Звуки</string>
+  <string name="category_interface">Интерфейс</string>
+  <string name="category_calibration">Калибровка</string>
+  <string name="display_and_lights">Экран и индикация</string>
+  <string name="lockscreen_settings">Экран блокировки</string>
+  <string name="category_lights">Индикация</string>
+  <string name="power_usage_history_title">Использование батареи</string>
 </resources>

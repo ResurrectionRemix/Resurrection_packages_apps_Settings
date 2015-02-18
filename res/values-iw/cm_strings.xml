@@ -16,6 +16,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">אתה נמצא במרחק צעד <xliff:g id="step_count">%1$d</xliff:g> מהפעלת אפשרויות מפתח.</item>
+    <item quantity="other">אתה נמצא במרחק <xliff:g id="step_count">%1$d</xliff:g> צעדים מהפעלת אפשרויות מפתח.</item>
+  </plurals>
+  <string name="show_dev_already_cm">אין צורך. כבר הפעלת את אפשרויות המפתח.</string>
+  <string name="development_tools_title">כלי פיתוח</string>
   <string name="root_access">הרשאות root</string>
   <string name="root_access_warning_title">אפשר הרשאות root?</string>
   <string name="root_access_warning_message">איפשור ליישומים לבקש הרשאות root מאוד מסוכן ויכול לסכן את אבטחת המערכת שלך!</string>
@@ -24,8 +30,10 @@
   <string name="root_access_adb">ADB בלבד</string>
   <string name="root_access_all">יישומים ו-ADB</string>
   <string name="ring_mode_title">מצב צלצול</string>
+  <string name="ring_mode_normal">רגיל</string>
   <string name="ring_mode_vibrate">רטט</string>
   <string name="ring_mode_mute">השתק</string>
+  <string name="profiles_settings_title">פרופילי מערכת</string>
   <string name="profiles_add">הוסף</string>
   <string name="profile_settings_title">פרופיל</string>
   <string name="profile_empty_list_profiles_off">כדי להגדיר ולהשתמש במערכת הפרופילים, הפעל את הפרופילים.</string>
@@ -47,7 +55,9 @@
   <string name="profile_reset_title">לאפס</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <string name="profile_volumeoverrides_title">עקיפת עוצמת שמע</string>
   <string name="volume_override_summary">הגדר ל-%1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">עקוף עוצמת שמע</string>
@@ -61,15 +71,19 @@
   <string name="profile_choose_app">בחר יישום</string>
   <string name="profile_system_settings_title">הגדרות מערכת</string>
   <string name="profile_lockmode_title">מצב מסך הנעילה</string>
+  <string name="profile_lockmode_insecure_summary">אל תבקש PIN או סיסמה</string>
+  <string name="profile_lockmode_disabled_summary">בטל את מסך הנעילה</string>
   <string name="profile_airplanemode_title">מצב טיסה</string>
   <string name="toggleWifi">Wi-Fi</string>
   <string name="toggleBluetooth">בלוטוס</string>
   <string name="toggleGPS">GPS</string>
   <string name="toggleSync">סנכרון נתונים אוטומטי</string>
   <string name="toggleNfc">NFC</string>
+  <string name="button_pref_title">מקשים</string>
   <string name="hardware_keys_power_key_title">לחצן הפעלה</string>
   <string name="hardware_keys_home_key_title">כפתור הבית</string>
-  <string name="hardware_keys_menu_key_title">כפתור תפריט</string>
+  <string name="hardware_keys_back_key_title">לחצן \"הקודם\"</string>
+  <string name="hardware_keys_menu_key_title">לחצן התפריט</string>
   <string name="hardware_keys_assist_key_title">לחצן חיפוש</string>
   <string name="hardware_keys_appswitch_key_title">לחצן יישומים אחרונים</string>
   <string name="hardware_keys_volume_keys_title">לחצני עוצמת קול</string>
@@ -92,7 +106,7 @@
   <string name="volbtn_cursor_control_on">קול למעלה/למטה מעביר את הסמן שמאלה/ימינה</string>
   <string name="volbtn_cursor_control_on_reverse">קול למעלה/למטה מעביר את הסמן ימינה/שמאלה</string>
   <string name="swap_volume_buttons_title">כיוון מחדש</string>
-  <string name="swap_volume_buttons_summary">החלף מקשי קול כאשר המסך מסובב</string>
+  <string name="swap_volume_buttons_summary">החלף את כיוון לחצני הקול כאשר המסך מסובב</string>
   <string name="power_end_call_title">סיים שיחה</string>
   <string name="power_end_call_summary">לחיצה על לחצן ההפעלה תסיים את השיחה הנוכחית</string>
   <string name="home_answer_call_title">השב לשיחה</string>
@@ -108,10 +122,13 @@
   <string name="backlight_summary_enabled_with_timeout">זמין עבור <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">מאופשר</string>
   <string name="power_menu_title">תפריט כיבוי</string>
+  <string name="power_menu_power_title">כיבוי</string>
   <string name="power_menu_reboot_title">תפריט אתחול</string>
   <string name="power_menu_screenshot_title">צלם מסך</string>
   <string name="power_menu_profiles_title">מחליף פרופילים</string>
   <string name="power_menu_airplane_title">מצב טיסה</string>
+  <string name="power_menu_users_title">מחליף משתמש</string>
+  <string name="power_menu_lockdown_title">נעילת המכשיר</string>
   <string name="power_menu_sound_title">לוח קול</string>
   <string name="adaptive_backlight_title">תאורה אחורית מסתגלת</string>
   <string name="adaptive_backlight_summary">כוון דינאמית את בהירות המסך כדי להגדיל את חיי הסוללה תוך שמירה על שימושיות</string>
@@ -170,6 +187,7 @@
   <string name="sms_security_check_limit_summary">יישומים יכולים לשלוח %d הודעות בחצי שעה לפני בקשת אישור</string>
   <string name="block_notifications_title">סנן הודעות</string>
   <string name="block_notifications_summary">נהל הודעות שהוחבאו ומסננים</string>
+  <string name="no_filters_title">לא הוגדרו מסננים</string>
   <string name="cmupdate_settings_title">עדכוני CyanogenMod</string>
   <string name="mod_version">גרסת CyanogenMod</string>
   <string name="mod_version_default">לא ידוע</string>
@@ -189,7 +207,6 @@
   <string name="privacy_guard_reset_text">לאפס הרשאות?</string>
   <string name="privacy_guard_help_text">בחלון זה אתה יכול לבחור עבור אילו יישומים שומר הפרטיות יפעל. הייישומים הנבחרים לא יקבלו גישה למידע הפרטי שלך כמו אנשי קשר, הודעות ויומן שיחות. לחיצה ארוכה על יישום יפתח את פרטי הרשאות היישום.\n\nיישומים מובנים לא מוצגים כברירת מחדל, אבל יכולים להיחשף על ידי בחירת ההגדרה המתאימה.</string>
   <string name="privacy_guard_manager_show_system_apps">הצג יישומים מובנים</string>
-  <string name="privacy_guard_advanced_settings_title">מתקדם</string>
   <string name="advanced_reboot_title">אתחול מתקדם</string>
   <string name="advanced_reboot_summary">כאשר פתוח, מוסיף אפשרויות לתפריט הפעלה לאתחול ל- recovery, bootloader או אתחול תוכנתי</string>
   <string name="enable_adb_cm">‏ניקוי באגים ב-USB</string>
@@ -207,13 +224,31 @@
   <string name="navigation_bar_left_title">מצב לשמאליים</string>
   <string name="navigation_bar_left_summary">מקם את שורת ההפעלה בצד השמאלי של המסך במצב שכיבה</string>
   <string name="navigation_bar_title">לחצנים ופריסה</string>
+  <string name="navigation_edit_button_text">ערוך</string>
+  <string name="navigation_save_button_text">שמור</string>
   <string name="status_bar_title">שורת מצב</string>
   <string name="status_bar_toggle_brightness">בקרת הבהירות</string>
   <string name="status_bar_toggle_brightness_summary">כיוונן את הבהירות על-ידי הזזה על שורת המצב</string>
   <string name="status_bar_notif_count_title">הצג מספור הודעות</string>
   <string name="status_bar_notif_count_summary">הצג מספר הודעות ממתינות</string>
+  <string name="status_bar_clock_style_title">סגנון השעון</string>
+  <string name="status_bar_clock_style_right">ימין</string>
+  <string name="status_bar_clock_style_left">שמאל</string>
   <string name="status_bar_clock_style_center">במרכז</string>
   <string name="status_bar_clock_style_hidden">מוסתר</string>
+  <string name="status_bar_am_pm_title">סגנון AM/PM</string>
+  <string name="status_bar_am_pm_info">שעון 24 שעות מופעל</string>
+  <string name="status_bar_am_pm_normal">רגיל</string>
+  <string name="status_bar_am_pm_small">קטן</string>
+  <string name="status_bar_am_pm_hidden">מוסתר</string>
+  <string name="status_bar_battery_style_title">סגנון מצב סוללה</string>
+  <string name="status_bar_battery_style_circle">עיגול</string>
+  <string name="status_bar_battery_style_text">טקסט</string>
+  <string name="status_bar_battery_style_hidden">מוסתר</string>
+  <string name="status_bar_battery_percentage_title">אחוזי סוללה</string>
+  <string name="status_bar_battery_percentage_default">מוסתר</string>
+  <string name="status_bar_battery_percentage_text_inside">בתוך הסמל</string>
+  <string name="status_bar_battery_percentage_text_next">ליד הסמל</string>
   <string name="edit_light_settings">עריכת הגדרות אור</string>
   <string name="pulse_speed_title">אורך הבהוב ומהירות</string>
   <string name="default_time">רגיל</string>
@@ -295,6 +330,11 @@
   <string name="app_ops_summaries_read_mms">לקרוא MMS</string>
   <string name="app_ops_summaries_write_mms">לכתוב MMS</string>
   <string name="app_ops_summaries_auto_start">הפעלה אוטומטית</string>
+  <string name="app_ops_summaries_nfc_change">שינוי NFC</string>
+  <string name="app_ops_summaries_delete_sms">מחק SMS</string>
+  <string name="app_ops_summaries_delete_mms">מחק MMS</string>
+  <string name="app_ops_summaries_delete_contacts">מחק אנשי קשר</string>
+  <string name="app_ops_summaries_delete_call_log">מחיקת רישומי שיחות</string>
   <string name="app_ops_summaries_data_change">שינוי נתונים</string>
   <string name="app_ops_labels_location">עקוב אחר מיקום</string>
   <string name="app_ops_labels_vibrate">רטט</string>
@@ -329,12 +369,18 @@
   <string name="app_ops_labels_notification_volume">שליטה ראשית בעוצמת קול</string>
   <string name="app_ops_labels_bluetooth_volume">עוצמת קול של Bluetooth</string>
   <string name="app_ops_labels_keep_awake">שמור במצב פעיל</string>
+  <string name="app_ops_labels_activate_vpn">הפעל VPN</string>
   <string name="app_ops_labels_wifi_change">שינוי Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">שינוי bluetooth</string>
   <string name="app_ops_labels_send_mms">לשלוח MMS</string>
   <string name="app_ops_labels_read_mms">לקרוא MMS</string>
   <string name="app_ops_labels_write_mms">לכתוב MMS</string>
   <string name="app_ops_labels_auto_start">הפעלה אוטומטית</string>
+  <string name="app_ops_labels_nfc_change">שינוי NFC</string>
+  <string name="app_ops_labels_delete_sms">מחק SMS</string>
+  <string name="app_ops_labels_delete_mms">מחק MMS</string>
+  <string name="app_ops_labels_delete_contacts">מחק אנשי קשר</string>
+  <string name="app_ops_labels_delete_call_log">מחיקת רישומי שיחות</string>
   <string name="app_ops_labels_data_change">שינוי נתונים</string>
   <string name="app_ops_categories_location">מיקום</string>
   <string name="app_ops_categories_personal">אישי</string>
@@ -342,6 +388,7 @@
   <string name="app_ops_categories_media">מדיה</string>
   <string name="app_ops_categories_device">מכשיר</string>
   <string name="app_ops_categories_bootup">אתחול</string>
+  <string name="app_ops_permissions_always_ask">שאל תמיד</string>
   <string name="ok">אישור</string>
   <string name="profile_menu_delete_title">מחק</string>
   <string name="profile_trigger_a2dp_connect">בחיבור A2DP</string>
@@ -369,6 +416,9 @@
   <string name="gamma_tuning_title_head">כיול גאמא</string>
   <string name="gamma_tuning_summary_head">שנה ערכי גמא</string>
   <string name="gamma_tuning_control_set_header">קבוצה <xliff:g id="index">%d</xliff:g></string>
+  <string name="gamma_tuning_contrast">ניגודיות</string>
+  <string name="gamma_tuning_brightness">בהירות</string>
+  <string name="gamma_tuning_saturation">רוויה</string>
   <string name="screencolor">צבע המסך</string>
   <string name="custom_screencolor">צבע מסך מותאם אישית</string>
   <string name="screencolor_save">שמור</string>
@@ -380,16 +430,24 @@
   <string name="hue_str">גוון: <xliff:g id="hue_value">%1$s</xliff:g></string>
   <string name="saturation_str">רוויה: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">ניגודיות: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_custom">מותאם אישית</string>
   <string name="bluetooth_profile_dun">גישה לחיוג רשת</string>
   <string name="bluetooth_profile_sap">גישה ל-SIM</string>
   <string name="bluetooth_dun_profile_summary_use_for">השתמש לחיוג רשת</string>
   <string name="bluetooth_sap_profile_summary_use_for">השתמש לגישת SIM</string>
   <string name="bluetooth_accept_all_files">התר את כל סוגי הקבצים</string>
+  <string name="sim_pin_attempts">\nניסיונות שנותרו:</string>
   <string name="usb_unmount_inform_text" product="default">‏הטעינה של כרטיס SD תבוטל.</string>
   <string name="usb_media_format_button_text" product="default">מחק אחסון USB</string>
   <string name="usb_media_format_final_desc" product="default">‏למחוק את אחסון ה-USB ואת כל הקבצים המאוחסנים בו? לא ניתן לבטל פעולה זו!</string>
   <string name="usb_media_format_gesture_explanation" product="default">‏עליך לשרטט את קו ביטול הנעילה כדי לאשר שברצונך למחוק את אחסון ה-USB.</string>
   <string name="enable_quickboot_title">אפשר מצב אתחול מהיר</string>
+  <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
+  <string name="sim_enabler_title">מצב SIM</string>
+  <string name="sim_enabled">פעיל</string>
+  <string name="sim_disabled">לא פעיל</string>
+  <string name="sim_missing">חסר או פגום</string>
+  <string name="sim_enabler_sim">SIM</string>
   <string name="menu_hidden_apps_delete">אפס</string>
   <string name="menu_hidden_apps_reset_lock">אפס נעילת דפוס</string>
   <string name="protected_apps">יישומים מוגנים</string>
@@ -407,11 +465,9 @@
   <string name="picker_activities">פעילויות</string>
   <string name="select_custom_app_title">בחר יישום אחר</string>
   <string name="select_custom_activity_title">בחר הפעילות המותאמת אישית</string>
-  <string name="title_tile_performance_profile">פרופיל ביצועים</string>
   <string name="performance_settings_title">ביצועים</string>
   <string name="io_scheds_title">מתזמן קלט/פלט</string>
   <string name="io_sched_title">מתזמן קלט/פלט</string>
-  <string name="perf_profile_title">פרופיל</string>
   <string name="pref_force_highend_gfx_title">הכרח גרפיקה באיכות גבוהה</string>
   <string name="pref_force_highend_gfx_summary">אפשר אפקטים ויזואליים מתקדמים כמו ברים שקופים (דורש אתחול)</string>
   <string name="performance_settings_warning_title">המשך בזהירות</string>
@@ -435,6 +491,7 @@
   <string name="unlock_scramble_pin_layout_title">ערבב פריסה</string>
   <string name="unlock_scramble_pin_layout_summary">ערבב מבנה כשמבטלים נעילת מכשיר</string>
   <string name="notification_drawer_title">וילון הודעות</string>
+  <string name="qs_tile_nfc">NFC</string>
   <string name="themes_settings_title">ערכות עיצוב</string>
   <string name="wifi_mode">מצב</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>

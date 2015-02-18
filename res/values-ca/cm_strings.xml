@@ -216,7 +216,9 @@
   <string name="model_name">Nom del model</string>
   <string name="build_date">Data d\'elaboració</string>
   <string name="contributor_cloud_title">Contribuïdors</string>
+  <string name="phone_service_state">Veu: <xliff:g id="voice_state">%1$s</xliff:g>, dades: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Pica doblement per encendre</string>
+  <string name="double_tap_to_wake_summary">Pica dues vegades a la pantalla per encendre la pantalla</string>
   <string name="proximity_wake_title">Evita l\'encesa accidental</string>
   <string name="proximity_wake_summary">Comprova el sensor de proximitat abans d\'encendre la pantalla</string>
   <string name="privacy_settings_cyanogenmod_title">Privacitat</string>
@@ -230,7 +232,6 @@
   <string name="privacy_guard_reset_text">Reiniciar permisos?</string>
   <string name="privacy_guard_help_text">En aquesta pantalla pots triar en quines apps el Guarda de privacitat hauria d\'estar actiu picant simplement en elles. Les apps seleccionades no podran accedir a les dades personals com els contactes, missatges o els registres de trucades. Fent una pulsació llarga en una entrada de l\'app s\'obrirà la pantalla de detalls de l\'app.\n\nLes apps integrades per defecte no es mostren, però poden ser mostrades seleccionant l\'opció del menú respectiu.</string>
   <string name="privacy_guard_manager_show_system_apps">Mostra les apps integrades</string>
-  <string name="privacy_guard_advanced_settings_title">Avançat</string>
   <string name="increasing_ring_volume_option_title">Volum del to de trucada creixent</string>
   <string name="increasing_ring_min_volume_title">Volum inicial</string>
   <string name="increasing_ring_ramp_up_time_title">Durada del crescendo</string>
@@ -247,7 +248,7 @@
   <string name="development_shortcut_title">Drecera Desenvolupament</string>
   <string name="development_shortcut_summary">Habilita les dreceres de gestió d\'apps en la llista d\'apps recents</string>
   <string name="double_tap_to_sleep_title">Pica dues vegades per posar en repòs</string>
-  <string name="double_tap_to_sleep_summary">Doble toc a la barra d\'estat per posar el dispositiu en repòs</string>
+  <string name="double_tap_to_sleep_summary">Pica dues vegades a la barra d\'estat per apagar la pantalla</string>
   <string name="wake_when_plugged_or_unplugged_title">Encén en endollar</string>
   <string name="wake_when_plugged_or_unplugged_summary">Encén la pantalla en connectar o desconnectar d\'una font d\'energia</string>
   <string name="kill_app_longpress_back">Mata amb la tecla enrera l\'app</string>
@@ -331,6 +332,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">No mostris mai notificacions persistents d\'aquesta app a la pantalla de bloqueig</string>
   <string name="high_touch_sensitivity_title">Sensibilitat al tacte alta</string>
   <string name="high_touch_sensitivity_summary">Incrementa la sensibilitat de la pantalla tàctil de manera que pugui utilitzar-se si es porten guants</string>
+  <string name="touchscreen_hovering_title">Sura per sobre la pantalla tàctil</string>
+  <string name="touchscreen_hovering_summary">Et permet surar per sobre la pantalla com un ratolí en els navegadors web, escriptoris remots, etc</string>
   <string name="app_ops_summaries_coarse_location">ubicació poc precisa</string>
   <string name="app_ops_summaries_fine_location">ubicació precisa</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -615,11 +618,10 @@
   <string name="picker_activities">Activitats</string>
   <string name="select_custom_app_title">Selecciona una app personalitzada</string>
   <string name="select_custom_activity_title">Selecciona una activitat personalitzada</string>
-  <string name="title_tile_performance_profile">Perfil de rendiment</string>
   <string name="performance_settings_title">Rendiment</string>
   <string name="io_scheds_title">Programador de E/S</string>
   <string name="io_sched_title">Programador de E/S</string>
-  <string name="perf_profile_title">Perfil</string>
+  <string name="perf_profile_title">Mode de la bateria</string>
   <string name="pref_force_highend_gfx_title">Força els gràfics d\'alta gamma</string>
   <string name="pref_force_highend_gfx_summary">Habilita els efectes visuals d\'alta gamma com ara la barra d\'estat/navegació transparent (necessita reiniciar)</string>
   <string name="performance_settings_warning_title">Procedeix amb precaució</string>
@@ -669,7 +671,7 @@
   <string name="qs_tile_hotspot">Punt d\'accés</string>
   <string name="qs_tile_adb_over_network">ADB sobre la xarxa</string>
   <string name="qs_tile_profiles">Perfils del sistema</string>
-  <string name="qs_tile_performance">Rendiment</string>
+  <string name="qs_tile_performance">Mode de la bateria</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Brúixola</string>
   <string name="qs_tile_lockscreen">Pantalla de bloqueig</string>
@@ -697,6 +699,9 @@
   <string name="expanded_hide_both">Amaga els dos</string>
   <string name="expanded_nothing_to_show">Per afegir una configuració personalitzada per a cada app en l\'estat extès, estableix com a deshabilitada l\'opció \"Habilitat per a tots\"</string>
   <string name="expanded_enabled_for_all">Habilitat per a tots</string>
+  <string name="expanded_desktop_style">Estil d\'escriptori extès</string>
+  <string name="expanded_desktop_style_description">Escull un estil d\'escriptori extès per defecte</string>
+  <string name="expanded_desktop_title">Opcions d\'escriptori extès</string>
   <string name="lockscreen_targets_message">Dreceres de la pantalla de bloqueig</string>
   <string name="lockscreen_default_target">Predeterminat</string>
   <string name="lockscreen_none_target">Cap</string>
@@ -727,4 +732,17 @@
   <string name="gestures_action_search">Invoca la cerca</string>
   <string name="gestures_action_recent">Apps recents</string>
   <string name="stylus_app_not_installed">%s no està instal\U00B7lada</string>
+  <string name="advanced">Avançat</string>
+  <string name="advanced_mode_title">Mode avançat</string>
+  <string name="category_misc">Miscel·lània</string>
+  <string name="category_vibrate">Vibració</string>
+  <string name="category_volume">Volum</string>
+  <string name="category_sounds">Sons</string>
+  <string name="category_interface">Interfície</string>
+  <string name="category_calibration">Calibració</string>
+  <string name="display_and_lights">Pantalla &amp; llums</string>
+  <string name="notification_manager">Gestor de notificacions</string>
+  <string name="lockscreen_settings">Panatalla de bloqueig</string>
+  <string name="category_lights">Llums</string>
+  <string name="power_usage_history_title">Ús de la bateria</string>
 </resources>

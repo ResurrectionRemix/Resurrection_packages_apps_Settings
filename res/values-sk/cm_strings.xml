@@ -138,7 +138,7 @@
   <string name="power_menu_reboot_title">Ponuka reštartu</string>
   <string name="power_menu_screenshot_title">Snímka obrazovky</string>
   <string name="power_menu_profiles_title">Prepínač profilov</string>
-  <string name="power_menu_airplane_title">Režim V lietadle</string>
+  <string name="power_menu_airplane_title">Režim v lietadle</string>
   <string name="power_menu_users_title">Prepínač používateľov</string>
   <string name="power_menu_settings_title">Odkaz nastavení</string>
   <string name="power_menu_lockdown_title">Zamknúť zariadenie</string>
@@ -217,6 +217,7 @@
   <string name="model_name">Názov modelu</string>
   <string name="build_date">Dátum zostavy</string>
   <string name="contributor_cloud_title">Prispievatelia</string>
+  <string name="phone_service_state">Hlas: <xliff:g id="voice_state">%1$s</xliff:g>, dátové prenosy: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Prebudiť dvojitým poklepaním</string>
   <string name="proximity_wake_title">Zabrániť nechcenému prebudeniu</string>
   <string name="proximity_wake_summary">Kontrolovať snímač priblíženia pre zabránenie nechcenému prebudeniu</string>
@@ -231,7 +232,6 @@
   <string name="privacy_guard_reset_text">Obnoviť povolenia?</string>
   <string name="privacy_guard_help_text">Na tejto obrazovke môžete jednoduchým kliknutím vybrať, pre ktoré aplikácie bude Ochrana súkromia aktívna. Vybraným aplikáciám nebude umožnený prístup k vašim osobným údajom ako sú kontakty, správy alebo denníky hovorov. Dlhým kliknutím na položku sa otvorí obrazovka s podrobnosťami o danej aplikácii.\n\nPredvolene nie sú zobrazené vstavané aplikácie. Ak ich chcete zobraziť, vyberte príslušnú možnosť v ponuke.</string>
   <string name="privacy_guard_manager_show_system_apps">Zobraziť vstavané aplikácie</string>
-  <string name="privacy_guard_advanced_settings_title">Pokročilé</string>
   <string name="increasing_ring_volume_option_title">Zvyšovanie hlasitosti zvonenia</string>
   <string name="increasing_ring_min_volume_title">Počiatočná hlasitosť</string>
   <string name="increasing_ring_ramp_up_time_title">Doba zvyšovania</string>
@@ -248,7 +248,6 @@
   <string name="development_shortcut_title">Vývojárske odkazy</string>
   <string name="development_shortcut_summary">Povoliť skratky v oznamovacej oblasti a zozname nedávnych aplikácií pre správu aplikácií</string>
   <string name="double_tap_to_sleep_title">Uspať dvojitým poklepaním</string>
-  <string name="double_tap_to_sleep_summary">Uspať zariadene dvojitým poklepaním na stavový riadok alebo na posuvník obrazovky uzamknutia</string>
   <string name="wake_when_plugged_or_unplugged_title">Prebudiť po pripojení</string>
   <string name="wake_when_plugged_or_unplugged_summary">Zapnúť obrazovku pri pripojení alebo odpojení zdroja nabíjania</string>
   <string name="kill_app_longpress_back">Ukončiť aplikáciu tlačidlom Späť</string>
@@ -326,10 +325,10 @@
   <string name="notification_ringtone_title_cm">Tón oznámenia</string>
   <string name="ime_switcher_notify">Ikona výberu metódy vstupu</string>
   <string name="ime_switcher_notify_summary">Zobraziť ikony výberu metódy vstupu</string>
-  <string name="app_notification_show_on_keyguard_title">Zobraziť na uzamknutej obrazovke</string>
-  <string name="app_notification_show_on_keyguard_summary">Zobraziť upozornenia z tejto aplikácie na uzamknutej obrazovke</string>
-  <string name="app_notification_no_ongoing_on_keyguard_title">Zakázať trvalé upozornenie na uzamknutej obrazovke</string>
-  <string name="app_notification_no_ongoing_on_keyguard_summary">Nezobrazovať trvalé upozornenia z tejto aplikácie na uzamknutej obrazovke</string>
+  <string name="app_notification_show_on_keyguard_title">Zobraziť na obrazovke uzamknutia</string>
+  <string name="app_notification_show_on_keyguard_summary">Zobraziť oznámenia z tejto aplikácie na uzamknutej obrazovke</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Zakázať trvalé oznámenia na obrazovke uzamknutia</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Nezobrazovať trvalé oznámenia z tejto aplikácie na obrazovke uzamknutia</string>
   <string name="high_touch_sensitivity_title">Vysoká citlivosť na dotyky</string>
   <string name="high_touch_sensitivity_summary">Zvýšiť citlivosť dotykovej obrazovky, takže ju bude možné používať pri nosení rukavíc</string>
   <string name="app_ops_summaries_coarse_location">približná poloha</string>
@@ -616,11 +615,9 @@
   <string name="picker_activities">Aktivity</string>
   <string name="select_custom_app_title">Vyberte vlastnú aplikáciu</string>
   <string name="select_custom_activity_title">Vyberte vlastnú aktivitu</string>
-  <string name="title_tile_performance_profile">Profil výkonu</string>
   <string name="performance_settings_title">Nastavenie výkonu</string>
   <string name="io_scheds_title">Plánovač I/O</string>
   <string name="io_sched_title">Plánovač I/O</string>
-  <string name="perf_profile_title">Profil</string>
   <string name="pref_force_highend_gfx_title">Vynútiť vysoko kvalitnú grafiku</string>
   <string name="pref_force_highend_gfx_summary">Povoliť vizuálne efekty ako napríklad priehľadný stavový a priehľadný navigačný panel (vyžaduje reštart)</string>
   <string name="performance_settings_warning_title">Výstraha pred pokračovaním</string>
@@ -670,7 +667,6 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB cez sieť</string>
   <string name="qs_tile_profiles">Systémové profily</string>
-  <string name="qs_tile_performance">Výkon</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompas</string>
   <string name="qs_tile_lockscreen">Obrazovka uzamknutia</string>
@@ -698,6 +694,9 @@
   <string name="expanded_hide_both">Skryť oba</string>
   <string name="expanded_nothing_to_show">Pre pridanie vlastného nastavenia rozšíreného stavu pre každú aplikáciu musíte zakázať \'Povolené pre všetky\'</string>
   <string name="expanded_enabled_for_all">Povolené pre všetky</string>
+  <string name="expanded_desktop_style">Rozšírený štýl plochy</string>
+  <string name="expanded_desktop_style_description">Vyberte predvolený rozšírený štýl plochy</string>
+  <string name="expanded_desktop_title">Rozšírené možnosti plochy</string>
   <string name="lockscreen_targets_message">Odkazy obrazovky uzamknutia</string>
   <string name="lockscreen_default_target">Predvolené</string>
   <string name="lockscreen_none_target">Žiadna</string>

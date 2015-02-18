@@ -216,7 +216,9 @@
   <string name="model_name">Mallinimi</string>
   <string name="build_date">Luontipäivä</string>
   <string name="contributor_cloud_title">Kehittäjät ja avustajat</string>
+  <string name="phone_service_state">Puhelut: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Herätys kaksoisnapautuksella</string>
+  <string name="double_tap_to_wake_summary">Herätä laitteen näyttö kaksoisnapautuksella</string>
   <string name="proximity_wake_title">Estä herätys vahingossa</string>
   <string name="proximity_wake_summary">Tarkista lähesyysanturi ennen laitteen herättämistä</string>
   <string name="privacy_settings_cyanogenmod_title">Yksityisyys</string>
@@ -230,7 +232,6 @@
   <string name="privacy_guard_reset_text">Palauta käyttöoikeudet?</string>
   <string name="privacy_guard_help_text">Tässä näytössä voit valita, missä sovelluksissa haluat yksityisyyden suojauksen olevan päällä. Valituilla sovelluksilla ei ole pääsyä henkilökohtaisiin tietoihisi, kuten yhteystietoihin, viesteihin tai puhelulokiin. Sovelluksen tiedot näytetään painettaessa pitkään sen nimeä.\n\nJärjestelmäsovelluksia ei näytetä oletuksena, mutta ne voidaan tarvittaessa tuoda näkyviin valitsemalla kyseisen vaihtoehdon.</string>
   <string name="privacy_guard_manager_show_system_apps">Näytä järjestelmäsovellukset</string>
-  <string name="privacy_guard_advanced_settings_title">Lisäasetukset</string>
   <string name="increasing_ring_volume_option_title">Soittoäänen voimakkuuden nosto</string>
   <string name="increasing_ring_min_volume_title">Aloitusvoimakkuus</string>
   <string name="increasing_ring_ramp_up_time_title">Nousun aika</string>
@@ -247,7 +248,7 @@
   <string name="development_shortcut_title">Kehittäjän pikakuvakkeet</string>
   <string name="development_shortcut_summary">Ota sovelluksenhallinnan oikopolut käyttöön viimeisimmissä sovelluksissa</string>
   <string name="double_tap_to_sleep_title">Lepotila kaksoisnapautuksella</string>
-  <string name="double_tap_to_sleep_summary">Tuplanapauta tilapalkkia asettaaksesi laitteen lepotilaan</string>
+  <string name="double_tap_to_sleep_summary">Sulje laitteen näyttö tuplanapauttamalla tilapalkkia</string>
   <string name="wake_when_plugged_or_unplugged_title">Herää laturista</string>
   <string name="wake_when_plugged_or_unplugged_summary">Käynnistä näyttö kun virtalähde liitetään tai irrotetaan</string>
   <string name="kill_app_longpress_back">Tapa sovellus</string>
@@ -331,6 +332,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Älä koskaan näytä pysyviä ilmoituksia tästä sovelluksesta lukitusnäytöllä</string>
   <string name="high_touch_sensitivity_title">Korkea kosketusherkkyys</string>
   <string name="high_touch_sensitivity_summary">Lisää kosketusnäytön herkkyyttä käyttääksesi laitetta käsineiden kanssa</string>
+  <string name="touchscreen_hovering_title">Kosketusnäytön leijunta</string>
+  <string name="touchscreen_hovering_summary">Sallii näytön leijuttamisen kuten hiiri selaimessa, etätyöpöytäyhteyksissä, jne.</string>
   <string name="app_ops_summaries_coarse_location">karkea sijainti</string>
   <string name="app_ops_summaries_fine_location">tarkka sijainti</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -615,11 +618,10 @@
   <string name="picker_activities">Aktiviteetit</string>
   <string name="select_custom_app_title">Valitse oma sovellus</string>
   <string name="select_custom_activity_title">Valitse oma aktiviteetti</string>
-  <string name="title_tile_performance_profile">Suorituskykyprofiili</string>
   <string name="performance_settings_title">Suorituskyky</string>
   <string name="io_scheds_title">I/O scheduler</string>
   <string name="io_sched_title">I/O scheduler</string>
-  <string name="perf_profile_title">Profiili</string>
+  <string name="perf_profile_title">Akkutila</string>
   <string name="pref_force_highend_gfx_title">Pakota parhaat grafiikat</string>
   <string name="pref_force_highend_gfx_summary">Ottaa käyttöön parhaat visuaaliset tehosteet kuten läpinäkyvät tila- ja navigointipalkit (uudelleenkäynnistys tarvitaan)</string>
   <string name="performance_settings_warning_title">Jatka varovaisesti</string>
@@ -669,7 +671,7 @@
   <string name="qs_tile_hotspot">Yhteyspiste</string>
   <string name="qs_tile_adb_over_network">ADB verkon yli</string>
   <string name="qs_tile_profiles">Järjestelmäprofiilit</string>
-  <string name="qs_tile_performance">Suorituskyky</string>
+  <string name="qs_tile_performance">Akkutila</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompassi</string>
   <string name="qs_tile_lockscreen">Lukitusnäyttö</string>
@@ -697,6 +699,9 @@
   <string name="expanded_hide_both">Piilota molemmat</string>
   <string name="expanded_nothing_to_show">Lisätäksesi sovelluskohtaisen asetuksen, poista \"Ota kaikki käyttöön\" käytöstä</string>
   <string name="expanded_enabled_for_all">Ota kaikki käyttöön</string>
+  <string name="expanded_desktop_style">Laajennetun työpöydän tyyli</string>
+  <string name="expanded_desktop_style_description">Valitse laajennetun työpöydän oletustyyli</string>
+  <string name="expanded_desktop_title">Laajennetun työpöydän asetukset</string>
   <string name="lockscreen_targets_message">Lukitusnäytön pikakuvakkeet</string>
   <string name="lockscreen_default_target">Oletus</string>
   <string name="lockscreen_none_target">Ei mitään</string>
@@ -727,4 +732,17 @@
   <string name="gestures_action_search">Aloita haku</string>
   <string name="gestures_action_recent">Viimeisimmät sovellukset</string>
   <string name="stylus_app_not_installed">%s ei ole asennettu</string>
+  <string name="advanced">Lisäasetukset</string>
+  <string name="advanced_mode_title">Laajennettu tila</string>
+  <string name="category_misc">Muut</string>
+  <string name="category_vibrate">Värinä</string>
+  <string name="category_volume">Äänenvoimakkuus</string>
+  <string name="category_sounds">Äänet</string>
+  <string name="category_interface">Käyttöliittymä</string>
+  <string name="category_calibration">Kalibrointi</string>
+  <string name="display_and_lights">Näyttö &amp; valot</string>
+  <string name="notification_manager">Ilmoitusten hallinta</string>
+  <string name="lockscreen_settings">Lukitusnäyttö</string>
+  <string name="category_lights">Valot</string>
+  <string name="power_usage_history_title">Akun käyttö</string>
 </resources>

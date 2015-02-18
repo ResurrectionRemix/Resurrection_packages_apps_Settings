@@ -216,6 +216,7 @@
   <string name="model_name">Modell neve</string>
   <string name="build_date">Build dátuma</string>
   <string name="contributor_cloud_title">Közreműködők</string>
+  <string name="phone_service_state">Hang: <xliff:g id="voice_state">%1$s</xliff:g>, adat: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dupla érintésre felébresztés</string>
   <string name="proximity_wake_title">Véletlen ébresztés megakadályozása</string>
   <string name="proximity_wake_summary">Közelség érzékelő ellenőrzése a képernyő felébresztése előtt</string>
@@ -230,7 +231,6 @@
   <string name="privacy_guard_reset_text">Visszaállítja az engedélyeket?</string>
   <string name="privacy_guard_help_text">Ezen a képernyőn egyszerű érintéssel kiválaszthatja, hogy mely alkalmazásoknál legyen aktív az adatvédelmi mód. A kiválasztott alkalmazás nem fog hozzáférni a személyes adataihoz, mint például a névjegyzéke, üzenetei, vagy a hívásnaplója. Egy sort hosszan megérintve megjelenik az adott alkalmazás részleteit tartalmazó képernyő.\n\nAlapértelmezetten a rendszeralkalmazások nem jelennek meg. Amennyiben szeretné, hogy a rendszeralkalmazások, vagy csak azon alkalmazások jelenjenek meg, amelyek hozzáférést kérnek a személyes adatokhoz, válassza ki a megfelelő beállításokat a menüben.</string>
   <string name="privacy_guard_manager_show_system_apps">Rendszeralkalmazások megjelenítése</string>
-  <string name="privacy_guard_advanced_settings_title">Haladó</string>
   <string name="increasing_ring_volume_option_title">Emelkedő csengőhang</string>
   <string name="increasing_ring_min_volume_title">Kezdeti hangerő</string>
   <string name="increasing_ring_ramp_up_time_title">Felfutási idő</string>
@@ -247,7 +247,6 @@
   <string name="development_shortcut_title">Fejlesztői parancsikon</string>
   <string name="development_shortcut_summary">Alkalmazások kezelése parancsikon engedélyezése az alkalmazás előzmények listán</string>
   <string name="double_tap_to_sleep_title">Dupla érintésre alvó mód</string>
-  <string name="double_tap_to_sleep_summary">Státuszbáron történő dupla érintésre az eszköz alvó módba kerül</string>
   <string name="wake_when_plugged_or_unplugged_title">Felébredés töltő csatlakoztatásakor</string>
   <string name="wake_when_plugged_or_unplugged_summary">A képernyő bekapcsolása a töltő csatlakoztatása/eltávolítása után</string>
   <string name="kill_app_longpress_back">Alkalmazás bezárás</string>
@@ -325,6 +324,10 @@
   <string name="notification_ringtone_title_cm">Értesítés hangja</string>
   <string name="ime_switcher_notify">Választó ikon</string>
   <string name="ime_switcher_notify_summary">Beviteli mód választó ikon megjelenítése</string>
+  <string name="app_notification_show_on_keyguard_title">Megjelenítés a zárképernyőn</string>
+  <string name="app_notification_show_on_keyguard_summary">Ezen alkalmazáshoz tartozó értesítések megjelenítése a zárképernyőn</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Állandó értesítés tiltása a zárképernyőn</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Ezen alkalmazáshoz tartozó állandó értesítés soha ne jelenjen meg a zárképernyőn</string>
   <string name="high_touch_sensitivity_title">Magas érintési érzékenység</string>
   <string name="high_touch_sensitivity_summary">Érintőképernyő érzékenységének növelése, így kesztyű viselése esetén is használható</string>
   <string name="app_ops_summaries_coarse_location">pontatlan hely</string>
@@ -611,11 +614,9 @@
   <string name="picker_activities">Tevékenységek</string>
   <string name="select_custom_app_title">Válasszon egyedi alkalmazást</string>
   <string name="select_custom_activity_title">Válasszon egyedi tevékenységet</string>
-  <string name="title_tile_performance_profile">Teljesítmény profil</string>
   <string name="performance_settings_title">Teljesítmény</string>
   <string name="io_scheds_title">I/O ütemező</string>
   <string name="io_sched_title">I/O ütemező</string>
-  <string name="perf_profile_title">Profil</string>
   <string name="pref_force_highend_gfx_title">Magas minőségű grafika kényszerítése</string>
   <string name="pref_force_highend_gfx_summary">Magas minőségű grafikai effektek engedélyezése, mint az átlátszó állapot/navigációs sáv (újraindítás szükséges)</string>
   <string name="performance_settings_warning_title">Innentől óvatosan</string>
@@ -665,7 +666,6 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB hálózaton keresztül</string>
   <string name="qs_tile_profiles">Rendszer profilok</string>
-  <string name="qs_tile_performance">Teljesítmény</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Iránytű</string>
   <string name="qs_tile_lockscreen">Képernyőzár</string>
@@ -693,6 +693,9 @@
   <string name="expanded_hide_both">Mindkettő elrejtése</string>
   <string name="expanded_nothing_to_show">Egy kiterjesztett állapotra vonatkozó egyedi alkalmazásonkénti beállítás hozzáadásához az \"Összesre engedélyezve\" beállítást kapcsolja ki</string>
   <string name="expanded_enabled_for_all">Összes engedélyezett</string>
+  <string name="expanded_desktop_style">Kiterjesztett asztal stílusa</string>
+  <string name="expanded_desktop_style_description">Válasszon alapértelmezett kiterjesztett asztal stílust</string>
+  <string name="expanded_desktop_title">Kiterjesztett asztal beállítások</string>
   <string name="lockscreen_targets_message">Zárképernyő hivatkozások</string>
   <string name="lockscreen_default_target">Alapértelmezett</string>
   <string name="lockscreen_none_target">Nincs</string>

@@ -16,19 +16,27 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="other">개발자 설정을 활성화하려면 <xliff:g id="step_count">%1$d</xliff:g>회 더 누르십시오.</item>
+  </plurals>
+  <string name="show_dev_on_cm">개발자 설정이 활성화되었습니다.</string>
+  <string name="show_dev_already_cm">이미 개발자 설정이 활성화되어 있습니다.</string>
+  <string name="development_tools_title">개발 도구</string>
   <string name="root_access">루트 권한</string>
   <string name="root_access_warning_title">루트 권한을 허용합니까?</string>
-  <string name="root_access_warning_message">앱이 루트 권한을 요청하도록 허용하는 것은 매우 위험하며, 기기의 보안을 위협할 수 있습니다.</string>
+  <string name="root_access_warning_message">어플리케이션 루트 권한을 요청하도록 허용하는 것은 매우 위험하며 시스템의 보안을 손상시킬 수 있습니다!</string>
   <string name="root_access_none">사용 안 함</string>
   <string name="root_access_apps">애플리케이션만</string>
   <string name="root_access_adb">ADB만</string>
   <string name="root_access_all">애플리케이션과 ADB</string>
   <string name="ring_mode_title">벨소리 모드</string>
+  <string name="ring_mode_normal">벨소리</string>
   <string name="ring_mode_vibrate">진동</string>
   <string name="ring_mode_mute">음소거</string>
+  <string name="profiles_settings_title">시스템 프로필</string>
   <string name="profiles_add">추가</string>
   <string name="profile_settings_title">프로필</string>
-  <string name="profile_empty_list_profiles_off">시스템 프로필을 구성하고 사용하려면, 프로필을 켜십시오.</string>
+  <string name="profile_empty_list_profiles_off">시스템 프로피을 구성하고 사용하기 위해 프로필을 켜십시오.</string>
   <string name="profile_trigger_configure">트리거 구성</string>
   <string name="profile_write_nfc_tag">NFC 태그에 쓰기</string>
   <string name="profile_write_touch_tag">태그를 터치해 작성</string>
@@ -37,16 +45,24 @@
   <string name="profile_selected">선택된 프로필: %1$s</string>
   <string name="profile_nfc_text">NFC 태그에 프로필을 작성하면 태그를 탭하여 해당 프로필을 선택할 수 있습니다. 한 번 더 탭하면 이전에 선택되었던 프로필을 적용합니다.</string>
   <string name="profile_unknown_nfc_tag">알 수 없는 프로필</string>
-  <string name="profile_add_nfc_text">이 NFC 태그는 알 수 없는 프로필을 가리킵니다. 이 NFC 태그를 기존 프로필에 추가하면 나중에 이 태그로 프로필을 선택할 수 있습니다.</string>
+  <string name="profile_add_nfc_text">이 NFC 태그는 알 수 없는 프로필을 가리킵니다. 이 NFC 태그에 기기에 있는 프로필을 작성하면 나중에 이 태그로 프로필을 선택할 수 있습니다.</string>
   <string name="profile_select">프로필 선택</string>
+  <string name="profile_remove_dialog_message">프로필 %1$s을(를) 제거하시겠습니까?</string>
+  <string name="profile_populate_profile_from_state">현재 기기 설정으로 프로필을 설정하시겠습니까?</string>
+  <string name="profile_menu_fill_from_state">현재 기기 설정 가져오기</string>
+  <string name="profile_remove_current_profile">지금 선택된 프로필은 삭제할 수 없습니다.</string>
   <string name="profile_name_title">이름</string>
   <string name="new_profile_name">&lt;새 프로필&gt;</string>
   <string name="rename_dialog_title">이름 바꾸기</string>
   <string name="rename_dialog_message">새 이름 입력</string>
+  <string name="rename_dialog_hint">프로필 이름 입력</string>
   <string name="profile_reset_title">초기화</string>
+  <string name="profile_reset_message">작성된 모든 프로필을 삭제하고 기본 설정으로 복원하시겠습니까?</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <string name="profile_volumeoverrides_title">볼륨 강제 설정</string>
   <string name="volume_override_summary">%1$s/%2$s(으)로 설정</string>
   <string name="profile_volume_override_checkbox_label">볼륨 강제 설정</string>
@@ -60,15 +76,21 @@
   <string name="profile_choose_app">앱 선택</string>
   <string name="profile_system_settings_title">시스템 설정</string>
   <string name="profile_lockmode_title">잠금 화면 모드</string>
+  <string name="profile_lockmode_insecure_summary">PIN이나 암호를 요구하지 않음</string>
+  <string name="profile_lockmode_disabled_summary">잠금화면 제거</string>
   <string name="profile_airplanemode_title">비행기 모드</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">휴대용 Wi\u2011Fi 핫스팟</string>
   <string name="toggleBluetooth">블루투스</string>
   <string name="toggleGPS">GPS</string>
+  <string name="toggleData">데이터통신 연결</string>
   <string name="toggleSync">자동 동기화 데이터</string>
+  <string name="toggle2g3g4g">선호하는 통신 유형</string>
   <string name="toggleNfc">NFC</string>
+  <string name="button_pref_title">버튼</string>
   <string name="hardware_keys_power_key_title">전원 버튼</string>
   <string name="hardware_keys_home_key_title">홈 버튼</string>
+  <string name="hardware_keys_back_key_title">뒤로 가기</string>
   <string name="hardware_keys_menu_key_title">메뉴 버튼</string>
   <string name="hardware_keys_assist_key_title">검색 버튼</string>
   <string name="hardware_keys_appswitch_key_title">멀티태스킹 버튼</string>
@@ -95,6 +117,8 @@
   <string name="swap_volume_buttons_summary">화면이 회전되었을 때 볼륨 버튼 위/아래 전환</string>
   <string name="power_end_call_title">통화 종료</string>
   <string name="power_end_call_summary">전원 버튼을 눌러 현재 통화를 종료</string>
+  <string name="button_wake_title">기기 켜기</string>
+  <string name="button_wake_summary">재생 컨트롤 무시</string>
   <string name="home_answer_call_title">전화 수신</string>
   <string name="home_answer_call_summary">홈 버튼을 눌러 걸려온 전화에 응답</string>
   <string name="button_backlight_title">조명</string>
@@ -108,11 +132,18 @@
   <string name="backlight_summary_enabled_with_timeout"><xliff:g id="timeout">%s</xliff:g>동안 켬</string>
   <string name="backlight_summary_enabled">사용함</string>
   <string name="power_menu_title">전원 메뉴</string>
+  <string name="power_menu_power_title">전원 끔</string>
   <string name="power_menu_reboot_title">재시작 메뉴</string>
   <string name="power_menu_screenshot_title">스크린샷</string>
   <string name="power_menu_profiles_title">프로필 전환</string>
   <string name="power_menu_airplane_title">비행기 모드</string>
+  <string name="power_menu_users_title">사용자 바꾸기</string>
+  <string name="power_menu_settings_title">설정 바로 가기</string>
+  <string name="power_menu_lockdown_title">기기 잠금</string>
+  <string name="power_menu_bug_report_title">오류 보고</string>
   <string name="power_menu_sound_title">소리 패널</string>
+  <string name="power_menu_bug_report_disabled">개발자 설정에서 오류 보고 비활성화</string>
+  <string name="power_menu_profiles_disabled">시스템 프로필 비활성화</string>
   <string name="adaptive_backlight_title">자동으로 화면 밝기 조절</string>
   <string name="adaptive_backlight_summary">자동으로 화면의 밝기를 조절하여 사용성을 유지하면서 배터리 수명을 극대화합니다</string>
   <string name="sunlight_enhancement_title">햇빛 향상</string>
@@ -127,6 +158,7 @@
   <string name="blacklist_empty_text">블랙리스트에 등록된 번호가 없습니다. 추가 (+) 버튼을 눌러 항목을 추가하십시오.</string>
   <string name="blacklist_disabled_empty_text">특정 번호에서 오는 전화 또는 메시지를 차단하려면, 블랙리스트를 사용하도록 설정하십시오.</string>
   <string name="blacklist_summary_disabled">사용 안 함</string>
+  <string name="blacklist_summary">블랙리스트 번호로부터 오는 통화와 메시지 차단</string>
   <string name="blacklist_notify">알림 표시</string>
   <string name="blacklist_private_numbers_title">발신번호 표시 제한</string>
   <string name="blacklist_private_numbers_summary_disabled">발신번호 표시 제한된 전화를 차단하지 않음</string>
@@ -168,13 +200,22 @@
   <string name="app_security_title">앱 보안</string>
   <string name="sms_security_check_limit_title">SMS 메시지 발신 제한</string>
   <string name="sms_security_check_limit_summary">확인을 요청하기 전까지 30분 내에 %d개의 메시지만 보낼 수 있습니다</string>
+  <string name="spam_added_title">%1$s 추가됨</string>
+  <string name="spam_last_blocked_title">%1$s 최근 차단됨</string>
   <string name="block_notifications_title">알림 필터</string>
   <string name="block_notifications_summary">무시할 알림 및 필터 관리</string>
+  <string name="no_filters_title">필터가 설정되지 않음</string>
   <string name="cmupdate_settings_title">CyanogenMod 업데이트</string>
+  <string name="update_recovery_title">Cyanogen 리커버리 업데이트</string>
+  <string name="update_recovery_summary">시스템을 업데이트할 때 리커버리 업데이트</string>
+  <string name="update_recovery_on_warning">주의: 이 기능이 활성화되면 기기의 리커버리가 현재의 OS에 포함된 리커버리로 대체됩니다.\n\n기기의 리커버리는 이 후 업데이트의 호환성을 확인하여 시스템 업그레이드와 같이 업데이트될 것입니다.\n\n이 기능을 활성화하시겠습니까?</string>
+  <string name="update_recovery_off_warning">주의: 이 기능이 비활성화되면 기기의 리커버리는 OS 업그레이드와 함께 업데이트되지 않습니다.\n\n이 후 기기의 OS 업데이트는 이전 리커리나 커스텀 리커버리로는 업데이트되지 않을 수 있습니다.\n\n이 기능을 정말로 비활성화하시겠습니까?</string>
   <string name="mod_version">CyanogenMod 버전</string>
   <string name="mod_version_default">알 수 없음</string>
+  <string name="model_name">모델 이름</string>
   <string name="build_date">빌드 날짜</string>
   <string name="contributor_cloud_title">기여자</string>
+  <string name="phone_service_state">전화: <xliff:g id="voice_state">%1$s</xliff:g>, 데이터: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">더블 탭으로 화면 켜기</string>
   <string name="proximity_wake_title">실수로 화면 켜기 방지</string>
   <string name="proximity_wake_summary">화면을 켜기 전에 근접 센서 확인</string>
@@ -189,32 +230,65 @@
   <string name="privacy_guard_reset_text">권한을 초기화할까요?</string>
   <string name="privacy_guard_help_text">이 화면에서는 어떤 앱에 프라이버시 가드 기능을 작동하게 할 것인지를 선택할 수 있습니다. 선택된 앱은 연락처, 메시지, 통화 기록 등의 개인 정보에 접근 할 수 없게 됩니다. 앱을 길게 누르면 자세한 정보가 표시됩니다.\n\n내장 앱은 기본적으로 보여지지 않으나 메뉴에서 설정을 변경하여 보여지게 할 수도 있습니다.</string>
   <string name="privacy_guard_manager_show_system_apps">내장 어플리케이션 표시</string>
-  <string name="privacy_guard_advanced_settings_title">고급 설정</string>
+  <string name="increasing_ring_volume_option_title">점점 커지는 벨 소리</string>
+  <string name="increasing_ring_min_volume_title">시작 벨소리</string>
+  <string name="increasing_ring_ramp_up_time_title">소리 커짐 시간</string>
   <string name="advanced_reboot_title">고급 재시작</string>
   <string name="advanced_reboot_summary">화면 잠금이 해제되어 있으면 전원 메뉴에 복구 모드, 부트로더, 빠른 다시 시작 옵션 추가</string>
   <string name="enable_adb_cm">안드로이드 디버깅</string>
   <string name="enable_adb_summary_cm">안드로이드 디버그 브릿지 (adb) 인터페이스를 사용하도록 설정</string>
   <string name="adb_over_network">네트워크를 통한 ADB</string>
   <string name="adb_over_network_summary">네트워크 인터페이스(Wi\u2011Fi, USB 네트워크)를 통한 TCP/IP 디버깅을 사용합니다. 이 설정은 재부팅 시 초기화됩니다.</string>
+  <string name="adb_over_network_warning">경고: 네트워크 ADB연결이 활성화되면 기기가 연결된 모든 네트워크를 통한 위험에 노출됩니다!\n\n신뢰할 수 있는 네트워크에서만 이 연결을 사용하십시오.\n\n정말로 이 기능을 활성화하시겠습니까?</string>
+  <string name="adb_notify">디버깅 알림</string>
+  <string name="adb_notify_summary">USB 또는 네트워크 디버깅을 활성화 하면 알림 표시</string>
   <string name="device_hostname">장치 호스트명</string>
   <string name="development_shortcut_title">개발용 바로가기</string>
+  <string name="development_shortcut_summary">최근 앱 목록에서 앱 관리설정 바로가기 활성화</string>
   <string name="double_tap_to_sleep_title">더블 탭하여 화면 끄기</string>
   <string name="wake_when_plugged_or_unplugged_title">충전 시 켜짐</string>
   <string name="wake_when_plugged_or_unplugged_summary">전원이 연결되거나 분리될 때 화면 켜기</string>
   <string name="kill_app_longpress_back">뒤로 버튼으로 앱 종료</string>
+  <string name="kill_app_longpress_back_summary">뒤로가기를 길게 눌러 이전 앱 종료</string>
   <string name="disable_navkeys_title">온스크린 내비게이션 바 사용</string>
   <string name="disable_navkeys_summary">온스크린 내비게이션 바를 활성화하고 하드웨어 버튼을 비활성화합니다</string>
   <string name="navigation_bar_category">내비게이션 바</string>
   <string name="navigation_bar_left_title">왼손잡이 모드</string>
   <string name="navigation_bar_left_summary">가로화면 모드에서 화면 왼쪽에 내비게이션 바를 배치</string>
   <string name="navigation_bar_title">버튼 및 레이아웃</string>
+  <string name="navigation_bar_help_text">내비게이션 바 편집을 위해 잠금을 해제하려면 편집 아이콘을 탭합니다.\n\n아이콘을 탭하여 버튼을 변경하거나 길게 눌러 버튼 순서를 변경할 수 있습니다.\n\n저장을 탭하여 변경사항을 적용하거나 \'기본 설정 복원\'을 탭하여 기본 설정으로 초기화하십시오.</string>
+  <string name="navigation_restore_button_text">기본 설정\n복원</string>
+  <string name="navigation_edit_button_text">편집</string>
+  <string name="navigation_save_button_text">저장</string>
+  <string name="navigation_bar_reset_message">현재 설정을 삭제하고 기본 설정으로 복원하시겠습니까?</string>
+  <string name="navigation_bar_arrow_keys_title">입력시 커서 방향키 표시</string>
+  <string name="navigation_bar_arrow_keys_summary">입력시 좌우 방향 커서 버튼을 표시합니다. 입력기 전환 버튼은 표시되지 않습니다.</string>
+  <string name="header_category_personalization">개인 설정</string>
   <string name="status_bar_title">상태 표시줄</string>
   <string name="status_bar_toggle_brightness">밝기 조절</string>
   <string name="status_bar_toggle_brightness_summary">상태 표시줄을 슬라이드하여 화면 밝기 조절</string>
   <string name="status_bar_notif_count_title">알림 갯수 표시</string>
   <string name="status_bar_notif_count_summary">읽지 않은 알림 숫자 표시</string>
+  <string name="status_bar_clock_style_title">시계 위치</string>
+  <string name="status_bar_clock_style_right">오른쪽</string>
+  <string name="status_bar_clock_style_left">왼쪽</string>
   <string name="status_bar_clock_style_center">가운데</string>
   <string name="status_bar_clock_style_hidden">숨김</string>
+  <string name="status_bar_am_pm_title">AM/PM 표시</string>
+  <string name="status_bar_am_pm_info">24시간 표시 활성화</string>
+  <string name="status_bar_am_pm_normal">기본</string>
+  <string name="status_bar_am_pm_small">작게</string>
+  <string name="status_bar_am_pm_hidden">숨김</string>
+  <string name="status_bar_battery_style_title">배터리 표시 형태</string>
+  <string name="status_bar_battery_style_icon_portrait">세로 아이콘</string>
+  <string name="status_bar_battery_style_icon_landscape">가로 아이콘</string>
+  <string name="status_bar_battery_style_circle">원형 아이콘</string>
+  <string name="status_bar_battery_style_text">수치</string>
+  <string name="status_bar_battery_style_hidden">숨김</string>
+  <string name="status_bar_battery_percentage_title">배터리 잔량 표시</string>
+  <string name="status_bar_battery_percentage_default">숨김</string>
+  <string name="status_bar_battery_percentage_text_inside">아이콘 안에 표시</string>
+  <string name="status_bar_battery_percentage_text_next">아이콘 바깥에 표시</string>
   <string name="edit_light_settings">조명 설정 변경</string>
   <string name="pulse_speed_title">깜빡임 시간 및 속도</string>
   <string name="default_time">보통</string>
@@ -246,8 +320,17 @@
   <string name="notification_light_default_value">기본</string>
   <string name="notification_light_missed_call_title">부재중 전화</string>
   <string name="notification_light_voicemail_title">음성 메시지</string>
+  <string name="notification_ringtone_title_cm">알림 소리</string>
+  <string name="ime_switcher_notify">입력기 전환 알림</string>
+  <string name="ime_switcher_notify_summary">입력기 전환키 표시</string>
+  <string name="app_notification_show_on_keyguard_title">잠금 화면에 표시</string>
+  <string name="app_notification_show_on_keyguard_summary">잠금화면에 알림을 표시</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">상주알림을 잠금화면에 표시하지 않음</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">이 앱의 상주알림을 잠금화면에 표시하지 않음</string>
   <string name="high_touch_sensitivity_title">터치 감도 높이기</string>
   <string name="high_touch_sensitivity_summary">장갑을 착용해도 터치할 수 있도록 터치스크린 감도를 향상</string>
+  <string name="touchscreen_hovering_title">터치스크린 호버링</string>
+  <string name="touchscreen_hovering_summary">웹 브라우저나 원격 데스크톱과 같은 앱에서 마우스처럼 화면에 호버링하여 사용할 수 있습니다.</string>
   <string name="app_ops_summaries_coarse_location">대략적인 위치</string>
   <string name="app_ops_summaries_fine_location">자세한 위치</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -291,13 +374,25 @@
   <string name="app_ops_summaries_keep_awake">켜짐 유지</string>
   <string name="app_ops_summaries_monitor_location">위치 추적</string>
   <string name="app_ops_summaries_monitor_high_power_location">고성능 위치 추적</string>
+  <string name="app_ops_summaries_get_usage_stats">앱 사용 상태 확인</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">마이크 켜기/끄기</string>
+  <string name="app_ops_summaries_toast_window">팝업 표시</string>
+  <string name="app_ops_summaries_project_media">미리 보기</string>
+  <string name="app_ops_summaries_activate_vpn">VPN 활성화</string>
   <string name="app_ops_summaries_wifi_change">Wi\u2011Fi 변경</string>
   <string name="app_ops_summaries_bluetooth_change">블루투스 변경</string>
   <string name="app_ops_summaries_send_mms">MMS 보내기</string>
   <string name="app_ops_summaries_read_mms">MMS 읽기</string>
   <string name="app_ops_summaries_write_mms">MMS 쓰기</string>
   <string name="app_ops_summaries_auto_start">자동 시작</string>
+  <string name="app_ops_summaries_nfc_change">NFC 변경</string>
+  <string name="app_ops_summaries_delete_sms">SMS 삭제</string>
+  <string name="app_ops_summaries_delete_mms">MMS 삭제</string>
+  <string name="app_ops_summaries_delete_contacts">연락처 삭제</string>
+  <string name="app_ops_summaries_delete_call_log">통화 기록 삭제</string>
   <string name="app_ops_summaries_data_change">데이터 변경</string>
+  <string name="app_ops_summaries_wake_up">기기 켜기</string>
+  <string name="app_ops_summaries_su">루트 권한</string>
   <string name="app_ops_labels_location">위치</string>
   <string name="app_ops_labels_vibrate">진동</string>
   <string name="app_ops_labels_read_contacts">연락처 읽기</string>
@@ -331,30 +426,54 @@
   <string name="app_ops_labels_notification_volume">알림 볼륨</string>
   <string name="app_ops_labels_bluetooth_volume">블루투스 볼륨</string>
   <string name="app_ops_labels_keep_awake">켜짐 유지</string>
+  <string name="app_ops_labels_get_usage_stats">앱 사용 상태 확인</string>
+  <string name="app_ops_labels_mute_unmute_microphone">마이크 켜기/끄기</string>
+  <string name="app_ops_labels_toast_window">팝업 표시</string>
+  <string name="app_ops_labels_project_media">미리 보기</string>
+  <string name="app_ops_labels_activate_vpn">VPN 활성화</string>
   <string name="app_ops_labels_wifi_change">Wi\u2011Fi 변경</string>
   <string name="app_ops_labels_bluetooth_change">블루투스 변경</string>
   <string name="app_ops_labels_send_mms">MMS 보내기</string>
   <string name="app_ops_labels_read_mms">MMS 읽기</string>
   <string name="app_ops_labels_write_mms">MMS 쓰기</string>
   <string name="app_ops_labels_auto_start">자동 시작</string>
+  <string name="app_ops_labels_nfc_change">NFC 변경</string>
+  <string name="app_ops_labels_delete_sms">SMS 삭제</string>
+  <string name="app_ops_labels_delete_mms">MMS 삭제</string>
+  <string name="app_ops_labels_delete_contacts">연락처 삭제</string>
+  <string name="app_ops_labels_delete_call_log">통화 기록 삭제</string>
   <string name="app_ops_labels_data_change">데이터 변경</string>
+  <string name="app_ops_labels_wake_up">기기 켜기</string>
+  <string name="app_ops_labels_su">루트 권한</string>
   <string name="app_ops_categories_location">위치</string>
   <string name="app_ops_categories_personal">개인</string>
   <string name="app_ops_categories_messaging">메시징</string>
   <string name="app_ops_categories_media">미디어</string>
   <string name="app_ops_categories_device">장치</string>
   <string name="app_ops_categories_bootup">부팅</string>
+  <string name="app_ops_categories_su">루트 권한</string>
+  <string name="app_ops_permissions_allowed">허가</string>
+  <string name="app_ops_permissions_ignored">무시</string>
+  <string name="app_ops_permissions_always_ask">항상 확인</string>
   <string name="ok">확인</string>
   <string name="profile_menu_delete_title">삭제</string>
+  <string name="profile_action_none">변경하지 않음</string>
+  <string name="profile_action_disable"> 끄기</string>
+  <string name="profile_action_enable">켜기</string>
   <string name="profile_trigger_a2dp_connect">A2DP 연결 시</string>
   <string name="profile_trigger_a2dp_disconnect">A2DP 연결 해제 시</string>
   <string name="profile_tabs_wifi">Wi\u2011Fi</string>
   <string name="profile_tabs_bluetooth">블루투스</string>
   <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_triggers_header">이 프로필을 활성화할 트리거</string>
   <string name="profile_setup_setup_triggers_title">1단계: 트리거 추가</string>
   <string name="profile_setup_setup_triggers_title_config">트리거 변경: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">2단계: 동작 설정</string>
   <string name="profile_setup_actions_title_config">동작 다시 설정</string>
+  <string name="no_bluetooth_triggers">블루투스 장치가 연결되지 않았습니다.\n블루투스 장치를 눌러 먼저 연결한 후 설정하십시오.</string>
+  <string name="no_wifi_triggers">Wi\u2011Fi 액세스 포인트가 설정되지 않았습니다.\n설정하려면 눌러서 Wi\u2011Fi에 연결하십시오.</string>
+  <string name="no_triggers_configured">설정되지 않았습니다. 눌러서 추가하십시오.</string>
+  <string name="no_triggers_configured_nfc">눌러서 새 NFC 연결을 설정하십시오.</string>
   <string name="profile_setup_setup_triggers_description">이 프로필을 활성화할 트리거를 선택해주십시오</string>
   <string name="profile_setup_actions_description">이 프로필이 활성화되면 무엇을 할 것인지 설정해주십시오</string>
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> 사용됨)</string>
@@ -365,7 +484,9 @@
   <string name="app_ops_show_system_apps">내장 애플리케이션 표시</string>
   <string name="app_ops_reset_counters">허용/거부 카운터 초기화</string>
   <string name="app_ops_reset_confirm_title">카운터 초기화 확인</string>
+  <string name="app_ops_reset_confirm_mesg">정말로 계수치를 초기화합니까?</string>
   <string name="font_size_sample">예시</string>
+  <string name="volume_adjust_sounds_title">소리 크기 조정</string>
   <string name="vibrator_intensity_title">진동 세기</string>
   <string name="vibrator_warning">%1$d보다 더 높은 값은 권장하지 않습니다.</string>
   <string name="color_calibration_title">색상 보정</string>
@@ -376,7 +497,11 @@
   <string name="gamma_tuning_title_head">감마 보정</string>
   <string name="gamma_tuning_summary_head">감마 값을 조정합니다</string>
   <string name="gamma_tuning_control_set_header">그룹 <xliff:g id="index">%d</xliff:g></string>
+  <string name="gamma_tuning_contrast">명암비</string>
+  <string name="gamma_tuning_brightness">밝기</string>
+  <string name="gamma_tuning_saturation">채도</string>
   <string name="screencolor">화면 색상</string>
+  <string name="screencolor_summary">화면 색상, 채도, 명암비 또는 집적도를 조정</string>
   <string name="custom_screencolor">사용자 정의 화면 색상</string>
   <string name="screencolor_save">저장</string>
   <string name="screencolor_cancel">취소</string>
@@ -388,22 +513,95 @@
   <string name="saturation_str">채도: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">대비: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">강도: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_standard">표준</string>
+  <string name="screen_color_setting_vivid">생생하게</string>
+  <string name="screen_color_setting_custom">사용자 지정</string>
+  <string name="settings_reset_button">초기화</string>
   <string name="bluetooth_enter_pin_msg_hs">장치 <xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>와(과) 연결하려면 장치의 PIN을 입력하십시오(16자 이상):</string>
   <string name="bluetooth_profile_dun">전화 접속 네트워크 액세스</string>
   <string name="bluetooth_profile_sap">SIM 액세스</string>
+  <string name="bluetooth_dun_profile_summary_connected">DUN 서버에 연결됨</string>
+  <string name="bluetooth_pbap_profile_summary_connected">연락처 서버에 연결됨</string>
+  <string name="bluetooth_sap_profile_summary_connected">SIM카드 접속 서버에 연결됨</string>
   <string name="bluetooth_dun_profile_summary_use_for">전화 접속 네트워크 액세스 사용</string>
+  <string name="bluetooth_pbap_profile_summary_use_for">연락처 공유 사용</string>
   <string name="bluetooth_sap_profile_summary_use_for">SIM 액세스 사용</string>
   <string name="bluetooth_accept_all_files">모든 파일 파일 형식 허용</string>
+  <string name="sim_lock_settings_cm">SIM/RUIM 카드 잠금 설정</string>
+  <string name="sim_lock_settings_category_cm">SIM/RUIM카드 잠금 설정</string>
+  <string name="sim_lock_settings_title_cm">SIM/RUIM 카드 잠금</string>
+  <string name="sim_pin_disable_failed">PIN을 사용중지할 수 없습니다.</string>
+  <string name="sim_pin_enable_failed">PIN을 사용할 수 없습니다.</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">SIM/RUIM PIN을 변경하려면 먼저 SIM/RUIM 카드 잠금을 설정하십시오.</string>
+  <string name="sim_enable_disable_lock_not_supported">카드가 SIM/RUIM 잠금을 지원하지 않습니다.</string>
+  <string name="sim_pin_attempts">\n남은 시도 횟수:</string>
+  <string name="sim_pin_enabled">PIN1 활성화됨</string>
+  <string name="sim_pin_disabled">PIN1 비활성화됨</string>
   <string name="subs_settings">SIM 카드 상태</string>
+  <string name="storage_usb">USB 저장소</string>
+  <string name="storage_uicc">UICC 저장소</string>
+  <string name="usb_eject" product="default">USB 저장소 마운트 해제</string>
+  <string name="usb_eject_summary" product="default">USB 저장소를 마운트 해제하여 안전하게 제거</string>
+  <string name="usb_format" product="default">USB 저장소 지우기</string>
+  <string name="usb_format_summary" product="default">음악과 사진 등의 USB 저장소 내용 모두 지우기</string>
+  <string name="usb_mount" product="default">USB 저장소 마운트</string>
+  <string name="usb_insert_summary" product="default">마운트할 USB 저장소 삽입</string>
+  <string name="uicc_eject" product="default">UICC 저장소 마운트 해제</string>
+  <string name="uicc_eject_summary" product="default">UICC 저장소를 마운트 해제하여 안전하게 제거</string>
+  <string name="uicc_format" product="default">UICC 저장소 지우기</string>
+  <string name="uicc_format_summary" product="default">음악과 사진 등의 UICC 저장소 내용 모두 지우기</string>
+  <string name="uicc_mount" product="default">UICC 저장소 마운트</string>
+  <string name="uicc_insert_summary" product="default">마운트할 UICC 저장소 삽입</string>
+  <string name="usb_settings_enable_ums_title">대용량 저장장치를 사용합니까?</string>
+  <string name="usb_settings_enable_ums_message">시스템 구성 요소 및 앱들은 항상 사용 가능한 주 저장소에 의존합니다. 이 기능을 사용하면 그러한 의존이 불가능해집니다. 따라서 이 기능 대신 MTP를 사용하는 것이 권장됩니다. 정말 대용량 저장장치를 사용하시겠습니까?</string>
+  <string name="dlg_confirm_usb_unmount_title" product="default">USB 저장소를 마운트 해제하시겠습니까?</string>
+  <string name="dlg_confirm_uicc_unmount_title" product="default">UICC 저장소를 마운트 해제하시겠습니까?</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">USB 저장소를 마운트 해제하면 사용 중인 일부 앱이 중지되고 USB 저장소를 다시 마운트할 때까지 사용할 수 없게 됩니다.</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">UICC 저장소를 마운트 해제하면 사용 중인 일부 앱이 중지되고 UICC 저장소를 다시 마운트할 때까지 사용할 수 없게 됩니다.</string>
+  <string name="dlg_error_usb_unmount_text" product="default">USB 저장소를 마운트 해제하지 못했습니다. 나중에 다시 시도하세요.</string>
+  <string name="dlg_error_uicc_unmount_text" product="default">UICC 저장소를 마운트 해제하지 못했습니다. 나중에 다시 시도하세요.</string>
   <string name="usb_unmount_inform_text" product="default">USB 저장소가 마운트 해제됩니다.</string>
+  <string name="uicc_unmount_inform_text" product="default">UICC 저장소가 마운트 해제됩니다.</string>
+  <string name="usb_media_format_desc" product="default">USB 저장소를 지우시겠습니까? 저장소에 저장된 <b>모든</b> 데이터가 삭제되니 주의하세요.</string>
+  <string name="uicc_media_format_desc" product="default">UICC 저장소를 지우시겠습니까? 저장소에 저장된 <b>모든</b> 데이터가 삭제되니 주의하세요.</string>
   <string name="usb_media_format_button_text" product="default">USB 저장소 지우기</string>
+  <string name="uicc_media_format_button_text" product="default">UICC 저장소 지우기</string>
   <string name="usb_media_format_final_desc" product="default">USB 저장소를 지우고 저장된 모든 파일을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다!</string>
+  <string name="uicc_media_format_final_desc" product="default">UICC 저장소를 지우고 저장된 모든 파일을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다!</string>
   <string name="usb_media_format_gesture_explanation" product="default">USB 저장소를 지우려면 잠금 해제 패턴을 입력하십시오.</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">UICC 저장소를 지우려면 잠금 해제 패턴을 입력하십시오.</string>
+  <string name="location_category_enhanced_location">강화된 위치 확인 (실내 위치 확인)</string>
+  <string name="app_ops_settings_summary">앱 권한 보기 및 해제</string>
+  <string name="enable_adb_summary_charging">기기가 충전 중이어서 USB 디버깅이 중지됨</string>
   <string name="enable_quickboot_title">QuickBoot 모드 활성화</string>
+  <string name="enable_quickboot_summary">정상적인 기기의 전원 끄기 대신 빠른 시작 모드로 변경</string>
+  <string name="data_usage_tab_slot">SIM카드 <xliff:g id="sub">%d</xliff:g></string>
+  <string name="sim_enabler_title">SIM카드 상태</string>
+  <string name="sim_enabler_summary">SIM카드는 <xliff:g id="status" example="enabled">%1$s</xliff:g> 입니다.</string>
+  <string name="sim_enabled">활성화됨</string>
+  <string name="sim_disabled">비활성화됨</string>
+  <string name="sim_missing">SIM 카드가 없거나 잘못되었습니다</string>
+  <string name="sim_enabler_need_disable_sim">SIM카드를 비활성화하시겠습니까?</string>
+  <string name="sim_enabler_airplane_on">비행기 모드에서는 작업을 수행할 수 없습니다.</string>
+  <string name="sim_enabler_in_call">통화중에는 작업을 수행할 수 없습니다.</string>
+  <string name="sim_enabler_both_inactive">모든 SIM 카드를 비활성화할 수 없습니다</string>
+  <string name="sim_enabler_sim">SIM</string>
+  <string name="sim_enabler_enabling"><xliff:g id="name">%s</xliff:g>\u2026 활성화 중</string>
+  <string name="sim_enabler_disabling"><xliff:g id="name">%s</xliff:g>\u2026 비활성화 중</string>
+  <string name="sim_enabler_deactivate">비활성화</string>
+  <string name="primary_sub_select_title">3G/LTE 우선 접속 선택</string>
+  <string name="usb_charging_title">충전만</string>
+  <string name="usb_charging_summary">컴퓨터와 모든 데이터 전송을 중지하고 USB로 기기를 충전함</string>
+  <string name="usb_sdcard_title">대용량 저장장치 (UMS)</string>
+  <string name="usb_sdcard_summary">플래시 드라이브로 설정하여 SD카드와 컴퓨터 사이에서 파일을 전송할 수 있음</string>
+  <string name="external_storage_turn_on">외부 저장소가 켜졌습니다.</string>
+  <string name="external_storage_turn_off">외부 저장소가 꺼졌습니다.</string>
   <string name="menu_hidden_apps_delete">초기화</string>
   <string name="menu_hidden_apps_reset_lock">패턴 잠금 초기화</string>
   <string name="protected_apps">보호된 애플리케이션</string>
   <string name="saving_protected_components">구성요소 상태 저장\u2026</string>
+  <string name="stats_collection_title">통계 수집</string>
+  <string name="stats_collection_summary">활성화되면 통계수치를 수집함</string>
   <string name="power_notifications_category_title">충전 소리 알림</string>
   <string name="power_notifications_enable_title">사용함</string>
   <string name="power_notifications_enable_summary">전원이 연결되거나 분리될 때 소리 재생</string>
@@ -417,16 +615,15 @@
   <string name="picker_activities">액티비티</string>
   <string name="select_custom_app_title">사용자 정의 앱 선택</string>
   <string name="select_custom_activity_title">사용자 정의 액티비티 선택</string>
-  <string name="title_tile_performance_profile">성능 프로필</string>
   <string name="performance_settings_title">성능</string>
   <string name="io_scheds_title">I/O 스케줄러</string>
   <string name="io_sched_title">I/O 스케줄러</string>
-  <string name="perf_profile_title">프로필</string>
   <string name="pref_force_highend_gfx_title">고급 그래픽 강제 사용</string>
   <string name="pref_force_highend_gfx_summary">투명한 상태 표시줄 및 내비게이션 바 등의 고급 시각 효과 사용 (재시작 필요)</string>
   <string name="performance_settings_warning_title">확인하고 진행</string>
   <string name="performance_settings_warning">이 설정들은 실험적이며 기기 불안정, 충돌, 데이터 손실, 하드웨어 손상을 야기할 수도 있습니다.\n\n이 설정을 바꿈으로 인해 발생되는 문제는 버그  신고에 포함시키지 마십시오.</string>
   <string name="performance_set_on_boot">부팅 시 적용</string>
+  <string name="performance_set_on_boot_summary">시작시 설정을 복원함</string>
   <string name="processor_title">프로세서</string>
   <string name="cpu_cur_freq_title">현재 CPU 속도</string>
   <string name="cpu_governors_title">CPU 가버너</string>
@@ -444,9 +641,46 @@
   <string name="unlock_quick_unlock_control_summary">올바른 PIN 넘버나 암호가 입력되면 자동으로 잠금 해제</string>
   <string name="unlock_scramble_pin_layout_title">레이아웃 섞기</string>
   <string name="unlock_scramble_pin_layout_summary">장치를 잠금 해제할 때 PIN 레이아웃 섞기</string>
+  <string name="link_volume_option_title">통화 벨소리와 알림 벨소리 연결</string>
+  <string name="notification_volume_option_title">알림 벨소리 크기</string>
   <string name="notification_drawer_title">알림 서랍</string>
+  <string name="status_bar_quick_qs_pulldown_title">빠른 알림 내리기</string>
+  <string name="status_bar_quick_qs_pulldown_summary">상태 표시줄의 오른쪽 모서리를 끌어 내려 빠른 설정 보기</string>
+  <string name="status_bar_show_weather_title">날씨 표시</string>
+  <string name="status_bar_show_weather_summary">빠른 설정 패널에서 날씨 보기</string>
+  <string name="qs_category_title">빠른 설정 패널</string>
+  <string name="qs_brightness_slider_title">화면 밝기 조정 표시</string>
+  <string name="qs_order_title">타일 순서와 선택</string>
+  <string name="add_qs">새 타일 추가</string>
+  <string name="qs_action_delete">삭제</string>
+  <string name="qs_action_add">추가</string>
+  <string name="qs_action_no_more_tiles">더 이상 추가할 타일이 없음</string>
+  <string name="qs_tile_wifi">Wi\u2011Fi</string>
+  <string name="qs_tile_bluetooth">블루투스</string>
+  <string name="qs_tile_display_inversion">색 반전</string>
+  <string name="qs_tile_cellular_data">데이터 통신 연결</string>
+  <string name="qs_tile_airplane_mode">비행기 모드</string>
+  <string name="qs_tile_display_rotation">화면 회전</string>
+  <string name="qs_tile_flashlight">손전등</string>
+  <string name="qs_tile_location">위치</string>
+  <string name="qs_tile_cast_screen">화면 녹화</string>
+  <string name="qs_tile_hotspot">핫스팟</string>
+  <string name="qs_tile_adb_over_network">ADB 네트워크 연결</string>
+  <string name="qs_tile_profiles">시스템 프로필</string>
+  <string name="qs_tile_nfc">NFC</string>
+  <string name="qs_tile_compass">나침반</string>
+  <string name="qs_tile_lockscreen">잠금 화면</string>
+  <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_screen_timeout">화면 시간 제한</string>
+  <string name="qs_main_tiles_title">첫 번째 알림 확대</string>
+  <string name="qs_main_tiles_summary_on">첫 줄의 주요 타일 두개</string>
+  <string name="qs_main_tiles_summary_off">각 줄의 타일 세개</string>
+  <string name="qs_advanced_location_title">고급 위치 설정</string>
+  <string name="qs_advanced_location_summary">빠른 설정에서 고급 위치 설정 사용</string>
+  <string name="gesture_settings_title">제스처</string>
   <string name="themes_settings_title">테마</string>
   <string name="wifi_mode">모드</string>
+  <string name="wifi_mode_ibss">Ad-Hoc (IBSS) 네트워크</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
   <string name="wifi_ibss_freq_title">채널 / 주파수</string>
   <string name="wifi_channel">채널</string>
@@ -454,6 +688,43 @@
   <string name="maximum_head_level">머리: %1$s W/kg</string>
   <string name="maximum_body_level">몸: %1$s W/kg</string>
   <string name="power_menu_expanded_desktop">데스크탑 확장</string>
+  <string name="expanded_hide_nothing">숨기지 않음</string>
+  <string name="expanded_hide_status">상태 표시줄 숨기기</string>
+  <string name="expanded_hide_navigation">내비게이션 바 숨기기</string>
+  <string name="expanded_hide_both">모두 숨기기</string>
+  <string name="expanded_nothing_to_show">각각의 앱 확장 상태를 설정하려면  \'모두 활성화\'를 끄십시오.</string>
+  <string name="expanded_enabled_for_all">모두 활성화</string>
+  <string name="expanded_desktop_style">데스크탑 확장 방식</string>
+  <string name="expanded_desktop_style_description">기본 확장 데스크톱 방식을 선택합니다</string>
+  <string name="expanded_desktop_title">확장 데스크톱 옵션</string>
+  <string name="lockscreen_targets_message">잠금 화면 바로 가기</string>
+  <string name="lockscreen_default_target">기본 설정</string>
+  <string name="lockscreen_none_target">없음</string>
+  <string name="lockscreen_message">잠금 화면 바로 가기를 재설정하려면 왼쪽 또는 오른쪽에서 아이콘을 탭하십시오.</string>
+  <string name="lockscreen_choose_action_title">동작 선택</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">보안 SMS 설정 관리</string>
+  <string name="navigation_ring_title">내비게이션 링 기능 확장</string>
+  <string name="navigation_ring_message">내비게이션 링을 편집하려면 편집 아이콘을 탭하십시오.\n\n설정할 항목을 선택하십시오.\n\n\'\u2713\' 아이콘을 탭하여 변경사항을 저장하거나 \'기본 설정 복원\'을 탭하여 기본설정으로 초기화하십시오.</string>
+  <string name="stylus_icon_enabled_title">스타일러스 사용 시 아이콘 표시</string>
+  <string name="stylus_icon_enabled_summary">스타일러스가 화면 위에 있을 때 포인터 표시</string>
+  <string name="gestures_settings_title">스타일러스 제스처</string>
+  <string name="category_spen_title">스타일러스 제스처</string>
+  <string name="enable_subcat_title">스타일러스</string>
+  <string name="enable_spen_title_head">제스처 사용</string>
+  <string name="enable_spen_summary_head">스타일러스 버튼을 누른 채로 쓸어넘기기 제스처를 사용</string>
+  <string name="gestures_subcat_title">제스처</string>
+  <string name="gestures_left_spen_title_head">왼쪽 쓸어넘기기</string>
+  <string name="gestures_right_spen_title_head">오른쪽 쓸어넘기기</string>
+  <string name="gestures_up_spen_title_head">위로 쓸어넘기기</string>
+  <string name="gestures_down_spen_title_head">아래로 쓸어넘기기</string>
+  <string name="gestures_long_spen_title_head">길게 누르기</string>
+  <string name="gestures_double_spen_title_head">더블 탭</string>
+  <string name="gestures_action_empty">동작 없음</string>
+  <string name="gestures_action_home">홈화면</string>
+  <string name="gestures_action_back">뒤로</string>
+  <string name="gestures_action_menu">메뉴</string>
+  <string name="gestures_action_search">검색 호출</string>
+  <string name="gestures_action_recent">최근 앱</string>
+  <string name="stylus_app_not_installed">%s은(는) 설치되어 있지 않았음</string>
 </resources>

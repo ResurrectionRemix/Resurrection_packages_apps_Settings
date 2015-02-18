@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stap verwijderd van de opties voor ontwikkelaars.</item>
+    <item quantity="other">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stappen verwijderd van de opties voor ontwikkelaars.</item>
+  </plurals>
+  <string name="show_dev_on_cm">U heeft de opties voor ontwikkelaars ingeschakeld!</string>
+  <string name="show_dev_already_cm">Niet nodig, u heeft de ontwikkelaarsopties al ingeschakeld.</string>
+  <string name="development_tools_title">Ontwikkelgereedschappen</string>
   <string name="root_access">Root-toegang</string>
   <string name="root_access_warning_title">Root-toegang toestaan?</string>
   <string name="root_access_warning_message">Root-toegang toestaan kan zeer gevaarlijk zijn en kan uw systeem onveilig maken</string>
@@ -24,8 +31,10 @@
   <string name="root_access_adb">Alleen ADB</string>
   <string name="root_access_all">Apps en ADB</string>
   <string name="ring_mode_title">Belmodus</string>
+  <string name="ring_mode_normal">Normaal</string>
   <string name="ring_mode_vibrate">Trillen</string>
   <string name="ring_mode_mute">Dempen</string>
+  <string name="profiles_settings_title">Systeemprofielen</string>
   <string name="profiles_add">Toevoegen</string>
   <string name="profile_settings_title">Profiel</string>
   <string name="profile_empty_list_profiles_off">Om systeemprofielen te gebruiken, schakelt u Profielen in</string>
@@ -42,14 +51,19 @@
   <string name="profile_remove_dialog_message">Profiel verwijderen %1$s?</string>
   <string name="profile_populate_profile_from_state">Profiel instellen met behulp van huidige apparaatinstellingen?</string>
   <string name="profile_menu_fill_from_state">Huidige apparaatinstellingen importeren</string>
+  <string name="profile_remove_current_profile">Kan huidige profiel niet verwijderen!</string>
   <string name="profile_name_title">Naam</string>
   <string name="new_profile_name">&lt;nieuw profiel&gt;</string>
   <string name="rename_dialog_title">Naam wijzigen</string>
   <string name="rename_dialog_message">Nieuwe naam invoeren</string>
+  <string name="rename_dialog_hint">Typ profielnaam</string>
   <string name="profile_reset_title">Opnieuw instellen</string>
+  <string name="profile_reset_message">Alle gemaakte profielen verwijderen en herstellen naar standaard?</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <string name="profile_volumeoverrides_title">Volume instellen</string>
   <string name="volume_override_summary">Ingesteld op %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Volume geforceerd wijzigen</string>
@@ -63,15 +77,21 @@
   <string name="profile_choose_app">App selecteren</string>
   <string name="profile_system_settings_title">Systeeminstellingen</string>
   <string name="profile_lockmode_title">Type schermvergrendeling</string>
+  <string name="profile_lockmode_insecure_summary">Niet vragen om pincode of wachtwoord</string>
+  <string name="profile_lockmode_disabled_summary">Schermvergrendeling uitschakelen</string>
   <string name="profile_airplanemode_title">Vliegmodus</string>
   <string name="toggleWifi">Wifi</string>
   <string name="toggleWifiAp">Draagbare wifi-hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
   <string name="toggleGPS">GPS</string>
+  <string name="toggleData">Gegevensverbinding</string>
   <string name="toggleSync">Gegevenssynchronisatie</string>
+  <string name="toggle2g3g4g">Voorkeursnetwerktype</string>
   <string name="toggleNfc">NFC</string>
+  <string name="button_pref_title">Knoppen</string>
   <string name="hardware_keys_power_key_title">Aan/uit-knop</string>
   <string name="hardware_keys_home_key_title">Thuisknop</string>
+  <string name="hardware_keys_back_key_title">Terugknop</string>
   <string name="hardware_keys_menu_key_title">Menuknop</string>
   <string name="hardware_keys_assist_key_title">Zoekknop</string>
   <string name="hardware_keys_appswitch_key_title">Recente apps-knop</string>
@@ -98,6 +118,8 @@
   <string name="swap_volume_buttons_summary">Volumeknoppen omdraaien indien het scherm gedraaid is</string>
   <string name="power_end_call_title">Gesprek beëindigen</string>
   <string name="power_end_call_summary">Huidige gesprek beëindigen door op de aan/uit-knop te drukken</string>
+  <string name="button_wake_title">Apparaat ontwaken</string>
+  <string name="button_wake_summary">Afspeelbeheer geforceerd wijzigen</string>
   <string name="home_answer_call_title">Oproep beantwoorden</string>
   <string name="home_answer_call_summary">Inkomende oproep beantwoorden door op de thuisknop te drukken</string>
   <string name="button_backlight_title">Verlichting</string>
@@ -111,11 +133,18 @@
   <string name="backlight_summary_enabled_with_timeout">Ingeschakeld voor <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Ingeschakeld</string>
   <string name="power_menu_title">Opties in afsluitmenu</string>
+  <string name="power_menu_power_title">Uitschakelen</string>
   <string name="power_menu_reboot_title">Herstarten</string>
   <string name="power_menu_screenshot_title">Screenshot</string>
   <string name="power_menu_profiles_title">Profielen</string>
   <string name="power_menu_airplane_title">Vliegmodus</string>
+  <string name="power_menu_users_title">Gebruiker wisselen</string>
+  <string name="power_menu_settings_title">Snelkoppeling voor instellingen</string>
+  <string name="power_menu_lockdown_title">Apparaat vergrendelen</string>
+  <string name="power_menu_bug_report_title">Foutrapport</string>
   <string name="power_menu_sound_title">Geluidspaneel</string>
+  <string name="power_menu_bug_report_disabled">Foutrapportage is uitgeschakeld in de opties voor ontwikkelaars</string>
+  <string name="power_menu_profiles_disabled">Systeemprofielen zijn uitgeschakeld</string>
   <string name="adaptive_backlight_title">Aanpassende helderheid</string>
   <string name="adaptive_backlight_summary">Schermhelderheid intelligent aanpassen voor langer accugebruik met behoud van bruikbaarheid</string>
   <string name="sunlight_enhancement_title">Zonlichtverbetering</string>
@@ -130,6 +159,7 @@
   <string name="blacklist_empty_text">Geen telefoonnummers op de zwarte lijst. Voeg een nummer toe door op de \'Toevoegen\'-knop (+) te tikken.</string>
   <string name="blacklist_disabled_empty_text">Schakel de zwarte lijst in om oproepen en/of berichten van bepaalde telefoonnummers te blokkeren.</string>
   <string name="blacklist_summary_disabled">Uitgeschakeld</string>
+  <string name="blacklist_summary">Inkomende oproepen en berichten van telefoonnummers op de zwarte lijst worden geblokkeerd</string>
   <string name="blacklist_notify">Melding weergeven</string>
   <string name="blacklist_private_numbers_title">Afgeschermde nummers</string>
   <string name="blacklist_private_numbers_summary_disabled">Oproepen van afgeschermde nummers toestaan</string>
@@ -171,13 +201,22 @@
   <string name="app_security_title">App-beveiliging</string>
   <string name="sms_security_check_limit_title">Limiet sms-berichten</string>
   <string name="sms_security_check_limit_summary">Apps kunnen %d berichten verzenden in 30 minuten zonder bevestiging</string>
+  <string name="spam_added_title">Toegevoegd %1$s</string>
+  <string name="spam_last_blocked_title">Laatst geblokkeerd %1$s</string>
   <string name="block_notifications_title">Meldingen filteren</string>
   <string name="block_notifications_summary">Genegeerde meldingen en filters beheren</string>
+  <string name="no_filters_title">Geen filters ingesteld</string>
   <string name="cmupdate_settings_title">CyanogenMod-updates</string>
+  <string name="update_recovery_title">Cyanogen-recovery bijwerken</string>
+  <string name="update_recovery_summary">Recovery bijwerken met systeemupdates</string>
+  <string name="update_recovery_on_warning">Let op: wanneer deze functie is ingeschakeld, wordt uw huidige recovery vervangen door de recovery die met uw huidige besturingssysteem geleverd wordt.\n\nUw recovery wordt met systeemupdates ook bijgewerkt om compatibiliteit met toekomstige versies te garanderen.\n\nWilt u deze functie inschakelen?</string>
+  <string name="update_recovery_off_warning">Let op: als deze functie is uitgeschakeld, wordt uw recovery niet bijgewerkt bij systeemupdates.\n\nToekomstige systeemupdates kunnen wellicht niet geïnstalleerd worden op oude recovery-versies.\n\nWeet u zeker dat u deze functie wilt uitschakelen?</string>
   <string name="mod_version">CyanogenMod-versie</string>
   <string name="mod_version_default">Onbekend</string>
+  <string name="model_name">Modelnaam</string>
   <string name="build_date">Build-datum</string>
   <string name="contributor_cloud_title">Bijdragers</string>
+  <string name="phone_service_state">Spraak: <xliff:g id="voice_state">%1$s</xliff:g>, gegevens: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dubbeltikken om te ontwaken</string>
   <string name="proximity_wake_title">Per ongeluk ontwaken voorkomen</string>
   <string name="proximity_wake_summary">Nabijheidssensor gebruiken voorafgaand aan ontwaken van scherm</string>
@@ -192,32 +231,62 @@
   <string name="privacy_guard_reset_text">Machtigingen opnieuw instellen?</string>
   <string name="privacy_guard_help_text">Op dit scherm kunt u kiezen voor welke apps Privacybescherming ingeschakeld moet zijn door op ze te tikken. Geselecteerde apps zullen geen toegang hebben tot persoonsgegevens zoals contacten, berichten of gespreksstatistieken. Door een app lang aan te raken opent het info-scherm voor die app.\n\nIngebouwde apps worden standaard niet getoond, maar kunnen getoond worden door de desbetreffende optie in het menu te selecteren.</string>
   <string name="privacy_guard_manager_show_system_apps">Ingebouwde apps tonen</string>
-  <string name="privacy_guard_advanced_settings_title">Geavanceerd</string>
+  <string name="increasing_ring_volume_option_title">In volume toenemende beltoon</string>
+  <string name="increasing_ring_min_volume_title">Startvolume</string>
+  <string name="increasing_ring_ramp_up_time_title">Ophoogtijd</string>
   <string name="advanced_reboot_title">Geavanceerd herstarten</string>
   <string name="advanced_reboot_summary">Indien ontgrendeld, opties tonen in het afsluitmenu voor herstarten naar recovery of bootloader of het uitvoeren van een soft reboot</string>
   <string name="enable_adb_cm">Android-foutopsporing</string>
   <string name="enable_adb_summary_cm">Android Debug Bridge (adb)-interface inschakelen</string>
   <string name="adb_over_network">ADB over netwerk</string>
   <string name="adb_over_network_summary">TCP/IP-foutopsporing inschakelen over netwerkinterfaces (wifi, USB-netwerken). Wordt hersteld bij opstarten</string>
+  <string name="adb_over_network_warning">Let op: als ADB over netwerk is ingeschakeld, kan op uw apparaat worden ingebroken via alle aangesloten netwerken!\n\nGebruik deze functie alleen indien u verbonden bent met vertrouwde netwerken.\n\nWeet u zeker dat u deze functie wilt inschakelen?</string>
   <string name="device_hostname">Hostnaam apparaat</string>
   <string name="development_shortcut_title">Ontwikkelingssnelkoppeling</string>
+  <string name="development_shortcut_summary">Snelkoppelingen voor applicatiebeheer weergeven in recente appslijst</string>
   <string name="double_tap_to_sleep_title">Dubbeltikken voor slaapstand</string>
   <string name="wake_when_plugged_or_unplugged_title">Ontwaken door lader</string>
   <string name="wake_when_plugged_or_unplugged_summary">Scherm aan bij het aansluiten of loskoppelen van een lader</string>
   <string name="kill_app_longpress_back">Stoppen forceren</string>
+  <string name="kill_app_longpress_back_summary">Openstaande app geforceerd stoppen door terugknop lang in te drukken</string>
   <string name="disable_navkeys_title">On-screen navigatiebalk inschakelen</string>
   <string name="disable_navkeys_summary">On-screen navigatiebalk inschakelen en hardware-knoppen uitschakelen</string>
   <string name="navigation_bar_category">Navigatiebalk</string>
   <string name="navigation_bar_left_title">Linkshandige modus</string>
   <string name="navigation_bar_left_summary">Navigatiebalk aan de linkerkant van het scherm weergeven in liggende stand</string>
   <string name="navigation_bar_title">Knoppen en indeling</string>
+  <string name="navigation_bar_help_text">Tik op het bewerkingspictogram om te beginnen met het bewerken van de navigatiebalk.\n\nU kunt op een pictogram tikken om de snelkoppeling te wijzigen of blijf een pictogram lang aanraken om de indeling te veranderen.\n\nTik op \'Opslaan\' om uw wijzigingen te bewaren of tik \'Herstellen\' om de indeling naar standaardinstellingen te herstellen.</string>
+  <string name="navigation_restore_button_text">Herstel\nstandaard</string>
+  <string name="navigation_edit_button_text">Aanpassen</string>
+  <string name="navigation_save_button_text">Opslaan</string>
+  <string name="navigation_bar_reset_message">Huidige instellingen verwijderen en de standaardindeling herstellen?</string>
+  <string name="navigation_bar_arrow_keys_title">Pijltjestoetsen tijdens typen</string>
+  <string name="navigation_bar_arrow_keys_summary">Cursor links en rechts weergeven tijdens typen. Verbergt invoermethodepictogram.</string>
+  <string name="header_category_personalization">Aanpassen</string>
   <string name="status_bar_title">Statusbalk</string>
   <string name="status_bar_toggle_brightness">Helderheid beheren</string>
   <string name="status_bar_toggle_brightness_summary">Helderheid aanpassen door over de statusbalk te slepen</string>
   <string name="status_bar_notif_count_title">Aantal meldingen tonen</string>
   <string name="status_bar_notif_count_summary">Aantal nieuwe meldingen tonen</string>
+  <string name="status_bar_clock_style_title">Indeling klok</string>
+  <string name="status_bar_clock_style_right">Rechts</string>
+  <string name="status_bar_clock_style_left">Links</string>
   <string name="status_bar_clock_style_center">Gecentreerd</string>
   <string name="status_bar_clock_style_hidden">Verborgen</string>
+  <string name="status_bar_am_pm_title">AM/PM stijl</string>
+  <string name="status_bar_am_pm_info">24-uurs klok is ingeschakeld</string>
+  <string name="status_bar_am_pm_normal">Normaal</string>
+  <string name="status_bar_am_pm_small">Klein</string>
+  <string name="status_bar_am_pm_hidden">Verborgen</string>
+  <string name="status_bar_battery_style_title">Opmaak accustatus</string>
+  <string name="status_bar_battery_style_icon_portrait">Pictogram (staand)</string>
+  <string name="status_bar_battery_style_icon_landscape">Pictogram (liggend)</string>
+  <string name="status_bar_battery_style_circle">Cirkel</string>
+  <string name="status_bar_battery_style_text">Tekst</string>
+  <string name="status_bar_battery_style_hidden">Verborgen</string>
+  <string name="status_bar_battery_percentage_default">Verborgen</string>
+  <string name="status_bar_battery_percentage_text_inside">In het pictogram</string>
+  <string name="status_bar_battery_percentage_text_next">Naast het pictogram</string>
   <string name="edit_light_settings">Meldingsledinstellingen</string>
   <string name="pulse_speed_title">Duur en snelheid van knipperen</string>
   <string name="default_time">Normaal</string>
@@ -249,6 +318,13 @@
   <string name="notification_light_default_value">Standaard</string>
   <string name="notification_light_missed_call_title">Gemiste oproep</string>
   <string name="notification_light_voicemail_title">Voicemail</string>
+  <string name="notification_ringtone_title_cm">Meldingstoon</string>
+  <string name="ime_switcher_notify">Invoermethodepictogram</string>
+  <string name="ime_switcher_notify_summary">Invoermethodepictogram weergeven</string>
+  <string name="app_notification_show_on_keyguard_title">Weergeven op vergrendelscherm</string>
+  <string name="app_notification_show_on_keyguard_summary">Meldingen van deze app weergeven op het vergrendelscherm</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Permanente meldingen op vergrendelscherm uitschakelen</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Permanente meldingen van deze app niet weergeven op het vergrendelscherm</string>
   <string name="high_touch_sensitivity_title">Hoge aanraakgevoeligheid</string>
   <string name="high_touch_sensitivity_summary">Gevoeligheid van het scherm verhogen, zodat het gebruikt kan worden tijdens het dragen van handschoenen</string>
   <string name="app_ops_summaries_coarse_location">geschatte locatie</string>
@@ -377,6 +453,9 @@
   <string name="app_ops_permissions_always_ask">Vragen</string>
   <string name="ok">OK</string>
   <string name="profile_menu_delete_title">Verwijderen</string>
+  <string name="profile_action_none">Ongewijzigd laten</string>
+  <string name="profile_action_disable">Uitschakelen</string>
+  <string name="profile_action_enable">Inschakelen</string>
   <string name="profile_trigger_a2dp_connect">Bij A2DP-verbinding</string>
   <string name="profile_trigger_a2dp_disconnect">Bij A2DP-verbinding verbreken</string>
   <string name="profile_tabs_wifi">Wifi</string>
@@ -403,6 +482,7 @@
   <string name="app_ops_reset_confirm_title">Tellers opnieuw instellen?</string>
   <string name="app_ops_reset_confirm_mesg">Weet u zeker dat u de tellers opnieuw wilt instellen?</string>
   <string name="font_size_sample">Test</string>
+  <string name="volume_adjust_sounds_title">Aanpassingsgeluid volume</string>
   <string name="vibrator_intensity_title">Trilintensiteit</string>
   <string name="vibrator_warning">Waarden hoger dan %1$d worden niet aangeraden</string>
   <string name="color_calibration_title">Kleuren kalibreren</string>
@@ -413,7 +493,11 @@
   <string name="gamma_tuning_title_head">Gammakalibratie</string>
   <string name="gamma_tuning_summary_head">Gammawaarden aanpassen</string>
   <string name="gamma_tuning_control_set_header">Groep <xliff:g id="index">%d</xliff:g></string>
+  <string name="gamma_tuning_contrast">Contrast</string>
+  <string name="gamma_tuning_brightness">Helderheid</string>
+  <string name="gamma_tuning_saturation">Verzadiging</string>
   <string name="screencolor">Schermkleur</string>
+  <string name="screencolor_summary">Tint, verzadiging, contrast en intensiteit van het scherm aanpassen</string>
   <string name="custom_screencolor">Aangepaste schermkleur</string>
   <string name="screencolor_save">Opslaan</string>
   <string name="screencolor_cancel">Annuleren</string>
@@ -425,24 +509,85 @@
   <string name="saturation_str">Verzadiging: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensiteit: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_standard">Standaard</string>
+  <string name="screen_color_setting_vivid">Levendig</string>
+  <string name="screen_color_setting_custom">Aangepast</string>
+  <string name="settings_reset_button">Opnieuw instellen</string>
   <string name="bluetooth_enter_pin_msg_hs">Typ om te koppelen met <xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g> de vereiste pincode van het apparaat (16 cijfers of meer):</string>
   <string name="bluetooth_profile_dun">Inbelnetwerktoegang</string>
   <string name="bluetooth_profile_sap">SIM-toegang</string>
+  <string name="bluetooth_dun_profile_summary_connected">Verbonden met DUN-server</string>
+  <string name="bluetooth_pbap_profile_summary_connected">Verbonden met PBAP-server</string>
+  <string name="bluetooth_sap_profile_summary_connected">Verbonden met SIM-toegangsserver</string>
   <string name="bluetooth_dun_profile_summary_use_for">Gebruiken voor inbelnetwerktoegang</string>
+  <string name="bluetooth_pbap_profile_summary_use_for">Gebruiken voor contacten delen</string>
   <string name="bluetooth_sap_profile_summary_use_for">Gebruiken voor SIM-toegang</string>
   <string name="bluetooth_accept_all_files">Alle bestandstypen accepteren</string>
+  <string name="sim_lock_settings_cm">SIM/RUIM-kaart vergrendelinstellingen</string>
+  <string name="sim_pin_disable_failed">Kan PIN niet uitschakelen.</string>
+  <string name="sim_pin_enable_failed">Kan PIN niet inschakelen.</string>
+  <string name="sim_pin_attempts">\nResterende pogingen:</string>
+  <string name="sim_pin_enabled">PIN1 ingeschakeld</string>
+  <string name="sim_pin_disabled">PIN1 uitgeschakeld</string>
   <string name="subs_settings">Simkaartstatus</string>
+  <string name="storage_usb">USB-opslag</string>
+  <string name="storage_uicc">UICC-opslag</string>
+  <string name="usb_eject" product="default">USB-opslag ontkoppelen</string>
+  <string name="usb_eject_summary" product="default">Ontkoppel de USB-opslag zodat u deze veilig kunt verwijderen</string>
+  <string name="usb_format" product="default">USB-opslag wissen</string>
+  <string name="usb_format_summary" product="default">Alle gegevens in USB-opslag wissen, zoals muziek en foto\'s</string>
+  <string name="usb_mount" product="default">USB-opslag koppelen</string>
+  <string name="usb_insert_summary" product="default">USB-opslag plaatsen om te koppelen</string>
+  <string name="uicc_eject" product="default">UICC-opslag ontkoppelen</string>
+  <string name="uicc_eject_summary" product="default">Ontkoppel de UICC-opslag zodat u deze veilig kunt verwijderen</string>
+  <string name="uicc_format" product="default">UICC-opslag wissen</string>
+  <string name="uicc_format_summary" product="default">Alle gegevens in UICC-opslag wissen, zoals muziek en foto\'s</string>
+  <string name="uicc_mount" product="default">UICC-opslag koppelen</string>
+  <string name="uicc_insert_summary" product="default">UICC-opslag plaatsen om te koppelen</string>
+  <string name="usb_settings_enable_ums_title">Massaopslag inschakelen?</string>
+  <string name="usb_settings_enable_ums_message">Systeemonderdelen en apps vertrouwen erop dat de primaire opslag altijd beschikbaar is. Deze optie breekt die functionaliteit. Het wordt sterk aanbevolen om MTP gebruiken. Weet u zeker dat u massaopslag wilt inschakelen?</string>
+  <string name="dlg_confirm_usb_unmount_title" product="default">USB-opslag ontkoppelen?</string>
+  <string name="dlg_confirm_uicc_unmount_title" product="default">UICC-opslag ontkoppelen?</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">Als u de USB-opslag ontkoppelt, worden bepaalde apps die u gebruikt, gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de USB-opslag opnieuw koppelt.</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">Als u de UICC-opslag ontkoppelt, worden bepaalde apps die u gebruikt, gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de UICC-opslag opnieuw koppelt.</string>
+  <string name="dlg_error_usb_unmount_text" product="default">Kan USB-opslag niet ontkoppelen. Probeer het later opnieuw.</string>
+  <string name="dlg_error_uicc_unmount_text" product="default">Kan UICC-opslag niet ontkoppelen. Probeer het later opnieuw.</string>
   <string name="usb_unmount_inform_text" product="default">USB-opslag wordt ontkoppeld.</string>
+  <string name="uicc_unmount_inform_text" product="default">UICC-opslag wordt ontkoppeld.</string>
+  <string name="usb_media_format_desc" product="default">Alle USB-opslag wissen? <b>Alle</b> opgeslagen gegevens gaan verloren.</string>
+  <string name="uicc_media_format_desc" product="default">Alle UICC-opslag wissen? <b>Alle</b> opgeslagen gegevens gaan verloren.</string>
   <string name="usb_media_format_button_text" product="default">USB-opslag wissen</string>
+  <string name="uicc_media_format_button_text" product="default">UICC-opslag wissen</string>
   <string name="usb_media_format_final_desc" product="default">USB-opslag formatteren en alle opgeslagen bestanden wissen? U kunt deze actie niet ongedaan maken.</string>
+  <string name="uicc_media_format_final_desc" product="default">UICC-opslag formatteren en alle opgeslagen bestanden wissen? U kunt deze actie niet ongedaan maken.</string>
   <string name="usb_media_format_gesture_explanation" product="default">U moet het ontgrendelingspatroon tekenen om te bevestigen dat u de USB-opslag wilt wissen.</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">U moet het ontgrendelingspatroon tekenen om te bevestigen dat u de UICC-opslag wilt wissen.</string>
+  <string name="location_category_enhanced_location">Verbeterde locatie (IZat)</string>
   <string name="app_ops_settings_summary">App-machtigingen bekijken of wijzigen</string>
   <string name="enable_quickboot_title">QuickBoot inschakelen</string>
+  <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
+  <string name="sim_enabler_title">SIM-status</string>
+  <string name="sim_enabler_summary">SIM is <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
+  <string name="sim_enabled">ingeschakeld</string>
+  <string name="sim_disabled">uitgeschakeld</string>
+  <string name="sim_missing">afwezig of defect</string>
+  <string name="sim_enabler_need_disable_sim">Simkaart uitschakelen?</string>
+  <string name="sim_enabler_airplane_on">Kan de bewerking niet uitvoeren in vliegmodus.</string>
+  <string name="sim_enabler_in_call">Kan de bewerking niet uitvoeren tijdens gesprek.</string>
+  <string name="sim_enabler_both_inactive">Kan niet alle simkaarten uitschakelen</string>
+  <string name="sim_enabler_sim">SIM</string>
+  <string name="sim_enabler_enabling"><xliff:g id="name">%s</xliff:g> inschakelen\u2026</string>
+  <string name="sim_enabler_disabling"><xliff:g id="name">%s</xliff:g> uitschakelen\u2026</string>
+  <string name="sim_enabler_deactivate">Uitschakelen</string>
   <string name="usb_charging_title">Alleen laden</string>
+  <string name="usb_sdcard_title">Massaopslag (UMS)</string>
+  <string name="external_storage_turn_on">Externe opslag is ingeschakeld</string>
+  <string name="external_storage_turn_off">Externe opslag is uitgeschakeld</string>
   <string name="menu_hidden_apps_delete">Opnieuw instellen</string>
   <string name="menu_hidden_apps_reset_lock">Patroon opnieuw instellen</string>
   <string name="protected_apps">Beschermde apps</string>
   <string name="saving_protected_components">Opslaan\u2026</string>
+  <string name="stats_collection_title">Verzamelen van statistieken</string>
   <string name="power_notifications_category_title">Opladergeluid</string>
   <string name="power_notifications_enable_title">Opladergeluid</string>
   <string name="power_notifications_enable_summary">Geluid afspelen bij het aansluiten of loskoppelen van een lader</string>
@@ -456,16 +601,15 @@
   <string name="picker_activities">Activiteiten</string>
   <string name="select_custom_app_title">Aangepaste app kiezen</string>
   <string name="select_custom_activity_title">Aangepaste activiteit kiezen</string>
-  <string name="title_tile_performance_profile">Energieprofiel</string>
   <string name="performance_settings_title">Prestaties</string>
   <string name="io_scheds_title">In-/uitvoerscheduler</string>
   <string name="io_sched_title">In-/uitvoerscheduler</string>
-  <string name="perf_profile_title">Profiel</string>
   <string name="pref_force_highend_gfx_title">Hoge kwaliteit graphics forceren</string>
   <string name="pref_force_highend_gfx_summary">Visuele effecten van hoge kwaliteit, zoals transparente status- en navigatiebalk, inschakelen (herstart vereist)</string>
   <string name="performance_settings_warning_title">Ga voorzichtig te werk</string>
   <string name="performance_settings_warning">Deze instellingen zijn experimenteel en kunnen leiden tot instabiliteit, crashes, gegevensverlies of hardwareschade.\n\nWij verzoeken u geen foutenrapporten in te sturen als deze instellingen anders zijn dan hun standaardwaarden.</string>
   <string name="performance_set_on_boot">Instellen tijdens opstarten</string>
+  <string name="performance_set_on_boot_summary">Instellingen herstellen tijdens opstarten</string>
   <string name="processor_title">Processor</string>
   <string name="cpu_cur_freq_title">Huidige kloksnelheid</string>
   <string name="cpu_governors_title">Governor</string>
@@ -483,9 +627,46 @@
   <string name="unlock_quick_unlock_control_summary">Automatisch ontgrendelen als uw pincode/wachtwoord correct is ingevoerd</string>
   <string name="unlock_scramble_pin_layout_title">Lay-out husselen</string>
   <string name="unlock_scramble_pin_layout_summary">PIN-lay-out door elkaar husselen bij apparaat ontgrendelen</string>
+  <string name="link_volume_option_title">Volumen koppelen</string>
+  <string name="notification_volume_option_title">Meldingsvolume</string>
   <string name="notification_drawer_title">Meldingenpaneel</string>
+  <string name="status_bar_quick_qs_pulldown_title">Snel openen</string>
+  <string name="status_bar_quick_qs_pulldown_summary">Rechterkant van statusbalk haalt Snelle instellingenpaneel naar beneden</string>
+  <string name="status_bar_show_weather_title">Weer weergeven</string>
+  <string name="status_bar_show_weather_summary">Het weer weergeven boven het Snelle instellingenpaneel</string>
+  <string name="qs_category_title">Snelle instellingenpaneel</string>
+  <string name="qs_brightness_slider_title">Schuifregelaar helderheid</string>
+  <string name="qs_order_title">Tegels selecteren en indelen</string>
+  <string name="add_qs">Nieuwe tegel</string>
+  <string name="qs_action_delete">Verwijderen</string>
+  <string name="qs_action_add">Toevoegen</string>
+  <string name="qs_action_no_more_tiles">Geen tegels meer beschikbaar</string>
+  <string name="qs_tile_wifi">Wifi</string>
+  <string name="qs_tile_bluetooth">Bluetooth</string>
+  <string name="qs_tile_display_inversion">Kleur omkeren</string>
+  <string name="qs_tile_cellular_data">Gegevensverbinding</string>
+  <string name="qs_tile_airplane_mode">Vliegmodus</string>
+  <string name="qs_tile_display_rotation">Scherm draaien</string>
+  <string name="qs_tile_flashlight">Zaklamp</string>
+  <string name="qs_tile_location">Locatie</string>
+  <string name="qs_tile_cast_screen">Scherm casten</string>
+  <string name="qs_tile_hotspot">Hotspot</string>
+  <string name="qs_tile_adb_over_network">ADB over netwerk</string>
+  <string name="qs_tile_profiles">Systeemprofielen</string>
+  <string name="qs_tile_nfc">NFC</string>
+  <string name="qs_tile_compass">Kompas</string>
+  <string name="qs_tile_lockscreen">Vergrendelscherm</string>
+  <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_screen_timeout">Schermtime-out</string>
+  <string name="qs_main_tiles_title">Eerste rij vergroot</string>
+  <string name="qs_main_tiles_summary_on">Twee hoofdtegels op de eerste rij</string>
+  <string name="qs_main_tiles_summary_off">Drie tegels op elke rij</string>
+  <string name="qs_advanced_location_title">Geavanceerde locatie-instellingen</string>
+  <string name="qs_advanced_location_summary">Geavanceerde instellingen voor locatie in Snelle instellingen</string>
+  <string name="gesture_settings_title">Gebaren</string>
   <string name="themes_settings_title">Thema\'s</string>
   <string name="wifi_mode">Modus</string>
+  <string name="wifi_mode_ibss">Ad-hocnetwerk (IBSS)</string>
   <string name="wifi_mode_ibss_short">Ad hoc</string>
   <string name="wifi_ibss_freq_title">Kanaal/frequentie</string>
   <string name="wifi_channel">Kanaal</string>
@@ -493,6 +674,43 @@
   <string name="maximum_head_level">Hoofd: %1$s W/kg</string>
   <string name="maximum_body_level">Lichaam: %1$s W/kg</string>
   <string name="power_menu_expanded_desktop">Uitgebreid bureaublad</string>
+  <string name="expanded_hide_nothing">Niets verbergen</string>
+  <string name="expanded_hide_status">Statusbalk verbergen</string>
+  <string name="expanded_hide_navigation">Navigatiebalk verbergen</string>
+  <string name="expanded_hide_both">Beide verbergen</string>
+  <string name="expanded_nothing_to_show">Om voor elke app apart het gedrag bij uitgebreid bureaublad in te stellen, schakelt u \'Ingeschakeld voor alles\' uit</string>
+  <string name="expanded_enabled_for_all">Ingeschakeld voor alles</string>
+  <string name="expanded_desktop_style">Stijl uitgebreid bureaublad</string>
+  <string name="expanded_desktop_style_description">Selecteer een standaardstijl voor het uitgebreid bureaublad</string>
+  <string name="expanded_desktop_title">Instellingen uitgebreid bureaublad</string>
+  <string name="lockscreen_targets_message">Snelkoppelingen vergrendelscherm</string>
+  <string name="lockscreen_default_target">Standaard</string>
+  <string name="lockscreen_none_target">Geen</string>
+  <string name="lockscreen_message">Tik op een pictogram recht of links om de snelkoppeling opnieuw toe te wijzen.</string>
+  <string name="lockscreen_choose_action_title">Actie selecteren</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Instellingen beveiligde sms-berichten</string>
+  <string name="navigation_ring_title">Snelkoppelingposities</string>
+  <string name="navigation_ring_message">Tik op het bewerkingspictogram om de navigatiering te openen en te bewerken.\n\nSelecteer een snelkoppeling om in te stellen.\n\nTik op het \'\u2713\'-pictogram om uw wijzigingen op te slaan of \'Herstel standaard\' om de standaardinstellingen te herstellen.</string>
+  <string name="stylus_icon_enabled_title">Pictogram bij stylusgebruik</string>
+  <string name="stylus_icon_enabled_summary">Cursor tonen als een stylus wordt gebruikt</string>
+  <string name="gestures_settings_title">Stylusgebaren</string>
+  <string name="category_spen_title">Stylusgebaren</string>
+  <string name="enable_subcat_title">Stylus</string>
+  <string name="enable_spen_title_head">Gebaren inschakelen</string>
+  <string name="enable_spen_summary_head">Gebaren gebruiken met de stylusknop ingedrukt</string>
+  <string name="gestures_subcat_title">Gebaren</string>
+  <string name="gestures_left_spen_title_head">Sleep naar links</string>
+  <string name="gestures_right_spen_title_head">Sleep naar rechts</string>
+  <string name="gestures_up_spen_title_head">Sleep omhoog</string>
+  <string name="gestures_down_spen_title_head">Sleep omlaag</string>
+  <string name="gestures_long_spen_title_head">Lang aanraken</string>
+  <string name="gestures_double_spen_title_head">Dubbeltik</string>
+  <string name="gestures_action_empty">Geen actie</string>
+  <string name="gestures_action_home">Thuis</string>
+  <string name="gestures_action_back">Terug</string>
+  <string name="gestures_action_menu">Menu</string>
+  <string name="gestures_action_search">Zoeken</string>
+  <string name="gestures_action_recent">Recente apps</string>
+  <string name="stylus_app_not_installed">%s is niet geïnstalleerd</string>
 </resources>
