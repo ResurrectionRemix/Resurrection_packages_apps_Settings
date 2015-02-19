@@ -73,10 +73,8 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DOCKING_SOUNDS = "docking_sounds";
     private static final String KEY_VOLUME_ADJUST_SOUNDS = "volume_adjust_sounds";
     private static final String KEY_TOUCH_SOUNDS = "touch_sounds";
-    private static final String KEY_VIBRATE_ON_TOUCH = "vibrate_on_touch";
     private static final String KEY_DOCK_AUDIO_MEDIA = "dock_audio_media";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
-    private static final String KEY_VIBRATION_INTENSITY = "vibration_intensity";
 
     private static final String KEY_POWER_NOTIFICATIONS = "power_notifications";
     private static final String KEY_POWER_NOTIFICATIONS_VIBRATE = "power_notifications_vibrate";
@@ -137,23 +135,6 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         }
     };
 
-    private static final SettingPref PREF_VIBRATE_ON_TOUCH = new SettingPref(
-            TYPE_SYSTEM, KEY_VIBRATE_ON_TOUCH, System.HAPTIC_FEEDBACK_ENABLED, DEFAULT_ON) {
-        @Override
-        public boolean isApplicable(Context context) {
-            return hasHaptic(context);
-        }
-    };
-
-    private static final SettingPref PREF_VIBRATION_INTENSITY = new SettingPref(
-            TYPE_SYSTEM, KEY_VIBRATION_INTENSITY, System.HAPTIC_FEEDBACK_ENABLED, DEFAULT_ON) {
-        @Override
-        public boolean isApplicable(Context context) {
-            return VibratorIntensity.isSupported(context);
-        }
-    };
-
-
     private static final SettingPref PREF_DOCK_AUDIO_MEDIA = new SettingPref(
             TYPE_GLOBAL, KEY_DOCK_AUDIO_MEDIA, Global.DOCK_AUDIO_MEDIA_ENABLED,
             DEFAULT_DOCK_AUDIO_MEDIA, DOCK_AUDIO_MEDIA_DISABLED, DOCK_AUDIO_MEDIA_ENABLED) {
@@ -206,10 +187,8 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         PREF_DOCKING_SOUNDS,
         PREF_VOLUME_ADJUST_SOUNDS,
         PREF_TOUCH_SOUNDS,
-        PREF_VIBRATE_ON_TOUCH,
         PREF_DOCK_AUDIO_MEDIA,
         PREF_EMERGENCY_TONE,
-        PREF_VIBRATION_INTENSITY,
     };
 
     private final SettingsObserver mSettingsObserver = new SettingsObserver();
@@ -311,11 +290,6 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
 
     private static boolean hasDockSettings(Context context) {
         return context.getResources().getBoolean(R.bool.has_dock_settings);
-    }
-
-    private static boolean hasHaptic(Context context) {
-        final Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        return vibrator != null && vibrator.hasVibrator();
     }
 
     // === Callbacks ===
