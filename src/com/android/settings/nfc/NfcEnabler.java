@@ -37,7 +37,6 @@ public class NfcEnabler implements Preference.OnPreferenceChangeListener {
     private final Context mContext;
     private final SwitchPreference mSwitch;
     private final PreferenceScreen mAndroidBeam;
-    private final PreferenceScreen mNfcPayment;
     private final NfcAdapter mNfcAdapter;
     private final IntentFilter mIntentFilter;
     private boolean mBeamDisallowed;
@@ -54,11 +53,10 @@ public class NfcEnabler implements Preference.OnPreferenceChangeListener {
     };
 
     public NfcEnabler(Context context, SwitchPreference switchPreference,
-            PreferenceScreen androidBeam, PreferenceScreen nfcPayment) {
+            PreferenceScreen androidBeam) {
         mContext = context;
         mSwitch = switchPreference;
         mAndroidBeam = androidBeam;
-        mNfcPayment = nfcPayment;
         mNfcAdapter = NfcAdapter.getDefaultAdapter(context);
         mBeamDisallowed = ((UserManager) mContext.getSystemService(Context.USER_SERVICE))
                 .hasUserRestriction(UserManager.DISALLOW_OUTGOING_BEAM);
@@ -67,7 +65,6 @@ public class NfcEnabler implements Preference.OnPreferenceChangeListener {
             // NFC is not supported
             mSwitch.setEnabled(false);
             mAndroidBeam.setEnabled(false);
-            mNfcPayment.setEnabled(false);
             mIntentFilter = null;
             return;
         }
@@ -116,7 +113,6 @@ public class NfcEnabler implements Preference.OnPreferenceChangeListener {
             mSwitch.setEnabled(true);
             mAndroidBeam.setEnabled(false);
             mAndroidBeam.setSummary(R.string.android_beam_disabled_summary);
-            mNfcPayment.setEnabled(false);
             break;
         case NfcAdapter.STATE_ON:
             mSwitch.setChecked(true);
@@ -127,19 +123,16 @@ public class NfcEnabler implements Preference.OnPreferenceChangeListener {
             } else {
                 mAndroidBeam.setSummary(R.string.android_beam_off_summary);
             }
-            mNfcPayment.setEnabled(true);
             break;
         case NfcAdapter.STATE_TURNING_ON:
             mSwitch.setChecked(true);
             mSwitch.setEnabled(false);
             mAndroidBeam.setEnabled(false);
-            mNfcPayment.setEnabled(false);
             break;
         case NfcAdapter.STATE_TURNING_OFF:
             mSwitch.setChecked(false);
             mSwitch.setEnabled(false);
             mAndroidBeam.setEnabled(false);
-            mNfcPayment.setEnabled(false);
             break;
         }
     }

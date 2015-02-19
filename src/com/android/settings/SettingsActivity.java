@@ -247,6 +247,7 @@ public class SettingsActivity extends Activity
             R.id.about_settings,
             R.id.accessibility_settings,
             R.id.print_settings,
+            R.id.nfc_payment_settings,
             R.id.home_settings,
             R.id.main_settings,
             R.id.status_bar_settings,
@@ -1198,6 +1199,18 @@ public class SettingsActivity extends Activity
                                     && !hasMultipleUsers)
                             || Utils.isMonkeyRunning()) {
                         removeTile = true;
+                    }
+                } else if (id == R.id.nfc_payment_settings) {
+                    if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC)) {
+                        removeTile = true;
+                    } else {
+                        // Only show if NFC is on and we have the HCE feature
+                        NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
+                        if (adapter == null || !adapter.isEnabled() ||
+                                !getPackageManager().hasSystemFeature(
+                                        PackageManager.FEATURE_NFC_HOST_CARD_EMULATION)) {
+                            removeTile = true;
+                        }
                     }
                 } else if (id == R.id.print_settings) {
                     boolean hasPrintingSupport = getPackageManager().hasSystemFeature(
