@@ -16,7 +16,10 @@
     android:title="@string/rr_lockscreen_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     
-        
+         <!-- animations -->
+    <PreferenceCategory
+        android:title="@string/lockscreen_shortcuts_categories">
+               
          <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
@@ -32,7 +35,9 @@
         <PreferenceScreen
             android:key="lockscreen_shortcuts_settings"
             android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
-            android:title="@string/rr_lockscreen_targets_message" />        
-
+            android:summary="@string/rr_lockscreen_targets_message_summary"
+            android:title="@string/rr_lockscreen_targets_message" />
+                    
+</PreferenceCategory>
       
 </PreferenceScreen>
