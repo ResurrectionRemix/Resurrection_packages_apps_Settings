@@ -55,7 +55,7 @@
     <string name="screenshot_sound_summary">Odtwórz dźwięk podczas robienia zrzutu ekranu</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Paleta kolorów</string>
-    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="press_color_to_apply">Aby zatwierdzić naciśnij na wybrany poniżej kolor</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
     <string name="hex">Hex:</string>
@@ -83,7 +83,7 @@
     <string name="rr_display_title">Wyświetlacz</string>
     <string name="rr_animations_title">Animacje</string>
     <string name="listview_category_summary">Choose list view scroll animations and interpolator</string>
-    <string name="status_bar_title_summary">Dostosuj pasek statusu zegar datę i monitor sieci itp</string>
+    <string name="status_bar_title_summary">Dostosuj pasek stanu zegara daty oraz monitor transferu itp</string>
     <string name="changelog_title"><b>Lista zmian</b></string>
     <string name="changelog_loading">Wczytywanie listy zmian...</string>
     <string name="changelog_error">Nie można wczytać listy zmian</string>
@@ -92,7 +92,7 @@
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Zegar i Data</b></string>
     <string name="status_bar_clock_title">Styl zegara i daty</string>
-    <string name="clock_title_enable">Wyrównanie</string>
+    <string name="clock_title_enable">Położenie</string>
     <string name="clock_enabled">Włączony</string>
     <string name="clock_disabled">Wyłączony</string>
     <string name="clock_color_title">Kolor</string>
@@ -125,11 +125,11 @@
     <!-- StatusbarClock -->
     <string name="clock_font_style_title">Czcionka</string>
     <string name="clock_font_bold">Domyślna</string>
-    <string name="clock_font_light">Light</string>
+    <string name="clock_font_light">Lekka</string>
     <string name="clock_font_normal">Sans serif</string>
-    <string name="clock_font_condensed">Condensed</string>
-    <string name="clock_font_light_italic">Light Italic</string>
-    <string name="clock_font_resurrection">Resurrection Font</string>   
+    <string name="clock_font_condensed">Zagęszczona</string>
+    <string name="clock_font_light_italic">Lekka kursywa</string>
+    <string name="clock_font_resurrection">Czcionka Resurrection</string>   
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Disable Search Bar in Recents Menu</string>
     <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in the recents menu</string>
@@ -159,15 +159,15 @@
     <string name="toast_Translucent_animation">Translucent animation</string>
     <!-- Network traffic -->
     <string name="network_traffic_title"><b>Transfer danych</b></string>
-    <string name="show_network_traffic_state">Status bar traffic monitor</string>
+    <string name="show_network_traffic_state">Transfer danych na pasku stanu</string>
     <string name="network_traffic_autohide_threshold">Próg nieaktywności</string>
-    <string name="network_traffic_color_style">Color style</string>
+    <string name="network_traffic_color_style">Kolor</string>
     <string name="network_traffic_color_reset">Reset color</string>
-    <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
-    <string name="network_traffic_summary">Enable various network traffic options in statusbar</string>
-    <string name="show_network_traffic_unit">Display unit</string>
-    <string name="show_network_traffic_frequency">Update interval</string>
-    <string name="show_network_traffic_disable">Wyłączone</string>
+    <string name="network_traffic_color_reset_message">Ustawić domyślny kolor transferu danych?</string>
+    <string name="network_traffic_summary">Włącz rózne opcja transferu danych na pasku stanur</string>
+    <string name="show_network_traffic_unit">Wyświetlaj jednostki</string>
+    <string name="show_network_traffic_frequency">Czas odświeżania</string>
+    <string name="show_network_traffic_disable">Wyłącz</string>
     <string name="show_network_traffic_up">Wychodzące</string>
     <string name="show_network_traffic_down">Przychodzące</string>
     <string name="show_network_traffic_all">Wychodzące i przychodzące</string>
@@ -177,9 +177,9 @@
     <string name="show_network_traffic_1000">1000 ms</string>
     <string name="show_network_traffic_1500">1500 ms</string>
     <string name="show_network_traffic_2000">2000 ms</string>
-    <string name="network_traffic_autohide">Ukrywanie automatyczne</string>
+    <string name="network_traffic_autohide">Automatyczne ukrywanie</string>
     <string name="network_traffic_autohide_summary">Ukryj monitorowanie ruchu, kiedy jest ono nieaktywne</string>
-    <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
+    <string name="network_traffic_autohide_threshold">Próg nieaktywności</string>
     <!-- ListView animation -->
     <string name="listview_category">Animacja widoku listy</string>
     <string name="listview_animation_title"><b>Animacja widoku listy</b></string>
@@ -231,28 +231,28 @@
     <string name="rr_performance_settings_title"><b>Wydajność</b></string>
     <!-- QuickSettings: Quick Pulldown -->
     <string name="title_quick_pulldown">Szybkie rozwijanie</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
-    <string name="quick_pulldown_off">Wyłączony</string>
-    <string name="quick_pulldown_left">Lewy</string>
-    <string name="quick_pulldown_right">Prawy</string>
+    <string name="summary_quick_pulldown">%1$s pasek stanu rozwija Szybkie ustawienia</string>
+    <string name="quick_pulldown_off">Wyłącz</string>
+    <string name="quick_pulldown_left">Z lewej</string>
+    <string name="quick_pulldown_right">Z prawej</string>
     <string name="block_on_secure_keyguard_title">Zablokuj na blokadzie ekranu</string>
-    <string name="block_on_secure_keyguard_summary">Zablokuj szybkie ustawienia na zabezpieczonej blokadzie ekranu</string> 
+    <string name="block_on_secure_keyguard_summary">Zablokuj Szybkie ustawienia na włączonej blokadzie ekranu</string> 
     <!-- QuickSettings: Smart Pulldown -->
-    <string name="smart_pulldown_title">Smart pulldown</string>
-    <string name="smart_pulldown_summary">Open Quick Settings when there are %1$s notifications present</string>
+    <string name="smart_pulldown_title">Sprytne rozwijanie</string>
+    <string name="smart_pulldown_summary">Otwórz Szybkie ustawienia kiedy obecne są %1$s powiadomienia</string>
     <string name="smart_pulldown_off">Wyłączone</string>
     <string name="smart_pulldown_dismissable">No dismissable</string>
-    <string name="smart_pulldown_persistent">No persistent</string>
-    <string name="smart_pulldown_all">No dismissable or persistent</string>        
+    <string name="smart_pulldown_persistent">Stałe</string>
+    <string name="smart_pulldown_all">No dismissable lub stałe</string>        
     <!-- Share RR ROM -->
     <string name="share_rr">Podzięl się Romem</string>
     <string name="share_rr_summary">Daj znać innym, że używasz Resurrection Rom</string>
     <string name="share_message">Wypróbuj Resurrection Rom! http://forum.resurrectionremix.com/</string>
     <string name="share_chooser_title">Podziel się Resurrection Remix przez..</string>
     <!-- carrier label -->
-    <string name="show_status_bar_carrier_title">Carrier label</string>
-    <string name="show_status_bar_carrier_summary">Shows carrier label in status bar</string>
-    <string name="status_bar_carrier_color">Carrier label Color</string>    
+    <string name="show_status_bar_carrier_title">Etykieta operatora</string>
+    <string name="show_status_bar_carrier_summary">Pokaż etykietę operatora na pasku stanu</string>
+    <string name="status_bar_carrier_color">Kolor etykiety operatora</string>  
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">ListView Interpolator</string>
     <string name="listview_accelerate_interpolator">Accelerate interpolator</string>
@@ -293,13 +293,13 @@
    <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">Reset all dimensions entries to default?</string>
     <string name="navigation_bar_dimensions_title"><b>Nav bar dimensions</b></string>
-    <string name="navigation_bar_dimensions_title_summary">Resize the navigation bar</string>
-    <string name="navigation_bar_height_title">Navigation bar height</string>
-    <string name="navigation_bar_height_summary">Navigation bar height while in portrait</string>
-    <string name="navigation_bar_height_landscape_title">Navigation bar height landscape</string>
-    <string name="navigation_bar_height_landscape_summary">Navigation bar height while in landscape.</string>
-    <string name="navigation_bar_width_title">Navigation bar width</string>
-    <string name="navigation_bar_width_summary">Navigation bar height if the bar is along a side (Landscape)</string>
+    <string name="navigation_bar_dimensions_title_summary">Zmień rozmiar paska nawigacji</string>
+    <string name="navigation_bar_height_title">Wysokość paska nawigacji</string>
+    <string name="navigation_bar_height_summary">Wysokośc paska nawigacji w widoku portretowym</string>
+    <string name="navigation_bar_height_landscape_title"Krajobrazowa wWysokość paska nawigacji</string>
+    <string name="navigation_bar_height_landscape_summary">Wysokość paska nawigacji w widoku krajobrazowym.</string>
+    <string name="navigation_bar_width_title">Szerokość paska nawigacji</string>
+    <string name="navigation_bar_width_summary">Szerokość paska nawigacji wzdłuż (Widok krajobrazowy)</string>
     <string name="navigation_bar_size_48_dp_default">48 dp (domyślnie)</string>
     <string name="navigation_bar_size_44_dp">44 dp</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (domyślnie)</string>
@@ -308,9 +308,9 @@
     <string name="navigation_bar_size_36_dp">36 dp</string>
     <string name="navigation_bar_size_30_dp">30 dp</string>
     <string name="navigation_bar_size_24_dp">24 dp</string>
-    <string name="navigation_bar_size_0_dp">0 dp (off)</string>
-    <string name="navbar_enable_bar">Aktywne</string>
-    <string name="navbar_enable_bar_summary">Enable or disable navigation bar</string>
+    <string name="navigation_bar_size_0_dp">0 dp (wyłącz)</string>
+    <string name="navbar_enable_bar">Włączony</string>
+    <string name="navbar_enable_bar_summary">Włącz lub wylacz pasek nawigacji</string>
     
     <!-- Battery saver -->
     <string name="battery_saver_title">Warning color</string>
@@ -412,7 +412,7 @@
     <string name="shortcut_action_media_next">Muzyka - następny utwór</string>
     <string name="shortcut_action_media_play_pause">Muzyka - odtwarzaj/wstrzymaj</string>
     <string name="shortcut_action_media_previous">Muzyka - poprzedni utwór</string>
-    <string name="shortcut_action_wake_device">Obudź urządzenie</string>
+    <string name="shortcut_action_wake_device">Wybudź urządzenie</string>
     <!-- Gesture Anywhere -->
     <string name="gesture_anywhere_title"><b>Gesty</b></string>
     <string name="gesture_anywhere_enabled_title">Gesty</string>
@@ -489,12 +489,12 @@
     <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
     <string name="battery_bar_location">Lokalizacja paska baterii</string>
     <string name="battery_bar_color">Kolor paska baterii</string>
-    <string name="battery_bar"><b>Battery bar customizations</b></string>
-    <string name="battery_bar_summary">Battery bar position and color customization</string>
+    <string name="battery_bar"><b>Dostosowanie paska baterii</b></string>
+    <string name="battery_bar_summary">Lokalizacja oraz ustawienia koloru paska baterii</string>
     <string name="battery_bar_style_title">Styl paska baterii</string>
-    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_thickness_title">Grubość paska baterii</string>
     <string name="battery_bar_animate_title">Animacja ładowania</string>
-    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+    <string name="battery_bar_animate_summary">Animacja ładowania może mieć wplyw na słabe doznania użytkownika. Włączasz według własnego uznania.</string>
     <!-- Full screen keyboard -->
     <string name="fullscreen_keyboard_title">Klawiatura pełnoekranowa</string>
     <string name="fullscreen_keyboard_summary">Show a fullscreen keyboard in landscape</string>
