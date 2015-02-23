@@ -157,7 +157,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
 
         // Navigation bar recents long press activity needs custom setup
-        mNavigationRecentsLongPressAction = initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
+        mNavigationRecentsLongPressAction =
+                initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
 
         HashMap<String, String> prefsToRemove = (HashMap<String, String>)
                 getPreferencesToRemove(this, getActivity());
@@ -460,15 +461,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             targetComponent = ComponentName.unflattenFromString(componentString);
         }
 
-        // Dyanamically generate the list array, query PackageManager for all Activites that are registered for
-        // ACTION_RECENTS_LONG_PRESS
+        // Dyanamically generate the list array,
+        // query PackageManager for all Activites that are registered for ACTION_RECENTS_LONG_PRESS
         PackageManager pm = getPackageManager();
         Intent intent = new Intent(Intent.ACTION_RECENTS_LONG_PRESS);
-        List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
         if (recentsActivities.size() == 0) {
             // No entries available, disable
             list.setSummary(getString(R.string.hardware_keys_action_last_app));
-            Settings.Secure.putString(getContentResolver(), Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
+            Settings.Secure.putString(getContentResolver(),
+                    Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
             list.setEnabled(false);
             return list;
         }
@@ -482,8 +485,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         int i = 1;
         for (ResolveInfo info : recentsActivities) {
             try {
-                // Use pm.getApplicationInfo for the label, we cannot rely on ResolveInfo that comes back from
-                // queryIntentActivities.
+                // Use pm.getApplicationInfo for the label,
+                // we cannot rely on ResolveInfo that comes back from queryIntentActivities.
                 entries[i] = pm.getApplicationInfo(info.activityInfo.packageName, 0).loadLabel(pm);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.e(TAG, "Error package not found: " + info.activityInfo.packageName, e);
@@ -492,7 +495,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
 
             // Set the value to the ComponentName that will handle this intent
-            ComponentName entryComponent = new ComponentName(info.activityInfo.packageName, info.activityInfo.name);
+            ComponentName entryComponent = new ComponentName(info.activityInfo.packageName,
+                    info.activityInfo.name);
             values[i] = entryComponent.flattenToString();
             if (targetComponent != null) {
                 if (entryComponent.equals(targetComponent)) {
@@ -554,8 +558,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
         } else if (preference == mNavigationRecentsLongPressAction) {
-            // RecentsLongPressAction is handled differently because it intentionally uses Settings.
-            // Settings.System.
+            // RecentsLongPressAction is handled differently because it intentionally uses
+            // Settings.System
             String putString = (String) newValue;
             int index = mNavigationRecentsLongPressAction.findIndexOfValue(putString);
             CharSequence summary = mNavigationRecentsLongPressAction.getEntries()[index];
@@ -564,7 +568,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             if (putString.length() == 0) {
                 putString = null;
             }
-            Settings.Secure.putString(getContentResolver(), Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
+            Settings.Secure.putString(getContentResolver(),
+                    Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
             return true;
         }
         return false;
