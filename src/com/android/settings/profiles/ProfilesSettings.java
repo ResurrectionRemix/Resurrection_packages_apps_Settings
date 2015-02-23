@@ -186,7 +186,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment
         args.putBoolean(EXTRA_NEW_PROFILE, true);
         args.putParcelable(EXTRA_PROFILE, new Profile(getString(R.string.new_profile_name)));
 
-        SubSettings pa = (SubSettings) getActivity();
+        SettingsActivity pa = (SettingsActivity) getActivity();
         pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
                 0, null, this, 0);
     }
