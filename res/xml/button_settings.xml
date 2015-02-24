@@ -206,15 +206,13 @@
             android:key="volume_wake_screen"
             android:title="@string/button_wake_title"
             android:summary="@string/button_wake_summary"
-            android:defaultValue="false"
-            android:disableDependentsState="true" />
+            android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="volbtn_music_controls"
             android:title="@string/volbtn_music_controls_title"
             android:summary="@string/volbtn_music_controls_summary"
-            android:defaultValue="true"
-            android:dependency="volume_wake_screen" />
+            android:defaultValue="true" />
 
         <ListPreference
             android:key="volume_key_cursor_control"
