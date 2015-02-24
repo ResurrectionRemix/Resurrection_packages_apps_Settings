@@ -1235,12 +1235,6 @@ public class SettingsActivity extends Activity
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
                         removeTile = true;
                     }
-                } else if (id == R.id.button_settings) {
-                    boolean hasDeviceKeys = getResources().getInteger(
-                            com.android.internal.R.integer.config_deviceHardwareKeys) != 0;
-                    if (!hasDeviceKeys) {
-                        removeTile = true;
-                    }
                 } else if (id == R.id.voice_wakeup_settings) {
                     if (!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME, false)) {
                         removeTile = true;
