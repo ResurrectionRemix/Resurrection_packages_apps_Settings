@@ -279,7 +279,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
                 intent.putExtra(SelectSubscription.PACKAGE,
                                     "com.android.phone");
                 intent.putExtra(SelectSubscription.TARGET_CLASS,
-                                "com.android.phone.msim.MSimMobileNetworkSubSettings");
+                                "com.android.phone.MobileNetworkSettings");
             }
         }
 
