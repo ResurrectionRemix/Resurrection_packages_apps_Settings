@@ -706,4 +706,11 @@ public class Status extends PreferenceActivity {
         return headLevel + "\n" + bodyLevel;
     }
 
+    public static String getIcCodes(Resources resources) {
+        String model = String.format(resources.getString(R.string.ic_code_model,
+                Build.MODEL));
+        String icCode = String.format(resources.getString(R.string.ic_code_full,
+                resources.getString(R.string.ic_code)));
+        return model + "\n" + icCode;
+    }
 }
