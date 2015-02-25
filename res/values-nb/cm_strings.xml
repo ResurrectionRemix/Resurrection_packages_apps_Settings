@@ -216,6 +216,7 @@
   <string name="model_name">Modellnummer</string>
   <string name="build_date">Bygge dato</string>
   <string name="contributor_cloud_title">Bidragsytere</string>
+  <string name="phone_service_state">Stemme: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dobbelttapp for å vekke</string>
   <string name="proximity_wake_title">Hindre utilsiktet vekking</string>
   <string name="proximity_wake_summary">Sjekk nærhetssensoren før skjermen vekkes</string>
@@ -230,7 +231,6 @@
   <string name="privacy_guard_reset_text">Tilbakestill tillatelser?</string>
   <string name="privacy_guard_help_text">I dette skjermbildet kan du velge hvilke apps Privacy Guard skal være aktiv for ved å trykke på dem. Valgte apps vil ikke ha tilgang til personlige data som kontakter, meldinger eller ringelogg. Langt trykk på en apps oppføring åpner app detaljer skjermen.\n\nSystem apps vises ikke som standard, men kan vises ved å velge alternativet i menyen.</string>
   <string name="privacy_guard_manager_show_system_apps">Vis innebygde programmer</string>
-  <string name="privacy_guard_advanced_settings_title">Avansert</string>
   <string name="increasing_ring_volume_option_title">Økende ringevolum</string>
   <string name="increasing_ring_min_volume_title">Start volum</string>
   <string name="increasing_ring_ramp_up_time_title">Ramp-up tid</string>
@@ -247,7 +247,6 @@
   <string name="development_shortcut_title">Snarvei til utviklingsmodus</string>
   <string name="development_shortcut_summary">Aktiver app management snarveier i listen over nylig brukte programmer</string>
   <string name="double_tap_to_sleep_title">Dobbeltapp for å sove</string>
-  <string name="double_tap_to_sleep_summary">Dobbelttrykk på statuslinjen for å sette enheten i dvale</string>
   <string name="wake_when_plugged_or_unplugged_title">Våkne ved tilkobling av strøm</string>
   <string name="wake_when_plugged_or_unplugged_summary">Slå skjermen på når du kobler til eller kobler fra en strømkilde</string>
   <string name="kill_app_longpress_back">Stopp app-tilbake-knappen</string>
@@ -325,8 +324,14 @@
   <string name="notification_ringtone_title_cm">Varslingstone</string>
   <string name="ime_switcher_notify">Valgikon</string>
   <string name="ime_switcher_notify_summary">Viser inndatametode snarvei</string>
+  <string name="app_notification_show_on_keyguard_title">Vis på låseskjerm</string>
+  <string name="app_notification_show_on_keyguard_summary">Vis varslinger fra denne appen på låseskjermen</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Deaktivere vedvarende varsler på låseskjermen</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Vis aldri vedvarende meldinger fra denne appen på låseskjermen</string>
   <string name="high_touch_sensitivity_title">Høy touch sensitivitet</string>
   <string name="high_touch_sensitivity_summary">Øk touchscreen følsomhet slik at den kan brukes med hansker</string>
+  <string name="touchscreen_hovering_title">Touchskjerm hovring</string>
+  <string name="touchscreen_hovering_summary">Lar deg hovre over skjermen som en mus på en nettleser, eksternt skrivebord osv</string>
   <string name="app_ops_summaries_coarse_location">grov plassering</string>
   <string name="app_ops_summaries_fine_location">fin plassering</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -611,11 +616,9 @@
   <string name="picker_activities">Aktiviteter</string>
   <string name="select_custom_app_title">Velg egendefinert app</string>
   <string name="select_custom_activity_title">Velg egendefinert aktivitet</string>
-  <string name="title_tile_performance_profile">Ytelsesprofil</string>
   <string name="performance_settings_title">Ytelse</string>
   <string name="io_scheds_title">I/O planlegger</string>
   <string name="io_sched_title">I/O planlegger</string>
-  <string name="perf_profile_title">Profil</string>
   <string name="pref_force_highend_gfx_title">Tvinge high-end grafikk</string>
   <string name="pref_force_highend_gfx_summary">Muliggjør avanserte visuelle effekter som gjennomsiktig status/navigasjonsbar (krever omstart)</string>
   <string name="performance_settings_warning_title">Fortsett med forsiktighet</string>
@@ -665,7 +668,6 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB over nettverk</string>
   <string name="qs_tile_profiles">System profiler</string>
-  <string name="qs_tile_performance">Ytelse</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompass</string>
   <string name="qs_tile_lockscreen">Låsskjerm</string>
@@ -693,6 +695,9 @@
   <string name="expanded_hide_both">Skjule begge</string>
   <string name="expanded_nothing_to_show">Legge til en egendefinert per-app konfigurasjon for utvidet modus, sett \"Aktivert for alle\" til av-stilling</string>
   <string name="expanded_enabled_for_all">Aktivert for alle</string>
+  <string name="expanded_desktop_style">Utvidet skrivebordsstil</string>
+  <string name="expanded_desktop_style_description">Velg standard utvidet skrivebordsstil</string>
+  <string name="expanded_desktop_title">Utvidet skrivebordsalternativer</string>
   <string name="lockscreen_targets_message">Låseskjermsnarveier</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="lockscreen_none_target">Ingen</string>

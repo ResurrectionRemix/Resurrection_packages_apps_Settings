@@ -119,6 +119,7 @@
   <string name="power_end_call_title">Termina chiamata</string>
   <string name="power_end_call_summary">Premendo il pulsante alimentazione si concluderà la chiamata corrente</string>
   <string name="button_wake_title">Risveglio dispositivo</string>
+  <string name="button_wake_summary">Sovrascrive il controllo della riproduzione</string>
   <string name="home_answer_call_title">Rispondi chiamata</string>
   <string name="home_answer_call_summary">Premendo il pulsante Home si risponderà alla chiamata in entrata</string>
   <string name="button_backlight_title">Retroilluminazione</string>
@@ -206,11 +207,16 @@
   <string name="block_notifications_summary">Gestisci le notifiche ignorate e i filtri</string>
   <string name="no_filters_title">Nessun filtro impostato</string>
   <string name="cmupdate_settings_title">Aggiornamento CyanogenMod</string>
+  <string name="update_recovery_title">Aggiorna recovery Cyanogenmod</string>
+  <string name="update_recovery_summary">Aggiorna la recovery con gli aggiornamenti del sistema</string>
+  <string name="update_recovery_on_warning">AVVISO: Quando questa funzionalità è attiva, la recovery installata sarà sostituita da una inclusa con la versione corrente del sistema.\n\nLa vostra recovery attuale verrà aggiornata con gli aggiornamenti di sistema, contribuendo a garantire la compatibilità con le future versioni.\n\nAttivare questa funzione?</string>
+  <string name="update_recovery_off_warning">Attenzione: Quando questa funzionalità è disattivata, la recovery installata non verrà aggiornata con il sistema.\n\nFuturi aggiornamenti potrebbero non installarsi con recovery personalizzate o vecchie.\n\nDisattivare questa funzione?</string>
   <string name="mod_version">Versione CyanogenMod</string>
   <string name="mod_version_default">Sconosciuto</string>
   <string name="model_name">Nome modello</string>
   <string name="build_date">Data build</string>
   <string name="contributor_cloud_title">Collaboratori</string>
+  <string name="phone_service_state">Voce: <xliff:g id="voice_state">%1$s</xliff:g>, dati: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Risveglio con doppio tocco</string>
   <string name="proximity_wake_title">Previeni risvegli accidentali</string>
   <string name="proximity_wake_summary">Controlla il sensore di prossimità prima di accendere lo schermo</string>
@@ -225,7 +231,6 @@
   <string name="privacy_guard_reset_text">Ripristinare i permessi?</string>
   <string name="privacy_guard_help_text">In questa schermata puoi decidere per quali app sarà attivo Privacy Guard semplicemente selezionandole. Le app selezionate non saranno in grado di accedere ai tuoi dati personali, quali contatti, messaggi o elenco chiamate. Una pressione prolungata su di una voce apre la schermata dei dettagli per quell\'app.\n\nLe app integrate non sono visualizzate in modo predefinito. Se vuoi renderle visibili, attiva le rispettive opzioni nel menu.</string>
   <string name="privacy_guard_manager_show_system_apps">Mostra app integrate</string>
-  <string name="privacy_guard_advanced_settings_title">Avanzate</string>
   <string name="increasing_ring_volume_option_title">Suoneria incrementale</string>
   <string name="increasing_ring_min_volume_title">Volume iniziale</string>
   <string name="increasing_ring_ramp_up_time_title">Tempo di aumento</string>
@@ -242,7 +247,6 @@
   <string name="development_shortcut_title">Scorciatoie sviluppatore</string>
   <string name="development_shortcut_summary">Abilita scorciatoie di gestione app nella lista di app recenti</string>
   <string name="double_tap_to_sleep_title">Doppio tocco per sospendere</string>
-  <string name="double_tap_to_sleep_summary">Doppio tap sulla barra di stato per mettere il dispositivo a dormire</string>
   <string name="wake_when_plugged_or_unplugged_title">Risveglia al collegamento</string>
   <string name="wake_when_plugged_or_unplugged_summary">Accendi lo schermo quando si collega o si scollega l\'alimentazione</string>
   <string name="kill_app_longpress_back">Termina app con tasto</string>
@@ -253,6 +257,7 @@
   <string name="navigation_bar_left_title">Modalità mancino</string>
   <string name="navigation_bar_left_summary">Posiziona la barra di navigazione sul lato sinistro dello schermo in modalità orizzontale</string>
   <string name="navigation_bar_title">Pulsanti e disposizione</string>
+  <string name="navigation_bar_help_text">Per iniziare clicca sull\'icona di modifica per sbloccare la barra di navigazione.\n\nPuoi toccare un\'icona per modificare il suo collegamento, o tenere premuto un\'icona per ri-organizzare il layout.\n\nTocca Salva per salvare le modifiche o Ripristina per reimpostare il layout alle impostazioni predefinite.</string>
   <string name="navigation_restore_button_text">Ripristina\npredefinite</string>
   <string name="navigation_edit_button_text">Modifica</string>
   <string name="navigation_save_button_text">Salva</string>
@@ -319,8 +324,13 @@
   <string name="notification_ringtone_title_cm">Suoneria notifiche</string>
   <string name="ime_switcher_notify">Icona selettore</string>
   <string name="ime_switcher_notify_summary">Mostra icona selettore tastiera</string>
+  <string name="app_notification_show_on_keyguard_title">Mostra nella schermata di sblocco</string>
+  <string name="app_notification_show_on_keyguard_summary">Mostra notifiche di quest\'app nella schermata di sblocco</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Disabilita la notifica persistente nella schermata di sblocco</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Non mostrare mai notifiche persistenti da quest\'app nella schermata di sblocco</string>
   <string name="high_touch_sensitivity_title">Tocco ad alta sensibilità</string>
   <string name="high_touch_sensitivity_summary">Aumenta la sensibilità del touchscreen per l\'utilizzo con i guanti</string>
+  <string name="touchscreen_hovering_title">Touch a puntamento</string>
   <string name="app_ops_summaries_coarse_location">posizione approssimativa</string>
   <string name="app_ops_summaries_fine_location">posizione precisa</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -535,11 +545,13 @@
   <string name="usb_format" product="default">Formatta archivio USB</string>
   <string name="usb_format_summary" product="default">Elimina tutti i dati sull\'archivio USB, come musica e foto</string>
   <string name="usb_mount" product="default">Monta archivio USB</string>
+  <string name="usb_insert_summary" product="default">Inserire l\'archivio USB da montare</string>
   <string name="uicc_eject" product="default">Smonta archivio UICC</string>
   <string name="uicc_eject_summary" product="default">Smonta l\'archivio UICC per rimuoverlo in sicurezza</string>
   <string name="uicc_format" product="default">Cancella archivio UICC</string>
   <string name="uicc_format_summary" product="default">Cancella tutti i dati sull\'archivio UICC, come musica e foto</string>
   <string name="uicc_mount" product="default">Monta archivio UICC</string>
+  <string name="uicc_insert_summary" product="default">Inserire l\'archivio UICC da montare</string>
   <string name="usb_settings_enable_ums_title">Attivare la memoria di massa?</string>
   <string name="usb_settings_enable_ums_message">App e componenti di sistema prevedono che la memoria primaria sia sempre disponibile. Questa opzione disattende tale prerequisito. È consigliabile invece utilizzare MTP. Attivare comunque la memoria di massa?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Smontare l\'archivio USB?</string>
@@ -603,11 +615,9 @@
   <string name="picker_activities">Activity</string>
   <string name="select_custom_app_title">Scegli app</string>
   <string name="select_custom_activity_title">Scegli activity</string>
-  <string name="title_tile_performance_profile">Profilo prestazioni</string>
   <string name="performance_settings_title">Prestazioni</string>
   <string name="io_scheds_title">Schedulatore I/O</string>
   <string name="io_sched_title">Schedulatore I/O</string>
-  <string name="perf_profile_title">Profilo</string>
   <string name="pref_force_highend_gfx_title">Forza grafica alta qualità</string>
   <string name="pref_force_highend_gfx_summary">Attiva gli effetti grafici di alta qualità come la trasparenza della barra di stato/navigazione (richiede il riavvio) </string>
   <string name="performance_settings_warning_title">Procedere con cautela</string>
@@ -657,7 +667,6 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB attraverso la rete</string>
   <string name="qs_tile_profiles">Profili di sistema</string>
-  <string name="qs_tile_performance">Prestazioni</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Bussola</string>
   <string name="qs_tile_lockscreen">Blocco schermo</string>
@@ -685,10 +694,37 @@
   <string name="expanded_hide_both">Nascondi entrambi</string>
   <string name="expanded_nothing_to_show">Per aggiungere una configurazione personalizzata di schermo esteso per ogni app, disattiva \"Attivo per tutti\"</string>
   <string name="expanded_enabled_for_all">Attivo per tutti</string>
+  <string name="expanded_desktop_style">Stile desktop esteso</string>
+  <string name="expanded_desktop_style_description">Seleziona lo stile predefinito del desktop esteso</string>
+  <string name="expanded_desktop_title">Opzioni desktop esteso</string>
   <string name="lockscreen_targets_message">Scorciatoie schermata di sblocco</string>
   <string name="lockscreen_default_target">Predefinito</string>
+  <string name="lockscreen_none_target">Nessuno</string>
   <string name="lockscreen_message">Toccare un\'icona sulla sinistra o destra per riassegnare un collegamento.</string>
   <string name="lockscreen_choose_action_title">Scegli azione</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Gestisci le impostazioni SMS sicuri</string>
+  <string name="navigation_ring_title">Collegamenti dell\'anello di navigazione</string>
+  <string name="navigation_ring_message">Tocca l\'icona di modifica per modificare l\'anello di navigazione.\n\nSeleziona un collegamento per configurarne il comportamento.\n\nTocca l\'icona \'\u2713\' per salvare le modifiche, o \'Ripristina le impostazioni predefinite\' per ritornare ai valori predefiniti.</string>
+  <string name="stylus_icon_enabled_title">Mostra l\'icona quando utilizzi lo stilo</string>
+  <string name="stylus_icon_enabled_summary">Mostra l\'icona del puntatore durante il movimento o il disegno con lo stilo</string>
+  <string name="gestures_settings_title">Gesture stilo</string>
+  <string name="category_spen_title">Gesture stilo</string>
+  <string name="enable_subcat_title">Stilo</string>
+  <string name="enable_spen_title_head">Attiva gesture</string>
+  <string name="enable_spen_summary_head">Traccia le gesture tenendo premuto il pulsante dello stilo</string>
+  <string name="gestures_subcat_title">Gesture</string>
+  <string name="gestures_left_spen_title_head">Swipe sinistra</string>
+  <string name="gestures_right_spen_title_head">Swipe destra</string>
+  <string name="gestures_up_spen_title_head">Swype in alto</string>
+  <string name="gestures_down_spen_title_head">Swype in basso</string>
+  <string name="gestures_long_spen_title_head">Pressione prolungata</string>
+  <string name="gestures_double_spen_title_head">Doppio tocco</string>
+  <string name="gestures_action_empty">Nessuna azione</string>
+  <string name="gestures_action_home">Home</string>
+  <string name="gestures_action_back">Indietro</string>
+  <string name="gestures_action_menu">Menu</string>
+  <string name="gestures_action_search">Ricerca</string>
+  <string name="gestures_action_recent">App recenti</string>
+  <string name="stylus_app_not_installed">%s non è installato</string>
 </resources>

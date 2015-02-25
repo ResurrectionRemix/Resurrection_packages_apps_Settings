@@ -215,6 +215,7 @@
   <string name="model_name">型号名称</string>
   <string name="build_date">编译日期</string>
   <string name="contributor_cloud_title">贡献者</string>
+  <string name="phone_service_state">语音： <xliff:g id="voice_state">%1$s</xliff:g>，数据： <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">双击唤醒</string>
   <string name="proximity_wake_title">防止意外唤醒</string>
   <string name="proximity_wake_summary">唤醒屏幕前检查距离传感器</string>
@@ -229,7 +230,6 @@
   <string name="privacy_guard_reset_text">重置权限？</string>
   <string name="privacy_guard_help_text">在这个页面上，您可以简单地通过点击来选择在哪些应用上启用隐私防护。选中的应用将无法访问个人数据，例如：联系人、短信或通话记录。长按一个应用的条目打开应用详细页面。\n\n默认不显示内置应用，在菜单中选择相应选项可以显示它们。</string>
   <string name="privacy_guard_manager_show_system_apps">显示内置应用</string>
-  <string name="privacy_guard_advanced_settings_title">高级</string>
   <string name="increasing_ring_volume_option_title">铃声音量渐强</string>
   <string name="increasing_ring_min_volume_title">初始音量</string>
   <string name="increasing_ring_ramp_up_time_title">增强时间</string>
@@ -246,8 +246,7 @@
   <string name="development_shortcut_title">开发快捷方式</string>
   <string name="development_shortcut_summary">在最近任务列表中启用应用管理快捷方式</string>
   <string name="double_tap_to_sleep_title">双击以睡眠</string>
-  <string name="double_tap_to_sleep_summary">双击状态栏使设备休眠</string>
-  <string name="wake_when_plugged_or_unplugged_title">插入/拔出电源点亮屏幕</string>
+  <string name="wake_when_plugged_or_unplugged_title">连接或移除电源时唤醒</string>
   <string name="wake_when_plugged_or_unplugged_summary">连接或断开电源时点亮屏幕</string>
   <string name="kill_app_longpress_back">使用返回键强行关闭应用</string>
   <string name="kill_app_longpress_back_summary">长按返回键终止前台应用</string>
@@ -257,7 +256,7 @@
   <string name="navigation_bar_left_title">左利手模式</string>
   <string name="navigation_bar_left_summary">横屏时在屏幕左侧显示虚拟键</string>
   <string name="navigation_bar_title">按键与布局</string>
-  <string name="navigation_bar_help_text">如需修改，轻触修改图标来解锁导航栏。\n\n您可以轻触一个图标来修改快捷方式，或者长按图标来改变布局。\n\n轻触“保存”确认修改，“还原默认设置”重置到默认布局。</string>
+  <string name="navigation_bar_help_text">如需修改，轻触修改图标来解锁导航栏。\n\n您可以轻触一个图标来修改快捷方式，或者长按图标来改变布局。\n\n轻触“保存”确认修改，“还原默认值”重置到默认布局。</string>
   <string name="navigation_restore_button_text">还原\n默认值</string>
   <string name="navigation_edit_button_text">编辑</string>
   <string name="navigation_save_button_text">保存</string>
@@ -267,11 +266,11 @@
   <string name="header_category_personalization">个性化</string>
   <string name="status_bar_title">状态栏</string>
   <string name="status_bar_toggle_brightness">亮度控制</string>
-  <string name="status_bar_toggle_brightness_summary">由滑过状态栏调整亮度</string>
+  <string name="status_bar_toggle_brightness_summary">通过在状态栏上滑动调整亮度</string>
   <string name="status_bar_notif_count_title">显示通知数量</string>
   <string name="status_bar_notif_count_summary">显示未读通知的数量</string>
   <string name="status_bar_clock_style_title">时钟样式</string>
-  <string name="status_bar_clock_style_right">右</string>
+  <string name="status_bar_clock_style_right">右侧</string>
   <string name="status_bar_clock_style_left">左</string>
   <string name="status_bar_clock_style_center">中心</string>
   <string name="status_bar_clock_style_hidden">隐藏</string>
@@ -321,11 +320,17 @@
   <string name="notification_light_default_value">默认</string>
   <string name="notification_light_missed_call_title">未接来电</string>
   <string name="notification_light_voicemail_title">语音信箱</string>
-  <string name="notification_ringtone_title_cm">提醒音</string>
+  <string name="notification_ringtone_title_cm">通知铃声</string>
   <string name="ime_switcher_notify">选择器图标</string>
   <string name="ime_switcher_notify_summary">显示输入法选择器图标</string>
+  <string name="app_notification_show_on_keyguard_title">在锁屏上显示</string>
+  <string name="app_notification_show_on_keyguard_summary">在锁屏上显示来自此应用的通知</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">禁用锁屏上的持久通知</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">永不在锁屏上显示来自此应用的持久通知</string>
   <string name="high_touch_sensitivity_title">触摸屏高灵敏度</string>
   <string name="high_touch_sensitivity_summary">增加触摸屏的灵敏度，以便在戴手套时使用</string>
+  <string name="touchscreen_hovering_title">悬空操作</string>
+  <string name="touchscreen_hovering_summary">允许您把手指悬停在屏幕上作为浏览器、远程桌面等的鼠标指针</string>
   <string name="app_ops_summaries_coarse_location">粗略位置</string>
   <string name="app_ops_summaries_fine_location">准确位置</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -481,7 +486,7 @@
   <string name="app_ops_reset_confirm_title">确认重置计数器</string>
   <string name="app_ops_reset_confirm_mesg">您确定要重置计数器？</string>
   <string name="font_size_sample">示例</string>
-  <string name="volume_adjust_sounds_title">音量键调节声音</string>
+  <string name="volume_adjust_sounds_title">音量调节提示音</string>
   <string name="vibrator_intensity_title">振动强度</string>
   <string name="vibrator_warning">不推荐高于 %1$d 的振动强度</string>
   <string name="color_calibration_title">颜色校准</string>
@@ -597,7 +602,7 @@
   <string name="saving_protected_components">正在保存组件状态\u2026</string>
   <string name="stats_collection_title">统计数据收集</string>
   <string name="stats_collection_summary">启用时，允许数据收集</string>
-  <string name="power_notifications_category_title">插入/拔出电源提示音</string>
+  <string name="power_notifications_category_title">充电提示音</string>
   <string name="power_notifications_enable_title">启用</string>
   <string name="power_notifications_enable_summary">连接或断开电源时发出声音</string>
   <string name="power_notifications_vibrate_title">振动</string>
@@ -610,11 +615,9 @@
   <string name="picker_activities">活动</string>
   <string name="select_custom_app_title">选择自定义应用</string>
   <string name="select_custom_activity_title">选择自定义活动</string>
-  <string name="title_tile_performance_profile">性能配置文件</string>
   <string name="performance_settings_title">性能</string>
   <string name="io_scheds_title">I/O 调度器</string>
   <string name="io_sched_title">I/O 调度器</string>
-  <string name="perf_profile_title">情景模式</string>
   <string name="pref_force_highend_gfx_title">强制高端图形</string>
   <string name="pref_force_highend_gfx_summary">启用高端视觉特效，如透明状态栏/导航栏 (需要重启)</string>
   <string name="performance_settings_warning_title">请谨慎前进</string>
@@ -640,7 +643,7 @@
   <string name="unlock_scramble_pin_layout_summary">当解锁设备时使用乱序 PIN 布局</string>
   <string name="link_volume_option_title">链接铃声和通知的音量</string>
   <string name="notification_volume_option_title">通知音量</string>
-  <string name="notification_drawer_title">下拉通知栏</string>
+  <string name="notification_drawer_title">通知抽屉</string>
   <string name="status_bar_quick_qs_pulldown_title">快速下拉</string>
   <string name="status_bar_quick_qs_pulldown_summary">状态栏右边缘下拉打开快速设置</string>
   <string name="status_bar_show_weather_title">显示天气</string>
@@ -664,7 +667,6 @@
   <string name="qs_tile_hotspot">热点</string>
   <string name="qs_tile_adb_over_network">网络 ADB 调试</string>
   <string name="qs_tile_profiles">情景模式</string>
-  <string name="qs_tile_performance">性能</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">指南针</string>
   <string name="qs_tile_lockscreen">锁屏</string>
@@ -692,6 +694,9 @@
   <string name="expanded_hide_both">同时隐藏</string>
   <string name="expanded_nothing_to_show">要添加一个为单个应用配置的扩展状态，请关闭 “全部开启”</string>
   <string name="expanded_enabled_for_all">为全部应用启用</string>
+  <string name="expanded_desktop_style">扩展桌面样式</string>
+  <string name="expanded_desktop_style_description">选择一个默认的扩展桌面样式</string>
+  <string name="expanded_desktop_title">扩展桌面选项</string>
   <string name="lockscreen_targets_message">锁屏快捷方式</string>
   <string name="lockscreen_default_target">默认</string>
   <string name="lockscreen_none_target">无</string>
@@ -700,7 +705,7 @@
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">管理安全短信设置</string>
   <string name="navigation_ring_title">导航环目标</string>
-  <string name="navigation_ring_message">轻按编辑图标以打开导航环编辑。\n\n选择一个目标以配置其行为。\n\n轻按“\u2713”图标以保存您的变更，或“还原默认设置”以重置设置到默认状态。</string>
+  <string name="navigation_ring_message">轻按编辑图标以打开导航环编辑。\n\n选择一个目标以配置其行为。\n\n轻按“\u2713”图标以保存您的变更，或“还原默认值”以重置设置到默认状态。</string>
   <string name="stylus_icon_enabled_title">使用触控笔时显示光标</string>
   <string name="stylus_icon_enabled_summary">使用触控笔悬停或书写时显示指示光标</string>
   <string name="gestures_settings_title">触控笔手势</string>

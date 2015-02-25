@@ -44,7 +44,6 @@ import java.util.List;
 public class PowerMenuActions extends SettingsPreferenceFragment {
     final static String TAG = "PowerMenuActions";
 
-    private CheckBoxPreference mPowerPref;
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
     private CheckBoxPreference mProfilePref;
@@ -78,9 +77,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
                 continue;
             }
 
-            if (action.equals(GLOBAL_ACTION_KEY_POWER)) {
-                mPowerPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_POWER);
-            } else if (action.equals(GLOBAL_ACTION_KEY_REBOOT)) {
+            if (action.equals(GLOBAL_ACTION_KEY_REBOOT)) {
                 mRebootPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_REBOOT);
             } else if (action.equals(GLOBAL_ACTION_KEY_SCREENSHOT)) {
                 mScreenshotPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
@@ -107,10 +104,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     @Override
     public void onStart() {
         super.onStart();
-
-        if (mPowerPref != null) {
-            mPowerPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_POWER));
-        }
 
         if (mRebootPref != null) {
             mRebootPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_REBOOT));
@@ -169,11 +162,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mPowerPref) {
-            value = mPowerPref.isChecked();
-            updateUserConfig(value, GLOBAL_ACTION_KEY_POWER);
-
-        } else if (preference == mRebootPref) {
+        if (preference == mRebootPref) {
             value = mRebootPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_REBOOT);
 
@@ -267,8 +256,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     private void getUserConfig() {
         mLocalUserConfig.clear();
         String[] defaultActions;
-        String savedActions = Settings.Global.getStringForUser(mContext.getContentResolver(),
-                Settings.Global.POWER_MENU_ACTIONS, UserHandle.USER_CURRENT);
+        String savedActions = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                Settings.Secure.POWER_MENU_ACTIONS, UserHandle.USER_CURRENT);
 
         if (savedActions == null) {
             defaultActions = mContext.getResources().getStringArray(
@@ -303,8 +292,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
             }
         }
 
-        Settings.Global.putStringForUser(getContentResolver(),
-                 Settings.Global.POWER_MENU_ACTIONS, s.toString(), UserHandle.USER_CURRENT);
+        Settings.Secure.putStringForUser(getContentResolver(),
+                 Settings.Secure.POWER_MENU_ACTIONS, s.toString(), UserHandle.USER_CURRENT);
         updatePowerMenuDialog();
     }
 

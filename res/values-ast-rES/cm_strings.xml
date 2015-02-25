@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasu d\'habilitar los axustes de desendolcu.</item>
+    <item quantity="other">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasos d\'habilitar los axustes de desendolcu.</item>
+  </plurals>
+  <string name="show_dev_on_cm">¡Agora tán activaes les opciones de desendolcu!</string>
+  <string name="show_dev_already_cm">Nun fai falta, yá tán activaes les opciones de desendolcu.</string>
+  <string name="development_tools_title">Ferramientes de desendolcu</string>
   <string name="root_access">Accesu alministrativu</string>
   <string name="root_access_warning_title">¿Permitir accesu alministrativu?</string>
   <string name="root_access_warning_message">¡Permitir a les aplicaciones solicitar accesu alministrativu ye enforma peligroso y pue comprometer la seguridá del sistema!</string>
@@ -24,8 +31,10 @@
   <string name="root_access_adb">Namái ADB</string>
   <string name="root_access_all">Aplicaciones y ADB</string>
   <string name="ring_mode_title">Mou de soníu</string>
+  <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Vibración</string>
   <string name="ring_mode_mute">Silenciu</string>
+  <string name="profiles_settings_title">Perfiles del sistema</string>
   <string name="profiles_add">Amestar</string>
   <string name="profile_settings_title">Perfil</string>
   <string name="profile_empty_list_profiles_off">Pa configurar y usar los perfiles del sistema, hai d\'activalos primero</string>
@@ -42,14 +51,19 @@
   <string name="profile_remove_dialog_message">¿Desaniciar el perfil %1$s?</string>
   <string name="profile_populate_profile_from_state">¿Configurar perfil usando los axustes de preséu actuales?</string>
   <string name="profile_menu_fill_from_state">Importar la configuración actual del preséu</string>
+  <string name="profile_remove_current_profile">¡Nun pue desaniciase\'l perfil actual!</string>
   <string name="profile_name_title">Nome</string>
   <string name="new_profile_name">&lt;perfil nuevu&gt;</string>
   <string name="rename_dialog_title">Renomar</string>
   <string name="rename_dialog_message">Introducir un nome nuevu</string>
+  <string name="rename_dialog_hint">Introduz el nome del perfil</string>
   <string name="profile_reset_title">Restablecer</string>
+  <string name="profile_reset_message">¿Desaniciar tolos perfiles creaos pol usuariu y restauralos por defeutu?</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <string name="profile_volumeoverrides_title">Volume</string>
   <string name="volume_override_summary">Afitar a %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Anular volume</string>
@@ -63,15 +77,21 @@
   <string name="profile_choose_app">Esbillar aplicación</string>
   <string name="profile_system_settings_title">Axustes del Sistema</string>
   <string name="profile_lockmode_title">Mou Bloquéu de pantalla</string>
+  <string name="profile_lockmode_insecure_summary">Nun pidir PIN o contraseña</string>
+  <string name="profile_lockmode_disabled_summary">Desactivar el bloquéu de pantalla</string>
   <string name="profile_airplanemode_title">Mou avión</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Puntu d\'accesu Wi\u2011Fi</string>
   <string name="toggleBluetooth">Bluetooth</string>
   <string name="toggleGPS">GPS</string>
+  <string name="toggleData">Conexón de datos</string>
   <string name="toggleSync">Sincronización automática</string>
+  <string name="toggle2g3g4g">Triba de rede preferida</string>
   <string name="toggleNfc">NFC</string>
+  <string name="button_pref_title">Botones</string>
   <string name="hardware_keys_power_key_title">Botón d\'apagáu</string>
   <string name="hardware_keys_home_key_title">Botón Aniciu</string>
+  <string name="hardware_keys_back_key_title">Botón Atrás</string>
   <string name="hardware_keys_menu_key_title">Botón Menú</string>
   <string name="hardware_keys_assist_key_title">Botón Gueta</string>
   <string name="hardware_keys_appswitch_key_title">Botón Recientes</string>
@@ -98,6 +118,8 @@
   <string name="swap_volume_buttons_summary">Intercamudar los botones de control de volume al xirar la pantalla</string>
   <string name="power_end_call_title">Finar llamada</string>
   <string name="power_end_call_summary">Calcando\'l botón d\'apagáu, va finar la llamada en cursu</string>
+  <string name="button_wake_title">Esconsoñar preséu</string>
+  <string name="button_wake_summary">Sobrescribir control de reproducción</string>
   <string name="home_answer_call_title">Contestar la llamada</string>
   <string name="home_answer_call_summary">Calcando\'l botón d\'aniciu contéstase a la llamada entrante</string>
   <string name="button_backlight_title">Retroilluminación</string>
@@ -111,11 +133,18 @@
   <string name="backlight_summary_enabled_with_timeout">Habilitáu mientres <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Habilitáu</string>
   <string name="power_menu_title">Menú d\'apagáu</string>
+  <string name="power_menu_power_title">Apagar</string>
   <string name="power_menu_reboot_title">Reaniciar</string>
   <string name="power_menu_screenshot_title">Capturar pantalla</string>
   <string name="power_menu_profiles_title">Perfiles</string>
   <string name="power_menu_airplane_title">Mou avión</string>
+  <string name="power_menu_users_title">Seleutor d\'usuariu</string>
+  <string name="power_menu_settings_title">Accesu a Axustes</string>
+  <string name="power_menu_lockdown_title">Bloquéu de preséu</string>
+  <string name="power_menu_bug_report_title">Informe de fallu</string>
   <string name="power_menu_sound_title">Panel de soníu</string>
+  <string name="power_menu_bug_report_disabled">Los informes de fallu tán desactivaos nes opciones de desendolcu</string>
+  <string name="power_menu_profiles_disabled">Los perfiles del sistema tán desactivaos</string>
   <string name="adaptive_backlight_title">Brillu adautativu</string>
   <string name="adaptive_backlight_summary">Variar intelixentemente\'l brillu de la pantalla ayudando d\'esti mou a la duración de la batería</string>
   <string name="sunlight_enhancement_title">Lluz del sol</string>
@@ -130,6 +159,7 @@
   <string name="blacklist_empty_text">Nun hai númberos na llista prieta. Amestar una entrada tocando\'l botón (+).</string>
   <string name="blacklist_disabled_empty_text">Habilita la llista prieta pa poder bloquiar llamaes o mensaxes de determinaos númberos.</string>
   <string name="blacklist_summary_disabled">Deshabilitada</string>
+  <string name="blacklist_summary">Los mensaxes y llamaes entrantes de los númberos de la llista prieta van bloquiase</string>
   <string name="blacklist_notify">Amosar notificación</string>
   <string name="blacklist_private_numbers_title">Númberos privaos</string>
   <string name="blacklist_private_numbers_summary_disabled">Nun bloquiar llamaes de númberos privaos</string>
@@ -171,13 +201,22 @@
   <string name="app_security_title">Seguridá n\'aplicaciones</string>
   <string name="sms_security_check_limit_title">Llende de mensaxes SMS</string>
   <string name="sms_security_check_limit_summary">Les aplicaciones puen unviar hasta %d mensaxes SMS en 30 minutos enantes de riquir confirmación</string>
+  <string name="spam_added_title">Amestáu %1$s</string>
+  <string name="spam_last_blocked_title">Cabera bloquiada %1$s</string>
   <string name="block_notifications_title">Filtriar notificaciones</string>
   <string name="block_notifications_summary">Remanar filtros y notificaciones bloquiaes</string>
+  <string name="no_filters_title">Nun hai filtros afitaos</string>
   <string name="cmupdate_settings_title">Anovamientos CyanogenMod</string>
+  <string name="update_recovery_title">Anovar col recovery de Cyanogen</string>
+  <string name="update_recovery_summary">Anovar recovery colos anovamientos del sistema</string>
+  <string name="update_recovery_on_warning">AVISU: Cuando esta función ta activada, el recovery instaláu va sustituyise por ún incluyíu cola versión actual del SO.\n\nEl recovery va anovase xunto con meyores del sistema, ayudando a garantizar la compatibilidá con futures versiones.\n\n¿Quies activar esta función?</string>
+  <string name="update_recovery_off_warning">AVISU: Cuando esta función está desactivada, el recovery instaláu nun s\'anueva con anovamientos del SO.\n\nVersiones futures del SO podríen non instalase con recoverys non anovaos.\n\n¿Daveres quies deshabilitar esta función?</string>
   <string name="mod_version">Versión CyanogenMod</string>
   <string name="mod_version_default">Desconocida</string>
+  <string name="model_name">Nome del modelu</string>
   <string name="build_date">Data de compilación</string>
   <string name="contributor_cloud_title">Collaboradores</string>
+  <string name="phone_service_state">Voz: <xliff:g id="voice_state">%1$s</xliff:g>, datos: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Doble toque pa esconsoñar</string>
   <string name="proximity_wake_title">Prevenir encendíu accidental</string>
   <string name="proximity_wake_summary">Comprobar el sensor de proximidá enantes de prender la pantalla</string>
@@ -192,32 +231,65 @@
   <string name="privacy_guard_reset_text">¿Reafitar permisos?</string>
   <string name="privacy_guard_help_text">Nesta pantalla pues elexir les aplicaciones pa les que va activase Privacidá namái tocando sobre elles. Les aplicaciones esbillaes nun van poder acceder a la to información personal, como contautos, mensaxes o rexistru de llamaes. Fai una pulsación prollongada p\'amosar la pantalla de detalles de l\'aplicación.\n\nLes aplicaciones del sistema nun s\'amuesen por defeutu, pero puen amosase seleicionando la opción de menú correspondiente.</string>
   <string name="privacy_guard_manager_show_system_apps">Aplicaciones del sistema</string>
-  <string name="privacy_guard_advanced_settings_title">Avanzáu</string>
+  <string name="increasing_ring_volume_option_title">Volume de timbre ascendente</string>
+  <string name="increasing_ring_min_volume_title">Volume inicial</string>
+  <string name="increasing_ring_ramp_up_time_title">Duración d\'incrementu</string>
   <string name="advanced_reboot_title">Reaniciu mou avanzáu</string>
   <string name="advanced_reboot_summary">Al desbloquiar, incluyir nel menú d\'apagáu opciones pa reaniciar en mou recovery, bootloader o facer un reaniciu suave</string>
   <string name="enable_adb_cm">Depuración Android</string>
   <string name="enable_adb_summary_cm">Habilitar la interface Android Debug Bridge (adb)</string>
   <string name="adb_over_network">ADB sobre rede</string>
   <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre les interfaces de rede (Wi\u2011Fi, redes USB). Esta configuración restablezse al reaniciar el preséu</string>
+  <string name="adb_over_network_warning">AVISU: Cuando ta habilitáu ADB sobre rede, el teléfono ta abiertu pa intrusiones en toles redes coneutaes.\n\nUsa esta función namái coneutáu a redes de confianza.\n\n¿Daveres quies activar esta función?</string>
+  <string name="adb_notify">Notificación de depuración</string>
+  <string name="adb_notify_summary">Amosar una notificación cuando tea activada la depuración per USB o rede</string>
   <string name="device_hostname">Nome del preséu</string>
   <string name="development_shortcut_title">Opciones de desendolcador</string>
+  <string name="development_shortcut_summary">Habilitar los métodos abreviaos de xestión d\'aplicación na llista d\'aplicaciones recientes</string>
   <string name="double_tap_to_sleep_title">Doble toque pa bloquiar</string>
   <string name="wake_when_plugged_or_unplugged_title">Prender con cargador</string>
   <string name="wake_when_plugged_or_unplugged_summary">Prender la pantalla al coneutar o desconeutar el cargador</string>
   <string name="kill_app_longpress_back">Botón Volver</string>
+  <string name="kill_app_longpress_back_summary">Matar l\'aplicación actual al caltener primíu\'l botón Volver</string>
   <string name="disable_navkeys_title">Habilitar barra de navegación</string>
   <string name="disable_navkeys_summary">Habilitar la barra de navegación en pantalla y deshabilitar los botones físicos</string>
   <string name="navigation_bar_category">Barra de navegación</string>
   <string name="navigation_bar_left_title">Mou pa maniegos</string>
   <string name="navigation_bar_left_summary">Allugar la barra de navegación a la esquierda de la pantalla nel mou apaisáu</string>
   <string name="navigation_bar_title">Botones y disposición</string>
+  <string name="navigation_bar_help_text">Pa empezar toca l\'iconu p\'abrir la barra de navegación en mou d\'edición.\n\nPues tocar l\'iconu pa camudar l\'accesu direutu, o caltener primíu un iconu pa volver a organizar la disposición.\n\nToca sobre guardar pa salvar los cambeos, o restaurar pa volver a la disposición por defeutu.</string>
+  <string name="navigation_restore_button_text">Restaura\nlos valores por defeutu</string>
+  <string name="navigation_edit_button_text">Editar</string>
+  <string name="navigation_save_button_text">Guardar</string>
+  <string name="navigation_bar_reset_message">¿Quies desaniciar los axustes actuales y restaurar la disposición por defeutu?</string>
+  <string name="navigation_bar_arrow_keys_title">Amosar fleches al escribir</string>
+  <string name="navigation_bar_arrow_keys_summary">Amosar los cursores esquierda y derecha mentanto la escritura. Troca al seleutor IME.</string>
+  <string name="header_category_personalization">Personalización</string>
   <string name="status_bar_title">Barra d\'estáu</string>
   <string name="status_bar_toggle_brightness">Axuste de brillu</string>
   <string name="status_bar_toggle_brightness_summary">Permitir axustar la lluminosidá de la pantalla eslizando\'l deu pela barra d\'estáu</string>
   <string name="status_bar_notif_count_title">Amosar contador notificaciones</string>
   <string name="status_bar_notif_count_summary">Amosar el númberu de notificaciones pendientes na barra d\'estáu</string>
+  <string name="status_bar_clock_style_title">Estilu de reló</string>
+  <string name="status_bar_clock_style_right">Derecha</string>
+  <string name="status_bar_clock_style_left">Esquierda</string>
   <string name="status_bar_clock_style_center">Centráu</string>
   <string name="status_bar_clock_style_hidden">Anubríu</string>
+  <string name="status_bar_am_pm_title">Estilu AM/PM</string>
+  <string name="status_bar_am_pm_info">El reló de 24 hores ta habilitáu</string>
+  <string name="status_bar_am_pm_normal">Normal</string>
+  <string name="status_bar_am_pm_small">Pequeñu</string>
+  <string name="status_bar_am_pm_hidden">Anubríu</string>
+  <string name="status_bar_battery_style_title">Estilu del estáu de la batería</string>
+  <string name="status_bar_battery_style_icon_portrait">Iconu vertical</string>
+  <string name="status_bar_battery_style_icon_landscape">Iconu horizontal</string>
+  <string name="status_bar_battery_style_circle">Círculu</string>
+  <string name="status_bar_battery_style_text">Testu</string>
+  <string name="status_bar_battery_style_hidden">Anubríu</string>
+  <string name="status_bar_battery_percentage_title">Porcentaxe de batería</string>
+  <string name="status_bar_battery_percentage_default">Anubríu</string>
+  <string name="status_bar_battery_percentage_text_inside">Dientro l\'iconu</string>
+  <string name="status_bar_battery_percentage_text_next">Al llau del iconu</string>
   <string name="edit_light_settings">Editar axustes de lluz</string>
   <string name="pulse_speed_title">Duración y velocidá</string>
   <string name="default_time">Normal</string>
@@ -249,8 +321,17 @@
   <string name="notification_light_default_value">Por defeutu</string>
   <string name="notification_light_missed_call_title">Llamada perdida</string>
   <string name="notification_light_voicemail_title">Buzón de voz</string>
+  <string name="notification_ringtone_title_cm">Tonu de notificación</string>
+  <string name="ime_switcher_notify">Seleutor d\'iconu</string>
+  <string name="ime_switcher_notify_summary">Amosar l\'iconu de seleición del métodu d\'entrada</string>
+  <string name="app_notification_show_on_keyguard_title">Amosar na pantalla de bloquéu</string>
+  <string name="app_notification_show_on_keyguard_summary">Amosar notificaciones d\'esta aplicación na pantalla de bloquéu</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Desactivar notificaciones persistentes na pantalla de bloquéu</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Nun amosar nunca notificaciones persistentes d\'esta aplicación na pantalla de bloquéu</string>
   <string name="high_touch_sensitivity_title">Sensibilidá alta al tactu</string>
   <string name="high_touch_sensitivity_summary">Incrementar la sensibilidá del panel táctil pa que pueda usase llevando guantes</string>
+  <string name="touchscreen_hovering_title">Pantalla táctil eslizante</string>
+  <string name="touchscreen_hovering_summary">Permite eslizase pela pantalla como un mur en navegadores, escritorios remotos, etc.</string>
   <string name="app_ops_summaries_coarse_location">allugamientu pocu precisu</string>
   <string name="app_ops_summaries_fine_location">allugamientu precisu</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -294,13 +375,25 @@
   <string name="app_ops_summaries_keep_awake">caltener encesu</string>
   <string name="app_ops_summaries_monitor_location">monitorizar llocalización</string>
   <string name="app_ops_summaries_monitor_high_power_location">monitorizar llocalización n\'alta precisión</string>
+  <string name="app_ops_summaries_get_usage_stats">obtener estadístiques d\'usu de l\'aplicación</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">activar/desactivar el micrófonu</string>
+  <string name="app_ops_summaries_toast_window">amosar notificaciones emerxentes</string>
+  <string name="app_ops_summaries_project_media">proyeutar conteníu multimedia</string>
+  <string name="app_ops_summaries_activate_vpn">activar VPN</string>
   <string name="app_ops_summaries_wifi_change">cambiar Wi\u2011Fi</string>
   <string name="app_ops_summaries_bluetooth_change">cambiar Bluetooth</string>
   <string name="app_ops_summaries_send_mms">unviar MMS</string>
   <string name="app_ops_summaries_read_mms">lleer MMS</string>
   <string name="app_ops_summaries_write_mms">escribir MMS</string>
   <string name="app_ops_summaries_auto_start">auto executar</string>
+  <string name="app_ops_summaries_nfc_change">cambiar NFC</string>
+  <string name="app_ops_summaries_delete_sms">desaniciar SMS</string>
+  <string name="app_ops_summaries_delete_mms">desaniciar MMS</string>
+  <string name="app_ops_summaries_delete_contacts">desaniciar contautos</string>
+  <string name="app_ops_summaries_delete_call_log">desaniciar el rexistru de llamaes</string>
   <string name="app_ops_summaries_data_change">camudar datos</string>
+  <string name="app_ops_summaries_wake_up">esconsoñar preséu</string>
+  <string name="app_ops_summaries_su">accesu alministrativu</string>
   <string name="app_ops_labels_location">Llocalización</string>
   <string name="app_ops_labels_vibrate">Vibrar</string>
   <string name="app_ops_labels_read_contacts">Lleer contautos</string>
@@ -334,21 +427,40 @@
   <string name="app_ops_labels_notification_volume">Volume de notificación</string>
   <string name="app_ops_labels_bluetooth_volume">Volume de Bluetooth</string>
   <string name="app_ops_labels_keep_awake">Caltener encesu</string>
+  <string name="app_ops_labels_get_usage_stats">Consiguir estadístiques d\'usu de l\'app</string>
+  <string name="app_ops_labels_mute_unmute_microphone">Silenciar/nun silenciar micrófonu</string>
+  <string name="app_ops_labels_toast_window">Amosar notificaciones emerxentes</string>
+  <string name="app_ops_labels_project_media">Proyeutu Media</string>
+  <string name="app_ops_labels_activate_vpn">Activar VPN</string>
   <string name="app_ops_labels_wifi_change">cambiar Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">Camudar Bluetooth</string>
   <string name="app_ops_labels_send_mms">Unviar MMS</string>
   <string name="app_ops_labels_read_mms">Lleer MMS</string>
   <string name="app_ops_labels_write_mms">Escribir MMS</string>
   <string name="app_ops_labels_auto_start">Auto aniciar</string>
+  <string name="app_ops_labels_nfc_change">cambiar NFC</string>
+  <string name="app_ops_labels_delete_sms">Desaniciar SMS</string>
+  <string name="app_ops_labels_delete_mms">Desaniciar MMS</string>
+  <string name="app_ops_labels_delete_contacts">Desaniciar contautos</string>
+  <string name="app_ops_labels_delete_call_log">Desaniciar rexistros de llamaes</string>
   <string name="app_ops_labels_data_change">Camudar datos</string>
+  <string name="app_ops_labels_wake_up">Esconsoñar</string>
+  <string name="app_ops_labels_su">Accesu alministrativu</string>
   <string name="app_ops_categories_location">Llocalización</string>
   <string name="app_ops_categories_personal">Personal</string>
   <string name="app_ops_categories_messaging">Mensaxería</string>
   <string name="app_ops_categories_media">Multimedia</string>
   <string name="app_ops_categories_device">Preséu</string>
   <string name="app_ops_categories_bootup">Arranque</string>
+  <string name="app_ops_categories_su">Accesu alministrativu</string>
+  <string name="app_ops_permissions_allowed">Permitíu</string>
+  <string name="app_ops_permissions_ignored">inoráu</string>
+  <string name="app_ops_permissions_always_ask">Entrugar siempre</string>
   <string name="ok">Aceutar</string>
   <string name="profile_menu_delete_title">Desaniciar</string>
+  <string name="profile_action_none">Dexar ensin cambeos</string>
+  <string name="profile_action_disable">Apagar</string>
+  <string name="profile_action_enable">Prender</string>
   <string name="profile_trigger_a2dp_connect">Al coneutar A2DP</string>
   <string name="profile_trigger_a2dp_disconnect">Al desconeutar A2DP</string>
   <string name="profile_tabs_wifi">Wi\u2011Fi</string>
@@ -374,7 +486,9 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_show_system_apps">Amuesa les app del sistema</string>
   <string name="app_ops_reset_counters">Restablecer contadores</string>
   <string name="app_ops_reset_confirm_title">Confirma\'l reaniciu de los contadores</string>
+  <string name="app_ops_reset_confirm_mesg">¿Daveres que quies restablecer los contadores?</string>
   <string name="font_size_sample">Amuesa</string>
+  <string name="volume_adjust_sounds_title">Sonios d\'axuste de volume</string>
   <string name="vibrator_intensity_title">Intensidá de vibración</string>
   <string name="vibrator_warning">Nun son recomendables valores superiores a %1$d</string>
   <string name="color_calibration_title">Calibración de color</string>
@@ -385,7 +499,11 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="gamma_tuning_title_head">Correición gamma</string>
   <string name="gamma_tuning_summary_head">Axustar la correición gamma de la pantalla</string>
   <string name="gamma_tuning_control_set_header">Grupu <xliff:g id="index">%d</xliff:g></string>
+  <string name="gamma_tuning_contrast">Contraste</string>
+  <string name="gamma_tuning_brightness">Brillu</string>
+  <string name="gamma_tuning_saturation">Saturación</string>
   <string name="screencolor">Color de la pantalla</string>
+  <string name="screencolor_summary">Axustar el tonu de la pantalla, saturación, contraste o intensidá</string>
   <string name="custom_screencolor">Color personalizáu de la pantalla</string>
   <string name="screencolor_save">Guardar</string>
   <string name="screencolor_cancel">Encaboxar</string>
@@ -397,22 +515,95 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="saturation_str">Saturación: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contraste: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensidá: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_standard">Estándar</string>
+  <string name="screen_color_setting_vivid">Intensu</string>
+  <string name="screen_color_setting_custom">Personalizáu</string>
+  <string name="settings_reset_button">Restablecer</string>
   <string name="bluetooth_enter_pin_msg_hs">Pa enllazar con:<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>Escribi\'l PIN que pide\'l preséu (16 díxitos o más):</string>
   <string name="bluetooth_profile_dun">Accesu telefónicu a redes</string>
   <string name="bluetooth_profile_sap">Accesu SIM</string>
+  <string name="bluetooth_dun_profile_summary_connected">Coneutáu al sirvidor DUN</string>
+  <string name="bluetooth_pbap_profile_summary_connected">Coneutáu al sirvidor pbap</string>
+  <string name="bluetooth_sap_profile_summary_connected">Coneutáu al sirvidor d\'accesu SIM</string>
   <string name="bluetooth_dun_profile_summary_use_for">Usáu pal accesu telefónicu a redes</string>
+  <string name="bluetooth_pbap_profile_summary_use_for">Usar pa compartir contautos</string>
   <string name="bluetooth_sap_profile_summary_use_for">Usar p\'accesu a SIM</string>
   <string name="bluetooth_accept_all_files">Aceutar tolos tipos de ficheros</string>
+  <string name="sim_lock_settings_cm">Axustes de bloquéu de tarxeta SIM/RUIM</string>
+  <string name="sim_lock_settings_category_cm">Configurar el bloquéu de la tarxeta SIM/RUIM</string>
+  <string name="sim_lock_settings_title_cm">Bloquéu de la tarxeta SIM/RUIM</string>
+  <string name="sim_pin_disable_failed">Nun pue desactivase\'l PIN.</string>
+  <string name="sim_pin_enable_failed">Nun pue habilitase\'l PIN.</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">Pa cambiar el PIN SIM/RUIM, primero habilitar el bloquéu de SIM/RUIM.</string>
+  <string name="sim_enable_disable_lock_not_supported">El bloquéu de SIM/RUIM nun ye compatible cola tarxeta.</string>
+  <string name="sim_pin_attempts">\nIntentos restantes:</string>
+  <string name="sim_pin_enabled">PIN1 activáu</string>
+  <string name="sim_pin_disabled">PIN1 desactiváu</string>
   <string name="subs_settings">Estáu de tarxeta SIM</string>
+  <string name="storage_usb">Almacenamientu USB</string>
+  <string name="storage_uicc">Almacenamientu UICC</string>
+  <string name="usb_eject" product="default">Desmontar almacenamientu USB</string>
+  <string name="usb_eject_summary" product="default">Desmontar l\'amacenamientu USB pa estrayer con seguridá</string>
+  <string name="usb_format" product="default">Desaniciar almacenamientu USB</string>
+  <string name="usb_format_summary" product="default">Desaniciar tolos datos del almacenamientu USB, como música y semeyes</string>
+  <string name="usb_mount" product="default">Montar almacenamientu USB</string>
+  <string name="usb_insert_summary" product="default">Inxerta una unidá USB pa montaxe</string>
+  <string name="uicc_eject" product="default">Desmontar almacenamientu UICC</string>
+  <string name="uicc_eject_summary" product="default">Desmontar l\'amacenamientu UICC pa estrayer con seguridá</string>
+  <string name="uicc_format" product="default">Desaniciar almacenamientu UICC</string>
+  <string name="uicc_format_summary" product="default">Desaniciar tolos datos del almacenamientu UICC, como música y semeyes</string>
+  <string name="uicc_mount" product="default">Montar almacenamientu UICC</string>
+  <string name="uicc_insert_summary" product="default">Inxertar una unidá UICC pa montaxe</string>
+  <string name="usb_settings_enable_ums_title">¿Activar almacenamientu masivu?</string>
+  <string name="usb_settings_enable_ums_message">Les aplicaciones y componentes del sistema dependen del almacenamientu primariu, que ta siempre disponible. Esta carauterística fraña esa funcionalidá. Recomiéndase usar MTP en so llugar. ¿Daveres que quies activar l\'almacenamientu masivu?</string>
+  <string name="dlg_confirm_usb_unmount_title" product="default">¿Desmontar almacenamientu USB?</string>
+  <string name="dlg_confirm_uicc_unmount_title" product="default">¿Desmontar almacenamientu UICC?</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">Si desmontes l\'almacenamientu USB, dalgunes aplicaciones qu\'uses van detenese y puen dexar de tar disponibles hasta que vuelvas montar l\'almacenamientu USB.</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">Si desmontes l\'almacenamientu UICC, dalgunes aplicaciones qu\'uses van detenese y puen dexar de tar disponibles hasta que vuelvas montar l\'almacenamientu UICC.</string>
+  <string name="dlg_error_usb_unmount_text" product="default">Nun pudo desmontase l\'almacenamientu USB. Inténtalo dempués.</string>
+  <string name="dlg_error_uicc_unmount_text" product="default">Nun pudo desmontase l\'almacenamientu UICC. Inténtalo dempués.</string>
   <string name="usb_unmount_inform_text" product="default">Va desactivase l\'almacenamientu USB.</string>
+  <string name="uicc_unmount_inform_text" product="default">Va desmontase l\'almacenamientu UICC.</string>
+  <string name="usb_media_format_desc" product="default">¿Desaniciar l\'almacenamientu USB? ¡Vas perder <b>tolos datos</b> del almacenamientu!</string>
+  <string name="uicc_media_format_desc" product="default">¿Desaniciar l\'almacenamientu UICC? ¡Vas perder <b>tolos datos</b> del almacenamientu!</string>
   <string name="usb_media_format_button_text" product="default">Desaniciar almacenamientu USB</string>
+  <string name="uicc_media_format_button_text" product="default">Desaniciar almacenamientu UICC</string>
   <string name="usb_media_format_final_desc" product="default">¿Desaniciar l\'almacenamientu USB, esborrando tolos ficheros almacenaos dientro? ¡Esta aición nun pue desfacese!</string>
+  <string name="uicc_media_format_final_desc" product="default">¿Desaniciar l\'almacenamientu UICC, esborrando tolos ficheros almacenaos dientro? ¡Esta aición nun pue desfacese!</string>
   <string name="usb_media_format_gesture_explanation" product="default">Necesites dibuxar el patrón de desbloquéu pa confirmar que quies desaniciar l\'almacenamientu USB.</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">Necesites dibuxar el to patrón de desbloquéu pa confirmar que quies desaniciar l\'almacenamientu UICC.</string>
+  <string name="location_category_enhanced_location">Allugamientu ameyoráu (IZat)</string>
+  <string name="app_ops_settings_summary">Ver o camudar permisos de l\'aplicación</string>
+  <string name="enable_adb_summary_charging">El preséu ta nel mou de carga, la depuración USB deshabilitóse</string>
   <string name="enable_quickboot_title">Habilitar el mou d\'arranque rápidu</string>
+  <string name="enable_quickboot_summary">Poner el preséu en mou d\'arranque rápidu en cuenta del apagáu normal</string>
+  <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
+  <string name="sim_enabler_title">Estáu SIM</string>
+  <string name="sim_enabler_summary">La SIM ta <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
+  <string name="sim_enabled">habilitada</string>
+  <string name="sim_disabled">deshabilitada</string>
+  <string name="sim_missing">ausente o defeutuosa</string>
+  <string name="sim_enabler_need_disable_sim">¿Desactivar tarxeta SIM?</string>
+  <string name="sim_enabler_airplane_on">Nun pue facese la operación entrín el mou avión tea activáu.</string>
+  <string name="sim_enabler_in_call">Nun pue facese la operación entrín teas llamando.</string>
+  <string name="sim_enabler_both_inactive">Nun puen deshabilitase toles tarxetes SIM</string>
+  <string name="sim_enabler_sim">SIM</string>
+  <string name="sim_enabler_enabling">Activando <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_disabling">Desactivando <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_deactivate">Desactivar</string>
+  <string name="primary_sub_select_title">Soscripción 3G/LTE por defeutu</string>
+  <string name="usb_charging_title">Namái carga</string>
+  <string name="usb_charging_summary">Deshabilitar toles tresferencies de datos col equipu y cargar el preséu per aciu del puertu USB</string>
+  <string name="usb_sdcard_title">Almacenamientu masivu (UMS)</string>
+  <string name="usb_sdcard_summary">Permítite tresferir ficheros ente\'l to ordenador y la tarxeta SD montándola como preséu flash</string>
+  <string name="external_storage_turn_on">L\'almacenamientu esternu activóse</string>
+  <string name="external_storage_turn_off">L\'almacenamientu esternu desactivóse</string>
   <string name="menu_hidden_apps_delete">Reaniciar</string>
   <string name="menu_hidden_apps_reset_lock">Reanicia\'l patrón de bloquéu</string>
   <string name="protected_apps">Apps protexíes</string>
   <string name="saving_protected_components">Guardando l\'estáu del componente\u2026</string>
+  <string name="stats_collection_title">Colleición de datos</string>
+  <string name="stats_collection_summary">Cuando ta activáu, permite la recoleición de métriques</string>
   <string name="power_notifications_category_title">Cargador</string>
   <string name="power_notifications_enable_title">Soníu</string>
   <string name="power_notifications_enable_summary">Reproducir un soníu al coneutar o desconeutar el cargador</string>
@@ -426,16 +617,15 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="picker_activities">Actividaes</string>
   <string name="select_custom_app_title">Seleicionar aplicación personalizada</string>
   <string name="select_custom_activity_title">Seleicionar actividá personalizada</string>
-  <string name="title_tile_performance_profile">Perfil de rindimientu</string>
   <string name="performance_settings_title">Rindimientu</string>
   <string name="io_scheds_title">Planificador de E/S</string>
   <string name="io_sched_title">Planificador E/S</string>
-  <string name="perf_profile_title">Perfil</string>
   <string name="pref_force_highend_gfx_title">Forciar los gráficos d\'alta resolución</string>
   <string name="pref_force_highend_gfx_summary">Habilitar los efeutos visuales d\'alta resolución, como la barra d\'estáu/navegación tresparente (necesita reaniciar)</string>
   <string name="performance_settings_warning_title">Procede con curiáu</string>
   <string name="performance_settings_warning">Estos axustes incluyéronse a mou d\'esperimentación y cualquier cambéu fechu sobre ellos pue causar inestabilidá, zarru d\'aplicaciones, perda de datos o fallos de hardware.\n\nNun comuniques informes de fallos si camudasti dalgún de los valores definíos por defeutu.</string>
   <string name="performance_set_on_boot">Afitar al aniciar</string>
+  <string name="performance_set_on_boot_summary">Restaurar la configuración al aniciar el sistema</string>
   <string name="processor_title">Procesador</string>
   <string name="cpu_cur_freq_title">Frecuencia actual de la CPU</string>
   <string name="cpu_governors_title">Patrones CPU</string>
@@ -453,9 +643,46 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="unlock_quick_unlock_control_summary">Desbloquiar automáticamente cuando s\'introduz el PIN/clave correutu</string>
   <string name="unlock_scramble_pin_layout_title">Disposición al debalu</string>
   <string name="unlock_scramble_pin_layout_summary">Cambiar la disposición de los númberos del PIN pa desbloquiar el preséu</string>
+  <string name="link_volume_option_title">Enllazar volume de llamada y notificaciones</string>
+  <string name="notification_volume_option_title">Volume de notificación</string>
   <string name="notification_drawer_title">Área de notificación</string>
+  <string name="status_bar_quick_qs_pulldown_title">Baxada rápida</string>
+  <string name="status_bar_quick_qs_pulldown_summary">El berbesu derechu de la barra de notificaciones despliega hacia abaxo los axustes rápidos</string>
+  <string name="status_bar_show_weather_title">Amosar clima</string>
+  <string name="status_bar_show_weather_summary">Amuesa\'l clima debaxo\'l panel d\'axustes rápidos</string>
+  <string name="qs_category_title">Panel d\'axustes rápidos</string>
+  <string name="qs_brightness_slider_title">Amosar barra de brillu</string>
+  <string name="qs_order_title">Seleicionar y ordenar los controles</string>
+  <string name="add_qs">Amestar control nuevu</string>
+  <string name="qs_action_delete">Desaniciar</string>
+  <string name="qs_action_add">Amestar</string>
+  <string name="qs_action_no_more_tiles">Nun hai más controles disponibles</string>
+  <string name="qs_tile_wifi">Wi\u2011Fi</string>
+  <string name="qs_tile_bluetooth">Bluetooth</string>
+  <string name="qs_tile_display_inversion">Inversión de color</string>
+  <string name="qs_tile_cellular_data">Conexón de datos</string>
+  <string name="qs_tile_airplane_mode">Mou avión</string>
+  <string name="qs_tile_display_rotation">Rotación</string>
+  <string name="qs_tile_flashlight">Llinterna</string>
+  <string name="qs_tile_location">Llocalización</string>
+  <string name="qs_tile_cast_screen">Pantalla inalámbrica</string>
+  <string name="qs_tile_hotspot">Hotspot</string>
+  <string name="qs_tile_adb_over_network">ADB sobre rede</string>
+  <string name="qs_tile_profiles">Perfiles del sistema</string>
+  <string name="qs_tile_nfc">NFC</string>
+  <string name="qs_tile_compass">Brúxula</string>
+  <string name="qs_tile_lockscreen">Pantalla de bloquéu</string>
+  <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_screen_timeout">Tiempu d\'espera de pantalla</string>
+  <string name="qs_main_tiles_title">Ampliar la primer filera</string>
+  <string name="qs_main_tiles_summary_on">Dos controles principales na primer filera</string>
+  <string name="qs_main_tiles_summary_off">Tres controles en cada filera</string>
+  <string name="qs_advanced_location_title">Axustes de llocalización avanzada</string>
+  <string name="qs_advanced_location_summary">Habilitar la configuración avanzada pa llocalización nos axustes rápidos</string>
+  <string name="gesture_settings_title">Xestos</string>
   <string name="themes_settings_title">Temes</string>
   <string name="wifi_mode">Mou</string>
+  <string name="wifi_mode_ibss">Rede Ad-Hoc (IBSS)</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
   <string name="wifi_ibss_freq_title">Canal / Frecuencia</string>
   <string name="wifi_channel">Canal</string>
@@ -463,6 +690,43 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="maximum_head_level">Cabeza: %1$s W/kg</string>
   <string name="maximum_body_level">Cuerpu: %1$s W/kg</string>
   <string name="power_menu_expanded_desktop">Estender escritoriu</string>
+  <string name="expanded_hide_nothing">Ensin anubrir nada</string>
+  <string name="expanded_hide_status">Anubrir barra d\'estáu</string>
+  <string name="expanded_hide_navigation">Anubrir la barra de navegación</string>
+  <string name="expanded_hide_both">Anubrir dambes</string>
+  <string name="expanded_nothing_to_show">P\'amestar una configuración personalizada por aplicación pal estáu espandíu, afita \u00ABHabilitáu pa toos\u00BB na posición d\'apagáu</string>
+  <string name="expanded_enabled_for_all">Habilitáu pa toos</string>
+  <string name="expanded_desktop_style">Estilu del escritoriu estendíu</string>
+  <string name="expanded_desktop_style_description">Esbilla un valor por defeutu pal estilu del escritoriu estendíu</string>
+  <string name="expanded_desktop_title">Opciones del escritoriu estendíu</string>
+  <string name="lockscreen_targets_message">Atayos de la pantalla de bloquéu</string>
+  <string name="lockscreen_default_target">Por defeutu</string>
+  <string name="lockscreen_none_target">Nengún</string>
+  <string name="lockscreen_message">Toca nun iconu de la esquierda o derecha pa reasignar un atayu na pantalla de bloquéu.</string>
+  <string name="lockscreen_choose_action_title">Esbillar aición</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Xestiona la configuración de seguridá de los SMS</string>
+  <string name="navigation_ring_title">Tonos de navegacion</string>
+  <string name="navigation_ring_message">Toca l\'iconu editar p\'abrir l\'editor del aniellu de navegacion.\n\nSeleiciona un oxetivu pa configurar el so comportamientu.\n\nToca l\'iconu de \u00AB\u2713\u00BB pa guardar los cambeos, o \u00ABRestaurar valores predeterminaos\u00BB pa volver a los axustes por defeutu.</string>
+  <string name="stylus_icon_enabled_title">Amosar l\'iconu cuando s\'usa un llápiz</string>
+  <string name="stylus_icon_enabled_summary">Amosar el cursor cuando s\'arrastra o dibuxa con el llápiz</string>
+  <string name="gestures_settings_title">Xestos del llápiz</string>
+  <string name="category_spen_title">Xestos del llápiz</string>
+  <string name="enable_subcat_title">Llápiz</string>
+  <string name="enable_spen_title_head">Habilitar los xestos</string>
+  <string name="enable_spen_summary_head">Usa xestos d\'eslizamientu calteniendo\'l botón del llápiz</string>
+  <string name="gestures_subcat_title">Xestos</string>
+  <string name="gestures_left_spen_title_head">Eslizar a la esquierda</string>
+  <string name="gestures_right_spen_title_head">Eslizar a la derecha</string>
+  <string name="gestures_up_spen_title_head">Eslizar hacia arriba</string>
+  <string name="gestures_down_spen_title_head">Eslizar hacia abaxo</string>
+  <string name="gestures_long_spen_title_head">Pulsación llarga</string>
+  <string name="gestures_double_spen_title_head">Doble toque</string>
+  <string name="gestures_action_empty">Ensin aición</string>
+  <string name="gestures_action_home">Aniciu</string>
+  <string name="gestures_action_back">Atrás</string>
+  <string name="gestures_action_menu">Menú</string>
+  <string name="gestures_action_search">Aniciar gueta</string>
+  <string name="gestures_action_recent">Aplicaciones recientes</string>
+  <string name="stylus_app_not_installed">%s nun ta instalada</string>
 </resources>

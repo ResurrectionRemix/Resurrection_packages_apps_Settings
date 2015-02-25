@@ -98,6 +98,10 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_TRACKPAD_SETTINGS = "gesture_pad_settings";
     private static final String KEY_STYLUS_GESTURES = "stylus_gestures";
     private static final String KEY_STYLUS_ICON_ENABLED = "stylus_icon_enabled";
+    private static final String KEY_VOICE_WAKEUP = "voice_wakeup";
+
+    private static final String VOICE_CATEGORY_KEY = "voice_category";
+    private static final String VOICE_WAKEUP_PACKAGE = "com.cyanogenmod.voicewakeup";
 
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
@@ -251,6 +255,17 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 startingIntent.getParcelableExtra(Settings.EXTRA_INPUT_DEVICE_IDENTIFIER);
         if (mShowsOnlyFullImeAndKeyboardList && identifier != null) {
             showKeyboardLayoutDialog(identifier);
+        }
+
+        if (!Utils.isPackageInstalled(getActivity(), VOICE_WAKEUP_PACKAGE, false)) {
+            PreferenceCategory voiceCategory = (PreferenceCategory)
+                    findPreference(VOICE_CATEGORY_KEY);
+            if (voiceCategory != null) {
+                Preference wakeup = voiceCategory.findPreference(KEY_VOICE_WAKEUP);
+                if (wakeup != null) {
+                    voiceCategory.removePreference(wakeup);
+                }
+            }
         }
     }
 

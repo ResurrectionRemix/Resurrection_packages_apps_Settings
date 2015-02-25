@@ -135,11 +135,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment
 
         // check if we are enabled
         updateProfilesEnabledState();
-
-        // If running on a phone, remove padding around tabs
-        if (!ScreenType.isTablet(getActivity())) {
-            mContainer.setPadding(0, 0, 0, 0);
-        }
     }
 
     @Override
@@ -191,7 +186,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment
         args.putBoolean(EXTRA_NEW_PROFILE, true);
         args.putParcelable(EXTRA_PROFILE, new Profile(getString(R.string.new_profile_name)));
 
-        SubSettings pa = (SubSettings) getActivity();
+        SettingsActivity pa = (SettingsActivity) getActivity();
         pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
                 0, null, this, 0);
     }

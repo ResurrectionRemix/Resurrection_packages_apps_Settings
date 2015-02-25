@@ -27,8 +27,12 @@ import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
+import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.telephony.PhoneStateListener;
+import android.telephony.ServiceState;
 import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -61,6 +65,8 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final String KEY_SMS = "sim_sms";
     private static final String KEY_ACTIVITIES = "activities";
     private static final String KEY_PRIMARY_SUB_SELECT = "select_primary_sub";
+    private static final String SIM_DATA_CATEGORY = "sim_data_category";
+    private static final String SIM_DATA_KEY = "sim_data";
 
     private static final int EVT_UPDATE = 1;
     private static int mNumSlots = 0;
@@ -81,6 +87,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private SubInfoRecord mSMS = null;
 
     private int mNumSims;
+    private TelephonyManager mTelephonyManager;
 
     public SimSettings() {
         super(DISALLOW_CONFIG_SIM);
@@ -90,14 +97,14 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     public void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         Log.d(TAG,"on onCreate");
-        final TelephonyManager tm =
-                    (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+        mTelephonyManager = (TelephonyManager) getActivity()
+                .getSystemService(Context.TELEPHONY_SERVICE);
 
         if (mSubInfoList == null) {
             mSubInfoList = SubscriptionManager.getActiveSubInfoList();
         }
 
-        mNumSlots = tm.getSimCount();
+        mNumSlots = mTelephonyManager.getSimCount();
 
         createPreferences();
         updateAllOptions();
@@ -137,11 +144,89 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 // Refresh UI whenever subinfo record gets changed
                 updateAllOptions();
             }
+            SwitchPreference dataToggle = (SwitchPreference) findPreference(SIM_DATA_KEY);
+            if (dataToggle != null) {
+                dataToggle.setChecked(isMobileDataEnabled(-1));
+            }
         }
     };
 
+    private void updateDSDAPreferences() {
+        PreferenceCategory category = (PreferenceCategory) findPreference(SIM_DATA_CATEGORY);
+
+        // Remove global data toggle
+        category.removeAll();
+
+        // More than one active data sim
+        for (int i = 0; i < mNumSlots; ++i) {
+            final SubInfoRecord sir = findRecordBySlotId(i);
+            if (sir != null && sir.mStatus == SubscriptionManager.ACTIVE) {
+                final SwitchPreference preference = new SwitchPreference(getActivity());
+                preference.setChecked(isMobileDataEnabled(sir.slotId));
+                preference.setTitle(R.string.cellular_data_title);
+                preference.setSummary(sir.displayName + " - " + Integer.toString(i + 1)
+                        + " " + sir.number);
+                preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference2) {
+                        int value = !preference.isChecked() ? 0 : 1;
+                        Settings.Global.putInt(getActivity().getContentResolver(),
+                                android.provider.Settings.Global.MOBILE_DATA + sir.slotId, value);
+                        return true;
+                    }
+                });
+                category.addPreference(preference);
+            }
+        }
+    }
+
+    private void addDataPreferences() {
+        if (isDSDA()) {
+            updateDSDAPreferences();
+        } else {
+            PreferenceCategory category = (PreferenceCategory) findPreference(SIM_DATA_CATEGORY);
+            // Only one active data sim
+            DropDownPreference preference = new DropDownPreference(getActivity());
+            preference.setKey(KEY_CELLULAR_DATA);
+            preference.setTitle(R.string.cellular_data_title);
+            category.addPreference(preference);
+
+            SwitchPreference dataToggle = (SwitchPreference) findPreference(SIM_DATA_KEY);
+            dataToggle.setDependency(KEY_CELLULAR_DATA);
+            dataToggle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    final boolean dataEnabled = (Boolean) newValue;
+                    mTelephonyManager.setDataEnabled(dataEnabled);
+                    return true;
+                }
+            });
+        }
+    }
+
+    private boolean isMobileDataEnabled(int id) {
+        if (isDSDA()) {
+            try {
+                return TelephonyManager.getIntAtIndex(getActivity().getContentResolver(),
+                        Settings.Global.MOBILE_DATA, id) != 0;
+            } catch (SettingNotFoundException e) {
+                return false;
+            }
+        } else {
+            return mTelephonyManager.getDataEnabled();
+        }
+    }
+
+    private boolean isDSDA() {
+        TelephonyManager.MultiSimVariants configuration = TelephonyManager.getDefault()
+                .getMultiSimConfiguration();
+        return configuration == TelephonyManager.MultiSimVariants.DSDA;
+    }
+
     private void createPreferences() {
         addPreferencesFromResource(R.xml.sim_settings);
+
+        addDataPreferences();
 
         mPrimarySubSelect = (Preference) findPreference(KEY_PRIMARY_SUB_SELECT);
         final PreferenceCategory simEnablers =
@@ -174,7 +259,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     }
 
     private void updateActivitesCategory() {
-        createDropDown((DropDownPreference) findPreference(KEY_CELLULAR_DATA));
+        if (!isDSDA()) {
+            createDropDown((DropDownPreference) findPreference(KEY_CELLULAR_DATA));
+        }
         createDropDown((DropDownPreference) findPreference(KEY_CALLS));
         createDropDown((DropDownPreference) findPreference(KEY_SMS));
         updateCellularDataValues();
@@ -230,6 +317,10 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     }
 
     private void updateCellularDataValues() {
+        if (isDSDA()) {
+            updateDSDAPreferences();
+            return;
+        }
         final DropDownPreference simPref = (DropDownPreference) findPreference(KEY_CELLULAR_DATA);
         final SubInfoRecord sir = findRecordBySubId(SubscriptionManager.getDefaultDataSubId());
         if (sir != null) {

@@ -65,7 +65,7 @@ public class ButtonBacklightBrightness extends DialogPreference implements
 
         if (isKeyboardSupported(context)) {
             mKeyboardBrightness = new BrightnessControl(
-                    Settings.System.KEYBOARD_BRIGHTNESS, false);
+                    Settings.Secure.KEYBOARD_BRIGHTNESS, false);
             mActiveControl = mKeyboardBrightness;
         }
         if (isButtonSupported(context)) {
@@ -76,7 +76,7 @@ public class ButtonBacklightBrightness extends DialogPreference implements
                     com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
 
             mButtonBrightness = new BrightnessControl(
-                    Settings.System.BUTTON_BRIGHTNESS, isSingleValue, defaultBrightness);
+                    Settings.Secure.BUTTON_BRIGHTNESS, isSingleValue, defaultBrightness);
             mActiveControl = mButtonBrightness;
         }
 
@@ -259,12 +259,12 @@ public class ButtonBacklightBrightness extends DialogPreference implements
 
     private int getTimeout() {
         return Settings.System.getInt(mResolver,
-                Settings.System.BUTTON_BACKLIGHT_TIMEOUT, DEFAULT_BUTTON_TIMEOUT * 1000) / 1000;
+                Settings.Secure.BUTTON_BACKLIGHT_TIMEOUT, DEFAULT_BUTTON_TIMEOUT * 1000) / 1000;
     }
 
     private void applyTimeout(int timeout) {
         Settings.System.putInt(mResolver,
-                Settings.System.BUTTON_BACKLIGHT_TIMEOUT, timeout * 1000);
+                Settings.Secure.BUTTON_BACKLIGHT_TIMEOUT, timeout * 1000);
     }
 
     private void updateBrightnessPreview() {

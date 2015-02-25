@@ -216,6 +216,7 @@
   <string name="model_name">Nome do modelo</string>
   <string name="build_date">Data de compilação</string>
   <string name="contributor_cloud_title">Colaboradores</string>
+  <string name="phone_service_state">Voz: <xliff:g id="voice_state">%1$s</xliff:g>, dados: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Toque duplo para acordar</string>
   <string name="proximity_wake_title">Evitar despertar acidental</string>
   <string name="proximity_wake_summary">Verifique o sensor de proximidade antes de despertar a tela</string>
@@ -230,7 +231,6 @@
   <string name="privacy_guard_reset_text">Redefinir permissões?</string>
   <string name="privacy_guard_help_text">Nesta tela você pode escolher quais aplicativos a Proteção à Privacidade deve estar ativa ao simplesmente tocar neles. Os aplicativos selecionados não serão capazes de acessar seus dados pessoais, como contatos, mensagens ou registos de chamadas. Pressionando e segurando um item de aplicativo, abre a tela de detalhes do aplicativo.\n\nAplicativos do sistema não são exibidos por padrão, mas podem ser exibidos selecionando a respectiva opção no menu.</string>
   <string name="privacy_guard_manager_show_system_apps">Mostrar aplicativos de sistema</string>
-  <string name="privacy_guard_advanced_settings_title">Avançado</string>
   <string name="increasing_ring_volume_option_title">Aumento gradativo do volume do toque</string>
   <string name="increasing_ring_min_volume_title">Volume inicial</string>
   <string name="increasing_ring_ramp_up_time_title">Intervalo de aumento</string>
@@ -247,7 +247,6 @@
   <string name="development_shortcut_title">Atalho para desenvolvimento</string>
   <string name="development_shortcut_summary">Ativar atalhos de gerenciamento de aplicativo na lista de recentes</string>
   <string name="double_tap_to_sleep_title">Toque duplo para dormir</string>
-  <string name="double_tap_to_sleep_summary">Toque duplo na barra de status para desligar a tela do dispositivo</string>
   <string name="wake_when_plugged_or_unplugged_title">Acordar ao conectar</string>
   <string name="wake_when_plugged_or_unplugged_summary">Ativar a tela quando conectar ou desconectar o carregador</string>
   <string name="kill_app_longpress_back">Matar app com botão voltar</string>
@@ -325,8 +324,14 @@
   <string name="notification_ringtone_title_cm">Toque de notificação</string>
   <string name="ime_switcher_notify">Ícone de seleção</string>
   <string name="ime_switcher_notify_summary">Mostrar ícone de seleção de método de entrada</string>
+  <string name="app_notification_show_on_keyguard_title">Mostrar na tela de bloqueio</string>
+  <string name="app_notification_show_on_keyguard_summary">Mostrar notificações deste app na tela de bloqueio</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Desativar notificação persistente na tela de bloqueio</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Nunca mostrar notificações persistentes deste app na tela de bloqueio</string>
   <string name="high_touch_sensitivity_title">Toque de alta sensibilidade</string>
   <string name="high_touch_sensitivity_summary">Aumenta a sensibilidade da tela para poder ser usada enquanto usando luvas</string>
+  <string name="touchscreen_hovering_title">Flutuar o dedo na tela</string>
+  <string name="touchscreen_hovering_summary">Ele permite que você flutue o dedo na tela como um mouse em navegadores web, desktops remotos, etc</string>
   <string name="app_ops_summaries_coarse_location">localização imprecisa</string>
   <string name="app_ops_summaries_fine_location">localização precisa</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -611,11 +616,9 @@
   <string name="picker_activities">Atividades</string>
   <string name="select_custom_app_title">Selecione a aplicação personalizada</string>
   <string name="select_custom_activity_title">Selecione atividade personalizada</string>
-  <string name="title_tile_performance_profile">Perfil de performance</string>
   <string name="performance_settings_title">Desempenho</string>
   <string name="io_scheds_title">Escalonador de I/O</string>
   <string name="io_sched_title">Escalonador I/O</string>
-  <string name="perf_profile_title">Perfil</string>
   <string name="pref_force_highend_gfx_title">Forçar gráficos de alta qualidade</string>
   <string name="pref_force_highend_gfx_summary">Ativa efeitos visuais de alta qualidade com barra de status/navegação transparente (requer reinicilização)</string>
   <string name="performance_settings_warning_title">Proceda com cautela</string>
@@ -665,7 +668,6 @@
   <string name="qs_tile_hotspot">Ponto de acesso</string>
   <string name="qs_tile_adb_over_network">ADB sobre rede</string>
   <string name="qs_tile_profiles">Perfis de sistema</string>
-  <string name="qs_tile_performance">Desempenho</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Bússola</string>
   <string name="qs_tile_lockscreen">Tela de bloqueio</string>
@@ -693,6 +695,9 @@
   <string name="expanded_hide_both">Ocultar ambas</string>
   <string name="expanded_nothing_to_show">Para adicionar uma configuração personalizada por aplicativo para estado expandido, defina \'Ativado para todos\' para a posição desligada</string>
   <string name="expanded_enabled_for_all">Ativado para todos</string>
+  <string name="expanded_desktop_style">Estilo da área de trabalho expandida</string>
+  <string name="expanded_desktop_style_description">Escolha o estilo padrão da área de trabalho expandida</string>
+  <string name="expanded_desktop_title">Opções da área de trabalho expandida</string>
   <string name="lockscreen_targets_message">Atalhos da tela de bloqueio</string>
   <string name="lockscreen_default_target">Padrão</string>
   <string name="lockscreen_none_target">Nenhum</string>
