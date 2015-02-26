@@ -46,6 +46,33 @@
                 android:icon="@drawable/ic_sim_sd"
                 />
 
+        <!-- Mobile networks -->
+        <dashboard-tile
+                android:id="@+id/mobile_networks"
+                android:title="@string/network_settings_title"
+                android:icon="@drawable/ic_settings_cellular">
+            <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.phone"
+                    android:targetClass="com.android.phone.MobileNetworkSettings" />
+        </dashboard-tile>
+
+        <!-- MSIM Mobile networks -->
+        <!-- TARGET_THEME is located in packages/services/Telephony -->
+        <dashboard-tile
+                android:id="@+id/msim_mobile_networks"
+                android:title="@string/network_settings_title"
+                android:icon="@drawable/ic_settings_cellular">
+            <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.phone"
+                    android:targetClass="com.android.phone.msim.SelectSubscription">
+                    <extra android:name="PACKAGE" android:value="com.android.phone" />
+                    <extra android:name="TARGET_CLASS" android:value="com.android.phone.MobileNetworkSettings" />
+                    <extra android:name="TARGET_THEME" android:value="Theme.Material.Settings" />
+            </intent>
+        </dashboard-tile>
+
         <!-- Data Usage -->
         <dashboard-tile
                 android:id="@+id/data_usage_settings"
@@ -68,6 +95,14 @@
                 android:fragment="com.android.settings.WirelessSettings"
                 android:icon="@drawable/ic_settings_more"
                 />
+
+        <!-- Manufacturer hook -->
+        <dashboard-tile
+                android:id="@+id/manufacturer_settings"
+                android:fragment="com.android.settings.WirelessSettings">
+            <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
+        </dashboard-tile>
+
     </dashboard-category>
 
     <!-- Personalization -->
@@ -81,7 +116,7 @@
                 android:title="@string/rrc_settings_title"
                 android:fragment="com.android.settings.rr.MainSettings"
                 android:icon="@drawable/ic_rr_tools_tint"
-                />        
+                />       
 
         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
@@ -114,7 +149,15 @@
                 android:fragment="com.android.settings.HomeSettings"
                 android:icon="@drawable/ic_settings_home"
                />
-
+        <!-- O-Click -->
+        <dashboard-tile
+                android:id="@+id/oclick"
+                android:icon="@drawable/ic_settings_oclick">
+            <intent
+                    android:action="com.cyanogenmod.action.LAUNCH_BLUETOOTH_INPUT_SETTINGS"
+                    android:targetPackage="com.cyanogenmod.settings.device"
+                    android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
+        </dashboard-tile>	
         <!-- Display -->
         <dashboard-tile
                 android:id="@+id/display_settings"
@@ -179,13 +222,6 @@
                 android:fragment="com.android.settings.nfc.PaymentSettings"
                 android:icon="@drawable/ic_settings_nfc_payment"
                 />
-
-        <!-- Manufacturer hook -->
-        <dashboard-tile
-                android:id="@+id/manufacturer_settings"
-                android:fragment="com.android.settings.WirelessSettings">
-            <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
-        </dashboard-tile>
 
     </dashboard-category>
 
