@@ -66,14 +66,12 @@
                 android:key="expanded_desktop"
                 android:title="@string/power_menu_expanded_desktop"
                 android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
-
-        <ListPreference
-                android:key="lcd_density"
-                android:title="@string/lcd_density"
-                android:summary="@string/lcd_density_summary"
-                android:persistent="false" />
-
-
+                
+                <ListPreference
+                    android:key="lcd_density"
+                    android:title="@string/lcd_density"
+                    android:persistent="false" />
+                    
         <com.android.settings.FontDialogPreference
                 android:key="font_size"
                 android:title="@string/title_font_size"

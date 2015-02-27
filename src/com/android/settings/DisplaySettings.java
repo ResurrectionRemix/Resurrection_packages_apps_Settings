@@ -34,6 +34,7 @@ import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.Dialog;
 import android.app.IActivityManager;
+import android.app.ProgressDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -44,6 +45,7 @@ import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.database.ContentObserver;
 import android.os.Bundle;
@@ -109,7 +111,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
     private ListPreference mLcdDensityPreference;
-
     private FontDialogPreference mFontSizePref;
     private PreferenceScreen mDisplayRotationPreference;
     private PreferenceScreen mScreenColorSettings;
@@ -173,24 +174,35 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
-
+        
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         int defaultDensity = DisplayMetrics.DENSITY_DEVICE;
+        int currentDensity = DisplayMetrics.DENSITY_CURRENT;
+        int currentIndex = -1;
         String[] densityEntries = new String[8];
         for (int idx = 0; idx < 8; ++idx) {
             int pct = (75 + idx*5);
-            densityEntries[idx] = Integer.toString(defaultDensity * pct / 100);
+            int val = defaultDensity * pct / 100;
+            densityEntries[idx] = Integer.toString(val);
+            if (pct == 100) {
+                densityEntries[idx] += " (" + getResources().getString(R.string.lcd_density_default) + ")";
+            }
+            if (currentDensity == val) {
+                currentIndex = idx;
+            }
         }
-        int currentDensity = DisplayMetrics.DENSITY_CURRENT;
         mLcdDensityPreference.setEntries(densityEntries);
         mLcdDensityPreference.setEntryValues(densityEntries);
-        mLcdDensityPreference.setValue(String.valueOf(currentDensity));
+        if (currentIndex != -1) {
+            mLcdDensityPreference.setValueIndex(currentIndex);
+        }
         mLcdDensityPreference.setOnPreferenceChangeListener(this);
+        
         updateLcdDensityPreferenceDescription(currentDensity);
-
         mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
+
 
         if (isAutomaticBrightnessAvailable(getResources())) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
@@ -362,14 +374,19 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     }
 
     private void updateLcdDensityPreferenceDescription(int currentDensity) {
+        int defaultDensity = DisplayMetrics.DENSITY_DEVICE;
         ListPreference preference = mLcdDensityPreference;
         String summary;
         if (currentDensity < 10 || currentDensity >= 1000) {
             // Unsupported value
-            summary = "";
+            summary = getResources().getString(R.string.lcd_density_unsupported);
         }
         else {
-            summary = Integer.toString(currentDensity) + " DPI";
+            summary = String.format(getResources().getString(R.string.lcd_density_summary),
+                    currentDensity);
+            if (currentDensity == defaultDensity) {
+                summary += " (" + getResources().getString(R.string.lcd_density_default) + ")";
+            }
         }
         preference.setSummary(summary);
     }
@@ -524,33 +541,58 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    public void writeLcdDensityPreference(int value) {
-        try {
-            SystemProperties.set("persist.sys.lcd_density", Integer.toString(value));
-        }
-        catch (Exception e) {
-            Log.w(TAG, "Unable to save LCD density");
-        }
-        try {
-            final IActivityManager am = ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
-            if (am != null) {
-                am.restart();
-            }
-        }
-        catch (RemoteException e) {
-            Log.e(TAG, "Failed to restart");
-        }
-    }
-
     private static boolean isTapToWakeSupported() {
         try {
             return TapToWake.isSupported();
         } catch (NoClassDefFoundError e) {
             // Hardware abstraction framework not installed
             return false;
+            
         }
     }
-
+    
+    public void writeLcdDensityPreference(final Context context, int value) {
+        try {
+            SystemProperties.set("persist.sys.lcd_density", Integer.toString(value));
+        }
+        catch (Exception e) {
+            Log.e(TAG, "Unable to save LCD density");
+            return;
+        }
+        final IActivityManager am = ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
+        if (am != null) {
+            AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected void onPreExecute() {
+                    ProgressDialog dialog = new ProgressDialog(context);
+                    dialog.setMessage(getResources().getString(R.string.restarting_ui));
+                    dialog.setCancelable(false);
+                    dialog.setIndeterminate(true);
+                    dialog.show();
+                }
+                @Override
+                protected Void doInBackground(Void... arg0) {
+                    // Give the user a second to see the dialog
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch (InterruptedException e) {
+                        // Ignore
+                    }
+                    // Restart the UI
+                    try {
+                        am.restart();
+                    }
+                    catch (RemoteException e) {
+                        Log.e(TAG, "Failed to restart");
+                    }
+                    return null;
+                }
+            };
+            task.execute((Void[])null);
+         }
+     }
+     
     /**
      * Reads the current font size and sets the value in the summary text
      */
@@ -613,9 +655,21 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         if (KEY_LCD_DENSITY.equals(key)) {
-            int value = Integer.parseInt((String) objValue);
-            writeLcdDensityPreference(value);
-            updateLcdDensityPreferenceDescription(value);
+            try {
+                // The value must begin with a decimal number.  It may
+                // optionally be follewed by a space and arbitrary text.
+                String strValue = (String) objValue;
+                int idx = strValue.indexOf(' ');
+                if (idx > 0) {
+                    strValue = strValue.substring(0, idx);
+                }
+                int value = Integer.parseInt(strValue);
+                writeLcdDensityPreference(preference.getContext(), value);
+                updateLcdDensityPreferenceDescription(value);
+            }
+            catch (NumberFormatException e) {
+                Log.e(TAG, "could not persist display density setting", e);
+            }
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
