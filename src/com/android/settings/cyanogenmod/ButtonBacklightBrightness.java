@@ -258,12 +258,12 @@ public class ButtonBacklightBrightness extends DialogPreference implements
     }
 
     private int getTimeout() {
-        return Settings.System.getInt(mResolver,
+        return Settings.Secure.getInt(mResolver,
                 Settings.Secure.BUTTON_BACKLIGHT_TIMEOUT, DEFAULT_BUTTON_TIMEOUT * 1000) / 1000;
     }
 
     private void applyTimeout(int timeout) {
-        Settings.System.putInt(mResolver,
+        Settings.Secure.putInt(mResolver,
                 Settings.Secure.BUTTON_BACKLIGHT_TIMEOUT, timeout * 1000);
     }
 
@@ -394,11 +394,11 @@ public class ButtonBacklightBrightness extends DialogPreference implements
             } else if (mSeekBar != null && !persisted) {
                 return mSeekBar.getProgress();
             }
-            return Settings.System.getInt(mResolver, mSetting, mDefaultBrightness);
+            return Settings.Secure.getInt(mResolver, mSetting, mDefaultBrightness);
         }
 
         public void applyBrightness() {
-            Settings.System.putInt(mResolver, mSetting, getBrightness(false));
+            Settings.Secure.putInt(mResolver, mSetting, getBrightness(false));
         }
 
         /* Behaviors when it's a seekbar */
