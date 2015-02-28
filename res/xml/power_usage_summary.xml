@@ -19,6 +19,10 @@
         android:title="@string/power_usage_summary_title"
         settings:keywords="@string/keywords_battery">
 
+        <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
+            android:key="low_power"
+            android:title="@string/battery_saver"/>
+
         <com.android.settings.fuelgauge.BatteryHistoryPreference
             android:key="battery_history" />
 
