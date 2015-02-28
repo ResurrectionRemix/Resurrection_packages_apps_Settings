@@ -133,7 +133,6 @@
   <string name="backlight_summary_enabled_with_timeout">Habilitado durante <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Habilitado</string>
   <string name="power_menu_title">Menú de apagado</string>
-  <string name="power_menu_power_title">Apagar</string>
   <string name="power_menu_reboot_title">Reiniciar</string>
   <string name="power_menu_screenshot_title">Capturar pantalla</string>
   <string name="power_menu_profiles_title">Perfiles</string>
@@ -218,6 +217,7 @@
   <string name="contributor_cloud_title">Colaboradores</string>
   <string name="phone_service_state">Voz: <xliff:g id="voice_state">%1$s</xliff:g>, datos: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Doble toque para despertar</string>
+  <string name="double_tap_to_wake_summary">Encender la pantalla realizando un doble toque sobre ella</string>
   <string name="proximity_wake_title">Prevenir encendido accidental</string>
   <string name="proximity_wake_summary">Comprobar el sensor de proximidad antes de encender la pantalla</string>
   <string name="privacy_settings_cyanogenmod_title">Privacidad</string>
@@ -240,13 +240,14 @@
   <string name="enable_adb_summary_cm">Habilitar Android Debug Bridge (adb)</string>
   <string name="adb_over_network">ADB sobre red</string>
   <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre las interfaces de red (Wi\u2011Fi, redes USB). Esta configuración se restablece al reiniciar el dispositivo</string>
-  <string name="adb_over_network_warning">ADVERTENCIA: Cuando está habilitado ADB sobre red, el teléfono está abierto para intrusiones en todas las redes conectadas.\n\nUtilizar esta función solamente conectado a redes de confianza.\n\n¿Realmente deseas activar esta función?</string>
+  <string name="adb_over_network_warning">ADVERTENCIA: Cuando está habilitado ADB sobre red, el dispositivo está abierto para intrusiones en todas las redes conectadas.\n\nUtiliza esta función solamente cuando estés conectado a redes de confianza.\n\n¿Deseas realmente activar esta función?</string>
   <string name="adb_notify">Notificación de depuración</string>
   <string name="adb_notify_summary">Mostrar una notificación cuando esté activada la depuración por USB o red</string>
   <string name="device_hostname">Nombre del dispositivo</string>
   <string name="development_shortcut_title">Opciones de desarrollador</string>
   <string name="development_shortcut_summary">Habilitar los métodos abreviados de gestión de aplicación en la lista de aplicaciones recientes</string>
   <string name="double_tap_to_sleep_title">Doble toque para bloquear</string>
+  <string name="double_tap_to_sleep_summary">Apagar la pantalla realizando un doble toque sobre la barra de estado</string>
   <string name="wake_when_plugged_or_unplugged_title">Encender con cargador</string>
   <string name="wake_when_plugged_or_unplugged_summary">Encender la pantalla al conectar o desconectar el cargador</string>
   <string name="kill_app_longpress_back">Botón Volver</string>
@@ -264,6 +265,7 @@
   <string name="navigation_bar_reset_message">¿Borrar los ajustes actuales y restaurar la disposición por defecto?</string>
   <string name="navigation_bar_arrow_keys_title">Mostrar flechas al escribir</string>
   <string name="navigation_bar_arrow_keys_summary">Mostrar los cursores izquierda y derecha durante la escritura. Reemplaza al selector IME.</string>
+  <string name="navigation_bar_recents_title">Pulsación larga en aplicaciones recientes</string>
   <string name="header_category_personalization">Personalización</string>
   <string name="status_bar_title">Barra de estado</string>
   <string name="status_bar_toggle_brightness">Ajuste de brillo</string>
@@ -602,7 +604,7 @@
   <string name="protected_apps">Aplicaciones protegidas</string>
   <string name="saving_protected_components">Guardar el estado del componente\u2026</string>
   <string name="stats_collection_title">Recogida de estadísticas</string>
-  <string name="stats_collection_summary">Cuando está habilitada, permite la recogida de estadísticas</string>
+  <string name="stats_collection_summary">Obtener información sobre las operaciones realizadas por las aplicaciones</string>
   <string name="power_notifications_category_title">Cargador</string>
   <string name="power_notifications_enable_title">Sonido</string>
   <string name="power_notifications_enable_summary">Reproducir un sonido al conectar o desconectar el cargador</string>
@@ -619,6 +621,7 @@
   <string name="performance_settings_title">Rendimiento</string>
   <string name="io_scheds_title">Planificador de E/S</string>
   <string name="io_sched_title">Planificador E/S</string>
+  <string name="perf_profile_title">Modo de batería</string>
   <string name="pref_force_highend_gfx_title">Forzar mejoras visuales</string>
   <string name="pref_force_highend_gfx_summary">Habilitar efectos visuales de alta calidad, como transparencias en la barra de estado y de navegación (requiere reiniciar)</string>
   <string name="performance_settings_warning_title">Procede con precaución</string>
@@ -645,8 +648,6 @@
   <string name="link_volume_option_title">Enlazar volumen de llamada y notificaciones</string>
   <string name="notification_volume_option_title">Volumen de notificación</string>
   <string name="notification_drawer_title">Área de notificación</string>
-  <string name="status_bar_quick_qs_pulldown_title">Despliegue rápido</string>
-  <string name="status_bar_quick_qs_pulldown_summary">El borde derecho de la barra de notificaciones despliega hacia abajo los ajustes rápidos</string>
   <string name="status_bar_show_weather_title">Mostrar el clima</string>
   <string name="status_bar_show_weather_summary">Mostrar el clima encima del panel de ajustes rápidos</string>
   <string name="qs_category_title">Panel de ajustes rápidos</string>
@@ -668,6 +669,7 @@
   <string name="qs_tile_hotspot">Punto de acceso</string>
   <string name="qs_tile_adb_over_network">ADB sobre red</string>
   <string name="qs_tile_profiles">Perfiles del sistema</string>
+  <string name="qs_tile_performance">Modo de batería</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Brújula</string>
   <string name="qs_tile_lockscreen">Bloquear pantalla</string>
@@ -728,4 +730,20 @@
   <string name="gestures_action_search">Iniciar búsqueda</string>
   <string name="gestures_action_recent">Aplicaciones recientes</string>
   <string name="stylus_app_not_installed">%s no está instalada</string>
+  <string name="advanced">Avanzado</string>
+  <string name="advanced_mode_title">Modo avanzado</string>
+  <string name="category_misc">Varios</string>
+  <string name="category_vibrate">Vibración</string>
+  <string name="category_volume">Volumen</string>
+  <string name="category_sounds">Sonidos</string>
+  <string name="category_interface">Interfaz</string>
+  <string name="category_calibration">Calibración</string>
+  <string name="display_and_lights">Pantalla y leds</string>
+  <string name="notification_manager">Notificaciones</string>
+  <string name="lockscreen_settings">Pantalla de bloqueo</string>
+  <string name="category_lights">Leds</string>
+  <string name="power_usage_history_title">Uso de batería</string>
+  <string name="recents_show_searchbar">Mostrar la barra de búsqueda en el menú recientes</string>
+  <string name="keywords_recents_show_searchbar">reciente recientes desactivar activar mostrar ocultar barra de búsqueda</string>
+  <string name="sim_ringtone_title">Tono de llamada para SIM %d</string>
 </resources>

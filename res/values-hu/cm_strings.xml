@@ -133,7 +133,6 @@
   <string name="backlight_summary_enabled_with_timeout">Engedélyezve <xliff:g id="timeout">%s</xliff:g> másodpercig</string>
   <string name="backlight_summary_enabled">Engedélyezve</string>
   <string name="power_menu_title">Kikapcsoló menü</string>
-  <string name="power_menu_power_title">Kikapcsolás</string>
   <string name="power_menu_reboot_title">Újraindítás menü</string>
   <string name="power_menu_screenshot_title">Képernyőmentés</string>
   <string name="power_menu_profiles_title">Profil választó</string>
@@ -218,6 +217,7 @@
   <string name="contributor_cloud_title">Közreműködők</string>
   <string name="phone_service_state">Hang: <xliff:g id="voice_state">%1$s</xliff:g>, adat: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dupla érintésre felébresztés</string>
+  <string name="double_tap_to_wake_summary">Érintse meg kétszer a képernyőt a kijelző bekapcsolásához</string>
   <string name="proximity_wake_title">Véletlen ébresztés megakadályozása</string>
   <string name="proximity_wake_summary">Közelség érzékelő ellenőrzése a képernyő felébresztése előtt</string>
   <string name="privacy_settings_cyanogenmod_title">Adatvédelem</string>
@@ -247,6 +247,7 @@
   <string name="development_shortcut_title">Fejlesztői parancsikon</string>
   <string name="development_shortcut_summary">Alkalmazások kezelése parancsikon engedélyezése az alkalmazás előzmények listán</string>
   <string name="double_tap_to_sleep_title">Dupla érintésre alvó mód</string>
+  <string name="double_tap_to_sleep_summary">Érintse meg kétszer az állapotsávot a kijelző kikapcsolásához</string>
   <string name="wake_when_plugged_or_unplugged_title">Felébredés töltő csatlakoztatásakor</string>
   <string name="wake_when_plugged_or_unplugged_summary">A képernyő bekapcsolása a töltő csatlakoztatása/eltávolítása után</string>
   <string name="kill_app_longpress_back">Alkalmazás bezárás</string>
@@ -264,6 +265,7 @@
   <string name="navigation_bar_reset_message">Törli a jelenlegi beállításokat és visszaállítja az alaphelyzetet?</string>
   <string name="navigation_bar_arrow_keys_title">Nyílbillentyűk megjelenítése gépelés közben</string>
   <string name="navigation_bar_arrow_keys_summary">Mutassa a bal és jobb kurzort gépelés közben. Felülírja a billentyűzet választó.</string>
+  <string name="navigation_bar_recents_title">Hosszan nyomva tartott előzmények gomb</string>
   <string name="header_category_personalization">Testreszabás</string>
   <string name="status_bar_title">Értesítési sáv</string>
   <string name="status_bar_toggle_brightness">Fényerő vezérlés</string>
@@ -330,6 +332,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Ezen alkalmazáshoz tartozó állandó értesítés soha ne jelenjen meg a zárképernyőn</string>
   <string name="high_touch_sensitivity_title">Magas érintési érzékenység</string>
   <string name="high_touch_sensitivity_summary">Érintőképernyő érzékenységének növelése, így kesztyű viselése esetén is használható</string>
+  <string name="touchscreen_hovering_title">Lebegő érintés</string>
+  <string name="touchscreen_hovering_summary">Engedélyezi a lebegéssel való vezérlést, mint egy egérrel a böngészőknél, távoli asztaloknál, stb.</string>
   <string name="app_ops_summaries_coarse_location">pontatlan hely</string>
   <string name="app_ops_summaries_fine_location">pontos hely</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -617,6 +621,7 @@
   <string name="performance_settings_title">Teljesítmény</string>
   <string name="io_scheds_title">I/O ütemező</string>
   <string name="io_sched_title">I/O ütemező</string>
+  <string name="perf_profile_title">Akkumulátor mód</string>
   <string name="pref_force_highend_gfx_title">Magas minőségű grafika kényszerítése</string>
   <string name="pref_force_highend_gfx_summary">Magas minőségű grafikai effektek engedélyezése, mint az átlátszó állapot/navigációs sáv (újraindítás szükséges)</string>
   <string name="performance_settings_warning_title">Innentől óvatosan</string>
@@ -643,8 +648,6 @@
   <string name="link_volume_option_title">Csengő és értesítési hangok összekötése</string>
   <string name="notification_volume_option_title">Értesítési hangerő</string>
   <string name="notification_drawer_title">Gyorsbeállítások sáv</string>
-  <string name="status_bar_quick_qs_pulldown_title">Gyors legördítés</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Gyors beállítások megjelenítése az értesítési sáv jobb oldalán történő legörgetéskor</string>
   <string name="status_bar_show_weather_title">Időjárás megjelenítése</string>
   <string name="status_bar_show_weather_summary">Időjárás megjelenítése a Gyors beállítások panel fölött</string>
   <string name="qs_category_title">Gyors beállítások panel</string>
@@ -666,6 +669,7 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB hálózaton keresztül</string>
   <string name="qs_tile_profiles">Rendszer profilok</string>
+  <string name="qs_tile_performance">Akkumulátor mód</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Iránytű</string>
   <string name="qs_tile_lockscreen">Képernyőzár</string>
@@ -726,4 +730,20 @@
   <string name="gestures_action_search">Keresés indítása</string>
   <string name="gestures_action_recent">Alkalmazás előzmények</string>
   <string name="stylus_app_not_installed">%s nincs telepítve</string>
+  <string name="advanced">Haladó</string>
+  <string name="advanced_mode_title">Haladó mód</string>
+  <string name="category_misc">Egyéb</string>
+  <string name="category_vibrate">Rezgés</string>
+  <string name="category_volume">Hangerő</string>
+  <string name="category_sounds">Hangok</string>
+  <string name="category_interface">Felhasználói felület</string>
+  <string name="category_calibration">Kalibrálás</string>
+  <string name="display_and_lights">Kijelző &amp; Fények</string>
+  <string name="notification_manager">Értesítés kezelő</string>
+  <string name="lockscreen_settings">Képernyőzár</string>
+  <string name="category_lights">Fények</string>
+  <string name="power_usage_history_title">Akkumulátor használat</string>
+  <string name="recents_show_searchbar">Keresősáv megjelenítése az előzmények menüben</string>
+  <string name="keywords_recents_show_searchbar">előzmény előzmények letiltás engedélyezés megjelenítés elrejtés kereső sáv keresősáv</string>
+  <string name="sim_ringtone_title">SIM %d csengőhang</string>
 </resources>

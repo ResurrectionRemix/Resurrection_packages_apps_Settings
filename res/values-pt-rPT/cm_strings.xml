@@ -133,7 +133,6 @@
   <string name="backlight_summary_enabled_with_timeout">Ativado por <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Ativado</string>
   <string name="power_menu_title">Menu de energia</string>
-  <string name="power_menu_power_title">Desligar</string>
   <string name="power_menu_reboot_title">Menu de reinicialização</string>
   <string name="power_menu_screenshot_title">Capturar ecrã</string>
   <string name="power_menu_profiles_title">Mudar perfil</string>
@@ -218,6 +217,7 @@
   <string name="contributor_cloud_title">Colaboradores</string>
   <string name="phone_service_state">Voz: <xliff:g id="voice_state">%1$s</xliff:g>, dados: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Toque duplo liga o ecrã</string>
+  <string name="double_tap_to_wake_summary">Dê um toque duplo no ecrã para ligar o dispositivo</string>
   <string name="proximity_wake_title">Impedir o ecrã de se ligar acidentalmente</string>
   <string name="proximity_wake_summary">Verificar o sensor de proximidade antes de ligar o ecrã</string>
   <string name="privacy_settings_cyanogenmod_title">Privacidade</string>
@@ -242,11 +242,12 @@
   <string name="adb_over_network_summary">Ativar a depuração de TCP/IP sobre as interfaces de rede (Wi\u2011Fi, USB). Esta definição é restaurada na reinicialização</string>
   <string name="adb_over_network_warning">Aviso: Quando ADB sobre rede estiver ativado, o seu telefone fica desprotegido e pode facilitar invasões em todas as redes conectadas! \n\nUsar esta funcionalidade apenas quando estiver conectado a redes de confiança.\n\nQuer mesmo ativar esta função?</string>
   <string name="adb_notify">Notificação de depuração</string>
-  <string name="adb_notify_summary">Exibir uma notificação quando a depuração USB ou sobre rede estiver estivada</string>
+  <string name="adb_notify_summary">Exibir uma notificação quando a depuração USB ou sobre rede estiver ativada</string>
   <string name="device_hostname">Nome do dispositivo</string>
   <string name="development_shortcut_title">Atalho de desenvolvimento</string>
   <string name="development_shortcut_summary">Ativar atalhos de gestão de aplicações na lista de aplicações recentes</string>
   <string name="double_tap_to_sleep_title">Toque duplo para desligar ecrã</string>
+  <string name="double_tap_to_sleep_summary">Dê um toque duplo na barra de estado para ligar o dispositivo</string>
   <string name="wake_when_plugged_or_unplugged_title">Ligar ecrã ao detetar carregador</string>
   <string name="wake_when_plugged_or_unplugged_summary">Ativar o ecrã quando conectar ou desconectar uma fonte de energia</string>
   <string name="kill_app_longpress_back">Fechar aplicação no botão voltar</string>
@@ -264,6 +265,7 @@
   <string name="navigation_bar_reset_message">Eliminar as definições atuais e restaurar o layout padrão?</string>
   <string name="navigation_bar_arrow_keys_title">Mostrar teclas de seta enquanto escreve</string>
   <string name="navigation_bar_arrow_keys_summary">Mostrar os botões de cursor para a esquerda e para a direita enquanto escreve. Sobrepõe-se à definição do teclado.</string>
+  <string name="navigation_bar_recents_title">Pressão longa no botão de aplicações recentes</string>
   <string name="header_category_personalization">Personalização</string>
   <string name="status_bar_title">Barra de estado</string>
   <string name="status_bar_toggle_brightness">Controle de brilho</string>
@@ -330,6 +332,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Nunca mostrar as notificações persistentes desta aplicação no ecrã de bloqueio</string>
   <string name="high_touch_sensitivity_title">Alta sensibilidade</string>
   <string name="high_touch_sensitivity_summary">Aumentar a sensibilidade do ecrã para ser manuseado quando estiver a usar luvas</string>
+  <string name="touchscreen_hovering_title">Flutuar sobre o ecrã</string>
+  <string name="touchscreen_hovering_summary">Permite que flutue o dedo sobre o ecrã como um rato nos navegadores de internet, áreas de trabalho remotas, etc</string>
   <string name="app_ops_summaries_coarse_location">Localização imprecisa</string>
   <string name="app_ops_summaries_fine_location">Localização precisa</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -617,6 +621,7 @@
   <string name="performance_settings_title">Desempenho</string>
   <string name="io_scheds_title">Escalonador I/O</string>
   <string name="io_sched_title">Escalonador I/O</string>
+  <string name="perf_profile_title">Modo de bateria</string>
   <string name="pref_force_highend_gfx_title">Forçar gráficos de alta qualidade</string>
   <string name="pref_force_highend_gfx_summary">Ativa efeitos visuais de alta qualidade como barra de estado/navegação transparentes (requer reinicialização)</string>
   <string name="performance_settings_warning_title">Prosseguir com cautela</string>
@@ -643,8 +648,6 @@
   <string name="link_volume_option_title">Associar volumes de toque &amp; notificação</string>
   <string name="notification_volume_option_title">Volume das notificações</string>
   <string name="notification_drawer_title">Gaveta de notificação</string>
-  <string name="status_bar_quick_qs_pulldown_title">Puxar para baixo</string>
-  <string name="status_bar_quick_qs_pulldown_summary">O canto direito da barra de estado faz baixar o painel de definições rápidas</string>
   <string name="status_bar_show_weather_title">Mostrar o tempo</string>
   <string name="status_bar_show_weather_summary">Mostrar o tempo acima do painel de definições rápidas</string>
   <string name="qs_category_title">Painel de definições rápidas</string>
@@ -666,6 +669,7 @@
   <string name="qs_tile_hotspot">Ponto de acesso</string>
   <string name="qs_tile_adb_over_network">ADB através da rede</string>
   <string name="qs_tile_profiles">Perfis de sistema</string>
+  <string name="qs_tile_performance">Modo de bateria</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Bússola</string>
   <string name="qs_tile_lockscreen">Ecrã de bloqueio</string>
@@ -726,4 +730,20 @@
   <string name="gestures_action_search">Invocar pesquisa</string>
   <string name="gestures_action_recent">Aplicações recentes</string>
   <string name="stylus_app_not_installed">%s não está instalada</string>
+  <string name="advanced">Avançado</string>
+  <string name="advanced_mode_title">Modo avançado</string>
+  <string name="category_misc">Diversos</string>
+  <string name="category_vibrate">Vibrar</string>
+  <string name="category_volume">Volume</string>
+  <string name="category_sounds">Sons</string>
+  <string name="category_interface">Interface</string>
+  <string name="category_calibration">Calibração</string>
+  <string name="display_and_lights">Ecrã &amp; Luzes</string>
+  <string name="notification_manager">Gestor de notificação</string>
+  <string name="lockscreen_settings">Ecrã de bloqueio</string>
+  <string name="category_lights">Luzes</string>
+  <string name="power_usage_history_title">Uso da bateria</string>
+  <string name="recents_show_searchbar">Mostrar a barra de pesquisa no menu de aplicações recentes</string>
+  <string name="keywords_recents_show_searchbar">recente recentes disativar ativar mostrar ocultar pesquisa barra barra de pesquisa</string>
+  <string name="sim_ringtone_title">Toque SIM %d</string>
 </resources>

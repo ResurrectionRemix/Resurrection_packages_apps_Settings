@@ -120,6 +120,7 @@
   <string name="power_end_call_title">Завершення виклику</string>
   <string name="power_end_call_summary">Завершувати виклик натисканням кнопки живлення</string>
   <string name="button_wake_title">Розбудити пристрій</string>
+  <string name="button_wake_summary">Вимикає керування плеєром</string>
   <string name="home_answer_call_title">Відповісти</string>
   <string name="home_answer_call_summary">Відповідати на дзвінок натисканням кнопки «Додому»</string>
   <string name="button_backlight_title">Підсвічування</string>
@@ -133,7 +134,6 @@
   <string name="backlight_summary_enabled_with_timeout">Увімкнено на <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Увімкнено</string>
   <string name="power_menu_title">Меню кнопки живлення</string>
-  <string name="power_menu_power_title">Вимкнути живлення</string>
   <string name="power_menu_reboot_title">Перезавантаження</string>
   <string name="power_menu_screenshot_title">Скріншот</string>
   <string name="power_menu_profiles_title">Вибір профілю</string>
@@ -207,12 +207,18 @@
   <string name="block_notifications_summary">Налаштування ігнорованих повідомлень і фільтрів</string>
   <string name="no_filters_title">Немає фільтрів</string>
   <string name="cmupdate_settings_title">Оновлення CyanogenMod</string>
+  <string name="update_recovery_title">Оновити Cyanogen recovery</string>
+  <string name="update_recovery_summary">Оновлювати розділ Recovery при застосуванні оновлень</string>
+  <string name="update_recovery_on_warning">Примітка: Коли цю функцію ввімкнено, діюче Recovery буде замінено тим, що міститься у поточній версії ОС.\n\nРежим Recovery буде оновлюватись разом з оновленням вашої системи, допомагаючи забезпечити сумісність майбутніх версій.\n\nБажаєте увімкнути застосування цієї функції?</string>
+  <string name="update_recovery_off_warning">ПОПЕРЕДЖЕННЯ: Якщо цю функцію вимкнено, режим Recovery залишиться без змін.\n\nІснує можливість некоректної установки майбутніх версій ОС, у випадку використання застарілого чи кастомного Recovery.\n\nВи бажаєте відключити цю функцію?</string>
   <string name="mod_version">Версія CyanogenMod</string>
   <string name="mod_version_default">Невідомо</string>
   <string name="model_name">Назва моделі</string>
   <string name="build_date">Дата збірки</string>
   <string name="contributor_cloud_title">Учасники</string>
+  <string name="phone_service_state">Голосовий зв\'язок: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача даних: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Подв. натискання прокидає</string>
+  <string name="double_tap_to_wake_summary">Двічі натиснути на екран, щоб увімкнути його</string>
   <string name="proximity_wake_title">Запобігання випадкового пробудження</string>
   <string name="proximity_wake_summary">Перевірити датчик наближення до пробудження екрану</string>
   <string name="privacy_settings_cyanogenmod_title">Приватність</string>
@@ -242,6 +248,7 @@
   <string name="development_shortcut_title">Додаткові пункти меню</string>
   <string name="development_shortcut_summary">Увімкнути ярлики керування програмами у списку останніх програм</string>
   <string name="double_tap_to_sleep_title">Вимикати екран при подвійному натисканні</string>
+  <string name="double_tap_to_sleep_summary">Двічі натисніть на рядок стану, аби вимкнути екран</string>
   <string name="wake_when_plugged_or_unplugged_title">Екран прокидається при підключені</string>
   <string name="wake_when_plugged_or_unplugged_summary">Екран прокидається при підключені до зарядного пристрою</string>
   <string name="kill_app_longpress_back">Закрити програму</string>
@@ -252,12 +259,14 @@
   <string name="navigation_bar_left_title">Режим для лівші</string>
   <string name="navigation_bar_left_summary">Показувати рядок навігації зліва в альбомній орієнтації</string>
   <string name="navigation_bar_title">Кнопки і компонування</string>
+  <string name="navigation_bar_help_text">Натисніть значок редагування, щоб редагувати панель навігації.\n\nНатисніть значок, щоб змінити ярлик або зробіть довгий натиск на значок, щоб повторно організувати макет.\n\nНатисніть «зберегти», щоб внести зміни або натисніть «відновити», щоб скинути макет до типових налаштувань.</string>
   <string name="navigation_restore_button_text">Відновити\nтипові</string>
   <string name="navigation_edit_button_text">Редагувати</string>
   <string name="navigation_save_button_text">Зберегти</string>
   <string name="navigation_bar_reset_message">Видалити поточні параметри та відновити макет за замовчуванням?</string>
   <string name="navigation_bar_arrow_keys_title">Показати стрілки під час введення тексту</string>
   <string name="navigation_bar_arrow_keys_summary">Показувати кнопки переміщення курсору вліво або вправо при введенні. Кнопка вибору методу введення не буде відображатися.</string>
+  <string name="navigation_bar_recents_title">Дія при довгому натисканні кнопки \"Нещодавні\"</string>
   <string name="header_category_personalization">Персоналізація</string>
   <string name="status_bar_title">Рядок стану</string>
   <string name="status_bar_toggle_brightness">Керування яскравістю</string>
@@ -318,6 +327,10 @@
   <string name="notification_ringtone_title_cm">Звук сповіщення</string>
   <string name="ime_switcher_notify">Кнопка вибору методу введення</string>
   <string name="ime_switcher_notify_summary">Показувати кнопку вибору методу введення</string>
+  <string name="app_notification_show_on_keyguard_title">На екрані блокування</string>
+  <string name="app_notification_show_on_keyguard_summary">Відображати сповіщення із цієї програми на екрані блокування</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Відключити сповіщення на екрані блокування</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Не відображувати сповіщення від цієї програми на екрані блокування</string>
   <string name="high_touch_sensitivity_title">Висока чутливість дотику</string>
   <string name="high_touch_sensitivity_summary">Підвищити чутливість сенсорного екрану для користуванням пристроєм у рукавичках</string>
   <string name="app_ops_summaries_coarse_location">приблизне місце розташування</string>
@@ -607,6 +620,7 @@
   <string name="performance_settings_title">Продуктивність</string>
   <string name="io_scheds_title">Планувальник I/O</string>
   <string name="io_sched_title">Планувальник I/O</string>
+  <string name="perf_profile_title">Енергозбереження</string>
   <string name="pref_force_highend_gfx_title">Примусово високоякісна графіка</string>
   <string name="pref_force_highend_gfx_summary">Увімкнути високоякісні візуальні ефекти такі як прозорість рядка стану, панелі навігації (необхідне перезавантаження)</string>
   <string name="performance_settings_warning_title">Будьте обережні</string>
@@ -633,8 +647,6 @@
   <string name="link_volume_option_title">Зв’язати гучність дзвінка та сповіщень</string>
   <string name="notification_volume_option_title">Гучність сповіщень</string>
   <string name="notification_drawer_title">Панель сповіщень</string>
-  <string name="status_bar_quick_qs_pulldown_title">Швидкий доступ</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Правий край рядка панелі стану при опусканні вниз відкриває Швидкі Налаштування</string>
   <string name="status_bar_show_weather_title">Показати погоду</string>
   <string name="status_bar_show_weather_summary">Показувати погоду вище панелі Швидких Налаштувань</string>
   <string name="qs_category_title">Панель Швидких Налаштувань</string>
@@ -656,6 +668,7 @@
   <string name="qs_tile_hotspot">Точка доступу</string>
   <string name="qs_tile_adb_over_network">Налагодження по мережі</string>
   <string name="qs_tile_profiles">Системні профілі</string>
+  <string name="qs_tile_performance">Енергозбереження</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Екран блокування</string>
@@ -683,11 +696,40 @@
   <string name="expanded_hide_both">Приховувати обидві</string>
   <string name="expanded_nothing_to_show">Для додавання конфігурації розширеного екрану для окремих програм, поставте перемикач «Увімкнути для всіх» у значення вимк.</string>
   <string name="expanded_enabled_for_all">Ввімкнуто для всіх</string>
+  <string name="expanded_desktop_style">Режим розширеного екрану</string>
+  <string name="expanded_desktop_style_description">Обрати розширений робочий екран за замовчуванням</string>
+  <string name="expanded_desktop_title">Налаштування розширеного екрану</string>
   <string name="lockscreen_targets_message">Ярлики екрану блокування</string>
   <string name="lockscreen_default_target">Стандартний</string>
+  <string name="lockscreen_none_target">Немає</string>
   <string name="lockscreen_message">Натисніть на іконку зліва чи справа для зміни ярлика екрану блокування.</string>
   <string name="lockscreen_choose_action_title">Виберіть дію</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Налаштування шифрування SMS-повідомлень</string>
   <string name="navigation_ring_title">Ярлики навігаційного кільця</string>
+  <string name="navigation_ring_message">Натисніть піктограму редагування щоб редагувати навігаційне кільце.\n\nОберіть ярлик, щоб налаштувати його поведінку.\n\nТоркніться галочки   \'\u2713\', щоб зберегти зміни, або іншої піктограми, щоб повернутись до типових налаштувань.</string>
+  <string name="stylus_icon_enabled_title">Відображувати значок під час використання стилусу</string>
+  <string name="stylus_icon_enabled_summary">Відображувати значок під час наведення або малювання стилусом</string>
+  <string name="gestures_settings_title">Рухи стилуса</string>
+  <string name="category_spen_title">Рухи стилуса</string>
+  <string name="enable_subcat_title">Стилус</string>
+  <string name="enable_spen_title_head">Увімкнути жести</string>
+  <string name="enable_spen_summary_head">Дозволити використання жестів із натиснутою кнопкою стилусу</string>
+  <string name="gestures_subcat_title">Жести</string>
+  <string name="gestures_long_spen_title_head">Довге натискання</string>
+  <string name="gestures_double_spen_title_head">Подвійне натискання</string>
+  <string name="gestures_action_empty">Ніяких дій</string>
+  <string name="gestures_action_home">Головна</string>
+  <string name="gestures_action_back">Назад</string>
+  <string name="gestures_action_menu">Меню</string>
+  <string name="gestures_action_search">Відкрити пошук</string>
+  <string name="stylus_app_not_installed">%s не встановлено</string>
+  <string name="advanced">Додаткові функції</string>
+  <string name="advanced_mode_title">Розширений режим</string>
+  <string name="category_misc">Різне</string>
+  <string name="category_vibrate">Вібрація</string>
+  <string name="category_volume">Гучність</string>
+  <string name="category_sounds">Звуки</string>
+  <string name="category_interface">Інтерфейс</string>
+  <string name="category_calibration">Калібрування</string>
 </resources>

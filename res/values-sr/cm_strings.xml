@@ -135,7 +135,6 @@
   <string name="backlight_summary_enabled_with_timeout">Омогућено за <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Омогућено</string>
   <string name="power_menu_title">Опције напајања</string>
-  <string name="power_menu_power_title">Искључивање</string>
   <string name="power_menu_reboot_title">Рестартуј</string>
   <string name="power_menu_screenshot_title">Снимак екрана</string>
   <string name="power_menu_profiles_title">Пребацивач профила</string>
@@ -220,6 +219,7 @@
   <string name="contributor_cloud_title">Сарадници</string>
   <string name="phone_service_state">Глас: <xliff:g id="voice_state">%1$s</xliff:g>, податак: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Дупли-додир за буђење</string>
+  <string name="double_tap_to_wake_summary">Двапут додирни екран да укључиш дисплеј</string>
   <string name="proximity_wake_title">Спречи случајно буђење</string>
   <string name="proximity_wake_summary">Провери растојање сензора пре буђења екрана</string>
   <string name="privacy_settings_cyanogenmod_title">Приватност</string>
@@ -249,6 +249,7 @@
   <string name="development_shortcut_title">Развојна пречица</string>
   <string name="development_shortcut_summary">Омогући пречице за управљање апликацијама у недавној листи апликација</string>
   <string name="double_tap_to_sleep_title">Дупли-додир за спавање</string>
+  <string name="double_tap_to_sleep_summary">Двапут додирни статусну траку да искључиш дисплеј</string>
   <string name="wake_when_plugged_or_unplugged_title">Пробуди на утикачу</string>
   <string name="wake_when_plugged_or_unplugged_summary">Укључи екран код повезивања или искључивања са извора напајања</string>
   <string name="kill_app_longpress_back">Затвори апликацију дугметом за Назад</string>
@@ -266,6 +267,7 @@
   <string name="navigation_bar_reset_message">Обриши тренутне поставке и врати на подразумевани распоред?</string>
   <string name="navigation_bar_arrow_keys_title">Прикажи стрелице док куцаш</string>
   <string name="navigation_bar_arrow_keys_summary">Прикажи лево и десно дугме курсора док куцаш. Преузми IME пребацивач.</string>
+  <string name="navigation_bar_recents_title">Недавне акције дугог додира</string>
   <string name="header_category_personalization">Персонализовање</string>
   <string name="status_bar_title">Статусна трака</string>
   <string name="status_bar_toggle_brightness">Контрола осветљености</string>
@@ -332,6 +334,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Никад не приказуј трајна обавештења ове апликације на закључаном екрану</string>
   <string name="high_touch_sensitivity_title">Висока додирна осетљивост</string>
   <string name="high_touch_sensitivity_summary">Повећај осетљивост екрана тако да се може користити док се носе рукавице</string>
+  <string name="touchscreen_hovering_title">Лебдење екраном</string>
+  <string name="touchscreen_hovering_summary">Дозвољава ти да лебдиш екраном као миш у веб претраживачу, удаљеном десктопу, итд</string>
   <string name="app_ops_summaries_coarse_location">груба локација</string>
   <string name="app_ops_summaries_fine_location">фина локација</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -619,6 +623,7 @@
   <string name="performance_settings_title">Перформансе</string>
   <string name="io_scheds_title">I/O планер</string>
   <string name="io_sched_title">I/O планер</string>
+  <string name="perf_profile_title">Режим батерије</string>
   <string name="pref_force_highend_gfx_title">Приморај врхунску графику</string>
   <string name="pref_force_highend_gfx_summary">Омогућава врхунске визуелне ефекте као што су транспарентна статусна/навигациона трака (захтева поновно покретање)</string>
   <string name="performance_settings_warning_title">Настави са опрезом</string>
@@ -645,8 +650,6 @@
   <string name="link_volume_option_title">Веза тона звона &amp; јачине обавештења</string>
   <string name="notification_volume_option_title">Јачина обавештења</string>
   <string name="notification_drawer_title">Обавештења</string>
-  <string name="status_bar_quick_qs_pulldown_title">Брзи падајући панел</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Десна ивица статусне траке вуче доле Брза подешавања</string>
   <string name="status_bar_show_weather_title">Прикажи време</string>
   <string name="status_bar_show_weather_summary">Покажи време изнад табле брзог подешавања</string>
   <string name="qs_category_title">Панел за Брза подешавања</string>
@@ -668,6 +671,7 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB преко мреже</string>
   <string name="qs_tile_profiles">Профили система</string>
+  <string name="qs_tile_performance">Режим батерије</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Закључан екран</string>
@@ -728,4 +732,20 @@
   <string name="gestures_action_search">Призови претрагу</string>
   <string name="gestures_action_recent">Недавне апкликације</string>
   <string name="stylus_app_not_installed">%s није инсталирано</string>
+  <string name="advanced">Напредно</string>
+  <string name="advanced_mode_title">Напредни режим</string>
+  <string name="category_misc">Остало</string>
+  <string name="category_vibrate">Вибрација</string>
+  <string name="category_volume">Јачина</string>
+  <string name="category_sounds">Звуци</string>
+  <string name="category_interface">Интерфејс</string>
+  <string name="category_calibration">Калибрација</string>
+  <string name="display_and_lights">Екран &amp; светла</string>
+  <string name="notification_manager">Менаџер обавештења</string>
+  <string name="lockscreen_settings">Закључан екран</string>
+  <string name="category_lights">Светла</string>
+  <string name="power_usage_history_title">Употреба батерије</string>
+  <string name="recents_show_searchbar">Прикажи траку за претрагу у менију скорашњих</string>
+  <string name="keywords_recents_show_searchbar">скорашње скорашњи онемогући омогући прикажи сакриј трака за претрагу</string>
+  <string name="sim_ringtone_title">SIM %d мелодија</string>
 </resources>

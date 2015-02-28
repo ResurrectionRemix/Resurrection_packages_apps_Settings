@@ -34,7 +34,7 @@
   <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Vibrer</string>
   <string name="ring_mode_mute">Dempet</string>
-  <string name="profiles_settings_title">System profiler</string>
+  <string name="profiles_settings_title">Systemprofiler</string>
   <string name="profiles_add">Legg til</string>
   <string name="profile_settings_title">Profil</string>
   <string name="profile_empty_list_profiles_off">For å konfigurere å bruke system profiler, aktiverer profiler.</string>
@@ -133,7 +133,6 @@
   <string name="backlight_summary_enabled_with_timeout">Aktivert for <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Aktivert</string>
   <string name="power_menu_title">Av/På meny</string>
-  <string name="power_menu_power_title">Slå av</string>
   <string name="power_menu_reboot_title">Restart meny</string>
   <string name="power_menu_screenshot_title">Skjermbilde</string>
   <string name="power_menu_profiles_title">Profilvelger</string>
@@ -218,6 +217,7 @@
   <string name="contributor_cloud_title">Bidragsytere</string>
   <string name="phone_service_state">Stemme: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dobbelttapp for å vekke</string>
+  <string name="double_tap_to_wake_summary">Dobbelttrykk på skjermen for å aktivere displayet</string>
   <string name="proximity_wake_title">Hindre utilsiktet vekking</string>
   <string name="proximity_wake_summary">Sjekk nærhetssensoren før skjermen vekkes</string>
   <string name="privacy_settings_cyanogenmod_title">Personvern</string>
@@ -247,6 +247,7 @@
   <string name="development_shortcut_title">Snarvei til utviklingsmodus</string>
   <string name="development_shortcut_summary">Aktiver app management snarveier i listen over nylig brukte programmer</string>
   <string name="double_tap_to_sleep_title">Dobbeltapp for å sove</string>
+  <string name="double_tap_to_sleep_summary">Dobbelttapp på statuslinjen for å slå av skjermen</string>
   <string name="wake_when_plugged_or_unplugged_title">Våkne ved tilkobling av strøm</string>
   <string name="wake_when_plugged_or_unplugged_summary">Slå skjermen på når du kobler til eller kobler fra en strømkilde</string>
   <string name="kill_app_longpress_back">Stopp app-tilbake-knappen</string>
@@ -264,6 +265,7 @@
   <string name="navigation_bar_reset_message">Slette gjeldende innstillinger og gjenopprette standardoppsettet?</string>
   <string name="navigation_bar_arrow_keys_title">Vis piltastene mens du skriver</string>
   <string name="navigation_bar_arrow_keys_summary">Vise høyre og venstre markør mens du skriver. Overstyrer IME Skifter.</string>
+  <string name="navigation_bar_recents_title">Siste langt trykk handling</string>
   <string name="header_category_personalization">Personalisering</string>
   <string name="status_bar_title">Statuslinjen</string>
   <string name="status_bar_toggle_brightness">Lysstyrkekontroll</string>
@@ -619,6 +621,7 @@
   <string name="performance_settings_title">Ytelse</string>
   <string name="io_scheds_title">I/O planlegger</string>
   <string name="io_sched_title">I/O planlegger</string>
+  <string name="perf_profile_title">Batterimodus</string>
   <string name="pref_force_highend_gfx_title">Tvinge high-end grafikk</string>
   <string name="pref_force_highend_gfx_summary">Muliggjør avanserte visuelle effekter som gjennomsiktig status/navigasjonsbar (krever omstart)</string>
   <string name="performance_settings_warning_title">Fortsett med forsiktighet</string>
@@ -645,8 +648,6 @@
   <string name="link_volume_option_title">Link ringetone &amp; varslings volumer</string>
   <string name="notification_volume_option_title">varslingsvolum</string>
   <string name="notification_drawer_title">Notifikasjonsskuff</string>
-  <string name="status_bar_quick_qs_pulldown_title">Rask rullegardinmeny</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Høyre kant av statuslinjen trekker ned hurtiginnstillinger</string>
   <string name="status_bar_show_weather_title">Vis været</string>
   <string name="status_bar_show_weather_summary">Vis været over hurtiginnstillinger panelet</string>
   <string name="qs_category_title">Hurtinginnstillingspanel</string>
@@ -668,6 +669,7 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB over nettverk</string>
   <string name="qs_tile_profiles">System profiler</string>
+  <string name="qs_tile_performance">Batterimodus</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompass</string>
   <string name="qs_tile_lockscreen">Låsskjerm</string>
@@ -728,4 +730,20 @@
   <string name="gestures_action_search">Aktivere søk</string>
   <string name="gestures_action_recent">Siste apper</string>
   <string name="stylus_app_not_installed">%s er ikke installert</string>
+  <string name="advanced">Avansert</string>
+  <string name="advanced_mode_title">Avansert modus</string>
+  <string name="category_misc">Diverse</string>
+  <string name="category_vibrate">Vibrer</string>
+  <string name="category_volume">Volum</string>
+  <string name="category_sounds">Lyder</string>
+  <string name="category_interface">Grensesnitt</string>
+  <string name="category_calibration">Kalibrering</string>
+  <string name="display_and_lights">Skjerm &amp; lys</string>
+  <string name="notification_manager">Notifikasjonsstyrer</string>
+  <string name="lockscreen_settings">Låseskjerm</string>
+  <string name="category_lights">Lys</string>
+  <string name="power_usage_history_title">Batteribruk</string>
+  <string name="recents_show_searchbar">Vis søkelinjen i siste-menyen</string>
+  <string name="keywords_recents_show_searchbar">siste siste-menyen deaktiver aktivert vis skjul søkebar søkefelt</string>
+  <string name="sim_ringtone_title">SIM %d ringetone</string>
 </resources>

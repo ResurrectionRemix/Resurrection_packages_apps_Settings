@@ -132,7 +132,6 @@
   <string name="backlight_summary_enabled_with_timeout">保持背光灯 <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">已启用</string>
   <string name="power_menu_title">电源菜单</string>
-  <string name="power_menu_power_title">关机</string>
   <string name="power_menu_reboot_title">重启菜单</string>
   <string name="power_menu_screenshot_title">屏幕截图</string>
   <string name="power_menu_profiles_title">情景模式切换器</string>
@@ -217,6 +216,7 @@
   <string name="contributor_cloud_title">贡献者</string>
   <string name="phone_service_state">语音： <xliff:g id="voice_state">%1$s</xliff:g>，数据： <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">双击唤醒</string>
+  <string name="double_tap_to_wake_summary">双击屏幕来开启屏幕显示</string>
   <string name="proximity_wake_title">防止意外唤醒</string>
   <string name="proximity_wake_summary">唤醒屏幕前检查距离传感器</string>
   <string name="privacy_settings_cyanogenmod_title">隐私</string>
@@ -246,6 +246,7 @@
   <string name="development_shortcut_title">开发快捷方式</string>
   <string name="development_shortcut_summary">在最近任务列表中启用应用管理快捷方式</string>
   <string name="double_tap_to_sleep_title">双击以睡眠</string>
+  <string name="double_tap_to_sleep_summary">双击状态栏以关闭屏幕显示</string>
   <string name="wake_when_plugged_or_unplugged_title">连接或移除电源时唤醒</string>
   <string name="wake_when_plugged_or_unplugged_summary">连接或断开电源时点亮屏幕</string>
   <string name="kill_app_longpress_back">使用返回键强行关闭应用</string>
@@ -263,6 +264,7 @@
   <string name="navigation_bar_reset_message">删除当前设置并恢复默认布局吗？</string>
   <string name="navigation_bar_arrow_keys_title">键入时显示方向键</string>
   <string name="navigation_bar_arrow_keys_summary">键入时显示左右光标按钮而不显示输入法选择器。</string>
+  <string name="navigation_bar_recents_title">最近应用键的长按操作</string>
   <string name="header_category_personalization">个性化</string>
   <string name="status_bar_title">状态栏</string>
   <string name="status_bar_toggle_brightness">亮度控制</string>
@@ -618,6 +620,7 @@
   <string name="performance_settings_title">性能</string>
   <string name="io_scheds_title">I/O 调度器</string>
   <string name="io_sched_title">I/O 调度器</string>
+  <string name="perf_profile_title">电池模式</string>
   <string name="pref_force_highend_gfx_title">强制高端图形</string>
   <string name="pref_force_highend_gfx_summary">启用高端视觉特效，如透明状态栏/导航栏 (需要重启)</string>
   <string name="performance_settings_warning_title">请谨慎前进</string>
@@ -644,8 +647,6 @@
   <string name="link_volume_option_title">链接铃声和通知的音量</string>
   <string name="notification_volume_option_title">通知音量</string>
   <string name="notification_drawer_title">通知抽屉</string>
-  <string name="status_bar_quick_qs_pulldown_title">快速下拉</string>
-  <string name="status_bar_quick_qs_pulldown_summary">状态栏右边缘下拉打开快速设置</string>
   <string name="status_bar_show_weather_title">显示天气</string>
   <string name="status_bar_show_weather_summary">在快速设置面板上方显示天气</string>
   <string name="qs_category_title">快速设置面板</string>
@@ -667,6 +668,7 @@
   <string name="qs_tile_hotspot">热点</string>
   <string name="qs_tile_adb_over_network">网络 ADB 调试</string>
   <string name="qs_tile_profiles">情景模式</string>
+  <string name="qs_tile_performance">电池模式</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">指南针</string>
   <string name="qs_tile_lockscreen">锁屏</string>
@@ -727,4 +729,20 @@
   <string name="gestures_action_search">搜索</string>
   <string name="gestures_action_recent">最近应用</string>
   <string name="stylus_app_not_installed">%s 尚未被安装</string>
+  <string name="advanced">高级</string>
+  <string name="advanced_mode_title">高级模式</string>
+  <string name="category_misc">杂项</string>
+  <string name="category_vibrate">振动</string>
+  <string name="category_volume">音量</string>
+  <string name="category_sounds">声音</string>
+  <string name="category_interface">界面</string>
+  <string name="category_calibration">校准</string>
+  <string name="display_and_lights">显示 &amp; 指示灯</string>
+  <string name="notification_manager">通知管理器</string>
+  <string name="lockscreen_settings">锁屏</string>
+  <string name="category_lights">指示灯</string>
+  <string name="power_usage_history_title">电量使用情况</string>
+  <string name="recents_show_searchbar">在最近应用列表中显示搜索栏</string>
+  <string name="keywords_recents_show_searchbar">最近 最近 禁用 启用 显示 隐藏 搜索 栏 搜索栏</string>
+  <string name="sim_ringtone_title">SIM 卡 %d 铃声</string>
 </resources>

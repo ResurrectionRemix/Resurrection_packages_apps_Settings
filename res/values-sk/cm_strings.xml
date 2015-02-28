@@ -134,7 +134,6 @@
   <string name="backlight_summary_enabled_with_timeout">Povolené na <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Povolené</string>
   <string name="power_menu_title">Ponuka napájania</string>
-  <string name="power_menu_power_title">Vypnúť</string>
   <string name="power_menu_reboot_title">Ponuka reštartu</string>
   <string name="power_menu_screenshot_title">Snímka obrazovky</string>
   <string name="power_menu_profiles_title">Prepínač profilov</string>
@@ -219,6 +218,7 @@
   <string name="contributor_cloud_title">Prispievatelia</string>
   <string name="phone_service_state">Hlas: <xliff:g id="voice_state">%1$s</xliff:g>, dátové prenosy: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Prebudiť dvojitým poklepaním</string>
+  <string name="double_tap_to_wake_summary">Zapnúť displej dvojitým poklepaním na obrazovku</string>
   <string name="proximity_wake_title">Zabrániť nechcenému prebudeniu</string>
   <string name="proximity_wake_summary">Kontrolovať snímač priblíženia pre zabránenie nechcenému prebudeniu</string>
   <string name="privacy_settings_cyanogenmod_title">Súkromie</string>
@@ -248,6 +248,7 @@
   <string name="development_shortcut_title">Vývojárske odkazy</string>
   <string name="development_shortcut_summary">Povoliť skratky v oznamovacej oblasti a zozname nedávnych aplikácií pre správu aplikácií</string>
   <string name="double_tap_to_sleep_title">Uspať dvojitým poklepaním</string>
+  <string name="double_tap_to_sleep_summary">Vypnúť displej dvojitým poklepaním na stavový riadok</string>
   <string name="wake_when_plugged_or_unplugged_title">Prebudiť po pripojení</string>
   <string name="wake_when_plugged_or_unplugged_summary">Zapnúť obrazovku pri pripojení alebo odpojení zdroja nabíjania</string>
   <string name="kill_app_longpress_back">Ukončiť aplikáciu tlačidlom Späť</string>
@@ -265,6 +266,7 @@
   <string name="navigation_bar_reset_message">Vymazať súčasné nastavenia a obnoviť ich na predvolené?</string>
   <string name="navigation_bar_arrow_keys_title">Zobraziť šípky pri písaní</string>
   <string name="navigation_bar_arrow_keys_summary">Zobraziť ľavé a pravé kurzorové tlačidlá pri písaní. Potlačí prepínač metódy vstupu.</string>
+  <string name="navigation_bar_recents_title">Akcia dlhého stlačenia na tlačidle Nedávne</string>
   <string name="header_category_personalization">Prispôsobenie</string>
   <string name="status_bar_title">Stavový riadok</string>
   <string name="status_bar_toggle_brightness">Ovládanie jasu</string>
@@ -331,6 +333,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Nezobrazovať trvalé oznámenia z tejto aplikácie na obrazovke uzamknutia</string>
   <string name="high_touch_sensitivity_title">Vysoká citlivosť na dotyky</string>
   <string name="high_touch_sensitivity_summary">Zvýšiť citlivosť dotykovej obrazovky, takže ju bude možné používať pri nosení rukavíc</string>
+  <string name="touchscreen_hovering_title">Pohyb nad dotykovou obrazovkou</string>
+  <string name="touchscreen_hovering_summary">Pohybovať sa nad obrazovkou podobne ako myš vo webovom prehliadači, vzdielaneých plochý, atď</string>
   <string name="app_ops_summaries_coarse_location">približná poloha</string>
   <string name="app_ops_summaries_fine_location">presná poloha</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -618,6 +622,7 @@
   <string name="performance_settings_title">Nastavenie výkonu</string>
   <string name="io_scheds_title">Plánovač I/O</string>
   <string name="io_sched_title">Plánovač I/O</string>
+  <string name="perf_profile_title">Režim batérie</string>
   <string name="pref_force_highend_gfx_title">Vynútiť vysoko kvalitnú grafiku</string>
   <string name="pref_force_highend_gfx_summary">Povoliť vizuálne efekty ako napríklad priehľadný stavový a priehľadný navigačný panel (vyžaduje reštart)</string>
   <string name="performance_settings_warning_title">Výstraha pred pokračovaním</string>
@@ -644,8 +649,6 @@
   <string name="link_volume_option_title">Prepojiť hlasitosti zvonenia a oznámení</string>
   <string name="notification_volume_option_title">Hlasitosť oznámení</string>
   <string name="notification_drawer_title">Ponuka oznámení</string>
-  <string name="status_bar_quick_qs_pulldown_title">Rýchle vysunutie</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Pravá strana stavového riadku vysunie rýchle nastavenia</string>
   <string name="status_bar_show_weather_title">Zobraziť počasie</string>
   <string name="status_bar_show_weather_summary">Zobraziť počasie nad panelom rýchlych nastavení</string>
   <string name="qs_category_title">Panel rýchlych nastavení</string>
@@ -667,6 +670,7 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB cez sieť</string>
   <string name="qs_tile_profiles">Systémové profily</string>
+  <string name="qs_tile_performance">Režim batérie</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompas</string>
   <string name="qs_tile_lockscreen">Obrazovka uzamknutia</string>
@@ -727,4 +731,20 @@
   <string name="gestures_action_search">Spustiť vyhľadávanie</string>
   <string name="gestures_action_recent">Nedávne aplikácie</string>
   <string name="stylus_app_not_installed">Aplikácia %s nie je nainštalovaná</string>
+  <string name="advanced">Pokročilé</string>
+  <string name="advanced_mode_title">Pokročilý režim</string>
+  <string name="category_misc">Rôzne</string>
+  <string name="category_vibrate">Vibrácie</string>
+  <string name="category_volume">Hlasitosť</string>
+  <string name="category_sounds">Zvuky</string>
+  <string name="category_interface">Rozhranie</string>
+  <string name="category_calibration">Kalibrácia</string>
+  <string name="display_and_lights">Displej &amp; svetlá</string>
+  <string name="notification_manager">Správca oznámení</string>
+  <string name="lockscreen_settings">Obrazovka uzamknutia</string>
+  <string name="category_lights">Svetlá</string>
+  <string name="power_usage_history_title">Využitie batérie</string>
+  <string name="recents_show_searchbar">Zobraziť panel vyhľadávania v zozname nedávnych aplikácií</string>
+  <string name="keywords_recents_show_searchbar">nedávne aplikácie zakázať povoliť zobraziť skryť panel vyhľadávania</string>
+  <string name="sim_ringtone_title">Tón zvonenia SIM %d</string>
 </resources>

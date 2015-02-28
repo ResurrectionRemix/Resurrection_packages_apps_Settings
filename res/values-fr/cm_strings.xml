@@ -77,6 +77,7 @@
   <string name="profile_choose_app">Choisir une application</string>
   <string name="profile_system_settings_title">Paramètres système</string>
   <string name="profile_lockmode_title">Mode de verrouillage</string>
+  <string name="profile_lockmode_insecure_summary">Ne pas demander le code PIN ou le mot de passe</string>
   <string name="profile_lockmode_disabled_summary">Désactiver l\'écran de verrouillage</string>
   <string name="profile_airplanemode_title">Mode Avion</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
@@ -118,6 +119,7 @@
   <string name="power_end_call_title">Terminer l\'appel</string>
   <string name="power_end_call_summary">Appuyer sur le bouton marche/arrêt raccrochera l\'appel en cours</string>
   <string name="button_wake_title">Réveiller l\'appareil</string>
+  <string name="button_wake_summary">Outrepasser les contrôles de lecture</string>
   <string name="home_answer_call_title">Répondre à l\'appel</string>
   <string name="home_answer_call_summary">Appuyer sur le bouton Accueil décrochera l\'appel entrant en cours</string>
   <string name="button_backlight_title">Rétroéclairage</string>
@@ -131,7 +133,6 @@
   <string name="backlight_summary_enabled_with_timeout">Activé pendant <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Activé</string>
   <string name="power_menu_title">Menu marche/arrêt</string>
-  <string name="power_menu_power_title">Éteindre</string>
   <string name="power_menu_reboot_title">Redémarrer</string>
   <string name="power_menu_screenshot_title">Capture d\'écran</string>
   <string name="power_menu_profiles_title">Profils</string>
@@ -207,12 +208,16 @@
   <string name="cmupdate_settings_title">Mises à jour CyanogenMod</string>
   <string name="update_recovery_title">Mettre à jour le recovery de Cyanogen</string>
   <string name="update_recovery_summary">Mettre à jour le recovery avec les mises à jour système</string>
+  <string name="update_recovery_on_warning">REMARQUE : Lorsque cette fonction est activée, le recovery installé sera remplacé par celui du système d\'exploitation.\n\nVotre recovery sera mis à jour avec les mises à niveau du système d\'exploitation, assurant ainsi la compatibilité avec les futures versions.\n\nVoulez-vous activer cette fonction ?</string>
+  <string name="update_recovery_off_warning">AVERTISSEMENT : Lorsque cette fonction est désactivée, votre recovery ne sera pas mis à jour avec les mises à niveau du système d\'exploitation.\n\nLes futures mises à jour du système d\'exploitation peuvent ne pas être installées avec des versions obsolètes ou personnalisées du recovery.\n\nVoulez-vous vraiment désactiver cette fonction ?</string>
   <string name="mod_version">Version CyanogenMod</string>
   <string name="mod_version_default">Inconnue</string>
   <string name="model_name">Nom du modèle</string>
   <string name="build_date">Date de compilation</string>
   <string name="contributor_cloud_title">Contributeurs</string>
+  <string name="phone_service_state">Voix : <xliff:g id="voice_state">%1$s</xliff:g>, données : <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Appui double pour réveiller</string>
+  <string name="double_tap_to_wake_summary">Double appui sur l\'écran pour l\'allumer</string>
   <string name="proximity_wake_title">Empêcher un réveil accidentel</string>
   <string name="proximity_wake_summary">Utiliser le capteur de proximité pour prévenir les réveils accidentels de l\'écran</string>
   <string name="privacy_settings_cyanogenmod_title">Confidentialité</string>
@@ -242,6 +247,7 @@
   <string name="development_shortcut_title">Raccourcis développement</string>
   <string name="development_shortcut_summary">Activer les raccourcis de gestion d\'applications dans la liste des applications récentes</string>
   <string name="double_tap_to_sleep_title">Appui double pour mettre en veille</string>
+  <string name="double_tap_to_sleep_summary">Double appui sur la barre d\'état pour éteindre l\'écran</string>
   <string name="wake_when_plugged_or_unplugged_title">Réveiller au branchement</string>
   <string name="wake_when_plugged_or_unplugged_summary">Allumez l\'écran lors du branchement ou du débranchement de la source d\'alimentation</string>
   <string name="kill_app_longpress_back">Tuer avec bouton Retour</string>
@@ -252,11 +258,13 @@
   <string name="navigation_bar_left_title">Mode gaucher</string>
   <string name="navigation_bar_left_summary">Placer la barre de navigation du côté gauche de l\'écran en mode paysage</string>
   <string name="navigation_bar_title">Boutons et disposition</string>
+  <string name="navigation_bar_help_text">Pour commencer, appuyez sur le bouton modifier pour déverrouiller la barre de navigation et passer en mode édition.\n\nVous pouvez appuyer sur une icône pour modifier son raccourci, ou appuyer longuement sur une icône pour réorganiser l\'affichage.\n\nAppuyez sur « Enregistrer » pour enregistrer vos modifications, ou « Restaurer par défaut » pour restaurer les paramètres par défaut.</string>
   <string name="navigation_restore_button_text">Restaurer\npar défaut</string>
   <string name="navigation_edit_button_text">Modifier</string>
   <string name="navigation_save_button_text">Enregistrer</string>
   <string name="navigation_bar_reset_message">Supprimer les paramètres actuels et restaurer la disposition par défaut ?</string>
   <string name="navigation_bar_arrow_keys_title">Afficher les flèches lors de la frappe</string>
+  <string name="navigation_bar_arrow_keys_summary">Afficher les touches de curseur gauche et droite lors de la saisie. Outrepasse le changeur de mode de saisie.</string>
   <string name="header_category_personalization">Personnalisation</string>
   <string name="status_bar_title">Barre d\'état</string>
   <string name="status_bar_toggle_brightness">Réglage de la luminosité</string>
@@ -315,13 +323,16 @@
   <string name="notification_light_missed_call_title">Appel manqué</string>
   <string name="notification_light_voicemail_title">Messagerie vocale</string>
   <string name="notification_ringtone_title_cm">Son de notification</string>
+  <string name="ime_switcher_notify">Icône du sélecteur</string>
   <string name="ime_switcher_notify_summary">Afficher l\'icône du sélecteur de mode de saisie</string>
   <string name="app_notification_show_on_keyguard_title">Afficher sur l\'écran de verrouillage</string>
   <string name="app_notification_show_on_keyguard_summary">Afficher les notifications de cette application sur l\'écran de verrouillage</string>
   <string name="app_notification_no_ongoing_on_keyguard_title">Désactiver les notifications persistantes sur l\'écran de verrouillage</string>
-  <string name="app_notification_no_ongoing_on_keyguard_summary">Ne jamais montrer les notifications persistantes de cette application sur l\'écran de verrouillage</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Ne jamais afficher les notifications persistantes de cette application sur l\'écran de verrouillage</string>
   <string name="high_touch_sensitivity_title">Haute sensibilité tactile</string>
   <string name="high_touch_sensitivity_summary">Augmenter la sensibilité de l\'écran permettant ainsi le port de gants</string>
+  <string name="touchscreen_hovering_title">Survol de l\'écran tactile</string>
+  <string name="touchscreen_hovering_summary">Permet de survoler l\'écran comme avec une souris dans les navigateurs web, les bureaux à distance, etc.</string>
   <string name="app_ops_summaries_coarse_location">localisation approximative</string>
   <string name="app_ops_summaries_fine_location">localisation précise</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -367,6 +378,8 @@
   <string name="app_ops_summaries_monitor_high_power_location">localisation du moniteur de forte puissance</string>
   <string name="app_ops_summaries_get_usage_stats">obtenir les statistiques d\'utilisation de l\'application</string>
   <string name="app_ops_summaries_mute_unmute_microphone">activer/désactiver le microphone</string>
+  <string name="app_ops_summaries_toast_window">afficher les pop-ups</string>
+  <string name="app_ops_summaries_project_media">projet média</string>
   <string name="app_ops_summaries_activate_vpn">activer le VPN</string>
   <string name="app_ops_summaries_wifi_change">Changer de Wi\u2011Fi</string>
   <string name="app_ops_summaries_bluetooth_change">Changer de Bluetooth</string>
@@ -380,6 +393,8 @@
   <string name="app_ops_summaries_delete_contacts">supprimer les contacts</string>
   <string name="app_ops_summaries_delete_call_log">effacer le journal d\'appels</string>
   <string name="app_ops_summaries_data_change">modification de données</string>
+  <string name="app_ops_summaries_wake_up">réveiller</string>
+  <string name="app_ops_summaries_su">accès root</string>
   <string name="app_ops_labels_location">Localisation</string>
   <string name="app_ops_labels_vibrate">Vibreur</string>
   <string name="app_ops_labels_read_contacts">Voir les contacts</string>
@@ -416,6 +431,7 @@
   <string name="app_ops_labels_get_usage_stats">Obtenir les statistiques d\'utilisation de l\'application</string>
   <string name="app_ops_labels_mute_unmute_microphone">Activer/désactiver le microphone</string>
   <string name="app_ops_labels_toast_window">Afficher les toasts</string>
+  <string name="app_ops_labels_project_media">Projet média</string>
   <string name="app_ops_labels_activate_vpn">Activer le VPN</string>
   <string name="app_ops_labels_wifi_change">Changer de Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">Changement de Bluetooth</string>
@@ -429,6 +445,7 @@
   <string name="app_ops_labels_delete_contacts">Supprimer les contacts</string>
   <string name="app_ops_labels_delete_call_log">Effacer le journal d\'appel</string>
   <string name="app_ops_labels_data_change">Modification de données</string>
+  <string name="app_ops_labels_wake_up">Réveil</string>
   <string name="app_ops_labels_su">Accès root</string>
   <string name="app_ops_categories_location">Localisation</string>
   <string name="app_ops_categories_personal">Personnel</string>
@@ -499,6 +516,7 @@
   <string name="contrast_str">Contraste : <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensité : <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <string name="screen_color_setting_standard">Standard</string>
+  <string name="screen_color_setting_vivid">Vive</string>
   <string name="screen_color_setting_custom">Personnalisée</string>
   <string name="settings_reset_button">Réinitialiser</string>
   <string name="bluetooth_enter_pin_msg_hs">Pour s\'appairer avec :<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>Saisissez le code PIN requis pour l\'appareil (16 chiffres ou plus) :</string>
@@ -511,6 +529,12 @@
   <string name="bluetooth_pbap_profile_summary_use_for">Utiliser pour le partage de contact</string>
   <string name="bluetooth_sap_profile_summary_use_for">Utiliser pour l\'accès SIM</string>
   <string name="bluetooth_accept_all_files">Accepter tous les types de fichiers</string>
+  <string name="sim_lock_settings_cm">Paramètres de verrouillage de la carte SIM/RUIM</string>
+  <string name="sim_lock_settings_category_cm">Configurer le verrouillage de la carte SIM/RUIM</string>
+  <string name="sim_lock_settings_title_cm">Verrouillage de la carte SIM/RUIM</string>
+  <string name="sim_pin_disable_failed">Impossible de désactiver le code PIN.</string>
+  <string name="sim_pin_enable_failed">Impossible d\'activer le code PIN.</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">Pour changer le code PIN de la SIM/RUIM, activez d\'abord le verrouillage SIM/RUIM.</string>
   <string name="sim_enable_disable_lock_not_supported">Le verrouillage SIM/RUIM n\'est pas pris en charge par la carte.</string>
   <string name="sim_pin_attempts">\nTentatives restantes :</string>
   <string name="sim_pin_enabled">PIN1 activé</string>
@@ -531,6 +555,7 @@
   <string name="uicc_mount" product="default">Monter le stockage UICC</string>
   <string name="uicc_insert_summary" product="default">Insérer le stockage UICC à monter</string>
   <string name="usb_settings_enable_ums_title">Activer le stockage de masse ?</string>
+  <string name="usb_settings_enable_ums_message">Les composants du système et les applications s\'appuient sur le stockage principal disponible. Cette fonction modifie ce mode de fonctionnement. Il est fortement recommandé d\'utiliser l\'option MTP. Êtes-vous sûr de vouloir activer le stockage de masse ?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Démonter le stockage USB ?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Démonter le stockage UICC ?</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Si vous démontez le stockage USB, certaines applications que vous utilisez seront arrêtées et peuvent ne plus être disponibles jusqu’à ce que le stockage USB soit remonté.</string>
@@ -595,6 +620,7 @@
   <string name="performance_settings_title">Performances</string>
   <string name="io_scheds_title">Horloge E/S</string>
   <string name="io_sched_title">Horloge E/S</string>
+  <string name="perf_profile_title">Mode batterie</string>
   <string name="pref_force_highend_gfx_title">Forcer les graphiques haute résolution</string>
   <string name="pref_force_highend_gfx_summary">Permet des effets visuels haute résolution tels que la barre d\'état/navigation transparente (nécessite un redémarrage)</string>
   <string name="performance_settings_warning_title">ATTENTION\u00A0!</string>
@@ -621,8 +647,6 @@
   <string name="link_volume_option_title">Lier le volume de la sonnerie et des notifications</string>
   <string name="notification_volume_option_title">Volume des notifications</string>
   <string name="notification_drawer_title">Volet des notifications</string>
-  <string name="status_bar_quick_qs_pulldown_title">Accès rapide</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Tirer le côté droit pour ouvrir le volet des raccourcis</string>
   <string name="status_bar_show_weather_title">Afficher la météo</string>
   <string name="status_bar_show_weather_summary">Afficher la météo au-dessus du volet des raccourcis</string>
   <string name="qs_category_title">Volet des raccourcis</string>
@@ -644,6 +668,7 @@
   <string name="qs_tile_hotspot">Point d\'accès</string>
   <string name="qs_tile_adb_over_network">ADB réseau</string>
   <string name="qs_tile_profiles">Profils système</string>
+  <string name="qs_tile_performance">Mode batterie</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Boussole</string>
   <string name="qs_tile_lockscreen">Verrouiller l\'écran</string>
@@ -682,8 +707,10 @@
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Gère les paramètres de sécurité des SMS</string>
   <string name="navigation_ring_title">Raccourcis de l\'anneau de navigation</string>
+  <string name="navigation_ring_message">Appuyez sur l\'icône modifier pour ouvrir les anneaux de navigation en mode édition.\n\nSélectionnez une cible pour configurer son comportement.\n\nAppuyez sur l\'icône « \u2713 » pour enregistrer vos modifications, ou « Restaurer par défaut » pour restaurer les paramètres par défaut.</string>
   <string name="stylus_icon_enabled_title">Afficher l\'icône lors de l\'utilisation du stylet</string>
   <string name="stylus_icon_enabled_summary">Afficher l\'icône du pointeur lors de l\'écriture ou du survol de l\'écran</string>
+  <string name="gestures_settings_title">Gestes au stylet</string>
   <string name="category_spen_title">Gestes au stylet</string>
   <string name="enable_subcat_title">Stylet</string>
   <string name="enable_spen_title_head">Activer les gestes</string>
@@ -702,4 +729,19 @@
   <string name="gestures_action_search">Lancer une recherche</string>
   <string name="gestures_action_recent">Applications récentes</string>
   <string name="stylus_app_not_installed">%s n\'est pas installé</string>
+  <string name="advanced">Paramètres avancés</string>
+  <string name="advanced_mode_title">Mode avancé</string>
+  <string name="category_misc">Divers</string>
+  <string name="category_vibrate">Vibreur</string>
+  <string name="category_volume">Volume</string>
+  <string name="category_sounds">Sons</string>
+  <string name="category_interface">Interface</string>
+  <string name="category_calibration">Calibrage</string>
+  <string name="display_and_lights">Affichage et voyants</string>
+  <string name="notification_manager">Gestionnaire de notification</string>
+  <string name="lockscreen_settings">Écran de verrouillage</string>
+  <string name="category_lights">Voyants</string>
+  <string name="power_usage_history_title">Utilisation de la batterie</string>
+  <string name="recents_show_searchbar">Afficher la barre de recherche dans le menu des applications récentes</string>
+  <string name="keywords_recents_show_searchbar">récent récents désactiver activer afficher masquer rechercher barre barre de recherche</string>
 </resources>

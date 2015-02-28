@@ -20,9 +20,9 @@
     <item quantity="one">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stap verwijderd van de opties voor ontwikkelaars.</item>
     <item quantity="other">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stappen verwijderd van de opties voor ontwikkelaars.</item>
   </plurals>
-  <string name="show_dev_on_cm">U heeft de opties voor ontwikkelaars ingeschakeld!</string>
-  <string name="show_dev_already_cm">Niet nodig, u heeft de ontwikkelaarsopties al ingeschakeld.</string>
-  <string name="development_tools_title">Ontwikkelgereedschappen</string>
+  <string name="show_dev_on_cm">U heeft de opties voor ontwikkelaars ingeschakeld.</string>
+  <string name="show_dev_already_cm">Niet nodig, u heeft de opties voor ontwikkelaars al ingeschakeld.</string>
+  <string name="development_tools_title">Opties voor ontwikkelaars</string>
   <string name="root_access">Root-toegang</string>
   <string name="root_access_warning_title">Root-toegang toestaan?</string>
   <string name="root_access_warning_message">Root-toegang toestaan kan zeer gevaarlijk zijn en kan uw systeem onveilig maken</string>
@@ -51,12 +51,12 @@
   <string name="profile_remove_dialog_message">Profiel verwijderen %1$s?</string>
   <string name="profile_populate_profile_from_state">Profiel instellen met behulp van huidige apparaatinstellingen?</string>
   <string name="profile_menu_fill_from_state">Huidige apparaatinstellingen importeren</string>
-  <string name="profile_remove_current_profile">Kan huidige profiel niet verwijderen!</string>
+  <string name="profile_remove_current_profile">Kan huidige profiel niet verwijderen.</string>
   <string name="profile_name_title">Naam</string>
   <string name="new_profile_name">&lt;nieuw profiel&gt;</string>
   <string name="rename_dialog_title">Naam wijzigen</string>
   <string name="rename_dialog_message">Nieuwe naam invoeren</string>
-  <string name="rename_dialog_hint">Typ profielnaam</string>
+  <string name="rename_dialog_hint">Profielnaam invoeren</string>
   <string name="profile_reset_title">Opnieuw instellen</string>
   <string name="profile_reset_message">Alle gemaakte profielen verwijderen en herstellen naar standaard?</string>
   <string name="profile_networkmode_2g">2G</string>
@@ -133,7 +133,6 @@
   <string name="backlight_summary_enabled_with_timeout">Ingeschakeld voor <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Ingeschakeld</string>
   <string name="power_menu_title">Opties in afsluitmenu</string>
-  <string name="power_menu_power_title">Uitschakelen</string>
   <string name="power_menu_reboot_title">Herstarten</string>
   <string name="power_menu_screenshot_title">Screenshot</string>
   <string name="power_menu_profiles_title">Profielen</string>
@@ -209,7 +208,7 @@
   <string name="cmupdate_settings_title">CyanogenMod-updates</string>
   <string name="update_recovery_title">Cyanogen-recovery bijwerken</string>
   <string name="update_recovery_summary">Recovery bijwerken met systeemupdates</string>
-  <string name="update_recovery_on_warning">Let op: wanneer deze functie is ingeschakeld, wordt uw huidige recovery vervangen door de recovery die met uw huidige besturingssysteem geleverd wordt.\n\nUw recovery wordt met systeemupdates ook bijgewerkt om compatibiliteit met toekomstige versies te garanderen.\n\nWilt u deze functie inschakelen?</string>
+  <string name="update_recovery_on_warning">Let op: als deze functie ingeschakeld is, wordt uw recovery vervangen door de recovery die met uw huidige besturingssysteem geleverd wordt.\n\nUw recovery wordt met systeemupdates ook bijgewerkt om compatibiliteit met toekomstige versies te garanderen.\n\nWilt u deze functie inschakelen?</string>
   <string name="update_recovery_off_warning">Let op: als deze functie is uitgeschakeld, wordt uw recovery niet bijgewerkt bij systeemupdates.\n\nToekomstige systeemupdates kunnen wellicht niet geïnstalleerd worden op oude recovery-versies.\n\nWeet u zeker dat u deze functie wilt uitschakelen?</string>
   <string name="mod_version">CyanogenMod-versie</string>
   <string name="mod_version_default">Onbekend</string>
@@ -218,6 +217,7 @@
   <string name="contributor_cloud_title">Bijdragers</string>
   <string name="phone_service_state">Spraak: <xliff:g id="voice_state">%1$s</xliff:g>, gegevens: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dubbeltikken om te ontwaken</string>
+  <string name="double_tap_to_wake_summary">Dubbeltikken op het scherm om te ontwaken</string>
   <string name="proximity_wake_title">Per ongeluk ontwaken voorkomen</string>
   <string name="proximity_wake_summary">Nabijheidssensor gebruiken voorafgaand aan ontwaken van scherm</string>
   <string name="privacy_settings_cyanogenmod_title">Privacy</string>
@@ -241,10 +241,13 @@
   <string name="adb_over_network">ADB over netwerk</string>
   <string name="adb_over_network_summary">TCP/IP-foutopsporing inschakelen over netwerkinterfaces (wifi, USB-netwerken). Wordt hersteld bij opstarten</string>
   <string name="adb_over_network_warning">Let op: als ADB over netwerk is ingeschakeld, kan op uw apparaat worden ingebroken via alle aangesloten netwerken!\n\nGebruik deze functie alleen indien u verbonden bent met vertrouwde netwerken.\n\nWeet u zeker dat u deze functie wilt inschakelen?</string>
+  <string name="adb_notify">Melding foutopsporing</string>
+  <string name="adb_notify_summary">Melden wanneer USB- of netwerkfoutopsporing is ingeschakeld</string>
   <string name="device_hostname">Hostnaam apparaat</string>
   <string name="development_shortcut_title">Ontwikkelingssnelkoppeling</string>
   <string name="development_shortcut_summary">Snelkoppelingen voor applicatiebeheer weergeven in recente appslijst</string>
   <string name="double_tap_to_sleep_title">Dubbeltikken voor slaapstand</string>
+  <string name="double_tap_to_sleep_summary">Dubbeltikken op de statusbalk voor slaapstand</string>
   <string name="wake_when_plugged_or_unplugged_title">Ontwaken door lader</string>
   <string name="wake_when_plugged_or_unplugged_summary">Scherm aan bij het aansluiten of loskoppelen van een lader</string>
   <string name="kill_app_longpress_back">Stoppen forceren</string>
@@ -262,6 +265,7 @@
   <string name="navigation_bar_reset_message">Huidige instellingen verwijderen en de standaardindeling herstellen?</string>
   <string name="navigation_bar_arrow_keys_title">Pijltjestoetsen tijdens typen</string>
   <string name="navigation_bar_arrow_keys_summary">Cursor links en rechts weergeven tijdens typen. Verbergt invoermethodepictogram.</string>
+  <string name="navigation_bar_recents_title">Recente apps-knop lang indrukken</string>
   <string name="header_category_personalization">Aanpassen</string>
   <string name="status_bar_title">Statusbalk</string>
   <string name="status_bar_toggle_brightness">Helderheid beheren</string>
@@ -284,6 +288,7 @@
   <string name="status_bar_battery_style_circle">Cirkel</string>
   <string name="status_bar_battery_style_text">Tekst</string>
   <string name="status_bar_battery_style_hidden">Verborgen</string>
+  <string name="status_bar_battery_percentage_title">Accupercentage</string>
   <string name="status_bar_battery_percentage_default">Verborgen</string>
   <string name="status_bar_battery_percentage_text_inside">In het pictogram</string>
   <string name="status_bar_battery_percentage_text_next">Naast het pictogram</string>
@@ -319,7 +324,7 @@
   <string name="notification_light_missed_call_title">Gemiste oproep</string>
   <string name="notification_light_voicemail_title">Voicemail</string>
   <string name="notification_ringtone_title_cm">Meldingstoon</string>
-  <string name="ime_switcher_notify">Invoermethodepictogram</string>
+  <string name="ime_switcher_notify">Melding invoermethode</string>
   <string name="ime_switcher_notify_summary">Invoermethodepictogram weergeven</string>
   <string name="app_notification_show_on_keyguard_title">Weergeven op vergrendelscherm</string>
   <string name="app_notification_show_on_keyguard_summary">Meldingen van deze app weergeven op het vergrendelscherm</string>
@@ -327,6 +332,8 @@
   <string name="app_notification_no_ongoing_on_keyguard_summary">Permanente meldingen van deze app niet weergeven op het vergrendelscherm</string>
   <string name="high_touch_sensitivity_title">Hoge aanraakgevoeligheid</string>
   <string name="high_touch_sensitivity_summary">Gevoeligheid van het scherm verhogen, zodat het gebruikt kan worden tijdens het dragen van handschoenen</string>
+  <string name="touchscreen_hovering_title">Zweven over scherm</string>
+  <string name="touchscreen_hovering_summary">Met uw vinger boven het zwerm zweven, zoals een muis in browsers, bureaublad op afstand, etc.</string>
   <string name="app_ops_summaries_coarse_location">geschatte locatie</string>
   <string name="app_ops_summaries_fine_location">nauwkeurige locatie</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -453,7 +460,7 @@
   <string name="app_ops_permissions_always_ask">Vragen</string>
   <string name="ok">OK</string>
   <string name="profile_menu_delete_title">Verwijderen</string>
-  <string name="profile_action_none">Ongewijzigd laten</string>
+  <string name="profile_action_none">Niet wijzigen</string>
   <string name="profile_action_disable">Uitschakelen</string>
   <string name="profile_action_enable">Inschakelen</string>
   <string name="profile_trigger_a2dp_connect">Bij A2DP-verbinding</string>
@@ -523,9 +530,13 @@
   <string name="bluetooth_pbap_profile_summary_use_for">Gebruiken voor contacten delen</string>
   <string name="bluetooth_sap_profile_summary_use_for">Gebruiken voor SIM-toegang</string>
   <string name="bluetooth_accept_all_files">Alle bestandstypen accepteren</string>
-  <string name="sim_lock_settings_cm">SIM/RUIM-kaart vergrendelinstellingen</string>
+  <string name="sim_lock_settings_cm">SIM/RUIM-kaart vergrendelingsinstellingen</string>
+  <string name="sim_lock_settings_category_cm">SIM/RUIM-kaartvergrendeling instellen</string>
+  <string name="sim_lock_settings_title_cm">SIM/RUIM-kaartvergrendeling</string>
   <string name="sim_pin_disable_failed">Kan PIN niet uitschakelen.</string>
   <string name="sim_pin_enable_failed">Kan PIN niet inschakelen.</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">Om SIM/RUIM-PIN te wijzigen moet eerst SIM/RUIM-vergrendeling ingeschakeld worden.</string>
+  <string name="sim_enable_disable_lock_not_supported">SIM/RUIM-vergrendeling wordt niet ondersteund door de kaart.</string>
   <string name="sim_pin_attempts">\nResterende pogingen:</string>
   <string name="sim_pin_enabled">PIN1 ingeschakeld</string>
   <string name="sim_pin_disabled">PIN1 uitgeschakeld</string>
@@ -564,7 +575,9 @@
   <string name="uicc_media_format_gesture_explanation" product="default">U moet het ontgrendelingspatroon tekenen om te bevestigen dat u de UICC-opslag wilt wissen.</string>
   <string name="location_category_enhanced_location">Verbeterde locatie (IZat)</string>
   <string name="app_ops_settings_summary">App-machtigingen bekijken of wijzigen</string>
+  <string name="enable_adb_summary_charging">Apparaat staat in oplaadstand, USB-foutopsporing is uitgeschakeld</string>
   <string name="enable_quickboot_title">QuickBoot inschakelen</string>
+  <string name="enable_quickboot_summary">Apparaat in QuickBoot-modus zetten in plaats van uitschakelen</string>
   <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
   <string name="sim_enabler_title">SIM-status</string>
   <string name="sim_enabler_summary">SIM is <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
@@ -579,8 +592,11 @@
   <string name="sim_enabler_enabling"><xliff:g id="name">%s</xliff:g> inschakelen\u2026</string>
   <string name="sim_enabler_disabling"><xliff:g id="name">%s</xliff:g> uitschakelen\u2026</string>
   <string name="sim_enabler_deactivate">Uitschakelen</string>
+  <string name="primary_sub_select_title">Standaard 3G/LTE-abonnement</string>
   <string name="usb_charging_title">Alleen laden</string>
+  <string name="usb_charging_summary">Hiermee schakelt u alle gegevensoverdracht uit met de computer en laadt het apparaat via de USB-poort</string>
   <string name="usb_sdcard_title">Massaopslag (UMS)</string>
+  <string name="usb_sdcard_summary">Bestanden uitwisselen tussen uw computer en SD-kaart door het aan te koppelen als flash-geheugen</string>
   <string name="external_storage_turn_on">Externe opslag is ingeschakeld</string>
   <string name="external_storage_turn_off">Externe opslag is uitgeschakeld</string>
   <string name="menu_hidden_apps_delete">Opnieuw instellen</string>
@@ -588,6 +604,7 @@
   <string name="protected_apps">Beschermde apps</string>
   <string name="saving_protected_components">Opslaan\u2026</string>
   <string name="stats_collection_title">Verzamelen van statistieken</string>
+  <string name="stats_collection_summary">Indien ingeschakeld, staat het verzamelen van statistieken toe</string>
   <string name="power_notifications_category_title">Opladergeluid</string>
   <string name="power_notifications_enable_title">Opladergeluid</string>
   <string name="power_notifications_enable_summary">Geluid afspelen bij het aansluiten of loskoppelen van een lader</string>
@@ -604,6 +621,7 @@
   <string name="performance_settings_title">Prestaties</string>
   <string name="io_scheds_title">In-/uitvoerscheduler</string>
   <string name="io_sched_title">In-/uitvoerscheduler</string>
+  <string name="perf_profile_title">Accumodus</string>
   <string name="pref_force_highend_gfx_title">Hoge kwaliteit graphics forceren</string>
   <string name="pref_force_highend_gfx_summary">Visuele effecten van hoge kwaliteit, zoals transparente status- en navigatiebalk, inschakelen (herstart vereist)</string>
   <string name="performance_settings_warning_title">Ga voorzichtig te werk</string>
@@ -630,8 +648,6 @@
   <string name="link_volume_option_title">Volumen koppelen</string>
   <string name="notification_volume_option_title">Meldingsvolume</string>
   <string name="notification_drawer_title">Meldingenpaneel</string>
-  <string name="status_bar_quick_qs_pulldown_title">Snel openen</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Rechterkant van statusbalk haalt Snelle instellingenpaneel naar beneden</string>
   <string name="status_bar_show_weather_title">Weer weergeven</string>
   <string name="status_bar_show_weather_summary">Het weer weergeven boven het Snelle instellingenpaneel</string>
   <string name="qs_category_title">Snelle instellingenpaneel</string>
@@ -653,12 +669,13 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB over netwerk</string>
   <string name="qs_tile_profiles">Systeemprofielen</string>
+  <string name="qs_tile_performance">Accumodus</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompas</string>
   <string name="qs_tile_lockscreen">Vergrendelscherm</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Schermtime-out</string>
-  <string name="qs_main_tiles_title">Eerste rij vergroot</string>
+  <string name="qs_main_tiles_title">Eerste rij vergroten</string>
   <string name="qs_main_tiles_summary_on">Twee hoofdtegels op de eerste rij</string>
   <string name="qs_main_tiles_summary_off">Drie tegels op elke rij</string>
   <string name="qs_advanced_location_title">Geavanceerde locatie-instellingen</string>
@@ -713,4 +730,19 @@
   <string name="gestures_action_search">Zoeken</string>
   <string name="gestures_action_recent">Recente apps</string>
   <string name="stylus_app_not_installed">%s is niet geïnstalleerd</string>
+  <string name="advanced">Geavanceerd</string>
+  <string name="advanced_mode_title">Geavanceerde modus</string>
+  <string name="category_misc">Overig</string>
+  <string name="category_vibrate">Trillen</string>
+  <string name="category_volume">Volume</string>
+  <string name="category_sounds">Geluiden</string>
+  <string name="category_interface">Uiterlijk</string>
+  <string name="category_calibration">Kalibratie</string>
+  <string name="display_and_lights">Scherm &amp; verlichting</string>
+  <string name="notification_manager">Meldingenbeheer</string>
+  <string name="lockscreen_settings">Vergrendelscherm</string>
+  <string name="category_lights">Verlichting</string>
+  <string name="power_usage_history_title">Accugebruik</string>
+  <string name="recents_show_searchbar">Zoekbalk bij recente schermen</string>
+  <string name="sim_ringtone_title">SIM %d-beltoon</string>
 </resources>

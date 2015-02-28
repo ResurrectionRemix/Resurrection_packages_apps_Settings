@@ -132,12 +132,11 @@
   <string name="backlight_summary_enabled_with_timeout"><xliff:g id="timeout">%s</xliff:g>동안 켬</string>
   <string name="backlight_summary_enabled">사용함</string>
   <string name="power_menu_title">전원 메뉴</string>
-  <string name="power_menu_power_title">전원 끔</string>
   <string name="power_menu_reboot_title">재시작 메뉴</string>
   <string name="power_menu_screenshot_title">스크린샷</string>
   <string name="power_menu_profiles_title">프로필 전환</string>
   <string name="power_menu_airplane_title">비행기 모드</string>
-  <string name="power_menu_users_title">사용자 바꾸기</string>
+  <string name="power_menu_users_title">사용자 전환</string>
   <string name="power_menu_settings_title">설정 바로 가기</string>
   <string name="power_menu_lockdown_title">기기 잠금</string>
   <string name="power_menu_bug_report_title">오류 보고</string>
@@ -216,7 +215,8 @@
   <string name="build_date">빌드 날짜</string>
   <string name="contributor_cloud_title">기여자</string>
   <string name="phone_service_state">전화: <xliff:g id="voice_state">%1$s</xliff:g>, 데이터: <xliff:g id="data_state">%2$s</xliff:g></string>
-  <string name="double_tap_to_wake_title">더블 탭으로 화면 켜기</string>
+  <string name="double_tap_to_wake_title">더블 탭하여 화면 켜기</string>
+  <string name="double_tap_to_wake_summary">화면에 더블 탭하여 화면 켜기</string>
   <string name="proximity_wake_title">실수로 화면 켜기 방지</string>
   <string name="proximity_wake_summary">화면을 켜기 전에 근접 센서 확인</string>
   <string name="privacy_settings_cyanogenmod_title">프라이버시</string>
@@ -246,6 +246,7 @@
   <string name="development_shortcut_title">개발용 바로가기</string>
   <string name="development_shortcut_summary">최근 앱 목록에서 앱 관리설정 바로가기 활성화</string>
   <string name="double_tap_to_sleep_title">더블 탭하여 화면 끄기</string>
+  <string name="double_tap_to_sleep_summary">상태 표시줄에 더블 탭하여 화면 끄기</string>
   <string name="wake_when_plugged_or_unplugged_title">충전 시 켜짐</string>
   <string name="wake_when_plugged_or_unplugged_summary">전원이 연결되거나 분리될 때 화면 켜기</string>
   <string name="kill_app_longpress_back">뒤로 버튼으로 앱 종료</string>
@@ -263,6 +264,7 @@
   <string name="navigation_bar_reset_message">현재 설정을 삭제하고 기본 설정으로 복원하시겠습니까?</string>
   <string name="navigation_bar_arrow_keys_title">입력시 커서 방향키 표시</string>
   <string name="navigation_bar_arrow_keys_summary">입력시 좌우 방향 커서 버튼을 표시합니다. 입력기 전환 버튼은 표시되지 않습니다.</string>
+  <string name="navigation_bar_recents_title">멀티태스킹 버튼 길게 누를 시 동작 설정</string>
   <string name="header_category_personalization">개인 설정</string>
   <string name="status_bar_title">상태 표시줄</string>
   <string name="status_bar_toggle_brightness">밝기 조절</string>
@@ -325,8 +327,8 @@
   <string name="ime_switcher_notify_summary">입력기 전환키 표시</string>
   <string name="app_notification_show_on_keyguard_title">잠금 화면에 표시</string>
   <string name="app_notification_show_on_keyguard_summary">잠금화면에 알림을 표시</string>
-  <string name="app_notification_no_ongoing_on_keyguard_title">상주알림을 잠금화면에 표시하지 않음</string>
-  <string name="app_notification_no_ongoing_on_keyguard_summary">이 앱의 상주알림을 잠금화면에 표시하지 않음</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">상주 알림을 잠금화면에 표시하지 않음</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">이 앱의 상주 알림을 잠금화면에 표시하지 않음</string>
   <string name="high_touch_sensitivity_title">터치 감도 높이기</string>
   <string name="high_touch_sensitivity_summary">장갑을 착용해도 터치할 수 있도록 터치스크린 감도를 향상</string>
   <string name="touchscreen_hovering_title">터치스크린 호버링</string>
@@ -458,7 +460,7 @@
   <string name="ok">확인</string>
   <string name="profile_menu_delete_title">삭제</string>
   <string name="profile_action_none">변경하지 않음</string>
-  <string name="profile_action_disable"> 끄기</string>
+  <string name="profile_action_disable">끄기</string>
   <string name="profile_action_enable">켜기</string>
   <string name="profile_trigger_a2dp_connect">A2DP 연결 시</string>
   <string name="profile_trigger_a2dp_disconnect">A2DP 연결 해제 시</string>
@@ -522,13 +524,13 @@
   <string name="bluetooth_profile_sap">SIM 액세스</string>
   <string name="bluetooth_dun_profile_summary_connected">DUN 서버에 연결됨</string>
   <string name="bluetooth_pbap_profile_summary_connected">연락처 서버에 연결됨</string>
-  <string name="bluetooth_sap_profile_summary_connected">SIM카드 접속 서버에 연결됨</string>
+  <string name="bluetooth_sap_profile_summary_connected">SIM 카드 접속 서버에 연결됨</string>
   <string name="bluetooth_dun_profile_summary_use_for">전화 접속 네트워크 액세스 사용</string>
   <string name="bluetooth_pbap_profile_summary_use_for">연락처 공유 사용</string>
   <string name="bluetooth_sap_profile_summary_use_for">SIM 액세스 사용</string>
   <string name="bluetooth_accept_all_files">모든 파일 파일 형식 허용</string>
   <string name="sim_lock_settings_cm">SIM/RUIM 카드 잠금 설정</string>
-  <string name="sim_lock_settings_category_cm">SIM/RUIM카드 잠금 설정</string>
+  <string name="sim_lock_settings_category_cm">SIM/RUIM 카드 잠그기</string>
   <string name="sim_lock_settings_title_cm">SIM/RUIM 카드 잠금</string>
   <string name="sim_pin_disable_failed">PIN을 사용중지할 수 없습니다.</string>
   <string name="sim_pin_enable_failed">PIN을 사용할 수 없습니다.</string>
@@ -575,13 +577,13 @@
   <string name="enable_adb_summary_charging">기기가 충전 중이어서 USB 디버깅이 중지됨</string>
   <string name="enable_quickboot_title">QuickBoot 모드 활성화</string>
   <string name="enable_quickboot_summary">정상적인 기기의 전원 끄기 대신 빠른 시작 모드로 변경</string>
-  <string name="data_usage_tab_slot">SIM카드 <xliff:g id="sub">%d</xliff:g></string>
-  <string name="sim_enabler_title">SIM카드 상태</string>
-  <string name="sim_enabler_summary">SIM카드는 <xliff:g id="status" example="enabled">%1$s</xliff:g> 입니다.</string>
+  <string name="data_usage_tab_slot">SIM 카드 <xliff:g id="sub">%d</xliff:g></string>
+  <string name="sim_enabler_title">SIM 카드 상태</string>
+  <string name="sim_enabler_summary">SIM 카드는 <xliff:g id="status" example="enabled">%1$s</xliff:g> 입니다.</string>
   <string name="sim_enabled">활성화됨</string>
   <string name="sim_disabled">비활성화됨</string>
   <string name="sim_missing">SIM 카드가 없거나 잘못되었습니다</string>
-  <string name="sim_enabler_need_disable_sim">SIM카드를 비활성화하시겠습니까?</string>
+  <string name="sim_enabler_need_disable_sim">SIM 카드를 비활성화하시겠습니까?</string>
   <string name="sim_enabler_airplane_on">비행기 모드에서는 작업을 수행할 수 없습니다.</string>
   <string name="sim_enabler_in_call">통화중에는 작업을 수행할 수 없습니다.</string>
   <string name="sim_enabler_both_inactive">모든 SIM 카드를 비활성화할 수 없습니다</string>
@@ -618,6 +620,7 @@
   <string name="performance_settings_title">성능</string>
   <string name="io_scheds_title">I/O 스케줄러</string>
   <string name="io_sched_title">I/O 스케줄러</string>
+  <string name="perf_profile_title">배터리 모드</string>
   <string name="pref_force_highend_gfx_title">고급 그래픽 강제 사용</string>
   <string name="pref_force_highend_gfx_summary">투명한 상태 표시줄 및 내비게이션 바 등의 고급 시각 효과 사용 (재시작 필요)</string>
   <string name="performance_settings_warning_title">확인하고 진행</string>
@@ -644,8 +647,6 @@
   <string name="link_volume_option_title">통화 벨소리와 알림 벨소리 연결</string>
   <string name="notification_volume_option_title">알림 벨소리 크기</string>
   <string name="notification_drawer_title">알림 서랍</string>
-  <string name="status_bar_quick_qs_pulldown_title">빠른 알림 내리기</string>
-  <string name="status_bar_quick_qs_pulldown_summary">상태 표시줄의 오른쪽 모서리를 끌어 내려 빠른 설정 보기</string>
   <string name="status_bar_show_weather_title">날씨 표시</string>
   <string name="status_bar_show_weather_summary">빠른 설정 패널에서 날씨 보기</string>
   <string name="qs_category_title">빠른 설정 패널</string>
@@ -663,10 +664,11 @@
   <string name="qs_tile_display_rotation">화면 회전</string>
   <string name="qs_tile_flashlight">손전등</string>
   <string name="qs_tile_location">위치</string>
-  <string name="qs_tile_cast_screen">화면 녹화</string>
+  <string name="qs_tile_cast_screen">화면 전송</string>
   <string name="qs_tile_hotspot">핫스팟</string>
   <string name="qs_tile_adb_over_network">ADB 네트워크 연결</string>
   <string name="qs_tile_profiles">시스템 프로필</string>
+  <string name="qs_tile_performance">배터리 모드</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">나침반</string>
   <string name="qs_tile_lockscreen">잠금 화면</string>
@@ -727,4 +729,20 @@
   <string name="gestures_action_search">검색 호출</string>
   <string name="gestures_action_recent">최근 앱</string>
   <string name="stylus_app_not_installed">%s은(는) 설치되어 있지 않았음</string>
+  <string name="advanced">고급</string>
+  <string name="advanced_mode_title">고급 모드</string>
+  <string name="category_misc">기타</string>
+  <string name="category_vibrate">진동</string>
+  <string name="category_volume">볼륨</string>
+  <string name="category_sounds">소리</string>
+  <string name="category_interface">인터페이스</string>
+  <string name="category_calibration">보정</string>
+  <string name="display_and_lights">디스플레이 및 조명</string>
+  <string name="notification_manager">알림 관리자</string>
+  <string name="lockscreen_settings">잠금 화면</string>
+  <string name="category_lights">조명</string>
+  <string name="power_usage_history_title">배터리 사용량</string>
+  <string name="recents_show_searchbar">멀티태스킹 선택 메뉴에서 검색바 표시</string>
+  <string name="keywords_recents_show_searchbar">최근 최근 비활성화 활성화 표시 숨김 검색 바 검색바</string>
+  <string name="sim_ringtone_title">SIM 카드 %d 벨소리</string>
 </resources>

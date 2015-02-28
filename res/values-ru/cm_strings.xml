@@ -95,7 +95,7 @@
   <string name="hardware_keys_back_key_title">Кнопка «Назад»</string>
   <string name="hardware_keys_menu_key_title">Кнопка «Меню»</string>
   <string name="hardware_keys_assist_key_title">Кнопка «Поиск»</string>
-  <string name="hardware_keys_appswitch_key_title">Кнопка «Недавние приложения»</string>
+  <string name="hardware_keys_appswitch_key_title">Кнопка «Обзор»</string>
   <string name="hardware_keys_volume_keys_title">Кнопки громкости</string>
   <string name="hardware_keys_short_press_title">Короткое нажатие</string>
   <string name="hardware_keys_long_press_title">Долгое нажатие</string>
@@ -134,7 +134,6 @@
   <string name="backlight_summary_enabled_with_timeout">Включена <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Включена всегда</string>
   <string name="power_menu_title">Меню при долгом нажатии</string>
-  <string name="power_menu_power_title">Отключить питание</string>
   <string name="power_menu_reboot_title">Перезагрузка</string>
   <string name="power_menu_screenshot_title">Скриншот</string>
   <string name="power_menu_profiles_title">Выбор профиля</string>
@@ -219,6 +218,7 @@
   <string name="contributor_cloud_title">Имена разработчиков</string>
   <string name="phone_service_state">Голосовая связь: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача данных: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Включение при двойном нажатии</string>
+  <string name="double_tap_to_wake_summary">Дважды коснитесь экрана, чтобы вывести устройство из спящего режима</string>
   <string name="proximity_wake_title">Предотвращать случайное включение</string>
   <string name="proximity_wake_summary">Проверять датчик приближения при выходе из режима сна</string>
   <string name="privacy_settings_cyanogenmod_title">Конфиденциальность</string>
@@ -266,6 +266,7 @@
   <string name="navigation_bar_reset_message">Удалить текущие настройки и восстановить стандартный набор?</string>
   <string name="navigation_bar_arrow_keys_title">Перемещение курсора</string>
   <string name="navigation_bar_arrow_keys_summary">Отображать кнопки перемещения курсора влево или вправо при вводе. Кнопка выбора метода ввода отображаться не будет.</string>
+  <string name="navigation_bar_recents_title">Долгое нажатие кнопки «Обзор»</string>
   <string name="header_category_personalization">Персонализация</string>
   <string name="status_bar_title">Строка состояния</string>
   <string name="status_bar_toggle_brightness">Управление яркостью</string>
@@ -621,6 +622,7 @@
   <string name="performance_settings_title">Производительность</string>
   <string name="io_scheds_title">Планировщик I/O</string>
   <string name="io_sched_title">Планировщик I/O</string>
+  <string name="perf_profile_title">Режим батареи</string>
   <string name="pref_force_highend_gfx_title">Высококачественная графика</string>
   <string name="pref_force_highend_gfx_summary">Использовать эффекты, отключенные для устройств с низкой производительностью, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
   <string name="performance_settings_warning_title">Соблюдайте осторожность</string>
@@ -647,8 +649,6 @@
   <string name="link_volume_option_title">Связать громкость рингтона и уведомлений</string>
   <string name="notification_volume_option_title">Громкость уведомлений</string>
   <string name="notification_drawer_title">Панель уведомлений</string>
-  <string name="status_bar_quick_qs_pulldown_title">Быстрый доступ</string>
-  <string name="status_bar_quick_qs_pulldown_summary">Правый край строки состояния вытягивает быстрые настройки</string>
   <string name="status_bar_show_weather_title">Сведения о погоде</string>
   <string name="status_bar_show_weather_summary">Показывать погоду над панелью быстрых настроек</string>
   <string name="qs_category_title">Панель быстрых настроек</string>
@@ -670,6 +670,7 @@
   <string name="qs_tile_hotspot">Точка доступа</string>
   <string name="qs_tile_adb_over_network">Отладка по сети</string>
   <string name="qs_tile_profiles">Профили системы</string>
+  <string name="qs_tile_performance">Режим батареи</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Экран блокировки</string>
@@ -730,6 +731,8 @@
   <string name="gestures_action_search">Открыть поиск</string>
   <string name="gestures_action_recent">Недавние приложения</string>
   <string name="stylus_app_not_installed">«%s» не установлено</string>
+  <string name="advanced">Дополнительные функции</string>
+  <string name="advanced_mode_title">Расширенный режим</string>
   <string name="category_misc">Прочее</string>
   <string name="category_vibrate">Вибрация</string>
   <string name="category_volume">Громкость</string>
@@ -737,7 +740,11 @@
   <string name="category_interface">Интерфейс</string>
   <string name="category_calibration">Калибровка</string>
   <string name="display_and_lights">Экран и индикация</string>
+  <string name="notification_manager">Диспетчер уведомлений</string>
   <string name="lockscreen_settings">Экран блокировки</string>
   <string name="category_lights">Индикация</string>
   <string name="power_usage_history_title">Использование батареи</string>
+  <string name="recents_show_searchbar">Отображать строку поиска в меню кн. «Обзор»</string>
+  <string name="keywords_recents_show_searchbar">недавние недавний обзор запущенные включить выключить показать скрыть поисковая строка поиск</string>
+  <string name="sim_ringtone_title">Рингтон SIM %d</string>
 </resources>
