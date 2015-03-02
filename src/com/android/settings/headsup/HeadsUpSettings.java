@@ -82,7 +82,6 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     private Map<String, Package> mBlacklistPackages;
 
     private BaseSystemSettingSwitchBar mEnabledSwitch;
-    private boolean mLastEnabledState;
 
     private ViewGroup mPrefsContainer;
     private View mDisabledText;
@@ -152,7 +151,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         super.onStart();
         final SettingsActivity activity = (SettingsActivity) getActivity();
         mEnabledSwitch = new BaseSystemSettingSwitchBar(activity, activity.getSwitchBar(),
-                Settings.System.HEADS_UP_NOTIFICATION, true, this);
+                Settings.System.HEADS_UP_USER_ENABLED, true, this);
     }
 
     @Override
@@ -430,17 +429,27 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         Settings.System.putString(getContentResolver(), setting, value);
     }
 
+    private boolean getUserHeadsUpState() {
+         return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                Settings.System.HEADS_UP_USER_ON,
+                UserHandle.USER_CURRENT) != 0;
+    }
+
+    private void setUserHeadsUpState(int val) {
+         Settings.System.putIntForUser(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                val, UserHandle.USER_CURRENT);
+    }
+
     private void updateEnabledState() {
-        boolean enabled = Settings.System.getInt(getContentResolver(),
-                Settings.System.HEADS_UP_NOTIFICATION, 1) != 0;
-        mPrefsContainer.setVisibility(enabled ? View.VISIBLE : View.GONE);
-        mDisabledText.setVisibility(enabled ? View.GONE : View.VISIBLE);
+        mPrefsContainer.setVisibility(getUserHeadsUpState() ? View.VISIBLE : View.GONE);
+        mDisabledText.setVisibility(getUserHeadsUpState() ? View.GONE : View.VISIBLE);
     }
 
     @Override
     public void onEnablerChanged(boolean isEnabled) {
-        mLastEnabledState = Settings.System.getInt(getContentResolver(),
-                Settings.System.HEADS_UP_NOTIFICATION, 1) != 0;
+        setUserHeadsUpState(getUserHeadsUpState() ? 1 : 0);
         updateEnabledState();
     }
 

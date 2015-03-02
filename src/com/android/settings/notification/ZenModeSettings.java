@@ -84,6 +84,8 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
     private static final String KEY_ENTRY = "entry";
     private static final String KEY_CONDITION_PROVIDERS = "manage_condition_providers";
 
+    private static final String KEY_HEADS_UP_SETTINGS = "heads_up_enabled";
+
     private static final SettingPrefWithCallback PREF_ZEN_MODE = new SettingPrefWithCallback(
             SettingPref.TYPE_GLOBAL, KEY_ZEN_MODE, Global.ZEN_MODE, Global.ZEN_MODE_OFF,
             Global.ZEN_MODE_OFF, Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS,
@@ -335,6 +337,11 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
         });
         mConditionProviders = findPreference(KEY_CONDITION_PROVIDERS);
 
+<<<<<<< HEAD
+=======
+        mHeadsUp = findPreference(KEY_HEADS_UP_SETTINGS);
+
+>>>>>>> 5f077b1... Settings: Improve HeadsUp [2/2]
         updateControls();
     }
 
@@ -442,11 +449,20 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
         }
     }
 
+    private boolean getUserHeadsUpState() {
+         return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                Settings.System.HEADS_UP_USER_ON) != 0;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
         updateControls();
         mSettingsObserver.register();
+
+        mHeadsUp.setSummary(getUserHeadsUpState()
+                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
 
     @Override
