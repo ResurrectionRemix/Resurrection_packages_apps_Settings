@@ -152,14 +152,16 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         mItems.add(new Header(getString(R.string.profile_name_title)));
         mItems.add(new ProfileNameItem(mProfile));
 
-        // triggers
-        mItems.add(new Header(getString(R.string.profile_triggers_header)));
-        mItems.add(generateTriggerItem(TriggerItem.WIFI));
-        if (DeviceUtils.deviceSupportsBluetooth()) {
-            mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
-        }
-        if (DeviceUtils.deviceSupportsNfc(getActivity())) {
-            mItems.add(generateTriggerItem(TriggerItem.NFC));
+        if (!mNewProfileMode) {
+            // triggers
+            mItems.add(new Header(getString(R.string.profile_triggers_header)));
+            mItems.add(generateTriggerItem(TriggerItem.WIFI));
+            if (DeviceUtils.deviceSupportsBluetooth()) {
+                mItems.add(generateTriggerItem(TriggerItem.BLUETOOTH));
+            }
+            if (DeviceUtils.deviceSupportsNfc(getActivity())) {
+                mItems.add(generateTriggerItem(TriggerItem.NFC));
+            }
         }
 
         // connection overrides
