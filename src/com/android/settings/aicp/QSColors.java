@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.qs.QSTiles;
+import com.android.settings.util.Helpers;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -47,6 +48,8 @@ public class QSColors extends SettingsPreferenceFragment implements
             "qs_text_color";
     private static final String PREF_QS_TRANSPARENT_SHADE =
             "qs_transparent_shade";
+    private static final String PREF_QS_COLOR_SWITCH =
+            "qs_color_switch";
 
     private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
     private static final int WHITE = 0xffffffff;
@@ -59,6 +62,7 @@ public class QSColors extends SettingsPreferenceFragment implements
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
     private SwitchPreference mQSShadeTransparency;
+    private SwitchPreference mQSSSwitch;
 
     private ContentResolver mResolver;
 
@@ -114,6 +118,11 @@ public class QSColors extends SettingsPreferenceFragment implements
                 Settings.System.QS_TRANSPARENT_SHADE, 0) == 1));
         mQSShadeTransparency.setOnPreferenceChangeListener(this);
 
+        mQSSSwitch = (SwitchPreference) findPreference(PREF_QS_COLOR_SWITCH);
+        mQSSSwitch.setChecked((Settings.System.getInt(mResolver,
+                Settings.System.QS_COLOR_SWITCH, 0) == 1));
+        mQSSSwitch.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -168,6 +177,11 @@ public class QSColors extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_TRANSPARENT_SHADE, value ? 1 : 0);
             return true;
+        } else if (preference == mQSSSwitch) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_COLOR_SWITCH, value ? 1 : 0);
+            Helpers.restartSystemUI();
         }
         return false;
     }
