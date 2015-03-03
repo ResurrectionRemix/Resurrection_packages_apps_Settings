@@ -93,6 +93,13 @@
         android:entries="@array/status_bar_battery_percentage_entries"
         android:entryValues="@array/status_bar_battery_percentage_values" />
         
+     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="status_bar_show_empty_sims"
+        android:defaultValue="true"
+        android:title="@string/status_bar_show_unused_sims_title"
+        android:summaryOn="@string/status_bar_show_unused_sims_title_summary_on"
+        android:summaryOff="@string/status_bar_show_unused_sims_title_summary_off" />
+                
     <PreferenceScreen
         android:key="battery_bar"
         android:fragment="com.android.settings.rr.BatteryBar"

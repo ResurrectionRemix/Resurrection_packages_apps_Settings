@@ -30,6 +30,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -112,6 +113,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_CARRIER, 0) == 1));
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         
+        if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
+            removePreference(Settings.System.STATUS_BAR_MSIM_SHOW_EMPTY_ICONS);
+        }
+                
         //carrier Label color
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
