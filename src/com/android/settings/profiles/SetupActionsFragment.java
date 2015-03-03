@@ -229,11 +229,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     mItems.add(new AppGroupItem(mProfile, mProfile.getDefaultGroup()));
                 }
             }
-            if (groupsAdded > 0) {
-                // add dummy "add/remove app groups" entry
+            if (mProfileManager.getNotificationGroups().length > 0) {
+                // if there are notification groups available, allow them to be configured
                 mItems.add(new AppGroupItem());
-            } else {
-                // remove the header since there are no options
+            } else if (groupsAdded == 0) {
+                // no notification groups available at all, nothing to add/remove
                 mItems.remove(mItems.get(mItems.size() - 1));
             }
         }
