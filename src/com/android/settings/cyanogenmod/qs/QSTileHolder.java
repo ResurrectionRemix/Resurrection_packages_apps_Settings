@@ -177,6 +177,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_appcirclebar_on";
                 stringId = R.string.qs_appcirclebar_tile;
                 break;
+            case QSConstants.TILE_AMBIENT_DISPLAY:
+                resourceName = "ic_qs_doze";
+                stringId = R.string.qs_ambient_display_tile;
+                break;
             default:
                 return null;
         }
