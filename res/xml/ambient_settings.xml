@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2015 The OmniROM Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/doze_title"
+        settings:keywords="@string/doze_title">
+
+            <SwitchPreference
+                    android:key="doze"
+                    android:title="@string/doze_title"
+                    android:summary="@string/doze_summary"
+                    android:persistent="false" />
+
+            <ListPreference
+                    android:entries="@array/doze_list_mode_entries"
+                    android:entryValues="@array/doze_list_mode_values"
+                    android:key="doze_list_mode"
+                    android:title="@string/doze_list_mode_title"
+                    android:summary="@string/doze_list_mode_summary"
+                    android:persistent="false"
+                    android:dependency="doze" />
+
+            <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                    android:key="doze_time_mode"
+                    android:title="@string/doze_time_mode_title"
+                    android:summary="@string/doze_time_mode_summary"
+                    android:dependency="doze" />
+
+            <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                    android:key="doze_overwrite_value"
+                    android:title="@string/doze_overwrite_value_title"
+                    android:summary="@string/doze_overwrite_value_summary"
+                    android:dependency="doze" />
+
+            <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                    android:key="doze_pulse_on_notifications"
+                    android:title="@string/doze_pulse_on_notifications_title"
+                    android:summary="@string/doze_pulse_on_notifications_summary"
+                    android:defaultValue="true"
+                    android:dependency="doze_overwrite_value" />
+
+            <PreferenceCategory
+                    android:key="doze_pulse_category"
+                    android:title="@string/doze_pulse_title" >
+                    <ListPreference
+                          android:entries="@array/doze_pulse_duration_in_entries"
+                          android:entryValues="@array/doze_pulse_duration_in_values"
+                          android:key="doze_pulse_in"
+                          android:title="@string/doze_pulse_duration_in_title"
+                          android:summary="@string/doze_pulse_duration_in_summary"
+                          android:persistent="false"
+                          android:dependency="doze_overwrite_value" />
+
+                    <ListPreference
+                          android:entries="@array/doze_pulse_duration_visible_entries"
+                          android:entryValues="@array/doze_pulse_duration_visible_values"
+                          android:key="doze_pulse_visible"
+                          android:title="@string/doze_pulse_duration_visible_title"
+                          android:summary="@string/doze_pulse_duration_visible_summary"
+                          android:persistent="false"
+                          android:dependency="doze_overwrite_value" />
+
+                    <ListPreference
+                          android:entries="@array/doze_pulse_duration_in_entries"
+                          android:entryValues="@array/doze_pulse_duration_in_values"
+                          android:key="doze_pulse_out"
+                          android:title="@string/doze_pulse_duration_out_title"
+                          android:summary="@string/doze_pulse_duration_out_summary"
+                          android:persistent="false"
+                          android:dependency="doze_overwrite_value" />
+
+            </PreferenceCategory>
+
+            <PreferenceCategory
+                    android:key="doze_shake_category"
+                    android:title="@string/doze_shake_title" >
+
+                <ListPreference
+                        android:entries="@array/doze_shake_acc_threshold_entries"
+                        android:entryValues="@array/doze_shake_acc_threshold_values"
+                        android:key="doze_shake_threshold"
+                        android:title="@string/doze_shake_acc_threshold_title"
+                        android:summary="@string/doze_shake_acc_threshold_summary"
+                        android:persistent="false"
+                        android:dependency="doze" />
+            </PreferenceCategory>
+</PreferenceScreen>
