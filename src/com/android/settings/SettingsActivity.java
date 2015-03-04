@@ -994,6 +994,8 @@ public class SettingsActivity extends Activity
      * @param target The list in which the parsed categories and tiles should be placed.
      */
     private void loadCategoriesFromResource(int resid, List<DashboardCategory> target) {
+		final boolean showAdvancedPreferences = showAdvancedPreferences(this);
+		
         XmlResourceParser parser = null;
         try {
             parser = getResources().getXml(resid);
@@ -1052,6 +1054,18 @@ public class SettingsActivity extends Activity
                         String innerNodeName = parser.getName();
                         if (innerNodeName.equals("dashboard-tile")) {
                             DashboardTile tile = new DashboardTile();
+
+                            sa = obtainStyledAttributes(attrs, R.styleable.Preference);
+                            tv = sa.peekValue(R.styleable.Preference_advanced);
+                            if (tv != null && tv.type == TypedValue.TYPE_INT_BOOLEAN) {
+                                final boolean value = tv.data != 0;
+
+                                final boolean skipAdvanced = (!showAdvancedPreferences && value)
+                                        || (showAdvancedPreferences && !value);
+                                if (skipAdvanced) {
+                                    continue;
+                                }
+                            }
 
                             sa = obtainStyledAttributes(
                                     attrs, com.android.internal.R.styleable.PreferenceHeader);
@@ -1421,5 +1435,13 @@ public class SettingsActivity extends Activity
         }
         super.onNewIntent(intent);
     }
+    public static boolean showAdvancedPreferences(Context context) {
+        boolean defValue = context.getResources().getBoolean(
+                R.bool.config_default_advanced_mode_enabled) || !Build.TYPE.equals("user");
+
+        return context.getSharedPreferences(DeviceInfoSettings.PREFS_FILE, 0)
+                .getBoolean(DeviceInfoSettings.KEY_ADVANCED_MODE, defValue);
+    }
+
 
 }

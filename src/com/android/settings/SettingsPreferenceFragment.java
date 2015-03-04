@@ -24,15 +24,22 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
+import android.content.res.XmlResourceParser;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceGroupAdapter;
 import android.text.TextUtils;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
+import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,6 +49,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Base class for Settings fragments, with some helper functions and dialog management.
@@ -54,6 +67,8 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     private static final int DELAY_HIGHLIGHT_DURATION_MILLIS = 600;
 
     private static final String SAVE_HIGHLIGHTED_KEY = "android:preference_highlighted";
+    private static final String SAVE_HIGHLIGHTED_KEY_KEY = "android:preference_highlighted_key";
+    public static final String NODE_PREFERENCE_CATEGORY = "PreferenceCategory";
 
     private SettingsDialogFragment mDialogFragment;
 
@@ -94,14 +109,25 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
         mContentRes = getActivity().getContentResolver();
 
-        if (icicle != null) {
-            mPreferenceHighlighted = icicle.getBoolean(SAVE_HIGHLIGHTED_KEY);
-        }
-
         // Prepare help url and enable menu if necessary
         int helpResource = getHelpResource();
         if (helpResource != 0) {
             mHelpUrl = getResources().getString(helpResource);
+        }
+
+        final Bundle args = getArguments();
+        if (args != null) {
+            mPreferenceKey = args.getString(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY);
+        }
+
+        if (icicle != null) {
+            if (icicle.getString(SAVE_HIGHLIGHTED_KEY_KEY, "").equals(mPreferenceKey)) {
+                // highlighting same thing as before, restore
+                mPreferenceHighlighted = icicle.getBoolean(SAVE_HIGHLIGHTED_KEY);
+            } else {
+                // highlighting a different preference
+                mPreferenceHighlighted = false;
+            }
         }
     }
 
@@ -124,10 +150,148 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     }
 
     @Override
+    public void addPreferencesFromResource(int preferencesResId) {
+        super.addPreferencesFromResource(preferencesResId);
+        maybeStripAdvancedPreferences(preferencesResId);
+    }
+
+    private void maybeStripAdvancedPreferences(int preferenceResId) {
+        List<PreferenceNodeInfo> prefsToRemove = findKeysToRemove(preferenceResId);
+        for (PreferenceNodeInfo nodeInfo : prefsToRemove) {
+            PreferenceGroup c = (PreferenceGroup) findPreference(nodeInfo.category);
+            if (c != null) {
+                Preference p = c.findPreference(nodeInfo.key);
+                if (p != null) {
+                    c.removePreference(p);
+                }
+                if (c.getPreferenceCount() == 0) {
+                    getPreferenceScreen().removePreference(c);
+                }
+            }
+        }
+    }
+
+    private List<PreferenceNodeInfo> findKeysToRemove(int xmlResId) {
+        final boolean advancedModeEnabled = SettingsActivity.showAdvancedPreferences(getActivity());
+        List<PreferenceNodeInfo> preferencesToRemove = new ArrayList<>();
+        XmlResourceParser parser = null;
+        try {
+            parser = getResources().getXml(xmlResId);
+
+            int type;
+            while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
+                    && type != XmlPullParser.START_TAG) {
+                // Parse next until start tag is found
+            }
+
+            String key, lastCategoryKey = null;
+            Boolean advanced;
+            final int preferenceScreenDepth = parser.getDepth();
+            final AttributeSet attrs = Xml.asAttributeSet(parser);
+
+            while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
+                    && (type != XmlPullParser.END_TAG || parser.getDepth()
+                    > preferenceScreenDepth)) {
+                if (type == XmlPullParser.TEXT) {
+                    continue;
+                }
+
+                String nodeName = parser.getName();
+                if (type == XmlPullParser.END_TAG) {
+                    if (nodeName.equals(NODE_PREFERENCE_CATEGORY)) {
+                        lastCategoryKey = null;
+                    }
+                    continue;
+                }
+
+                key = getDataKey(getActivity(), attrs);
+                advanced = getAdvancedBoolean(getActivity(), attrs);
+
+                if (advanced != null) {
+                    if (!advancedModeEnabled && advanced) {
+                        // advanced mode is OFF and this preference is advanced
+                        preferencesToRemove.add(new PreferenceNodeInfo(lastCategoryKey, key));
+                    } else if (advancedModeEnabled && !advanced) {
+                        // advanced mode is ON and this preference is not advanced
+                        preferencesToRemove.add(new PreferenceNodeInfo(lastCategoryKey, key));
+                    }
+                }
+
+                if (nodeName.equals(NODE_PREFERENCE_CATEGORY)) {
+                    lastCategoryKey = getDataKey(getActivity(), attrs);
+                }
+            }
+        } catch (XmlPullParserException | IOException e) {
+            throw new RuntimeException("Error parsing PreferenceScreen", e);
+        } finally {
+            if (parser != null) parser.close();
+        }
+        return preferencesToRemove;
+    }
+
+    private static class PreferenceNodeInfo {
+        String category;
+        String key;
+
+        public PreferenceNodeInfo(String category, String key) {
+            this.category = category;
+            this.key = key;
+        }
+
+        @Override
+        public String toString() {
+            return "category: " + category + ", key: " + key;
+        }
+    }
+
+    private String getDataKey(Context context, AttributeSet attrs) {
+        return getData(context, attrs,
+                com.android.internal.R.styleable.Preference,
+                com.android.internal.R.styleable.Preference_key);
+    }
+
+    private String getData(Context context, AttributeSet set, int[] attrs, int resId) {
+        final TypedArray sa = context.obtainStyledAttributes(set, attrs);
+        final TypedValue tv = sa.peekValue(resId);
+
+        CharSequence data = null;
+        if (tv != null && tv.type == TypedValue.TYPE_STRING) {
+            if (tv.resourceId != 0) {
+                data = context.getText(tv.resourceId);
+            } else {
+                data = tv.string;
+            }
+        }
+        return (data != null) ? data.toString() : null;
+    }
+
+    private Boolean getAdvancedBoolean(Context context, AttributeSet attrs) {
+        return getBoolean(context, attrs,
+                R.styleable.Preference, R.styleable.Preference_advanced);
+    }
+
+    private Boolean getBoolean(Context context, AttributeSet set, int[] attrs, int resId) {
+        final TypedArray sa = context.obtainStyledAttributes(set, attrs);
+        final TypedValue tv = sa.peekValue(resId);
+
+        if (tv != null && tv.type == TypedValue.TYPE_INT_BOOLEAN) {
+            if (tv.resourceId != 0) {
+                return context.getResources().getBoolean(tv.resourceId);
+            } else {
+                return tv.data != 0;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
         outState.putBoolean(SAVE_HIGHLIGHTED_KEY, mPreferenceHighlighted);
+        if (mPreferenceHighlighted) {
+            outState.putString(SAVE_HIGHLIGHTED_KEY_KEY, mPreferenceKey);
+        }
     }
 
     @Override
@@ -144,9 +308,12 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
         final Bundle args = getArguments();
         if (args != null) {
-            mPreferenceKey = args.getString(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY);
-            highlightPreferenceIfNeeded();
+            if (!TextUtils.equals(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY, mPreferenceKey)) {
+                mPreferenceKey = args.getString(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY);
+                mPreferenceHighlighted = false;
+            }
         }
+        highlightPreferenceIfNeeded();
     }
 
     @Override
@@ -188,9 +355,14 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     }
 
     public void highlightPreferenceIfNeeded() {
-        if (isAdded() && !mPreferenceHighlighted &&!TextUtils.isEmpty(mPreferenceKey)) {
-            highlightPreference(mPreferenceKey);
-        }
+        getView().post(new Runnable() {
+            @Override
+            public void run() {
+                if (isAdded() && !mPreferenceHighlighted &&!TextUtils.isEmpty(mPreferenceKey)) {
+                    highlightPreference(mPreferenceKey);
+                }
+            }
+        });
     }
 
     private Drawable getHighlightDrawable() {
@@ -521,7 +693,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
             return false;
         }
     }
-
+    
     public void setTitle(int resId) {
         getActivity().setTitle(resId);
     }

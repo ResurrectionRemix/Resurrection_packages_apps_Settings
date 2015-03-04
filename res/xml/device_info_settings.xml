@@ -52,7 +52,13 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
-
+        
+        <!-- Advanced mode -->
+        <SwitchPreference
+                android:key="advanced_mode"
+                android:title="@string/advanced_mode_title"
+                android:summary="@string/advanced_mode_summary"/>
+                
         <!-- Legal Information -->
         <PreferenceScreen
                 android:key="container"
