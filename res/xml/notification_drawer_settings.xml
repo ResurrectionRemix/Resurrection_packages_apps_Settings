@@ -34,11 +34,6 @@
             android:summaryOn="@string/qs_main_tiles_summary_on"
             android:summaryOff="@string/qs_main_tiles_summary_off"
             android:defaultValue="true" />
-            
-        <PreferenceScreen
-            android:key="qs_colors"
-            android:title="@string/qs_colors_title"
-            android:fragment="com.android.settings.aicp.QSColors" />
                         
      <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
         android:key="qs_use_four_columns"
@@ -55,6 +50,11 @@
             android:title="@string/qs_advanced_location_title"
             android:summary="@string/qs_advanced_location_summary"
             android:defaultValue="false" />
+            
+        <PreferenceScreen
+            android:key="qs_colors"
+            android:title="@string/qs_colors_title"
+            android:fragment="com.android.settings.aicp.QSColors" />
             
     </PreferenceCategory>
 
