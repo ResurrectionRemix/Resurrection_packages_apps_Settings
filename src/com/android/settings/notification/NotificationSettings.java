@@ -86,6 +86,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HEADS_UP_SETTINGS = "heads_up_enabled";
+    private static final String KEY_VOLUME_PANEL_TIMEOUT = "volume_panel_time_out";
     
     private static final int SAMPLE_CUTOFF = 2000;  // manually cap sample playback at 2 seconds
 
@@ -126,7 +127,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private int mRingerMode = -1;
     private Preference mHeadsUp;
     private SwitchPreference mVolumeLinkNotificationSwitch;
-
+    private ListPreference mVolumePanelTimeOut;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -186,7 +188,25 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 Settings.System.HEADS_UP_USER_ENABLED,
                 Settings.System.HEADS_UP_USER_ON) != 0;
     }
+    
+        mVolumePanelTimeOut = (ListPreference) findPreference(KEY_VOLUME_PANEL_TIMEOUT);
+        mVolumePanelTimeOut.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                int volumePanelTimeOut = Integer.valueOf((String) newValue);
+                updateVolumePanelTimeOutSummary(volumePanelTimeOut);
+                return Settings.System.putInt(getContentResolver(),
+                        Settings.System.VOLUME_PANEL_TIMEOUT,
+                        volumePanelTimeOut);
+            }
+        });
+        final int volumePanelTimeOut = Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_PANEL_TIMEOUT, 3000);
+        mVolumePanelTimeOut.setValue(String.valueOf(volumePanelTimeOut));
+        updateVolumePanelTimeOutSummary(volumePanelTimeOut);
 
+    }
+    
     @Override
     public void onResume() {
         super.onResume();
@@ -211,6 +231,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mVolumeCallback.stopSample();
         mSettingsObserver.register(false);
         mReceiver.register(false);
+    }
+    
+    private void updateVolumePanelTimeOutSummary(int value) {
+        String summary = getResources().getString(R.string.volume_panel_time_out_summary,
+                value / 1000);
+        mVolumePanelTimeOut.setSummary(summary);
     }
     
     // === Volumes ===
