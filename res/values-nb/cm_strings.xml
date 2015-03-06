@@ -52,6 +52,9 @@
   <string name="profile_populate_profile_from_state">Konfigurere profilen ved hjelp av gjeldende innstillinger?</string>
   <string name="profile_menu_fill_from_state">Importer gjeldende innstillinger</string>
   <string name="profile_remove_current_profile">Kan ikke slette gjeldende profil!</string>
+  <string name="profile_app_group_category_title">Overstyring av notifikasjoner</string>
+  <string name="profile_app_group_item_instructions">Legg til eller fjern grupper</string>
+  <string name="profile_app_group_item_instructions_summary">Legg til eller fjern apper som overstyrer notifikasjonsvarsler på denne profilen</string>
   <string name="profile_name_title">Navn</string>
   <string name="new_profile_name">&lt;ny profil&gt;</string>
   <string name="rename_dialog_title">Gi nytt navn</string>
@@ -324,6 +327,8 @@
   <string name="notification_light_missed_call_title">Tapt anrop</string>
   <string name="notification_light_voicemail_title">Talepostkasse</string>
   <string name="notification_ringtone_title_cm">Varslingstone</string>
+  <string name="headset_connect_player_title">Start musikk app</string>
+  <string name="headset_connect_player_summary">Start standard musikk app når hodesett er tilkoblet</string>
   <string name="ime_switcher_notify">Valgikon</string>
   <string name="ime_switcher_notify_summary">Viser inndatametode snarvei</string>
   <string name="app_notification_show_on_keyguard_title">Vis på låseskjerm</string>
@@ -473,6 +478,22 @@
   <string name="profile_setup_setup_triggers_title_config">Endre utløsere: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Trinn 2: handlinger</string>
   <string name="profile_setup_actions_title_config">Konfigurere handlinger</string>
+  <string name="profile_appgroups_manage">App grupper</string>
+  <string name="profile_appgroup_manage">Behandle app grupper</string>
+  <string name="profile_appgroups_title">App grupper</string>
+  <string name="profile_new_appgroup">Ny app gruppe</string>
+  <string name="profile_delete_appgroup">Slett denne app  gruppen?</string>
+  <string name="profile_appgroup_name_prompt">Angi et navn for den nye app gruppen</string>
+  <string name="profile_appgroup_name_title">Navn</string>
+  <string name="duplicate_appgroup_name">Navnet på appgruppen eksisterer allerede!</string>
+  <string name="profile_app_delete_confirm">Fjerne denne appen?</string>
+  <string name="sound_mode">Notifikasjonsmodus</string>
+  <string name="ringer_mode">Ringemodus</string>
+  <string name="lights_mode">Lys-modus</string>
+  <string name="vibrate_mode">Vibrasjonsmodus</string>
+  <string name="choose_soundtone">Velg notifikasjonstone</string>
+  <string name="choose_ringtone">Velg ringetone</string>
+  <string name="soundtone_title">Notifikasjonstone</string>
   <string name="no_bluetooth_triggers">Ingen Bluetooth-enheter sammenkoblet. \nTrykk for å parre Bluetooth-enhet før du konfigurerer utløsere.</string>
   <string name="no_wifi_triggers">Ingen Wi\u2011Fi tilgangspunkter konfigurert. \nTrykk for å koble til Wi\u2011Fi før du konfigurerer utløsere.</string>
   <string name="no_triggers_configured">Ingen utløsere konfigurert. Trykk for å legge til flere.</string>
@@ -648,6 +669,13 @@
   <string name="link_volume_option_title">Link ringetone &amp; varslings volumer</string>
   <string name="notification_volume_option_title">varslingsvolum</string>
   <string name="notification_drawer_title">Notifikasjonsskuff</string>
+  <string name="quick_pulldown_title">Rask rullegardinmeny</string>
+  <string name="quick_pulldown_summary">%1$s kanten av statusbaren drar ned hurtiginnstillinger</string>
+  <string name="quick_pulldown_summary_left">Venstre</string>
+  <string name="quick_pulldown_summary_right">Høyre</string>
+  <string name="quick_pulldown_off">Av</string>
+  <string name="quick_pulldown_left">Venstre</string>
+  <string name="quick_pulldown_right">Høyre</string>
   <string name="status_bar_show_weather_title">Vis været</string>
   <string name="status_bar_show_weather_summary">Vis været over hurtiginnstillinger panelet</string>
   <string name="qs_category_title">Hurtinginnstillingspanel</string>
@@ -690,6 +718,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">Hode: %1$s W/kg</string>
   <string name="maximum_body_level">Innhold: %1$s W/kg</string>
+  <string name="ic_code_model">Modell: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Utvidet Skrivebord</string>
   <string name="expanded_hide_nothing">Skjul ingenting</string>
   <string name="expanded_hide_status">Skjul statuslinjen</string>
@@ -746,4 +776,18 @@
   <string name="recents_show_searchbar">Vis søkelinjen i siste-menyen</string>
   <string name="keywords_recents_show_searchbar">siste siste-menyen deaktiver aktivert vis skjul søkebar søkefelt</string>
   <string name="sim_ringtone_title">SIM %d ringetone</string>
+  <string name="interruptions_ignore_while_media_title">Hindre lyd ducking</string>
+  <string name="interruptions_ignore_while_media_summary">Ikke Reduser media avspillingsvolumet når en melding ankommer</string>
+  <string name="live_display_mode">Visningsmodus</string>
+  <string name="live_display_color_temperature_title">Fargetemperatur</string>
+  <string name="live_display_color_temperature_summary">Dag: <xliff:g id="day_temperature">%1$d</xliff:g>K  Natt: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Dag</string>
+  <string name="live_display_night">Natt</string>
+  <string name="live_display_outdoor_mode_title">Automatisk utendørs modus</string>
+  <string name="live_display_outdoor_mode_summary">Øk lysstyrke og metning automatisk under sterkt sollys</string>
+  <string name="live_display_low_power_title">Reduser strømforbruket</string>
+  <string name="live_display_low_power_summary">Justere visningen for laveste strømforbruk uten degradering</string>
+  <string name="live_display_enhance_color_title">Forbedre farger</string>
+  <string name="live_display_enhance_color_summary">Forbedre fargefullhet på hudfarger, natur og andre bilder</string>
 </resources>

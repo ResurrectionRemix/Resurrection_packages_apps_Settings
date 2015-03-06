@@ -53,6 +53,7 @@
   <string name="new_profile_name">&lt;פרופיל חדש&gt;</string>
   <string name="rename_dialog_title">שינוי שם</string>
   <string name="rename_dialog_message">הזן שם חדש</string>
+  <string name="rename_dialog_hint">הזן שם פרופיל</string>
   <string name="profile_reset_title">לאפס</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
@@ -78,6 +79,7 @@
   <string name="toggleWifi">Wi-Fi</string>
   <string name="toggleBluetooth">בלוטוס</string>
   <string name="toggleGPS">GPS</string>
+  <string name="toggleData">חיבור נתונים</string>
   <string name="toggleSync">סנכרון נתונים אוטומטי</string>
   <string name="toggleNfc">NFC</string>
   <string name="button_pref_title">מקשים</string>
@@ -110,6 +112,7 @@
   <string name="swap_volume_buttons_summary">החלף את כיוון לחצני הקול כאשר המסך מסובב</string>
   <string name="power_end_call_title">סיים שיחה</string>
   <string name="power_end_call_summary">לחיצה על לחצן ההפעלה תסיים את השיחה הנוכחית</string>
+  <string name="button_wake_title">הער את המכשיר</string>
   <string name="home_answer_call_title">השב לשיחה</string>
   <string name="home_answer_call_summary">לחיצה על כפתור הבית תענה לשיחה הנכנסת הנוכחית</string>
   <string name="button_backlight_title">תאורה אחורית</string>
@@ -187,10 +190,14 @@
   <string name="app_security_title">אבטחת יישום</string>
   <string name="sms_security_check_limit_title">מגבלת הודעות SMS</string>
   <string name="sms_security_check_limit_summary">יישומים יכולים לשלוח %d הודעות בחצי שעה לפני בקשת אישור</string>
+  <string name="spam_last_blocked_title">נחסם לאחרונה %1$s</string>
   <string name="block_notifications_title">סנן הודעות</string>
   <string name="block_notifications_summary">נהל הודעות שהוחבאו ומסננים</string>
   <string name="no_filters_title">לא הוגדרו מסננים</string>
   <string name="cmupdate_settings_title">עדכוני CyanogenMod</string>
+  <string name="update_recovery_title">עדכן את ה-Recovery של Cyanogen</string>
+  <string name="update_recovery_on_warning">שים לב: כשתכונה זו מופעלת, ה-Recovery הנוכחי שלך יוחלף ב-Recovery הכלול בגרסה הנוכחית של מערכת ההפעלה שלך.\n\nה-Recovery הנוכחי שלך יתעדכן יחד עם עדכונים למערכת שלך, כדי להבטיח תאימות עם גרסאות עתידיות.\n\nהאם להפעיל את תכונה זו?</string>
+  <string name="update_recovery_off_warning">אזהרה: כשתכונה זו לא מופעלת, ה-Recovery הנוכחי לא יתעדכן עם עדכוני מערכת.\n\nעדכוני מערכת עתידיים לא יותקנו עם גרסה לא עדכנית של ה-Recovery.\n\nהאם לכבות את תכונה זו?</string>
   <string name="mod_version">גרסת CyanogenMod</string>
   <string name="mod_version_default">לא ידוע</string>
   <string name="build_date">תאריך בנייה</string>
@@ -209,11 +216,16 @@
   <string name="privacy_guard_reset_text">לאפס הרשאות?</string>
   <string name="privacy_guard_help_text">בחלון זה אתה יכול לבחור עבור אילו יישומים שומר הפרטיות יפעל. הייישומים הנבחרים לא יקבלו גישה למידע הפרטי שלך כמו אנשי קשר, הודעות ויומן שיחות. לחיצה ארוכה על יישום יפתח את פרטי הרשאות היישום.\n\nיישומים מובנים לא מוצגים כברירת מחדל, אבל יכולים להיחשף על ידי בחירת ההגדרה המתאימה.</string>
   <string name="privacy_guard_manager_show_system_apps">הצג יישומים מובנים</string>
+  <string name="increasing_ring_volume_option_title">עוצמת צלצול מתגברת</string>
+  <string name="increasing_ring_min_volume_title">עוצמה התחלתית</string>
+  <string name="increasing_ring_ramp_up_time_title">אורך זמן ההגברה</string>
   <string name="advanced_reboot_title">אתחול מתקדם</string>
   <string name="advanced_reboot_summary">כאשר פתוח, מוסיף אפשרויות לתפריט הפעלה לאתחול ל- recovery, bootloader או אתחול תוכנתי</string>
   <string name="enable_adb_cm">‏ניקוי באגים ב-USB</string>
   <string name="enable_adb_summary_cm">הפעל ממשק adb</string>
   <string name="adb_over_network">ADB דרך הרשת</string>
+  <string name="adb_over_network_summary">אפשר איתור באגים (Debugging) של TCP/IP דרך ממשקי רשת (Wi-Fi, רשתות USB). אפשרות זו מאופסת באתחול המכשיר</string>
+  <string name="adb_over_network_warning">אזהרה: כאשר ADB דרך הרשת פעיל, הטלפון שלך חדיר מכל הרשתות המחוברות!\n\nיש להשתמש באפשרות זו רק כשאתה מחובר לרשת שניתן לסמוך עליה.\n\nהאם ברצונך להפעיל את אפשרות זו?</string>
   <string name="device_hostname">שם הרשת עבור ההתקן</string>
   <string name="development_shortcut_title">קיצור דרך לכלי פיתוח</string>
   <string name="double_tap_to_sleep_title">הקשה כפולה לכיבוי מסך</string>
@@ -433,6 +445,7 @@
   <string name="hue_str">גוון: <xliff:g id="hue_value">%1$s</xliff:g></string>
   <string name="saturation_str">רוויה: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">ניגודיות: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_vivid">חי (Vivid)</string>
   <string name="screen_color_setting_custom">מותאם אישית</string>
   <string name="bluetooth_profile_dun">גישה לחיוג רשת</string>
   <string name="bluetooth_profile_sap">גישה ל-SIM</string>
