@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,8 +14,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -36,11 +37,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingTop="10dip" />
-        <SeekBar android:id="@+id/color_red_seekbar"
+        <com.android.settings.IntervalSeekBar android:id="@+id/color_red_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/color_red_text"
-                android:paddingTop="2dip" />
+                android:paddingTop="2dip"
+                settings:min="0.01"
+                settings:max="1.00"
+                settings:defaultValue="1.00"
+                settings:digits="4" />
 
         <TextView android:id="@+id/color_green_text"
                 android:layout_width="wrap_content"
@@ -54,11 +59,15 @@
                 android:layout_below="@id/color_red_seekbar"
                 android:layout_alignParentRight="true"
                 android:paddingTop="10dip" />
-        <SeekBar android:id="@+id/color_green_seekbar"
+        <com.android.settings.IntervalSeekBar android:id="@+id/color_green_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/color_green_text"
-                android:paddingTop="2dip" />
+                android:paddingTop="2dip"
+                settings:min="0.01"
+                settings:max="1.00"
+                settings:defaultValue="1.00"
+                settings:digits="4" />
 
         <TextView android:id="@+id/color_blue_text"
                 android:layout_width="match_parent"
@@ -72,11 +81,15 @@
                 android:layout_below="@id/color_green_seekbar"
                 android:layout_alignParentRight="true"
                 android:paddingTop="10dip" />
-        <SeekBar android:id="@+id/color_blue_seekbar"
+        <com.android.settings.IntervalSeekBar android:id="@+id/color_blue_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/color_blue_text"
-                android:paddingTop="2dip" />
+                android:paddingTop="2dip"
+                settings:min="0.01"
+                settings:max="1.00"
+                settings:defaultValue="1.00"
+                settings:digits="4" />
 
         <ImageView android:id="@+id/black_scale_picture_color"
                 android:src="@drawable/color_tuning_preview"

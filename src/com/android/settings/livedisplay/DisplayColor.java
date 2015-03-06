@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2013-2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,34 +14,33 @@
  * limitations under the License.
  */
 
-package com.android.settings.hardware;
+package com.android.settings.livedisplay;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.UserHandle;
 import android.preference.DialogPreference;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Button;
 
+import com.android.settings.IntervalSeekBar;
 import com.android.settings.R;
-
-import org.cyanogenmod.hardware.DisplayColorCalibration;
 
 /**
  * Special preference type that allows configuration of Color settings
  */
 public class DisplayColor extends DialogPreference {
     private static final String TAG = "ColorCalibration";
+
+    private final Context mContext;
 
     // These arrays must all match in length and order
     private static final int[] SEEKBAR_ID = new int[] {
@@ -57,15 +56,14 @@ public class DisplayColor extends DialogPreference {
     };
 
     private ColorSeekBar[] mSeekBars = new ColorSeekBar[SEEKBAR_ID.length];
-    private String[] mCurrentColors;
-    private String mOriginalColors;
+
+    private final float[] mCurrentColors = new float[3];
+    private final float[] mOriginalColors = new float[3];
 
     public DisplayColor(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        if (!isSupported()) {
-            return;
-        }
+        mContext = context;
 
         setDialogLayoutResource(R.layout.display_color_calibration);
     }
@@ -84,14 +82,31 @@ public class DisplayColor extends DialogPreference {
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        mOriginalColors = DisplayColorCalibration.getCurColors();
-        mCurrentColors = mOriginalColors.split(" ");
+        String colorAdjustmentTemp = Settings.System.getStringForUser(mContext.getContentResolver(),
+                Settings.System.DISPLAY_COLOR_ADJUSTMENT,
+                UserHandle.USER_CURRENT);
+        String[] colorAdjustment = colorAdjustmentTemp == null ?
+                null : colorAdjustmentTemp.split(" ");
+        if (colorAdjustment == null || colorAdjustment.length != 3) {
+            colorAdjustment = new String[] { "1.0", "1.0", "1.0" };
+        }
+        try {
+            mOriginalColors[0] = Float.parseFloat(colorAdjustment[0]);
+            mOriginalColors[1] = Float.parseFloat(colorAdjustment[1]);
+            mOriginalColors[2] = Float.parseFloat(colorAdjustment[2]);
+        } catch (NumberFormatException e) {
+            mOriginalColors[0] = 1.0f;
+            mOriginalColors[1] = 1.0f;
+            mOriginalColors[2] = 1.0f;
+        }
+
+        System.arraycopy(mOriginalColors, 0, mCurrentColors, 0, 3);
 
         for (int i = 0; i < SEEKBAR_ID.length; i++) {
-            SeekBar seekBar = (SeekBar) view.findViewById(SEEKBAR_ID[i]);
+            IntervalSeekBar seekBar = (IntervalSeekBar) view.findViewById(SEEKBAR_ID[i]);
             TextView value = (TextView) view.findViewById(SEEKBAR_VALUE_ID[i]);
             mSeekBars[i] = new ColorSeekBar(seekBar, value, i);
-            mSeekBars[i].setValueFromString(mCurrentColors[i]);
+            mSeekBars[i].mSeekBar.setProgressFloat(mCurrentColors[i]);
         }
     }
 
@@ -106,12 +121,11 @@ public class DisplayColor extends DialogPreference {
         defaultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int defaultValue = DisplayColorCalibration.getDefValue();
                 for (int i = 0; i < mSeekBars.length; i++) {
-                    mSeekBars[i].mSeekBar.setProgress(defaultValue);
-                    mCurrentColors[i] = String.valueOf(defaultValue);
+                    mSeekBars[i].mSeekBar.setProgressFloat(1.00f);
+                    mCurrentColors[i] = 1.0f;
                 }
-                DisplayColorCalibration.setColors(TextUtils.join(" ", mCurrentColors));
+                updateColors(mCurrentColors);
             }
         });
     }
@@ -119,14 +133,7 @@ public class DisplayColor extends DialogPreference {
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
-
-        if (positiveResult) {
-            Editor editor = getEditor();
-            editor.putString("display_color_calibration", DisplayColorCalibration.getCurColors());
-            editor.commit();
-        } else if (mOriginalColors != null) {
-            DisplayColorCalibration.setColors(mOriginalColors);
-        }
+        updateColors(positiveResult ? mCurrentColors : mOriginalColors);
     }
 
     @Override
@@ -142,8 +149,7 @@ public class DisplayColor extends DialogPreference {
         myState.originalColors = mOriginalColors;
 
         // Restore the old state when the activity or dialog is being paused
-        DisplayColorCalibration.setColors(mOriginalColors);
-        mOriginalColors = null;
+        updateColors(mOriginalColors);
 
         return myState;
     }
@@ -158,39 +164,18 @@ public class DisplayColor extends DialogPreference {
 
         SavedState myState = (SavedState) state;
         super.onRestoreInstanceState(myState.getSuperState());
-        mOriginalColors = myState.originalColors;
-        mCurrentColors = myState.currentColors;
+
+        System.arraycopy(myState.originalColors, 0, mOriginalColors, 0, 3);
+        System.arraycopy(myState.currentColors, 0, mCurrentColors, 0, 3);
         for (int i = 0; i < mSeekBars.length; i++) {
-            mSeekBars[i].setValueFromString(mCurrentColors[i]);
+            mSeekBars[i].mSeekBar.setProgressFloat(mCurrentColors[i]);
         }
-        DisplayColorCalibration.setColors(TextUtils.join(" ", mCurrentColors));
-    }
-
-    public static boolean isSupported() {
-        try {
-            return DisplayColorCalibration.isSupported();
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework isn't installed
-            return false;
-        }
-    }
-
-    public static void restore(Context context) {
-        if (!isSupported()) {
-            return;
-        }
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final String value = prefs.getString("display_color_calibration", null);
-
-        if (value != null) {
-            DisplayColorCalibration.setColors(value);
-        }
+        updateColors(mCurrentColors);
     }
 
     private static class SavedState extends BaseSavedState {
-        String originalColors;
-        String[] currentColors;
+        float[] originalColors;
+        float[] currentColors;
 
         public SavedState(Parcelable superState) {
             super(superState);
@@ -198,15 +183,15 @@ public class DisplayColor extends DialogPreference {
 
         public SavedState(Parcel source) {
             super(source);
-            originalColors = source.readString();
-            currentColors = source.createStringArray();
+            originalColors = source.createFloatArray();
+            currentColors = source.createFloatArray();
         }
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
-            dest.writeString(originalColors);
-            dest.writeStringArray(currentColors);
+            dest.writeFloatArray(originalColors);
+            dest.writeFloatArray(currentColors);
         }
 
         public static final Parcelable.Creator<SavedState> CREATOR =
@@ -222,36 +207,38 @@ public class DisplayColor extends DialogPreference {
         };
     }
 
+    private void updateColors(float[] colors) {
+        Settings.System.putStringForUser(mContext.getContentResolver(),
+                Settings.System.DISPLAY_COLOR_ADJUSTMENT,
+                new StringBuilder().append(colors[0]).append(" ")
+                                   .append(colors[1]).append(" ")
+                                   .append(colors[2]).toString(),
+                UserHandle.USER_CURRENT);
+    }
+
     private class ColorSeekBar implements SeekBar.OnSeekBarChangeListener {
         private int mIndex;
-        private SeekBar mSeekBar;
+        private final IntervalSeekBar mSeekBar;
         private TextView mValue;
 
-        public ColorSeekBar(SeekBar seekBar, TextView value, int index) {
+        public ColorSeekBar(IntervalSeekBar seekBar, TextView value, int index) {
             mSeekBar = seekBar;
             mValue = value;
             mIndex = index;
 
-            mSeekBar.setMax(DisplayColorCalibration.getMaxValue() -
-                    DisplayColorCalibration.getMinValue());
             mSeekBar.setOnSeekBarChangeListener(this);
-        }
-
-        public void setValueFromString(String valueString) {
-            mSeekBar.setProgress(Integer.valueOf(valueString));
         }
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            int min = DisplayColorCalibration.getMinValue();
-            int max = DisplayColorCalibration.getMaxValue();
-
+            IntervalSeekBar isb = (IntervalSeekBar)seekBar;
+            float fp = isb.getProgressFloat();
             if (fromUser) {
-                mCurrentColors[mIndex] = String.valueOf(progress + min);
-                DisplayColorCalibration.setColors(TextUtils.join(" ", mCurrentColors));
+                mCurrentColors[mIndex] = fp;
+                updateColors(mCurrentColors);
             }
 
-            int percent = Math.round(100F * progress / (max - min));
+            int percent = Math.round(100F * fp);
             mValue.setText(String.format("%d%%", percent));
         }
 

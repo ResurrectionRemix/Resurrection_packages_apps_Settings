@@ -181,6 +181,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_doze";
                 stringId = R.string.qs_ambient_display_tile;
                 break;
+            case QSConstants.TILE_LIVE_DISPLAY:
+                resourceName ="ic_livedisplay_day";
+                stringId = R.string.live_display_title;
+                break;
             default:
                 return null;
         }
