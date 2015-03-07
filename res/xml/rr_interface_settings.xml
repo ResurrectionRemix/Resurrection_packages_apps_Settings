@@ -61,6 +61,14 @@
             android:title="@string/navbar_button_tint_title"
             android:defaultValue="#ffffff" />
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_navbar"
+            android:title="@string/double_tap_sleep_nav_bar_title"
+            android:summary="@string/double_tap_sleep_nav_bar_summary"
+            android:defaultValue="false"
+            android:dependency="navigation_bar_show"
+            settings:advanced="true"/>
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="navigation_bar_menu_arrow_keys"
                 android:title="@string/navigation_bar_arrow_keys_title"
                 android:summary="@string/navigation_bar_arrow_keys_summary"
