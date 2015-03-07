@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.hardware.CmHardwareManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -687,16 +688,16 @@ public class Status extends PreferenceActivity {
     }
 
     private String getSerialNumber() {
-        try {
-            if (SerialNumber.isSupported()) {
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
+        if (cmHardwareManager.isSupported(CmHardwareManager.FEATURE_SERIAL_NUMBER)) {
+            return cmHardwareManager.getSerialNumber();
+            } else if (SerialNumber.isSupported()) {
                 return SerialNumber.getSerialNumber();
             }
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework not installed; fall through
+            
+            return Build.SERIAL;
         }
-
-        return Build.SERIAL;
-    }
 
     public static String getSarValues(Resources res) {
         String headLevel = String.format(res.getString(R.string.maximum_head_level,

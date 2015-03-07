@@ -25,6 +25,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.hardware.CmHardwareManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.Handler;
@@ -49,7 +50,6 @@ import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-import org.cyanogenmod.hardware.KeyDisabler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -240,10 +240,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean showAppSwitchWake = (deviceWakeKeys & KEY_MASK_APP_SWITCH) != 0;
         final boolean showVolumeWake = (deviceWakeKeys & KEY_MASK_VOLUME) != 0;
 
+        final CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+
         // Only visible on devices that does not have a navigation bar already,
         // and don't even try unless the existing keys can be disabled
         boolean needsNavigationBar = false;
-        if (isKeyDisablerSupported()) {
+        if (cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE)) {
             try {
                 IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
                 needsNavigationBar = wm.needsNavigationBar();
@@ -411,7 +414,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 result.put(KEY_NAVIGATION_BAR_LEFT, CATEGORY_NAVBAR);
             }
 
-            if ((!hasNavBar && (needsNavigationBar || !isKeyDisablerSupported()))) {
+            if (!hasNavBar && (needsNavigationBar ||
+                    !cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE))) {
                 result.put(CATEGORY_NAVBAR, null);
             }
         } catch (RemoteException e) {
@@ -595,7 +599,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         Settings.Secure.putInt(context.getContentResolver(),
                 Settings.Secure.DEV_FORCE_SHOW_NAVBAR, enabled ? 1 : 0);
-        KeyDisabler.setActive(enabled);
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        cmHardwareManager.set(CmHardwareManager.FEATURE_KEY_DISABLE, enabled);
 
         /* Save/restore button timeouts to disable them in softkey mode */
         Editor editor = prefs.edit();
@@ -669,7 +675,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     public static void restoreKeyDisabler(Context context) {
-        if (!isKeyDisablerSupported()) {
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE)) {
             return;
         }
 
@@ -708,15 +716,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    private static boolean isKeyDisablerSupported() {
-        try {
-            return KeyDisabler.isSupported();
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework not installed
-            return false;
-        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
