@@ -79,14 +79,9 @@
             android:entryValues="@array/recents_clear_all_location_values"
             android:defaultValue="5"
             android:dependency="show_clear_all_recents" />
-    <!-- CMHW vibration intensity -->
-    <com.android.settings.hardware.VibratorIntensity
-            android:key="vibration_intensity"
-            android:title="@string/vibrator_intensity_title"
-            android:dialogTitle="@string/vibrator_intensity_title"
-            android:persistent="false" />
-    </PreferenceCategory>
-    
+            
+     </PreferenceCategory>
+     
      <PreferenceCategory
         android:key="widgets"
         android:title="@string/widgets_category" >
@@ -101,5 +96,16 @@
         </PreferenceScreen>
 
 </PreferenceCategory>
-         
+
+    <!-- CMHW vibration intensity -->
+    <PreferenceCategory
+        android:key="hw_cat"
+        android:title="@string/hw_cat" >
+    <com.android.settings.hardware.VibratorIntensity
+            android:key="vibration_intensity"
+            android:title="@string/vibrator_intensity_title"
+            android:dialogTitle="@string/vibrator_intensity_title"
+            android:persistent="false" />
+    </PreferenceCategory>
+             
 </PreferenceScreen>
