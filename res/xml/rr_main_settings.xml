@@ -108,7 +108,13 @@
                 android:targetClass="com.android.systemui.tuner.TunerActivity" />
        </PreferenceScreen>
 
-
+        <!-- Wakelock blocker -->
+        <PreferenceScreen
+            android:key="wakelock_blocker"
+            android:fragment="com.android.settings.rr.WakeLockBlocker"
+            android:title="@string/wakelock_blocker_title"
+            android:icon="@drawable/ic_xd_wakelock" 
+            />
 
        <!-- Updater -->
         <PreferenceScreen
@@ -119,6 +125,8 @@
                     android:targetPackage="com.resurrection.ota"
                     android:targetClass="com.resurrection.ota.MainActivity" />
         </PreferenceScreen>   
+
+
                 
 </PreferenceCategory>
 
