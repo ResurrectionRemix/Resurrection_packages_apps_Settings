@@ -36,6 +36,7 @@ import android.preference.Preference;
 import android.preference.SwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
+import android.hardware.CmHardwareManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.Display;
@@ -56,7 +57,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "MiscSettings";
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
-    
+    private static final String KEY_VIBRATION_INTENSITY = "vibration_intensity";
     private ListPreference mToastAnimation;
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
@@ -96,7 +97,15 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mToastAnimation.setValueIndex(CurrentToastAnimation);
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
-
+        
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
+        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_VIBRATOR)) {
+            Preference preference = prefSet.findPreference(KEY_VIBRATION_INTENSITY);
+            if (preference != null) {
+                prefSet.removePreference(preference);
+            }
+        }
     }
 
     @Override
