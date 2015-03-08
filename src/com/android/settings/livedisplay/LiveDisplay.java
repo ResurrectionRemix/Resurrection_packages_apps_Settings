@@ -69,10 +69,11 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
     private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
 
-    public static final int MODE_DAY = 0;
+    public static final int MODE_OFF = 0;
     public static final int MODE_NIGHT = 1;
     public static final int MODE_AUTO = 2;
     public static final int MODE_OUTDOOR = 3;
+    public static final int MODE_DAY = 4;
 
     private final Handler mHandler = new Handler();
     private final SettingsObserver mObserver = new SettingsObserver();
@@ -216,10 +217,17 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private void updateModeSummary() {
         int mode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.DISPLAY_TEMPERATURE_MODE,
-                MODE_DAY, UserHandle.USER_CURRENT);
+                MODE_OFF, UserHandle.USER_CURRENT);
 
         int index = ArrayUtils.indexOf(mModeValues, String.valueOf(mode));
         mLiveDisplay.setSummary(mModeSummaries[index]);
+
+        if (mDisplayTemperature != null) {
+            mDisplayTemperature.setEnabled(mode != MODE_OFF);
+        }
+        if (mOutdoorMode != null) {
+            mOutdoorMode.setEnabled(mode != MODE_OFF);
+        }
     }
 
     private void updateTemperatureSummary() {
