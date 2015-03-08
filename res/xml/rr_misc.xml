@@ -15,7 +15,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/misc_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    
+    <!-- Wakelock blocker -->
+    <PreferenceScreen
+        android:key="wakelock_blocker"
+        android:fragment="com.android.settings.aicp.WakeLockBlocker"
+        android:title="@string/wakelock_blocker_title" />    
         <!-- animations -->
     <PreferenceCategory
         android:title="@string/rr_animations_title">
