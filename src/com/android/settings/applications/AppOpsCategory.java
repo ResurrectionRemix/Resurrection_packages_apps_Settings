@@ -335,7 +335,7 @@ public class AppOpsCategory extends ListFragment implements
 
         SettingsActivity sa = (SettingsActivity) getActivity();
         sa.startPreferencePanel(AppOpsDetails.class.getName(), args,
-                R.string.app_ops_settings, null, this, RESULT_APP_DETAILS);
+                R.string.privacy_guard_manager_title, null, this, RESULT_APP_DETAILS);
     }
     
     @Override public void onListItemClick(ListView l, View v, int position, long id) {

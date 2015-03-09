@@ -293,7 +293,7 @@ public class PrivacyGuardManager extends Fragment
 
         SubSettings ssa = (SubSettings) getActivity();
         ssa.startPreferencePanel(AppOpsDetails.class.getName(), args,
-                R.string.app_ops_settings, null, this, 2);
+                R.string.privacy_guard_manager_title, null, this, 2);
         return true;
     }
 
