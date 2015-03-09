@@ -220,12 +220,13 @@ public class DisplayTemperature extends DialogPreference {
 
         private static final int MIN = 1000;
         private static final int MAX = 10000;
+        private static final int STEP = 100;
 
         public ColorTemperatureSeekBar(SeekBar seekBar, TextView value) {
             mSeekBar = seekBar;
             mValue = value;
 
-            mSeekBar.setMax(MAX - MIN);
+            mSeekBar.setMax((MAX - MIN) / STEP);
             mSeekBar.setOnSeekBarChangeListener(this);
         }
 
@@ -235,16 +236,16 @@ public class DisplayTemperature extends DialogPreference {
                 updateTemperature(true);
             }
             mValue.setText(mContext.getResources().getString(
-                    R.string.live_display_color_temperature_label, progress + MIN));
+                    R.string.live_display_color_temperature_label, progress * STEP + MIN));
         }
 
         public void setProgress(int progress) {
-            int p = progress < MIN ? MIN : progress;
-            mSeekBar.setProgress(p - MIN);
+            int p = Math.max(progress, MIN) - MIN;
+            mSeekBar.setProgress(Math.round((float) p / STEP));
         }
 
         public int getProgress() {
-            return mSeekBar.getProgress() + MIN;
+            return mSeekBar.getProgress() * STEP + MIN;
         }
 
         @Override
