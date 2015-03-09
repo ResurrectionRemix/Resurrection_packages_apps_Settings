@@ -167,6 +167,12 @@ public class WifiSetupActivity extends WifiPickerActivity
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.translucent_enter, R.anim.translucent_exit);
+    }
+
+    @Override
     protected void onApplyThemeResource(Resources.Theme theme, int resid, boolean first) {
         String themeName = getIntent().getStringExtra(EXTRA_THEME);
         if (THEME_HOLO_LIGHT.equalsIgnoreCase(themeName) ||
