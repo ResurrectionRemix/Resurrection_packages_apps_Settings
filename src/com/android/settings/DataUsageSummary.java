@@ -334,7 +334,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             throw new RuntimeException(e);
         }
 
-        mShowWifi = mPrefs.getBoolean(PREF_SHOW_WIFI, false);
+        mShowWifi = mPrefs.getBoolean(PREF_SHOW_WIFI, true);
         mShowEthernet = mPrefs.getBoolean(PREF_SHOW_ETHERNET, false);
 
         // override preferences when no mobile radio
