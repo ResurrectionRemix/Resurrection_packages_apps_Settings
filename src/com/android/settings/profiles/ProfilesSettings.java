@@ -207,7 +207,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         mProfileManager.resetAll();
-                        mAdapter.refreshProfiles();
                         mProfileManager.setActiveProfile(
                                 mProfileManager.getActiveProfile().getUuid());
                     }
