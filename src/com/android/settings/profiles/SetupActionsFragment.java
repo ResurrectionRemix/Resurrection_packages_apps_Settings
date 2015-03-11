@@ -54,6 +54,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -796,7 +797,14 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(!empty);
             }
         });
-
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                InputMethodManager imm = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(entry, InputMethodManager.SHOW_IMPLICIT);
+            }
+        });
         alertDialog.show();
     }
 
