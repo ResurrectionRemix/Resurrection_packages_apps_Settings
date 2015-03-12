@@ -243,14 +243,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 addPreferencesFromResource(R.xml.security_settings_unencrypted);
             }
         }
-        // remove lockscreen visualizer option on low end gfx devices
-        if (!ActivityManager.isHighEndGfx() && securityCategory != null) {
-            SwitchPreference displayVisualizer = (SwitchPreference)
-                    securityCategory.findPreference(KEY_SHOW_VISUALIZER);
-            if (displayVisualizer != null) {
-                securityCategory.removePreference(displayVisualizer);
-            }
-        }
+
 
         // Trust Agent preferences
         PreferenceGroup securityCategory = (PreferenceGroup)
@@ -278,6 +271,14 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     trustAgentPreference.setSummary(R.string.disabled_because_no_backup_security);
                 }
             }
+        // remove lockscreen visualizer option on low end gfx devices
+        if (!ActivityManager.isHighEndGfx() && securityCategory != null) {
+            SwitchPreference displayVisualizer = (SwitchPreference)
+                    securityCategory.findPreference(KEY_SHOW_VISUALIZER);
+            if (displayVisualizer != null) {
+                securityCategory.removePreference(displayVisualizer);
+            }
+          }
         }
 
         // lock after preference
