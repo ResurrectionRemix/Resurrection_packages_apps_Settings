@@ -50,7 +50,13 @@
         <SwitchPreference
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
-         
+            
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+                android:key="lockscreen_visualizer"
+                android:title="@string/lockscreen_visualizer_title"
+                android:defaultValue="true"
+                settings:advanced="true"/>
+                           
          <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"

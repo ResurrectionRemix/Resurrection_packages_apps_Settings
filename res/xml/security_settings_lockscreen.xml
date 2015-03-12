@@ -28,7 +28,13 @@
             android:summary="@string/unlock_set_unlock_mode_off"
             settings:keywords="@string/keywords_lockscreen"
             android:persistent="false"/>
-
+            
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+                android:key="lockscreen_visualizer"
+                android:title="@string/lockscreen_visualizer_title"
+                android:defaultValue="true"
+                settings:advanced="true"/>
+                  
         <PreferenceScreen
             android:key="owner_info_settings"
             android:fragment="com.android.settings.OwnerInfoSettings"
