@@ -52,7 +52,9 @@
   <string name="profile_populate_profile_from_state">Geçerli cihaz ayarları kullanılarak profil yapılandırılsın mı?</string>
   <string name="profile_menu_fill_from_state">Geçerli cihaz ayarlarını al</string>
   <string name="profile_remove_current_profile">Geçerli profil silinemez!</string>
+  <string name="profile_app_group_category_title">Bildirimleri geçersiz kıl</string>
   <string name="profile_app_group_item_instructions">Grupları ekle veya kaldır</string>
+  <string name="profile_app_group_item_instructions_summary">Grup ekleme / kaldırma bildirimi bu profilin uygulama gruplarını geçersiz kılar</string>
   <string name="profile_name_title">İsim</string>
   <string name="new_profile_name">&lt;yeni profil&gt;</string>
   <string name="rename_dialog_title">Yeniden adlandır</string>
@@ -328,6 +330,8 @@
   <string name="notification_light_missed_call_title">Cevapsız arama</string>
   <string name="notification_light_voicemail_title">Sesli mesaj</string>
   <string name="notification_ringtone_title_cm">Bildirim tonu</string>
+  <string name="headset_connect_player_title">Müzik uygulamasını başlat</string>
+  <string name="headset_connect_player_summary">Kulaklık bağlandığında müzik uygulamasını başlatır</string>
   <string name="ime_switcher_notify">Seçici simgesi</string>
   <string name="ime_switcher_notify_summary">Giriş yöntemi seçici simgesini görüntüle</string>
   <string name="app_notification_show_on_keyguard_title">Kilit ekranında göster</string>
@@ -477,6 +481,22 @@
   <string name="profile_setup_setup_triggers_title_config">Tetikleyicileri değiştir: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Adım 2: Eylemleri kurun</string>
   <string name="profile_setup_actions_title_config">Eylemleri tekrar ayarla</string>
+  <string name="profile_appgroups_manage">Uygulama grupları</string>
+  <string name="profile_appgroup_manage">Uygulama grubunu yönet</string>
+  <string name="profile_appgroups_title">Uygulama grupları</string>
+  <string name="profile_new_appgroup">Yeni uygulama grubu</string>
+  <string name="profile_delete_appgroup">Uygulama grubu silinsin mi?</string>
+  <string name="profile_appgroup_name_prompt">Yeni uygulama grubu için bir isim girin</string>
+  <string name="profile_appgroup_name_title">İsim</string>
+  <string name="duplicate_appgroup_name">Tekrarlayan uygulama grup ismi!</string>
+  <string name="profile_app_delete_confirm">Uygulama silinsin mi?</string>
+  <string name="sound_mode">Bildirim modu</string>
+  <string name="ringer_mode">Zil sesi modu</string>
+  <string name="lights_mode">Işık modu</string>
+  <string name="vibrate_mode">Titreşim modu</string>
+  <string name="choose_soundtone">Bildirim tonunu seçin</string>
+  <string name="choose_ringtone">Zil sesini seçin</string>
+  <string name="soundtone_title">Bildirim tonu</string>
   <string name="no_bluetooth_triggers">Eşleştirilmiş bluetooth aygıtı yok.\nTetikleyicileri yapılandırmadan önce Bluetooth cihazı ile eşleştirmek için dokunun.</string>
   <string name="no_wifi_triggers">Hiç  Wi\u2011Fi erişim noktası yapılandırılmadı.\nTetikleyicileri yapılandırmadan önce  Wi\u2011Fi ağına bağlanmak için dokunun.</string>
   <string name="no_triggers_configured">Hiç tetikleyici ayarlanmadı. Eklemek için dokunun.</string>
@@ -652,7 +672,7 @@
   <string name="link_volume_option_title">Zil sesi &amp; bildirim sesi düzeyini bağla</string>
   <string name="notification_volume_option_title">Bildirim sesi</string>
   <string name="notification_drawer_title">Bildirim çekmecesi</string>
-  <string name="quick_pulldown_title">Hızlı aşağı çekiş</string>
+  <string name="quick_pulldown_title">Hızlı aşağı çekme</string>
   <string name="quick_pulldown_summary">Durum çubuğunun %1$s tarafından aşağı çekince Hızlı Ayarlar açılır</string>
   <string name="quick_pulldown_summary_left">Sol</string>
   <string name="quick_pulldown_summary_right">Sağ</string>
@@ -701,6 +721,8 @@
   <string name="wifi_mhz">Mhz</string>
   <string name="maximum_head_level">Baş: %1$s W/kg</string>
   <string name="maximum_body_level">Vücut: %1$s W/kg</string>
+  <string name="ic_code_model">Model: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Genişletilmiş Masaüstü</string>
   <string name="expanded_hide_nothing">Hiçbir şey gizleme</string>
   <string name="expanded_hide_status">Durum çubuğunu gizle</string>
@@ -716,6 +738,7 @@
   <string name="lockscreen_none_target">Yok</string>
   <string name="lockscreen_message">Kilit ekranı kısayollarını ayarlamak için sağ ya da soldaki simgeye dokunun.</string>
   <string name="lockscreen_choose_action_title">İşlev seçin</string>
+  <string name="lockscreen_visualizer_title">Müzik görselleştiriciyi görüntüle</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Güvenli SMS ayarlarını yönet</string>
   <string name="navigation_ring_title">Dolaşım halkası uygulamaları</string>
@@ -743,6 +766,7 @@
   <string name="stylus_app_not_installed">%s yüklü değil</string>
   <string name="advanced">Gelişmiş</string>
   <string name="advanced_mode_title">Gelişmiş mod</string>
+  <string name="advanced_mode_summary">Çeşitli ayar menülerinde cihazınız için ek seçenekler gösterir</string>
   <string name="category_misc">Çeşitli</string>
   <string name="category_vibrate">Titreşim</string>
   <string name="category_volume">Ses</string>
@@ -757,5 +781,22 @@
   <string name="recents_show_searchbar">Son uygulamalar menüsünde arama çubuğu göster</string>
   <string name="keywords_recents_show_searchbar">arama etkin devre dışı arama çubuğu göster gizle son uygulamalar</string>
   <string name="sim_ringtone_title">SIM %d zil sesi</string>
+  <string name="interruptions_ignore_while_media_title">Ses yankılanmasını önle</string>
+  <string name="interruptions_ignore_while_media_summary">Bir bildirim geldiğinde medya oynatma ses seviyesini azaltma</string>
   <string name="live_display_summary">Okunabilirliği artırmak ve göz yorgunluğu azaltmak için gün ve ortam koşulları zamanına bağlı olarak ekranı iyileştirir</string>
+  <string name="live_display_mode">Görüntü modu</string>
+  <string name="live_display_color_temperature_title">Renk sıcaklığı</string>
+  <string name="live_display_color_temperature_summary">Gündüz: <xliff:g id="day_temperature">%1$d</xliff:g>K Gece: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Gündüz</string>
+  <string name="live_display_night">Gece</string>
+  <string name="live_display_outdoor_mode_title">Otomatik dış mekan modu</string>
+  <string name="live_display_outdoor_mode_summary">Parlak güneş ışığı altında otomatik parlaklığı ve doygunluğu arttırır</string>
+  <string name="live_display_low_power_title">Güç tüketimini azalt</string>
+  <string name="live_display_low_power_summary">Ekranı bozulma olmadan en düşük güç tüketimi için ayarlar</string>
+  <string name="live_display_enhance_color_title">Renkleri geliştir</string>
+  <string name="live_display_enhance_color_summary">Ten tonları, sahne ve diğer görüntülerin renk titreşimini geliştirir</string>
+  <string name="battery_saver_threshold">Pil tasarruf eşiği</string>
+  <string name="battery_saver_summary">Performansı düşürür ve arka plan verilerini sınırlar</string>
+  <string name="battery_saver_summary_unavailable">Şarj sırasında kullanılabilir değil</string>
 </resources>

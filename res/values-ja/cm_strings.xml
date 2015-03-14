@@ -51,6 +51,9 @@
   <string name="profile_populate_profile_from_state">現在の端末の設定を使用してプロファイルを設定しますか？</string>
   <string name="profile_menu_fill_from_state">現在の端末の設定をインポート</string>
   <string name="profile_remove_current_profile">現在のプロファイルは削除できません</string>
+  <string name="profile_app_group_category_title">通知の変更</string>
+  <string name="profile_app_group_item_instructions">グループを追加または削除</string>
+  <string name="profile_app_group_item_instructions_summary">このプロファイルに通知を変更するアプリグループを追加または削除する</string>
   <string name="profile_name_title">名前</string>
   <string name="new_profile_name">&lt;新しいプロファイル&gt;</string>
   <string name="rename_dialog_title">名前の変更</string>
@@ -291,6 +294,9 @@
   <string name="status_bar_battery_percentage_default">表示しない</string>
   <string name="status_bar_battery_percentage_text_inside">アイコンの中</string>
   <string name="status_bar_battery_percentage_text_next">アイコンの隣</string>
+  <string name="status_bar_show_unused_sims_title">SIMなしアイコンを表示</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">未使用のSIMスロットのアイコンを非表示にする</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">未使用のSIMスロットを表示する</string>
   <string name="edit_light_settings">ライトの設定を編集</string>
   <string name="pulse_speed_title">点滅時間と点滅速度</string>
   <string name="default_time">標準</string>
@@ -323,6 +329,8 @@
   <string name="notification_light_missed_call_title">不在着信</string>
   <string name="notification_light_voicemail_title">ボイスメール</string>
   <string name="notification_ringtone_title_cm">通知音</string>
+  <string name="headset_connect_player_title">音楽アプリを起動</string>
+  <string name="headset_connect_player_summary">ヘッドセット接続時にデフォルトの音楽アプリを起動する</string>
   <string name="ime_switcher_notify">入力方法の選択のアイコン</string>
   <string name="ime_switcher_notify_summary">入力方法の選択のアイコンを表示する</string>
   <string name="app_notification_show_on_keyguard_title">ロック画面に表示</string>
@@ -472,6 +480,22 @@
   <string name="profile_setup_setup_triggers_title_config">トリガーを変更: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">ステップ2: 動作をセットアップ</string>
   <string name="profile_setup_actions_title_config">動作を再設定</string>
+  <string name="profile_appgroups_manage">アプリグループ</string>
+  <string name="profile_appgroup_manage">アプリグループを管理</string>
+  <string name="profile_appgroups_title">アプリグループ</string>
+  <string name="profile_new_appgroup">新しいアプリグループ</string>
+  <string name="profile_delete_appgroup">このアプリグループを削除しますか？</string>
+  <string name="profile_appgroup_name_prompt">新しいアプリグループの名前を入力してください</string>
+  <string name="profile_appgroup_name_title">名前</string>
+  <string name="duplicate_appgroup_name">アプリグループの名前が重複しています</string>
+  <string name="profile_app_delete_confirm">このアプリを削除しますか？</string>
+  <string name="sound_mode">通知モード</string>
+  <string name="ringer_mode">着信モード</string>
+  <string name="lights_mode">ライトモード</string>
+  <string name="vibrate_mode">バイブレーションモード</string>
+  <string name="choose_soundtone">通知音を選択</string>
+  <string name="choose_ringtone">着信音を選択</string>
+  <string name="soundtone_title">通知音</string>
   <string name="no_bluetooth_triggers">ペアリングしているBluetoothデバイスがありません。\nタップするとトリガーを設定する前にBluetoothデバイスとペアリングします。</string>
   <string name="no_wifi_triggers">設定されているWi\u2011Fiアクセスポイントがありません。\nタップするとトリガーを設定する前にWi\u2011Fiに接続します。</string>
   <string name="no_triggers_configured">設定されているトリガーがありません。タップして追加します。</string>
@@ -576,7 +600,7 @@
   <string name="app_ops_settings_summary">アプリの権限を表示または変更する</string>
   <string name="enable_adb_summary_charging">端末は充電モードです、USBデバッグは無効になっています</string>
   <string name="enable_quickboot_title">クイックブートモードを有効化</string>
-  <string name="enable_quickboot_summary">標準の電源OFFのかわりに端末をクイックブートモードにする</string>
+  <string name="enable_quickboot_summary">標準の電源OFFの代わりに端末をクイックブートモードにする</string>
   <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
   <string name="sim_enabler_title">SIMの状態</string>
   <string name="sim_enabler_summary">SIMは<xliff:g id="status" example="enabled">%1$s</xliff:g></string>
@@ -696,6 +720,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">頭部: %1$s W/kg</string>
   <string name="maximum_body_level">身体: %1$s W/kg</string>
+  <string name="ic_code_model">モデル: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">拡張デスクトップ</string>
   <string name="expanded_hide_nothing">非表示にしない</string>
   <string name="expanded_hide_status">ステータスバーを非表示</string>
@@ -711,6 +737,7 @@
   <string name="lockscreen_none_target">なし</string>
   <string name="lockscreen_message">左右のアイコンをタップしてロック画面のショートカットを再割り当てします。</string>
   <string name="lockscreen_choose_action_title">動作を選択</string>
+  <string name="lockscreen_visualizer_title">音楽ビジュアライザを表示</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">セキュアSMSの設定を管理する</string>
   <string name="navigation_ring_title">ナビゲーションリングのターゲット</string>
@@ -738,6 +765,7 @@
   <string name="stylus_app_not_installed">%sはインストールされていません</string>
   <string name="advanced">上級者</string>
   <string name="advanced_mode_title">上級者モード</string>
+  <string name="advanced_mode_summary">さまざまな設定メニューで端末を設定するための追加オプションを表示する</string>
   <string name="category_misc">その他</string>
   <string name="category_vibrate">バイブレーション</string>
   <string name="category_volume">音量</string>
@@ -752,4 +780,22 @@
   <string name="recents_show_searchbar">最近使ったアプリに検索バーを表示</string>
   <string name="keywords_recents_show_searchbar">最近使ったアプリ 有効化 無効化 表示 非表示 検索バー</string>
   <string name="sim_ringtone_title">SIM %dの着信音</string>
+  <string name="interruptions_ignore_while_media_title">オーディオダッキングを無効化</string>
+  <string name="interruptions_ignore_while_media_summary">通知が来たときにメディアの再生音量を下げないようにする</string>
+  <string name="live_display_summary">読みやすさと目の疲れやすさを改善するために時間と周囲の環境に基いて画面を最適化する</string>
+  <string name="live_display_mode">ディスプレイのモード</string>
+  <string name="live_display_color_temperature_title">色温度</string>
+  <string name="live_display_color_temperature_summary">昼: <xliff:g id="day_temperature">%1$d</xliff:g>K  夜: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">昼</string>
+  <string name="live_display_night">夜</string>
+  <string name="live_display_outdoor_mode_title">自動屋外モード</string>
+  <string name="live_display_outdoor_mode_summary">太陽光照射下で明るさと彩度を自動的に向上させる</string>
+  <string name="live_display_low_power_title">消費電力を削減</string>
+  <string name="live_display_low_power_summary">性能を低下させずにディスプレイを最低の消費電力に調整する</string>
+  <string name="live_display_enhance_color_title">色を補正</string>
+  <string name="live_display_enhance_color_summary">肌の色、風景や他の画像の色の鮮やかさを補正する</string>
+  <string name="battery_saver_threshold">バッテリーセーバーの開始値</string>
+  <string name="battery_saver_summary">パフォーマンスとバックグランドデータを制限する</string>
+  <string name="battery_saver_summary_unavailable">充電中は利用できません</string>
 </resources>

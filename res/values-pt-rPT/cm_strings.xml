@@ -52,6 +52,9 @@
   <string name="profile_populate_profile_from_state">Configurar o perfil utilizando as definições atuais do dispositivo?</string>
   <string name="profile_menu_fill_from_state">Importar as definições atuais do dispositivo</string>
   <string name="profile_remove_current_profile">Não é possível eliminar o perfil atual!</string>
+  <string name="profile_app_group_category_title">Substituição de notificação</string>
+  <string name="profile_app_group_item_instructions">Adicionar ou remover grupos</string>
+  <string name="profile_app_group_item_instructions_summary">Adicionar ou remover grupos de aplicações que substituem a notificação deste perfil</string>
   <string name="profile_name_title">Nome</string>
   <string name="new_profile_name">&lt;novo perfil&gt;</string>
   <string name="rename_dialog_title">Mudar o nome</string>
@@ -77,7 +80,7 @@
   <string name="profile_choose_app">Escolher aplicação</string>
   <string name="profile_system_settings_title">Definições de sistema</string>
   <string name="profile_lockmode_title">Modo de ecrã de bloqueio</string>
-  <string name="profile_lockmode_insecure_summary">Não pedir a senha ou código PIN</string>
+  <string name="profile_lockmode_insecure_summary">Não pedir a palavra-passe nem PIN</string>
   <string name="profile_lockmode_disabled_summary">Desativar o ecrã de bloqueio</string>
   <string name="profile_airplanemode_title">Modo de avião</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
@@ -178,13 +181,13 @@
   <string name="remove_blacklist_entry">Quer eliminar este registo da lista negra?</string>
   <string name="select_contact">Selecionar contacto</string>
   <string name="lockpattern_reset_button">Repor o padrão</string>
-  <string name="lockpattern_settings_reset_summary">Introduza a conta de e-mail principal e a senha associada para repor o bloqueio padrão</string>
+  <string name="lockpattern_settings_reset_summary">Introduza a conta de e-mail principal e a palavra-passe associada para repor o bloqueio padrão</string>
   <string name="menu_hidden_apps_delete">Limpar</string>
   <string name="menu_hidden_apps_reset_lock">Limpar o bloqueio padrão</string>
   <string name="protected_apps">Aplicações protegidas</string>
   <string name="saving_protected_components">A guardar o estado dos componentes\u2026</string>
   <string name="pa_login_username_hint">Nome de utilizador (e-mail)</string>
-  <string name="pa_login_password_hint">Senha</string>
+  <string name="pa_login_password_hint">Palavra-passe</string>
   <string name="pa_login_submit_button">Iniciar sessão</string>
   <string name="pa_login_checking_password">A verificar a conta\u2026</string>
   <string name="pa_login_incorrect_login">Login incorreto</string>
@@ -292,6 +295,9 @@
   <string name="status_bar_battery_percentage_default">Oculto</string>
   <string name="status_bar_battery_percentage_text_inside">Dentro do ícone</string>
   <string name="status_bar_battery_percentage_text_next">Junto ao ícone</string>
+  <string name="status_bar_show_unused_sims_title">Mostrar ícones do SIM vazio</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">Ocultar ícones das ranhuras de SIM não utilizadas</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">Indicar as ranhuras não utilizadas do SIM</string>
   <string name="edit_light_settings">Editar definições de luz</string>
   <string name="pulse_speed_title">Duração e velocidade da luz ao piscar</string>
   <string name="default_time">Normal</string>
@@ -324,6 +330,8 @@
   <string name="notification_light_missed_call_title">Chamada perdida</string>
   <string name="notification_light_voicemail_title">Correio de voz</string>
   <string name="notification_ringtone_title_cm">Toque de notificação</string>
+  <string name="headset_connect_player_title">Iniciar a aplicação de música</string>
+  <string name="headset_connect_player_summary">Iniciar a aplicação de música predefinida quando forem conectados os auscultadores</string>
   <string name="ime_switcher_notify">Ícone de seleção</string>
   <string name="ime_switcher_notify_summary">Mostrar ícone de seleção de método de entrada</string>
   <string name="app_notification_show_on_keyguard_title">Mostrar no ecrã de bloqueio</string>
@@ -473,6 +481,22 @@
   <string name="profile_setup_setup_triggers_title_config">Modificar atuadores: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Passo 2: Definir ações</string>
   <string name="profile_setup_actions_title_config">Redefinir ações</string>
+  <string name="profile_appgroups_manage">Grupos de aplicações</string>
+  <string name="profile_appgroup_manage">Gerir grupo de aplicações</string>
+  <string name="profile_appgroups_title">Grupos de aplicações</string>
+  <string name="profile_new_appgroup">Novo grupo de aplicações</string>
+  <string name="profile_delete_appgroup">Eliminar este grupo de aplicações?</string>
+  <string name="profile_appgroup_name_prompt">Insira o nome para o novo grupo de aplicações</string>
+  <string name="profile_appgroup_name_title">Nome</string>
+  <string name="duplicate_appgroup_name">Duplicar o nome do grupo de aplicações!</string>
+  <string name="profile_app_delete_confirm">Remover esta aplicação?</string>
+  <string name="sound_mode">Modo de notificação</string>
+  <string name="ringer_mode">Modo de toque</string>
+  <string name="lights_mode">Modo de luzes</string>
+  <string name="vibrate_mode">Modo de vibração</string>
+  <string name="choose_soundtone">Selecione o som de notificação</string>
+  <string name="choose_ringtone">Selecione o toque do telefone</string>
+  <string name="soundtone_title">Toque de notificação</string>
   <string name="no_bluetooth_triggers">Não há dispositivos bluetooth emparelhados. \nToque para emparelhar um dispositivo bluetooth antes de configurar os atuadores.</string>
   <string name="no_wifi_triggers">Não há pontos de acesso wi\u2011fi configurados.\nToque para conectar o wi\u2011fi antes de configurar os atuadores.</string>
   <string name="no_triggers_configured">Não há atuadores configurados. Toque para adicionar.</string>
@@ -535,7 +559,7 @@
   <string name="sim_lock_settings_title_cm">Bloqueio do cartão SIM/RUIM</string>
   <string name="sim_pin_disable_failed">Não é possível desativar o PIN.</string>
   <string name="sim_pin_enable_failed">Não é possível ativar o PIN.</string>
-  <string name="sim_pin_change_failed_enable_sim_lock">Para alterar o PIN do SIM/RUIM, ative o bloqueio SIM/RUIM primeiro.</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">Para alterar o código PIN do SIM/RUIM, ative o bloqueio SIM/RUIM primeiro.</string>
   <string name="sim_enable_disable_lock_not_supported">Bloqueio do SIM/RUIM não é suportado pelo cartão.</string>
   <string name="sim_pin_attempts">\nTentativas restantes:</string>
   <string name="sim_pin_enabled">PIN1 ativado</string>
@@ -642,7 +666,7 @@
   <string name="settings_cmlicense_activity_title">Licença CyanogenMod</string>
   <string name="settings_cmlicense_activity_unreachable">Não tem uma ligação de dados. Para exibir estas informações agora, vá para %s de qualquer computador ligado à Internet.</string>
   <string name="unlock_quick_unlock_control_title">Desbloqueio rápido</string>
-  <string name="unlock_quick_unlock_control_summary">Desbloquear automaticamente quando o PIN/senha correto é inserido</string>
+  <string name="unlock_quick_unlock_control_summary">Desbloquear automaticamente quando o PIN/palavra-passe correto é inserido</string>
   <string name="unlock_scramble_pin_layout_title">Disposição aleatória</string>
   <string name="unlock_scramble_pin_layout_summary">Apresentar aleatoriamente a disposição do teclado numérico , quando desbloquear com PIN</string>
   <string name="link_volume_option_title">Associar volumes de toque &amp; notificação</string>
@@ -697,6 +721,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">Cabeça: %1$s W/kg</string>
   <string name="maximum_body_level">Corpo: %1$s W/kg</string>
+  <string name="ic_code_model">Modelo: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Ecrã expandido</string>
   <string name="expanded_hide_nothing">Não ocultar nada</string>
   <string name="expanded_hide_status">Ocultar a barra de estado</string>
@@ -712,6 +738,7 @@
   <string name="lockscreen_none_target">Nenhum</string>
   <string name="lockscreen_message">Toque num ícone da esquerda ou da direita para atribuir um atalho no ecrã de bloqueio.</string>
   <string name="lockscreen_choose_action_title">Selecionar ação</string>
+  <string name="lockscreen_visualizer_title">Mostrar o visualizador de música</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Gerir as definições de SMS seguras</string>
   <string name="navigation_ring_title">Atalhos do anel de navegação</string>
@@ -739,6 +766,7 @@
   <string name="stylus_app_not_installed">%s não está instalada</string>
   <string name="advanced">Avançado</string>
   <string name="advanced_mode_title">Modo avançado</string>
+  <string name="advanced_mode_summary">Mostrar opções avançadas de configuração do seu dispositivo em vários menus de definições</string>
   <string name="category_misc">Diversos</string>
   <string name="category_vibrate">Vibrar</string>
   <string name="category_volume">Volume</string>
@@ -753,4 +781,22 @@
   <string name="recents_show_searchbar">Mostrar a barra de pesquisa no menu de aplicações recentes</string>
   <string name="keywords_recents_show_searchbar">recente recentes disativar ativar mostrar ocultar pesquisa barra barra de pesquisa</string>
   <string name="sim_ringtone_title">Toque SIM %d</string>
+  <string name="interruptions_ignore_while_media_title">Prevenir a redução do áudio</string>
+  <string name="interruptions_ignore_while_media_summary">Não reduzir o volume de reprodução de multimédia quando chega uma notificação</string>
+  <string name="live_display_summary">Otimiza o ecrã com base na hora do dia e condições do ambiente para melhorar a legibilidade e reduzir a fadiga ocular</string>
+  <string name="live_display_mode">Modo de exibição</string>
+  <string name="live_display_color_temperature_title">Temperatura da cor</string>
+  <string name="live_display_color_temperature_summary">Dia: <xliff:g id="day_temperature">%1$d</xliff:g>K  Noite: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Dia</string>
+  <string name="live_display_night">Noite</string>
+  <string name="live_display_outdoor_mode_title">Modo automático de exterior</string>
+  <string name="live_display_outdoor_mode_summary">Aumentar o brilho e saturação automaticamente sob luz solar intensa</string>
+  <string name="live_display_low_power_title">Reduzir o consumo de energia</string>
+  <string name="live_display_low_power_summary">Ajustar a exibição para menor consumo de energia, sem degradação</string>
+  <string name="live_display_enhance_color_title">Realçar cores</string>
+  <string name="live_display_enhance_color_summary">Melhorar a vivacidade da cor de tons de pele, cenário e outras imagens</string>
+  <string name="battery_saver_threshold">Limite da poupança de energia</string>
+  <string name="battery_saver_summary">Reduzir o desempenho e limitar os dados em segundo plano</string>
+  <string name="battery_saver_summary_unavailable">Indisponível enquanto estiver a carregar</string>
 </resources>

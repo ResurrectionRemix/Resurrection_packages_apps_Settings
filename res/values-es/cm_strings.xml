@@ -52,6 +52,9 @@
   <string name="profile_populate_profile_from_state">¿Configurar el perfil usando la configuración actual del dispositivo?</string>
   <string name="profile_menu_fill_from_state">Importar la configuración actual del dispositivo</string>
   <string name="profile_remove_current_profile">¡No se puede eliminar el perfil actual!</string>
+  <string name="profile_app_group_category_title">Anulaciones de notificación</string>
+  <string name="profile_app_group_item_instructions">Añadir o quitar grupos</string>
+  <string name="profile_app_group_item_instructions_summary">Añadir o eliminar grupos de aplicaciones para anulación de notificación a este perfil</string>
   <string name="profile_name_title">Nombre</string>
   <string name="new_profile_name">&lt;nuevo perfil&gt;</string>
   <string name="rename_dialog_title">Renombrar</string>
@@ -179,8 +182,8 @@
   <string name="select_contact">Seleccionar contacto</string>
   <string name="lockpattern_reset_button">Restablecer patrón</string>
   <string name="lockpattern_settings_reset_summary">Introducir la cuenta de correo principal y su contraseña asociada para restablecer el patrón de bloqueo</string>
-  <string name="menu_hidden_apps_delete">Reestablecer</string>
-  <string name="menu_hidden_apps_reset_lock">Reestablecer patrón de bloqueo</string>
+  <string name="menu_hidden_apps_delete">Restablecer</string>
+  <string name="menu_hidden_apps_reset_lock">Restablecer patrón de bloqueo</string>
   <string name="protected_apps">Aplicaciones protegidas</string>
   <string name="saving_protected_components">Guardar el estado del componente\u2026</string>
   <string name="pa_login_username_hint">Usuario (correo electrónico)</string>
@@ -229,7 +232,7 @@
   <string name="privacy_guard_help_title">Ayuda</string>
   <string name="privacy_guard_reset_title">Restablecer</string>
   <string name="privacy_guard_reset_text">¿Restablecer permisos?</string>
-  <string name="privacy_guard_help_text">En esta pantalla puedes elegir las aplicaciones para las se activará Privacidad simplemente tocando sobre ellas. Las aplicaciones seleccionadas no podrán acceder a tu información personal, como contactos, mensajes o registro de llamadas. Realiza una pulsación prolongada para mostrar la pantalla de detalles de la aplicación.\n\nLas aplicaciones del sistema no se muestran por defecto, pero pueden mostrarse seleccionando la opción de menú correspondiente.</string>
+  <string name="privacy_guard_help_text">En esta pantalla puedes elegir las aplicaciones para las que se activará Privacidad simplemente tocando sobre ellas. Las aplicaciones seleccionadas no podrán acceder a tu información personal, como contactos, mensajes o registro de llamadas. Realiza una pulsación prolongada para mostrar la pantalla de detalles de la aplicación.\n\nLas aplicaciones del sistema no se muestran por defecto, pero pueden mostrarse seleccionando la opción de menú correspondiente.</string>
   <string name="privacy_guard_manager_show_system_apps">Aplicaciones del sistema</string>
   <string name="increasing_ring_volume_option_title">Volumen de timbre ascendente</string>
   <string name="increasing_ring_min_volume_title">Volumen inicial</string>
@@ -292,6 +295,9 @@
   <string name="status_bar_battery_percentage_default">Oculto</string>
   <string name="status_bar_battery_percentage_text_inside">Dentro del icono</string>
   <string name="status_bar_battery_percentage_text_next">Junto al icono</string>
+  <string name="status_bar_show_unused_sims_title">Mostrar iconos vacíos de SIM</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">Ocultar los iconos de ranuras de tarjetas SIM no utilizadas</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">Indique ranuras de tarjeta SIM no utilizados</string>
   <string name="edit_light_settings">Editar notificación</string>
   <string name="pulse_speed_title">Duración y velocidad</string>
   <string name="default_time">Normal</string>
@@ -324,6 +330,8 @@
   <string name="notification_light_missed_call_title">Llamada perdida</string>
   <string name="notification_light_voicemail_title">Buzón de voz</string>
   <string name="notification_ringtone_title_cm">Tono de notificación</string>
+  <string name="headset_connect_player_title">Iniciar reproductor</string>
+  <string name="headset_connect_player_summary">Iniciar el reproductor de música por defecto al conectar los auriculares</string>
   <string name="ime_switcher_notify">Icono de selección</string>
   <string name="ime_switcher_notify_summary">Mostrar el icono de selección del método de entrada</string>
   <string name="app_notification_show_on_keyguard_title">Mostrar en la pantalla de bloqueo</string>
@@ -473,6 +481,22 @@
   <string name="profile_setup_setup_triggers_title_config">Modificar eventos: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Paso 2: Configurar acciones</string>
   <string name="profile_setup_actions_title_config">Reconfigurar acciones</string>
+  <string name="profile_appgroups_manage">Grupo de aplicaciones</string>
+  <string name="profile_appgroup_manage">Administrar grupo de aplicaciones</string>
+  <string name="profile_appgroups_title">Grupo de aplicaciones</string>
+  <string name="profile_new_appgroup">Nuevo grupo de aplicaciones</string>
+  <string name="profile_delete_appgroup">¿Eliminar este grupo de aplicaciones?</string>
+  <string name="profile_appgroup_name_prompt">Introducir un nombre para el nuevo grupo de aplicaciones</string>
+  <string name="profile_appgroup_name_title">Nombre</string>
+  <string name="duplicate_appgroup_name">¡Nombre de grupo de aplicación duplicado!</string>
+  <string name="profile_app_delete_confirm">¿Eliminar esta aplicación?</string>
+  <string name="sound_mode">Modo de notificación</string>
+  <string name="ringer_mode">Modo de llamada</string>
+  <string name="lights_mode">Modo de leds</string>
+  <string name="vibrate_mode">Modo de vibración</string>
+  <string name="choose_soundtone">Escoger tono de notificación</string>
+  <string name="choose_ringtone">Escoger tono del teléfono</string>
+  <string name="soundtone_title">Tono de notificación</string>
   <string name="no_bluetooth_triggers">No hay dispositivos Bluetooth emparejados. \nToca para emparejar el dispositivo Bluetooth antes de configurar los eventos.</string>
   <string name="no_wifi_triggers">Sin puntos Wi\u2011Fi de acceso configurados. \nToca para activar la conexión Wi\u2011Fi antes de configurar los eventos.</string>
   <string name="no_triggers_configured">Sin eventos configurados. Toca para añadir más.</string>
@@ -599,8 +623,8 @@
   <string name="usb_sdcard_summary">Permite transferir archivos entre la tarjeta SD y el ordenador montando la tarjeta como un dispositivo extraíble</string>
   <string name="external_storage_turn_on">El almacenamiento externo ha sido habilitado</string>
   <string name="external_storage_turn_off">El almacenamiento externo ha sido deshabilitado</string>
-  <string name="menu_hidden_apps_delete">Reestablecer</string>
-  <string name="menu_hidden_apps_reset_lock">Reestablecer patrón de bloqueo</string>
+  <string name="menu_hidden_apps_delete">Restablecer</string>
+  <string name="menu_hidden_apps_reset_lock">Restablecer patrón de bloqueo</string>
   <string name="protected_apps">Aplicaciones protegidas</string>
   <string name="saving_protected_components">Guardar el estado del componente\u2026</string>
   <string name="stats_collection_title">Recogida de estadísticas</string>
@@ -697,6 +721,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">Cabeza: %1$s W/kg</string>
   <string name="maximum_body_level">Cuerpo: %1$s W/kg</string>
+  <string name="ic_code_model">Modelo: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Extender escritorio</string>
   <string name="expanded_hide_nothing">Sin ocultar nada</string>
   <string name="expanded_hide_status">Ocultar barra de estado</string>
@@ -712,9 +738,10 @@
   <string name="lockscreen_none_target">Ninguno</string>
   <string name="lockscreen_message">Toca en un icono de la izquierda o derecha para reasignar un atajo en la pantalla de bloqueo.</string>
   <string name="lockscreen_choose_action_title">Elegir acción</string>
+  <string name="lockscreen_visualizer_title">Mostrar visualizador musical</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Administrar ajustes para cifrado de SMS</string>
-  <string name="navigation_ring_title">Tonos de navegacion</string>
+  <string name="navigation_ring_title">Anillo de navegación</string>
   <string name="navigation_ring_message">Toca el icono editar para abrir el editor del anillo de navegacion.\n\nSelecciona un objetivo para configurar su comportamiento.\n\nToca el icono de \u00AB\u2713\u00BB para guardar los cambios, o \u00ABRestaurar valores predeterminados\u00BB para volver a los ajustes por defecto.</string>
   <string name="stylus_icon_enabled_title">Mostrar el icono al usar Stylus</string>
   <string name="stylus_icon_enabled_summary">Mostrar el cursor cuando se arrastra o dibuja con Stylus</string>
@@ -739,6 +766,7 @@
   <string name="stylus_app_not_installed">%s no está instalada</string>
   <string name="advanced">Avanzado</string>
   <string name="advanced_mode_title">Modo avanzado</string>
+  <string name="advanced_mode_summary">Mostrar opciones adicionales para configurar el dispositivo en los distintos menús</string>
   <string name="category_misc">Varios</string>
   <string name="category_vibrate">Vibración</string>
   <string name="category_volume">Volumen</string>
@@ -753,4 +781,22 @@
   <string name="recents_show_searchbar">Mostrar la barra de búsqueda en el menú recientes</string>
   <string name="keywords_recents_show_searchbar">reciente recientes desactivar activar mostrar ocultar barra de búsqueda</string>
   <string name="sim_ringtone_title">Tono de llamada para SIM %d</string>
+  <string name="interruptions_ignore_while_media_title">Prevenir reducción de audio</string>
+  <string name="interruptions_ignore_while_media_summary">No reducir el volumen de reproducción cuando llegue una notificación</string>
+  <string name="live_display_summary">Optimizar la pantalla según la hora del día y las condiciones ambientales para mejorar la legibilidad y reducir la fatiga visual</string>
+  <string name="live_display_mode">Modo de visualización</string>
+  <string name="live_display_color_temperature_title">Temperatura de color</string>
+  <string name="live_display_color_temperature_summary">Día: <xliff:g id="day_temperature">%1$d</xliff:g>K Noche: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Día</string>
+  <string name="live_display_night">Noche</string>
+  <string name="live_display_outdoor_mode_title">Modo automático al aire libre</string>
+  <string name="live_display_outdoor_mode_summary">Aumentar automáticamente el brillo y la saturación bajo la luz del sol</string>
+  <string name="live_display_low_power_title">Reducir el consumo de energía</string>
+  <string name="live_display_low_power_summary">Ajustar la pantalla al mínimo consumo de energía sin degradación</string>
+  <string name="live_display_enhance_color_title">Mejorar colores</string>
+  <string name="live_display_enhance_color_summary">Mejorar la viveza del color de tonos de piel, paisajes y otras imágenes</string>
+  <string name="battery_saver_threshold">Ahorro de batería</string>
+  <string name="battery_saver_summary">Reducir el rendimiento y limitar los datos en segundo plano</string>
+  <string name="battery_saver_summary_unavailable">No disponible durante la carga</string>
 </resources>
