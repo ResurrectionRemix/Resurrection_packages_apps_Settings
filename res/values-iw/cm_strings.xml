@@ -445,11 +445,14 @@
   <string name="hue_str">גוון: <xliff:g id="hue_value">%1$s</xliff:g></string>
   <string name="saturation_str">רוויה: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">ניגודיות: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_standard">רגיל</string>
   <string name="screen_color_setting_vivid">חי (Vivid)</string>
   <string name="screen_color_setting_custom">מותאם אישית</string>
+  <string name="bluetooth_enter_pin_msg_hs">כדי להתחבר ל-<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g> הכנס את קוד ה-PIN של המכשיר (16 ספרות או יותר):</string>
   <string name="bluetooth_profile_dun">גישה לחיוג רשת</string>
   <string name="bluetooth_profile_sap">גישה ל-SIM</string>
   <string name="bluetooth_dun_profile_summary_use_for">השתמש לחיוג רשת</string>
+  <string name="bluetooth_pbap_profile_summary_use_for">השתמש עבור שיתוף אנשי קשר</string>
   <string name="bluetooth_sap_profile_summary_use_for">השתמש לגישת SIM</string>
   <string name="bluetooth_accept_all_files">התר את כל סוגי הקבצים</string>
   <string name="sim_pin_attempts">\nניסיונות שנותרו:</string>
@@ -464,6 +467,7 @@
   <string name="sim_disabled">לא פעיל</string>
   <string name="sim_missing">חסר או פגום</string>
   <string name="sim_enabler_sim">SIM</string>
+  <string name="usb_charging_title">טען בלבד</string>
   <string name="menu_hidden_apps_delete">אפס</string>
   <string name="menu_hidden_apps_reset_lock">אפס נעילת דפוס</string>
   <string name="protected_apps">יישומים מוגנים</string>
@@ -506,8 +510,17 @@
   <string name="unlock_quick_unlock_control_summary">פתח אוטומטית כאשר הסיסמה/קוד מוכנס</string>
   <string name="unlock_scramble_pin_layout_title">ערבב פריסה</string>
   <string name="unlock_scramble_pin_layout_summary">ערבב מבנה כשמבטלים נעילת מכשיר</string>
+  <string name="link_volume_option_title">קשר את עוצמות הצלצול וההתראות</string>
   <string name="notification_drawer_title">וילון הודעות</string>
+  <string name="qs_tile_airplane_mode">מצב טיסה</string>
+  <string name="qs_tile_adb_over_network">ADB דרך הרשת</string>
+  <string name="qs_tile_performance">מצב סוללה</string>
   <string name="qs_tile_nfc">NFC</string>
+  <string name="qs_tile_compass">מצפן</string>
+  <string name="qs_tile_lockscreen">מסך נעילה</string>
+  <string name="qs_tile_screen_timeout">פרק הזמן לכיבוי מסך</string>
+  <string name="qs_advanced_location_summary">אפשר הגדרות מתקדמות עבור מיקום בהגדרות המהירות</string>
+  <string name="gesture_settings_title">מחוות</string>
   <string name="themes_settings_title">ערכות עיצוב</string>
   <string name="wifi_mode">מצב</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
@@ -517,6 +530,29 @@
   <string name="maximum_head_level">ראש: %1$s  W/kg</string>
   <string name="maximum_body_level">גוף: %1$s W/kg</string>
   <string name="power_menu_expanded_desktop">שולחן עבודה מורחב</string>
+  <string name="expanded_hide_nothing">הצג הכל</string>
+  <string name="expanded_hide_status">הסתר שורת מצב</string>
+  <string name="expanded_hide_navigation">הסתר סרגל ניווט</string>
+  <string name="expanded_hide_both">הסתר את שניהם</string>
+  <string name="expanded_desktop_style">סגנון שולחן העבודה המורחב</string>
+  <string name="expanded_desktop_style_description">בחר סגנון ברירת מחדל לשולחן העבודה המורחב</string>
+  <string name="lockscreen_targets_message">קיצורי דרך במסך הנעילה</string>
+  <string name="lockscreen_default_target">ברירת מחדל</string>
+  <string name="lockscreen_choose_action_title">בחר פעולה</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">ניהול הגדרות SMS מאובטח</string>
+  <string name="navigation_ring_message">הקש על סמל העריכה כדי לפתוח את טבעת הניווט לעריכה.\n\nבחר מטרה כדי להגדיר את ההתנהגות שלה.\n\nלחץ על הסמל \'\u2713\' כדי לשמור את השינויים, או על \"שחזר ברירת מחדל\" כדי לאפס את ההגדרות.</string>
+  <string name="stylus_icon_enabled_title">הצג סמל בעת שימוש בעט אלקטרוני</string>
+  <string name="stylus_icon_enabled_summary">הצג את סמל העט בעת ריחוף או ציור עם העט</string>
+  <string name="enable_subcat_title">עט אלקטרוני</string>
+  <string name="enable_spen_title_head">אפשר מחוות</string>
+  <string name="gestures_subcat_title">מחוות</string>
+  <string name="gestures_left_spen_title_head">הזזה שמאלה</string>
+  <string name="gestures_right_spen_title_head">הזזה ימינה</string>
+  <string name="gestures_up_spen_title_head">הזזה למעלה</string>
+  <string name="gestures_down_spen_title_head">הזזה למטה</string>
+  <string name="gestures_action_recent">יישומים אחרונים</string>
+  <string name="category_sounds">צלילים</string>
+  <string name="category_interface">ממשק</string>
+  <string name="category_calibration">כיול</string>
 </resources>

@@ -17,12 +17,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniu toliau įgalinant kūrėjo parinktis.</item>
-    <item quantity="few">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniais toliau įgalinant kūrėjo parinktis.</item>
-    <item quantity="other">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsnių toliau įgalinant kūrėjo parinktis.</item>
+    <item quantity="one">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniu toliau įgalinant kūrėjo parinktys.</item>
+    <item quantity="few">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniais toliau įgalinant kūrėjo parinktys.</item>
+    <item quantity="other">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsnių toliau įgalinant kūrėjo parinktys.</item>
   </plurals>
-  <string name="show_dev_on_cm">Jūs įgalinote kūrėjo parinktis!</string>
-  <string name="show_dev_already_cm">Nereikia, jūs jau įgalinote kūrėjo parinktis.</string>
+  <string name="show_dev_on_cm">Jūs įgalinote kūrėjo parinktys!</string>
+  <string name="show_dev_already_cm">Nereikia, jūs jau įgalinote kūrėjo parinktys.</string>
   <string name="development_tools_title">Kūrimo įrankiai</string>
   <string name="root_access">Prieiga prie „Root“</string>
   <string name="root_access_warning_title">Leisti „Root“ prieigą?</string>
@@ -53,6 +53,9 @@
   <string name="profile_populate_profile_from_state">Konfigūruoti profilį naudojant esamus įrenginio nustatymus?</string>
   <string name="profile_menu_fill_from_state">Importuoti esamus įrenginio nustatymus</string>
   <string name="profile_remove_current_profile">Negalima ištrinti esamo profilio!</string>
+  <string name="profile_app_group_category_title">Pranešimų nepaisymas</string>
+  <string name="profile_app_group_item_instructions">Pridėti arba pašalinti grupes</string>
+  <string name="profile_app_group_item_instructions_summary">Pridėti arba pašalinti pranešimo nepaisymą programos grupėms į šį profilį</string>
   <string name="profile_name_title">Pavadinimas</string>
   <string name="new_profile_name">&lt;naujas profilis&gt;</string>
   <string name="rename_dialog_title">Pervardyti</string>
@@ -236,7 +239,7 @@
   <string name="increasing_ring_min_volume_title">Pradinis garsumas</string>
   <string name="increasing_ring_ramp_up_time_title">Didėjimo laikas</string>
   <string name="advanced_reboot_title">Išplėstinis paleidimas iš naujo</string>
-  <string name="advanced_reboot_summary">Kai atrakinta, įtraukti parinktis į maitinimo meniu dėl paleidimo iš naujo į atkūrimo režimą, „Bootloader“ arba atlikti OS paleidimą iš naujo</string>
+  <string name="advanced_reboot_summary">Kai atrakinta, įtraukti parinktys į maitinimo meniu dėl paleidimo iš naujo į atkūrimo režimą, „Bootloader“ arba atlikti OS paleidimą iš naujo</string>
   <string name="enable_adb_cm">„Android“ derinimas</string>
   <string name="enable_adb_summary_cm">Įgalinti „Android“ derinimo tiltą (adb) sąsaja</string>
   <string name="adb_over_network">USB derinimas per tinklą</string>
@@ -293,6 +296,9 @@
   <string name="status_bar_battery_percentage_default">Paslėpti</string>
   <string name="status_bar_battery_percentage_text_inside">Piktogramos viduje</string>
   <string name="status_bar_battery_percentage_text_next">Šalia piktogramos</string>
+  <string name="status_bar_show_unused_sims_title">Rodyti tuščias SIM piktogramas</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">Slėpti nepanaudotų SIM lizdų piktogramas</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">Nurodyti nepanaudotų SIM lizdus</string>
   <string name="edit_light_settings">Redaguoti šviesos nustatymus</string>
   <string name="pulse_speed_title">Pulsavimo trukmė ir greitis</string>
   <string name="default_time">Normalus</string>
@@ -325,6 +331,8 @@
   <string name="notification_light_missed_call_title">Praleistas skambutis</string>
   <string name="notification_light_voicemail_title">Balso paštas</string>
   <string name="notification_ringtone_title_cm">Pranešimo tonas</string>
+  <string name="headset_connect_player_title">Paleisti muzikos programą</string>
+  <string name="headset_connect_player_summary">Paleisti numatytąją muzikos programą, kai prijungiama laisvų rankų įranga</string>
   <string name="ime_switcher_notify">Pasirinkimo piktograma</string>
   <string name="ime_switcher_notify_summary">Rodyti įvesties metodo pasirinkimo piktogramą</string>
   <string name="app_notification_show_on_keyguard_title">Rodyti ekrano užrakte</string>
@@ -474,6 +482,22 @@
   <string name="profile_setup_setup_triggers_title_config">Modifikuoti jungiklius: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">2 žingsnis: sąrankos veiksmai</string>
   <string name="profile_setup_actions_title_config">Perkonfigūruoti veiksmus</string>
+  <string name="profile_appgroups_manage">Programos grupės</string>
+  <string name="profile_appgroup_manage">Tvarkyti programos grupę</string>
+  <string name="profile_appgroups_title">Programos grupės</string>
+  <string name="profile_new_appgroup">Nauja programos grupė</string>
+  <string name="profile_delete_appgroup">Ištrinti šią programos grupę?</string>
+  <string name="profile_appgroup_name_prompt">Įveskite naują programos grupės pavadinimą</string>
+  <string name="profile_appgroup_name_title">Pavadinimas</string>
+  <string name="duplicate_appgroup_name">Toks programos grupės pavadinimas jau yra!</string>
+  <string name="profile_app_delete_confirm">Pašalinti šią programą?</string>
+  <string name="sound_mode">Pranešimo režimas</string>
+  <string name="ringer_mode">Skambėjimo režimas</string>
+  <string name="lights_mode">Šviesų režimas</string>
+  <string name="vibrate_mode">Vibravimo režimas</string>
+  <string name="choose_soundtone">Pasirinkite pranešimo toną</string>
+  <string name="choose_ringtone">Pasirinkite skambėjimo toną</string>
+  <string name="soundtone_title">Pranešimo tonas</string>
   <string name="no_bluetooth_triggers">Nėra susietų „Bluetooth“ įrenginių.\nBakstelėkite, kad susietumėte „Bluetooth“ įrenginį prieš konfigūruojant jungiklius.</string>
   <string name="no_wifi_triggers">Nėra sukonfigūruotų „Wi-Fi“ prieigos taškų.\nBakstelėkite, kad prisijungtumėte prie „Wi-Fi“ prieš konfigūruojant jungiklius.</string>
   <string name="no_triggers_configured">Nėra sukonfigūruotų jungiklių. Bakstelėkite, kad pridėtumėte daugiau.</string>
@@ -547,13 +571,13 @@
   <string name="usb_eject" product="default">Atjungti USB saugyklą</string>
   <string name="usb_eject_summary" product="default">Atjunkite USB saugyklą tam kad saugiai ją pašalintumėte</string>
   <string name="usb_format" product="default">Ištrinti USB saugyklą</string>
-  <string name="usb_format_summary" product="default">Ištrina visus duomenis USB saugykloje, pvz., muziką ir nuotraukas</string>
+  <string name="usb_format_summary" product="default">Ištrinami visi USB saugyklos duomenys, pvz., muzikos failai ir nuotraukos</string>
   <string name="usb_mount" product="default">Prijungti USB saugyklą</string>
   <string name="usb_insert_summary" product="default">Įdėti USB saugyklą, kad prijungti</string>
   <string name="uicc_eject" product="default">Atjungti UICC saugyklą</string>
   <string name="uicc_eject_summary" product="default">Atjunkite UICC saugyklą tam kad saugiai ją pašalintumėte</string>
   <string name="uicc_format" product="default">Ištrinti UICC saugyklą</string>
-  <string name="uicc_format_summary" product="default">Ištrina visus duomenis UICC saugykloje, pvz., muziką ir nuotraukas</string>
+  <string name="uicc_format_summary" product="default">Ištrinami visi UICC saugyklos duomenys, pvz., muzikos failai ir nuotraukos</string>
   <string name="uicc_mount" product="default">Prijungti UICC saugyklą</string>
   <string name="uicc_insert_summary" product="default">Įdėti UICC saugyklą, kad prijungti</string>
   <string name="usb_settings_enable_ums_title">Įgalinti didelės talpos atmintį?</string>
@@ -698,6 +722,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">Galva: %1$s W/kg</string>
   <string name="maximum_body_level">Kūnas: %1$s W/kg</string>
+  <string name="ic_code_model">Modelis: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Išplėstas darbastalis</string>
   <string name="expanded_hide_nothing">Neslėpti</string>
   <string name="expanded_hide_status">Slėpti būsenos juostą</string>
@@ -713,6 +739,7 @@
   <string name="lockscreen_none_target">Joks</string>
   <string name="lockscreen_message">Bakstelėkite piktogramą kairėje arba dešinėje, kad iš naujo priskirtumėte ekrano užrakto spartujį klavišą.</string>
   <string name="lockscreen_choose_action_title">Pasirinkite veiksmą</string>
+  <string name="lockscreen_visualizer_title">Rodyti muzikos vizualizatorių</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Tvarkyti saugiųjų SMS pranešimų nustatymus</string>
   <string name="navigation_ring_title">Navigacijos žiedo objektai</string>
@@ -740,6 +767,7 @@
   <string name="stylus_app_not_installed">%s neįdiegta</string>
   <string name="advanced">Išplėstinis</string>
   <string name="advanced_mode_title">Išplėstinis režimas</string>
+  <string name="advanced_mode_summary">Rodyti papildomas konfigūravimo parinktys įvairiuose nustatymų meniu jūsų įrenginyje</string>
   <string name="category_misc">Įvairūs</string>
   <string name="category_vibrate">Vibravimas</string>
   <string name="category_volume">Garsumas</string>
@@ -754,4 +782,22 @@
   <string name="recents_show_searchbar">Rodyti paieškos juostą tarp naujausių menių</string>
   <string name="keywords_recents_show_searchbar">naujas naujausi neleisti įgalinti rodyti slėpti paieškos juosta</string>
   <string name="sim_ringtone_title">SIM %d skambėjimo tonas</string>
+  <string name="interruptions_ignore_while_media_title">Neleisti garso sumažinimo</string>
+  <string name="interruptions_ignore_while_media_summary">Nesumažinti medijos atkūrimo garsumo, kai gaunamas pranešimas</string>
+  <string name="live_display_summary">Optimizuoti ekraną remiantis paros metu ir aplinkos sąlygomis, siekiant pagerinti įskaitomumą ir sumažinti akių įtampą</string>
+  <string name="live_display_mode">Rodymo režimas</string>
+  <string name="live_display_color_temperature_title">Spalvos temperatūra</string>
+  <string name="live_display_color_temperature_summary">Diena: <xliff:g id="day_temperature">%1$d</xliff:g>K Naktis: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Diena</string>
+  <string name="live_display_night">Naktis</string>
+  <string name="live_display_outdoor_mode_title">Automatinis lauko režimas</string>
+  <string name="live_display_outdoor_mode_summary">Automatiškai padidinti šviesumą ir sodrumą ryškioje saulės šviesoje</string>
+  <string name="live_display_low_power_title">Sumažinti energijos suvartojimą</string>
+  <string name="live_display_low_power_summary">Nustatyti ekraną žemiausiam energijos suvartojimui be degradacijos</string>
+  <string name="live_display_enhance_color_title">Pagerinti spalvas</string>
+  <string name="live_display_enhance_color_summary">Pagerinti spalvos atspalvius, peizažą ir kt.</string>
+  <string name="battery_saver_threshold">Akumuliatoriaus tausojimo riba</string>
+  <string name="battery_saver_summary">Sumažinti našumą ir apriboti foninius duomenis</string>
+  <string name="battery_saver_summary_unavailable">Negalima, kai įkraunama</string>
 </resources>

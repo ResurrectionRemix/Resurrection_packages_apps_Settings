@@ -53,6 +53,9 @@
   <string name="profile_populate_profile_from_state">Создать профиль из текущих настроек устройства?</string>
   <string name="profile_menu_fill_from_state">Использ. текущие настройки</string>
   <string name="profile_remove_current_profile">Невозможно удалить текущий профиль!</string>
+  <string name="profile_app_group_category_title">Уведомления</string>
+  <string name="profile_app_group_item_instructions">Добавить или удалить группы</string>
+  <string name="profile_app_group_item_instructions_summary">Изменение настроек уведомлений для групп приложений в этом профиле</string>
   <string name="profile_name_title">Название профиля</string>
   <string name="new_profile_name">&lt;новый профиль&gt;</string>
   <string name="rename_dialog_title">Переименовать</string>
@@ -293,6 +296,9 @@
   <string name="status_bar_battery_percentage_default">Не показывать</string>
   <string name="status_bar_battery_percentage_text_inside">Внутри значка</string>
   <string name="status_bar_battery_percentage_text_next">Рядом со значком</string>
+  <string name="status_bar_show_unused_sims_title">Значки отсутствующих SIM-карт</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">Скрывать значки SIM-карт, если они не установлены</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">Показывать значки пустых SIM-карт в соответствующих слотах</string>
   <string name="edit_light_settings">Изменение настроек индикатора</string>
   <string name="pulse_speed_title">Длительность и скорость мигания</string>
   <string name="default_time">Средне</string>
@@ -325,6 +331,8 @@
   <string name="notification_light_missed_call_title">Пропущенный вызов</string>
   <string name="notification_light_voicemail_title">Голосовая почта</string>
   <string name="notification_ringtone_title_cm">Звук уведомления</string>
+  <string name="headset_connect_player_title">Автозапуск плеера</string>
+  <string name="headset_connect_player_summary">Запускать плеер при подключении наушников</string>
   <string name="ime_switcher_notify">Значок выбора метода ввода</string>
   <string name="ime_switcher_notify_summary">Отображать переключатель метода ввода при открытии текстовых полей</string>
   <string name="app_notification_show_on_keyguard_title">На экране блокировки</string>
@@ -474,6 +482,22 @@
   <string name="profile_setup_setup_triggers_title_config">Условия переключения: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Шаг 2: настройте требуемые действия</string>
   <string name="profile_setup_actions_title_config">Изменение действий</string>
+  <string name="profile_appgroups_manage">Группы приложений</string>
+  <string name="profile_appgroup_manage">Управление группой приложений</string>
+  <string name="profile_appgroups_title">Группы приложений</string>
+  <string name="profile_new_appgroup">Новая группа приложений</string>
+  <string name="profile_delete_appgroup">Удалить эту группу приложений?</string>
+  <string name="profile_appgroup_name_prompt">Введите название для группы приложений</string>
+  <string name="profile_appgroup_name_title">Имя</string>
+  <string name="duplicate_appgroup_name">Группа приложений с таким названием уже существует!</string>
+  <string name="profile_app_delete_confirm">Удалить данное приложение?</string>
+  <string name="sound_mode">Режим уведомлений</string>
+  <string name="ringer_mode">Режим звонка</string>
+  <string name="lights_mode">Индикатор событий</string>
+  <string name="vibrate_mode">Вибросигнал</string>
+  <string name="choose_soundtone">Выбрать звук уведомлений</string>
+  <string name="choose_ringtone">Выбрать рингтон</string>
+  <string name="soundtone_title">Звук уведомления</string>
   <string name="no_bluetooth_triggers">Нет сопряженных устройств Bluetooth.\nНажмите, чтобы добавить устройство и создать условие переключения на его основе.</string>
   <string name="no_wifi_triggers">Нет сохраненных сетей Wi\u2011Fi.\nНажмите, чтобы добавить сеть Wi\u2011Fi и создать условие переключения на её основе.</string>
   <string name="no_triggers_configured">Условия переключения не настроены. Нажмите, чтобы добавить условие.</string>
@@ -622,7 +646,7 @@
   <string name="performance_settings_title">Производительность</string>
   <string name="io_scheds_title">Планировщик I/O</string>
   <string name="io_sched_title">Планировщик I/O</string>
-  <string name="perf_profile_title">Режим батареи</string>
+  <string name="perf_profile_title">Энергопотребление</string>
   <string name="pref_force_highend_gfx_title">Высококачественная графика</string>
   <string name="pref_force_highend_gfx_summary">Использовать эффекты, отключенные для устройств с низкой производительностью, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
   <string name="performance_settings_warning_title">Соблюдайте осторожность</string>
@@ -677,7 +701,7 @@
   <string name="qs_tile_hotspot">Точка доступа</string>
   <string name="qs_tile_adb_over_network">Отладка по сети</string>
   <string name="qs_tile_profiles">Профили системы</string>
-  <string name="qs_tile_performance">Режим батареи</string>
+  <string name="qs_tile_performance">Энергопотребление</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Экран блокировки</string>
@@ -698,6 +722,8 @@
   <string name="wifi_mhz">МГц</string>
   <string name="maximum_head_level">Голова: %1$s Вт/кг</string>
   <string name="maximum_body_level">Тело: %1$s Вт/кг</string>
+  <string name="ic_code_model">Модель: %1$s</string>
+  <string name="ic_code_full">Код IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Расширенный экран</string>
   <string name="expanded_hide_nothing">Ничего не скрывать</string>
   <string name="expanded_hide_status">Скрывать строку состояния</string>
@@ -713,6 +739,7 @@
   <string name="lockscreen_none_target">Нет</string>
   <string name="lockscreen_message">Нажмите значок слева или справа для изменения ярлыка экрана блокировки.</string>
   <string name="lockscreen_choose_action_title">Выберите действие</string>
+  <string name="lockscreen_visualizer_title">Визуализация спектра музыки</string>
   <string name="whisperpush_title">Технология WhisperPush</string>
   <string name="whisperpush_summary">Настройка шифрования SMS-сообщений</string>
   <string name="navigation_ring_title">Ярлыки навигационного кольца</string>
@@ -740,6 +767,7 @@
   <string name="stylus_app_not_installed">«%s» не установлено</string>
   <string name="advanced">Дополнительные функции</string>
   <string name="advanced_mode_title">Расширенный режим</string>
+  <string name="advanced_mode_summary">Показывать дополнительные настройки устройства в различных пунктах меню</string>
   <string name="category_misc">Прочее</string>
   <string name="category_vibrate">Вибрация</string>
   <string name="category_volume">Громкость</string>
@@ -754,4 +782,22 @@
   <string name="recents_show_searchbar">Строка поиска в меню кн. «Обзор»</string>
   <string name="keywords_recents_show_searchbar">недавние недавний обзор запущенные включить выключить показать скрыть поисковая строка поиск</string>
   <string name="sim_ringtone_title">Рингтон SIM %d</string>
+  <string name="interruptions_ignore_while_media_title">Не приглушать звук</string>
+  <string name="interruptions_ignore_while_media_summary">Не снижать громкость воспроизведения мультимедиа при получении уведомлений</string>
+  <string name="live_display_summary">Подстраивать экран на основе времени суток и освещения, чтобы улучшить читаемость и снизить усталость глаз</string>
+  <string name="live_display_mode">Режим экрана</string>
+  <string name="live_display_color_temperature_title">Цветовая температура</string>
+  <string name="live_display_color_temperature_summary"><xliff:g id="day_temperature">%1$d</xliff:g>K днём и <xliff:g id="night_temperature">%2$d</xliff:g>K ночью</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">День</string>
+  <string name="live_display_night">Ночь</string>
+  <string name="live_display_outdoor_mode_title">Автоматический режим на улице</string>
+  <string name="live_display_outdoor_mode_summary">Увеличивать яркость и насыщенность при ярком свете</string>
+  <string name="live_display_low_power_title">Сократить потребление энергии</string>
+  <string name="live_display_low_power_summary">Подстраивать экран для низкого энергопотребления без ухудшения качества</string>
+  <string name="live_display_enhance_color_title">Улучшение цветопередачи</string>
+  <string name="live_display_enhance_color_summary">Улучшить сочность оттенков кожи, пейзажей и других изображений</string>
+  <string name="battery_saver_threshold">Автом. энергосбережение</string>
+  <string name="battery_saver_summary">Снизить производительность и ограничить фоновую передачу данных</string>
+  <string name="battery_saver_summary_unavailable">Недоступно во время зарядки</string>
 </resources>
