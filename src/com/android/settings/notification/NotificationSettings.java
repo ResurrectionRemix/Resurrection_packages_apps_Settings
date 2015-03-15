@@ -37,7 +37,6 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.SeekBarVolumizer;
 import android.preference.TwoStatePreference;
-import android.preference.ListPreference;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.provider.SearchIndexableResource;
@@ -76,7 +75,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HEADS_UP_SETTINGS = "heads_up_enabled";
-    private static final String KEY_VOLUME_PANEL_TIMEOUT = "volume_panel_time_out";
     
     private static final int SAMPLE_CUTOFF = 2000;  // manually cap sample playback at 2 seconds
 
@@ -106,7 +104,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private TwoStatePreference mVibrateWhenRinging;
     private TwoStatePreference mNotificationPulse;
     private DropDownPreference mLockscreen;
-    private ListPreference mVolumePanelTimeOut;
     private Preference mNotificationAccess;
     private boolean mSecure;
     private int mLockscreenSelectedValue;
@@ -152,22 +149,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         refreshNotificationListeners();
         
         mHeadsUp = findPreference(KEY_HEADS_UP_SETTINGS);
-        
-        mVolumePanelTimeOut = (ListPreference) findPreference(KEY_VOLUME_PANEL_TIMEOUT);
-        mVolumePanelTimeOut.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                int volumePanelTimeOut = Integer.valueOf((String) newValue);
-                updateVolumePanelTimeOutSummary(volumePanelTimeOut);
-                return Settings.System.putInt(getContentResolver(),
-                        Settings.System.VOLUME_PANEL_TIMEOUT,
-                        volumePanelTimeOut);
-            }
-        });
-        final int volumePanelTimeOut = Settings.System.getInt(getContentResolver(),
-                Settings.System.VOLUME_PANEL_TIMEOUT, 3000);
-        mVolumePanelTimeOut.setValue(String.valueOf(volumePanelTimeOut));
-        updateVolumePanelTimeOutSummary(volumePanelTimeOut);
 
     }
     
@@ -196,12 +177,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mSettingsObserver.register(false);
     }
 
-    private void updateVolumePanelTimeOutSummary(int value) {
-        String summary = getResources().getString(R.string.volume_panel_time_out_summary,
-                value / 1000);
-        mVolumePanelTimeOut.setSummary(summary);
-    }
-    
     // === Volumes ===
 
     private VolumeSeekBarPreference initVolumePreference(String key, int stream) {
