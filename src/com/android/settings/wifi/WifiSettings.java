@@ -64,6 +64,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.RestrictedSettingsFragment;
 import com.android.settings.SettingsActivity;
@@ -161,6 +162,8 @@ public class WifiSettings extends RestrictedSettingsFragment
      * and used so as to assist with in-the-field WiFi connectivity debugging  */
     public static int mVerboseLogging = 0;
 
+    private boolean mDeviceSupportsNfc;
+
     /* End of "used in Wifi Setup context" */
 
     /** A restricted multimap for use in constructAccessPoints */
@@ -248,6 +251,7 @@ public class WifiSettings extends RestrictedSettingsFragment
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        mDeviceSupportsNfc = QSUtils.deviceSupportsNfc(getActivity());
         mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 
         mConnectListener = new WifiManager.ActionListener() {
@@ -520,7 +524,8 @@ public class WifiSettings extends RestrictedSettingsFragment
                     }
                     menu.add(Menu.NONE, MENU_ID_MODIFY, 0, R.string.wifi_menu_modify);
 
-                    if (mSelectedAccessPoint.security != AccessPoint.SECURITY_NONE) {
+                    if (mSelectedAccessPoint.security != AccessPoint.SECURITY_NONE
+                            && mDeviceSupportsNfc) {
                         // Only allow writing of NFC tags for password-protected networks.
                         menu.add(Menu.NONE, MENU_ID_WRITE_NFC, 0, R.string.wifi_menu_write_to_nfc);
                     }
