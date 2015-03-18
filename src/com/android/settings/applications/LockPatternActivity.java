@@ -163,8 +163,6 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
         if (reset) {
             resetPatternState(false);
         }
-        mPatternLockHeader.setText(getResources()
-                .getString(R.string.lockpattern_settings_enable_summary));
         mItem.setIcon(R.drawable.ic_lockscreen_ime);
         mAccountView.clearFocusOnInput();
         mAccountView.setVisibility(View.GONE);
