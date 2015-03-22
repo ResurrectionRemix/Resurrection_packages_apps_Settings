@@ -16,8 +16,6 @@
 
 package com.android.settings;
 
-import com.android.internal.widget.LockPatternUtils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -83,7 +81,7 @@ public class CryptKeeperSettings extends Fragment {
      * is no keyguard available, we prompt the user to set a password.
      */
     private Button.OnClickListener mInitiateListener = new Button.OnClickListener() {
-
+        @Override
         public void onClick(View v) {
             if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
                 // TODO replace (or follow) this dialog with an explicit launch into password UI
@@ -164,8 +162,7 @@ public class CryptKeeperSettings extends Fragment {
             return true;
         }
 
-        return helper.launchConfirmationActivity(request,
-                res.getText(R.string.master_clear_gesture_prompt),
+        return helper.launchConfirmationActivity(request, null,
                 res.getText(R.string.crypt_keeper_confirm_encrypt),
                 true);
     }

@@ -37,7 +37,6 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
@@ -261,7 +260,9 @@ public class WirelessSettings extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.wireless_settings);
 
-        final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
+        final int myUserId = UserHandle.myUserId();
+        final boolean isSecondaryUser = myUserId != UserHandle.USER_OWNER;
+        final boolean isRestrictedUser = mUm.getUserInfo(myUserId).isRestricted();
 
         final Activity activity = getActivity();
         mAirplaneModePreference = (SwitchPreference) findPreference(KEY_TOGGLE_AIRPLANE);
@@ -284,14 +285,19 @@ public class WirelessSettings extends SettingsPreferenceFragment
         }
 
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
-        CheckBoxPreference nsd = (CheckBoxPreference) findPreference(KEY_TOGGLE_NSD);
+        SwitchPreference nsd = (SwitchPreference) findPreference(KEY_TOGGLE_NSD);
 
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
 
         mSmsApplicationPreference = (AppListPreference) findPreference(KEY_SMS_APPLICATION);
-        mSmsApplicationPreference.setOnPreferenceChangeListener(this);
-        initSmsApplicationSetting();
+        // Restricted users cannot currently read/write SMS.
+        if (isRestrictedUser) {
+            removePreference(KEY_SMS_APPLICATION);
+        } else {
+            mSmsApplicationPreference.setOnPreferenceChangeListener(this);
+            initSmsApplicationSetting();
+        }
 
         // Remove NSD checkbox by default
         getPreferenceScreen().removePreference(nsd);
@@ -503,8 +509,11 @@ public class WirelessSettings extends SettingsPreferenceFragment
                 result.add(KEY_TOGGLE_NSD);
 
                 final UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
-                final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
-                final boolean isWimaxEnabled = !isSecondaryUser && context.getResources().getBoolean(
+                final int myUserId = UserHandle.myUserId();
+                final boolean isSecondaryUser = myUserId != UserHandle.USER_OWNER;
+                final boolean isRestrictedUser = um.getUserInfo(myUserId).isRestricted();
+                final boolean isWimaxEnabled = !isSecondaryUser
+                        && context.getResources().getBoolean(
                         com.android.internal.R.bool.config_wimaxEnabled);
                 if (!isWimaxEnabled
                         || um.hasUserRestriction(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS)) {
@@ -516,7 +525,8 @@ public class WirelessSettings extends SettingsPreferenceFragment
                 }
 
                 // Remove NFC if not available
-                final NfcManager manager = (NfcManager) context.getSystemService(Context.NFC_SERVICE);
+                final NfcManager manager = (NfcManager)
+                        context.getSystemService(Context.NFC_SERVICE);
                 if (manager != null) {
                     NfcAdapter adapter = manager.getDefaultAdapter();
                     if (adapter == null) {
@@ -542,7 +552,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
                 // Remove SMS Application if the device does not support SMS
                 TelephonyManager tm =
                         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-                if (!tm.isSmsCapable()) {
+                if (!tm.isSmsCapable() || isRestrictedUser) {
                     result.add(KEY_SMS_APPLICATION);
                 }
 
@@ -557,8 +567,8 @@ public class WirelessSettings extends SettingsPreferenceFragment
                 result.add(KEY_PROXY_SETTINGS);
 
                 // Disable Tethering if it's not allowed or if it's a wifi-only device
-                ConnectivityManager cm =
-                        (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager cm = (ConnectivityManager)
+                        context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if (isSecondaryUser || !cm.isTetheringSupported()) {
                     result.add(KEY_TETHER_SETTINGS);
                 }

@@ -45,8 +45,8 @@
             android:switchTextOn="" />
 
         <SwitchPreference
-            android:key="phone_calls"
-            android:title="@string/zen_mode_phone_calls"
+            android:key="calls"
+            android:title="@string/zen_mode_calls"
             android:persistent="false"
             android:switchTextOff=""
             android:switchTextOn="" />
@@ -73,15 +73,25 @@
 
     </PreferenceCategory>
 
+    <!-- Downtime -->
     <PreferenceCategory
         android:key="downtime"
         android:title="@string/zen_mode_downtime_category" >
 
+        <!-- Days -->
         <Preference
             android:key="days"
             android:title="@string/zen_mode_downtime_days"
             android:persistent="false" />
 
+        <!-- Start time/End time added and removed here! :-) -->
+
+        <!-- Interruptions allowed -->
+        <com.android.settings.notification.DropDownPreference
+                android:key="downtime_mode"
+                android:title="@string/zen_mode_downtime_mode_title"
+                android:order="100"
+                android:persistent="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

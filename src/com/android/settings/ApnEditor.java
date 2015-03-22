@@ -89,7 +89,8 @@ public class ApnEditor extends PreferenceActivity
 
     private String mCurMnc;
     private String mCurMcc;
-    private long mSubId;
+    private int mSubId;
+    private boolean mDisableEditor = false;
 
     private Uri mUri;
     private Cursor mCursor;
@@ -193,9 +194,15 @@ public class ApnEditor extends PreferenceActivity
         final Intent intent = getIntent();
         final String action = intent.getAction();
         // Read the subscription received from Phone settings.
-        mSubId = intent.getLongExtra(SelectSubscription.SUBSCRIPTION_KEY,
+        mSubId = intent.getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
                 SubscriptionManager.getDefaultSubId());
         Log.d(TAG,"ApnEditor onCreate received sub: " + mSubId);
+        mDisableEditor = intent.getBooleanExtra("DISABLE_EDITOR",false);
+        if (mDisableEditor) {
+            getPreferenceScreen().setEnabled(false);
+            Log.d(TAG, "ApnEditor form is disabled.");
+        }
+
         mFirstTime = icicle == null;
 
         if (action.equals(Intent.ACTION_EDIT)) {
@@ -387,7 +394,8 @@ public class ApnEditor extends PreferenceActivity
             }
             if (newValue != null && newValue.equals(oldValue) == false) {
                 if (values[mvnoIndex].equals("SPN")) {
-                    mMvnoMatchData.setText(mTelephonyManager.getSimOperatorName(mSubId));
+                    mMvnoMatchData.setText(
+                            mTelephonyManager.getSimOperatorNameForSubscription(mSubId));
                 } else if (values[mvnoIndex].equals("IMSI")) {
                     String numeric = mTelephonyManager.getSimOperator(mSubId);
                     mMvnoMatchData.setText(numeric + "x");
@@ -452,6 +460,10 @@ public class ApnEditor extends PreferenceActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
+        if (mDisableEditor) {
+            Log.d(TAG, "Form is disabled. Do not create the options menu.");
+            return true;
+        }
         // If it's a new APN, then cancel will delete the new entry in onPause
         if (!mNewApn) {
             menu.add(0, MENU_DELETE, 0, R.string.menu_delete)
@@ -517,6 +529,12 @@ public class ApnEditor extends PreferenceActivity
         String apn = checkNotSet(mApn.getText());
         String mcc = checkNotSet(mMcc.getText());
         String mnc = checkNotSet(mMnc.getText());
+
+        // If the form is not editable, do nothing and return.
+        if(mDisableEditor){
+            Log.d(TAG, "Form is disabled. Nothing to save.");
+            return true;
+        }
 
         if (getErrorMsg() != null && !force) {
             showDialog(ERROR_DIALOG_ID);

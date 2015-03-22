@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2008 The Android Open Source Project
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -88,13 +87,14 @@
                     android:title="@string/terms_title">
                 <intent android:action="android.settings.TERMS" />
             </PreferenceScreen>
-
-        </PreferenceScreen>
-
-        <PreferenceScreen
-                android:key="safetylegal"
-                android:title="@string/settings_safetylegal_title">
-            <intent android:action="android.settings.SAFETY" />
+            
+            <!-- System WebView License information -->
+            <PreferenceScreen
+                    android:key="webview_license"
+                    android:title="@string/webview_license_title">
+                <intent android:action="android.settings.WEBVIEW_LICENSE" />
+            </PreferenceScreen>
+            
         </PreferenceScreen>
 
         <PreferenceScreen

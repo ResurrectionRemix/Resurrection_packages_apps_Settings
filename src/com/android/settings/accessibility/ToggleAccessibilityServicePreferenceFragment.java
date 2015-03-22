@@ -63,10 +63,7 @@ public class ToggleAccessibilityServicePreferenceFragment
             new SettingsContentObserver(new Handler()) {
             @Override
                 public void onChange(boolean selfChange, Uri uri) {
-                    String settingValue = Settings.Secure.getString(getContentResolver(),
-                            Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-                    final boolean enabled = settingValue.contains(mComponentName.flattenToString());
-                    mSwitchBar.setCheckedInternal(enabled);
+                    updateSwitchBarToggleSwitch();
                 }
             };
 
@@ -83,6 +80,7 @@ public class ToggleAccessibilityServicePreferenceFragment
     @Override
     public void onResume() {
         mSettingsContentObserver.register(getContentResolver());
+        updateSwitchBarToggleSwitch();
         super.onResume();
     }
 
@@ -208,6 +206,14 @@ public class ToggleAccessibilityServicePreferenceFragment
         }
     }
 
+    private void updateSwitchBarToggleSwitch() {
+        final String settingValue = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+        final boolean checked = settingValue != null
+                && settingValue.contains(mComponentName.flattenToString());
+        mSwitchBar.setCheckedInternal(checked);
+    }
+
     private View createEnableDialogContentView(AccessibilityServiceInfo info) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
@@ -239,7 +245,7 @@ public class ToggleAccessibilityServicePreferenceFragment
 
         ImageView imageView = (ImageView) capabilityView.findViewById(
                 com.android.internal.R.id.perm_icon);
-        imageView.setImageDrawable(getResources().getDrawable(
+        imageView.setImageDrawable(getActivity().getDrawable(
                 com.android.internal.R.drawable.ic_text_dot));
 
         TextView labelView = (TextView) capabilityView.findViewById(
@@ -265,7 +271,7 @@ public class ToggleAccessibilityServicePreferenceFragment
 
             imageView = (ImageView) capabilityView.findViewById(
                     com.android.internal.R.id.perm_icon);
-            imageView.setImageDrawable(getResources().getDrawable(
+            imageView.setImageDrawable(getActivity().getDrawable(
                     com.android.internal.R.drawable.ic_text_dot));
 
             labelView = (TextView) capabilityView.findViewById(

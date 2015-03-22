@@ -41,7 +41,7 @@ import android.widget.TextView;
 
 public class EncryptionInterstitial extends SettingsActivity {
 
-    private static final String EXTRA_PASSWORD_QUALITY = "extra_password_quality";
+    protected static final String EXTRA_PASSWORD_QUALITY = "extra_password_quality";
     public static final String EXTRA_REQUIRE_PASSWORD = "extra_require_password";
 
     @Override
@@ -195,9 +195,11 @@ public class EncryptionInterstitial extends SettingsActivity {
             // Updates value returned by SettingsActivity.onActivityResult().
             SettingsActivity sa = (SettingsActivity)getActivity();
             Intent resultIntentData = sa.getResultIntentData();
-            resultIntentData = resultIntentData == null ? new Intent() : resultIntentData;
+            if (resultIntentData == null) {
+                resultIntentData = new Intent();
+                sa.setResultIntentData(resultIntentData);
+            }
             resultIntentData.putExtra(EXTRA_REQUIRE_PASSWORD, mPasswordRequired);
-            sa.setResultIntentData(resultIntentData);
         }
 
         @Override

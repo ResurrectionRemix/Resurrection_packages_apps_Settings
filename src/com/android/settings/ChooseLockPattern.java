@@ -65,7 +65,7 @@ public class ChooseLockPattern extends SettingsActivity {
     @Override
     public Intent getIntent() {
         Intent modIntent = new Intent(super.getIntent());
-        modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ChooseLockPatternFragment.class.getName());
+        modIntent.putExtra(EXTRA_SHOW_FRAGMENT, getFragmentClass().getName());
         return modIntent;
     }
 
@@ -83,6 +83,10 @@ public class ChooseLockPattern extends SettingsActivity {
     protected boolean isValidFragment(String fragmentName) {
         if (ChooseLockPatternFragment.class.getName().equals(fragmentName)) return true;
         return false;
+    }
+
+    /* package */ Class<? extends Fragment> getFragmentClass() {
+        return ChooseLockPatternFragment.class;
     }
 
     @Override
@@ -144,6 +148,14 @@ public class ChooseLockPattern extends SettingsActivity {
                     updateStage(Stage.Introduction);
                     break;
             }
+        }
+
+        protected void setRightButtonEnabled(boolean enabled) {
+            mFooterRightButton.setEnabled(enabled);
+        }
+
+        protected void setRightButtonText(int text) {
+            mFooterRightButton.setText(text);
         }
 
         /**
@@ -327,9 +339,12 @@ public class ChooseLockPattern extends SettingsActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.choose_lock_pattern, container, false);
+        }
 
-            // setupViews()
-            View view = inflater.inflate(R.layout.choose_lock_pattern, null);
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
             mHeaderText = (TextView) view.findViewById(R.id.headerText);
             mLockPatternView = (LockPatternView) view.findViewById(R.id.lockPattern);
             mLockPatternView.setOnPatternListener(mChooseNewLockPatternListener);
@@ -377,46 +392,57 @@ public class ChooseLockPattern extends SettingsActivity {
                 updateStage(Stage.values()[savedInstanceState.getInt(KEY_UI_STAGE)]);
             }
             mDone = false;
-            return view;
+        }
+
+        protected Intent getRedactionInterstitialIntent(Context context) {
+            return RedactionInterstitial.createStartIntent(context);
+        }
+
+        public void handleLeftButton() {
+            if (mUiStage.leftMode == LeftButtonMode.Retry) {
+                mChosenPattern = null;
+                mLockPatternView.clearPattern();
+                updateStage(Stage.Introduction);
+            } else if (mUiStage.leftMode == LeftButtonMode.Cancel) {
+                // They are canceling the entire wizard
+                getActivity().setResult(RESULT_FINISHED);
+                getActivity().finish();
+            } else {
+                throw new IllegalStateException("left footer button pressed, but stage of " +
+                        mUiStage + " doesn't make sense");
+            }
+        }
+
+        public void handleRightButton() {
+            if (mUiStage.rightMode == RightButtonMode.Continue) {
+                if (mUiStage != Stage.FirstChoiceValid) {
+                    throw new IllegalStateException("expected ui stage "
+                            + Stage.FirstChoiceValid + " when button is "
+                            + RightButtonMode.Continue);
+                }
+                updateStage(Stage.NeedToConfirm);
+            } else if (mUiStage.rightMode == RightButtonMode.Confirm) {
+                if (mUiStage != Stage.ChoiceConfirmed) {
+                    throw new IllegalStateException("expected ui stage " + Stage.ChoiceConfirmed
+                            + " when button is " + RightButtonMode.Confirm);
+                }
+                saveChosenPatternAndFinish();
+            } else if (mUiStage.rightMode == RightButtonMode.Ok) {
+                if (mUiStage != Stage.HelpScreen) {
+                    throw new IllegalStateException("Help screen is only mode with ok button, "
+                            + "but stage is " + mUiStage);
+                }
+                mLockPatternView.clearPattern();
+                mLockPatternView.setDisplayMode(DisplayMode.Correct);
+                updateStage(Stage.Introduction);
+            }
         }
 
         public void onClick(View v) {
             if (v == mFooterLeftButton) {
-                if (mUiStage.leftMode == LeftButtonMode.Retry) {
-                    mChosenPattern = null;
-                    mLockPatternView.clearPattern();
-                    updateStage(Stage.Introduction);
-                } else if (mUiStage.leftMode == LeftButtonMode.Cancel) {
-                    // They are canceling the entire wizard
-                    getActivity().setResult(RESULT_FINISHED);
-                    getActivity().finish();
-                } else {
-                    throw new IllegalStateException("left footer button pressed, but stage of " +
-                        mUiStage + " doesn't make sense");
-                }
+                handleLeftButton();
             } else if (v == mFooterRightButton) {
-
-                if (mUiStage.rightMode == RightButtonMode.Continue) {
-                    if (mUiStage != Stage.FirstChoiceValid) {
-                        throw new IllegalStateException("expected ui stage " + Stage.FirstChoiceValid
-                                + " when button is " + RightButtonMode.Continue);
-                    }
-                    updateStage(Stage.NeedToConfirm);
-                } else if (mUiStage.rightMode == RightButtonMode.Confirm) {
-                    if (mUiStage != Stage.ChoiceConfirmed) {
-                        throw new IllegalStateException("expected ui stage " + Stage.ChoiceConfirmed
-                                + " when button is " + RightButtonMode.Confirm);
-                    }
-                    saveChosenPatternAndFinish();
-                } else if (mUiStage.rightMode == RightButtonMode.Ok) {
-                    if (mUiStage != Stage.HelpScreen) {
-                        throw new IllegalStateException("Help screen is only mode with ok button, but " +
-                                "stage is " + mUiStage);
-                    }
-                    mLockPatternView.clearPattern();
-                    mLockPatternView.setDisplayMode(DisplayMode.Correct);
-                    updateStage(Stage.Introduction);
-                }
+                handleRightButton();
             }
         }
 
@@ -479,8 +505,8 @@ public class ChooseLockPattern extends SettingsActivity {
                 mFooterLeftButton.setEnabled(stage.leftMode.enabled);
             }
 
-            mFooterRightButton.setText(stage.rightMode.text);
-            mFooterRightButton.setEnabled(stage.rightMode.enabled);
+            setRightButtonText(stage.rightMode.text);
+            setRightButtonEnabled(stage.rightMode.enabled);
 
             // same for whether the patten is enabled
             if (stage.patternEnabled) {
@@ -540,20 +566,24 @@ public class ChooseLockPattern extends SettingsActivity {
             final boolean isFallback = getActivity().getIntent()
                 .getBooleanExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, false);
 
+            boolean wasSecureBefore = utils.isSecure();
+
             final boolean required = getActivity().getIntent().getBooleanExtra(
                     EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, true);
             utils.setCredentialRequiredToDecrypt(required);
-            utils.saveLockPattern(mChosenPattern, isFallback);
             utils.setLockPatternEnabled(true);
+            utils.saveLockPattern(mChosenPattern, isFallback);
 
             if (lockVirgin) {
                 utils.setVisiblePatternEnabled(true);
             }
 
+            if (!wasSecureBefore) {
+                startActivity(getRedactionInterstitialIntent(getActivity()));
+            }
             getActivity().setResult(RESULT_FINISHED);
             getActivity().finish();
             mDone = true;
-            startActivity(RedactionInterstitial.createStartIntent(getActivity()));
         }
     }
 }

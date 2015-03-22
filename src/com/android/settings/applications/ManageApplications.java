@@ -215,8 +215,6 @@ public class ManageApplications extends Fragment implements
 
         private View mListContainer;
 
-        private ViewGroup mPinnedHeader;
-
         // ListView used to display list
         private ListView mListView;
         // Custom view used to display running processes
@@ -263,19 +261,10 @@ public class ManageApplications extends Fragment implements
             if (mRootView != null) {
                 return mRootView;
             }
-
             mInflater = inflater;
             mRootView = inflater.inflate(mListType == LIST_TYPE_RUNNING
                     ? R.layout.manage_applications_running
                     : R.layout.manage_applications_apps, null);
-            mPinnedHeader = (ViewGroup) mRootView.findViewById(R.id.pinned_header);
-            if (mOwner.mProfileSpinnerAdapter != null) {
-                Spinner spinner = (Spinner) inflater.inflate(R.layout.spinner_view, null);
-                spinner.setAdapter(mOwner.mProfileSpinnerAdapter);
-                spinner.setOnItemSelectedListener(mOwner);
-                mPinnedHeader.addView(spinner);
-                mPinnedHeader.setVisibility(View.VISIBLE);
-            }
             mLoadingContainer = mRootView.findViewById(R.id.loading_container);
             mLoadingContainer.setVisibility(View.VISIBLE);
             mListContainer = mRootView.findViewById(R.id.list_container);
@@ -501,7 +490,9 @@ public class ManageApplications extends Fragment implements
     private ViewGroup mContentContainer;
     private View mRootView;
     private ViewPager mViewPager;
+    private ViewGroup mPinnedHeader;
     private UserSpinnerAdapter mProfileSpinnerAdapter;
+    private Spinner mSpinner;
     private Context mContext;
 
     AlertDialog mResetDialog;
@@ -949,7 +940,14 @@ public class ManageApplications extends Fragment implements
                 container, false);
         mContentContainer = container;
         mRootView = rootView;
-
+        mPinnedHeader = (ViewGroup) mRootView.findViewById(R.id.pinned_header);
+        if (mProfileSpinnerAdapter != null) {
+            mSpinner = (Spinner) inflater.inflate(R.layout.spinner_view, null);
+            mSpinner.setAdapter(mProfileSpinnerAdapter);
+            mSpinner.setOnItemSelectedListener(this);
+            mPinnedHeader.addView(mSpinner);
+            mPinnedHeader.setVisibility(View.VISIBLE);
+        }
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         MyPagerAdapter adapter = new MyPagerAdapter();
         mViewPager.setAdapter(adapter);
@@ -1059,6 +1057,9 @@ public class ManageApplications extends Fragment implements
             int currentTab = mViewPager.getCurrentItem();
             intent.putExtra(EXTRA_LIST_TYPE, mTabs.get(currentTab).mListType);
             mContext.startActivityAsUser(intent, selectedUser);
+            // Go back to default selection, which is the first one; this makes sure that pressing
+            // the back button takes you into a consistent state
+            mSpinner.setSelection(0);
         }
     }
 
