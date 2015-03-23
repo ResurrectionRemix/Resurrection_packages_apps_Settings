@@ -42,6 +42,8 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import android.widget.SeekBar;
@@ -127,10 +129,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
         addPreferencesFromResource(R.xml.notification_settings);
 
-        final PreferenceCategory sound = (PreferenceCategory) findPreference(KEY_SOUND);
-        initVolumePreference(KEY_MEDIA_VOLUME, AudioManager.STREAM_MUSIC);
-        initVolumePreference(KEY_ALARM_VOLUME, AudioManager.STREAM_ALARM);
+        final PreferenceCategory volumes = (PreferenceCategory) findPreference(KEY_VOLUMES);
+        final PreferenceCategory sounds = (PreferenceCategory) findPreference(KEY_SOUND);
+        final PreferenceCategory vibrate = (PreferenceCategory) findPreference(KEY_VIBRATE);
 
+        initVolumePreference(KEY_MEDIA_VOLUME, AudioManager.STREAM_MUSIC,
+                com.android.internal.R.drawable.ic_audio_vol_mute);
+        initVolumePreference(KEY_ALARM_VOLUME, AudioManager.STREAM_ALARM,
+                com.android.internal.R.drawable.ic_audio_alarm_mute);
         if (mVoiceCapable) {
             mRingPreference =
                     initVolumePreference(KEY_RING_VOLUME, AudioManager.STREAM_RING);
@@ -168,6 +174,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 Settings.System.VOLUME_PANEL_TIMEOUT, 3000);
         mVolumePanelTimeOut.setValue(String.valueOf(volumePanelTimeOut));
         updateVolumePanelTimeOutSummary(volumePanelTimeOut);
+        
+        updateRingerMode();
+        updateEffectsSuppressor();
 
     }
     
@@ -217,6 +226,53 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                     : (mVibrator == null
                             ? R.drawable.ring_notif_mute
                             : R.drawable.ring_notif_vibrate));
+    }
+    
+    private void updateRingOrNotificationPreference() {
+        mRingPreference.showIcon(mSuppressor != null
+                ? com.android.internal.R.drawable.ic_audio_ring_notif_mute
+                : mRingerMode == AudioManager.RINGER_MODE_VIBRATE
+                ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
+                : com.android.internal.R.drawable.ic_audio_ring_notif);
+    }
+
+    private void updateRingerMode() {
+        final int ringerMode = mAudioManager.getRingerModeInternal();
+        if (mRingerMode == ringerMode) return;
+        mRingerMode = ringerMode;
+        updateRingOrNotificationPreference();
+    }
+
+    private void updateEffectsSuppressor() {
+        final ComponentName suppressor = NotificationManager.from(mContext).getEffectsSuppressor();
+        if (Objects.equals(suppressor, mSuppressor)) return;
+        mSuppressor = suppressor;
+        if (mRingPreference != null) {
+            final String text = suppressor != null ?
+                    mContext.getString(com.android.internal.R.string.muted_by,
+                            getSuppressorCaption(suppressor)) : null;
+            mRingPreference.setSuppressionText(text);
+        }
+        updateRingOrNotificationPreference();
+    }
+
+    private String getSuppressorCaption(ComponentName suppressor) {
+        final PackageManager pm = mContext.getPackageManager();
+        try {
+            final ServiceInfo info = pm.getServiceInfo(suppressor, 0);
+            if (info != null) {
+                final CharSequence seq = info.loadLabel(pm);
+                if (seq != null) {
+                    final String str = seq.toString().trim();
+                    if (str.length() > 0) {
+                        return str;
+                    }
+                }
+            }
+        } catch (Throwable e) {
+            Log.w(TAG, "Error loading suppressor caption", e);
+        }
+        return suppressor.getPackageName();
     }
 
     private final class VolumePreferenceCallback implements VolumeSeekBarPreference.Callback {
@@ -458,7 +514,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
     private void updateNotificationPreferenceState() {
         mNotificationPreference = initVolumePreference(KEY_NOTIFICATION_VOLUME,
-                AudioManager.STREAM_NOTIFICATION);
+                AudioManager.STREAM_NOTIFICATION,
+                com.android.internal.R.drawable.ic_audio_ring_notif_mute);
 
         if (mVoiceCapable) {
             final boolean enabled = Settings.System.getInt(getContentResolver(),

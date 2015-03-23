@@ -181,8 +181,6 @@ public class WifiConfigController implements TextWatcher,
     private static final String EAP_SIM_METHOD_STRING = "SIM";
     private static final String EAP_AKA_METHOD_STRING = "AKA";
 
-    private WifiManager mWifiManager;
-
     public WifiConfigController(
             WifiConfigUiBase parent, View view, AccessPoint accessPoint, boolean edit) {
         mConfigUi = parent;

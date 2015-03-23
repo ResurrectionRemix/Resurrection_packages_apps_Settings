@@ -88,7 +88,6 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
-import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -773,7 +772,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
                             TelephonyManager.getDefault().getMultiSimConfiguration() ==
                             TelephonyManager.MultiSimVariants.TSTS) {
                         // only one of the SIMs can have Data enabled, so...
-                        if (SubscriptionManager.getDefaultDataPhoneId() == i) {
+                        if (SubscriptionManager.from(context).getDefaultDataPhoneId() == i) {
                             mDataEnabledView.setVisibility(View.VISIBLE);
                         } else {
                             mDataEnabledView.setVisibility(View.GONE);
@@ -1040,7 +1039,8 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
                 == TelephonyManager.MultiSimVariants.DSDS
             || TelephonyManager.getDefault().getMultiSimConfiguration()
                 == TelephonyManager.MultiSimVariants.TSTS) &&
-            (!mTabHost.getCurrentTabTag().equals(getSubTag(SubscriptionManager.getDefaultDataPhoneId()+1)))
+            (!mTabHost.getCurrentTabTag().equals(getSubTag(
+                SubscriptionManager.from(getActivity()).getDefaultDataPhoneId()+1)))
         ) {
             dataEnabledVisible = false;
         }
@@ -2569,20 +2569,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         if (i <= 0) {
             return "";
         } else {
-            // i-1 is supposed to be the phoneId
-            long[] mSubId = SubscriptionManager.getSubId(i-1);
-            if (mSubId.length > 0) {
-                SubInfoRecord mSubInfo = null;
-                for (int j = 0; j < mSubId.length && mSubInfo == null; j++) {
-                    mSubInfo = SubscriptionManager.getSubInfoForSubscriber(mSubId[j]);
-                }
-                if (mSubInfo != null &&
-                        mSubInfo.displayName != null &&
-                        mSubInfo.displayName != "") {
-                   return mSubInfo.displayName;
-                }
-            }
-            return getString(R.string.data_usage_tab_slot, i);
+            return getText(R.string.data_usage_tab_slot).toString() + i;
         }
     }
 
