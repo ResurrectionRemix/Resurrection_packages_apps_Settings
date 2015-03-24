@@ -106,7 +106,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private TwoStatePreference mVibrateWhenRinging;
     private TwoStatePreference mNotificationPulse;
     private DropDownPreference mLockscreen;
-    private ListPreference mVolumePanelTimeOut;
     private Preference mNotificationAccess;
     private boolean mSecure;
     private int mLockscreenSelectedValue;
