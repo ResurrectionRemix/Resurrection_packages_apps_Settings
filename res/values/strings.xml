@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -640,6 +637,8 @@
 
     <!-- check box cellular data title [CHAR LIMIT=30] -->
     <string name="cellular_data_title">Mobile data</string>
+    <!-- msg displayed when you are in sim settings screen during an active call -->
+    <string name="data_disabled_in_active_call">Mobile data is disabled when a call is active.</string>
     <!-- check box Calls title [CHAR LIMIT=30] -->
     <string name="calls_title">Calls</string>
     <!-- check box SMS Messges title [CHAR LIMIT=30] -->
@@ -1679,6 +1678,7 @@
     <string name="wifi_skipped_message" product="device">WARNING: if you skip Wi\u2011Fi, your device will only use mobile data for initial downloads and updates. To avoid possible data charges, connect to Wi\u2011Fi.</string>
     <!-- Text warning about skipping Wi-Fi with a mobile connect (phone) [CHAR LIMIT=NONE]-->
     <string name="wifi_skipped_message" product="default">WARNING: if you skip Wi\u2011Fi, your phone will only use mobile data for initial downloads and updates. To avoid possible data charges, connect to Wi\u2011Fi.</string>
+
     <!-- Text warning about skipping Wi-Fi without a mobile connect (tablet) [CHAR LIMIT=NONE] -->
     <string name="wifi_and_mobile_skipped_message" product="tablet">If you skip Wi\u2011Fi:\n\nYour tablet won\'t have an Internet connection.\n\nYou won\'t get software updates until you connect to the Internet.\n\nYou can\'t activate device protection features at this time.</string>
     <!-- Text warning about skipping Wi-Fi without a mobile connect (device) [CHAR LIMIT=NONE] -->
@@ -2099,8 +2099,10 @@
     <string name="sim_bad_pin">Incorrect PIN</string>
     <!-- SIM card lock settings screen, SIM PIN dialog message when PINs don't match  [CHAR LIMIT=40] -->
     <string name="sim_pins_dont_match">PINs don\'t match</string>
-    <!-- SIM card lock settings screen, toast after not entering correct SIM PIN  [CHAR LIMIT=40] -->
-    <string name="sim_change_failed">Can\'t change PIN.\nPossibly incorrect PIN.</string>
+    <!-- SIM card lock settings screen, toast after entering Incorrect SIM PIN  [CHAR LIMIT=40] -->
+    <string name="sim_pin_incorrect">Incorrect SIM PIN code.</string>
+    <!-- SIM card lock settings screen, toast after not when change SIM PIN fails  [CHAR LIMIT=40] -->
+    <string name="sim_change_failed">Can\'t change PIN.\n.</string>
     <!-- SIM card lock settings screen, SIM PIN dialog message when the entered PIN is correct [CHAR LIMIT=40] -->
     <string name="sim_change_succeeded">SIM PIN changed successfully</string>
     <!-- SIM card lock settings screen, toast after not entering correct SIM PIN [CHAR LIMIT=40] -->
@@ -2116,11 +2118,11 @@
     <!-- Title asking user if they wish to change the default sim for cellular data.  [CHAR LIMIT=30] -->
     <string name="sim_change_data_title">Change data SIM?</string>
     <!-- Message confirming the user wishes to change the default data SIM from one to another.  [CHAR LIMIT=NONE] -->
-    <string name="sim_change_data_message">Use <xliff:g id="new_sim">%1$s</xliff:g> instead of <xliff:g id="old_sim">%2$s</xliff:g> for cellular data?</string>
+    <string name="sim_change_data_message">Use <xliff:g id="new_sim">%1$s</xliff:g> instead of <xliff:g id="old_sim">%2$s</xliff:g> for mobile data?</string>
     <!-- Title for the dialog asking to user to change the preferred SIM  [CHAR LIMIT=30] -->
     <string name="sim_preferred_title">Update preferred SIM card?</string>
     <!-- Message for the dialog asking to user to change the preferred SIM  [CHAR LIMIT=NONE] -->
-    <string name="sim_preferred_message"><xliff:g id="new_sim">%1$s</xliff:g> is the only SIM in your device.  Do you want to use this SIM for cellular data, calls, and SMS messages?</string>
+    <string name="sim_preferred_message"><xliff:g id="new_sim">%1$s</xliff:g> is the only SIM in your device.  Do you want to use this SIM for mobile data, calls, and SMS messages?</string>
 
     <!-- Instructions telling the user that they entered the wrong SIM PIN for the last time.
          Displayed in a dialog box.  [CHAR LIMIT=100] -->
@@ -2147,6 +2149,8 @@
     <string name="firmware_version">Android version</string>
     <!-- About phone screen, status item label  [CHAR LIMIT=40] -->
     <string name="model_number">Model number</string>
+    <!-- About phone screen, status item label  [CHAR LIMIT=40] -->
+    <string name="processor_info">Processor info</string>
     <!-- About phone screen, fcc equipment id label  [CHAR LIMIT=40] -->
     <string name="fcc_equipment_id">Equipment ID</string>
     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
@@ -2444,7 +2448,7 @@
     <!-- SD card & phone storage settings screen, instructions and list of current accounts.  The list of accounts follows this text[CHAR LIMIT=NONE] -->
     <string name="master_clear_accounts" product="default">\n\nYou are currently signed into the following accounts:\n</string>
     <!-- SD card & phone storage settings screen, notification if other users are present on the device [CHAR LIMIT=NONE] -->
-    <string name="master_clear_other_users_present" product="default">"\n\nThere are other users present on this device.\n"</string>
+    <string name="master_clear_other_users_present" product="default">\n\nThere are other users present on this device.\n</string>
     <!-- SD card & phone storage settings screen, list of items in user data storage (USB storage or SD card) that will be erased during this operation [CHAR LIMIT=NONE] -->
     <string name="master_clear_desc_also_erases_external"><li>Music</li>\n<li>Photos</li>\n<li>Other user data</li></string>
     <!-- SD card & phone storage settings screen, instructions about whether to also erase the external storage (SD card) when erasing the internal storage [CHAR LIMIT=NONE] -->
@@ -2668,6 +2672,11 @@
     <string name="location_access_summary">Let apps that have asked your permission use your location information</string>
     <!-- [CHAR LIMIT=45] Section heading for location sources -->
     <string name="location_sources_heading">Location sources</string>
+    <!-- [CHAR LIMIT=none] List of gs packages -->
+    <string-array name="gs_packages">
+      <item>com.google.android.gms</item>
+      <item>com.google.android.location</item>
+    </string-array>
 
     <!-- About --> <skip />
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
@@ -6044,8 +6053,11 @@
    <!-- Message for encryption dialog telling the user that Talkback and other accessibility services will be disabled. -->
    <string name="encrypt_talkback_dialog_message_password">When you enter your password to start this device, accessibility services like <xliff:g id="service" example="TalkBack">%1$s</xliff:g> won\'t yet be available.</string>
 
+    <string name="switch_data_subscription">Data services are now switched to SIM%1$s.</string>
+    <string name="select_sim_card">Select SIM card</string>
    <!-- Title and summary for SIM Status -->
    <string name="imei_information_title">IMEI information</string>
    <string name="imei_information_summary">IMEI relative information</string>
    <string name="slot_number">(Slot<xliff:g id="slot_num">%1$d</xliff:g>)</string>
+
 </resources>
