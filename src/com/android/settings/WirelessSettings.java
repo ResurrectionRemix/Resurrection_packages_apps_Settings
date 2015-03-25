@@ -568,7 +568,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
 
                 // Disable Tethering if it's not allowed or if it's a wifi-only device
                 ConnectivityManager cm = (ConnectivityManager)
-                        context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                        context.getSystemService(Context.CONNECTIVITY_SERVICE);               
                 if (isSecondaryUser || !cm.isTetheringSupported()) {
                     result.add(KEY_TETHER_SETTINGS);
                 }
