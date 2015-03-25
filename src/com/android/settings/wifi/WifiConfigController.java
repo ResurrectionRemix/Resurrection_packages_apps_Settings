@@ -766,7 +766,6 @@ public class WifiConfigController implements TextWatcher,
             mEapMethodSpinner.setAdapter(mEapMethodAdapter);
             mEapMethodSpinner.setOnItemSelectedListener(this);
             mPhase2Spinner = (Spinner) mView.findViewById(R.id.phase2);
-            mSimCardSpinner = (Spinner) mView.findViewById(R.id.sim_card);
             mEapCaCertSpinner = (Spinner) mView.findViewById(R.id.ca_cert);
             mEapUserCertSpinner = (Spinner) mView.findViewById(R.id.user_cert);
             mEapIdentityView = (TextView) mView.findViewById(R.id.identity);
@@ -878,14 +877,12 @@ public class WifiConfigController implements TextWatcher,
                 setCaCertInvisible();
                 setAnonymousIdentInvisible();
                 setUserCertInvisible();
-                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_TLS:
                 mView.findViewById(R.id.l_user_cert).setVisibility(View.VISIBLE);
                 setPhase2Invisible();
                 setAnonymousIdentInvisible();
                 setPasswordInvisible();
-                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_PEAP:
                 // Reset adapter if needed
@@ -896,7 +893,6 @@ public class WifiConfigController implements TextWatcher,
                 mView.findViewById(R.id.l_phase2).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.l_anonymous).setVisibility(View.VISIBLE);
                 setUserCertInvisible();
-                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_TTLS:
                 // Reset adapter if needed
@@ -907,7 +903,6 @@ public class WifiConfigController implements TextWatcher,
                 mView.findViewById(R.id.l_phase2).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.l_anonymous).setVisibility(View.VISIBLE);
                 setUserCertInvisible();
-                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_SIM:
                 ArrayAdapter<String> eapSimAdapter = new ArrayAdapter<String>(
@@ -917,7 +912,6 @@ public class WifiConfigController implements TextWatcher,
                 eapSimAdapter.setDropDownViewResource(
                         android.R.layout.simple_spinner_dropdown_item);
                 mSimCardSpinner.setAdapter(eapSimAdapter);
-                mView.findViewById(R.id.l_sim_card).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.wifi_advanced_toggle).setVisibility(View.GONE);
                 setPhase2Invisible();
                 setCaCertInvisible();
@@ -934,7 +928,6 @@ public class WifiConfigController implements TextWatcher,
                 eapAkaAdapter.setDropDownViewResource(
                         android.R.layout.simple_spinner_dropdown_item);
                 mSimCardSpinner.setAdapter(eapAkaAdapter);
-                mView.findViewById(R.id.l_sim_card).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.wifi_advanced_toggle).setVisibility(View.GONE);
                 setPhase2Invisible();
                 setCaCertInvisible();
@@ -944,10 +937,6 @@ public class WifiConfigController implements TextWatcher,
                 setIdentityInvisible();
                 break;
         }
-    }
-
-    private void setSimCardInvisible() {
-        mView.findViewById(R.id.l_sim_card).setVisibility(View.GONE);
     }
 
     private void setIdentityInvisible() {
