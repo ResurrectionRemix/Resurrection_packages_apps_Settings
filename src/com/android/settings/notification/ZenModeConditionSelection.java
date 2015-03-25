@@ -23,9 +23,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.service.notification.Condition;
 import android.service.notification.IConditionListener;
 import android.service.notification.ZenModeConfig;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -59,7 +61,8 @@ public class ZenModeConditionSelection extends RadioGroup {
         b.setText(mContext.getString(com.android.internal.R.string.zen_mode_forever));
         b.setChecked(true);
         for (int i = ZenModeConfig.MINUTE_BUCKETS.length - 1; i >= 0; --i) {
-            handleCondition(ZenModeConfig.toTimeCondition(ZenModeConfig.MINUTE_BUCKETS[i]));
+            handleCondition(ZenModeConfig.toTimeCondition(mContext,
+                    ZenModeConfig.MINUTE_BUCKETS[i], UserHandle.myUserId()));
         }
     }
 
@@ -114,7 +117,7 @@ public class ZenModeConditionSelection extends RadioGroup {
             }
         }
         if (v != null) {
-            v.setText(c.summary);
+            v.setText(!TextUtils.isEmpty(c.line1) ? c.line1 : c.summary);
             v.setEnabled(c.state == Condition.STATE_TRUE);
         }
         mConditions.add(c);

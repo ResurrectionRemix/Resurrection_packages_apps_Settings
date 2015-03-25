@@ -47,6 +47,8 @@ import android.provider.Settings.SettingNotFoundException;
 import android.security.KeyStore;
 import android.service.trust.TrustAgentService;
 import android.telephony.TelephonyManager;
+import android.telephony.SubscriptionManager;
+import android.telephony.SubscriptionInfo;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -79,7 +81,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_BIOMETRIC_WEAK_LIVELINESS = "biometric_weak_liveliness";
     private static final String KEY_LOCK_ENABLED = "lockenabled";
     private static final String KEY_VISIBLE_PATTERN = "visiblepattern";
-    private static final String KEY_VISIBLE_GESTURE = "visiblegesture";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
@@ -111,7 +112,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
-            KEY_LOCK_ENABLED, KEY_VISIBLE_PATTERN, KEY_VISIBLE_GESTURE, KEY_BIOMETRIC_WEAK_LIVELINESS,
+            KEY_LOCK_ENABLED, KEY_VISIBLE_PATTERN, KEY_BIOMETRIC_WEAK_LIVELINESS,
             KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD, KEY_TOGGLE_INSTALL_APPLICATIONS };
 
     // Only allow one trust agent on the platform.
@@ -119,6 +120,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
+    private SubscriptionManager mSubscriptionManager;
 
     private ChooseLockSettingsHelper mChooseLockSettingsHelper;
     private LockPatternUtils mLockPatternUtils;
@@ -126,7 +128,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private SwitchPreference mBiometricWeakLiveliness;
     private SwitchPreference mVisiblePattern;
-    private SwitchPreference mVisibleGesture;
 
     private SwitchPreference mShowPassword;
 
@@ -146,6 +147,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mSubscriptionManager = SubscriptionManager.from(getActivity());
 
         mLockPatternUtils = new LockPatternUtils(getActivity());
 
@@ -189,9 +192,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
                 case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
                     resid = R.xml.security_settings_password;
-                    break;
-                case DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK:
-                    resid = R.xml.security_settings_gesture;
                     break;
             }
         }
@@ -295,9 +295,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // visible pattern
         mVisiblePattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_PATTERN);
 
-        // visible gesture
-        mVisibleGesture = (SwitchPreference) root.findPreference(KEY_VISIBLE_GESTURE);
-
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (SwitchPreference) root.findPreference(
                 KEY_POWER_INSTANTLY_LOCKS);
@@ -316,9 +313,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
             if (securityCategory != null && mVisiblePattern != null) {
                 securityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
-            }
-            if (securityCategory != null && mVisibleGesture != null) {
-                securityCategory.removePreference(root.findPreference(KEY_VISIBLE_GESTURE));
             }
         }
 
@@ -347,6 +341,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (disableLock) {
                 root.findPreference(KEY_SIM_LOCK).setEnabled(false);
             }
+        }
+        if (!mIsPrimary || !isSimIccReady()) {
+            root.removePreference(root.findPreference(KEY_SIM_LOCK));
+        } else {
+            // Disable SIM lock if there is no ready SIM card.
+            root.findPreference(KEY_SIM_LOCK).setEnabled(isSimReady());
         }
         if (Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
@@ -409,7 +409,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 KEY_TOGGLE_INSTALL_APPLICATIONS);
         mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
         // Side loading of apps.
-        mToggleAppInstallation.setEnabled(mIsPrimary);
+        // Disable for restricted profiles. For others, check if policy disallows it.
+        mToggleAppInstallation.setEnabled(!um.getUserInfo(UserHandle.myUserId()).isRestricted());
         if (um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)
                 || um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS)) {
             mToggleAppInstallation.setEnabled(false);
@@ -446,6 +447,43 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
 
         return root;
+    }
+
+    /* Return true if a there is a Slot that has Icc.
+     */
+    private boolean isSimIccReady() {
+        TelephonyManager tm = TelephonyManager.getDefault();
+        final List<SubscriptionInfo> subInfoList =
+                mSubscriptionManager.getActiveSubscriptionInfoList();
+
+        if (subInfoList != null) {
+            for (SubscriptionInfo subInfo : subInfoList) {
+                if (tm.hasIccCard(subInfo.getSimSlotIndex())) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /* Return true if a SIM is ready for locking.
+     * TODO: consider adding to TelephonyManager or SubscritpionManasger.
+     */
+    private boolean isSimReady() {
+        int simState = TelephonyManager.SIM_STATE_UNKNOWN;
+        final List<SubscriptionInfo> subInfoList =
+                mSubscriptionManager.getActiveSubscriptionInfoList();
+        if (subInfoList != null) {
+            for (SubscriptionInfo subInfo : subInfoList) {
+                simState = TelephonyManager.getDefault().getSimState(subInfo.getSimSlotIndex());
+                if((simState != TelephonyManager.SIM_STATE_ABSENT) &&
+                            (simState != TelephonyManager.SIM_STATE_UNKNOWN)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private static ArrayList<TrustAgentComponentInfo> getActiveTrustAgents(
@@ -709,8 +747,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             lockPatternUtils.setLockPatternEnabled((Boolean) value);
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
             lockPatternUtils.setVisiblePatternEnabled((Boolean) value);
-        } else if (KEY_VISIBLE_GESTURE.equals(key)) {
-            lockPatternUtils.setVisibleGestureEnabled((Boolean) value);
         } else  if (KEY_BIOMETRIC_WEAK_LIVELINESS.equals(key)) {
             if ((Boolean) value) {
                 lockPatternUtils.setBiometricWeakLivelinessEnabled(true);

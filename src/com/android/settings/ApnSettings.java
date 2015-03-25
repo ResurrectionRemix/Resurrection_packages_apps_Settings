@@ -95,7 +95,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private HandlerThread mRestoreDefaultApnThread;
 
     private UserManager mUm;
-    private long mSubId;
+    private int mSubId;
 
     private String mSelectedKey;
 
@@ -166,7 +166,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.apn_settings);
         getListView().setItemsCanFocus(true);
-        mSubId = getActivity().getIntent().getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+        mSubId = getActivity().getIntent().getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                 SubscriptionManager.getDefaultDataSubId());
         Log.d(TAG, "onCreate received subId :" + mSubId);
         mMobileStateFilter = new IntentFilter(

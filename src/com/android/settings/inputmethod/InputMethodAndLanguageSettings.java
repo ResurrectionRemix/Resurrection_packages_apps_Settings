@@ -24,11 +24,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.hardware.CmHardwareManager;
 import android.hardware.input.InputDeviceIdentifier;
@@ -36,8 +33,6 @@ import android.hardware.input.InputManager;
 import android.hardware.input.KeyboardLayout;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.UserHandle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -47,7 +42,6 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.System;
-import android.speech.RecognitionService;
 import android.speech.tts.TtsEngines;
 import android.text.TextUtils;
 import android.util.Log;
@@ -426,11 +420,11 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                         getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showInputMethodPicker();
             }
-        } else if (preference instanceof CheckBoxPreference) {
-            final CheckBoxPreference chkPref = (CheckBoxPreference) preference;
-            if (chkPref == mGameControllerCategory.findPreference("vibrate_input_devices")) {
+        } else if (preference instanceof SwitchPreference) {
+            final SwitchPreference pref = (SwitchPreference) preference;
+            if (pref == mGameControllerCategory.findPreference("vibrate_input_devices")) {
                 System.putInt(getContentResolver(), Settings.System.VIBRATE_INPUT_DEVICES,
-                        chkPref.isChecked() ? 1 : 0);
+                        pref.isChecked() ? 1 : 0);
                 return true;
             }
         } else if (preference == mHighTouchSensitivity) {
@@ -707,9 +701,9 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (haveInputDeviceWithVibrator()) {
             getPreferenceScreen().addPreference(mGameControllerCategory);
 
-            CheckBoxPreference chkPref = (CheckBoxPreference)
+            SwitchPreference pref = (SwitchPreference)
                     mGameControllerCategory.findPreference("vibrate_input_devices");
-            chkPref.setChecked(System.getInt(getContentResolver(),
+            pref.setChecked(System.getInt(getContentResolver(),
                     Settings.System.VIBRATE_INPUT_DEVICES, 1) > 0);
         } else {
             getPreferenceScreen().removePreference(mGameControllerCategory);
@@ -802,6 +796,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             indexable.key = KEY_SPELL_CHECKERS;
             indexable.title = context.getString(R.string.spellcheckers_settings_title);
             indexable.screenTitle = screenTitle;
+            indexable.keywords = context.getString(R.string.keywords_spell_checker);
             indexables.add(indexable);
 
             // User dictionary.
@@ -818,6 +813,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             indexable.key = "keyboard_settings";
             indexable.title = context.getString(R.string.keyboard_settings_category);
             indexable.screenTitle = screenTitle;
+            indexable.keywords = context.getString(R.string.keywords_keyboard_and_ime);
             indexables.add(indexable);
 
             InputMethodSettingValuesWrapper immValues = InputMethodSettingValuesWrapper
@@ -923,6 +919,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             indexable.key = "voice_input_settings";
             indexable.title = context.getString(R.string.voice_input_settings);
             indexable.screenTitle = screenTitle;
+            indexable.keywords = context.getString(R.string.keywords_voice_input);
             indexables.add(indexable);
 
             // Text-to-speech.
@@ -932,6 +929,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 indexable.key = "tts_settings";
                 indexable.title = context.getString(R.string.tts_settings_title);
                 indexable.screenTitle = screenTitle;
+                indexable.keywords = context.getString(R.string.keywords_text_to_speech_output);
                 indexables.add(indexable);
             }
 

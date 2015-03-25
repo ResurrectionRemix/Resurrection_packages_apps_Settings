@@ -111,7 +111,7 @@ final public class AuthenticatorHelper extends BroadcastReceiver {
                 Context authContext = context.createPackageContextAsUser(desc.packageName, 0,
                         mUserHandle);
                 icon = mContext.getPackageManager().getUserBadgedIcon(
-                        authContext.getResources().getDrawable(desc.iconId), mUserHandle);
+                        authContext.getDrawable(desc.iconId), mUserHandle);
                 synchronized (mAccTypeIconCache) {
                     mAccTypeIconCache.put(accountType, icon);
                 }
@@ -145,6 +145,33 @@ final public class AuthenticatorHelper extends BroadcastReceiver {
             }
         }
         return label;
+    }
+
+    /**
+     * Gets the package associated with a particular account type. If none found, return null.
+     * @param accountType the type of account
+     * @return the package name or null if one cannot be found.
+     */
+    public String getPackageForType(final String accountType) {
+        if (mTypeToAuthDescription.containsKey(accountType)) {
+            AuthenticatorDescription desc = mTypeToAuthDescription.get(accountType);
+            return desc.packageName;
+        }
+        return null;
+    }
+
+    /**
+     * Gets the resource id of the label associated with a particular account type. If none found,
+     * return -1.
+     * @param accountType the type of account
+     * @return a resource id for the label or -1 if none found;
+     */
+    public int getLabelIdForType(final String accountType) {
+        if (mTypeToAuthDescription.containsKey(accountType)) {
+            AuthenticatorDescription desc = mTypeToAuthDescription.get(accountType);
+            return desc.labelId;
+        }
+        return -1;
     }
 
     /**

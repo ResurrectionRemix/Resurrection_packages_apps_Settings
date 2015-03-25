@@ -42,6 +42,13 @@
             android:entries="@array/wifi_sleep_policy_entries"
             android:entryValues="@array/wifi_sleep_policy_values" />
 
+    <com.android.settings.AppListSwitchPreference
+            android:key="wifi_assistant"
+            android:title="@string/wifi_automatically_connect_title"
+            android:summary="@string/wifi_automatically_connect_summary"
+            android:dialogTitle="@string/wifi_select_assistant_dialog_title"
+            android:persistent="false" />
+
     <!-- android:dependency="enable_wifi" -->
     <SwitchPreference
             android:key="wifi_poor_network_detection"

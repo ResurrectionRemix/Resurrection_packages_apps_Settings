@@ -43,12 +43,12 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -59,6 +59,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.HashMap;
 
 public class TrustedCredentialsSettings extends Fragment {
 
@@ -90,17 +91,17 @@ public class TrustedCredentialsSettings extends Fragment {
         private final int mProgress;
         private final int mList;
         private final int mExpandableList;
-        private final boolean mCheckbox;
+        private final boolean mSwitch;
 
         private Tab(String tag, int label, int view, int progress, int list, int expandableList,
-                boolean checkbox) {
+                boolean withSwitch) {
             mTag = tag;
             mLabel = label;
             mView = view;
             mProgress = progress;
             mList = list;
             mExpandableList = expandableList;
-            mCheckbox = checkbox;
+            mSwitch = withSwitch;
         }
 
         private List<ParcelableString> getAliases(IKeyChainService service) throws RemoteException {
@@ -148,7 +149,7 @@ public class TrustedCredentialsSettings extends Fragment {
         }
         private void postOperationUpdate(boolean ok, CertHolder certHolder) {
             if (ok) {
-                if (certHolder.mTab.mCheckbox) {
+                if (certHolder.mTab.mSwitch) {
                     certHolder.mDeleted = !certHolder.mDeleted;
                 } else {
                     certHolder.mAdapter.remove(certHolder);
@@ -162,6 +163,9 @@ public class TrustedCredentialsSettings extends Fragment {
     }
 
     private TabHost mTabHost;
+    private AliasOperation mAliasOperation;
+    private HashMap<Tab, AdapterData.AliasLoader>
+            mAliasLoaders = new HashMap<Tab, AdapterData.AliasLoader>(2);
     private final SparseArray<KeyChainConnection>
             mKeyChainConnectionByProfileId = new SparseArray<KeyChainConnection>();
 
@@ -187,6 +191,13 @@ public class TrustedCredentialsSettings extends Fragment {
     }
     @Override
     public void onDestroy() {
+        for (AdapterData.AliasLoader aliasLoader : mAliasLoaders.values()) {
+            aliasLoader.cancel(true);
+        }
+        if (mAliasOperation != null) {
+            mAliasOperation.cancel(true);
+            mAliasOperation = null;
+        }
         closeKeyChainConnections();
         super.onDestroy();
     }
@@ -405,6 +416,12 @@ public class TrustedCredentialsSettings extends Fragment {
         private class AliasLoader extends AsyncTask<Void, Integer, SparseArray<List<CertHolder>>> {
             private ProgressBar mProgressBar;
             private View mList;
+            private Context mContext;
+
+            public AliasLoader() {
+                mContext = getActivity();
+                mAliasLoaders.put(mTab, this);
+            }
 
             @Override protected void onPreExecute() {
                 View content = mTabHost.getTabContentView();
@@ -423,25 +440,20 @@ public class TrustedCredentialsSettings extends Fragment {
                     // correctly. Otherwise this could all be in a single loop.
                     SparseArray<List<ParcelableString>> aliasesByProfileId = new SparseArray<
                             List<ParcelableString>>(n);
-
-                    Context context = getActivity();
-                    if (context == null) {
-                        // We might have been detached from the activity before this task is
-                        // scheduled. In that case, bail, the results won't be used anyway.
-                        return certHoldersByProfile;
-                    }
-
                     int max = 0;
                     int progress = 0;
                     for (int i = 0; i < n; ++i) {
                         UserHandle profile = profiles.get(i);
                         int profileId = profile.getIdentifier();
-                        KeyChainConnection keyChainConnection = KeyChain.bindAsUser(context,
+                        KeyChainConnection keyChainConnection = KeyChain.bindAsUser(mContext,
                                 profile);
                         // Saving the connection for later use on the certificate dialog.
                         mKeyChainConnectionByProfileId.put(profileId, keyChainConnection);
                         IKeyChainService service = keyChainConnection.getService();
                         List<ParcelableString> aliases = mTab.getAliases(service);
+                        if (isCancelled()) {
+                            return new SparseArray<List<CertHolder>>();
+                        }
                         max += aliases.size();
                         aliasesByProfileId.put(profileId, aliases);
                     }
@@ -449,6 +461,9 @@ public class TrustedCredentialsSettings extends Fragment {
                         UserHandle profile = profiles.get(i);
                         int profileId = profile.getIdentifier();
                         List<ParcelableString> aliases = aliasesByProfileId.get(profileId);
+                        if (isCancelled()) {
+                            return new SparseArray<List<CertHolder>>();
+                        }
                         IKeyChainService service = mKeyChainConnectionByProfileId.get(profileId)
                                 .getService();
                         List<CertHolder> certHolders = new ArrayList<CertHolder>(max);
@@ -492,6 +507,7 @@ public class TrustedCredentialsSettings extends Fragment {
                 mProgressBar.setVisibility(View.GONE);
                 mList.setVisibility(View.VISIBLE);
                 mProgressBar.setProgress(0);
+                mAliasLoaders.remove(mTab);
             }
         }
 
@@ -594,7 +610,7 @@ public class TrustedCredentialsSettings extends Fragment {
                     convertView.findViewById(R.id.trusted_credential_subject_primary);
             holder.mSubjectSecondaryView = (TextView)
                     convertView.findViewById(R.id.trusted_credential_subject_secondary);
-            holder.mCheckBox = (CheckBox) convertView.findViewById(
+            holder.mSwitch = (Switch) convertView.findViewById(
                     R.id.trusted_credential_status);
             convertView.setTag(holder);
         } else {
@@ -602,9 +618,12 @@ public class TrustedCredentialsSettings extends Fragment {
         }
         holder.mSubjectPrimaryView.setText(certHolder.mSubjectPrimary);
         holder.mSubjectSecondaryView.setText(certHolder.mSubjectSecondary);
-        if (mTab.mCheckbox) {
-            holder.mCheckBox.setChecked(!certHolder.mDeleted);
-            holder.mCheckBox.setVisibility(View.VISIBLE);
+        if (mTab.mSwitch) {
+            holder.mSwitch.setChecked(!certHolder.mDeleted);
+            holder.mSwitch.setEnabled(!mUserManager.hasUserRestriction(
+                    UserManager.DISALLOW_CONFIG_CREDENTIALS,
+                    new UserHandle(certHolder.mProfileId)));
+            holder.mSwitch.setVisibility(View.VISIBLE);
         }
         return convertView;
     }
@@ -612,7 +631,7 @@ public class TrustedCredentialsSettings extends Fragment {
     private static class ViewHolder {
         private TextView mSubjectPrimaryView;
         private TextView mSubjectSecondaryView;
-        private CheckBox mCheckBox;
+        private Switch mSwitch;
     }
 
     private void showCertDialog(final CertHolder certHolder) {
@@ -664,7 +683,8 @@ public class TrustedCredentialsSettings extends Fragment {
         Button removeButton = (Button) inflater.inflate(R.layout.trusted_credential_details,
                                                         body,
                                                         false);
-        if (!mUserManager.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
+        if (!mUserManager.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS,
+                new UserHandle(certHolder.mProfileId))) {
             body.addView(removeButton);
         }
         removeButton.setText(certHolder.mTab.getButtonLabel(certHolder));
@@ -732,6 +752,7 @@ public class TrustedCredentialsSettings extends Fragment {
 
         private AliasOperation(CertHolder certHolder) {
             mCertHolder = certHolder;
+            mAliasOperation = this;
         }
 
         @Override
@@ -747,16 +768,10 @@ public class TrustedCredentialsSettings extends Fragment {
                 } else {
                     return service.deleteCaCertificate(mCertHolder.mAlias);
                 }
-            } catch (CertificateEncodingException e) {
+            } catch (CertificateEncodingException | SecurityException | IllegalStateException
+                    | RemoteException e) {
                 Log.w(TAG, "Error while toggling alias " + mCertHolder.mAlias,
                         e);
-                return false;
-            } catch (IllegalStateException e) {
-                // used by installCaCertificate to report errors
-                Log.w(TAG, "Error while toggling alias " + mCertHolder.mAlias, e);
-                return false;
-            } catch (RemoteException e) {
-                Log.w(TAG, "Error while toggling alias " + mCertHolder.mAlias, e);
                 return false;
             }
         }
@@ -764,6 +779,7 @@ public class TrustedCredentialsSettings extends Fragment {
         @Override
         protected void onPostExecute(Boolean ok) {
             mCertHolder.mTab.postOperationUpdate(ok, mCertHolder);
+            mAliasOperation = null;
         }
     }
 }

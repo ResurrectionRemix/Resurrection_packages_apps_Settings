@@ -25,7 +25,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
@@ -35,6 +34,7 @@ import android.util.Log;
 
 import com.android.settings.ButtonBarHandler;
 import com.android.settings.R;
+import com.android.settings.SetupWizardUtils;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
@@ -42,22 +42,18 @@ public class WifiSetupActivity extends WifiPickerActivity
         implements ButtonBarHandler, NavigationBarListener {
     private static final String TAG = "WifiSetupActivity";
 
-    private static final String EXTRA_ALLOW_SKIP = "allowSkip";
-    private static final String EXTRA_USE_IMMERSIVE_MODE = "useImmersiveMode";
-
     // this boolean extra specifies whether to auto finish when connection is established
     private static final String EXTRA_AUTO_FINISH_ON_CONNECT = "wifi_auto_finish_on_connect";
+
+    // This boolean extra specifies whether network is required
+    private static final String EXTRA_IS_NETWORK_REQUIRED = "is_network_required";
+
+    // This boolean extra specifies whether wifi is required
+    private static final String EXTRA_IS_WIFI_REQUIRED = "is_wifi_required";
 
     // Whether auto finish is suspended until user connects to an access point
     private static final String EXTRA_REQUIRE_USER_NETWORK_SELECTION =
             "wifi_require_user_network_selection";
-
-    // Extra containing the resource name of the theme to be used
-    private static final String EXTRA_THEME = "theme";
-    private static final String THEME_HOLO = "holo";
-    private static final String THEME_HOLO_LIGHT = "holo_light";
-    private static final String THEME_MATERIAL = "material";
-    private static final String THEME_MATERIAL_LIGHT = "material_light";
 
     // Key for whether the user selected network in saved instance state bundle
     private static final String PARAM_USER_SELECTED_NETWORK = "userSelectedNetwork";
@@ -65,17 +61,12 @@ public class WifiSetupActivity extends WifiPickerActivity
     // Activity result when pressing the Skip button
     private static final int RESULT_SKIP = Activity.RESULT_FIRST_USER;
 
-    // From WizardManager (must match constants maintained there)
-    private static final String ACTION_NEXT = "com.android.wizard.NEXT";
-    private static final String EXTRA_SCRIPT_URI = "scriptUri";
-    private static final String EXTRA_ACTION_ID = "actionId";
-    private static final String EXTRA_RESULT_CODE = "com.android.setupwizard.ResultCode";
-    private static final int NEXT_REQUEST = 10000;
-
-    // Whether we allow skipping without a valid network connection
-    private boolean mAllowSkip = true;
     // Whether to auto finish when the user selected a network and successfully connected
     private boolean mAutoFinishOnConnection;
+    // Whether network is required to proceed. This is decided in SUW and passed in as an extra.
+    private boolean mIsNetworkRequired;
+    // Whether wifi is required to proceed. This is decided in SUW and passed in as an extra.
+    private boolean mIsWifiRequired;
     // Whether the user connected to a network. This excludes the auto-connecting by the system.
     private boolean mUserSelectedNetwork;
     // Whether the device is connected to WiFi
@@ -83,7 +74,7 @@ public class WifiSetupActivity extends WifiPickerActivity
 
     private SetupWizardNavBar mNavigationBar;
 
-    private final IntentFilter mFilter = new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+    private IntentFilter mFilter = new IntentFilter();
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -99,9 +90,12 @@ public class WifiSetupActivity extends WifiPickerActivity
         super.onCreate(savedInstanceState);
 
         final Intent intent = getIntent();
+        mFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        mFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
 
         mAutoFinishOnConnection = intent.getBooleanExtra(EXTRA_AUTO_FINISH_ON_CONNECT, false);
-        mAllowSkip = intent.getBooleanExtra(EXTRA_ALLOW_SKIP, true);
+        mIsNetworkRequired = intent.getBooleanExtra(EXTRA_IS_NETWORK_REQUIRED, false);
+        mIsWifiRequired = intent.getBooleanExtra(EXTRA_IS_WIFI_REQUIRED, false);
         // Behave like the user already selected a network if we do not require selection
         mUserSelectedNetwork = !intent.getBooleanExtra(EXTRA_REQUIRE_USER_NETWORK_SELECTION, false);
     }
@@ -118,17 +112,17 @@ public class WifiSetupActivity extends WifiPickerActivity
         mUserSelectedNetwork = savedInstanceState.getBoolean(PARAM_USER_SELECTED_NETWORK, true);
     }
 
-    private void refreshConnectionState() {
+    private boolean isWifiConnected() {
         final ConnectivityManager connectivity = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
-        boolean connected = connectivity != null &&
+        boolean wifiConnected = connectivity != null &&
                 connectivity.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected();
-        refreshConnectionState(connected);
+        mWifiConnected = wifiConnected;
+        return wifiConnected;
     }
 
-    private void refreshConnectionState(boolean connected) {
-        mWifiConnected = connected;
-        if (connected) {
+    private void refreshConnectionState() {
+        if (isWifiConnected()) {
             if (mAutoFinishOnConnection && mUserSelectedNetwork) {
                 Log.d(TAG, "Auto-finishing with connection");
                 finishOrNext(Activity.RESULT_OK);
@@ -136,15 +130,33 @@ public class WifiSetupActivity extends WifiPickerActivity
                 // can either connect to a different network or press "next" to proceed.
                 mUserSelectedNetwork = false;
             }
-            if (mNavigationBar != null) {
-                mNavigationBar.getNextButton().setText(R.string.setup_wizard_next_button_label);
-                mNavigationBar.getNextButton().setEnabled(true);
-            }
+            setNextButtonText(R.string.setup_wizard_next_button_label);
+            setNextButtonEnabled(true);
+        } else if (mIsWifiRequired || (mIsNetworkRequired && !isNetworkConnected())) {
+            // We do not want the user to skip wifi setting if
+            // - wifi is required, but wifi connection hasn't been established yet;
+            // - or network is required, but no valid connection has been established.
+            setNextButtonText(R.string.skip_label);
+            setNextButtonEnabled(false);
         } else {
-            if (mNavigationBar != null) {
-                mNavigationBar.getNextButton().setText(R.string.skip_label);
-                mNavigationBar.getNextButton().setEnabled(mAllowSkip);
-            }
+            // In other cases, user can choose to skip. Specifically these cases are
+            // - wifi is not required;
+            // - and network is not required;
+            // -     or network is required and a valid connection has been established.
+            setNextButtonText(R.string.skip_label);
+            setNextButtonEnabled(true);
+        }
+    }
+
+    private void setNextButtonEnabled(boolean enabled) {
+        if (mNavigationBar != null) {
+            mNavigationBar.getNextButton().setEnabled(enabled);
+        }
+    }
+
+    private void setNextButtonText(int resId) {
+        if (mNavigationBar != null) {
+            mNavigationBar.getNextButton().setText(resId);
         }
     }
 
@@ -174,14 +186,7 @@ public class WifiSetupActivity extends WifiPickerActivity
 
     @Override
     protected void onApplyThemeResource(Resources.Theme theme, int resid, boolean first) {
-        String themeName = getIntent().getStringExtra(EXTRA_THEME);
-        if (THEME_HOLO_LIGHT.equalsIgnoreCase(themeName) ||
-                THEME_MATERIAL_LIGHT.equalsIgnoreCase(themeName)) {
-            resid = R.style.SetupWizardWifiTheme_Light;
-        } else if (THEME_HOLO.equalsIgnoreCase(themeName) ||
-                THEME_MATERIAL.equalsIgnoreCase(themeName)) {
-            resid = R.style.SetupWizardWifiTheme;
-        }
+        resid = SetupWizardUtils.getTheme(getIntent(), resid);
         super.onApplyThemeResource(theme, resid, first);
     }
 
@@ -201,45 +206,19 @@ public class WifiSetupActivity extends WifiPickerActivity
      */
     public void finishOrNext(int resultCode) {
         Log.d(TAG, "finishOrNext resultCode=" + resultCode
-                + " isUsingWizardManager=" + isUsingWizardManager());
-        if (isUsingWizardManager()) {
-            sendResultsToSetupWizard(resultCode);
+                + " isUsingWizardManager=" + SetupWizardUtils.isUsingWizardManager(this));
+        if (SetupWizardUtils.isUsingWizardManager(this)) {
+            SetupWizardUtils.sendResultsToSetupWizard(this, resultCode);
         } else {
             setResult(resultCode);
             finish();
         }
     }
 
-    private boolean isUsingWizardManager() {
-        return getIntent().hasExtra(EXTRA_SCRIPT_URI);
-    }
-
-    /**
-     * Send the results of this activity to WizardManager, which will then send out the next
-     * scripted activity. WizardManager does not actually return an activity result, but if we
-     * invoke WizardManager without requesting a result, the framework will choose not to issue a
-     * call to onActivityResult with RESULT_CANCELED when navigating backward.
-     */
-    private void sendResultsToSetupWizard(int resultCode) {
-        final Intent intent = getIntent();
-        final Intent nextIntent = new Intent(ACTION_NEXT);
-        nextIntent.putExtra(EXTRA_SCRIPT_URI, intent.getStringExtra(EXTRA_SCRIPT_URI));
-        nextIntent.putExtra(EXTRA_ACTION_ID, intent.getStringExtra(EXTRA_ACTION_ID));
-        nextIntent.putExtra(EXTRA_THEME, intent.getStringExtra(EXTRA_THEME));
-        nextIntent.putExtra(EXTRA_RESULT_CODE, resultCode);
-        startActivityForResult(nextIntent, NEXT_REQUEST);
-    }
-
     @Override
     public void onNavigationBarCreated(final SetupWizardNavBar bar) {
         mNavigationBar = bar;
-        final boolean useImmersiveMode =
-                getIntent().getBooleanExtra(EXTRA_USE_IMMERSIVE_MODE, false);
-        bar.setUseImmersiveMode(useImmersiveMode);
-        if (useImmersiveMode) {
-            getWindow().setNavigationBarColor(Color.TRANSPARENT);
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        SetupWizardUtils.setImmersiveMode(this, bar);
     }
 
     @Override
@@ -293,7 +272,7 @@ public class WifiSetupActivity extends WifiPickerActivity
             return new AlertDialog.Builder(getActivity())
                     .setMessage(messageRes)
                     .setCancelable(false)
-                    .setNegativeButton(R.string.wifi_skip_anyway,
+                    .setPositiveButton(R.string.wifi_skip_anyway,
                             new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
@@ -301,7 +280,7 @@ public class WifiSetupActivity extends WifiPickerActivity
                             activity.finishOrNext(RESULT_SKIP);
                         }
                     })
-                    .setPositiveButton(R.string.wifi_dont_skip,
+                    .setNegativeButton(R.string.wifi_dont_skip,
                             new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {

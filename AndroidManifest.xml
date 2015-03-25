@@ -66,6 +66,7 @@
     <uses-permission android:name="android.permission.SET_TIME" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REBOOT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
     <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES" />
     <uses-permission android:name="android.permission.OEM_UNLOCK_STATE" />
@@ -215,7 +216,8 @@
                 android:theme="@style/SetupWizardDisableAppStartingTheme"
                 android:label="@string/wifi_setup_wizard_title"
                 android:icon="@drawable/empty_icon"
-                android:clearTaskOnLaunch="true">
+                android:clearTaskOnLaunch="true"
+                android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.android.net.wifi.SETUP_WIFI_NETWORK" />
@@ -375,6 +377,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <service android:name=".TetherService"
+            android:exported="true"
+            android:permission="android.permission.CONNECTIVITY_INTERNAL" />
+        <receiver
+            android:name=".HotspotOffReceiver" >
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
 
         <activity android:name="Settings$TetherSettingsActivity"
                 android:label="@string/tether_settings_title_all"
@@ -713,18 +725,6 @@
                 android:parentActivityName="Settings$DeviceInfoSettingsActivity">
             <intent-filter>
                 <action android:name="android.settings.LICENSE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
-                android:value="true" />
-        </activity>
-
-        <activity android:name="SettingsSafetyLegalActivity"
-                android:label="@string/settings_safetylegal_activity_title"
-                android:theme="@*android:style/Theme.Material.Light.Dialog.Alert"
-                android:parentActivityName="Settings$DeviceInfoSettingsActivity">
-            <intent-filter>
-                <action android:name="android.settings.SAFETY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
@@ -1139,12 +1139,17 @@
 
         <!-- Lock screen settings -->
         <activity android:name="ConfirmDeviceCredentialActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Transparent">
             <intent-filter>
                 <action android:name="android.app.action.CONFIRM_DEVICE_CREDENTIAL" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".SetupRedactionInterstitial"
+            android:taskAffinity="com.android.wizard"
+            android:theme="@style/SetupWizardDisableAppStartingTheme"/>
 
         <activity android:name=".notification.RedactionInterstitial"/>
 
@@ -1158,8 +1163,6 @@
 
         <activity android:name="ConfirmLockPattern"/>
 
-        <activity android:name="ConfirmLockGesture"/>
-
         <activity android:name="ConfirmLockPassword"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
@@ -1171,6 +1174,16 @@
         <activity android:name="ConfirmLockPassword$InternalActivity"
             android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
+
+        <activity android:name="SetupChooseLockGeneric"
+            android:taskAffinity="com.android.wizard"
+            android:theme="@style/SetupWizardDisableAppStartingTheme"
+            android:label="@string/lock_settings_picker_title">
+            <intent-filter>
+                <action android:name="com.android.settings.SETUP_LOCK_SCREEN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="ChooseLockGeneric"
             android:label="@string/lockpassword_choose_lock_generic_header"
@@ -1188,12 +1201,25 @@
             android:excludeFromRecents="true"
         />
 
+        <activity android:name="SetupChooseLockPattern"
+            android:exported="false"
+            android:taskAffinity="com.android.wizard"
+            android:theme="@style/SetupWizardDisableAppStartingTheme" />
+
         <activity android:name="ChooseLockPattern" android:exported="false"/>
 
-        <activity android:name="ChooseLockGesture" android:exported="false"/>
+        <activity android:name="SetupChooseLockPassword"
+            android:exported="false"
+            android:taskAffinity="com.android.wizard"
+            android:theme="@style/SetupWizardDisableAppStartingTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity android:name="ChooseLockPassword" android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
+
+        <activity android:name=".SetupEncryptionInterstitial"
+            android:taskAffinity="com.android.wizard"
+            android:theme="@style/SetupWizardDisableAppStartingTheme"/>
 
         <activity android:name=".EncryptionInterstitial"/>
 
@@ -1215,6 +1241,30 @@
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
                 android:process="com.android.phone"
                 android:parentActivityName="Settings$DeviceInfoSettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+        </activity>
+
+        <!-- Runs in the phone process since it needs access to the Phone object -->
+        <activity android:name=".deviceinfo.SimStatus"
+                android:label="@string/sim_status_title"
+                android:theme="@style/Theme.SubSettingsDialogWhenLarge"
+                android:process="com.android.phone">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+        </activity>
+
+        <!-- Runs in the phone process since it needs access to the Phone object -->
+        <activity android:name=".deviceinfo.ImeiInformation"
+                android:label="@string/imei_information_title"
+                android:theme="@style/Theme.SubSettingsDialogWhenLarge"
+                android:process="com.android.phone">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2227,6 +2277,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".sim.SimBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.android.settings.files"
@@ -2269,8 +2325,19 @@
         </activity>
 
         <activity
+        
              android:name=".rr.MainSettings" />
              
+
+        <activity android:name=".sim.SimDialogActivity"
+                android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar"
+                android:label="@string/sim_settings_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"

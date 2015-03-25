@@ -109,6 +109,7 @@ public class MediaFormat extends Activity {
         // Initialize default resource id, then set the right string based on volume
         int explanationResId = R.string.media_format_gesture_explanation;
 
+        explanationResId = R.string.media_format_gesture_explanation;
         if (isUsbStorage(mStorageVolume, this)) {
             explanationResId = R.string.usb_media_format_gesture_explanation;
 
@@ -117,8 +118,7 @@ public class MediaFormat extends Activity {
         }
 
         return new ChooseLockSettingsHelper(this)
-                .launchConfirmationActivity(request,
-                        getText(R.string.media_format_gesture_prompt),
+                .launchConfirmationActivity(request, null,
                         getText(explanationResId));
     }
 

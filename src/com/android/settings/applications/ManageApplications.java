@@ -187,8 +187,6 @@ public class ManageApplications extends Fragment implements
 
     public static final int SHOW_PROTECTED_APPS = MENU_OPTIONS_BASE + 11;
 
-    public static final int APP_INSTALL_LOCATION = MENU_OPTIONS_BASE + 12;
-
     // sort order
     private int mSortOrder = SORT_ORDER_ALPHA;
     
@@ -214,8 +212,6 @@ public class ManageApplications extends Fragment implements
         private View mLoadingContainer;
 
         private View mListContainer;
-
-        private ViewGroup mPinnedHeader;
 
         // ListView used to display list
         private ListView mListView;
@@ -263,19 +259,10 @@ public class ManageApplications extends Fragment implements
             if (mRootView != null) {
                 return mRootView;
             }
-
             mInflater = inflater;
             mRootView = inflater.inflate(mListType == LIST_TYPE_RUNNING
                     ? R.layout.manage_applications_running
                     : R.layout.manage_applications_apps, null);
-            mPinnedHeader = (ViewGroup) mRootView.findViewById(R.id.pinned_header);
-            if (mOwner.mProfileSpinnerAdapter != null) {
-                Spinner spinner = (Spinner) inflater.inflate(R.layout.spinner_view, null);
-                spinner.setAdapter(mOwner.mProfileSpinnerAdapter);
-                spinner.setOnItemSelectedListener(mOwner);
-                mPinnedHeader.addView(spinner);
-                mPinnedHeader.setVisibility(View.VISIBLE);
-            }
             mLoadingContainer = mRootView.findViewById(R.id.loading_container);
             mLoadingContainer.setVisibility(View.VISIBLE);
             mListContainer = mRootView.findViewById(R.id.list_container);
@@ -501,7 +488,9 @@ public class ManageApplications extends Fragment implements
     private ViewGroup mContentContainer;
     private View mRootView;
     private ViewPager mViewPager;
+    private ViewGroup mPinnedHeader;
     private UserSpinnerAdapter mProfileSpinnerAdapter;
+    private Spinner mSpinner;
     private Context mContext;
 
     AlertDialog mResetDialog;
@@ -949,7 +938,14 @@ public class ManageApplications extends Fragment implements
                 container, false);
         mContentContainer = container;
         mRootView = rootView;
-
+        mPinnedHeader = (ViewGroup) mRootView.findViewById(R.id.pinned_header);
+        if (mProfileSpinnerAdapter != null) {
+            mSpinner = (Spinner) inflater.inflate(R.layout.spinner_view, null);
+            mSpinner.setAdapter(mProfileSpinnerAdapter);
+            mSpinner.setOnItemSelectedListener(this);
+            mPinnedHeader.addView(mSpinner);
+            mPinnedHeader.setVisibility(View.VISIBLE);
+        }
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         MyPagerAdapter adapter = new MyPagerAdapter();
         mViewPager.setAdapter(adapter);
@@ -1059,6 +1055,9 @@ public class ManageApplications extends Fragment implements
             int currentTab = mViewPager.getCurrentItem();
             intent.putExtra(EXTRA_LIST_TYPE, mTabs.get(currentTab).mListType);
             mContext.startActivityAsUser(intent, selectedUser);
+            // Go back to default selection, which is the first one; this makes sure that pressing
+            // the back button takes you into a consistent state
+            mSpinner.setSelection(0);
         }
     }
 
@@ -1119,8 +1118,6 @@ public class ManageApplications extends Fragment implements
             menu.add(0, SHOW_PROTECTED_APPS, 5, R.string.protected_apps)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         }
-        menu.add(0, APP_INSTALL_LOCATION, 4, R.string.app_install_location_title)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         updateOptionsMenu();
     }
     
@@ -1294,8 +1291,6 @@ public class ManageApplications extends Fragment implements
             //Launch Protected Apps Fragment
             Intent intent = new Intent(getActivity(), ProtectedAppsActivity.class);
             startActivity(intent);
-        } else if (menuId == APP_INSTALL_LOCATION) {
-            showAppInstallLocationSettingDlg();
         } else {
             // Handle the home button
             return false;

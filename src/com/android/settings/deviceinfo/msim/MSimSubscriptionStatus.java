@@ -266,7 +266,7 @@ public class MSimSubscriptionStatus extends PreferenceActivity {
         }
     }
 
-    private PhoneStateListener getPhoneStateListener(long subId) {
+    private PhoneStateListener getPhoneStateListener(int subId) {
         PhoneStateListener phoneStateListener = new PhoneStateListener(subId) {
             @Override
             public void onSignalStrengthsChanged(SignalStrength signalStrength) {

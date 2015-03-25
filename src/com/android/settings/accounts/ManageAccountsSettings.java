@@ -28,7 +28,6 @@ import android.content.SyncInfo;
 import android.content.SyncStatusInfo;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -84,6 +83,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase
     // If an account type is set, then show only accounts of that type
     private String mAccountType;
     // Temporary hack, to deal with backward compatibility 
+    // mFirstAccount is used for the injected preferences
     private Account mFirstAccount;
 
     @Override
@@ -99,11 +99,12 @@ public class ManageAccountsSettings extends AccountPreferenceBase
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         mAuthenticatorHelper.listenToAccountUpdates();
         updateAuthDescriptions();
         showAccountsIfNeeded();
+        showSyncState();
     }
 
     @Override
@@ -134,10 +135,15 @@ public class ManageAccountsSettings extends AccountPreferenceBase
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        mAuthenticatorHelper.stopListeningToAccountUpdates();
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
         final Activity activity = getActivity();
-        mAuthenticatorHelper.stopListeningToAccountUpdates();
         activity.getActionBar().setDisplayOptions(0, ActionBar.DISPLAY_SHOW_CUSTOM);
         activity.getActionBar().setCustomView(null);
     }
@@ -164,11 +170,9 @@ public class ManageAccountsSettings extends AccountPreferenceBase
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        MenuItem syncNow = menu.add(0, MENU_SYNC_NOW_ID, 0,
-                getString(R.string.sync_menu_sync_now))
+        menu.add(0, MENU_SYNC_NOW_ID, 0, getString(R.string.sync_menu_sync_now))
                 .setIcon(R.drawable.ic_menu_refresh_holo_dark);
-        MenuItem syncCancel = menu.add(0, MENU_SYNC_CANCEL_ID, 0,
-                getString(R.string.sync_menu_sync_cancel))
+        menu.add(0, MENU_SYNC_CANCEL_ID, 0, getString(R.string.sync_menu_sync_cancel))
                 .setIcon(com.android.internal.R.drawable.ic_menu_close_clear_cancel);
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -176,10 +180,10 @@ public class ManageAccountsSettings extends AccountPreferenceBase
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        boolean syncActive = ContentResolver.getCurrentSyncsAsUser(
+        boolean syncActive = !ContentResolver.getCurrentSyncsAsUser(
                 mUserHandle.getIdentifier()).isEmpty();
-        menu.findItem(MENU_SYNC_NOW_ID).setVisible(!syncActive && mFirstAccount != null);
-        menu.findItem(MENU_SYNC_CANCEL_ID).setVisible(syncActive && mFirstAccount != null);
+        menu.findItem(MENU_SYNC_NOW_ID).setVisible(!syncActive);
+        menu.findItem(MENU_SYNC_CANCEL_ID).setVisible(syncActive);
     }
 
     @Override
@@ -227,11 +231,20 @@ public class ManageAccountsSettings extends AccountPreferenceBase
     @Override
     protected void onSyncStateUpdated() {
         showSyncState();
+        // Catch any delayed delivery of update messages
+        final Activity activity = getActivity();
+        if (activity != null) {
+            activity.invalidateOptionsMenu();
+        }
     }
 
+    /**
+     * Shows the sync state of the accounts. Note: it must be called after the accounts have been
+     * loaded, @see #showAccountsIfNeeded().
+     */
     private void showSyncState() {
         // Catch any delayed delivery of update messages
-        if (getActivity() == null) return;
+        if (getActivity() == null || getActivity().isFinishing()) return;
 
         final int userId = mUserHandle.getIdentifier();
 
@@ -370,17 +383,14 @@ public class ManageAccountsSettings extends AccountPreferenceBase
                 getPreferenceScreen().addPreference(preference);
                 if (mFirstAccount == null) {
                     mFirstAccount = account;
-                    getActivity().invalidateOptionsMenu();
                 }
             }
         }
         if (mAccountType != null && mFirstAccount != null) {
             addAuthenticatorSettings();
         } else {
-            // There's no account, reset to top-level of settings
-            Intent settingsTop = new Intent(android.provider.Settings.ACTION_SETTINGS);
-            settingsTop.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            getActivity().startActivity(settingsTop);
+            // There's no account, close activity
+            finish();
         }
     }
 

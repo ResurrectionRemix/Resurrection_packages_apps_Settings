@@ -88,7 +88,6 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
-import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -658,8 +657,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         final Context context = getActivity();
         mTabHost.clearAllTabs();
 
-        final boolean mobileSplit = isMobilePolicySplit();
-        if (mobileSplit && hasReadyMobile4gRadio(context)) {
+        if (hasReadyMobile4gRadio(context)) {
             mTabHost.addTab(buildTabSpec(TAB_3G, R.string.data_usage_tab_3g));
             mTabHost.addTab(buildTabSpec(TAB_4G, R.string.data_usage_tab_4g));
         } else if (hasReadyMobileRadio(context)) {
@@ -773,7 +771,12 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
                             TelephonyManager.MultiSimVariants.DSDS ||
                             TelephonyManager.getDefault().getMultiSimConfiguration() ==
                             TelephonyManager.MultiSimVariants.TSTS) {
+                        // only one of the SIMs can have Data enabled, so...
+                        if (SubscriptionManager.from(context).getDefaultDataPhoneId() == i) {
+                            mDataEnabledView.setVisibility(View.VISIBLE);
+                        } else {
                             mDataEnabledView.setVisibility(View.GONE);
+                        }
                     }
                     setPreferenceTitle(mDataEnabledView,
                             R.string.data_usage_enable_mobile);
@@ -981,7 +984,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             android.provider.Settings.Global.putInt(getActivity().getContentResolver(),
                     android.provider.Settings.Global.MOBILE_DATA + phoneId, enabled ? 1 : 0);
 
-            long[] subId = SubscriptionManager.getSubId(phoneId);
+            int[] subId = SubscriptionManager.getSubId(phoneId);
             mTelephonyManager.setDataEnabledUsingSubId(subId[0], enabled);
         } else {
             mTelephonyManager.setDataEnabled(enabled);
@@ -1031,7 +1034,14 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         boolean dataEnabledVisible = mDataEnabledSupported;
         boolean disableAtLimitVisible = mDisableAtLimitSupported;
 
-        if (dataEnabledVisible && TelephonyManager.getDefault().isMultiSimEnabled()) {
+        if (dataEnabledVisible &&
+            (TelephonyManager.getDefault().getMultiSimConfiguration()
+                == TelephonyManager.MultiSimVariants.DSDS
+            || TelephonyManager.getDefault().getMultiSimConfiguration()
+                == TelephonyManager.MultiSimVariants.TSTS) &&
+            (!mTabHost.getCurrentTabTag().equals(getSubTag(
+                SubscriptionManager.from(getActivity()).getDefaultDataPhoneId()+1)))
+        ) {
             dataEnabledVisible = false;
         }
 
@@ -1366,26 +1376,6 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         }
     };
 
-    @Deprecated
-    private boolean isMobilePolicySplit() {
-        final Context context = getActivity();
-        if (hasReadyMobileRadio(context)) {
-            final TelephonyManager tele = TelephonyManager.from(context);
-            return mPolicyEditor.isMobilePolicySplit(getActiveSubscriberId(context));
-        } else {
-            return false;
-        }
-    }
-
-    @Deprecated
-    private void setMobilePolicySplit(boolean split) {
-        final Context context = getActivity();
-        if (hasReadyMobileRadio(context)) {
-            final TelephonyManager tele = TelephonyManager.from(context);
-            mPolicyEditor.setMobilePolicySplit(getActiveSubscriberId(context), split);
-        }
-    }
-
     private static String getActiveSubscriberId(Context context) {
         final TelephonyManager tele = TelephonyManager.from(context);
         final String actualSubscriberId = tele.getSubscriberId();
@@ -1393,7 +1383,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
     }
 
     private static String getActiveSubscriberId(int phoneId) {
-        long[] subId = SubscriptionManager.getSubId(phoneId);
+        int[] subId = SubscriptionManager.getSubId(phoneId);
         return TelephonyManager.getDefault().getSubscriberId(subId[0]);
     }
 
@@ -2341,7 +2331,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         final TelephonyManager tele = TelephonyManager.from(context);
 
         // require both supported network and ready SIM
-        long defaultSubId = SubscriptionManager.getDefaultDataSubId();
+        int defaultSubId = SubscriptionManager.getDefaultDataSubId();
         int slotId = SubscriptionManager.getSlotId(defaultSubId);
         return conn.isNetworkSupported(TYPE_MOBILE) &&
                 tele.getSimState(slotId) == SIM_STATE_READY;
@@ -2579,20 +2569,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         if (i <= 0) {
             return "";
         } else {
-            // i-1 is supposed to be the phoneId
-            long[] mSubId = SubscriptionManager.getSubId(i-1);
-            if (mSubId.length > 0) {
-                SubInfoRecord mSubInfo = null;
-                for (int j = 0; j < mSubId.length && mSubInfo == null; j++) {
-                    mSubInfo = SubscriptionManager.getSubInfoForSubscriber(mSubId[j]);
-                }
-                if (mSubInfo != null &&
-                        mSubInfo.displayName != null &&
-                        mSubInfo.displayName != "") {
-                   return mSubInfo.displayName;
-                }
-            }
-            return getString(R.string.data_usage_tab_slot, i);
+            return getText(R.string.data_usage_tab_slot).toString() + i;
         }
     }
 
