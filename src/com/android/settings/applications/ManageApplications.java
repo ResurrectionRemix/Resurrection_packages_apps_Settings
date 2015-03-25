@@ -1140,7 +1140,8 @@ public class ManageApplications extends Fragment implements
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
             lastOptionOrder = 6;
         }
-        if (Environment.getSecondaryStorageDirectory() != null
+        if (!getResources().getBoolean(R.bool.config_hide_app_install_location)
+                && Environment.getSecondaryStorageDirectory() != null
                 && Environment.MEDIA_MOUNTED.equals(Environment.getSecondaryStorageState())) {
             menu.add(0, APP_INSTALL_LOCATION, lastOptionOrder, R.string.app_install_location_title)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
