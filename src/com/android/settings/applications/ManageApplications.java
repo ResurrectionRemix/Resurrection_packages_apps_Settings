@@ -1115,11 +1115,13 @@ public class ManageApplications extends Fragment implements
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.add(0, RESET_APP_PREFERENCES, 4, R.string.reset_app_preferences)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        int lastOptionOrder = 5;
         if (!Utils.isRestrictedProfile(getActivity())) {
             menu.add(0, SHOW_PROTECTED_APPS, 5, R.string.protected_apps)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+            lastOptionOrder = 6;
         }
-        menu.add(0, APP_INSTALL_LOCATION, 4, R.string.app_install_location_title)
+        menu.add(0, APP_INSTALL_LOCATION, lastOptionOrder, R.string.app_install_location_title)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         updateOptionsMenu();
     }
