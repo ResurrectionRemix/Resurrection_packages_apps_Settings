@@ -107,6 +107,8 @@ public class DisplayColor extends DialogPreference {
             TextView value = (TextView) view.findViewById(SEEKBAR_VALUE_ID[i]);
             mSeekBars[i] = new ColorSeekBar(seekBar, value, i);
             mSeekBars[i].mSeekBar.setProgressFloat(mCurrentColors[i]);
+            int percent = Math.round(100F * mCurrentColors[i]);
+            value.setText(String.format("%d%%", percent));
         }
     }
 
