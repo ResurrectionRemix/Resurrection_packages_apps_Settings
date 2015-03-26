@@ -342,12 +342,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 root.findPreference(KEY_SIM_LOCK).setEnabled(false);
             }
         }
-        if (!mIsPrimary || !isSimIccReady()) {
-            root.removePreference(root.findPreference(KEY_SIM_LOCK));
-        } else {
-            // Disable SIM lock if there is no ready SIM card.
-            root.findPreference(KEY_SIM_LOCK).setEnabled(isSimReady());
-        }
         if (Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
             root.findPreference(KEY_SCREEN_PINNING).setSummary(
