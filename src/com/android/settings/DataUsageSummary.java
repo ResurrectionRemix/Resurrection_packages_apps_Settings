@@ -88,6 +88,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -2568,9 +2569,19 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
     private String getSubTitle(int i) {
         if (i <= 0) {
             return "";
-        } else {
-            return getText(R.string.data_usage_tab_slot).toString() + i;
         }
+
+        // i-1 is supposed to be the phoneId
+        int[] subIds = SubscriptionManager.getSubId(i - 1);
+        SubscriptionManager subMgr = SubscriptionManager.from(getActivity());
+        for (int pos = 0; pos < subIds.length; pos++) {
+            SubscriptionInfo info = subMgr.getActiveSubscriptionInfo(subIds[pos]);
+            if (info != null && !TextUtils.isEmpty(info.getDisplayName())) {
+                return info.getDisplayName().toString();
+            }
+        }
+
+        return getString(R.string.data_usage_tab_slot, i);
     }
 
     // Get current sub from the tab name.
