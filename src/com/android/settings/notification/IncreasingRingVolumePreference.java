@@ -133,6 +133,7 @@ public class IncreasingRingVolumePreference extends Preference implements
         mStartVolumeSeekBar.setOnSeekBarChangeListener(this);
         mRampUpTimeSeekBar.setOnSeekBarChangeListener(this);
         mRampUpTimeSeekBar.setProgress((rampUpTime / 5) - 1);
+        updateRampUpTimeValueLabel(rampUpTime);
     }
 
     @Override
@@ -157,12 +158,15 @@ public class IncreasingRingVolumePreference extends Preference implements
                         (float) progress / 1000F);
         } else if (seekBar == mRampUpTimeSeekBar) {
             int seconds = (progress + 1) * 5;
-            mRampUpTimeValue.setText(
-                    Formatter.formatShortElapsedTime(getContext(), seconds * 1000));
+            updateRampUpTimeValueLabel(seconds);
             if (fromTouch) {
                 Settings.System.putInt(cr, Settings.System.INCREASING_RING_RAMP_UP_TIME, seconds);
             }
         }
+    }
+
+    private void updateRampUpTimeValueLabel(int seconds) {
+        mRampUpTimeValue.setText(Formatter.formatShortElapsedTime(getContext(), seconds * 1000));
     }
 
     private void initHandler() {
