@@ -69,10 +69,9 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
 
     private WifiManager mWifiManager;
     private NetworkScoreManager mNetworkScoreManager;
-    private AppListSwitchPreference mWifiAssistantPreference;
-
     private static final int WPS_PBC_DIALOG_ID = 1;
     private static final int WPS_PIN_DIALOG_ID = 2;
+    private AppListSwitchPreference mWifiAssistantPreference;
 
     private IntentFilter mFilter;
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
