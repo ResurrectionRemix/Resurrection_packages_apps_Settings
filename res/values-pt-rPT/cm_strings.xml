@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Substituição de notificação</string>
   <string name="profile_app_group_item_instructions">Adicionar ou remover grupos</string>
   <string name="profile_app_group_item_instructions_summary">Adicionar ou remover grupos de aplicações que substituem a notificação deste perfil</string>
+  <string name="profile_entries_on">Ligado</string>
+  <string name="profile_entries_off">Desligado</string>
+  <string name="profile_entries_no_override">Não substituir</string>
   <string name="profile_name_title">Nome</string>
   <string name="new_profile_name">&lt;novo perfil&gt;</string>
   <string name="rename_dialog_title">Mudar o nome</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Aumentar a luminosidade e legibilidade do ecrã sob luz solar brilhante</string>
   <string name="color_enhancement_title">Realce de cor</string>
   <string name="color_enhancement_summary">Realçar dinamicamente a cor do ecrã</string>
-  <string name="app_security_title">Segurança das aplicações</string>
   <string name="blacklist_title">Números Bloqueados</string>
   <string name="blacklist_edit_dialog_title">Editar item da lista negra</string>
   <string name="blacklist_prefs">Definições</string>
@@ -506,7 +508,7 @@
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (utilizou <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Permitido <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Negado <xliff:g id="count" example="2 times">%s</xliff:g></string>
-  <string name="app_ops_both_count">Permitido <xliff:g id="count">%1$s</xliff:g>, negado<xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_both_count">Permitido <xliff:g id="count">%1$s</xliff:g>, negado <xliff:g id="count">%2$s</xliff:g></string>
   <string name="app_ops_show_user_apps">Mostrar aplicações do utilizador</string>
   <string name="app_ops_show_system_apps">Mostrar aplicações de sistema</string>
   <string name="app_ops_reset_counters">Restaurar os contadores de permitir/negar</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">Estado dos cartões SIM</string>
   <string name="storage_usb">Armazenamento USB</string>
   <string name="storage_uicc">Armazenamento UICC</string>
+  <string name="sdcard_eject" product="default">Desmontar o cartão SD</string>
+  <string name="sdcard_eject_summary" product="default">Desmontar o cartão SD, para poder removê-lo em segurança</string>
+  <string name="sd_card_format" product="default">Apagar o cartão SD</string>
+  <string name="sd_card_format_summary" product="default">Apaga todos os dados no cartão SD, como música e fotos</string>
+  <string name="sdcard_mount" product="default">Montar o cartão SD</string>
+  <string name="sdcard_insert_summary" product="default">Insira um cartão SD para montar</string>
   <string name="usb_eject" product="default">Desmontar armazenamento USB</string>
   <string name="usb_eject_summary" product="default">Desmontar o armazenamento USB, assim pode removê-lo em segurança</string>
   <string name="usb_format" product="default">Apagar armazenamento USB</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Inserir armazenamento UICC para montar</string>
   <string name="usb_settings_enable_ums_title">Ativar armazenamento em massa?</string>
   <string name="usb_settings_enable_ums_message">As aplicações e componentes do sistema dependem do armazenamento principal estar sempre disponível. Este recurso invalida essa funcionalidade. É altamente recomendável usar MTP em vez disso. Tem a certeza que deseja ativar o armazenamento em massa?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Desmontar o cartão SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Desmontar armazenamento USB?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Desmontar o armazenamento UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Se desmontar o cartão SD, algumas aplicações que estiver a utilizar irão parar e poderão não estar disponíveis até que volte a montar o cartão SD.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Se desmontar o armazenamento USB, algumas aplicações que estiver a utilizar irão parar e poderão não estar disponíveis até que volte a montar o armazenamento USB.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Se desmontar o armazenamento UICC, algumas aplicações que estiver a utilizar irão parar e poderão não estar disponíveis até que volte a montar o armazenamento UICC.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Não é possível desmontar o cartão SD. Tente novamente mais tarde.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Não é possível desmontar o armazenamento USB. Tente novamente mais tarde.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Não é possível desmontar o armazenamento UICC. Tente novamente mais tarde.</string>
+  <string name="sdcard_unmount_inform_text" product="default">O cartão SD será desmontado.</string>
   <string name="usb_unmount_inform_text" product="default">O armazenamento USB será desmontado.</string>
   <string name="uicc_unmount_inform_text" product="default">O armazenamento UICC será desmontado.</string>
+  <string name="sdcard_media_format_desc" product="default">Apagar o cartão SD ? Vai perder <b>todos</b> os dados do cartão!</string>
   <string name="usb_media_format_desc" product="default">Apagar o armazenamento USB? Perderá <b>todos</b> os dados no armazenamento!</string>
   <string name="uicc_media_format_desc" product="default">Apagar o armazenamento UICC? Perderá <b>todos</b> os dados no armazenamento!</string>
+  <string name="sdcard_media_format_button_text" product="default">Apagar o cartão SD</string>
   <string name="usb_media_format_button_text" product="default">Apagar armazenamento USB</string>
   <string name="uicc_media_format_button_text" product="default">Apagar armazenamento UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Apagar o cartão SD, apagando desta maneira todos os ficheiros armazenados ? Não pode reverter esta ação!</string>
   <string name="usb_media_format_final_desc" product="default">Apagar o armazenamento USB, apagando desta maneira todos os ficheiros lá armazenados ? Não pode reverter esta ação!</string>
   <string name="uicc_media_format_final_desc" product="default">Apagar o armazenamento UICC, apagando todos os ficheiros lá armazenados ? Não pode reverter esta ação!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Precisa desenhar o padrão de desbloqueio para confirmar que deseja apagar o cartão SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Precisa desenhar o padrão de desbloqueio para confirmar que deseja apagar o armazenamento USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Precisa desenhar o padrão de desbloqueio para confirmar que deseja apagar o armazenamento UICC.</string>
+  <string name="storage_rescan_media">Examinar novamente ficheiros multimédia para o volume de armazenamento</string>
   <string name="location_category_enhanced_location">Localização avançada (IZat)</string>
   <string name="app_ops_settings_summary">Visualizar ou alterar permissões de aplicações</string>
   <string name="enable_adb_summary_charging">O dispositivo está no modo de carregamento, a depuração USB está desativada</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">Permite transferir ficheiros entre o computador e o cartão SD montando-o como um dispositivo flash</string>
   <string name="external_storage_turn_on">O armazenamento externo foi ligado</string>
   <string name="external_storage_turn_off">O armazenamento externo foi desligado</string>
-  <string name="menu_hidden_apps_delete">Limpar</string>
-  <string name="menu_hidden_apps_reset_lock">Limpar o bloqueio padrão</string>
-  <string name="protected_apps">Aplicações protegidas</string>
-  <string name="saving_protected_components">A guardar o estado dos componentes\u2026</string>
   <string name="stats_collection_title">Coleção de estatísticas</string>
   <string name="stats_collection_summary">Quando ativado, permite a recolha de métricas</string>
   <string name="power_notifications_category_title">Sons de carregamento</string>

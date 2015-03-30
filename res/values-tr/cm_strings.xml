@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Bildirimleri geçersiz kıl</string>
   <string name="profile_app_group_item_instructions">Grupları ekle veya kaldır</string>
   <string name="profile_app_group_item_instructions_summary">Grup ekleme / kaldırma bildirimi bu profilin uygulama gruplarını geçersiz kılar</string>
+  <string name="profile_entries_on">Açık</string>
+  <string name="profile_entries_off">Kapalı</string>
+  <string name="profile_entries_no_override">Değişiklik yok</string>
   <string name="profile_name_title">İsim</string>
   <string name="new_profile_name">&lt;yeni profil&gt;</string>
   <string name="rename_dialog_title">Yeniden adlandır</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Parlak güneş ışığı altında ekran parlaklığını ve okunabilirliği geliştirir</string>
   <string name="color_enhancement_title">Renk iyileştirmesi</string>
   <string name="color_enhancement_summary">Ekran rengini dinamik olarak geliştir</string>
-  <string name="app_security_title">Uygulama güvenliği</string>
   <string name="blacklist_title">Kara liste</string>
   <string name="blacklist_edit_dialog_title">Kara liste girişini düzenle</string>
   <string name="blacklist_prefs">Ayarlar</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">SIM kart durumu</string>
   <string name="storage_usb">USB bellek</string>
   <string name="storage_uicc">UICC bellek</string>
+  <string name="sdcard_eject" product="default">SD kartın bağlantısını kes</string>
+  <string name="sdcard_eject_summary" product="default">Güvenle kaldırabilmeniz için SD kartın bağlantısını kesin</string>
+  <string name="sd_card_format" product="default">SD kartı sil</string>
+  <string name="sd_card_format_summary" product="default">SD kartta bulunan müzik ve fotoğraf gibi tüm verileri siler</string>
+  <string name="sdcard_mount" product="default">SD kartı bağla</string>
+  <string name="sdcard_insert_summary" product="default">Bağlamak için SD kartı yerleştirin</string>
   <string name="usb_eject" product="default">USB belleği çıkar</string>
   <string name="usb_eject_summary" product="default">Güvenle çıkarabilmeniz için  USB belleğin bağlantısını kesin</string>
   <string name="usb_format" product="default">USB belleği sil</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Bağlamak için UICC belleğini takın</string>
   <string name="usb_settings_enable_ums_title">Yığın depolama etkinleştirilsin mi?</string>
   <string name="usb_settings_enable_ums_message">Sistem bileşenleri ve uygulamaları her zaman mevcut olan birincil depolamayı kullanırlar. Bu özellik ilgili işlevi bozar. Bunun yerine MTP kullanmanız önerilir. Yığın depolamayı etkinleştirmek istediğinizden emin misiniz?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SD kartın bağlantısı kesilsin mi?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USB belleğin bağlantısı kesilsin mi?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICC belleğin bağlantısı kesilsin mi?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">SD kartın bağlantısını kestiğinizde, yeniden bağlanılana kadar kullandığınız bazı uygulamalar duracak ve kullanılamayacak.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">USB belleğin bağlantısını kestiğinizde, yeniden bağlanılana kadar kullandığınız bazı uygulamalar duracak ve kullanılamayacak.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">UICC belleğin bağlantısını kestiğinizde, yeniden bağlanılana kadar kullandığınız bazı uygulamalar duracak ve kullanılamayacak.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">SD kartın bağlantısı kesilemedi. Sonra tekrar deneyin.</string>
   <string name="dlg_error_usb_unmount_text" product="default">USB belleğin bağlantısı kesilemedi. Sonra tekrar deneyin.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">UICC belleğin bağlantısı kesilemedi. Sonra tekrar deneyin.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD kartın bağlantısı kesilecek.</string>
   <string name="usb_unmount_inform_text" product="default">USB belleğin bağlantısı kesilecek.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC belleğin bağlantısı kesilecek.</string>
+  <string name="sdcard_media_format_desc" product="default">Tüm SD kart silinsin mi? Saklanan <b>tüm</b> verileri kaybedeceksiniz!</string>
   <string name="usb_media_format_desc" product="default">USB bellek silinsin mi? Bellekteki <b>tüm</b> verilerinizi kaybedeceksiniz!</string>
   <string name="uicc_media_format_desc" product="default">UICC bellek silinsin mi? Bellekteki <b>tüm</b> verilerinizi kaybedeceksiniz!</string>
+  <string name="sdcard_media_format_button_text" product="default">SD kartı sil</string>
   <string name="usb_media_format_button_text" product="default">USB belleği sil</string>
   <string name="uicc_media_format_button_text" product="default">UICC belleği sil</string>
+  <string name="sdcard_media_format_final_desc" product="default">SD kart silinsin mi? Depolanan tüm veriler silinecektir. Bu eylemi geri alamazsınız!</string>
   <string name="usb_media_format_final_desc" product="default">USB bellek silinsin mi? Depolanan tüm veriler silinecektir. Bu eylemi geri alamazsınız!</string>
   <string name="uicc_media_format_final_desc" product="default">UICC bellek silinsin mi? Depolanan tüm veriler silinecektir. Bu eylemi geri alamazsınız!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">SD kart birimini silmek istediğinizi onaylamak için kilit açma şeklini çizmeniz gerekir.</string>
   <string name="usb_media_format_gesture_explanation" product="default">USB bellek birimini silmek istediğinizi onaylamak için kilit açma desenini çizmeniz gerekir.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">UICC bellek birimini silmek istediğinizi onaylamak için kilit açma desenini çizmeniz gerekir.</string>
+  <string name="storage_rescan_media">Depolama biriminde ortam ögelerini yeniden ara</string>
   <string name="location_category_enhanced_location">Gelişmiş konum (IZat)</string>
   <string name="app_ops_settings_summary">Uyg. izinlerini görüntüle ya da değiştir</string>
   <string name="enable_adb_summary_charging">Cihaz Şarj modunda, USB hata ayıklaması devre dışı bırakıldı</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">SD kartınızı flash aygıtı şeklinde bağlayarak bilgisayarınız arasında dosya paylaşmanızı sağlar</string>
   <string name="external_storage_turn_on">Harici depolama açıldı</string>
   <string name="external_storage_turn_off">Harici depolama kapatıldı</string>
-  <string name="menu_hidden_apps_delete">Sıfırla</string>
-  <string name="menu_hidden_apps_reset_lock">Desen kilidini sıfırla</string>
-  <string name="protected_apps">Korunan uygulamalar</string>
-  <string name="saving_protected_components">Bileşen durumu kaydediliyor\u2026</string>
   <string name="stats_collection_title">İstatistikler</string>
   <string name="stats_collection_summary">Etkinleştirildiğinde metrik istatistiklere izin verir</string>
   <string name="power_notifications_category_title">Güç sesleri</string>

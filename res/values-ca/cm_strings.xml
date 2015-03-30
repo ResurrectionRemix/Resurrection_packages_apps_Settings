@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Anul·lació de notificacions</string>
   <string name="profile_app_group_item_instructions">Afegeix o treu grups</string>
   <string name="profile_app_group_item_instructions_summary">Afegeix o treu grups d\'aplicacions que anul·lin les notificacions en aquest perfil</string>
+  <string name="profile_entries_on">Sí</string>
+  <string name="profile_entries_off">No</string>
+  <string name="profile_entries_no_override">No anul·lis</string>
   <string name="profile_name_title">Nom</string>
   <string name="new_profile_name">&lt;nou perfil&gt;</string>
   <string name="rename_dialog_title">Reanomena</string>
@@ -67,9 +70,9 @@
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
-  <string name="profile_volumeoverrides_title">Substitueix Volum</string>
+  <string name="profile_volumeoverrides_title">Anul·lació del volum</string>
   <string name="volume_override_summary">Estableix a %1$s/%2$s</string>
-  <string name="profile_volume_override_checkbox_label">Invalida el volum</string>
+  <string name="profile_volume_override_checkbox_label">Anul·la el volum</string>
   <string name="profile_profiles_manage">Perfils</string>
   <string name="profile_profile_manage">Gestiona un perfil</string>
   <string name="profile_settings">Configuració dels perfils</string>
@@ -122,7 +125,7 @@
   <string name="power_end_call_title">Finalitza la trucada</string>
   <string name="power_end_call_summary">Apretant el botó d\'apagat es finalitzarà la trucada actual</string>
   <string name="button_wake_title">Desperta el dispositiu</string>
-  <string name="button_wake_summary">Sobreescriu el control de reproducció</string>
+  <string name="button_wake_summary">Anul·la el control de reproducció</string>
   <string name="home_answer_call_title">Contesta la trucada</string>
   <string name="home_answer_call_summary">Apretant el botó d\'inici es contestarà la trucada entrant actual</string>
   <string name="button_backlight_title">Retroil·luminació</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Millora la brillantor i la llegibilitat de la pantalla sota la llum del sol intensa</string>
   <string name="color_enhancement_title">Millora del color</string>
   <string name="color_enhancement_summary">Millora dinàmicament el color de la pantalla</string>
-  <string name="app_security_title">Seguretat d\'app</string>
   <string name="blacklist_title">Llista negra</string>
   <string name="blacklist_edit_dialog_title">Edita entrada de la llista negra</string>
   <string name="blacklist_prefs">Configuració</string>
@@ -267,7 +269,7 @@
   <string name="navigation_save_button_text">Desa</string>
   <string name="navigation_bar_reset_message">Vols esborrar els ajustaments actuals i restaurar la disposició predeterminada?</string>
   <string name="navigation_bar_arrow_keys_title">Mostra tecles de les fletxes mentre escrius</string>
-  <string name="navigation_bar_arrow_keys_summary">Mostra els botons dels cursors esquerra i dreta mentre escrius. Això invalida el commutador IME.</string>
+  <string name="navigation_bar_arrow_keys_summary">Mostra els botons dels cursors esquerra i dreta mentre escrius. Això anul·la el commutador IME.</string>
   <string name="navigation_bar_recents_title">Recents amb l\'acció pulsació llarga</string>
   <string name="header_category_personalization">Personalització</string>
   <string name="status_bar_title">Barra d\'estat</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">Estat de la targeta SIM</string>
   <string name="storage_usb">Emmagatzematge USB</string>
   <string name="storage_uicc">Emmagatzematge UICC</string>
+  <string name="sdcard_eject" product="default">Desmunta la targeta SD</string>
+  <string name="sdcard_eject_summary" product="default">Desmunta la targeta SD per poder extreure-la amb seguretat</string>
+  <string name="sd_card_format" product="default">Esborra la targeta SD</string>
+  <string name="sd_card_format_summary" product="default">Esborra totes les dades de la targeta SD, com ara música i fotos</string>
+  <string name="sdcard_mount" product="default">Munta la targeta SD</string>
+  <string name="sdcard_insert_summary" product="default">Insereix una targeta SD per muntar</string>
   <string name="usb_eject" product="default">Desmunta l\'emmagatzematge USB</string>
   <string name="usb_eject_summary" product="default">Desmunta l\'emmagatzematge USB, per poder extreure\'l amb seguretat</string>
   <string name="usb_format" product="default">Esborra l\'emmagatzematge USB</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Insereix un emmagatzematge UICC per muntar-lo</string>
   <string name="usb_settings_enable_ums_title">Vols activar l\'emmagatzematge massiu?</string>
   <string name="usb_settings_enable_ums_message">Components del sistema i aplicacions depenen de que l\'emmagatzematge principal sempre estigui disponible. Aquesta característica trenca aquesta funcionalitat. És molt recomanable utilitzar en canvi MTP. Estàs segur que vols habilitar l\'emmagatzematge massiu?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Vols desmuntar la targeta SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Vols desmuntar l\'emmagatzematge USB?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Vols desmuntar l\'emmagatzematge UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Si desmuntes la targeta SD, algunes aplicacions que s\'estan utilitzant s\'aturaran i no estaran disponibles fins que tornis a muntar la targeta SD.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Si desmuntes l\'emmagatzematge USB algunes aplicacions que s\'estan utilitzant s\'aturaran i poden no estar disponibles fins que tornis a muntar l\'emmagatzematge USB.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Si desmuntes l\'emmagatzematge UICC algunes aplicacions que s\'estan utilitzant s\'aturaran i poden no estar disponibles fins que tornis a muntar l\'emmagatzematge UICC.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">No s\'ha pogut desmuntar la targeta SD. Intenta-ho més tard.</string>
   <string name="dlg_error_usb_unmount_text" product="default">No s\'ha pogut desmuntar l\'emmagatzematge USB. Intenta-ho més tard.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">No s\'ha pogut desmuntar l\'emmagatzematge UICC. Intenta-ho més tard.</string>
+  <string name="sdcard_unmount_inform_text" product="default">Es desmuntarà la targeta SD.</string>
   <string name="usb_unmount_inform_text" product="default">Es desmuntarà l\'emmagatzematge USB.</string>
   <string name="uicc_unmount_inform_text" product="default">Es desmuntarà l\'emmagatzematge UICC.</string>
+  <string name="sdcard_media_format_desc" product="default">Vols esborrar la targeta SD? Perdràs <b>totes</b> les dades de la targeta!</string>
   <string name="usb_media_format_desc" product="default">Vols esborrar l\'emmagatzematge USB? Perdràs <b>totes</b> les dades en l\'emmagatzematge!</string>
   <string name="uicc_media_format_desc" product="default">Vols esborrar l\'emmagatzematge UICC? Perdràs <b>totes</b> les dades en l\'emmagatzematge!</string>
+  <string name="sdcard_media_format_button_text" product="default">Esborra la targeta SD</string>
   <string name="usb_media_format_button_text" product="default">Esborra l\'emmagatzematge USB</string>
   <string name="uicc_media_format_button_text" product="default">Esborra l\'emmagatzematge UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Vols esborrar la targeta SD, suprimint tots els fitxers que hi ha? Aquesta acció és irreversible!</string>
   <string name="usb_media_format_final_desc" product="default">Vols esborrar l\'emmagatzematge USB, suprimint tots els fitxers que hi ha desats? Aquesta acció és irreversible!</string>
   <string name="uicc_media_format_final_desc" product="default">Vols esborrar l\'emmagatzematge UICC, suprimint tots els fitxers que hi ha desats? Aquesta acció és irreversible!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Has de dibuixar el patró de desbloqueig per confirmar que vols esborrar la targeta SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Has de dibuixar el patró de desbloqueig per confirmar que voleu esborrar tot l\'emmagatzematge USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Has de dibuixar el patró de desbloqueig per confirmar que vols esborrar tot l\'emmagatzematge UICC.</string>
+  <string name="storage_rescan_media">Cerca una altra vegada dispositius d\'emmagatzematge</string>
   <string name="location_category_enhanced_location">Ubicació millorada (IZat)</string>
   <string name="app_ops_settings_summary">Mostra o canvia els permisos de les aplicacions</string>
   <string name="enable_adb_summary_charging">El dispositiu està en mode de càrrega, la depuració per USB està deshabilitada</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">Et permet transferir qualsevol arxiu entre el teu ordenador i la targeta SD muntant-la com a dispositiu flash</string>
   <string name="external_storage_turn_on">S\'ha activat l\'emmagatzematge extern</string>
   <string name="external_storage_turn_off">S\'ha apagat l\'emmagatzematge extern</string>
-  <string name="menu_hidden_apps_delete">Reinicia</string>
-  <string name="menu_hidden_apps_reset_lock">Reinicia el patró de bloqueig</string>
-  <string name="protected_apps">Aplicacions protegides</string>
-  <string name="saving_protected_components">Desant l\'estat del component\u2026</string>
   <string name="stats_collection_title">Recollida d\'estadístiques</string>
   <string name="stats_collection_summary">Quan està activat, permet la recollida de mètriques</string>
   <string name="power_notifications_category_title">Sons de càrrega</string>

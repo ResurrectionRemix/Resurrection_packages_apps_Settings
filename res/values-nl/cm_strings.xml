@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Meldingen aanpassen</string>
   <string name="profile_app_group_item_instructions">Groepen toevoegen of verwijderen</string>
   <string name="profile_app_group_item_instructions_summary">App-groepen toevoegen of verwijderen om meldingsgedrag te manipuleren</string>
+  <string name="profile_entries_on">Aan</string>
+  <string name="profile_entries_off">Uit</string>
+  <string name="profile_entries_no_override">Niet wijzigen</string>
   <string name="profile_name_title">Naam</string>
   <string name="new_profile_name">&lt;nieuw profiel&gt;</string>
   <string name="rename_dialog_title">Naam wijzigen</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Helderheid van het scherm en leesbaarheid verbeteren bij fel zonlicht</string>
   <string name="color_enhancement_title">Kleurverbetering</string>
   <string name="color_enhancement_summary">Kleur van het display dynamisch verbeteren</string>
-  <string name="app_security_title">App-beveiliging</string>
   <string name="blacklist_title">Zwarte lijst</string>
   <string name="blacklist_edit_dialog_title">Telefoonnummer aanpassen</string>
   <string name="blacklist_prefs">Instellingen</string>
@@ -334,10 +336,10 @@
   <string name="headset_connect_player_summary">Standaardmuziek-app openen bij aansluiten headset</string>
   <string name="ime_switcher_notify">Melding invoermethode</string>
   <string name="ime_switcher_notify_summary">Invoermethodepictogram weergeven</string>
-  <string name="app_notification_show_on_keyguard_title">Weergeven op vergrendelscherm</string>
-  <string name="app_notification_show_on_keyguard_summary">Meldingen van deze app weergeven op het vergrendelscherm</string>
-  <string name="app_notification_no_ongoing_on_keyguard_title">Permanente meldingen op vergrendelscherm uitschakelen</string>
-  <string name="app_notification_no_ongoing_on_keyguard_summary">Permanente meldingen van deze app niet weergeven op het vergrendelscherm</string>
+  <string name="app_notification_show_on_keyguard_title">Weergeven op vergrendelingsscherm</string>
+  <string name="app_notification_show_on_keyguard_summary">Meldingen van deze app weergeven op het vergrendelingsscherm</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Permanente meldingen op vergrendelingsscherm uitschakelen</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Permanente meldingen van deze app niet weergeven op het vergrendelingsscherm</string>
   <string name="high_touch_sensitivity_title">Hoge aanraakgevoeligheid</string>
   <string name="high_touch_sensitivity_summary">Gevoeligheid van het scherm verhogen, zodat het gebruikt kan worden tijdens het dragen van handschoenen</string>
   <string name="touchscreen_hovering_title">Zweven boven scherm</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">Simkaartstatus</string>
   <string name="storage_usb">USB-opslag</string>
   <string name="storage_uicc">UICC-opslag</string>
+  <string name="sdcard_eject" product="default">SD-kaart ontkoppelen</string>
+  <string name="sdcard_eject_summary" product="default">Ontkoppel de SD-kaart zodat u deze veilig kunt verwijderen</string>
+  <string name="sd_card_format" product="default">SD-kaart wissen</string>
+  <string name="sd_card_format_summary" product="default">Alle gegevens op de SD-kaart wissen, zoals muziek en foto\'s</string>
+  <string name="sdcard_mount" product="default">SD-kaart koppelen</string>
+  <string name="sdcard_insert_summary" product="default">SD-kaart plaatsen voor koppelen</string>
   <string name="usb_eject" product="default">USB-opslag ontkoppelen</string>
   <string name="usb_eject_summary" product="default">Ontkoppel de USB-opslag zodat u deze veilig kunt verwijderen</string>
   <string name="usb_format" product="default">USB-opslag wissen</string>
@@ -581,20 +589,28 @@
   <string name="uicc_insert_summary" product="default">UICC-opslag plaatsen om te koppelen</string>
   <string name="usb_settings_enable_ums_title">Massaopslag inschakelen?</string>
   <string name="usb_settings_enable_ums_message">Systeemonderdelen en apps vertrouwen erop dat de primaire opslag altijd beschikbaar is. Deze optie breekt die functionaliteit. Het wordt sterk aanbevolen om MTP gebruiken. Weet u zeker dat u massaopslag wilt inschakelen?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SD-kaart ontkoppelen?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USB-opslag ontkoppelen?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICC-opslag ontkoppelen?</string>
-  <string name="dlg_confirm_usb_unmount_text" product="default">Als u de USB-opslag ontkoppelt, worden bepaalde apps die u gebruikt, gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de USB-opslag opnieuw koppelt.</string>
-  <string name="dlg_confirm_uicc_unmount_text" product="default">Als u de UICC-opslag ontkoppelt, worden bepaalde apps die u gebruikt, gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de UICC-opslag opnieuw koppelt.</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Als u de SD-kaart ontkoppelt, worden bepaalde apps die u gebruikt gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de SD-kaart opnieuw koppelt.</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">Als u de USB-opslag ontkoppelt, worden bepaalde apps die u gebruikt gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de USB-opslag opnieuw koppelt.</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">Als u de UICC-opslag ontkoppelt, worden bepaalde apps die u gebruikt gestopt en komen deze mogelijk pas weer beschikbaar wanneer u de UICC-opslag opnieuw koppelt.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Kan SD-kaart niet ontkoppelen. Probeer het later opnieuw.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Kan USB-opslag niet ontkoppelen. Probeer het later opnieuw.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Kan UICC-opslag niet ontkoppelen. Probeer het later opnieuw.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD-kaart wordt ontkoppeld.</string>
   <string name="usb_unmount_inform_text" product="default">USB-opslag wordt ontkoppeld.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC-opslag wordt ontkoppeld.</string>
+  <string name="sdcard_media_format_desc" product="default">SD-kaart wissen? <b>Alle</b> gegevens op de kaart gaan verloren!</string>
   <string name="usb_media_format_desc" product="default">Alle USB-opslag wissen? <b>Alle</b> opgeslagen gegevens gaan verloren.</string>
   <string name="uicc_media_format_desc" product="default">Alle UICC-opslag wissen? <b>Alle</b> opgeslagen gegevens gaan verloren.</string>
+  <string name="sdcard_media_format_button_text" product="default">SD-kaart wissen</string>
   <string name="usb_media_format_button_text" product="default">USB-opslag wissen</string>
   <string name="uicc_media_format_button_text" product="default">UICC-opslag wissen</string>
-  <string name="usb_media_format_final_desc" product="default">USB-opslag formatteren en alle opgeslagen bestanden wissen? U kunt deze actie niet ongedaan maken.</string>
-  <string name="uicc_media_format_final_desc" product="default">UICC-opslag formatteren en alle opgeslagen bestanden wissen? U kunt deze actie niet ongedaan maken.</string>
+  <string name="sdcard_media_format_final_desc" product="default">SD-kaart wissen en alle opgeslagen bestanden verwijderen? U kunt deze actie niet ongedaan maken!</string>
+  <string name="usb_media_format_final_desc" product="default">USB-opslag wissen en alle opgeslagen bestanden verwijderen? U kunt deze actie niet ongedaan maken.</string>
+  <string name="uicc_media_format_final_desc" product="default">UICC-opslag wissen en alle opgeslagen bestanden verwijderen? U kunt deze actie niet ongedaan maken.</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">U moet het ontgrendelingspatroon tekenen om te bevestigen dat u de SD-kaart wilt wissen.</string>
   <string name="usb_media_format_gesture_explanation" product="default">U moet het ontgrendelingspatroon tekenen om te bevestigen dat u de USB-opslag wilt wissen.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">U moet het ontgrendelingspatroon tekenen om te bevestigen dat u de UICC-opslag wilt wissen.</string>
   <string name="location_category_enhanced_location">Verbeterde locatie (IZat)</string>
@@ -623,10 +639,6 @@
   <string name="usb_sdcard_summary">Bestanden uitwisselen tussen uw computer en SD-kaart door het aan te koppelen als flash-geheugen</string>
   <string name="external_storage_turn_on">Externe opslag is ingeschakeld</string>
   <string name="external_storage_turn_off">Externe opslag is uitgeschakeld</string>
-  <string name="menu_hidden_apps_delete">Opnieuw instellen</string>
-  <string name="menu_hidden_apps_reset_lock">Patroon opnieuw instellen</string>
-  <string name="protected_apps">Beschermde apps</string>
-  <string name="saving_protected_components">Opslaan\u2026</string>
   <string name="stats_collection_title">Verzamelen van statistieken</string>
   <string name="stats_collection_summary">Indien ingeschakeld, staat het verzamelen van statistieken toe</string>
   <string name="power_notifications_category_title">Opladergeluid</string>
@@ -703,7 +715,7 @@
   <string name="qs_tile_performance">Accumodus</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompas</string>
-  <string name="qs_tile_lockscreen">Vergrendelscherm</string>
+  <string name="qs_tile_lockscreen">Schermvergrendeling</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Schermtime-out</string>
   <string name="qs_main_tiles_title">Eerste rij vergroten</string>
@@ -733,7 +745,7 @@
   <string name="expanded_desktop_style">Stijl uitgebreid bureaublad</string>
   <string name="expanded_desktop_style_description">Selecteer een standaardstijl voor het uitgebreid bureaublad</string>
   <string name="expanded_desktop_title">Instellingen uitgebreid bureaublad</string>
-  <string name="lockscreen_targets_message">Snelkoppelingen vergrendelscherm</string>
+  <string name="lockscreen_targets_message">Snelkoppelingen vergrendelingsscherm</string>
   <string name="lockscreen_default_target">Standaard</string>
   <string name="lockscreen_none_target">Geen</string>
   <string name="lockscreen_message">Tik recht of links op een pictogram om de snelkoppeling opnieuw toe te wijzen.</string>
@@ -775,7 +787,7 @@
   <string name="category_calibration">Kalibratie</string>
   <string name="display_and_lights">Scherm &amp; verlichting</string>
   <string name="notification_manager">Meldingenbeheer</string>
-  <string name="lockscreen_settings">Vergrendelscherm</string>
+  <string name="lockscreen_settings">Vergrendelingsscherm</string>
   <string name="category_lights">Verlichting</string>
   <string name="power_usage_history_title">Accugebruik</string>
   <string name="recents_show_searchbar">Zoekbalk bij recente apps-scherm</string>

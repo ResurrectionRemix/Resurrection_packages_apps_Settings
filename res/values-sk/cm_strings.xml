@@ -56,6 +56,9 @@
   <string name="profile_app_group_category_title">Potlačenie upozornení</string>
   <string name="profile_app_group_item_instructions">Pridať alebo odstrániť skupiny</string>
   <string name="profile_app_group_item_instructions_summary">Pridať alebo odstrániť skupiny aplikácií pre potlačenie upozornení do tohto profilu</string>
+  <string name="profile_entries_on">Zapnuté</string>
+  <string name="profile_entries_off">Vypnuté</string>
+  <string name="profile_entries_no_override">Neprepisovať</string>
   <string name="profile_name_title">Názov</string>
   <string name="new_profile_name">&lt;nový profil&gt;</string>
   <string name="rename_dialog_title">Premenovať</string>
@@ -154,7 +157,6 @@
   <string name="sunlight_enhancement_summary">Vylepšiť jas a čitateľnosť displeja za jasného slnečného svetla</string>
   <string name="color_enhancement_title">Vylepšenie farieb</string>
   <string name="color_enhancement_summary">Dynamicky zlepšiť farbu displeja</string>
-  <string name="app_security_title">Zapezpečenie aplikácií</string>
   <string name="blacklist_title">Čierna listina</string>
   <string name="blacklist_edit_dialog_title">Upraviť položku čiernej listiny</string>
   <string name="blacklist_prefs">Nastavenia</string>
@@ -568,6 +570,12 @@
   <string name="subs_settings">Stav karty SIM</string>
   <string name="storage_usb">USB úložisko</string>
   <string name="storage_uicc">Úložisko UICC</string>
+  <string name="sdcard_eject" product="default">Odpojiť kartu SD</string>
+  <string name="sdcard_eject_summary" product="default">Odpojiť kartu SD, takže ju môžete bezpečne odstrániť</string>
+  <string name="sd_card_format" product="default">Vymazať kartu SD</string>
+  <string name="sd_card_format_summary" product="default">Vymažzať všetky dáta na karte SD, ako napríklad hudbu alebo fotografie</string>
+  <string name="sdcard_mount" product="default">Pripojiť kartu SD</string>
+  <string name="sdcard_insert_summary" product="default">Vložte kartu SD na pripojenie</string>
   <string name="usb_eject" product="default">Odpojiť USB úložisko</string>
   <string name="usb_eject_summary" product="default">Odpojiť USB úložisko, takže ho môžete bezpečne odstrániť</string>
   <string name="usb_format" product="default">Vymazať USB úložisko</string>
@@ -582,20 +590,28 @@
   <string name="uicc_insert_summary" product="default">Vložte úložisko UICC na pripojenie</string>
   <string name="usb_settings_enable_ums_title">Povoliť veľkokapacitné úložisko?</string>
   <string name="usb_settings_enable_ums_message">Systémové komponenty a aplikácie závisia od toho, že je k dispozícii primárna pamäť. Táto funkcia to môže poškodiť. Je odporúčané aby ste namiesto toho použili MTP. Ste si istý, že chcete povoliť veľkokapacitnú pamäť?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Odpojiť kartu SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Odpojiť USB úložisko?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Odpojiť úložisko UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Ak odpojíte kartu SD, niektoré používané aplikácie môžu byť zastavené a nebudú k dispozícii, dokým kartu SD znova nepripojíte.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Ak odpojíte USB úložisko, niektoré používané aplikácie môžu byť zastavené a nebudú k dispozícii, kým USB úložisko znova nepripojíte.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Ak odpojíte úložisko UICC, niektoré používané aplikácie môžu byť zastavené a nebudú k dispozícii, kým úložisko UICC znova nepripojíte.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Kartu SD sa nepodarilo odpojiť. Skúste to znova neskôr.</string>
   <string name="dlg_error_usb_unmount_text" product="default">USB úložisko sa nepodarilo odpojiť. Skúste to znova neskôr.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Úložisko UICC sa nepodarilo odpojiť. Skúste to znova neskôr.</string>
+  <string name="sdcard_unmount_inform_text" product="default">Karta SD bude odpojená.</string>
   <string name="usb_unmount_inform_text" product="default">USB úložisko bude odpojené.</string>
   <string name="uicc_unmount_inform_text" product="default">Úložisko UICC bude odpojené.</string>
+  <string name="sdcard_media_format_desc" product="default">Vymazať kartu SD? Stratíte <b>všetky</b> dáta na karte!</string>
   <string name="usb_media_format_desc" product="default">Vymazať USB úložisko? Stratíte <b>všetky</b> dáta na úložisku!</string>
   <string name="uicc_media_format_desc" product="default">Vymazať úložisko UICC? Stratíte <b>všetky</b> dáta na úložisku!</string>
+  <string name="sdcard_media_format_button_text" product="default">Vymazať kartu SD</string>
   <string name="usb_media_format_button_text" product="default">Vymazať USB úložisko</string>
   <string name="uicc_media_format_button_text" product="default">Vymazať úložisko UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Vymazať kartu SD a vymazať tak všetky súbory na nej uložené? Túto akciu nebude možné vrátiť späť!</string>
   <string name="usb_media_format_final_desc" product="default">Vymazať USB úložisko a vymazať tak všetky súbory na ňom uložené? Túto akciu nebude možné vrátiť späť!</string>
   <string name="uicc_media_format_final_desc" product="default">Vymazať úložisko UICC a všetky súbory na ňom? Túto akciu nemôžte vrátiť!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Vymazanie karty SD musíte potvrdiť nakreslením odomykacieho vzoru.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Vymazanie USB úložiska musíte potvrdiť nakresením odomykacieho vzoru.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Vymazanie úložiska UICC musíte potvrdiť nakreslením bezpečnostného vzoru.</string>
   <string name="location_category_enhanced_location">Rozšírená poloha (IZat)</string>
@@ -624,10 +640,6 @@
   <string name="usb_sdcard_summary">Umožňuje prenos súborov medzi vaším počítačom a SD kartou pripojením ako flash zariadenie</string>
   <string name="external_storage_turn_on">Externé úložisko bolo zapnuté</string>
   <string name="external_storage_turn_off">Externé úložisko bolo vypnuté</string>
-  <string name="menu_hidden_apps_delete">Obnoviť</string>
-  <string name="menu_hidden_apps_reset_lock">Obnoviť uzamknutie vzorom</string>
-  <string name="protected_apps">Chránené aplikácie</string>
-  <string name="saving_protected_components">Ukladanie stavu komponentu\u2026</string>
   <string name="stats_collection_title">Zbieranie štatistík</string>
   <string name="stats_collection_summary">Povoliť metrické zbieranie</string>
   <string name="power_notifications_category_title">Zvuky nabíjania</string>

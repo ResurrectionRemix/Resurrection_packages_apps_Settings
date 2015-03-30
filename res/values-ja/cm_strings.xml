@@ -54,6 +54,9 @@
   <string name="profile_app_group_category_title">通知の変更</string>
   <string name="profile_app_group_item_instructions">グループを追加または削除</string>
   <string name="profile_app_group_item_instructions_summary">このプロファイルに通知を変更するアプリグループを追加または削除する</string>
+  <string name="profile_entries_on">ON</string>
+  <string name="profile_entries_off">OFF</string>
+  <string name="profile_entries_no_override">変更しない</string>
   <string name="profile_name_title">名前</string>
   <string name="new_profile_name">&lt;新しいプロファイル&gt;</string>
   <string name="rename_dialog_title">名前の変更</string>
@@ -152,7 +155,6 @@
   <string name="sunlight_enhancement_summary">太陽光照射下で画面を明るくして見やすくする</string>
   <string name="color_enhancement_title">色の補正</string>
   <string name="color_enhancement_summary">画面の色をリアルタイムに補正する</string>
-  <string name="app_security_title">アプリのセキュリティ</string>
   <string name="blacklist_title">ブラックリスト</string>
   <string name="blacklist_edit_dialog_title">ブラックリストのエントリーを編集</string>
   <string name="blacklist_prefs">設定</string>
@@ -566,6 +568,12 @@
   <string name="subs_settings">SIMカードの状態</string>
   <string name="storage_usb">USBストレージ</string>
   <string name="storage_uicc">UICCストレージ</string>
+  <string name="sdcard_eject" product="default">SDカードをマウント解除</string>
+  <string name="sdcard_eject_summary" product="default">SDカードを安全に取り外すためにマウントを解除する</string>
+  <string name="sd_card_format" product="default">SDカードを消去</string>
+  <string name="sd_card_format_summary" product="default">SDカード内の音楽や写真などのすべてのデータを消去する</string>
+  <string name="sdcard_mount" product="default">SDカードをマウント</string>
+  <string name="sdcard_insert_summary" product="default">マウントするSDカードを挿入してください</string>
   <string name="usb_eject" product="default">USBストレージをマウント解除</string>
   <string name="usb_eject_summary" product="default">USBストレージを安全に取り外すためにマウントを解除する</string>
   <string name="usb_format" product="default">USBストレージを消去</string>
@@ -580,20 +588,28 @@
   <string name="uicc_insert_summary" product="default">マウントするUICCストレージを挿入してください</string>
   <string name="usb_settings_enable_ums_title">マスストレージを有効にしますか？</string>
   <string name="usb_settings_enable_ums_message">システムコンポーネントとアプリは常に利用可能なプライマリストレージに依存しています。この機能はその関係を断ち切ることになります。代わりにMTPを使用することを強く推奨します。マスストレージを有効にしてもよろしいですか？</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SDカードのマウントを解除しますか？</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USBストレージのマウントを解除しますか？</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICCストレージのマウントを解除しますか？</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">SDカードのマウントを解除すると、使用中の一部のアプリが停止し、SDカードを再マウントするまで使用できなくなる場合があります。</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">USBストレージのマウントを解除すると、使用中の一部のアプリが停止し、USBストレージを再マウントするまで使用できなくなる可能性があります。</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">UICCストレージのマウントを解除すると、使用中の一部のアプリが停止し、UICCストレージを再マウントするまで使用できなくなる可能性があります。</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">SDカードのマウントを解除できませんでした。しばらくしてからもう一度お試しください。</string>
   <string name="dlg_error_usb_unmount_text" product="default">USBストレージのマウントを解除できませんでした。しばらくしてからもう一度お試しください。</string>
   <string name="dlg_error_uicc_unmount_text" product="default">UICCストレージのマウントを解除できませんでした。しばらくしてからもう一度お試しください。</string>
+  <string name="sdcard_unmount_inform_text" product="default">SDカードのマウントが解除されます。</string>
   <string name="usb_unmount_inform_text" product="default">USBストレージのマウントが解除されます。</string>
   <string name="uicc_unmount_inform_text" product="default">UICCストレージのマウントが解除されます。</string>
+  <string name="sdcard_media_format_desc" product="default">SDカードを消去しますか？カード内の<b>すべての</b>データが失われます。</string>
   <string name="usb_media_format_desc" product="default">USBストレージを消去しますか？ストレージ内の<b>すべて</b>のデータが失われます。</string>
   <string name="uicc_media_format_desc" product="default">UICCストレージを消去しますか？ストレージ内の<b>すべて</b>のデータが失われます。</string>
+  <string name="sdcard_media_format_button_text" product="default">SDカードを消去</string>
   <string name="usb_media_format_button_text" product="default">USBストレージを消去</string>
   <string name="uicc_media_format_button_text" product="default">UICCストレージを消去</string>
+  <string name="sdcard_media_format_final_desc" product="default">SDカードを消去して、そこに保存されているすべてのファイルを削除しますか？この操作は元に戻せません。</string>
   <string name="usb_media_format_final_desc" product="default">USBストレージを消去して、そこに保存されているすべてのファイルを削除しますか？この操作は元に戻せません。</string>
   <string name="uicc_media_format_final_desc" product="default">UICCストレージを消去して、そこに保存されているすべてのファイルを削除しますか？この操作は元に戻せません。</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">SDカード内のデータを消去してよいか確認するため、ロック解除パターンを入力する必要があります。</string>
   <string name="usb_media_format_gesture_explanation" product="default">USBストレージ内のデータを消去してよいか確認するため、ロック解除パターンを入力する必要があります。</string>
   <string name="uicc_media_format_gesture_explanation" product="default">UICCストレージ内のデータを消去して良いか確認するために、ロック解除パターンを入力する必要があります。</string>
   <string name="location_category_enhanced_location">改良された位置情報（IZat）</string>
@@ -622,10 +638,6 @@
   <string name="usb_sdcard_summary">フラッシュデバイスとしてマウントすることでパソコンとSDカードの間で任意のファイルを転送できます</string>
   <string name="external_storage_turn_on">外部ストレージがONになりました</string>
   <string name="external_storage_turn_off">外部ストレージがOFFになりました</string>
-  <string name="menu_hidden_apps_delete">リセット</string>
-  <string name="menu_hidden_apps_reset_lock">パターンロックをリセット</string>
-  <string name="protected_apps">アプリの保護</string>
-  <string name="saving_protected_components">コンポーネントの状態を保存中\u2026</string>
   <string name="stats_collection_title">統計の収集</string>
   <string name="stats_collection_summary">メトリクスの収集を許可する</string>
   <string name="power_notifications_category_title">充電の音</string>

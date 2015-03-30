@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Παράκαμψη ειδοποιήσεων</string>
   <string name="profile_app_group_item_instructions">Προσθήκη η αφαίρεση ομάδων</string>
   <string name="profile_app_group_item_instructions_summary">Προσθήκη ή αφαίρεση ομάδων παράκαμψης ειδοποιήσεων εφαρμογών σε αυτό το προφίλ</string>
+  <string name="profile_entries_on">Ενεργό</string>
+  <string name="profile_entries_off">Ανενεργό</string>
+  <string name="profile_entries_no_override">Να μην παρακαμφθεί</string>
   <string name="profile_name_title">Όνομα</string>
   <string name="new_profile_name">&lt;νέο προφίλ&gt;</string>
   <string name="rename_dialog_title">Μετονομασία</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Ενίσχυση της φωτεινότητας και αναγνωσιμότητας της οθόνης κάτω από έντονο ηλιακό φως</string>
   <string name="color_enhancement_title">Βελτίωση χρωμάτων</string>
   <string name="color_enhancement_summary">Δυναμική βελτίωση των χρωμάτων της οθόνης</string>
-  <string name="app_security_title">Ασφάλεια εφαρμογών</string>
   <string name="blacklist_title">Μαύρη λίστα</string>
   <string name="blacklist_edit_dialog_title">Επεξεργασία καταχώρησης</string>
   <string name="blacklist_prefs">Ρυθμίσεις</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">Κατάσταση κάρτας SIM</string>
   <string name="storage_usb">Αποθ. χώρος USB</string>
   <string name="storage_uicc">Αποθ. χώρος UICC</string>
+  <string name="sdcard_eject" product="default">Αποπροσάρτηση κάρτας SD</string>
+  <string name="sdcard_eject_summary" product="default">Αποπροσαρτήστε την κάρτα SD για να την αφαιρέσετε με ασφάλεια</string>
+  <string name="sd_card_format" product="default">Διαγραφή κάρτας SD</string>
+  <string name="sd_card_format_summary" product="default">Διαγραφή όλων των δεδομένων στην κάρτα SD όπως μουσική και φωτογραφίες</string>
+  <string name="sdcard_mount" product="default">Προσάρτηση κάρτας SD</string>
+  <string name="sdcard_insert_summary" product="default">Εισαγάγετε κάρτα SD για προσάρτηση</string>
   <string name="usb_eject" product="default">Αποπροσάρτηση αποθ. χώρου USB</string>
   <string name="usb_eject_summary" product="default">Αποπροσαρτήστε τον αποθηκευτικό χώρο USB για να τoν αφαιρέσετε με ασφάλεια</string>
   <string name="usb_format" product="default">Διαγραφή αποθ. χώρου USB</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Εισάγετε αποθηκευτικό χώρο UICC για προσάρτηση</string>
   <string name="usb_settings_enable_ums_title">Ενεργοποίηση αποθήκευσης USB;</string>
   <string name="usb_settings_enable_ums_message">Τα στοιχεία του συστήματος και οι εφαρμογές βασίζονται στην ύπαρξη του πρωτεύων αποθηκευτικού χώρου. Αυτό το χαρακτηριστικό δημιουργεί προβλήματα σε αυτή την λειτουργία. Συνιστάται ανεπιφύλακτα να χρησιμοποιήσετε το πρωτόκολλο MTP αντ \'αυτού. Είστε σίγουροι ότι θέλετε να ενεργοποιήσετε την μαζική αποθήκευση;</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Αποπροσάρτηση κάρτας SD;</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Αποπροσάρτηση αποθ. χώρου USB;</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Αποπροσάρτηση αποθ. χώρου UICC;</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Εάν αποπροσαρτήσετε την κάρτα SD, η λειτουργία ορισμένων εφαρμογών που χρησιμοποιείτε θα διακοπεί και ενδέχεται να μην είναι διαθέσιμες μέχρι να την προσαρτήσετε ξανά.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Εάν αφαιρέσετε τον αποθηκευτικό χώρο USB, η λειτουργία ορισμένων εφαρμογών που χρησιμοποιείτε θα διακοπεί και ενδέχεται να μην είναι διαθέσιμες μέχρι να τον προσαρτήσετε ξανά.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Εάν αφαιρέσετε τον αποθηκευτικό χώρο UICC, η λειτουργία ορισμένων εφαρμογών που χρησιμοποιείτε θα διακοπεί και ενδέχεται να μην είναι διαθέσιμες μέχρι να τον προσαρτήσετε ξανά.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Δεν ήταν δυνατή η αποπροσάρτηση της κάρτας SD. Δοκιμάστε ξανά αργότερα.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Δεν ήταν δυνατή η αποπροσάρτηση του αποθηκευτικού χώρου USB. Δοκιμάστε ξανά αργότερα.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Δεν ήταν δυνατή η αποπροσάρτηση του αποθηκευτικού χώρου UICC. Δοκιμάστε ξανά αργότερα.</string>
+  <string name="sdcard_unmount_inform_text" product="default">Θα γίνει αποπροσάρτηση της κάρτας SD.</string>
   <string name="usb_unmount_inform_text" product="default">Θα γίνει αποπροσάρτηση του αποθηκευτικού χώρου USB.</string>
   <string name="uicc_unmount_inform_text" product="default">Θα γίνει αποπροσάρτηση του αποθηκευτικού χώρου UICC.</string>
+  <string name="sdcard_media_format_desc" product="default">Να διαγραφεί ολόκληρη η κάρτα SD; Θα χαθούν <b>όλα</b> τα αποθηκευμένα δεδομένα!</string>
   <string name="usb_media_format_desc" product="default">Να διαγραφεί ο αποθηκευτικός χώρος USB; Θα χάσετε <b>όλα</b> τα αποθηκευμένα δεδομένα!</string>
   <string name="uicc_media_format_desc" product="default">Να διαγραφεί ο αποθηκευτικός χώρος UICC; Θα χάσετε <b>όλα</b> τα αποθηκευμένα δεδομένα!</string>
+  <string name="sdcard_media_format_button_text" product="default">Διαγραφή κάρτας SD</string>
   <string name="usb_media_format_button_text" product="default">Διαγραφή αποθ. χώρου USB</string>
   <string name="uicc_media_format_button_text" product="default">Διαγραφή αποθ. χώρου UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Να γίνει διαγραφή της κάρτας SD, διαγράφοντας όλα τα αρχεία που έχετε αποθηκεύσει εκεί; Αυτή η ενέργεια είναι μη αναστρέψιμη!</string>
   <string name="usb_media_format_final_desc" product="default">Να γίνει διαγραφή του αποθηκευτικού χώρου USB, διαγράφοντας όλα τα αρχεία που έχετε αποθηκεύσει εκεί; Αυτή η ενέργεια είναι μη αναστρέψιμη!</string>
   <string name="uicc_media_format_final_desc" product="default">Να γίνει διαγραφή του αποθηκευτικού χώρου UICC, διαγράφοντας όλα τα αρχεία που έχετε αποθηκεύσει εκεί; Αυτή η ενέργεια είναι μη αναστρέψιμη!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Πρέπει να σχεδιάσετε το μοτίβο ξεκλειδώματος για να επιβεβαιώσετε ότι θέλετε να διαγράψετε την κάρτα SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Πρέπει να σχεδιάσετε το μοτίβο ξεκλειδώματος για να επιβεβαιώσετε ότι θέλετε να διαγράψετε το αποθηκευτικό χώρο USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Πρέπει να σχεδιάσετε το μοτίβο ξεκλειδώματος για να επιβεβαιώσετε ότι θέλετε να διαγράψετε το αποθηκευτικό χώρο UICC.</string>
+  <string name="storage_rescan_media">Σάρωση για πολυμέσα στον αποθ. χώρο</string>
   <string name="location_category_enhanced_location">Βελτιωμένη τοποθεσία (IZat)</string>
   <string name="app_ops_settings_summary">Εμφάνιση ή αλλαγή δικαιωμάτων εφαρμογών</string>
   <string name="enable_adb_summary_charging">Η συσκευή βρίσκεται σε λειτουργία φόρτισης, ο εντοπισμός σφαλμάτων μέσω USB είναι απενεργοποιημένος</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">Σας επιτρέπει να μεταφέρετε αρχεία μεταξύ του υπολογιστή σας και της κάρτας SD προσαρτώντας την ως συσκευή flash</string>
   <string name="external_storage_turn_on">Ο εξωτερικός αποθ. χώρος έχει ενεργοποιηθεί</string>
   <string name="external_storage_turn_off">Ο εξωτερικός αποθ. χώρος έχει απενεργοποιηθεί</string>
-  <string name="menu_hidden_apps_delete">Επαναφορά</string>
-  <string name="menu_hidden_apps_reset_lock">Επαναφέρετε το μοτίβο κλειδώματος</string>
-  <string name="protected_apps">Προστατευμένες εφαρμογές</string>
-  <string name="saving_protected_components">Αποθήκευση κατάστασης εφαρμογών\u2026</string>
   <string name="stats_collection_title">Συλλογή στατιστικών</string>
   <string name="stats_collection_summary">Όταν ενεργοποιηθεί, επιτρέπει τη συλλογή στατιστικών μετρήσεων</string>
   <string name="power_notifications_category_title">Ήχοι φόρτισης</string>

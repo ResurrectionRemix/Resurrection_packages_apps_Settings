@@ -56,6 +56,9 @@
   <string name="profile_app_group_category_title">Уведомления</string>
   <string name="profile_app_group_item_instructions">Добавить или удалить группы</string>
   <string name="profile_app_group_item_instructions_summary">Изменение настроек уведомлений для групп приложений в этом профиле</string>
+  <string name="profile_entries_on">Включить</string>
+  <string name="profile_entries_off">Выключить</string>
+  <string name="profile_entries_no_override">Оставить без изменения</string>
   <string name="profile_name_title">Название профиля</string>
   <string name="new_profile_name">&lt;новый профиль&gt;</string>
   <string name="rename_dialog_title">Переименовать</string>
@@ -154,7 +157,6 @@
   <string name="sunlight_enhancement_summary">Повышение яркости и уровня читаемости экрана при ярком солнечном свете</string>
   <string name="color_enhancement_title">Улучшение цвета</string>
   <string name="color_enhancement_summary">Динамическое улучшение цветопередачи экрана</string>
-  <string name="app_security_title">Безопасность приложений</string>
   <string name="blacklist_title">Черный список</string>
   <string name="blacklist_edit_dialog_title">Изменение записи</string>
   <string name="blacklist_prefs">Настройки</string>
@@ -568,6 +570,12 @@
   <string name="subs_settings">Состояние SIM-карты</string>
   <string name="storage_usb">USB-накопитель</string>
   <string name="storage_uicc">Хранилище UICC</string>
+  <string name="sdcard_eject" product="default">Отключить SD-карту</string>
+  <string name="sdcard_eject_summary" product="default">Отключение SD-карты для её безопасного извлечения из устройства</string>
+  <string name="sd_card_format" product="default">Очистить SD-карту</string>
+  <string name="sd_card_format_summary" product="default">Удаление с SD-карты всех данных, включая музыку и фотографии</string>
+  <string name="sdcard_mount" product="default">Подключить SD-карту</string>
+  <string name="sdcard_insert_summary" product="default">Вставьте SD-карту для монтирования</string>
   <string name="usb_eject" product="default">Отключить USB-накопитель</string>
   <string name="usb_eject_summary" product="default">Отключить USB-накопитель для его безопасного извлечения</string>
   <string name="usb_format" product="default">Очистить USB-накопитель</string>
@@ -582,20 +590,28 @@
   <string name="uicc_insert_summary" product="default">Подключить вставленный накопитель</string>
   <string name="usb_settings_enable_ums_title">Включить режим USB-накопителя?</string>
   <string name="usb_settings_enable_ums_message">Многие приложения и системные компоненты проектируются с расчётом на постоянно доступную основную память. Использование функции USB-накопителя нарушает эту функциональность, поэтому для большинства случаев рекомендуется использовать MTP. Включить режим USB-накопителя?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Отключить SD-карту?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Отключить USB-накопитель?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Отключить хранилище UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Если отключить SD-карту, некоторые приложения могут перестать работать. Чтобы снова получить к ним доступ, потребуется подключить карту.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Если отключить USB-накопитель, некоторые приложения могут перестать работать. Чтобы снова получить к ним доступ, потребуется подключить накопитель.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Если отключить хранилище UICC, некоторые приложения могут перестать работать. Чтобы снова получить к ним доступ, потребуется подключить хранилище.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Не удалось отключить SD-карту. Повторите попытку позже.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Не удалось отключить USB-накопитель. Повторите попытку позже.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Не удалось отключить хранилище UICC. Повторите попытку позже.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD-карта будет отключена.</string>
   <string name="usb_unmount_inform_text" product="default">USB-накопитель будет отключен.</string>
   <string name="uicc_unmount_inform_text" product="default">Хранилище UICC будет отключено.</string>
+  <string name="sdcard_media_format_desc" product="default">Очистить SD-карту? Вы потеряете <b>все</b> сохранённые на ней данные!</string>
   <string name="usb_media_format_desc" product="default">Очистить USB-накопитель? Вы потеряете <b>все</b> сохраненные на нем данные!</string>
   <string name="uicc_media_format_desc" product="default">Очистить хранилище UICC? Вы потеряете <b>все</b> сохраненные на нем данные!</string>
+  <string name="sdcard_media_format_button_text" product="default">Очистить SD-карту</string>
   <string name="usb_media_format_button_text" product="default">Очистить USB-накопитель</string>
   <string name="uicc_media_format_button_text" product="default">Очистить хранилище UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Очистить SD-карту, удалив на ней все файлы без возможности восстановления? Это действие нельзя будет отменить!</string>
   <string name="usb_media_format_final_desc" product="default">Очистить USB-накопитель, удалив на нем все файлы без возможности восстановления? Это действие нельзя будет отменить!</string>
   <string name="uicc_media_format_final_desc" product="default">Очистить хранилище UICC, удалив на нем все файлы без возможности восстановления? Это действие нельзя будет отменить!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Чтобы подтвердить очистку SD-карты, начертите графический ключ.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Чтобы подтвердить очистку USB-накопителя, начертите графический ключ.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Чтобы подтвердить очистку накопителя UICC, начертите графический ключ.</string>
   <string name="location_category_enhanced_location">Улучшенное местоположение (IZat)</string>
@@ -624,10 +640,6 @@
   <string name="usb_sdcard_summary">Позволяет передавать файлы путем использования SD-карты устройства в качестве съемного диска</string>
   <string name="external_storage_turn_on">Внешний накопитель включен</string>
   <string name="external_storage_turn_off">Внешний накопитель отключен</string>
-  <string name="menu_hidden_apps_delete">Сброс</string>
-  <string name="menu_hidden_apps_reset_lock">Удалить граф. ключ</string>
-  <string name="protected_apps">Заблокир. приложения</string>
-  <string name="saving_protected_components">Сохранение состояния приложений\u2026</string>
   <string name="stats_collection_title">Сбор статистики</string>
   <string name="stats_collection_summary">Когда включено, разрешает сбор метрики</string>
   <string name="power_notifications_category_title">Зарядное устройство</string>

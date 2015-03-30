@@ -56,6 +56,9 @@
   <string name="profile_app_group_category_title">Pranešimų nepaisymas</string>
   <string name="profile_app_group_item_instructions">Pridėti arba pašalinti grupes</string>
   <string name="profile_app_group_item_instructions_summary">Pridėti arba pašalinti pranešimo nepaisymą programos grupėms į šį profilį</string>
+  <string name="profile_entries_on">Įjungti</string>
+  <string name="profile_entries_off">Išjungti</string>
+  <string name="profile_entries_no_override">Nėra nepaisymo</string>
   <string name="profile_name_title">Pavadinimas</string>
   <string name="new_profile_name">&lt;naujas profilis&gt;</string>
   <string name="rename_dialog_title">Pervardyti</string>
@@ -154,7 +157,6 @@
   <string name="sunlight_enhancement_summary">Pagerinti ekrano šviesumą ir įskaitomumą ryškioje saulės šviesoje</string>
   <string name="color_enhancement_title">Spalvų stiprinimas</string>
   <string name="color_enhancement_summary">Dinamiškai padidinti ekrano spalvą</string>
-  <string name="app_security_title">Programos sauga</string>
   <string name="blacklist_title">Juodasis sąrašas</string>
   <string name="blacklist_edit_dialog_title">Redaguoti juodojo sąrašo įrašą</string>
   <string name="blacklist_prefs">Nustatymai</string>
@@ -203,7 +205,7 @@
   <string name="display_rotation_270_title">270 laipsnių</string>
   <string name="app_security_title">Programos sauga</string>
   <string name="sms_security_check_limit_title">SMS pranešimų limitas</string>
-  <string name="sms_security_check_limit_summary">Programos gali siųsti %d pranešimų (-us) per 30 min. prieš pareikalaujant patvirtinimo</string>
+  <string name="sms_security_check_limit_summary">Programos gali siųsti %d pranešimų per 30 min. prieš pareikalaujant patvirtinimo</string>
   <string name="spam_added_title">Pridėta %1$s</string>
   <string name="spam_last_blocked_title">Paskutinį kartą blokuota %1$s</string>
   <string name="block_notifications_title">Filtruoti pranešimus</string>
@@ -233,7 +235,7 @@
   <string name="privacy_guard_help_title">Vartotojo vadovas</string>
   <string name="privacy_guard_reset_title">Atstatyti</string>
   <string name="privacy_guard_reset_text">Nustatyti iš naujo leidimus?</string>
-  <string name="privacy_guard_help_text">Šiame ekrane galite pasirinkti kuriose programose privatumo sauga turėtų būti aktyvi, tiesiog paliesdami jas. Pasirinktos programos negalės prieiti prie asmeninių duomenų tokių kaip adresatai, pranešimai ar skambučių žurnalas. Ilgai paspaudus ant įrašo atsidaro tos programos išsamesnis ekranas.\n\nPagal nutylėjimą įdiegtos programos nėra rodomos, bet gali būti parodytos pasirenkant atitinkamą meniu parinktį.</string>
+  <string name="privacy_guard_help_text">Šiame ekrane galite pasirinkti kuriose programose privatumo sauga turėtų būti aktyvi, tiesiog paliesdami jas. Pasirinktos programos negalės prieiti asmeninių duomenų tokių kaip adresatai, pranešimai ar skambučių žurnalas. Ilgai paspaudus ant įrašo atsidaro tos programos išsamesnis ekranas.\n\nPagal nutylėjimą įdiegtos programos nėra rodomos, bet gali būti parodytos pasirenkant atitinkamą meniu parinktį.</string>
   <string name="privacy_guard_manager_show_system_apps">Rodyti įdiegtas programas</string>
   <string name="increasing_ring_volume_option_title">Didėjantis skambėjimo garsumas</string>
   <string name="increasing_ring_min_volume_title">Pradinis garsumas</string>
@@ -287,7 +289,7 @@
   <string name="status_bar_am_pm_small">Mažas</string>
   <string name="status_bar_am_pm_hidden">Paslėptas</string>
   <string name="status_bar_battery_style_title">Akumuliatoriaus būsenos stilius</string>
-  <string name="status_bar_battery_style_icon_portrait">Stati piktograma</string>
+  <string name="status_bar_battery_style_icon_portrait">Stačia piktograma</string>
   <string name="status_bar_battery_style_icon_landscape">Gulsčia piktograma</string>
   <string name="status_bar_battery_style_circle">Apvalus</string>
   <string name="status_bar_battery_style_text">Tekstas</string>
@@ -568,6 +570,12 @@
   <string name="subs_settings">SIM kortelės būsena</string>
   <string name="storage_usb">USB saugykla</string>
   <string name="storage_uicc">UICC saugykla</string>
+  <string name="sdcard_eject" product="default">Atjungti SD kortelę</string>
+  <string name="sdcard_eject_summary" product="default">Atjungti SD kortelę, kad saugiai ją pašalinti</string>
+  <string name="sd_card_format" product="default">Ištrinti SD kortelę</string>
+  <string name="sd_card_format_summary" product="default">Ištrina visus SD kortelės duomenis, pvz., muziką ir nuotraukas</string>
+  <string name="sdcard_mount" product="default">Prijungti SD kortelę</string>
+  <string name="sdcard_insert_summary" product="default">Įdėti SD kortelę, kad prijungti</string>
   <string name="usb_eject" product="default">Atjungti USB saugyklą</string>
   <string name="usb_eject_summary" product="default">Atjunkite USB saugyklą tam kad saugiai ją pašalintumėte</string>
   <string name="usb_format" product="default">Ištrinti USB saugyklą</string>
@@ -582,20 +590,28 @@
   <string name="uicc_insert_summary" product="default">Įdėti UICC saugyklą, kad prijungti</string>
   <string name="usb_settings_enable_ums_title">Įgalinti didelės talpos atmintį?</string>
   <string name="usb_settings_enable_ums_message">Sistemos komponentai ir programos remiasi pirmine saugykla nes ji visada yra pasiekiama. Ši funkcija skaido šį funkcionalumą. Primygtinai rekomenduojama naudoti MTP. Ar tikrai norite įgalinti didelės talpos atmintį?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Atjungti SD kortelę?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Atjungti USB saugyklą?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Atjungti UICC saugyklą?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Jei atjungsite SD kortelę, kai kurios naudojamos programos sustos ir bus nepasiekiamos, kol jūs neprijungsite SD kortelės iš naujo.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Jei atjungsite USB saugyklą, kai kurios naudojamos programos sustos ir bus nepasiekiamos, kol jūs neprijungsite USB saugyklos iš naujo.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Jei atjungsite UICC saugyklą, kai kurios naudojamos programos sustos ir bus nepasiekiamos, kol jūs neprijungsite USB saugyklos iš naujo.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Nepavyko atjungti SD kortelės. Bandykite vėliau dar kartą.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Nepavyko atjungti USB saugyklos. Bandykite vėliau dar kartą.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Nepavyko atjungti UICC saugyklos. Bandykite vėliau dar kartą.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD kortelė bus atjungta.</string>
   <string name="usb_unmount_inform_text" product="default">USB saugykla bus atjungta.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC saugykla bus atjungta.</string>
+  <string name="sdcard_media_format_desc" product="default">Ištrinti SD kortelę? jūs prarasite <b>visus</b> kortelėje esančius duomenis!</string>
   <string name="usb_media_format_desc" product="default">Ištrinti USB saugyklą? jūs prarasite <b>visus</b> duomenis esančius saugykloje!</string>
   <string name="uicc_media_format_desc" product="default">Ištrinti UICC saugyklą? jūs prarasite <b>visus</b> duomenis esančius saugykloje!</string>
+  <string name="sdcard_media_format_button_text" product="default">Ištrinti SD kortelę</string>
   <string name="usb_media_format_button_text" product="default">Ištrinti USB saugyklą</string>
   <string name="uicc_media_format_button_text" product="default">Ištrinti UICC saugyklą</string>
+  <string name="sdcard_media_format_final_desc" product="default">Ištrinti SD kortelę, ištrinant visus joje saugomus failus? jūs negalėsite atšaukti šio veiksmo!</string>
   <string name="usb_media_format_final_desc" product="default">Ištrinti USB saugyklą, ištrynus visus joje saugomus failus? jūs negalėsite atšaukti šio veiksmo!</string>
   <string name="uicc_media_format_final_desc" product="default">Ištrinti UICC saugyklą, ištrynus visus joje saugomus failus? jūs negalėsite atšaukti šio veiksmo!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Jums reikia nubrėžti atrakinimo šabloną, kad patvirtintumėte jog norite ištrinti SD kortelę.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Jums reikia nubrėžti atrakinimo šabloną tam, kad patvirtintumėte jog norite ištrinti USB saugyklą.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Jums reikia nubrėžti atrakinimo šabloną tam, kad patvirtintumėte jog norite ištrinti UICC saugyklą.</string>
   <string name="location_category_enhanced_location">Sustiprinta vietovė (IZat)</string>
@@ -624,10 +640,6 @@
   <string name="usb_sdcard_summary">Leidžia perduoti failus tarp jūsų kompiuterio ir SD kortelės prijungiant ją kaip „Flash“ įrenginį</string>
   <string name="external_storage_turn_on">Išorinė saugykla buvo įjungta</string>
   <string name="external_storage_turn_off">Išorinė saugykla buvo išjungta</string>
-  <string name="menu_hidden_apps_delete">Atstatyti</string>
-  <string name="menu_hidden_apps_reset_lock">Nustatyti iš naujo modelio užraktą</string>
-  <string name="protected_apps">Apsaugotos programos</string>
-  <string name="saving_protected_components">Išsaugoma komponentų būklė\u2026</string>
   <string name="stats_collection_title">Statistikos kolekcija</string>
   <string name="stats_collection_summary">Kai įgalinta, leidžia metrinę kolekciją</string>
   <string name="power_notifications_category_title">Įkrovimo garsai</string>

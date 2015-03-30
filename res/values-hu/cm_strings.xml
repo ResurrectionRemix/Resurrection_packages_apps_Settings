@@ -52,6 +52,9 @@
   <string name="profile_app_group_category_title">Értesítés felülbírálása</string>
   <string name="profile_app_group_item_instructions">Csoportok hozzáadása, vagy eltávolítása</string>
   <string name="profile_app_group_item_instructions_summary">Felülbírált értesítésekkel rendelkező alkalmazáscsoportok hozzáadása ehhez a profilhoz</string>
+  <string name="profile_entries_on">Be</string>
+  <string name="profile_entries_off">Ki</string>
+  <string name="profile_entries_no_override">Nincs felülbírálás</string>
   <string name="profile_name_title">Név</string>
   <string name="new_profile_name">&lt;Új profil&gt;</string>
   <string name="rename_dialog_title">Átnevezés</string>
@@ -150,7 +153,6 @@
   <string name="sunlight_enhancement_summary">Növeli a kijelző fényerejét és az olvashatóságot ragyogó napfény esetén</string>
   <string name="color_enhancement_title">Színek javítása</string>
   <string name="color_enhancement_summary">Dinamikusan javítja a kijelző színét</string>
-  <string name="app_security_title">Alkalmazásbiztonság</string>
   <string name="blacklist_title">Tiltólista</string>
   <string name="blacklist_edit_dialog_title">Tiltólista szerkesztése</string>
   <string name="blacklist_prefs">Beállítások</string>
@@ -564,6 +566,12 @@
   <string name="subs_settings">SIM-kártya állapota</string>
   <string name="storage_usb">USB tárhely</string>
   <string name="storage_uicc">UICC tároló</string>
+  <string name="sdcard_eject" product="default">SD kártya leválasztása</string>
+  <string name="sdcard_eject_summary" product="default">SD kártya leválasztása a biztonságos eltávolítás érdekében</string>
+  <string name="sd_card_format" product="default">SD kártya törlése</string>
+  <string name="sd_card_format_summary" product="default">Az összes adatot törli az SD-kártyán, mint pl. zene és fénykép</string>
+  <string name="sdcard_mount" product="default">SD kártya csatolása</string>
+  <string name="sdcard_insert_summary" product="default">Helyezzen be SD kártyát a csatlakoztatáshoz</string>
   <string name="usb_eject" product="default">USB tároló leválasztása</string>
   <string name="usb_eject_summary" product="default">USB tároló leválasztása a biztonságos eltávolítás érdekében</string>
   <string name="usb_format" product="default">USB tároló törlése</string>
@@ -578,20 +586,28 @@
   <string name="uicc_insert_summary" product="default">Csatoláshoz helyezzen be UICC tárolót</string>
   <string name="usb_settings_enable_ums_title">Engedélyezi az USB háttértár módot?</string>
   <string name="usb_settings_enable_ums_message">A rendszer elemei és az alkalmazások arra támaszkodnak, hogy az elsődleges tároló mindig rendelkezésre áll. Ez a lehetőség megszünteti ezt a funkcionalitást. Helyette erősen ajánlott inkább az MTP használata. Biztosan engedélyezni szeretné háttértárként?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SD kártya leválasztása?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USB tároló leválasztása?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICC tároló leválasztása?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Ha leválasztja az SD kártyát, néhány alkalmazás, melyeket használ, leállhat és elérhetetlen lehet, ameddig újra nem csatlakoztatja az SD kártyát.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Ha leválasztja az USB tárolót, néhány alkalmazás, melyeket használ, leállhat és elérhetetlen lehet, ameddig újra nem csatlakoztatja az USB tárolót.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Ha leválasztja az UICC tárolót, néhány alkalmazás, melyeket használ, leállhat és elérhetetlen lehet, ameddig újra nem csatlakoztatja az UICC tárolót.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Nem lehet leválasztani az SD kártyát. Próbálja meg később.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Nem lehet leválasztani az USB tárolót. Próbálja meg később.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Nem lehet leválasztani az UICC tárolót. Próbálja meg később.</string>
+  <string name="sdcard_unmount_inform_text" product="default">Az SD kártya le lesz választva.</string>
   <string name="usb_unmount_inform_text" product="default">Az USB tároló le lesz választva.</string>
   <string name="uicc_unmount_inform_text" product="default">Az UICC tároló le lesz választva.</string>
+  <string name="sdcard_media_format_desc" product="default">SD kártya törlése? A kártyán tárolt <b>minden</b> adat el fog veszni!</string>
   <string name="usb_media_format_desc" product="default">Törli az USB tárolót? <b>Minden</b> tárolón lévő adat el fog veszni!</string>
   <string name="uicc_media_format_desc" product="default">Törli az UICC tárolót? <b>Minden</b> tárolón lévő adat el fog veszni!</string>
+  <string name="sdcard_media_format_button_text" product="default">SD kártya törlése</string>
   <string name="usb_media_format_button_text" product="default">USB tároló törlése</string>
   <string name="uicc_media_format_button_text" product="default">UICC tároló törlése</string>
+  <string name="sdcard_media_format_final_desc" product="default">SD kártya törlése. Törli az összes ott tárolt fájlt? Ez a művelet nem visszavonható!</string>
   <string name="usb_media_format_final_desc" product="default">USB tároló törlése. Törli az összes ott tárolt fájlt? Ez a művelet nem visszavonható!</string>
   <string name="uicc_media_format_final_desc" product="default">UICC tároló törlése. Törli az összes ott tárolt fájlt? Ez a művelet nem visszavonható!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Az SD kártya törlésének megerősítéséhez meg kell adnia a feloldó mintáját.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Az USB tároló törlésének megerősítéséhez meg kell adnia a feloldó mintáját.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Az UICC tároló törlésének megerősítéséhez meg kell adnia a feloldó mintáját.</string>
   <string name="location_category_enhanced_location">Megnövelt helymeghatározás (IZat)</string>
@@ -620,10 +636,6 @@
   <string name="usb_sdcard_summary">Lehetővé teszi fájlok átvitelét az eszköz és az ön számítógépe közt, mintha csak egy pendrive-ot használna</string>
   <string name="external_storage_turn_on">Külső tároló bekapcsolva</string>
   <string name="external_storage_turn_off">Külső tároló kikapcsolva</string>
-  <string name="menu_hidden_apps_delete">Visszaállítás</string>
-  <string name="menu_hidden_apps_reset_lock">Minta visszaállítása</string>
-  <string name="protected_apps">Védett alkalmazások</string>
-  <string name="saving_protected_components">Összetevő állapotának mentése\u2026</string>
   <string name="stats_collection_title">Statisztika gyűjtése</string>
   <string name="stats_collection_summary">Ha engedélyezve van, lehetővé teszi a mérőszámok gyűjtését</string>
   <string name="power_notifications_category_title">Töltés jelzése</string>

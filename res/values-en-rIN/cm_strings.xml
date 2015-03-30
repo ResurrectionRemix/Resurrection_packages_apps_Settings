@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Notification overrides</string>
   <string name="profile_app_group_item_instructions">Add or remove groups</string>
   <string name="profile_app_group_item_instructions_summary">Add or remove notification override app groups to this profile</string>
+  <string name="profile_entries_on">On</string>
+  <string name="profile_entries_off">Off</string>
+  <string name="profile_entries_no_override">No override</string>
   <string name="profile_name_title">Name</string>
   <string name="new_profile_name">&lt;new profile&gt;</string>
   <string name="rename_dialog_title">Rename</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Enhance display brightness and readability under bright sunlight</string>
   <string name="color_enhancement_title">Color enhancement</string>
   <string name="color_enhancement_summary">Dynamically enhance the color of the display</string>
-  <string name="app_security_title">App security</string>
   <string name="blacklist_title">Blacklist</string>
   <string name="blacklist_edit_dialog_title">Edit blacklist entry</string>
   <string name="blacklist_prefs">Settings</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">SIM card status</string>
   <string name="storage_usb">USB storage</string>
   <string name="storage_uicc">UICC storage</string>
+  <string name="sdcard_eject" product="default">Unmount SD card</string>
+  <string name="sdcard_eject_summary" product="default">Unmount the SD card so you can safely remove it</string>
+  <string name="sd_card_format" product="default">Erase SD card</string>
+  <string name="sd_card_format_summary" product="default">Erases all data on the SD card, such as music and photos</string>
+  <string name="sdcard_mount" product="default">Mount SD card</string>
+  <string name="sdcard_insert_summary" product="default">Insert an SD card to mount</string>
   <string name="usb_eject" product="default">Unmount USB storage</string>
   <string name="usb_eject_summary" product="default">Unmount the USB storage so you can safely remove it</string>
   <string name="usb_format" product="default">Erase USB storage</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Insert UICC storage to mount</string>
   <string name="usb_settings_enable_ums_title">Enable mass storage?</string>
   <string name="usb_settings_enable_ums_message">System components and apps rely on primary storage always being available. This feature breaks that functionality. It is strongly recommended to use MTP instead. Are you sure you want to enable mass storage?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Unmount SD card?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Unmount USB storage?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Unmount UICC storage?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">If you unmount the SD card, some apps you are using will stop and may be unavailable until you remount the SD card.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">If you unmount the USB storage, some apps you are using will stop and may be unavailable until you remount the USB storage.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">If you unmount the UICC storage, some apps you are using will stop and may be unavailable until you remount the UICC storage.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Couldn\'t unmount SD card. Try again later.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Couldn\'t unmount USB storage. Try again later.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Couldn\'t unmount UICC storage. Try again later.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD card will be unmounted.</string>
   <string name="usb_unmount_inform_text" product="default">USB storage will be unmounted.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC storage will be unmounted.</string>
+  <string name="sdcard_media_format_desc" product="default">Erase the SD card? You will lose <b>all</b> data on the card!</string>
   <string name="usb_media_format_desc" product="default">Erase the USB storage? You will lose <b>all</b> data on the storage!</string>
   <string name="uicc_media_format_desc" product="default">Erase the UICC storage? You will lose <b>all</b> data on the storage!</string>
+  <string name="sdcard_media_format_button_text" product="default">Erase SD card</string>
   <string name="usb_media_format_button_text" product="default">Erase USB storage</string>
   <string name="uicc_media_format_button_text" product="default">Erase UICC storage</string>
+  <string name="sdcard_media_format_final_desc" product="default">Erase the SD card, deleting all files stored there? You can\'t reverse this action!</string>
   <string name="usb_media_format_final_desc" product="default">Erase the USB storage, deleting all files stored there? You can\'t reverse this action!</string>
   <string name="uicc_media_format_final_desc" product="default">Erase the UICC storage, deleting all files stored there? You can\'t reverse this action!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the SD card.</string>
   <string name="usb_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the USB storage.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the UICC storage.</string>
+  <string name="storage_rescan_media">Rescan media for the storage volume</string>
   <string name="location_category_enhanced_location">Enhanced location (IZat)</string>
   <string name="app_ops_settings_summary">View or change app permissions</string>
   <string name="enable_adb_summary_charging">Device is in Charging mode, USB debugging is disabled</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">Lets you transfer files between your computer and SD card by mounting it as a flash device</string>
   <string name="external_storage_turn_on">External storage has been turned on</string>
   <string name="external_storage_turn_off">External storage has been turned off</string>
-  <string name="menu_hidden_apps_delete">Reset</string>
-  <string name="menu_hidden_apps_reset_lock">Reset pattern lock</string>
-  <string name="protected_apps">Protected apps</string>
-  <string name="saving_protected_components">Saving component state\u2026</string>
   <string name="stats_collection_title">Stats collection</string>
   <string name="stats_collection_summary">When enabled, allows metrics collection</string>
   <string name="power_notifications_category_title">Charging sounds</string>

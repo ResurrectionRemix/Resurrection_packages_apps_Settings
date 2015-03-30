@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Substituições de notificações</string>
   <string name="profile_app_group_item_instructions">Adicionar ou remover grupos</string>
   <string name="profile_app_group_item_instructions_summary">Adicionar ou remover grupos de apps que substituem a notificação deste perfil</string>
+  <string name="profile_entries_on">Ligado</string>
+  <string name="profile_entries_off">Desligado</string>
+  <string name="profile_entries_no_override">Não substituir</string>
   <string name="profile_name_title">Nome do perfil</string>
   <string name="new_profile_name">&lt;novo perfil&gt;</string>
   <string name="rename_dialog_title">Renomear</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Realça o brilho da tela e a legibilidade sobre o brilho da luz solar</string>
   <string name="color_enhancement_title">Realce de cor</string>
   <string name="color_enhancement_summary">Realçar dinamicamente a cor do visor</string>
-  <string name="app_security_title">Segurança dos aplicativos</string>
   <string name="blacklist_title">Lista de bloqueio</string>
   <string name="blacklist_edit_dialog_title">Editar entrada da lista de bloqueio</string>
   <string name="blacklist_prefs">Confirgurações</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">Estado dos cartões SIM</string>
   <string name="storage_usb">Armazenamento USB</string>
   <string name="storage_uicc">Armazenamento UICC</string>
+  <string name="sdcard_eject" product="default">Desmontar cartão SD</string>
+  <string name="sdcard_eject_summary" product="default">Desmonte o cartão SD para removê-lo com segurança</string>
+  <string name="sd_card_format" product="default">Apagar o cartão SD</string>
+  <string name="sd_card_format_summary" product="default">Apaga todos os dados do cartão SD, como músicas e fotos</string>
+  <string name="sdcard_mount" product="default">Montar cartão SD</string>
+  <string name="sdcard_insert_summary" product="default">Insira um cartão SD para montar</string>
   <string name="usb_eject" product="default">Desmontar armazenamento USB</string>
   <string name="usb_eject_summary" product="default">Desmontar armazenamento USB para removê-lo com segurança</string>
   <string name="usb_format" product="default">Apagar armazenamento USB</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Insira armazenamento UICC para montar</string>
   <string name="usb_settings_enable_ums_title">Ativar armazenamento em massa?</string>
   <string name="usb_settings_enable_ums_message">Aplicativos e componentes do sistema dependem do armazenamento principal estar sempre disponível. Este recurso quebra essa funcionalidade. É altamente recomendável usar MTP em vez disso. Tem certeza de que deseja ativar o armazenamento em massa?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Desmontar o cartão SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Desmontar armazenamento USB?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Desmontar o armazenamento UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Se você desmontar o cartão SD, alguns aplicativos que você está utilizando poderão parar e podem ficar indisponíveis até que você monte o cartão SD novamente.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Se você desmontar o armazenamento USB, alguns aplicativos que você estiver usando poderão ficar indisponíveis até você remontá-lo.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Se você desmontar o armazenamento UICC, alguns aplicativos que você estiver usando poderão ficar indisponíveis até você remontá-lo.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Impossível desmontar o cartão SD. Tente novamente mais tarde.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Não foi possível desmontar o armazenamento USB. Tente novamente mais tarde.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Não foi possível desmontar o armazenamento UICC. Tente novamente mais tarde.</string>
+  <string name="sdcard_unmount_inform_text" product="default">O cartão SD será desmontado.</string>
   <string name="usb_unmount_inform_text" product="default">Armazenamento USB será desmontado.</string>
   <string name="uicc_unmount_inform_text" product="default">Armazenamento UICC será desmontado.</string>
+  <string name="sdcard_media_format_desc" product="default">Apagar cartão SD? Você perderá <b>todos</b> os dados no cartão!</string>
   <string name="usb_media_format_desc" product="default">Apagar o armazenamento USB? Você perderá <b>todos</b> os dados do armazenamento!</string>
   <string name="uicc_media_format_desc" product="default">Apagar o armazenamento UICC? Você perderá <b>todos</b> os dados do armazenamento!</string>
+  <string name="sdcard_media_format_button_text" product="default">Apagar o cartão SD</string>
   <string name="usb_media_format_button_text" product="default">Apagar armazenamento USB</string>
   <string name="uicc_media_format_button_text" product="default">Apagar armazenamento UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Apagar o cartão SD, eliminando todos os arquivos armazenados? Não é possível reverter esta ação!</string>
   <string name="usb_media_format_final_desc" product="default">Apagar tudo no armazenamento USB? Isto irá apagar todos os arquivos armazenados? Não é possível reverter esta ação!</string>
   <string name="uicc_media_format_final_desc" product="default">Apagar tudo no armazenamento UICC, apagando todos os arquivos lá armazenados? Não é possível reverter esta ação!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Você precisa inserir seu padrão de desbloqueio para confirmar que você deseja apagar o cartão SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Você precisa inserir seu padrão de desbloqueio para confirmar que você deseja apagar o armazenamento USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Você precisa inserir seu padrão de desbloqueio para confirmar que você deseja apagar o armazenamento UICC.</string>
+  <string name="storage_rescan_media">Verificar por mídia novamente no volume de armazenamento</string>
   <string name="location_category_enhanced_location">Localização aprimorada (IZat)</string>
   <string name="app_ops_settings_summary">Visualizar ou alterar permissões dos aplicativos</string>
   <string name="enable_adb_summary_charging">O dispositivo está no modo de Carregamento, a depuração USB está desativada</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">Permite transferir arquivos entre o seu computador e o seu cartão SD montando-o como um pendrive</string>
   <string name="external_storage_turn_on">Armazenamento externo foi ativado</string>
   <string name="external_storage_turn_off">Armazenamento externo foi desativado</string>
-  <string name="menu_hidden_apps_delete">Redefinir</string>
-  <string name="menu_hidden_apps_reset_lock">Redefinir o bloqueio padrão</string>
-  <string name="protected_apps">Aplicativos protegidos</string>
-  <string name="saving_protected_components">Salvando o estado dos componentes\u2026</string>
   <string name="stats_collection_title">Coleção de estatísticas</string>
   <string name="stats_collection_summary">Quando ativado, permite a coleta de métricas</string>
   <string name="power_notifications_category_title">Notificação de carregamento</string>

@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Ilmoitusten ohitus</string>
   <string name="profile_app_group_item_instructions">Lisää tai poista ryhmiä</string>
   <string name="profile_app_group_item_instructions_summary">Lisää tai poista ilmoituksen ohitus sovellusryhmiin tähän profiiliin</string>
+  <string name="profile_entries_on">Päällä</string>
+  <string name="profile_entries_off">Pois päältä</string>
+  <string name="profile_entries_no_override">Ei ohitusta</string>
   <string name="profile_name_title">Nimi</string>
   <string name="new_profile_name">&lt;uusi profiili&gt;</string>
   <string name="rename_dialog_title">Nimeä uudelleen</string>
@@ -153,7 +156,6 @@
   <string name="sunlight_enhancement_summary">Parantaa näytön kirkkautta ja luettavuutta kirkkaassa auringonvalossa</string>
   <string name="color_enhancement_title">Värien tehostus</string>
   <string name="color_enhancement_summary">Tehosta näytön värejä dynaamisesti</string>
-  <string name="app_security_title">Sovellusten turvallisuus</string>
   <string name="blacklist_title">Musta lista</string>
   <string name="blacklist_edit_dialog_title">Muokkaa mustaa listaa</string>
   <string name="blacklist_prefs">Asetukset</string>
@@ -567,6 +569,12 @@
   <string name="subs_settings">SIM-kortin tila</string>
   <string name="storage_usb">USB-tallennustila</string>
   <string name="storage_uicc">UICC-tallennustila</string>
+  <string name="sdcard_eject" product="default">Irroita SD-kortti</string>
+  <string name="sdcard_eject_summary" product="default">Irroita SD-kortti, jotta voit turvallisesti poistaa sen</string>
+  <string name="sd_card_format" product="default">Tyhjennä SD-kortti</string>
+  <string name="sd_card_format_summary" product="default">Poistaa kaikki tiedot SD-kortilta, kuten musiikit ja valokuvat</string>
+  <string name="sdcard_mount" product="default">Kiinnitä SD-kortti</string>
+  <string name="sdcard_insert_summary" product="default">Aseta SD-kortti kiinnittääksesi</string>
   <string name="usb_eject" product="default">Irroita USB muisti</string>
   <string name="usb_eject_summary" product="default">Irroita USB-muisti, jotta voit poistaa sen turvallisesti</string>
   <string name="usb_format" product="default">Tyhjennä USB-muisti</string>
@@ -581,22 +589,31 @@
   <string name="uicc_insert_summary" product="default">Liitä UICC muisti kiinnittääksesi sen</string>
   <string name="usb_settings_enable_ums_title">Ota massamuisti käyttöön?</string>
   <string name="usb_settings_enable_ums_message">Järjestelmän osat ja sovellukset ovat riippuvaisia ensisijaisen muistin saatavuudesta. Tämä ominaisuus estää tämän. On suositeltavaa käyttää MTP:tä tämän sijasta. Haluatko varmasti ottaa massamuistin käyttöön?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Irroita SD-kortti?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Irroita USB-muisti?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Irrota UICC muisti?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Jos irroitat SD-kortin, jotkut sovellukset joita käytät pysähtyy ja saattavat olla pois käytöstä kunnes kiinnität SD-kortin uudelleen.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Jos irroitat USB-muistin, jotkut sovellukset joita käytät pysähtyy ja saattavat olla pois käytöstä kunnes kiinnität USB-muistin uudelleen.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Jos irroitat UICC-muistin, jotkut sovellukset joita käytät pysähtyy ja saattavat olla pois käytöstä kunnes kiinnität UICC-muistin uudelleen.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">SD-kortin irroitus epäonnistui. Yritä myöhemmin uudelleen.</string>
   <string name="dlg_error_usb_unmount_text" product="default">USB-muistin irroitus epäonnistui. Yritä myöhemmin uudelleen.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">UICC-muistin irroitus epäonnistui. Yritä myöhemmin uudelleen.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD-kortti irroitetaan.</string>
   <string name="usb_unmount_inform_text" product="default">USB-muisti irroitetaan.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC-muisti irroitetaan.</string>
+  <string name="sdcard_media_format_desc" product="default">Tyhjennetäänkö SD-kortti? Menetät <b>kaikki</b> tallennetut tiedot!</string>
   <string name="usb_media_format_desc" product="default">Tyhjennetäänkö USB-muisti? <b>Kaikki</b> muistin tiedot menetetään!</string>
   <string name="uicc_media_format_desc" product="default">Tyhjennetäänkö UICC-muisti? <b>Kaikki</b> muistin tiedot menetetään!</string>
+  <string name="sdcard_media_format_button_text" product="default">Tyhjennä SD-kortti</string>
   <string name="usb_media_format_button_text" product="default">Tyhjennä USB-muisti</string>
   <string name="uicc_media_format_button_text" product="default">Tyhjennä UICC muisti</string>
+  <string name="sdcard_media_format_final_desc" product="default">Tyhjennetäänkö SD-kortti poistamalla kaikki tallennetut tiedot? Toimintoa ei voi peruuttaa!</string>
   <string name="usb_media_format_final_desc" product="default">Tyhjennetäänkö USB-muisti poistamalla kaikki tallennetut tiedot? Toimintoa ei voi peruuttaa!</string>
   <string name="uicc_media_format_final_desc" product="default">Tyhjennetäänkö UICC-muisti poistamalla kaikki tallennetut tiedot? Toimintoa ei voi peruuttaa!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Sinun tulee piirtää lukituskuviosi vahvistaaksesi että haluat tyhjentää SD-kortin.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Sinun tulee piirtää lukituskuviosi vahvistaaksesi että haluat tyhjentää USB-muistin.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Sinun tulee piirtää lukituskuviosi vahvistaaksesi, että haluat tyhjentää UICC-muistin.</string>
+  <string name="storage_rescan_media">Skannaa tallennustilan media uudelleen</string>
   <string name="location_category_enhanced_location">Paranneltu paikantaminen (IZat)</string>
   <string name="app_ops_settings_summary">Tarkastele tai muuta sovellusten käyttöoikeuksia</string>
   <string name="enable_adb_summary_charging">Laite on lataustilassa, USB-vianetsintä on poistettu käytöstä</string>
@@ -623,10 +640,6 @@
   <string name="usb_sdcard_summary">Voit siirtää tiedostoja tietokoneen ja SD-kortin välillä liittämällä sen flash-laitteena</string>
   <string name="external_storage_turn_on">Ulkoinen muisti on kytketty päälle</string>
   <string name="external_storage_turn_off">Ulkoinen muisti on kytketty pois</string>
-  <string name="menu_hidden_apps_delete">Nollaa</string>
-  <string name="menu_hidden_apps_reset_lock">Nollaa kuviolukitus</string>
-  <string name="protected_apps">Suojatut sovellukset</string>
-  <string name="saving_protected_components">Tallennetaan komponentin tilaa\u2026</string>
   <string name="stats_collection_title">Tilastojen keräys</string>
   <string name="stats_collection_summary">Sallii käyttötietojen keräämisen kun käytössä</string>
   <string name="power_notifications_category_title">Latausäänet</string>

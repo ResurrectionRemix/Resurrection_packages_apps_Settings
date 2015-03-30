@@ -49,12 +49,22 @@
   <string name="profile_add_nfc_text">תג ה-NFC הזה מחובר לפרופיל לא ידוע. חיבור תג זה לפרופיל קיים יאפשר הפעלתו בעתיד.</string>
   <string name="profile_select">בחר פרופיל</string>
   <string name="profile_remove_dialog_message">למחוק את הפרופיל %1$s?</string>
+  <string name="profile_populate_profile_from_state">להגדיר פרופיל לפי הגדרות המכשיר הנוכחיות?</string>
+  <string name="profile_menu_fill_from_state">ייבא את הגדרות המכשיר הנוכחיות</string>
+  <string name="profile_remove_current_profile">אין אפשרות למחוק את הפרופיל הנוכחי!</string>
+  <string name="profile_app_group_category_title">התראה עוקפת</string>
+  <string name="profile_app_group_item_instructions">הוסף או הסר קבוצות</string>
+  <string name="profile_app_group_item_instructions_summary">הוסף או הסר קבוצות יישומים בעלי התראה עוקפת לפרופיל זה</string>
+  <string name="profile_entries_on">פעיל</string>
+  <string name="profile_entries_off">כבוי</string>
+  <string name="profile_entries_no_override">ללא עקיפה</string>
   <string name="profile_name_title">שם</string>
   <string name="new_profile_name">&lt;פרופיל חדש&gt;</string>
   <string name="rename_dialog_title">שינוי שם</string>
   <string name="rename_dialog_message">הזן שם חדש</string>
   <string name="rename_dialog_hint">הזן שם פרופיל</string>
   <string name="profile_reset_title">לאפס</string>
+  <string name="profile_reset_message">האם למחוק את כל הפרופילים שנוצרו על ידי המשתמש ולשחזר אותם כברירת מחדל?</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
@@ -77,10 +87,12 @@
   <string name="profile_lockmode_disabled_summary">בטל את מסך הנעילה</string>
   <string name="profile_airplanemode_title">מצב טיסה</string>
   <string name="toggleWifi">Wi-Fi</string>
+  <string name="toggleWifiAp">‏נקודה חמה ניידת של Wi-Fi</string>
   <string name="toggleBluetooth">בלוטוס</string>
   <string name="toggleGPS">GPS</string>
   <string name="toggleData">חיבור נתונים</string>
   <string name="toggleSync">סנכרון נתונים אוטומטי</string>
+  <string name="toggle2g3g4g">סוג רשת מועדף</string>
   <string name="toggleNfc">NFC</string>
   <string name="button_pref_title">מקשים</string>
   <string name="hardware_keys_power_key_title">לחצן הפעלה</string>
@@ -113,6 +125,7 @@
   <string name="power_end_call_title">סיים שיחה</string>
   <string name="power_end_call_summary">לחיצה על לחצן ההפעלה תסיים את השיחה הנוכחית</string>
   <string name="button_wake_title">הער את המכשיר</string>
+  <string name="button_wake_summary">עקיפת שליטה על ניגון</string>
   <string name="home_answer_call_title">השב לשיחה</string>
   <string name="home_answer_call_summary">לחיצה על כפתור הבית תענה לשיחה הנכנסת הנוכחית</string>
   <string name="button_backlight_title">תאורה אחורית</string>
@@ -131,17 +144,18 @@
   <string name="power_menu_profiles_title">מחליף פרופילים</string>
   <string name="power_menu_airplane_title">מצב טיסה</string>
   <string name="power_menu_users_title">מחליף משתמש</string>
+  <string name="power_menu_settings_title">קיצור דרך של הגדרות</string>
   <string name="power_menu_lockdown_title">נעילת המכשיר</string>
   <string name="power_menu_bug_report_title">דיווח שגיאות</string>
   <string name="power_menu_sound_title">לוח קול</string>
   <string name="power_menu_bug_report_disabled">דיווח שגיאות אינו זמין בהגדרות מפתחים</string>
+  <string name="power_menu_profiles_disabled">פרופילי מערכת לא זמינים</string>
   <string name="adaptive_backlight_title">תאורה אחורית מסתגלת</string>
   <string name="adaptive_backlight_summary">כוון דינאמית את בהירות המסך כדי להגדיל את חיי הסוללה תוך שמירה על שימושיות</string>
   <string name="sunlight_enhancement_title">שיפור לאור שמש</string>
   <string name="sunlight_enhancement_summary">שפר בהירות תצוגה וקריאות תחת אור שמש בהיר</string>
   <string name="color_enhancement_title">שיפור צבע</string>
   <string name="color_enhancement_summary">שפר צבעי תצוגה באופן דינמי</string>
-  <string name="app_security_title">אבטחת יישום</string>
   <string name="blacklist_title">רשימה שחורה</string>
   <string name="blacklist_edit_dialog_title">עריכת רשימה שחורה</string>
   <string name="blacklist_prefs">העדפות</string>
@@ -149,6 +163,7 @@
   <string name="blacklist_empty_text">אין מספרים ברשימה שחורה. הוספת ערך על-ידי לחיצה על הוסף (+).</string>
   <string name="blacklist_disabled_empty_text">כדי לחסום שיחות או/ו הודעות ממספרים מסוימים, אפשר את הרשימה השחורה.</string>
   <string name="blacklist_summary_disabled">כבוי</string>
+  <string name="blacklist_summary">שיחות והודעות נכנסות ממספרי הטלפון שברשימה השחורה ייחסמו</string>
   <string name="blacklist_notify">הצג הודעות</string>
   <string name="blacklist_private_numbers_title">מספרים פרטיים</string>
   <string name="blacklist_private_numbers_summary_disabled">אל תחסום שיחות ממספרים פרטיים</string>
@@ -190,19 +205,24 @@
   <string name="app_security_title">אבטחת יישום</string>
   <string name="sms_security_check_limit_title">מגבלת הודעות SMS</string>
   <string name="sms_security_check_limit_summary">יישומים יכולים לשלוח %d הודעות בחצי שעה לפני בקשת אישור</string>
+  <string name="spam_added_title">נוסף %1$s</string>
   <string name="spam_last_blocked_title">נחסם לאחרונה %1$s</string>
   <string name="block_notifications_title">סנן הודעות</string>
   <string name="block_notifications_summary">נהל הודעות שהוחבאו ומסננים</string>
   <string name="no_filters_title">לא הוגדרו מסננים</string>
   <string name="cmupdate_settings_title">עדכוני CyanogenMod</string>
   <string name="update_recovery_title">עדכן את ה-Recovery של Cyanogen</string>
+  <string name="update_recovery_summary">עדכן את ה-Recovery יחד עם עדכוני מערכת</string>
   <string name="update_recovery_on_warning">שים לב: כשתכונה זו מופעלת, ה-Recovery הנוכחי שלך יוחלף ב-Recovery הכלול בגרסה הנוכחית של מערכת ההפעלה שלך.\n\nה-Recovery הנוכחי שלך יתעדכן יחד עם עדכונים למערכת שלך, כדי להבטיח תאימות עם גרסאות עתידיות.\n\nהאם להפעיל את תכונה זו?</string>
   <string name="update_recovery_off_warning">אזהרה: כשתכונה זו לא מופעלת, ה-Recovery הנוכחי לא יתעדכן עם עדכוני מערכת.\n\nעדכוני מערכת עתידיים לא יותקנו עם גרסה לא עדכנית של ה-Recovery.\n\nהאם לכבות את תכונה זו?</string>
   <string name="mod_version">גרסת CyanogenMod</string>
   <string name="mod_version_default">לא ידוע</string>
+  <string name="model_name">שם דגם</string>
   <string name="build_date">תאריך בנייה</string>
   <string name="contributor_cloud_title">תורמים</string>
+  <string name="phone_service_state">קול: <xliff:g id="voice_state">%1$s</xliff:g>, נתונים: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">הקשה כפולה כדי להעיר</string>
+  <string name="double_tap_to_wake_summary">הקש פעמיים כדי להדליק את המסך</string>
   <string name="proximity_wake_title">מנע התעוררות מקרית</string>
   <string name="proximity_wake_summary">בדוק את חיישן הקירבה לפני ערעור המסך</string>
   <string name="privacy_settings_cyanogenmod_title">פרטיות</string>
@@ -226,21 +246,32 @@
   <string name="adb_over_network">ADB דרך הרשת</string>
   <string name="adb_over_network_summary">אפשר איתור באגים (Debugging) של TCP/IP דרך ממשקי רשת (Wi-Fi, רשתות USB). אפשרות זו מאופסת באתחול המכשיר</string>
   <string name="adb_over_network_warning">אזהרה: כאשר ADB דרך הרשת פעיל, הטלפון שלך חדיר מכל הרשתות המחוברות!\n\nיש להשתמש באפשרות זו רק כשאתה מחובר לרשת שניתן לסמוך עליה.\n\nהאם ברצונך להפעיל את אפשרות זו?</string>
+  <string name="adb_notify">התראה על איתור באגים (Debugging)</string>
+  <string name="adb_notify_summary">הצג התראה כשאיתור באגים דרך הרשת\USB פעיל</string>
   <string name="device_hostname">שם הרשת עבור ההתקן</string>
   <string name="development_shortcut_title">קיצור דרך לכלי פיתוח</string>
+  <string name="development_shortcut_summary">הפעל קיצורי דרך לניהול יישומים מרשימת היישמים האחרונים</string>
   <string name="double_tap_to_sleep_title">הקשה כפולה לכיבוי מסך</string>
+  <string name="double_tap_to_sleep_summary">הקש פעמיים על שורת המצב כדי לכבות את המסך</string>
   <string name="wake_when_plugged_or_unplugged_title">הער מסך בעת חיבור</string>
   <string name="wake_when_plugged_or_unplugged_summary">הדלק את המסך כאשר מקור חשמל מחובר או מנותק מהמכשיר</string>
   <string name="kill_app_longpress_back">הרוג יישום עם לחצן חזור</string>
+  <string name="kill_app_longpress_back_summary">הרוג יישום נראה על ידי לחיצה ארוכה על כפתור החזרה</string>
   <string name="disable_navkeys_title">אפשר לחצני ניווט על המסך</string>
   <string name="disable_navkeys_summary">אפשר לחצני ניווט על המסך ובטל לחצנים פיזיים</string>
   <string name="navigation_bar_category">סרגל ניווט</string>
   <string name="navigation_bar_left_title">מצב לשמאליים</string>
   <string name="navigation_bar_left_summary">מקם את שורת ההפעלה בצד השמאלי של המסך במצב שכיבה</string>
   <string name="navigation_bar_title">לחצנים ופריסה</string>
+  <string name="navigation_bar_help_text">כדי להתחיל לחץ על כפתור העריכה כדי לפתוח את סרגל הניווט לעריכה.\n\nאתה יכול ללחוץ על סמל כדי לשנות את קיצור הדרך שלו, או ללחוץ לחיצה ארוכה על סמל כדי לשנות את הסידור.\n\nלחץ \"שמור\" כדי להחיל את השינויים שלך, או \"שחזר\" כדי לאפס את הסידור להגדרות ברירת המחדל.</string>
   <string name="navigation_restore_button_text">שחזור\nברירת מחדל</string>
   <string name="navigation_edit_button_text">ערוך</string>
   <string name="navigation_save_button_text">שמור</string>
+  <string name="navigation_bar_reset_message">האם למחוק את ההגדרות הנוכחיות ולשחזר את פריסת ברירת המחדל?</string>
+  <string name="navigation_bar_arrow_keys_title">הצג מקשי חיצים בזמן הקלדה</string>
+  <string name="navigation_bar_arrow_keys_summary">הצג חצי כתיבה ימניים ושמאליים בזמן הכתיבה. עוקף את מחליף IME.</string>
+  <string name="navigation_bar_recents_title">פעולת לחיצה ארוכה על כפתור ה\"אחרונים\"</string>
+  <string name="header_category_personalization">התאמה אישית</string>
   <string name="status_bar_title">שורת מצב</string>
   <string name="status_bar_toggle_brightness">בקרת הבהירות</string>
   <string name="status_bar_toggle_brightness_summary">כיוונן את הבהירות על-ידי הזזה על שורת המצב</string>
@@ -264,6 +295,9 @@
   <string name="status_bar_battery_percentage_default">מוסתר</string>
   <string name="status_bar_battery_percentage_text_inside">בתוך הסמל</string>
   <string name="status_bar_battery_percentage_text_next">ליד הסמל</string>
+  <string name="status_bar_show_unused_sims_title">הצגת סמלי SIM ריקים</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">החבא סמלים של חריצי SIM ריקים</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">סמן כאשר ישנם חריצי SIM שאינם בשימוש</string>
   <string name="edit_light_settings">עריכת הגדרות אור</string>
   <string name="pulse_speed_title">אורך הבהוב ומהירות</string>
   <string name="default_time">רגיל</string>
@@ -295,8 +329,19 @@
   <string name="notification_light_default_value">ברירת מחדל</string>
   <string name="notification_light_missed_call_title">שיחה שלא נענתה</string>
   <string name="notification_light_voicemail_title">דואר קולי</string>
+  <string name="notification_ringtone_title_cm">צליל התראה</string>
+  <string name="headset_connect_player_title">הפעל את נגן המוזיקה</string>
+  <string name="headset_connect_player_summary">הפעל את נגן המוזיקה המוגדר כברירת המחדל בעת חיבור אוזניות</string>
+  <string name="ime_switcher_notify">סמל בורר</string>
+  <string name="ime_switcher_notify_summary">הצג סמל בחירת קלט כתיבה</string>
+  <string name="app_notification_show_on_keyguard_title">הצג על מסך הנעילה</string>
+  <string name="app_notification_show_on_keyguard_summary">הצג הודעות מיישום זה במסך הנעילה</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">בטל התראות קבועות על מסך הנעילה</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">אל תציג התראות מתמשכות מיישום זה על מסך הנעילה</string>
   <string name="high_touch_sensitivity_title">רגישות גבוהה למגע</string>
   <string name="high_touch_sensitivity_summary">הגבר רגישות מסך מגע, כך שניתן יהיה להשתמש בעת לבישת כפפות</string>
+  <string name="touchscreen_hovering_title">מגע בריחוף</string>
+  <string name="touchscreen_hovering_summary">מרשה להעביר עת האצבע מעל המסך כמו עכבר מחשב בדפדפנים, עמדות שליטה מרחוק וכד\'</string>
   <string name="app_ops_summaries_coarse_location">מיקום משוער</string>
   <string name="app_ops_summaries_fine_location">מיקום מדויק</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -307,6 +352,7 @@
   <string name="app_ops_summaries_modify_call_log">שנה יומן שיחות</string>
   <string name="app_ops_summaries_read_calendar">קרא יומן</string>
   <string name="app_ops_summaries_modify_calendar">שנה לוח שנה</string>
+  <string name="app_ops_summaries_wifi_scan">סריקת Wi-Fi</string>
   <string name="app_ops_summaries_notification">התראה</string>
   <string name="app_ops_summaries_cell_scan">סריקה סלולרית</string>
   <string name="app_ops_summaries_call_phone">שיחת טלפון</string>
@@ -339,6 +385,11 @@
   <string name="app_ops_summaries_keep_awake">שמור במצב פעיל</string>
   <string name="app_ops_summaries_monitor_location">עקוב אחר מיקום</string>
   <string name="app_ops_summaries_monitor_high_power_location">מעקב אחר מיקום עם צריכת סוללה גבוהה</string>
+  <string name="app_ops_summaries_get_usage_stats">קבלת סטטיסטיקות שימוש ביישום</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">השתקת\ביטול השתקת המיקרופון</string>
+  <string name="app_ops_summaries_toast_window">הצג התראות קופצות</string>
+  <string name="app_ops_summaries_project_media">הקרן מדיה</string>
+  <string name="app_ops_summaries_activate_vpn">הפעל VPN</string>
   <string name="app_ops_summaries_wifi_change">שינוי Wi\u2011Fi</string>
   <string name="app_ops_summaries_bluetooth_change">שינוי Bluetooth</string>
   <string name="app_ops_summaries_send_mms">לשלוח MMS</string>
@@ -351,6 +402,8 @@
   <string name="app_ops_summaries_delete_contacts">מחק אנשי קשר</string>
   <string name="app_ops_summaries_delete_call_log">מחיקת רישומי שיחות</string>
   <string name="app_ops_summaries_data_change">שינוי נתונים</string>
+  <string name="app_ops_summaries_wake_up">הער את המכשיר</string>
+  <string name="app_ops_summaries_su">הרשאות Root</string>
   <string name="app_ops_labels_location">עקוב אחר מיקום</string>
   <string name="app_ops_labels_vibrate">רטט</string>
   <string name="app_ops_labels_read_contacts">קרא אנשי קשר</string>
@@ -384,6 +437,10 @@
   <string name="app_ops_labels_notification_volume">שליטה ראשית בעוצמת קול</string>
   <string name="app_ops_labels_bluetooth_volume">עוצמת קול של Bluetooth</string>
   <string name="app_ops_labels_keep_awake">שמור במצב פעיל</string>
+  <string name="app_ops_labels_get_usage_stats">קבלת סטטיסטיקות שימוש ביישום</string>
+  <string name="app_ops_labels_mute_unmute_microphone">השתקת\ביטול השתקת המיקרופון</string>
+  <string name="app_ops_labels_toast_window">הצג התראות קופצות</string>
+  <string name="app_ops_labels_project_media">הקרן מדיה</string>
   <string name="app_ops_labels_activate_vpn">הפעל VPN</string>
   <string name="app_ops_labels_wifi_change">שינוי Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">שינוי bluetooth</string>
@@ -397,21 +454,39 @@
   <string name="app_ops_labels_delete_contacts">מחק אנשי קשר</string>
   <string name="app_ops_labels_delete_call_log">מחיקת רישומי שיחות</string>
   <string name="app_ops_labels_data_change">שינוי נתונים</string>
+  <string name="app_ops_labels_wake_up">הער את המכשיר</string>
+  <string name="app_ops_labels_su">גישת Root</string>
   <string name="app_ops_categories_location">מיקום</string>
   <string name="app_ops_categories_personal">אישי</string>
   <string name="app_ops_categories_messaging">העברת הודעות</string>
   <string name="app_ops_categories_media">מדיה</string>
   <string name="app_ops_categories_device">מכשיר</string>
   <string name="app_ops_categories_bootup">אתחול</string>
+  <string name="app_ops_categories_su">גישת Root</string>
+  <string name="app_ops_permissions_allowed">מורשה</string>
+  <string name="app_ops_permissions_ignored">התעלם</string>
   <string name="app_ops_permissions_always_ask">שאל תמיד</string>
   <string name="ok">אישור</string>
   <string name="profile_menu_delete_title">מחק</string>
+  <string name="profile_action_none">השאר ללא שינוי</string>
+  <string name="profile_action_disable">כבה</string>
+  <string name="profile_action_enable">הפעל</string>
   <string name="profile_trigger_a2dp_connect">בחיבור A2DP</string>
   <string name="profile_trigger_a2dp_disconnect">בניתוק A2DP</string>
   <string name="profile_tabs_wifi">Wi-Fi</string>
   <string name="profile_tabs_bluetooth">Bluetooth</string>
   <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_triggers_header">גורמים שיפעילו את הפרופיל הזה</string>
   <string name="profile_setup_setup_triggers_title">שלב 1: הוספת גורמים מפעילים</string>
+  <string name="profile_setup_setup_triggers_title_config">שנה גורמי הפעלה: <xliff:g id="profile_name">%1$s </xliff:g></string>
+  <string name="profile_setup_actions_title">שלב 2: הגדרת פעולות</string>
+  <string name="profile_setup_actions_title_config">הגדר פעולות מחדש</string>
+  <string name="profile_appgroups_manage">קבוצות יישומים</string>
+  <string name="profile_appgroup_manage">נהל קבוצות יישומים</string>
+  <string name="profile_appgroups_title">קבוצות יישומים</string>
+  <string name="profile_new_appgroup">קבוצת יישומים חדשה</string>
+  <string name="profile_delete_appgroup">האם למחוק קבוצת יישומים זו?</string>
+  <string name="profile_appgroup_name_prompt">הזן שם עבור קבוצת היישומים החדשה</string>
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (בשימוש <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> אושרו</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> נחסמו</string>
@@ -456,8 +531,21 @@
   <string name="bluetooth_sap_profile_summary_use_for">השתמש לגישת SIM</string>
   <string name="bluetooth_accept_all_files">התר את כל סוגי הקבצים</string>
   <string name="sim_pin_attempts">\nניסיונות שנותרו:</string>
+  <string name="uicc_eject" product="default">בטל את אחסון ה-UICC</string>
+  <string name="uicc_eject_summary" product="default">בטל את אחסון ה-UICC כדי שתוכל להסירו בבטחה</string>
+  <string name="uicc_format" product="default">מחק אחסון UICC</string>
+  <string name="uicc_format_summary" product="default">מחק את כל המידע באחסון ה-UICC, כגון מוזיקה ותמונות</string>
+  <string name="uicc_mount" product="default">הפעל אחסון UICC</string>
+  <string name="uicc_insert_summary" product="default">הכנס כונן UICC לעיגון</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">לבטל טעינת כרטיס SD?</string>
+  <string name="dlg_confirm_usb_unmount_title" product="default">לבטל טעינת אחסון USB?</string>
+  <string name="dlg_confirm_uicc_unmount_title" product="default">לבטל טעינת אחסון UICC?</string>
+  <string name="sdcard_unmount_inform_text" product="default">הטעינה של כרטיס ה-SD תבוטל.</string>
   <string name="usb_unmount_inform_text" product="default">‏הטעינה של כרטיס SD תבוטל.</string>
+  <string name="uicc_unmount_inform_text" product="default">הטעינה של אחסון ה-UICC תבוטל.</string>
+  <string name="sdcard_media_format_button_text" product="default">‏מחק כרטיס SD</string>
   <string name="usb_media_format_button_text" product="default">מחק אחסון USB</string>
+  <string name="uicc_media_format_button_text" product="default">מחק אחסון UICC</string>
   <string name="usb_media_format_final_desc" product="default">‏למחוק את אחסון ה-USB ואת כל הקבצים המאוחסנים בו? לא ניתן לבטל פעולה זו!</string>
   <string name="usb_media_format_gesture_explanation" product="default">‏עליך לשרטט את קו ביטול הנעילה כדי לאשר שברצונך למחוק את אחסון ה-USB.</string>
   <string name="enable_quickboot_title">אפשר מצב אתחול מהיר</string>
@@ -468,10 +556,6 @@
   <string name="sim_missing">חסר או פגום</string>
   <string name="sim_enabler_sim">SIM</string>
   <string name="usb_charging_title">טען בלבד</string>
-  <string name="menu_hidden_apps_delete">אפס</string>
-  <string name="menu_hidden_apps_reset_lock">אפס נעילת דפוס</string>
-  <string name="protected_apps">יישומים מוגנים</string>
-  <string name="saving_protected_components">שמירת מצב רכיב\u2026</string>
   <string name="power_notifications_category_title">צלילי טעינה</string>
   <string name="power_notifications_enable_title">הפעל</string>
   <string name="power_notifications_enable_summary">השמע צליל בעת חיבור או ניתוק ממקור חשמל</string>
@@ -512,12 +596,37 @@
   <string name="unlock_scramble_pin_layout_summary">ערבב מבנה כשמבטלים נעילת מכשיר</string>
   <string name="link_volume_option_title">קשר את עוצמות הצלצול וההתראות</string>
   <string name="notification_drawer_title">וילון הודעות</string>
+  <string name="quick_pulldown_summary_left">שמאל</string>
+  <string name="quick_pulldown_summary_right">ימין</string>
+  <string name="quick_pulldown_off">כבוי</string>
+  <string name="quick_pulldown_left">שמאל</string>
+  <string name="quick_pulldown_right">ימין</string>
+  <string name="status_bar_show_weather_title">הראה מזג אוויר</string>
+  <string name="status_bar_show_weather_summary">הראה את מזג האוויר מעל לוח ההגדרות המהירות</string>
+  <string name="qs_category_title">לוח ההגדרות המהירות</string>
+  <string name="qs_brightness_slider_title">הצג מחוון בהירות</string>
+  <string name="qs_order_title">בחר ושנה את סדר האריחים</string>
+  <string name="add_qs">הוסף אריח חדש</string>
+  <string name="qs_action_delete">מחק</string>
+  <string name="qs_action_add">הוסף</string>
+  <string name="qs_action_no_more_tiles">לא נותרו אריחים זמינים</string>
+  <string name="qs_tile_wifi">Wi-Fi</string>
+  <string name="qs_tile_bluetooth">Bluetooth</string>
+  <string name="qs_tile_display_inversion">היפוך צבעים</string>
+  <string name="qs_tile_cellular_data">חיבור נתונים</string>
   <string name="qs_tile_airplane_mode">מצב טיסה</string>
+  <string name="qs_tile_display_rotation">סיבוב</string>
+  <string name="qs_tile_flashlight">פנס</string>
+  <string name="qs_tile_location">מיקום</string>
+  <string name="qs_tile_cast_screen">שידור מסך</string>
+  <string name="qs_tile_hotspot">נקודה חמה</string>
   <string name="qs_tile_adb_over_network">ADB דרך הרשת</string>
+  <string name="qs_tile_profiles">פרופילי מערכת</string>
   <string name="qs_tile_performance">מצב סוללה</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">מצפן</string>
   <string name="qs_tile_lockscreen">מסך נעילה</string>
+  <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">פרק הזמן לכיבוי מסך</string>
   <string name="qs_advanced_location_summary">אפשר הגדרות מתקדמות עבור מיקום בהגדרות המהירות</string>
   <string name="gesture_settings_title">מחוות</string>
@@ -529,6 +638,7 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">ראש: %1$s  W/kg</string>
   <string name="maximum_body_level">גוף: %1$s W/kg</string>
+  <string name="ic_code_model">דגם: %1$s</string>
   <string name="power_menu_expanded_desktop">שולחן עבודה מורחב</string>
   <string name="expanded_hide_nothing">הצג הכל</string>
   <string name="expanded_hide_status">הסתר שורת מצב</string>
@@ -538,9 +648,11 @@
   <string name="expanded_desktop_style_description">בחר סגנון ברירת מחדל לשולחן העבודה המורחב</string>
   <string name="lockscreen_targets_message">קיצורי דרך במסך הנעילה</string>
   <string name="lockscreen_default_target">ברירת מחדל</string>
+  <string name="lockscreen_none_target">ללא</string>
   <string name="lockscreen_choose_action_title">בחר פעולה</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">ניהול הגדרות SMS מאובטח</string>
+  <string name="navigation_ring_title">קיצורי דרך בטבעת הניווט</string>
   <string name="navigation_ring_message">הקש על סמל העריכה כדי לפתוח את טבעת הניווט לעריכה.\n\nבחר מטרה כדי להגדיר את ההתנהגות שלה.\n\nלחץ על הסמל \'\u2713\' כדי לשמור את השינויים, או על \"שחזר ברירת מחדל\" כדי לאפס את ההגדרות.</string>
   <string name="stylus_icon_enabled_title">הצג סמל בעת שימוש בעט אלקטרוני</string>
   <string name="stylus_icon_enabled_summary">הצג את סמל העט בעת ריחוף או ציור עם העט</string>
@@ -551,8 +663,32 @@
   <string name="gestures_right_spen_title_head">הזזה ימינה</string>
   <string name="gestures_up_spen_title_head">הזזה למעלה</string>
   <string name="gestures_down_spen_title_head">הזזה למטה</string>
+  <string name="gestures_action_home">בית</string>
+  <string name="gestures_action_back">חזור</string>
+  <string name="gestures_action_menu">תפריט</string>
+  <string name="gestures_action_search">הפעלת חיפוש</string>
   <string name="gestures_action_recent">יישומים אחרונים</string>
+  <string name="stylus_app_not_installed">%s לא מותקן</string>
+  <string name="advanced">מתקדם</string>
+  <string name="advanced_mode_title">מצב מתקדם</string>
+  <string name="category_vibrate">רטט</string>
+  <string name="category_volume">עוצמת קול</string>
   <string name="category_sounds">צלילים</string>
   <string name="category_interface">ממשק</string>
   <string name="category_calibration">כיול</string>
+  <string name="display_and_lights">תצוגה ואורות</string>
+  <string name="notification_manager">מנהל התראות</string>
+  <string name="lockscreen_settings">מסך נעילה</string>
+  <string name="category_lights">אורות</string>
+  <string name="power_usage_history_title">צריכת סוללה</string>
+  <string name="recents_show_searchbar">הצג את סרגל החיפוש במסך יישומים אחרונים</string>
+  <string name="sim_ringtone_title">הצלצול של SIM %d</string>
+  <string name="live_display_mode">מצב תצוגה</string>
+  <string name="live_display_color_temperature_title">טמפרטורת צבע</string>
+  <string name="live_display_color_temperature_summary">יום: <xliff:g id="day_temperature">%1$d</xliff:g>K לילה: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">יום</string>
+  <string name="live_display_night">לילה</string>
+  <string name="live_display_enhance_color_title">שפר צבעים</string>
+  <string name="battery_saver_summary_unavailable">לא זמין בזמן טעינה</string>
 </resources>

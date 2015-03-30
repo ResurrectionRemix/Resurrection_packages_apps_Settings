@@ -53,6 +53,9 @@
   <string name="profile_menu_fill_from_state">Aktuelle Geräteeinstellungen importieren</string>
   <string name="profile_remove_current_profile">Aktuelles Profil kann nicht gelöscht werden!</string>
   <string name="profile_app_group_item_instructions">Gruppen hinzufügen oder löschen</string>
+  <string name="profile_entries_on">An</string>
+  <string name="profile_entries_off">Aus</string>
+  <string name="profile_entries_no_override">Nicht ändern</string>
   <string name="profile_name_title">Name</string>
   <string name="new_profile_name">&lt;Neues Profil&gt;</string>
   <string name="rename_dialog_title">Umbenennen</string>
@@ -151,7 +154,6 @@
   <string name="sunlight_enhancement_summary">Ablesbarkeit des Displays bei hellem Sonnenlicht verbessern</string>
   <string name="color_enhancement_title">Farbverbesserung</string>
   <string name="color_enhancement_summary">Farbdarstellung des Displays dynamisch verbessern</string>
-  <string name="app_security_title">App-Sicherheit</string>
   <string name="blacklist_title">Sperrliste</string>
   <string name="blacklist_edit_dialog_title">Sperrlisteneintrag bearbeiten</string>
   <string name="blacklist_prefs">Einstellungen</string>
@@ -565,6 +567,12 @@
   <string name="subs_settings">SIM-Karten-Status</string>
   <string name="storage_usb">USB-Speicher</string>
   <string name="storage_uicc">UICC-Speicher</string>
+  <string name="sdcard_eject" product="default">SD-Karte auswerfen</string>
+  <string name="sdcard_eject_summary" product="default">SD-Karte auswerfen, um sie sicher entfernen zu können</string>
+  <string name="sd_card_format" product="default">SD-Karte löschen</string>
+  <string name="sd_card_format_summary" product="default">Löscht alle Daten auf der SD-Karte, z.B. Musik und Fotos</string>
+  <string name="sdcard_mount" product="default">SD-Karte einbinden</string>
+  <string name="sdcard_insert_summary" product="default">Legen Sie eine SD-Karte ein um zu Mounten</string>
   <string name="usb_eject" product="default">USB-Speicher auswerfen</string>
   <string name="usb_eject_summary" product="default">USB-Speicher auswerfen, um ihn sicher entfernen zu können</string>
   <string name="usb_format" product="default">USB-Speicher löschen</string>
@@ -579,22 +587,31 @@
   <string name="uicc_insert_summary" product="default">UICC-Speicher zum Mounten anschließen</string>
   <string name="usb_settings_enable_ums_title">Massenspeicher aktivieren?</string>
   <string name="usb_settings_enable_ums_message">Systemkomponenten und Apps benötigen einen ständig verfügbaren Primärspeicher. Diese Funktion deaktiviert diesen. Es wird dringend empfohlen, stattdessen MTP zu verwenden. Möchten Sie den Massenspeicher wirklich aktivieren?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SD-Karte auswerfen?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USB-Speicher auswerfen?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICC-Speicher auswerfen?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Wenn Sie die SD-Karte auswerfen, werden einige verwendete Anwendungen gestoppt und sind möglicherweise nicht mehr verfügbar, bis Sie die SD-Karte erneut einhängen.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Das Auswerfen des USB-Speichers kann dazu führen, dass manche Anwendungen gestoppt werden und erst wieder verwendet werden können, wenn der USB-Speicher wieder gemounted wurde.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Das Auswerfen des UICC-Speichers kann dazu führen, dass manche Anwendungen gestoppt werden und erst wieder verwendet werden können, wenn der USB-Speicher wieder gemounted wurde.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">SD-Karte konnte nicht ausgeworfen werden. Versuchen Sie es später erneut.</string>
   <string name="dlg_error_usb_unmount_text" product="default">USB-Speicher konnte nicht ausgeworfen werden. Versuchen Sie es später erneut.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">UICC-Speicher konnte nicht ausgeworfen werden. Versuchen Sie es später erneut.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD-Karte wird ausgeworfen.</string>
   <string name="usb_unmount_inform_text" product="default">USB-Speicher wird ausgeworfen werden.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC-Speicher wird ausgeworfen werden.</string>
+  <string name="sdcard_media_format_desc" product="default">SD-Karte löschen? Sie werden <b>alle</b> auf der Karte gespeicherten Daten verlieren!</string>
   <string name="usb_media_format_desc" product="default">USB-Speicher wirklich löschen? Es werden <b>alle</b> Daten im Speicher gelöscht!</string>
   <string name="uicc_media_format_desc" product="default">UICC-Speicher wirklich löschen? Es werden <b>alle</b> Daten im Speicher gelöscht!</string>
+  <string name="sdcard_media_format_button_text" product="default">SD-Karte löschen</string>
   <string name="usb_media_format_button_text" product="default">USB-Speicher löschen</string>
   <string name="uicc_media_format_button_text" product="default">UICC-Speicher löschen</string>
+  <string name="sdcard_media_format_final_desc" product="default">SD-Karte mit allen darauf gespeicherten Dateien löschen? Sie können diese Aktion nicht rückgängig machen!</string>
   <string name="usb_media_format_final_desc" product="default">Den USB-Speicher mit allen dort gespeicherten Dateien wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden!</string>
   <string name="uicc_media_format_final_desc" product="default">Den UICC-Speicher mit allen dort gespeicherten Dateien wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Sie müssen Ihr Entsperrmuster zeichnen, um das Löschen Ihrer SD-Karte zu bestätigen.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Zeichnen Sie ihr Entsperrmuster um den USB- Speicher zu löschen.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Zeichnen Sie Ihr Entsperrmuster, um den UICC-Speicher zu löschen.</string>
+  <string name="storage_rescan_media">Speichermedium nach Mediendateien durchsuchen</string>
   <string name="location_category_enhanced_location">Verbesserte Standortdienste (IZat)</string>
   <string name="app_ops_settings_summary">App-Berechtigungen anzeigen oder ändern</string>
   <string name="enable_adb_summary_charging">Gerät ist im Lademodus, USB-Debugging ist deaktiviert</string>
@@ -621,10 +638,6 @@
   <string name="usb_sdcard_summary">Ermöglicht den Datentransfer zwischen Ihrem Computer und der SD-Karte, indem diese als USB-Massenspeicher gemounted wird</string>
   <string name="external_storage_turn_on">Externer Speicher wurde aktiviert</string>
   <string name="external_storage_turn_off">Externer Speicher wurde deaktiviert</string>
-  <string name="menu_hidden_apps_delete">Zurücksetzen</string>
-  <string name="menu_hidden_apps_reset_lock">Sperrmuster zurücksetzen</string>
-  <string name="protected_apps">Geschützte Apps</string>
-  <string name="saving_protected_components">Geschützte Apps werden gespeichert\u2026</string>
   <string name="stats_collection_title">Statistikaufzeichnung</string>
   <string name="stats_collection_summary">Erlaubt das Sammeln von Statistiken</string>
   <string name="power_notifications_category_title">Ladegeräte-Töne</string>
@@ -764,7 +777,7 @@
   <string name="stylus_app_not_installed">%s ist nicht installiert</string>
   <string name="advanced">Erweitert</string>
   <string name="advanced_mode_title">Erweiterter Modus</string>
-  <string name="advanced_mode_summary">Zusätzliche Einstellungen zur Konfiguration Ihres Gerätes in verschiedenen  Einstellungsmenüs anzeigen</string>
+  <string name="advanced_mode_summary">Zusätzliche Einstellungen zur Konfiguration Ihres Gerätes in verschiedenen Einstellungsmenüs anzeigen</string>
   <string name="category_misc">Verschiedenes</string>
   <string name="category_vibrate">Vibration</string>
   <string name="category_volume">Lautstärke</string>
