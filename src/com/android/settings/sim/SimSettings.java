@@ -167,12 +167,14 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 mAvailableSubInfos.clear();
                 mNumSims = 0;
                 mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
-                for (int i = 0; i < mNumSlots; ++i) {
-                    final SubscriptionInfo sir = findRecordBySlotId(i);
-                    // Do not display deactivated subInfo in preference list
-                    if ((sir != null) && (sir.mStatus == mSubscriptionManager.ACTIVE)) {
-                        mNumSims++;
-                        mAvailableSubInfos.add(sir);
+                if (mSubInfoList != null) {
+                    for (int i = 0; i < mNumSlots; ++i) {
+                        final SubscriptionInfo sir = findRecordBySlotId(i);
+                        // Do not display deactivated subInfo in preference list
+                        if ((sir != null) && (sir.mStatus == mSubscriptionManager.ACTIVE)) {
+                            mNumSims++;
+                            mAvailableSubInfos.add(sir);
+                        }
                     }
                 }
                 // Refresh UI whenever subinfo record gets changed
