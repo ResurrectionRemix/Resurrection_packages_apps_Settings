@@ -35,7 +35,8 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         RINGMODE_ITEM,
         AIRPLANEMODE_ITEM,
         LOCKSCREENMODE_ITEM,
-        TRIGGER_ITEM
+        TRIGGER_ITEM,
+        BRIGHTNESS_ITEM
     }
 
     public ItemListAdapter(Context context, List<Item> items) {
