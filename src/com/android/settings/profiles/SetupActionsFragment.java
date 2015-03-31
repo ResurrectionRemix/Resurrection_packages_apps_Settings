@@ -18,6 +18,7 @@ package com.android.settings.profiles;
 import android.app.Activity;
 import android.app.AirplaneModeSettings;
 import android.app.AlertDialog;
+import android.app.BrightnessSettings;
 import android.app.ConnectionSettings;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -71,6 +72,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.profiles.actions.ItemListAdapter;
 import com.android.settings.profiles.actions.item.AirplaneModeItem;
 import com.android.settings.profiles.actions.item.AppGroupItem;
+import com.android.settings.profiles.actions.item.BrightnessItem;
 import com.android.settings.profiles.actions.item.ConnectionOverrideItem;
 import com.android.settings.profiles.actions.item.Header;
 import com.android.settings.profiles.actions.item.Item;
@@ -208,6 +210,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         mItems.add(new RingModeItem(mProfile.getRingMode()));
         mItems.add(new AirplaneModeItem(mProfile.getAirplaneMode()));
         mItems.add(new LockModeItem(mProfile));
+        mItems.add(new BrightnessItem(mProfile.getBrightness()));
 
         // app groups
         if (SettingsActivity.showAdvancedPreferences(getActivity())) {
@@ -746,6 +749,50 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         builder.show();
     }
 
+    public void requestBrightnessDialog(final BrightnessSettings brightnessSettings) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.profile_brightness_title);
+
+        final LayoutInflater inflater = LayoutInflater.from(getActivity());
+        final View view = inflater.inflate(R.layout.dialog_profiles_brightness_override, null);
+        final SeekBar seekBar = (SeekBar) view.findViewById(R.id.seekbar);
+        final CheckBox override = (CheckBox) view.findViewById(R.id.checkbox);
+        override.setChecked(brightnessSettings.isOverride());
+        override.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                brightnessSettings.setOverride(isChecked);
+                seekBar.setEnabled(isChecked);
+
+                mProfile.setBrightness(brightnessSettings);
+                mAdapter.notifyDataSetChanged();
+                updateProfile();
+            }
+        });
+        seekBar.setEnabled(brightnessSettings.isOverride());
+        seekBar.setMax(255);
+        seekBar.setProgress(brightnessSettings.getValue());
+        builder.setView(view);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                int value = seekBar.getProgress();
+                brightnessSettings.setValue(value);
+                mProfile.setBrightness(brightnessSettings);
+                mAdapter.notifyDataSetChanged();
+                updateProfile();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
     private void requestProfileName() {
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View dialogView = inflater.inflate(R.layout.profile_name_dialog, null);
@@ -868,6 +915,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         if (itemAtPosition instanceof AirplaneModeItem) {
             AirplaneModeItem item = (AirplaneModeItem) itemAtPosition;
             requestAirplaneModeDialog(item.getSettings());
+        } else if (itemAtPosition instanceof BrightnessItem) {
+            BrightnessItem item = (BrightnessItem) itemAtPosition;
+            requestBrightnessDialog(item.getSettings());
         } else if (itemAtPosition instanceof LockModeItem) {
             requestLockscreenModeDialog();
         } else if (itemAtPosition instanceof RingModeItem) {
