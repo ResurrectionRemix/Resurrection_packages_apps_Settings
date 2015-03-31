@@ -42,6 +42,7 @@ import android.net.wimax.WimaxHelper;
 import android.nfc.NfcManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.SeekBarVolumizer;
 import android.provider.Settings;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
@@ -731,8 +732,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             }
         });
         seekBar.setEnabled(streamSettings.isOverride());
-        seekBar.setMax(am.getStreamMaxVolume(streamId));
-        seekBar.setProgress(streamSettings.getValue());
+        final SeekBarVolumizer volumizer = new SeekBarVolumizer(getActivity(), streamId, null,
+                null);
+        volumizer.setSeekBar(seekBar);
         builder.setView(view);
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
@@ -746,6 +748,14 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             }
         });
         builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                if (volumizer != null) {
+                    volumizer.stop();
+                }
+            }
+        });
         builder.show();
     }
 
