@@ -194,8 +194,7 @@ public class ApnEditor extends PreferenceActivity
         final Intent intent = getIntent();
         final String action = intent.getAction();
         // Read the subscription received from Phone settings.
-        mSubId = intent.getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
-                SubscriptionManager.getDefaultSubId());
+        mSubId = intent.getIntExtra("subscription", SubscriptionManager.getDefaultSubId());
         Log.d(TAG,"ApnEditor onCreate received sub: " + mSubId);
         mDisableEditor = intent.getBooleanExtra("DISABLE_EDITOR",false);
         if (mDisableEditor) {
