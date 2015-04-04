@@ -44,6 +44,7 @@ import android.preference.SwitchPreference;
 import android.preference.PreferenceCategory;
 import android.preference.SeekBarVolumizer;
 import android.preference.TwoStatePreference;
+import android.preference.ListPreference;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.provider.SearchIndexableResource;
@@ -181,14 +182,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         updateRingerMode();
         updateEffectsSuppressor();
 
-    }
-    
-    private boolean getUserHeadsUpState() {
-         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.HEADS_UP_USER_ENABLED,
-                Settings.System.HEADS_UP_USER_ON) != 0;
-    }
-    
         mVolumePanelTimeOut = (ListPreference) findPreference(KEY_VOLUME_PANEL_TIMEOUT);
         mVolumePanelTimeOut.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
@@ -204,8 +197,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 Settings.System.VOLUME_PANEL_TIMEOUT, 3000);
         mVolumePanelTimeOut.setValue(String.valueOf(volumePanelTimeOut));
         updateVolumePanelTimeOutSummary(volumePanelTimeOut);
-
     }
+    
+    private boolean getUserHeadsUpState() {
+         return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                Settings.System.HEADS_UP_USER_ON) != 0;
+    }
+
     
     @Override
     public void onResume() {
