@@ -20,21 +20,22 @@ import android.content.Context;
 
 import com.android.internal.widget.LockPatternUtils;
 
-public class PatternVisiblePreferenceController extends AbstractPatternSwitchPreferenceController {
-    private static final String PREF_KEY = "visiblepattern";
+public class PatternDotsVisiblePreferenceController
+        extends AbstractPatternSwitchPreferenceController {
+    private static final String PREF_KEY = "visibledots";
 
-    public PatternVisiblePreferenceController(Context context, int userId,
+    public PatternDotsVisiblePreferenceController(Context context, int userId,
             LockPatternUtils lockPatternUtils) {
         super(context, PREF_KEY, userId, lockPatternUtils);
     }
 
     @Override
     protected boolean isEnabled(LockPatternUtils utils, int userId) {
-        return utils.isVisiblePatternEnabled(userId);
+        return utils.isVisibleDotsEnabled(userId);
     }
 
     @Override
     protected void setEnabled(LockPatternUtils utils, int userId, boolean enabled) {
-        utils.setVisiblePatternEnabled(enabled, userId);
+        utils.setVisibleDotsEnabled(enabled, userId);
     }
 }
