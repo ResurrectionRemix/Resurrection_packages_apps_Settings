@@ -288,6 +288,8 @@
   <string name="status_bar_am_pm_small">קטן</string>
   <string name="status_bar_am_pm_hidden">מוסתר</string>
   <string name="status_bar_battery_style_title">סגנון מצב סוללה</string>
+  <string name="status_bar_battery_style_icon_portrait">סמל אופקי</string>
+  <string name="status_bar_battery_style_icon_landscape">סמל אנכי</string>
   <string name="status_bar_battery_style_circle">עיגול</string>
   <string name="status_bar_battery_style_text">טקסט</string>
   <string name="status_bar_battery_style_hidden">מוסתר</string>
@@ -487,6 +489,22 @@
   <string name="profile_new_appgroup">קבוצת יישומים חדשה</string>
   <string name="profile_delete_appgroup">האם למחוק קבוצת יישומים זו?</string>
   <string name="profile_appgroup_name_prompt">הזן שם עבור קבוצת היישומים החדשה</string>
+  <string name="profile_appgroup_name_title">שם</string>
+  <string name="duplicate_appgroup_name">שם קבוצת יישומים כפול!</string>
+  <string name="profile_app_delete_confirm">להסיר יישום זה?</string>
+  <string name="sound_mode">מצב התראות</string>
+  <string name="ringer_mode">מצב צלצול</string>
+  <string name="lights_mode">נוריות מצב</string>
+  <string name="vibrate_mode">מצב רטט</string>
+  <string name="choose_soundtone">בחר צליל התראה</string>
+  <string name="choose_ringtone">בחר צלצול</string>
+  <string name="soundtone_title">צליל התראה</string>
+  <string name="no_bluetooth_triggers">אין התקני Bluetooth מחוברים.\nלחץ כדי לחבר התקן Bluetooth לפני הגדרת גורמים מפעילים.</string>
+  <string name="no_wifi_triggers">לא הוגדרו נקודות Wi-Fi.\nלחץ כדי להתחבר ל-Wi-Fi לפני הגדרת גורמים מפעילים.</string>
+  <string name="no_triggers_configured">לא הוגדרו גורמים מפעילים. לחץ כדי להגדיר עוד.</string>
+  <string name="no_triggers_configured_nfc">לחץ כדי להגדיר גורם מפעיל חדש ל-NFC.</string>
+  <string name="profile_setup_setup_triggers_description">הגדר בבקשה גורמים מפעילים להפעלת הפרופיל הנ\"ל</string>
+  <string name="profile_setup_actions_description">עכשיו קבע מה קורה כאשר הפרופיל מופעל</string>
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (בשימוש <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> אושרו</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> נחסמו</string>
@@ -495,7 +513,9 @@
   <string name="app_ops_show_system_apps">הצג יישומים מובנים</string>
   <string name="app_ops_reset_counters">אפס מונה מאופשר/חסום</string>
   <string name="app_ops_reset_confirm_title">אשר איפוס מונים</string>
+  <string name="app_ops_reset_confirm_mesg">האם אתה בטוח שברצונך לאפס את המונים?</string>
   <string name="font_size_sample">דוגמה</string>
+  <string name="volume_adjust_sounds_title">צליל שינוי עוצמת קול</string>
   <string name="vibrator_intensity_title">עוצמת רטט</string>
   <string name="vibrator_warning">ערכים גבוהים מ-%1$d לא מומלצים</string>
   <string name="color_calibration_title">כיול צבע</string>
@@ -510,6 +530,7 @@
   <string name="gamma_tuning_brightness">בהירות</string>
   <string name="gamma_tuning_saturation">רוויה</string>
   <string name="screencolor">צבע המסך</string>
+  <string name="screencolor_summary">שנה את הגדרות התצוגה: גוון, רוויה, ניגודיות או עוצמה</string>
   <string name="custom_screencolor">צבע מסך מותאם אישית</string>
   <string name="screencolor_save">שמור</string>
   <string name="screencolor_cancel">ביטול</string>
@@ -520,42 +541,107 @@
   <string name="hue_str">גוון: <xliff:g id="hue_value">%1$s</xliff:g></string>
   <string name="saturation_str">רוויה: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">ניגודיות: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">עוצמה: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <string name="screen_color_setting_standard">רגיל</string>
   <string name="screen_color_setting_vivid">חי (Vivid)</string>
   <string name="screen_color_setting_custom">מותאם אישית</string>
+  <string name="settings_reset_button">איפוס</string>
   <string name="bluetooth_enter_pin_msg_hs">כדי להתחבר ל-<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g> הכנס את קוד ה-PIN של המכשיר (16 ספרות או יותר):</string>
   <string name="bluetooth_profile_dun">גישה לחיוג רשת</string>
   <string name="bluetooth_profile_sap">גישה ל-SIM</string>
+  <string name="bluetooth_dun_profile_summary_connected">מחובר לשרת DUN</string>
+  <string name="bluetooth_pbap_profile_summary_connected">מחובר לשרת pbap</string>
+  <string name="bluetooth_sap_profile_summary_connected">מחובר לשרת גישת SIM</string>
   <string name="bluetooth_dun_profile_summary_use_for">השתמש לחיוג רשת</string>
   <string name="bluetooth_pbap_profile_summary_use_for">השתמש עבור שיתוף אנשי קשר</string>
   <string name="bluetooth_sap_profile_summary_use_for">השתמש לגישת SIM</string>
   <string name="bluetooth_accept_all_files">התר את כל סוגי הקבצים</string>
+  <string name="sim_lock_settings_cm">הגדרות נעילת כרטיס SIM/RUIM</string>
+  <string name="sim_lock_settings_category_cm">הגדרת נעילת כרטיס SIM/RUIM</string>
+  <string name="sim_lock_settings_title_cm">נעילת כרטיס SIM/RUIM</string>
+  <string name="sim_pin_disable_failed">אין אפשרות להשבית את ה-PIN.</string>
+  <string name="sim_pin_enable_failed">אין אפשרות להגדיר PIN.</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">כדי לשנות את ה-PIN של ה-SIM\RUIM, הפעל נעילת SIM/RUIM קודם.</string>
+  <string name="sim_enable_disable_lock_not_supported">נעילת ה-SIM/RUIM אינה נתמכת על ידי הכרטיס.</string>
   <string name="sim_pin_attempts">\nניסיונות שנותרו:</string>
+  <string name="sim_pin_enabled">PIN1 פעיל</string>
+  <string name="sim_pin_disabled">PIN1 לא פעיל</string>
+  <string name="subs_settings">מצב כרטיס ה-SIM</string>
+  <string name="storage_usb">אחסון USB</string>
+  <string name="storage_uicc">אחסון UICC</string>
+  <string name="sdcard_eject" product="default">בטל טעינת כרטיס SD</string>
+  <string name="sdcard_eject_summary" product="default">בטל את טעינת כרטיס ה-SD כדי שתוכל להסירו בבטחה</string>
+  <string name="sd_card_format" product="default">‏מחק כרטיס SD</string>
+  <string name="sd_card_format_summary" product="default">‏מוחק את כל הנתונים שבכרטיס ה-SD, כגון מוסיקה ותמונות</string>
+  <string name="sdcard_mount" product="default">‏טען כרטיס SD</string>
+  <string name="sdcard_insert_summary" product="default">הכנס כרטיס SD לטעינה</string>
+  <string name="usb_eject" product="default">בטל אחסון USB</string>
+  <string name="usb_eject_summary" product="default">בטל את אחסון ה-USB כדי שתוכל להסירו בבטחה</string>
+  <string name="usb_format" product="default">מחק אחסון USB</string>
+  <string name="usb_format_summary" product="default">מוחק את כל המידע באחסון ה-USB, כמו מוזיקה ותמונות</string>
+  <string name="usb_mount" product="default">טען אחסון USB</string>
+  <string name="usb_insert_summary" product="default">הכנס אחסון USB לטעינה</string>
   <string name="uicc_eject" product="default">בטל את אחסון ה-UICC</string>
   <string name="uicc_eject_summary" product="default">בטל את אחסון ה-UICC כדי שתוכל להסירו בבטחה</string>
   <string name="uicc_format" product="default">מחק אחסון UICC</string>
   <string name="uicc_format_summary" product="default">מחק את כל המידע באחסון ה-UICC, כגון מוזיקה ותמונות</string>
   <string name="uicc_mount" product="default">הפעל אחסון UICC</string>
   <string name="uicc_insert_summary" product="default">הכנס כונן UICC לעיגון</string>
+  <string name="usb_settings_enable_ums_title">לאפשר אחסון בנפח גדול?</string>
+  <string name="usb_settings_enable_ums_message">רכיבי מערכת ויישומים התלויים באחסון ראשוני חייבים להיות זמינים כל הזמן. אפשרות זו מבטלת את פונקציה זו. מומלץ להשתמש ב-MTP במקום. האם אתה בטוח שאתה רוצה להפעיל אחסון בנפח גדול?</string>
   <string name="dlg_confirm_sdcard_unmount_title" product="default">לבטל טעינת כרטיס SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">לבטל טעינת אחסון USB?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">לבטל טעינת אחסון UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">‏אם תבטל את טעינת כרטיס ה-SD, הפעולה של יישומים מסוימים שאתה משתמש בהם תופסק וייתכן שהם לא יהיו זמינים עד שתטען מחדש את כרטיס ה-SD.</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">‏אם תבטל את טעינת אחסון ה-USB, הפעולה של יישומים מסוימים שאתה משתמש בהם תופסק וייתכן שהם לא יהיו זמינים עד שתטען מחדש את אחסון ה-USB.</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">‏אם תבטל את טעינת אחסון ה-UICC, הפעולה של יישומים מסוימים שאתה משתמש בהם תופסק וייתכן שהם לא יהיו זמינים עד שתטען מחדש את אחסון ה-UICC.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">לא ניתן לבטל את טעינת כרטיס ה-SD. נסה שוב מאוחר יותר.</string>
+  <string name="dlg_error_usb_unmount_text" product="default">לא ניתן לבטל את אחסון ה-USB. נסה שוב מאוחר יותר.</string>
+  <string name="dlg_error_uicc_unmount_text" product="default">לא ניתן לבטל את אחסון ה-UICC. נסה שוב מאוחר יותר.</string>
   <string name="sdcard_unmount_inform_text" product="default">הטעינה של כרטיס ה-SD תבוטל.</string>
   <string name="usb_unmount_inform_text" product="default">‏הטעינה של כרטיס SD תבוטל.</string>
   <string name="uicc_unmount_inform_text" product="default">הטעינה של אחסון ה-UICC תבוטל.</string>
+  <string name="sdcard_media_format_desc" product="default">למחוק את כרטיס ה-SD? <b>כל</b> הנתונים שבכרטיס יאבדו!</string>
+  <string name="usb_media_format_desc" product="default">למחוק את אחסון ה-USB? <b>כל</b> הנתונים שנמצאים עליו יאבדו!</string>
+  <string name="uicc_media_format_desc" product="default">למחוק את אחסון ה-UICC? <b>כל</b> הנתונים שנמצאים עליו יאבדו!</string>
   <string name="sdcard_media_format_button_text" product="default">‏מחק כרטיס SD</string>
   <string name="usb_media_format_button_text" product="default">מחק אחסון USB</string>
   <string name="uicc_media_format_button_text" product="default">מחק אחסון UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">‏למחוק את כרטיס ה-SD ואת כל הקבצים המאוחסנים בו? לא ניתן לבטל פעולה זו!</string>
   <string name="usb_media_format_final_desc" product="default">‏למחוק את אחסון ה-USB ואת כל הקבצים המאוחסנים בו? לא ניתן לבטל פעולה זו!</string>
+  <string name="uicc_media_format_final_desc" product="default">‏למחוק את אחסון ה-UICC ואת כל הקבצים המאוחסנים בו? לא ניתן לבטל פעולה זו!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">‏עליך לשרטט את קו ביטול הנעילה כדי לאשר את מחיקת כרטיס ה-SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">‏עליך לשרטט את קו ביטול הנעילה כדי לאשר שברצונך למחוק את אחסון ה-USB.</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">‏עליך לשרטט את קו ביטול הנעילה כדי לאשר את מחיקת אחסון ה-USB.</string>
+  <string name="storage_rescan_media">סריקה מחדש של המדיה עבור אמצעי אחסון</string>
+  <string name="location_category_enhanced_location">מיקום משופר (IZat)</string>
+  <string name="app_ops_settings_summary">הצג או שנה הרשאות יישום</string>
+  <string name="enable_adb_summary_charging">המכשיר נמצא במצב טעינה, איתור באגים דרך USB אינו זמין</string>
   <string name="enable_quickboot_title">אפשר מצב אתחול מהיר</string>
+  <string name="enable_quickboot_summary">שים מכשיר במצב אתחול מהיר במקום כיבוי רגיל</string>
   <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
   <string name="sim_enabler_title">מצב SIM</string>
+  <string name="sim_enabler_summary">ה-SIM <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="sim_enabled">פעיל</string>
   <string name="sim_disabled">לא פעיל</string>
   <string name="sim_missing">חסר או פגום</string>
+  <string name="sim_enabler_need_disable_sim">לכבות את כרטיס ה-SIM?</string>
+  <string name="sim_enabler_airplane_on">אין אפשרות לבצע את הפעולה כאשר שמצב טיסה פעיל.</string>
+  <string name="sim_enabler_in_call">אין אפשרות לבצע את הפעולה בזמן השיחה.</string>
+  <string name="sim_enabler_both_inactive">אין אפשרות להשבית את כל כרטיסי ה-SIM</string>
   <string name="sim_enabler_sim">SIM</string>
+  <string name="sim_enabler_enabling">מפעיל את <xliff:g id="name">%s</xliff:g></string>
+  <string name="sim_enabler_disabling">מכבה את <xliff:g id="name">%s</xliff:g></string>
+  <string name="sim_enabler_deactivate">כבה</string>
+  <string name="primary_sub_select_title">מנוי ברירת מחדל של דור 3/LTE</string>
   <string name="usb_charging_title">טען בלבד</string>
+  <string name="usb_charging_summary">מבטל כל העברות הנתונים עם המחשב וטוען את המכשיר דרך יציאת USB</string>
+  <string name="usb_sdcard_title">אחסון בנפח גדול (UMS)</string>
+  <string name="usb_sdcard_summary">מאפשר לך להעביר קבצים בין המחשב שלך לבין כרטיס SD זה על ידי חיבורו כהתקן USB</string>
+  <string name="external_storage_turn_on">אחסון חיצוני הופעל</string>
+  <string name="external_storage_turn_off">אחסון חיצוני בוטל</string>
+  <string name="stats_collection_title">אוסף סטטיסטיקות</string>
+  <string name="stats_collection_summary">כאשר מופעל, מאפשר איסוף מדדים</string>
   <string name="power_notifications_category_title">צלילי טעינה</string>
   <string name="power_notifications_enable_title">הפעל</string>
   <string name="power_notifications_enable_summary">השמע צליל בעת חיבור או ניתוק ממקור חשמל</string>
@@ -572,11 +658,13 @@
   <string name="performance_settings_title">ביצועים</string>
   <string name="io_scheds_title">מתזמן קלט/פלט</string>
   <string name="io_sched_title">מתזמן קלט/פלט</string>
+  <string name="perf_profile_title">מצב סוללה</string>
   <string name="pref_force_highend_gfx_title">הכרח גרפיקה באיכות גבוהה</string>
   <string name="pref_force_highend_gfx_summary">אפשר אפקטים ויזואליים מתקדמים כמו ברים שקופים (דורש אתחול)</string>
   <string name="performance_settings_warning_title">המשך בזהירות</string>
   <string name="performance_settings_warning">הגדרות אלה ניסיוניות והחלת השינויים יכול לגרום לחוסר יציבות, קריסות, איבוד מידע או כשל חומרה.\n\nאנו מבקשים לא למלות דיווח באגים אם שיניתה את אחת ההגדרות.</string>
   <string name="performance_set_on_boot">קבע כל אתחול</string>
+  <string name="performance_set_on_boot_summary">שחזר הגדרות לאחר אתחול</string>
   <string name="processor_title">מעבד</string>
   <string name="cpu_cur_freq_title">תדר מעבד הנוכחי</string>
   <string name="cpu_governors_title">ניהול CPU</string>
@@ -595,7 +683,10 @@
   <string name="unlock_scramble_pin_layout_title">ערבב פריסה</string>
   <string name="unlock_scramble_pin_layout_summary">ערבב מבנה כשמבטלים נעילת מכשיר</string>
   <string name="link_volume_option_title">קשר את עוצמות הצלצול וההתראות</string>
+  <string name="notification_volume_option_title">עוצמת קול של התראות</string>
   <string name="notification_drawer_title">וילון הודעות</string>
+  <string name="quick_pulldown_title">משיכה מהירה</string>
+  <string name="quick_pulldown_summary">משיכה מצד %1$s של סרגל המצב פותחת את ההגדרות המהירות</string>
   <string name="quick_pulldown_summary_left">שמאל</string>
   <string name="quick_pulldown_summary_right">ימין</string>
   <string name="quick_pulldown_off">כבוי</string>
@@ -628,10 +719,15 @@
   <string name="qs_tile_lockscreen">מסך נעילה</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">פרק הזמן לכיבוי מסך</string>
+  <string name="qs_main_tiles_title">הגדל את השורה הראשונה</string>
+  <string name="qs_main_tiles_summary_on">שני אריחים ראשיים בשורה הראשונה</string>
+  <string name="qs_main_tiles_summary_off">שלושה אריחים בכל שורה</string>
+  <string name="qs_advanced_location_title">הגדרות מיקום מתקדמות</string>
   <string name="qs_advanced_location_summary">אפשר הגדרות מתקדמות עבור מיקום בהגדרות המהירות</string>
   <string name="gesture_settings_title">מחוות</string>
   <string name="themes_settings_title">ערכות עיצוב</string>
   <string name="wifi_mode">מצב</string>
+  <string name="wifi_mode_ibss">רשת Ad-Hoc (IBSS)</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
   <string name="wifi_ibss_freq_title">ערוץ / תדר</string>
   <string name="wifi_channel">ערוץ</string>
@@ -639,30 +735,42 @@
   <string name="maximum_head_level">ראש: %1$s  W/kg</string>
   <string name="maximum_body_level">גוף: %1$s W/kg</string>
   <string name="ic_code_model">דגם: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">שולחן עבודה מורחב</string>
   <string name="expanded_hide_nothing">הצג הכל</string>
   <string name="expanded_hide_status">הסתר שורת מצב</string>
   <string name="expanded_hide_navigation">הסתר סרגל ניווט</string>
   <string name="expanded_hide_both">הסתר את שניהם</string>
+  <string name="expanded_nothing_to_show">כדי להוסיף תצורה מותאמת אישית לכל יישום למצב מורחב, העבר את \"זמין עבור הכל\" למצב כבוי</string>
+  <string name="expanded_enabled_for_all">זמין עבור כולם</string>
   <string name="expanded_desktop_style">סגנון שולחן העבודה המורחב</string>
   <string name="expanded_desktop_style_description">בחר סגנון ברירת מחדל לשולחן העבודה המורחב</string>
+  <string name="expanded_desktop_title">אפשרויות שולחן עבודה מורחב</string>
   <string name="lockscreen_targets_message">קיצורי דרך במסך הנעילה</string>
   <string name="lockscreen_default_target">ברירת מחדל</string>
   <string name="lockscreen_none_target">ללא</string>
+  <string name="lockscreen_message">הקש על סמל בצד שמאל או ימין כדי להקצות מחדש קיצור דרך של מסך הנעילה.</string>
   <string name="lockscreen_choose_action_title">בחר פעולה</string>
+  <string name="lockscreen_visualizer_title">הצג אפקטים וויזואלים בעת השמעת מוסיקה</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">ניהול הגדרות SMS מאובטח</string>
   <string name="navigation_ring_title">קיצורי דרך בטבעת הניווט</string>
   <string name="navigation_ring_message">הקש על סמל העריכה כדי לפתוח את טבעת הניווט לעריכה.\n\nבחר מטרה כדי להגדיר את ההתנהגות שלה.\n\nלחץ על הסמל \'\u2713\' כדי לשמור את השינויים, או על \"שחזר ברירת מחדל\" כדי לאפס את ההגדרות.</string>
   <string name="stylus_icon_enabled_title">הצג סמל בעת שימוש בעט אלקטרוני</string>
   <string name="stylus_icon_enabled_summary">הצג את סמל העט בעת ריחוף או ציור עם העט</string>
+  <string name="gestures_settings_title">מחוות עט</string>
+  <string name="category_spen_title">מחוות עט</string>
   <string name="enable_subcat_title">עט אלקטרוני</string>
   <string name="enable_spen_title_head">אפשר מחוות</string>
+  <string name="enable_spen_summary_head">השתמש במחוות החלקה בעת החזקת לחצן העט</string>
   <string name="gestures_subcat_title">מחוות</string>
-  <string name="gestures_left_spen_title_head">הזזה שמאלה</string>
-  <string name="gestures_right_spen_title_head">הזזה ימינה</string>
-  <string name="gestures_up_spen_title_head">הזזה למעלה</string>
-  <string name="gestures_down_spen_title_head">הזזה למטה</string>
+  <string name="gestures_left_spen_title_head">החלקה שמאלה</string>
+  <string name="gestures_right_spen_title_head">החלקה ימינה</string>
+  <string name="gestures_up_spen_title_head">החלקה למעלה</string>
+  <string name="gestures_down_spen_title_head">החלקה למטה</string>
+  <string name="gestures_long_spen_title_head">לחיצה ארוכה</string>
+  <string name="gestures_double_spen_title_head">לחיצה כפולה</string>
+  <string name="gestures_action_empty">ללא פעולה</string>
   <string name="gestures_action_home">בית</string>
   <string name="gestures_action_back">חזור</string>
   <string name="gestures_action_menu">תפריט</string>
@@ -671,6 +779,8 @@
   <string name="stylus_app_not_installed">%s לא מותקן</string>
   <string name="advanced">מתקדם</string>
   <string name="advanced_mode_title">מצב מתקדם</string>
+  <string name="advanced_mode_summary">הצג אפשרויות נוספות להגדרת מכשירך בתפריטי ההגדרות השונים</string>
+  <string name="category_misc">שונות</string>
   <string name="category_vibrate">רטט</string>
   <string name="category_volume">עוצמת קול</string>
   <string name="category_sounds">צלילים</string>
@@ -682,13 +792,24 @@
   <string name="category_lights">אורות</string>
   <string name="power_usage_history_title">צריכת סוללה</string>
   <string name="recents_show_searchbar">הצג את סרגל החיפוש במסך יישומים אחרונים</string>
+  <string name="keywords_recents_show_searchbar">אחרון אחרונות כבה הדלק הראה הסתר סרגל חיפוש סרגל-חיפוש</string>
   <string name="sim_ringtone_title">הצלצול של SIM %d</string>
+  <string name="interruptions_ignore_while_media_title">מנע שינוי עוצמת שמע</string>
+  <string name="interruptions_ignore_while_media_summary">אל תנמיך את עוצמת המוזיקה כאשר התראה מגיעה</string>
+  <string name="live_display_summary">התאם את מסך מכשירך בהתאם לשעה ולתנאי הסביבה על מנת לשפר את נוחות הקריאה ולהפחית את עייפות העין</string>
   <string name="live_display_mode">מצב תצוגה</string>
   <string name="live_display_color_temperature_title">טמפרטורת צבע</string>
   <string name="live_display_color_temperature_summary">יום: <xliff:g id="day_temperature">%1$d</xliff:g>K לילה: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
   <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
   <string name="live_display_day">יום</string>
   <string name="live_display_night">לילה</string>
+  <string name="live_display_outdoor_mode_title">מצב חוץ אוטומטי</string>
+  <string name="live_display_outdoor_mode_summary">הגבר את הבהירות והרוויה באופן אוטומטי תחת אור שמש חזק</string>
+  <string name="live_display_low_power_title">הפחת צריכת אנרגיה</string>
+  <string name="live_display_low_power_summary">התאם את התצוגה עבור צריכת האנרגיה הנמוכה ביותר ללא פגיעה באיכות</string>
   <string name="live_display_enhance_color_title">שפר צבעים</string>
+  <string name="live_display_enhance_color_summary">שפר את רווית הצבעים של גווני עור, נופים וסוגי תמונות נוספים</string>
+  <string name="battery_saver_threshold">מצב הפעלת שומר סוללה</string>
+  <string name="battery_saver_summary">הנמך ביצועים והגבל תעבורת נתונים ברקע</string>
   <string name="battery_saver_summary_unavailable">לא זמין בזמן טעינה</string>
 </resources>
