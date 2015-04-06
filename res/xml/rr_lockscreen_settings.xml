@@ -33,6 +33,12 @@
     </PreferenceScreen>
 
         <PreferenceScreen
+            android:key="lockscreen_weather"
+            android:title="@string/lock_screen_weather_settings_title"
+            android:summary="@string/lock_screen_weather_settings_title_summary"
+            android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
+
+        <PreferenceScreen
             android:key="lockscreen_shortcuts_settings"
             android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
             android:summary="@string/rr_lockscreen_targets_message_summary"

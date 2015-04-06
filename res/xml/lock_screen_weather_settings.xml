@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/lock_screen_weather_settings_title" >
+
+    <CheckBoxPreference
+        android:key="weather_show_weather"
+        android:title="@string/weather_show_weather_title"
+        android:summary="@string/weather_show_weather_summary" />
+
+    <CheckBoxPreference
+        android:key="weather_show_location"
+        android:title="@string/weather_show_location_title"
+        android:summary="@string/weather_show_location_summary" />
+
+    <CheckBoxPreference
+        android:key="weather_show_timestamp"
+        android:title="@string/weather_show_timestamp_title"
+        android:summary="@string/weather_show_timestamp_summary" />
+
+    <ListPreference
+        android:key="weather_condition_icon"
+        android:title="@string/weather_condition_icon_title"
+        android:dialogTitle="@string/weather_condition_icon_dlg_title"
+        android:entries="@array/weather_condition_icon_entries"
+        android:entryValues="@array/weather_condition_icon_values" />
+
+    <CheckBoxPreference
+        android:key="weather_colorize_all_icons"
+        android:title="@string/weather_colorize_all_icons_title"
+        android:summary="@string/weather_colorize_all_icons_summary" />
+
+    <PreferenceCategory
+        android:key="weather_cat_colors"
+        android:title="@string/colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="weather_text_color"
+            android:title="@string/text_title"
+            android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="weather_icon_color"
+            android:title="@string/icons_title"
+            android:defaultValue="0xffffffff" />
+
+	</PreferenceCategory>
+</PreferenceScreen>
