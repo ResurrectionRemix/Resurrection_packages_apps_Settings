@@ -48,6 +48,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
@@ -208,6 +210,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
                 hide(R.id.lockPattern);
                 hide(R.id.owner_info);
                 hide(R.id.emergencyCallButton);
+                hide(R.id.pattern_sizes);
             } else if (failedAttempts == MAX_FAILED_ATTEMPTS) {
                 // Factory reset the device.
                 if(mMdtpActivated){
@@ -710,8 +713,13 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         if (mPasswordEntry != null) {
             mPasswordEntry.setEnabled(false);
         }
+
+        final ViewGroup sizes = (ViewGroup) findViewById(R.id.status);
         if (mLockPatternView != null) {
             mLockPatternView.setEnabled(false);
+            if (sizes != null) {
+                sizes.setEnabled(false);
+            }
         }
 
         final TextView status = (TextView) findViewById(R.id.status);
@@ -751,8 +759,8 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         public void onPatternDetected(List<LockPatternView.Cell> pattern) {
             mLockPatternView.setEnabled(false);
             if (pattern.size() >= MIN_LENGTH_BEFORE_REPORT) {
-                new DecryptTask().execute(new LockPatternUtils(CryptKeeper.this)
-                        .patternToString(pattern));
+                new DecryptTask().execute(LockPatternUtils.patternToString(pattern,
+                        mLockPatternView.getLockPatternSize()));
             } else {
                 // Allow user to make as many of these as they want.
                 fakeUnlockAttempt(mLockPatternView);
@@ -1058,5 +1066,30 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         Log.d(TAG, "Disabling component " + name);
         pm.setComponentEnabledSetting(name, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
+    }
+
+    public void onPatternButtonClick(View v) {
+        byte size;
+        switch (v.getId()) {
+            default:
+            case R.id.lock_pattern_size_3:
+                size = 3;
+                break;
+            case R.id.lock_pattern_size_4:
+                size = 4;
+                break;
+            case R.id.lock_pattern_size_5:
+                size = 5;
+                break;
+            case R.id.lock_pattern_size_6:
+                size = 6;
+                break;
+        }
+        if (mLockPatternView != null) {
+            setContentView(R.layout.crypt_keeper_pattern_entry);
+            passwordEntryInit();
+            mLockPatternView.setLockPatternSize(size);
+            mLockPatternView.postInvalidate();
+        }
     }
 }
