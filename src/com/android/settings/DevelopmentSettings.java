@@ -454,7 +454,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         }
 
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
-        mAllPrefs.add(mDevelopmentTools);
+        if (Utils.updatePreferenceToSpecificActivityOrRemove(getActivity(),
+                getPreferenceScreen(), mDevelopmentTools.getKey(), 0)) {
+            mAllPrefs.add(mDevelopmentTools);
+        }
 
         mColorModePreference = (ColorModePreference) findPreference(KEY_COLOR_MODE);
         mColorModePreference.updateCurrentAndSupported();
