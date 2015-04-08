@@ -141,6 +141,22 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isAccountView", mAccountView.getVisibility() == View.VISIBLE);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState.getBoolean("isAccountView")) {
+            switchToAccount();
+        } else {
+            switchToPattern(false);
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_RESET:
