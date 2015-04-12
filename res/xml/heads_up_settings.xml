@@ -12,12 +12,23 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="heads_up_time_out"
         android:title="@string/heads_up_time_out_title"
-        android:entries="@array/heads_up_time_out_entries"
-        android:entryValues="@array/heads_up_time_out_values"
+        android:max="10"
+        settings:minimum="0"
+        settings:unitsLeft=""
+        settings:unitsRight="sec"
         android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="heads_up_snooze_time"
+        android:title="@string/heads_up_snooze_title"
+        android:max="30"
+        settings:minimum="0"
+        settings:unitsLeft=""
+        settings:unitsRight="min"
+
 
     <PreferenceCategory
             android:title="@string/heads_up_dnd_title"
