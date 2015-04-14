@@ -385,7 +385,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mShowScreenUpdates = findAndInitSwitchPref(SHOW_SCREEN_UPDATES_KEY);
         mDisableOverlays = findAndInitSwitchPref(DISABLE_OVERLAYS_KEY);
         mShowCpuUsage = findAndInitSwitchPref(SHOW_CPU_USAGE_KEY);
-        mShowCpuInfo = findAndInitCheckboxPref(SHOW_CPU_INFO_KEY);
+        mShowCpuInfo = findAndInitSwitchPref(SHOW_CPU_INFO_KEY);
         mForceHardwareUi = findAndInitSwitchPref(FORCE_HARDWARE_UI_KEY);
         mForceMsaa = findAndInitSwitchPref(FORCE_MSAA_KEY);
         mTrackFrameTime = addListPreference(TRACK_FRAME_TIME_KEY);
