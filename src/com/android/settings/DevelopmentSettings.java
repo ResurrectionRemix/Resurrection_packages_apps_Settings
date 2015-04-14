@@ -1397,7 +1397,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void updateCpuInfoOptions() {
-        updateCheckBox(mShowCpuInfo, Settings.Global.getInt(getActivity().getContentResolver(),
+        updateSwitchPreference(mShowCpuInfo, Settings.Global.getInt(getActivity().getContentResolver(),
                 Settings.Global.SHOW_CPU, 0) != 0);
     }
 
