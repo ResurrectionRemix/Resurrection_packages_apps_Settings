@@ -41,16 +41,9 @@
                     android:layout_marginEnd="@dimen/dashboard_tile_image_margin_end" />
 
             <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                <Switch
-                          android:id="@+id/dashboard_switch"
-                          android:visibility="gone"
-                          android:layout_alignParentRight="true"
-                          android:paddingRight="@dimen/action_bar_switch_padding"
-                          android:layout_height="wrap_content"
-                          android:layout_width="wrap_content"/>
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                 <TextView android:id="@+id/title"
                           android:layout_width="wrap_content"
@@ -69,6 +62,12 @@
                           android:textColor="?android:attr/textColorSecondary" />
 
             </RelativeLayout>
+
+            <Switch android:id="@+id/dashboard_switch"
+                    android:visibility="gone"
+                    android:paddingEnd="@dimen/action_bar_switch_padding"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
 
         </LinearLayout>
 

@@ -37,21 +37,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_weight="1">
 
             <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                <Switch
-                        android:id="@+id/dashboard_switch"
-                        android:visibility="gone"
-                        android:layout_alignParentRight="true"
-                        android:paddingRight="@dimen/action_bar_switch_padding"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"/>
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                 <TextView android:id="@+id/title"
                           android:layout_width="wrap_content"
@@ -59,8 +52,6 @@
                           android:singleLine="true"
                           android:textAppearance="@style/TextAppearance.TileTitle"
                           android:ellipsize="marquee"
-                          android:layout_alignParentStart="true"
-                          android:layout_toStartOf="@+id/dashboard_switch"
                           android:fadingEdge="horizontal"
                           android:layout_alignParentEnd="false"/>
 
@@ -75,6 +66,12 @@
                           android:textColor="?android:attr/textColorSecondary" />
 
             </RelativeLayout>
+
+            <Switch android:id="@+id/dashboard_switch"
+                    android:visibility="gone"
+                    android:paddingEnd="@dimen/action_bar_switch_padding"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
 
         </LinearLayout>
 
