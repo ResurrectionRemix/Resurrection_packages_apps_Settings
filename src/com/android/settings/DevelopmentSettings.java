@@ -234,7 +234,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private SwitchPreference mShowScreenUpdates;
     private SwitchPreference mDisableOverlays;
     private SwitchPreference mShowCpuUsage;
-    private SwitchPreference mShowCpuInfo
+    private SwitchPreference mShowCpuInfo;
     private SwitchPreference mForceHardwareUi;
     private SwitchPreference mForceMsaa;
     private SwitchPreference mShowHwScreenUpdates;
