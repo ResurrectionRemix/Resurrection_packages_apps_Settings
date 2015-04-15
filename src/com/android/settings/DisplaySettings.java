@@ -58,6 +58,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.android.settings.Utils;
+
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
     private static final String TAG = "DisplaySettings";
@@ -135,8 +137,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_LIFT_TO_WAKE);
         }
 
-        if (isDozeAvailable(activity)) {
-            mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
+        mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
+        if (mDozePreference != null && Utils.isDozeAvailable(activity)) {
             mDozePreference.setOnPreferenceChangeListener(this);
         } else {
             removePreference(KEY_DOZE);
@@ -207,17 +209,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return sensors != null && sensors.getDefaultSensor(Sensor.TYPE_WAKE_GESTURE) != null;
     }
 
-    private static boolean isDozeAvailable(Context context) {
-        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
-        if (TextUtils.isEmpty(name)) {
-            name = context.getResources().getString(
-                    com.android.internal.R.string.config_dozeComponent);
-        }
-        return !TextUtils.isEmpty(name);
-    }
-
     private static boolean isTapToWakeAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
+    }
+
+    private static boolean isAutomaticBrightnessAvailable(Resources res) {
+        return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
     }
 
     private static boolean isAutomaticBrightnessAvailable(Resources res) {
@@ -484,7 +481,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (!isLiftToWakeAvailable(context)) {
                         result.add(KEY_LIFT_TO_WAKE);
                     }
-                    if (!isDozeAvailable(context)) {
+                    if (!Utils.isDozeAvailable(context)) {
                         result.add(KEY_DOZE);
                     }
                     if (!RotationPolicy.isRotationLockToggleVisible(context)) {
