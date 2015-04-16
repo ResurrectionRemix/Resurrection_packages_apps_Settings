@@ -20,8 +20,8 @@ package com.android.settings;
 
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.AppOpsManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -83,12 +83,15 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_VISIBLE_PATTERN = "visiblepattern";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
+    private static final String KEY_VISIBLE_ERROR_PATTERN = "visible_error_pattern";
+    private static final String KEY_VISIBLE_DOTS = "visibledots";
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
     private static final String KEY_ADVANCED_SECURITY = "advanced_security";
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
-    private static final String KEY_SHOW_VISUALIZER = "lockscreen_visualizer";
-    
+    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+    private static final String LOCK_NUMPAD_RANDOM = "lockscreen_scramble_pin_layout";
+
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF = 125;
@@ -109,11 +112,13 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
+    private static final String KEY_SHOW_VISUALIZER = "lockscreen_visualizer";
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
-            KEY_LOCK_ENABLED, KEY_VISIBLE_PATTERN, KEY_BIOMETRIC_WEAK_LIVELINESS,
-            KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD, KEY_TOGGLE_INSTALL_APPLICATIONS };
+            KEY_LOCK_ENABLED, KEY_VISIBLE_PATTERN, KEY_VISIBLE_ERROR_PATTERN, KEY_VISIBLE_DOTS,
+            KEY_BIOMETRIC_WEAK_LIVELINESS, KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD,
+            KEY_TOGGLE_INSTALL_APPLICATIONS };
 
     // Only allow one trust agent on the platform.
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
@@ -128,6 +133,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private SwitchPreference mBiometricWeakLiveliness;
     private SwitchPreference mVisiblePattern;
+    private SwitchPreference mVisibleErrorPattern;
+    private SwitchPreference mVisibleDots;
 
     private SwitchPreference mShowPassword;
 
@@ -137,6 +144,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private SwitchPreference mToggleAppInstallation;
     private DialogInterface mWarnInstallApps;
     private SwitchPreference mPowerButtonInstantlyLocks;
+    private SwitchPreference mQuickUnlockScreen;
+    private ListPreference mLockNumpadRandom;
 
     private ListPreference mSmsSecurityCheck;
 
@@ -244,7 +253,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
-
         // Trust Agent preferences
         PreferenceGroup securityCategory = (PreferenceGroup)
                 root.findPreference(KEY_SECURITY_CATEGORY);
@@ -271,6 +279,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     trustAgentPreference.setSummary(R.string.disabled_because_no_backup_security);
                 }
             }
+        }
+
         // remove lockscreen visualizer option on low end gfx devices
         if (!ActivityManager.isHighEndGfx() && securityCategory != null) {
             SwitchPreference displayVisualizer = (SwitchPreference)
@@ -278,7 +288,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (displayVisualizer != null) {
                 securityCategory.removePreference(displayVisualizer);
             }
-          }
         }
 
         // lock after preference
@@ -294,6 +303,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         // visible pattern
         mVisiblePattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_PATTERN);
+
+        // visible error pattern
+        mVisibleErrorPattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_ERROR_PATTERN);
+
+        // visible dots
+        mVisibleDots = (SwitchPreference) root.findPreference(KEY_VISIBLE_DOTS);
 
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (SwitchPreference) root.findPreference(
@@ -311,9 +326,31 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (resid == R.xml.security_settings_biometric_weak &&
                 mLockPatternUtils.getKeyguardStoredPasswordQuality() !=
                 DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
-            if (securityCategory != null && mVisiblePattern != null) {
-                securityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
+            if (securityCategory != null && mVisiblePattern != null &&
+                   mVisibleErrorPattern != null && mVisibleDots != null) {
+                securityCategory.removePreference(mVisiblePattern);
+                securityCategory.removePreference(mVisibleErrorPattern);
+                securityCategory.removePreference(mVisibleDots);
             }
+        }
+
+        // Quick Unlock Screen Control
+        mQuickUnlockScreen = (SwitchPreference) root
+                .findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        if (mQuickUnlockScreen != null) {
+            mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1) == 1);
+            mQuickUnlockScreen.setOnPreferenceChangeListener(this);
+        }
+
+        // Lock Numpad Random
+        mLockNumpadRandom = (ListPreference) root.findPreference(LOCK_NUMPAD_RANDOM);
+        if (mLockNumpadRandom != null) {
+            mLockNumpadRandom.setValue(String.valueOf(
+                    Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0)));
+            mLockNumpadRandom.setSummary(mLockNumpadRandom.getEntry());
+            mLockNumpadRandom.setOnPreferenceChangeListener(this);
         }
 
         // Append the rest of the settings
@@ -647,6 +684,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mVisiblePattern != null) {
             mVisiblePattern.setChecked(lockPatternUtils.isVisiblePatternEnabled());
         }
+        if (mVisibleErrorPattern != null) {
+            mVisibleErrorPattern.setChecked(lockPatternUtils.isShowErrorPath());
+        }
+        if (mVisibleDots != null) {
+            mVisibleDots.setChecked(lockPatternUtils.isVisibleDotsEnabled());
+        }
         if (mPowerButtonInstantlyLocks != null) {
             mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks());
         }
@@ -741,6 +784,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
             lockPatternUtils.setLockPatternEnabled((Boolean) value);
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
             lockPatternUtils.setVisiblePatternEnabled((Boolean) value);
+        } else if (KEY_VISIBLE_ERROR_PATTERN.equals(key)) {
+            lockPatternUtils.setShowErrorPath((Boolean) value);
+        } else if (KEY_VISIBLE_DOTS.equals(key)) {
+            lockPatternUtils.setVisibleDotsEnabled((Boolean) value);
         } else  if (KEY_BIOMETRIC_WEAK_LIVELINESS.equals(key)) {
             if ((Boolean) value) {
                 lockPatternUtils.setBiometricWeakLivelinessEnabled(true);
@@ -780,6 +827,16 @@ public class SecuritySettings extends SettingsPreferenceFragment
             Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
                     smsSecurityCheck);
             updateSmsSecuritySummary(smsSecurityCheck);
+        } else if (preference == mQuickUnlockScreen) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL,
+                    (Boolean) value ? 1 : 0);
+        } else if (preference == mLockNumpadRandom) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
+                    Integer.valueOf((String) value));
+            mLockNumpadRandom.setValue(String.valueOf(value));
+            mLockNumpadRandom.setSummary(mLockNumpadRandom.getEntry());
         }
         return result;
     }
@@ -920,6 +977,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     lockPatternUtils.getKeyguardStoredPasswordQuality() !=
                             DevicePolicyManager.PASSWORD_QUALITY_SOMETHING) {
                 keys.add(KEY_VISIBLE_PATTERN);
+                keys.add(KEY_VISIBLE_ERROR_PATTERN);
+                keys.add(KEY_VISIBLE_DOTS);
             }
 
             // Do not display SIM lock for devices without an Icc card
@@ -943,7 +1002,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (!ActivityManager.isHighEndGfx()) {
                 keys.add(KEY_SHOW_VISUALIZER);
             }
-            
+
             return keys;
         }
     }
