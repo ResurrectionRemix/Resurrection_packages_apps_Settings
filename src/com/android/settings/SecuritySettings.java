@@ -20,8 +20,8 @@ package com.android.settings;
 
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -89,9 +89,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
     private static final String KEY_ADVANCED_SECURITY = "advanced_security";
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
-    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
-    private static final String LOCK_NUMPAD_RANDOM = "lockscreen_scramble_pin_layout";
-
+    private static final String KEY_SHOW_VISUALIZER = "lockscreen_visualizer";
+    
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_LIVELINESS_OFF = 125;
@@ -112,7 +111,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
-    private static final String KEY_SHOW_VISUALIZER = "lockscreen_visualizer";
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -135,7 +133,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private SwitchPreference mVisiblePattern;
     private SwitchPreference mVisibleErrorPattern;
     private SwitchPreference mVisibleDots;
-
     private SwitchPreference mShowPassword;
 
     private KeyStore mKeyStore;
@@ -144,8 +141,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private SwitchPreference mToggleAppInstallation;
     private DialogInterface mWarnInstallApps;
     private SwitchPreference mPowerButtonInstantlyLocks;
-    private SwitchPreference mQuickUnlockScreen;
-    private ListPreference mLockNumpadRandom;
 
     private ListPreference mSmsSecurityCheck;
 
@@ -253,6 +248,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
+
         // Trust Agent preferences
         PreferenceGroup securityCategory = (PreferenceGroup)
                 root.findPreference(KEY_SECURITY_CATEGORY);
@@ -288,7 +284,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (displayVisualizer != null) {
                 securityCategory.removePreference(displayVisualizer);
             }
-        }
+          }
 
         // lock after preference
         mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
@@ -309,7 +305,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         // visible dots
         mVisibleDots = (SwitchPreference) root.findPreference(KEY_VISIBLE_DOTS);
-
+ 
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (SwitchPreference) root.findPreference(
                 KEY_POWER_INSTANTLY_LOCKS);
@@ -332,25 +328,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 securityCategory.removePreference(mVisibleErrorPattern);
                 securityCategory.removePreference(mVisibleDots);
             }
-        }
-
-        // Quick Unlock Screen Control
-        mQuickUnlockScreen = (SwitchPreference) root
-                .findPreference(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
-        if (mQuickUnlockScreen != null) {
-            mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 1) == 1);
-            mQuickUnlockScreen.setOnPreferenceChangeListener(this);
-        }
-
-        // Lock Numpad Random
-        mLockNumpadRandom = (ListPreference) root.findPreference(LOCK_NUMPAD_RANDOM);
-        if (mLockNumpadRandom != null) {
-            mLockNumpadRandom.setValue(String.valueOf(
-                    Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0)));
-            mLockNumpadRandom.setSummary(mLockNumpadRandom.getEntry());
-            mLockNumpadRandom.setOnPreferenceChangeListener(this);
         }
 
         // Append the rest of the settings
@@ -827,16 +804,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
                     smsSecurityCheck);
             updateSmsSecuritySummary(smsSecurityCheck);
-        } else if (preference == mQuickUnlockScreen) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL,
-                    (Boolean) value ? 1 : 0);
-        } else if (preference == mLockNumpadRandom) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
-                    Integer.valueOf((String) value));
-            mLockNumpadRandom.setValue(String.valueOf(value));
-            mLockNumpadRandom.setSummary(mLockNumpadRandom.getEntry());
         }
         return result;
     }
@@ -1002,7 +969,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (!ActivityManager.isHighEndGfx()) {
                 keys.add(KEY_SHOW_VISUALIZER);
             }
-
+            
             return keys;
         }
     }
