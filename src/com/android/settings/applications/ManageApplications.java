@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2006 The Android Open Source Project
  *
@@ -181,9 +180,14 @@ public class ManageApplications extends Fragment implements
     public static final int SHOW_BACKGROUND_PROCESSES = MENU_OPTIONS_BASE + 7;
     public static final int RESET_APP_PREFERENCES = MENU_OPTIONS_BASE + 8;
 
-    public static final int APP_INSTALL_LOCATION = MENU_OPTIONS_BASE + 9;
+    // add for new feature for search applications
+    public static final int SHOW_SEARCH_APPLICATIONS = MENU_OPTIONS_BASE + 9;
+
+    private boolean mSearchappEnabled;
 
     public static final int SHOW_PROTECTED_APPS = MENU_OPTIONS_BASE + 11;
+
+    public static final int APP_INSTALL_LOCATION = MENU_OPTIONS_BASE + 12;
 
     // sort order
     private int mSortOrder = SORT_ORDER_ALPHA;
@@ -275,6 +279,7 @@ public class ManageApplications extends Fragment implements
                 lv.setSaveEnabled(true);
                 lv.setItemsCanFocus(true);
                 lv.setTextFilterEnabled(true);
+                lv.setFastScrollEnabled(true);
                 mListView = lv;
                 mApplications = new ApplicationsAdapter(mApplicationsState, this, mFilter);
                 mListView.setAdapter(mApplications);
@@ -1112,6 +1117,7 @@ public class ManageApplications extends Fragment implements
         menu.add(0, RESET_APP_PREFERENCES, 4, R.string.reset_app_preferences)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         int lastOptionOrder = 5;
+
         if (!Utils.isRestrictedProfile(getActivity())) {
             menu.add(0, SHOW_PROTECTED_APPS, 5, R.string.protected_apps)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
@@ -1166,6 +1172,11 @@ public class ManageApplications extends Fragment implements
             mOptionsMenu.findItem(SHOW_RUNNING_SERVICES).setVisible(false);
             mOptionsMenu.findItem(SHOW_BACKGROUND_PROCESSES).setVisible(false);
             mOptionsMenu.findItem(RESET_APP_PREFERENCES).setVisible(true);
+
+            if(mSearchappEnabled) {
+                //add for new feature for search applications
+                mOptionsMenu.findItem(SHOW_SEARCH_APPLICATIONS).setVisible(true);
+            }
             if (!Utils.isRestrictedProfile(getActivity())) {
                 mOptionsMenu.findItem(SHOW_PROTECTED_APPS).setVisible(true);
             }
@@ -1283,12 +1294,12 @@ public class ManageApplications extends Fragment implements
             }
         } else if (menuId == RESET_APP_PREFERENCES) {
             buildResetDialog();
-        } else if (menuId == APP_INSTALL_LOCATION) {
-            showAppInstallLocationSettingDlg();
         } else if (menuId == SHOW_PROTECTED_APPS) {
             //Launch Protected Apps Fragment
             Intent intent = new Intent(getActivity(), ProtectedAppsActivity.class);
             startActivity(intent);
+        } else if (menuId == APP_INSTALL_LOCATION) {
+            showAppInstallLocationSettingDlg();
         } else {
             // Handle the home button
             return false;
