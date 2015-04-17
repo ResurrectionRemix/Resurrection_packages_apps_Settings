@@ -16,7 +16,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="zen_mode_settings"
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+                  android:key="zen_mode_settings"
     android:title="@string/zen_mode_settings_title" >
 
     <!-- When calls and notifications arrive -->
@@ -32,6 +33,13 @@
         android:persistent="false"
         android:switchTextOff=""
         android:switchTextOn="" />
+
+    <!-- None to Silent mode -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="none_is_silent"
+        android:title="@string/none_is_silent_title"
+        android:summary="@string/none_is_silent_summary"
+        settings:advanced="true" />
 
     <PreferenceCategory
         android:key="important"
