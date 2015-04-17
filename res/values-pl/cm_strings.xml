@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia opcji programistycznych.</item>
-    <item quantity="few">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia opcji programistycznych.</item>
+    <item quantity="few">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia opcji programistycznych.</item>
     <item quantity="other">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia opcji programistycznych.</item>
   </plurals>
   <string name="show_dev_on_cm">Aktywowałeś opcje programistyczne!</string>
@@ -86,6 +86,9 @@
   <string name="profile_lockmode_insecure_summary">Nie pytaj o PIN lub hasło</string>
   <string name="profile_lockmode_disabled_summary">Wyłącz blokadę ekranu</string>
   <string name="profile_airplanemode_title">Opcje trybu samolotowego</string>
+  <string name="profile_brightness_title">Jasność ekranu</string>
+  <string name="profile_brightness_override_summary">Ustaw na %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Nadpisz jasność</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Przenośny hotspot Wi\u2011Fi</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -300,6 +303,7 @@
   <string name="status_bar_show_unused_sims_title">Pokaż ikonę pustego slotu SIM</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Ukryj ikony nieużywanych slotów SIM</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Oznacz nieużywane sloty SIM</string>
+  <string name="sim_name_hint">Wprowadź nazwę SIM</string>
   <string name="edit_light_settings">Edytuj ustawienia diody</string>
   <string name="pulse_speed_title">Długość impulsu i szybkość migania</string>
   <string name="default_time">Normalna</string>
@@ -569,6 +573,12 @@
   <string name="subs_settings">Status karty SIM</string>
   <string name="storage_usb">Pamięć USB</string>
   <string name="storage_uicc">Pamięć UICC</string>
+  <string name="sdcard_eject" product="default">Odmontuj kartę SD</string>
+  <string name="sdcard_eject_summary" product="default">Odmontuj kartę SD, aby móc ją bezpiecznie wyciągnąć</string>
+  <string name="sd_card_format" product="default">Wyczyść kartę SD</string>
+  <string name="sd_card_format_summary" product="default">Usuwa wszystkie dane na karcie SD, takie jak muzyka i zdjęcia</string>
+  <string name="sdcard_mount" product="default">Montowanie karty SD</string>
+  <string name="sdcard_insert_summary" product="default">Włóż kartę SD, aby zamontować</string>
   <string name="usb_eject" product="default">Odmontuj pamięć USB</string>
   <string name="usb_eject_summary" product="default">Odmontuj pamięć USB, aby móc ją bezpiecznie usunąć</string>
   <string name="usb_format" product="default">Wyczyść pamięć USB</string>
@@ -583,22 +593,36 @@
   <string name="uicc_insert_summary" product="default">Włóż pamięć UICC, aby zamontować</string>
   <string name="usb_settings_enable_ums_title">Włączyć pamięć masową?</string>
   <string name="usb_settings_enable_ums_message">Składniki systemu i aplikacje polegają na stałym dostępie do głównej pamięci urządzenia. Ta funkcja usuwa tą funkcjonalność. Zdecydowanie zaleca się korzystanie z MTP. Czy na pewno chcesz włączyć pamięć masową?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Odmontować kartę SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Odmontować pamięć USB?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Odmontować pamięć UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Jeśli odmontujesz kartę SD, niektóre aplikacje mogą przestać działać lub stać się niedostępne dopóki nie zamontujesz ponownie karty SD.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Jeśli odmontujesz pamięć USB, niektóre aplikacje mogą przestać działać lub stać się niedostępne dopóki ponownie nie zamontujesz pamięci USB.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Jeśli odmontujesz pamięć UICC, niektóre aplikacje mogą przestać działać lub stać się niedostępne dopóki ponownie nie zamontujesz pamięci UICC.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Nie udało się odmontować karty SD. Spróbuj ponownie później.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Nie udało się odmontować pamięci USB. Spróbuj ponownie później.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Nie udało się odmontować pamięci UICC. Spróbuj ponownie później.</string>
+  <string name="sdcard_unmount_inform_text" product="default">Karta SD będzie niezamontowana.</string>
   <string name="usb_unmount_inform_text" product="default">Pamięć USB zostanie odmontowana.</string>
   <string name="uicc_unmount_inform_text" product="default">Pamięć UICC zostanie odmontowana.</string>
+  <string name="sdcard_media_format_desc" product="default">Usunąć wszystkie dane z karty SD? Spowoduje utratę <b>wszystkich</b> danych na karcie!</string>
   <string name="usb_media_format_desc" product="default">Wyczyścić pamięć USB? Stracisz <b>wszystkie</b> dane zapisane w tej pamięci!</string>
   <string name="uicc_media_format_desc" product="default">Wyczyścić pamięć UICC? Stracisz <b>wszystkie</b> dane zapisane w tej pamięci!</string>
+  <string name="sdcard_media_format_button_text" product="default">Wyczyść kartę SD</string>
   <string name="usb_media_format_button_text" product="default">Wyczyść pamięć USB</string>
   <string name="uicc_media_format_button_text" product="default">Wyczyść pamięć UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Wyczyścić kartę SD usuwając z niej wszystkie pliki? Nie można odwrócić tej akcji!</string>
   <string name="usb_media_format_final_desc" product="default">Wyczyścić pamięć USB usuwając z niego wszystkie pliki? Nie można odwrócić tej akcji!</string>
   <string name="uicc_media_format_final_desc" product="default">Wyczyścić pamięć UICC usuwając z niej wszystkie pliki? Nie można odwrócić tej akcji!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Musisz narysować swój wzór odblokowania, aby potwierdzić, że chcesz wyczyścić kartę SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Musisz narysować swój wzór odblokowania, by potwierdzić, że chcesz wyczyścić pamięć USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Musisz narysować swój wzór odblokowania, by potwierdzić, że chcesz wyczyścić pamięć USB.</string>
+  <string name="internal_sd_format">Wyczyść wewnętrzną pamięć</string>
+  <string name="internal_sd_format_summary">Usuwa wszystkie dane pamięci wewnętrznej, takie jak muzyka i zdjęcia</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nAby usunąć muzykę, zdjęcia i inne dane użytkownika <b>pamięć wewnętrzna</b> musi zostać wyczyszczona.</string>
+  <string name="erase_internal_storage">Wyczyść pamięć wewnętrzną</string>
+  <string name="erase_internal_storage_description">Usuwa wszystkie dane z pamięci wewnętrznej, takie jak muzyka i zdjęcia</string>
+  <string name="storage_rescan_media">Ponownie skanuj zawartość pamięci</string>
   <string name="location_category_enhanced_location">Poszerzona lokalizacja (IZat)</string>
   <string name="app_ops_settings_summary">Wyświetl lub zmień uprawnienia aplikacji</string>
   <string name="enable_adb_summary_charging">Urządzenie jest w trybie ładowania, debugowanie USB jest wyłączone</string>
@@ -663,6 +687,8 @@
   <string name="cmlicense_title">Informacje prawne CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Informacje prawne CyanogenMod</string>
   <string name="settings_cmlicense_activity_unreachable">Nie masz połączenia z internetem. Aby zobaczyć te informacje przejdź do %s z dowolnego komputera podłączonego do internetu</string>
+  <string name="lockpattern_settings_enable_error_path_title">Pokazuj błędny wzór</string>
+  <string name="lockpattern_settings_enable_dots_title">Pokazuj punkty wzoru</string>
   <string name="unlock_quick_unlock_control_title">Szybkie odblokowywanie</string>
   <string name="unlock_quick_unlock_control_summary">Odblokuj automatycznie, gdy wprowadzony zostanie poprawny PIN/hasło</string>
   <string name="unlock_scramble_pin_layout_title">Pomieszany układ</string>
@@ -704,6 +730,7 @@
   <string name="qs_tile_lockscreen">Blokada ekranu</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Wygaszanie ekranu</string>
+  <string name="qs_tile_usb_tether">Tethering USB</string>
   <string name="qs_main_tiles_title">Powiększenie pierwszego rzędu</string>
   <string name="qs_main_tiles_summary_on">Dwa główne przełączniki w pierwszym rzędzie</string>
   <string name="qs_main_tiles_summary_off">Trzy przełączniki w każdym rzędzie</string>
@@ -731,6 +758,7 @@
   <string name="expanded_desktop_style">Styl rozszerzonego pulpitu</string>
   <string name="expanded_desktop_style_description">Wybierz domyślny styl rozszerzonego pulpitu</string>
   <string name="expanded_desktop_title">Opcje rozszerzonego pulpitu</string>
+  <string name="title_general">Ogólne</string>
   <string name="lockscreen_targets_message">Skróty ekranu blokady</string>
   <string name="lockscreen_default_target">Domyślny</string>
   <string name="lockscreen_none_target">Brak</string>

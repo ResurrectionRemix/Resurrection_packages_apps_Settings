@@ -55,6 +55,9 @@
   <string name="profile_app_group_category_title">Kennisgewing veranderings</string>
   <string name="profile_app_group_item_instructions">Voegby of verwyder groepe</string>
   <string name="profile_app_group_item_instructions_summary">Voegby of verwyder, kennisgewing veranderings program groepe, na hierdie profiel</string>
+  <string name="profile_entries_on">Aan</string>
+  <string name="profile_entries_off">Af</string>
+  <string name="profile_entries_no_override">Geen verstelling</string>
   <string name="profile_name_title">Naam</string>
   <string name="new_profile_name">&lt;nuwe profiel&gt;</string>
   <string name="rename_dialog_title">Hernoem</string>
@@ -83,6 +86,9 @@
   <string name="profile_lockmode_insecure_summary">Moenie vra nie vir PIN of wagwoord</string>
   <string name="profile_lockmode_disabled_summary">Deaktiveer slot skerm</string>
   <string name="profile_airplanemode_title">Vliegtuigmodus</string>
+  <string name="profile_brightness_title">Skerm helderheid</string>
+  <string name="profile_brightness_override_summary">Stel na %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Verander helderheid</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Draagbare Wi\u2011Fi warmkol</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -297,6 +303,7 @@
   <string name="status_bar_show_unused_sims_title">Wys leë SIM ikone</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Steek ongebruikte SIM ikone weg</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Wys ongebruikte SIM gleuwe</string>
+  <string name="sim_name_hint">Tik die SIM naam in</string>
   <string name="edit_light_settings">&gt;Verander liggie instellings</string>
   <string name="pulse_speed_title">Flikker lengte en spoed</string>
   <string name="default_time">Normaal</string>
@@ -566,6 +573,12 @@
   <string name="subs_settings">SIM-kaart status</string>
   <string name="storage_usb">USB berging</string>
   <string name="storage_uicc">UICC berging</string>
+  <string name="sdcard_eject" product="default">Ontheg SD kaart</string>
+  <string name="sdcard_eject_summary" product="default">Ontheg die SD kaart sodat jy dit veilig kan verwyder</string>
+  <string name="sd_card_format" product="default">Vee SD kaart uit</string>
+  <string name="sd_card_format_summary" product="default">Vee al die data uit op die SD kaart, soos foto\'s en musiek</string>
+  <string name="sdcard_mount" product="default">Laai SD kaart</string>
+  <string name="sdcard_insert_summary" product="default">Voeg \'n SD kaart by om te monteer</string>
   <string name="usb_eject" product="default">Ontheg USB berging</string>
   <string name="usb_eject_summary" product="default">Ontheg die USB berging, sodat jy dit veilig kan verwyder</string>
   <string name="usb_format" product="default">Vee USB berging uit</string>
@@ -580,22 +593,36 @@
   <string name="uicc_insert_summary" product="default">Plaas UICC berging om te heg</string>
   <string name="usb_settings_enable_ums_title">Aktiveer massa berging?</string>
   <string name="usb_settings_enable_ums_message">Stelsel komponente en programme vertrou dat die primêre berging altyd beskikbaar sal wees. Hierdie funksie breek die funksionaliteit. Dit word sterk aanbeveel om MTP gebruik. Is jy seker jy wil massa stoor aktiveer?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Ontheg SD kaart?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Ontheg USB berging?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Ontheg UICC berging?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">As jy die SD kaart ontheg, sal sommige programme ophou werk en mag onbeskikbaar wees totdat jy dit weer monteer.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">As jy USB berging ontheg sal sommige programme wat jy gebruik ophou werk en dit sal net weer werk as jy die USB berging weer heg.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">As jy UICC berging ontheg sal sommige programme wat jy gebruik ophou werk en dit sal net weer werk as jy die UICC berging weer heg.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Kon nie SD kaart ontheg nie, probeer weer later.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Kon nie USB berging ontheg nie. Probeer weer later.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Kon nie UICC berging ontheg nie. Probeer weer later.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD kaart sal ontheg word.</string>
   <string name="usb_unmount_inform_text" product="default">USB-berging sal ontheg word.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC berging sal ontheg word.</string>
+  <string name="sdcard_media_format_desc" product="default">Vee SD kaart uit? Jy sal <b>alle</b> data verloor!</string>
   <string name="usb_media_format_desc" product="default">Vee die USB berging uit? Jy sal <b>alle</b> data verloor op die stoor spasie!</string>
   <string name="uicc_media_format_desc" product="default">Vee die UICC berging uit? Jy sal <b>alle</b> data verloor op die stoor spasie!</string>
+  <string name="sdcard_media_format_button_text" product="default">Vee SD kaart uit</string>
   <string name="usb_media_format_button_text" product="default">Vee USB-berging uit</string>
   <string name="uicc_media_format_button_text" product="default">Vee UICC berging uit</string>
+  <string name="sdcard_media_format_final_desc" product="default">Uitvee van SD kaart, verwyder al die lêers wat daar gestoor word? Jy kan nie hierdie aksie ontdoen nie!</string>
   <string name="usb_media_format_final_desc" product="default">Uitvee van USB-berging, verwyder al die lêers wat daar gestoor word? Jy kan nie hierdie aksie ontdoen nie!</string>
   <string name="uicc_media_format_final_desc" product="default">Uitvee van UICC berging, verwyder al die lêers wat daar gestoor word? Jy kan nie hierdie aksie ontdoen nie!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Vir bevestiging het jy nodig om jou ontsluit patroon weer in te sleutel om die SD kaart uit te vee.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Vir bevestiging het jy nodig om jou ontsluit patroon in te sleutel om die USB-berging uit te vee.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Vir bevestiging het jy nodig om jou ontsluit patroon in te sleutel om die UICC berging uit te vee.</string>
+  <string name="internal_sd_format">Verwyder interne media spasie</string>
+  <string name="internal_sd_format_summary">Verwyder alle data op die interne media spasie, soos musiek en foto\'s</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nOm musiek, foto\'s en ander gebruiker data uit te vee, moet die <b>interne media spasie</b> skoon gemaak word.</string>
+  <string name="erase_internal_storage">Verwyder interne media spasie</string>
+  <string name="erase_internal_storage_description">Verwyder al die data op die interne media spasie, soos musiek en foto\'s</string>
+  <string name="storage_rescan_media">Herskandeer die skyf spasie</string>
   <string name="location_category_enhanced_location">Verbeterde ligging (IZat)</string>
   <string name="app_ops_settings_summary">Kyk of verander program toestemmings</string>
   <string name="enable_adb_summary_charging">Toestel is in Laai modus, USB ontfouting is gedeaktiveer</string>
@@ -660,6 +687,8 @@
   <string name="cmlicense_title">CyanogenMod Regs</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod Regs</string>
   <string name="settings_cmlicense_activity_unreachable">Jy het nie \'n data verbinding. Om hierdie inligting nou te sien, gaan na %s van enige rekenaar wat verbind is tot die Internet.</string>
+  <string name="lockpattern_settings_enable_error_path_title">Wys patroon fout</string>
+  <string name="lockpattern_settings_enable_dots_title">Wys patroon kolle</string>
   <string name="unlock_quick_unlock_control_title">Vinnige oopsluit</string>
   <string name="unlock_quick_unlock_control_summary">Ontsluit outomaties wanneer die korrekte PIN/wagwoord ingesleutel is</string>
   <string name="unlock_scramble_pin_layout_title">Skommel uitleg</string>
@@ -701,6 +730,7 @@
   <string name="qs_tile_lockscreen">Slotskerm</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Skerm afsnytyd</string>
+  <string name="qs_tile_usb_tether">USB internet verbinding</string>
   <string name="qs_main_tiles_title">Vergroot eerste ry</string>
   <string name="qs_main_tiles_summary_on">Twee hoof teëls op die eerste ry</string>
   <string name="qs_main_tiles_summary_off">Drie teëls op elke ry</string>
@@ -728,6 +758,7 @@
   <string name="expanded_desktop_style">Uitgebreide werkskerm styl</string>
   <string name="expanded_desktop_style_description">Kies \'n standaard uitgebreide werkskerm styl</string>
   <string name="expanded_desktop_title">Uitgebreide werkskerm opsies</string>
+  <string name="title_general">Algemeen</string>
   <string name="lockscreen_targets_message">Slotskerm kortpaaie</string>
   <string name="lockscreen_default_target">Normaal</string>
   <string name="lockscreen_none_target">Geen</string>

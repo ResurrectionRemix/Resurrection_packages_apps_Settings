@@ -86,6 +86,9 @@
   <string name="profile_lockmode_insecure_summary">Nicht nach PIN oder Passwort fragen</string>
   <string name="profile_lockmode_disabled_summary">Bildschirmsperre deaktivieren</string>
   <string name="profile_airplanemode_title">Flugmodus</string>
+  <string name="profile_brightness_title">Bildschirmhelligkeit</string>
+  <string name="profile_brightness_override_summary">Auf %1$d%% festlegen</string>
+  <string name="profile_brightness_override_checkbox_label">Helligkeit überschreiben</string>
   <string name="toggleWifi">WLAN</string>
   <string name="toggleWifiAp">WLAN-Hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -263,8 +266,8 @@
   <string name="navigation_bar_left_title">Linkshänder-Modus</string>
   <string name="navigation_bar_left_summary">Navigationsleiste im Querformat auf der linken Seite anzeigen</string>
   <string name="navigation_bar_title">Schaltflächen</string>
-  <string name="navigation_bar_help_text">Um anzufangen, tippen Sie auf das \"Bearbeiten\"-Symbol, um die Navigationsleiste zu entsperren.\n\nSie können ein Symbol antippen, um die Verknüpfung zu ändern oder lange auf ein Symbol drücken, um das Layout zu verändern.\n\nTippen Sie auf Sichern, um Ihre Änderungen zu speichern oder Wiederherstellen, um das Layout auf die Standardeinstellungen zurückzusetzen.</string>
-  <string name="navigation_restore_button_text">Standardeinstellungen\nwiederherstellen</string>
+  <string name="navigation_bar_help_text">Um anzufangen, tippen Sie auf das \"Bearbeiten\"-Symbol, um die Navigationsleiste zu entsperren.\n\nSie können ein Symbol antippen, um die Verknüpfung zu ändern oder lange auf ein Symbol drücken, um das Layout zu verändern.\n\nTippen Sie auf \"Speichern\", um Ihre Änderungen zu sichern oder auf \"Wiederherstellen\", um das Layout auf die Standardeinstellungen zurückzusetzen.</string>
+  <string name="navigation_restore_button_text">Wiederherstellen</string>
   <string name="navigation_edit_button_text">Bearbeiten</string>
   <string name="navigation_save_button_text">Speichern</string>
   <string name="navigation_bar_reset_message">Alle Einstellungen löschen und das Standardlayout wiederherstellen?</string>
@@ -300,6 +303,7 @@
   <string name="status_bar_show_unused_sims_title">Zeige leere SIM-Symbole</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Symbole ungenutzter SIM-Slots ausblenden</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Unbenutzte SIM-Slots zeigen</string>
+  <string name="sim_name_hint">SIM-Name eingeben</string>
   <string name="edit_light_settings">Farbeinstellungen ändern</string>
   <string name="pulse_speed_title">Pulsdauer und Geschwindigkeit</string>
   <string name="default_time">Normal</string>
@@ -613,6 +617,11 @@
   <string name="sdcard_media_format_gesture_explanation" product="default">Sie müssen Ihr Entsperrmuster zeichnen, um das Löschen Ihrer SD-Karte zu bestätigen.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Zeichnen Sie ihr Entsperrmuster um den USB- Speicher zu löschen.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Zeichnen Sie Ihr Entsperrmuster, um den UICC-Speicher zu löschen.</string>
+  <string name="internal_sd_format">Internes Speichermedium löschen</string>
+  <string name="internal_sd_format_summary">Löscht alle Daten wie z.B. Musik und Fotos auf dem internen Speichermedium</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nUm Musik, Bilder und andere Nutzerdaten zu löschen, muss das <b>interne Speichermedium</b> gelöscht werden.</string>
+  <string name="erase_internal_storage">Internes Speichermedium löschen</string>
+  <string name="erase_internal_storage_description">Löscht alle Daten wie z.B. Musik und Fotos auf dem internen Speichermedium</string>
   <string name="storage_rescan_media">Speichermedium nach Mediendateien durchsuchen</string>
   <string name="location_category_enhanced_location">Verbesserte Standortdienste (IZat)</string>
   <string name="app_ops_settings_summary">App-Berechtigungen anzeigen oder ändern</string>
@@ -678,6 +687,8 @@
   <string name="cmlicense_title">Rechtliche Hinweise zu CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Rechtliche Hinweise zu CyanogenMod</string>
   <string name="settings_cmlicense_activity_unreachable">Es besteht keine Datenverbindung. Besuchen Sie %s mit einem beliebigen Computer mit Internetverbindung, um die Informationen jetzt anzusehen.</string>
+  <string name="lockpattern_settings_enable_error_path_title">Fehler anzeigen</string>
+  <string name="lockpattern_settings_enable_dots_title">Punkte anzeigen</string>
   <string name="unlock_quick_unlock_control_title">Schnelles Entsperren</string>
   <string name="unlock_quick_unlock_control_summary">Entsperren durch korrekte PIN- oder Passworteingabe</string>
   <string name="unlock_scramble_pin_layout_title">Zufällige Anordnung</string>
@@ -687,8 +698,8 @@
   <string name="notification_drawer_title">Benachrichtigungsanzeige</string>
   <string name="quick_pulldown_title">Schnelles Öffnen</string>
   <string name="quick_pulldown_summary">Herunterziehen der Benachrichtigungsleiste am %1$s Rand öffnet die Schnelleinstellungen</string>
-  <string name="quick_pulldown_summary_left">Links</string>
-  <string name="quick_pulldown_summary_right">Rechts</string>
+  <string name="quick_pulldown_summary_left">linken</string>
+  <string name="quick_pulldown_summary_right">rechten</string>
   <string name="quick_pulldown_off">Aus</string>
   <string name="quick_pulldown_left">Links</string>
   <string name="quick_pulldown_right">Rechts</string>
@@ -719,6 +730,7 @@
   <string name="qs_tile_lockscreen">Bildschirmsperre</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Bildschirm-Timeout</string>
+  <string name="qs_tile_usb_tether">USB-Tethering</string>
   <string name="qs_main_tiles_title">Erste Zeile vergrößern</string>
   <string name="qs_main_tiles_summary_on">Zwei Hauptkacheln in der ersten Zeile</string>
   <string name="qs_main_tiles_summary_off">Drei Kacheln pro Zeile</string>
@@ -746,6 +758,7 @@
   <string name="expanded_desktop_style">Stil des erw. Desktop</string>
   <string name="expanded_desktop_style_description">Wählen Sie einen Standard-Stil für den erw. Desktop</string>
   <string name="expanded_desktop_title">Einstellungen erweiterter Desktop</string>
+  <string name="title_general">Allgemein</string>
   <string name="lockscreen_targets_message">Sperrbildschirm-Verknüpfungen</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="lockscreen_none_target">Keine</string>

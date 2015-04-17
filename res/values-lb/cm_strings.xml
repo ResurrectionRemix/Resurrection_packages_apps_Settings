@@ -52,6 +52,9 @@
   <string name="profile_populate_profile_from_state">Profil mat aktuellen Astellunge vum Apparat konfiguréieren?</string>
   <string name="profile_menu_fill_from_state">Aktuell Astellunge vum Apparat importéieren</string>
   <string name="profile_remove_current_profile">Kann den aktuelle Profil net läschen!</string>
+  <string name="profile_entries_on">Un</string>
+  <string name="profile_entries_off">Aus</string>
+  <string name="profile_entries_no_override">Net iwwerschreiwen</string>
   <string name="profile_name_title">Numm</string>
   <string name="new_profile_name">&lt;neie Profil&gt;</string>
   <string name="rename_dialog_title">Ëmbenennen</string>
@@ -80,6 +83,7 @@
   <string name="profile_lockmode_insecure_summary">Net no PIN oder Passwuert froen</string>
   <string name="profile_lockmode_disabled_summary">Spärschierm desaktivéieren</string>
   <string name="profile_airplanemode_title">Fligermodus</string>
+  <string name="profile_brightness_override_summary">Op %1$d%% setzen</string>
   <string name="toggleWifi">WLAN</string>
   <string name="toggleWifiAp">Mobile WLAN-Hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -215,6 +219,7 @@
   <string name="contributor_cloud_title">Mataarbechter</string>
   <string name="phone_service_state">Stëmm: <xliff:g id="voice_state">%1$s</xliff:g>, Daten: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Zweemol drécke fir waakreg ze maachen</string>
+  <string name="double_tap_to_wake_summary">Zweemol op de Schierm drécke fir en unzeschalten</string>
   <string name="proximity_wake_title">Onbeofsiichtegt waakreg maache verhënneren</string>
   <string name="proximity_wake_summary">Virum waakreg maachen de Proximitéitssensor iwwerpréiwen</string>
   <string name="privacy_settings_cyanogenmod_title">Privatsphär</string>
@@ -261,6 +266,7 @@
   <string name="navigation_bar_reset_message">All Astellunge läschen an de Standardlayout erëmhierstellen?</string>
   <string name="navigation_bar_arrow_keys_title">Feiltaste beim Schreiwen uweisen</string>
   <string name="navigation_bar_arrow_keys_summary">Beim Schreiwe Cursor-Knäppercher lénks a riets uweisen. Iwwerschreift den Agabmethod-Wiessler.</string>
+  <string name="navigation_bar_recents_title">Laangt Drécken op den Applikatiounsverlaf</string>
   <string name="header_category_personalization">Personaliséierung</string>
   <string name="status_bar_title">Statusläischt</string>
   <string name="status_bar_toggle_brightness">Hellegkeetssteierung</string>
@@ -319,6 +325,7 @@
   <string name="notification_light_missed_call_title">Verpassten Uruff</string>
   <string name="notification_light_voicemail_title">Mailboxopnam</string>
   <string name="notification_ringtone_title_cm">Notifikatiounstoun</string>
+  <string name="headset_connect_player_title">Musek-App starten</string>
   <string name="ime_switcher_notify">Auswielsymbol</string>
   <string name="ime_switcher_notify_summary">Symbol fir de Wiessel vun der Agabmethod uweisen</string>
   <string name="app_notification_show_on_keyguard_title">Um Spärschierm uweisen</string>
@@ -465,6 +472,22 @@
   <string name="profile_setup_setup_triggers_title_config">Ausléiser änneren: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Schrëtt 2: Aktioune bestëmmen</string>
   <string name="profile_setup_actions_title_config">Aktiounen ëmkonfiguréieren</string>
+  <string name="profile_appgroups_manage">App-Gruppen</string>
+  <string name="profile_appgroup_manage">App-Gruppe geréieren</string>
+  <string name="profile_appgroups_title">App-Gruppen</string>
+  <string name="profile_new_appgroup">Nei App-Grupp</string>
+  <string name="profile_delete_appgroup">Dës App-Grupp läschen?</string>
+  <string name="profile_appgroup_name_prompt">Gëff en Numm fir déi nei App-Grupp an</string>
+  <string name="profile_appgroup_name_title">Numm</string>
+  <string name="duplicate_appgroup_name">Duebelen App-Gruppen-Numm!</string>
+  <string name="profile_app_delete_confirm">Dës App läschen?</string>
+  <string name="sound_mode">Notificatiounsmodus</string>
+  <string name="ringer_mode">Schellmodus</string>
+  <string name="lights_mode">Luuchtmodus</string>
+  <string name="vibrate_mode">Vibratiounsmodus</string>
+  <string name="choose_soundtone">Notificatiounstoun auswielen</string>
+  <string name="choose_ringtone">Schelltoun auswielen</string>
+  <string name="soundtone_title">Notifikatiounstoun</string>
   <string name="no_bluetooth_triggers">Kee Bluetooth-Apparat gekoppelt.\nDréck fir e Bluetooth-Apparat ze koppelen, ier d\'Ausléiser kënne konfiguréiert ginn.</string>
   <string name="no_wifi_triggers">Kee WLAN-Zougankspunkt konfiguréiert.\nDréck fir WLAN ze verbannen, ier d\'Ausléiser kënne konfiguréiert ginn.</string>
   <string name="no_triggers_configured">Keng Ausléiser konfiguréiert. Dréck fir der méi dobäizesetzen.</string>
@@ -535,6 +558,11 @@
   <string name="subs_settings">SIM-Kaarte-Status</string>
   <string name="storage_usb">USB-Späicher</string>
   <string name="storage_uicc">UICC-Späicher</string>
+  <string name="sdcard_eject" product="default">SD-Kaart trennen</string>
+  <string name="sdcard_eject_summary" product="default">D\'SD-Kaart trennen sou datt se sécher kann erausgeholl ginn</string>
+  <string name="sd_card_format" product="default">SD-Kaart läschen</string>
+  <string name="sd_card_format_summary" product="default">Läscht all d\'Daten op der SD-Kaart, wéi Musek a Fotoen</string>
+  <string name="sdcard_mount" product="default">SD-Kaart abannen</string>
   <string name="usb_eject" product="default">USB-Späicher trennen</string>
   <string name="usb_eject_summary" product="default">Den USB-Späicher trennen, fir datt e sécher kann erausgeholl ginn</string>
   <string name="usb_format" product="default">USB-Späicher läschen</string>
@@ -549,22 +577,31 @@
   <string name="uicc_insert_summary" product="default">UICC-Späicher asetzen deen agebonne soll ginn</string>
   <string name="usb_settings_enable_ums_title">Massespäicher aktivéieren?</string>
   <string name="usb_settings_enable_ums_message">Systemkomponenten an Appe brauchen e stänneg disponibele Primärspäicher. Dës Funktioun schalt dat aus. Et gëtt dréngend recommendéiert, MTP ze benotzen. Wëlls du wierklech de Massespäicher aktivéieren?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SD-Kaart trennen?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USB-Späicher trennen?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICC-Späicher trennen?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Wann s du d\'SD-Kaart trenns, gi verschidden Appen déi s du notz gestoppt a kéinten ophale mat funktionéiere bis du d\'SD-Kaart nees verbënns.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Wann s du den USB-Späicher trenns, gi verschidden Appen déi s du benotz gestoppt a kéinten ophale mat Funktionéiere bis du den USB-Späicher nees verbënns.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Wann s du den UICC-Späicher trenns, gi verschidden Appen déi s du benotz gestoppt a kéinten ophale mat Funktionéiere bis du den UICC-Späicher nees verbënns.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Konnt d\'SD-Kaart net trennen. Probéier méi spéit nees.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Konnt den USB-Späicher net trennen. Probéier méi spéit nees.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Konnt den UICC-Späicher net trennen. Probéier méi spéit nees.</string>
+  <string name="sdcard_unmount_inform_text" product="default">D\'SD-Kaart gëtt getrennt.</string>
   <string name="usb_unmount_inform_text" product="default">Den USB-Späicher gëtt getrennt.</string>
   <string name="uicc_unmount_inform_text" product="default">Den UICC-Späicher gëtt getrennt.</string>
+  <string name="sdcard_media_format_desc" product="default">Déi ganz SD-Kaart läschen? Du verléiers <b>all</b> déi gespäichert Daten!</string>
   <string name="usb_media_format_desc" product="default">Den USB-Späicher läschen? Du verléiers <b>all</b> d\'Daten um Späicher!</string>
   <string name="uicc_media_format_desc" product="default">Den UICC-Späicher läschen? Du verléiers <b>all</b> d\'Daten um Späicher!</string>
+  <string name="sdcard_media_format_button_text" product="default">SD-Kaart läschen</string>
   <string name="usb_media_format_button_text" product="default">USB-Späicher läschen</string>
   <string name="uicc_media_format_button_text" product="default">UICC-Späicher läschen</string>
+  <string name="sdcard_media_format_final_desc" product="default">D\'SD-Kaart eidelmaachen, an all d\'Fichieren déi drop gespäichert si läschen? Dës Aktioun kann net réckgängeg gemaach ginn!</string>
   <string name="usb_media_format_final_desc" product="default">Den USB-Späicher eidel maachen, an all d\'Fichieren déi drop gespäichert si läschen? Dës Aktioun kann net réckgängeg gemaach ginn!</string>
   <string name="uicc_media_format_final_desc" product="default">Den UICC-Späicher eidel maachen, an all d\'Fichieren déi drop gespäichert si läschen? Dës Aktioun kann net réckgängeg gemaach ginn!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen dass du d\'SD-Kaart läsche wëlls.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen datt du den USB-Späicher läsche wëlls.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen datt s du den UICC-Späicher läsche wëlls.</string>
+  <string name="storage_rescan_media">Späicher no Mediefichieren duerchsichen</string>
   <string name="location_category_enhanced_location">Erweidert Lokaliséierung (IZat)</string>
   <string name="app_ops_settings_summary">App-Berechtegungen ukucken oder änneren</string>
   <string name="enable_adb_summary_charging">Den Apparat ass am Opluetmodus, USB-Debugging ass desaktivéiert</string>
@@ -629,6 +666,8 @@
   <string name="cmlicense_title">Rechtlesch Hiwäiser iwwer CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Rechtlesch Hiwäiser iwwer CyanogenMod</string>
   <string name="settings_cmlicense_activity_unreachable">Du hues keng Dateconnectioun. Fir dës Informatioun elo ze liesen, besich %s vun egal wéi engem Computer dee mam Internet verbonnen ass.</string>
+  <string name="lockpattern_settings_enable_error_path_title">Musterfeeler uweisen</string>
+  <string name="lockpattern_settings_enable_dots_title">Musterpunkten uweisen</string>
   <string name="unlock_quick_unlock_control_title">Séiert Entspären</string>
   <string name="unlock_quick_unlock_control_summary">Automatesch Entspäre wann de PIN oder d\'Passwuert korrekt sinn</string>
   <string name="unlock_scramble_pin_layout_title">Zoufälleg Unuerdnung</string>
@@ -636,6 +675,13 @@
   <string name="link_volume_option_title">Lautstäerkt vu Schelltoun an Notifikatioune koppelen</string>
   <string name="notification_volume_option_title">Notifikatiounslautstäerkt</string>
   <string name="notification_drawer_title">Notifikatiounsläischt</string>
+  <string name="quick_pulldown_title">Séiert Opmaachen</string>
+  <string name="quick_pulldown_summary">D\'Erofzéiere vun der Notifikatiounsleescht um %1$s Rand mécht déi séier Astellungen op</string>
+  <string name="quick_pulldown_summary_left">Lénks</string>
+  <string name="quick_pulldown_summary_right">Riets</string>
+  <string name="quick_pulldown_off">Aus</string>
+  <string name="quick_pulldown_left">Lénks</string>
+  <string name="quick_pulldown_right">Riets</string>
   <string name="status_bar_show_weather_title">Wieder uweisen</string>
   <string name="status_bar_show_weather_summary">D\'Wieder iwwer dem Panneau mat de séieren Astellungen uweisen</string>
   <string name="qs_category_title">Panneau mat séieren Astellungen</string>
@@ -663,6 +709,7 @@
   <string name="qs_tile_lockscreen">Schiermspär</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Schierm-Timeout</string>
+  <string name="qs_tile_usb_tether">USB-Tethering</string>
   <string name="qs_main_tiles_title">Éischt Rei vergréisseren</string>
   <string name="qs_main_tiles_summary_on">Zwou Haaptkachelen an der éischter Rei</string>
   <string name="qs_main_tiles_summary_off">Dräi Kachelen an all Rei</string>
@@ -678,6 +725,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">Kapp: %1$s W/kg</string>
   <string name="maximum_body_level">Kierper: %1$s W/kg</string>
+  <string name="ic_code_model">Modell: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Vergréisserten Desktop</string>
   <string name="expanded_hide_nothing">Näischt verstoppen</string>
   <string name="expanded_hide_status">Statusläischt verstoppen</string>
@@ -687,11 +736,13 @@
   <string name="expanded_enabled_for_all">Fir all aktivéiert</string>
   <string name="expanded_desktop_style">Stil vum vergréisserten Desktop</string>
   <string name="expanded_desktop_title">Optioune vum vergréisserten Desktop</string>
+  <string name="title_general">Allgemeng</string>
   <string name="lockscreen_targets_message">Spärschierm-Ofkierzungen</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="lockscreen_none_target">Keen</string>
   <string name="lockscreen_message">Dréck e Symbol op der lénkser oder rietser Säit fir d\'Spärschierm-Ofkierzungen nei ze definéieren.</string>
   <string name="lockscreen_choose_action_title">Aktioun auswielen</string>
+  <string name="lockscreen_visualizer_title">Musek-Visualiséierung uweisen</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Astellunge fir sécher SMSen</string>
   <string name="navigation_ring_title">Ziler vun den Navigatiounsréng</string>
@@ -729,4 +780,16 @@
   <string name="lockscreen_settings">Spärschierm</string>
   <string name="category_lights">Beliichtung</string>
   <string name="power_usage_history_title">Akkunotzung</string>
+  <string name="sim_ringtone_title">SIM %d Schelltoun</string>
+  <string name="live_display_mode">Schiermmodus</string>
+  <string name="live_display_color_temperature_title">Faarftemperatur</string>
+  <string name="live_display_color_temperature_summary">Dag: <xliff:g id="day_temperature">%1$d</xliff:g>K  Nuecht: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Dag</string>
+  <string name="live_display_night">Nuecht</string>
+  <string name="live_display_outdoor_mode_title">Automatesche Baussemodus</string>
+  <string name="live_display_low_power_title">Stroumverbrauch reduzéieren</string>
+  <string name="live_display_enhance_color_title">Faarwe verstäerken</string>
+  <string name="battery_saver_threshold">Schwellewäert vum Akkuschouner</string>
+  <string name="battery_saver_summary_unavailable">Beim Oplueden net disponibel</string>
 </resources>

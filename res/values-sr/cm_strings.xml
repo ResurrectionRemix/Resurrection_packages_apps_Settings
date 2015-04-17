@@ -57,6 +57,9 @@
   <string name="profile_app_group_category_title">Преузимање обавештења</string>
   <string name="profile_app_group_item_instructions">Додај или уклони групу</string>
   <string name="profile_app_group_item_instructions_summary">Додај или уклони апликацију за преузимање обавештења за овај профил</string>
+  <string name="profile_entries_on">Укључено</string>
+  <string name="profile_entries_off">Искључено</string>
+  <string name="profile_entries_no_override">Нема обарања</string>
   <string name="profile_name_title">Име</string>
   <string name="new_profile_name">&lt;нови профил&gt;</string>
   <string name="rename_dialog_title">Преименуј</string>
@@ -85,6 +88,9 @@
   <string name="profile_lockmode_insecure_summary">Не тражи PIN или лозинку</string>
   <string name="profile_lockmode_disabled_summary">Онемогући закључани екран</string>
   <string name="profile_airplanemode_title">Режим рада у авиону</string>
+  <string name="profile_brightness_title">Осветљеност екрана</string>
+  <string name="profile_brightness_override_summary">Постави на %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Премости осветљење</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Преносни Wi\u2011Fi hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -568,6 +574,12 @@
   <string name="subs_settings">Статуси SIM картица</string>
   <string name="storage_usb">УСБ диск</string>
   <string name="storage_uicc">UICC складиште</string>
+  <string name="sdcard_eject" product="default">Искључи SD картицу</string>
+  <string name="sdcard_eject_summary" product="default">Искључи SD картицу тако да можеш безбедно да је уклониш</string>
+  <string name="sd_card_format" product="default">Избриши SD картицу</string>
+  <string name="sd_card_format_summary" product="default">Избриши све податке са SD картице, као што су музика и фотографије</string>
+  <string name="sdcard_mount" product="default">Укључи SD картицу</string>
+  <string name="sdcard_insert_summary" product="default">Стави SD картицу да је укључиш</string>
   <string name="usb_eject" product="default">Искључи USB складиште</string>
   <string name="usb_eject_summary" product="default">Искључи USB складиште тако да можеш безбедно да га уклониш</string>
   <string name="usb_format" product="default">Избриши USB складиште</string>
@@ -582,22 +594,36 @@
   <string name="uicc_insert_summary" product="default">Убаци UICC складиште да га укључиш</string>
   <string name="usb_settings_enable_ums_title">Омогући масовно складиште?</string>
   <string name="usb_settings_enable_ums_message">Компоненте система и апликације се поуздавају да је примарно складиште увек у употреби. Ова функција квари ту функционалност. Строго се препоручује да користе MTP уместо ње. Да ли сте сигурни да желите да омогућите масовно складиште?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Искључи SD картицу?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Искључи USB складиште?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Искључи UICC складиште?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Ако искључиш SD картицу, неке апликације које користиш ће се зауставити и можда неће бити доступне све док поново не укључиш SD картицу.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Ако искључиш USB складиште, неке апликације које користиш ће се зауставити и можда неће бити доступне све док поново не укључиш USB складиште.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Ако искључиш UICC складиште, неке апликације које користиш ће се зауставити и можда неће бити доступне све док поново не укључиш UICC складиште.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Не може да се искључи SD картица. Покушај поново касније.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Не може да се искључи USB складиште. Покушај поново касније.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Не може да се искључи UICC складиште. Покушај поново касније.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD картица ће бити искључена.</string>
   <string name="usb_unmount_inform_text" product="default">USB складиште ће бити искључено.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC складиште ће бити искључено.</string>
+  <string name="sdcard_media_format_desc" product="default">Избриши SD картицу? Изгубићеш <b>све</b> податке на картици!</string>
   <string name="usb_media_format_desc" product="default">Обриши USB складиште? изгубићеш <b>све</b> податке у складишту!</string>
   <string name="uicc_media_format_desc" product="default">Обриши UICC складиште? изгубићеш <b>све</b> податке у складишту!</string>
+  <string name="sdcard_media_format_button_text" product="default">Избриши SD картицу</string>
   <string name="usb_media_format_button_text" product="default">Избриши USB складиште</string>
   <string name="uicc_media_format_button_text" product="default">Обриши UICC складиште</string>
+  <string name="sdcard_media_format_final_desc" product="default">Избриши SD картицу, брисањем свих фајлова ускладиштених тамо? Не можеш преокренути ову акцију!</string>
   <string name="usb_media_format_final_desc" product="default">Избриши USB складиште, брисањем свих фајлова ускладиштених тамо? Не можеш преокренути ову акцију!</string>
   <string name="uicc_media_format_final_desc" product="default">Избриши UICC складиште, брисањем свих фајлова ускладиштених тамо? Не можеш преокренути ову акцију!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Потребно је да нацрташ шаблон за откључавање да би потврдио да желиш да избришеш SD картицу.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Потребно је да нацрташ шаблон за откључавање да би потврдио да желиш да избришеш USB складиште.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Потребно је да нацрташ шаблон за откључавање да би потврдио да желиш да избришеш UICC складиште.</string>
+  <string name="internal_sd_format">Избриши унутрашње складиште медија</string>
+  <string name="internal_sd_format_summary">Брише све податке на унутрашњем складишту, као што су музика и фотографије</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nДа очистиш музику, фотографије и друге корисникове податке <b>унутрашње складиште медија</b> мора бити обрисано.</string>
+  <string name="erase_internal_storage">Избриши унутрашње складиште медија</string>
+  <string name="erase_internal_storage_description">Обриши све податке на унутрашњем складишту медија, као што је музика или фотографије</string>
+  <string name="storage_rescan_media">Поново скенирај медије за запремину складишта</string>
   <string name="location_category_enhanced_location">Побољшана локација (IZat)</string>
   <string name="app_ops_settings_summary">Види или промени дозволе апликације</string>
   <string name="enable_adb_summary_charging">Уређај је у режиму напајања, USB отклањање грешака је онемогућено</string>
@@ -662,6 +688,8 @@
   <string name="cmlicense_title">CyanogenMod лиценца</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod лиценца</string>
   <string name="settings_cmlicense_activity_unreachable">Немаш везу за пренос података. Да би одмах видео ове информације, иди на %s са било ког рачунара који је повезан на интернет.</string>
+  <string name="lockpattern_settings_enable_error_path_title">Прикажи грешку шаблона</string>
+  <string name="lockpattern_settings_enable_dots_title">Прикажи тачкице шаблона</string>
   <string name="unlock_quick_unlock_control_title">Брзо откључавање</string>
   <string name="unlock_quick_unlock_control_summary">Откључај аутоматски када се унесе исправан PIN/лозинка</string>
   <string name="unlock_scramble_pin_layout_title">Насумичан распоред</string>

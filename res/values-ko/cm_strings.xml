@@ -54,6 +54,9 @@
   <string name="profile_app_group_category_title">알림 무시</string>
   <string name="profile_app_group_item_instructions">앱 그룹 추가 또는 제거</string>
   <string name="profile_app_group_item_instructions_summary">이 프로필에 알림을 무시하는 앱의 그룹 추가 또는 제거</string>
+  <string name="profile_entries_on">켜기</string>
+  <string name="profile_entries_off">끄기</string>
+  <string name="profile_entries_no_override">덮어쓰기 금지</string>
   <string name="profile_name_title">이름</string>
   <string name="new_profile_name">&lt;새 프로필&gt;</string>
   <string name="rename_dialog_title">이름 바꾸기</string>
@@ -82,6 +85,9 @@
   <string name="profile_lockmode_insecure_summary">PIN이나 암호를 요구하지 않음</string>
   <string name="profile_lockmode_disabled_summary">잠금화면 제거</string>
   <string name="profile_airplanemode_title">비행기 모드</string>
+  <string name="profile_brightness_title">화면 밝기</string>
+  <string name="profile_brightness_override_summary">%1$d%%로 설정</string>
+  <string name="profile_brightness_override_checkbox_label">밝기 강제 설정</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">휴대용 Wi\u2011Fi 핫스팟</string>
   <string name="toggleBluetooth">블루투스</string>
@@ -565,6 +571,12 @@
   <string name="subs_settings">SIM 카드 상태</string>
   <string name="storage_usb">USB 저장소</string>
   <string name="storage_uicc">UICC 저장소</string>
+  <string name="sdcard_eject" product="default">SD 카드 마운트 해제</string>
+  <string name="sdcard_eject_summary" product="default">SD 카드를 마운트 해제하여 안전하게 제거</string>
+  <string name="sd_card_format" product="default">SD 카드 지우기</string>
+  <string name="sd_card_format_summary" product="default">SD 카드에 있는 모든 데이터(예: 음악 및 사진) 지우기</string>
+  <string name="sdcard_mount" product="default">SD 카드 마운트</string>
+  <string name="sdcard_insert_summary" product="default">마움트할 SD 카드 삽입</string>
   <string name="usb_eject" product="default">USB 저장소 마운트 해제</string>
   <string name="usb_eject_summary" product="default">USB 저장소를 마운트 해제하여 안전하게 제거</string>
   <string name="usb_format" product="default">USB 저장소 지우기</string>
@@ -579,22 +591,36 @@
   <string name="uicc_insert_summary" product="default">마운트할 UICC 저장소 삽입</string>
   <string name="usb_settings_enable_ums_title">대용량 저장장치를 사용합니까?</string>
   <string name="usb_settings_enable_ums_message">시스템 구성 요소 및 앱들은 항상 사용 가능한 주 저장소에 의존합니다. 이 기능을 사용하면 그러한 의존이 불가능해집니다. 따라서 이 기능 대신 MTP를 사용하는 것이 권장됩니다. 정말 대용량 저장장치를 사용하시겠습니까?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">SD 카드를 마운트 해제하시겠습니까?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">USB 저장소를 마운트 해제하시겠습니까?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">UICC 저장소를 마운트 해제하시겠습니까?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">SD 카드를 마운트 해제하면 사용 중인 일부 앱이 중지되고 SD 카드를 다시 마운트할 때까지 사용할 수 없게 됩니다.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">USB 저장소를 마운트 해제하면 사용 중인 일부 앱이 중지되고 USB 저장소를 다시 마운트할 때까지 사용할 수 없게 됩니다.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">UICC 저장소를 마운트 해제하면 사용 중인 일부 앱이 중지되고 UICC 저장소를 다시 마운트할 때까지 사용할 수 없게 됩니다.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">SD 카드를 마운트 해제할 수 없습니다. 다시 시도해주십시오.</string>
   <string name="dlg_error_usb_unmount_text" product="default">USB 저장소를 마운트 해제하지 못했습니다. 나중에 다시 시도하세요.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">UICC 저장소를 마운트 해제하지 못했습니다. 나중에 다시 시도하세요.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD 카드가 마운트 해제됩니다.</string>
   <string name="usb_unmount_inform_text" product="default">USB 저장소가 마운트 해제됩니다.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC 저장소가 마운트 해제됩니다.</string>
+  <string name="sdcard_media_format_desc" product="default">SD 카드를 지우시겠습니까? 카드에 저장된 <b>모든</b> 데이터가 삭제되니 주의하세요!</string>
   <string name="usb_media_format_desc" product="default">USB 저장소를 지우시겠습니까? 저장소에 저장된 <b>모든</b> 데이터가 삭제되니 주의하세요.</string>
   <string name="uicc_media_format_desc" product="default">UICC 저장소를 지우시겠습니까? 저장소에 저장된 <b>모든</b> 데이터가 삭제되니 주의하세요.</string>
+  <string name="sdcard_media_format_button_text" product="default">SD 카드 지우기</string>
   <string name="usb_media_format_button_text" product="default">USB 저장소 지우기</string>
   <string name="uicc_media_format_button_text" product="default">UICC 저장소 지우기</string>
+  <string name="sdcard_media_format_final_desc" product="default">SD 카드를 지우고 저장된 모든 파일을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다!</string>
   <string name="usb_media_format_final_desc" product="default">USB 저장소를 지우고 저장된 모든 파일을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다!</string>
   <string name="uicc_media_format_final_desc" product="default">UICC 저장소를 지우고 저장된 모든 파일을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">SD 카드를 지우려면 잠금 해제 패턴을 입력하십시오.</string>
   <string name="usb_media_format_gesture_explanation" product="default">USB 저장소를 지우려면 잠금 해제 패턴을 입력하십시오.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">UICC 저장소를 지우려면 잠금 해제 패턴을 입력하십시오.</string>
+  <string name="internal_sd_format">내부 미디어 저장소 삭제</string>
+  <string name="internal_sd_format_summary">음악이나 사진과 같은 내부 미디어 저장소에 있는 모든 데이터 삭제</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\n음악, 사진 및 다른 사용자 데이터를 지우기 위해 <b>내부 미디어 저장소</b>를 삭제해야 합니다.</string>
+  <string name="erase_internal_storage">내부 미디어 저장소 삭제</string>
+  <string name="erase_internal_storage_description">음악이나 사진과 같은 내부 미디어 저장소에 있는 모든 데이터를 삭제</string>
+  <string name="storage_rescan_media">저장소의 미디어 재검색</string>
   <string name="location_category_enhanced_location">강화된 위치 확인 (실내 위치 확인)</string>
   <string name="app_ops_settings_summary">앱 권한 보기 및 해제</string>
   <string name="enable_adb_summary_charging">기기가 충전 중이어서 USB 디버깅이 중지됨</string>
@@ -659,6 +685,8 @@
   <string name="cmlicense_title">CyanogenMod 법적 고지</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod 법적 고지</string>
   <string name="settings_cmlicense_activity_unreachable">데이터 연결을 사용할 수 없습니다. 이 정보를 보려면 인터넷에 연결된 컴퓨터에서 %s을(를) 방문하십시오.</string>
+  <string name="lockpattern_settings_enable_error_path_title">패턴 오류 ㅍ시</string>
+  <string name="lockpattern_settings_enable_dots_title">패턴 점 표시</string>
   <string name="unlock_quick_unlock_control_title">빠른 잠금 해제</string>
   <string name="unlock_quick_unlock_control_summary">올바른 PIN 넘버나 암호가 입력되면 자동으로 잠금 해제</string>
   <string name="unlock_scramble_pin_layout_title">레이아웃 섞기</string>
@@ -760,6 +788,7 @@
   <string name="stylus_app_not_installed">%s은(는) 설치되어 있지 않았음</string>
   <string name="advanced">고급</string>
   <string name="advanced_mode_title">고급 모드</string>
+  <string name="advanced_mode_summary">다양한 설정 메뉴에서 추가 설정 옵션 보기</string>
   <string name="category_misc">기타</string>
   <string name="category_vibrate">진동</string>
   <string name="category_volume">볼륨</string>
@@ -790,5 +819,6 @@
   <string name="live_display_enhance_color_title">색상 강화</string>
   <string name="live_display_enhance_color_summary">살색, 풍경 그 밖의 다른 이미지의 색상 생동감 향상</string>
   <string name="battery_saver_threshold">전원 절약 시작값</string>
+  <string name="battery_saver_summary">성능 제한 및 백그라운드 데이터 제한</string>
   <string name="battery_saver_summary_unavailable">충전하는 동안 사용할 수 없음</string>
 </resources>
