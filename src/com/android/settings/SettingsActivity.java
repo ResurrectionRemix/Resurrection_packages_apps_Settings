@@ -58,6 +58,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -1462,6 +1463,16 @@ public class SettingsActivity extends Activity
             return;
         }
         super.onNewIntent(intent);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_SEARCH:
+                mSearchMenuItem.expandActionView();
+                return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     /**
