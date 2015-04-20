@@ -224,14 +224,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        
         <activity android:name=".wifi.WifiSettingsForSetupWizardXL"
                 android:theme="@android:style/Theme.Material.Light.NoActionBar"
                 android:screenOrientation="behind"
                 android:clearTaskOnLaunch="true"
                 android:windowSoftInputMode="adjustResize"
                 android:exported="true" />
-
+                
         <activity android:name="Settings$AdvancedWifiSettingsActivity"
                 android:taskAffinity="com.android.settings"
                 android:label="@string/wifi_advanced_settings_label"
@@ -1150,7 +1150,7 @@
         <activity android:name=".SetupRedactionInterstitial"
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SetupWizardDisableAppStartingTheme"/>
-
+            
         <activity android:name=".notification.RedactionInterstitial"/>
 
         <activity android:name=".notification.RedactionSettingsStandalone"
@@ -1170,11 +1170,6 @@
         <activity android:name="ConfirmLockPattern$InternalActivity"
             android:exported="false"/>
 
-        <!-- Note this must not be exported since it returns the password in the intent -->
-        <activity android:name="ConfirmLockPassword$InternalActivity"
-            android:exported="false"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
-
         <activity android:name="SetupChooseLockGeneric"
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SetupWizardDisableAppStartingTheme"
@@ -1184,6 +1179,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <!-- Note this must not be exported since it returns the password in the intent -->
+        <activity android:name="ConfirmLockPassword$InternalActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <activity android:name="ChooseLockGeneric"
             android:label="@string/lockpassword_choose_lock_generic_header"
@@ -1205,7 +1205,7 @@
             android:exported="false"
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SetupWizardDisableAppStartingTheme" />
-
+            
         <activity android:name="ChooseLockPatternSize" android:exported="false"/>
 
         <activity android:name="ChooseLockPattern" android:exported="false"/>
@@ -1215,14 +1215,14 @@
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SetupWizardDisableAppStartingTheme"
             android:windowSoftInputMode="stateVisible|adjustResize" />
-
+            
         <activity android:name="ChooseLockPassword" android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <activity android:name=".SetupEncryptionInterstitial"
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SetupWizardDisableAppStartingTheme"/>
-
+            
         <activity android:name=".EncryptionInterstitial"/>
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
