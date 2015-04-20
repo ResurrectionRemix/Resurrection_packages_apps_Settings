@@ -58,6 +58,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.RestrictedSettingsFragment;
 import com.android.settings.SettingsActivity;
@@ -152,6 +153,8 @@ public class WifiSettings extends RestrictedSettingsFragment
      * and used so as to assist with in-the-field WiFi connectivity debugging  */
     public static int mVerboseLogging = 0;
 
+    private boolean mDeviceSupportsNfc;
+
     /* End of "used in Wifi Setup context" */
 
     /** A restricted multimap for use in constructAccessPoints */
@@ -239,6 +242,7 @@ public class WifiSettings extends RestrictedSettingsFragment
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        mDeviceSupportsNfc = QSUtils.deviceSupportsNfc(getActivity());
         mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 
         mConnectListener = new WifiManager.ActionListener() {
