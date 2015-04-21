@@ -743,7 +743,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
         } else if (requestCode == SET_OR_CHANGE_LOCK_METHOD_REQUEST) {
             Index.getInstance(
                     getActivity().getApplicationContext()).updateFromClassNameResource(
-                    LockScreenSettings.class.getName(), true, true);
+                    SecuritySettings.class.getName(), true, true);
         }
         createPreferenceHierarchy();
     }
