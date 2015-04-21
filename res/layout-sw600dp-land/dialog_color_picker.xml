@@ -3,10 +3,13 @@
      Copyright (C) 2010 Daniel Nilsson
      Copyright (C) 2013 Slimroms
      Copyright (C) 2015 DarkKat
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+
           http://www.apache.org/licenses/LICENSE-2.0
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,14 +26,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="64dp">
 
         <LinearLayout
             android:id="@+id/action_bar_main"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="64dp"
             android:layout_alignParentStart="true"
-            android:paddingRight="4dp"
+            android:paddingRight="9dp"
             android:gravity="center_vertical"
             android:background="@color/theme_primary"
             android:orientation="horizontal">
@@ -39,7 +42,7 @@
                 android:id="@+id/back"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="8dp"
                 android:src="@drawable/ic_ab_back_material"
                 android:background="@drawable/item_background_borderless_material"
                 android:scaleType="centerInside" />
@@ -47,7 +50,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="4dp"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:text="@string/dialog_color_picker_title"
@@ -88,7 +91,7 @@
         <LinearLayout
             android:id="@+id/action_bar_edit_hex"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="64dp"
             android:layout_alignParentStart="true"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -97,7 +100,7 @@
                 android:id="@+id/action_bar_edit_hex_back"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="8dp"
                 android:src="@drawable/ic_ab_back_material"
                 android:background="@drawable/item_background_borderless_material"
                 android:scaleType="centerInside" />
@@ -105,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginRight="8dp"
                 android:textSize="20sp"
                 android:textColor="@color/white"
@@ -127,7 +130,7 @@
                 android:id="@+id/enter"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginRight="9dp"
                 android:src="@drawable/ic_action_set"
                 android:background="@drawable/item_background_borderless_material"
                 android:scaleType="centerInside" />
@@ -155,7 +158,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8.5dp"
             android:layout_marginBottom="8.5dp"
-            android:layout_marginLeft="8.5dp"
+            android:layout_marginLeft="16.5dp"
             android:tag="landscape"
             android:layerType="software"
         />
@@ -164,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4.5dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="16dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -292,3 +295,4 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+
