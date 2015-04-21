@@ -26,14 +26,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="64dp">
 
         <LinearLayout
             android:id="@+id/action_bar_main"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="64dp"
             android:layout_alignParentStart="true"
-            android:paddingRight="4dp"
+            android:paddingRight="9dp"
             android:gravity="center_vertical"
             android:background="@color/theme_primary"
             android:orientation="horizontal">
@@ -42,7 +42,7 @@
                 android:id="@+id/back"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="8dp"
                 android:src="@drawable/ic_ab_back_material"
                 android:background="@drawable/item_background_borderless_material"
                 android:scaleType="centerInside" />
@@ -50,7 +50,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="4dp"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:text="@string/dialog_color_picker_title"
@@ -91,7 +91,7 @@
         <LinearLayout
             android:id="@+id/action_bar_edit_hex"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="64dp"
             android:layout_alignParentStart="true"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -100,7 +100,7 @@
                 android:id="@+id/action_bar_edit_hex_back"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="8dp"
                 android:src="@drawable/ic_ab_back_material"
                 android:background="@drawable/item_background_borderless_material"
                 android:scaleType="centerInside" />
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginRight="8dp"
                 android:textSize="20sp"
                 android:textColor="@color/white"
@@ -130,7 +130,7 @@
                 android:id="@+id/enter"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginRight="9dp"
                 android:src="@drawable/ic_action_set"
                 android:background="@drawable/item_background_borderless_material"
                 android:scaleType="centerInside" />
@@ -152,8 +152,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8.5dp"
-        android:layout_marginLeft="8.5dp"
-        android:layout_marginRight="8.5dp"
+        android:layout_marginLeft="16.5dp"
+        android:layout_marginRight="16.5dp"
         android:layout_centerHorizontal="true"
         android:tag="portrait" />
 
@@ -162,8 +162,8 @@
         android:layout_height="36dp"
         android:layout_marginTop="8.5dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
         <net.margaritov.preference.colorpicker.ColorPickerPanelView
@@ -204,8 +204,8 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
         <net.margaritov.preference.colorpicker.ColorPickerPanelView
@@ -247,8 +247,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         android:gravity="center"
         android:text="@string/press_color_to_apply"
         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -257,8 +257,8 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         android:orientation="horizontal">
 
         <net.margaritov.preference.colorpicker.ColorPickerPanelView
@@ -284,4 +284,3 @@
 
     </LinearLayout>
 </LinearLayout>
-
