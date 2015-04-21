@@ -107,11 +107,16 @@
         <PreferenceScreen android:key="device_feedback"
                 android:title="@string/device_feedback">
         </PreferenceScreen>
-        
-        <!-- Device hardware model -->
-        <Preference android:key="device_model" 
+
+       <Preference android:key="device_name"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/model_name"
+                android:title="@string/device_name"
+                android:summary="@string/device_info_default"/>
+
+        <!-- Device hardware model -->
+        <Preference android:key="device_model"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/device_model"
                 android:summary="@string/device_info_default"/>
 
         <!-- Mod version -->
