@@ -85,6 +85,8 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
     private static final String KEY_CONDITION_PROVIDERS = "manage_condition_providers";
     private static final String KEY_MUSIC_INTERRUPTIONS = "music_interruptions";
 
+    private static final String KEY_ALLOW_LIGHTS = "allow_lights";
+
     private static final SettingPrefWithCallback PREF_ZEN_MODE = new SettingPrefWithCallback(
             SettingPref.TYPE_GLOBAL, KEY_ZEN_MODE, Global.ZEN_MODE, Global.ZEN_MODE_OFF,
             Global.ZEN_MODE_OFF, Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS,
@@ -343,6 +345,12 @@ public class ZenModeSettings extends SettingsPreferenceFragment implements Index
             });
             mDowntimeMode.setOrder(10);  // sort at the bottom of the category
             mDowntimeMode.setDependency(mDays.getKey());
+
+            // Remove of the "Allow notification light" setting if an led is not supported
+            if (!getResources().getBoolean(
+                    com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+                downtime.removePreference(findPreference(KEY_ALLOW_LIGHTS));
+            }
         }
 
         mAutomationCategory = (PreferenceCategory) findPreference(KEY_AUTOMATION);
