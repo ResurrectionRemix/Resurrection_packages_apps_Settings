@@ -19,17 +19,14 @@
     android:title="@string/anonymous_statistics_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <CheckBoxPreference
-        android:key="pref_anonymous_opt_in"
-        android:defaultValue="true"
-        android:title="@string/enable_reporting_title" />
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="stats_collection"
+            android:title="@string/stats_collection_title"
+            android:summary="@string/stats_collection_summary"
+            android:defaultValue="true" />
 
     <PreferenceScreen
         android:title="@string/preview_data_title"
         android:fragment="com.android.settings.cmstats.PreviewData" />
-
-    <Preference
-        android:key="pref_view_stats"
-        android:title="@string/view_stats_title" />
 
 </PreferenceScreen>
