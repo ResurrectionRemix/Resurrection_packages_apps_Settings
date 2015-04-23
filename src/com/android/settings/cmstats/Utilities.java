@@ -82,8 +82,8 @@ public class Utilities {
      * @return Whether or not stats collection is enabled.
      */
     public static boolean isStatsCollectionEnabled(Context context) {
-        return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.STATS_COLLECTION, 1) != 0;
+        return Settings.Secure.getInt(context.getContentResolver(),
+                Settings.Secure.STATS_COLLECTION, 1) != 0;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Utilities {
      */
     public static void setStatsCollectionEnabled(Context context, boolean enabled) {
         int enable = (enabled) ? 1 : 0;
-        Settings.System.putInt(context.getContentResolver(),
-                Settings.System.STATS_COLLECTION, enable);
+        Settings.Secure.putInt(context.getContentResolver(),
+                Settings.Secure.STATS_COLLECTION, enable);
     }
 }
