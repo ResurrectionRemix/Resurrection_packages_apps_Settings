@@ -105,6 +105,15 @@
                 android:icon="@drawable/ic_rr_tools_tint"
                 />       
 
+    <!-- TRDS -->
+        <dashboard-tile
+            android:id="@+id/theme_settings"
+            android:icon="@drawable/ic_settings_theme"
+            android:fragment="com.android.settings.rr.themes.ThemeSettings"
+            android:title="@string/theme_settings_title"
+             />
+
+
         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
         <dashboard-tile
