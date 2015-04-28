@@ -26,33 +26,34 @@
                     android:summary="@string/doze_summary"
                     android:persistent="false" />
 
-            <ListPreference
-                    android:entries="@array/doze_list_mode_entries"
-                    android:entryValues="@array/doze_list_mode_values"
-                    android:key="doze_list_mode"
-                    android:title="@string/doze_list_mode_title"
-                    android:summary="@string/doze_list_mode_summary"
-                    android:persistent="false"
-                    android:dependency="doze" />
-
-            <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                    android:key="doze_time_mode"
-                    android:title="@string/doze_time_mode_title"
-                    android:summary="@string/doze_time_mode_summary"
-                    android:dependency="doze" />
-
             <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                     android:key="doze_overwrite_value"
                     android:title="@string/doze_overwrite_value_title"
                     android:summary="@string/doze_overwrite_value_summary"
                     android:dependency="doze" />
 
-            <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                    android:key="doze_pulse_on_notifications"
-                    android:title="@string/doze_pulse_on_notifications_title"
-                    android:summary="@string/doze_pulse_on_notifications_summary"
-                    android:defaultValue="true"
-                    android:dependency="doze_overwrite_value" />
+             <PreferenceCategory
+                    android:key="doze_brightness_category"
+                    android:title="@string/doze_brightness_category_title"
+                    android:dependency="doze_overwrite_value" >
+                    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                        android:key="doze_auto_brightness"
+                        android:title="@string/doze_auto_brightness_title"
+                        android:summary="@string/doze_auto_brightness_summary"
+                        android:defaultValue="false"
+                        android:disableDependentsState="true" />
+
+                    <com.android.settings.rr.SeekBarPreference
+                        android:key="doze_brightness"
+                        android:title="@string/doze_brightness_title"
+                        android:max="100"
+                        settings:min="0"
+                        settings:unitsLeft=""
+                        settings:unitsRight=""
+                        android:persistent="false"
+                        android:dependency="doze_auto_brightness" />
+
+            </PreferenceCategory>
 
             <PreferenceCategory
                     android:key="doze_pulse_category"
@@ -86,17 +87,4 @@
 
             </PreferenceCategory>
 
-            <PreferenceCategory
-                    android:key="doze_shake_category"
-                    android:title="@string/doze_shake_title" >
-
-                <ListPreference
-                        android:entries="@array/doze_shake_acc_threshold_entries"
-                        android:entryValues="@array/doze_shake_acc_threshold_values"
-                        android:key="doze_shake_threshold"
-                        android:title="@string/doze_shake_acc_threshold_title"
-                        android:summary="@string/doze_shake_acc_threshold_summary"
-                        android:persistent="false"
-                        android:dependency="doze" />
-            </PreferenceCategory>
 </PreferenceScreen>
