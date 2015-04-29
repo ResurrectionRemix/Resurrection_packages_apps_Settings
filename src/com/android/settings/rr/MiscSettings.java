@@ -36,7 +36,7 @@ import android.preference.Preference;
 import android.preference.SwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
-import android.hardware.CmHardwareManager;
+import android.hardware.VibratorIntensity;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.Display;
@@ -64,6 +64,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
      
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
+    private static final SettingPref PREF_VIBRATION_INTENSITY = new SettingPref(
+    	TYPE_SYSTEM, KEY_VIBRATION_INTENSITY, System.HAPTIC_FEEDBACK_ENABLED, DEFAULT_ON) {		
+    @Override
+    public boolean isApplicable(Context context) {
+    	return VibratorIntensity.isSupported();		
+        }		
+    };
  
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
@@ -97,16 +104,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mToastAnimation.setValueIndex(CurrentToastAnimation);
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
-        
-        CmHardwareManager cmHardwareManager =
-                (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
-        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_VIBRATOR)) {
-            Preference preference = prefSet.findPreference(KEY_VIBRATION_INTENSITY);
-            if (preference != null) {
-                prefSet.removePreference(preference);
-            }
-        }
-    }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
