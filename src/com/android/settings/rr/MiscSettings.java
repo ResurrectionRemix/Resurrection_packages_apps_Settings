@@ -71,10 +71,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     	return VibratorIntensity.isSupported();		
         }		
     };
-    
-     private static final SettingPref[] PREFS = {
-        PREF_VIBRATION_INTENSITY,
-    };
  
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
