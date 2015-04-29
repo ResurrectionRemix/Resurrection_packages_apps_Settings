@@ -130,7 +130,7 @@ public class VibratorIntensity extends DialogPreference implements
         defaultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSeekBar.setProgress(intensityToPercent(mMinValue, mMaxValue, mDefaultValue);
+                mSeekBar.setProgress(intensityToPercent(mMinValue, mMaxValue, mDefaultValue));
             }
         });
     }
@@ -155,20 +155,20 @@ public class VibratorIntensity extends DialogPreference implements
             return;
         }
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                int vibrator = cmHardwareManager.getVibratorIntensity();
+        int vibrator = cmHardwareManager.getVibratorIntensity();
         int min = cmHardwareManager.getVibratorMinIntensity();
         int max = cmHardwareManager.getVibratorMaxIntensity();
         int defaultValue = intensityToPercent(min, max,
                 cmHardwareManager.getVibratorDefaultIntensity());
         int percent = prefs.getInt(PREF_NAME, defaultValue);
 
-                cmHardwareManager.setVibratorIntensity(percentToIntensity(min, max, percent));
+        cmHardwareManager.setVibratorIntensity(percentToIntensity(min, max, percent));
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         boolean shouldWarn =
-                                mWarningValue > 0 && progress >= intensityToPercent(mMinValue, mMaxValue,
+                mWarningValue > 0 && progress >= intensityToPercent(mMinValue, mMaxValue,
                         mWarningValue);
 
         if (mProgressDrawable != null) {
@@ -178,7 +178,7 @@ public class VibratorIntensity extends DialogPreference implements
             mProgressThumb.setColorFilter(shouldWarn ? mRedFilter : null);
         }
 
-                mCmHardwareManager.setVibratorIntensity(percentToIntensity(mMinValue, mMaxValue,
+        mCmHardwareManager.setVibratorIntensity(percentToIntensity(mMinValue, mMaxValue,
                 progress));
         mValue.setText(String.format("%d%%", progress));
     }
