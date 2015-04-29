@@ -101,9 +101,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         CmHardwareManager cmHardwareManager =
                 (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
         if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_VIBRATOR)) {
-            Preference preference = vibrate.findPreference(KEY_VIBRATION_INTENSITY);
+            Preference preference = prefSet.findPreference(KEY_VIBRATION_INTENSITY);
             if (preference != null) {
-                vibrate.removePreference(preference);
+                prefSet.removePreference(preference);
             }
         }
     }
