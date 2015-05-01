@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2008 The Android Open Source Project
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,18 +14,98 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <SwitchPreference
-        android:key="disable_nav_keys"
-        android:title="@string/disable_navkeys_title"
-        android:summary="@string/disable_navkeys_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="nav_cat"
+        android:title="@string/nav_bar_title" >
 
+        <SwitchPreference
+            android:key="enable_nav_bar"
+            android:title="@string/navbar_enable_bar_title"
+            android:summary="@string/navbar_enable_bar_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navigation_bar_left"
+            android:title="@string/navigation_bar_left_title"
+            android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false"
+            android:dependency="enable_nav_bar"/>
+
+        <PreferenceScreen
+                android:key="navbar_dimensions"
+                android:fragment="com.android.settings.rr.NavBarDimensions"
+                android:summary="@string/navigation_bar_dimensions_title_summary"
+                android:dependency="enable_nav_bar"
+                android:title="@string/navigation_bar_dimensions_title"/>
+                
+        <PreferenceScreen
+            android:key="navigation_bar"
+            android:fragment="com.android.settings.cyanogenmod.NavBar"
+            android:title="@string/navigation_bar_title"
+            android:dependency="enable_nav_bar"
+            settings:advanced="true" />
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="navigation_bar_tint"
+            android:title="@string/navbar_button_tint_title"
+            android:defaultValue="#ffffff" />      
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="search_panel_enabled"
+            android:title="@string/navigation_ring_enable_title"
+            android:defaultValue="true"
+            android:dependency="enable_nav_bar"
+            settings:advanced="true"/>
+
+        <PreferenceScreen
+            android:key="navigation_bar_ring"
+            android:fragment="com.android.settings.cyanogenmod.NavRing"
+            android:title="@string/navigation_ring_title"
+            android:dependency="search_panel_enabled"
+            settings:advanced="true"/>
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="false"
+            android:dependency="enable_nav_bar"
+            settings:advanced="true"/>
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_navbar"
+            android:title="@string/double_tap_sleep_nav_bar_title"
+            android:summary="@string/double_tap_sleep_nav_bar_summary"
+            android:defaultValue="false"
+            android:dependency="enable_nav_bar"
+            settings:advanced="true"/>
+
+        <ListPreference
+            android:key="navigation_recents_long_press"
+            android:dialogTitle="@string/navigation_bar_recents_title"
+            android:title="@string/navigation_bar_recents_title"
+            android:persistent="false"
+            android:dependency="enable_nav_bar"
+            settings:advanced="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="hw_keys"
+        android:title="@string/hw_keys_title">
+
+        <SwitchPreference
+            android:key="enable_hw_keys"
+            android:title="@string/hw_keys_title"
+            android:summary="@string/hw_keys_summary"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
+    
     <com.android.settings.cyanogenmod.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
-        android:persistent="false" />
-
+        android:persistent="false"
+        settings:advanced="true"/>
     <!-- Device Specific Bluetooth Input settings -->
     <Preference
         android:key="bluetooth_input_settings">
@@ -36,26 +113,7 @@
             android:action="com.cyanogenmod.action.LAUNCH_BLUETOOTH_INPUT_SETTINGS"
             android:targetPackage="com.cyanogenmod.settings.device"
             android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
-    </Preference>
-
-    <PreferenceCategory
-        android:key="navigation_bar"
-        android:title="@string/navigation_bar_category" >
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="navigation_bar_left"
-            android:title="@string/navigation_bar_left_title"
-            android:summary="@string/navigation_bar_left_summary"
-            android:defaultValue="false" />
-
-        <ListPreference
-            android:key="navigation_recents_long_press"
-            android:dialogTitle="@string/navigation_bar_recents_title"
-            android:title="@string/navigation_bar_recents_title"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
+    </Preference>        
     <PreferenceCategory
         android:key="power_key"
         android:title="@string/hardware_keys_power_key_title" >
@@ -63,7 +121,8 @@
         <PreferenceScreen
             android:key="power_menu"
             android:title="@string/power_menu_title"
-            android:fragment="com.android.settings.cyanogenmod.PowerMenuActions" />
+            android:fragment="com.android.settings.cyanogenmod.PowerMenuActions"
+            settings:advanced="true"/>
 
         <SwitchPreference
             android:key="power_end_call"
@@ -75,7 +134,8 @@
 
     <PreferenceCategory
         android:key="home_key"
-        android:title="@string/hardware_keys_home_key_title" >
+        android:title="@string/hardware_keys_home_key_title"
+        settings:advanced="true">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="home_wake_screen"
@@ -108,7 +168,8 @@
 
     <PreferenceCategory
         android:key="back_key"
-        android:title="@string/hardware_keys_back_key_title" >
+        android:title="@string/hardware_keys_back_key_title"
+        settings:advanced="true">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="back_wake_screen"
@@ -119,7 +180,8 @@
 
     <PreferenceCategory
         android:key="menu_key"
-        android:title="@string/hardware_keys_menu_key_title" >
+        android:title="@string/hardware_keys_menu_key_title"
+        settings:advanced="true">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="menu_wake_screen"
@@ -146,7 +208,8 @@
 
     <PreferenceCategory
         android:key="assist_key"
-        android:title="@string/hardware_keys_assist_key_title" >
+        android:title="@string/hardware_keys_assist_key_title"
+        settings:advanced="true">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="assist_wake_screen"
@@ -173,7 +236,8 @@
 
     <PreferenceCategory
         android:key="app_switch_key"
-        android:title="@string/hardware_keys_appswitch_key_title" >
+        android:title="@string/hardware_keys_appswitch_key_title"
+        settings:advanced="true">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="app_switch_wake_screen"
@@ -200,7 +264,8 @@
 
     <PreferenceCategory
         android:key="volume_keys"
-        android:title="@string/hardware_keys_volume_keys_title" >
+        android:title="@string/hardware_keys_volume_keys_title"
+        settings:advanced="true">
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="volume_wake_screen"
@@ -232,6 +297,7 @@
             android:key="swap_volume_buttons"
             android:title="@string/swap_volume_buttons_title"
             android:summary="@string/swap_volume_buttons_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
