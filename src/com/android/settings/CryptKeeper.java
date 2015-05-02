@@ -178,7 +178,9 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mLockPatternView.removeCallbacks(mFakeUnlockAttemptRunnable);
+            if (mLockPatternView != null) {
+                mLockPatternView.removeCallbacks(mFakeUnlockAttemptRunnable);
+            }
             beginAttempt();
         }
 
