@@ -18,11 +18,10 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <!-- Heads up -->
-    <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
-            android:key="heads_up_notifications_enabled"
+    <Preference
+            android:key="heads_up_notifications"
             android:title="@string/heads_up_notifications"
-            android:summaryOn="@string/summary_heads_up_enabled"
-            android:summaryOff="@string/summary_heads_up_disabled" />
+            android:fragment="com.android.settings.headsup.HeadsUpSettings" />
 
     <!-- Zen Mode -->
     <PreferenceScreen
