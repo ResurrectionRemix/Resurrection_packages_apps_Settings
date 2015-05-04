@@ -22,18 +22,20 @@
             android:key="status_bar_show_clock"
             android:title="@string/status_bar_show_clock_title"
             android:defaultValue="true" />
-            
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="clock_color"
-            android:title="@string/clock_color_title"
-            android:defaultValue="0xffffff"
-            android:dependency="status_bar_show_clock" />
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="clock_use_second"
             android:title="@string/status_bar_show_clock_second_title"
             android:defaultValue="false"
             android:dependency="status_bar_show_clock" />
+
             
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="clock_color"
+            android:title="@string/clock_color_title"
+            android:defaultValue="0xffffff"
+            android:dependency="status_bar_show_clock" />            
+
          <ListPreference
              android:key="font_style"
              android:entries="@array/clock_font_style_entries"
