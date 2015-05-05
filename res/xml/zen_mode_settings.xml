@@ -100,6 +100,16 @@
                 android:title="@string/zen_mode_downtime_mode_title"
                 android:order="100"
                 android:persistent="false" />
+
+        <!-- Whether to allow notification lights in zen mode -->
+        <!-- This is set to true to match the default state in Android 5.1 -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="allow_lights"
+            android:title="@string/allow_lights_title"
+            android:order="101"
+            android:defaultValue="true"
+            settings:advanced="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

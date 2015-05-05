@@ -161,14 +161,9 @@
   <string name="sunlight_enhancement_summary">Повећај осветљеност екрана и читљивост при јакој сунчевој светлости</string>
   <string name="color_enhancement_title">Унапређење боје</string>
   <string name="color_enhancement_summary">Динамично унапреди боју на екрану</string>
-  <string name="blacklist_title">Црна листа</string>
-  <string name="blacklist_edit_dialog_title">Измени црну листу</string>
   <string name="blacklist_prefs">Подешавања</string>
   <string name="blacklist_button_delete">Избриши</string>
-  <string name="blacklist_empty_text">Немаш никакве бројеве на црној листи. Додај унос додиром на дугме Додај (+).</string>
-  <string name="blacklist_disabled_empty_text">За позиве из црне листе и/или порука са одређених бројева, омогући црну листу.</string>
   <string name="blacklist_summary_disabled">Онемогућено</string>
-  <string name="blacklist_summary">Долазни позиви и поруке од бројева телефона у црној листи биће блокирани</string>
   <string name="blacklist_notify">Прикажи обавештења</string>
   <string name="blacklist_private_numbers_title">Приватни бројеви</string>
   <string name="blacklist_private_numbers_summary_disabled">Немој блокирати позиве из приватних бројева</string>
@@ -183,9 +178,7 @@
   <string name="blacklist_regex_summary">Користи . као џокер и * за понављање. На пример 123 * блокира бројеве који почињу са 123 и .*123.* блокира бројеве које садрже 123</string>
   <string name="blacklist_policy_block_calls">Блокирај долазне позиве</string>
   <string name="blacklist_policy_block_messages">Блокирај одлазне позиве</string>
-  <string name="blacklist_bad_number_add">Није могуће додати неважећи број на црну листу</string>
   <string name="remove_blacklist_number_title">Уклони број</string>
-  <string name="remove_blacklist_entry">Желиш ли да уклониш овај унос са црне листе?</string>
   <string name="select_contact">Изабери контакт</string>
   <string name="lockpattern_reset_button">Ресетуј шаблон</string>
   <string name="lockpattern_settings_reset_summary">Унеси примарни налог е-поште и повезану лозинку да ресетујеш шаблон закључавања</string>
@@ -222,7 +215,6 @@
   <string name="update_recovery_off_warning">УПОЗОРЕЊЕ: Када је ова опција онемогућена, твој инсталиран опоравак неће бити ажуриран са надоградњом OS-а.\n\nБудуће ОС исправке се можда не могу инсталирати са застарелим или прерађеном верзијом опоравка.\n\nДа ли заиста желите да искључите ову функцију?</string>
   <string name="mod_version">CyanogenMod верзија</string>
   <string name="mod_version_default">Непознато</string>
-  <string name="model_name">Име модела</string>
   <string name="build_date">Датум израде</string>
   <string name="contributor_cloud_title">Сарадници</string>
   <string name="phone_service_state">Глас: <xliff:g id="voice_state">%1$s</xliff:g>, податак: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -305,6 +297,7 @@
   <string name="status_bar_show_unused_sims_title">Прикажи празну SIM икону</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Сакриј икону некоришћеног SIM слота</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Назначи некоришћени SIM слот</string>
+  <string name="sim_name_hint">Унесите име за SIM</string>
   <string name="edit_light_settings">Измени подешавања светла</string>
   <string name="pulse_speed_title">Дужина и брзина пулсирања</string>
   <string name="default_time">Нормално</string>
@@ -731,6 +724,7 @@
   <string name="qs_tile_lockscreen">Закључан екран</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Искључивање екрана</string>
+  <string name="qs_tile_usb_tether">USB привезивање</string>
   <string name="qs_main_tiles_title">Повећај први ред</string>
   <string name="qs_main_tiles_summary_on">Два главне плочице у првом реду</string>
   <string name="qs_main_tiles_summary_off">Три плочице у сваком реду</string>
@@ -758,6 +752,7 @@
   <string name="expanded_desktop_style">Стил проширеног екрана</string>
   <string name="expanded_desktop_style_description">Изабери подразумевани стил проширеног екрана</string>
   <string name="expanded_desktop_title">Опције проширеног екрана</string>
+  <string name="title_general">Опште</string>
   <string name="lockscreen_targets_message">Пречица закључаног екрана</string>
   <string name="lockscreen_default_target">Подразумевано</string>
   <string name="lockscreen_none_target">Ниједан</string>
@@ -824,4 +819,17 @@
   <string name="battery_saver_threshold">Праг чувања батерије</string>
   <string name="battery_saver_summary">Умањује перформансе и ограничава позадинске податке</string>
   <string name="battery_saver_summary_unavailable">Није могуће док је на пуњењу</string>
+  <string name="anonymous_statistics_title">Статистике CyanogenMod-а</string>
+  <string name="anonymous_statistics_summary">Помози да CyanogenMod буде бољи слањем анонимних статистика</string>
+  <string name="anonymous_statistics_warning_title">О</string>
+  <string name="anonymous_statistics_warning">Омогућавањем слања CyanogenMod статистикe дозволиће се да се нелични подаци доставе развојном тиму CyanogenMod-а како би се пратио број појединачних инсталација на различите уређаје. Информације које се шаљу садрже јединствену идентификацију која не компромитује приватност или личне податке. Подаци се шаљу при сваком покретању уређаја.\n\nЗа пример података који се шаљу, додирните преглед података.</string>
+  <string name="enable_reporting_title">Омогући извештавање</string>
+  <string name="preview_data_title">Преглед података</string>
+  <string name="view_stats_title">Погледај статистике</string>
+  <string name="anonymous_learn_more">Сазнај више</string>
+  <string name="preview_id_title">Јединствени ID</string>
+  <string name="preview_device_title">Уређај</string>
+  <string name="preview_version_title">Верзија</string>
+  <string name="preview_country_title">Земља</string>
+  <string name="preview_carrier_title">Оператер</string>
 </resources>

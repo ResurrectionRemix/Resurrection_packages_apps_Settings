@@ -506,21 +506,24 @@ public class ExpandedDesktopPreferenceFragment extends SettingsPreferenceFragmen
         }
     }
 
-    private static class ModeAdapter extends BaseAdapter {
+    private class ModeAdapter extends BaseAdapter {
 
         private final LayoutInflater inflater;
+        
+        // We have navbar on/off switch for every device
+        private final boolean hasNavBarByDefault = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        private final boolean isNavigationBarOn = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAVIGATION_BAR_SHOW, hasNavBarByDefault ? 1 : 0) == 1;
+                
         private boolean hasNavigationBar = true;
+
         private final int[] items = {R.string.expanded_hide_nothing, R.string.expanded_hide_status,
                 R.string.expanded_hide_navigation, R.string.expanded_hide_both};
 
         private ModeAdapter(Context context) {
             inflater = LayoutInflater.from(context);
-
-            try {
-                hasNavigationBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
-            } catch (RemoteException e) {
-                // Do nothing
-            }
+            hasNavigationBar = isNavigationBarOn;
         }
 
         @Override

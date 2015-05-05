@@ -56,6 +56,9 @@
   <string name="profile_app_group_category_title">Повідомлення</string>
   <string name="profile_app_group_item_instructions">Додавання або видалення груп</string>
   <string name="profile_app_group_item_instructions_summary">Додати або видалити програми, для яких будуть змінені налаштування сповіщень у цьому профілі</string>
+  <string name="profile_entries_on">Увімкнути</string>
+  <string name="profile_entries_off">Вимкнути</string>
+  <string name="profile_entries_no_override">Залишити без змін</string>
   <string name="profile_name_title">Ім’я</string>
   <string name="new_profile_name">&lt;новий профіль&gt;</string>
   <string name="rename_dialog_title">Перейменувати</string>
@@ -84,6 +87,9 @@
   <string name="profile_lockmode_insecure_summary">Не запитувати PIN-код або пароль</string>
   <string name="profile_lockmode_disabled_summary">Вимкнути екран блокування</string>
   <string name="profile_airplanemode_title">Режим польоту</string>
+  <string name="profile_brightness_title">Яскравість екрана</string>
+  <string name="profile_brightness_override_summary">Встановити %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Змінити рівень яскравості</string>
   <string name="toggleWifi">Wi-Fi</string>
   <string name="toggleWifiAp">Портативна Wi-Fi точка</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -154,14 +160,9 @@
   <string name="sunlight_enhancement_summary">Підвищення яскравості дисплея під час яскравого сонячного світла</string>
   <string name="color_enhancement_title">Покращення кольору</string>
   <string name="color_enhancement_summary">Динамічне покращення кольорів на екрані</string>
-  <string name="blacklist_title">Чорний список</string>
-  <string name="blacklist_edit_dialog_title">Редагувати запис чорного списку</string>
   <string name="blacklist_prefs">Налаштування</string>
   <string name="blacklist_button_delete">Видалити</string>
-  <string name="blacklist_empty_text">Ви не маєте номерів у чорному списку. Додайте натиснувши кнопку «Додати» (+).</string>
-  <string name="blacklist_disabled_empty_text">Щоб додати дзвінок/повідомлення певного номеру, увімкніть спочатку «Чорний список».</string>
   <string name="blacklist_summary_disabled">Вимкнено</string>
-  <string name="blacklist_summary">Вхідні дзвінки та повідомлення доданих номерів в чорний список, будуть заблоковані</string>
   <string name="blacklist_notify">Показувати сповіщення</string>
   <string name="blacklist_private_numbers_title">Приватні номери</string>
   <string name="blacklist_private_numbers_summary_disabled">Не блокувати дзвінки від приватних номерів</string>
@@ -176,9 +177,7 @@
   <string name="blacklist_regex_summary">Використовуйте . як маску і * для повторення. Наприклад, вираз 123.* буде блокувати номери, які починаються з 123, а .*123.* — номера, що містять 123 в будь-якій частині</string>
   <string name="blacklist_policy_block_calls">Блокувати вхідні дзвінки</string>
   <string name="blacklist_policy_block_messages">Блокувати вхідні повідомлення</string>
-  <string name="blacklist_bad_number_add">Некоректний номер, додавання неможливо</string>
   <string name="remove_blacklist_number_title">Видалити номер</string>
-  <string name="remove_blacklist_entry">Ви хочете видалити цей запис?</string>
   <string name="select_contact">Вибрати контакт</string>
   <string name="lockpattern_reset_button">Скинути граф. ключ</string>
   <string name="lockpattern_settings_reset_summary">Уведіть email та пароль основного акаунту аби скинути блокування графічного ключа</string>
@@ -215,7 +214,6 @@
   <string name="update_recovery_off_warning">ПОПЕРЕДЖЕННЯ: Якщо цю функцію вимкнено, режим Recovery залишиться без змін.\n\nІснує можливість некоректної установки майбутніх версій ОС, у випадку використання застарілого чи кастомного Recovery.\n\nВи бажаєте відключити цю функцію?</string>
   <string name="mod_version">Версія CyanogenMod</string>
   <string name="mod_version_default">Невідомо</string>
-  <string name="model_name">Назва моделі</string>
   <string name="build_date">Дата збірки</string>
   <string name="contributor_cloud_title">Учасники</string>
   <string name="phone_service_state">Голосовий зв\'язок: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача даних: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -298,6 +296,7 @@
   <string name="status_bar_show_unused_sims_title">Показувати ікони порожніх слотів SIM</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Приховувати піктограми порожніх слотів SIM</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Сповіщувати про порожні слоти для SIM-карток</string>
+  <string name="sim_name_hint">Введіть назву SIM</string>
   <string name="edit_light_settings">Змінити налаштування індикатора</string>
   <string name="pulse_speed_title">Тривалість та швидкість мигання</string>
   <string name="default_time">Нормально</string>
@@ -567,6 +566,12 @@
   <string name="subs_settings">Статус SIM-картки</string>
   <string name="storage_usb">USB-носій</string>
   <string name="storage_uicc">Сховище UICC</string>
+  <string name="sdcard_eject" product="default">Відключити SD-карту</string>
+  <string name="sdcard_eject_summary" product="default">Відключити SD-карту для безпечного видалення</string>
+  <string name="sd_card_format" product="default">Стерти SD-карту</string>
+  <string name="sd_card_format_summary" product="default">Стирає всі дані на SD-картці, наприклад музику та фотографії</string>
+  <string name="sdcard_mount" product="default">Підключити SD-карту</string>
+  <string name="sdcard_insert_summary" product="default">Вставте SD-карту для підключення</string>
   <string name="usb_eject" product="default">Демонтувати USB-носій</string>
   <string name="usb_eject_summary" product="default">Демонтувати USB-носій, для безпечного вилучення</string>
   <string name="usb_format" product="default">Очистити USB-носій</string>
@@ -581,22 +586,36 @@
   <string name="uicc_insert_summary" product="default">Вставте UICC-носій для монтування</string>
   <string name="usb_settings_enable_ums_title">Увімкнути UMS-накопичувач?</string>
   <string name="usb_settings_enable_ums_message">Компоненти системи і програми залежать від постійного доступу до основного сховища. UMS порушує цю функціональність. Настійно рекомендується замість цього використовувати MTP. Ви впевнені, що ви хочете включити UMS-накопичувач?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Відключити SD-карту?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Демонтувати USB-носій?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Демонтувати UICC сховище?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Якщо відключити SD-кару, деякі програми зупиняться і можуть бути недоступні, поки Ви підключите SD-карту знову.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Якщо демонтувати USB-носій, деякі програми, що використовуються будуть зупинені і можуть бути недоступні, поки ви не перемонтуєте USB-носій.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Якщо демонтувати UICC сховище, деякі програми, що використовуються будуть зупинені і можуть бути недоступні, поки ви не перемонтуєте UICC сховище.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">SD-карту не відключено. Повторіть спробу пізніше.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Не вдалося демонтувати USB-носій. Повторіть спробу пізніше.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Не вдалося демонтувати UICC сховище. Повторіть спробу пізніше.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD-карта буде відключена.</string>
   <string name="usb_unmount_inform_text" product="default">USB-носій буде відключено.</string>
   <string name="uicc_unmount_inform_text" product="default">UICC сховище буде демонтовано.</string>
+  <string name="sdcard_media_format_desc" product="default">Стерти SD-карту? Ви втратите <b>всі</b> дані на карті!</string>
   <string name="usb_media_format_desc" product="default">Стерти USB-носій? Ви втратите <b>всі</b> збереженні на ньому дані!</string>
   <string name="uicc_media_format_desc" product="default">Стерти UICC сховище? Ви втратите <b>всі</b> збереженні на ньому дані!</string>
+  <string name="sdcard_media_format_button_text" product="default">Стерти SD-карту</string>
   <string name="usb_media_format_button_text" product="default">Очистити USB-носій</string>
   <string name="uicc_media_format_button_text" product="default">Стерти UICC сховище</string>
+  <string name="sdcard_media_format_final_desc" product="default">Стерти SD-карту з видаленням всіх файлів, що зберігаються там? Цю дію не можна буде скасувати!</string>
   <string name="usb_media_format_final_desc" product="default">Очистити USB-носій, видаливши всі збережені на ньому файли? Цю дію не можна скасувати!</string>
   <string name="uicc_media_format_final_desc" product="default">Очистити UICC сховище, видаливши всі збережені на ньому файли? Цю дію не можна скасувати!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Щоб підтвердити стирання SD-картки потрібно намалювати ключ розблокування.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Щоб підтвердити очищення USB-носія, потрібно намалювати ключ розблокування.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Щоб підтвердити очищення UICC сховища, потрібно намалювати ключ розблокування.</string>
+  <string name="internal_sd_format">Стерти внутрішній пристрій зберігання</string>
+  <string name="internal_sd_format_summary">Стирає всі дані на внутрішньому пристрої зберігання, такі як музика чи зображення</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nЩоб видалити музику, зображення та інші дані користувача, необхідно стерти <b>внутрішній пристрій зберігання</b>.</string>
+  <string name="erase_internal_storage">Стерти внутрішній пристрій зберігання</string>
+  <string name="erase_internal_storage_description">Стерти всі дані на внутрішньому пристрої зберігання, такі як музика чи зображення</string>
+  <string name="storage_rescan_media">Пересканувати пам’ять</string>
   <string name="location_category_enhanced_location">Покращене місце-розташування (IZat)</string>
   <string name="app_ops_settings_summary">Переглянути або змінити дозволи для програм</string>
   <string name="enable_adb_summary_charging">Пристрій заряджається, налагодження USB вимкнено</string>
@@ -661,6 +680,8 @@
   <string name="cmlicense_title">Політика конфіденційності CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Політика конфіденційності CyanogenMod</string>
   <string name="settings_cmlicense_activity_unreachable">Пристрій не підключено до Інтернету. Щоб переглянути цю інформацію, відкрийте сторінку %s на будь-якому комп’ютері з інтернет-доступом.</string>
+  <string name="lockpattern_settings_enable_error_path_title">Показувати неправильний ключ</string>
+  <string name="lockpattern_settings_enable_dots_title">Показувати точки</string>
   <string name="unlock_quick_unlock_control_title">Швидке розблокування</string>
   <string name="unlock_quick_unlock_control_summary">Автоматичне розблокування при введенні правильного пароля чи PIN-коду</string>
   <string name="unlock_scramble_pin_layout_title">Перемішана розкладка</string>
@@ -702,6 +723,7 @@
   <string name="qs_tile_lockscreen">Екран блокування</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Тайм-аут екрана</string>
+  <string name="qs_tile_usb_tether">USB-модем</string>
   <string name="qs_main_tiles_title">Збільшений перший рядок</string>
   <string name="qs_main_tiles_summary_on">Дві основні плитки на першому рядку</string>
   <string name="qs_main_tiles_summary_off">Три плитки на кожному рядку</string>
@@ -729,6 +751,7 @@
   <string name="expanded_desktop_style">Режим розширеного екрану</string>
   <string name="expanded_desktop_style_description">Обрати розширений робочий екран за замовчуванням</string>
   <string name="expanded_desktop_title">Налаштування розширеного екрану</string>
+  <string name="title_general">Основні</string>
   <string name="lockscreen_targets_message">Ярлики екрану блокування</string>
   <string name="lockscreen_default_target">Стандартний</string>
   <string name="lockscreen_none_target">Немає</string>
@@ -777,6 +800,8 @@
   <string name="recents_show_searchbar">Панель пошуку в меню останніх програм</string>
   <string name="keywords_recents_show_searchbar">Показати/сховати панель пошуку в меню останніх програм</string>
   <string name="sim_ringtone_title">Рінгтон SIM %d</string>
+  <string name="interruptions_ignore_while_media_title">Не приглушувати звуки</string>
+  <string name="interruptions_ignore_while_media_summary">Не приглушувати відтворення медіа при надходженні сповіщення</string>
   <string name="live_display_summary">Налаштовувати екран залежно від часу доби і умов освітлення для підвищення зручності читання і зменшення втоми очей</string>
   <string name="live_display_mode">Режим екрану</string>
   <string name="live_display_color_temperature_title">Температура кольорів</string>
@@ -786,8 +811,24 @@
   <string name="live_display_night">Ніч</string>
   <string name="live_display_outdoor_mode_title">Автоматичний денний режим</string>
   <string name="live_display_outdoor_mode_summary">Збільшувати яскравість та насиченість автоматично при яскравому світлі</string>
+  <string name="live_display_low_power_title">Зменшення споживання енергії</string>
   <string name="live_display_low_power_summary">Налаштування екрану для найнижчого енергоспоживання без псування зображення</string>
   <string name="live_display_enhance_color_title">Покращити кольори</string>
   <string name="live_display_enhance_color_summary">Поліпшити кольорову насиченість зображень</string>
+  <string name="battery_saver_threshold">Поріг збереження енергії</string>
+  <string name="battery_saver_summary">Зниження продуктивності і обмеження передачі даних</string>
   <string name="battery_saver_summary_unavailable">Недоступно під час зарядки</string>
+  <string name="anonymous_statistics_title">Статистика CyanogenMod</string>
+  <string name="anonymous_statistics_summary">Допоможіть зробити CyanogenMod кращим, надсилаючи анонімну статистику</string>
+  <string name="anonymous_statistics_warning_title">Про</string>
+  <string name="anonymous_statistics_warning">Анонімні звіти дозволяють розробникам CyanogenMod відстежувати шнформацію щодо установки на різні пристрої. Ця інформація містить у собі назву пристрою, версію ПЗ і унікальний ідентифікатор, надсилання якого ніяким чином не шкодить Вашій конфіденційності. Звіт надсилається при кожному завантаженні пристрою.\n\nНатисніть, аби переглянути приклад даних, які надсилаються.</string>
+  <string name="enable_reporting_title">Увімкнути надсилання звітів</string>
+  <string name="preview_data_title">Показати дані</string>
+  <string name="view_stats_title">Перегляд статистики</string>
+  <string name="anonymous_learn_more">Докладніше</string>
+  <string name="preview_id_title">Унікальний ідентифікатор</string>
+  <string name="preview_device_title">Пристрій</string>
+  <string name="preview_version_title">Версія</string>
+  <string name="preview_country_title">Країна</string>
+  <string name="preview_carrier_title">Оператор</string>
 </resources>

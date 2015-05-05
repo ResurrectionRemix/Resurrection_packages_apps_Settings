@@ -56,14 +56,18 @@
     <string name="screenshot_sound_title">Screenshot sound</string>
     <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
     <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
+    <string name="dialog_color_picker_title">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="palette_custom_title">Custom</string>
+    <string name="palette_material_title">Material</string>
+    <string name="palette_rgb_title">RGB</string>
+    <string name="reset_android_title">Android default</string>
+    <string name="reset_custom_title">Custom default</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
-    <string name="color_default">Default</string>
     <!-- Superuser indicator-->
     <string name="su_indicator">Superuser indicator</string>
     <string name="su_indicator_summary">Show superuser indicator when a session is active</string>
@@ -90,8 +94,20 @@
     <string name="changelog_error">Unable to load changelog</string>
     <string name="changelog_unknown">Unknown</string>
     <string name="changelog_version">Version</string>
+     <!-- Status bar greeting -->
+    <string name="status_bar_greeting_category_title">Statusbar greeting</string>
+    <string name="status_bar_greeting_title">Greeting</string>
+    <string name="status_bar_greeting_summary">Display a custom greeting in the status bar after unlocking the device</string>
+    <string name="status_bar_greeting_dialog">Set your greeting</string>
+    <string name="status_bar_greeting_main">Resurrection Remix ツ</string>
+    <string name="status_bar_greeting_timeout_title">Greeting timeout</string>
+    <!-- Statusbar logo -->
+    <string name="status_bar_logo_title">Show RR logo</string>
+    <string name="status_bar_logo_summary">Enable to show RR logo on the left side of statusbar</string>
+    <string name="status_bar_logo_color">RR logo color</string>
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Clock and date</b></string>
+    <string name="status_bar_show_clock_second_title">Clock seconds</string>
     <string name="status_bar_clock_title">Clock and date style</string>
     <string name="clock_title_enable">Alignment</string>
     <string name="clock_enabled">Enabled</string>
@@ -252,10 +268,17 @@
     <string name="share_chooser_title">Share Resurrection Remix via..</string>
     
     <string name="widgets_category">Widgets</string>
-    <!-- carrier label -->
-    <string name="show_status_bar_carrier_title">Carrier label</string>
-    <string name="show_status_bar_carrier_summary">Shows carrier label in status bar</string>
-    <string name="status_bar_carrier_color">Carrier label Color</string>    
+
+    <!-- Show carrier label and custom -->
+    <string name="carrier_options_category_title">Status Bar Carrier Label</string>
+    <string name="carrier_options"><b>Carrier Label</b></string>
+    <string name="show_status_bar_carrier_title">Status bar carrier</string>
+    <string name="show_status_bar_carrier_summary">Show carrier in status bar</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="status_bar_carrier_color">Carrier label color</string> 
+
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">ListView Interpolator</string>
     <string name="listview_accelerate_interpolator">Accelerate interpolator</string>
@@ -312,9 +335,12 @@
     <string name="navigation_bar_size_30_dp">30 dp</string>
     <string name="navigation_bar_size_24_dp">24 dp</string>
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
-    <string name="navbar_enable_bar">Enable</string>
-    <string name="navbar_enable_bar_summary">Enable or disable navigation bar</string>
-    
+    <string name="nav_bar_title">Navigation bar</string>
+    <string name="navbar_enable_bar_title">Navigation bar buttons</string>
+    <string name="navbar_enable_bar_summary">Enable on-screen nav bar buttons</string>
+        <!-- Ability to disable hardware keys via nav bar settings -->
+    <string name="hw_keys_title">Hardware keys</string>
+    <string name="hw_keys_summary">Enable hardware keys</string>
     <!-- Battery saver -->
     <string name="battery_saver_title">Warning color</string>
     <string name="battery_saver_style_reset_message">Reset battery saver warning color?</string>
@@ -352,14 +378,14 @@
     <string name="shortcuts_icon_picker_battery">Battery</string>
     <string name="shortcuts_icon_picker_chrome">Google Chrome</string>
     <string name="shortcuts_icon_picker_browser">Browser</string>
-    <string name="shortcuts_icon_picker_github">Github</string>
+    <string name="shortcuts_icon_picker_github">GitHub</string>
     <string name="shortcuts_icon_picker_office">Office Suite</string>
     <string name="shortcuts_icon_picker_tapatalk">Tapatalk</string>
     <string name="shortcuts_icon_picker_messenger">Messenger</string>
     <string name="shortcuts_icon_picker_paypal">Paypal</string>
     <string name="shortcuts_icon_picker_calendar">Calendar</string>
-    <string name="shortcuts_icon_picker_whatsapp">Whatsapp</string>
-    <string name="shortcuts_icon_picker_youtube">Youtube</string>   
+    <string name="shortcuts_icon_picker_whatsapp">WhatsApp</string>
+    <string name="shortcuts_icon_picker_youtube">YouTube</string>   
     <string name="shortcuts_icon_picker_camera">Camera</string>
     <string name="shortcuts_icon_picker_cloud">Cloud</string>
     <string name="shortcuts_icon_picker_contact">Contact</string>
@@ -436,20 +462,20 @@
     <string name="flipboard">Flipboard</string>
     <string name="foursquare">Foursquare</string>
     <string name="firefox">Firefox</string>
-    <string name="googlebuzz">Google buzz</string>
-    <string name="googledocs">Google docs</string>
-    <string name="googlewallet">Google wallet</string>
+    <string name="googlebuzz">Google Buzz</string>
+    <string name="googledocs">Google Docs</string>
+    <string name="googlewallet">Google Wallet</string>
     <string name="line">Line</string>
     <string name="mic">Mic</string>
     <string name="newyorktimes">Newyork times</string>
     <string name="rootexplorer">Root explorer</string>
     <string name="sim">Sim</string>
-    <string name="teamviewer">Teamviewer</string>
+    <string name="teamviewer">TeamViewer</string>
     <string name="totalcommander">Total commander</string>
     <string name="weather">Weather</string>
     <string name="golocker">Go locker</string>   
-    <string name="googlecurrents">Google currents</string>
-    <string name="googletalk">Google talk</string>
+    <string name="googlecurrents">Google Currents</string>
+    <string name="googletalk">Google Talk</string>
     <string name="gosms">Go sms</string>
     <string name="meebo">Meebo</string>
     <string name="maps2">Maps2</string>
@@ -466,11 +492,11 @@
     <string name="googledrive">Google Drive</string>
     <string name="googleearth">Google earth</string>
     <string name="googlehangouts">Google hangouts</string>
-    <string name="googlekeep">Google keep</string>
-    <string name="googleplay">Google play</string>
-    <string name="googletranslate">Google translate</string>
+    <string name="googlekeep">Google Keep</string>
+    <string name="googleplay">Google Play</string>
+    <string name="googletranslate">Google Translate</string>
     <string name="google">Google</string>
-    <string name="googleplus">Google plus</string>
+    <string name="googleplus">Google Plus</string>
     <string name="imdb">imdb</string>
     <string name="instagram">instagram</string>
     <string name="lastfm">Lastfm</string>   
@@ -486,12 +512,12 @@
     <string name="picasa">Picasa</string>
     <string name="pictures2">Pictures2</string>
     <string name="player_pro">Player pro</string>
-    <string name="playstation">Play station</string>
+    <string name="playstation">PlayStation</string>
     <string name="reddit">Reddit</string>
     <string name="settings">Settings</string>
     <string name="skype">Skype</string>
-    <string name="soundscloud">Sounds cloud</string>
-    <string name="spotifiy">Spotifiy</string>
+    <string name="soundscloud">SoundCloud</string>
+    <string name="spotifiy">Spotify</string>
     <string name="tapatalk">Tapatalk</string>
     <string name="tunein">Tunein</string>
     <string name="twitter">Twitter</string>
@@ -501,7 +527,7 @@
     <string name="wifi">Wifi</string>
     <string name="xda">Xda</string>
     <string name="yahoo">Yahoo</string>
-    <string name="youtube">Youtube</string>
+    <string name="youtube">YouTube</string>
     <string name="zedge">Zedge</string>
     <string name="shortcut_action_app">Custom app</string>
     <string name="shortcut_action_home">Home</string>
@@ -704,6 +730,7 @@
     <string name="qs_screen_off_tile">Screen off</string>
     <string name="qs_ambient_display_tile">Ambient display</string>
     <string name="qs_music_play_tile">Play</string>
+    <string name="qs_tile_heads_up">Heads up</string>
     <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">Long press lock icon to sleep</string>
     <string name="longpress_lock_icon_to_sleep_summary">This option will not work if both smart lock and accessibility touch exploration are enabled</string>    
@@ -715,6 +742,10 @@
     <!-- Doze pulse (ambient display) options -->
     <string name="doze_overwrite_value_title">Overwrite value</string>
     <string name="doze_overwrite_value_summary">Allow to overwrite default value with user config</string>
+    <string name="doze_auto_brightness_title">Auto brightness</string>
+    <string name="doze_auto_brightness_summary">Adjusts the brightness of the screen to take into account the ambient light of your surroundings</string>
+    <string name="doze_brightness_category_title">Brightness</string>
+    <string name="doze_brightness_title">Brightness level</string>
 
     <string name="doze_list_mode_title">Doze mode</string>
     <string name="doze_list_mode_summary">Option to configure doze mode</string>
@@ -831,4 +862,70 @@
     
     <string name="recents_show_membar_title">Memory bar</string>
     <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
+    <!-- Lock Gesture settings -->
+    <!-- Security & location settings screen, setting option name -->
+    <string name="lockgesture_change_lock_pattern_label">Change unlock gesture</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
+    <string name="lockgesture_change_lock_pin_label">Change unlock PIN</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
+    <string name="lockgesture_need_to_unlock">Confirm saved gesture</string>
+    <!-- Do not translate. -->
+    <string name="lockgesture_need_to_unlock_footer" />
+    <!-- Security & location settings screen, change unlock gesture screen instruction if user draws incorrect pattern -->
+    <string name="lockgesture_need_to_unlock_wrong">Try again:</string>
+    <!-- Do not translate. -->
+    <string name="lockgesture_need_to_unlock_wrong_footer" />
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen.  This si when they are supposed to draw a new unlock pattern (for example, if they are changing their unlock patterns)..-->
+    <string name="lockgesture_recording_intro_header">Draw an unlock gesture:</string>
+    <!-- Security & location settings screen, change unlock gesture screen hint on bottom of screen.  We are telling them to press the menu button to see more options or help. -->
+    <string name="lockgesture_recording_intro_footer">Press Menu for help.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen while drawing pattern -->
+    <string name="lockgesture_recording_inprogress">Release finger when done.</string>
+    <!-- Security & location settings screen, change unlock gesture screen message on top of screen after drawing pattern -->
+    <string name="lockgesture_pattern_entered_header">Gesture recorded.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen to confirm pattern -->
+    <string name="lockgesture_need_to_confirm">Draw gesture again to confirm:</string>
+    <string name="lockgesture_pattern_confirmed_header">Your new unlock gesture:</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  When they are ready to draw it once again to confirm it, they press this button. -->
+    <string name="lockgesture_confirm_button_text">Confirm</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  If they are nto satisfied with this pattern, they click this button to redraw the pattern. -->
+    <string name="lockgesture_restart_button_text">Redraw</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. If they are supposed to enter their current gesture before being able to draw another one, and they screw up, they hit this button to try again -->
+    <string name="lockgesture_retry_button_text">Retry</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. Once they draw a new gesture and confirm it by drawing it again, they press this button to exit -->
+    <string name="lockgesture_continue_button_text">Continue</string>
+    <!-- Security & location settings screen, unlock screen activity title -->
+    <string name="lockgesture_settings_title">Unlock gesture</string>
+    <!-- Security & location settings screen, setting check box title if the unlock pattern MUST be drawn everytime they turn on the screen -->
+    <string name="lockgesture_settings_enable_title">Require gesture</string>
+    <!-- Security & location settings screen, setting summary for the checkbox "Require pattern" -->
+    <string name="lockgesture_settings_enable_summary">Must draw gesture to unlock screen</string>
+   <!-- Security & location settings screen, setting check box title. This setting controls whether a visible gesture is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
+    <string name="lockgesture_settings_enable_visible_pattern_title">Make gesture visible</string>
+    <!-- Security & location settings screen, setting check box title. This controls whether the device locks immediately when the power button is pressed. [CHAR LIMIT=28]-->
+    <string name="lockgesture_settings_enable_power_button_instantly_locks">Power button instantly locks</string>
+    <!-- Security & location settings screen, setting option name when user has never set an unlock gesture -->
+    <string name="lockgesture_settings_choose_lock_pattern">Set unlock gesture</string>
+    <!-- Security & location settings screen, setting option name when user has previously set an unlock gesture and wants to change to a new pattern -->
+    <string name="lockgesture_settings_change_lock_pattern">Change unlock gesture</string>
+    <!-- Security & location settings screen, the help instructions (an animation) caption -->
+    <string name="lockgesture_settings_help_how_to_record">How to draw an unlock gesture</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen after too many incorrect attempts -->
+    <string name="lockgesture_too_many_failed_confirmation_attempts_header">Too many incorrect attempts!</string>
+    <!-- Security & location settings screen, change unlock gesture screen countdown hint on bottom of screen after too many incorrect attempts -->
+    <string name="lockgesture_too_many_failed_confirmation_attempts_footer">Try again in <xliff:g id="number">%d</xliff:g> seconds.</string>
+    <!-- Toast shown if setting gesture was successful -->
+    <string name="lockpassword_gesture_set_toast">Gesture has been set</string>
+    <!-- Header on gesture confirm screen [CHAR LIMIT=30] -->
+    <string name="lockpassword_confirm_your_gesture_header">Confirm your gesture</string>
+    <!-- Header on first screen of choose gesture flow [CHAR LIMIT=30] -->
+    <string name="lockpassword_choose_your_gesture_header">Draw your gesture</string>
+
+    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=22] -->
+    <string name="unlock_set_unlock_gesture_title">Gesture</string>
+    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_gesture_summary">Low security, experimental</string>
+
+    <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_mode_gesture">Gesture</string>
 </resources>

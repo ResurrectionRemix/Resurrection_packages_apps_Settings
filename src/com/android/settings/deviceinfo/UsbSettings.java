@@ -256,6 +256,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
         }
 
         //if choose none, we set the function as the default config
+        operateInprogress = true;
         String function = USB_FUNCTION_DEFAULT;
         if (preference == mMtp && mMtp.isChecked()) {
             function = UsbManager.USB_FUNCTION_MTP;
@@ -269,9 +270,12 @@ public class UsbSettings extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mSDCard && mSDCard.isChecked()) {
             function = UsbManager.USB_FUNCTION_MASS_STORAGE;
+        } else if(preference == mMtp && !mMtp.isChecked()) {
+            Log.w(TAG, "MTP is default and if you uncheck it, we will default back to it.  " +
+                    "Skipping the work.");
+            operateInprogress = false;
         }
 
-        operateInprogress = true;
         mUsbManager.setCurrentFunction(function, true);
         updateToggles(function);
 
