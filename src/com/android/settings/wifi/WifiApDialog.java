@@ -42,6 +42,9 @@ import com.android.settings.R;
 public class WifiApDialog extends AlertDialog implements View.OnClickListener,
         TextWatcher, AdapterView.OnItemSelectedListener {
 
+    private final String PREFS_FILE = "wifi_ap";
+    private final String KEY_SHOW_PASSWORD = "show_password";
+
     static final int BUTTON_SUBMIT = DialogInterface.BUTTON_POSITIVE;
 
     private final DialogInterface.OnClickListener mListener;
@@ -131,10 +134,15 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
         }
 
         mSsid.addTextChangedListener(this);
+        final CheckBox showPassword = (CheckBox) mView.findViewById(R.id.show_password);
+        final boolean showPasswordChecked = getContext().getSharedPreferences(PREFS_FILE, 0)
+                .getBoolean(KEY_SHOW_PASSWORD, getContext().getResources()
+                        .getBoolean(R.bool.config_showWifiApPasswordDefault));
+        showPassword.setChecked(showPasswordChecked);
+        onClick(showPassword);
+        showPassword.setOnClickListener(this);
         mPassword.addTextChangedListener(this);
-        ((CheckBox) mView.findViewById(R.id.show_password)).setOnClickListener(this);
         mSecurity.setOnItemSelectedListener(this);
-
         super.onCreate(savedInstanceState);
 
         showSecurityFields();
@@ -152,10 +160,15 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
     }
 
     public void onClick(View view) {
+        final boolean checked = ((CheckBox) view).isChecked();
         mPassword.setInputType(
-                InputType.TYPE_CLASS_TEXT | (((CheckBox) view).isChecked() ?
+                InputType.TYPE_CLASS_TEXT | (checked ?
                 InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD :
                 InputType.TYPE_TEXT_VARIATION_PASSWORD));
+        getContext().getSharedPreferences(PREFS_FILE, 0)
+                .edit()
+                .putBoolean(KEY_SHOW_PASSWORD, checked)
+                .apply();
     }
 
     public void onTextChanged(CharSequence s, int start, int before, int count) {
