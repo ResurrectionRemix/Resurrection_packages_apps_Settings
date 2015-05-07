@@ -111,9 +111,10 @@ final class CanBeOnSdCardChecker {
                     canBe = true;
                 } else if (info.installLocation
                         == PackageInfo.INSTALL_LOCATION_UNSPECIFIED) {
-                    if (mInstallLocation == PackageHelper.APP_INSTALL_EXTERNAL) {
-                        // For apps with no preference and the default value set
-                        // to install on sdcard.
+                    if (mInstallLocation != PackageHelper.APP_INSTALL_INTERNAL) {
+                        // For apps with no preference, let the app be moved
+                        // unless the user specifically selected that they want
+                        // to have apps stored on internal storage.
                         canBe = true;
                     }
                 }
