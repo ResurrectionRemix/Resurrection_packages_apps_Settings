@@ -99,6 +99,14 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
 
+    private static final String[] sSystemSettingNames = {
+        System.TEXT_AUTO_REPLACE, System.TEXT_AUTO_CAPS, System.TEXT_AUTO_PUNCTUATE,
+    };
+
+    private static final String[] sHardKeyboardKeys = {
+        "auto_replace", "auto_caps", "auto_punctuate",
+    };
+
     private int mDefaultInputMethodSelectorVisibility = 0;
     private ListPreference mShowInputMethodSelectorPref;
     private SwitchPreference mStylusIconEnabled;
@@ -348,6 +356,16 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             }
         }
 
+        // Hard keyboard
+        if (!mHardKeyboardPreferenceList.isEmpty()) {
+            for (int i = 0; i < sHardKeyboardKeys.length; ++i) {
+                SwitchPreference swPref = (SwitchPreference)
+                        mHardKeyboardCategory.findPreference(sHardKeyboardKeys[i]);
+                swPref.setChecked(
+                        System.getInt(getContentResolver(), sSystemSettingNames[i], 1) > 0);
+            }
+        }
+
         updateInputDevices();
 
         // Refresh internal states in mInputMethodSettingValues to keep the latest
@@ -410,6 +428,15 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 System.putInt(getContentResolver(), Settings.System.VIBRATE_INPUT_DEVICES,
                         pref.isChecked() ? 1 : 0);
                 return true;
+            }
+            if (!mHardKeyboardPreferenceList.isEmpty()) {
+                for (int i = 0; i < sHardKeyboardKeys.length; ++i) {
+                    if (pref == mHardKeyboardCategory.findPreference(sHardKeyboardKeys[i])) {
+                        System.putInt(getContentResolver(), sSystemSettingNames[i],
+                                pref.isChecked() ? 1 : 0);
+                        return true;
+                    }
+                }
             }
         } else if (preference == mHighTouchSensitivity) {
             return mCmHardwareManager.set(CmHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY,
@@ -894,6 +921,33 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 indexable.key = "builtin_keyboard_settings";
                 indexable.title = context.getString(
                         R.string.builtin_keyboard_settings_title);
+                indexable.screenTitle = screenTitle;
+                indexables.add(indexable);
+
+                // Auto replace.
+                indexable = new SearchIndexableRaw(context);
+                indexable.key = "auto_replace";
+                indexable.title = context.getString(R.string.auto_replace);
+                indexable.summaryOn = context.getString(R.string.auto_replace_summary);
+                indexable.summaryOff = context.getString(R.string.auto_replace_summary);
+                indexable.screenTitle = screenTitle;
+                indexables.add(indexable);
+
+                // Auto caps.
+                indexable = new SearchIndexableRaw(context);
+                indexable.key = "auto_caps";
+                indexable.title = context.getString(R.string.auto_caps);
+                indexable.summaryOn = context.getString(R.string.auto_caps_summary);
+                indexable.summaryOff = context.getString(R.string.auto_caps_summary);
+                indexable.screenTitle = screenTitle;
+                indexables.add(indexable);
+
+                // Auto punctuate.
+                indexable = new SearchIndexableRaw(context);
+                indexable.key = "auto_punctuate";
+                indexable.title = context.getString(R.string.auto_punctuate);
+                indexable.summaryOn = context.getString(R.string.auto_punctuate_summary);
+                indexable.summaryOff = context.getString(R.string.auto_punctuate_summary);
                 indexable.screenTitle = screenTitle;
                 indexables.add(indexable);
             }

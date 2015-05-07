@@ -57,6 +57,34 @@
             android:persistent="false">
         <!-- Additional preference screens are inserted here programmatically
              with low order values to set the key map of each attached keyboard. -->
+
+        <SwitchPreference
+                android:key="auto_replace"
+                android:title="@string/auto_replace"
+                android:summaryOn="@string/auto_replace_summary"
+                android:summaryOff="@string/auto_replace_summary"
+                android:order="1000"
+                android:persistent="false"
+                />
+
+        <SwitchPreference
+                android:key="auto_caps"
+                android:title="@string/auto_caps"
+                android:summaryOn="@string/auto_caps_summary"
+                android:summaryOff="@string/auto_caps_summary"
+                android:order="1001"
+                android:persistent="false"
+                />
+
+        <SwitchPreference
+                android:key="auto_punctuate"
+                android:title="@string/auto_punctuate"
+                android:summaryOn="@string/auto_punctuate_summary"
+                android:summaryOff="@string/auto_punctuate_summary"
+                android:order="1002"
+                android:persistent="false"
+                />
+
     </PreferenceCategory>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
