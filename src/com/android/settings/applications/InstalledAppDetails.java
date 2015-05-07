@@ -57,6 +57,8 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.storage.StorageEventListener;
+import android.os.storage.StorageManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.text.SpannableString;
@@ -109,6 +111,7 @@ public class InstalledAppDetails extends Fragment
     private AppWidgetManager mAppWidgetManager;
     private DevicePolicyManager mDpm;
     private ISms mSmsManager;
+    private StorageManager mStorageManager;
     private ApplicationsState mState;
     private ApplicationsState.Session mSession;
     private ApplicationsState.AppEntry mAppEntry;
@@ -465,6 +468,8 @@ public class InstalledAppDetails extends Fragment
         mAppWidgetManager = AppWidgetManager.getInstance(getActivity());
         mDpm = (DevicePolicyManager)getActivity().getSystemService(Context.DEVICE_POLICY_SERVICE);
         mSmsManager = ISms.Stub.asInterface(ServiceManager.getService("isms"));
+        mStorageManager = StorageManager.from(getActivity());
+        mStorageManager.registerListener(mStorageListener);
 
         mCanBeOnSdCardChecker = new CanBeOnSdCardChecker();
 
@@ -679,6 +684,7 @@ public class InstalledAppDetails extends Fragment
         
         mAppControlRestricted = mUserManager.hasUserRestriction(UserManager.DISALLOW_APPS_CONTROL);
         mSession.resume();
+        mStorageManager.registerListener(mStorageListener);
         if (!refreshUi()) {
             setIntentAndFinish(true, true);
         }
@@ -688,12 +694,14 @@ public class InstalledAppDetails extends Fragment
     public void onPause() {
         super.onPause();
         mSession.pause();
+        mStorageManager.unregisterListener(mStorageListener);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mSession.release();
+        mStorageManager.unregisterListener(mStorageListener);
     }
 
     @Override
@@ -723,6 +731,13 @@ public class InstalledAppDetails extends Fragment
     @Override
     public void onRunningStateChanged(boolean running) {
     }
+
+    private StorageEventListener mStorageListener = new StorageEventListener() {
+        @Override
+        public void onStorageStateChanged(String path, String oldState, String newState) {
+            refreshButtons();
+        }
+    };
 
     private String retrieveAppEntry() {
         final Bundle args = getArguments();
