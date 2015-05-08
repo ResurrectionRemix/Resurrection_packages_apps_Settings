@@ -104,6 +104,8 @@ public class Status extends PreferenceActivity {
     private static final String KEY_SERIAL_NUMBER = "serial_number";
     private static final String KEY_ICC_ID = "icc_id";
     private static final String KEY_WIMAX_MAC_ADDRESS = "wimax_mac_address";
+    private static final String KEY_SIM_STATUS = "sim_status";
+    private static final String KEY_IMEI_INFO = "imei_info";
 
     private static final String[] PHONE_RELATED_ENTRIES = {
         KEY_DATA_STATE,
@@ -280,7 +282,7 @@ public class Status extends PreferenceActivity {
         mTelephonyManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
         mWifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
-        if (isMultiSimEnabled()) {
+        if (UserHandle.myUserId() == UserHandle.USER_OWNER && isMultiSimEnabled()) {
             addPreferencesFromResource(R.xml.device_info_msim_status);
         } else {
             addPreferencesFromResource(R.xml.device_info_status);
@@ -395,6 +397,12 @@ public class Status extends PreferenceActivity {
             setSummaryText(KEY_SERIAL_NUMBER, serial);
         } else {
             removePreferenceFromScreen(KEY_SERIAL_NUMBER);
+        }
+
+        //Remove SimStatus and Imei for Secondary user
+        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            removePreferenceFromScreen(KEY_SIM_STATUS);
+            removePreferenceFromScreen(KEY_IMEI_INFO);
         }
 
         // Make every pref on this screen copy its data to the clipboard on longpress.
