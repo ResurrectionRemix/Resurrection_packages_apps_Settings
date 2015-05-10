@@ -16,13 +16,6 @@
 
 package com.android.settings;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AuthenticatorDescription;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AccountManagerCallback;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.backup.IBackupManager;
@@ -31,11 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.os.Process;
-=======
-import android.os.IBinder;
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -47,7 +36,6 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-<<<<<<< HEAD
 import android.util.Log;
 
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -63,10 +51,6 @@ import com.android.settings.search.Indexable.SearchIndexProvider;
 
 import java.util.ArrayList;
 import java.util.List;
-=======
-import com.android.internal.os.IKillSwitchService;
-import android.util.Log;
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
 
 /**
  * Gesture lock pattern settings.
@@ -74,21 +58,15 @@ import android.util.Log;
 public class PrivacySettings extends SettingsPreferenceFragment implements
         DialogInterface.OnClickListener, Indexable {
 
-    private static final String TAG = "PrivacySettings";
-
     // Vendor specific
     private static final String GSETTINGS_PROVIDER = "com.google.settings";
     private static final String BACKUP_CATEGORY = "backup_category";
     private static final String BACKUP_DATA = "backup_data";
     private static final String AUTO_RESTORE = "auto_restore";
     private static final String CONFIGURE_ACCOUNT = "configure_account";
-<<<<<<< HEAD
     private static final String BACKUP_INACTIVE = "backup_inactive";
     private static final String PERSONAL_DATA_CATEGORY = "personal_data_category";
     private static final String TAG = "PrivacySettings";
-=======
-
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
     private IBackupManager mBackupManager;
     private SwitchPreference mBackup;
     private SwitchPreference mAutoRestore;
@@ -190,7 +168,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements
             return result;
         }
     };
-
 
     private void showEraseBackupDialog() {
         mDialogType = DIALOG_ERASE_BACKUP;

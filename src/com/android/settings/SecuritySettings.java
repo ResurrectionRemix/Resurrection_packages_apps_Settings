@@ -19,20 +19,10 @@
 package com.android.settings;
 
 
-<<<<<<< HEAD
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
-=======
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorDescription;
-import android.app.AlertDialog;
-import android.app.Fragment;
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -40,14 +30,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-<<<<<<< HEAD
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
-=======
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.SwitchPreference;
@@ -67,18 +52,15 @@ import android.telephony.SubscriptionInfo;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.internal.os.IKillSwitchService;
 import com.android.internal.widget.LockPatternUtils;
-<<<<<<< HEAD
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.Index;
 
 import com.android.settings.search.SearchIndexableRaw;
-=======
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
@@ -128,23 +110,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_POWER_INSTANTLY_LOCKS = "power_button_instantly_locks";
     private static final String KEY_CREDENTIALS_MANAGER = "credentials_management";
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
-<<<<<<< HEAD
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
-=======
-
-    // Cyanogen device lock
-    public static final String ACCOUNT_TYPE_CYANOGEN = "com.cyanogen";
-    private static final String EXTRA_CREATE_ACCOUNT = "create-account";
-    private static final String LOCK_TO_CYANOGEN_ACCOUNT = "lock_to_cyanogen_account";
-    private static final String EXTRA_CKSOP = "cksOp";
-    private static final int LOCK_REQUEST = 57;
-
-    private CheckBoxPreference mLockDeviceToCyanogenAccount;
-
-    // CyanogenMod Additions
-    private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
 
     // These switch preferences need special handling since they're not all stored in Settings.
@@ -459,19 +426,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         mToggleAppInstallation = (SwitchPreference) findPreference(
                 KEY_TOGGLE_INSTALL_APPLICATIONS);
         mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
-<<<<<<< HEAD
-=======
-
-        // Cyanogen kill switch
-        mLockDeviceToCyanogenAccount = (CheckBoxPreference)
-                deviceAdminCategory.findPreference(LOCK_TO_CYANOGEN_ACCOUNT);
-        if (!hasKillSwitch(getActivity())) {
-            deviceAdminCategory.removePreference(mLockDeviceToCyanogenAccount);
-            mLockDeviceToCyanogenAccount = null;
-        }
-
-
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
         // Side loading of apps.
         // Disable for restricted profiles. For others, check if policy disallows it.
         mToggleAppInstallation.setEnabled(!um.getUserInfo(UserHandle.myUserId()).isRestricted());
@@ -513,7 +467,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         return root;
     }
 
-<<<<<<< HEAD
     /* Return true if a there is a Slot that has Icc.
      */
     private boolean isSimIccReady() {
@@ -546,41 +499,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
                             (simState != TelephonyManager.SIM_STATE_UNKNOWN)){
                     return true;
                 }
-=======
-    private boolean hasLoggedInCyanogenAccount(Context context) {
-        AccountManager accountManager = (AccountManager)
-                context.getSystemService(Context.ACCOUNT_SERVICE);
-        Account[] accountsByType = accountManager.getAccountsByType(ACCOUNT_TYPE_CYANOGEN);
-        return accountsByType != null && accountsByType.length > 0;
-    }
-
-    public static boolean hasKillSwitch(Context context) {
-        IBinder b = ServiceManager.getService(Context.KILLSWITCH_SERVICE);
-        IKillSwitchService service = IKillSwitchService.Stub.asInterface(b);
-        if (service != null) {
-            try {
-                return service.hasKillSwitch() && hasCyanogenAccountType(context);
-            } catch (Exception e) {
-                // silently fail
             }
         }
         return false;
     }
 
-    public static boolean hasCyanogenAccountType(Context context) {
-        AccountManager accountManager = (AccountManager)
-                context.getSystemService(Context.ACCOUNT_SERVICE);
-        for (AuthenticatorDescription authenticatorDescription :
-                accountManager.getAuthenticatorTypes()) {
-            if (authenticatorDescription.type.equals(ACCOUNT_TYPE_CYANOGEN)) {
-                return true;
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
-            }
-        }
-        return false;
-    }
-
-<<<<<<< HEAD
     private static ArrayList<TrustAgentComponentInfo> getActiveTrustAgents(
             PackageManager pm, LockPatternUtils utils) {
         ArrayList<TrustAgentComponentInfo> result = new ArrayList<TrustAgentComponentInfo>();
@@ -603,46 +526,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
         return result;
-=======
-    public static boolean isDeviceLocked() {
-        IBinder b = ServiceManager.getService(Context.KILLSWITCH_SERVICE);
-        IKillSwitchService service = IKillSwitchService.Stub.asInterface(b);
-        if (service != null) {
-            try {
-                return service.isDeviceLocked();
-            } catch (Exception e) {
-                // silently fail
-            }
-        }
-        return false;
-    }
-
-    public static void updateCyanogenDeviceLockState(final Fragment fragment,
-                                                     final boolean setCks,
-                                                     final int activityRequestCode) {
-        AccountManager.get(fragment.getActivity()).editProperties(ACCOUNT_TYPE_CYANOGEN, null,
-                new AccountManagerCallback<Bundle>() {
-                    public void run(AccountManagerFuture<Bundle> f) {
-                        try {
-                            Bundle b = f.getResult();
-                            Intent i = b.getParcelable(AccountManager.KEY_INTENT);
-                            i.putExtra(EXTRA_CKSOP, setCks ? 1 : 0);
-                            fragment.startActivityForResult(i, activityRequestCode);
-                        } catch (Throwable t) {
-                            Log.e(TAG, "confirmCredentials failed", t);
-                        }
-                    }
-                }, null);
-    }
-
-
-    private int getNumEnabledNotificationListeners() {
-        final String flat = Settings.Secure.getString(getContentResolver(),
-                Settings.Secure.ENABLED_NOTIFICATION_LISTENERS);
-        if (flat == null || "".equals(flat)) return 0;
-        final String[] components = flat.split(":");
-        return components.length;
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
     }
 
     private boolean isNonMarketAppsAllowed() {
@@ -690,21 +573,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
     }
 
-<<<<<<< HEAD
     private void updateSmsSecuritySummary(int i) {
         String message = getString(R.string.sms_security_check_limit_summary, i);
-=======
-    private void updateDeviceLockState() {
-        if (mLockDeviceToCyanogenAccount != null) {
-            mLockDeviceToCyanogenAccount.setChecked(isDeviceLocked());
-        }
-    }
-
-    private void updateSmsSecuritySummary(int selection) {
-        String message = selection > 0
-                ? getString(R.string.sms_security_check_limit_summary, selection)
-                : getString(R.string.sms_security_check_limit_summary_none);
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
         mSmsSecurityCheck.setSummary(message);
     }
 
@@ -819,8 +689,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
-
-        updateDeviceLockState();
     }
 
     @Override
@@ -850,60 +718,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 startActivity(mTrustAgentClickIntent);
                 mTrustAgentClickIntent = null;
             }
-<<<<<<< HEAD
-=======
-        } else if (KEY_TOGGLE_VERIFY_APPLICATIONS.equals(key)) {
-            Settings.Global.putInt(getContentResolver(), Settings.Global.PACKAGE_VERIFIER_ENABLE,
-                    mToggleVerifyApps.isChecked() ? 1 : 0);
-        }  else if (preference == mLockDeviceToCyanogenAccount) {
-            if (mLockDeviceToCyanogenAccount.isChecked()) {
-                // wants to opt in.
-                if (hasLoggedInCyanogenAccount(getActivity())) {
-                    updateCyanogenDeviceLockState(this, true, LOCK_REQUEST);
-                } else {
-                    // no account, need to create one!
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                            .setMessage(R.string.lock_to_cyanogen_create_account_msg)
-                            .setPositiveButton(android.R.string.ok,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // create new account
-                                            AccountManager accountManager = (AccountManager)
-                                                    getActivity()
-                                                        .getSystemService(Context.ACCOUNT_SERVICE);
-                                            Bundle opts = new Bundle();
-                                            opts.putBoolean(EXTRA_CREATE_ACCOUNT, true);
-                                            opts.putInt(EXTRA_CKSOP, 1);
-
-                                            accountManager.addAccount(ACCOUNT_TYPE_CYANOGEN,
-                                                    null, null, opts, getActivity(), null, null);
-                                        }
-                                    });
-                    builder.create().show();
-                }
-            } else {
-                //  opt out
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                        .setMessage(R.string.lock_to_cyanogen_disable_msg)
-                        .setNegativeButton(android.R.string.no,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        updateDeviceLockState();
-                                    }
-                                })
-                        .setPositiveButton(android.R.string.yes,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        updateCyanogenDeviceLockState(SecuritySettings.this,
-                                                false, LOCK_REQUEST);
-                                    }
-                                });
-                builder.create().show();
-            }
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);

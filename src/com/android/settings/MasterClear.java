@@ -20,10 +20,8 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
@@ -63,11 +61,6 @@ public class MasterClear extends Fragment {
     private static final String TAG = "MasterClear";
 
     private static final int KEYGUARD_REQUEST = 55;
-<<<<<<< HEAD
-=======
-    private static final int PIN_REQUEST = 56;
-    private static final int LOCK_REQUEST = 57;
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
 
     static final String WIPE_MEDIA_EXTRA = "wipe_media";
     static final String ERASE_EXTERNAL_EXTRA = "erase_sd";
@@ -94,20 +87,7 @@ public class MasterClear extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-<<<<<<< HEAD
         if (requestCode != KEYGUARD_REQUEST) {
-=======
-        if (requestCode == PIN_REQUEST) {
-            if (resultCode == Activity.RESULT_OK) {
-                mPinConfirmed = true;
-            }
-            return;
-        } else if (requestCode == LOCK_REQUEST) {
-            if (resultCode != Activity.RESULT_OK) {
-                getActivity().finish();
-            }
-        } else if (requestCode != KEYGUARD_REQUEST) {
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
             return;
         }
 
@@ -322,7 +302,6 @@ public class MasterClear extends Fragment {
         return mContentView;
     }
 
-<<<<<<< HEAD
     private View newTitleView(ViewGroup parent, LayoutInflater inflater) {
         final TypedArray a = inflater.getContext().obtainStyledAttributes(null,
                 com.android.internal.R.styleable.Preference,
@@ -330,40 +309,5 @@ public class MasterClear extends Fragment {
         final int resId = a.getResourceId(com.android.internal.R.styleable.Preference_layout,
                 0);
         return inflater.inflate(resId, parent, false);
-=======
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        // If this is the second step after restrictions pin challenge
-        if (mPinConfirmed) {
-            mPinConfirmed = false;
-            if (!runKeyguardConfirmation(KEYGUARD_REQUEST)) {
-                showFinalConfirmation();
-            }
-        }
-
-        if (SecuritySettings.isDeviceLocked()) {
-            new AlertDialog.Builder(getActivity())
-                    .setMessage(R.string.lock_to_cyanogen_master_clear_warning)
-                    .setNegativeButton(R.string.wizard_back, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            getActivity().finish();
-                        }
-                    })
-                    .setPositiveButton(R.string.lockpassword_continue_label, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SecuritySettings.updateCyanogenDeviceLockState(MasterClear.this,
-                                    false, LOCK_REQUEST);
-                        }
-                    })
-                    .setCancelable(false)
-                    .create()
-                    .show();
-
-        }
->>>>>>> a868b4b... Settings: add killswitch logic to factory reset screen
     }
 }
