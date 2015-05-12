@@ -24,6 +24,7 @@ import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -179,6 +180,7 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.patternlock);
 
         mPatternLockHeader = (TextView) findViewById(R.id.pattern_lock_header);
