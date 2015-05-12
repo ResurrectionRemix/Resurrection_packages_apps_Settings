@@ -1227,10 +1227,6 @@ public class SettingsActivity extends Activity
                     if (TelephonyManager.getDefault().getPhoneCount() > 1) {
                         removeTile = true;
                     }
-                } else if (id == R.id.msim_mobile_networks) {
-                    if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
-                        removeTile = true;
-                    }
                 } else if (id == R.id.data_usage_settings) {
                     // Remove data usage when kernel module not enabled
                     final INetworkManagementService netManager = INetworkManagementService.Stub

@@ -60,22 +60,6 @@
                     android:targetClass="com.android.phone.MobileNetworkSettings" />
         </dashboard-tile>
 
-        <!-- MSIM Mobile networks -->
-        <!-- TARGET_THEME is located in packages/services/Telephony -->
-        <dashboard-tile
-                android:id="@+id/msim_mobile_networks"
-                android:title="@string/network_settings_title"
-                android:icon="@drawable/ic_settings_cellular">
-            <intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.phone"
-                    android:targetClass="com.android.phone.msim.SelectSubscription">
-                    <extra android:name="PACKAGE" android:value="com.android.phone" />
-                    <extra android:name="TARGET_CLASS" android:value="com.android.phone.MobileNetworkSettings" />
-                    <extra android:name="TARGET_THEME" android:value="Theme.Material.Settings" />
-            </intent>
-        </dashboard-tile>
-
         <!-- Data Usage -->
         <dashboard-tile
                 android:id="@+id/data_usage_settings"
