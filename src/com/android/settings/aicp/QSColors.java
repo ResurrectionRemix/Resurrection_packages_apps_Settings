@@ -49,6 +49,8 @@ public class QSColors extends SettingsPreferenceFragment implements
             "qs_transparent_shade";
     private static final String PREF_QS_COLOR_SWITCH =
             "qs_color_switch";
+    private static final String PREF_CLEAR_ALL_ICON_COLOR =
+            "notification_drawer_clear_all_icon_color";
 
     private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
     private static final int WHITE = 0xffffffff;
@@ -57,20 +59,15 @@ public class QSColors extends SettingsPreferenceFragment implements
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private boolean mRecreating = false;
-
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
+    private ColorPickerPreference mClearAllIconColor;
     private SwitchPreference mQSShadeTransparency;
     private SwitchPreference mQSSSwitch;
 
     private ContentResolver mResolver;
 
-    private void recreateStatusBar() {
-        mRecreating = true;
-    }
-    
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -122,6 +119,17 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSShadeTransparency.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.QS_TRANSPARENT_SHADE, 0) == 1));
         mQSShadeTransparency.setOnPreferenceChangeListener(this);
+		
+        mClearAllIconColor =
+                (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.NOTIFICATION_DRAWER_CLEAR_ALL_ICON_COLOR, WHITE); 
+        mClearAllIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClearAllIconColor.setSummary(hexColor);
+        mClearAllIconColor.setDefaultColors(WHITE, SWAG_TEAL);
+        mClearAllIconColor.setOnPreferenceChangeListener(this);
+        mClearAllIconColor.setAlphaSliderEnabled(true);
 
         mQSSSwitch = (SwitchPreference) findPreference(PREF_QS_COLOR_SWITCH);
         mQSSSwitch.setChecked((Settings.System.getInt(mResolver,
@@ -160,7 +168,6 @@ public class QSColors extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                 Settings.System.QS_BACKGROUND_COLOR, intHex);
             preference.setSummary(hex);
-            recreateStatusBar();
             return true;
         } else if (preference == mQSIconColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -169,7 +176,6 @@ public class QSColors extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                 Settings.System.QS_ICON_COLOR, intHex);
             preference.setSummary(hex);
-            recreateStatusBar();
             return true;
         } else if (preference == mQSTextColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -178,20 +184,26 @@ public class QSColors extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                 Settings.System.QS_TEXT_COLOR, intHex);
             preference.setSummary(hex);
-            recreateStatusBar();
             return true;
         } else if (preference == mQSShadeTransparency) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_TRANSPARENT_SHADE, value ? 1 : 0);
-            recreateStatusBar();
             return true;
         } else if (preference == mQSSSwitch) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_COLOR_SWITCH, value ? 1 : 0);
             refreshSettings();
-            recreateStatusBar();
+            return true;
+        } else if (preference == mClearAllIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.NOTIFICATION_DRAWER_CLEAR_ALL_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         }
         return false;
     }
@@ -237,6 +249,8 @@ public class QSColors extends SettingsPreferenceFragment implements
                                     Settings.System.QS_TEXT_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TRANSPARENT_SHADE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.NOTIFICATION_DRAWER_CLEAR_ALL_ICON_COLOR, WHITE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -254,6 +268,9 @@ public class QSColors extends SettingsPreferenceFragment implements
                                     SWAG_TEAL);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TRANSPARENT_SHADE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.NOTIFICATION_DRAWER_CLEAR_ALL_ICON_COLOR,
+                                    SWAG_TEAL);
                             getOwner().refreshSettings();
                         }
                     })
