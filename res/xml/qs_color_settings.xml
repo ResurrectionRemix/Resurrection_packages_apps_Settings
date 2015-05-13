@@ -25,6 +25,12 @@
             android:summary="@string/qs_color_switch_summary"
             android:defaultValue="false" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_drawer_clear_all_icon_color"
+            android:title="@string/notification_drawer_clear_all_icon_color_title"
+            android:defaultValue="0xffffffff"
+            android:dependency="qs_color_switch" />
+
         <SwitchPreference
             android:key="qs_transparent_shade"
             android:title="@string/qs_transparent_shade_title"
