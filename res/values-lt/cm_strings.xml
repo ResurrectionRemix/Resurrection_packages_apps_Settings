@@ -126,6 +126,8 @@
   <string name="volbtn_cursor_control_on_reverse">Garsumas aukštyn / žemyn valdys žymeklį į dešinę / kairę</string>
   <string name="swap_volume_buttons_title">Sukeisti</string>
   <string name="swap_volume_buttons_summary">Pasukus ekraną sukeisti garsumo mygtukus</string>
+  <string name="volume_keys_control_ring_stream_title">Garsumo mygtukai kontroliuoja skambėjimo tono garsumą</string>
+  <string name="volume_keys_control_ring_stream_summary">Jei įjungta, garsumo mygtukai kontroliuoja garsumą, jei išjungta, garsumo mygtukai kontroliuoja medijos garsumą.</string>
   <string name="power_end_call_title">Baigti pokalbį</string>
   <string name="power_end_call_summary">Paspaudus maitinimo mygtuką bus baigtas pokalbis</string>
   <string name="button_wake_title">Pažadinti įrenginį</string>
@@ -160,9 +162,14 @@
   <string name="sunlight_enhancement_summary">Pagerinti ekrano šviesumą ir įskaitomumą ryškioje saulės šviesoje</string>
   <string name="color_enhancement_title">Spalvų stiprinimas</string>
   <string name="color_enhancement_summary">Dinamiškai padidinti ekrano spalvą</string>
+  <string name="blacklist_title">Užblokuotų skambintojų sąrašas</string>
+  <string name="blacklist_edit_dialog_title">Redaguoti užblokuotą telefono numerį</string>
   <string name="blacklist_prefs">Nustatymai</string>
   <string name="blacklist_button_delete">Ištrinti</string>
+  <string name="blacklist_empty_text">Jūs neturite jokių užblokuotų numerių. Pridėkite įrašą paliesdami (+) mygtuką.</string>
+  <string name="blacklist_disabled_empty_text">Kad išvengtumėte skambučių ar pranešimų, įgalinkite užblokuotų skambintojų sąrašą.</string>
   <string name="blacklist_summary_disabled">Neleidžiamas</string>
+  <string name="blacklist_summary">Jūs negausite įeinančių skambučių ar pranešimų iš telefonų numerių kurie yra užblokuotų skambintojų sąraše</string>
   <string name="blacklist_notify">Rodyti pranešimą</string>
   <string name="blacklist_private_numbers_title">Privatūs numeriai</string>
   <string name="blacklist_private_numbers_summary_disabled">Neblokuoti skambučių iš privačių numerių</string>
@@ -177,7 +184,9 @@
   <string name="blacklist_regex_summary">Naudoti . kaip pakaitos simbolį ir * pasikartojimui. Pvz., 123.* blokuoja numerius, prasidedančius skaičiais 123 ir .*123.* blokuoja numerius kuriuose yra skaičiai 123</string>
   <string name="blacklist_policy_block_calls">Blokuoti įeinančius skambučius</string>
   <string name="blacklist_policy_block_messages">Blokuoti įeinančius pranešimus</string>
+  <string name="blacklist_bad_number_add">Negalima pridėti neteisingo telefono numerio prie užblokuotų skambintojų sąrašo</string>
   <string name="remove_blacklist_number_title">Pašalinti numerį</string>
+  <string name="remove_blacklist_entry">Ar norite pašalinti šį užblokuotą telefono numerį?</string>
   <string name="select_contact">Pasirinkti kontaktą</string>
   <string name="lockpattern_reset_button">Nustatyti iš naujo modelį</string>
   <string name="lockpattern_settings_reset_summary">Įveskite pirminį el. paštą ir susijusį slaptažodį, kad nustatytumėte iš naujo modelio užraktą</string>
@@ -214,6 +223,8 @@
   <string name="update_recovery_off_warning">ĮSPĖJIMAS: Kai ši funkcija yra neleidžiama,\n\nJūsų atkūrimo programa nebus atnaujinta kartu su OS atnaujinimais.\n\nAteityje OS atnaujinimai negalės būti įdiegti su pasenusia ar tinkinta atkūrimo programos versija.\n\nAr tikrai norite neleisti šios funkcijos?</string>
   <string name="mod_version">„CyanogenMod“ versija</string>
   <string name="mod_version_default">Nežinoma</string>
+  <string name="device_model">Įrenginio modelis</string>
+  <string name="device_name">Įrenginio pavadinimas</string>
   <string name="build_date">Surinkimo data</string>
   <string name="contributor_cloud_title">Pagalbininkai</string>
   <string name="phone_service_state">Balsas: <xliff:g id="voice_state">%1$s</xliff:g>, duomenys: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -232,6 +243,7 @@
   <string name="privacy_guard_reset_text">Nustatyti iš naujo leidimus?</string>
   <string name="privacy_guard_help_text">Šiame ekrane galite pasirinkti kuriose programose privatumo sauga turėtų būti aktyvi, tiesiog paliesdami jas. Pasirinktos programos negalės prieiti prie asmeninių duomenų tokių kaip adresatai, pranešimai ar skambučių žurnalas. Ilgai paspaudus ant įrašo atsidaro tos programos išsamesnis ekranas.\n\nPagal numatytuosius nustatymus įdiegtos programos nėra rodomos, bet gali būti parodytos pasirenkant atitinkamą meniu parinktį.</string>
   <string name="privacy_guard_manager_show_system_apps">Rodyti įdiegtas programas</string>
+  <string name="app_ops_btn_text">Modifikuoti</string>
   <string name="increasing_ring_volume_option_title">Didėjantis skambėjimo garsumas</string>
   <string name="increasing_ring_min_volume_title">Pradinis garsumas</string>
   <string name="increasing_ring_ramp_up_time_title">Didėjimo laikas</string>
@@ -296,7 +308,6 @@
   <string name="status_bar_show_unused_sims_title">Rodyti tuščias SIM piktogramas</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Slėpti nepanaudotų SIM lizdų piktogramas</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Nurodyti nepanaudotų SIM lizdus</string>
-  <string name="sim_name_hint">Įveskite SIM pavadinimą</string>
   <string name="edit_light_settings">Redaguoti šviesos nustatymus</string>
   <string name="pulse_speed_title">Pulsavimo trukmė ir greitis</string>
   <string name="default_time">Normalus</string>
@@ -679,7 +690,6 @@
   <string name="edge_gesture_service_summary">Nesiųsti lietimo įvykių programoms dėl naršymo ir būsenos juostos gestų</string>
   <string name="cmlicense_title">Teisinė „CyanogenMod“ informacija</string>
   <string name="settings_cmlicense_activity_title">Teisinė „CyanogenMod“ informacija</string>
-  <string name="settings_cmlicense_activity_unreachable">Nesate prisijungę prie duomenų paslaugos. Jei norite peržiūrėti šią informaciją dabar, apsilankykite šiuo adresu %s naudodami bet kurį prie interneto prijungtą kompiuterį.</string>
   <string name="lockpattern_settings_enable_error_path_title">Rodyti modelio klaidą</string>
   <string name="lockpattern_settings_enable_dots_title">Rodyti modelio taškus</string>
   <string name="unlock_quick_unlock_control_title">Greitas atrakinimas</string>
@@ -724,11 +734,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Ekrano skirtasis laikas</string>
   <string name="qs_tile_usb_tether">USB susiejimas</string>
+  <string name="qs_tile_heads_up">Iššokantys pranešimai</string>
+  <string name="qs_tile_ambient_display">Ambient display</string>
   <string name="qs_main_tiles_title">Padidinti pirmąją eilę</string>
   <string name="qs_main_tiles_summary_on">Dvi pagrindines plyteles pirmoje eilėje</string>
   <string name="qs_main_tiles_summary_off">Trys plytelės kiekvienoje eilėje</string>
   <string name="qs_advanced_location_title">Išplėstiniai vietovės nustatymai</string>
   <string name="qs_advanced_location_summary">Įgalinti vietovės išplėstinius nustatymus greituosiuose nustatymuose</string>
+  <string name="sim_no_number_set">Nėra priskirto numerio</string>
   <string name="gesture_settings_title">Gestai</string>
   <string name="themes_settings_title">Temos</string>
   <string name="wifi_mode">Režimas</string>
@@ -762,6 +775,11 @@
   <string name="whisperpush_summary">Tvarkyti saugiųjų SMS pranešimų nustatymus</string>
   <string name="navigation_ring_title">Navigacijos žiedo objektai</string>
   <string name="navigation_ring_message">Bakstelėkite redagavimo piktogramą, kad atidarytumėte navigacijos žiedą redagavimui.\n\nPasirinkite objektą, kad konfigūruotumėte jo elgseną.\n\nBakstelėkite „\u2713“ piktogramą, kad išsaugotumėte savo pakeitimus, arba „Atkurti numatytuosius“ , kad nustatytumėte nustatymus į numatytuosius.</string>
+  <string name="lcd_density">LCD tankis</string>
+  <string name="dialog_title_lcd_density">LCD tankis</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (numatytasis)</string>
+  <string name="restarting_ui">Paleidžiama iš naujo UI\u2026</string>
   <string name="stylus_icon_enabled_title">Rodyti piktogramą naudojant rašiklį</string>
   <string name="stylus_icon_enabled_summary">Rodyti žymeklio piktogramą, kai braukiama su rašikliu</string>
   <string name="gestures_settings_title">Rašiklio gestai</string>
@@ -802,6 +820,9 @@
   <string name="sim_ringtone_title">SIM %d skambėjimo tonas</string>
   <string name="interruptions_ignore_while_media_title">Neleisti garso sumažinimo</string>
   <string name="interruptions_ignore_while_media_summary">Nesumažinti medijos atkūrimo garsumo, kai gaunamas pranešimas</string>
+  <string name="none_is_silent_title">Niekada nenutildyti signalų</string>
+  <string name="none_is_silent_summary">Begarsiame režime signalai skambės visada</string>
+  <string name="allow_lights_title">Leisti pranešimo šviesas</string>
   <string name="live_display_summary">Optimizuoti ekraną remiantis paros metu ir aplinkos sąlygomis, siekiant pagerinti įskaitomumą ir sumažinti akių įtampą</string>
   <string name="live_display_mode">Rodymo režimas</string>
   <string name="live_display_color_temperature_title">Spalvos temperatūra</string>
@@ -831,4 +852,13 @@
   <string name="preview_version_title">Versija</string>
   <string name="preview_country_title">Šalis</string>
   <string name="preview_carrier_title">Operatorius</string>
+  <string name="heads_up_notifications">Iššokantys pranešimai</string>
+  <string name="summary_heads_up_enabled">Iššokantys pranešimai yra įgalinti</string>
+  <string name="summary_heads_up_disabled">Iššokantys pranešimai yra neleidžiami</string>
+  <string name="lock_to_cyanogen_title">Įrenginio apsauga</string>
+  <string name="lock_to_cyanogen_summary">Reikalauti „Cyanogen“ OS paskyros slaptažodžio net ir po gamyklinių nustatymų iš naujo</string>
+  <string name="lock_to_cyanogen_create_account_msg">Jūsų įrenginys naudoja „Cyanogen“ OS paskyros slaptažodį, kad apsaugotų įrenginį net ir po gamyklinių nustatymų iš naujo. Jums reikės sukurti „Cyanogen“ OS paskyrą.</string>
+  <string name="lock_to_cyanogen_disable_msg">Neleidžiant šios funkcijos, vartotojai neturintys leidimo galės nustatyti iš naujo telefono gamyklinius nustatymus jei jis pavogiamas. Jūsų asmeniniai duomenys gali būti neapsaugoti. Ar norite neleisti šios funkcijos?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Įrenginio apsauga yra įgalinta. Prašome neleisti, kad galėtumėte tęsti savo įrenginio nustatymą iš naujo.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Prisijungimo klaida; ar „Bluetooth“ susiejimas įgalintas šiame įrenginyje?</string>
 </resources>

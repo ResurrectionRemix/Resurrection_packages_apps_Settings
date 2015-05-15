@@ -126,6 +126,8 @@
   <string name="volbtn_cursor_control_on_reverse">Кнопка «+» двигает курсор вправо, «-» — влево</string>
   <string name="swap_volume_buttons_title">Автоповорот</string>
   <string name="swap_volume_buttons_summary">Менять назначение кнопок регулировки громкости согласно ориентации экрана</string>
+  <string name="volume_keys_control_ring_stream_title">Изменять громкость рингтона кнопками</string>
+  <string name="volume_keys_control_ring_stream_summary">Если включено, кнопки громкости меняют громкость рингтона. Если выключено — громкость мультимедиа.</string>
   <string name="power_end_call_title">Завершение вызова</string>
   <string name="power_end_call_summary">Завершать вызов нажатием кнопки питания</string>
   <string name="button_wake_title">Выход из режима сна</string>
@@ -160,9 +162,14 @@
   <string name="sunlight_enhancement_summary">Повышение яркости и уровня читаемости экрана при ярком солнечном свете</string>
   <string name="color_enhancement_title">Улучшение цвета</string>
   <string name="color_enhancement_summary">Динамическое улучшение цветопередачи экрана</string>
+  <string name="blacklist_title">Чёрный список</string>
+  <string name="blacklist_edit_dialog_title">Изменить заблокированный номер</string>
   <string name="blacklist_prefs">Настройки</string>
   <string name="blacklist_button_delete">Удалить</string>
+  <string name="blacklist_empty_text">Чёрный список пуст. Добавлять контакты можно с помощью кнопки «Добавить (+)».</string>
+  <string name="blacklist_disabled_empty_text">Чтобы предотвратить звонки или сообщения от нежелательных контактов, включите черный список.</string>
   <string name="blacklist_summary_disabled">Выключен</string>
+  <string name="blacklist_summary">Вы не будете получать входящие вызовы или сообщения от телефонных номеров из черного списка</string>
   <string name="blacklist_notify">Показывать уведомления</string>
   <string name="blacklist_private_numbers_title">Скрытые номера</string>
   <string name="blacklist_private_numbers_summary_disabled">Не блокировать вызовы от скрытых номеров</string>
@@ -177,7 +184,9 @@
   <string name="blacklist_regex_summary">Используйте «.» как маску и «*» для повторения. Например, выражение «123.*» будет блокировать номера, начинающиеся с «123», а «.*123.*» — номера, содержащие «123» в любой их части.</string>
   <string name="blacklist_policy_block_calls">Блокировать входящие вызовы</string>
   <string name="blacklist_policy_block_messages">Блокировать входящие сообщения</string>
+  <string name="blacklist_bad_number_add">Некорректный номер, добавление невозможно</string>
   <string name="remove_blacklist_number_title">Удалить номер</string>
+  <string name="remove_blacklist_entry">Вы действительно хотите удалить данный номер из чёрного списка?</string>
   <string name="select_contact">Выбор контакта</string>
   <string name="lockpattern_reset_button">Сбросить граф. ключ</string>
   <string name="lockpattern_settings_reset_summary">Введите адрес эл. почты основного аккаунта и соответствующий пароль для сброса граф. ключа</string>
@@ -214,6 +223,8 @@
   <string name="update_recovery_off_warning">Когда эта функция отключена, прошивка режима восстановления всегда будет оставаться неизменной.\n\nНекоторые обновления ОС могут не устанавливаться при использовании устаревших или пользовательских версий раздела Recovery.\n\nОтключить использование этой функции?</string>
   <string name="mod_version">Версия CyanogenMod</string>
   <string name="mod_version_default">Неизвестно</string>
+  <string name="device_model">Модель устройства</string>
+  <string name="device_name">Имя устройства</string>
   <string name="build_date">Дата сборки</string>
   <string name="contributor_cloud_title">Имена разработчиков</string>
   <string name="phone_service_state">Голосовая связь: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача данных: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -232,6 +243,7 @@
   <string name="privacy_guard_reset_text">Сбросить разрешения?</string>
   <string name="privacy_guard_help_text">В этом разделе вы можете выбрать приложения, которые будут работать в защищенном режиме, нажав на них. Такие приложения не будут иметь доступа к персональным данным, таким как контакты, сообщения или журнал вызовов. Долгое нажатие откроет подробные сведения о разрешениях данного приложения.\n\nПо умолчанию системные приложения скрыты. Для их отображения или для перехода к расширенным настройкам выберите соответствующий пункт в меню.</string>
   <string name="privacy_guard_manager_show_system_apps">Системные приложения</string>
+  <string name="app_ops_btn_text">Изменить</string>
   <string name="increasing_ring_volume_option_title">Возрастающая громкость звонка</string>
   <string name="increasing_ring_min_volume_title">Начальная громкость</string>
   <string name="increasing_ring_ramp_up_time_title">Время увеличения</string>
@@ -297,7 +309,6 @@
   <string name="status_bar_show_unused_sims_title">Значки отсутствующих SIM-карт</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Скрывать значки SIM-карт, если они не установлены</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Показывать значки пустых SIM-карт в соответствующих слотах</string>
-  <string name="sim_name_hint">Введите имя SIM-карты</string>
   <string name="edit_light_settings">Изменение настроек индикатора</string>
   <string name="pulse_speed_title">Длительность и скорость мигания</string>
   <string name="default_time">Средне</string>
@@ -680,7 +691,6 @@
   <string name="edge_gesture_service_summary">Не передавать приложениям жесты показа строки состояния и панели навигации</string>
   <string name="cmlicense_title">Политика конфиденциальности CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Политика конфиденциальности CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">Устройство не подключено к Интернету. Чтобы просмотреть эту информацию, откройте страницу %s на любом компьютере с интернет-доступом.</string>
   <string name="lockpattern_settings_enable_error_path_title">Показывать неверный ввод</string>
   <string name="lockpattern_settings_enable_dots_title">Показывать точки</string>
   <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
@@ -725,11 +735,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Спящий режим</string>
   <string name="qs_tile_usb_tether">USB-модем</string>
+  <string name="qs_tile_heads_up">Всплывающие уведомления</string>
+  <string name="qs_tile_ambient_display">Индикация событий</string>
   <string name="qs_main_tiles_title">Увеличить первый ряд</string>
   <string name="qs_main_tiles_summary_on">Две главные плитки на первом ряду</string>
   <string name="qs_main_tiles_summary_off">Три плитки на каждом ряду</string>
   <string name="qs_advanced_location_title">Расширенные настройки местоположения</string>
   <string name="qs_advanced_location_summary">Включить расширенные настройки для местоположения в быстрых настройках</string>
+  <string name="sim_no_number_set">Номер не присвоен</string>
   <string name="gesture_settings_title">Жесты</string>
   <string name="themes_settings_title">Темы</string>
   <string name="wifi_mode">Режим</string>
@@ -763,6 +776,11 @@
   <string name="whisperpush_summary">Настройка шифрования SMS-сообщений</string>
   <string name="navigation_ring_title">Ярлыки навигационного кольца</string>
   <string name="navigation_ring_message">Коснитесь значка правки для изменения навигационного кольца.\n\nВыберите ярлык для настройки его поведения.\n\nКоснитесь галочки (\u2713) для выхода из режима редактирования и сохранения изменений, а для возврата ярлыков по умолчанию — коснитесь кнопки «Восстановить».</string>
+  <string name="lcd_density">Плотность экрана</string>
+  <string name="dialog_title_lcd_density">Установка плотности</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (по умолчанию)</string>
+  <string name="restarting_ui">Перезапуск интерфейса\u2026</string>
   <string name="stylus_icon_enabled_title">Курсор при использовании стилуса</string>
   <string name="stylus_icon_enabled_summary">Показывать значок указателя при работе со стилусом</string>
   <string name="gestures_settings_title">Поддержка стилуса</string>
@@ -803,6 +821,9 @@
   <string name="sim_ringtone_title">Рингтон SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Не приглушать звук</string>
   <string name="interruptions_ignore_while_media_summary">Не снижать громкость воспроизведения мультимедиа при получении уведомлений</string>
+  <string name="none_is_silent_title">Никогда не приглушать будильник</string>
+  <string name="none_is_silent_summary">В беззвучном режиме будет включаться только сигнал будильника</string>
+  <string name="allow_lights_title">Включить индикатор событий</string>
   <string name="live_display_summary">Подстраивать экран на основе времени суток и освещения, чтобы улучшить читаемость и снизить усталость глаз</string>
   <string name="live_display_mode">Режим экрана</string>
   <string name="live_display_color_temperature_title">Цветовая температура</string>
@@ -832,4 +853,13 @@
   <string name="preview_version_title">Версия</string>
   <string name="preview_country_title">Страна</string>
   <string name="preview_carrier_title">Оператор</string>
+  <string name="heads_up_notifications">Всплывающие уведомления</string>
+  <string name="summary_heads_up_enabled">Включены</string>
+  <string name="summary_heads_up_disabled">Выключены</string>
+  <string name="lock_to_cyanogen_title">Защита устройства</string>
+  <string name="lock_to_cyanogen_summary">Требовать пароль аккаунта ОС Cyanogen даже после удаления всех данных</string>
+  <string name="lock_to_cyanogen_create_account_msg">Устройство использует пароль аккаунта ОС Cyanogen для защиты устройства от сброса настроек. Потребуется создать новый аккаунт ОС Cyanogen.</string>
+  <string name="lock_to_cyanogen_disable_msg">Отключение этой функции позволит другим людям выполнить удаление всех данных на устройстве в случае его кражи. Ваши личные данные могут стать недостаточно защищёнными. Вы действительно хотите отключить эту функцию?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Защита устройства включена. Необходимо отключить её, чтобы выполнить сброс настроек на устройстве.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Ошибка подключения. Проверьте, включён ли Bluetooth-модем на указанном устройстве.</string>
 </resources>

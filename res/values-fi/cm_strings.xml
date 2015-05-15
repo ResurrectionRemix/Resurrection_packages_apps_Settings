@@ -125,6 +125,8 @@
   <string name="volbtn_cursor_control_on_reverse">Äänenvoimakkuus ylös/alas ohjaa kohdistinta oikealle/vasemmalle</string>
   <string name="swap_volume_buttons_title">Käännä</string>
   <string name="swap_volume_buttons_summary">Vaihda äänenvoimakkuusnäppäimien paikkoja näytön ollessa käännettynä</string>
+  <string name="volume_keys_control_ring_stream_title">Soittoäänen voimakkuuden ohjaus äänenvoimakkuusnäppäimillä</string>
+  <string name="volume_keys_control_ring_stream_summary">Jos käytössä, äänenvoimakkuusnäppäimet ohjaavat soittoäänen voimakkuutta. Jos pois käytöstä, äänenvoimakkuusnäppäimet ohjaavat median äänenvoimakkuutta.</string>
   <string name="power_end_call_title">Lopeta puhelu</string>
   <string name="power_end_call_summary">Virtapainikkeen painaminen lopettaa nykyisen puhelun</string>
   <string name="button_wake_title">Herätä laite</string>
@@ -159,9 +161,14 @@
   <string name="sunlight_enhancement_summary">Parantaa näytön kirkkautta ja luettavuutta kirkkaassa auringonvalossa</string>
   <string name="color_enhancement_title">Värien tehostus</string>
   <string name="color_enhancement_summary">Tehosta näytön värejä dynaamisesti</string>
+  <string name="blacklist_title">Estettyjen soittajien lista</string>
+  <string name="blacklist_edit_dialog_title">Muokkaa estettyä puhelinnumeroa</string>
   <string name="blacklist_prefs">Asetukset</string>
   <string name="blacklist_button_delete">Poista</string>
+  <string name="blacklist_empty_text">Sinulla ei ole yhtään estettyä numeroa. Lisää painamalla Lisää-painiketta (+).</string>
+  <string name="blacklist_disabled_empty_text">Ota estettyjen soittajien lista käyttöön estääksesi puhelut ja/tai viestit tietyistä numeroista.</string>
   <string name="blacklist_summary_disabled">Pois käytöstä</string>
+  <string name="blacklist_summary">Tulevat puhelut ja viestit estettyjen soittajien listalla olevista puhelinnumeroista estetään</string>
   <string name="blacklist_notify">Näytä ilmoitus</string>
   <string name="blacklist_private_numbers_title">Salaiset numerot</string>
   <string name="blacklist_private_numbers_summary_disabled">Älä estä puheluita salaisista numeroista</string>
@@ -176,7 +183,9 @@
   <string name="blacklist_regex_summary">Käytä pistettä (.) jokerimerkkinä ja tähteä (*) toiston merkkinä. Esim. 123.* estää numerot jotka alkavat 123 ja .*123.* estää numerot jotka sisältävät 123</string>
   <string name="blacklist_policy_block_calls">Estä saapuvat puhelut</string>
   <string name="blacklist_policy_block_messages">Estä saapuvat viestit</string>
+  <string name="blacklist_bad_number_add">Ei voi lisätä virheellistä numeroa estettyjen soittajien listalle</string>
   <string name="remove_blacklist_number_title">Poista numero</string>
+  <string name="remove_blacklist_entry">Haluatko poistaa tämän numeron estettyjen soittajien listalta?</string>
   <string name="select_contact">Valitse yhteystieto</string>
   <string name="lockpattern_reset_button">Nollaa kuvio</string>
   <string name="lockpattern_settings_reset_summary">Syötä ensisijainen sähköposti ja salasana nollataksesi kuvion</string>
@@ -213,6 +222,8 @@
   <string name="update_recovery_off_warning">VAROITUS: Kun toiminto on poistettu käytöstä, asennettua Recovery-tilaa ei päivitetä järjestelmäpäivtysten kanssa.\n\nTulevat järjestelmäpäivitykset eivät välttämättä asennu vanhentuneissa tai mukautetuissa Recovery-tiloissa.\n\nHaluatko varmasti poistaa tämän toiminnon käytöstä?</string>
   <string name="mod_version">CyanogenMod-versio</string>
   <string name="mod_version_default">Tuntematon</string>
+  <string name="device_model">Laitteen malli</string>
+  <string name="device_name">Laitteen nimi</string>
   <string name="build_date">Luontipäivä</string>
   <string name="contributor_cloud_title">Kehittäjät ja avustajat</string>
   <string name="phone_service_state">Puhelut: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -231,6 +242,7 @@
   <string name="privacy_guard_reset_text">Palauta käyttöoikeudet?</string>
   <string name="privacy_guard_help_text">Tässä näytössä voit valita, missä sovelluksissa haluat yksityisyyden suojauksen olevan päällä. Valituilla sovelluksilla ei ole pääsyä henkilökohtaisiin tietoihisi, kuten yhteystietoihin, viesteihin tai puhelulokiin. Sovelluksen tiedot näytetään painettaessa pitkään sen nimeä.\n\nJärjestelmäsovelluksia ei näytetä oletuksena, mutta ne voidaan tarvittaessa tuoda näkyviin valitsemalla kyseisen vaihtoehdon.</string>
   <string name="privacy_guard_manager_show_system_apps">Näytä järjestelmäsovellukset</string>
+  <string name="app_ops_btn_text">Muokkaa</string>
   <string name="increasing_ring_volume_option_title">Voimistuva soittoääni</string>
   <string name="increasing_ring_min_volume_title">Aloitusvoimakkuus</string>
   <string name="increasing_ring_ramp_up_time_title">Nousun aika</string>
@@ -295,7 +307,6 @@
   <string name="status_bar_show_unused_sims_title">Näytä tyhjät SIM-kuvakkeet</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Piilota käyttämättömättömien SIM-korttipaikkojen kuvakkeet</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Osoita käyttämättömät SIM-korttipaikat</string>
-  <string name="sim_name_hint">Anna SIM-nimi</string>
   <string name="edit_light_settings">Säädä valon asetuksia</string>
   <string name="pulse_speed_title">Vilkunnan kesto ja nopeus</string>
   <string name="default_time">Normaali</string>
@@ -678,7 +689,6 @@
   <string name="edge_gesture_service_summary">Älä lähetä navigointi- ja tilapalkin eleiden kosketuksia sovelluksille</string>
   <string name="cmlicense_title">CyanogenModin lakiasiat</string>
   <string name="settings_cmlicense_activity_title">CyanogenModin lakiasiat</string>
-  <string name="settings_cmlicense_activity_unreachable">Sinulla ei ole verkkoyhteyttä. Tarkastele näitä tietoja menemällä osoitteeseen %s millä tahansa tietokoneella, jossa on internet-yhteys.</string>
   <string name="lockpattern_settings_enable_error_path_title">Näytä kuvion virhe</string>
   <string name="lockpattern_settings_enable_dots_title">Näytä kuvion pisteet</string>
   <string name="unlock_quick_unlock_control_title">Nopea lukituksen avaus</string>
@@ -723,11 +733,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Näytön aikakatkaisu</string>
   <string name="qs_tile_usb_tether">USB-jakaminen</string>
+  <string name="qs_tile_heads_up">Heads up</string>
+  <string name="qs_tile_ambient_display">Ambient-näyttö</string>
   <string name="qs_main_tiles_title">Pienennä ensimmäinen rivi</string>
   <string name="qs_main_tiles_summary_on">Kaksi päätiiltä ensimmäisellä rivillä</string>
   <string name="qs_main_tiles_summary_off">Kolme tiiltä rivillä</string>
   <string name="qs_advanced_location_title">Tarkemmat sijaintiasetukset</string>
   <string name="qs_advanced_location_summary">Ota tarkemmat sijaintiasetukset käyttöön pika-asetuksiin</string>
+  <string name="sim_no_number_set">Numeroa ei asetettu</string>
   <string name="gesture_settings_title">Eleet</string>
   <string name="themes_settings_title">Teemat</string>
   <string name="wifi_mode">Tila</string>
@@ -761,6 +774,11 @@
   <string name="whisperpush_summary">Hallitse turvallisten tekstiviestien asetuksia</string>
   <string name="navigation_ring_title">Navigointirenkaan kohteet</string>
   <string name="navigation_ring_message">Aloittaaksesi navigointirenkaan muokkauksen, paina \"Muokkaa\".\n\nValitse muokattava kohde.\n\nPaina \"\u2713\"-kuvaketta tallentaaksesi muutokset, tai \"Palauta oletukset\" palauttaaksesi oletusasetukset.</string>
+  <string name="lcd_density">Näytön tarkkuus (DPI)</string>
+  <string name="dialog_title_lcd_density">Näytön tarkkuus (DPI)</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (oletus)</string>
+  <string name="restarting_ui">Käynnistetään käyttöliittymä uudelleen\u2026</string>
   <string name="stylus_icon_enabled_title">Näytä kuvake stylus-kynää käytettäessä</string>
   <string name="stylus_icon_enabled_summary">Näytä osoitinkuvake liikutettaessa kynää näytöllä tai näytön yläpuolella</string>
   <string name="gestures_settings_title">Stylus-eleet</string>
@@ -801,6 +819,9 @@
   <string name="sim_ringtone_title">SIM %d:n soittoääni</string>
   <string name="interruptions_ignore_while_media_title">Estä äänen vaimennus</string>
   <string name="interruptions_ignore_while_media_summary">Älä hiljennä median toiston äänenvoimakkuutta ilmoituksen saapuessa</string>
+  <string name="none_is_silent_title">Älä koskaan mykistä herätyksiä</string>
+  <string name="none_is_silent_summary">Äänetön tila toistaa hälytykset aina</string>
+  <string name="allow_lights_title">Salli ilmoitusvalot</string>
   <string name="live_display_summary">Optimoi näyttösi kellonajan ja ympäristöolosuhteiden perusteella parantaaksesi luettavuutta ja vähentääksesi silmien rasitusta</string>
   <string name="live_display_mode">Näyttötila</string>
   <string name="live_display_color_temperature_title">Värilämpötila</string>
@@ -830,4 +851,15 @@
   <string name="preview_version_title">Versio</string>
   <string name="preview_country_title">Valtio</string>
   <string name="preview_carrier_title">Operaattori</string>
+  <string name="heads_up_notifications">Heads up</string>
+  <string name="summary_heads_up_enabled">Ponnahdusilmoitukset ovat käytössä</string>
+  <string name="summary_heads_up_disabled">Ponnahdusilmoitukset ovat pois käytöstä</string>
+  <string name="master_clear_desc_cm" product="tablet">Tämä poistaa kaikki tablet-laitteesi \"<b>"sisäisen tallennustilan"</b>\" tiedot, kuten:\n\n\"<li>"Laitteen tilit"</li>\n<li>"Järjestelmä- ja sovellustiedot ja -asetukset"</li>\n<li>"Ladatut sovellukset"</li></string>
+  <string name="master_clear_desc_cm" product="default">Tämä poistaa kaikki puhelimesi \"<b>"sisäisen tallennustilan"</b>\" tiedot, kuten:\n\n\"<li>"Laitteen tilit"</li>\n<li>"Järjestelmä- ja sovellustiedot ja -asetukset"</li>\n<li>"Ladatut sovellukset"</li></string>
+  <string name="lock_to_cyanogen_title">Laitteen suojaus</string>
+  <string name="lock_to_cyanogen_summary">Vaadi Cyanogen OS-tilin salasana jopa tehdasasetusten palautuksen jälkeen</string>
+  <string name="lock_to_cyanogen_create_account_msg">Laitteesi käyttää Cyanogen OS-tilin salasanaa suojatakseen laitetta jopa tehdasasetusten palautuksen jälkeen. Sinun täytyy luoda Cyanogen OS-tili.</string>
+  <string name="lock_to_cyanogen_disable_msg">Tämän ominaisuuden käytöstä poistaminen sallii muiden käyttäjien palauttaa tehdasasetukset jos laite varastetaan. Henkilökohtaisia tietojasi ei välttämättä ole suojattu. Haluatko poistaa tämän ominaisuuden käytöstä?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Laitteen suojaus on käytössä. Poista suojaus käytöstä palauttaaksesi laitteen tehdasasetukset.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Yhteysvirhe: onko Bluetooth-yhteyden jakaminen käytössä laitteella?</string>
 </resources>

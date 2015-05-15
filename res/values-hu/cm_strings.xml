@@ -122,6 +122,8 @@
   <string name="volbtn_cursor_control_on_reverse">Hangerő fel/le - jobbra/balra</string>
   <string name="swap_volume_buttons_title">Hangerőgombok felcserélése</string>
   <string name="swap_volume_buttons_summary">Hangerőgombok felcserélése, ha a képernyő el van forgatva</string>
+  <string name="volume_keys_control_ring_stream_title">Csengőhang vezérlése hangerőgombokkal</string>
+  <string name="volume_keys_control_ring_stream_summary">Bekapcsolva a csengőhangot, kikapcsolva a média hangot vezérlik a hangerő gombok.</string>
   <string name="power_end_call_title">Hívás vége</string>
   <string name="power_end_call_summary">A bekapcsoló gomb megnyomásával befejezi az aktuális hívást</string>
   <string name="button_wake_title">Eszköz felébresztése</string>
@@ -156,9 +158,14 @@
   <string name="sunlight_enhancement_summary">Növeli a kijelző fényerejét és az olvashatóságot ragyogó napfény esetén</string>
   <string name="color_enhancement_title">Színek javítása</string>
   <string name="color_enhancement_summary">Dinamikusan javítja a kijelző színét</string>
+  <string name="blacklist_title">Blokkolt hívók listája</string>
+  <string name="blacklist_edit_dialog_title">Blokkolt telefonszám szerkesztése</string>
   <string name="blacklist_prefs">Beállítások</string>
   <string name="blacklist_button_delete">Törlés</string>
+  <string name="blacklist_empty_text">Nincsenek letiltott telefonszámok. Hozzáadás a (+) gomb megérintésével.</string>
+  <string name="blacklist_disabled_empty_text">Egyes telefonszámokról történő hívások, vagy üzenetek fogadásának megakadályozására, engedélyezze a blokkolt hívók listáját.</string>
   <string name="blacklist_summary_disabled">Letiltva</string>
+  <string name="blacklist_summary">Nem fog bejövő hívásokat és üzeneteket kapni a blokkolt hívó listán szereplő telefonszámokról</string>
   <string name="blacklist_notify">Értesítés megjelenítése</string>
   <string name="blacklist_private_numbers_title">Rejtett számok</string>
   <string name="blacklist_private_numbers_summary_disabled">Ne blokkolja a rejtett számról érkező hívásokat</string>
@@ -173,7 +180,9 @@
   <string name="blacklist_regex_summary">Használja a \".\"-ot egy szám, a \"*\"-ot pedig több szám helyettesítésére. Példa: a 123.* blokkolja a 123-mal kezdődő számokat, a .*123.* pedig a 123-at tartalmazó számokat</string>
   <string name="blacklist_policy_block_calls">Bejövő hívások blokkolása</string>
   <string name="blacklist_policy_block_messages">Bejövő üzenetek blokkolása</string>
+  <string name="blacklist_bad_number_add">Érvénytelen telefonszám hozzáadása nem lehetséges a blokkolt hívók listájához</string>
   <string name="remove_blacklist_number_title">Szám eltávolítása</string>
+  <string name="remove_blacklist_entry">Biztosan eltávolítja ezt a blokkolt telefonszámot?</string>
   <string name="select_contact">Válasszon kapcsolatot</string>
   <string name="lockpattern_reset_button">Minta visszaállítása</string>
   <string name="lockpattern_settings_reset_summary">Adja meg az elsődleges e-mail fiókot és a hozzá társított jelszót a feloldó minta visszaállításához</string>
@@ -210,6 +219,8 @@
   <string name="update_recovery_off_warning">FIGYELEM: Ha ez a funkció ki van kapcsolva, a telepített recovery nem le lesz cserélve a jelenleg futó operációs rendszerének megfelelően.\n\nAz újabb operációs rendszer frissítések lehet, hogy nem támogatják a régi recovery verziókat.\n\nBiztosan inaktiválja a funkciót?</string>
   <string name="mod_version">CyanogenMod verzió</string>
   <string name="mod_version_default">Ismeretlen</string>
+  <string name="device_model">Eszköz modellje</string>
+  <string name="device_name">Eszköz neve</string>
   <string name="build_date">Build dátuma</string>
   <string name="contributor_cloud_title">Közreműködők</string>
   <string name="phone_service_state">Hang: <xliff:g id="voice_state">%1$s</xliff:g>, adat: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -228,6 +239,7 @@
   <string name="privacy_guard_reset_text">Visszaállítja az engedélyeket?</string>
   <string name="privacy_guard_help_text">Ezen a képernyőn egyszerű érintéssel kiválaszthatja, hogy mely alkalmazásoknál legyen aktív az adatvédelmi mód. A kiválasztott alkalmazás nem fog hozzáférni a személyes adataihoz, mint például a névjegyzéke, üzenetei, vagy a hívásnaplója. Egy sort hosszan megérintve megjelenik az adott alkalmazás részleteit tartalmazó képernyő.\n\nAlapértelmezetten a rendszeralkalmazások nem jelennek meg. Amennyiben szeretné, hogy a rendszeralkalmazások, vagy csak azon alkalmazások jelenjenek meg, amelyek hozzáférést kérnek a személyes adatokhoz, válassza ki a megfelelő beállításokat a menüben.</string>
   <string name="privacy_guard_manager_show_system_apps">Rendszeralkalmazások megjelenítése</string>
+  <string name="app_ops_btn_text">Módosítás</string>
   <string name="increasing_ring_volume_option_title">Emelkedő csengőhang</string>
   <string name="increasing_ring_min_volume_title">Kezdeti hangerő</string>
   <string name="increasing_ring_ramp_up_time_title">Felfutási idő</string>
@@ -292,7 +304,6 @@
   <string name="status_bar_show_unused_sims_title">Üres SIM ikonok megjelenítése</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Használaton kívüli SIM foglalatok elrejtése</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Használaton kívüli SIM foglalatok megjelenítése</string>
-  <string name="sim_name_hint">Írja be a SIM nevet</string>
   <string name="edit_light_settings">Jelzés beállítások</string>
   <string name="pulse_speed_title">Impulzus hossza és sebessége</string>
   <string name="default_time">Normál</string>
@@ -675,7 +686,6 @@
   <string name="edge_gesture_service_summary">Az alkalmazások nem veszik figyelembe a navigációs- és állapotsáv érintéseket</string>
   <string name="cmlicense_title">CyanogenMod jogi nyilatkozat</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod jogi nyilatkozat</string>
-  <string name="settings_cmlicense_activity_unreachable">Nincs internet kapcsolat. Az információ megtekintéséhez, látogasson el a %s címre egy olyan számítógéppel, mely kapcsolódik az internethez.</string>
   <string name="lockpattern_settings_enable_error_path_title">Hibás minta megjelenítése</string>
   <string name="lockpattern_settings_enable_dots_title">Feloldási pontok megjelenítése</string>
   <string name="unlock_quick_unlock_control_title">Gyors feloldás</string>
@@ -720,11 +730,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Képernyő időkorlátja</string>
   <string name="qs_tile_usb_tether">USB megosztás</string>
+  <string name="qs_tile_heads_up">Lebegő értesítés</string>
+  <string name="qs_tile_ambient_display">Környezeti kijelző</string>
   <string name="qs_main_tiles_title">Első sor nagyítása</string>
   <string name="qs_main_tiles_summary_on">Az első sorban két fő csempe</string>
   <string name="qs_main_tiles_summary_off">Három csempe minden sorban</string>
   <string name="qs_advanced_location_title">Speciális helymeghatározási beállítások</string>
   <string name="qs_advanced_location_summary">Engedélyezi a helymeghatározás speciális beállításat a Gyors beállításokban</string>
+  <string name="sim_no_number_set">Nincs hozzárendelt szám</string>
   <string name="gesture_settings_title">Mozdulatok</string>
   <string name="themes_settings_title">Témák</string>
   <string name="wifi_mode">Üzemmód</string>
@@ -758,6 +771,11 @@
   <string name="whisperpush_summary">Biztonságos SMS beállítások kezelése</string>
   <string name="navigation_ring_title">Navigációs gyűrű hivatkozások</string>
   <string name="navigation_ring_message">A navigációs gyűrű módosításához érintse meg a szerkesztés ikont.\n\nVálasszon célt a viselkedés megadásához.\n\nÉrintse meg az \"\u2713\" ikont a mentéshez, vagy \"Az alapértelmezett beállítások visszaállítása\" ikont az újrakezdéshez.</string>
+  <string name="lcd_density">LCD sűrűség</string>
+  <string name="dialog_title_lcd_density">LCD sűrűség</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (alapértelmezett)</string>
+  <string name="restarting_ui">Felhasználói felület újraindítása\u2026</string>
   <string name="stylus_icon_enabled_title">Ikon megjelenítése toll használatakor</string>
   <string name="stylus_icon_enabled_summary">Toll használatakor megjelenít egy ikont az értesítési sávon</string>
   <string name="gestures_settings_title">Toll mozdulatok</string>
@@ -798,6 +816,9 @@
   <string name="sim_ringtone_title">SIM %d csengőhang</string>
   <string name="interruptions_ignore_while_media_title">Lehalkítás megelőzésee</string>
   <string name="interruptions_ignore_while_media_summary">Ne csökkentse a lejátszott média hangerejét értesítés érkezésekor</string>
+  <string name="none_is_silent_title">Soha ne némítsa az ébresztést</string>
+  <string name="none_is_silent_summary">Csendes módban mindig ébresszen</string>
+  <string name="allow_lights_title">Értesítési fény engedélyezése</string>
   <string name="live_display_summary">Optimalizálja a képernyőt a napszaknak és a fényviszonyoknak megfelelően, javítva az olvashatóságot és csökkentve a szemek terhelését</string>
   <string name="live_display_mode">Képernyő mód</string>
   <string name="live_display_color_temperature_title">Színhőmérséklet</string>
@@ -817,6 +838,7 @@
   <string name="anonymous_statistics_title">CyanogenMod Statisztika</string>
   <string name="anonymous_statistics_summary">Segítsen a CyanogenMod jobbá tételében, kapcsolja be a névtelen statisztikai adatok gyűjtését</string>
   <string name="anonymous_statistics_warning_title">Névjegy</string>
+  <string name="anonymous_statistics_warning">A CyanogenMod statisztika engedélyezése nem terjed ki személyes adatokra, csak egy egyedi azonosítóval azonosítjuk az eszközöket. A beküldött adatok beleértve az egyedi azonosítót, nem veszélyeztetik az adatvédelmi vagy személyes adatokat. A statisztika minden rendszerindításkor elküldésre kerül.\n\nAz elküldött adatok menüpont alatt tekintheti meg a statisztikai adatokat.</string>
   <string name="enable_reporting_title">Statisztika engedélyezése</string>
   <string name="preview_data_title">Elküldött adatok</string>
   <string name="view_stats_title">Statisztika megtekintése</string>
@@ -826,4 +848,15 @@
   <string name="preview_version_title">Verzió</string>
   <string name="preview_country_title">Ország</string>
   <string name="preview_carrier_title">Szolgáltató</string>
+  <string name="heads_up_notifications">Lebegő értesítés</string>
+  <string name="summary_heads_up_enabled">Lebegő értesítések engedélyezve</string>
+  <string name="summary_heads_up_disabled">Lebegő értesítések letiltva</string>
+  <string name="master_clear_desc_cm" product="tablet">Ezzel törölni fog minden adatot a táblagépének <b>belső tárhelyéről</b> beleértve:\n\n<li>Eszköz fiókok</li>\n<li>Rendszer és alkalmazás adatok, beállítások</li>\n<li>Letöltött alkalmazások</li></string>
+  <string name="master_clear_desc_cm" product="default">Ezzel törölni fog minden adatot a telefonjának <b>belső tárhelyéről</b> beleértve:\n\n<li>Eszköz fiókok</li>\n<li>Rendszer és alkalmazás adatok, beállítások</li>\n<li>Letöltött alkalmazások</li></string>
+  <string name="lock_to_cyanogen_title">Eszközvédelem</string>
+  <string name="lock_to_cyanogen_summary">Cyanogen OS jelszót igényel még gyári visszaállítás után is</string>
+  <string name="lock_to_cyanogen_create_account_msg">A készüléke Cyanogen OS jelszót használ az eszköz védelme érdekében, még gyári visszaállítás után is. Létre kell hoznia egy Cyanogen OS fiókot.</string>
+  <string name="lock_to_cyanogen_disable_msg">A funkció letiltásával jogosulatlan személyek visszaállíthatják a telefont a gyári beállításokra lopás esetén. Személyes adatai nem lesznek biztonságban. Biztosan letiltja ezt a funkciót?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Eszközvédelem engedélyezve van. Tiltsa le a készülék visszaállításának folytatásához.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Csatlakozási hiba; Engedélyezve van a Bluetooth megosztás a készüléken?</string>
 </resources>

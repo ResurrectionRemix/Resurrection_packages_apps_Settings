@@ -51,8 +51,12 @@
   <string name="profile_populate_profile_from_state">Konfigurasi profil menggunakan pengaturan perangkat saat ini?</string>
   <string name="profile_menu_fill_from_state">Impor pengaturan perangkat saat ini</string>
   <string name="profile_remove_current_profile">Tidak dapat menghapus profil saat ini!</string>
+  <string name="profile_app_group_category_title">Menimpa pemberitahuan</string>
+  <string name="profile_app_group_item_instructions">Tambah atau hapus grup</string>
+  <string name="profile_app_group_item_instructions_summary">Tambah atau hapus penimpa pemberitahuan grup aplikasi ke profil ini</string>
   <string name="profile_entries_on">Aktif</string>
   <string name="profile_entries_off">Nonaktif</string>
+  <string name="profile_entries_no_override">Tidak menimpa</string>
   <string name="profile_name_title">Nama</string>
   <string name="new_profile_name">&lt;profil baru&gt;</string>
   <string name="rename_dialog_title">Ganti nama</string>
@@ -81,6 +85,9 @@
   <string name="profile_lockmode_insecure_summary">Jangan meminta PIN atau sandi</string>
   <string name="profile_lockmode_disabled_summary">Nonaktifkan layar kunci</string>
   <string name="profile_airplanemode_title">Mode pesawat</string>
+  <string name="profile_brightness_title">Kecerahan layar</string>
+  <string name="profile_brightness_override_summary">Setel ke %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Ganti kecerahan</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Hotspot Wi\u2011Fi portabel</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -120,6 +127,7 @@
   <string name="power_end_call_title">Akhir panggilan</string>
   <string name="power_end_call_summary">Menekan tombol power akan mengakhiri panggilan aktif</string>
   <string name="button_wake_title">Bangunkan perangkat</string>
+  <string name="button_wake_summary">Abaikan kontrol pemutar</string>
   <string name="home_answer_call_title">Jawab panggilan</string>
   <string name="home_answer_call_summary">Menekan tombol home akan menjawab panggilan masuk saat ini</string>
   <string name="button_backlight_title">Lampu latar</string>
@@ -198,11 +206,17 @@
   <string name="block_notifications_summary">Kelola pemberitahuan yang diabaikan dan filter</string>
   <string name="no_filters_title">Belum ada penyaring</string>
   <string name="cmupdate_settings_title">Pembaruan CyanogenMod</string>
+  <string name="update_recovery_title">Perbarui recovery Cyanogen</string>
+  <string name="update_recovery_summary">Perbarui recovery dengan pembaruan sistem</string>
+  <string name="update_recovery_on_warning">PERHATIAN: Saat fitur ini diaktifkan, recovery yang terpasang akan digantikan oleh salah satu yang disertakan dengan versi terbaru dari OS yang berjalan.\n\nRecovery anda akan diperbarui bersama dengan pembaruan sistem anda, untuk membantu memastikan kompatibilitas dengan versi mendatang.\n\nApakah anda ingin mengaktifkan fitur ini?</string>
+  <string name="update_recovery_off_warning">PERINGATAN: Bila fitur ini dinonaktifkan, recovery yang terpasang tidak akan diperbarui saat pembaruan OS.\n\nPembaruan OS mendatang mungkin tidak dapat dipasang dengan recovery lama atau versi recovery kustom.\n\nApakah Anda benar-benar ingin menonaktifkan fitur ini?</string>
   <string name="mod_version">Versi CyanogenMod</string>
   <string name="mod_version_default">Tidak diketahui</string>
   <string name="build_date">Tanggal pembuatan</string>
   <string name="contributor_cloud_title">Kontributor</string>
+  <string name="phone_service_state">Suara: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Double-tap untuk bangun</string>
+  <string name="double_tap_to_wake_summary">Ketuk dua kali pada layar untuk menyalakan tampilan</string>
   <string name="proximity_wake_title">Mencegah bangun yang tidak disengaja</string>
   <string name="proximity_wake_summary">Periksa sensor proximity sebelum membangunkan layar</string>
   <string name="privacy_settings_cyanogenmod_title">Privasi</string>
@@ -232,6 +246,7 @@
   <string name="development_shortcut_title">Pintasan pengembangan</string>
   <string name="development_shortcut_summary">Aktifkan pintasan manajemen aplikasi dalam daftar aplikasi terakhir</string>
   <string name="double_tap_to_sleep_title">Dua kali tap untuk sleep</string>
+  <string name="double_tap_to_sleep_summary">Ketuk dua kali pada status bar untuk mematikan tampilan</string>
   <string name="wake_when_plugged_or_unplugged_title">Bangun saat pengisi daya di pasang</string>
   <string name="wake_when_plugged_or_unplugged_summary">Aktifkan layar ketika menghubungkan atau melepaskan sumber daya</string>
   <string name="kill_app_longpress_back">Matikan app dengan tombol kembali</string>
@@ -242,12 +257,14 @@
   <string name="navigation_bar_left_title">Mode tangan kiri</string>
   <string name="navigation_bar_left_summary">Tempatkan panel navigasi di sebelah kiri layar dalam mode landscape</string>
   <string name="navigation_bar_title">Tombol dan tata letak</string>
+  <string name="navigation_bar_help_text">Untuk memulai tekan ikon ubah untuk membuka bar navigasi untuk diubah.\n\nAnda dapat menekan sebuah ikon untuk merubah pintasan, atau tnkan lama sebuah ikon untuk menata kembali tata letaknya.\n\nTekan \'Simpan\' untuk melakukan perubahan, atau \'Kembalikan semula\' untuk mengatur tata letak ke pengaturan standar.</string>
   <string name="navigation_restore_button_text">Kembalikan\ndefault</string>
   <string name="navigation_edit_button_text">Ubah</string>
   <string name="navigation_save_button_text">Simpan</string>
   <string name="navigation_bar_reset_message">Hapus pengaturan saat ini dan kembalikan tata letak default?</string>
   <string name="navigation_bar_arrow_keys_title">Tampilkan tombol panah saat mengetik</string>
   <string name="navigation_bar_arrow_keys_summary">Tampilkan tombol kursor kiri dan kanan saat mengetik. Menggantikan pengubah IME.</string>
+  <string name="navigation_bar_recents_title">Tindakan tekan lama recents</string>
   <string name="header_category_personalization">Personalisasi</string>
   <string name="status_bar_title">Status bar</string>
   <string name="status_bar_toggle_brightness">Kontrol kecerahan</string>
@@ -274,6 +291,9 @@
   <string name="status_bar_battery_percentage_default">Tersembunyi</string>
   <string name="status_bar_battery_percentage_text_inside">Di dalam ikon</string>
   <string name="status_bar_battery_percentage_text_next">Di samping ikon</string>
+  <string name="status_bar_show_unused_sims_title">Tampilkan ikon SIM kosong</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">Sembunyikan ikon dari slot SIM tak terpakai</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">Menunjukkan slot SIM tidak terpakai</string>
   <string name="edit_light_settings">Ubah pengaturan lampu</string>
   <string name="pulse_speed_title">Lama dan kecepatan kedipan</string>
   <string name="default_time">Normal</string>
@@ -306,10 +326,18 @@
   <string name="notification_light_missed_call_title">Panggilan tak terjawab</string>
   <string name="notification_light_voicemail_title">Pesan suara</string>
   <string name="notification_ringtone_title_cm">Nada pemberitahuan</string>
+  <string name="headset_connect_player_title">Jalankan aplikasi musik</string>
+  <string name="headset_connect_player_summary">Jalankan aplikasi musik bawaan saat headset tersambung</string>
   <string name="ime_switcher_notify">Ikon pemilih</string>
   <string name="ime_switcher_notify_summary">Tampilkan ikon metode pemilih masukan</string>
+  <string name="app_notification_show_on_keyguard_title">Tampilkan di layar kunci</string>
+  <string name="app_notification_show_on_keyguard_summary">Tampikan pemberitahuan dari aplikasi ini pada layar kunci</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Tiadakan pemberitahun tetap pada layar kunci</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Tidak pernah menampilkan pemberitahuan tetap dari aplikasi ini pada layar kunci</string>
   <string name="high_touch_sensitivity_title">Kepekaan sentuh tinggi</string>
   <string name="high_touch_sensitivity_summary">Tingkatkan kepekaan layar sentuh sehingga dapat digunakan saat mengenakan sarung tangan</string>
+  <string name="touchscreen_hovering_title">Layar sentuh melayang</string>
+  <string name="touchscreen_hovering_summary">Memberbolehkan anda untuk melayangkan layar seperti sebuah mouse dalam web browser, remote desktop, dll</string>
   <string name="app_ops_summaries_coarse_location">lokasi yang kasar</string>
   <string name="app_ops_summaries_fine_location">Lokasi bagus</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -449,6 +477,22 @@
   <string name="profile_setup_setup_triggers_title_config">Modifikasi pemicu: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Langkah 2: Pengaturan tindakan</string>
   <string name="profile_setup_actions_title_config">Konfigurasikan ulang tindakan</string>
+  <string name="profile_appgroups_manage">Grup aplikasi</string>
+  <string name="profile_appgroup_manage">Kelola grup aplikasi</string>
+  <string name="profile_appgroups_title">Grup aplikasi</string>
+  <string name="profile_new_appgroup">Grup aplikasi baru</string>
+  <string name="profile_delete_appgroup">Hapus grup aplikasi ini?</string>
+  <string name="profile_appgroup_name_prompt">Masukkan nama untuk grup aplikasi baru</string>
+  <string name="profile_appgroup_name_title">Nama</string>
+  <string name="duplicate_appgroup_name">Nama grup aplikasi ada yang sama!</string>
+  <string name="profile_app_delete_confirm">Hapus aplikasi ini?</string>
+  <string name="sound_mode">Modus pemberitahuan</string>
+  <string name="ringer_mode">Modus dering</string>
+  <string name="lights_mode">Modus lampu</string>
+  <string name="vibrate_mode">Modus getar</string>
+  <string name="choose_soundtone">Pilih nada pemberitahuan</string>
+  <string name="choose_ringtone">Pilih nada dering</string>
+  <string name="soundtone_title">Nada pemberitahuan</string>
   <string name="no_bluetooth_triggers">Tidak ada perangkat Bluetooth yang dipasangkan.\nTap untuk memasang perangkat Bluetooth sebelum mengkonfigurasi pemicu.</string>
   <string name="no_wifi_triggers">Tidak ada akses poin Wi\u2011Fi yang dikonfigurasi.\nTap untuk menghubungkan Wi\u2011Fi sebelum mengkonfigurasi pemicu.</string>
   <string name="no_triggers_configured">Tidak ada pemicu yang dikonfigurasi. Tap untuk menambahkan lebih banyak.</string>
@@ -519,6 +563,12 @@
   <string name="subs_settings">Status kartu SIM</string>
   <string name="storage_usb">Penyimpanan USB</string>
   <string name="storage_uicc">Penyimpanan UICC</string>
+  <string name="sdcard_eject" product="default">Lepaskan kartu SD</string>
+  <string name="sdcard_eject_summary" product="default">Lepaskan kartu SD agar anda dapat dengan aman mencabutnya</string>
+  <string name="sd_card_format" product="default">Hapus kartu SD</string>
+  <string name="sd_card_format_summary" product="default">Hapus semua data di kartu SD, seperti musik dan foto</string>
+  <string name="sdcard_mount" product="default">Pasang kartu SD</string>
+  <string name="sdcard_insert_summary" product="default">Sisipkan kartu SD untuk memasangkan</string>
   <string name="usb_eject" product="default">Lepaskan penyimpanan USB</string>
   <string name="usb_eject_summary" product="default">Lepaskan penyimpan USB sehingga Anda dapat dengan aman mencabutnya</string>
   <string name="usb_format" product="default">Hapus penyimpanan USB</string>
@@ -533,22 +583,36 @@
   <string name="uicc_insert_summary" product="default">Masukkan penyimpanan UICC untuk dipasang</string>
   <string name="usb_settings_enable_ums_title">Aktifkan penyimpanan massal?</string>
   <string name="usb_settings_enable_ums_message">Komponen sistem dan aplikasi bergantung pada penyimpanan utama yang selalu tersedia. Fitur ini merusak fungsi itu. Sangat disarankan untuk menggunakan MTP sebagai gantinya. Apakah Anda yakin ingin mengaktifkan penyimpanan massal?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Lepaskan kartu SD?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Lepaskan penyimpanan USB?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Lepaskan penyimpanan UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Jika Anda melepaskan kartu SD, beberapa aplikasi yang anda gunakan akan berhenti dan mungkin tidak tersedia sampai anda memasang ulang kartu SD.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Jika Anda melepaskan penyimpanan USB, beberapa aplikasi yang Anda gunakan akan berhenti dan mungkin tidak tersedia sampai Anda memasang ulang penyimpanan USB.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Jika Anda melepaskan penyimpanan UICC, beberapa aplikasi yang Anda gunakan akan berhenti dan mungkin tidak tersedia sampai Anda memasang ulang penyimpanan UICC.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Tidak bisa melepaskan kartu SD. Coba lagi nanti.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Tidak dapat melepaskan penyimpanan USB. Cobal lagi nanti.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Tidak dapat melepaskan penyimpanan UICC. Cobal lagi nanti.</string>
+  <string name="sdcard_unmount_inform_text" product="default">Kartu SD akan dilepaskan.</string>
   <string name="usb_unmount_inform_text" product="default">Penyimpanan USB akan dilepaskan.</string>
   <string name="uicc_unmount_inform_text" product="default">Penyimpanan UICC akan dilepaskan.</string>
+  <string name="sdcard_media_format_desc" product="default">Hapus kartu SD? Anda akan kehilangan <b>semua</b> data yang tersimpan di kartu!</string>
   <string name="usb_media_format_desc" product="default">Hapus penyimpanan USB? Anda akan kehilangan <b>semua</b> data pada penyimpanan!</string>
   <string name="uicc_media_format_desc" product="default">Hapus penyimpanan UICC? Anda akan kehilangan <b>semua</b> data pada penyimpanan!</string>
+  <string name="sdcard_media_format_button_text" product="default">Hapus kartu SD</string>
   <string name="usb_media_format_button_text" product="default">Hapus penyimpanan USB</string>
   <string name="uicc_media_format_button_text" product="default">Hapus penyimpanan UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Hapus kartu SD, menghapus semua berkas yang tersimpan di sini? Anda tidak dapat mengembalikan tindakan ini!</string>
   <string name="usb_media_format_final_desc" product="default">Hapus penyimpanan USB, hapus semua berkas yang tersimpan di sini? Anda tidak dapat membalikkan tindakan ini!</string>
   <string name="uicc_media_format_final_desc" product="default">Hapus penyimpanan UICC, hapus semua berkas yang tersimpan di sini? Anda tidak dapat membalikkan tindakan ini!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Anda harus menggambar pola buka layar untuk mengonfirmasi bahwa anda ingin menghapus kartu SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Anda harus menggambar pola buka layar untuk mengonfirmasi bahwa Anda ingin menghapus penyimpanan USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Anda harus menggambar pola buka layar untuk mengonfirmasi bahwa Anda ingin menghapus penyimpanan UICC.</string>
+  <string name="internal_sd_format">Hapus penyimpanan media internal</string>
+  <string name="internal_sd_format_summary">Menghapus seluruh data di penyimpanan media internal, seperti musik dan foto</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nUntuk menghapus musik, gambar, dan data pengguna lain, <b>penyimpanan media internal</b> harus dihapus.</string>
+  <string name="erase_internal_storage">Hapus penyimpanan media internal</string>
+  <string name="erase_internal_storage_description">Hapus semua data di penyimpanan media internal, seperti musik atau foto</string>
+  <string name="storage_rescan_media">Pindai ulang media untuk volume penyimpanan</string>
   <string name="location_category_enhanced_location">Lokasi disempurnakan (IZat)</string>
   <string name="app_ops_settings_summary">Melihat dan mengubah hak akses aplikasi</string>
   <string name="enable_adb_summary_charging">Perangkat ini dalam modus Pengisian, USB debugging dinonaktifkan</string>
@@ -593,6 +657,7 @@
   <string name="performance_settings_title">Performa</string>
   <string name="io_scheds_title">Penjadwalan I/O</string>
   <string name="io_sched_title">Penjadwalan I/O</string>
+  <string name="perf_profile_title">Modus baterai</string>
   <string name="pref_force_highend_gfx_title">Paksa grafis high-end</string>
   <string name="pref_force_highend_gfx_summary">Aktifkan efek visual tingkat tinggi seperti status bar/navigasi transparan (membutuhkan penyalaan ulang)</string>
   <string name="performance_settings_warning_title">Lanjutkan dengan hati-hati</string>
@@ -611,7 +676,8 @@
   <string name="edge_gesture_service_summary">Jangan kirim events sentuhan untuk navigasi dan gerakan statusbar untuk aplikasi</string>
   <string name="cmlicense_title">Hukum CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Hukum CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">Anda tidak memiliki koneksi data. Untuk melihat informasi ini sekarang, pergi ke %s dari semua komputer yang terhubung ke Internet.</string>
+  <string name="lockpattern_settings_enable_error_path_title">Tunjukkan galat pola</string>
+  <string name="lockpattern_settings_enable_dots_title">Tunjukkan titik-titik pola</string>
   <string name="unlock_quick_unlock_control_title">Membuka cepat</string>
   <string name="unlock_quick_unlock_control_summary">Membuka secara otomatis ketika memasuki password/PIN yang benar</string>
   <string name="unlock_scramble_pin_layout_title">Tata letak acak</string>
@@ -619,6 +685,13 @@
   <string name="link_volume_option_title">Hubungkan volume nada dering &amp; notifikasi</string>
   <string name="notification_volume_option_title">Volume pemberitahuan</string>
   <string name="notification_drawer_title">Drawer pemberitahuan</string>
+  <string name="quick_pulldown_title">Pulldown cepat</string>
+  <string name="quick_pulldown_summary">%1$s tepi dari status bar dapat ditarik kebawah untuk Pengaturan Cepat</string>
+  <string name="quick_pulldown_summary_left">Kiri</string>
+  <string name="quick_pulldown_summary_right">Kanan</string>
+  <string name="quick_pulldown_off">Nonaktif</string>
+  <string name="quick_pulldown_left">Kiri</string>
+  <string name="quick_pulldown_right">Kanan</string>
   <string name="status_bar_show_weather_title">Tampilkan cuaca</string>
   <string name="status_bar_show_weather_summary">Tampilkan cuaca di atas panel penyetelan cepat</string>
   <string name="qs_category_title">Panel Pengaturan Cepat</string>
@@ -640,11 +713,13 @@
   <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB melalui jaringan</string>
   <string name="qs_tile_profiles">Profil sistem</string>
+  <string name="qs_tile_performance">Modus baterai</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Kompas</string>
   <string name="qs_tile_lockscreen">Kunci layar</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Waktu layar mati</string>
+  <string name="qs_tile_usb_tether">Peranggitan USB</string>
   <string name="qs_main_tiles_title">Perbesar baris pertama</string>
   <string name="qs_main_tiles_summary_on">Dua tiles utama pada baris pertama</string>
   <string name="qs_main_tiles_summary_off">Tiga tiles pada setiap baris</string>
@@ -660,6 +735,8 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">Kepala: %1$s W/kg</string>
   <string name="maximum_body_level">Tubuh: %1$s W/kg</string>
+  <string name="ic_code_model">Model: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Expanded desktop</string>
   <string name="expanded_hide_nothing">Tidak menyembunyikan apapun</string>
   <string name="expanded_hide_status">Sembunyikan status bar</string>
@@ -667,11 +744,87 @@
   <string name="expanded_hide_both">Sembunyikan keduanya</string>
   <string name="expanded_nothing_to_show">Untuk menambahkan konfigurasi kustom per-aplikasi untuk kondisi diperluas, atur \"Diaktifkan untuk semua\" ke posisi mati</string>
   <string name="expanded_enabled_for_all">Diaktifkan untuk semua</string>
+  <string name="expanded_desktop_style">Gaya desktop yang diperluas</string>
+  <string name="expanded_desktop_style_description">Pilih gaya standar perluasan desktop</string>
+  <string name="expanded_desktop_title">Pilihan perluasan desktop</string>
+  <string name="title_general">Umum</string>
   <string name="lockscreen_targets_message">Pintasan kunci layar</string>
   <string name="lockscreen_default_target">Standar</string>
+  <string name="lockscreen_none_target">Tidak Ada</string>
   <string name="lockscreen_message">Tap ikon di sebelah kiri atau kanan untuk menetapkan kembali pintasan layar kunci.</string>
   <string name="lockscreen_choose_action_title">Pilih tindakan</string>
+  <string name="lockscreen_visualizer_title">Tampilkan visualisasi musik</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Kelola pengaturan secure SMS</string>
   <string name="navigation_ring_title">Target cincin navigasi</string>
+  <string name="navigation_ring_message">Tekan ikon ubah untuk membuka ring navigasi untuk diubah.\n\nPilih target untuk mengkonfigurasi perilaku.\n\nTekan ikon \'\u2713\' untuk menyimpan perubahan, atau \'Pulihkan semula\' untuk mengembalikan ke pengaturan standar.</string>
+  <string name="stylus_icon_enabled_title">Tampilkan ikon saat menggunakan stylus</string>
+  <string name="stylus_icon_enabled_summary">Tampilkan ikon pointer saat melayang atau menggambar dengan stylus</string>
+  <string name="gestures_settings_title">Gerakan stylus</string>
+  <string name="category_spen_title">Gerakan stylus</string>
+  <string name="enable_subcat_title">Stylus</string>
+  <string name="enable_spen_title_head">Aktifkan gerakan</string>
+  <string name="enable_spen_summary_head">Gunakan gerakan swipe dengan menekan tombol stylus</string>
+  <string name="gestures_subcat_title">Gerakan</string>
+  <string name="gestures_left_spen_title_head">Swipe kiri</string>
+  <string name="gestures_right_spen_title_head">Swipe kanan</string>
+  <string name="gestures_up_spen_title_head">Swipe atas</string>
+  <string name="gestures_down_spen_title_head">Swipe bawah</string>
+  <string name="gestures_long_spen_title_head">Tekan agak lama</string>
+  <string name="gestures_double_spen_title_head">Dua kali tap</string>
+  <string name="gestures_action_empty">Tidak ada tindakan</string>
+  <string name="gestures_action_home">Beranda</string>
+  <string name="gestures_action_back">Kembali</string>
+  <string name="gestures_action_menu">Menu</string>
+  <string name="gestures_action_search">Menjalankan Pencarian</string>
+  <string name="gestures_action_recent">Daftar aplikasi terakhir</string>
+  <string name="stylus_app_not_installed">%s tidak terpasang</string>
+  <string name="advanced">Tingkat lanjut</string>
+  <string name="advanced_mode_title">Modus tingkat lanjut</string>
+  <string name="advanced_mode_summary">Tampilkan pilihan tambahan untuk mengonfigurasi perangkat anda dalam berbagai pengaturan menu</string>
+  <string name="category_misc">Macam-macam</string>
+  <string name="category_vibrate">Getar</string>
+  <string name="category_volume">Volume</string>
+  <string name="category_sounds">Suara</string>
+  <string name="category_interface">Antarmuka</string>
+  <string name="category_calibration">Kalibrasi</string>
+  <string name="display_and_lights">Tampilan &amp; lampu</string>
+  <string name="notification_manager">Manajer pemberitahuan</string>
+  <string name="lockscreen_settings">Kunci layar</string>
+  <string name="category_lights">Lampu</string>
+  <string name="power_usage_history_title">Penggunaan baterai</string>
+  <string name="recents_show_searchbar">Tampilkan bar pencarian di menu recents</string>
+  <string name="keywords_recents_show_searchbar">recent recents nonaktifkan aktifkan tampilkan sembunyikan pencari bar bar pencarian</string>
+  <string name="sim_ringtone_title">Nada SIM %d</string>
+  <string name="interruptions_ignore_while_media_title">Cegah penurunan suara</string>
+  <string name="interruptions_ignore_while_media_summary">Tidak mengurangi volume media pemutar ketika datang pemberitahuan</string>
+  <string name="live_display_summary">Optimalkan layar berdasarkan waktu dan kondisi ambien untuk meningkatkan keterbacaan dan mengurangi kelelahan mata</string>
+  <string name="live_display_mode">Modus tampilan</string>
+  <string name="live_display_color_temperature_title">Suhu warna</string>
+  <string name="live_display_color_temperature_summary">Pagi: <xliff:g id="day_temperature">%1$d</xliff:g>K  Malam: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Pagi</string>
+  <string name="live_display_night">Malam</string>
+  <string name="live_display_outdoor_mode_title">Modus luar ruangan otomatis</string>
+  <string name="live_display_outdoor_mode_summary">Meningkatkan kecerahan dan saturasi otomatis saat dibawah sinar matahari</string>
+  <string name="live_display_low_power_title">Mengurangi konsumsi daya</string>
+  <string name="live_display_low_power_summary">Menyesuaikain tampilan untuk konsumsi daya terendah tanpa degradasi</string>
+  <string name="live_display_enhance_color_title">Tingkatkan warna</string>
+  <string name="live_display_enhance_color_summary">Meningkatkan warna vibran dari corak terang, pemandangan dan gambar lain</string>
+  <string name="battery_saver_threshold">Ambang batas penghemat baterai</string>
+  <string name="battery_saver_summary">Menurunkan performa dan membatasi data latar belakang</string>
+  <string name="battery_saver_summary_unavailable">Tidak tersedia saat pengisian</string>
+  <string name="anonymous_statistics_title">Statistik CyanogenMod</string>
+  <string name="anonymous_statistics_summary">Bantu CyanogenMod untuk menjadi lebih baik dengan berperan serta melaporkan statistik anonim</string>
+  <string name="anonymous_statistics_warning_title">Tentang</string>
+  <string name="anonymous_statistics_warning">Berperan serta dalam Statistik CyanogenMod akan memungkinkan data non-pribadi dikirimkan kepada para pengembang CyanogenMod untuk melacak instalasi unik di perangkat. Informasi yang dikirimkan berisi pengenal unik, yang tidak membahayakan privasi atau data pribadi Anda. Data dikirim setiap kali perangkat dimulai.\n\nUntuk melihat contoh data yang akan dikirim, ketuk Pratinjau Data.</string>
+  <string name="enable_reporting_title">Aktifkan pelaporan</string>
+  <string name="preview_data_title">Pratinjau data</string>
+  <string name="view_stats_title">Lihat statistik</string>
+  <string name="anonymous_learn_more">Pelajadi lebih lanjut</string>
+  <string name="preview_id_title">ID unik</string>
+  <string name="preview_device_title">Perangkat</string>
+  <string name="preview_version_title">Versi</string>
+  <string name="preview_country_title">Negara</string>
+  <string name="preview_carrier_title">Operator</string>
 </resources>

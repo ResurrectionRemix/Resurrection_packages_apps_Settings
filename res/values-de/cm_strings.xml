@@ -37,14 +37,12 @@
   <string name="profiles_settings_title">Systemprofile</string>
   <string name="profiles_add">Hinzufügen</string>
   <string name="profile_settings_title">Profil</string>
-  <string name="profile_empty_list_profiles_off">Aktivieren Sie die Profilfunktion, um ausgewählte Geräteeinstellungen situationsabhängig gemeinsam umschalten zu können.</string>
+  <string name="profile_empty_list_profiles_off">Aktivieren Sie die Profilfunktion, um Systemprofile konfigurieren und nutzen zu können.</string>
   <string name="profile_trigger_configure">Auslöser konfigurieren</string>
   <string name="profile_write_nfc_tag">NFC-Tag beschreiben</string>
-  <string name="profile_write_touch_tag">Zum Beschreiben Gerät mit NFC-Tag berühren</string>
   <string name="profile_write_success">Tag wurde erfolgreich beschrieben</string>
   <string name="profile_write_failed">Beschreiben des Tags fehlgeschlagen!</string>
   <string name="profile_selected">Profil %1$s aktiviert</string>
-  <string name="profile_nfc_text">Durch das Schreiben eines Profils auf einen NFC-Tag aktiviert eine Berührung des Geräts mit diesem Tag das entsprechende Profil. Eine weitere Berührung aktiviert das vorherige Profil.</string>
   <string name="profile_unknown_nfc_tag">Unbekanntes Profil</string>
   <string name="profile_add_nfc_text">Der NFC-Tag verweist auf ein unbekanntes Profil. Das Verknüpfen des NFC-Tags mit einem existierenden Profil ermöglicht es, das entsprechende Profil in Zukunft durch eine Berührung zu aktivieren.</string>
   <string name="profile_select">Profil auswählen</string>
@@ -125,6 +123,7 @@
   <string name="volbtn_cursor_control_on_reverse">Lauter-/Leiser-Taste bewegt den Cursor nach rechts/links</string>
   <string name="swap_volume_buttons_title">Umkehren</string>
   <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
+  <string name="volume_keys_control_ring_stream_title">Lautstärketasten steuern Klingeltonlautstärke</string>
   <string name="power_end_call_title">Anruf beenden</string>
   <string name="power_end_call_summary">Ein laufendes Telefonat durch Drücken der Ein-/Aus-Taste beenden</string>
   <string name="button_wake_title">Gerät aufwecken</string>
@@ -159,9 +158,14 @@
   <string name="sunlight_enhancement_summary">Ablesbarkeit des Displays bei hellem Sonnenlicht verbessern</string>
   <string name="color_enhancement_title">Farbverbesserung</string>
   <string name="color_enhancement_summary">Farbdarstellung des Displays dynamisch verbessern</string>
+  <string name="blacklist_title">Gesperrte Anruferliste</string>
+  <string name="blacklist_edit_dialog_title">Gesperrte Telefonnummer bearbeiten</string>
   <string name="blacklist_prefs">Einstellungen</string>
   <string name="blacklist_button_delete">Löschen</string>
+  <string name="blacklist_empty_text">Es sind noch keine Einträge in der Sperrliste enthalten. Sie können Einträge hinzufügen, indem Sie das \"+\"-Symbol berühren.</string>
+  <string name="blacklist_disabled_empty_text">Um Anrufe und Nachrichten von bestimmten Nummern zu verhindern, Gesperrte Anruferliste aktivieren.</string>
   <string name="blacklist_summary_disabled">Deaktiviert</string>
+  <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen</string>
   <string name="blacklist_notify">Benachrichtigung anzeigen</string>
   <string name="blacklist_private_numbers_title">Unterdrückte Nummern</string>
   <string name="blacklist_private_numbers_summary_disabled">Anrufe mit unterdrückter Nummer nicht abweisen</string>
@@ -176,7 +180,9 @@
   <string name="blacklist_regex_summary">Einen Punkt als Platzhalter und ein Stern für Wiederholungen verwenden.\nBeispielsweise würde 123.* alle Nummern, die mit 123 beginnen, und .*123.* alle Nummern, die 123 enthalten, abweisen.</string>
   <string name="blacklist_policy_block_calls">Eingehende Anrufe abweisen</string>
   <string name="blacklist_policy_block_messages">Eingehende Nachrichten abweisen</string>
+  <string name="blacklist_bad_number_add">Ungültige Nummer kann nicht zur Liste der gesperrten Anrufer hinzugefügt werden</string>
   <string name="remove_blacklist_number_title">Nummer entfernen</string>
+  <string name="remove_blacklist_entry">Soll diese gesperrte Nummer entfernt werden?</string>
   <string name="select_contact">Kontakt auswählen</string>
   <string name="lockpattern_reset_button">Muster zurücksetzen</string>
   <string name="lockpattern_settings_reset_summary">Geben Sie die Adresse Ihres primären E-Mail-Kontos und das dazugehörige Passwort ein, um das Muster zurückzusetzen</string>
@@ -213,6 +219,8 @@
   <string name="update_recovery_off_warning">ACHTUNG: Wenn diese Funktion deaktiviert ist, wird das installierte Recovery-System nicht gemeinsam mit dem Betriebssystems aktualisiert.\n\nZukünftige OS-Updates können möglicherweise nicht mit veralteten oder benutzerdefinierten Recovery-Versionen installieren werden.\n\nMöchten sie diese Funktion wirklich deaktivieren?</string>
   <string name="mod_version">CyanogenMod-Version</string>
   <string name="mod_version_default">Unbekannt</string>
+  <string name="device_model">Gerätemodell</string>
+  <string name="device_name">Gerätename</string>
   <string name="build_date">Build-Datum</string>
   <string name="contributor_cloud_title">Mitwirkende</string>
   <string name="phone_service_state">Anrufe: <xliff:g id="voice_state">%1$s</xliff:g>, Daten: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -231,6 +239,7 @@
   <string name="privacy_guard_reset_text">Berechtigungen zurücksetzen?</string>
   <string name="privacy_guard_help_text">An dieser Stelle kann der Datenschutz für einzelne Apps durch einfache Berührung ein- und ausgeschaltet werden. Ausgewählte Apps haben keinen Zugriff auf persönliche Daten wie Kontakte, Nachrichten oder das Anrufprotokoll. Langes Drücken auf einen Eintrag öffnet die Detailanzeige für diese App.\n\nStandardmäßig werden in das System integrierte Apps nicht angezeigt. Wenn diese angezeigt werden sollen, kann dies mit der entsprechenden Menü-Option ausgewählt werden.</string>
   <string name="privacy_guard_manager_show_system_apps">Integrierte Apps anzeigen</string>
+  <string name="app_ops_btn_text">Ändern</string>
   <string name="increasing_ring_volume_option_title">Ansteigende Klingeltonlautstärke</string>
   <string name="increasing_ring_min_volume_title">Anfangslautstärke</string>
   <string name="increasing_ring_ramp_up_time_title">Anstiegszeit</string>
@@ -295,7 +304,6 @@
   <string name="status_bar_show_unused_sims_title">Zeige leere SIM-Symbole</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Symbole ungenutzter SIM-Slots ausblenden</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Unbenutzte SIM-Slots zeigen</string>
-  <string name="sim_name_hint">SIM-Name eingeben</string>
   <string name="edit_light_settings">Farbeinstellungen ändern</string>
   <string name="pulse_speed_title">Pulsdauer und Geschwindigkeit</string>
   <string name="default_time">Normal</string>
@@ -462,7 +470,7 @@
   <string name="app_ops_categories_bootup">Systemstart</string>
   <string name="app_ops_categories_su">Root-Zugriff</string>
   <string name="app_ops_permissions_allowed">Erlaubt</string>
-  <string name="app_ops_permissions_ignored">Ignoriert</string>
+  <string name="app_ops_permissions_ignored">Verboten</string>
   <string name="app_ops_permissions_always_ask">Immer nachfragen</string>
   <string name="ok">OK</string>
   <string name="profile_menu_delete_title">Löschen</string>
@@ -678,7 +686,6 @@
   <string name="edge_gesture_service_summary">Berührungsgesten für die Status- und Navigationsleiste nicht an Apps senden</string>
   <string name="cmlicense_title">Rechtliche Hinweise zu CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Rechtliche Hinweise zu CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">Es besteht keine Datenverbindung. Besuchen Sie %s mit einem beliebigen Computer mit Internetverbindung, um die Informationen jetzt anzusehen.</string>
   <string name="lockpattern_settings_enable_error_path_title">Fehler anzeigen</string>
   <string name="lockpattern_settings_enable_dots_title">Punkte anzeigen</string>
   <string name="unlock_quick_unlock_control_title">Schnelles Entsperren</string>
@@ -761,6 +768,9 @@
   <string name="whisperpush_summary">Einstellungen für sichere SMS</string>
   <string name="navigation_ring_title">Navigationsring-Verknüpfungen</string>
   <string name="navigation_ring_message">Tippen Sie auf das Bearbeitungssymbol, um den Navigationsring zu ändern.\n\nWählen Sie ein Ziel, um sein Verhalten zu konfigurieren.\n\nTippen Sie auf das \"\u2713\" Symbol um die Änderungen zu speichern, oder \"Standardeinstellungen wiederherstellen\", um die Einstellungen auf die Standardwerte zurückzusetzen.</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (Standard)</string>
+  <string name="restarting_ui">Benutzeroberfläche wird neu gestartet\u2026</string>
   <string name="stylus_icon_enabled_title">Stift-Symbol</string>
   <string name="stylus_icon_enabled_summary">Zeiger einblenden, wenn ein Stift verwendet wird</string>
   <string name="gestures_settings_title">Stiftgesten</string>
@@ -830,4 +840,12 @@
   <string name="preview_version_title">Version</string>
   <string name="preview_country_title">Land</string>
   <string name="preview_carrier_title">Anbieter</string>
+  <string name="heads_up_notifications">Pop-up-Benachrichtigungen</string>
+  <string name="summary_heads_up_enabled">Pop-up-Benachrichtigungen sind aktiviert</string>
+  <string name="summary_heads_up_disabled">Pop-up-Benachrichtigungen sind deaktiviert</string>
+  <string name="lock_to_cyanogen_title">Geräteschutz</string>
+  <string name="lock_to_cyanogen_summary">Erfordert Ihr Cyanogen OS-Passwort, auch nach einem Rücksetzen auf Werkseinstellungen</string>
+  <string name="lock_to_cyanogen_create_account_msg">Das Passwort Ihres Cyanogen OS-Kontos wird genutzt, um Ihr Gerät auch beim Rücksetzen auf Werkseinstellungen zu schützen. Dazu müssen Sie ein Cyanogen OS-Konto anlegen.</string>
+  <string name="lock_to_cyanogen_disable_msg">Deaktivieren dieser Funktion erlaubt es nicht autorisierten Benutzern Ihr Telefon auf Werkseinstellungen zurückzusetzen, wenn es gestohlen wird. Ihre persönlichen Daten können nicht sicher sein. Wollen Sie diese Funktion deaktivieren?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Geräteschutz ist aktiviert. Bitte deaktivieren, um mit dem Zurücksetzen Ihres Gerätes fortzufahren.</string>
 </resources>

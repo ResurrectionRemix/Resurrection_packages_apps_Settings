@@ -125,6 +125,8 @@
   <string name="volbtn_cursor_control_on_reverse">Volum amunt/avall mou el cursor a dreta/esquerra</string>
   <string name="swap_volume_buttons_title">Reorienta</string>
   <string name="swap_volume_buttons_summary">Intercanvia els botons de volum quan la pantalla estigui rotada</string>
+  <string name="volume_keys_control_ring_stream_title">Les tecles de volum controlen el volum del to de trucada</string>
+  <string name="volume_keys_control_ring_stream_summary">Si està activat, les tecles de volum controlen el volum de del to de trucada. Si està desactivat, les tecles de volum controlen el volum multimèdia.</string>
   <string name="power_end_call_title">Finalitza la trucada</string>
   <string name="power_end_call_summary">Apretant el botó d\'apagat es finalitzarà la trucada actual</string>
   <string name="button_wake_title">Desperta el dispositiu</string>
@@ -159,9 +161,14 @@
   <string name="sunlight_enhancement_summary">Millora la brillantor i la llegibilitat de la pantalla sota la llum del sol intensa</string>
   <string name="color_enhancement_title">Millora del color</string>
   <string name="color_enhancement_summary">Millora dinàmicament el color de la pantalla</string>
+  <string name="blacklist_title">Llista de números bloquejats</string>
+  <string name="blacklist_edit_dialog_title">Edita un número de telèfon bloquejat</string>
   <string name="blacklist_prefs">Configuració</string>
   <string name="blacklist_button_delete">Esborra</string>
+  <string name="blacklist_empty_text">No tens cap número a la llista de números bloquejats. Afegeix una entrada tocant el botó Afegeix (+).</string>
+  <string name="blacklist_disabled_empty_text">Per evitar que números de telèfon et truquin o t\'enviïn un missatge, habilita la llista de números bloquejats.</string>
   <string name="blacklist_summary_disabled">Desactivada</string>
+  <string name="blacklist_summary">No rebràs trucades entrants o missatges dels números de telèfon que siguin dins la llista de números bloquejats</string>
   <string name="blacklist_notify">Mostra notificacions</string>
   <string name="blacklist_private_numbers_title">Números privats</string>
   <string name="blacklist_private_numbers_summary_disabled">No bloquegis les trucades de números privats</string>
@@ -176,7 +183,9 @@
   <string name="blacklist_regex_summary">Utilitza . com a comodí i * per la repetició. Per ex. 123.* bloqueja els números que comencen per 123 i .*123.* bloqueja els números que contenen 123</string>
   <string name="blacklist_policy_block_calls">Bloqueja les trucades entrants</string>
   <string name="blacklist_policy_block_messages">Bloqueja els missatges entrants</string>
+  <string name="blacklist_bad_number_add">No s\'ha  pogut afegir el número de telèfon invàlid a la llista de números bloquejats</string>
   <string name="remove_blacklist_number_title">Treu el número</string>
+  <string name="remove_blacklist_entry">Vols esborrar aquest número de telèfon bloquejat?</string>
   <string name="select_contact">Selecciona contacte</string>
   <string name="lockpattern_reset_button">Restaura el patró</string>
   <string name="lockpattern_settings_reset_summary">Introdueix el compte de correu electrònic principal i la contrasenya associada per restaurar el patró de bloqueig</string>
@@ -213,6 +222,8 @@
   <string name="update_recovery_off_warning">ADVERTÈNCIA: Quan aquesta característica està inhabilitada, el teu sistema de recuperació instal·lat no s\'actualitzarà amb les millores del SO.\n\nFutures actualitzacions del SO podrien no instal·lar-se amb sistemes de recuperació obsolets o personalitzats.\n\nRealment vols deshabilitar aquesta característica?</string>
   <string name="mod_version">CyanogenMod versió</string>
   <string name="mod_version_default">Desconegut</string>
+  <string name="device_model">Model del dispositiu</string>
+  <string name="device_name">Nom del dispositiu</string>
   <string name="build_date">Data d\'elaboració</string>
   <string name="contributor_cloud_title">Contribuïdors</string>
   <string name="phone_service_state">Veu: <xliff:g id="voice_state">%1$s</xliff:g>, dades: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -231,6 +242,7 @@
   <string name="privacy_guard_reset_text">Reiniciar permisos?</string>
   <string name="privacy_guard_help_text">En aquesta pantalla pots triar en quines apps el Guarda de privacitat hauria d\'estar actiu picant simplement en elles. Les apps seleccionades no podran accedir a les dades personals com els contactes, missatges o els registres de trucades. Fent una pulsació llarga en una entrada de l\'app s\'obrirà la pantalla de detalls de l\'app.\n\nLes apps integrades per defecte no es mostren, però poden ser mostrades seleccionant l\'opció del menú respectiu.</string>
   <string name="privacy_guard_manager_show_system_apps">Mostra les apps integrades</string>
+  <string name="app_ops_btn_text">Modifica</string>
   <string name="increasing_ring_volume_option_title">Volum del to de trucada creixent</string>
   <string name="increasing_ring_min_volume_title">Volum inicial</string>
   <string name="increasing_ring_ramp_up_time_title">Durada del crescendo</string>
@@ -295,9 +307,8 @@
   <string name="status_bar_show_unused_sims_title">Mostra les icones de SIMs buides</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Amaga les icones de ranures SIM no utilitzades</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Indica les ranures SIM no utilitzades</string>
-  <string name="sim_name_hint">Introdueix el nom de la SIM</string>
   <string name="edit_light_settings">Edita els ajustos de llum</string>
-  <string name="pulse_speed_title">Durada i velocitat de la parpalleig</string>
+  <string name="pulse_speed_title">Durada i velocitat del parpalleig</string>
   <string name="default_time">Normal</string>
   <string name="custom_time">Personalitzat</string>
   <string name="dialog_delete_title">Esborra</string>
@@ -678,7 +689,6 @@
   <string name="edge_gesture_service_summary">No enviïs esdeveniments tàctils per la navegació ni gestos de la barra d\'estat a les apps</string>
   <string name="cmlicense_title">Llicència CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Llicència CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">No tens connexió de dades. Per veure aquesta informació ara, ves a %s des d\'un ordenador connectat a internet.</string>
   <string name="lockpattern_settings_enable_error_path_title">Mostra el patró erroni</string>
   <string name="lockpattern_settings_enable_dots_title">Mostra els punts del patró</string>
   <string name="unlock_quick_unlock_control_title">Desbloqueig ràpid</string>
@@ -723,11 +733,13 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Temps d\'espera de la pantalla</string>
   <string name="qs_tile_usb_tether">Ancoratge USB</string>
+  <string name="qs_tile_heads_up">Notificacions emergents</string>
   <string name="qs_main_tiles_title">Engrandeix la primera fila</string>
   <string name="qs_main_tiles_summary_on">Dues cel·les principals en la primera fila</string>
   <string name="qs_main_tiles_summary_off">Tres cel·les en cada fila</string>
   <string name="qs_advanced_location_title">Configuració d\'ubicació avançada</string>
   <string name="qs_advanced_location_summary">Habilita la configuració avançada d\'ubicació en els ajustos ràpids</string>
+  <string name="sim_no_number_set">Sense número assignat</string>
   <string name="gesture_settings_title">Gestos</string>
   <string name="themes_settings_title">Temes</string>
   <string name="wifi_mode">Mode</string>
@@ -761,6 +773,11 @@
   <string name="whisperpush_summary">Gestiona la configuració d\'SMS segurs</string>
   <string name="navigation_ring_title">Objectius de l\'anell de navegació</string>
   <string name="navigation_ring_message">Pica sobre la icona edita per desbloquejar l\'edició de la barra de navegació.\n\nSelecciona un objectiu per configurar el seu comportament.\n\nPica la icona \'\u2713\' per desar els canvis, o \'Restaura predeterminats\' per restaurar els ajustaments predeterminats.</string>
+  <string name="lcd_density">Densitat de l\'LCD</string>
+  <string name="dialog_title_lcd_density">Densitat de l\'LCD</string>
+  <string name="lcd_density_value_format">%d PPP</string>
+  <string name="lcd_density_default_value_format">%d PPP (per defecte)</string>
+  <string name="restarting_ui">S\'està reiniciant IU\u2026</string>
   <string name="stylus_icon_enabled_title">Mostra una icona quan s\'utilitzi un llapis</string>
   <string name="stylus_icon_enabled_summary">Mostra la icona del punter quan suris o dibuixis amb el llapis</string>
   <string name="gestures_settings_title">Gestos del llapis</string>
@@ -801,6 +818,8 @@
   <string name="sim_ringtone_title">To de trucada de la SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Evita la baixada del so</string>
   <string name="interruptions_ignore_while_media_summary">No redueixis el volum de reproducció multimèdia quan arribi una notificació</string>
+  <string name="none_is_silent_summary">En el mode Silenci les alarmes sempre sonen</string>
+  <string name="allow_lights_title">Permet les llums de notificació</string>
   <string name="live_display_summary">Optimitza la teva pantalla basant-se en l\'hora del dia i les condicions ambientals per millorar la llegibilitat i reduir la fatiga ocular</string>
   <string name="live_display_mode">Mode de pantalla</string>
   <string name="live_display_color_temperature_title">Temperatura del color</string>
@@ -830,4 +849,14 @@
   <string name="preview_version_title">Versió</string>
   <string name="preview_country_title">País</string>
   <string name="preview_carrier_title">Portadora</string>
+  <string name="heads_up_notifications">Notificacions emergents</string>
+  <string name="summary_heads_up_enabled">Les notificacions emergents estan activades</string>
+  <string name="summary_heads_up_disabled">Les notificacions emergents estan desactivades</string>
+  <string name="master_clear_desc_cm" product="tablet">Això esborrarà totes les dades de <b>l\'emmagatzematge intern</b> de la teva tauleta, incloent-hi:\n\n<li>Els teus comptes al dispositiu</li>\n<li>el sistema i les dades i els ajustaments de les aplicacions</li>\n<li>Les aplicacions descarregades</li></string>
+  <string name="master_clear_desc_cm" product="default">Això esborrarà totes les dades de <b>l\'emmagatzematge intern</b> del teu telèfon, incloent-hi:\n\n<li>Els teus comptes al dispositiu</li>\n<li>el sistema i les dades i els ajustaments de les aplicacions</li>\n<li>Les aplicacions descarregades</li></string>
+  <string name="lock_to_cyanogen_title">Protecció del dispositiu</string>
+  <string name="lock_to_cyanogen_summary">Demana la contrasenya del teu compte de Cyanogen OS fins i tot després de que es restableixin els ajustaments de fàbrica</string>
+  <string name="lock_to_cyanogen_create_account_msg">El teu dispositiu utilitza la contrasenya del compte Cyanogen OS per protegir el dispositiu fins i tot en cas d\'un restabliment als ajustaments de fàbrica. Necessitaràs crear un compte de Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">Deshabilitant aquest característica permetràs que usuaris no autoritzats restableixin el teu telèfon als ajustaments de fàbrica en cas de robatori. Les teves dades personals podrien no estar protegides. Vols deshabilitar aquesta funció?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">La protecció del dispositiu està habilitada. Si us plau deshabilita-la per continuar amb la restauració del teu dispositiu.</string>
 </resources>

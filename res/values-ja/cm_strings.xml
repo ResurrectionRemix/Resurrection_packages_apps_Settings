@@ -158,9 +158,14 @@
   <string name="sunlight_enhancement_summary">太陽光照射下で画面を明るくして見やすくする</string>
   <string name="color_enhancement_title">色の補正</string>
   <string name="color_enhancement_summary">画面の色をリアルタイムに補正する</string>
+  <string name="blacklist_title">着信拒否リスト</string>
+  <string name="blacklist_edit_dialog_title">着信拒否した電話番号を編集</string>
   <string name="blacklist_prefs">設定</string>
   <string name="blacklist_button_delete">削除</string>
+  <string name="blacklist_empty_text">着信拒否した番号がありません。追加（+）ボタンをタップしてエントリーを追加します。</string>
+  <string name="blacklist_disabled_empty_text">特定の電話番号からの通話やメッセージを拒否するには、着信拒否リストを有効にしてください。</string>
   <string name="blacklist_summary_disabled">無効</string>
+  <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようにする</string>
   <string name="blacklist_notify">通知を表示</string>
   <string name="blacklist_private_numbers_title">非通知番号</string>
   <string name="blacklist_private_numbers_summary_disabled">非通知番号からの着信をブロックしない</string>
@@ -175,7 +180,9 @@
   <string name="blacklist_regex_summary">「.」をワイルドカードとして使用し、「*」を繰り返しとして使用します。例えば「123.*」なら123から始まる番号をブロックし、｢.*123.*｣なら123を含む番号をブロックします。</string>
   <string name="blacklist_policy_block_calls">着信をブロックする</string>
   <string name="blacklist_policy_block_messages">メッセージをブロックする</string>
+  <string name="blacklist_bad_number_add">無効な電話番号は着信拒否リストに追加できません</string>
   <string name="remove_blacklist_number_title">番号を削除</string>
+  <string name="remove_blacklist_entry">この拒否している電話番号を削除しますか？</string>
   <string name="select_contact">連絡先を選択</string>
   <string name="lockpattern_reset_button">パターンをリセット</string>
   <string name="lockpattern_settings_reset_summary">パターンをリセットするにはプライマリメールアカウントと関連付けられているパスワードを入力してください</string>
@@ -212,6 +219,8 @@
   <string name="update_recovery_off_warning">警告: この機能を無効にすると、インストールされているリカバリーはOSのアップグレードと同時にはアップデートされなくなります。\n\nカスタムリカバリーバージョンが古いと、今後のOSアップデートがインストールできなくなる恐れがあります。\n\nこの機能を本当に無効にしますか？</string>
   <string name="mod_version">CyanogenModバージョン</string>
   <string name="mod_version_default">不明</string>
+  <string name="device_model">端末モデル</string>
+  <string name="device_name">端末名</string>
   <string name="build_date">ビルド日時</string>
   <string name="contributor_cloud_title">貢献者</string>
   <string name="phone_service_state">音声: <xliff:g id="voice_state">%1$s</xliff:g> データ: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -294,7 +303,6 @@
   <string name="status_bar_show_unused_sims_title">SIMなしアイコンを表示</string>
   <string name="status_bar_show_unused_sims_title_summary_off">未使用のSIMスロットのアイコンを非表示にする</string>
   <string name="status_bar_show_unused_sims_title_summary_on">未使用のSIMスロットを表示する</string>
-  <string name="sim_name_hint">SIM名を入力してください</string>
   <string name="edit_light_settings">ライトの設定を編集</string>
   <string name="pulse_speed_title">点滅時間と点滅速度</string>
   <string name="default_time">標準</string>
@@ -677,7 +685,6 @@
   <string name="edge_gesture_service_summary">ナビゲーションバーとステータスバーのジェスチャーのタッチイベントをアプリに送信しない</string>
   <string name="cmlicense_title">CyanogenMod利用規約</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod利用規約</string>
-  <string name="settings_cmlicense_activity_unreachable">データ接続がありません。この情報を表示するにはインターネットに接続されているパソコンから%sにアクセスしてください。</string>
   <string name="lockpattern_settings_enable_error_path_title">間違えたパターンを表示</string>
   <string name="lockpattern_settings_enable_dots_title">パターンのドットを表示</string>
   <string name="unlock_quick_unlock_control_title">クイックロック解除</string>

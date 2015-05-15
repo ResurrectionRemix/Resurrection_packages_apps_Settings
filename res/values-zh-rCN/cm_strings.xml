@@ -158,9 +158,14 @@
   <string name="sunlight_enhancement_summary">在明亮的阳光下提高显示亮度和可读性</string>
   <string name="color_enhancement_title">色彩增强</string>
   <string name="color_enhancement_summary">动态增强屏幕色彩</string>
+  <string name="blacklist_title">呼叫黑名单列表</string>
+  <string name="blacklist_edit_dialog_title">编辑已屏蔽的电话号码</string>
   <string name="blacklist_prefs">设置</string>
   <string name="blacklist_button_delete">删除</string>
+  <string name="blacklist_empty_text">您的黑名单中没有任何号码。您可以点击 (+) 按钮来添加。</string>
+  <string name="blacklist_disabled_empty_text">要阻止特定的号码拨打电话或发送短信给您，可启用呼叫黑名单列表。</string>
   <string name="blacklist_summary_disabled">禁用</string>
+  <string name="blacklist_summary">您将不会收到来自呼叫黑名单列表中的来电或短信</string>
   <string name="blacklist_notify">显示通知</string>
   <string name="blacklist_private_numbers_title">私人号码</string>
   <string name="blacklist_private_numbers_summary_disabled">不要阻止私人号码的来电</string>
@@ -175,7 +180,9 @@
   <string name="blacklist_regex_summary">使用 . 作为通配符和 * 作为重复字符，例如：123.* 将会阻止所有 123 为前缀的号码；.*123.* 将会阻止所有包含 123 的号码</string>
   <string name="blacklist_policy_block_calls">阻止来电</string>
   <string name="blacklist_policy_block_messages">阻止接收短信</string>
+  <string name="blacklist_bad_number_add">无法添加无效的电话号码到呼叫黑名单列表</string>
   <string name="remove_blacklist_number_title">移除号码</string>
+  <string name="remove_blacklist_entry">您要将此号码从呼叫黑名单列表中移除吗？</string>
   <string name="select_contact">选择联系人</string>
   <string name="lockpattern_reset_button">重设图案</string>
   <string name="lockpattern_settings_reset_summary">输入主要的电子邮件帐户和对应的密码来重设图案锁</string>
@@ -212,6 +219,8 @@
   <string name="update_recovery_off_warning">警告：此功能被禁用后，你安装的恢复模式将不会随着系统一起更新。\n\n未来的系统更新可能不支持用过旧的或自制的恢复模式安装。\n\n您确定要禁用此功能？</string>
   <string name="mod_version">CyanogenMod 版本</string>
   <string name="mod_version_default">未知</string>
+  <string name="device_model">设备型号</string>
+  <string name="device_name">设备名称</string>
   <string name="build_date">编译日期</string>
   <string name="contributor_cloud_title">贡献者</string>
   <string name="phone_service_state">语音： <xliff:g id="voice_state">%1$s</xliff:g>，数据： <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -230,6 +239,7 @@
   <string name="privacy_guard_reset_text">重置权限？</string>
   <string name="privacy_guard_help_text">在这个页面上，您可以简单地通过点击来选择在哪些应用上启用隐私防护。选中的应用将无法访问个人数据，例如：联系人、短信或通话记录。长按一个应用的条目打开应用详细页面。\n\n默认不显示内置应用，在菜单中选择相应选项可以显示它们。</string>
   <string name="privacy_guard_manager_show_system_apps">显示内置应用</string>
+  <string name="app_ops_btn_text">修改</string>
   <string name="increasing_ring_volume_option_title">铃声音量渐强</string>
   <string name="increasing_ring_min_volume_title">初始音量</string>
   <string name="increasing_ring_ramp_up_time_title">增强时间</string>
@@ -294,7 +304,6 @@
   <string name="status_bar_show_unused_sims_title">显示空 SIM 卡图标</string>
   <string name="status_bar_show_unused_sims_title_summary_off">隐藏未使用的 SIM 卡槽图标</string>
   <string name="status_bar_show_unused_sims_title_summary_on">显示未使用的 SIM 卡槽</string>
-  <string name="sim_name_hint">输入 SIM 卡名称</string>
   <string name="edit_light_settings">编辑指示灯设置</string>
   <string name="pulse_speed_title">呼吸长度与速度</string>
   <string name="default_time">正常</string>
@@ -677,7 +686,6 @@
   <string name="edge_gesture_service_summary">不向应用发送导航栏和状态栏的触摸事件</string>
   <string name="cmlicense_title">CyanogenMod 法律信息</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod 法律信息</string>
-  <string name="settings_cmlicense_activity_unreachable">您没有数据连接。要立即查看此信息，请通过已联网的任意计算机访问 %s。</string>
   <string name="lockpattern_settings_enable_error_path_title">显示图案错误</string>
   <string name="lockpattern_settings_enable_dots_title">显示图案圆点</string>
   <string name="unlock_quick_unlock_control_title">快速解锁</string>
@@ -722,11 +730,13 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">屏幕超时</string>
   <string name="qs_tile_usb_tether">USB 共享网络</string>
+  <string name="qs_tile_heads_up">浮动通知</string>
   <string name="qs_main_tiles_title">扩大第一行</string>
   <string name="qs_main_tiles_summary_on">第一行两个主要瓷块</string>
   <string name="qs_main_tiles_summary_off">每行三个瓷块</string>
   <string name="qs_advanced_location_title">高级位置设置</string>
   <string name="qs_advanced_location_summary">启用快速设置中的高级位置信息设置</string>
+  <string name="sim_no_number_set">没有分配号码</string>
   <string name="gesture_settings_title">手势</string>
   <string name="themes_settings_title">主题</string>
   <string name="wifi_mode">模式</string>
@@ -760,6 +770,10 @@
   <string name="whisperpush_summary">管理安全短信设置</string>
   <string name="navigation_ring_title">导航环目标</string>
   <string name="navigation_ring_message">轻按编辑图标以打开导航环编辑。\n\n选择一个目标以配置其行为。\n\n轻按“\u2713”图标以保存您的变更，或“还原默认值”以重置设置到默认状态。</string>
+  <string name="lcd_density">LCD 密度</string>
+  <string name="dialog_title_lcd_density">LCD 密度</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (默认值)</string>
   <string name="stylus_icon_enabled_title">使用触控笔时显示光标</string>
   <string name="stylus_icon_enabled_summary">使用触控笔悬停或书写时显示指示光标</string>
   <string name="gestures_settings_title">触控笔手势</string>
@@ -829,4 +843,14 @@
   <string name="preview_version_title">版本</string>
   <string name="preview_country_title">国家</string>
   <string name="preview_carrier_title">运营商</string>
+  <string name="heads_up_notifications">浮动通知</string>
+  <string name="summary_heads_up_enabled">弹出通知已启用</string>
+  <string name="summary_heads_up_disabled">弹出通知已禁用</string>
+  <string name="master_clear_desc_cm" product="tablet">这将会从您平板的<b>内部存储</b>中擦出所有数据，包括：\n\n<li>您的设备账号</li>\n<li>系统和应用数据设置</li>\n<li>已下载的应用</li></string>
+  <string name="master_clear_desc_cm" product="default">这将会从您手机的<b>内部存储</b>中擦出所有数据，包括：\n\n<li>您的设备账号</li>\n<li>系统和应用数据设置</li>\n<li>已下载的应用</li></string>
+  <string name="lock_to_cyanogen_title">设备保护</string>
+  <string name="lock_to_cyanogen_summary">即使设备被恢复出厂设置，也要求输入 Cyanogen OS 帐户密码</string>
+  <string name="lock_to_cyanogen_create_account_msg">即使设备被恢复出厂设置，也可以被 Cyanogen OS 帐户密码所保护。您将需要创建一个 Cyanogen OS 帐户。</string>
+  <string name="lock_to_cyanogen_disable_msg">如果您的手机被盗，禁用此功能将会使得未经授权的用户重置您的手机为出厂默认值。您的个人数据可能无法被保护。您确定要禁用此功能？</string>
+  <string name="lock_to_cyanogen_master_clear_warning">设备保护已启用。请在重设您的设备前先将其禁用。</string>
 </resources>

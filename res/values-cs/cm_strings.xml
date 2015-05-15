@@ -126,6 +126,8 @@
   <string name="volbtn_cursor_control_on_reverse">Tlačítka hlasitosti nahoru/dolu posunou kurzor vpravo/vlevo</string>
   <string name="swap_volume_buttons_title">Přeorientovat</string>
   <string name="swap_volume_buttons_summary">V případě otočení obrazovky bude převrácen i smysl tlačítek hlasitosti</string>
+  <string name="volume_keys_control_ring_stream_title">Tlačítka hlasitosti ovládají hlasitost vyzvánění</string>
+  <string name="volume_keys_control_ring_stream_summary">Při zapnutí ovládají tlačítka hlasitosti hlasitost vyzvánění, jinak ovládají hlasitost médií.</string>
   <string name="power_end_call_title">Ukončit hovor</string>
   <string name="power_end_call_summary">Stisknutí tlačítka vypínání dojde k ukončení hovoru</string>
   <string name="button_wake_title">Probudit zařízení</string>
@@ -160,9 +162,14 @@
   <string name="sunlight_enhancement_summary">Vylepšený jas obrazovky a čitelnosti za slunečného dne</string>
   <string name="color_enhancement_title">Vylepšení barev</string>
   <string name="color_enhancement_summary">Dynamické vylepšení barev zobrazení</string>
+  <string name="blacklist_title">Seznam blokovaných čísel</string>
+  <string name="blacklist_edit_dialog_title">Upravit blokované telefonní číslo</string>
   <string name="blacklist_prefs">Nastavení</string>
   <string name="blacklist_button_delete">Smazat</string>
+  <string name="blacklist_empty_text">V seznamu blokovaných čísel není žádné číslo. Položku přidáte pomocí tlačítka Přidat (+).</string>
+  <string name="blacklist_disabled_empty_text">Chcete-li zabránit hovorům či zprávám z určitých čísel, povolte seznamu blokovaných čísel.</string>
   <string name="blacklist_summary_disabled">Zakázána</string>
+  <string name="blacklist_summary">Nebudou se přijímat příchozí hovory nebo zprávy od telefonní čísla na seznamu blokovaných čísel</string>
   <string name="blacklist_notify">Zobrazit upozornění</string>
   <string name="blacklist_private_numbers_title">Skrytá čísla</string>
   <string name="blacklist_private_numbers_summary_disabled">Neblokovat volání ze skrytých čísel</string>
@@ -177,7 +184,9 @@
   <string name="blacklist_regex_summary">Použít znak . jako zástupný a znak * pro opakování. Např. 123.* blokuje všechna čísla začínající sekvencí 123 a .*123.* blokuje všechna čísla, obsahující sekvenci 123</string>
   <string name="blacklist_policy_block_calls">Blokovat příchozí hovory</string>
   <string name="blacklist_policy_block_messages">Blokovat příchozí zprávy</string>
+  <string name="blacklist_bad_number_add">Nelze přidat neplatné telefonní číslo do seznamu blokovaných čísel</string>
   <string name="remove_blacklist_number_title">Odstranit číslo</string>
+  <string name="remove_blacklist_entry">Chcete odstranit toto blokované telefonní číslo?</string>
   <string name="select_contact">Zvolte kontakt</string>
   <string name="lockpattern_reset_button">Obnovit gesto</string>
   <string name="lockpattern_settings_reset_summary">Zadejte primární e-mailový účet a heslo pro obnovení bezpečnostního gesta</string>
@@ -214,6 +223,8 @@
   <string name="update_recovery_off_warning">VAROVÁNÍ: Pokud je tato funkce vypnutá, vaše nainstalované recovery nebude aktualizováno s aktualizacemi systému.\n\nBudoucí aktualizace systému se se starou verzí recovery nemusí správně nainstalovat.\n\nOpravdu chcete tuto funkci vypnout?</string>
   <string name="mod_version">CyanogenMod verze</string>
   <string name="mod_version_default">Neznámá</string>
+  <string name="device_model">Model</string>
+  <string name="device_name">Název zařízení</string>
   <string name="build_date">Datum sestavení</string>
   <string name="contributor_cloud_title">Přispěvatelé</string>
   <string name="phone_service_state">Hlas: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -232,6 +243,7 @@
   <string name="privacy_guard_reset_text">Obnovit oprávnění?</string>
   <string name="privacy_guard_help_text">Na této obrazovce můžete vybrat, která aplikace má být sledována Ochranou soukromí. Zvolené aplikace nebudou mít umožněno přistupovat k soukromím údajům, jako jsou kontakty, zprávy nebo seznamy hovorů. Dlouhým stiskem na dané aplikaci se zobrazí její systémové informace.\n\nVe výchozím stavu se systémové aplikace nezobrazují. Pokud chcete zobrazit i systémové aplikace, vyberte danou volbu z nabídky.</string>
   <string name="privacy_guard_manager_show_system_apps">Zobrazit systémové aplikace</string>
+  <string name="app_ops_btn_text">Změnit</string>
   <string name="increasing_ring_volume_option_title">Zvyšující se hlasitost vyzvánění</string>
   <string name="increasing_ring_min_volume_title">Počáteční hlasitost</string>
   <string name="increasing_ring_ramp_up_time_title">Doba zesilování</string>
@@ -296,7 +308,6 @@
   <string name="status_bar_show_unused_sims_title">Zobrazit ikony prázdných SIM</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Skrýt ikony nepoužívaných slotů SIM</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Ukazovat nepoužité sloty SIM</string>
-  <string name="sim_name_hint">Zadejte název SIM</string>
   <string name="edit_light_settings">Upravit nastavení osvětlení</string>
   <string name="pulse_speed_title">Délka impulsu a rychlost</string>
   <string name="default_time">Normální</string>
@@ -679,7 +690,6 @@
   <string name="edge_gesture_service_summary">Nepropuštět dotyky pro stavovou nebo navigační lištu do aplikací</string>
   <string name="cmlicense_title">Právní ujednání CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Právní ujednání CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">Zobrazit licenční ujednání není možné, protože není aktivní žádné datové připojení. Pro zobrazení tohoto ujednání navštivte prosím stránku %s z jakéhokoliv počítače, připojeného na internet.</string>
   <string name="lockpattern_settings_enable_error_path_title">Zobrazit cestu chybného gesta</string>
   <string name="lockpattern_settings_enable_dots_title">Zobrazit body gesta</string>
   <string name="unlock_quick_unlock_control_title">Rychlé odemknutí</string>
@@ -724,11 +734,13 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Zhasínání obrazovky</string>
   <string name="qs_tile_usb_tether">USB tethering</string>
+  <string name="qs_tile_ambient_display">Ambientní zobrazení</string>
   <string name="qs_main_tiles_title">Zvětšit první řádek</string>
   <string name="qs_main_tiles_summary_on">Dvě hlavní dlaždice na prvním řádku</string>
   <string name="qs_main_tiles_summary_off">Tři dlaždice na řádek</string>
   <string name="qs_advanced_location_title">Upřesnit nastavení polohy</string>
   <string name="qs_advanced_location_summary">Povolit upřesňující nastavení pro polohu v rychlém nastavení</string>
+  <string name="sim_no_number_set">Není přiřazení žádné číslo</string>
   <string name="gesture_settings_title">Gesta</string>
   <string name="themes_settings_title">Motiv vzhledu</string>
   <string name="wifi_mode">Režim</string>
@@ -762,6 +774,11 @@
   <string name="whisperpush_summary">Spravovat nastavení zabezpečených SMS</string>
   <string name="navigation_ring_title">Položky navigačního prstence</string>
   <string name="navigation_ring_message">Klepněte na ikonu pro upravení navigačního prstence.\n\nVyberte cíl pro konfiguraci jeho chování.\n\nDotykem na ikonu „\u2713“ uložíte provedené změny, pomocí „Obnovit výchozí“ bude provedeno obnovení nastavení na výchozí hodnoty.</string>
+  <string name="lcd_density">Hustota LCD</string>
+  <string name="dialog_title_lcd_density">Hustota LCD</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (výchozí)</string>
+  <string name="restarting_ui">Restartování UI\u2026</string>
   <string name="stylus_icon_enabled_title">Zobrazit ikonu při používání stylusu</string>
   <string name="stylus_icon_enabled_summary">Zobrazit ikonu ukazatele při kreslení se stylusem</string>
   <string name="gestures_settings_title">Gesta stylusem</string>
@@ -802,6 +819,9 @@
   <string name="sim_ringtone_title">SIM %d vyzvánění</string>
   <string name="interruptions_ignore_while_media_title">Zabránit potlačení hudby</string>
   <string name="interruptions_ignore_while_media_summary">Nesnižovat hlasitost přehrávané hudby při oznámení</string>
+  <string name="none_is_silent_title">Nikdy neztlumovat budíky</string>
+  <string name="none_is_silent_summary">Budíky se v tichém režimu budou přehrávat</string>
+  <string name="allow_lights_title">Povolit oznámení světlem</string>
   <string name="live_display_summary">Optimalizovat obrazovku podle denní doby a okolních podmínek pro lepší čitelnost a snížení namáhání očí</string>
   <string name="live_display_mode">Režim zobrazení</string>
   <string name="live_display_color_temperature_title">Teplota barev</string>
@@ -831,4 +851,14 @@
   <string name="preview_version_title">Verze</string>
   <string name="preview_country_title">Země</string>
   <string name="preview_carrier_title">Operátor</string>
+  <string name="summary_heads_up_enabled">Vyskakovací upozornění je povoleno</string>
+  <string name="summary_heads_up_disabled">Vyskakovací upozornění je zakázáno</string>
+  <string name="master_clear_desc_cm" product="tablet">Tímto budou z tabletu smazána všechny data z <b>interního úložiště</b> včetně:\n\n<li>Účtů</li>\n<li>Systémové i uživatelské data aplikací a nastavení</li>\n<li>Stáhnuté aplikace</li></string>
+  <string name="master_clear_desc_cm" product="default">Tímto budou z telefonu smazána všechny data z <b>interního úložiště</b> včetně:\n\n<li>Účtů</li>\n<li>Systémové i uživatelské data aplikací a nastavení</li>\n<li>Stáhnuté aplikace</li></string>
+  <string name="lock_to_cyanogen_title">Ochrana zařízení</string>
+  <string name="lock_to_cyanogen_summary">Požadovat heslo Cyanogen OS účtu i poté, co byl provedeno obnovení do továrního nastavení</string>
+  <string name="lock_to_cyanogen_create_account_msg">Zařízení používá heslo účtu Cyanogen OS k zabezpečení i v případě obnovení do továrního nastavení. Proto je potřeba vytvořit účet Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">Zakázáním této funkce umožňuje neoprávněným uživatelům v případě krádeže provést obnovu do továrního nastavení. Soukromá data nemusí být chráněna. Opravdu chcete tuto funkci vypnout?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Ochrana zařízení je povolena. Prosím zakažte ji pro pokračování v obnově vašeho zařízení.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Chyba připojení - není povoleno sdílení připojení pomocí Bluetooth?</string>
 </resources>

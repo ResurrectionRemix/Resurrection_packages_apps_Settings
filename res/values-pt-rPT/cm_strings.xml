@@ -125,6 +125,8 @@
   <string name="volbtn_cursor_control_on_reverse">Volume para cima/baixo move o cursor para a direita/esquerda</string>
   <string name="swap_volume_buttons_title">Reorientar</string>
   <string name="swap_volume_buttons_summary">Trocar os botões de volume quando o ecrã é rodado</string>
+  <string name="volume_keys_control_ring_stream_title">As teclas de volume controlam o volume do toque de chamada</string>
+  <string name="volume_keys_control_ring_stream_summary">Se estiver ligado, os botões de volume controlam o volume do toque. Se estiver desligado, os botões de volume controlam o volume multimédia.</string>
   <string name="power_end_call_title">Termina chamada</string>
   <string name="power_end_call_summary">Pressionar o botão de energia terminará a chamada atual</string>
   <string name="button_wake_title">Ligar o dispositivo</string>
@@ -159,9 +161,14 @@
   <string name="sunlight_enhancement_summary">Aumentar a luminosidade e legibilidade do ecrã sob luz solar brilhante</string>
   <string name="color_enhancement_title">Realce de cor</string>
   <string name="color_enhancement_summary">Realçar dinamicamente a cor do ecrã</string>
+  <string name="blacklist_title">Lista de números bloqueados</string>
+  <string name="blacklist_edit_dialog_title">Editar número de telefone bloqueado</string>
   <string name="blacklist_prefs">Definições</string>
   <string name="blacklist_button_delete">Eliminar</string>
+  <string name="blacklist_empty_text">Não tem números bloqueados. Adicione um número ao tocar no botão de Adicionar (+).</string>
+  <string name="blacklist_disabled_empty_text">Para evitar que alguns números te telefonem ou te enviem mensagens , ativa a lista de números bloqueados.</string>
   <string name="blacklist_summary_disabled">Desativado</string>
+  <string name="blacklist_summary">Não receberá chamadas ou mensagens de números de telefone na lista de números bloqueados</string>
   <string name="blacklist_notify">Mostrar notificação</string>
   <string name="blacklist_private_numbers_title">Números privados</string>
   <string name="blacklist_private_numbers_summary_disabled">Não bloquear chamadas de números privados</string>
@@ -176,7 +183,9 @@
   <string name="blacklist_regex_summary">Use . como um joker e * para repetição. Por exemplo, 123.* bloqueia números que começam com 123 e .*123.* bloqueia números contendo 123</string>
   <string name="blacklist_policy_block_calls">Bloquear chamadas recebidas</string>
   <string name="blacklist_policy_block_messages">Bloquear mensagens recebidas</string>
+  <string name="blacklist_bad_number_add">Não é possível adicionar o número de telefone inválido na lista de números bloqueados</string>
   <string name="remove_blacklist_number_title">Eliminar número</string>
+  <string name="remove_blacklist_entry">Quer remover este número de telefone bloqueado?</string>
   <string name="select_contact">Selecionar contacto</string>
   <string name="lockpattern_reset_button">Repor o padrão</string>
   <string name="lockpattern_settings_reset_summary">Introduza a conta de e-mail principal e a palavra-passe associada para repor o bloqueio padrão</string>
@@ -213,6 +222,8 @@
   <string name="update_recovery_off_warning">Aviso: Quando este recurso está desativado, a sua recuperação instalada não será atualizada com o SO.\n\nFuturas atualizações do SO poderão não se instalar com uma versão da recuperação desatualizada ou personalizada.\n\nQuer desativar este recurso?</string>
   <string name="mod_version">Versão CyanogenMod</string>
   <string name="mod_version_default">Desconhecido</string>
+  <string name="device_model">Modelo do dispositivo</string>
+  <string name="device_name">Nome do dispositivo</string>
   <string name="build_date">Data de compilação</string>
   <string name="contributor_cloud_title">Colaboradores</string>
   <string name="phone_service_state">Voz: <xliff:g id="voice_state">%1$s</xliff:g>, dados: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -231,6 +242,7 @@
   <string name="privacy_guard_reset_text">Repor permissões?</string>
   <string name="privacy_guard_help_text">Neste ecrã você pode escolher quais as aplicações que devem ter ativa a Proteção de Privacidade simplesmente tocando nelas. As aplicações selecionadas não serão capazes de aceder aos seus dados pessoais, como contactos, mensagens ou registos de chamadas. Pressionar continuamente uma aplicação abre o ecrã de detalhes para essa aplicação.\n\nAplicações de sistema não são exibidas por defeito, mas podem ser mostradas, ao selecionar a opção no respetivo menu.</string>
   <string name="privacy_guard_manager_show_system_apps">Mostrar aplicações de sistema</string>
+  <string name="app_ops_btn_text">Modificar</string>
   <string name="increasing_ring_volume_option_title">Toque crescente</string>
   <string name="increasing_ring_min_volume_title">Volume inicial</string>
   <string name="increasing_ring_ramp_up_time_title">Intervalo de aumento</string>
@@ -295,7 +307,6 @@
   <string name="status_bar_show_unused_sims_title">Mostrar ícones do SIM vazio</string>
   <string name="status_bar_show_unused_sims_title_summary_off">Ocultar ícones das ranhuras de SIM não utilizadas</string>
   <string name="status_bar_show_unused_sims_title_summary_on">Indicar as ranhuras não utilizadas do SIM</string>
-  <string name="sim_name_hint">Digite o nome do cartão SIM</string>
   <string name="edit_light_settings">Editar definições de luz</string>
   <string name="pulse_speed_title">Duração e velocidade da luz ao piscar</string>
   <string name="default_time">Normal</string>
@@ -678,7 +689,6 @@
   <string name="edge_gesture_service_summary">Não enviar às aplicações eventos de toque para os gestos da barra de navegação e estado</string>
   <string name="cmlicense_title">Licença CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Licença CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">Não tem uma ligação de dados. Para exibir estas informações agora, vá para %s de qualquer computador ligado à Internet.</string>
   <string name="lockpattern_settings_enable_error_path_title">Mostrar erro padrão</string>
   <string name="lockpattern_settings_enable_dots_title">Mostrar pontos padrão</string>
   <string name="unlock_quick_unlock_control_title">Desbloqueio rápido</string>
@@ -723,11 +733,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Suspensão de ecrã</string>
   <string name="qs_tile_usb_tether">Associação USB</string>
+  <string name="qs_tile_heads_up">Notificações pop-up</string>
+  <string name="qs_tile_ambient_display">Visualização de ambiente</string>
   <string name="qs_main_tiles_title">Ampliar a primeira linha</string>
   <string name="qs_main_tiles_summary_on">Dois botões na primeira linha</string>
   <string name="qs_main_tiles_summary_off">Três botões em cada linha</string>
   <string name="qs_advanced_location_title">Definições avançadas de localização</string>
   <string name="qs_advanced_location_summary">Ativar as definições avançadas para a localização no painel de definições rápidas</string>
+  <string name="sim_no_number_set">Nenhum número atribuído</string>
   <string name="gesture_settings_title">Gestos</string>
   <string name="themes_settings_title">Temas</string>
   <string name="wifi_mode">Modo</string>
@@ -761,6 +774,11 @@
   <string name="whisperpush_summary">Gerir as definições de SMS seguras</string>
   <string name="navigation_ring_title">Atalhos do anel de navegação</string>
   <string name="navigation_ring_message">Toque no ícone de editar para abrir o anel de navegação para edição.\n\nSelecione um alvo para definir o seu comportamento.\n\nToque o ícone \'\u2713\' para gravar as alterações, ou \'Restaurar padrão\' para repor as definições padrão.</string>
+  <string name="lcd_density">Densidade LCD</string>
+  <string name="dialog_title_lcd_density">Densidade LCD</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (padrão)</string>
+  <string name="restarting_ui">Reiniciar UI\u2026</string>
   <string name="stylus_icon_enabled_title">Mostrar ícone quando estiver a usar a caneta</string>
   <string name="stylus_icon_enabled_summary">Mostrar o ícone do ponteiro quando flutuar ou desenhar com a caneta</string>
   <string name="gestures_settings_title">Gestos da caneta</string>
@@ -801,6 +819,9 @@
   <string name="sim_ringtone_title">Toque SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Prevenir a redução do áudio</string>
   <string name="interruptions_ignore_while_media_summary">Não reduzir o volume de reprodução de multimédia quando chega uma notificação</string>
+  <string name="none_is_silent_title">Nunca silenciar alarmes</string>
+  <string name="none_is_silent_summary">Modo silencioso sempre toca alarmes</string>
+  <string name="allow_lights_title">Permitir notificação de luzes</string>
   <string name="live_display_summary">Otimiza o ecrã com base na hora do dia e condições do ambiente para melhorar a legibilidade e reduzir a fadiga ocular</string>
   <string name="live_display_mode">Modo de exibição</string>
   <string name="live_display_color_temperature_title">Temperatura da cor</string>
@@ -830,4 +851,15 @@
   <string name="preview_version_title">Versão</string>
   <string name="preview_country_title">País</string>
   <string name="preview_carrier_title">Operador</string>
+  <string name="heads_up_notifications">Notificações pop-up</string>
+  <string name="summary_heads_up_enabled">As notificações pop-up estão ativadas</string>
+  <string name="summary_heads_up_disabled">As notificações pop-up estão desativadas</string>
+  <string name="master_clear_desc_cm" product="tablet">Isto apagará todos os dados do <b>armazenamento interno</b> do seu tablet, incluindo:\n\n <li>As contas do dispositivo</li>\n<li>Definições e dados das aplicações e do sistema</li>\n<li>Aplicações transferidas</li></string>
+  <string name="master_clear_desc_cm" product="default">Isto apagará todos os dados do <b>armazenamento interno</b> do seu telefone, incluindo:\n\n <li>As contas do dispositivo</li>\n<li>Definições e dados das aplicações e do sistema</li>\n<li>Aplicações transferidas</li></string>
+  <string name="lock_to_cyanogen_title">Proteção do dispositivo</string>
+  <string name="lock_to_cyanogen_summary">Exigir a palavra-passe da conta Cyanogen OS mesmo depois de uma reposição dos dados de fábrica</string>
+  <string name="lock_to_cyanogen_create_account_msg">O dispositivo usa a palavra-passe da conta Cyanogen OS para proteger o seu dispositivo no caso de uma reposição dos dados de fábrica. Precisará criar uma conta Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">Desativar este recurso permitirá que utilizadores não autorizados restaurem o telefone para os padrões de fábrica se ele for roubado. Os seus dados pessoais não podem ser protegidos. Quer desativar este recurso?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">A proteção do dispositivo está ativada. Por favor, desative para continuar a repor o seu dispositivo.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Erro de ligação; A partilha de ligação bluetooth está ativada neste dispositivo?</string>
 </resources>

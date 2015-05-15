@@ -16,6 +16,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="other">คุณเหลืออีก <xliff:g id="step_count">%1$d</xliff:g> ขั้นก่อนจะเปิดใช้งานเครื่องมือนักพัฒนา</item>
+  </plurals>
+  <string name="show_dev_on_cm">คุณเปิดใช้งานการตั้งค่าการพัฒนาแล้ว!</string>
+  <string name="show_dev_already_cm">ไม่จำเป็น, คุณได้เปิดใช้งานการตั้งค่านักพัฒนาแล้ว</string>
+  <string name="development_tools_title">เครื่องมือการพัฒนา</string>
   <string name="root_access">สิทธิผู้ดูแลระบบ</string>
   <string name="root_access_warning_title">ให้สิทธิผู้ดูแลระบบ?</string>
   <string name="root_access_warning_message">หากอนุญาติให้แอปพลิเคชันเข้าถึงสิทธิผู้ดูแลระบบมันจะอันตรายมากและอาจทำให้มีปัญหาด้านความปลอดภัยของระบบของคุณ!</string>
@@ -24,8 +30,10 @@
   <string name="root_access_adb">ADB เท่านั้น</string>
   <string name="root_access_all">แอปและADB</string>
   <string name="ring_mode_title">รูปแบบเสียงเรียกเข้า</string>
+  <string name="ring_mode_normal">ปกติ</string>
   <string name="ring_mode_vibrate">สั่น</string>
   <string name="ring_mode_mute">เงียบ</string>
+  <string name="profiles_settings_title">โปรไฟล์ระบบ</string>
   <string name="profiles_add">เพิ่ม</string>
   <string name="profile_settings_title">โปรไฟล์</string>
   <string name="profile_empty_list_profiles_off">เพื่อตั้งค่าและใช้โปรไฟล์, ต้องเปิดโปรไฟล์</string>
@@ -42,14 +50,25 @@
   <string name="profile_remove_dialog_message">นำโปรไฟล์ออก %1$s?</string>
   <string name="profile_populate_profile_from_state">กำหนดค่าโพรไฟล์ที่ใช้การตั้งค่าปัจจุบันของอุปกรณ์?</string>
   <string name="profile_menu_fill_from_state">นำเข้าการตั้งค่าอุปกรณ์ปัจจุบัน</string>
+  <string name="profile_remove_current_profile">ไม่สามารถลบโปรไฟล์ปัจจุบันได้!</string>
+  <string name="profile_app_group_category_title">แทนที่การแจ้งเตือน</string>
+  <string name="profile_app_group_item_instructions">เพิ่มหรือลบกลุ่ม</string>
+  <string name="profile_app_group_item_instructions_summary">เพิ่มหรือลบการแทนที่การแจ้งเตือนของกลุ่มแอปในโปรไฟล์นี้</string>
+  <string name="profile_entries_on">เปิด</string>
+  <string name="profile_entries_off">ปิด</string>
+  <string name="profile_entries_no_override">ไม่เขียนทับ</string>
   <string name="profile_name_title">ชื่อ</string>
   <string name="new_profile_name">โปรไฟล์ใหม่</string>
   <string name="rename_dialog_title">เปลี่ยนชื่อ</string>
   <string name="rename_dialog_message">กรอกชื่อใหม่</string>
+  <string name="rename_dialog_hint">ป้อนชื่อโปรไฟล์</string>
   <string name="profile_reset_title">รีเซ็ต</string>
+  <string name="profile_reset_message">ลบโปรไฟล์ที่ผู้ใช้ทั้งหมดสร้างไว้ และคืนค่าเริ่มต้น?</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <string name="profile_volumeoverrides_title">แทนที่ระดับเสียง</string>
   <string name="volume_override_summary">ตั้งเป็น %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">แทนที่เสียง</string>
@@ -63,15 +82,24 @@
   <string name="profile_choose_app">เลือกแอป</string>
   <string name="profile_system_settings_title">การตั้งค่าระบบ</string>
   <string name="profile_lockmode_title">รูปแบบล็อคหน้าจอ</string>
+  <string name="profile_lockmode_insecure_summary">ไม่ถาม PIN หรือรหัสผ่าน</string>
+  <string name="profile_lockmode_disabled_summary">ไม่ใช้หน้าจอล็อค</string>
   <string name="profile_airplanemode_title">โหมดเครื่องบิน</string>
+  <string name="profile_brightness_title">ความสว่างหน้าจอ</string>
+  <string name="profile_brightness_override_summary">ตั้งเป็น %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">แทนที่ความสว่าง</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">ฮอตสปอต Wi\u2011Fi แบบพกพา</string>
   <string name="toggleBluetooth">บลูทูธ</string>
   <string name="toggleGPS">GPS</string>
+  <string name="toggleData">การเชื่อมต่อข้อมูล</string>
   <string name="toggleSync">ซิงค์ข้อมูล อัตโนมัติ</string>
+  <string name="toggle2g3g4g">ชนิดของเครือข่ายที่ต้องการ</string>
   <string name="toggleNfc">NFC</string>
+  <string name="button_pref_title">ปุ่ม</string>
   <string name="hardware_keys_power_key_title">ปุ่มปิดหน้าจอ</string>
   <string name="hardware_keys_home_key_title">ปุ่มโฮม</string>
+  <string name="hardware_keys_back_key_title">ปุ่มกลับ</string>
   <string name="hardware_keys_menu_key_title">ปุ่มเมนู</string>
   <string name="hardware_keys_assist_key_title">ปุ่มค้นหา</string>
   <string name="hardware_keys_appswitch_key_title">ปุ่มแอปล่าสุด</string>
@@ -96,8 +124,12 @@
   <string name="volbtn_cursor_control_on_reverse">เพิ่ม/ลด ระดับเสียงเพื่อขยับเคอเซอร์ ขวา/ซ้าย</string>
   <string name="swap_volume_buttons_title">หมุน</string>
   <string name="swap_volume_buttons_summary">สลับปุ่มปรับเสียงเมื่อหมุนจอ</string>
+  <string name="volume_keys_control_ring_stream_title">ใช้ปุ่มปรับระดับเสียงปรับเสียงเรียกเข้า</string>
+  <string name="volume_keys_control_ring_stream_summary">หากเปิดอยู่ ปุ่มปรับระดับเสียงจะปรับระดับเสียงเรียกเข้า หากปิดอยู่จะเป็นการปรับระดับเสียงสื่อ</string>
   <string name="power_end_call_title">วางสาย</string>
   <string name="power_end_call_summary">กดปุ่มปิดหน้าจอเพื่อวางสาย</string>
+  <string name="button_wake_title">ปลุกอุปกรณ์</string>
+  <string name="button_wake_summary">แทนที่ปุ่มควบคุมการเล่น</string>
   <string name="home_answer_call_title">รับสาย</string>
   <string name="home_answer_call_summary">กดปุ่มโฮมเพื่อรับสาย</string>
   <string name="button_backlight_title">แสงหน้าจอ</string>
@@ -115,16 +147,27 @@
   <string name="power_menu_screenshot_title">ถ่ายภาพหน้าจอ</string>
   <string name="power_menu_profiles_title">ตัวสลับโปรไฟล์</string>
   <string name="power_menu_airplane_title">รูปแบบบนเครื่องบิน</string>
+  <string name="power_menu_users_title">สลับผู้ใช้</string>
+  <string name="power_menu_settings_title">ทางลัดการตั้งค่า</string>
+  <string name="power_menu_lockdown_title">ล็อคอุปกรณ์</string>
+  <string name="power_menu_bug_report_title">แจ้งข้อผิดพลาด</string>
   <string name="power_menu_sound_title">แผงเสียง</string>
+  <string name="power_menu_bug_report_disabled">รายงานข้อผิดพลาดถูกปิดในตัวเลือกนักพัฒนา</string>
+  <string name="power_menu_profiles_disabled">โปรไฟล์ระบบถูกปิดใช้งาน</string>
   <string name="adaptive_backlight_title">ปรับแสงไฟหน้าจอ</string>
   <string name="adaptive_backlight_summary">ปรับความสว่างของแสงหน้าจออัตโนมัติเพื่อให้สามารถใช้งานได้ยาวนานขึ้น</string>
   <string name="sunlight_enhancement_title">เพิ่มประสิทธิภาพของแสงแดด</string>
   <string name="sunlight_enhancement_summary">เพิ่มความสว่างของจอแสดงผลและการอ่านภายใต้แสงสว่าง</string>
   <string name="color_enhancement_title">เพิ่มประสิทธิภาพของสี</string>
   <string name="color_enhancement_summary">เพิ่มสีบนจอแสดงผลแบบไดนามิก</string>
+  <string name="blacklist_title">รายชื่อผู้ที่ถูกบล็อค</string>
+  <string name="blacklist_edit_dialog_title">แก้ไขเบอร์โทรศัพท์ที่ถูกบล็อค</string>
   <string name="blacklist_prefs">ตั้งค่า</string>
   <string name="blacklist_button_delete">ลบ</string>
+  <string name="blacklist_empty_text">คุณไม่มีหมายเลขในบัญชีดำ คุณสามารถเพิ่มได้โดยการแตะปุ่มเพิ่ม (+)</string>
+  <string name="blacklist_disabled_empty_text">เพื่อป้องกันไม่ให้มีหมายเลขโทรศัพท์ดังกล่าวโทรหรือส่งข้อความมาหาคุณ กรุณาเปิดใช้งานรายชื่อที่ถูกบล็อค</string>
   <string name="blacklist_summary_disabled">ปิด</string>
+  <string name="blacklist_summary">คุณจะไม่ได้เห็นสายเข้าหรือข้อความจากเบอร์ที่อยู่ในรายชื่อนี้</string>
   <string name="blacklist_notify">แสดงการแจ้งเตือน</string>
   <string name="blacklist_private_numbers_title">หมายเลขส่วนตัว</string>
   <string name="blacklist_private_numbers_summary_disabled">ไม่ต้องบล็อกการโทรเข้าจากเบอร์ส่วนตัว</string>
@@ -139,7 +182,9 @@
   <string name="blacklist_regex_summary">ใช้ . เป็น ไวด์การ์ด และ * สำหรับทำซ้ำ เช่น 123.* สำหรับบล็อคหมายเลขที่ขึ้นต้นด้วย 123 และใช้ .*123.* สำหรับใช้บล็อคหมายเลขที่ส่วนใดส่วนหนึ่งมีเลข 123</string>
   <string name="blacklist_policy_block_calls">บล็อคสายเรียกเข้า</string>
   <string name="blacklist_policy_block_messages">บล็อคข้อความเข้า</string>
+  <string name="blacklist_bad_number_add">ไมสามารถเพิ่มหมายเลขโทรศัพท์นี้ไปยังรายชื่อที่ถูกบล็อคได้</string>
   <string name="remove_blacklist_number_title">นำหมายเลขออก</string>
+  <string name="remove_blacklist_entry">คุณต้องการนำเบอร์นี้ออกจากการบล็อคใช่หรือไม่?</string>
   <string name="select_contact">เลือกรายชื่อผู้ติดต่อ</string>
   <string name="lockpattern_reset_button">ล้างค่ารูปแบบ</string>
   <string name="lockpattern_settings_reset_summary">กรอกบัญชีอีเมลหลักและรหัสผ่านเพื่อล้างค่ารูปแบบล็อค</string>
@@ -164,14 +209,25 @@
   <string name="app_security_title">ความปลอดภัยของแอป</string>
   <string name="sms_security_check_limit_title">ข้อความ SMS สูงสุด</string>
   <string name="sms_security_check_limit_summary">แอปสามารถส่ง %d ข้อความ ในเวลา 30 นาที ก่อนที่จะต้องการการยืนยัน</string>
+  <string name="spam_added_title">เพิ่ม %1$s</string>
+  <string name="spam_last_blocked_title">ล่าสุดบล็อค %1$s</string>
   <string name="block_notifications_title">ตัวกรองการแจ้งเตือน</string>
   <string name="block_notifications_summary">จัดการการละเว้นการแจ้งเตือนและตัวกรอง</string>
+  <string name="no_filters_title">ไม่ตั้งค่าตัวกรอง</string>
   <string name="cmupdate_settings_title">ปรับปรุงรุ่น CyanogenMod</string>
+  <string name="update_recovery_title">ปรับปรุงรุ่น Cyanogen recovery</string>
+  <string name="update_recovery_summary">ปรับปรุงรุ่น recovery ด้วยการปรับปรุงระบบ</string>
+  <string name="update_recovery_on_warning">คำเตือน: เมื่อเปิดใช้งานความสามารถนี้ recovery ของคุณจะถูกเขียนทับด้วย recovery ของระบบ\n\n recovery ของคุณจะถูกปรับปรุงรุ่นไปพร้อมกับระบบ ช่วยให้ระบบสามารถเข้ากับ recovery ได้ดีขึ้น\n\n คุณต้องการใช้ความสามารถนี้ไหม?</string>
+  <string name="update_recovery_off_warning">คำเตือน: ความสามารถนี้ถูกปิดการใช้งานจะทำให้ระบบไม่ปรับปรุงรุ่นของ recovery\n\nส่งผลให้การปรับปรุงรุ่นระบบในอนาคตอาจไม่ถูกติดตั้งเนื่องจากไม่สามารถเข้ากันได้กับ recovery ของคุณ\n\n คุณต้องการที่จะปิดความสามารถนี้ไหม?</string>
   <string name="mod_version">รุ่นของ CyanogenMod</string>
   <string name="mod_version_default">ไม่ทราบ</string>
+  <string name="device_model">รุ่นอุปกรณ์</string>
+  <string name="device_name">ชื่ออุปกรณ์</string>
   <string name="build_date">วันที่บิวด์</string>
   <string name="contributor_cloud_title">ผู้ร่วมพัฒนา</string>
+  <string name="phone_service_state">เสียง: <xliff:g id="voice_state">%1$s</xliff:g>, ข้อมูล: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">แตะสองครั้งเพื่อเปิดจอ</string>
+  <string name="double_tap_to_wake_summary">แตะสองครั้งเพื่อเปิดหน้าจอ</string>
   <string name="proximity_wake_title">ป้องกันการเปิดหน้าจอโดยอุบัติเหตุ</string>
   <string name="proximity_wake_summary">ตรวจสอบเซนเซอร์แนบหน้าจอก่อนที่จะเปิดหน้าจอ</string>
   <string name="privacy_settings_cyanogenmod_title">ความเป็นส่วนตัว</string>
@@ -185,31 +241,71 @@
   <string name="privacy_guard_reset_text">ล้างค่าการอนุญาต</string>
   <string name="privacy_guard_help_text">ในหน้าจอนี้คุณสามารถเปิดป้องกันความเป็นส่วนตัวได้โดยแตะบนพวกมัน แอปที่เลือกจะไม่สามารถเข้าถึงข้อมูลส่วนตัวของคุณได้ เช่น รายชื่อผู้ติดต่อ,ข้อความหรือประวัติการโทร แตะค้างเพื่อเปิดรายละเอียดแอป\n\nแอปที่ติดมากับเครื่องจะไม่ถูกแสดง แต่คุณสามารถเปิดมันได้จากปุ่มเมนู</string>
   <string name="privacy_guard_manager_show_system_apps">แสดงแอประบบ</string>
+  <string name="app_ops_btn_text">ปรับเปลี่ยน</string>
+  <string name="increasing_ring_volume_option_title">เสียงเรียกเข้าดังขึ้นเรื่อยๆ</string>
+  <string name="increasing_ring_min_volume_title">ความดังเริ่มต้น</string>
+  <string name="increasing_ring_ramp_up_time_title">ระยะเวลาที่ดังเพิ่มขึ้น</string>
   <string name="advanced_reboot_title">เริ่มระบบใหม่แบบขั้นสูง</string>
   <string name="advanced_reboot_summary">เมื่อปลดล็อค มีตัวเลือกในเมนูเพาว์เวอร์ที่สามารถเริ่มระบบใหม่เข้าไปยัง recover,bootloader หรือเริ่มเฟรมเวิร์กใหม่</string>
   <string name="enable_adb_cm">แก้ไขข้อบกพร่องแอนดรอยด์</string>
   <string name="enable_adb_summary_cm">เปิดใช้งานแก้ไขข้อบอกพร่องแอนดรอยด์ (ADB)</string>
   <string name="adb_over_network">ADB บนเครือข่าย</string>
   <string name="adb_over_network_summary">เปิดแก้ไขข้อบกพร่องผ่านTCP/IP โดยใช้เครือข่าย (Wi-Fi,เครือข่าย USB) การตั้งค่านี้จะถูกล้างเมื่อเริ่มระบบใหม่</string>
+  <string name="adb_over_network_warning">คำเตือน: เมื่อเปิดใช้งาน ADB บนเครือข่าย โทรศัพท์ของคุณอาจโดนโจมตีจากทุกช่องทางที่เชื่อมต่ออยู่\n\nใช้คุณลักษณะนี้เมื่อคุณเชื่อมต่อกับเมื่อเชื่อมต่อกับเครือข่ายที่ไว้ใจได้เท่านั้น\n\nคุณต้องการเปิดใช้งานฟังก์ชันนี้หรือไม่?</string>
+  <string name="adb_notify">แจ้งเตือนการแก้ไขข้อบกพร่อง</string>
+  <string name="adb_notify_summary">แสดงการแจ้งเตือนเมื่อการแก้ไขข้อบกพร่องผ่าน USB หรือเครือข่ายเปิดอยู่</string>
   <string name="device_hostname">ชื่อโฮสของอุปกรณ์</string>
   <string name="development_shortcut_title">ทางลัดการพัฒนา</string>
+  <string name="development_shortcut_summary">เปิดใช้งานตัวจัดการทางลัดแอปในหน้าแอปล่าสุด</string>
   <string name="double_tap_to_sleep_title">แตะสองครั้งเพื่อปิดจอ</string>
+  <string name="double_tap_to_sleep_summary">แตะสองครั้งที่แถบสถานะเพื่อปิดหน้าจอ</string>
   <string name="wake_when_plugged_or_unplugged_title">ตื่นเมื่อเสียบปลั๊ก</string>
   <string name="wake_when_plugged_or_unplugged_summary">เปิดหน้าจอเมื่อเชื่อมต่อ หรือตัดการเชื่อมต่อกับแหล่งจ่ายไฟ</string>
   <string name="kill_app_longpress_back">ปิดแอปด้วยปุ่มกลับ</string>
+  <string name="kill_app_longpress_back_summary">ปิดแอปที่กำลังใช้งานโดยกดปุ่มกลับค้าง</string>
   <string name="disable_navkeys_title">เปิดใช้งานแถบนำทางบนหน้าจอ</string>
   <string name="disable_navkeys_summary">เปิดใช้งานแถบนำทางบนหน้าจอและปิดการใช้งานปุ่มฮาร์ดแวร์</string>
   <string name="navigation_bar_category">แถบนำทาง</string>
   <string name="navigation_bar_left_title">รูปแบบมือซ้าย</string>
   <string name="navigation_bar_left_summary">ให้แถบนำทางไปอยู่ด้านซ้ายจอเมื่ออยู่ในรูปแบบแนวนอน</string>
   <string name="navigation_bar_title">ปุ่มและรูปแบบ</string>
+  <string name="navigation_bar_help_text">เพื่อเริ่มต้น แตะไอคอนแก้ไขเพื่อปลดล็อคแถบนำทาง\n\nคุณสามารถแตะไอคอนเพื่อเปลี่ยนปุ่มหรือแตะค้างเพื่อย้ายตำแหน่ง\n\nแตะปุ่มบันทึกเพื่อบันทึกรูปแบบของคุณหรือแตะคืนค่าเริ่มต้นเพื่อทำให้ปุ่มกลับมาเหมือนเดิม</string>
+  <string name="navigation_restore_button_text">คืนค่า\nเริ่มต้น</string>
+  <string name="navigation_edit_button_text">แก้ไข</string>
+  <string name="navigation_save_button_text">บันทึก</string>
+  <string name="navigation_bar_reset_message">ลบการตั้งค่านี้แล้วกลับมาใช้ค่าเริ่มต้น?</string>
+  <string name="navigation_bar_arrow_keys_title">แสดงปุ่มลูกศรในขณะพิมพ์</string>
+  <string name="navigation_bar_arrow_keys_summary">แสดงปุ่มเลื่อนเคอร์เซอร์ซ้ายขวาแทนที่ปุ่มสลับแป้นพิมพ์</string>
+  <string name="navigation_bar_recents_title">เมื่อกดปุ่มแอปล่าสุดค้าง</string>
+  <string name="header_category_personalization">ลักษณะส่วนบุคคล</string>
   <string name="status_bar_title">แถบสถานะ</string>
   <string name="status_bar_toggle_brightness">ความคุมความสว่าง</string>
   <string name="status_bar_toggle_brightness_summary">ตั้งความสว่างหน้าจอโดยการเลื่อนบริเวณแถบสถานะ</string>
   <string name="status_bar_notif_count_title">นับจำนวนการแจ้งเตือน</string>
   <string name="status_bar_notif_count_summary">แสดงตัวเลขของการแจ้งเตือน</string>
+  <string name="status_bar_clock_style_title">รูปแบบนาฬิกา</string>
+  <string name="status_bar_clock_style_right">ขวา</string>
+  <string name="status_bar_clock_style_left">ซ้าย</string>
   <string name="status_bar_clock_style_center">กลางหน้าจอ</string>
   <string name="status_bar_clock_style_hidden">ซ่อน</string>
+  <string name="status_bar_am_pm_title">รูปแบบ AM/PM</string>
+  <string name="status_bar_am_pm_info">ใช้งานนาฬิกาแบบ 24 ชั่วโมงอยู่</string>
+  <string name="status_bar_am_pm_normal">ปกติ</string>
+  <string name="status_bar_am_pm_small">เล็ก</string>
+  <string name="status_bar_am_pm_hidden">ซ่อน</string>
+  <string name="status_bar_battery_style_title">รูปแบบของสถานะแบตเตอร์รี่</string>
+  <string name="status_bar_battery_style_icon_portrait">ไอคอนแนวตั้ง</string>
+  <string name="status_bar_battery_style_icon_landscape">ไอคอนแนวนอน</string>
+  <string name="status_bar_battery_style_circle">วงกลม</string>
+  <string name="status_bar_battery_style_text">ข้อความ</string>
+  <string name="status_bar_battery_style_hidden">ซ่อน</string>
+  <string name="status_bar_battery_percentage_title">เปอรเซ็นของแบตเตอรี่</string>
+  <string name="status_bar_battery_percentage_default">ซ่อน</string>
+  <string name="status_bar_battery_percentage_text_inside">อยู่ในไอคอน</string>
+  <string name="status_bar_battery_percentage_text_next">ถัดจากไอคอน</string>
+  <string name="status_bar_show_unused_sims_title">แสดงไอคอนซิมการ์ดเปล่า</string>
+  <string name="status_bar_show_unused_sims_title_summary_off">ซ่อนไอคอนของซิมที่ไม่ได้ใช้งาน</string>
+  <string name="status_bar_show_unused_sims_title_summary_on">แสดงซิมที่ไม่ได้ใช้งาน</string>
   <string name="edit_light_settings">แก้ไขการตั้งค่าแสง</string>
   <string name="pulse_speed_title">ระยะเวลาและความยาวการกระพริบ</string>
   <string name="default_time">ปกติ</string>
@@ -241,8 +337,19 @@
   <string name="notification_light_default_value">ค่าเริ่มต้น</string>
   <string name="notification_light_missed_call_title">สายไม่ได้รับ</string>
   <string name="notification_light_voicemail_title">ข้อความเสียง</string>
+  <string name="notification_ringtone_title_cm">เสียงแจ้งเตือน</string>
+  <string name="headset_connect_player_title">เปิดแอปเล่นเพลง</string>
+  <string name="headset_connect_player_summary">เปิดโปรแกรมเล่นเพลงเมื่อมีการเชื่อมต่อจากช่องหูฟัง</string>
+  <string name="ime_switcher_notify">เลือกไอคอน</string>
+  <string name="ime_switcher_notify_summary">แสดงไอคอนวิธีการป้อนข้อมูล</string>
+  <string name="app_notification_show_on_keyguard_title">แสดงบนหน้าจอล็อค</string>
+  <string name="app_notification_show_on_keyguard_summary">แสดงการแจ้งเตือนจากแอปนี้บนหน้าจอล็อค</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">ปิดใช้งานการแจ้งเตือนแบบถาวรบนหน้าจอล็อค</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">ไม่ต้องแสดงการแจ้งเตือนแบบถาวรจากแอปนี้บนหน้าจอล็อค</string>
   <string name="high_touch_sensitivity_title">ความไวต่อสัมผัสสูง</string>
   <string name="high_touch_sensitivity_summary">เพิ่มความไวของหน้าจอสัมผัสเพื่อสามารถใช้ขณะสวมใส่ถุงมือ</string>
+  <string name="touchscreen_hovering_title">วางนิ้วเหนือจอ</string>
+  <string name="touchscreen_hovering_summary">อนุญาตให้คุณสามารถวางนิ้วเหนือจอเหมือนการวางเม้าส์เหนือปุ่มในคอมพิวเตอร์</string>
   <string name="app_ops_summaries_coarse_location">พิกัดหยาบ</string>
   <string name="app_ops_summaries_fine_location">พิกัดละเอียด</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -286,13 +393,25 @@
   <string name="app_ops_summaries_keep_awake">เปิดจอค้าง</string>
   <string name="app_ops_summaries_monitor_location">ตรวจสอบตำแหน่ง</string>
   <string name="app_ops_summaries_monitor_high_power_location">ตรวจสอบพิกัดด้วยพลังงานสูง</string>
+  <string name="app_ops_summaries_get_usage_stats">ได้รับสถิติการใช้งานแอป</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">เปิด/ปิด ไมโครโฟน</string>
+  <string name="app_ops_summaries_toast_window">แสดงกล่องข้อความ</string>
+  <string name="app_ops_summaries_project_media">project media</string>
+  <string name="app_ops_summaries_activate_vpn">เปิดใช้งาน VPN</string>
   <string name="app_ops_summaries_wifi_change">เปิด/ปิด Wi\u2011Fi</string>
   <string name="app_ops_summaries_bluetooth_change">เปิด/ปิด บลูทูธ</string>
   <string name="app_ops_summaries_send_mms">ส่ง MMS</string>
   <string name="app_ops_summaries_read_mms">อ่าน MMS</string>
   <string name="app_ops_summaries_write_mms">เขียน MMS</string>
   <string name="app_ops_summaries_auto_start">เริ่มอัตโนมัติ</string>
+  <string name="app_ops_summaries_nfc_change">เปลี่ยน NFC</string>
+  <string name="app_ops_summaries_delete_sms">ลบ SMS</string>
+  <string name="app_ops_summaries_delete_mms">ลบ MMS</string>
+  <string name="app_ops_summaries_delete_contacts">ลบ​ราย​ชื่อ</string>
+  <string name="app_ops_summaries_delete_call_log">ลบประวัติการสนทนา</string>
   <string name="app_ops_summaries_data_change">เปิด/ปิด อินเตอร์เน็ต</string>
+  <string name="app_ops_summaries_wake_up">เปิดจอ</string>
+  <string name="app_ops_summaries_su">สิทธิผู้ดูแลระบบ</string>
   <string name="app_ops_labels_location">ตำแหน่ง</string>
   <string name="app_ops_labels_vibrate">สั่น</string>
   <string name="app_ops_labels_read_contacts">อ่านรายชื่อ</string>
@@ -326,21 +445,40 @@
   <string name="app_ops_labels_notification_volume">ระดับเสียงแจ้งเตือน</string>
   <string name="app_ops_labels_bluetooth_volume">ระดับเสียงบลูทูธ</string>
   <string name="app_ops_labels_keep_awake">เปิดจอค้าง</string>
+  <string name="app_ops_labels_get_usage_stats">ได้รับสถิติการใช้งานแอป</string>
+  <string name="app_ops_labels_mute_unmute_microphone">เปิด/ปิด ไมโครโฟน</string>
+  <string name="app_ops_labels_toast_window">แสดงกล่องข้อความ</string>
+  <string name="app_ops_labels_project_media">project media</string>
+  <string name="app_ops_labels_activate_vpn">เปิดใช้งาน VPN</string>
   <string name="app_ops_labels_wifi_change">เปิด/ปิด Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">เปิด/ปิด บลูทูธ</string>
   <string name="app_ops_labels_send_mms">ส่งข้อความ MMS</string>
   <string name="app_ops_labels_read_mms">อ่านข้อความ MMS</string>
   <string name="app_ops_labels_write_mms">เขียนข้อความ MMS</string>
   <string name="app_ops_labels_auto_start">เริ่มอัตโนมัติ</string>
+  <string name="app_ops_labels_nfc_change">เปลี่ยน NFC</string>
+  <string name="app_ops_labels_delete_sms">ลบ SMS</string>
+  <string name="app_ops_labels_delete_mms">ลบ MMS</string>
+  <string name="app_ops_labels_delete_contacts">ลบ​ราย​ชื่อ</string>
+  <string name="app_ops_labels_delete_call_log">ลบประวัติการสนทนา</string>
   <string name="app_ops_labels_data_change">เปิด/ปิด อินเตอร์เน็ต</string>
+  <string name="app_ops_labels_wake_up">เปิดจอ</string>
+  <string name="app_ops_labels_su">สิทธิผู้ดูแลระบบ</string>
   <string name="app_ops_categories_location">ตำแหน่ง</string>
   <string name="app_ops_categories_personal">ส่วนบุคคล</string>
   <string name="app_ops_categories_messaging">ข้อความ</string>
   <string name="app_ops_categories_media">สื่อ</string>
   <string name="app_ops_categories_device">อุปกรณ์</string>
   <string name="app_ops_categories_bootup">เมื่อเปิดเครื่อง</string>
+  <string name="app_ops_categories_su">สิทธิผู้ดูแลระบบ</string>
+  <string name="app_ops_permissions_allowed">อนุญาต</string>
+  <string name="app_ops_permissions_ignored">ละเว้น</string>
+  <string name="app_ops_permissions_always_ask">ถามเสมอ</string>
   <string name="ok">ตกลง</string>
   <string name="profile_menu_delete_title">ลบ</string>
+  <string name="profile_action_none">ไม่บันทึกการเปลี่ยนแปลง</string>
+  <string name="profile_action_disable">ปิดใช้งาน</string>
+  <string name="profile_action_enable">เปิดใช้งาน</string>
   <string name="profile_trigger_a2dp_connect">ขณะเชื่อมต่อ A2DP</string>
   <string name="profile_trigger_a2dp_disconnect">ขณะตัดการเชื่อมต่อ A2DP</string>
   <string name="profile_tabs_wifi">Wi\u2011Fi</string>
@@ -351,6 +489,22 @@
   <string name="profile_setup_setup_triggers_title_config">เปลี่ยนตัวกระตุ้น: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">ขั้นตอนที่ 2: เลือกการกระทำ</string>
   <string name="profile_setup_actions_title_config">ตั้งค่าการกระทำใหม่</string>
+  <string name="profile_appgroups_manage">กลุ่มแอป</string>
+  <string name="profile_appgroup_manage">จัดการกลุ่มแอป</string>
+  <string name="profile_appgroups_title">กลุ่มแอป</string>
+  <string name="profile_new_appgroup">สร้างกลุ่มแอปใหม่</string>
+  <string name="profile_delete_appgroup">ลบกลุ่มแอปนี้?</string>
+  <string name="profile_appgroup_name_prompt">กรอกชื่อกลุ่มแอปใหม่</string>
+  <string name="profile_appgroup_name_title">ชื่อ</string>
+  <string name="duplicate_appgroup_name">ชื่อกลุ่มแอปซ้ำ!</string>
+  <string name="profile_app_delete_confirm">นำแอปนี้ออก?</string>
+  <string name="sound_mode">รูปแบบการแจ้งเตือน</string>
+  <string name="ringer_mode">รูปแบบเสียงเรียกเข้า</string>
+  <string name="lights_mode">รูปแบบแสง</string>
+  <string name="vibrate_mode">รูปแบบสั่น</string>
+  <string name="choose_soundtone">เลือกเสียงแจ้งเตือน</string>
+  <string name="choose_ringtone">เลือกเสียงเรียกเข้า</string>
+  <string name="soundtone_title">เสียงแจ้งเตือน</string>
   <string name="no_bluetooth_triggers">ไม่มีอุปกรณ์บลูทูธที่จับคู่\nแตะเพื่อจับคู่อุปกรณ์การตั้งค่าตัวกระตุ้น</string>
   <string name="no_wifi_triggers">ไม่มีอุปกรณ์ Wi\u2011Fi ที่ตั้งไว้\nแตะเพื่อเชื่อมต่อ  Wi\u2011Fi ก่อนตั้งตัวกระตุ้น</string>
   <string name="no_triggers_configured">ไม่มีตัวกระตุ้นที่กำหนดไว้ แตะเพื่อเพิ่ม</string>
@@ -365,7 +519,9 @@
   <string name="app_ops_show_system_apps">แสดงแอประบบ</string>
   <string name="app_ops_reset_counters">ล้างค่าการนับ อนุญาต/ปฏิเสธ</string>
   <string name="app_ops_reset_confirm_title">ยืนยันการล้างค่า</string>
+  <string name="app_ops_reset_confirm_mesg">คุณต้องการล้างตัวนับหรือไม่?</string>
   <string name="font_size_sample">ตัวอย่าง</string>
+  <string name="volume_adjust_sounds_title">เสียงปรับความดัง</string>
   <string name="vibrator_intensity_title">ความแรงการสั่น</string>
   <string name="vibrator_warning">ไม่แนะนำให้ใช้ค่ามากกว่า %1$d</string>
   <string name="color_calibration_title">เทียบสี</string>
@@ -376,7 +532,11 @@
   <string name="gamma_tuning_title_head">เทียบแกรมม่า</string>
   <string name="gamma_tuning_summary_head">ปรับแต่งค่าแกรมม่า</string>
   <string name="gamma_tuning_control_set_header">กลุ่ม <xliff:g id="index">%d</xliff:g></string>
+  <string name="gamma_tuning_contrast">สีตัด</string>
+  <string name="gamma_tuning_brightness">ความสว่าง</string>
+  <string name="gamma_tuning_saturation">ความอิ่มตัว</string>
   <string name="screencolor">สีหน้าจอ</string>
+  <string name="screencolor_summary">ปรับแต่งสี,ความอิ่มต้ว,ความคมชัดและความเข้มของหน้าจอ</string>
   <string name="custom_screencolor">สีหน้าจอกำหนดเอง</string>
   <string name="screencolor_save">บันทึก</string>
   <string name="screencolor_cancel">ยกเลิก</string>
@@ -388,18 +548,111 @@
   <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_setting_standard">มาตราฐาน</string>
+  <string name="screen_color_setting_vivid">สดใส</string>
+  <string name="screen_color_setting_custom">กำหนดเอง</string>
+  <string name="settings_reset_button">รีเซ็ต</string>
   <string name="bluetooth_enter_pin_msg_hs">จับคู่กับ:<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g> กรอก PIN ที่ต้องใช้ (16 ตัวหรือมากกว่า):</string>
   <string name="bluetooth_profile_dun">เข้าถึง Dial-up Network</string>
   <string name="bluetooth_profile_sap">การเข้าถึง SIM</string>
+  <string name="bluetooth_dun_profile_summary_connected">เชื่อมต่อไปยัง DUN server แล้ว</string>
+  <string name="bluetooth_pbap_profile_summary_connected">เชื่อมต่อไปยัง pbap server แล้ว</string>
+  <string name="bluetooth_sap_profile_summary_connected">เชื่อมต่อไปยัง SIM Access server แล้ว</string>
   <string name="bluetooth_dun_profile_summary_use_for">ใช้สำหรับการเข้าถึง Dial-up Network</string>
+  <string name="bluetooth_pbap_profile_summary_use_for">ใช้สำหรับผู้ติดต่อที่ใช้ร่วมกัน</string>
   <string name="bluetooth_sap_profile_summary_use_for">ใช้สำหรับเข้าถึง SIM</string>
   <string name="bluetooth_accept_all_files">ยอมรับแฟ้มทุกชนิด</string>
+  <string name="sim_lock_settings_cm">การตั้งค่าล็อค SIM/RUIM</string>
+  <string name="sim_lock_settings_category_cm">ตั้งค่าล็อค SIM/RUIM</string>
+  <string name="sim_lock_settings_title_cm">SIM/RUIM card lock</string>
+  <string name="sim_pin_disable_failed">ไม่สามารถปิดการใช้งาน PIN ได้</string>
+  <string name="sim_pin_enable_failed">ไม่สามารถเปิดการใช้งาน PIN ได้</string>
+  <string name="sim_pin_change_failed_enable_sim_lock">เพื่อเปลี่ยน PIN ของ SIM/RUIM เปิดการใช้งานล็อค SIM/RUIM ก่อน</string>
+  <string name="sim_enable_disable_lock_not_supported">ซิมการ์ดไม่รองรับการล็อค SIM/RUIM</string>
+  <string name="sim_pin_attempts">\nความพยายามที่เหลือ:</string>
+  <string name="sim_pin_enabled">PIN1 ถูกเปิดใช้งาน</string>
+  <string name="sim_pin_disabled">PIN1 ถูกปิดการใช้งาน</string>
   <string name="subs_settings">สถานะซิมการ์ด</string>
+  <string name="storage_usb">ที่เก็บข้อมูล USB</string>
+  <string name="storage_uicc">ที่เก็บ UICC</string>
+  <string name="sdcard_eject" product="default">ยกเลิกการต่อเชื่อม SD card</string>
+  <string name="sdcard_eject_summary" product="default">ยกเลิกการต่อเชื่อม SD card เพื่อให้คุณสามารถนำการ์ดออกได้อย่างปลอดภัย</string>
+  <string name="sd_card_format" product="default">ลบ SD card</string>
+  <string name="sd_card_format_summary" product="default">ลบข้อมูลทั้งหมดบน SD card เช่น เพลงและรูปภาพ</string>
+  <string name="sdcard_mount" product="default">เชื่อมต่อ SD card</string>
+  <string name="sdcard_insert_summary" product="default">ใส่ SD card เพื่อเชื่อมต่อ</string>
+  <string name="usb_eject" product="default">ยกเลิกการต่อเชื่อมที่เก็บ USB</string>
+  <string name="usb_eject_summary" product="default">การเลิกการเชื่อมต่อที่เก็บ USB จะทำให้คุณสามารถถอดมันออกได้อย่างปลอดภัย</string>
+  <string name="usb_format" product="default">ลบที่เก็บข้อมูล USB</string>
+  <string name="usb_format_summary" product="default">ลบข้อมูลทั้งหมดบนที่เก็บข้อมูล USB, เช่น เพลงและรูปถ่าย</string>
+  <string name="usb_mount" product="default">เชื่อมต่อที่เก็บ USB</string>
+  <string name="usb_insert_summary" product="default">ใส่ที่เก็บข้อมูล USB เพื่อเชื่อมต่อ</string>
+  <string name="uicc_eject" product="default">เชื่อมต่อที่เก็บ UICC</string>
+  <string name="uicc_eject_summary" product="default">การเลิกการเชื่อมต่อที่เก็บ USB จะทำให้คุณสามารถถอดมันออกได้อย่างปลอดภัย</string>
+  <string name="uicc_format" product="default">ลบที่เก็บ UICC</string>
+  <string name="uicc_format_summary" product="default">ลบข้อมูลทั้งหมดบนที่เก็บข้อมูล UICC, เช่น เพลงและรูปถ่าย</string>
+  <string name="uicc_mount" product="default">เชื่อมต่อที่เก็บข้อมูล UICC</string>
+  <string name="uicc_insert_summary" product="default">ใส่ที่เก็บข้อมูล UICC เพื่อเชื่อมต่อ</string>
+  <string name="usb_settings_enable_ums_title">เปิดใช้งานที่เก็บข้อมูลขนาดใหญ่?</string>
+  <string name="usb_settings_enable_ums_message">แอปและระบบควรสามารถเข้าถึงได้เสมอ ดังนั้นการใช้งานความสามารถนี้อาจทำให้แอปเหล่านั้นมีปัญหา แนะนำให้เปิดใช้ MTP แทน คุณแน่ใจแล้วหรือที่จะเปิดใช้งานที่เก็บข้อมูลขนาดใหญ่?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">ยกเลิกการเชื่อมต่อ SD card?</string>
+  <string name="dlg_confirm_usb_unmount_title" product="default">ยกเลิกการเชื่อมต่อที่เก็บ USB?</string>
+  <string name="dlg_confirm_uicc_unmount_title" product="default">ยกการเชื่อมต่อที่เก็บ UICC?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">หากคุณเลิกเชื่อมต่อ SD card บางแอปที่คุณใช้อยู่จะหยุดทำงานและพวกมันจะใช้ไม่ได้จนกว่าคุณจะเชื่อม SD card ใหม่</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">ถ้าคุณเลิกเชื่อมต่อที่เก็บข้อมูล USB, บางแอปจะหยุดการทำงานและจะไม่สามารถทำงานได้จนกว่าคุณจะเชื่อมต่อที่เก็บข้อมูล USB อีกครั้งหนึ่ง</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">ถ้าคุณเลิกเชื่อมต่อที่เก็บข้อมูล UICC, บางแอปจะหยุดการทำงานและจะไม่สามารถทำงานได้จนกว่าคุณจะเชื่อมต่อที่เก็บข้อมูล UICC อีกครั้งหนึ่ง</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">ไม่สามารถเลิกเชื่อมต่อ SD card ได้ลองใหม่ในภายหลัง</string>
+  <string name="dlg_error_usb_unmount_text" product="default">ไม่สามารถเลิกเชื่อมต่อที่เก็บข้อมูล USB ได้โปรดลองใหม่ภายหลัง</string>
+  <string name="dlg_error_uicc_unmount_text" product="default">ไม่สามารถเลิกเชื่อมต่อที่เก็บข้อมูล UICC ได้โปรดลองใหม่ภายหลัง.</string>
+  <string name="sdcard_unmount_inform_text" product="default">SD card จะถูกยกเลิกการเชื่อมต่อ</string>
   <string name="usb_unmount_inform_text" product="default">ที่เก็บ USB จะถูกเลิกเชื่อมต่อ</string>
+  <string name="uicc_unmount_inform_text" product="default">ที่เก็บ UICC จะถูกเลิกเชื่อมต่อ</string>
+  <string name="sdcard_media_format_desc" product="default">ลบ SD card? คุณจะสูญเสียข้อมูล<b>ทั้งหมด</b>!</string>
+  <string name="usb_media_format_desc" product="default">ลบที่เก็บข้อมูล USB? คุณจะสูญเสียข้อมูล<b>ทั้งหมด</b>!</string>
+  <string name="uicc_media_format_desc" product="default">ลบที่เก็บข้อมูล UICC? คุณจะสูญเสียข้อมูล<b>ทั้งหมด</b>!</string>
+  <string name="sdcard_media_format_button_text" product="default">ลบ SD card</string>
   <string name="usb_media_format_button_text" product="default">ลบที่เก็บข้อมูล USB</string>
+  <string name="uicc_media_format_button_text" product="default">ลบที่เก็บ UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">ลบ SD card จะลบไฟล์ที่เก็บไว้ทั้งหมด และคุณไม่สามารถย้อนกลับการกระทำนี้ได้!</string>
   <string name="usb_media_format_final_desc" product="default">ลบที่เก็บ USB จะลบไฟล์ที่เก็บไว้ทั้งหมด และคุณไม่สามารถย้อนกลับการกระทำนี้ได้!</string>
+  <string name="uicc_media_format_final_desc" product="default">ลบที่เก็บ UICC จะลบไฟล์ที่เก็บไว้ทั้งหมด และคุณไม่สามารถย้อนกลับการกระทำนี้ได้!</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">คุณต้องวาดการปลดล็อคหน้าจอเพื่อยืนยันว่าคุณต้องการลบ SD card</string>
   <string name="usb_media_format_gesture_explanation" product="default">คุณต้องวาดการปลดล็อคหน้าจอเพื่อยืนยันว่าคุณต้องการลบที่เก็บ USB</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">คุณต้องวาดการปลดล็อคหน้าจอเพื่อยืนยันว่าคุณต้องการลบที่เก็บ UICC</string>
+  <string name="internal_sd_format">ลบพื้นที่เก็บข้อมูลภายใน</string>
+  <string name="internal_sd_format_summary">ลบข้อมูลทั้งหมดบนที่เก็บข้อมูลภายใน รวมถึงเพลงและรูปภาพ</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nเพือลบเพลง,รูปภาพและข้อมูลผู้ใช้อื่นๆทั้งหมด <b>ที่เก็บข้อมูลภายใน</b> จะถูกลบ</string>
+  <string name="erase_internal_storage">ลบพื้นที่เก็บข้อมูลภายใน</string>
+  <string name="erase_internal_storage_description">ลบที่เก็บข้อมูลภายในทั้งหมดเช่นเพลงหรือรูปภาพ</string>
+  <string name="storage_rescan_media">ค้นหาสื่ออีกครั้งในแหล่งเก็บไฟล์</string>
+  <string name="location_category_enhanced_location">ปรับปรุงตำแหน่ง (IZat)</string>
+  <string name="app_ops_settings_summary">ดูหรือเปลี่ยนสิทธิของแอป</string>
+  <string name="enable_adb_summary_charging">อุปกรณ์อยู่ในรูปแบบชาร์จอย่างเดียว, ปิดการใช้งานแก้ไขข้อบกพร่อง USB</string>
   <string name="enable_quickboot_title">เปิดใช้งาน QuickBoot</string>
+  <string name="enable_quickboot_summary">เมื่อใช้ Quickboot มันจะถูกแทนที่การปิดเปิดเครื่องแบบธรรมดา</string>
+  <string name="data_usage_tab_slot">ซิม <xliff:g id="sub">%d</xliff:g></string>
+  <string name="sim_enabler_title">สถานะซิมการ์ด</string>
+  <string name="sim_enabler_summary">ซิม<xliff:g id="status" example="enabled">%1$s</xliff:g></string>
+  <string name="sim_enabled">เปิดใช้งาน</string>
+  <string name="sim_disabled">ปิดใช้งาน</string>
+  <string name="sim_missing">สูญหายหรือชำรุด</string>
+  <string name="sim_enabler_need_disable_sim">ปิดการใช้งานซิมการ์ด?</string>
+  <string name="sim_enabler_airplane_on">ไม่สามารถดำเนินการนี้ได้ขณะอยู่ในโหมดเครื่องบิน</string>
+  <string name="sim_enabler_in_call">ไม่สามารถดำเนินการนี้ได้ขณะใช้สายอยู่</string>
+  <string name="sim_enabler_both_inactive">ไม่สามารถปิดการใช้งานทุกซิมการ์ดได้</string>
+  <string name="sim_enabler_sim">ซิมการ์ด</string>
+  <string name="sim_enabler_enabling">กำลังเปิดใช้ <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_disabling">กำลังยกเลิกการใช้ <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_deactivate">ปิดใช้งาน</string>
+  <string name="primary_sub_select_title">สมัครข้อมูล 3G/LTE เริ่มต้น</string>
+  <string name="usb_charging_title">ชาร์จเท่านั้น</string>
+  <string name="usb_charging_summary">ปิดการใช้งานการส่งข้อมูลจากคอมพิวเตอร์ทั้งหมดและชาร์จไฟจากพอร์ต USB</string>
+  <string name="usb_sdcard_title">ที่เก็บข้อมูลขนาดใหญ่ (UMS)</string>
+  <string name="usb_sdcard_summary">ช่วยให้คุณสามารถส่งไฟล์ระหว่างคอมพิวเตอร์และหน่วยความจำอุปกรณ์ของคุณได้โดยการทำให้มันกลายเป็นแฟลชไดร์</string>
+  <string name="external_storage_turn_on">ที่จัดเก็บข้อมูลภายนอกถูกเปิดการใช้งานแล้ว</string>
+  <string name="external_storage_turn_off">ที่จัดเก็บข้อมูลภายนอกถูกปิดการใช้งานแล้ว</string>
+  <string name="stats_collection_title">เก็บสถิติ</string>
+  <string name="stats_collection_summary">เมื่อเปิดใช้งานจะอนุญาตให้เก็บสถิติ</string>
   <string name="power_notifications_category_title">เสียงการชาร์จ</string>
   <string name="power_notifications_enable_title">เปิด</string>
   <string name="power_notifications_enable_summary">เล่นเสียงเมื่อมีการชาร์จหรือถอดสายชาร์จ</string>
@@ -416,11 +669,13 @@
   <string name="performance_settings_title">ประสิทธิภาพ</string>
   <string name="io_scheds_title">ตัวจัดการ อ่าน/เขียน ข้อมูล</string>
   <string name="io_sched_title">ตัวจัดการ อ่าน/เขียน ข้อมูล</string>
+  <string name="perf_profile_title">รูปแบบแบตเตอรี่</string>
   <string name="pref_force_highend_gfx_title">บังคับใช้กราฟฟิกระดับสูง</string>
   <string name="pref_force_highend_gfx_summary">บังคับใช้กราฟฟิกโปร่งใสระดับสูง เช่น ทำให้แถบสถานะ/แถบนำทางโปร่งใส (ต้องเริ่มระบบใหม่)</string>
   <string name="performance_settings_warning_title">ใช้ด้วยความระมัดระวัง</string>
   <string name="performance_settings_warning">การตั้งค่านี้ใช้เพื่อการทดลองและการเปลี่ยนแปลงใดๆในนี้อาจทำให้เกิดความไม่เสถียร ข้อมูลสูญหายหรืออุปกรณ์มีปัญหาได้\n\n พวกเราอยากขอให้คุณไม่แจ้งบัคเราหากค่าเหล่านี้ถูกเปลี่ยนไปจากค่าเริ่มต้น</string>
   <string name="performance_set_on_boot">ใช้งานเมื่อเริ่มระบบใหม่</string>
+  <string name="performance_set_on_boot_summary">คืนค่าการตั้งค่าเมื่อเริ่มระบบ</string>
   <string name="processor_title">หน่วยประมวลผล</string>
   <string name="cpu_cur_freq_title">ความถี่ของหน่วยประมวลผลปัจจุบัน</string>
   <string name="cpu_governors_title">ตัวจัดการหน่วยประมวลผล</string>
@@ -433,21 +688,177 @@
   <string name="edge_gesture_service_summary">อย่าส่งกิจกรรมการแตะไปยังแอป หากใช้ปัดแถบแจ้งเตือนหรือแถบนำทาง</string>
   <string name="cmlicense_title">เกี่ยวกับกฎหมาย CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">เกี่ยวกับกฎหมาย CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">คุณไม่มีการเชื่อมต่ออินเตอร์เน็ต, เพื่อดูข้อมูลเดียวนี้,ไปยัง %s จากคอมพิวเตอร์ที่เชื่อมต่ออินเตอร์เน็ต</string>
+  <string name="lockpattern_settings_enable_error_path_title">แสดงลายเส้นที่ผิดพลาด</string>
+  <string name="lockpattern_settings_enable_dots_title">แสดงจุดที่ลากผ่าน</string>
   <string name="unlock_quick_unlock_control_title">ปลดล็อคแบบเร็ว</string>
   <string name="unlock_quick_unlock_control_summary">ปลดล็อคอัตโนมัติเมื่อ PIN/รหัส ที่ถูกต้องถูกป้อนเข้ามา</string>
   <string name="unlock_scramble_pin_layout_title">สุ่มสลับแป้นพิมพ์</string>
   <string name="unlock_scramble_pin_layout_summary">สุ่มสลับแป้นพิมพ์สำหรับกรอกรหัสผ่าน</string>
+  <string name="link_volume_option_title">เชื่อมต่อความดัง เสียงเรียกเข้า&amp;เสียงแจ้งเตือน</string>
+  <string name="notification_volume_option_title">ระดับเสียงแจ้งเตือน</string>
   <string name="notification_drawer_title">แผงการแจ้งเตือน</string>
+  <string name="quick_pulldown_title">ปัดลงอย่างเร็ว</string>
+  <string name="quick_pulldown_summary">ปัดขอบด้าน%1$sของแถบสถานะเพื่อเปิดแผงตั้งค่า</string>
+  <string name="quick_pulldown_summary_left">ซ้าย</string>
+  <string name="quick_pulldown_summary_right">ขวา</string>
+  <string name="quick_pulldown_off">ปิด</string>
+  <string name="quick_pulldown_left">ซ้าย</string>
+  <string name="quick_pulldown_right">ขวา</string>
+  <string name="status_bar_show_weather_title">แสดงสภาพอากาศ</string>
+  <string name="status_bar_show_weather_summary">แสดงสภาพอากาศเหนือแผงตั้งค่า</string>
+  <string name="qs_category_title">แผงตั้งค่า</string>
+  <string name="qs_brightness_slider_title">แสดงแถบปรับระดับความสว่าง</string>
+  <string name="qs_order_title">เลือกและจัดลำดับไทต์</string>
+  <string name="add_qs">เพิ่มไทต์ใหม่</string>
+  <string name="qs_action_delete">ลบ</string>
+  <string name="qs_action_add">เพิ่ม</string>
+  <string name="qs_action_no_more_tiles">ไม่มีไทต์ให้ใช้อีกแล้ว</string>
+  <string name="qs_tile_wifi">Wi\u2011Fi</string>
+  <string name="qs_tile_bluetooth">บลูทูธ</string>
+  <string name="qs_tile_display_inversion">กลับสี</string>
+  <string name="qs_tile_cellular_data">การเชื่อมต่อข้อมูล</string>
+  <string name="qs_tile_airplane_mode">โหมดเครื่องบิน</string>
+  <string name="qs_tile_display_rotation">การหมุน</string>
+  <string name="qs_tile_flashlight">ไฟฉาย</string>
+  <string name="qs_tile_location">ตำแหน่ง</string>
+  <string name="qs_tile_cast_screen">ส่งหน้าจอ</string>
+  <string name="qs_tile_hotspot">ฮอตสปอต</string>
+  <string name="qs_tile_adb_over_network">ADB บนเครือข่าย</string>
+  <string name="qs_tile_profiles">โปรไฟล์ระบบ</string>
+  <string name="qs_tile_performance">รูปแบบแบตเตอรี่</string>
+  <string name="qs_tile_nfc">NFC</string>
+  <string name="qs_tile_compass">เข็มทิศ</string>
+  <string name="qs_tile_lockscreen">ล็อคหน้าจอ</string>
+  <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_screen_timeout">หมดเวลาหน้าจอ</string>
+  <string name="qs_tile_usb_tether">ปล่อยสัญญาณผ่าน USB</string>
+  <string name="qs_tile_heads_up">Heads up</string>
+  <string name="qs_tile_ambient_display">หน้าจอแวดล้อม</string>
+  <string name="qs_main_tiles_title">ขยายแถวแรก</string>
+  <string name="qs_main_tiles_summary_on">สองไทต์หลักบนแถวแรก</string>
+  <string name="qs_main_tiles_summary_off">สามไทต์ต่อแถว</string>
+  <string name="qs_advanced_location_title">ตั้งค่าตำแหน่งขั้นสูง</string>
+  <string name="qs_advanced_location_summary">เปิดใช้งานตั้งค่าขั้นสูงสำหรับตำแหน่งจากทางลัดการตั้งค่า</string>
+  <string name="sim_no_number_set">ไม่มีหมายเลขที่กำหนดไว้</string>
+  <string name="gesture_settings_title">ท่าทาง</string>
   <string name="themes_settings_title">ชุดรูปแบบ</string>
   <string name="wifi_mode">รูปแบบ</string>
+  <string name="wifi_mode_ibss">เครือข่าย Ad-Hoc (IBSS)</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
   <string name="wifi_ibss_freq_title">ช่อง / ความถี่</string>
   <string name="wifi_channel">ช่อง</string>
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">หัว: %1$s W/kg</string>
   <string name="maximum_body_level">ตัว: %1$s W/kg</string>
+  <string name="ic_code_model">รุ่น: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">เต็มจอ</string>
+  <string name="expanded_hide_nothing">ไม่ซ่อน</string>
+  <string name="expanded_hide_status">ซ่อนแถบสถานะ</string>
+  <string name="expanded_hide_navigation">ซ่อนแถบนำทาง</string>
+  <string name="expanded_hide_both">ซ่อนทั้งคู่</string>
+  <string name="expanded_nothing_to_show">เพื่อเพิ่มการตั้งค่าแอปต่อแอปสำหรับการขนานหน้าจอ ให้ปิดการใช้งาน \'เปิดใช้ทั้งหมด\' ก่อน</string>
+  <string name="expanded_enabled_for_all">เปิดใช้ทั้งหมด</string>
+  <string name="expanded_desktop_style">รูปแบบการขยายหน้าจอ</string>
+  <string name="expanded_desktop_style_description">เลือกรูปแบบการขยายจอเริ่มต้น</string>
+  <string name="expanded_desktop_title">ตัวเลือกการขยายหน้าจอ</string>
+  <string name="title_general">ทั่วไป</string>
+  <string name="lockscreen_targets_message">ทางลัดที่หน้าจอล็อค</string>
+  <string name="lockscreen_default_target">ค่าเริ่มต้น</string>
+  <string name="lockscreen_none_target">ไม่มี</string>
+  <string name="lockscreen_message">แตะที่ไอคอนซ้ายหรือขวาเพื่อตั้งทางลัดใหม่</string>
+  <string name="lockscreen_choose_action_title">เลือกการกระทำ</string>
+  <string name="lockscreen_visualizer_title">แสดงเส้นจังหวะเพลง</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">จัดการการตั้งค่าข้อความปลอดภัย</string>
+  <string name="navigation_ring_title">ตำแหน่งแหวนแถบนำทาง</string>
+  <string name="navigation_ring_message">แตะที่ไอคอนแก้ไขเพื่อแก้ไจแหวนแถบนำทาง\n\nเลือกเป้าหมายเพื่อตั้งการกระทำที่ต้องการ\n\nแตะไอคอน\'\u2713\'เพื่อบันถึกหรือแตะคืนค่าเริ่มต้นเพื่อเปลี่ยนกลับเป็นแบบเดิม</string>
+  <string name="lcd_density">ความหนาแน่นของจอ LCD</string>
+  <string name="dialog_title_lcd_density">ความหนาแน่นของจอ LCD</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (เริ่มต้น)</string>
+  <string name="restarting_ui">กำลังเริ่มใช้หน้าตาใหม่\u2026</string>
+  <string name="stylus_icon_enabled_title">แสดงไอคอนเมื่อใช้งานปากกาสไตลัส</string>
+  <string name="stylus_icon_enabled_summary">แสดงจุดบนจอเมื่อตวัดหรือวาดด้วยปากกาสไตลัส</string>
+  <string name="gestures_settings_title">ท่าทางของปากกาสไตลัส</string>
+  <string name="category_spen_title">ท่าทางของปากกาสไตลัส</string>
+  <string name="enable_subcat_title">ปากกาสไตลัส</string>
+  <string name="enable_spen_title_head">เปิดใช้งานท่าทาง</string>
+  <string name="enable_spen_summary_head">ใช้การปัดโดยการกดปุ่มสไตลัส</string>
+  <string name="gestures_subcat_title">ท่าทาง</string>
+  <string name="gestures_left_spen_title_head">ปัดซ้าย</string>
+  <string name="gestures_right_spen_title_head">ปัดขวา</string>
+  <string name="gestures_up_spen_title_head">ปัดขึ้น</string>
+  <string name="gestures_down_spen_title_head">ปัดลง</string>
+  <string name="gestures_long_spen_title_head">แตะค้าง</string>
+  <string name="gestures_double_spen_title_head">แตะสองครั้ง</string>
+  <string name="gestures_action_empty">ไม่ทำอะไร</string>
+  <string name="gestures_action_home">หน้าหลัก</string>
+  <string name="gestures_action_back">กลับ</string>
+  <string name="gestures_action_menu">เมนู</string>
+  <string name="gestures_action_search">เรียกใช้การค้นหา</string>
+  <string name="gestures_action_recent">แอปล่าสุด</string>
+  <string name="stylus_app_not_installed">%s ไม่ได้ติดตั้งไว้</string>
+  <string name="advanced">ขั้นสูง</string>
+  <string name="advanced_mode_title">รูปแบบขั้นสูง</string>
+  <string name="advanced_mode_summary">แสดงทางเลือกเพิ่มเติมสำหรับการกำหนดค่าในเมนูการตั้งค่าต่างๆ</string>
+  <string name="category_misc">เบ็ดเตล็ด</string>
+  <string name="category_vibrate">สั่น</string>
+  <string name="category_volume">ระดับเสียง</string>
+  <string name="category_sounds">เสียง</string>
+  <string name="category_interface">หน้าตา</string>
+  <string name="category_calibration">การปรับเทียบ</string>
+  <string name="display_and_lights">การแสดงผล &amp; แสง</string>
+  <string name="notification_manager">จัดการการแจ้งเตือน</string>
+  <string name="lockscreen_settings">หน้าจอล็อค</string>
+  <string name="category_lights">แสง</string>
+  <string name="power_usage_history_title">การใช้งานแบตเตอรี่</string>
+  <string name="recents_show_searchbar">แสดงแถบค้นหาในหน้าแอปที่ใช้ล่าสุด</string>
+  <string name="keywords_recents_show_searchbar">ซ่อนหรือแสดงแถบการค้นหาในหน้าแอปล่าสุด</string>
+  <string name="sim_ringtone_title">เสียงเรียกเข้าซิม %d</string>
+  <string name="interruptions_ignore_while_media_title">ป้องกันการลดเสียง</string>
+  <string name="interruptions_ignore_while_media_summary">ไม่ลดเสียงเพลงเมื่อมีการแจ้งเตือนเข้า</string>
+  <string name="none_is_silent_title">ไม่ปิดเสียงของนาฬิการปลุก</string>
+  <string name="none_is_silent_summary">รูปแบบเงียงจะมีเสียงนาฬิกาปลุกเสมอ</string>
+  <string name="allow_lights_title">อนุญาตให้มีแสงไฟแจ้งเตือน</string>
+  <string name="live_display_summary">ปรับหน้าความสว่างหน้าจอตามเวลาและแสงโดยรอบเพื่อทำให้อ่านได้ง่ายขึ้นและลดอาการปวดตา</string>
+  <string name="live_display_mode">รูปแบบการแสดงผล</string>
+  <string name="live_display_color_temperature_title">อุณหภูมิสี</string>
+  <string name="live_display_color_temperature_summary">กลางวัน: <xliff:g id="day_temperature">%1$d</xliff:g> K กลางคืน: <xliff:g id="night_temperature">%2$d</xliff:g> K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">กลางวัน</string>
+  <string name="live_display_night">กลางคืน</string>
+  <string name="live_display_outdoor_mode_title">รูปแบบกลางแจ้งอัตโนมัติ</string>
+  <string name="live_display_outdoor_mode_summary">เพิ่มความสว่างและความอิ่มตัวอัตโนมัติเมื่ออยู่กลางแสงแดด</string>
+  <string name="live_display_low_power_title">ลดการใช้พลังงาน</string>
+  <string name="live_display_low_power_summary">ปรับการแสดงผลให้ใช้พลังงานน้อยที่สุดโดยที่ไม่ลดประสิทธิภาพ</string>
+  <string name="live_display_enhance_color_title">เพิ่มประสิทธิภาพสี</string>
+  <string name="live_display_enhance_color_summary">เพิ่มความมีชีวิตชีวาโดยการเน้นโทนสีของภาพทิวทัศน์และภาพอื่นๆ</string>
+  <string name="battery_saver_threshold">ขีดจำกัดการประหยัดแบตเตอรี่</string>
+  <string name="battery_saver_summary">ลดประสิทธิภาพและจำกัดการใช้ข้อมูลเบื้องหลัง</string>
+  <string name="battery_saver_summary_unavailable">ไม่สามารถใช้งานได้ขณะกำลังชาร์จ</string>
+  <string name="anonymous_statistics_title">สถิติของ CyanogenMod</string>
+  <string name="anonymous_statistics_summary">ช่วยทำให้ CyanogenMod ดีขึ้นโดยการส่งรายงานสถิติแบบไม่ระบุตัวตน</string>
+  <string name="anonymous_statistics_warning_title">เกี่ยวกับ</string>
+  <string name="anonymous_statistics_warning">การส่งสถิติแบบไม่ระบุตัวตนไปยัง CyanogenMod จะอนุญาตให้ส่งข้อมูลที่ไม่เป็นส่วนตัวไปยังนักพัฒนาของ CyanogenMod เพื่อติดตามการติดตั้งบนอุปกรณ์ต่างๆ ข้อมูลที่ถูกส่งรวมไปถึงตัวระบุที่ไม่ซ้ำกัน\n\nซึ่งไม่ได้ส่งข้อมูลที่เป็นส่วนตัวของคุณ และจะส่งข้อมูลทุกครั้งที่เริ่มระบบ\n\n แตะ \"แสดงตัวอย่างข้อมูล\" เพื่อดูตัวอย่างข้อมูลที่ถูกส่ง</string>
+  <string name="enable_reporting_title">เปิดให้รายงาน</string>
+  <string name="preview_data_title">แสดงตัวอย่างข้อมูล</string>
+  <string name="view_stats_title">ดูสถิติ</string>
+  <string name="anonymous_learn_more">เรียนรู้เพิ่มเติม</string>
+  <string name="preview_id_title">ตัวระบุที่ไม่ซ้ำกัน</string>
+  <string name="preview_device_title">อุปกรณ์</string>
+  <string name="preview_version_title">รุ่น</string>
+  <string name="preview_country_title">ประเทศ</string>
+  <string name="preview_carrier_title">ผู้ให้บริการ</string>
+  <string name="heads_up_notifications">Heads up</string>
+  <string name="summary_heads_up_enabled">เปิดใช้งานการแจ้งเตือนแบบป๊อปอัพ</string>
+  <string name="summary_heads_up_disabled">ไม่ใช้งานการแจ้งเตือนแบบป๊อปอัพ</string>
+  <string name="master_clear_desc_cm" product="tablet">นี่จะลบข้อมูลทั้งหมดจาก<b>ที่เก็บข้อมูลภายใน</b>ของแท็บเล็ต รวมถึง\n\n<li>บัญชีอุปกรณ์ของคุณ</li>\n<li>ข้อมูลแอปและการตั้งค่า</li>\n<li>แอปที่ดาวน์โหลด</li></string>
+  <string name="master_clear_desc_cm" product="default">นี่จะลบข้อมูลทั้งหมดจาก<b>ที่เก็บข้อมูลภายใน</b>ของโทรศัพท์ รวมถึง\n\n<li>บัญชีอุปกรณ์ของคุณ</li>\n<li>ข้อมูลแอปและการตั้งค่า</li>\n<li>แอปที่ดาวน์โหลด</li></string>
+  <string name="lock_to_cyanogen_title">การป้องกันอุปกรณ์</string>
+  <string name="lock_to_cyanogen_summary">คุณต้องใสรหัสผ่านบัญชี Cyanogen OS  แม้หลังจากทำการคืนค่าโรงงานไปแล้วก็ตาม</string>
+  <string name="lock_to_cyanogen_create_account_msg">อุปกรณ์ของคุณใช้รหัสผ่านบัญชี Cyanogen OS  ในการป้องกันอุปกรณ์ แม้อุปกรณ์ของคุณจะโดนคืนค่าโรงงานก็ตาม ดังนั้นคุณจำเป็นต้องสร้างบัญชี Cyanogen OS</string>
+  <string name="lock_to_cyanogen_disable_msg">การปิดใช้งานความสามารถนี้อาจทำให้มีผู้ไม่ประสงค์ดีสามารถล้างอุปกรณ์ของคุณได้ โดยเฉพาะเมื่ออุปกรณ์ของคุณหาย ข้อมูลของคุณจะไม่ได้รับการปกป้องใดๆทั้งสิ้น ต้องการปิดความสามารถนี้อย่างงั้นหรือ?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">การป้องกันอุปกรณ์ ถูกเปิดอยู่ กรุณาปิดก่อนทำการคืนค่าโรงงาน</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">การเชื่อมต่อล้มเหลว การปล่อยสัญญาณผ่านบลูทูธของอุปกรณ์นี้ถูกเปิดอยู่หรือไม่?</string>
 </resources>

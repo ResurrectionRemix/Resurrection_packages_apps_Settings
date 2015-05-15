@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Garapenerako ezarpenak gaitzeko urrats <xliff:g id="step_count">%1$d</xliff:g>era zaude.</item>
+    <item quantity="other">Garapenerako ezarpenak gaitzeko <xliff:g id="step_count">%1$d</xliff:g> urratsetara zaude.</item>
+  </plurals>
+  <string name="show_dev_on_cm">Garapenerako ezarpenak gaitu dituzu!</string>
+  <string name="show_dev_already_cm">Ez da behar, aurretik gaitu dituzu garapen ezarpenak.</string>
+  <string name="development_tools_title">Garapen tresnak</string>
   <string name="root_access">Supererabiltzaile sarbidea</string>
   <string name="root_access_warning_title">Supererabiltzaile sarbidea baimendu?</string>
   <string name="root_access_warning_message">Aplikazioek supererabiltzaile sarbide eskaerak egitea baimentzeak gailuaren segurtasuna arriskuan jar dezake!</string>
@@ -25,7 +32,7 @@
   <string name="root_access_all">ADB eta aplikazioak</string>
   <string name="ring_mode_title">Soinu modua</string>
   <string name="ring_mode_vibrate">Bibrazioa</string>
-  <string name="ring_mode_mute">Isilik</string>
+  <string name="ring_mode_mute">Mututu</string>
   <string name="profiles_add">Gehitu</string>
   <string name="profile_settings_title">Profila</string>
   <string name="profile_empty_list_profiles_off">Sistemaren profilak ezarri eta erabili ahal izateko, gaitu egin behar dira.</string>
@@ -39,16 +46,26 @@
   <string name="profile_unknown_nfc_tag">Profil ezezaguna</string>
   <string name="profile_add_nfc_text">NFC etiketa honek profil ezezagun bati egiten dio erreferentzia. NFC etiketa hau existitzen den profil bati gehitzeak profila ahutatzea ahalbidetuko du.</string>
   <string name="profile_select">Profila hautatu</string>
+  <string name="profile_remove_dialog_message">Ezabatu %1$s profila?</string>
+  <string name="profile_remove_current_profile">Ezin da uneko profila ezabatu!</string>
+  <string name="profile_app_group_category_title">Jakinarazpen gainidazkiak</string>
+  <string name="profile_app_group_item_instructions">Gehitu edo ezabatu taldeak</string>
+  <string name="profile_app_group_item_instructions_summary">Gehitu edo ezabatu jakinarazpenak gainidatziko dituzten aplikazio taldeak profil honetara</string>
+  <string name="profile_entries_no_override">Ez gainidatzi</string>
   <string name="profile_name_title">Izena</string>
   <string name="new_profile_name">&lt;profil berria&gt;</string>
   <string name="rename_dialog_title">Berrizendatu</string>
-  <string name="rename_dialog_message">Izen berri bat idatzi</string>
+  <string name="rename_dialog_message">Sartu izen berri bat</string>
+  <string name="rename_dialog_hint">Sartu profilaren izena</string>
   <string name="profile_reset_title">Berrezarri</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
-  <string name="profile_volumeoverrides_title">Bolumena</string>
-  <string name="volume_override_summary">%1$s/%2$s -en ezarri</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <string name="profile_volumeoverrides_title">Bolumen gainidazkiak</string>
+  <string name="volume_override_summary">Ezarri %1$s/%2$s</string>
+  <string name="profile_volume_override_checkbox_label">Gainidatzi bolumena</string>
   <string name="profile_profiles_manage">Profilak</string>
   <string name="profile_profile_manage">Profila kudeatu</string>
   <string name="profile_settings">Profil ezarpenak</string>
@@ -56,9 +73,13 @@
   <string name="profile_trigger_disconnect">Deskonektatzean</string>
   <string name="profile_trigger_notrigger">Gertakaririk gabe</string>
   <string name="profile_applist_title">Aplikazioak</string>
-  <string name="profile_choose_app">Aplikazioa aukeratu</string>
+  <string name="profile_choose_app">Aplikazioa hautatu</string>
   <string name="profile_system_settings_title">Sistema</string>
   <string name="profile_lockmode_title">Blokeo pantaila</string>
+  <string name="profile_brightness_override_summary">Ezarri %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Gainidatzi distira</string>
+  <string name="toggleWifi">Wi\u2011Fi</string>
+  <string name="toggleWifiAp">Wi\u2011Fi gune eramangarria</string>
   <string name="toggleBluetooth">Bluetooth-a</string>
   <string name="toggleGPS">GPS</string>
   <string name="toggleNfc">NFC</string>
@@ -87,6 +108,7 @@
   <string name="swap_volume_buttons_summary">Pantaila biratzean bolumen botoiak elkar trukatu</string>
   <string name="power_end_call_title">Deia amaitu</string>
   <string name="power_end_call_summary">Itzaltze botoia sakatzeak uneko deia amaituko du</string>
+  <string name="button_wake_summary">Erreprodukzioaren kontrola gainidazten du</string>
   <string name="home_answer_call_title">Deia erantzun</string>
   <string name="home_answer_call_summary">Pizte botoia sakatzeak sartzen den deia erantzungo du</string>
   <string name="button_backlight_title">Atzeargitzea</string>
@@ -103,11 +125,17 @@
   <string name="power_menu_screenshot_title">Pantaila-argazkia</string>
   <string name="power_menu_profiles_title">Profilak</string>
   <string name="power_menu_sound_title">Soinu panela</string>
+  <string name="adaptive_backlight_summary">Dinamikoki doitu pantailaren distira bateriaren iraupena hobetzeko erabilgarritasuna mantenduz</string>
   <string name="color_enhancement_title">Koloreen nabarmentzea</string>
-  <string name="color_enhancement_summary">Pantailako koloreak dinamikoki nabarmendu</string>
+  <string name="color_enhancement_summary">Dinamikoki hobetu pantailaren koloreak</string>
+  <string name="blacklist_title">Blokeatutako deitzaileen zerrenda</string>
+  <string name="blacklist_edit_dialog_title">Editatu blokeatutako telefono zenbakia</string>
   <string name="blacklist_prefs">Ezarpenak</string>
   <string name="blacklist_button_delete">Ezabatu</string>
+  <string name="blacklist_empty_text">Ez duzu zenbakirik blokeatu. (+) botoia sakatuz zenbaki bat gehitu.</string>
+  <string name="blacklist_disabled_empty_text">Telefono zenbaki batzuk zuri deitzea edo mezuak bidaltzea eragozteko, gaitu blokeatutako deitzaileen zerrenda.</string>
   <string name="blacklist_summary_disabled">Ezgaituta</string>
+  <string name="blacklist_summary">Ez duzu dei edo mezurik jasoko blokeatutako deitzaileen zerrendan dauden telefono zenbakietatik</string>
   <string name="blacklist_notify">Jakinarazpena erakutsi</string>
   <string name="blacklist_private_numbers_title">Zenbaki pribatuak</string>
   <string name="blacklist_private_numbers_summary_disabled">Ez blokeatu zenbaki pribatuen deirik</string>
@@ -122,8 +150,10 @@
   <string name="blacklist_regex_summary">\u00AB.\u00BB -a komodin bezala eta \u00AB*\u00BB errepikatzeko erabili. Adibidez \u00AB123.*\u00BB 123-tik hasten diren zenbakiak blokeatuko ditu eta \u00AB.*123.*\u00BB-k 123 barnean duten zenbakiak blokeatuko ditu</string>
   <string name="blacklist_policy_block_calls">Sartzen diren deiak</string>
   <string name="blacklist_policy_block_messages">Sartzen diren mezuak oztopatu</string>
-  <string name="remove_blacklist_number_title">Zenbakia kendu</string>
-  <string name="select_contact">Kontaktua aukeratu</string>
+  <string name="blacklist_bad_number_add">Ezin izan da telefono zenbaki baliogabea gehitu blokeatutako deitzaileen zerrendara</string>
+  <string name="remove_blacklist_number_title">Kendu zenbakia</string>
+  <string name="remove_blacklist_entry">Blokeatutako telefono zenbaki hau kendu nahi duzu?</string>
+  <string name="select_contact">Kontaktua hautatu</string>
   <string name="lockpattern_reset_button">Eredua berrezarri</string>
   <string name="menu_hidden_apps_delete">Berrezarri</string>
   <string name="protected_apps">Babesturiko aplikazioak</string>
@@ -144,10 +174,13 @@
   <string name="app_security_title">Aplikazioetako segurtasuna</string>
   <string name="sms_security_check_limit_title">SMS mezu muga</string>
   <string name="sms_security_check_limit_summary">Aplikazioek %d SMS mezu bidali ditzakete 30 minututan berrespena eskatu arte</string>
+  <string name="spam_added_title">%1$s gehitu da</string>
   <string name="block_notifications_title">Iragazi jakinarazpenak</string>
   <string name="cmupdate_settings_title">CyanogenMod eguneraketak</string>
   <string name="mod_version">CyanogenMod bertsioa</string>
   <string name="mod_version_default">Ezezaguna</string>
+  <string name="device_model">Gailuaren modeloa</string>
+  <string name="device_name">Gailuaren izena</string>
   <string name="build_date">Konpilatze data</string>
   <string name="contributor_cloud_title">Laguntzaileak</string>
   <string name="double_tap_to_wake_title">Esnatzeko birritan sakatu</string>
@@ -162,6 +195,7 @@
   <string name="privacy_guard_reset_text">Baimenak berrezarri?</string>
   <string name="privacy_guard_manager_show_system_apps">Sistemaren aplikazioak</string>
   <string name="advanced_reboot_title">Berrabiatze aurreratua</string>
+  <string name="advanced_reboot_summary">Desblokeatuta dagoenean, erakutsi itzaltze menuan berreskuratze-irudira edo abiarazlera berrabiatzeko edo berrabiatze leuna burutzeko aukerak</string>
   <string name="enable_adb_cm">Arazketa</string>
   <string name="enable_adb_summary_cm">Android Debug Bridge (adb) gaitu</string>
   <string name="adb_over_network">Sare gaineko ADB</string>
@@ -170,11 +204,15 @@
   <string name="wake_when_plugged_or_unplugged_title">Kargagailuarekin esnatu</string>
   <string name="wake_when_plugged_or_unplugged_summary">Pantaila piztu kargagailua konektatu/deskonektatzean</string>
   <string name="disable_navkeys_title">Nabigazio barra gaitu</string>
-  <string name="disable_navkeys_summary">Nabigazio barra gaitu eta botoi fisikoak ezgaitu</string>
-  <string name="navigation_bar_category">Nabigazioa barra</string>
+  <string name="disable_navkeys_summary">Gaitu pantailako nabigazio-barra eta ezgaitu botoi fisikoak</string>
+  <string name="navigation_bar_category">Nabigazio-barra</string>
   <string name="navigation_bar_left_title">Ezkertientzako modua</string>
-  <string name="navigation_bar_left_summary">Paisai moduan nabigazio barra ezkerraldean ezarri</string>
-  <string name="navigation_bar_title">Botoiak eta kokapena</string>
+  <string name="navigation_bar_left_summary">Kokatu nabigazio-barra pantailaren ezkerraldean paisaia moduan</string>
+  <string name="navigation_bar_title">Botoiak eta diseinua</string>
+  <string name="navigation_bar_help_text">Hasteko sakatu editatu ikonoa nabigazio barra ediziorako askatzeko.\n\nikono bat sakatu dezakezu bere lasterbidea aldatzeko, edo luze sakatu dezakezu ikonoa diseinua berrantolatzeko.\n\nSakatu \'Gorde\' aldaketak bidaltzeko, edo \'Berrezarri lehenetsitakoak\' diseinua lehenetsitako ezarpenetara bueltatzeko.</string>
+  <string name="navigation_bar_reset_message">Ezabatu oraingo ezarpenak eta diseinu lehenetsia berrezarri?</string>
+  <string name="navigation_bar_arrow_keys_title">Bistaratu norabide geziak idaztean</string>
+  <string name="navigation_bar_arrow_keys_summary">Bistaratu ezker zein eskuin kurtsore botoiak idaztean. IME aldatzailea gainidazten du.</string>
   <string name="status_bar_title">Egoera barra</string>
   <string name="status_bar_notif_count_title">Jakinarazpen zenbatzailea erakutsi</string>
   <string name="status_bar_notif_count_summary">Itxaroten dauden jakinarazpen kantitatea egoera barran erakutsi</string>
@@ -185,7 +223,7 @@
   <string name="default_time">Normala</string>
   <string name="custom_time">Lehenetsia</string>
   <string name="dialog_delete_title">Ezabatu</string>
-  <string name="dialog_delete_message">Aukeraturiko elementua ezabatu?</string>
+  <string name="dialog_delete_message">Ezabatu hautatutako elementua?</string>
   <string name="pulse_length_always_on">Beti piztuta</string>
   <string name="pulse_length_very_short">Oso laburra</string>
   <string name="pulse_length_short">Laburra</string>
@@ -220,6 +258,7 @@
   <string name="app_ops_summaries_modify_call_log">Dei erregistroa editatu</string>
   <string name="app_ops_summaries_read_calendar">Egutegiako gertakariak irakurri</string>
   <string name="app_ops_summaries_modify_calendar">Egutegiko gertakariak aldatu</string>
+  <string name="app_ops_summaries_wifi_scan">Wi\u2011Fi araketa</string>
   <string name="app_ops_summaries_notification">jakinarazpena argitaratu</string>
   <string name="app_ops_summaries_cell_scan">sare konexioak ikusi</string>
   <string name="app_ops_summaries_call_phone">telefono zenbakietara zuzenean deitu</string>
@@ -250,6 +289,8 @@
   <string name="app_ops_summaries_keep_awake">esna mantendu</string>
   <string name="app_ops_summaries_monitor_location">gutxi gora beherako kokapena ikusi</string>
   <string name="app_ops_summaries_monitor_high_power_location">kokapen zehatza ikusi</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">mututu/desmututu mikrofonoa</string>
+  <string name="app_ops_summaries_wifi_change">Wi\u2011Fi aldaketa</string>
   <string name="app_ops_summaries_send_mms">MMS-ak bidali</string>
   <string name="app_ops_summaries_read_mms">MMS-ak irakurri</string>
   <string name="app_ops_summaries_write_mms">MMS-ak idatzi</string>
@@ -288,6 +329,9 @@
   <string name="app_ops_labels_notification_volume">Jakinarazpenen bolumena</string>
   <string name="app_ops_labels_bluetooth_volume">Bluetooth-aren bolumena</string>
   <string name="app_ops_labels_keep_awake">Esna mantendu</string>
+  <string name="app_ops_labels_get_usage_stats">Jaso aplikazioen erabilera estatistikak</string>
+  <string name="app_ops_labels_mute_unmute_microphone">Mututu/desmututu mikrofonoa</string>
+  <string name="app_ops_labels_wifi_change">Wi\u2011Fi aldaketa</string>
   <string name="app_ops_labels_bluetooth_change">Bluetooth-a kudeatu</string>
   <string name="app_ops_labels_send_mms">MMS-ak bidali</string>
   <string name="app_ops_labels_read_mms">MMS-ak irakurri</string>
@@ -300,9 +344,14 @@
   <string name="app_ops_categories_media">Media</string>
   <string name="app_ops_categories_device">Gailua</string>
   <string name="app_ops_categories_bootup">Exekuzioa</string>
-  <string name="ok">Ondo da</string>
+  <string name="ok">Ados</string>
   <string name="profile_trigger_a2dp_connect">A2DP konektatzean</string>
   <string name="profile_trigger_a2dp_disconnect">A2DP deskonektatzean</string>
+  <string name="profile_tabs_wifi">Wi\u2011Fi</string>
+  <string name="profile_appgroup_name_prompt">Sartu izen bat aplikazio talde berriarentzat</string>
+  <string name="profile_app_delete_confirm">Ezabatu aplikazio hau?</string>
+  <string name="no_wifi_triggers">Ez da Wi\u2011Fi sarbide punturik konfiguratu.\n Sakatu Wi\u2011Fi sarera konektatzeko eragileak konfiguratu aurretik.</string>
+  <string name="no_triggers_configured">Ez da eragilerik konfiguratu. Sakatu gehitzeko.</string>
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> erabilita)</string>
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> alditan baimenduta</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> alditan ukatuta</string>
@@ -312,6 +361,7 @@
   <string name="app_ops_reset_counters">Zenbatzaileak berrezarri</string>
   <string name="app_ops_reset_confirm_title">Zenbatzaileak berrezarri</string>
   <string name="font_size_sample">Lagina</string>
+  <string name="volume_adjust_sounds_title">Bolumen doitze soinuak</string>
   <string name="vibrator_intensity_title">Bibrazio intentsitatea</string>
   <string name="vibrator_warning">%1$d -tik gorako balioak ez daude gomendatuta</string>
   <string name="color_calibration_title">Kolore kalibrazioa</string>
@@ -321,7 +371,13 @@
   <string name="color_blue_title">Urdina</string>
   <string name="gamma_tuning_title_head">Gamma kalibrazioa</string>
   <string name="gamma_tuning_control_set_header"><xliff:g id="index">%d</xliff:g> taldea</string>
+  <string name="bluetooth_enter_pin_msg_hs"><xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>(r)ekin lotzeko, gailuko PINa idatzi (16 digitu edo gehiago):</string>
   <string name="bluetooth_accept_all_files">Edozein fitxategi mota onartu</string>
+  <string name="sdcard_eject_summary" product="default">Desmuntatu SD txartela lasai atera ahal izateko</string>
+  <string name="usb_eject_summary" product="default">Desmuntatu USB biltegiratzea lasai atera ahal izateko</string>
+  <string name="uicc_eject_summary" product="default">Desmuntatu UICC biltegiratzea lasai atera ahal izateko</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">SD txartela desmuntatzen baduzu, erabiltzen ari zaren aplikazio batzuk geldituko dira eta ez dira eskuragarri egongo SD txartela berriz muntatu arte.</string>
+  <string name="usb_charging_summary">Ordenagailuarekin datu transferentziak eteten ditu eta gailua USB bidez kargatzen du</string>
   <string name="power_notifications_category_title">Kargadorea</string>
   <string name="power_notifications_enable_title">Soinua</string>
   <string name="power_notifications_enable_summary">Kargadorea konektatu edo deskonektatzean soinu bat egin</string>
@@ -333,12 +389,13 @@
   <string name="voice_wakeup_activity_title">Hasi beharreko aktibitatea</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
   <string name="picker_activities">Aktibitateak</string>
-  <string name="select_custom_app_title">Aplikazio pertsonalizatua aukeratu</string>
-  <string name="select_custom_activity_title">Aktibitate pertsonalizatua aukeratu</string>
+  <string name="select_custom_app_title">Aplikazio pertsonalizatua hautatu</string>
+  <string name="select_custom_activity_title">Aktibitate pertsonalizatua hautatu</string>
   <string name="performance_settings_title">Etekina</string>
   <string name="io_scheds_title">I/O antolatzailea</string>
   <string name="io_sched_title">I/O antolatzailea</string>
   <string name="pref_force_highend_gfx_title">Hobekuntza bisualak bortxatu</string>
+  <string name="pref_force_highend_gfx_summary">Kalitate altuko efektu bisualak gaitzen ditu, egoera edo nabigazio-barren gardentasuna kasu (berrabiarazi behar da)</string>
   <string name="performance_settings_warning_title">Kontu handiz ibili</string>
   <string name="performance_set_on_boot">Piztean ezarri</string>
   <string name="processor_title">Prozesadorea</string>
@@ -346,22 +403,34 @@
   <string name="cpu_governors_title">CPU-aren ereduak</string>
   <string name="cpu_min_freq_title">CPU-aren maiztasun minimoa</string>
   <string name="cpu_max_freq_title">CPU-aren maiztasun maximoa</string>
-  <string name="autoperf_title">Aplikazioen araberako profilak</string>
+  <string name="autoperf_title">Gaitu aplikazioen araberako profilak</string>
   <string name="autoperf_summary">Hainbat aplikazioentzako etekin egokidun profila automatikoki hautatu</string>
   <string name="graphics_title">Grafikoak eta errendatzea</string>
   <string name="edge_gesture_service_title">Ukipen gertakariak blokeatu</string>
-  <string name="edge_gesture_service_summary">Aplikazioei nabigazio eta egoera barren ukipen gertakaririk ez bidali</string>
+  <string name="edge_gesture_service_summary">Ez bidali nabigazio eta egoera barren keinuetarako ukipen gertakaririk aplikazioei</string>
   <string name="cmlicense_title">CyanogenMod lizentzia</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod lizentzia</string>
-  <string name="settings_cmlicense_activity_unreachable">Ez dago datu konexiorik. informazio hau orain ikusteko, %s helbidea internet-a duen edozein ordenagailuan sartu.</string>
   <string name="notification_drawer_title">Jakinarazpen eremua</string>
+  <string name="add_qs">Gehitu lauza berria</string>
+  <string name="qs_action_add">Gehitu</string>
+  <string name="qs_tile_wifi">Wi\u2011Fi</string>
+  <string name="qs_tile_cast_screen">Igorri pantaila</string>
+  <string name="qs_tile_hotspot">Wi-Fi gunea</string>
   <string name="themes_settings_title">Gaiak</string>
   <string name="wifi_mode">Modua</string>
+  <string name="wifi_mode_ibss">Ad-Hoc sarea (IBSS)</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
   <string name="wifi_ibss_freq_title">Kanala / Maiztasuna</string>
   <string name="wifi_channel">Kanala</string>
   <string name="wifi_mhz">MHz</string>
   <string name="power_menu_expanded_desktop">Mahaigaina hedatu</string>
+  <string name="expanded_hide_navigation">Ezkutatu nabigazio-barra</string>
+  <string name="expanded_nothing_to_show">Aplikazioko hedatutako egoeraren konfigurazio pertsonalizatua gehitzeko, ezarri \'Gaitu guztientzat\' Ez posizioan</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">SMS zifraketarako ezarpenak kudeatu</string>
+  <string name="navigation_ring_title">Nabigazio eraztunaren helburuak</string>
+  <string name="navigation_ring_message">Sakatu editatu ikonoa nabigazio eraztuna ediziorako irekitzeko.\n\nHautatu helburi bat bere portaera konfiguratzeko.\n\n Sakatu \'\u2713\' ikonoa aldaketak gordetzeko, edo \'Berrezarri lehenetsitakoak\' ezarpenak lehenetsitako balioetara bueltatzeko.</string>
+  <string name="gestures_action_search">Hasi bilaketa</string>
+  <string name="category_sounds">Soinuak</string>
+  <string name="battery_saver_summary_unavailable">Ez dago erabilgarri kargatzen ari den bitartean</string>
 </resources>

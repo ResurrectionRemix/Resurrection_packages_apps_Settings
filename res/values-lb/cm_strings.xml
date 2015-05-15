@@ -52,6 +52,7 @@
   <string name="profile_populate_profile_from_state">Profil mat aktuellen Astellunge vum Apparat konfiguréieren?</string>
   <string name="profile_menu_fill_from_state">Aktuell Astellunge vum Apparat importéieren</string>
   <string name="profile_remove_current_profile">Kann den aktuelle Profil net läschen!</string>
+  <string name="profile_app_group_item_instructions">Gruppen dobäisetzen oder läschen</string>
   <string name="profile_entries_on">Un</string>
   <string name="profile_entries_off">Aus</string>
   <string name="profile_entries_no_override">Net iwwerschreiwen</string>
@@ -83,7 +84,9 @@
   <string name="profile_lockmode_insecure_summary">Net no PIN oder Passwuert froen</string>
   <string name="profile_lockmode_disabled_summary">Spärschierm desaktivéieren</string>
   <string name="profile_airplanemode_title">Fligermodus</string>
+  <string name="profile_brightness_title">Schiermhellegkeet</string>
   <string name="profile_brightness_override_summary">Op %1$d%% setzen</string>
+  <string name="profile_brightness_override_checkbox_label">Hellegkeet iwwerschreiwen</string>
   <string name="toggleWifi">WLAN</string>
   <string name="toggleWifiAp">Mobile WLAN-Hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -154,6 +157,7 @@
   <string name="sunlight_enhancement_summary">Liesbarkeet vum Schierm bei hellem Sonneliicht verbesseren</string>
   <string name="color_enhancement_title">Faarfverbesserung</string>
   <string name="color_enhancement_summary">Faarfduerstellung vum Schierm dynamesch verbesseren</string>
+  <string name="blacklist_title">Lëscht vu blockéierten Nummeren</string>
   <string name="blacklist_prefs">Astellungen</string>
   <string name="blacklist_button_delete">Läschen</string>
   <string name="blacklist_summary_disabled">Desaktivéiert</string>
@@ -207,6 +211,7 @@
   <string name="update_recovery_off_warning">WARNUNG: Wann dës Funktioun deaktivéiert ass, gëtt däin installéierte Recovery-Programm net mat dengem System aktualiséiert.\n\nZukünfteg System-Aktualiséierunge loosse sech mat veraalten oder eegene Recovery-Programmer eventuell net installéierne.\n\nWëlls du dës Funktioun sécher deaktivéieren?</string>
   <string name="mod_version">CyanogenMod-Versioun</string>
   <string name="mod_version_default">Onbekannt</string>
+  <string name="device_model">Apparatmodell</string>
   <string name="build_date">Build-Datum</string>
   <string name="contributor_cloud_title">Mataarbechter</string>
   <string name="phone_service_state">Stëmm: <xliff:g id="voice_state">%1$s</xliff:g>, Daten: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -279,10 +284,7 @@
   <string name="status_bar_battery_style_icon_portrait">Symbol (Héichformat)</string>
   <string name="status_bar_battery_style_icon_landscape">Symbol (Breetformat)</string>
   <string name="status_bar_battery_style_circle">Krees</string>
-  <string name="status_bar_battery_style_text">Text</string>
-  <string name="status_bar_battery_style_hidden">Verstoppt</string>
   <string name="status_bar_battery_percentage_title">Prozentwäert vum Akku</string>
-  <string name="status_bar_battery_percentage_default">Verstoppt</string>
   <string name="status_bar_battery_percentage_text_inside">Am Symbol</string>
   <string name="status_bar_battery_percentage_text_next">Nieft dem Symbol</string>
   <string name="edit_light_settings">Luuchtastellungen änneren</string>
@@ -290,7 +292,7 @@
   <string name="default_time">Normal</string>
   <string name="custom_time">Ugepasst</string>
   <string name="dialog_delete_title">Läschen</string>
-  <string name="dialog_delete_message">Ausgewieltent Element läschen?</string>
+  <string name="dialog_delete_message">Ausgewielt Element läschen?</string>
   <string name="pulse_length_always_on">Ëmmer un</string>
   <string name="pulse_length_very_short">Ganz kuerz</string>
   <string name="pulse_length_short">Kuerz</string>
@@ -657,7 +659,6 @@
   <string name="edge_gesture_service_summary">Keng Beréierungsgesten déi op der Navigatiouns- oder Statusläischt ausgefouert ginn un Appe schécken</string>
   <string name="cmlicense_title">Rechtlesch Hiwäiser iwwer CyanogenMod</string>
   <string name="settings_cmlicense_activity_title">Rechtlesch Hiwäiser iwwer CyanogenMod</string>
-  <string name="settings_cmlicense_activity_unreachable">Du hues keng Dateconnectioun. Fir dës Informatioun elo ze liesen, besich %s vun egal wéi engem Computer dee mam Internet verbonnen ass.</string>
   <string name="lockpattern_settings_enable_error_path_title">Musterfeeler uweisen</string>
   <string name="lockpattern_settings_enable_dots_title">Musterpunkten uweisen</string>
   <string name="unlock_quick_unlock_control_title">Séiert Entspären</string>
@@ -707,6 +708,7 @@
   <string name="qs_main_tiles_summary_off">Dräi Kachelen an all Rei</string>
   <string name="qs_advanced_location_title">Erweidert Standuertastellungen</string>
   <string name="qs_advanced_location_summary">Erweidert Standuertastellungen an de séieren Astellungen aktivéieren</string>
+  <string name="sim_no_number_set">Keng Nummer zougewisen</string>
   <string name="gesture_settings_title">Gesten</string>
   <string name="themes_settings_title">Designen</string>
   <string name="wifi_mode">Modus</string>
@@ -738,6 +740,10 @@
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Astellunge fir sécher SMSen</string>
   <string name="navigation_ring_title">Ziler vun den Navigatiounsréng</string>
+  <string name="lcd_density">LCD-Opléisung</string>
+  <string name="dialog_title_lcd_density">LCD-Opléisung</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (Standard)</string>
   <string name="stylus_icon_enabled_title">Symbol uweise wann e Stëft benotzt gëtt</string>
   <string name="stylus_icon_enabled_summary">D\'Zeiger-Symbol uweise wann e Stëft benotzt gëtt</string>
   <string name="gestures_settings_title">Stëftgesten</string>
@@ -773,6 +779,7 @@
   <string name="category_lights">Beliichtung</string>
   <string name="power_usage_history_title">Akkunotzung</string>
   <string name="sim_ringtone_title">SIM %d Schelltoun</string>
+  <string name="none_is_silent_title">Weckeren ni roueg schalten</string>
   <string name="live_display_mode">Schiermmodus</string>
   <string name="live_display_color_temperature_title">Faarftemperatur</string>
   <string name="live_display_color_temperature_summary">Dag: <xliff:g id="day_temperature">%1$d</xliff:g>K  Nuecht: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
@@ -784,4 +791,17 @@
   <string name="live_display_enhance_color_title">Faarwe verstäerken</string>
   <string name="battery_saver_threshold">Schwellewäert vum Akkuschouner</string>
   <string name="battery_saver_summary_unavailable">Beim Oplueden net disponibel</string>
+  <string name="anonymous_statistics_warning_title">Iwwer</string>
+  <string name="enable_reporting_title">Berichter aschalten</string>
+  <string name="preview_data_title">Virschau vun den Donnéeën</string>
+  <string name="view_stats_title">Statistike kucken</string>
+  <string name="anonymous_learn_more">Méi gewuer ginn</string>
+  <string name="preview_id_title">Eendeiteg ID</string>
+  <string name="preview_device_title">Apparat</string>
+  <string name="preview_version_title">Versioun</string>
+  <string name="preview_country_title">Land</string>
+  <string name="preview_carrier_title">Provider</string>
+  <string name="heads_up_notifications">Pop-Up-Notifikatiounen</string>
+  <string name="summary_heads_up_enabled">Pop-Up-Notifikatioune sinn aktivéiert</string>
+  <string name="summary_heads_up_disabled">Pop-Up-Notifikatioune sinn deaktivéiert</string>
 </resources>
