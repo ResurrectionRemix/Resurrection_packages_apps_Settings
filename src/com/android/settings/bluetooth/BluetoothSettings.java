@@ -187,6 +187,10 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
         if (mBluetoothEnabler != null) {
             mBluetoothEnabler.resume(getActivity());
         }
+        if (mLocalAdapter != null) {
+            // enable page and inquiry scan
+            mLocalAdapter.setScanMode(BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE);
+        }
         super.onResume();
 
         mInitiateDiscoverable = true;
