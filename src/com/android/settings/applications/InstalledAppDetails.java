@@ -325,7 +325,7 @@ public class InstalledAppDetails extends Fragment
         } else {
             mMoveAppButton.setText(R.string.move_app_to_sdcard);
             mCanBeOnSdCardChecker.init();
-            moveDisable = !mCanBeOnSdCardChecker.check(mAppEntry.info);
+            moveDisable = !mCanBeOnSdCardChecker.check(mPackageInfo);
         }
         if (moveDisable || mAppControlRestricted) {
             mMoveAppButton.setEnabled(false);

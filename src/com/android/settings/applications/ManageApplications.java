@@ -100,14 +100,14 @@ final class CanBeOnSdCardChecker {
         }
     }
     
-    boolean check(ApplicationInfo info) {
+    boolean check(PackageInfo info) {
         boolean canBe = false;
-        if (!PackageHelper.isExternalInstallPossible()) {
-            // Don't even bother checking the other cases, no media is available
-        } else if ((info.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) != 0) {
+        if (info.isThemeApk || !PackageHelper.isExternalInstallPossible()) {
+            // Don't even bother checking the other cases, no media is available or it's a theme
+        } else if ((info.applicationInfo.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) != 0) {
             canBe = true;
         } else {
-            if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            if ((info.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
                 if (info.installLocation == PackageInfo.INSTALL_LOCATION_PREFER_EXTERNAL ||
                         info.installLocation == PackageInfo.INSTALL_LOCATION_AUTO) {
                     canBe = true;
