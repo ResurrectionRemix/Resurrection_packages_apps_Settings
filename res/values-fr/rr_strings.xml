@@ -43,28 +43,6 @@
 
     <string name="status_bar_ticker_title">Bande des notifications</string>
     <string name="status_bar_ticker_summary">Animation du texte des notifications dans la barre de notifications</string>
-    
-    <!-- REVOIR -->
-    <!-- Heads up -->
-    <string name="heads_up_title">Heads up notification</string>
-    <string name="app_notification_enable_heads_up_title">Afficher heads up</string>
-    <string name="app_notification_enable_heads_up_summary">Afficher les notifications de cette application comme heads up</string>
-    <string name="heads_up_snooze_title">Minuterie de répétition</string>
-    <string name="heads_up_snooze_summary">Si le bouton répétition est pressé, désactiver Heads Up pour <xliff:g id="number">%d</xliff:g> minutes</string>
-    <string name="heads_up_snooze_disabled_summary">Minuterie de répétition est désactiver</string>
-    <string name="heads_up_snooze_3min">3 minutes</string>
-    <string name="heads_up_snooze_5min">5 minutes</string>
-    <string name="heads_up_snooze_10min">10 minutes</string>
-    <string name="heads_up_snooze_15min">15 minutes</string>
-    <string name="heads_up_snooze_20min">20 minutes</string>
-    <string name="heads_up_time_out_title">Délai</string>
-    <string name="heads_up_time_out_summary">Heads up notification vont s\'afficher pour <xliff:g id="number">%d</xliff:g> seconds</string>
-    <string name="heads_up_time_out_never_summary">Heads up notification vont s\'afficher jusqu\'à ce qu\'ils sont ignoré</string>
-    <string name="heads_up_time_out_4sec">4 seconds</string>
-    <string name="heads_up_time_out_6sec">6 seconds</string>
-    <string name="heads_up_time_out_8sec">8 seconds</string>
-    <string name="heads_up_time_out_10sec">10 seconds</string>
-    <string name="heads_up_time_out_never">Jamais</string>
 
     <!-- Lockscreen Shortcuts -->
     <string name="lockscreen_shortcuts_title"><b>Raccourcis</b></string>
@@ -225,7 +203,7 @@
     <string name="toast_GrowFadeBottom_animation">Fondu progressif du bas</string>
     <string name="toast_Translucent_animation">Animation translucide</string>
     
-    <!-- Network traffic -->
+    <!-- StatusBar/Style - Network traffic -->
     <string name="network_traffic_title"><b>Trafic réseau</b></string>
     <string name="show_network_traffic_state">Moniteur de trafic sur la barre de notifications</string>
     <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
@@ -249,7 +227,7 @@
     <string name="network_traffic_autohide_summary">Cacher le moniteur de trafic quand il n\'y a aucune activité</string>
     <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
     
-    <!-- ListView animation -->
+    <!-- Divers/Animations - ListView animation -->
     <string name="listview_category"><b>Animation des ListView</b></string>
     <string name="listview_animation_title">Animation des ListView</string>
     <string name="listview_off">OFF</string>
@@ -264,7 +242,7 @@
     <string name="listview_translate_left">Traduire (Gauche)</string>
     <string name="listview_translate_right">Traduire (Droite)</string>
     
-   <!-- About RR -->
+    <!-- About RR -->
     <string name="about_rr_settings_title"><b>À propos de Resurrection</b></string>
     <string name="about_rr"><b>À propos de Resurrection</b></string>
     <string name="about_rr_summary">@null</string>
@@ -299,58 +277,102 @@
     <string name="rr_lockscreen_title"><b>Ecran de verrouillage</b></string>
     <string name="rr_performance_settings_title"><b>Performance</b></string>
     
-    <!-- QuickSettings: Quick Pulldown -->
+    <!-- StatusBar - QuickSettings: Quick Pulldown -->
     <string name="title_quick_pulldown">Glissement rapide</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status barre pulls down Quick Settings</string>
-    <string name="quick_pulldown_off">Off</string>
+    <string name="summary_quick_pulldown">Le bord %1$s de la barre de notifications afiche les notifications sans les paramètres rapide</string>
+    <string name="quick_pulldown_off">Eteint</string>
     <string name="quick_pulldown_left">Gauche</string>
-    <string name="quick_pulldown_right">Droite</string>
+    <string name="quick_pulldown_right">Droit</string>
     <string name="block_on_secure_keyguard_title">Désactiver sur l\'écran de verrouillage</string>
-    <string name="block_on_secure_keyguard_summary">Désactiver les paramètre rapide sur l\écran de verrouillage sécurisé</string> 
+    <string name="block_on_secure_keyguard_summary">Désactiver les paramètres rapide sur l\écran de verrouillage sécurisé</string> 
     
-    <!-- QuickSettings: Smart Pulldown -->
-    <string name="smart_pulldown_title">Glissement intelligent </string>
-    <string name="smart_pulldown_summary">Ouvrir les paramètre rapide quand il y  a %1$s de notifications present</string>
-    <string name="smart_pulldown_off">Off</string>
+    <!-- StatusBar - QuickSettings: Smart Pulldown -->
+    <string name="smart_pulldown_title">Glissement intelligent</string>
+    <string name="smart_pulldown_summary">Ouvrir les paramètres rapide quand il y a des notifications %1$s présentes</string>
+    <string name="smart_pulldown_off">Eteint</string>
     <string name="smart_pulldown_dismissable">Non ignorable</string>
-    <string name="smart_pulldown_persistent">Non persistent</string>
-    <string name="smart_pulldown_all">Ni ignoble ni  persistent</string>        
+    <string name="smart_pulldown_persistent">Non persistente</string>
+    <string name="smart_pulldown_all">Non ignorable et Non persistente</string>
+    
     <!-- Share RR ROM -->
-    <string name="share_rr">Partager Rom</string>
-    <string name="share_rr_summary">Laisser vos amis savoirs que vous utilisez  Resurrection Rom</string>
-    <string name="share_message">Tester Resurrection Rom! http://forum.resurrectionremix.com/</string>
+    <string name="share_rr">Partager la ROM</string>
+    <string name="share_rr_summary">Laisser vos amis savoir que vous utilisez la ROM Resurrection</string>
+    <string name="share_message">Essayez la ROM Resurrection ! http://forum.resurrectionremix.com/</string>
     <string name="share_chooser_title">Partager Resurrection Remix via..</string>
-    <!-- carrier label -->
-    <string name="show_status_bar_carrier_title">Nom operateur</string>
-    <string name="show_status_bar_carrier_summary">Afficher le nom opérateur dans la barre de notifications</string>
-    <string name="status_bar_carrier_color">Couleur du nom de l\opérateur</string>    
-    <!-- ListView interpolator -->
-    <string name="listview_interpolator_title"> Interpolateur ListView</string>
-    <string name="listview_accelerate_interpolator">Interpolateur  Accelerate </string>
-    <string name="listview_decelerate_interpolator">Interpolateur  Decelerate</string>
-    <string name="listview_accelerate_decelerate_interpolator">Interpolateur  Accelerate decelerate </string>
-    <string name="listview_anticipate_interpolator">Anticiper l\'Interpolateur</string>
+    
+    <string name="widgets_category">Widgets</string>
+    
+    <!-- StatusBar/Style - Show carrier label and custom -->
+    <string name="carrier_options_category_title">Afficher l'étiquette opérateur</string>
+    <string name="carrier_options"><b>Etiquette opérateur</b></string>
+    <string name="show_status_bar_carrier_title">Afficher opérateur</string>
+    <string name="show_status_bar_carrier_summary">Afficher le nom d\'opérateur dans la barre de notifications</string>
+    <string name="custom_carrier_label_title">Etiquette opérateur personnalisée</string>
+    <string name="custom_carrier_label_explain">Entrez une nouvelle étiquette. Laissez blanc pour retrouver l'étiquette par défaut.</string>
+    <string name="custom_carrier_label_notset">Etiquette personalisée non définie actuellement</string>
+    <string name="status_bar_carrier_color">Couleur de l'étiquette</string> 
+    
+    <!-- Divers/Animations - ListView interpolator -->
+    <string name="listview_interpolator_title">Interpolateur ListView</string>
+    <string name="listview_accelerate_interpolator">Accelerate interpolator</string>
+    <string name="listview_decelerate_interpolator">Decelerate interpolator</string>
+    <string name="listview_accelerate_decelerate_interpolator">Accelerate decelerate interpolator</string>
+    <string name="listview_anticipate_interpolator">Anticipate interpolator</string>
     <string name="listview_overshoot_interpolator">Overshoot interpolator</string>
-    <string name="listview_anticipate_overshoot_interpolator">Anticiper overshoot l\'Interpolateur</string>
-    <string name="listview_bounce_interpolator">Faite balancer Interpolateur</string>   
+    <string name="listview_anticipate_overshoot_interpolator">Anticipate overshoot interpolator</string>
+    <string name="listview_bounce_interpolator">Bounce interpolator</string>   
 
     
     <string name="rr_navbar_title">Option de la barre de navigation</string>
     <string name="rr_statusbar_title">Options de la barre de notifications</string>
+    
+    <!-- OBSOLETE -->
+    <!-- Heads up -->
+    <string name="heads_up_snooze_title">Minuterie de répétition</string>
+    <string name="heads_up_snooze_summary">Si le bouton répétition est pressé, désactiver Heads Up pour <xliff:g id="number">%d</xliff:g> minutes</string>
+    <string name="heads_up_snooze_disabled_summary">Minuterie de répétition est désactiver</string>
+    <string name="heads_up_snooze_3min">3 minutes</string>
+    <string name="heads_up_snooze_5min">5 minutes</string>
+    <string name="heads_up_snooze_10min">10 minutes</string>
+    <string name="heads_up_snooze_15min">15 minutes</string>
+    <string name="heads_up_snooze_20min">20 minutes</string>
+    
+    <!-- Heads Up -->
+    <string name="category_heads_up">Notifications tête haute</string>
+    <string name="summary_heads_up_enabled">Les notification pop-up sont activés</string>
+    <string name="summary_heads_up_disabled">Les notification pop-up sont désactivés</string>
+    <string name="add_heads_up_package">Ajouter une application</string>
+    <string name="add_heads_up_dnd_summary">Ne pas montrer les notifications tête haute dans ces applications</string>
+    <string name="add_heads_up_blacklist_summary">Ne pas montrer les notifications tête haute depuis ces applications</string>
+    <string name="heads_up_dnd_title">Ne pas déranger</string>
+    <string name="heads_up_blacklist_title">Liste noire</string>
+    <string name="heads_up_disabled_notice">Pour autoriser les applications à afficher des notifications interactives dans une fenêtre pop-up sur l'écran, activez les notifications tête haute.</string>
+
+    <!-- Heads up timeout -->
+    <string name="heads_up_time_out_title">Délai</string>
+    <string name="heads_up_time_out_summary">Les notifications tête haute vont s'afficher pour <xliff:g id="number">%d</xliff:g> secondes</string>
+    <string name="heads_up_time_out_never_summary">Les notifications tête haute vont s'afficher jusqu\'à ce qu\'elle soient ignorées</string>
+    <string name="heads_up_time_out_2sec">2 secondes</string>
+    <string name="heads_up_time_out_4sec">4 secondes</string>
+    <string name="heads_up_time_out_6sec">6 secondes</string>
+    <string name="heads_up_time_out_8sec">8 secondes</string>
+    <string name="heads_up_time_out_10sec">10 secondes</string>
+    <string name="heads_up_time_out_never">Jamais</string>
    
     <!-- interface categories -->
-    <string name="fullscreen_keyboard_title">Clavier plain écran</string>
-    <string name="fullscreen_keyboard_summary">Afficher un clavier plain écran en mod landscape</string>   
+    <string name="fullscreen_keyboard_title">Clavier plein écran</string>
+    <string name="fullscreen_keyboard_summary">Afficher un clavier plein écran en mode paysage</string>
+    
    <!-- Navigation Bar Dimensions -->
-    <string name="navigation_bar_dimensions_reset_message">Rétablir tout les dimension au valeur par défaut?</string>
-    <string name="navigation_bar_dimensions_title"><b>Dimension de la barre de navigation</b></string>
+    <string name="navigation_bar_dimensions_reset_message">Rétablir toutes les dimensions entrées aux valeurs par défaut ?</string>
+    <string name="navigation_bar_dimensions_title"><b>Dimensions de la barre de navigation</b></string>
     <string name="navigation_bar_dimensions_title_summary">Modifier la taille de la barre de navigation</string>
-    <string name="navigation_bar_height_title">Hauteur de la barre de navigation</string>
-    <string name="navigation_bar_height_summary">Hauteur de la barre de navigation en mode portrait  </string>
-    <string name="navigation_bar_height_landscape_title">Hauteur de la barre de navigation landscape</string>
-    <string name="navigation_bar_height_landscape_summary">Hauteur de la barre de navigation en mode landscape.</string>
+    <string name="navigation_bar_height_title">Hauteur de la barre de navigation portrait</string>
+    <string name="navigation_bar_height_summary">Hauteur de la barre de navigation en mode portrait.</string>
+    <string name="navigation_bar_height_landscape_title">Hauteur de la barre de navigation paysage</string>
+    <string name="navigation_bar_height_landscape_summary">Hauteur de la barre de navigation en mode paysage.</string>
     <string name="navigation_bar_width_title">Largeur de la barre de navigation</string>
-    <string name="navigation_bar_width_summary">Hauteur de la barre de navigation si elle est au long d\'un coté en mode landscape</string>
+    <string name="navigation_bar_width_summary">Hauteur de la barre de navigation si elle est au long d\'un coté en mode paysage</string>
     <string name="navigation_bar_size_48_dp_default">48 dp (par défaut)</string>
     <string name="navigation_bar_size_44_dp">44 dp</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (par défaut)</string>
@@ -360,34 +382,40 @@
     <string name="navigation_bar_size_30_dp">30 dp</string>
     <string name="navigation_bar_size_24_dp">24 dp</string>
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
-    <string name="navbar_enable_bar">Activer</string>
-    <string name="navbar_enable_bar_summary">Activer ou désactiver la barre de navigarion</string>
+    <string name="nav_bar_title">Barre de navigation</string>
+    <string name="navbar_enable_bar_title">Boutons de la barre de navigation</string>
+    <string name="navbar_enable_bar_summary">Activer à l'écran les boutons de la barre de navigation</string>
+    
+    <!-- Ability to disable hardware keys via nav bar settings -->
+    <string name="hw_keys_title">Boutons matériels (Hardware)</string>
+    <string name="hw_keys_summary">Activer les boutons matériels (hardware)</string>
     
     <!-- Battery saver -->
-    <string name="battery_saver_title">Couleur d\alerte </string>
-    <string name="battery_saver_style_reset_message">Rétablir la couleur des alertes de la batterie ?</string> 
+    <string name="battery_saver_title">Couleur d\'alerte</string>
+    <string name="battery_saver_style_reset_message">Rétablir la couleur des alertes de la batterie ?</string>
+    
     <!-- Slim lockscreen shortcuts -->
     <string name="shortcut_action_none">Aucun</string>
-    <string name="shortcut_action_longpress">Appuis long:</string>
-    <string name="shortcut_action_select_action_longpress">Choisissez l\'action sur appuis long:</string>
-    <string name="shortcut_action_select_action">Choisir une action:</string>
-    <string name="shortcut_action_select_action_newaction">Choisir une nouvel action:</string>
+    <string name="shortcut_action_longpress">Appui long :</string>
+    <string name="shortcut_action_select_action_longpress">Choisissez l\'action sur appui long :</string>
+    <string name="shortcut_action_select_action">Choisir une action :</string>
+    <string name="shortcut_action_select_action_newaction">Choisir une nouvelle action :</string>
     <string name="shortcut_action_reset">Rétablir</string>
-    <string name="shortcut_action_add">Ajouté</string>
-    <string name="shortcut_action_reset_message">Rétablir toute les entrer à zéro?</string>
-    <string name="shortcut_action_max">Le nombre maximum des entrer atteint </string>
-    <string name="shortcut_action_warning">Allert</string> 
-    <string name="shortcut_action_warning_message">Cette entrer ne peut pas être supprimé</string> 
-    <string name="shortcut_action_disable_message">Désactiver\nAjouté une entrer pour activer ceci</string> 
-    <string name="shortcut_image_not_valid">L\application choisi n\'a pas envoyé d\'icon ou ne support pas le coupage d\'image veuillez choisir une autre applicaion</string> 
-    <string name="shortcut_duplicate_entry">L\'application ne peut pas être choisi deux fois</string> 
-    <string name="shortcut_action_help_shortcut">Raccourcis</string> 
-    <string name="shortcut_action_help_button">Bouton</string> 
-    <string name="shortcut_action_help_app">Application</string> 
-    <string name="shortcut_action_help_icon">Quand une icon est choisi les paramètre de customisation seront affiché</string> 
-    <string name="shortcut_action_help_main">Pour ajouté une %1$s, sélectionné ajouté une icône. Une fois une %1$s est ajoutée, la sélection de la ligne va changer %2$s de la cible\n\n pour supprimer %1$s, swiper la ligne horizontal vers la droite ou vers la gauche. Réorganisez %1$s dans la liste en déblaçant le symble sur la gauche vers le haut ou vers le bas.\n\npour revenir au paramètre pas défaut choisisez rétablir paramètre par défaut.</string> 
-    <string name="shortcut_action_help_delete_last_entry">Supprimé tout  %1$s dans la liste va désactivé cette option totalement</string> 
-    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Retrait tout %1$s dans la liste désactive la seconde couche de PIE entièrement.</string>
+    <string name="shortcut_action_add">Ajouter</string>
+    <string name="shortcut_action_reset_message">Rétablir toutes les entrées à zéro ?</string>
+    <string name="shortcut_action_max">Le nombre maximum d'entrées à été atteint</string>
+    <string name="shortcut_action_warning">Alerte</string> 
+    <string name="shortcut_action_warning_message">Cette entrée ne peut pas être supprimée</string> 
+    <string name="shortcut_action_disable_message">Désactiver\nAjoutez une entrée pour activer ceci</string> 
+    <string name="shortcut_image_not_valid">L\'application choisie ne retourne pas d'icone valide ou ne supporte pas le redimensionnement d\'image. Utilisez une autre applicaion.</string> 
+    <string name="shortcut_duplicate_entry">L\'action choisie ne peut pas être ajoutée deux fois.</string> 
+    <string name="shortcut_action_help_shortcut">raccourci</string> 
+    <string name="shortcut_action_help_button">bouton</string> 
+    <string name="shortcut_action_help_app">application</string> 
+    <string name="shortcut_action_help_icon">Quand une icone est choisie les paramètre de personnalisation seront affichés</string> 
+    <string name="shortcut_action_help_main">Pour ajouter une %1$s, sélectionnez l'icone d'ajout. Une fois une %1$s est ajoutée, la sélection de la ligne va changer %2$s de la cible\n\n pour supprimer %1$s, swiper la ligne horizontale vers la droite ou vers la gauche. Réorganisez %1$s dans la liste en déplaçant le symbole sur la gauche vers le haut ou vers le bas.\n\nPour revenir aux paramètres par défaut, choisisez rétablir paramètres par défaut.</string> 
+    <string name="shortcut_action_help_delete_last_entry">Supprimer tout %1$s dans la liste va désactiver cette option totalement.</string> 
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Supprimer tout %1$s dans la liste va désactiver la seconde couche du menu circulaire entièrement.</string>
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Sélectionnez application personnalisée</string>
     <string name="shortcuts_icon_picker_type">Sélectionnez le type d\'icône:</string>
