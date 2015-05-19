@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-   resurrection_strings.xml
-   
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2 of the License, or
-   (at your option) any later version.
-   
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-   
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-   MA 02110-1301, USA.
+<!-- Copyright (C) 2012-2015 Resurrection Remix ROM Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-    
+   
+   <!-- General strings -->
     <string name="ok">OK</string>
     <string name="reset">Rétablir</string>
     <string name="add">Ajouté</string>
@@ -29,12 +22,29 @@
     <string name="help">Aide</string>
     <string name="reset_message">Tout effacer</string>
     <string name="choose_app">Choisissez une application</string>
+    
+    <string name="hw_cat">Matériel (Hardware)</string>
+    
+    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Afficher infos CPU</string>
+    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Ecran overlay montrant les infos courantes du CPU</string>
+        
+    <string name="advanced">Avancé</string>
+    <string name="advanced_mode_title">Mode avancé</string>
+    <string name="advanced_mode_summary">@null</string>
+    
+    <string name="lockscreen_shortcuts_categories">Raccourcis</string>
+    <string name="rr_lockscreen_targets_message_summary">Ré-arrange les raccourcis en bas de l'écran de verouillage</string>
+    
     <!-- LockClocK -->
     <string name="lock_clock_title">Paramètres du widget horloge</string>
     <string name="lock_clock_summary">Afficher ou modifier la façon dont le widget horloge va s\'afficher.</string>
 
-    <string name="status_bar_ticker_title">Notification Ticker</string>
-    <string name="status_bar_ticker_summary">Animation du text des Notification dans la barre des taches</string>    
+    <string name="status_bar_ticker_title">Bande des notifications</string>
+    <string name="status_bar_ticker_summary">Animation du texte des notifications dans la barre de notifications</string>
+    
+    <!-- REVOIR -->
     <!-- Heads up -->
     <string name="heads_up_title">Heads up notification</string>
     <string name="app_notification_enable_heads_up_title">Afficher heads up</string>
@@ -58,46 +68,62 @@
 
     <!-- Lockscreen Shortcuts -->
     <string name="lockscreen_shortcuts_title"><b>Raccourcis</b></string>
-    <string name="lockscreen_shortcuts_summary">Voir ou changer les raccourcis d\'écran de verrouillage personnalisé</string>
-    <string name="lockscreen_shorcuts_longpress_title">Appuis long sur le raccourcis</string>
-    <string name="lockscreen_shorcuts_longpress_summary">Ouvrir les raccourcis personalisé de l\'écran de verouillage à l\'appuis long</string>
-
+    <string name="lockscreen_shortcuts_summary">Voir ou changer les raccourcis d\'écran de verrouillage personnalisés</string>
+    <string name="lockscreen_shorcuts_longpress_title">Appui long sur le raccourcis</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Ouvrir les raccourcis personalisés de l\'écran de verouillage à l\'appuis long</string>
+    
+    <!-- OBSOLETE -->
     <!-- Lockscreen pin shuffle -->
     <string name="lock_numpad_random_title">Changer l\'ordre des numéros sur la pad PIN</string>
     <string name="lock_numpad_random_off">Désactivé</string>
     <string name="lock_numpad_random_dialog_title">PIN pad avec ordre aléatoire</string>
     <string name="lock_numpad_random_always">Toujours</string>
     <string name="lock_numpad_random_on_request">Sur demande </string>
+    
     <!-- Slim settings screens -->
-    <string name="header_category_personalization">Personalization</string>
+    <string name="header_category_personalization">Personnalisation</string>
     <string name="interface_settings_title">Interface</string>
+    
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Son à la capture d\'écran</string>
-    <string name="screenshot_sound_summary">Jouer un son lors d\'un prise de capture d\'écran</string>
+    <string name="screenshot_sound_summary">Jouer un son lors d\'une capture d\'écran</string>
+    
     <!-- Color Picker -->
-    <string name="dialog_color_picker">Choisir une couleur</string>
+    <string name="dialog_color_picker_title">Couleurs</string>
     <string name="press_color_to_apply">Appuyez sur la couleur ci-dessous pour appliquer</string>
+    <string name="palette_custom_title">Personalisée</string>
+    <string name="palette_material_title">Prédéfinie</string>
+    <string name="palette_rgb_title">RGB</string>
+    <string name="reset_android_title">Par défaut (Android)</string>
+    <string name="reset_custom_title">Par défaut (Personalisée)</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
+    <string name="hex">Hex :</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Choisir</string>
-    <string name="color_default">Default</string>
+    
     <!-- Superuser indicator-->
-    <string name="su_indicator">Indicateur Superuser </string>
-    <string name="su_indicator_summary">Afficher une indication quand une session super utilisateur est en cours</string>
+    <string name="su_indicator">Indicateur Superuser</string>
+    <string name="su_indicator_summary">Afficher une indication quand une session super utilisateur est active</string>
+    
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="device_settings_title">Appareil</string>
     <string name="rr_mod_version">Version de la ROM Resurrection</string>
+    
     <!-- Status bar -->
-    <string name="status_bar_title"><b>La Barre de notifications</b></string>
+    <string name="status_bar_title"><b>Barre de notifications</b></string>
     <string name="status_bar_style_title">Style et Tweaks</string>
-    <string name="rr_cat_title">Personalizer</string>
+    <string name="rr_cat_title">Personnaliser</string>
     <string name="status_bar_style_title">Style</string>
     
+    <!-- Navigation bar button color -->
+    <string name="navbar_button_tint_title">Teinte des boutons de navigation</string>   
+    
+    <!-- OBSOLETE -->
     <!--Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Verrouillage rapide</string>
     <string name="unlock_quick_unlock_control_summary">Déverrouiller automatiquement lorsque le code PIN / mot de passe correct est entré</string>
+    
     <!-- misc -->
     <string name="misc_settings_title"><b>Divers</b></string>
     <string name="interface_settings_title"><b>Interface</b></string>
@@ -106,86 +132,107 @@
     <string name="listview_category_summary">Choisissez la liste des animations des défilements et interpolateurs</string>
     <string name="status_bar_title_summary">Personnaliser la date de l\'horloge et moniteur de trafic etc</string>
     <string name="changelog_title"><b>Changements</b></string>
-    <string name="changelog_loading">Chargement des changelog...</string>
-    <string name="changelog_error">Impossible de charger le changelog</string>
+    <string name="changelog_title_summary">Voir les changements réçents de la ROM</string>
+    <string name="changelog_loading">Chargement du journal des changements (changelog)...</string>
+    <string name="changelog_error">Impossible de charger le journal des changements (changelog)</string>
     <string name="changelog_unknown">Inconnu</string>
     <string name="changelog_version">Version</string>
+    
+    <!-- Status bar greeting -->
+    <string name="status_bar_greeting_category_title">Message de salutation</string>
+    <string name="status_bar_greeting_title">Salutation</string>
+    <string name="status_bar_greeting_summary">Affiche un message de salutation personalisé dans la barre de notifications après avoir débloqué l'appareil</string>
+    <string name="status_bar_greeting_dialog">Choisissez votre message de salutation</string>
+    <string name="status_bar_greeting_main">Resurrection Remix ツ</string>
+    <string name="status_bar_greeting_timeout_title">Temps du message de salutation</string>
+    
+    <!-- Statusbar logo -->
+    <string name="status_bar_logo_title">Affiche le logo RR</string>
+    <string name="status_bar_logo_summary">Activer pour afficher le logo RR dans le côté droit de la barre de notifications</string>
+    <string name="status_bar_logo_color">Couleur du logo RR</string>
+    
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Date et Heure</b></string>
-    <string name="status_bar_clock_title">Style de la Date et l\'Heure</string>
+    <string name="status_bar_clock_title">Style de la date et de l\'heure</string>
     <string name="clock_title_enable">Alignement</string>
     <string name="clock_enabled">Activer</string>
     <string name="clock_disabled">Désactiver</string>
     <string name="clock_color_title">Couleur</string>
     <string name="status_bar_clock_style_reset">Rétablir la couleur</string>
-    <string name="status_bar_show_clock_title">Afficher la date de l\'heure</string>
+    <string name="status_bar_show_clock_title">Afficher la date et l\'heure</string>
+    <string name="status_bar_show_clock_second_title">Secondes</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
-    <string name="status_bar_am_pm_info">Horloge 24-heure est activé</string>
+    <string name="status_bar_am_pm_info">Horloge 24-heures est activé</string>
     <string name="enable_clock_weekday">Jours de semaine</string>
     <string name="enable_clock_weekday_summary">Abrégé le jour de la semaine avant l\'heure</string>
     <string name="right_clock">Horloge à droite</string>
     <string name="center_clock">Centrer l\'horloge</string>
     <string name="dont_show">Ne pas afficher</string>
     <string name="clock_date_display">Date</string>
-    <string name="clock_date_display_summary">Afficher une date personnalisé avant l\'horloge</string>
+    <string name="clock_date_display_summary">Afficher une date personnalisée avant l\'horloge</string>
     <string name="clock_date_style">Style de la date</string>
     <string name="clock_date_format">Format de la date</string>
-    <string name="clock_date_string_edittext_title">Dois ètre dans un format valide eg. MM/jj/aaaa</string>
-    <string name="clock_date_string_edittext_summary">Entrer le text</string>
-    <string name="am_pm_clock_normal">Taille de la police Normal</string>
+    <string name="clock_date_string_edittext_title">Dois être dans un format valide comme MM/dd/yy</string>
+    <string name="clock_date_string_edittext_summary">Entrer la chaine</string>
+    <string name="am_pm_clock_normal">Taille de la police Normale</string>
     <string name="am_pm_clock_small">Taille de la police Petite</string>
     <string name="am_pm_clock_none">Ne pas afficher</string>
     <string name="clock_date_display_none">Ne pas afficher</string>
     <string name="clock_date_display_small">Taille de la police Petite</string>
-    <string name="clock_date_display_normal">Taille de la police Normal</string>
-    <string name="clock_date_style_normal">Normal</string>
+    <string name="clock_date_display_normal">Taille de la police Normale</string>
+    <string name="clock_date_style_normal">Normale</string>
     <string name="clock_date_style_lowercase">Minuscule</string>
     <string name="clock_date_style_uppercase">Majuscule</string>
-    <string name="clock_date_format_custom">Format jav personalisé</string>
-    <string name="status_bar_clock_style_reset_message">Rétablir la couleur de l\horloge?</string>
+    <string name="clock_date_format_custom">Format java personnalisé</string>
+    <string name="status_bar_clock_style_reset_message">Rétablir l\'horloge ?</string>
+    
     <!-- StatusbarClock -->
-    <string name="clock_font_style_title">Font</string>
+    <string name="clock_font_style_title">Police</string>
     <string name="clock_font_bold">Par défaut</string>
-    <string name="clock_font_light">Lumineux</string>
+    <string name="clock_font_light">Light</string>
     <string name="clock_font_normal">Sans serif</string>
-    <string name="clock_font_condensed">Condensé</string>
-    <string name="clock_font_light_italic">Italic Lumineux</string>
-    <string name="clock_font_resurrection">Font Resurrection </string>   
+    <string name="clock_font_condensed">Condensed</string>
+    <string name="clock_font_light_italic">Light Italic</string>
+    <string name="clock_font_resurrection">Police Resurrection</string>
+    
     <!-- Show/Hide Search Bar -->
-    <string name="recents_show_searchbar">Désactiver la barre de recherche dans le Menu récent</string>
-    <string name="recents_show_searchbar_summary">Activer ou désactiver la barre de recherche Google dans le menu recents</string>
+    <string name="recents_show_searchbar">Désactiver la barre de recherche dans le menu des écrans réçents</string>
+    <string name="recents_show_searchbar_summary">Activer ou désactiver la barre de recherche Google dans le menu des écrans réçents</string>
     <string name="keywords_recents_show_searchbar">Désactiver la barre de recherche dans applications recentes</string>
+    
     <!-- Keyguard Notification Settings -->
     <string name="app_notification_show_on_keyguard_title">Afficher sur l\'écran de verrouillage</string>
-    <string name="app_notification_show_on_keyguard_summary">Afficher notifications de cette application sur l\'écran de verrouillage</string>
-    <string name="app_notification_no_ongoing_on_keyguard_title">Désactiver en cours sur l\'écran de verrouillage</string>
-    <string name="app_notification_no_ongoing_on_keyguard_summary">Ne jamais afficher en cours de cette application sur l\'écran de verrouillage</string>
+    <string name="app_notification_show_on_keyguard_summary">Afficher les notifications de cette application sur l\'écran de verrouillage</string>
+    <string name="app_notification_no_ongoing_on_keyguard_title">Désactiver le suivi sur l\'écran de verrouillage</string>
+    <string name="app_notification_no_ongoing_on_keyguard_summary">Ne jamais afficher les notifications de cette application sur l\'écran de verrouillage</string>
     <string name="rr_settings_title"><b>Outils Resurrection</b></string>
+    
     <!-- Toast animations -->
     <string name="toast_animation_title">Animations Toast</string>
-    <string name="toast_animation_summary">Sélectionner et afficher les animation toasts Système </string>
+    <string name="toast_animation_summary">Sélectionner et afficher les animation toasts système </string>
     <string name="toast_none_animation">Aucune</string>
     <string name="toast_default_animation">Par défaut</string>
     <string name="toast_fade_animation">Fondu</string>
     <string name="toast_SlideRight_animation">Glisser vers la droite</string>
     <string name="toast_SlideLeft_animation">Glisser vers la gauche</string>
     <string name="toast_Xylon_animation">Animation Xylon</string>
-    <string name="toast_Toko_animation">Animation Toko </string>
-    <string name="toast_Tn_animation">Animation Tn </string>
-    <string name="toast_Honami_animation">Honami animation </string>
+    <string name="toast_Toko_animation">Animation Toko</string>
+    <string name="toast_Tn_animation">Animation Tn</string>
+    <string name="toast_Honami_animation">Animation Honami</string>
     <string name="toast_FastFade_animation">Fondu rapide</string>
     <string name="toast_GrowFade_animation">Fondu progressif</string>
     <string name="toast_GrowFadeCenter_animation">Fondu progressif du centre</string>
     <string name="toast_GrowFadeBottom_animation">Fondu progressif du bas</string>
     <string name="toast_Translucent_animation">Animation translucide</string>
+    
     <!-- Network traffic -->
     <string name="network_traffic_title"><b>Trafic réseau</b></string>
-    <string name="show_network_traffic_state">Moniteur de trafic sur la barre d\'état</string>
+    <string name="show_network_traffic_state">Moniteur de trafic sur la barre de notifications</string>
     <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
     <string name="network_traffic_color_style">Style de couleur</string>
     <string name="network_traffic_color_reset">Rétablir la couleur</string>
-    <string name="network_traffic_color_reset_message">Appliquer la couleur par défait ?</string>
-    <string name="network_traffic_summary">Activer diverses options de trafic réseau dans la barre d\'état</string>
+    <string name="network_traffic_color_reset_message">Rétablir la couleur par défaut ?</string>
+    <string name="network_traffic_summary">Activer diverses options de trafic réseau dans la barre de notifications</string>
     <string name="show_network_traffic_unit">Unité d\'affichage</string>
     <string name="show_network_traffic_frequency">Intervalle de mise à jour</string>
     <string name="show_network_traffic_disable">Désactivé</string>
@@ -193,7 +240,7 @@
     <string name="show_network_traffic_down">Entrant</string>
     <string name="show_network_traffic_all">Sortant et entrant</string>
     <string name="show_network_traffic_bit">Bits par seconde</string>
-    <string name="show_network_traffic_byte">Bytes par seconde</string>
+    <string name="show_network_traffic_byte">Octets par seconde</string>
     <string name="show_network_traffic_500">500 ms</string>
     <string name="show_network_traffic_1000">1000 ms</string>
     <string name="show_network_traffic_1500">1500 ms</string>
@@ -201,6 +248,7 @@
     <string name="network_traffic_autohide">Masqué automatiquement</string>
     <string name="network_traffic_autohide_summary">Cacher le moniteur de trafic quand il n\'y a aucune activité</string>
     <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
+    
     <!-- ListView animation -->
     <string name="listview_category"><b>Animation des ListView</b></string>
     <string name="listview_animation_title">Animation des ListView</string>
@@ -216,13 +264,13 @@
     <string name="listview_translate_left">Traduire (Gauche)</string>
     <string name="listview_translate_right">Traduire (Droite)</string>
     
-       <!-- About RR -->
+   <!-- About RR -->
     <string name="about_rr_settings_title"><b>À propos de Resurrection</b></string>
     <string name="about_rr"><b>À propos de Resurrection</b></string>
     <string name="about_rr_summary">@null</string>
-    <string name="about_r0m_summary">Tout sur la Rom</string>
-    <string name="rr_donate">Aider les dev avec une donation ?</string>
-    <string name="rr_donate_summary">Montrez votre supportau devs. de Resurrection ROM</string>
+    <string name="about_r0m_summary">Tout sur la ROM</string>
+    <string name="rr_donate">Donner pour aider les développeurs</string>
+    <string name="rr_donate_summary">Montrez votre support au développeurs de la ROM Resurrection</string>
     <string name="app_name"><b>Resurrection</b></string>
     <string name="devs">Développeur principal</string>
     <string name="github_westcrip">https://github.com/westcripp</string>
@@ -233,7 +281,7 @@
     <string name="github_t4n017">https://github.com/t4n017</string>
     <string name="rr">Liens</string>
     <string name="rr_website_title">Site Web</string>
-    <string name="rr_website_summary">Avoir davantage d\'information sur Resurrection ROM</string>
+    <string name="rr_website_summary">Obtenir plus d\'information sur la ROM Resurrection</string>
     <string name="rr_forum_title">Forum</string>
     <string name="rr_forum_summary">Être membre du forum Resurrection</string>
     <string name="rr_source_title">Github</string>
@@ -241,16 +289,17 @@
     <string name="rr_irc_title">Rejoignez-moi sur IRC</string>
     <string name="rr_irc_summary">#aokp-sgs2 @ irc.freenode.net</string>
     <string name="rr_facebook_title">Facebook</string>
-    <string name="rr_facebook_summary">Facebook community</string>
+    <string name="rr_facebook_summary">Communauté Facebook</string>
     <string name="rr_google_plus_title">Google+</string>
-    <string name="rr_google_plus_summary">Google+ community</string>
-    <string name="maincontributors_title">Developeur</string>
-    <string name="maintainer_categorie_title">Appareil Officiel</string>
-    <string name="sourcebase_title">Source Base</string>
+    <string name="rr_google_plus_summary">Communauté Google+</string>
+    <string name="maincontributors_title">Développeurs</string>
+    <string name="maintainer_categorie_title">Appareils officiels</string>
+    <string name="sourcebase_title">Source de base</string>
     <string name="title_about"><b>À propos de Resurrection</b></string>
     <string name="rr_lockscreen_title"><b>Ecran de verrouillage</b></string>
     <string name="rr_performance_settings_title"><b>Performance</b></string>
-<!-- QuickSettings: Quick Pulldown -->
+    
+    <!-- QuickSettings: Quick Pulldown -->
     <string name="title_quick_pulldown">Glissement rapide</string>
     <string name="summary_quick_pulldown">%1$s edge of the status barre pulls down Quick Settings</string>
     <string name="quick_pulldown_off">Off</string>
@@ -258,6 +307,7 @@
     <string name="quick_pulldown_right">Droite</string>
     <string name="block_on_secure_keyguard_title">Désactiver sur l\'écran de verrouillage</string>
     <string name="block_on_secure_keyguard_summary">Désactiver les paramètre rapide sur l\écran de verrouillage sécurisé</string> 
+    
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Glissement intelligent </string>
     <string name="smart_pulldown_summary">Ouvrir les paramètre rapide quand il y  a %1$s de notifications present</string>
@@ -272,7 +322,7 @@
     <string name="share_chooser_title">Partager Resurrection Remix via..</string>
     <!-- carrier label -->
     <string name="show_status_bar_carrier_title">Nom operateur</string>
-    <string name="show_status_bar_carrier_summary">Afficher le nom opérateur dan la barre d\état</string>
+    <string name="show_status_bar_carrier_summary">Afficher le nom opérateur dans la barre de notifications</string>
     <string name="status_bar_carrier_color">Couleur du nom de l\opérateur</string>    
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title"> Interpolateur ListView</string>
@@ -286,7 +336,7 @@
 
     
     <string name="rr_navbar_title">Option de la barre de navigation</string>
-    <string name="rr_statusbar_title">Options de la barre d\'état</string>
+    <string name="rr_statusbar_title">Options de la barre de notifications</string>
    
     <!-- interface categories -->
     <string name="fullscreen_keyboard_title">Clavier plain écran</string>
