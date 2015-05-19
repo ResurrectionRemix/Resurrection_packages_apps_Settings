@@ -256,11 +256,11 @@
     <string name="block_on_secure_keyguard_summary">Disattivare i tiles sulla lockscreen</string> 
     <!-- QuickSettings: Smart Pulldown -->
     <string name="smart_pulldown_title">Discesa intelligente</string>
-    <string name="smart_pulldown_summary">Aprire Impostazioni rapide quando non ci sono %1$s notifiche presenti</string>
+    <string name="smart_pulldown_summary">Open Quick Settings when there are %1$s notifications present</string>
     <string name="smart_pulldown_off">Spento</string>
-    <string name="smart_pulldown_dismissable">Non eliminabili</string>
-    <string name="smart_pulldown_persistent">Non persistenti</string>
-    <string name="smart_pulldown_all">Non eliminabili ne persistenti</string>        
+    <string name="smart_pulldown_dismissable">No eliminabili</string>
+    <string name="smart_pulldown_persistent">No persistente</string>
+    <string name="smart_pulldown_all">No dismissable or persistent</string>        
     <!-- Share RR ROM -->
     <string name="share_rr">Condividi Rom</string>
     <string name="share_rr_summary">Lasciate che la gente sa che utilizzate la Resurrection Rom</string>
@@ -862,74 +862,4 @@
     
     <string name="recents_show_membar_title">Barra memoria</string>
     <string name="recents_show_membar_summary">Mostra una barra con la memoria a disposizione del dispositivo</string>
-    <!-- Lock Gesture settings -->
-    <!-- Security & location settings screen, setting option name -->
-    <string name="lockgesture_change_lock_pattern_label">Cambia gesture di sblocco</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
-    <string name="lockgesture_change_lock_pin_label">Cambia PIN sblocco</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
-    <string name="lockgesture_need_to_unlock">Conferma gesture salvata</string>
-    <!-- Do not translate. -->
-    <string name="lockgesture_need_to_unlock_footer" />
-    <!-- Security & location settings screen, change unlock gesture screen instruction if user draws incorrect pattern -->
-    <string name="lockgesture_need_to_unlock_wrong">Riprova:</string>
-    <!-- Do not translate. -->
-    <string name="lockgesture_need_to_unlock_wrong_footer" />
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen.  This si when they are supposed to draw a new unlock pattern (for example, if they are changing their unlock patterns)..-->
-    <string name="lockgesture_recording_intro_header">Disegna una gesture di sblocco:</string>
-    <!-- Security & location settings screen, change unlock gesture screen hint on bottom of screen.  We are telling them to press the menu button to see more options or help. -->
-    <string name="lockgesture_recording_intro_footer">Premi Menu per aiuto.</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen while drawing pattern -->
-    <string name="lockgesture_recording_inprogress">Rilasciare il dito quando fatto.</string>
-    <!-- Security & location settings screen, change unlock gesture screen message on top of screen after drawing pattern -->
-    <string name="lockgesture_pattern_entered_header">Gesture registrata.</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen to confirm pattern -->
-    <string name="lockgesture_need_to_confirm">Disegna di nuovo la gesture per confermare:</string>
-    <string name="lockgesture_pattern_confirmed_header">Il tuo nuovo gesture di sblocco:</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  When they are ready to draw it once again to confirm it, they press this button. -->
-    <string name="lockgesture_confirm_button_text">Conferma</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  If they are nto satisfied with this pattern, they click this button to redraw the pattern. -->
-    <string name="lockgesture_restart_button_text">Ridisegna</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. If they are supposed to enter their current gesture before being able to draw another one, and they screw up, they hit this button to try again -->
-    <string name="lockgesture_retry_button_text">Riprova</string>
-    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. Once they draw a new gesture and confirm it by drawing it again, they press this button to exit -->
-    <string name="lockgesture_continue_button_text">Continua</string>
-    <!-- Security & location settings screen, unlock screen activity title -->
-    <string name="lockgesture_settings_title">Sblocca gesture</string>
-    <!-- Security & location settings screen, setting check box title if the unlock pattern MUST be drawn everytime they turn on the screen -->
-    <string name="lockgesture_settings_enable_title">Richiesta gesture</string>
-    <!-- Security & location settings screen, setting summary for the checkbox "Require pattern" -->
-    <string name="lockgesture_settings_enable_summary">Disegnare la gesture per sbloccare lo schermo</string>
-   <!-- Security & location settings screen, setting check box title. This setting controls whether a visible gesture is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
-    <string name="lockgesture_settings_enable_visible_pattern_title">Rendi gesture visibile</string>
-    <!-- Security & location settings screen, setting check box title. This controls whether the device locks immediately when the power button is pressed. [CHAR LIMIT=28]-->
-    <string name="lockgesture_settings_enable_power_button_instantly_locks">Pulsante di alimentazione blocca istantaneamente</string>
-    <!-- Security & location settings screen, setting option name when user has never set an unlock gesture -->
-    <string name="lockgesture_settings_choose_lock_pattern">Imposta gesture di sblocco</string>
-    <!-- Security & location settings screen, setting option name when user has previously set an unlock gesture and wants to change to a new pattern -->
-    <string name="lockgesture_settings_change_lock_pattern">Cambia gesture di sblocco</string>
-    <!-- Security & location settings screen, the help instructions (an animation) caption -->
-    <string name="lockgesture_settings_help_how_to_record">Disegna una gesture per sbloccare</string>
-    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen after too many incorrect attempts -->
-    <string name="lockgesture_too_many_failed_confirmation_attempts_header">Troppi tentativi errati!</string>
-    <!-- Security & location settings screen, change unlock gesture screen countdown hint on bottom of screen after too many incorrect attempts -->
-    <string name="lockgesture_too_many_failed_confirmation_attempts_footer">Riprovare tra <xliff:g id="number">%d</xliff:g> secondi.</string>
-    <!-- Toast shown if setting gesture was successful -->
-    <string name="lockpassword_gesture_set_toast">Gesture impostato</string>
-    <!-- Header on gesture confirm screen [CHAR LIMIT=30] -->
-    <string name="lockpassword_confirm_your_gesture_header">Conferma la tua gesture</string>
-    <!-- Header on first screen of choose gesture flow [CHAR LIMIT=30] -->
-    <string name="lockpassword_choose_your_gesture_header">Disegna la tua gesture</string>
-
-    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=22] -->
-    <string name="unlock_set_unlock_gesture_title">Gesture</string>
-    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=45] -->
-    <string name="unlock_set_unlock_gesture_summary">Protezione bassa, sperimentale</string>
-
-    <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
-    <string name="unlock_set_unlock_mode_gesture">Gesture</string>
-    <!-- Notification drawer clear all icon -->
-    <string name="notification_drawer_clear_all_icon_color_title">Cancella tutte le icone</string>
-
 </resources>
-
