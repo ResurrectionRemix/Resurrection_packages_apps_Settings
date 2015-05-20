@@ -18,8 +18,6 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.content.Intent;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
@@ -38,7 +36,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.view.View;
-import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -69,7 +66,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
     private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
     private static final String KEY_LOGO_COLOR = "status_bar_logo_color";
-    private static final String KEY_SHOW_TICKER = "notif_system_icons_show_ticker";
     
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
@@ -78,8 +74,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private SwitchPreference mStatusBarGreeting;
     private SeekBarPreferenceCham mStatusBarGreetingTimeout;
     private ColorPickerPreference mLogoColor;
-    private SwitchPreference mShowTicker;
-    
+
     private String mCustomGreetingText = "";
 
     private static final String TAG = "StatusBar";
@@ -100,15 +95,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-
-        PackageManager pm = getPackageManager();
-        Resources systemUiResources;
-        try {
-            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
-        } catch (Exception e) {
-            Log.e(TAG, "can't access systemui resources",e);
-            return;
-        }
 
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBatteryShowPercent =
@@ -151,13 +137,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarGreetingTimeout.setValue(statusBarGreetingTimeout / 1);
         mStatusBarGreetingTimeout.setOnPreferenceChangeListener(this);
 
-        mShowTicker = (SwitchPreference) prefSet.findPreference(KEY_SHOW_TICKER);
-        final boolean tickerEnabled = systemUiResources.getBoolean(systemUiResources.getIdentifier(
-                    "com.android.systemui:bool/enable_ticker", null, null));
-        mShowTicker.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_SHOW_TICKER, tickerEnabled ? 1 : 0) == 1);
-        mShowTicker.setOnPreferenceChangeListener(this);  
-
         mQuickPulldown = (ListPreference) findPreference(PREF_QUICK_PULLDOWN);
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         if (!DeviceUtils.isPhone(getActivity())) {
@@ -169,8 +148,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int statusQuickPulldown = Settings.System.getInt(getContentResolver(),
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
             mQuickPulldown.setValue(String.valueOf(statusQuickPulldown));
-            updateQuickPulldownSummary(statusQuickPulldown);          
-
+            updateQuickPulldownSummary(statusQuickPulldown);
+            
             // Smart Pulldown
             mSmartPulldown.setOnPreferenceChangeListener(this);
             int smartPulldown = Settings.System.getInt(getContentResolver(),
@@ -263,11 +242,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     resolver, Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, batteryShowPercent);
             mStatusBarBatteryShowPercent.setSummary(
                     mStatusBarBatteryShowPercent.getEntries()[index]);
-            return true;
-        } else if (preference == mShowTicker) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_TICKER,
-                    (Boolean) newValue ? 1 : 0);
             return true;
             } else if (preference == mQuickPulldown) {
              int statusQuickPulldown = Integer.valueOf((String) newValue);

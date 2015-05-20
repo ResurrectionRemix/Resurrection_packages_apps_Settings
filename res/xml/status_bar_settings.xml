@@ -37,11 +37,12 @@
         android:title="@string/su_indicator"
         android:summary="@string/su_indicator_summary"
         android:defaultValue="true" />    	                                
+
     <SwitchPreference
-        android:key="notif_system_icons_show_ticker"
-        android:title="@string/status_bar_ticker_title"
-        android:summary="@string/status_bar_ticker_summary"
-        android:defaultValue="true" />
+        android:key="block_on_secure_keyguard"
+        android:title="@string/block_on_secure_keyguard_title"
+        android:summary="@string/block_on_secure_keyguard_summary"
+        android:persistent="false" />
 
     <!-- Status bar logo -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -68,11 +69,6 @@
         android:entries="@array/smart_pulldown_entries"
         android:entryValues="@array/smart_pulldown_values"
         android:persistent="false" />       
-    <SwitchPreference
-        android:key="block_on_secure_keyguard"
-        android:title="@string/block_on_secure_keyguard_title"
-        android:summary="@string/block_on_secure_keyguard_summary"
-        android:persistent="false" />
 
     <PreferenceCategory
             android:title="@string/status_bar_greeting_category_title">
