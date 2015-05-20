@@ -347,6 +347,7 @@ public class DeviceAdminSettings extends ListFragment {
             }
             vh.checkbox.setEnabled(enabled);
             vh.name.setEnabled(enabled);
+            vh.name.setSelected(true);
             vh.description.setEnabled(enabled);
             vh.icon.setEnabled(enabled);
         }
