@@ -61,6 +61,12 @@
          android:key="recents_ui_oreo_recents_category"
          android:title="@string/oreo_recents_category">
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+         android:key="systemui_recents_mem_display"
+         android:title="@string/recents_show_membar_title"
+         android:summary="@string/recents_show_membar_summary"
+         android:defaultValue="false" />
+
     <com.rr.settings.preferences.SystemSettingSwitchPreference
         android:key="show_clear_all_recents"
         android:title="@string/show_clear_all_recents_button_title"
