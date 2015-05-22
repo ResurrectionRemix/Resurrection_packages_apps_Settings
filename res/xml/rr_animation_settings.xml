@@ -25,15 +25,22 @@
             android:fragment="com.android.settings.rr.SystemAnimations"
             android:title="@string/system_animations"
             android:summary="@string/system_animations_summary"
-			android:icon="@drawable/rr_animations_icon"
+            android:icon="@drawable/rr_animations_icon"
             />
+
+        <PreferenceScreen
+            android:key="interface_animation_scroll"
+            android:fragment="com.android.settings.rr.ScrollAnimationInterfaceSettings"
+            android:title="@string/scrolling_title"
+            android:summary="@string/scrolling_summary" 
+            android:icon="@drawable/rr_scroll_icon"/> 
  
         <PreferenceScreen
             android:key="rr_toast"
             android:fragment="com.android.settings.rr.ToastAnimations"
             android:title="@string/rr_toast_title"
             android:summary="@string/rr_toast_summary"
-			android:icon="@drawable/rr_toast_icon"
+            android:icon="@drawable/rr_toast_icon"
             />
 
         <PreferenceScreen
@@ -41,7 +48,7 @@
             android:fragment="com.android.settings.rr.PowerMenuAnimations"
             android:title="@string/rr_pm_animations_title"
             android:summary="@string/rr_power_anim_summary"
-			android:icon="@drawable/rr_power_anim_icon"
+            android:icon="@drawable/rr_power_anim_icon"
             />
 
          <ListPreference
