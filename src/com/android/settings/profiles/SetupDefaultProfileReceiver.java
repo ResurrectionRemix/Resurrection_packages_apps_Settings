@@ -24,7 +24,5 @@ public class SetupDefaultProfileReceiver extends BroadcastReceiver {
                 profileManager.updateProfile(defaultProfile);
             }
         }
-
-
     }
 }
