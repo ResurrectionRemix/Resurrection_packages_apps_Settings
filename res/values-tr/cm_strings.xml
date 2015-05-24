@@ -70,9 +70,9 @@
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
-  <string name="profile_volumeoverrides_title">Ses düzeyi zorlamaları</string>
-  <string name="volume_override_summary">%1$s/%2$s ayarla</string>
-  <string name="profile_volume_override_checkbox_label">Üstüne yazma sesi</string>
+  <string name="profile_volumeoverrides_title">Ses düzeyi değişimleri</string>
+  <string name="volume_override_summary">%1$s/%2$s</string>
+  <string name="profile_volume_override_checkbox_label">Ses düzeyini değiştir</string>
   <string name="profile_profiles_manage">Profiller</string>
   <string name="profile_profile_manage">Profili yönet</string>
   <string name="profile_settings">Profil ayarları</string>
@@ -95,7 +95,7 @@
   <string name="toggleGPS">GPS</string>
   <string name="toggleData">Veri bağlantısı</string>
   <string name="toggleSync">Otomatik veri eşitleme</string>
-  <string name="toggle2g3g4g">Tercih edilen şebeke tipi</string>
+  <string name="toggle2g3g4g">Tercih edilen şebeke türü</string>
   <string name="toggleNfc">NFC</string>
   <string name="button_pref_title">Tuşlar</string>
   <string name="hardware_keys_power_key_title">Güç tuşu</string>
@@ -125,7 +125,9 @@
   <string name="volbtn_cursor_control_on_reverse">Ses yukarı/aşağı imleci sağ/sola kaydırır</string>
   <string name="swap_volume_buttons_title">Yeniden ata</string>
   <string name="swap_volume_buttons_summary">Ekran döndürüldüğünde ses tuşlarını yer değiştir</string>
-  <string name="power_end_call_title">Çağrıyı Sonlandır</string>
+  <string name="volume_keys_control_ring_stream_title">Ses tuşları zil sesi düzeyini kontrol eder</string>
+  <string name="volume_keys_control_ring_stream_summary">Eğer açıksa, ses tuşları zil sesini ayarlar. Eğer kapalıysa, ses tuşları medya sesini ayarlar.</string>
+  <string name="power_end_call_title">Çağrıyı sonlandır</string>
   <string name="power_end_call_summary">Güç tuşuna basmak mevcut çağrıyı sonlandıracak</string>
   <string name="button_wake_title">Cihazı uyandır</string>
   <string name="button_wake_summary">Oynatma kontrolünü değiştir</string>
@@ -210,7 +212,7 @@
   <string name="sms_security_check_limit_summary">Uygulamalar onay almadan 30 dakikada en fazla %d mesaj gönderebilir</string>
   <string name="spam_added_title">%1$s eklendi</string>
   <string name="spam_last_blocked_title">En son %1$s engellendi</string>
-  <string name="block_notifications_title">Filtre bildirimleri</string>
+  <string name="block_notifications_title">Bildirimleri filtrele</string>
   <string name="block_notifications_summary">Yoksayılan bildirimleri ve filtreleri yönet</string>
   <string name="no_filters_title">Hiçbir filtre ayarlanmadı</string>
   <string name="cmupdate_settings_title">CyanogenMod güncellemeleri</string>
@@ -240,6 +242,7 @@
   <string name="privacy_guard_reset_text">İzinleri sıfırla?</string>
   <string name="privacy_guard_help_text">Bu ekranda Gizlilik Korumasının hangi uygulamalarda aktif olacağını basitçe dokunarak seçebilirsiniz. Seçili uygulamalar kişiler, mesajlar veya arama kaydı gibi kişisel bilgilerinize ulaşamayacaklar. Ögelere uzun dokunarak o uygulamalar için uygulama detayları penceresini açabilirsiniz.\n\nÖnyüklü uygulamalar varsayılan olarak gösterilmez ancak ilgili menü seçeneğiyle görüntülenebilirler.</string>
   <string name="privacy_guard_manager_show_system_apps">Dahili uygulamaları göster</string>
+  <string name="app_ops_btn_text">Değiştir</string>
   <string name="increasing_ring_volume_option_title">Artan zil sesi</string>
   <string name="increasing_ring_min_volume_title">Başlangıç sesi</string>
   <string name="increasing_ring_ramp_up_time_title">Yükselme zamanı</string>
@@ -335,7 +338,7 @@
   <string name="notification_light_default_value">Varsayılan</string>
   <string name="notification_light_missed_call_title">Cevapsız arama</string>
   <string name="notification_light_voicemail_title">Sesli mesaj</string>
-  <string name="notification_ringtone_title_cm">Bildirim tonu</string>
+  <string name="notification_ringtone_title_cm">Bildirim sesi</string>
   <string name="headset_connect_player_title">Müzik uygulamasını başlat</string>
   <string name="headset_connect_player_summary">Kulaklık bağlandığında müzik uygulamasını başlatır</string>
   <string name="ime_switcher_notify">Seçici simgesi</string>
@@ -470,11 +473,11 @@
   <string name="app_ops_categories_bootup">Açılış</string>
   <string name="app_ops_categories_su">Root erişimi</string>
   <string name="app_ops_permissions_allowed">İzin verildi</string>
-  <string name="app_ops_permissions_ignored">Görmezden geldi</string>
+  <string name="app_ops_permissions_ignored">Görmezden gelindi</string>
   <string name="app_ops_permissions_always_ask">Her zaman sor</string>
   <string name="ok">Tamam</string>
   <string name="profile_menu_delete_title">Sil</string>
-  <string name="profile_action_none">Değişmeden bırak</string>
+  <string name="profile_action_none">Değiştirme</string>
   <string name="profile_action_disable">Kapat</string>
   <string name="profile_action_enable">Aç</string>
   <string name="profile_trigger_a2dp_connect">A2DP bağlantısında</string>
@@ -500,9 +503,9 @@
   <string name="ringer_mode">Zil sesi modu</string>
   <string name="lights_mode">Işık modu</string>
   <string name="vibrate_mode">Titreşim modu</string>
-  <string name="choose_soundtone">Bildirim tonunu seçin</string>
+  <string name="choose_soundtone">Bildirim sesini seçin</string>
   <string name="choose_ringtone">Zil sesini seçin</string>
-  <string name="soundtone_title">Bildirim tonu</string>
+  <string name="soundtone_title">Bildirim sesi</string>
   <string name="no_bluetooth_triggers">Eşleştirilmiş bluetooth aygıtı yok.\nTetikleyicileri yapılandırmadan önce Bluetooth cihazı ile eşleştirmek için dokunun.</string>
   <string name="no_wifi_triggers">Hiç  Wi\u2011Fi erişim noktası yapılandırılmadı.\nTetikleyicileri yapılandırmadan önce  Wi\u2011Fi ağına bağlanmak için dokunun.</string>
   <string name="no_triggers_configured">Hiç tetikleyici ayarlanmadı. Eklemek için dokunun.</string>
@@ -647,6 +650,7 @@
   <string name="usb_charging_summary">Bilgisayar ile olan tüm veri aktarımlarını durdurur ve cihazı USB portu üzerinden şarj eder</string>
   <string name="usb_sdcard_title">Yığın depolama (UMS)</string>
   <string name="usb_sdcard_summary">SD kartınızı flash aygıtı şeklinde bağlayarak bilgisayarınız arasında dosya paylaşmanızı sağlar</string>
+  <string name="usb_not_connected">USB bağlı değil</string>
   <string name="external_storage_turn_on">Harici depolama açıldı</string>
   <string name="external_storage_turn_off">Harici depolama kapatıldı</string>
   <string name="stats_collection_title">İstatistikler</string>
@@ -654,7 +658,7 @@
   <string name="power_notifications_category_title">Güç sesleri</string>
   <string name="power_notifications_enable_title">Etkinleştir</string>
   <string name="power_notifications_enable_summary">Bir güç kaynağına bağlanırken ya da bağlantısını keserken bir ses çal</string>
-  <string name="power_notifications_vibrate_title">Titreş</string>
+  <string name="power_notifications_vibrate_title">Titre</string>
   <string name="power_notifications_ringtone_title">Bildirim sesi</string>
   <string name="power_notifications_ringtone_silent">Sessiz</string>
   <string name="voice_wakeup_settings_title">Sesle uyanma</string>
@@ -692,7 +696,7 @@
   <string name="unlock_quick_unlock_control_summary">Doğru PIN/şifre girildiğinde otomatik olarak kilidi aç</string>
   <string name="unlock_scramble_pin_layout_title">Düzeni karıştır</string>
   <string name="unlock_scramble_pin_layout_summary">Cihaz kilidini açarken PIN düzenini karıştırır</string>
-  <string name="link_volume_option_title">Zil sesi &amp; bildirim sesi düzeyini bağla</string>
+  <string name="link_volume_option_title">Zil sesi ile Bildirim sesi düzeyini bağla</string>
   <string name="notification_volume_option_title">Bildirim sesi</string>
   <string name="notification_drawer_title">Bildirim çekmecesi</string>
   <string name="quick_pulldown_title">Hızlı aşağı çekme</string>
@@ -730,11 +734,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Ekran zaman aşımı</string>
   <string name="qs_tile_usb_tether">USB İnternet Paylaşımı</string>
+  <string name="qs_tile_heads_up">Bildirim Pencereleri</string>
+  <string name="qs_tile_ambient_display">Bildirim ekranı</string>
   <string name="qs_main_tiles_title">İlk satırı büyüt</string>
   <string name="qs_main_tiles_summary_on">İlk satırdaki iki ana kare</string>
   <string name="qs_main_tiles_summary_off">Her satırdaki üç kare</string>
   <string name="qs_advanced_location_title">Gelişmiş konum ayarları</string>
   <string name="qs_advanced_location_summary">Hızlı Ayarlarda konum için gelişmiş ayarları etkinleştirin</string>
+  <string name="sim_no_number_set">Hiç numara atanmadı</string>
   <string name="gesture_settings_title">Kısayollar</string>
   <string name="themes_settings_title">Temalar</string>
   <string name="wifi_mode">Mod</string>
@@ -765,9 +772,14 @@
   <string name="lockscreen_choose_action_title">İşlev seçin</string>
   <string name="lockscreen_visualizer_title">Müzik görselleştiriciyi görüntüle</string>
   <string name="whisperpush_title">WhisperPush</string>
-  <string name="whisperpush_summary">Güvenli SMS ayarlarını yönet</string>
+  <string name="whisperpush_summary">Şifreli SMS ayarlarını yönet</string>
   <string name="navigation_ring_title">Dolaşım halkası uygulamaları</string>
   <string name="navigation_ring_message">Dolaşım halkasını düzenlemek için düzenleme simgesine dokunun.\n\nKısayol için bir uygulama seçin.\n\nDeğişikliklerinizi kaydetmek için \'\u2713\' simgesine dokunun ya da ayarları sıfırlamak için \'Varsayılanları geri yükle\'ye dokunun.</string>
+  <string name="lcd_density">LCD yoğunluğu</string>
+  <string name="dialog_title_lcd_density">LCD yoğunluğu</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (varsayılan)</string>
+  <string name="restarting_ui">Arayüz yeniden başlatılıyor\u2026</string>
   <string name="stylus_icon_enabled_title">Kalem kullanırken simge göster</string>
   <string name="stylus_icon_enabled_summary">Çizerken ya da üzerinde dururken işaretçi simgesi göster</string>
   <string name="gestures_settings_title">Kalem hareketleri</string>
@@ -803,11 +815,14 @@
   <string name="lockscreen_settings">Kilit ekranı</string>
   <string name="category_lights">Işıklar</string>
   <string name="power_usage_history_title">Pil kullanımı</string>
-  <string name="recents_show_searchbar">Son uygulamalar menüsünde arama çubuğu göster</string>
+  <string name="recents_show_searchbar">Son uyg. menüsünde arama çubuğu göster</string>
   <string name="keywords_recents_show_searchbar">arama etkin devre dışı arama çubuğu göster gizle son uygulamalar</string>
   <string name="sim_ringtone_title">SIM %d zil sesi</string>
   <string name="interruptions_ignore_while_media_title">Ses yankılanmasını önle</string>
   <string name="interruptions_ignore_while_media_summary">Bir bildirim geldiğinde medya oynatma ses seviyesini azaltma</string>
+  <string name="none_is_silent_title">Asla alarm sesini kapatma</string>
+  <string name="none_is_silent_summary">Sessiz modda alarmlar her zaman çalar</string>
+  <string name="allow_lights_title">Bildirim ışıklarına izin ver</string>
   <string name="live_display_summary">Okunabilirliği artırmak ve göz yorgunluğu azaltmak için gün ve ortam koşulları zamanına bağlı olarak ekranı iyileştirir</string>
   <string name="live_display_mode">Görüntü modu</string>
   <string name="live_display_color_temperature_title">Renk sıcaklığı</string>
@@ -837,4 +852,15 @@
   <string name="preview_version_title">Sürüm</string>
   <string name="preview_country_title">Ülke</string>
   <string name="preview_carrier_title">Operatör</string>
+  <string name="heads_up_notifications">Bildirim Pencereleri</string>
+  <string name="summary_heads_up_enabled">Açılabilir bildirimler etkinleştirildi</string>
+  <string name="summary_heads_up_disabled">Açılır bildirimler devre dışı bırakıldı</string>
+  <string name="master_clear_desc_cm" product="tablet">Bu işlem tabletinizin <b>dahili belleğinde</b> bulunan tüm verileri silecek, \n\n<li>Cihazdaki hesaplar</li>\n<li>Sistem ve uygulama veri ve ayarları</li>\n<li>İndirilen uygulamalar</li> dahil.</string>
+  <string name="master_clear_desc_cm" product="default">Bu işlem telefonunuzun<b>dahili belleğinde</b> bulunan tüm verileri silecek, \n\n<li>Cihazdaki hesaplar</li>\n<li>Sistem ve uygulama veri ve ayarları</li>\n<li>İndirilen uygulamalar</li> dahil.</string>
+  <string name="lock_to_cyanogen_title">Cihaz Koruması</string>
+  <string name="lock_to_cyanogen_summary">Fabrika sıfırlamasından sonra bile Cyanogen İS hesap şifresini gerektirir</string>
+  <string name="lock_to_cyanogen_create_account_msg">Cihazınız bir fabrika sıfırlamasından sonra bile cihazı korumak için Cyanogen İS hesap şifresini kullanır. Bir Cyanogen İS hesabı oluşturmanız gerekecek.</string>
+  <string name="lock_to_cyanogen_disable_msg">Bu özelliği kapatmak telefonunuz çalındığında yetkilendirilmemiş kullanıcıların telefonunuzu fabrika ayarlarına sıfırlamasına izin verecektir. Kişisel verileriniz korunamayabilir. Bu özelliği kapatmak istiyor musunuz?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Cihaz Koruması etkin. Cihazınızı sıfırlamaya devam etmek için lütfen korumayı kapatın.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Bağlantı hatası; bu cihazda Bluetooth İnt. Payl. etkin mi?</string>
 </resources>

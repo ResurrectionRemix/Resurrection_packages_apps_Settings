@@ -125,6 +125,8 @@
   <string name="volbtn_cursor_control_on_reverse">Volume op/af beweeg por regs/links</string>
   <string name="swap_volume_buttons_title">Herorienteer</string>
   <string name="swap_volume_buttons_summary">Ruil volume knoppies om wanneer die skerm geroteer word</string>
+  <string name="volume_keys_control_ring_stream_title">Volume-knoppies beheer luitoon volume</string>
+  <string name="volume_keys_control_ring_stream_summary">As aan, volume knoppies kontroleur luitoon volume. As af, volume knoppies beheer media volume.</string>
   <string name="power_end_call_title">Beëindig oproep</string>
   <string name="power_end_call_summary">Druk van krag knoppie sal die huidige oproep beëindig</string>
   <string name="button_wake_title">Wakker maak van toestel</string>
@@ -159,9 +161,14 @@
   <string name="sunlight_enhancement_summary">Verbeter helderheid van die skerm en leesbaarheid onder helder sonlig</string>
   <string name="color_enhancement_title">Kleur verbetering</string>
   <string name="color_enhancement_summary">Dinamiese verbeter die kleur van die skerm</string>
+  <string name="blacklist_title">Lys geblokkeerde oproepers</string>
+  <string name="blacklist_edit_dialog_title">Verander geblokkeerde foon nommer</string>
   <string name="blacklist_prefs">Instellings</string>
   <string name="blacklist_button_delete">Verwyder</string>
+  <string name="blacklist_empty_text">Daar is geen geblokkeerde nommers nie. Voeg \'n inskrywing by deur die aanraking van die \"Voeg by\"(+) knoppie.</string>
+  <string name="blacklist_disabled_empty_text">Om te verhoed dat persone jou skakel of boodskappe stuur, aktiveer die blokkeer lys opsie.</string>
   <string name="blacklist_summary_disabled">Gedeaktiveer</string>
+  <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
   <string name="blacklist_notify">Wys kennisgewing</string>
   <string name="blacklist_private_numbers_title">Private nommers</string>
   <string name="blacklist_private_numbers_summary_disabled">Moet nie oproepe van private nommers blokkeer nie</string>
@@ -176,7 +183,9 @@
   <string name="blacklist_regex_summary">Gebruik . as \'n joker en * vir herhaling. Bv 123.* blokkeer nommers wat begin met 123 en .*123.* blokkeer nommers wat 123 bevat</string>
   <string name="blacklist_policy_block_calls">Blokkeer inkomende oproepe</string>
   <string name="blacklist_policy_block_messages">Blokkeer inkomende boodskappe</string>
+  <string name="blacklist_bad_number_add">Kan nie ongeldig telefoonnommer byvoeg by blokkeer lys nie</string>
   <string name="remove_blacklist_number_title">Verwyder nommer</string>
+  <string name="remove_blacklist_entry">Wil jy hierdie geblokkeerde telefoonnommer verwyder?</string>
   <string name="select_contact">Kies kontak</string>
   <string name="lockpattern_reset_button">Herstel patroon</string>
   <string name="lockpattern_settings_reset_summary">Tik primêre e-pos rekening en gepaardgaande wagwoord om patroon slot te herstel</string>
@@ -213,6 +222,8 @@
   <string name="update_recovery_off_warning">WAARSKUWING: Wanneer hierdie funksie afgeskakel is, sal jou geïnstalleerde recovery nie opgedateer word met Beheer Stelsel (BS) opgraderings nie.\n\nToekomstige BS opdaterings kan dalk nie geïnstalleer word met verouderde of persoonlike recovery weergawes nie.\n\nWil jy regtig hierdie funksie af skakel?</string>
   <string name="mod_version">CyanogenMod weergawe</string>
   <string name="mod_version_default">Onbekend</string>
+  <string name="device_model">Toestel tipe</string>
+  <string name="device_name">Toestel naam</string>
   <string name="build_date">Bou datum</string>
   <string name="contributor_cloud_title">Bydraers</string>
   <string name="phone_service_state">Stem: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -231,6 +242,7 @@
   <string name="privacy_guard_reset_text">Herstel regte?</string>
   <string name="privacy_guard_help_text">Selekteer vir watter programme Privaatheidswag geaktiveer is deur die program ikoon te raak. Geselekteerde programme sal nie toegang tot persoonlike data soos kontakte, boodskappe en oproep geskiedenis kan kry nie. Lang-raak op \'n program om die program besonderhede te sien.\n\nBy verstek word interne programme uitgesluit. Om die filters vir sigbare programme te verander, selekteer die toepaslike opsies in die kieslys.</string>
   <string name="privacy_guard_manager_show_system_apps">Sluit interne programme in</string>
+  <string name="app_ops_btn_text">Verander</string>
   <string name="increasing_ring_volume_option_title">Toenemende luitoon volume</string>
   <string name="increasing_ring_min_volume_title">Begin volume</string>
   <string name="increasing_ring_ramp_up_time_title">Tydsduur</string>
@@ -721,11 +733,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Skerm afsnytyd</string>
   <string name="qs_tile_usb_tether">USB internet verbinding</string>
+  <string name="qs_tile_heads_up">Loer boodskap</string>
+  <string name="qs_tile_ambient_display">Omgewingstemperatuur skerm</string>
   <string name="qs_main_tiles_title">Vergroot eerste ry</string>
   <string name="qs_main_tiles_summary_on">Twee hoof teëls op die eerste ry</string>
   <string name="qs_main_tiles_summary_off">Drie teëls op elke ry</string>
   <string name="qs_advanced_location_title">Gevorderde ligging-instellings</string>
   <string name="qs_advanced_location_summary">Aktiveer gevorderde instellings vir ligging in Vinnige instellings</string>
+  <string name="sim_no_number_set">Geen nommer toegeken</string>
   <string name="gesture_settings_title">Gebare</string>
   <string name="themes_settings_title">Temas</string>
   <string name="wifi_mode">Modus</string>
@@ -759,6 +774,11 @@
   <string name="whisperpush_summary">Bestuur veilige SMS-instellings.</string>
   <string name="navigation_ring_title">Navigasie ring teikens</string>
   <string name="navigation_ring_message">Tik die wysig ikoon om die navigasie ring vir redigering oop te maak.\n\nKies \'n teiken om sy gedrag op te stel.\n\nTik die \'\u2713\' ikoon om die veranderinge te stoor of \'Herstel standaard\' om die instellings te herstel.</string>
+  <string name="lcd_density">LCD digtheid</string>
+  <string name="dialog_title_lcd_density">LCD digtheid</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (standaard)</string>
+  <string name="restarting_ui">Herbegin koppelvlak\u2026</string>
   <string name="stylus_icon_enabled_title">Toon ikoon tydens die gebruik van \'n stilus</string>
   <string name="stylus_icon_enabled_summary">Wys die wyser ikoon wanneer beweeg of skets met die stilus</string>
   <string name="gestures_settings_title">Stilus-gebare</string>
@@ -799,6 +819,9 @@
   <string name="sim_ringtone_title">SIM %d luitoon</string>
   <string name="interruptions_ignore_while_media_title">Verhoed oudio \'ducking\'</string>
   <string name="interruptions_ignore_while_media_summary">Moet nie media terugspeel volume verminder wanneer \'n kennisgewing arriveer</string>
+  <string name="none_is_silent_title">Moet nooit wekkers afskakel nie</string>
+  <string name="none_is_silent_summary">Stil modus sal altyd wekkers laat afgaan</string>
+  <string name="allow_lights_title">Laat kennisgewing liggies toe</string>
   <string name="live_display_summary">Optimaliseer jou skerm gebaseer op die tyd van die dag en die omringende omstandighede om leesbaarheid te verbeter en verminder oogspanning</string>
   <string name="live_display_mode">Skerm modus</string>
   <string name="live_display_color_temperature_title">Kleurtemperatuur</string>
@@ -815,4 +838,28 @@
   <string name="battery_saver_threshold">Battery spaarder grens</string>
   <string name="battery_saver_summary">Verminder werkverrigting en beperk agtergrond data</string>
   <string name="battery_saver_summary_unavailable">Nie beskikbaar tydens laai</string>
+  <string name="anonymous_statistics_title">CyanogenMod statistieke</string>
+  <string name="anonymous_statistics_summary">Help CyanogenMod verbeter deur anonieme statistiek verslagdoening te kies</string>
+  <string name="anonymous_statistics_warning_title">Aangaande</string>
+  <string name="anonymous_statistics_warning">Deur CyanogenMod statistieke toe te laat sal nie-persoonlike data ingestuur word na die ontwikkelaars van CyanogenMod installasies. Die inligting sluit in \'n unieke identifikasienommer in wat nie privaatheid of persoonlike data in gevaar stel nie. Die data word ingestuur tydens elke \'boot\'.\n\nVir \'n voorbeeld van die data wat ingestuur word, raak Voorskou.</string>
+  <string name="enable_reporting_title">Aktiveer verslaggewing</string>
+  <string name="preview_data_title">Voorskou</string>
+  <string name="view_stats_title">Kyk na statistieke</string>
+  <string name="anonymous_learn_more">Leer meer</string>
+  <string name="preview_id_title">Unieke ID</string>
+  <string name="preview_device_title">Toestel</string>
+  <string name="preview_version_title">Weergawe</string>
+  <string name="preview_country_title">Land</string>
+  <string name="preview_carrier_title">Draer</string>
+  <string name="heads_up_notifications">Loer boodskap</string>
+  <string name="summary_heads_up_enabled">Loer boodskap kennisgewings aangeskakel</string>
+  <string name="summary_heads_up_disabled">Loar boodskap kennisgewings is afgeskakel</string>
+  <string name="master_clear_desc_cm" product="tablet">Hierdie sal alle data verwyder van jou tablet se <b>interne spasie</b>, insluitende:\n\n<li>Jou tablet rekeninge</li>\n<li> Stelsel data, program data en instellings</li>\n<li>Afgelaaide programme</li></string>
+  <string name="master_clear_desc_cm" product="default">Hierdie sal alle data verwyder van jou foon se <b>interne spasie</b>, insluitende:\n\n<li>Jou foon rekeninge</li>\n<li> Stelsel data, program data en instellings</li>\n<li>Afgelaaide programme</li></string>
+  <string name="lock_to_cyanogen_title">Toestel beskerming</string>
+  <string name="lock_to_cyanogen_summary">Benodig u Cyanogen OS wagwoord selfs nadat \'n fabriekterugstelling gebeur het</string>
+  <string name="lock_to_cyanogen_create_account_msg">U toestel gebruik die Cyanogen OS wagwoord om jou toestel te beskerm, selfs in die geval van \'n fabriekterugstelling. Jy sal nodig hê om \'n Cyanogen OS rekening te skep.</string>
+  <string name="lock_to_cyanogen_disable_msg">Afskakeling van hierdie funksie sal toelaat dat ongemagtigde gebruikers jou selfoon te sal herstel na die fabriek instellings as dit gesteel word. Jou persoonlike data kan nie beskerm word nie. Wil jy hierdie funksie afskakel?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Toestel beskerming is aangeskakel. Skakel asb af om jou stelsel te herstel na fabriek instellings.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Koppel fout; is Bluetooth deling aangeskakel op hierdie toestel?</string>
 </resources>

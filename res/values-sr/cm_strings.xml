@@ -127,6 +127,8 @@
   <string name="volbtn_cursor_control_on_reverse">Дугмићи за јачину звука покрећу курсор десно/лево</string>
   <string name="swap_volume_buttons_title">Преусмеравање</string>
   <string name="swap_volume_buttons_summary">Замени дугмиће за јачину звука када се екран ротира</string>
+  <string name="volume_keys_control_ring_stream_title">Тастери за јачину звука контролишу Јачину звона</string>
+  <string name="volume_keys_control_ring_stream_summary">Ако је укључено дугмад за јачину звука контролишу јачину тона звона. Искључено контролишу јачину медија.</string>
   <string name="power_end_call_title">Заврши позив</string>
   <string name="power_end_call_summary">Притискање дугмета за напајање ће завршити тренутни позив</string>
   <string name="button_wake_title">Пробуди уређај</string>
@@ -161,9 +163,14 @@
   <string name="sunlight_enhancement_summary">Повећај осветљеност екрана и читљивост при јакој сунчевој светлости</string>
   <string name="color_enhancement_title">Унапређење боје</string>
   <string name="color_enhancement_summary">Динамично унапреди боју на екрану</string>
+  <string name="blacklist_title">Листа блокираних саговорника</string>
+  <string name="blacklist_edit_dialog_title">Преуреди блокиране бројеве телефона</string>
   <string name="blacklist_prefs">Подешавања</string>
   <string name="blacklist_button_delete">Избриши</string>
+  <string name="blacklist_empty_text">Немаш никакве бројеве на црној листи. Додај унос додиром на дугме Додај (+).</string>
+  <string name="blacklist_disabled_empty_text">Да спречиш телефонски број да те позове или пошаље поруку омогући листу блокираних саговорника.</string>
   <string name="blacklist_summary_disabled">Онемогућено</string>
+  <string name="blacklist_summary">Нећеш примити позив или поруку са телефонског броја на листи блокираних саговорника</string>
   <string name="blacklist_notify">Прикажи обавештења</string>
   <string name="blacklist_private_numbers_title">Приватни бројеви</string>
   <string name="blacklist_private_numbers_summary_disabled">Немој блокирати позиве из приватних бројева</string>
@@ -178,7 +185,9 @@
   <string name="blacklist_regex_summary">Користи . као џокер и * за понављање. На пример 123 * блокира бројеве који почињу са 123 и .*123.* блокира бројеве које садрже 123</string>
   <string name="blacklist_policy_block_calls">Блокирај долазне позиве</string>
   <string name="blacklist_policy_block_messages">Блокирај одлазне позиве</string>
+  <string name="blacklist_bad_number_add">Не можеш унети неправилан број у листу блокираних саговорника</string>
   <string name="remove_blacklist_number_title">Уклони број</string>
+  <string name="remove_blacklist_entry">Да ли желиш уклонити овај блокирани број телефона?</string>
   <string name="select_contact">Изабери контакт</string>
   <string name="lockpattern_reset_button">Ресетуј шаблон</string>
   <string name="lockpattern_settings_reset_summary">Унеси примарни налог е-поште и повезану лозинку да ресетујеш шаблон закључавања</string>
@@ -215,6 +224,8 @@
   <string name="update_recovery_off_warning">УПОЗОРЕЊЕ: Када је ова опција онемогућена, твој инсталиран опоравак неће бити ажуриран са надоградњом OS-а.\n\nБудуће ОС исправке се можда не могу инсталирати са застарелим или прерађеном верзијом опоравка.\n\nДа ли заиста желите да искључите ову функцију?</string>
   <string name="mod_version">CyanogenMod верзија</string>
   <string name="mod_version_default">Непознато</string>
+  <string name="device_model">Модел уређаја</string>
+  <string name="device_name">Име уређаја</string>
   <string name="build_date">Датум израде</string>
   <string name="contributor_cloud_title">Сарадници</string>
   <string name="phone_service_state">Глас: <xliff:g id="voice_state">%1$s</xliff:g>, податак: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -233,6 +244,7 @@
   <string name="privacy_guard_reset_text">Ресетуј дозволе?</string>
   <string name="privacy_guard_help_text">У овом екрану можеш одабрати која апликација заштите приватности треба да буде активна са једноставним додиром. Изабране апликације неће моћи да приступе твојим личним подацима, као што су контакти, поруке или евиденција позива. Дугим притиском при уласку отварају се детаљи за ту апликацију.\n\nУ уграђеним апликацијама није приказано као подразумевано, али може бити подешено избором одговарајућих опција у менију.</string>
   <string name="privacy_guard_manager_show_system_apps">Прикажи уграђене апликације</string>
+  <string name="app_ops_btn_text">Преуреди</string>
   <string name="increasing_ring_volume_option_title">Појачавање тона звона</string>
   <string name="increasing_ring_min_volume_title">Стартна гласноћа</string>
   <string name="increasing_ring_ramp_up_time_title">Време појачавања</string>
@@ -640,6 +652,7 @@
   <string name="usb_charging_summary">Онемогућава сав пренос података са рачунаром и пуни уређај преко USB порта</string>
   <string name="usb_sdcard_title">Масовно складиште (UMS)</string>
   <string name="usb_sdcard_summary">Омогућава да преносиш све датотеке између рачунара и SD картице монтирањем као флеш уређај</string>
+  <string name="usb_not_connected">USB није конектован</string>
   <string name="external_storage_turn_on">Спољно складиште је укључено</string>
   <string name="external_storage_turn_off">Спољно складиште је искључено</string>
   <string name="stats_collection_title">Колекција статистике</string>
@@ -723,11 +736,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Искључивање екрана</string>
   <string name="qs_tile_usb_tether">USB привезивање</string>
+  <string name="qs_tile_heads_up">Искачуће поруке</string>
+  <string name="qs_tile_ambient_display">Амбијент приказ</string>
   <string name="qs_main_tiles_title">Повећај први ред</string>
   <string name="qs_main_tiles_summary_on">Два главне плочице у првом реду</string>
   <string name="qs_main_tiles_summary_off">Три плочице у сваком реду</string>
   <string name="qs_advanced_location_title">Напредна подешавања локације</string>
   <string name="qs_advanced_location_summary">Омогући напредне поставке локације у брзом подешавању</string>
+  <string name="sim_no_number_set">Нема додељеног броја</string>
   <string name="gesture_settings_title">Гестови</string>
   <string name="themes_settings_title">Теме</string>
   <string name="wifi_mode">Режим</string>
@@ -761,6 +777,11 @@
   <string name="whisperpush_summary">Управљање безбедним SMS подешавањима</string>
   <string name="navigation_ring_title">Циљеви навигационог круга</string>
   <string name="navigation_ring_message">Додирни уређивање иконе да отвориш навигациони круг за уређивање.\n\nИзабери циљ да конфигуришеш понашање.\n\nДодирни \'\u2713\' икону да сачуваш промене или \'Врати подразумевано\' да ресетујеш подешавања на подразумевано.</string>
+  <string name="lcd_density">LCD густина</string>
+  <string name="dialog_title_lcd_density">LCD густина</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (подразумевано)</string>
+  <string name="restarting_ui">Рестартовање UI\u2026</string>
   <string name="stylus_icon_enabled_title">Прикажи икону када користим оловку</string>
   <string name="stylus_icon_enabled_summary">Прикажи икону курсора када лебдим или цртам помоћу оловке</string>
   <string name="gestures_settings_title">Гестови оловке</string>
@@ -801,6 +822,9 @@
   <string name="sim_ringtone_title">SIM %d мелодија</string>
   <string name="interruptions_ignore_while_media_title">Онемогући утишавање аудиа</string>
   <string name="interruptions_ignore_while_media_summary">Немој утишати јачину репродукције медија када обавештење пристигне</string>
+  <string name="none_is_silent_title">Никад утишавати аларме</string>
+  <string name="none_is_silent_summary">Нечујни режим увек остави аларме</string>
+  <string name="allow_lights_title">Дозволи светла обавештења</string>
   <string name="live_display_summary">Оптимизуј екран у складу са дневним и просторним приликама да побољшаш читљивост и умањиш замарање очију</string>
   <string name="live_display_mode">Режим екрана</string>
   <string name="live_display_color_temperature_title">Температура боје</string>
@@ -830,4 +854,15 @@
   <string name="preview_version_title">Верзија</string>
   <string name="preview_country_title">Земља</string>
   <string name="preview_carrier_title">Оператер</string>
+  <string name="heads_up_notifications">Искачуће поруке</string>
+  <string name="summary_heads_up_enabled">Искачућа обавештења су омогућена</string>
+  <string name="summary_heads_up_disabled">Искачућа обавештења су онемогућена</string>
+  <string name="master_clear_desc_cm" product="tablet">Ово ће избрисати све податке са твог таблета <b>унутрашњег складишта</b>, укључујући:\n\n<li>Налоге твог уређаја</li>\n<li>Податке и подешавања система и апликација</li>\n<li>Скинутих апликација</li></string>
+  <string name="master_clear_desc_cm" product="default">Ово ће избрисати све податке са твог телефона <b>унутрашњег складишта</b>, укључујући:\n\n<li>Налоге твог уређаја</li>\n<li>Податке и подешавања система и апликација</li>\n<li>Скинутих апликација</li></string>
+  <string name="lock_to_cyanogen_title">Заштита уређаја</string>
+  <string name="lock_to_cyanogen_summary">Захтева лозинку твог Cyanogen налога чак и после ресетовања на фабрички</string>
+  <string name="lock_to_cyanogen_create_account_msg">Твој уређај користи лозинку Cyanogen OS налога да заштити уређај чак и ако се ресетује на фабрички. Потребно је креирати Cyanogen OS налог.</string>
+  <string name="lock_to_cyanogen_disable_msg">Онемогућавање овога ће дозволити неауторизованим корисницима да ресетују телефон на фабрички ако је украден. Лични подаци неће бити заштићени. Да ли желите онемогућити ову могућност?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Заштита уређаја је омогућена. Онемогућите је да би наставили ресетовање уређаја.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Грешка конекције: да ли је Bluetooth повезивање омогућено на овом уређају?</string>
 </resources>

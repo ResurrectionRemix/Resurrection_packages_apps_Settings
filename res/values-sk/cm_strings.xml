@@ -126,6 +126,8 @@
   <string name="volbtn_cursor_control_on_reverse">Hlasitosť nahor/nadol presunie kurzor doprava/doľava</string>
   <string name="swap_volume_buttons_title">Preorientovať</string>
   <string name="swap_volume_buttons_summary">Po otočení obrazovky prevrátiť zmysel tlačidiel hlasitosti</string>
+  <string name="volume_keys_control_ring_stream_title">Tlačidlá hlasitosti ovládajú hlasitosť zvonenia</string>
+  <string name="volume_keys_control_ring_stream_summary">Pri zapnutí tlačidlá hlasitosti ovládajú hlasitosť zvonenia, inak ovládajú hlasitosť médií.</string>
   <string name="power_end_call_title">Ukončiť hovor</string>
   <string name="power_end_call_summary">Stlačením tlačidla napájania sa ukončí aktuálny hovor</string>
   <string name="button_wake_title">Prebudiť zariadenie</string>
@@ -217,7 +219,7 @@
   <string name="cmupdate_settings_title">Aktualizácie CyanogenMod</string>
   <string name="update_recovery_title">Aktualizovať Cyanogen recovery</string>
   <string name="update_recovery_summary">Aktualizovať recovery s aktualizáciami systému</string>
-  <string name="update_recovery_on_warning">UPOZORNENIE: Ak je táto funkcia povolená, vaša nainštalovaná recovery bude nahradená verziou, ktorá je súčasťou aktuálneho operačného systému.\n\nVaša recovery sa bude aktualizovať spolu so systémom, čím sa zaistuje kompatibilita s budúcim verziami.\n\nChcete povoliť túto funkciu?</string>
+  <string name="update_recovery_on_warning">UPOZORNENIE: Ak je táto funkcia povolená, vaša nainštalovaná recovery bude nahradená verziou, ktorá je súčasťou aktuálneho operačného systému.\n\nVaša recovery sa bude aktualizovať spolu so systémom, čím sa zaisťuje kompatibilita s budúcim verziami.\n\nChcete povoliť túto funkciu?</string>
   <string name="update_recovery_off_warning">VAROVANIE: Ak je táto funkcia zakázaná, vaša nainštalovaná recovery nebude nahradená s aktualizáciami operačného systému.\n\nBudúce aktualizácie operačného systému sa nemusia nainštalovať kvôli zastaraným alebo vlastným verziám recovery.\n\nChcete zakázať túto funkciu?</string>
   <string name="mod_version">Verzia CyanogenMod</string>
   <string name="mod_version_default">Neznáme</string>
@@ -241,11 +243,12 @@
   <string name="privacy_guard_reset_text">Obnoviť povolenia?</string>
   <string name="privacy_guard_help_text">Na tejto obrazovke môžete jednoduchým kliknutím vybrať, pre ktoré aplikácie bude Ochrana súkromia aktívna. Vybraným aplikáciám nebude umožnený prístup k vašim osobným údajom ako sú kontakty, správy alebo denníky hovorov. Dlhým kliknutím na položku sa otvorí obrazovka s podrobnosťami o danej aplikácii.\n\nPredvolene nie sú zobrazené vstavané aplikácie. Ak ich chcete zobraziť, vyberte príslušnú možnosť v ponuke.</string>
   <string name="privacy_guard_manager_show_system_apps">Zobraziť vstavané aplikácie</string>
+  <string name="app_ops_btn_text">Upraviť</string>
   <string name="increasing_ring_volume_option_title">Zvyšovanie hlasitosti zvonenia</string>
   <string name="increasing_ring_min_volume_title">Počiatočná hlasitosť</string>
   <string name="increasing_ring_ramp_up_time_title">Doba zvyšovania</string>
   <string name="advanced_reboot_title">Rozšírený reštart</string>
-  <string name="advanced_reboot_summary">Ak je povolené, do ponuky napájania budú pridané ďalšie možnosti na reštart do recovery, bootloadera, alebo softvéru</string>
+  <string name="advanced_reboot_summary">Ak je povolené, do ponuky napájania budú pridané ďalšie možnosti na reštart do recovery, bootloadera alebo na softvérový reštart</string>
   <string name="enable_adb_cm">Ladenie systému Android</string>
   <string name="enable_adb_summary_cm">Povoliť rozhranie Android Debug Bridge (adb)</string>
   <string name="adb_over_network">ADB cez sieť</string>
@@ -648,6 +651,7 @@
   <string name="usb_charging_summary">Vypnúť všetky prenosy dát s počítačom a nabíjať zariadenie pomocou USB portu</string>
   <string name="usb_sdcard_title">Veľkokapacitné úložisko (UMS)</string>
   <string name="usb_sdcard_summary">Umožňuje prenos súborov medzi vaším počítačom a SD kartou pripojením ako flash zariadenie</string>
+  <string name="usb_not_connected">USB úložisko nie je pripojené</string>
   <string name="external_storage_turn_on">Externé úložisko bolo zapnuté</string>
   <string name="external_storage_turn_off">Externé úložisko bolo vypnuté</string>
   <string name="stats_collection_title">Zbieranie štatistík</string>
@@ -731,11 +735,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Časový limit obrazovky</string>
   <string name="qs_tile_usb_tether">Zdieľanie cez USB</string>
+  <string name="qs_tile_heads_up">Plávajúce oznámenia</string>
+  <string name="qs_tile_ambient_display">Ambientné zobrazenie</string>
   <string name="qs_main_tiles_title">Zväčšiť prvý riadok</string>
   <string name="qs_main_tiles_summary_on">Dve hlavné dlaždice na prvom riadku</string>
   <string name="qs_main_tiles_summary_off">Tri dlaždice na každom riadku</string>
   <string name="qs_advanced_location_title">Rozšírené nastavenia polohy</string>
   <string name="qs_advanced_location_summary">Povoliť rozšírené nastavenia polohy v rýchlych nastaveniach</string>
+  <string name="sim_no_number_set">Žiadne priradené číslo</string>
   <string name="gesture_settings_title">Gestá</string>
   <string name="themes_settings_title">Témy</string>
   <string name="wifi_mode">Režim</string>
@@ -769,6 +776,11 @@
   <string name="whisperpush_summary">Spravovať nastavenie zabezpečených SMS</string>
   <string name="navigation_ring_title">Položky navigačného kruhu</string>
   <string name="navigation_ring_message">Dotykom na ikonu Upraviť otvoríte navigačnýpanel na úpravy.\n\nDotykom na ikonu zmeníte jej skratku a dlhým stlačením ikony zmeníte jej poradie.\n\nDotykom na tlačidlo \'\u2713\' uložíte vaše zmeny a dotykom na tlačidlo \'Obnoviť predvolené\' obnovíte rozloženie na predvolené nastavenia.</string>
+  <string name="lcd_density">Hustota LCD</string>
+  <string name="dialog_title_lcd_density">Hustota LCD</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (predvolená)</string>
+  <string name="restarting_ui">Reštartovanie rozhrania systému\u2026</string>
   <string name="stylus_icon_enabled_title">Zobraziť ikonu pri používaní stylusu</string>
   <string name="stylus_icon_enabled_summary">Zobraziť ikonu pri vznášaní alebo kreslení pomocou stylusu</string>
   <string name="gestures_settings_title">Gestá pomocou stylusu</string>
@@ -809,6 +821,9 @@
   <string name="sim_ringtone_title">Tón zvonenia SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Zabrániť znižovaniu zvuku</string>
   <string name="interruptions_ignore_while_media_summary">Neznižovať hlasitosť pri prehrávaní médií po doručení upozornenia</string>
+  <string name="none_is_silent_title">Nikdy stlmiť budíky</string>
+  <string name="none_is_silent_summary">Budíky v tichom režime zostanú aktívne</string>
+  <string name="allow_lights_title">Povoliť svetlá oznámení</string>
   <string name="live_display_summary">Optimalizovať vašu obrazovku na základe dennej doby a podmienok okolia na zlepšenie čitateľnosti a zníženie únavy očí</string>
   <string name="live_display_mode">Režim zobrazenia</string>
   <string name="live_display_color_temperature_title">Teplota farieb</string>
@@ -838,5 +853,15 @@
   <string name="preview_version_title">Verzia</string>
   <string name="preview_country_title">Krajina</string>
   <string name="preview_carrier_title">Operátor</string>
+  <string name="heads_up_notifications">Plávajúce oznámenia</string>
+  <string name="summary_heads_up_enabled">Plávajúce oznámenia sú povolené</string>
+  <string name="summary_heads_up_disabled">Plávajúce oznámenia sú zakázané</string>
+  <string name="master_clear_desc_cm" product="tablet">Vymažú sa všetky údaje z <b>interného úložiska</b> vášho tabletu a tiež:\n\n<li>Vaše účty v zariadení</li>\n<li>Údaje a nastavenia systémových a používateľských aplikácií</li>\n<li>Stiahnuté aplikácií</li></string>
+  <string name="master_clear_desc_cm" product="default">Vymažú sa všetky údaje z <b>interného úložiska</b> vášho telefónu a tiež:\n\n<li>Vaše účty v zariadení</li>\n<li>Údaje a nastavenia systémových a používateľských aplikácií</li>\n<li>Stiahnuté aplikácií</li></string>
+  <string name="lock_to_cyanogen_title">Ochrana zariadenia</string>
+  <string name="lock_to_cyanogen_summary">Vyžadovať heslo účtu Cyanogen OS aj po obnove továrenských nastavení</string>
+  <string name="lock_to_cyanogen_create_account_msg">Vaše zariadenie používa heslo účtu Cyanogen OS na ochranu vášho zariadenia dokonca aj v prípade obnovy továrenských nastavení. Musíte si vytvoriť účet Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">Zakázanie tejto funkcie umožňuje neoprávneným používateľom obnoviť váš telefón do továrenských nastavení v prípade jeho krádeže. Vaše osobné údaje nemusia byť chránené. Chcete zakázať túto funkciu?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Ochrana zariadenia je povolená. Prosím, zakážte ju pred pokračovaním v obnove vášho zariadenia.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Chyba pripojenia; je zdieľanie pripojenia cez Bluetooth povolené na tomto zariadení?</string>
 </resources>

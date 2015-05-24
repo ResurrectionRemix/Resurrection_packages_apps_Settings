@@ -17,14 +17,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Du bass <xliff:g id="step_count">%1$d</xliff:g> Schrëtt dovun ewech, d\'Entwécklerastellungen z\'aktivéieren.</item>
-    <item quantity="other">Du bass <xliff:g id="step_count">%1$d</xliff:g> Schrëtter dovun ewech, d\'Entwécklerastellungen z\'aktivéieren.</item>
+    <item quantity="one">Du bass <xliff:g id="step_count">%1$d</xliff:g> Schrëtt dovun ewech, d\'Entwéckleroptiounen z\'aktivéieren.</item>
+    <item quantity="other">Du bass <xliff:g id="step_count">%1$d</xliff:g> Schrëtter dovun ewech, d\'Entwéckleroptiounen z\'aktivéieren.</item>
   </plurals>
-  <string name="show_dev_on_cm">Du hues d\'Entwécklerastellungen aktivéiert!</string>
+  <string name="show_dev_on_cm">Du hues d\'Entwéckleroptiounen aktivéiert!</string>
   <string name="show_dev_already_cm">Net néideg, du hues d\'Entwécklungsastellunge schonn aktivéiert.</string>
   <string name="development_tools_title">Entwécklungsgeschir</string>
   <string name="root_access">Root-Zougrëff</string>
-  <string name="root_access_warning_title">Root-Accès erlaaben?</string>
+  <string name="root_access_warning_title">Root-Accès erlaben?</string>
   <string name="root_access_warning_message">Appen de Root-Zougrëff erméigleche ka geféierlech sinn an d\'Sécherheet vum System beanträchtegen!</string>
   <string name="root_access_none">Desaktivéiert</string>
   <string name="root_access_apps">Just Appen</string>
@@ -97,7 +97,7 @@
   <string name="toggleNfc">NFC</string>
   <string name="button_pref_title">Knäppercher</string>
   <string name="hardware_keys_power_key_title">Un-/Aus-Schalter</string>
-  <string name="hardware_keys_home_key_title">Heemknäppchen</string>
+  <string name="hardware_keys_home_key_title">Startsäit-Knäppchen</string>
   <string name="hardware_keys_back_key_title">Zréckknäppchen</string>
   <string name="hardware_keys_menu_key_title">Menüknäppchen</string>
   <string name="hardware_keys_assist_key_title">Sichknäppchen</string>
@@ -212,6 +212,7 @@
   <string name="mod_version">CyanogenMod-Versioun</string>
   <string name="mod_version_default">Onbekannt</string>
   <string name="device_model">Apparatmodell</string>
+  <string name="device_name">Apparatnumm</string>
   <string name="build_date">Build-Datum</string>
   <string name="contributor_cloud_title">Mataarbechter</string>
   <string name="phone_service_state">Stëmm: <xliff:g id="voice_state">%1$s</xliff:g>, Daten: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -230,6 +231,7 @@
   <string name="privacy_guard_reset_text">Berechtegungen zrécksetzen?</string>
   <string name="privacy_guard_help_text">Op dësem Schierm kanns du auswiele fir wéi eng Appen de Privatsphärschutz soll aktiv sinn andeem s du s\'einfach op de jeeweilegen Numm drécks. Ausgewielten Appe kënnen net op perséinlech Date wéi Kontakter, Messagen oder Uruffprotokoller zougräifen. Duerch laangt drécke kanns du fir all App méi Detailer opruffen.\n\nAgebauten Appe gi standardméisseg net ugewisen, mä kënnen ageblennt ginn andeem s du den dozougehéierege Menüpunkt auswiels.</string>
   <string name="privacy_guard_manager_show_system_apps">Integréiert Appen uweisen</string>
+  <string name="app_ops_btn_text">Änneren</string>
   <string name="increasing_ring_volume_option_title">Usteigend Schelltounlautstäerkt</string>
   <string name="increasing_ring_min_volume_title">Start-Lautstäerkt</string>
   <string name="increasing_ring_ramp_up_time_title">Ulafzäit</string>
@@ -284,7 +286,10 @@
   <string name="status_bar_battery_style_icon_portrait">Symbol (Héichformat)</string>
   <string name="status_bar_battery_style_icon_landscape">Symbol (Breetformat)</string>
   <string name="status_bar_battery_style_circle">Krees</string>
+  <string name="status_bar_battery_style_text">Text</string>
+  <string name="status_bar_battery_style_hidden">Verstoppt</string>
   <string name="status_bar_battery_percentage_title">Prozentwäert vum Akku</string>
+  <string name="status_bar_battery_percentage_default">Verstoppt</string>
   <string name="status_bar_battery_percentage_text_inside">Am Symbol</string>
   <string name="status_bar_battery_percentage_text_next">Nieft dem Symbol</string>
   <string name="edit_light_settings">Luuchtastellungen änneren</string>
@@ -557,6 +562,7 @@
   <string name="sd_card_format" product="default">SD-Kaart läschen</string>
   <string name="sd_card_format_summary" product="default">Läscht all d\'Daten op der SD-Kaart, wéi Musek a Fotoen</string>
   <string name="sdcard_mount" product="default">SD-Kaart abannen</string>
+  <string name="sdcard_insert_summary" product="default">SD-Kaart fir anzebannen asetzen</string>
   <string name="usb_eject" product="default">USB-Späicher trennen</string>
   <string name="usb_eject_summary" product="default">Den USB-Späicher trennen, fir datt e sécher kann erausgeholl ginn</string>
   <string name="usb_format" product="default">USB-Späicher läschen</string>
@@ -592,9 +598,13 @@
   <string name="sdcard_media_format_final_desc" product="default">D\'SD-Kaart eidelmaachen, an all d\'Fichieren déi drop gespäichert si läschen? Dës Aktioun kann net réckgängeg gemaach ginn!</string>
   <string name="usb_media_format_final_desc" product="default">Den USB-Späicher eidel maachen, an all d\'Fichieren déi drop gespäichert si läschen? Dës Aktioun kann net réckgängeg gemaach ginn!</string>
   <string name="uicc_media_format_final_desc" product="default">Den UICC-Späicher eidel maachen, an all d\'Fichieren déi drop gespäichert si läschen? Dës Aktioun kann net réckgängeg gemaach ginn!</string>
-  <string name="sdcard_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen dass du d\'SD-Kaart läsche wëlls.</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen datt s du d\'SD-Kaart läsche wëlls.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen datt du den USB-Späicher läsche wëlls.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Du muss däin Entspärmuster zeechne fir ze bestätegen datt s du den UICC-Späicher läsche wëlls.</string>
+  <string name="internal_sd_format">Interne Mediespäicher läschen</string>
+  <string name="internal_sd_format_summary">Läscht all d\'Daten um interne Mediespäicher, wéi Musek a Fotoen</string>
+  <string name="erase_internal_storage">Interne Mediespäicher läschen</string>
+  <string name="erase_internal_storage_description">All d\'Daten um interne Mediespäicher, wéi Musek a Fotoen, läschen</string>
   <string name="storage_rescan_media">Späicher no Mediefichieren duerchsichen</string>
   <string name="location_category_enhanced_location">Erweidert Lokaliséierung (IZat)</string>
   <string name="app_ops_settings_summary">App-Berechtegungen ukucken oder änneren</string>
@@ -629,7 +639,7 @@
   <string name="power_notifications_enable_summary">En Toun ofspille wann eng Stroumquell ugeschloss oder getrennt gëtt</string>
   <string name="power_notifications_vibrate_title">Vibréieren</string>
   <string name="power_notifications_ringtone_title">Notifikatiounstoun</string>
-  <string name="power_notifications_ringtone_silent">Stëll</string>
+  <string name="power_notifications_ringtone_silent">Roueg</string>
   <string name="voice_wakeup_settings_title">Mat Stëmm waakreg maachen</string>
   <string name="voice_wakeup_retrain_title">Deng Stëmm nei trainéieren</string>
   <string name="voice_wakeup_activity_title">Aktivitéit déi soll lancéiert ginn</string>

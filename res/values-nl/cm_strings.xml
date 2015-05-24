@@ -125,6 +125,8 @@
   <string name="volbtn_cursor_control_on_reverse">Volume omhoog/omlaag beweegt cursor naar rechts/links</string>
   <string name="swap_volume_buttons_title">Oriëntatie</string>
   <string name="swap_volume_buttons_summary">Volumeknoppen omdraaien indien het scherm gedraaid is</string>
+  <string name="volume_keys_control_ring_stream_title">Volumeknoppen passen beltoonvolume aan</string>
+  <string name="volume_keys_control_ring_stream_summary">Indien ingeschakeld, passen de volumeknoppen het beltoonvolume aan. Indien uitgeschakeld passen de volumeknoppen het mediavolume aan.</string>
   <string name="power_end_call_title">Gesprek beëindigen</string>
   <string name="power_end_call_summary">Huidige gesprek beëindigen door op de aan/uit-knop te drukken</string>
   <string name="button_wake_title">Apparaat ontwaken</string>
@@ -240,6 +242,7 @@
   <string name="privacy_guard_reset_text">Machtigingen opnieuw instellen?</string>
   <string name="privacy_guard_help_text">Op dit scherm kunt u kiezen voor welke apps Privacybescherming ingeschakeld moet zijn door op ze te tikken. Geselecteerde apps zullen geen toegang hebben tot persoonsgegevens zoals contacten, berichten of gespreksstatistieken. Door een app lang aan te raken opent het info-scherm voor die app.\n\nIngebouwde apps worden standaard niet getoond, maar kunnen getoond worden door de desbetreffende optie in het menu te selecteren.</string>
   <string name="privacy_guard_manager_show_system_apps">Ingebouwde apps tonen</string>
+  <string name="app_ops_btn_text">Wijzigen</string>
   <string name="increasing_ring_volume_option_title">In volume toenemende beltoon</string>
   <string name="increasing_ring_min_volume_title">Startvolume</string>
   <string name="increasing_ring_ramp_up_time_title">Ophoogtijd</string>
@@ -248,7 +251,7 @@
   <string name="enable_adb_cm">Android-foutopsporing</string>
   <string name="enable_adb_summary_cm">Android Debug Bridge (adb)-interface inschakelen</string>
   <string name="adb_over_network">ADB over netwerk</string>
-  <string name="adb_over_network_summary">TCP/IP-foutopsporing inschakelen over netwerkinterfaces (wifi, USB-netwerken). Wordt hersteld bij opstarten</string>
+  <string name="adb_over_network_summary">TCP/IP-foutopsporing inschakelen over netwerkinterfaces (wifi, USB-netwerken). Wordt gereset bij opstarten</string>
   <string name="adb_over_network_warning">Let op: als ADB over netwerk is ingeschakeld, kan op uw apparaat worden ingebroken via alle aangesloten netwerken!\n\nGebruik deze functie alleen indien u verbonden bent met vertrouwde netwerken.\n\nWeet u zeker dat u deze functie wilt inschakelen?</string>
   <string name="adb_notify">Melding foutopsporing</string>
   <string name="adb_notify_summary">Melden wanneer USB- of netwerkfoutopsporing is ingeschakeld</string>
@@ -647,6 +650,7 @@
   <string name="usb_charging_summary">Hiermee schakelt u alle gegevensoverdracht uit met de computer en laadt het apparaat via de USB-poort</string>
   <string name="usb_sdcard_title">Massaopslag (UMS)</string>
   <string name="usb_sdcard_summary">Bestanden uitwisselen tussen uw computer en SD-kaart door het aan te koppelen als flash-geheugen</string>
+  <string name="usb_not_connected">USB niet verbonden</string>
   <string name="external_storage_turn_on">Externe opslag is ingeschakeld</string>
   <string name="external_storage_turn_off">Externe opslag is uitgeschakeld</string>
   <string name="stats_collection_title">Verzamelen van statistieken</string>
@@ -730,11 +734,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Schermtime-out</string>
   <string name="qs_tile_usb_tether">USB-tethering</string>
+  <string name="qs_tile_heads_up">Heads-up</string>
+  <string name="qs_tile_ambient_display">Omgevingsdisplay</string>
   <string name="qs_main_tiles_title">Eerste rij vergroten</string>
   <string name="qs_main_tiles_summary_on">Twee hoofdtegels op de eerste rij</string>
   <string name="qs_main_tiles_summary_off">Drie tegels op elke rij</string>
   <string name="qs_advanced_location_title">Geavanceerde locatie-instellingen</string>
   <string name="qs_advanced_location_summary">Geavanceerde instellingen voor locatie in Snelle instellingen</string>
+  <string name="sim_no_number_set">Geen nummer toegewezen</string>
   <string name="gesture_settings_title">Gebaren</string>
   <string name="themes_settings_title">Thema\'s</string>
   <string name="wifi_mode">Modus</string>
@@ -768,6 +775,11 @@
   <string name="whisperpush_summary">Instellingen beveiligde sms-berichten</string>
   <string name="navigation_ring_title">Snelkoppelingposities</string>
   <string name="navigation_ring_message">Tik op het bewerkingspictogram om de navigatiering te openen en te bewerken.\n\nSelecteer een snelkoppeling om in te stellen.\n\nTik op het \'\u2713\'-pictogram om uw wijzigingen op te slaan of \'Herstel standaard\' om de standaardinstellingen te herstellen.</string>
+  <string name="lcd_density">LCD-dichtheid</string>
+  <string name="dialog_title_lcd_density">LCD-dichtheid</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (standaard)</string>
+  <string name="restarting_ui">Gebruikersomgeving herstarten\u2026</string>
   <string name="stylus_icon_enabled_title">Pictogram bij stylusgebruik</string>
   <string name="stylus_icon_enabled_summary">Cursor tonen als een stylus wordt gebruikt</string>
   <string name="gestures_settings_title">Stylusgebaren</string>
@@ -808,6 +820,9 @@
   <string name="sim_ringtone_title">Beltoon voor SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Stabiel mediavolume</string>
   <string name="interruptions_ignore_while_media_summary">Mediavolume niet verminderen bij meldingen</string>
+  <string name="none_is_silent_title">Nooit alarmen dempen</string>
+  <string name="none_is_silent_summary">Altijd alarmen laten horen in Stille modus</string>
+  <string name="allow_lights_title">Meldingsled toestaan</string>
   <string name="live_display_summary">Uw scherm optimaliseren aan de hand van tijdstip op de dag en lichtomstandigheden om de leesbaarheid te verbeteren en oogvermoeidheid te verminderen</string>
   <string name="live_display_mode">Weergavemodus</string>
   <string name="live_display_color_temperature_title">Kleurtemperatuur</string>
@@ -837,4 +852,15 @@
   <string name="preview_version_title">Versie</string>
   <string name="preview_country_title">Land</string>
   <string name="preview_carrier_title">Provider</string>
+  <string name="heads_up_notifications">Heads-up</string>
+  <string name="summary_heads_up_enabled">Zwevende meldingen ingeschakeld</string>
+  <string name="summary_heads_up_disabled">Zwevende meldingen uitgeschakeld</string>
+  <string name="master_clear_desc_cm" product="tablet">Dit zal alle gegevens wissen van de <b>interne opslag</b> van uw tablet, inclusief:\n\n<li>Uw accounts</li>\n<li>Systeem- en app-gegevens en instellingen</li>\n<li>Gedownloade apps</li></string>
+  <string name="master_clear_desc_cm" product="default">Dit zal alle gegevens wissen van de <b>interne opslag</b> van uw telefoon, inclusief:\n\n<li>Uw accounts</li>\n<li>Systeem- en app-gegevens en instellingen</li>\n<li>Gedownloade apps</li></string>
+  <string name="lock_to_cyanogen_title">Apparaatbeveiliging</string>
+  <string name="lock_to_cyanogen_summary">Uw Cyanogen OS-accountwachtwoord vereisen, zelfs na een herstel naar fabrieksinstellingen</string>
+  <string name="lock_to_cyanogen_create_account_msg">Uw apparaat gebruikt het wachtwoord van uw Cyanogen OS-account om zich te beschermen, zelfs wanneer de fabrieksinstellingen hersteld zijn. U dient hiervoor een Cyanogen OS-account aan te maken.</string>
+  <string name="lock_to_cyanogen_disable_msg">Door deze functie uit te schakelen kunnen onbevoegde gebruikers uw telefoon herstellen naar fabrieksinstellingen wanneer deze gestolen is. Uw persoonlijke gegevens zijn mogelijk niet beschermd. Wilt u deze functie toch uitschakelen?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Apparaatbeveiliging is ingeschakeld. Schakel dit uit als u door wilt gaan met het opnieuw instellen van uw apparaat.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Verbindingsfout; is Bluetooth-tethering ingeschakeld op dit apparaat?</string>
 </resources>

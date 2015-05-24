@@ -125,6 +125,8 @@
   <string name="volbtn_cursor_control_on_reverse">Los botones subir y bajar volumen moverán el cursor a derecha e izquierda respectivamente</string>
   <string name="swap_volume_buttons_title">Reorientar botones</string>
   <string name="swap_volume_buttons_summary">Intercambiar los botones de control de volumen al rotar la pantalla</string>
+  <string name="volume_keys_control_ring_stream_title">Controlar volumen de llamada</string>
+  <string name="volume_keys_control_ring_stream_summary">Si está activado, las teclas de volumen controlan el volumen del tono de llamada. En caso contrario las teclas de volumen controlan el volumen multimedia.</string>
   <string name="power_end_call_title">Finalizar llamada</string>
   <string name="power_end_call_summary">Pulsando el botón de encendido finalizará la llamada en curso</string>
   <string name="button_wake_title">Despertar dispositivo</string>
@@ -240,6 +242,7 @@
   <string name="privacy_guard_reset_text">¿Restablecer permisos?</string>
   <string name="privacy_guard_help_text">En esta pantalla puedes elegir las aplicaciones para las que se activará Privacidad simplemente tocando sobre ellas. Las aplicaciones seleccionadas no podrán acceder a tu información personal, como contactos, mensajes o registro de llamadas. Realiza una pulsación prolongada para mostrar la pantalla de detalles de la aplicación.\n\nLas aplicaciones del sistema no se muestran por defecto, pero pueden mostrarse seleccionando la opción de menú correspondiente.</string>
   <string name="privacy_guard_manager_show_system_apps">Aplicaciones del sistema</string>
+  <string name="app_ops_btn_text">Modificar</string>
   <string name="increasing_ring_volume_option_title">Volumen de timbre ascendente</string>
   <string name="increasing_ring_min_volume_title">Volumen inicial</string>
   <string name="increasing_ring_ramp_up_time_title">Tiempo de incremento</string>
@@ -730,11 +733,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Tiempo de espera de pantalla</string>
   <string name="qs_tile_usb_tether">Anclaje USB</string>
+  <string name="qs_tile_heads_up">Notificaciones emergentes</string>
+  <string name="qs_tile_ambient_display">Pantalla ambiente</string>
   <string name="qs_main_tiles_title">Ampliar la primera fila</string>
   <string name="qs_main_tiles_summary_on">Dos controles principales en la primera fila</string>
   <string name="qs_main_tiles_summary_off">Tres controles en cada fila</string>
   <string name="qs_advanced_location_title">Configuración de ubicación avanzada</string>
   <string name="qs_advanced_location_summary">Habilitar la configuración avanzada para ubicación en los ajustes rápidos</string>
+  <string name="sim_no_number_set">No hay ningún número asignado</string>
   <string name="gesture_settings_title">Gestos</string>
   <string name="themes_settings_title">Temas</string>
   <string name="wifi_mode">Modo</string>
@@ -768,6 +774,11 @@
   <string name="whisperpush_summary">Administrar ajustes para cifrado de SMS</string>
   <string name="navigation_ring_title">Anillo de navegación</string>
   <string name="navigation_ring_message">Toca el icono editar para abrir el editor del anillo de navegacion.\n\nSelecciona un objetivo para configurar su comportamiento.\n\nToca el icono \u00AB\u2713\u00BB para guardar los cambios, o \u00ABRestaurar\u00BB para volver a los ajustes por defecto.</string>
+  <string name="lcd_density">Densidad del LCD</string>
+  <string name="dialog_title_lcd_density">Densidad del LCD</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (por defecto)</string>
+  <string name="restarting_ui">Reiniciando UI\u2026</string>
   <string name="stylus_icon_enabled_title">Mostrar el icono al usar Stylus</string>
   <string name="stylus_icon_enabled_summary">Mostrar el cursor cuando se arrastra o dibuja con Stylus</string>
   <string name="gestures_settings_title">Gestos de Stylus</string>
@@ -808,6 +819,9 @@
   <string name="sim_ringtone_title">Tono de llamada para SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Prevenir reducción de audio</string>
   <string name="interruptions_ignore_while_media_summary">No reducir el volumen de reproducción cuando llegue una notificación</string>
+  <string name="none_is_silent_title">Nunca silenciar alarmas</string>
+  <string name="none_is_silent_summary">Permitir que las alarmas suenen en el modo silencioso</string>
+  <string name="allow_lights_title">Permitir led de notificaciones</string>
   <string name="live_display_summary">Optimizar la pantalla según la hora del día y las condiciones ambientales para mejorar la legibilidad y reducir la fatiga visual</string>
   <string name="live_display_mode">Modo de visualización</string>
   <string name="live_display_color_temperature_title">Temperatura de color</string>
@@ -837,4 +851,15 @@
   <string name="preview_version_title">Versión</string>
   <string name="preview_country_title">País</string>
   <string name="preview_carrier_title">Operadora móvil</string>
+  <string name="heads_up_notifications">Notificaciones emergentes</string>
+  <string name="summary_heads_up_enabled">Las notificaciones emergentes están habilitadas</string>
+  <string name="summary_heads_up_disabled">Las notificaciones emergentes están deshabilitadas</string>
+  <string name="master_clear_desc_cm" product="tablet">Esto borrará todos los datos del <b>almacenamiento interno</b> del tablet, incluyendo:\n\n<li>Tus cuentas de dispositivo</li>\n<li>Ajustes del sistema y datos de las aplicaciones</li>\n<li>Aplicaciones descargadas</li></string>
+  <string name="master_clear_desc_cm" product="default">Esto borrará todos los datos del <b>almacenamiento interno</b> del teléfono, incluyendo:\n\n<li>Tus cuentas de dispositivo</li>\n<li>Ajustes del sistema y datos de las aplicaciones</li>\n<li>Aplicaciones descargadas</li></string>
+  <string name="lock_to_cyanogen_title">Protección del dispositivo</string>
+  <string name="lock_to_cyanogen_summary">Requerir la contraseña de la cuenta de Cyanogen OS incluso después de un restablecimiento de fábrica</string>
+  <string name="lock_to_cyanogen_create_account_msg">El dispositivo usa una contraseña de cuenta de Cyanogen OS para protegerse incluso después de un restablecimiento de fábrica. Necesitarás crear una cuenta de Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">Deshabilitar esta característica permitirá que usuarios no autorizados puedan restablecer a fábrica el dispositivo si éste es sustraído. Tus datos personales podrán quedar desprotegidos. ¿Quieres deshabilitar esta característica?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">La protección del dispositivo está habilitada. Por favor, deshabilita la protección para continuar con el restablecimiento del dispositivo.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Error de conexión. ¿Está activado el Bluetooth en este dispositivo?</string>
 </resources>

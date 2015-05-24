@@ -40,9 +40,11 @@
   <string name="profile_empty_list_profiles_off">Aktivieren Sie die Profilfunktion, um Systemprofile konfigurieren und nutzen zu können.</string>
   <string name="profile_trigger_configure">Auslöser konfigurieren</string>
   <string name="profile_write_nfc_tag">NFC-Tag beschreiben</string>
+  <string name="profile_write_touch_tag">Zum Beschreiben NFC-Tag berühren</string>
   <string name="profile_write_success">Tag wurde erfolgreich beschrieben</string>
   <string name="profile_write_failed">Beschreiben des Tags fehlgeschlagen!</string>
   <string name="profile_selected">Profil %1$s aktiviert</string>
+  <string name="profile_nfc_text">Durch das Schreiben eines Profils auf einen NFC-Tag aktiviert eine Berührung des Tags das entsprechende Profil. Eine weitere Berührung aktiviert das vorherige Profil.</string>
   <string name="profile_unknown_nfc_tag">Unbekanntes Profil</string>
   <string name="profile_add_nfc_text">Der NFC-Tag verweist auf ein unbekanntes Profil. Das Verknüpfen des NFC-Tags mit einem existierenden Profil ermöglicht es, das entsprechende Profil in Zukunft durch eine Berührung zu aktivieren.</string>
   <string name="profile_select">Profil auswählen</string>
@@ -124,6 +126,7 @@
   <string name="swap_volume_buttons_title">Umkehren</string>
   <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
   <string name="volume_keys_control_ring_stream_title">Lautstärketasten steuern Klingeltonlautstärke</string>
+  <string name="volume_keys_control_ring_stream_summary">Aktiviert: Tasten steuern Klingeltonlautstärke. Deaktiviert: Tasten steuern Medienlautstärke.</string>
   <string name="power_end_call_title">Anruf beenden</string>
   <string name="power_end_call_summary">Ein laufendes Telefonat durch Drücken der Ein-/Aus-Taste beenden</string>
   <string name="button_wake_title">Gerät aufwecken</string>
@@ -158,12 +161,12 @@
   <string name="sunlight_enhancement_summary">Ablesbarkeit des Displays bei hellem Sonnenlicht verbessern</string>
   <string name="color_enhancement_title">Farbverbesserung</string>
   <string name="color_enhancement_summary">Farbdarstellung des Displays dynamisch verbessern</string>
-  <string name="blacklist_title">Gesperrte Anruferliste</string>
+  <string name="blacklist_title">Anrufer-Sperrliste</string>
   <string name="blacklist_edit_dialog_title">Gesperrte Telefonnummer bearbeiten</string>
   <string name="blacklist_prefs">Einstellungen</string>
   <string name="blacklist_button_delete">Löschen</string>
   <string name="blacklist_empty_text">Es sind noch keine Einträge in der Sperrliste enthalten. Sie können Einträge hinzufügen, indem Sie das \"+\"-Symbol berühren.</string>
-  <string name="blacklist_disabled_empty_text">Um Anrufe und Nachrichten von bestimmten Nummern zu verhindern, Gesperrte Anruferliste aktivieren.</string>
+  <string name="blacklist_disabled_empty_text">Um Anrufe und Nachrichten von bestimmten Nummern zu verhindern, aktivieren Sie die Anrufer-Sperrliste.</string>
   <string name="blacklist_summary_disabled">Deaktiviert</string>
   <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen</string>
   <string name="blacklist_notify">Benachrichtigung anzeigen</string>
@@ -730,11 +733,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Bildschirm-Timeout</string>
   <string name="qs_tile_usb_tether">USB-Tethering</string>
+  <string name="qs_tile_heads_up">Pop-up-Benachrichtigungen</string>
+  <string name="qs_tile_ambient_display">Inaktivitätsdisplay</string>
   <string name="qs_main_tiles_title">Erste Zeile vergrößern</string>
   <string name="qs_main_tiles_summary_on">Zwei Hauptkacheln in der ersten Zeile</string>
   <string name="qs_main_tiles_summary_off">Drei Kacheln pro Zeile</string>
   <string name="qs_advanced_location_title">Erweiterte Standorteinstellungen</string>
   <string name="qs_advanced_location_summary">Erweiterte Standort-Einstellungen in den Schnelleinstellungen aktivieren</string>
+  <string name="sim_no_number_set">Keine Nummer zugewiesen</string>
   <string name="gesture_settings_title">Gesten</string>
   <string name="themes_settings_title">Designs</string>
   <string name="wifi_mode">Modus</string>
@@ -768,6 +774,8 @@
   <string name="whisperpush_summary">Einstellungen für sichere SMS</string>
   <string name="navigation_ring_title">Navigationsring-Verknüpfungen</string>
   <string name="navigation_ring_message">Tippen Sie auf das Bearbeitungssymbol, um den Navigationsring zu ändern.\n\nWählen Sie ein Ziel, um sein Verhalten zu konfigurieren.\n\nTippen Sie auf das \"\u2713\" Symbol um die Änderungen zu speichern, oder \"Standardeinstellungen wiederherstellen\", um die Einstellungen auf die Standardwerte zurückzusetzen.</string>
+  <string name="lcd_density">Pixeldichte</string>
+  <string name="dialog_title_lcd_density">Pixeldichte</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (Standard)</string>
   <string name="restarting_ui">Benutzeroberfläche wird neu gestartet\u2026</string>
@@ -811,6 +819,9 @@
   <string name="sim_ringtone_title">SIM %d Klingelton</string>
   <string name="interruptions_ignore_while_media_title">Hervorheben verhindern</string>
   <string name="interruptions_ignore_while_media_summary">Medienlautstärke beim Eintreffen einer Benachrichtigung nicht reduzieren</string>
+  <string name="none_is_silent_title">Alarme nie stumm schalten</string>
+  <string name="none_is_silent_summary">Im Lautlosmodus ertönen Alarme</string>
+  <string name="allow_lights_title">Benachrichtigungslicht erlauben</string>
   <string name="live_display_summary">Optimiert Ihren Bildschirm basierend auf der Tageszeit und den Umgebungsbedingungen, um die Lesbarkeit zu verbessern und die Ermüdung der Augen zu mildern</string>
   <string name="live_display_mode">Bildschirmmodus</string>
   <string name="live_display_color_temperature_title">Farbtemperatur</string>
@@ -843,9 +854,12 @@
   <string name="heads_up_notifications">Pop-up-Benachrichtigungen</string>
   <string name="summary_heads_up_enabled">Pop-up-Benachrichtigungen sind aktiviert</string>
   <string name="summary_heads_up_disabled">Pop-up-Benachrichtigungen sind deaktiviert</string>
+  <string name="master_clear_desc_cm" product="tablet">Dies löscht alle Daten aus dem <b>Internen Speicher</b> Ihres Tablets, einschließlich:\n\n<li>Ihrer Konten auf dem Gerät</li>\n<li>System- und App-Daten und Einstellungen</li>\n<li>Heruntergeladener Apps</li></string>
+  <string name="master_clear_desc_cm" product="default">Dies löscht alle Daten aus dem <b>Internen Speicher</b> Ihres Telefons, einschließlich:\n\n<li>Ihrer Konten auf dem Gerät</li>\n<li>System- und App-Daten und Einstellungen</li>\n<li>Heruntergeladener Apps</li></string>
   <string name="lock_to_cyanogen_title">Geräteschutz</string>
   <string name="lock_to_cyanogen_summary">Erfordert Ihr Cyanogen OS-Passwort, auch nach einem Rücksetzen auf Werkseinstellungen</string>
   <string name="lock_to_cyanogen_create_account_msg">Das Passwort Ihres Cyanogen OS-Kontos wird genutzt, um Ihr Gerät auch beim Rücksetzen auf Werkseinstellungen zu schützen. Dazu müssen Sie ein Cyanogen OS-Konto anlegen.</string>
-  <string name="lock_to_cyanogen_disable_msg">Deaktivieren dieser Funktion erlaubt es nicht autorisierten Benutzern Ihr Telefon auf Werkseinstellungen zurückzusetzen, wenn es gestohlen wird. Ihre persönlichen Daten können nicht sicher sein. Wollen Sie diese Funktion deaktivieren?</string>
+  <string name="lock_to_cyanogen_disable_msg">Deaktivieren dieser Funktion erlaubt es nicht autorisierten Benutzern, Ihr Telefon auf Werkseinstellungen zurückzusetzen, wenn es gestohlen wird. Ihre persönlichen Daten können nicht sicher sein. Wollen Sie diese Funktion deaktivieren?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Geräteschutz ist aktiviert. Bitte deaktivieren, um mit dem Zurücksetzen Ihres Gerätes fortzufahren.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Verbindungsfehler – Ist Bluetooth-Tethering auf diesem Gerät aktiviert?</string>
 </resources>

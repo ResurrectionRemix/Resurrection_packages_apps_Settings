@@ -126,6 +126,8 @@
   <string name="volbtn_cursor_control_on_reverse">Кнопка + рухає курсор вправо, - вліво</string>
   <string name="swap_volume_buttons_title">Змінити орієнтацію кнопок регулювання гучності</string>
   <string name="swap_volume_buttons_summary">Поміняти кнопки регулювання гучності, коли екран повернений</string>
+  <string name="volume_keys_control_ring_stream_title">Клавіші регулювання гучності змінюють гучність дзвінка</string>
+  <string name="volume_keys_control_ring_stream_summary">Якщо увімкнено, клавіші регулювання гучності змінюють гучність дзвінка. Якщо ні — загальну гучність звуку.</string>
   <string name="power_end_call_title">Завершення виклику</string>
   <string name="power_end_call_summary">Завершувати виклик натисканням кнопки живлення</string>
   <string name="button_wake_title">Розбудити пристрій</string>
@@ -160,9 +162,14 @@
   <string name="sunlight_enhancement_summary">Підвищення яскравості дисплея під час яскравого сонячного світла</string>
   <string name="color_enhancement_title">Покращення кольору</string>
   <string name="color_enhancement_summary">Динамічне покращення кольорів на екрані</string>
+  <string name="blacklist_title">Список заблокованих абонентів</string>
+  <string name="blacklist_edit_dialog_title">Змінити заблокований номер телефону</string>
   <string name="blacklist_prefs">Налаштування</string>
   <string name="blacklist_button_delete">Видалити</string>
+  <string name="blacklist_empty_text">Ви не маєте жодного заблокованого номеру. Додайте, торкнувшись кнопки «Додати» (+).</string>
+  <string name="blacklist_disabled_empty_text">Щоб запобігти надходженню небажаних дзвінків чи повідомлень з телефонних номерів, увімкніть чорний список.</string>
   <string name="blacklist_summary_disabled">Вимкнено</string>
+  <string name="blacklist_summary">Ви не будете отримувати вхідні дзвінки чи повідомлення від абонентів, які знаходяться у списку заблокованих</string>
   <string name="blacklist_notify">Показувати сповіщення</string>
   <string name="blacklist_private_numbers_title">Приватні номери</string>
   <string name="blacklist_private_numbers_summary_disabled">Не блокувати дзвінки від приватних номерів</string>
@@ -177,7 +184,9 @@
   <string name="blacklist_regex_summary">Використовуйте . як маску і * для повторення. Наприклад, вираз 123.* буде блокувати номери, які починаються з 123, а .*123.* — номера, що містять 123 в будь-якій частині</string>
   <string name="blacklist_policy_block_calls">Блокувати вхідні дзвінки</string>
   <string name="blacklist_policy_block_messages">Блокувати вхідні повідомлення</string>
+  <string name="blacklist_bad_number_add">Не вдалося додати неприпустимий номер телефону до списку заблокованих</string>
   <string name="remove_blacklist_number_title">Видалити номер</string>
+  <string name="remove_blacklist_entry">Бажаєте вилучити заблокований телефонний номер?</string>
   <string name="select_contact">Вибрати контакт</string>
   <string name="lockpattern_reset_button">Скинути граф. ключ</string>
   <string name="lockpattern_settings_reset_summary">Уведіть email та пароль основного акаунту аби скинути блокування графічного ключа</string>
@@ -214,6 +223,8 @@
   <string name="update_recovery_off_warning">ПОПЕРЕДЖЕННЯ: Якщо цю функцію вимкнено, режим Recovery залишиться без змін.\n\nІснує можливість некоректної установки майбутніх версій ОС, у випадку використання застарілого чи кастомного Recovery.\n\nВи бажаєте відключити цю функцію?</string>
   <string name="mod_version">Версія CyanogenMod</string>
   <string name="mod_version_default">Невідомо</string>
+  <string name="device_model">Модель пристрою</string>
+  <string name="device_name">Назва пристрою</string>
   <string name="build_date">Дата збірки</string>
   <string name="contributor_cloud_title">Учасники</string>
   <string name="phone_service_state">Голосовий зв\'язок: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача даних: <xliff:g id="data_state">%2$s</xliff:g></string>
@@ -232,6 +243,7 @@
   <string name="privacy_guard_reset_text">Скинути дозволи?</string>
   <string name="privacy_guard_help_text">У цьому розділі ви можете вибрати програми, які працюватимуть в захищеному режимі, натиснувши на них. Такі програми не будуть мати доступу до персональних даних, таких як контакти, повідомлення або журнал дзвінків. Довге натиснення відкриє докладні відомості про дозволи даної програми.\n\nЗа замовчуванням системні програми приховані. Для їх відображення або для переходу до розширених налаштувань виберіть відповідний пункт у меню.</string>
   <string name="privacy_guard_manager_show_system_apps">Показати системні програми</string>
+  <string name="app_ops_btn_text">Змінити</string>
   <string name="increasing_ring_volume_option_title">Наростаюча гучність дзвінка</string>
   <string name="increasing_ring_min_volume_title">Початкова гучність</string>
   <string name="increasing_ring_ramp_up_time_title">Час збільшення</string>
@@ -722,11 +734,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Тайм-аут екрана</string>
   <string name="qs_tile_usb_tether">USB-модем</string>
+  <string name="qs_tile_heads_up">Спливаючі сповіщення</string>
+  <string name="qs_tile_ambient_display">Ambient display</string>
   <string name="qs_main_tiles_title">Збільшений перший рядок</string>
   <string name="qs_main_tiles_summary_on">Дві основні плитки на першому рядку</string>
   <string name="qs_main_tiles_summary_off">Три плитки на кожному рядку</string>
   <string name="qs_advanced_location_title">Розширені налаштування місцезнаходження</string>
   <string name="qs_advanced_location_summary">Увімкнути додаткові параметри розташування у Швидких Налаштуваннях</string>
+  <string name="sim_no_number_set">Номер не призначено</string>
   <string name="gesture_settings_title">Жести</string>
   <string name="themes_settings_title">Теми</string>
   <string name="wifi_mode">Режим</string>
@@ -760,6 +775,11 @@
   <string name="whisperpush_summary">Налаштування шифрування SMS-повідомлень</string>
   <string name="navigation_ring_title">Ярлики навігаційного кільця</string>
   <string name="navigation_ring_message">Натисніть піктограму редагування щоб редагувати навігаційне кільце.\n\nОберіть ярлик, щоб налаштувати його поведінку.\n\nТоркніться галочки   \'\u2713\', щоб зберегти зміни, або іншої піктограми, щоб повернутись до типових налаштувань.</string>
+  <string name="lcd_density">Роздільна здатність екрана</string>
+  <string name="dialog_title_lcd_density">Роздільна здатність екрана</string>
+  <string name="lcd_density_value_format">%d точок на дюйм</string>
+  <string name="lcd_density_default_value_format">%d точок на дюйм (типово)</string>
+  <string name="restarting_ui">Перезавантаження інтерфейсу\u2026</string>
   <string name="stylus_icon_enabled_title">Відображувати значок під час використання стилусу</string>
   <string name="stylus_icon_enabled_summary">Відображувати значок під час наведення або малювання стилусом</string>
   <string name="gestures_settings_title">Рухи стилуса</string>
@@ -800,6 +820,9 @@
   <string name="sim_ringtone_title">Рінгтон SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Не приглушувати звуки</string>
   <string name="interruptions_ignore_while_media_summary">Не приглушувати відтворення медіа при надходженні сповіщення</string>
+  <string name="none_is_silent_title">Ніколи не вимикати звуки будильника</string>
+  <string name="none_is_silent_summary">Беззвучний режим дозволяє звуки будильника</string>
+  <string name="allow_lights_title">Дозволити спалах при сповіщенні</string>
   <string name="live_display_summary">Налаштовувати екран залежно від часу доби і умов освітлення для підвищення зручності читання і зменшення втоми очей</string>
   <string name="live_display_mode">Режим екрану</string>
   <string name="live_display_color_temperature_title">Температура кольорів</string>
@@ -829,4 +852,15 @@
   <string name="preview_version_title">Версія</string>
   <string name="preview_country_title">Країна</string>
   <string name="preview_carrier_title">Оператор</string>
+  <string name="heads_up_notifications">Спливаючі сповіщення</string>
+  <string name="summary_heads_up_enabled">Виринаючі сповіщення дозволено</string>
+  <string name="summary_heads_up_disabled">Виринаючі повідомлення заборонені</string>
+  <string name="master_clear_desc_cm" product="tablet">Це знищить всі дані з <b>вбудованої пам\'яті</b> Вашого планшета, в тому числі: \n\n <li>Облікові записи</li> \n <li>Дані та налаштування системи і додатків</li> \n <li>Завантажені додатки</li></string>
+  <string name="master_clear_desc_cm" product="default">Це знищить всі дані з <b>вбудованої пам\'яті</b> Вашого телефона, в тому числі: \n\n <li>Облікові записи</li> \n <li>Дані та налаштування системи і додатків</li> \n <li>Завантажені додатки</li></string>
+  <string name="lock_to_cyanogen_title">Захист пристрою</string>
+  <string name="lock_to_cyanogen_summary">Вимагатиме Ваш пароль Cyanogen OS навіть після скидання до заводських налаштувань</string>
+  <string name="lock_to_cyanogen_create_account_msg">Ваш пристрій використовує пароль облікового запису Cyanogen OS для захисту навіть у разі повернення до заводських налаштувань. Вам потрібно буде створити обліковий запис Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">Вимкнення цієї функції дозволить неавторизованим користувачам скинути до заводських налаштувань телефон, наприклад, при викраденні. Ваші персональні дані не будуть захищені. Ви хочете вимкнути цю функцію?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">Захист пристрою увімкнено. Необхідно вимкнути його, щоб виконати скидання налаштувань.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Помилка підключення; на цьому пристрої увімкнено Bluetooth tethering?</string>
 </resources>
