@@ -37,12 +37,10 @@
         android:title="@string/su_indicator"
         android:summary="@string/su_indicator_summary"
         android:defaultValue="true" />    	                                
-
-    <SwitchPreference
-        android:key="block_on_secure_keyguard"
-        android:title="@string/block_on_secure_keyguard_title"
-        android:summary="@string/block_on_secure_keyguard_summary"
-        android:persistent="false" />
+        <SwitchPreference
+           android:key="enable_task_manager"
+           android:title="@string/enable_task_manager_title"
+           android:summary="@string/enable_task_manager_summary" />
 
     <!-- Status bar logo -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -55,7 +53,13 @@
             android:title="@string/status_bar_logo_color"
             android:defaultValue="0xffffffff"
             android:dependency="status_bar_logo" />
-        
+
+    <SwitchPreference
+        android:key="block_on_secure_keyguard"
+        android:title="@string/block_on_secure_keyguard_title"
+        android:summary="@string/block_on_secure_keyguard_summary"
+        android:persistent="false" />        
+
     <ListPreference
         android:key="quick_pulldown"
         android:title="@string/title_quick_pulldown"

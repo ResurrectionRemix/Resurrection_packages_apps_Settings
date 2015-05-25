@@ -23,6 +23,7 @@ import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.text.Spannable;
 import android.text.TextUtils;
@@ -42,6 +43,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.util.Helpers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +68,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
     private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
     private static final String KEY_LOGO_COLOR = "status_bar_logo_color";
-    
+    private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
+
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
@@ -74,7 +77,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private SwitchPreference mStatusBarGreeting;
     private SeekBarPreferenceCham mStatusBarGreetingTimeout;
     private ColorPickerPreference mLogoColor;
-
+    private SwitchPreference mEnableTaskManager;
     private String mCustomGreetingText = "";
 
     private static final String TAG = "StatusBar";
@@ -99,6 +102,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBatteryShowPercent =
                 (ListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
+
+        // Task manager
+        mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
+        mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
 
         int batteryStyle = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_BATTERY_STYLE, 0);        
@@ -176,7 +184,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
      @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-       if (preference == mStatusBarGreeting) {
+       if  (preference == mEnableTaskManager) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);
+            Helpers.restartSystemUI();        
+       return super.onPreferenceTreeClick(preferenceScreen, preference);
+
+       } else if (preference == mStatusBarGreeting) {
            boolean enabled = mStatusBarGreeting.isChecked();
            if (enabled) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
