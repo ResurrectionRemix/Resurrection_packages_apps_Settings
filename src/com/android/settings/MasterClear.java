@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +17,20 @@
 
 package com.android.settings;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AuthenticatorDescription;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Process;
@@ -42,7 +45,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -61,13 +63,17 @@ public class MasterClear extends Fragment {
     private static final String TAG = "MasterClear";
 
     private static final int KEYGUARD_REQUEST = 55;
+    private static final int LOCK_REQUEST = 56;
 
-    static final String WIPE_MEDIA_EXTRA = "wipe_media";
-    static final String ERASE_EXTERNAL_EXTRA = "erase_sd";
+    //must match MasterClearReceiver.java extra
+    public static final String EXTRA_WIPE_MEDIA = "wipe_media";
+    public static final String EXTRA_WIPE_SDCARD = "wipe_sdcard";
 
     private View mContentView;
     private Button mInitiateButton;
     private View mExternalStorageContainer;
+    private View mInternalStorageContainer;
+    private CheckBox mInternalStorage;
     private CheckBox mExternalStorage;
 
     /**
@@ -87,7 +93,12 @@ public class MasterClear extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode != KEYGUARD_REQUEST) {
+        if (requestCode == LOCK_REQUEST) {
+            if (resultCode != Activity.RESULT_OK) {
+                getActivity().finish();
+            }
+            return;
+        } else if (requestCode != KEYGUARD_REQUEST) {
             return;
         }
 
@@ -101,17 +112,9 @@ public class MasterClear extends Fragment {
     }
 
     private void showFinalConfirmation() {
-        Preference preference = new Preference(getActivity());
-        preference.setFragment(MasterClearConfirm.class.getName());
-        preference.setTitle(R.string.master_clear_confirm_title);
-        if (mExternalStorage.isChecked()) {
-            if (Environment.isExternalStorageEmulated()) {
-                preference.getExtras().putBoolean(WIPE_MEDIA_EXTRA, true);
-            } else {
-                preference.getExtras().putBoolean(ERASE_EXTERNAL_EXTRA, true);
-            }
-        }
-        ((SettingsActivity) getActivity()).onPreferenceStartFragment(null, preference);
+        MasterClearConfirm.createInstance(mInternalStorage.isChecked(),
+                mExternalStorage.isChecked()) .show(getFragmentManager(),
+                MasterClearConfirm.class.getSimpleName());
     }
 
     /**
@@ -143,148 +146,69 @@ public class MasterClear extends Fragment {
     private void establishInitialState() {
         mInitiateButton = (Button) mContentView.findViewById(R.id.initiate_master_clear);
         mInitiateButton.setOnClickListener(mInitiateListener);
+        mInternalStorage = (CheckBox) mContentView.findViewById(R.id.erase_internal);
+        mInternalStorageContainer = mContentView.findViewById(R.id.erase_internal_container);
         mExternalStorageContainer = mContentView.findViewById(R.id.erase_external_container);
         mExternalStorage = (CheckBox) mContentView.findViewById(R.id.erase_external);
 
-        /*
-         * If the external storage is emulated, it will be erased with a factory
-         * reset at any rate. There is no need to have a separate option until
-         * we have a factory reset that only erases some directories and not
-         * others. Likewise, if it's non-removable storage, it could potentially have been
-         * encrypted, and will also need to be wiped.
+        boolean hasExternalStorage = false;
+
+        /**
+         * Here we do some logic to ensure the proper states are initialized.
+         * - hide internal memory section if device doesn't support it
+         * - force internal memory to be erased if the device is encrypted
+         * - show and hide the sd card section if the device supports this (and its inserted)
+         * TODO: mutli SD card support: no devices we support have this, but that might change
          */
-        boolean isExtStorageEmulated = Environment.isExternalStorageEmulated();
-        /* CM's recovery (and most custom ones) does NOT clear emulated
-         * storage when asked for a reset  */
-        if (!Environment.isExternalStorageRemovable() && isExtStorageEncrypted()) {
-            mExternalStorageContainer.setVisibility(View.GONE);
 
-            final View externalOption = mContentView.findViewById(R.id.erase_external_option_text);
-            externalOption.setVisibility(View.GONE);
+        if (Environment.isExternalStorageEmulated()) {
+            // we may have to force wipe internal storage due to encryption.
+            mInternalStorageContainer.setEnabled(!isExtStorageEncrypted()
+                    && !Environment.isExternalStorageRemovable());
+            mInternalStorageContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mInternalStorage.toggle();
+                }
+            });
+            if (!mInternalStorageContainer.isEnabled()) {
+                // force internal wipe
+                mInternalStorage.setChecked(true);
+                TextView internalSummaryText = (TextView) mContentView.findViewById(
+                        R.id.erase_storage_checkbox_description);
+                internalSummaryText.setText(
+                        R.string.factory_reset_erase_stored_content_summary_forced);
+            }
 
-            final View externalAlsoErased = mContentView.findViewById(R.id.also_erases_external);
-            externalAlsoErased.setVisibility(View.VISIBLE);
+            if (Environment.isExternalStorageRemovable(Environment.getSecondaryStorageDirectory())
+                    && Environment.getSecondaryStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                hasExternalStorage = true;
+            }
 
-            // If it's not emulated, it is on a separate partition but it means we're doing
-            // a force wipe due to encryption.
-            mExternalStorage.setChecked(!isExtStorageEmulated);
         } else {
-            mExternalStorageContainer.setOnClickListener(new View.OnClickListener() {
+            // there's no storage emulation; hide internal storage
+            mInternalStorageContainer.setVisibility(View.GONE);
 
+            // primary storage can be removed. but does it exist?
+            hasExternalStorage = Environment.isNoEmulatedStorageExist();
+        }
+
+        if (hasExternalStorage) {
+            mExternalStorageContainer.setVisibility(View.VISIBLE);
+            mExternalStorageContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mExternalStorage.toggle();
                 }
             });
-
-            final TextView wipeStorage =
-                    (TextView)mContentView.findViewById(R.id.erase_external_option_text);
-            wipeStorage.setText(isExtStorageEmulated ?
-                    R.string.master_clear_desc_erase_internal_storage :
-                    R.string.master_clear_desc_erase_external_storage);
-
-            final TextView wipeStorageTitle =
-                    (TextView)mContentView.findViewById(R.id.erase_storage_checkbox_title);
-            wipeStorageTitle.setText(isExtStorageEmulated ?
-                    R.string.erase_internal_storage :
-                    R.string.erase_external_storage);
-
-            final TextView wipeStorageDescription =
-                    (TextView)mContentView.findViewById(R.id.erase_storage_checkbox_description);
-            wipeStorageDescription.setText(isExtStorageEmulated ?
-                    R.string.erase_internal_storage_description :
-                    R.string.erase_external_storage_description);
+        } else {
+            mExternalStorageContainer.setVisibility(View.GONE);
         }
-
-        final UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
-        loadAccountList(um);
     }
 
     private boolean isExtStorageEncrypted() {
         String state = SystemProperties.get("vold.decrypt");
         return !"".equals(state);
-    }
-
-    private void loadAccountList(final UserManager um) {
-        View accountsLabel = mContentView.findViewById(R.id.accounts_label);
-        LinearLayout contents = (LinearLayout)mContentView.findViewById(R.id.accounts);
-        contents.removeAllViews();
-
-        Context context = getActivity();
-        final List<UserInfo> profiles = um.getProfiles(UserHandle.myUserId());
-        final int profilesSize = profiles.size();
-
-        AccountManager mgr = AccountManager.get(context);
-
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(
-                Context.LAYOUT_INFLATER_SERVICE);
-
-        int accountsCount = 0;
-        for (int profileIndex = 0; profileIndex < profilesSize; profileIndex++) {
-            final UserInfo userInfo = profiles.get(profileIndex);
-            final int profileId = userInfo.id;
-            final UserHandle userHandle = new UserHandle(profileId);
-            Account[] accounts = mgr.getAccountsAsUser(profileId);
-            final int N = accounts.length;
-            if (N == 0) {
-                continue;
-            }
-            accountsCount += N;
-
-            AuthenticatorDescription[] descs = AccountManager.get(context)
-                    .getAuthenticatorTypesAsUser(profileId);
-            final int M = descs.length;
-
-            View titleView = newTitleView(contents, inflater);
-            final TextView titleText = (TextView) titleView.findViewById(android.R.id.title);
-            titleText.setText(userInfo.isManagedProfile() ? R.string.category_work
-                    : R.string.category_personal);
-            contents.addView(titleView);
-
-            for (int i = 0; i < N; i++) {
-                Account account = accounts[i];
-                AuthenticatorDescription desc = null;
-                for (int j = 0; j < M; j++) {
-                    if (account.type.equals(descs[j].type)) {
-                        desc = descs[j];
-                        break;
-                    }
-                }
-                if (desc == null) {
-                    Log.w(TAG, "No descriptor for account name=" + account.name
-                            + " type=" + account.type);
-                    continue;
-                }
-                Drawable icon = null;
-                try {
-                    if (desc.iconId != 0) {
-                        Context authContext = context.createPackageContextAsUser(desc.packageName,
-                                0, userHandle);
-                        icon = context.getPackageManager().getUserBadgedIcon(
-                                authContext.getDrawable(desc.iconId), userHandle);
-                    }
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.w(TAG, "No icon for account type " + desc.type);
-                }
-
-                TextView child = (TextView)inflater.inflate(R.layout.master_clear_account,
-                        contents, false);
-                child.setText(account.name);
-                if (icon != null) {
-                    child.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
-                }
-                contents.addView(child);
-            }
-        }
-
-        if (accountsCount > 0) {
-            accountsLabel.setVisibility(View.VISIBLE);
-            contents.setVisibility(View.VISIBLE);
-        }
-        // Checking for all other users and their profiles if any.
-        View otherUsers = mContentView.findViewById(R.id.other_users_present);
-        final boolean hasOtherUsers = (um.getUserCount() - profilesSize) > 0;
-        otherUsers.setVisibility(hasOtherUsers ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -296,7 +220,7 @@ public class MasterClear extends Fragment {
             return inflater.inflate(R.layout.master_clear_disallowed_screen, null);
         }
 
-        mContentView = inflater.inflate(R.layout.master_clear, null);
+        mContentView = inflater.inflate(R.layout.master_clear_cm, null);
 
         establishInitialState();
         return mContentView;
@@ -309,5 +233,32 @@ public class MasterClear extends Fragment {
         final int resId = a.getResourceId(com.android.internal.R.styleable.Preference_layout,
                 0);
         return inflater.inflate(resId, parent, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (SecuritySettings.isDeviceLocked()) {
+            new AlertDialog.Builder(getActivity())
+                    .setMessage(R.string.lock_to_cyanogen_master_clear_warning)
+                    .setNegativeButton(R.string.wizard_back, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getActivity().finish();
+                        }
+                    })
+                    .setPositiveButton(R.string.lockpassword_continue_label, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SecuritySettings.updateCyanogenDeviceLockState(MasterClear.this,
+                                    false, LOCK_REQUEST);
+                        }
+                    })
+                    .setCancelable(false)
+                    .create()
+                    .show();
+
+        }
     }
 }
