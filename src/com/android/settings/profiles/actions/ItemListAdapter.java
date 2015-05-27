@@ -29,6 +29,7 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
 
     public enum RowType {
         HEADER_ITEM,
+        DISABLED_ITEM,
         CONNECTION_ITEM,
         VOLUME_STREAM_ITEM,
         NAME_ITEM,
