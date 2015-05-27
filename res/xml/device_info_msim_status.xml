@@ -20,8 +20,14 @@
         android:title="@string/device_status_activity_title">
 
     <!-- for MultiSim -->
-    <Preference
-        android:key="button_aboutphone_msim_status" />
+    <PreferenceScreen
+        android:key="button_aboutphone_msim_status"
+        android:title="@string/subs_settings"
+        android:persistent="false">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.SelectSubscription" />
+    </PreferenceScreen>
     <Preference android:key="battery_status"
         style="?android:attr/preferenceInformationStyle"
         android:title="@string/battery_status_title"

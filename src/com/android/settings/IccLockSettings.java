@@ -66,9 +66,6 @@ public class IccLockSettings extends PreferenceActivity
     // State when entering the new pin - second time
     private static final int ICC_REENTER_MODE = 4;
 
-    static final String EXTRA_SUB_ID = "slot_id";
-    static final String EXTRA_SUB_DISPLAY_NAME = "sub_display_name";
-
     // Keys in xml file
     private static final String PIN_DIALOG = "sim_pin";
     private static final String PIN_TOGGLE = "sim_toggle";
@@ -171,6 +168,11 @@ public class IccLockSettings extends PreferenceActivity
             return;
         }
 
+        ActionBar mActionBar = getActionBar();
+        if (mActionBar != null) {
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         addPreferencesFromResource(R.xml.sim_lock_settings);
 
         mPinDialog = (EditPinPreference) findPreference(PIN_DIALOG);
@@ -206,19 +208,13 @@ public class IccLockSettings extends PreferenceActivity
         getPreferenceScreen().setPersistent(false);
 
         Intent intent = getIntent();
-        int subId = intent.getIntExtra(EXTRA_SUB_ID,
+        int subId = intent.getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
                 SubscriptionManager.getDefaultSubId());
         // Use the right phone based on the subscription selected.
         int phoneId = SubscriptionManager.getPhoneId(subId);
         mPhone = PhoneFactory.getPhone(phoneId);
         mRes = getResources();
         updatePreferences();
-
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setSubtitle(intent.getStringExtra(EXTRA_SUB_DISPLAY_NAME));
-        }
     }
 
     @Override

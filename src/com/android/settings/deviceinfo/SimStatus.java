@@ -16,7 +16,6 @@
 
 package com.android.settings.deviceinfo;
 
-import android.app.ActionBar;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -40,9 +39,6 @@ import android.telephony.TelephonyManager;
 import android.provider.Telephony;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ListView;
 
 import com.android.internal.telephony.ITelephony;
 import com.android.internal.telephony.DefaultPhoneNotifier;
@@ -50,6 +46,14 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.settings.R;
 import com.android.settings.Utils;
+
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TabHost.TabContentFactory;
+import android.widget.TabHost.TabSpec;
+import android.widget.TabWidget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +95,6 @@ public class SimStatus extends PreferenceActivity {
     static final String CB_AREA_INFO_SENDER_PERMISSION =
             "android.permission.RECEIVE_EMERGENCY_BROADCAST";
 
-    static final String EXTRA_SLOT_ID = "slot_id";
 
     private TelephonyManager mTelephonyManager;
     private Phone mPhone = null;
@@ -103,6 +106,10 @@ public class SimStatus extends PreferenceActivity {
     // Default summary for items
     private String mDefaultText;
 
+    private TabHost mTabHost;
+    private TabWidget mTabWidget;
+    private ListView mListView;
+    private List<SubscriptionInfo> mSelectableSubInfos;
 
     private PhoneStateListener mPhoneStateListener;
     private BroadcastReceiver mAreaInfoReceiver = new BroadcastReceiver() {
@@ -129,6 +136,7 @@ public class SimStatus extends PreferenceActivity {
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        mSelectableSubInfos = new ArrayList<SubscriptionInfo>();
         mTelephonyManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
 
         addPreferencesFromResource(R.xml.device_info_sim_status);
@@ -138,19 +146,32 @@ public class SimStatus extends PreferenceActivity {
         // Note - missing in zaku build, be careful later...
         mSignalStrength = findPreference(KEY_SIGNAL_STRENGTH);
 
-        int slotId = getIntent().getIntExtra(EXTRA_SLOT_ID, 0);
-        mSir = Utils.findRecordBySlotId(this, slotId);
+        for (int i = 0; i < mTelephonyManager.getSimCount(); i++) {
+            final SubscriptionInfo sir = Utils.findRecordBySlotId(this, i);
+            if (sir != null) {
+                mSelectableSubInfos.add(sir);
+            }
+        }
+
+        mSir = mSelectableSubInfos.size() > 0 ? mSelectableSubInfos.get(0) : null;
+        if (mSelectableSubInfos.size() > 1) {
+            setContentView(R.layout.sim_information);
+
+            mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+            mTabWidget = (TabWidget) findViewById(android.R.id.tabs);
+            mListView = (ListView) findViewById(android.R.id.list);
+
+            mTabHost.setup();
+            mTabHost.setOnTabChangedListener(mTabListener);
+            mTabHost.clearAllTabs();
+
+            for (int i = 0; i < mSelectableSubInfos.size(); i++) {
+                mTabHost.addTab(buildTabSpec(String.valueOf(i),
+                        String.valueOf(mSelectableSubInfos.get(i).getDisplayName())));
+            }
+        }
 
         updatePhoneInfos();
-
-        if (getIntent().hasExtra(EXTRA_SLOT_ID)) {
-            setTitle(getString(R.string.sim_card_status_title, slotId + 1));
-        }
-
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override
@@ -188,15 +209,6 @@ public class SimStatus extends PreferenceActivity {
         if (mShowLatestAreaInfo) {
             unregisterReceiver(mAreaInfoReceiver);
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -378,5 +390,34 @@ public class SimStatus extends PreferenceActivity {
                 };
             }
         }
+    }
+    private OnTabChangeListener mTabListener = new OnTabChangeListener() {
+        @Override
+        public void onTabChanged(String tabId) {
+            final int slotId = Integer.parseInt(tabId);
+            mSir = mSelectableSubInfos.get(slotId);
+
+            // The User has changed tab; update the SIM information.
+            updatePhoneInfos();
+            mTelephonyManager.listen(mPhoneStateListener,
+                    PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
+                    | PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
+                    | PhoneStateListener.LISTEN_SERVICE_STATE);
+            updateDataState();
+            updateNetworkType();
+            updatePreference();
+        }
+    };
+
+    private TabContentFactory mEmptyTabContent = new TabContentFactory() {
+        @Override
+        public View createTabContent(String tag) {
+            return new View(mTabHost.getContext());
+        }
+    };
+
+    private TabSpec buildTabSpec(String tag, String title) {
+        return mTabHost.newTabSpec(tag).setIndicator(title).setContent(
+                mEmptyTabContent);
     }
 }

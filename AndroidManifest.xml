@@ -1255,6 +1255,18 @@
         <activity android:name=".EncryptionInterstitial"/>
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
+        <activity android:name=".deviceinfo.msim.MSimSubscriptionStatus"
+                android:label="@string/device_status_activity_title"
+                android:theme="@style/Theme.Settings"
+                android:process="com.android.phone">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+        </activity>
+
+        <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"
                 android:label="@string/device_status_activity_title"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
@@ -2011,6 +2023,17 @@
                 android:resource="@id/wireless_settings" />
         </activity>
 
+        <!-- Select Subscription (SUB1 or SUB2) Screen -->
+        <activity android:name=".SelectSubscription"
+                android:label="@string/subs_settings"
+                android:process="com.android.phone"
+                android:clearTaskOnLaunch="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+        </activity>
         <activity android:name="Settings$DreamSettingsActivity"
                 android:label="@string/screensaver_settings_title"
                 android:taskAffinity="">
