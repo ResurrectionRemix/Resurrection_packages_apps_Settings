@@ -149,6 +149,7 @@ public class ManageApplications extends Fragment implements
     private static final String EXTRA_SHOW_BACKGROUND = "showBackground";
     private static final String EXTRA_DEFAULT_LIST_TYPE = "defaultListType";
     private static final String EXTRA_RESET_DIALOG = "resetDialog";
+    private static final String EXTRA_APP_INSTALL_LOCATION_DIALOG = "appInstallLocationDialog";
 
     // attributes used as keys when passing values to InstalledAppDetails activity
     public static final String APP_CHG = "chg";
@@ -499,6 +500,7 @@ public class ManageApplications extends Fragment implements
     private Context mContext;
 
     AlertDialog mResetDialog;
+    AlertDialog mAppInstallLocationDialog;
 
     class MyPagerAdapter extends PagerAdapter
             implements ViewPager.OnPageChangeListener {
@@ -968,6 +970,11 @@ public class ManageApplications extends Fragment implements
             buildResetDialog();
         }
 
+        if (savedInstanceState != null
+                && savedInstanceState.getBoolean(EXTRA_APP_INSTALL_LOCATION_DIALOG)) {
+            showAppInstallLocationSettingDlg();
+        }
+
         if (savedInstanceState == null) {
             // First time init: make sure view pager is showing the correct tab.
             int extraCurrentListType = getActivity().getIntent().getIntExtra(EXTRA_LIST_TYPE,
@@ -1011,6 +1018,9 @@ public class ManageApplications extends Fragment implements
         if (mResetDialog != null) {
             outState.putBoolean(EXTRA_RESET_DIALOG, true);
         }
+        if (mAppInstallLocationDialog != null) {
+            outState.putBoolean(EXTRA_APP_INSTALL_LOCATION_DIALOG, true);
+        }
     }
 
     @Override
@@ -1028,6 +1038,10 @@ public class ManageApplications extends Fragment implements
         if (mResetDialog != null) {
             mResetDialog.dismiss();
             mResetDialog = null;
+        }
+        if (mAppInstallLocationDialog != null) {
+            mAppInstallLocationDialog.dismiss();
+            mAppInstallLocationDialog = null;
         }
     }
 
@@ -1206,6 +1220,9 @@ public class ManageApplications extends Fragment implements
         if (mResetDialog == dialog) {
             mResetDialog = null;
         }
+        if (mAppInstallLocationDialog == dialog) {
+            mAppInstallLocationDialog = null;
+        }
     }
 
 
@@ -1335,35 +1352,41 @@ public class ManageApplications extends Fragment implements
 
         final String[] items = getActivity().getResources().getStringArray(
                 R.array.app_install_location_entries);
-        new AlertDialog.Builder(getActivity()).setTitle(R.string.app_install_location_title)
-                .setSingleChoiceItems(items, selectedLocation,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int item) {
-                                final String[] itemValues = getActivity().getResources()
-                                        .getStringArray(
-                                                R.array.app_install_location_values);
-                                if (APP_INSTALL_DEVICE_ID.equals(itemValues[item])) {
-                                    Settings.Global.putInt(getActivity().getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                            APP_INSTALL_DEVICE);
-                                } else if (APP_INSTALL_SDCARD_ID.equals(itemValues[item])) {
-                                    Settings.Global.putInt(getActivity().getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                            APP_INSTALL_SDCARD);
-                                } else if (APP_INSTALL_AUTO_ID.equals(itemValues[item])) {
-                                    Settings.Global.putInt(getActivity().getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                            APP_INSTALL_AUTO);
-                                } else {
-                                    // Should not happen, default to prompt.
-                                    Settings.Global.putInt(getActivity().getContentResolver(),
-                                            Settings.Global.DEFAULT_INSTALL_LOCATION,
-                                            APP_INSTALL_AUTO);
+        if (mAppInstallLocationDialog == null) {
+            mAppInstallLocationDialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.app_install_location_title)
+                    .setSingleChoiceItems(items, selectedLocation,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int item) {
+                                    final String[] itemValues = getActivity().getResources()
+                                            .getStringArray(
+                                                    R.array.app_install_location_values);
+                                    if (APP_INSTALL_DEVICE_ID.equals(itemValues[item])) {
+                                        Settings.Global.putInt(getActivity().getContentResolver(),
+                                                Settings.Global.DEFAULT_INSTALL_LOCATION,
+                                                APP_INSTALL_DEVICE);
+                                    } else if (APP_INSTALL_SDCARD_ID.equals(itemValues[item])) {
+                                        Settings.Global.putInt(getActivity().getContentResolver(),
+                                                Settings.Global.DEFAULT_INSTALL_LOCATION,
+                                                APP_INSTALL_SDCARD);
+                                    } else if (APP_INSTALL_AUTO_ID.equals(itemValues[item])) {
+                                        Settings.Global.putInt(getActivity().getContentResolver(),
+                                                Settings.Global.DEFAULT_INSTALL_LOCATION,
+                                                APP_INSTALL_AUTO);
+                                    } else {
+                                        // Should not happen, default to prompt.
+                                        Settings.Global.putInt(getActivity().getContentResolver(),
+                                                Settings.Global.DEFAULT_INSTALL_LOCATION,
+                                                APP_INSTALL_AUTO);
+                                    }
+                                    dialog.cancel();
                                 }
-                                dialog.cancel();
                             }
-                        }
-                ).show();
+                    ).show();
+        } else {
+            mAppInstallLocationDialog.show();
+        }
+        mAppInstallLocationDialog.setOnDismissListener(this);
     }
 
     public void onItemClick(TabInfo tab, AdapterView<?> parent, View view, int position,
