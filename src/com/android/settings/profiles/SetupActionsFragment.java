@@ -774,10 +774,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 seekBar.setEnabled(isChecked);
             }
         });
-        seekBar.setEnabled(streamSettings.isOverride());
         final SeekBarVolumizer volumizer = new SeekBarVolumizer(getActivity(), streamId, null,
                 null);
+        volumizer.start();
         volumizer.setSeekBar(seekBar);
+        seekBar.setEnabled(streamSettings.isOverride());
+
         builder.setView(view);
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
