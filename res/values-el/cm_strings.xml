@@ -83,6 +83,7 @@
   <string name="profile_choose_app">Επιλέξτε εφαρμογή</string>
   <string name="profile_system_settings_title">Ρυθμίσεις συστήματος</string>
   <string name="profile_lockmode_title">Λειτουργία οθόνης κλειδώματος</string>
+  <string name="profile_lockmode_policy_disabled_summary">Αυτή η επιλογή προφίλ είναι απενεργοποιημένη από μια πολιτική διαχειριστή συσκευής</string>
   <string name="profile_lockmode_insecure_summary">Να μη ζητηθεί PIN ή κωδικός</string>
   <string name="profile_lockmode_disabled_summary">Απενεργοποίηση οθόνης κλειδώματος</string>
   <string name="profile_airplanemode_title">Λειτουργία πτήσης</string>
@@ -210,6 +211,8 @@
   <string name="app_security_title">Ασφάλεια εφαρμογών</string>
   <string name="sms_security_check_limit_title">Όριο μηνυμάτων SMS</string>
   <string name="sms_security_check_limit_summary">Οι εφαρμογές μπορούν να στείλουν %d μηνύματα μέσα σε 30 λεπτά πριν χρειαστούν επιβεβαίωση</string>
+  <string name="sms_security_check_limit_summary_none">Οι εφαρμογές μπορούν να στείλουν απεριόριστα μηνύματα χωρις επιβεβαίωση</string>
+  <string name="sms_security_check_limit_none">Κανένα</string>
   <string name="spam_added_title">Προστέθηκε: %1$s</string>
   <string name="spam_last_blocked_title">Τελευταία φραγή: %1$s</string>
   <string name="block_notifications_title">Φιλτράρισμα ειδοποιήσεων</string>
@@ -573,7 +576,6 @@
   <string name="sim_pin_attempts">\nΠροσπάθειες που απομένουν:</string>
   <string name="sim_pin_enabled">ΡΙΝ1 ενεργοποιημένο</string>
   <string name="sim_pin_disabled">ΡΙΝ1 απενεργοποιημένο</string>
-  <string name="subs_settings">Κατάσταση κάρτας SIM</string>
   <string name="storage_usb">Αποθ. χώρος USB</string>
   <string name="storage_uicc">Αποθ. χώρος UICC</string>
   <string name="sdcard_eject" product="default">Αποπροσάρτηση κάρτας SD</string>
@@ -650,6 +652,7 @@
   <string name="usb_charging_summary">Απενεργοποιεί όλες τις μεταφορές δεδομένων με τον υπολογιστή και φορτίζει τη συσκευή μέσω της θύρας USB</string>
   <string name="usb_sdcard_title">Αποθ. χώρος USB (UMS)</string>
   <string name="usb_sdcard_summary">Σας επιτρέπει να μεταφέρετε αρχεία μεταξύ του υπολογιστή σας και της κάρτας SD προσαρτώντας την ως συσκευή flash</string>
+  <string name="usb_not_connected">Το USB αποσυνδέθηκε</string>
   <string name="external_storage_turn_on">Ο εξωτερικός αποθ. χώρος έχει ενεργοποιηθεί</string>
   <string name="external_storage_turn_off">Ο εξωτερικός αποθ. χώρος έχει απενεργοποιηθεί</string>
   <string name="stats_collection_title">Συλλογή στατιστικών</string>
@@ -735,6 +738,7 @@
   <string name="qs_tile_usb_tether">Πρόσδεση USB</string>
   <string name="qs_tile_heads_up">Αναδυόμενες ειδοποιήσεις</string>
   <string name="qs_tile_ambient_display">Οθόνη ambient</string>
+  <string name="qs_tile_sync">Συγχρονισμός</string>
   <string name="qs_main_tiles_title">Μεγέθυνση της πρώτης γραμμής</string>
   <string name="qs_main_tiles_summary_on">Δύο κύρια πλακίδια στην πρώτη γραμμή</string>
   <string name="qs_main_tiles_summary_off">Τρία πλακίδια σε κάθε γραμμή</string>
@@ -810,7 +814,7 @@
   <string name="category_interface">Διεπαφή</string>
   <string name="category_calibration">Βελτίωση εικόνας</string>
   <string name="display_and_lights">Οθόνη &amp; φωτισμός</string>
-  <string name="notification_manager">Διαχείριση ειδοποιήσεων</string>
+  <string name="notification_manager">Ειδοποιήσεις</string>
   <string name="lockscreen_settings">Οθόνη κλειδώματος</string>
   <string name="category_lights">Φωτισμός</string>
   <string name="power_usage_history_title">Χρήση μπαταρίας</string>
@@ -866,4 +870,7 @@
   <string name="lock_to_cyanogen_disable_msg">Απενεργοποιώντας αυτό το χαρακτηριστικό επιτρέπετε σε μη εξουσιοδοτημένους χρήστες να επαναφέρουν το τηλέφωνό σας στις εργοστασιακές ρυθμίσεις εάν κλαπεί. Τα προσωπικά σας δεδομένα δεν μπορούν να προστατευθούν. Θέλετε να απενεργοποιήσετε αυτό το χαρακτηριστικό;</string>
   <string name="lock_to_cyanogen_master_clear_warning">Η Προστασία Συσκευής είναι ενεργοποιημένη. Παρακαλούμε απενεργοποιήστε την για να συνεχίσετε την επαναφορά της συσκευής σας.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Σφάλμα σύνδεσης. Είναι η πρόσδεση Bluetooth ενεργοποιημένη σε αυτήν τη συσκευή;</string>
+  <string name="sim_card_status_title">Κατάσταση SIM %d</string>
+  <string name="sim_card_lock_settings_title">Ρυθμίσεις κλειδώματος SIM %d</string>
+  <string name="sim_card_summary_empty">Δεν έχει τοποθετηθεί SIM</string>
 </resources>

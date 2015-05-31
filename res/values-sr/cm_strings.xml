@@ -85,6 +85,7 @@
   <string name="profile_choose_app">Изабери апликацију</string>
   <string name="profile_system_settings_title">Подешавање система</string>
   <string name="profile_lockmode_title">Режим закључаног екрана</string>
+  <string name="profile_lockmode_policy_disabled_summary">Ова опција профила је онемогућена полисом администратора уређаја</string>
   <string name="profile_lockmode_insecure_summary">Не тражи PIN или лозинку</string>
   <string name="profile_lockmode_disabled_summary">Онемогући закључани екран</string>
   <string name="profile_airplanemode_title">Режим рада у авиону</string>
@@ -212,6 +213,8 @@
   <string name="app_security_title">Безбедност апликација</string>
   <string name="sms_security_check_limit_title">Ограничење SMS порука</string>
   <string name="sms_security_check_limit_summary">Апликације могу послати %d порука у 30 минута пре захтевања потврде</string>
+  <string name="sms_security_check_limit_summary_none">Апликације не смеју да шаљу поруке без потврде</string>
+  <string name="sms_security_check_limit_none">Ниједан</string>
   <string name="spam_added_title">Додато %1$s</string>
   <string name="spam_last_blocked_title">Последње блокирано %1$s</string>
   <string name="block_notifications_title">Филтер обавештења</string>
@@ -575,7 +578,6 @@
   <string name="sim_pin_attempts">\nПокушаја преостало:</string>
   <string name="sim_pin_enabled">PIN1 омогућен</string>
   <string name="sim_pin_disabled">PIN1 онемогућен</string>
-  <string name="subs_settings">Статуси SIM картица</string>
   <string name="storage_usb">УСБ диск</string>
   <string name="storage_uicc">UICC складиште</string>
   <string name="sdcard_eject" product="default">Искључи SD картицу</string>
@@ -652,7 +654,7 @@
   <string name="usb_charging_summary">Онемогућава сав пренос података са рачунаром и пуни уређај преко USB порта</string>
   <string name="usb_sdcard_title">Масовно складиште (UMS)</string>
   <string name="usb_sdcard_summary">Омогућава да преносиш све датотеке између рачунара и SD картице монтирањем као флеш уређај</string>
-  <string name="usb_not_connected">USB није конектован</string>
+  <string name="usb_not_connected">USB је сада искључен</string>
   <string name="external_storage_turn_on">Спољно складиште је укључено</string>
   <string name="external_storage_turn_off">Спољно складиште је искључено</string>
   <string name="stats_collection_title">Колекција статистике</string>
@@ -738,6 +740,7 @@
   <string name="qs_tile_usb_tether">USB привезивање</string>
   <string name="qs_tile_heads_up">Искачуће поруке</string>
   <string name="qs_tile_ambient_display">Амбијент приказ</string>
+  <string name="qs_tile_sync">Синхрон</string>
   <string name="qs_main_tiles_title">Повећај први ред</string>
   <string name="qs_main_tiles_summary_on">Два главне плочице у првом реду</string>
   <string name="qs_main_tiles_summary_off">Три плочице у сваком реду</string>
@@ -813,7 +816,7 @@
   <string name="category_interface">Интерфејс</string>
   <string name="category_calibration">Калибрација</string>
   <string name="display_and_lights">Екран &amp; светла</string>
-  <string name="notification_manager">Менаџер обавештења</string>
+  <string name="notification_manager">Обавештења</string>
   <string name="lockscreen_settings">Закључан екран</string>
   <string name="category_lights">Светла</string>
   <string name="power_usage_history_title">Употреба батерије</string>
@@ -865,4 +868,7 @@
   <string name="lock_to_cyanogen_disable_msg">Онемогућавање овога ће дозволити неауторизованим корисницима да ресетују телефон на фабрички ако је украден. Лични подаци неће бити заштићени. Да ли желите онемогућити ову могућност?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Заштита уређаја је омогућена. Онемогућите је да би наставили ресетовање уређаја.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Грешка конекције: да ли је Bluetooth повезивање омогућено на овом уређају?</string>
+  <string name="sim_card_status_title">SIM %d статус</string>
+  <string name="sim_card_lock_settings_title">SIM %d подешавање закључавања</string>
+  <string name="sim_card_summary_empty">SIM није убачен</string>
 </resources>
