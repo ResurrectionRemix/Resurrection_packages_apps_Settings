@@ -1119,9 +1119,12 @@ public class ManageApplications extends Fragment implements
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.add(0, RESET_APP_PREFERENCES, 4, R.string.reset_app_preferences)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        int lastOptionOrder = 5;
+
         if (!Utils.isRestrictedProfile(getActivity())) {
             menu.add(0, SHOW_PROTECTED_APPS, 5, R.string.protected_apps)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+            lastOptionOrder = 6;
         }
         if (Environment.getSecondaryStorageDirectory() != null
                 && Environment.MEDIA_MOUNTED.equals(Environment.getSecondaryStorageState())) {
