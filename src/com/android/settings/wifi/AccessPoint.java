@@ -83,6 +83,7 @@ class AccessPoint extends Preference {
     private static final int[] STATE_NONE = {};
 
     private static int[] wifi_signal_attributes = { R.attr.wifi_signal };
+    private static int[] wifi_no_signal_attributes = { R.attr.wifi_no_signal };
 
     /**
      * These values are matched in string arrays -- changes must be kept in sync
@@ -119,6 +120,10 @@ class AccessPoint extends Preference {
     private WifiInfo mInfo;
     private NetworkInfo mNetworkInfo;
     private TextView mSummaryView;
+
+    private boolean mShowNoSignalIcon;
+    private boolean mNoSignalLoaded;
+    private boolean mSortPreference = true;
 
     private static final int VISIBILITY_MAX_AGE_IN_MILLI = 1000000;
     private static final int VISIBILITY_OUTDATED_AGE_IN_MILLI = 20000;
@@ -193,7 +198,13 @@ class AccessPoint extends Preference {
     }
 
     AccessPoint(Context context, WifiConfiguration config) {
+        this(context, config, false);
+    }
+
+    AccessPoint(Context context, WifiConfiguration config, boolean showNoSignal) {
         super(context);
+        mShowNoSignalIcon = showNoSignal;
+
         loadConfig(config);
         refresh();
     }
@@ -270,11 +281,26 @@ class AccessPoint extends Preference {
 
     protected void updateIcon(int level, Context context) {
         if (level == -1) {
-            setIcon(null);
+            if (mShowNoSignalIcon) {
+                Drawable drawable = getIcon();
+
+                if (drawable == null || !mNoSignalLoaded) {
+                    StateListDrawable sld = (StateListDrawable) context.getTheme()
+                            .obtainStyledAttributes(wifi_no_signal_attributes).getDrawable(0);
+                    if (sld != null) {
+                        sld.setState((security != SECURITY_NONE) ? STATE_SECURED : STATE_NONE);
+                        setIcon(sld.getCurrent());
+                        mNoSignalLoaded = true;
+                    }
+                }
+            }
+            if (!mNoSignalLoaded) {
+                setIcon(null);
+            }
         } else {
             Drawable drawable = getIcon();
 
-            if (drawable == null) {
+            if (drawable == null || mNoSignalLoaded) {
                 // To avoid a drawing race condition, we first set the state (SECURE/NONE) and then
                 // set the icon (drawable) to that state's drawable.
                 StateListDrawable sld = (StateListDrawable) context.getTheme()
@@ -285,6 +311,7 @@ class AccessPoint extends Preference {
                     sld.setState((security != SECURITY_NONE) ? STATE_SECURED : STATE_NONE);
                     drawable = sld.getCurrent();
                     setIcon(drawable);
+                    mNoSignalLoaded = false;
                 }
             }
 
@@ -298,6 +325,9 @@ class AccessPoint extends Preference {
     public int compareTo(Preference preference) {
         if (!(preference instanceof AccessPoint)) {
             return 1;
+        }
+        if (!mSortPreference) {
+            return super.compareTo(((Preference)preference));
         }
         AccessPoint other = (AccessPoint) preference;
         // Active one goes first.
@@ -367,6 +397,10 @@ class AccessPoint extends Preference {
             return true;
         }
         return false;
+    }
+
+    public void setSortPreference(boolean sort) {
+        mSortPreference = sort;
     }
 
     /** Return whether the given {@link WifiInfo} is for this access point. */
