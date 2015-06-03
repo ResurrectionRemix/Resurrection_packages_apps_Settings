@@ -188,7 +188,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);
-            Helpers.restartSystemUI();        
        return super.onPreferenceTreeClick(preferenceScreen, preference);
 
        } else if (preference == mStatusBarGreeting) {
