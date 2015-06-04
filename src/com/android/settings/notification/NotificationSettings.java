@@ -97,6 +97,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         @Override
         public void onStartingSample() {
             mVolumeCallback.stopSample();
+            mHandler.removeMessages(H.STOP_SAMPLE);
+            mHandler.sendEmptyMessageDelayed(H.STOP_SAMPLE, SAMPLE_CUTOFF);
         }
     };
 
@@ -218,9 +220,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         updateEffectsSuppressor();
         for (VolumeSeekBarPreference volumePref : mVolumePrefs) {
             volumePref.onActivityResume();
-        
-               mHeadsUp.setSummary(getUserHeadsUpState()
+        mHeadsUp.setSummary(getUserHeadsUpState()
                 ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
+        
+        }
+        if (mIncreasingRingVolume != null) {
+            mIncreasingRingVolume.onActivityResume();
     }
 }
 
@@ -228,6 +233,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     public void onPause() {
         super.onPause();
         mVolumeCallback.stopSample();
+        if (mIncreasingRingVolume != null) {
+            mIncreasingRingVolume.stopSample();
+        }
         mSettingsObserver.register(false);
         mReceiver.register(false);
     }
@@ -659,6 +667,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                     break;
                 case STOP_SAMPLE:
                     mVolumeCallback.stopSample();
+                    if (mIncreasingRingVolume != null) {
+                        mIncreasingRingVolume.stopSample();
+                    }
                     break;
                 case UPDATE_EFFECTS_SUPPRESSOR:
                     updateEffectsSuppressor();

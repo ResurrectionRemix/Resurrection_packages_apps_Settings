@@ -58,6 +58,7 @@ public class IncreasingRingVolumePreference extends Preference implements
     private static final int MSG_START_SAMPLE = 1;
     private static final int MSG_STOP_SAMPLE = 2;
     private static final int MSG_INIT_SAMPLE = 3;
+    private static final int MSG_SET_VOLUME = 4;
     private static final int CHECK_RINGTONE_PLAYBACK_DELAY_MS = 1000;
 
     public IncreasingRingVolumePreference(Context context) {
@@ -84,6 +85,10 @@ public class IncreasingRingVolumePreference extends Preference implements
         mCallback = callback;
     }
 
+    public void onActivityResume() {
+        initHandler();
+    }
+
     @Override
     public void onActivityStop() {
         if (mHandler != null) {
@@ -97,13 +102,16 @@ public class IncreasingRingVolumePreference extends Preference implements
     public boolean handleMessage(Message msg) {
         switch (msg.what) {
             case MSG_START_SAMPLE:
-                onStartSample();
+                onStartSample((float) msg.arg1 / 1000F);
                 break;
             case MSG_STOP_SAMPLE:
                 onStopSample();
                 break;
             case MSG_INIT_SAMPLE:
                 onInitSample();
+                break;
+            case MSG_SET_VOLUME:
+                onSetVolume((float) msg.arg1 / 1000F);
                 break;
         }
         return true;
@@ -146,7 +154,7 @@ public class IncreasingRingVolumePreference extends Preference implements
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         if (seekBar == mStartVolumeSeekBar) {
-            postStartSample();
+            postStartSample(seekBar.getProgress());
         }
     }
 
@@ -187,21 +195,34 @@ public class IncreasingRingVolumePreference extends Preference implements
         }
     }
 
-    private void postStartSample() {
+    private void postStartSample(int progress) {
+        boolean playing = isSamplePlaying();
         mHandler.removeMessages(MSG_START_SAMPLE);
-        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_START_SAMPLE),
-                isSamplePlaying() ? CHECK_RINGTONE_PLAYBACK_DELAY_MS : 0);
+        mHandler.removeMessages(MSG_SET_VOLUME);
+        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_START_SAMPLE, progress, 0),
+                playing ? CHECK_RINGTONE_PLAYBACK_DELAY_MS : 0);
+        if (playing) {
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_VOLUME, progress, 0));
+        }
     }
 
-    private void onStartSample() {
-        if (!isSamplePlaying() && mRingtone != null) {
+    private void onStartSample(float volume) {
+        if (mRingtone == null) {
+            return;
+        }
+        if (!isSamplePlaying()) {
             try {
                 mRingtone.play();
             } catch (Throwable e) {
                 Log.w(TAG, "Error playing ringtone", e);
             }
-            mHandler.removeMessages(MSG_STOP_SAMPLE);
-            mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_STOP_SAMPLE), 2000);
+        }
+        mRingtone.setVolume(volume);
+    }
+
+    private void onSetVolume(float volume) {
+        if (mRingtone != null) {
+            mRingtone.setVolume(volume);
         }
     }
 
