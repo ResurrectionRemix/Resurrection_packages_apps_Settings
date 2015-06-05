@@ -230,21 +230,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             }
         }
 
-        // Enable or disable mStatusBarImeSwitcher based on boolean: config_show_cmIMESwitcher
-        boolean showCmImeSwitcher = getResources().getBoolean(
-                com.android.internal.R.bool.config_show_cmIMESwitcher);
-        if (!showCmImeSwitcher) {
-            Preference pref = findPreference(Settings.System.STATUS_BAR_IME_SWITCHER);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        }
-        
-        if (!Utils.isPhone(getActivity())) {
-            getPreferenceScreen().removePreference(
-                    findPreference(Settings.System.FULLSCREEN_KEYBOARD_MODE));
-        }
-        
         // Spell Checker
         final Preference spellChecker = findPreference(KEY_SPELL_CHECKERS);
         if (spellChecker != null) {
