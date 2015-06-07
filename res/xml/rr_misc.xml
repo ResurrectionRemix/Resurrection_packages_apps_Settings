@@ -94,6 +94,11 @@
             android:defaultValue="true"
             android:dependency="show_clear_all_recents" />
 
+        <PreferenceScreen
+            android:key="recent_panel"
+            android:title="@string/recent_panel_slim"
+            android:summary="@string/recent_panel_slim_summary"
+            android:fragment="com.android.settings.slim.RecentPanel" />
 
         <ListPreference
             android:key="recents_clear_all_location"
