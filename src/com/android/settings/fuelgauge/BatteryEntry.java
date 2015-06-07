@@ -26,6 +26,7 @@ import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.BatteryStats;
 import android.os.Handler;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -250,6 +251,18 @@ public class BatteryEntry {
         if (sipper.mPackages == null) {
             name = Integer.toString(uid);
             return;
+        }
+
+        if (uid == Process.SYSTEM_UID) {
+            // Make sure we use the framework's name and icon for the system UID
+            for (int i = 1; i < sipper.mPackages.length; i++) {
+                if ("android".equals(sipper.mPackages[i])) {
+                    String otherPackage = sipper.mPackages[0];
+                    sipper.mPackages[0] = sipper.mPackages[i];
+                    sipper.mPackages[i] = otherPackage;
+                    break;
+                }
+            }
         }
 
         String[] packageLabels = new String[sipper.mPackages.length];
