@@ -121,6 +121,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mAssistLongPressAction;
     private ListPreference mAppSwitchPressAction;
     private ListPreference mAppSwitchLongPressAction;
+    private SwitchPreference mCameraWakeScreen;
+    private SwitchPreference mCameraSleepOnRelease;
+    private SwitchPreference mCameraLaunch;
     private ListPreference mVolumeKeyCursorControl;
     private SwitchPreference mVolumeWakeScreen;
     private SwitchPreference mVolumeMusicControls;
@@ -157,6 +160,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
         final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
         final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
+        final boolean hasCameraKey = (deviceKeys & KEY_MASK_CAMERA) != 0;
         final boolean hasVolumeKeys = (deviceKeys & KEY_MASK_VOLUME) != 0;
 
         final boolean showHomeWake = (deviceWakeKeys & KEY_MASK_HOME) != 0;
@@ -164,6 +168,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean showMenuWake = (deviceWakeKeys & KEY_MASK_MENU) != 0;
         final boolean showAssistWake = (deviceWakeKeys & KEY_MASK_ASSIST) != 0;
         final boolean showAppSwitchWake = (deviceWakeKeys & KEY_MASK_APP_SWITCH) != 0;
+        final boolean showCameraWake = (deviceWakeKeys & KEY_MASK_CAMERA) != 0;
         final boolean showVolumeWake = (deviceWakeKeys & KEY_MASK_VOLUME) != 0;
 
         boolean hasAnyBindableKey = false;
@@ -340,6 +345,18 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
+        if (hasCameraKey) {
+            if (!showCameraWake) {
+                prefScreen.removePreference(mCameraWakeScreen);
+            }
+            // Only show 'Camera sleep on release' if the device has a focus key
+            if (res.getBoolean(com.android.internal.R.bool.config_singleStageCameraKey)) {
+                prefScreen.removePreference(mCameraSleepOnRelease);
+            }
+        } else {
+            prefScreen.removePreference(mCameraLaunch);
+        }
+
         if (Utils.hasVolumeRocker(getActivity())) {
             if (!showVolumeWake) {
                 volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
@@ -389,6 +406,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
 
+            mCameraWakeScreen = (SwitchPreference) findPreference(Settings.System.CAMERA_WAKE_SCREEN);
+            mCameraSleepOnRelease =
+                    (SwitchPreference) findPreference(Settings.System.CAMERA_SLEEP_ON_RELEASE);
+            mCameraLaunch = (SwitchPreference) findPreference(Settings.System.CAMERA_LAUNCH);
+
+            if (mCameraWakeScreen != null) {
+                if (mCameraSleepOnRelease != null && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_singleStageCameraKey)) {
+                    mCameraSleepOnRelease.setDependency(Settings.System.CAMERA_WAKE_SCREEN);
+                }
+            }
         mVolumeWakeScreen = (SwitchPreference) findPreference(Settings.System.VOLUME_WAKE_SCREEN);
         mVolumeMusicControls = (SwitchPreference) findPreference(KEY_VOLUME_MUSIC_CONTROLS);
 

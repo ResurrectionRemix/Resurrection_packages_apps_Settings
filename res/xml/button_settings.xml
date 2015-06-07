@@ -215,6 +215,30 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="camera_key"
+        android:title="@string/hardware_keys_camera_key_title"
+        settings:advanced="true">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="camera_wake_screen"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="camera_sleep_on_release"
+            android:title="@string/camera_sleep_on_release_title"
+            android:summary="@string/camera_sleep_on_release_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="camera_launch"
+            android:title="@string/camera_launch_title"
+            android:summary="@string/camera_launch_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="volume_keys"
         android:title="@string/hardware_keys_volume_keys_title" >
 
