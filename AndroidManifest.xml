@@ -1189,6 +1189,21 @@
                 android:value="true" />
         </activity>
 
+
+        <!-- PA Pie settings activity. -->
+        <activity android:name="Settings$PieControlSettingsActivity"
+                android:label="@string/pa_pie_control_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.paranoid.PieControl" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/button_settings" />
+        </activity>
+
         <activity android:name="MonitoringCertInfoActivity"
                 android:label="@string/ssl_ca_cert_dialog_title"
                 android:theme="@style/Transparent"
@@ -2838,3 +2853,4 @@
         </activity>
     </application>
 </manifest>
+

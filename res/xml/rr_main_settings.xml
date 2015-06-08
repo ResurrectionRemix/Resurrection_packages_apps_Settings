@@ -98,6 +98,14 @@
             android:icon="@drawable/ic_rr_misc_tint" 
             />
 
+        <!-- Pie Control -->
+        <PreferenceScreen
+             android:key="pa_pie_control"
+             android:title="@string/pa_pie_control_title"
+             android:fragment="com.android.settings.paranoid.PieControl"
+             android:icon="@drawable/ic_rr_papie" 
+             />
+
         <PreferenceScreen
             android:key="systemuituner"
             android:title="@string/rr_systemuituner"
@@ -107,6 +115,8 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.TunerActivity" />
        </PreferenceScreen>
+
+
 
         <!-- Wakelock blocker -->
         <PreferenceScreen
