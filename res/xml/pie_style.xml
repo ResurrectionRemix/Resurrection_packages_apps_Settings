@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013-2015 Slimroms
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/pie_style">
+
+    <PreferenceCategory
+        android:title="@string/pie_style_title">
+
+        <SwitchPreference
+            android:key="pie_show_background"
+            android:title="@string/pie_show_background_title"
+            android:summary="@string/pie_show_background_summary"
+            android:defaultValue="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="pie_background_color"
+            android:title="@string/pie_background_color_title"
+            android:defaultValue="0xff000000"
+            android:dependency="pie_show_background" />
+
+        <SlimSeekBarPreference
+            android:key="pie_background_alpha"
+            android:title="@string/pie_background_alpha_title"
+            android:dependency="pie_show_background" />
+
+        <SwitchPreference
+            android:key="pie_show_snap"
+            android:title="@string/pie_show_snap_title"
+            android:summary="@string/pie_show_snap_summary"
+            android:defaultValue="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="pie_snap_color"
+            android:title="@string/pie_snap_color_title"
+            android:defaultValue="0xffffff"
+            android:dependency="pie_show_snap" />
+
+        <SwitchPreference
+            android:key="pie_show_text"
+            android:title="@string/pie_show_text_title"
+            android:summary="@string/pie_show_text_summary"
+            android:defaultValue="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="pie_text_color"
+            android:title="@string/pie_text_color_title"
+            android:defaultValue="0xffffffff"
+            android:dependency="pie_show_text" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pie_dimens_title">
+
+        <SlimSeekBarPreference
+            android:key="pie_control_size"
+            android:title="@string/pie_control_size" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/additional_options_title">
+
+        <SwitchPreference
+            android:key="pie_mirror_right"
+            android:title="@string/pie_mirror_right_title"
+            android:summary="@string/pie_mirror_right_summary"
+            android:defaultValue="true" />
+
+   </PreferenceCategory>
+
+</PreferenceScreen>

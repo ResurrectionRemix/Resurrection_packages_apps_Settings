@@ -24,9 +24,29 @@
         android:title="@string/qs_category_title">
 
         <PreferenceScreen
+            android:key="qs_colors"
+            android:title="@string/qs_colors_title"
+            android:fragment="com.android.settings.aicp.QSColors" />
+
+        <PreferenceScreen
             android:key="qs_order"
             android:title="@string/qs_order_title"
             android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
+
+        <PreferenceScreen
+                android:key="navbar_targets_settings"
+                android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+                android:title="@string/qs_slim_action_title"
+                android:summary="@string/qs_slim_action_summary">
+                <extra android:name="actionMode" android:value="7" />
+                <extra android:name="maxAllowedActions" android:value="4" />
+                <extra android:name="disableLongpress" android:value="true" />
+                <extra android:name="disableDeleteLastEntry" android:value="true" />
+                <extra android:name="actionValues" android:value="shortcut_action_tile_values" />
+                <extra android:name="actionEntries" android:value="shortcut_action_tile_entries" />
+                <extra android:name="fragment"
+                        android:value="com.android.settings.slim.fragments.QuickTileFragment" />
+           </PreferenceScreen>
 
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="sysui_qs_main_tiles"
@@ -56,11 +76,6 @@
             android:title="@string/qs_advanced_location_title"
             android:summary="@string/qs_advanced_location_summary"
             android:defaultValue="false" />
-            
-        <PreferenceScreen
-            android:key="qs_colors"
-            android:title="@string/qs_colors_title"
-            android:fragment="com.android.settings.aicp.QSColors" />
             
     </PreferenceCategory>
 

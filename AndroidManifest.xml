@@ -147,6 +147,30 @@
             </intent-filter>
         </activity>
 
+	<!-- Slim Shortcuts -->
+        <activity
+            android:name="CreateSlimShortcut"
+            android:label="@string/slim_shortcut_picker"
+            android:icon="@drawable/slim_lock"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".slim.SlimActionShortcut"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <!-- Wireless Controls -->
 
         <activity android:name="Settings$WirelessSettingsActivity"

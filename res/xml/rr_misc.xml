@@ -47,6 +47,12 @@
     <PreferenceCategory
         android:title="@string/rr_gesture_title">
         
+    <!-- PIE Controls -->
+    <PreferenceScreen
+        android:key="pie_settings"
+        android:fragment="com.android.settings.rr.PieControl"
+        android:title="@string/pie_control_title" />
+
     <!-- Gesture anywhere -->
     <PreferenceScreen
     	android:key="gesture_anywhere"

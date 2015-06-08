@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-2015 Slimroms
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/pie_control_title">
+
+    <SwitchPreference
+        android:key="pie_control"
+        android:title="@string/pie_control_title"
+        android:summary="@string/pie_control_summary" />
+
+    <PreferenceScreen
+            android:key="pie_button"
+            android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+            android:title="@string/pie_button"
+            android:dependency="pie_control">
+        <extra android:name="actionMode" android:value="1" />
+        <extra android:name="maxAllowedButtons" android:value="5" />
+        <extra android:name="disableDeleteLastEntry" android:value="true" />
+        <extra android:name="fragment" android:value="com.android.settings.rr.fragments.PieButtonFragment" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="pie_style"
+        android:fragment="com.android.settings.rr.PieStyleSettings"
+        android:title="@string/pie_style"
+        android:dependency="pie_control" />
+
+    <PreferenceScreen
+        android:key="pie_trigger"
+        android:fragment="com.android.settings.rr.PieTriggerSettings"
+        android:title="@string/pie_control_trigger_positions"
+        android:dependency="pie_control" />
+
+    <PreferenceCategory
+        android:title="@string/additional_options_title">
+
+        <ListPreference
+            android:key="pie_menu"
+            android:entries="@array/pref_menu_display_entries"
+            android:entryValues="@array/pref_menu_display_values"
+            android:title="@string/title_pref_menu_display"
+            android:summary="@string/summary_pref_menu_display"
+            android:dependency="pie_control" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

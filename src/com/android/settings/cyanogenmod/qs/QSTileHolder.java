@@ -185,6 +185,10 @@ public class QSTileHolder {
                 resourceName ="ic_livedisplay_day";
                 stringId = R.string.live_display_title;
                 break;
+            case QSConstants.TILE_REBOOT:
+                resourceName = "ic_qs_reboot";
+                stringId = R.string.qs_tile_reboot;
+                break;
             case QSConstants.TILE_USB_TETHER:
                 resourceName = "ic_qs_usb_tether_on";
                 stringId = R.string.qs_tile_usb_tether;
@@ -193,9 +197,17 @@ public class QSTileHolder {
                 resourceName = "ic_qs_media_play";
                 stringId = R.string.qs_music_play_tile;
                 break;
+            case QSConstants.TILE_POWER_MENU:
+                resourceName = "ic_qs_power_menu";
+                stringId = R.string.qs_tile_powermenu;
+                break;
             case QSConstants.TILE_HEADS_UP:
                 resourceName = "ic_qs_heads_up_on";
                 stringId = R.string.qs_tile_heads_up;
+                break;
+            case QSConstants.TILE_SLIMACTION:
+                resourceName = "ic_qs_reboot_recovery";
+                stringId = R.string.qs_tile_slimaction;
                 break;
             default:
                 return null;

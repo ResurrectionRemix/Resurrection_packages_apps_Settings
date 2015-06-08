@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-2015 Slimroms
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/pie_control_trigger_positions"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <Preference
+        style="?android:preferenceInformationStyle"
+        android:title="@string/pie_trigger_note_title"
+        android:summary="@string/pie_trigger_note_summary"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:title="@string/pie_control_trigger_positions">
+
+        <SwitchPreference
+            android:key="pie_control_trigger_bottom"
+            android:title="@string/pie_control_trigger_bottom"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pie_control_trigger_left"
+            android:title="@string/pie_control_trigger_left"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pie_control_trigger_right"
+            android:title="@string/pie_control_trigger_right"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pie_control_trigger_top"
+            android:title="@string/pie_control_trigger_top"
+            android:summary="@string/pie_control_trigger_top_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/additional_options_title">
+
+        <SwitchPreference
+            android:key="pie_disable_ime_triggers"
+            android:title="@string/pie_disable_ime_triggers_title"
+            android:summary="@string/pie_disable_ime_triggers_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.widget.SeekBarPreferenceCham
+            android:key="pie_trigger_sensitivity"
+            android:title="@string/pie_trigger_sensitivity_title"
+            android:summary="@string/pie_trigger_sensitivity_summary"
+            android:max="10"
+            android:defaultValue="10" />
+
+   </PreferenceCategory>
+
+</PreferenceScreen>
