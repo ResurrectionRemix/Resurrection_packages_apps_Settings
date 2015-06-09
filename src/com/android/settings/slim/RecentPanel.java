@@ -244,7 +244,6 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
 
         mMaxApps = (SlimSeekBarPreference) findPreference(RECENTS_MAX_APPS);
         mMaxApps.setOnPreferenceChangeListener(this);
-        mMaxApps.minimumValue(5);
         mMaxApps.setInitValue(Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.RECENTS_MAX_APPS, ActivityManager.getMaxRecentTasksStatic(),
                 UserHandle.USER_CURRENT));
