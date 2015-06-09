@@ -84,6 +84,7 @@
   <string name="profile_choose_app">Vyberte aplikáciu</string>
   <string name="profile_system_settings_title">Nastavenia systému</string>
   <string name="profile_lockmode_title">Režim obrazovky uzamknutia</string>
+  <string name="profile_lockmode_policy_disabled_summary">Táto možnosť profilu je zakázaná politikou správcu zariadení</string>
   <string name="profile_lockmode_insecure_summary">Nepýtať PIN alebo heslo</string>
   <string name="profile_lockmode_disabled_summary">Zakázať obrazovku uzamknutia</string>
   <string name="profile_airplanemode_title">Režim v lietadle</string>
@@ -210,7 +211,9 @@
   <string name="display_rotation_270_title">270 stupňov</string>
   <string name="app_security_title">Zapezpečenie aplikácií</string>
   <string name="sms_security_check_limit_title">Obmedzenie správ SMS</string>
-  <string name="sms_security_check_limit_summary">Aplikácia može poslať len %d správ za 30 minút pred tým, než bude vyžiadané potvrdenie</string>
+  <string name="sms_security_check_limit_summary">Aplikácia môže poslať len %d správ za 30 minút pred tým, než bude vyžiadané potvrdenie</string>
+  <string name="sms_security_check_limit_summary_none">Aplikácie nemajú povolené odosielanie žiadnych správ bez potvrdenia</string>
+  <string name="sms_security_check_limit_none">Žiadny</string>
   <string name="spam_added_title">Pridané %1$s</string>
   <string name="spam_last_blocked_title">Naposledy zablokované %1$s</string>
   <string name="block_notifications_title">Filtrovať oznámenia</string>
@@ -305,9 +308,6 @@
   <string name="status_bar_battery_percentage_default">Skryté</string>
   <string name="status_bar_battery_percentage_text_inside">Vnútri ikony</string>
   <string name="status_bar_battery_percentage_text_next">Vedľa ikony</string>
-  <string name="status_bar_show_unused_sims_title">Zobraziť prázdne ikony SIM</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">Skryť ikony nepoužívaných slotov SIM</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">Upozorňovať na nepoužívané sloty SIM</string>
   <string name="edit_light_settings">Upraviť nastavenia svetiel</string>
   <string name="pulse_speed_title">Dĺžka a rýchlosť impulzu</string>
   <string name="default_time">Normálne</string>
@@ -650,6 +650,7 @@
   <string name="usb_charging_summary">Vypnúť všetky prenosy dát s počítačom a nabíjať zariadenie pomocou USB portu</string>
   <string name="usb_sdcard_title">Veľkokapacitné úložisko (UMS)</string>
   <string name="usb_sdcard_summary">Umožňuje prenos súborov medzi vaším počítačom a SD kartou pripojením ako flash zariadenie</string>
+  <string name="usb_not_connected">USB je teraz odpojené</string>
   <string name="external_storage_turn_on">Externé úložisko bolo zapnuté</string>
   <string name="external_storage_turn_off">Externé úložisko bolo vypnuté</string>
   <string name="stats_collection_title">Zbieranie štatistík</string>
@@ -811,6 +812,7 @@
   <string name="category_interface">Rozhranie</string>
   <string name="category_calibration">Kalibrácia</string>
   <string name="display_and_lights">Displej &amp; svetlá</string>
+  <string name="notification_manager">Oznámenia</string>
   <string name="lockscreen_settings">Obrazovka uzamknutia</string>
   <string name="category_lights">Svetlá</string>
   <string name="power_usage_history_title">Využitie batérie</string>
@@ -862,4 +864,9 @@
   <string name="lock_to_cyanogen_disable_msg">Zakázanie tejto funkcie umožňuje neoprávneným používateľom obnoviť váš telefón do továrenských nastavení v prípade jeho krádeže. Vaše osobné údaje nemusia byť chránené. Chcete zakázať túto funkciu?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Ochrana zariadenia je povolená. Prosím, zakážte ju pred pokračovaním v obnove vášho zariadenia.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Chyba pripojenia; je zdieľanie pripojenia cez Bluetooth povolené na tomto zariadení?</string>
+  <string name="sim_card_status_title">Stav SIM %d</string>
+  <string name="sim_card_lock_settings_title">Nastavenia zámku SIM %d</string>
+  <string name="sim_card_summary_empty">Karta SIM nie je vložená</string>
+  <string name="sim_mobile_network_settings_category_title">Nastavenia mobilnej siete</string>
+  <string name="sim_mobile_network_settings_title">Nastavenia SIM %d</string>
 </resources>

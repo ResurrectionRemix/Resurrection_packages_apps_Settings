@@ -84,6 +84,7 @@
   <string name="profile_choose_app">Выбор приложения</string>
   <string name="profile_system_settings_title">Настройки системы</string>
   <string name="profile_lockmode_title">Блокировка экрана</string>
+  <string name="profile_lockmode_policy_disabled_summary">Этот параметр профиля отключен администратором устройства</string>
   <string name="profile_lockmode_insecure_summary">Не запрашивать PIN-код или пароль</string>
   <string name="profile_lockmode_disabled_summary">Отключить экран блокировки</string>
   <string name="profile_airplanemode_title">Режим полета</string>
@@ -210,7 +211,9 @@
   <string name="display_rotation_270_title">270 градусов</string>
   <string name="app_security_title">Безопасность приложений</string>
   <string name="sms_security_check_limit_title">Ограничение SMS-сообщений</string>
-  <string name="sms_security_check_limit_summary">Запрашивать подтверждение при отправке больше %d сообщений в течение 30 минут</string>
+  <string name="sms_security_check_limit_summary">Запрашивать подтверждение при отправке больше %d сообщений в минуту</string>
+  <string name="sms_security_check_limit_summary_none">Приложения могут отправлять неограниченное количество сообщений</string>
+  <string name="sms_security_check_limit_none">Нет</string>
   <string name="spam_added_title">Добавлено %1$s</string>
   <string name="spam_last_blocked_title">Последняя блокировка %1$s</string>
   <string name="block_notifications_title">Фильтр уведомлений</string>
@@ -306,9 +309,6 @@
   <string name="status_bar_battery_percentage_default">Не показывать</string>
   <string name="status_bar_battery_percentage_text_inside">Внутри значка</string>
   <string name="status_bar_battery_percentage_text_next">Рядом со значком</string>
-  <string name="status_bar_show_unused_sims_title">Значки отсутствующих SIM-карт</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">Скрывать значки SIM-карт, если они не установлены</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">Показывать значки пустых SIM-карт в соответствующих слотах</string>
   <string name="edit_light_settings">Изменение настроек индикатора</string>
   <string name="pulse_speed_title">Длительность и скорость мигания</string>
   <string name="default_time">Средне</string>
@@ -865,4 +865,9 @@
   <string name="lock_to_cyanogen_disable_msg">Отключение этой функции позволит другим людям выполнить удаление всех данных на устройстве в случае его кражи. Ваши личные данные могут стать недостаточно защищёнными. Вы действительно хотите отключить эту функцию?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Защита устройства включена. Необходимо отключить её, чтобы выполнить сброс настроек на устройстве.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Ошибка подключения. Проверьте, включён ли Bluetooth-модем на указанном устройстве.</string>
+  <string name="sim_card_status_title">Статус SIM %d</string>
+  <string name="sim_card_lock_settings_title">Параметры блокировки SIM %d</string>
+  <string name="sim_card_summary_empty">SIM не вставлена</string>
+  <string name="sim_mobile_network_settings_category_title">Настройки мобильной сети</string>
+  <string name="sim_mobile_network_settings_title">Параметры SIM %d</string>
 </resources>

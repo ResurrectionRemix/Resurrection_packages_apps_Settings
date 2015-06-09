@@ -83,6 +83,7 @@
   <string name="profile_choose_app">בחר יישום</string>
   <string name="profile_system_settings_title">הגדרות מערכת</string>
   <string name="profile_lockmode_title">מצב מסך הנעילה</string>
+  <string name="profile_lockmode_policy_disabled_summary">אפשרות פרופיל זאת מושבתת עקב מדיניות מנהל ההתקן</string>
   <string name="profile_lockmode_insecure_summary">אל תבקש PIN או סיסמה</string>
   <string name="profile_lockmode_disabled_summary">בטל את מסך הנעילה</string>
   <string name="profile_airplanemode_title">מצב טיסה</string>
@@ -209,7 +210,9 @@
   <string name="display_rotation_270_title">270 מעלות</string>
   <string name="app_security_title">אבטחת יישום</string>
   <string name="sms_security_check_limit_title">מגבלת הודעות SMS</string>
-  <string name="sms_security_check_limit_summary">יישומים יכולים לשלוח %d הודעות בחצי שעה לפני בקשת אישור</string>
+  <string name="sms_security_check_limit_summary">יישומים יכולים לשלוח %d הודעות בדקה לפני בקשת אישור</string>
+  <string name="sms_security_check_limit_summary_none">יישומים אינם מורשים לשלוח הודעות ללא אישור</string>
+  <string name="sms_security_check_limit_none">ללא</string>
   <string name="spam_added_title">נוסף %1$s</string>
   <string name="spam_last_blocked_title">נחסם לאחרונה %1$s</string>
   <string name="block_notifications_title">סנן הודעות</string>
@@ -247,7 +250,7 @@
   <string name="increasing_ring_min_volume_title">עוצמה התחלתית</string>
   <string name="increasing_ring_ramp_up_time_title">אורך זמן ההגברה</string>
   <string name="advanced_reboot_title">אתחול מתקדם</string>
-  <string name="advanced_reboot_summary">כאשר פתוח, מוסיף אפשרויות לתפריט הפעלה לאתחול ל- recovery, bootloader או אתחול תוכנתי</string>
+  <string name="advanced_reboot_summary">כאשר פתוח, מוסיף לתפריט ההפעלה אפשרויות לאתחול ל-Recovery, Bootloader או לבצע אתחול מהיר</string>
   <string name="enable_adb_cm">‏ניקוי באגים ב-USB</string>
   <string name="enable_adb_summary_cm">הפעל ממשק adb</string>
   <string name="adb_over_network">ADB דרך הרשת</string>
@@ -304,9 +307,6 @@
   <string name="status_bar_battery_percentage_default">מוסתר</string>
   <string name="status_bar_battery_percentage_text_inside">בתוך הסמל</string>
   <string name="status_bar_battery_percentage_text_next">ליד הסמל</string>
-  <string name="status_bar_show_unused_sims_title">הצגת סמלי SIM ריקים</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">החבא סמלים של חריצי SIM ריקים</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">סמן כאשר ישנם חריצי SIM שאינם בשימוש</string>
   <string name="edit_light_settings">עריכת הגדרות אור</string>
   <string name="pulse_speed_title">אורך הבהוב ומהירות</string>
   <string name="default_time">רגיל</string>
@@ -649,6 +649,7 @@
   <string name="usb_charging_summary">מבטל כל העברות הנתונים עם המחשב וטוען את המכשיר דרך יציאת USB</string>
   <string name="usb_sdcard_title">אחסון בנפח גדול (UMS)</string>
   <string name="usb_sdcard_summary">מאפשר לך להעביר קבצים בין המחשב שלך לבין כרטיס SD זה על ידי חיבורו כהתקן USB</string>
+  <string name="usb_not_connected">USB מנותק כעת</string>
   <string name="external_storage_turn_on">אחסון חיצוני הופעל</string>
   <string name="external_storage_turn_off">אחסון חיצוני בוטל</string>
   <string name="stats_collection_title">אוסף סטטיסטיקות</string>
@@ -732,6 +733,8 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">פרק הזמן לכיבוי מסך</string>
   <string name="qs_tile_usb_tether">קשירת USB</string>
+  <string name="qs_tile_heads_up">התראות קופצות</string>
+  <string name="qs_tile_ambient_display">תצוגה מותאמת</string>
   <string name="qs_tile_sync">סנכרון</string>
   <string name="qs_main_tiles_title">הגדל את השורה הראשונה</string>
   <string name="qs_main_tiles_summary_on">שני אריחים ראשיים בשורה הראשונה</string>
@@ -776,6 +779,7 @@
   <string name="dialog_title_lcd_density">צפיפות LCD</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (ברירת מחדל)</string>
+  <string name="restarting_ui">מאתחל מערכת\u2026</string>
   <string name="stylus_icon_enabled_title">הצג סמל בעת שימוש בעט אלקטרוני</string>
   <string name="stylus_icon_enabled_summary">הצג את סמל העט בעת ריחוף או ציור עם העט</string>
   <string name="gestures_settings_title">מחוות עט</string>
@@ -807,6 +811,7 @@
   <string name="category_interface">ממשק</string>
   <string name="category_calibration">כיול</string>
   <string name="display_and_lights">תצוגה ואורות</string>
+  <string name="notification_manager">התראות</string>
   <string name="lockscreen_settings">מסך נעילה</string>
   <string name="category_lights">אורות</string>
   <string name="power_usage_history_title">צריכת סוללה</string>
@@ -816,6 +821,7 @@
   <string name="interruptions_ignore_while_media_title">מנע שינוי עוצמת שמע</string>
   <string name="interruptions_ignore_while_media_summary">אל תנמיך את עוצמת המוזיקה כאשר התראה מגיעה</string>
   <string name="none_is_silent_title">לעולם אל תשתיק שעונים מעוררים</string>
+  <string name="none_is_silent_summary">מצב שקט תמיד משמיע שעונים מעוררים</string>
   <string name="allow_lights_title">אפשר אורות התראה</string>
   <string name="live_display_summary">התאם את מסך מכשירך בהתאם לשעה ולתנאי הסביבה על מנת לשפר את נוחות הקריאה ולהפחית את עייפות העין</string>
   <string name="live_display_mode">מצב תצוגה</string>
@@ -846,7 +852,16 @@
   <string name="preview_version_title">גרסה</string>
   <string name="preview_country_title">מדינה</string>
   <string name="preview_carrier_title">חברת סלולר</string>
+  <string name="heads_up_notifications">התראות קופצות</string>
   <string name="summary_heads_up_enabled">התראות קופצות פעילות</string>
   <string name="summary_heads_up_disabled">התראות קופצות כבויות</string>
   <string name="lock_to_cyanogen_title">הגנת מכשיר</string>
+  <string name="lock_to_cyanogen_summary">דורש את סיסמת חשבון ה-Cyanogen OS שלך גם לאחר איפוס להגדרות היצרן</string>
+  <string name="lock_to_cyanogen_create_account_msg">מכשירך משתמש בסיסמת חשבון Cyanogen OS שלך על מנת להגן על מכשירך אפילו במקרה של איפוס הגדרות יצרן. יהיה עליך ליצור חשבון Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">השבתת תכונה זו תאפשר למשתמשים לא מורשים לאפס את מכשירך להגדרות היצרן במקרה של גנבה. הנתונים האישיים שלך עלולים להיות לא מוגנים. האם ברצונך להשבית תכונה זו?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">הגנת התקן פעילה. אנא השבת אותה כדי להמשיך באיפוס מכשירך.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">שגיאת חיבור; האם קשירת Bluetooth פעילה במכשיר זה?</string>
+  <string name="sim_card_status_title">מצב SIM %d</string>
+  <string name="sim_card_lock_settings_title">הגדרות נעילה של SIM %d</string>
+  <string name="sim_card_summary_empty">לא הוכנס SIM</string>
 </resources>

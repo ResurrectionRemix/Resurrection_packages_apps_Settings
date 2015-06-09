@@ -83,6 +83,7 @@
   <string name="profile_choose_app">Scegli app</string>
   <string name="profile_system_settings_title">Impostazioni sistema</string>
   <string name="profile_lockmode_title">Modalità blocco schermo</string>
+  <string name="profile_lockmode_policy_disabled_summary">I profili sono stati disattivati dall\'amministratore</string>
   <string name="profile_lockmode_insecure_summary">Non chiedere password o PIN</string>
   <string name="profile_lockmode_disabled_summary">Disattiva schermata di sblocco</string>
   <string name="profile_airplanemode_title">Modalità aereo</string>
@@ -209,7 +210,9 @@
   <string name="display_rotation_270_title">270 gradi</string>
   <string name="app_security_title">Sicurezza app</string>
   <string name="sms_security_check_limit_title">Limite invio SMS</string>
-  <string name="sms_security_check_limit_summary">Mostra un avviso per impedire alle app di inviare SMS troppo frequentemente. Limite attuale: %d messaggi in 15 minuti</string>
+  <string name="sms_security_check_limit_summary">Le applicazioni possono inviare %d messaggi in 1 minuto prima di richiedere conferma</string>
+  <string name="sms_security_check_limit_summary_none">Non è consentito alle app l\'invio di messaggi senza conferma</string>
+  <string name="sms_security_check_limit_none">Nessuno</string>
   <string name="spam_added_title">Aggiunto %1$s</string>
   <string name="spam_last_blocked_title">Ultimo bloccato %1$s</string>
   <string name="block_notifications_title">Filtra notifiche</string>
@@ -304,9 +307,6 @@
   <string name="status_bar_battery_percentage_default">Nascosta</string>
   <string name="status_bar_battery_percentage_text_inside">All\'interno dell\'icona</string>
   <string name="status_bar_battery_percentage_text_next">Accanto all\'icona</string>
-  <string name="status_bar_show_unused_sims_title">Visualizza icone SIM vuote</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">Nascondi icone di slot SIM inutilizzati</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">Indica slot SIM inutilizzati</string>
   <string name="edit_light_settings">Modifica impostazioni luce</string>
   <string name="pulse_speed_title">Durata e velocità del lampeggio</string>
   <string name="default_time">Normale</string>
@@ -865,4 +865,9 @@
   <string name="lock_to_cyanogen_disable_msg">Disattivando questa funzione gli utenti non autorizzati potranno ripristinare il telefono alle impostazioni di fabbrica, se viene rubato. I dati personali non possono essere protetti. Desideri disattivare questa funzione?</string>
   <string name="lock_to_cyanogen_master_clear_warning">La protezione del dispositivo è attiva. Disattivala per ripristinare il tuo dispositivo.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Errore di connessione; il tethering Bluetooth è attivo su questo dispositivo?</string>
+  <string name="sim_card_status_title">Status SIM %d</string>
+  <string name="sim_card_lock_settings_title">Impostazioni blocco SIM %d</string>
+  <string name="sim_card_summary_empty">SIM non inserita</string>
+  <string name="sim_mobile_network_settings_category_title">Impostazioni rete mobile</string>
+  <string name="sim_mobile_network_settings_title">Impostazioni SIM %d</string>
 </resources>

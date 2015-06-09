@@ -83,6 +83,7 @@
   <string name="profile_choose_app">App auswählen</string>
   <string name="profile_system_settings_title">Systemeinstellungen</string>
   <string name="profile_lockmode_title">Bildschirmsperre</string>
+  <string name="profile_lockmode_policy_disabled_summary">Diese Option ist durch den Geräteadministrator gesperrt</string>
   <string name="profile_lockmode_insecure_summary">Nicht nach PIN oder Passwort fragen</string>
   <string name="profile_lockmode_disabled_summary">Bildschirmsperre deaktivieren</string>
   <string name="profile_airplanemode_title">Flugmodus</string>
@@ -209,7 +210,9 @@
   <string name="display_rotation_270_title">270 Grad</string>
   <string name="app_security_title">App-Sicherheit</string>
   <string name="sms_security_check_limit_title">SMS-Begrenzung</string>
-  <string name="sms_security_check_limit_summary">Apps können %d Nachrichten in 30 Minuten senden, bevor eine Bestätigung erforderlich ist</string>
+  <string name="sms_security_check_limit_summary">Apps können %d Nachrichten in 1 Minute ohne zusätzliche Bestätigung versenden</string>
+  <string name="sms_security_check_limit_summary_none">Apps dürfen keine Nachrichten ohne Bestätigung versenden</string>
+  <string name="sms_security_check_limit_none">Keine</string>
   <string name="spam_added_title">%1$s hinzugefügt</string>
   <string name="spam_last_blocked_title">Zuletzt blockiert %1$s</string>
   <string name="block_notifications_title">Benachrichtigungen filtern</string>
@@ -256,8 +259,8 @@
   <string name="adb_notify">Debugging-Benachrichtigung</string>
   <string name="adb_notify_summary">Zeigt eine Benachrichtigung, wenn USB- oder Netzwerkdebugging aktiviert ist</string>
   <string name="device_hostname">Hostname des Geräts</string>
-  <string name="development_shortcut_title">Entwickler-Abkürzungen</string>
-  <string name="development_shortcut_summary">Aktiviere Verknüpfungen zur App-Verwaltung in der Liste kürzlich verwendeter Apps</string>
+  <string name="development_shortcut_title">Entwickler-Verknüpfungen</string>
+  <string name="development_shortcut_summary">Aktiviert Verknüpfungen zur App-Verwaltung in der Liste kürzlich verwendeter Apps</string>
   <string name="double_tap_to_sleep_title">Standby durch doppeltes Tippen</string>
   <string name="double_tap_to_sleep_summary">Doppelt auf die Statusleiste tippen, um das Display auzuschalten</string>
   <string name="wake_when_plugged_or_unplugged_title">Beim Einstecken aufwecken</string>
@@ -304,9 +307,6 @@
   <string name="status_bar_battery_percentage_default">Ausgeblendet</string>
   <string name="status_bar_battery_percentage_text_inside">Innerhalb des Symbols</string>
   <string name="status_bar_battery_percentage_text_next">Neben dem Symbol</string>
-  <string name="status_bar_show_unused_sims_title">Zeige leere SIM-Symbole</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">Symbole ungenutzter SIM-Slots ausblenden</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">Unbenutzte SIM-Slots zeigen</string>
   <string name="edit_light_settings">Farbeinstellungen ändern</string>
   <string name="pulse_speed_title">Pulsdauer und Geschwindigkeit</string>
   <string name="default_time">Normal</string>
@@ -840,7 +840,7 @@
   <string name="battery_saver_summary">Leistung und Hintergrunddaten verringern</string>
   <string name="battery_saver_summary_unavailable">Während des Ladevorgangs nicht verfügbar</string>
   <string name="anonymous_statistics_title">CyanogenMod-Statistiken</string>
-  <string name="anonymous_statistics_summary">Helfen Sie CyanogenMod zu verbessern, indem SIe dem Sammeln anonymer Gerätestatistiken zustimmen</string>
+  <string name="anonymous_statistics_summary">Helfen Sie CyanogenMod zu verbessern, indem Sie dem Sammeln anonymer Gerätestatistiken zustimmen</string>
   <string name="anonymous_statistics_warning_title">Über</string>
   <string name="anonymous_statistics_warning">Aktivieren der Cyanogenmod-Statistiken ermöglicht es nicht-personenbezogene Daten an die Entwickler von CyanogenMod zu senden. Die bei jedem Neustart des Gerätes übermittelten Daten beeinträchtigen nicht die Privatsphäre, da sie keinerlei Rückschlüsse auf den Benutzer zulassen.\n\nFür ein Beispiel der gesendeten Daten bitte auf \"Vorschau\" klicken.</string>
   <string name="enable_reporting_title">Berichte einschalten</string>
@@ -863,4 +863,9 @@
   <string name="lock_to_cyanogen_disable_msg">Deaktivieren dieser Funktion erlaubt es nicht autorisierten Benutzern, Ihr Telefon auf Werkseinstellungen zurückzusetzen, wenn es gestohlen wird. Ihre persönlichen Daten können nicht sicher sein. Wollen Sie diese Funktion deaktivieren?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Geräteschutz ist aktiviert. Bitte deaktivieren, um mit dem Zurücksetzen Ihres Gerätes fortzufahren.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Verbindungsfehler – Ist Bluetooth-Tethering auf diesem Gerät aktiviert?</string>
+  <string name="sim_card_status_title">SIM %d-Status</string>
+  <string name="sim_card_lock_settings_title">SIM %d-Sperreinstellungen</string>
+  <string name="sim_card_summary_empty">SIM-Karte nicht eingelegt</string>
+  <string name="sim_mobile_network_settings_category_title">Mobilfunknetz-Einstellungen</string>
+  <string name="sim_mobile_network_settings_title">SIM %d-Einstellungen</string>
 </resources>

@@ -83,6 +83,7 @@
   <string name="profile_choose_app">Uygulama seç</string>
   <string name="profile_system_settings_title">Sistem ayarları</string>
   <string name="profile_lockmode_title">Kilit ekranı modu</string>
+  <string name="profile_lockmode_policy_disabled_summary">Bu profil, bir cihaz yönetici politikası tarafından devre dışı bırakıldı</string>
   <string name="profile_lockmode_insecure_summary">PIN veya şifre sorma</string>
   <string name="profile_lockmode_disabled_summary">Kilit ekranını devre dışı bırak</string>
   <string name="profile_airplanemode_title">Uçak modu</string>
@@ -209,7 +210,9 @@
   <string name="display_rotation_270_title">270 derece</string>
   <string name="app_security_title">Uygulama güvenliği</string>
   <string name="sms_security_check_limit_title">SMS mesaj sınırı</string>
-  <string name="sms_security_check_limit_summary">Uygulamalar onay almadan 30 dakikada en fazla %d mesaj gönderebilir</string>
+  <string name="sms_security_check_limit_summary">Uygulamalar onay almadan 1 dakikada en fazla %d mesaj gönderebilir</string>
+  <string name="sms_security_check_limit_summary_none">Uygulamaların onaysız mesaj göndermesine izin verilmiyor</string>
+  <string name="sms_security_check_limit_none">Yok</string>
   <string name="spam_added_title">%1$s eklendi</string>
   <string name="spam_last_blocked_title">En son %1$s engellendi</string>
   <string name="block_notifications_title">Bildirimleri filtrele</string>
@@ -304,9 +307,6 @@
   <string name="status_bar_battery_percentage_default">Gizli</string>
   <string name="status_bar_battery_percentage_text_inside">Simge içinde</string>
   <string name="status_bar_battery_percentage_text_next">Simge yanında</string>
-  <string name="status_bar_show_unused_sims_title">Boş SIM simgelerini göster</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">Kullanılmayan SIM yuvalarının simgelerini gizle</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">Kullanılmayan SIM yuvalarını göster</string>
   <string name="edit_light_settings">Işık ayarlarını düzenle</string>
   <string name="pulse_speed_title">Yanma hızı ve süresi</string>
   <string name="default_time">Normal</string>
@@ -853,7 +853,7 @@
   <string name="preview_country_title">Ülke</string>
   <string name="preview_carrier_title">Operatör</string>
   <string name="heads_up_notifications">Bildirim Pencereleri</string>
-  <string name="summary_heads_up_enabled">Açılabilir bildirimler etkinleştirildi</string>
+  <string name="summary_heads_up_enabled">Açılır bildirimler etkinleştirildi</string>
   <string name="summary_heads_up_disabled">Açılır bildirimler devre dışı bırakıldı</string>
   <string name="master_clear_desc_cm" product="tablet">Bu işlem tabletinizin <b>dahili belleğinde</b> bulunan tüm verileri silecek, \n\n<li>Cihazdaki hesaplar</li>\n<li>Sistem ve uygulama veri ve ayarları</li>\n<li>İndirilen uygulamalar</li> dahil.</string>
   <string name="master_clear_desc_cm" product="default">Bu işlem telefonunuzun<b>dahili belleğinde</b> bulunan tüm verileri silecek, \n\n<li>Cihazdaki hesaplar</li>\n<li>Sistem ve uygulama veri ve ayarları</li>\n<li>İndirilen uygulamalar</li> dahil.</string>
@@ -863,4 +863,9 @@
   <string name="lock_to_cyanogen_disable_msg">Bu özelliği kapatmak telefonunuz çalındığında yetkilendirilmemiş kullanıcıların telefonunuzu fabrika ayarlarına sıfırlamasına izin verecektir. Kişisel verileriniz korunamayabilir. Bu özelliği kapatmak istiyor musunuz?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Cihaz Koruması etkin. Cihazınızı sıfırlamaya devam etmek için lütfen korumayı kapatın.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Bağlantı hatası; bu cihazda Bluetooth İnt. Payl. etkin mi?</string>
+  <string name="sim_card_status_title">SIM %d durumu</string>
+  <string name="sim_card_lock_settings_title">SIM %d kilit ayarları</string>
+  <string name="sim_card_summary_empty">SIM takılı değil</string>
+  <string name="sim_mobile_network_settings_category_title">Mobil şebeke ayarları</string>
+  <string name="sim_mobile_network_settings_title">SIM %d ayarları</string>
 </resources>

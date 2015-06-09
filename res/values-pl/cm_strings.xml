@@ -84,6 +84,7 @@
   <string name="profile_choose_app">Wybierz aplikację</string>
   <string name="profile_system_settings_title">Ustawienia systemowe</string>
   <string name="profile_lockmode_title">Opcje ekranu blokady</string>
+  <string name="profile_lockmode_policy_disabled_summary">Ta opcja profilu jest wyłączona przez administratora urządzenia</string>
   <string name="profile_lockmode_insecure_summary">Nie pytaj o PIN lub hasło</string>
   <string name="profile_lockmode_disabled_summary">Wyłącz blokadę ekranu</string>
   <string name="profile_airplanemode_title">Opcje trybu samolotowego</string>
@@ -210,7 +211,9 @@
   <string name="display_rotation_270_title">270 stopni</string>
   <string name="app_security_title">Zabezpieczenia aplikacji</string>
   <string name="sms_security_check_limit_title">Limit wiadomości SMS</string>
-  <string name="sms_security_check_limit_summary">Aplikacje mogą wysłać %d wiadomości przez 30 minut, nim konieczne będzie potwierdzenie</string>
+  <string name="sms_security_check_limit_summary">Aplikacje mogą wysłać %d wiadomości przez 1 minutę, nim konieczne będzie potwierdzenie</string>
+  <string name="sms_security_check_limit_summary_none">Aplikacje nie mogą wysyłać żadnych wiadomości bez potwierdzenia</string>
+  <string name="sms_security_check_limit_none">Brak</string>
   <string name="spam_added_title">Dodano %1$s</string>
   <string name="spam_last_blocked_title">Ostatnio zablokowano %1$s</string>
   <string name="block_notifications_title">Filtrowanie powiadomień</string>
@@ -305,9 +308,6 @@
   <string name="status_bar_battery_percentage_default">Ukryte</string>
   <string name="status_bar_battery_percentage_text_inside">Wewnątrz ikony</string>
   <string name="status_bar_battery_percentage_text_next">Obok ikony</string>
-  <string name="status_bar_show_unused_sims_title">Pokaż ikonę pustego slotu SIM</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">Ukryj ikony nieużywanych slotów SIM</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">Oznacz nieużywane sloty SIM</string>
   <string name="edit_light_settings">Edytuj ustawienia diody</string>
   <string name="pulse_speed_title">Długość impulsu i szybkość migania</string>
   <string name="default_time">Normalna</string>
@@ -735,6 +735,7 @@
   <string name="qs_tile_screen_timeout">Wygaszanie ekranu</string>
   <string name="qs_tile_usb_tether">Tethering USB</string>
   <string name="qs_tile_heads_up">Wyskakujące powiadomienia</string>
+  <string name="qs_tile_ambient_display">Aktywny wyświetlacz</string>
   <string name="qs_tile_sync">Synchronizacja</string>
   <string name="qs_main_tiles_title">Powiększenie pierwszego rzędu</string>
   <string name="qs_main_tiles_summary_on">Dwa główne przełączniki w pierwszym rzędzie</string>
@@ -864,4 +865,10 @@
   <string name="lock_to_cyanogen_create_account_msg">Twoje urządzenie korzysta z hasła twojego konta Cyanogen OS, aby chronić twoje urządzenie nawet w przypadku przywrócenia ustawień fabrycznych. Musisz utworzyć konto Cyanogen OS.</string>
   <string name="lock_to_cyanogen_disable_msg">Wyłączenie tej funkcji umożliwi nieautoryzowanym użytkownikom na przywrócenie ustawień fabrycznych jeśli twoje urządzenie zostanie zgubione. Twoje prywatne dane mogą nie być chronione. Czy chcesz wyłączyć tę funkcję?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Ochrona urządzenia jest włączona. Proszę ją wyłączyć, aby kontynuować resetowanie urządzenia.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Błąd połączenia: Czy udostępnianie Bluetooth zostało włączone na tym urządzeniu?</string>
+  <string name="sim_card_status_title">Stan %d karty SIM</string>
+  <string name="sim_card_lock_settings_title">Ustawienia blokady %d karty SIM</string>
+  <string name="sim_card_summary_empty">Karta SIM nie jest włożona</string>
+  <string name="sim_mobile_network_settings_category_title">Ustawienia sieci komórkowej</string>
+  <string name="sim_mobile_network_settings_title">Ustawienia karty SIM %d</string>
 </resources>

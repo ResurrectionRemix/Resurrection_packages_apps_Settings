@@ -36,7 +36,7 @@
   <string name="profiles_settings_title">시스템 프로필</string>
   <string name="profiles_add">추가</string>
   <string name="profile_settings_title">프로필</string>
-  <string name="profile_empty_list_profiles_off">시스템 프로피을 구성하고 사용하기 위해 프로필을 켜십시오.</string>
+  <string name="profile_empty_list_profiles_off">시스템 프로필을 구성하고 사용하기 위해 프로필을 켜십시오.</string>
   <string name="profile_trigger_configure">트리거 구성</string>
   <string name="profile_write_nfc_tag">NFC 태그에 쓰기</string>
   <string name="profile_write_touch_tag">태그를 터치해 작성</string>
@@ -82,6 +82,7 @@
   <string name="profile_choose_app">앱 선택</string>
   <string name="profile_system_settings_title">시스템 설정</string>
   <string name="profile_lockmode_title">잠금 화면 모드</string>
+  <string name="profile_lockmode_policy_disabled_summary">이 프로필 옵션은 기기 관리자 정책에 의해 비활성화 되었습니다</string>
   <string name="profile_lockmode_insecure_summary">PIN이나 암호를 요구하지 않음</string>
   <string name="profile_lockmode_disabled_summary">잠금화면 제거</string>
   <string name="profile_airplanemode_title">비행기 모드</string>
@@ -208,7 +209,9 @@
   <string name="display_rotation_270_title">270도</string>
   <string name="app_security_title">앱 보안</string>
   <string name="sms_security_check_limit_title">SMS 메시지 발신 제한</string>
-  <string name="sms_security_check_limit_summary">확인을 요청하기 전까지 30분 내에 %d개의 메시지만 보낼 수 있습니다</string>
+  <string name="sms_security_check_limit_summary">확인을 요청하기 전까지 1분 내에 %d개의 메시지만 보낼 수 있습니다</string>
+  <string name="sms_security_check_limit_summary_none">확인 없이는 어떤 메시지도 보내지 않습니다</string>
+  <string name="sms_security_check_limit_none">없음</string>
   <string name="spam_added_title">%1$s 추가됨</string>
   <string name="spam_last_blocked_title">%1$s 최근 차단됨</string>
   <string name="block_notifications_title">알림 필터</string>
@@ -303,9 +306,6 @@
   <string name="status_bar_battery_percentage_default">숨김</string>
   <string name="status_bar_battery_percentage_text_inside">아이콘 안에 표시</string>
   <string name="status_bar_battery_percentage_text_next">아이콘 바깥에 표시</string>
-  <string name="status_bar_show_unused_sims_title">빈 SIM 카드 아이콘 표시</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">사용 하지 않는 SIM 카드 슬롯의 아이콘 숨기기</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">사용하지 않는 SIM 카드 슬롯을 표시</string>
   <string name="edit_light_settings">조명 설정 변경</string>
   <string name="pulse_speed_title">깜빡임 시간 및 속도</string>
   <string name="default_time">보통</string>
@@ -688,7 +688,7 @@
   <string name="edge_gesture_service_summary">내비게이션 바 및 상태 표시줄 제스쳐의 터치 이벤트를 앱에 전달하지 않기</string>
   <string name="cmlicense_title">CyanogenMod 법적 고지</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod 법적 고지</string>
-  <string name="lockpattern_settings_enable_error_path_title">패턴 오류 ㅍ시</string>
+  <string name="lockpattern_settings_enable_error_path_title">패턴 오류 표시</string>
   <string name="lockpattern_settings_enable_dots_title">패턴 점 표시</string>
   <string name="unlock_quick_unlock_control_title">빠른 잠금 해제</string>
   <string name="unlock_quick_unlock_control_summary">올바른 PIN 넘버나 암호가 입력되면 자동으로 잠금 해제</string>
@@ -862,4 +862,9 @@
   <string name="lock_to_cyanogen_disable_msg">이 기능의 비활성화는 기기 도난시 권한없는 사용자가 기기를 공장 초기화할 수 있도록 합니다. 개인 정보는 보호되지 않습니다. 이 기능을 비활성화하기를 원하십니까?</string>
   <string name="lock_to_cyanogen_master_clear_warning">기기 보호가 활성화됩니다. 기기를 재설정하려면 비활성화하십시오.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">연결 오류: 이 기기의 블루투스 테더링이 활성화되어 있는지 확인하세요.</string>
+  <string name="sim_card_status_title">SIM %d 상태</string>
+  <string name="sim_card_lock_settings_title">SIM %d 잠금 설정</string>
+  <string name="sim_card_summary_empty">SIM 카드가 삽입 되지 않음</string>
+  <string name="sim_mobile_network_settings_category_title">모바일 네트워크 설정</string>
+  <string name="sim_mobile_network_settings_title">SIM %d 설정</string>
 </resources>

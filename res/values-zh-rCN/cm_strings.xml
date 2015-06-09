@@ -82,6 +82,7 @@
   <string name="profile_choose_app">选择应用</string>
   <string name="profile_system_settings_title">系统设置</string>
   <string name="profile_lockmode_title">锁屏模式</string>
+  <string name="profile_lockmode_policy_disabled_summary">此配置文件选项已由设备管理员策略禁用</string>
   <string name="profile_lockmode_insecure_summary">不请求 PIN 码或密码</string>
   <string name="profile_lockmode_disabled_summary">禁用锁屏</string>
   <string name="profile_airplanemode_title">飞行模式</string>
@@ -208,7 +209,9 @@
   <string name="display_rotation_270_title">270 度</string>
   <string name="app_security_title">应用安全</string>
   <string name="sms_security_check_limit_title">短信限制</string>
-  <string name="sms_security_check_limit_summary">应用在 30 分钟内发送 %d 条信息后需要用户认可才能继续</string>
+  <string name="sms_security_check_limit_summary">应用在 1 分钟内发送 %d 条信息后需要用户认可才能继续</string>
+  <string name="sms_security_check_limit_summary_none">未经确认时应用不允许发送任何短信</string>
+  <string name="sms_security_check_limit_none">无</string>
   <string name="spam_added_title">已添加 %1$s</string>
   <string name="spam_last_blocked_title">最后一次被阻止： %1$s</string>
   <string name="block_notifications_title">通知过滤</string>
@@ -303,9 +306,6 @@
   <string name="status_bar_battery_percentage_default">隐藏</string>
   <string name="status_bar_battery_percentage_text_inside">图标内</string>
   <string name="status_bar_battery_percentage_text_next">图标旁</string>
-  <string name="status_bar_show_unused_sims_title">显示空 SIM 卡图标</string>
-  <string name="status_bar_show_unused_sims_title_summary_off">隐藏未使用的 SIM 卡槽图标</string>
-  <string name="status_bar_show_unused_sims_title_summary_on">显示未使用的 SIM 卡槽</string>
   <string name="edit_light_settings">编辑指示灯设置</string>
   <string name="pulse_speed_title">呼吸长度与速度</string>
   <string name="default_time">正常</string>
@@ -862,4 +862,9 @@
   <string name="lock_to_cyanogen_disable_msg">如果您的手机被盗，禁用此功能将会使得未经授权的用户重置您的手机为出厂默认值。您的个人数据可能无法被保护。您确定要禁用此功能？</string>
   <string name="lock_to_cyanogen_master_clear_warning">设备保护已启用。请在重设您的设备前先将其禁用。</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">连接错误；是否在该设备上启用了蓝牙网络共享？</string>
+  <string name="sim_card_status_title">SIM 卡 %d 状态</string>
+  <string name="sim_card_lock_settings_title">SIM 卡 %d 锁设置</string>
+  <string name="sim_card_summary_empty">SIM 卡没有插入</string>
+  <string name="sim_mobile_network_settings_category_title">移动网络设置</string>
+  <string name="sim_mobile_network_settings_title">SIM 卡 %d 设置</string>
 </resources>
