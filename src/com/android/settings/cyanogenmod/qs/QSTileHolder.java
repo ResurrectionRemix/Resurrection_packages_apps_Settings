@@ -198,7 +198,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_music_play_tile;
                 break;
             case QSConstants.TILE_POWER_MENU:
-                resourceName = "ic_qs_power_menu";
+                resourceName = "ic_qs_power";
                 stringId = R.string.qs_tile_powermenu;
                 break;
             case QSConstants.TILE_HEADS_UP:
