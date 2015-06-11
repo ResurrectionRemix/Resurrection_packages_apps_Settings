@@ -415,6 +415,12 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (preference == mStylusIconEnabled) {
             Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.STYLUS_ICON_ENABLED, mStylusIconEnabled.isChecked() ? 1 : 0);
+        } else if (preference == mHighTouchSensitivity) {
+            return mCmHardwareManager.set(CmHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY,
+                    mHighTouchSensitivity.isChecked());
+        } else if (preference == mTouchscreenHovering) {
+            return mCmHardwareManager.set(CmHardwareManager.FEATURE_TOUCH_HOVERING,
+                    mTouchscreenHovering.isChecked());
         } else if (preference instanceof PreferenceScreen) {
             if (preference.getFragment() != null) {
                 // Fragment will be handled correctly by the super class.
@@ -439,12 +445,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                     }
                 }
             }
-        } else if (preference == mHighTouchSensitivity) {
-            return mCmHardwareManager.set(CmHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY,
-                    mHighTouchSensitivity.isChecked());
-        } else if (preference == mTouchscreenHovering) {
-            return mCmHardwareManager.set(CmHardwareManager.FEATURE_TOUCH_HOVERING,
-                    mTouchscreenHovering.isChecked());
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
