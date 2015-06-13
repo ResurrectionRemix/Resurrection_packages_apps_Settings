@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
@@ -48,6 +49,7 @@ public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
             holder = new Holder();
             holder.entry = (TextView) convertView.findViewById(android.R.id.text1);
             holder.icon = (ImageView) convertView.findViewById(android.R.id.icon);
+            holder.type = (ImageView) convertView.findViewById(R.id.type);
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
@@ -66,11 +68,16 @@ public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
             holder.icon.setVisibility(View.GONE);
         }
 
+        Drawable d = getContext().getDrawable(QSUtils.isDynamicQsTile(item.value)
+                ? R.drawable.ic_qs_tile_dynamic_type : R.drawable.ic_qs_tile_static_type);
+        holder.type.setImageDrawable(d);
+
         return convertView;
     }
 
     private static class Holder {
         public TextView entry;
         public ImageView icon;
+        public ImageView type;
     }
 }
