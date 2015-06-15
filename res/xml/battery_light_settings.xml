@@ -24,12 +24,12 @@
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="battery_light_enabled"
             android:title="@string/battery_light_title"
-            android:defaultValue="true" />
+            android:defaultValue="@bool/def_battery_light_enabled" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="battery_light_pulse"
             android:title="@string/battery_low_pulse_title"
-            android:defaultValue="true"
+            android:defaultValue="@bool/def_battery_light_pulse"
             android:dependency="battery_light_enabled" />
 
     </PreferenceCategory>
