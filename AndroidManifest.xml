@@ -2590,7 +2590,7 @@
             android:label="ReportingServiceManager">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.android.settings.action.TRIGGER_REPORT_METRICS" />
             </intent-filter>
         </receiver>
 
@@ -2599,6 +2599,9 @@
             android:exported="false"
             android:name=".cmstats.ReportingService">
         </service>
+
+        <service android:name=".cmstats.StatsUploadJobService"
+                 android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
         <receiver android:name=".users.ProfileUpdateReceiver">

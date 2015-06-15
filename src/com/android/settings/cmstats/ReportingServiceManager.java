@@ -22,9 +22,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.provider.Settings;
 import android.util.Log;
 
 public class ReportingServiceManager extends BroadcastReceiver {
@@ -32,12 +29,16 @@ public class ReportingServiceManager extends BroadcastReceiver {
     private static final long MILLIS_PER_DAY = 24L * MILLIS_PER_HOUR;
     private static final long UPDATE_INTERVAL = 1L * MILLIS_PER_DAY;
 
+    public static final String ACTION_LAUNCH_SERVICE =
+            "com.android.settings.action.TRIGGER_REPORT_METRICS";
+    public static final String EXTRA_FORCE = "force";
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
             setAlarm(context, 0);
-        } else {
-            launchService(context);
+        } else if (intent.getAction().equals(ACTION_LAUNCH_SERVICE)){
+            launchService(context, intent.getBooleanExtra(EXTRA_FORCE, false));
         }
     }
 
@@ -63,7 +64,7 @@ public class ReportingServiceManager extends BroadcastReceiver {
             millisFromNow = (lastSynced + UPDATE_INTERVAL) - System.currentTimeMillis();
         }
 
-        Intent intent = new Intent(ConnectivityManager.CONNECTIVITY_ACTION);
+        Intent intent = new Intent(ACTION_LAUNCH_SERVICE);
         intent.setClass(context, ReportingServiceManager.class);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -73,32 +74,26 @@ public class ReportingServiceManager extends BroadcastReceiver {
                 + millisFromNow / MILLIS_PER_HOUR + " hours");
     }
 
-    public static void launchService(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-        if (networkInfo == null || !networkInfo.isConnected()) {
-            return;
-        }
-
+    public static void launchService(Context context, boolean force) {
         SharedPreferences prefs = AnonymousStats.getPreferences(context);
 
         if (!Utilities.isStatsCollectionEnabled(context)) {
             return;
         }
 
-        long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
-        if (lastSynced == 0) {
-            setAlarm(context, 0);
-            return;
-        }
-        long timeElapsed = System.currentTimeMillis() - lastSynced;
-        if (timeElapsed < UPDATE_INTERVAL) {
-            long timeLeft = UPDATE_INTERVAL - timeElapsed;
-            Log.d(ReportingService.TAG, "Waiting for next sync : "
-                    + timeLeft / MILLIS_PER_HOUR + " hours");
-            return;
+        if (!force) {
+            long lastSynced = prefs.getLong(AnonymousStats.ANONYMOUS_LAST_CHECKED, 0);
+            if (lastSynced == 0) {
+                setAlarm(context, 0);
+                return;
+            }
+            long timeElapsed = System.currentTimeMillis() - lastSynced;
+            if (timeElapsed < UPDATE_INTERVAL) {
+                long timeLeft = UPDATE_INTERVAL - timeElapsed;
+                Log.d(ReportingService.TAG, "Waiting for next sync : "
+                        + timeLeft / MILLIS_PER_HOUR + " hours");
+                return;
+            }
         }
 
         Intent intent = new Intent();
