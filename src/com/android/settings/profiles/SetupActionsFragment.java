@@ -110,6 +110,22 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     private static final int MENU_REMOVE = Menu.FIRST;
     private static final int MENU_FILL_PROFILE = Menu.FIRST + 1;
 
+    private static final int DIALOG_FILL_FROM_SETTINGS = 1;
+    private static final int DIALOG_AIRPLANE_MODE = 2;
+    private static final int DIALOG_BRIGHTNESS = 3;
+    private static final int DIALOG_LOCK_MODE = 4;
+    private static final int DIALOG_DOZE_MODE = 5;
+    private static final int DIALOG_RING_MODE = 6;
+    private static final int DIALOG_CONNECTION_OVERRIDE = 7;
+    private static final int DIALOG_VOLUME_STREAM = 8;
+    private static final int DIALOG_PROFILE_NAME = 9;
+
+    private static final String LAST_SELECTED_POSITION = "last_selected_position";
+    private static final int DIALOG_REMOVE_PROFILE = 10;
+
+    private int mLastSelectedPosition = -1;
+    private Item mSelectedItem;
+
     Profile mProfile;
     ItemListAdapter mAdapter;
     ProfileManager mProfileManager;
@@ -117,18 +133,18 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
     boolean mNewProfileMode;
 
-    private static final int[] LOCKMODE_MAPPING = new int[] {
-        Profile.LockMode.DEFAULT, Profile.LockMode.INSECURE, Profile.LockMode.DISABLE
+    private static final int[] LOCKMODE_MAPPING = new int[]{
+            Profile.LockMode.DEFAULT, Profile.LockMode.INSECURE, Profile.LockMode.DISABLE
     };
-    private static final int[] EXPANDED_DESKTOP_MAPPING = new int[] {
-        Profile.ExpandedDesktopMode.DEFAULT,
-        Profile.ExpandedDesktopMode.ENABLE,
-        Profile.ExpandedDesktopMode.DISABLE
+    private static final int[] EXPANDED_DESKTOP_MAPPING = new int[]{
+            Profile.ExpandedDesktopMode.DEFAULT,
+            Profile.ExpandedDesktopMode.ENABLE,
+            Profile.ExpandedDesktopMode.DISABLE
     };
-    private static final int[] DOZE_MAPPING = new int[] {
-        Profile.DozeMode.DEFAULT,
-        Profile.DozeMode.ENABLE,
-        Profile.DozeMode.DISABLE
+    private static final int[] DOZE_MAPPING = new int[]{
+            Profile.DozeMode.DEFAULT,
+            Profile.DozeMode.ENABLE,
+            Profile.DozeMode.DISABLE
     };
     private List<Item> mItems = new ArrayList<Item>();
 
@@ -161,7 +177,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         setHasOptionsMenu(true);
         if (mNewProfileMode && savedInstanceState == null) {
             // only pop this up on first creation
-            requestFillProfileFromSettingsDialog();
+            showDialog(DIALOG_FILL_FROM_SETTINGS);
+        } else if (savedInstanceState != null) {
+            mLastSelectedPosition = savedInstanceState.getInt("last_selected_position", -1);
+            if (mLastSelectedPosition != -1) {
+                mSelectedItem = mAdapter.getItem(mLastSelectedPosition);
+            }
         }
     }
 
@@ -247,7 +268,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     // and don't' show the wildcard group
                     if (mProfileManager.getNotificationGroup(profileGroup.getUuid()) != null
                             && !mProfile.getDefaultGroup().getUuid().equals(
-                                profileGroup.getUuid())) {
+                            profileGroup.getUuid())) {
                         mItems.add(new AppGroupItem(mProfile, profileGroup));
                         groupsAdded++;
                     }
@@ -267,11 +288,6 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
 
         mAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
     @Override
@@ -296,10 +312,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_REMOVE:
-                requestRemoveProfileDialog();
+                mLastSelectedPosition = -1; // reset
+                showDialog(DIALOG_REMOVE_PROFILE);
                 return true;
             case MENU_FILL_PROFILE:
-                requestFillProfileFromSettingsDialog();
+                showDialog(DIALOG_FILL_FROM_SETTINGS);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -356,7 +373,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
     }
 
-    private void requestFillProfileFromSettingsDialog() {
+    private AlertDialog requestFillProfileFromSettingsDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.profile_populate_profile_from_state);
         builder.setNegativeButton(R.string.no, null);
@@ -367,7 +384,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 dialog.dismiss();
             }
         });
-        builder.show();
+        return builder.create();
     }
 
     private void fillProfileFromCurrentSettings() {
@@ -485,7 +502,58 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         // but let's skip this one
     }
 
-    private void requestRemoveProfileDialog() {
+    @Override
+    public Dialog onCreateDialog(int dialogId) {
+        switch (dialogId) {
+            case DIALOG_FILL_FROM_SETTINGS:
+                return requestFillProfileFromSettingsDialog();
+
+            case DIALOG_AIRPLANE_MODE:
+                return requestAirplaneModeDialog(((AirplaneModeItem) mSelectedItem).getSettings());
+
+            case DIALOG_BRIGHTNESS:
+                return requestBrightnessDialog(((BrightnessItem) mSelectedItem).getSettings());
+
+            case DIALOG_LOCK_MODE:
+                return requestLockscreenModeDialog();
+
+            case DIALOG_DOZE_MODE:
+                return requestDozeModeDialog();
+
+            case DIALOG_RING_MODE:
+                return requestRingModeDialog(((RingModeItem) mSelectedItem).getSettings());
+
+            case DIALOG_CONNECTION_OVERRIDE:
+                ConnectionOverrideItem connItem = (ConnectionOverrideItem) mSelectedItem;
+                if (connItem.getConnectionType() == ConnectionSettings.PROFILE_CONNECTION_2G3G4G) {
+                    return requestMobileConnectionOverrideDialog(connItem.getSettings());
+                } else {
+                    return requestConnectionOverrideDialog(connItem.getSettings());
+                }
+
+            case DIALOG_VOLUME_STREAM:
+                VolumeStreamItem volumeItem = (VolumeStreamItem) mSelectedItem;
+                return requestVolumeDialog(volumeItem.getStreamType(), volumeItem.getSettings());
+
+            case DIALOG_PROFILE_NAME:
+                return requestProfileName();
+
+            case DIALOG_REMOVE_PROFILE:
+                return requestRemoveProfileDialog();
+
+        }
+        return super.onCreateDialog(dialogId);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mLastSelectedPosition != -1) {
+            outState.putInt(LAST_SELECTED_POSITION, mLastSelectedPosition);
+        }
+    }
+
+    private AlertDialog requestRemoveProfileDialog() {
         Profile current = mProfileManager.getActiveProfile();
         if (mProfile.getUuid().equals(current.getUuid())) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -496,8 +564,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     dialog.dismiss();
                 }
             });
-            builder.show();
-            return;
+            return builder.create();
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -511,10 +578,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             }
         });
         builder.setNegativeButton(R.string.no, null);
-        builder.show();
+        return builder.create();
     }
 
-    private void requestLockscreenModeDialog() {
+    private AlertDialog requestLockscreenModeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final String[] lockEntries =
                 getResources().getStringArray(R.array.profile_lockmode_entries);
@@ -530,20 +597,20 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         builder.setTitle(R.string.profile_lockmode_title);
         builder.setSingleChoiceItems(lockEntries, defaultIndex,
                 new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                mProfile.setScreenLockMode(LOCKMODE_MAPPING[item]);
-                updateProfile();
-                mAdapter.notifyDataSetChanged();
-                dialog.dismiss();
-            }
-        });
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        mProfile.setScreenLockMode(LOCKMODE_MAPPING[item]);
+                        updateProfile();
+                        mAdapter.notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                });
 
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        return builder.create();
     }
 
-    private void requestDozeModeDialog() {
+    private AlertDialog requestDozeModeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final String[] dozeEntries =
                 getResources().getStringArray(R.array.profile_doze_entries);
@@ -559,20 +626,20 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         builder.setTitle(R.string.doze_title);
         builder.setSingleChoiceItems(dozeEntries, defaultIndex,
                 new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                mProfile.setDozeMode(DOZE_MAPPING[item]);
-                updateProfile();
-                mAdapter.notifyDataSetChanged();
-                dialog.dismiss();
-            }
-        });
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        mProfile.setDozeMode(DOZE_MAPPING[item]);
+                        updateProfile();
+                        mAdapter.notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                });
 
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        return builder.create();
     }
 
-    private void requestAirplaneModeDialog(final AirplaneModeSettings setting) {
+    private AlertDialog requestAirplaneModeDialog(final AirplaneModeSettings setting) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final String[] connectionNames =
                 getResources().getStringArray(R.array.profile_action_generic_connection_entries);
@@ -589,30 +656,30 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         builder.setTitle(R.string.profile_airplanemode_title);
         builder.setSingleChoiceItems(connectionNames, defaultIndex,
                 new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                switch (item) {
-                    case 0: // disable override
-                        setting.setOverride(false);
-                        break;
-                    case 1: // enable override, disable
-                        setting.setOverride(true);
-                        setting.setValue(0);
-                        break;
-                    case 2: // enable override, enable
-                        setting.setOverride(true);
-                        setting.setValue(1);
-                        break;
-                }
-                mProfile.setAirplaneMode(setting);
-                mAdapter.notifyDataSetChanged();
-                updateProfile();
-                dialog.dismiss();
-            }
-        });
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch (item) {
+                            case 0: // disable override
+                                setting.setOverride(false);
+                                break;
+                            case 1: // enable override, disable
+                                setting.setOverride(true);
+                                setting.setValue(0);
+                                break;
+                            case 2: // enable override, enable
+                                setting.setOverride(true);
+                                setting.setValue(1);
+                                break;
+                        }
+                        mProfile.setAirplaneMode(setting);
+                        mAdapter.notifyDataSetChanged();
+                        updateProfile();
+                        dialog.dismiss();
+                    }
+                });
 
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        return builder.create();
     }
 
     private void requestProfileRingMode() {
@@ -633,7 +700,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
     }
 
-    private void requestRingModeDialog(final RingModeSettings setting) {
+    private AlertDialog requestRingModeDialog(final RingModeSettings setting) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final String[] values = getResources().getStringArray(R.array.ring_mode_values);
         final String[] names = getResources().getStringArray(R.array.ring_mode_entries);
@@ -654,39 +721,39 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         builder.setTitle(R.string.ring_mode_title);
         builder.setSingleChoiceItems(names, defaultIndex,
                 new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                switch (item) {
-                    case 0: // enable override, normal
-                        setting.setOverride(true);
-                        setting.setValue(values[0]);
-                        break;
-                    case 1: // enable override, vibrate
-                        setting.setOverride(true);
-                        setting.setValue(values[1]);
-                        break;
-                    case 2: // enable override, mute
-                        setting.setOverride(true);
-                        setting.setValue(values[2]);
-                        break;
-                    case 3:
-                        setting.setOverride(false);
-                        break;
-                }
-                mProfile.setRingMode(setting);
-                mAdapter.notifyDataSetChanged();
-                updateProfile();
-                dialog.dismiss();
-            }
-        });
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch (item) {
+                            case 0: // enable override, normal
+                                setting.setOverride(true);
+                                setting.setValue(values[0]);
+                                break;
+                            case 1: // enable override, vibrate
+                                setting.setOverride(true);
+                                setting.setValue(values[1]);
+                                break;
+                            case 2: // enable override, mute
+                                setting.setOverride(true);
+                                setting.setValue(values[2]);
+                                break;
+                            case 3:
+                                setting.setOverride(false);
+                                break;
+                        }
+                        mProfile.setRingMode(setting);
+                        mAdapter.notifyDataSetChanged();
+                        updateProfile();
+                        dialog.dismiss();
+                    }
+                });
 
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        return builder.create();
     }
 
-    private void requestConnectionOverrideDialog(final ConnectionSettings setting) {
+    private AlertDialog requestConnectionOverrideDialog(final ConnectionSettings setting) {
         if (setting == null) {
-            throw new UnsupportedOperationException("connection setting cannot be null yo");
+            throw new UnsupportedOperationException("connection setting cannot be null");
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final String[] connectionNames =
@@ -727,12 +794,12 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 });
 
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        return builder.create();
     }
 
-    private void requestMobileConnectionOverrideDialog(final ConnectionSettings setting) {
+    private AlertDialog requestMobileConnectionOverrideDialog(final ConnectionSettings setting) {
         if (setting == null) {
-            throw new UnsupportedOperationException("connection setting cannot be null yo");
+            throw new UnsupportedOperationException("connection setting cannot be null");
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final String[] connectionNames =
@@ -764,10 +831,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 });
 
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.show();
+        return builder.create();
     }
 
-    public void requestVolumeDialog(int streamId,
+    public AlertDialog requestVolumeDialog(int streamId,
                                     final StreamSettings streamSettings) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(VolumeStreamItem.getNameForStream(streamId));
@@ -803,18 +870,19 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             }
         });
         builder.setNegativeButton(android.R.string.cancel, null);
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+        setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
                 if (volumizer != null) {
                     volumizer.stop();
                 }
+                setOnDismissListener(null); // re-set this for next dialog
             }
         });
-        builder.show();
+        return builder.create();
     }
 
-    public void requestBrightnessDialog(final BrightnessSettings brightnessSettings) {
+    public AlertDialog requestBrightnessDialog(final BrightnessSettings brightnessSettings) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.profile_brightness_title);
 
@@ -855,10 +923,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 dialog.dismiss();
             }
         });
-        builder.show();
+        return builder.create();
     }
 
-    private void requestProfileName() {
+    private AlertDialog requestProfileName() {
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View dialogView = inflater.inflate(R.layout.profile_name_dialog, null);
 
@@ -908,7 +976,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 imm.showSoftInput(entry, InputMethodManager.SHOW_IMPLICIT);
             }
         });
-        alertDialog.show();
+        return alertDialog;
     }
 
     private void requestActiveAppGroupsDialog() {
@@ -923,17 +991,17 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
         DialogInterface.OnMultiChoiceClickListener listener =
                 new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                if (isChecked) {
-                    mProfile.addProfileGroup(new ProfileGroup(notificationGroups[which].getUuid(), false));
-                } else {
-                    mProfile.removeProfileGroup(notificationGroups[which].getUuid());
-                }
-                updateProfile();
-                rebuildItemList();
-            }
-        };
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        if (isChecked) {
+                            mProfile.addProfileGroup(new ProfileGroup(notificationGroups[which].getUuid(), false));
+                        } else {
+                            mProfile.removeProfileGroup(notificationGroups[which].getUuid());
+                        }
+                        updateProfile();
+                        rebuildItemList();
+                    }
+                };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setMultiChoiceItems(items, checked, listener)
@@ -976,32 +1044,25 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Item itemAtPosition = (Item) parent.getItemAtPosition(position);
+        mSelectedItem = itemAtPosition;
+        mLastSelectedPosition = position;
 
         if (itemAtPosition instanceof AirplaneModeItem) {
-            AirplaneModeItem item = (AirplaneModeItem) itemAtPosition;
-            requestAirplaneModeDialog(item.getSettings());
+            showDialog(DIALOG_AIRPLANE_MODE);
         } else if (itemAtPosition instanceof BrightnessItem) {
-            BrightnessItem item = (BrightnessItem) itemAtPosition;
-            requestBrightnessDialog(item.getSettings());
+            showDialog(DIALOG_BRIGHTNESS);
         } else if (itemAtPosition instanceof LockModeItem) {
-            requestLockscreenModeDialog();
+            showDialog(DIALOG_LOCK_MODE);
         } else if (itemAtPosition instanceof DozeModeItem) {
-            requestDozeModeDialog();
+            showDialog(DIALOG_DOZE_MODE);
         } else if (itemAtPosition instanceof RingModeItem) {
-            RingModeItem item = (RingModeItem) itemAtPosition;
-            requestRingModeDialog(item.getSettings());
+            showDialog(DIALOG_RING_MODE);
         } else if (itemAtPosition instanceof ConnectionOverrideItem) {
-            ConnectionOverrideItem item = (ConnectionOverrideItem) itemAtPosition;
-            if (item.getConnectionType() == ConnectionSettings.PROFILE_CONNECTION_2G3G4G) {
-                requestMobileConnectionOverrideDialog(item.getSettings());
-            } else {
-                requestConnectionOverrideDialog(item.getSettings());
-            }
+            showDialog(DIALOG_CONNECTION_OVERRIDE);
         } else if (itemAtPosition instanceof VolumeStreamItem) {
-            VolumeStreamItem item = (VolumeStreamItem) itemAtPosition;
-            requestVolumeDialog(item.getStreamType(), item.getSettings());
+            showDialog(DIALOG_VOLUME_STREAM);
         } else if (itemAtPosition instanceof ProfileNameItem) {
-            requestProfileName();
+            showDialog(DIALOG_PROFILE_NAME);
         } else if (itemAtPosition instanceof TriggerItem) {
             TriggerItem item = (TriggerItem) itemAtPosition;
             openTriggersFragment(item.getTriggerType());
@@ -1016,7 +1077,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     }
 
     private void startProfileGroupActivity(AppGroupItem item) {
-            Bundle args = new Bundle();
+        Bundle args = new Bundle();
         args.putString("ProfileGroup", item.getGroupUuid().toString());
         args.putParcelable("Profile", mProfile);
 
@@ -1025,7 +1086,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
     private void openTriggersFragment(int openTo) {
         Bundle args = new Bundle();
-        args.putParcelable(ProfilesSettings.EXTRA_PROFILE,  mProfile);
+        args.putParcelable(ProfilesSettings.EXTRA_PROFILE, mProfile);
         args.putBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, false);
         args.putInt(SetupTriggersFragment.EXTRA_INITIAL_PAGE, openTo);
 
