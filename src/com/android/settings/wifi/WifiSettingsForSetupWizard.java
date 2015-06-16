@@ -104,7 +104,9 @@ public class WifiSettingsForSetupWizard extends WifiSettings {
             @Override
             public void onChanged() {
                 super.onChanged();
-                updateFooter();
+                if (isVisible()) {
+                   updateFooter();
+                }
             }
         });
     }
