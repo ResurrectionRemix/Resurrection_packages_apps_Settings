@@ -38,6 +38,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.settings.R;
 import com.android.settings.RestrictedSettingsFragment;
@@ -81,6 +82,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private Preference mPrimarySubSelect = null;
 
     private List<MultiSimEnablerPreference> mSimEnablers = null;
+    private List<Preference> mMobileNetworkSettings = null;
 
     private SubscriptionInfo mCellularData = null;
     private SubscriptionInfo mCalls = null;
@@ -193,6 +195,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
 
         mAvailableSubInfos = new ArrayList<SubscriptionInfo>(mNumSlots);
         mSimEnablers = new ArrayList<MultiSimEnablerPreference>(mNumSlots);
+        mMobileNetworkSettings = new ArrayList<Preference>(mNumSlots);
         for (int i = 0; i < mNumSlots; ++i) {
             final SubscriptionInfo sir = findRecordBySlotId(i);
             if (mNumSlots > 1) {
@@ -218,6 +221,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                     getString(R.string.sim_mobile_network_settings_title, (i + 1)));
             mobileNetworkPref.setIntent(mobileNetworkIntent);
             mobileNetwork.addPreference(mobileNetworkPref);
+            mMobileNetworkSettings.add(mobileNetworkPref);
         }
     }
 
@@ -226,6 +230,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();
         updateActivitesCategory();
         updateSimEnablers();
+        updateMobileNetworkSettings();
     }
 
     private void listen() {
@@ -568,6 +573,23 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         for (int i = 0; i < mSimEnablers.size(); ++i) {
             MultiSimEnablerPreference simEnabler = mSimEnablers.get(i);
             if (simEnabler != null) simEnabler.update();
+        }
+    }
+
+    private void updateMobileNetworkSettings() {
+        for (int i = 0; i < mMobileNetworkSettings.size(); i++) {
+            Preference preference = mMobileNetworkSettings.get(i);
+            if (preference != null) {
+                Intent intent = preference.getIntent();
+                int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                        SubscriptionManager.INVALID_SUBSCRIPTION_ID);;
+                if (!SubscriptionManager.isValidSubscriptionId(subId)
+                        || !SubscriptionManager.isUsableSubIdValue(subId)) {
+                    preference.setEnabled(false);
+                } else {
+                    preference.setEnabled(true);
+                }
+            }
         }
     }
 
