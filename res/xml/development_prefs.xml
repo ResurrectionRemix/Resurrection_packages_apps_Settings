@@ -53,10 +53,13 @@
                 android:targetClass="com.android.settings.SetFullBackupPassword" />
     </PreferenceScreen>
 
-    <SwitchPreference
-        android:key="keep_screen_on"
+    <ListPreference
+        android:key="keep_screen_on_modes"
         android:title="@string/keep_screen_on"
-        android:summary="@string/keep_screen_on_summary"/>
+        android:dialogTitle="@string/keep_screen_on"
+        android:entries="@array/keep_screen_on_titles"
+        android:entryValues="@array/keep_screen_on_values"
+        android:persistent="false" />
 
     <ListPreference
         android:key="hdcp_checking"
