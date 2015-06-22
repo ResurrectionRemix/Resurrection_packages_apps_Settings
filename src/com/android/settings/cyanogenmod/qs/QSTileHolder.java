@@ -210,7 +210,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_tile_slimaction;
                 break;
             case QSConstants.TILE_SYSTEMUI_RESTART:
-                resourceName = "ic_qs_systemui_restart"";
+                resourceName = "ic_qs_systemui_restart";
                 stringId = R.string.qs_systemui_restart_tile;
                 break;
             default:
