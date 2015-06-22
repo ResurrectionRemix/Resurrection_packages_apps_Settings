@@ -23,9 +23,9 @@
   <string name="show_dev_on_cm">אפשרויות מפתחים פעילות!</string>
   <string name="show_dev_already_cm">אין צורך. כבר הפעלת את אפשרויות המפתח.</string>
   <string name="development_tools_title">כלי פיתוח</string>
-  <string name="root_access">הרשאות root</string>
-  <string name="root_access_warning_title">אפשר הרשאות root?</string>
-  <string name="root_access_warning_message">איפשור ליישומים לבקש הרשאות root מאוד מסוכן ויכול לסכן את אבטחת המערכת שלך!</string>
+  <string name="root_access">גישת שורש (Root)</string>
+  <string name="root_access_warning_title">לאפשר גישת שורש?</string>
+  <string name="root_access_warning_message">מתן האפשרות ליישומים לבקש גישת שורש הינו מסוכן מאוד, ועלול לסכן את אבטחת המערכת שלך!</string>
   <string name="root_access_none">מושבת</string>
   <string name="root_access_apps">יישומים בלבד</string>
   <string name="root_access_adb">ADB בלבד</string>
@@ -412,7 +412,7 @@
   <string name="app_ops_summaries_delete_call_log">מחיקת רישומי שיחות</string>
   <string name="app_ops_summaries_data_change">שינוי נתונים</string>
   <string name="app_ops_summaries_wake_up">הער את המכשיר</string>
-  <string name="app_ops_summaries_su">הרשאות Root</string>
+  <string name="app_ops_summaries_su">גישת שורש</string>
   <string name="app_ops_labels_location">עקוב אחר מיקום</string>
   <string name="app_ops_labels_vibrate">רטט</string>
   <string name="app_ops_labels_read_contacts">קרא אנשי קשר</string>
@@ -464,14 +464,14 @@
   <string name="app_ops_labels_delete_call_log">מחיקת רישומי שיחות</string>
   <string name="app_ops_labels_data_change">שינוי נתונים</string>
   <string name="app_ops_labels_wake_up">הער את המכשיר</string>
-  <string name="app_ops_labels_su">גישת Root</string>
+  <string name="app_ops_labels_su">גישת שורש (Root)</string>
   <string name="app_ops_categories_location">מיקום</string>
   <string name="app_ops_categories_personal">אישי</string>
   <string name="app_ops_categories_messaging">העברת הודעות</string>
   <string name="app_ops_categories_media">מדיה</string>
   <string name="app_ops_categories_device">מכשיר</string>
   <string name="app_ops_categories_bootup">אתחול</string>
-  <string name="app_ops_categories_su">גישת Root</string>
+  <string name="app_ops_categories_su">גישת שורש (Root)</string>
   <string name="app_ops_permissions_allowed">מורשה</string>
   <string name="app_ops_permissions_ignored">התעלם</string>
   <string name="app_ops_permissions_always_ask">שאל תמיד</string>
@@ -734,8 +734,11 @@
   <string name="qs_tile_screen_timeout">פרק הזמן לכיבוי מסך</string>
   <string name="qs_tile_usb_tether">קשירת USB</string>
   <string name="qs_tile_heads_up">התראות קופצות</string>
-  <string name="qs_tile_ambient_display">תצוגה מותאמת</string>
+  <string name="qs_tile_ambient_display">תצוגת התראות ברקע</string>
   <string name="qs_tile_sync">סנכרון</string>
+  <string name="qs_dynamic_tile_next_alarm">ההתראה הבאה</string>
+  <string name="qs_dynamic_tile_ime_selector">בורר שיטות קלט</string>
+  <string name="qs_dynamic_tile_su">גישת שורש (Root)</string>
   <string name="qs_main_tiles_title">הגדל את השורה הראשונה</string>
   <string name="qs_main_tiles_summary_on">שני אריחים ראשיים בשורה הראשונה</string>
   <string name="qs_main_tiles_summary_off">שלושה אריחים בכל שורה</string>
@@ -770,7 +773,7 @@
   <string name="lockscreen_none_target">ללא</string>
   <string name="lockscreen_message">הקש על סמל בצד שמאל או ימין כדי להקצות מחדש קיצור דרך של מסך הנעילה.</string>
   <string name="lockscreen_choose_action_title">בחר פעולה</string>
-  <string name="lockscreen_visualizer_title">הצג אפקטים וויזואלים בעת השמעת מוסיקה</string>
+  <string name="lockscreen_visualizer_title">הצג אפקטים בעת השמעת מוסיקה</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">ניהול הגדרות SMS מאובטח</string>
   <string name="navigation_ring_title">קיצורי דרך בטבעת הניווט</string>
@@ -855,6 +858,8 @@
   <string name="heads_up_notifications">התראות קופצות</string>
   <string name="summary_heads_up_enabled">התראות קופצות פעילות</string>
   <string name="summary_heads_up_disabled">התראות קופצות כבויות</string>
+  <string name="master_clear_desc_cm" product="tablet">פעולה זו תביא למחיקת כל התוכן מ<b>האחסון הפנימי</b> של הטאבלט שלך, כולל:\n\n<li>החשבונות המוגדרים במכשירך</li>\n<li>נתונים והגדרות של המערכת והיישומים הקיימים</li>\n<li>יישומים שהורדו</li></string>
+  <string name="master_clear_desc_cm" product="default">פעולה זו תביא למחיקת כל התוכן מ<b>האחסון הפנימי</b> של המכשיר שלך, כולל:\n\n<li>החשבונות המוגדרים במכשירך</li>\n<li>נתונים והגדרות של המערכת והיישומים הקיימים</li>\n<li>יישומים שהורדו</li></string>
   <string name="lock_to_cyanogen_title">הגנת מכשיר</string>
   <string name="lock_to_cyanogen_summary">דורש את סיסמת חשבון ה-Cyanogen OS שלך גם לאחר איפוס להגדרות היצרן</string>
   <string name="lock_to_cyanogen_create_account_msg">מכשירך משתמש בסיסמת חשבון Cyanogen OS שלך על מנת להגן על מכשירך אפילו במקרה של איפוס הגדרות יצרן. יהיה עליך ליצור חשבון Cyanogen OS.</string>
@@ -864,4 +869,16 @@
   <string name="sim_card_status_title">מצב SIM %d</string>
   <string name="sim_card_lock_settings_title">הגדרות נעילה של SIM %d</string>
   <string name="sim_card_summary_empty">לא הוכנס SIM</string>
+  <string name="sim_mobile_network_settings_category_title">הגדרות רשת סלולרית</string>
+  <string name="sim_mobile_network_settings_title">הגדרות SIM %d</string>
+  <string name="factory_reset_instructions_title">נתונים אישיים ויישומים</string>
+  <string name="factory_reset_instructions_summary">פעולה זאת תמחק את כל החשבונות, היישומים (כולל נתוניהם) והגדרות המערכת ממכשיר זה</string>
+  <string name="factory_reset_personal_content">תוכן אישי</string>
+  <string name="factory_reset_erase_stored_content">מחק תוכן מאוחסן</string>
+  <string name="factory_reset_erase_stored_content_summary">מחק מוזיקה, תמונות, סרטונים, או כל תוכן אחר המאוחסן על מכשיר זה</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">מחק מוזיקה, תמונות, סרטונים, או כל תוכן אחר המאוחסן על מכשיר זה.\n\n<b>לא ניתן לשמור את התוכן עקב הצפנת המכשיר.</b></string>
+  <string name="factory_reset_erase_sd_card">פרמט כרטיס SD</string>
+  <string name="factory_reset_erase_sd_card_summary">מחק את כל הנתונים על כרטיס ה-SD, כולל מוזיקה ותמונות</string>
+  <string name="factory_reset_warning_text_reset_now">אפס עכשיו</string>
+  <string name="factory_reset_warning_text_message">כל החשבונות, היישומים (כולל נתוניהם) והגדרות המערכת שלך יוסרו ממכשיר זה. פעולה זו אינה הפיכה.</string>
 </resources>

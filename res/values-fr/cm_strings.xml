@@ -83,11 +83,13 @@
   <string name="profile_choose_app">Choisissez une application</string>
   <string name="profile_system_settings_title">Paramètres système</string>
   <string name="profile_lockmode_title">Mode de verrouillage</string>
+  <string name="profile_lockmode_policy_disabled_summary">Cette option de profil est désactivée par une stratégie de l\'administrateur de l\'appareil</string>
   <string name="profile_lockmode_insecure_summary">Ne pas demander le code PIN ou le mot de passe</string>
   <string name="profile_lockmode_disabled_summary">Désactiver l\'écran de verrouillage</string>
   <string name="profile_airplanemode_title">Mode Avion</string>
   <string name="profile_brightness_title">Luminosité de l\'écran</string>
   <string name="profile_brightness_override_summary">Mettre à %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">Outrepasser la luminosité</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Point d\'accès Wi\u2011Fi</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -124,6 +126,8 @@
   <string name="volbtn_cursor_control_on_reverse">La touche haut déplace le curseur vers la droite et bas vers la gauche</string>
   <string name="swap_volume_buttons_title">Réorienter</string>
   <string name="swap_volume_buttons_summary">Inverser les boutons de volume lorsque l\'écran est tourné</string>
+  <string name="volume_keys_control_ring_stream_title">Les boutons de volume contrôlent le volume de la sonnerie</string>
+  <string name="volume_keys_control_ring_stream_summary">Si activé, les touches de volume contrôlent le volume de la sonnerie. Sinon, elles contrôlent le volume multimédia.</string>
   <string name="power_end_call_title">Terminer l\'appel</string>
   <string name="power_end_call_summary">Appuyer sur le bouton marche/arrêt raccrochera l\'appel en cours</string>
   <string name="button_wake_title">Réveiller l\'appareil</string>
@@ -201,6 +205,7 @@
   <string name="display_rotation_270_title">270 degrés</string>
   <string name="app_security_title">Sécurité des applications</string>
   <string name="sms_security_check_limit_title">Limiter l\'émission de SMS</string>
+  <string name="sms_security_check_limit_none">Aucun</string>
   <string name="spam_added_title">%1$s ajouté</string>
   <string name="spam_last_blocked_title">Dernier bloqué %1$s</string>
   <string name="block_notifications_title">Filtre des notifications</string>
@@ -233,6 +238,7 @@
   <string name="privacy_guard_reset_text">Réinitialiser les autorisations ?</string>
   <string name="privacy_guard_help_text">Dans cet écran, vous pouvez sélectionner pour quelles applications la protection des données est activée. Les applications sélectionnées ne seront pas en mesure d\'accéder à vos données personnelles telles que les contacts, les messages ou le journal d\'appels. Obtenez les détails de l\'application par un appui long sur celle-ci.\n\nPar défaut, les applications du système ne sont pas affichées. Si vous voulez les afficher ou ne filtrer que les applications qui demandent une autorisation d\'accès à des données personnelles, sélectionnez les options respectives dans le menu.</string>
   <string name="privacy_guard_manager_show_system_apps">Afficher les applications système</string>
+  <string name="app_ops_btn_text">Modifier</string>
   <string name="increasing_ring_volume_option_title">Sonnerie progressive</string>
   <string name="increasing_ring_min_volume_title">Volume de démarrage</string>
   <string name="increasing_ring_ramp_up_time_title">Durée de progression</string>
@@ -601,6 +607,11 @@
   <string name="uicc_media_format_final_desc" product="default">Effacer le stockage UICC et supprimer tous les fichiers qui y sont stockés ? Cette action est irréversible !</string>
   <string name="usb_media_format_gesture_explanation" product="default">Vous devez dessiner votre schéma de déverrouillage pour confirmer que vous voulez effacer le stockage USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Vous devez dessiner votre schéma de déverrouillage pour confirmer que vous voulez effacer le stockage UICC.</string>
+  <string name="internal_sd_format">Effacer le stockage média interne</string>
+  <string name="internal_sd_format_summary">Effacer toutes les données sur le stockage média interne, telles que la musique et les photos</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\nPour supprimer la musique, les photos et les autres données de l\'utilisateur, le <b>stockage de média interne</b> doit être effacé.</string>
+  <string name="erase_internal_storage">Effacer le stockage média interne</string>
+  <string name="erase_internal_storage_description">Effacer toutes les données sur le stockage média interne, telles que la musique et les photos</string>
   <string name="storage_rescan_media">Analyser les médias du volume de stockage</string>
   <string name="location_category_enhanced_location">Localisation améliorée (IZat)</string>
   <string name="app_ops_settings_summary">Afficher ou modifier les autorisations de l\'application</string>
@@ -626,6 +637,7 @@
   <string name="usb_charging_summary">Désactive tous les transferts de données avec l\'ordinateur et charge l\'appareil par le port USB</string>
   <string name="usb_sdcard_title">Stockage de masse (UMS)</string>
   <string name="usb_sdcard_summary">Vous permet de transférer des fichiers entre votre ordinateur et votre carte SD en la montant en tant que périphérique de stockage de masse</string>
+  <string name="usb_not_connected">L\'USB est maintenant déconnecté</string>
   <string name="external_storage_turn_on">Le stockage externe a été activé</string>
   <string name="external_storage_turn_off">Le stockage externe a été désactivé</string>
   <string name="stats_collection_title">Collecte de statistiques</string>
@@ -709,11 +721,14 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">Extinction écran</string>
   <string name="qs_tile_usb_tether">Modem USB</string>
+  <string name="qs_tile_heads_up">Notifications flottantes</string>
+  <string name="qs_tile_ambient_display">Affichage ambiant</string>
   <string name="qs_main_tiles_title">Agrandir la première ligne</string>
   <string name="qs_main_tiles_summary_on">Deux raccourcis principaux sur la première ligne</string>
   <string name="qs_main_tiles_summary_off">Trois raccourcis par ligne</string>
   <string name="qs_advanced_location_title">Paramètres de localisation avancés</string>
   <string name="qs_advanced_location_summary">Activer les paramètres avancés de localisation dans les raccourcis</string>
+  <string name="sim_no_number_set">Aucun numéro attribué</string>
   <string name="gesture_settings_title">Gestes</string>
   <string name="themes_settings_title">Thèmes</string>
   <string name="wifi_mode">Mode</string>
@@ -747,6 +762,11 @@
   <string name="whisperpush_summary">Gérer les paramètres des SMS sécurisés</string>
   <string name="navigation_ring_title">Raccourcis de l\'anneau de navigation</string>
   <string name="navigation_ring_message">Appuyez sur le bouton « Modifier » pour ouvrir l\'anneau de navigation en mode édition.\n\nSélectionnez une cible pour configurer son comportement.\n\nAppuyez sur le bouton « \u2713 » pour enregistrer vos modifications ou « Restaurer par défaut » pour restaurer les paramètres par défaut.</string>
+  <string name="lcd_density">Densité LCD</string>
+  <string name="dialog_title_lcd_density">Densité LCD</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (par défaut)</string>
+  <string name="restarting_ui">Redémarrage UI\u2026</string>
   <string name="stylus_icon_enabled_title">Afficher l\'icône lors de l\'utilisation du stylet</string>
   <string name="stylus_icon_enabled_summary">Afficher l\'icône du pointeur lors de l\'écriture ou du survol de l\'écran</string>
   <string name="gestures_settings_title">Gestes au stylet</string>
@@ -778,6 +798,7 @@
   <string name="category_interface">Interface</string>
   <string name="category_calibration">Calibrage</string>
   <string name="display_and_lights">Affichage et voyants</string>
+  <string name="notification_manager">Notifications</string>
   <string name="lockscreen_settings">Écran de verrouillage</string>
   <string name="category_lights">Voyants</string>
   <string name="power_usage_history_title">Utilisation de la batterie</string>
@@ -803,7 +824,9 @@
   <string name="battery_saver_summary">Réduis les performances et limite la consommation de données</string>
   <string name="battery_saver_summary_unavailable">Non disponible pendant le chargement</string>
   <string name="anonymous_statistics_title">Statistiques CyanogenMod</string>
+  <string name="anonymous_statistics_summary">Aidez CyanogenMod en participant à l\'envoi de données anonymes pour comptabiliser les installations par type d\'appareil</string>
   <string name="anonymous_statistics_warning_title">À propos</string>
+  <string name="anonymous_statistics_warning">Autoriser l\'envoi de statistiques permet aux développeurs du système CyanogenMod de collecter des données anonymes afin de comptabiliser le nombre d\'installations par type d\'appareil. Les informations envoyées contiennent un identifiant unique de l\'appareil et ne compromettent en aucune manière la sécurité de vos données. Ce jeu d\'informations est envoyé à chaque redémarrage pour ne conserver que les installations actives.\n\nVous pouvez visualiser ces données en sélectionnant \"Prévisualiser les données\".</string>
   <string name="enable_reporting_title">Activer l\'envoi</string>
   <string name="preview_data_title">Aperçu des données</string>
   <string name="view_stats_title">Afficher les statistiques</string>
@@ -813,4 +836,23 @@
   <string name="preview_version_title">Version</string>
   <string name="preview_country_title">Pays</string>
   <string name="preview_carrier_title">Opérateur</string>
+  <string name="heads_up_notifications">Notifications flottantes</string>
+  <string name="summary_heads_up_enabled">Les notifications flottantes sont activées</string>
+  <string name="summary_heads_up_disabled">Les notifications flottantes sont désactivées</string>
+  <string name="lock_to_cyanogen_title">Protection de l\'appareil</string>
+  <string name="lock_to_cyanogen_summary">Exiger le mot de passe de votre compte Cyanogen OS même après une réinitialisation d\'usine</string>
+  <string name="lock_to_cyanogen_create_account_msg">Votre appareil utilise le mot de passe du compte Cyanogen OS pour protéger votre appareil même dans le cas d\'une réinitialisation d\'usine. Vous devrez créer un compte Cyanogen OS.</string>
+  <string name="lock_to_cyanogen_disable_msg">La désactivation de cette fonctionnalité permettra à des utilisateurs non autorisés de réinitialiser votre téléphone aux paramètres par défaut s\'il est volé. Vos données personnelles ne peuvent pas être protégées. Voulez-vous désactiver cette fonctionnalité ?</string>
+  <string name="lock_to_cyanogen_master_clear_warning">La protection de l\'appareil est activée. Veuillez la désactiver pour continuer la réinitialisation de votre appareil.</string>
+  <string name="sim_card_lock_settings_title">Paramètres de verrouillage de la carte SIM %d</string>
+  <string name="sim_card_summary_empty">Carte SIM non insérée</string>
+  <string name="sim_mobile_network_settings_category_title">Paramètres de réseau mobile</string>
+  <string name="sim_mobile_network_settings_title">Paramètres de la SIM %d</string>
+  <string name="factory_reset_instructions_title">Données personnelles et applications</string>
+  <string name="factory_reset_instructions_summary">Cette opération effacera vos comptes, applications, données d\'applications ainsi que les paramètres système de l\'appareil</string>
+  <string name="factory_reset_personal_content">Contenu personnel</string>
+  <string name="factory_reset_erase_stored_content">Effacer le contenu stocké</string>
+  <string name="factory_reset_erase_sd_card">Formater la carte SD</string>
+  <string name="factory_reset_erase_sd_card_summary">Effacer toutes les données de la carte SD, y compris la musique et les photos</string>
+  <string name="factory_reset_warning_text_message">Tous vos comptes, applications, données d\'applications ainsi que les paramètres système seront effacés de cet appareil. Cette action est irréversible.</string>
 </resources>
