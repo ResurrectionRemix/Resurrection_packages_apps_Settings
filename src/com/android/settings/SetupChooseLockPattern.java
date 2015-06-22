@@ -39,9 +39,10 @@ public class SetupChooseLockPattern extends ChooseLockPattern
         implements SetupWizardNavBar.NavigationBarListener {
 
     public static Intent createIntent(Context context, final boolean isFallback,
+                                      boolean isFingerprintFallback,
             boolean requirePassword, boolean confirmCredentials) {
-        Intent intent = ChooseLockPattern.createIntent(context, isFallback, requirePassword,
-                confirmCredentials);
+        Intent intent = ChooseLockPattern.createIntent(context, isFallback,
+                isFingerprintFallback, requirePassword, confirmCredentials);
         intent.setClass(context, SetupChooseLockPattern.class);
         return intent;
     }

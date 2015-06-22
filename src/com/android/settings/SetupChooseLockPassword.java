@@ -39,10 +39,11 @@ public class SetupChooseLockPassword extends ChooseLockPassword
         implements SetupWizardNavBar.NavigationBarListener {
 
     public static Intent createIntent(Context context, int quality, final boolean isFallback,
-            int minLength, final int maxLength, boolean requirePasswordToDecrypt,
-            boolean confirmCredentials) {
-        Intent intent = ChooseLockPassword.createIntent(context, quality, isFallback, minLength,
-                maxLength, requirePasswordToDecrypt, confirmCredentials);
+            final boolean isFingerprintFallback, int minLength, final int maxLength,
+            boolean requirePasswordToDecrypt, boolean confirmCredentials) {
+        Intent intent = ChooseLockPassword.createIntent(context, quality, isFallback,
+                isFingerprintFallback, minLength, maxLength,
+                requirePasswordToDecrypt, confirmCredentials);
         intent.setClass(context, SetupChooseLockPassword.class);
         intent.putExtra(EXTRA_PREFS_SHOW_BUTTON_BAR, false);
         return intent;

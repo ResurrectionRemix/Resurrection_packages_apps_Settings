@@ -117,19 +117,20 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric
 
         @Override
         protected Intent getLockPasswordIntent(Context context, int quality, boolean isFallback,
-                int minLength, int maxLength, boolean requirePasswordToDecrypt,
-                boolean confirmCredentials) {
+                boolean isFingerprintFallback, int minLength, int maxLength,
+                boolean requirePasswordToDecrypt, boolean confirmCredentials) {
             final Intent intent = SetupChooseLockPassword.createIntent(context, quality,
-                    isFallback, minLength, maxLength, requirePasswordToDecrypt, confirmCredentials);
+                    isFallback, isFingerprintFallback, minLength, maxLength,
+                    requirePasswordToDecrypt, confirmCredentials);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
             return intent;
         }
 
         @Override
         protected Intent getLockPatternIntent(Context context, boolean isFallback,
-                boolean requirePassword, boolean confirmCredentials) {
+                boolean isFingerprintFallback, boolean requirePassword, boolean confirmCredentials) {
             final Intent intent = SetupChooseLockPattern.createIntent(context, isFallback,
-                    requirePassword, confirmCredentials);
+                    requirePassword, isFingerprintFallback, confirmCredentials);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
             return intent;
         }
