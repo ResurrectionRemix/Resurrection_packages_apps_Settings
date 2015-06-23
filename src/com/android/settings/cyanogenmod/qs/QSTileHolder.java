@@ -222,10 +222,6 @@ public class QSTileHolder {
                 resourceName = "ic_dynamic_qs_ime_selector";
                 stringId = R.string.qs_dynamic_tile_ime_selector;
                 break;
-            case QSConstants.DYNAMIC_TILE_SU:
-                resourceName = "ic_dynamic_qs_su";
-                stringId = R.string.qs_dynamic_tile_su;
-                break;
             case QSConstants.DYNAMIC_TILE_ADB:
                 resourceName = "ic_dynamic_qs_adb";
                 stringId = R.string.qs_dynamic_tile_adb;
