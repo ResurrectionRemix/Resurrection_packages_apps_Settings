@@ -141,7 +141,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarGreetingTimeout =
                 (SeekBarPreferenceCham) prefSet.findPreference(KEY_STATUS_BAR_GREETING_TIMEOUT);
         int statusBarGreetingTimeout = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_GREETING_TIMEOUT, 400);
+                Settings.System.STATUS_BAR_GREETING_TIMEOUT, 100);
         mStatusBarGreetingTimeout.setValue(statusBarGreetingTimeout / 1);
         mStatusBarGreetingTimeout.setOnPreferenceChangeListener(this);
 
