@@ -68,9 +68,6 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Imposta</string>
-    <!-- Superuser indicator-->
-    <string name="su_indicator">Indicatore Superuser</string>
-    <string name="su_indicator_summary">Mostra indicatore Superuser quando una sessione è attiva</string>
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="device_settings_title">Dispositivo</string>
     <string name="rr_mod_version">Versione Resurrection</string>
@@ -181,7 +178,7 @@
     <string name="network_traffic_color_style">Stile colore</string>
     <string name="network_traffic_color_reset">Reset color</string>
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
-    <string name="network_traffic_summary">Enable various network traffic options in statusbar</string>
+    <string name="network_traffic_summary">Abilita varie opzioni del traffico di rete in statusbar</string>
     <string name="show_network_traffic_unit">Display unit</string>
     <string name="show_network_traffic_frequency">Intervallo di aggiornamento</string>
     <string name="show_network_traffic_disable">Disabilita</string>
@@ -367,13 +364,19 @@
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
     <string name="shortcuts_applications">Applicazioni</string>
+    <string name="shortcut_action_kill">Chiudi tutte</string>
+    <string name="shortcut_action_lastapp">Ultima app</string>
+    <string name="shortcut_action_restartui">Riavvio SystemUI</string>
+    <string name="shortcut_action_assist">Cerca</string>
+    <string name="shortcut_action_screenshot">Screenshot</string>
+    <string name="shortcut_action_torch">Torcia</string> 
     <string name="shortcuts_select_custom_app_title">Selezionare applicazione personalizzata</string>
     <string name="shortcuts_icon_picker_type">Selezionare il tipo di icona:</string>
     <string name="shortcuts_icon_default">Predefinito</string>
     <string name="shortcuts_icon_presets">Icone di sistema</string>
     <string name="shortcuts_icon_custom">Galleria</string>
-    <string name="shortcuts_icon_picker_choose_icon_title">Choose icon</string>
-    <string name="shortcuts_icon_picker_alarm">Alarm</string>
+    <string name="shortcuts_icon_picker_choose_icon_title">Scegli icona</string>
+    <string name="shortcuts_icon_picker_alarm">Alarme</string>
     <string name="shortcuts_icon_picker_andy">Andy</string>
     <string name="shortcuts_icon_picker_battery">Batteria</string>
     <string name="shortcuts_icon_picker_chrome">Google Chrome</string>
@@ -428,7 +431,7 @@
     <string name="shortcuts_icon_picker_search">Search</string>
     <string name="shortcuts_icon_picker_sms">Messaging</string>
     <string name="shortcuts_icon_picker_tasks">Tasks</string>
-    <string name="shortcuts_icon_picker_terminal">Terminal</string>
+    <string name="shortcuts_icon_picker_terminal">Terminale</string>
     <string name="shortcuts_icon_picker_transit">Transit</string>
     <string name="shortcuts_icon_picker_tv">TV</string>
     <string name="shortcuts_icon_picker_twitter">Twitter</string>
@@ -620,14 +623,14 @@
     <string name="battery_icon">Stile icona batteria</string>
     <string name="battery_not_title">Icona della batteria in notifiche</string>
     <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
-    <string name="battery_bar_location">Battery bar location</string>
+    <string name="battery_bar_location">Posizione barra batteria</string>
     <string name="battery_bar_color">Colore barra batteria</string>
     <string name="battery_bar"><b>Personalizzazioni della barra della batteria</b></string>
     <string name="battery_bar_summary">Posizione barra batteria e colore personalizzato</string>
     <string name="battery_bar_style_title">Stile barra batteria</string>
-    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_thickness_title">Spessore barra batteria</string>
     <string name="battery_bar_animate_title">Animazione di ricarica</string>
-    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+    <string name="battery_bar_animate_summary">L'animazione di ricarica può causare una scarsa esperienza utente. Attiva a propria discrezione.</string>
     <!-- Full screen keyboard -->
     <string name="fullscreen_keyboard_title">Tastiera a tutto schermo</string>
     <string name="fullscreen_keyboard_summary">Visualizza tastiera a tutto schermo in orizzontale</string>
@@ -681,7 +684,7 @@
     <string name="animation_duration_default">Predefinito</string>
 
     <!-- Lockscreen weather -->
-    <string name="lock_screen_weather_settings_title"><b>Meteo su blocca schermoo</b></string>
+    <string name="lock_screen_weather_settings_title"><b>Meteo su blocca schermo</b></string>
     <string name="lock_screen_weather_settings_title_summary">Personalizza pannello del meteo in blocca schermo</string>
     <string name="weather_show_weather_title">Visualizza meteo</string>
     <string name="weather_show_weather_summary">Attiva per visualizzare le informazioni meteo</string>
@@ -731,8 +734,7 @@
     <string name="qs_ambient_display_tile">Ambient display</string>
     <string name="qs_music_play_tile">Play</string>
     <string name="qs_tile_heads_up">Heads up</string>
-    <string name="qs_tile_reboot">Riavvia</string>
-    <string name="qs_tile_powermenu">Menu tasto alimentazione</string>
+    <string name="qs_systemui_restart_tile">Riavvio SystemUI</string>
     <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">Premere a lungo l\'icona di blocco per spegnere</string>
     <string name="longpress_lock_icon_to_sleep_summary">Questa opzione non funziona se Smart Lock e Esplora al tocco sono entrambi abilitati</string>    
@@ -864,7 +866,75 @@
     
     <string name="recents_show_membar_title">Barra memoria</string>
     <string name="recents_show_membar_summary">Mostra una barra con la memoria a disposizione del dispositivo</string>
-   
+<!-- Lock Gesture settings -->
+    <!-- Security & location settings screen, setting option name -->
+    <string name="lockgesture_change_lock_pattern_label">Change unlock gesture</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
+    <string name="lockgesture_change_lock_pin_label">Change unlock PIN</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
+    <string name="lockgesture_need_to_unlock">Confirm saved gesture</string>
+    <!-- Do not translate. -->
+    <string name="lockgesture_need_to_unlock_footer" />
+    <!-- Security & location settings screen, change unlock gesture screen instruction if user draws incorrect pattern -->
+    <string name="lockgesture_need_to_unlock_wrong">Try again:</string>
+    <!-- Do not translate. -->
+    <string name="lockgesture_need_to_unlock_wrong_footer" />
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen.  This si when they are supposed to draw a new unlock pattern (for example, if they are changing their unlock patterns)..-->
+    <string name="lockgesture_recording_intro_header">Draw an unlock gesture:</string>
+    <!-- Security & location settings screen, change unlock gesture screen hint on bottom of screen.  We are telling them to press the menu button to see more options or help. -->
+    <string name="lockgesture_recording_intro_footer">Press Menu for help.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen while drawing pattern -->
+    <string name="lockgesture_recording_inprogress">Release finger when done.</string>
+    <!-- Security & location settings screen, change unlock gesture screen message on top of screen after drawing pattern -->
+    <string name="lockgesture_pattern_entered_header">Gesture recorded.</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen to confirm pattern -->
+    <string name="lockgesture_need_to_confirm">Draw gesture again to confirm:</string>
+    <string name="lockgesture_pattern_confirmed_header">Your new unlock gesture:</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  When they are ready to draw it once again to confirm it, they press this button. -->
+    <string name="lockgesture_confirm_button_text">Confirm</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen.  After they draw a gesture and release their finger, we display the pattern so they remember.  If they are nto satisfied with this pattern, they click this button to redraw the pattern. -->
+    <string name="lockgesture_restart_button_text">Redraw</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. If they are supposed to enter their current gesture before being able to draw another one, and they screw up, they hit this button to try again -->
+    <string name="lockgesture_retry_button_text">Retry</string>
+    <!-- Security & location settings screen, change unlock gesture screen button, on bottom of screen. Once they draw a new gesture and confirm it by drawing it again, they press this button to exit -->
+    <string name="lockgesture_continue_button_text">Continue</string>
+    <!-- Security & location settings screen, unlock screen activity title -->
+    <string name="lockgesture_settings_title">Unlock gesture</string>
+    <!-- Security & location settings screen, setting check box title if the unlock pattern MUST be drawn everytime they turn on the screen -->
+    <string name="lockgesture_settings_enable_title">Require gesture</string>
+    <!-- Security & location settings screen, setting summary for the checkbox "Require pattern" -->
+    <string name="lockgesture_settings_enable_summary">Must draw gesture to unlock screen</string>
+   <!-- Security & location settings screen, setting check box title. This setting controls whether a visible gesture is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
+    <string name="lockgesture_settings_enable_visible_pattern_title">Make gesture visible</string>
+    <!-- Security & location settings screen, setting check box title. This controls whether the device locks immediately when the power button is pressed. [CHAR LIMIT=28]-->
+    <string name="lockgesture_settings_enable_power_button_instantly_locks">Power button instantly locks</string>
+    <!-- Security & location settings screen, setting option name when user has never set an unlock gesture -->
+    <string name="lockgesture_settings_choose_lock_pattern">Set unlock gesture</string>
+    <!-- Security & location settings screen, setting option name when user has previously set an unlock gesture and wants to change to a new pattern -->
+    <string name="lockgesture_settings_change_lock_pattern">Change unlock gesture</string>
+    <!-- Security & location settings screen, the help instructions (an animation) caption -->
+    <string name="lockgesture_settings_help_how_to_record">How to draw an unlock gesture</string>
+    <!-- Security & location settings screen, change unlock gesture screen instruction on top of screen after too many incorrect attempts -->
+    <string name="lockgesture_too_many_failed_confirmation_attempts_header">Too many incorrect attempts!</string>
+    <!-- Security & location settings screen, change unlock gesture screen countdown hint on bottom of screen after too many incorrect attempts -->
+    <string name="lockgesture_too_many_failed_confirmation_attempts_footer">Try again in <xliff:g id="number">%d</xliff:g> seconds.</string>
+    <!-- Toast shown if setting gesture was successful -->
+    <string name="lockpassword_gesture_set_toast">Gesture has been set</string>
+    <!-- Header on gesture confirm screen [CHAR LIMIT=30] -->
+    <string name="lockpassword_confirm_your_gesture_header">Confirm your gesture</string>
+    <!-- Header on first screen of choose gesture flow [CHAR LIMIT=30] -->
+    <string name="lockpassword_choose_your_gesture_header">Draw your gesture</string>
+
+    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=22] -->
+    <string name="unlock_set_unlock_gesture_title">Gesture</string>
+    <!-- Title for preference that guides the user through creating an unlock gesture [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_gesture_summary">Low security, experimental</string>
+
+    <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_mode_gesture">Gesture</string>
+    <!-- Notification drawer clear all icon -->
+    <string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
+
     <!-- Task Manager -->
     <string name="enable_task_manager_title">Gestione attività</string>
     <string name="enable_task_manager_summary">Attiva/Disattiva il pulsante Gestione attività dalla barra di stato</string>
@@ -926,12 +996,20 @@
     <string name="pie_trigger_sensitivity_summary">Adjust the pie trigger sensitivity</string>
     <string name="additional_options_title">Additional options</string>
 
+    <string name="qs_tile_reboot">Riavvia</string>
+    <string name="qs_tile_powermenu">Menu tasto alimentazione</string>
+    
     <!-- Navigation bar visibility -->
     <string name="navigation_menu_default_jb_behavior">Mostra sul richiesta (predefinito)</string>
     <string name="navigation_menu_never_show">Non mostrare mai</string>
     <string name="navigation_menu_always_show">Mostra sempre</string>
     <string name="title_pref_menu_display">Visibilità menu</string>
     <string name="summary_pref_menu_display">Come e quando vuoi che i pulsanti del menu appaiono?</string>
+    
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">Rispondi con il tasto volume</string>
+    <string name="volume_answer_call_summary">Tasto volume su rispondi</string>
+
 
     <!-- Slim Shortcuts -->
     <string name="slim_shortcut_picker">Piccole azioni</string>
@@ -976,14 +1054,17 @@
     <string name="recent_panel_show_topmost_summary">Don\'t exclude the topmost task in recents view</string>
     <string name="recent_panel_bg_color_title">Colore di fondo del panello</string>
     <string name="recent_card_bg_color_title">Colore di fondo delle carte</string>
-    <string name="recent_card_text_color_title">Colore text carte</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
-    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
-    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+    <string name="recent_panel_lefty_mode_title">Mostra sul bordo sinistro</string>
+    <string name="recent_panel_lefty_mode_summary">mMstra pannello delle applicazioni recenti sul bordo sinistro</string>
 
     <!-- Updater -->
     <string name="updater_title">Aggiornamenti</string>
     <string name="updater_summary">Verificare la presenza di aggiornamenti e molto altro</string>
+
+    <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
+    <string name="double_tap_sleep_anywhere_title">Tocca due volte per bloccare il telefono ovunque</string>
+    <string name="double_tap_sleep_anywhere_summary">Toccare due volte in un punto qualsiasi della schermata di blocco per bloccare il dispositivo</string>
 
 </resources>
