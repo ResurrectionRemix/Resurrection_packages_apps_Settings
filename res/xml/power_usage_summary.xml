@@ -16,7 +16,27 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:title="@string/power_usage_summary_title"
-        settings:keywords="@string/keywords_battery"
-        android:key="app_list">
+                  android:title="@string/power_usage_summary_title">
+
+    <ListPreference
+            android:key="pref_perf_profile"
+            android:dialogTitle="@string/perf_profile_title"
+            android:title="@string/perf_profile_title"
+            android:persistent="false" />
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="app_perf_profiles_enabled"
+            android:title="@string/autoperf_title"
+            android:summary="@string/autoperf_summary"
+            android:defaultValue="true" />
+
+    <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
+            android:key="low_power"
+            android:title="@string/battery_saver"/>
+
+    <PreferenceCategory
+            android:title="@string/power_usage_history_title"
+            settings:keywords="@string/keywords_battery"
+            android:key="app_list" />
+
 </PreferenceScreen>

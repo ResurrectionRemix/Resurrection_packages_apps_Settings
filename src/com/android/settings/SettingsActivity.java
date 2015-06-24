@@ -1297,13 +1297,6 @@ public class SettingsActivity extends Activity
                     if (!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME, false)) {
                         removeTile = true;
                     }
-                } else if (id == R.id.performance_settings) {
-                    final boolean forceHide =
-                            getResources().getBoolean(R.bool.config_hidePerformanceSettings);
-                    if (forceHide ||
-                            !(pm.hasPowerProfiles() || (showDev && !Build.TYPE.equals("user")))) {
-                        removeTile = true;
-                    }
                 }
 
                 if (UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
