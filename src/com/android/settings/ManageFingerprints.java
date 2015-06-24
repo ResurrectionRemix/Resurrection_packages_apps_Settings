@@ -150,6 +150,8 @@ public class ManageFingerprints extends SettingsActivity {
     }
 
     public static class FingerprintListFragment extends Fragment {
+        public static final int MAX_NUM_FINGERPRINTS = 5;
+
         private FingerprintAdapter mAdapter;
         private ListView mFingerList;
         private FingerprintManager mFpManager;
@@ -191,8 +193,14 @@ public class ManageFingerprints extends SettingsActivity {
         }
 
         private void addFinger() {
-        }
+            // Check if we can actually add more fingerprints
+            if (mAdapter.getCount() - 1 == MAX_NUM_FINGERPRINTS)  {
+                DialogFragment dialogFragment = MaxNumFingerprintsDialog.newInstance();
+                dialogFragment.show(getChildFragmentManager(), "MaxFingers");
+            } else {
 
+            }
+        }
         public void doRename(Fingerprint fingerprint, String name) {
             mFpManager.setFingerprintName(fingerprint.getFingerId(), name);
             mAdapter.notifyDataSetChanged();
@@ -291,6 +299,15 @@ public class ManageFingerprints extends SettingsActivity {
                 Holder holder = (Holder) convertView.getTag();
                 holder.mName.setText(R.string.fingerprint_item_add_new_fingerprint);
                 holder.mImage.setImageResource(R.drawable.ic_add_black_18dp);
+
+                if (mFingerprints.size() == FingerprintListFragment.MAX_NUM_FINGERPRINTS) {
+                    holder.mImage.setAlpha(0.5f);
+                    holder.mName.setAlpha(0.5f);
+                } else {
+                    holder.mImage.setAlpha(1f);
+                    holder.mName.setAlpha(1f);
+                }
+
             }
 
             return convertView;
@@ -365,6 +382,31 @@ public class ManageFingerprints extends SettingsActivity {
                             }
                     )
                     .setView(dialogView)
+                    .create();
+            return dialog;
+        }
+    }
+
+    public static class MaxNumFingerprintsDialog extends DialogFragment {
+        static MaxNumFingerprintsDialog newInstance() {
+            return new MaxNumFingerprintsDialog();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            String msg = getString(R.string.fingerprint_dialog_msg_max_fingers_reached,
+                    FingerprintListFragment.MAX_NUM_FINGERPRINTS);
+
+            AlertDialog dialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.fingerprint_dialog_title_max_fingers_reached)
+                    .setPositiveButton(R.string.ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    dismiss();
+                                }
+                            }
+                    )
+                    .setMessage(msg)
                     .create();
             return dialog;
         }
