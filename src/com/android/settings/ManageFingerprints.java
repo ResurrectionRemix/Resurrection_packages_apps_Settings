@@ -17,11 +17,14 @@
 package com.android.settings;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.hardware.fingerprint.Fingerprint;
 import android.os.Bundle;
 import android.service.fingerprint.FingerprintManager;
@@ -31,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,6 +46,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ManageFingerprints extends SettingsActivity {
+    private static final String TAG = ManageFingerprints.class.getSimpleName();
     private static final String PASSWORD_CONFIRMED = "password_confirmed";
     private static final String WAITING_FOR_CONFIRMATION = "waiting_for_confirmation";
     public static final String CONFIRM_CREDENTIALS = "confirm_credentials";
@@ -177,7 +182,8 @@ public class ManageFingerprints extends SettingsActivity {
                     if(FingerprintAdapter.TYPE_ADD_FINGER == mAdapter.getItemViewType(position)) {
                         addFinger();
                     } else {
-                        showRenameDeleteDialog();
+                        Fingerprint fingerprint = (Fingerprint) mAdapter.getItem(position);
+                        showRenameDeleteDialog(fingerprint);
                     }
                 }
             });
@@ -187,7 +193,18 @@ public class ManageFingerprints extends SettingsActivity {
         private void addFinger() {
         }
 
-        private void showRenameDeleteDialog() {
+        public void doRename(Fingerprint fingerprint, String name) {
+            mFpManager.setFingerprintName(fingerprint.getFingerId(), name);
+            mAdapter.notifyDataSetChanged();
+        }
+
+        public void doDelete(Fingerprint fingerprint) {
+            mFpManager.remove(fingerprint.getFingerId());
+            mAdapter.notifyDataSetChanged();
+        }
+        private void showRenameDeleteDialog(Fingerprint fingerprint) {
+            DialogFragment dialogFragment = RenameAndDeleteFragment.newInstance(fingerprint);
+            dialogFragment.show(getChildFragmentManager(), "Rename");
         }
 
         @Override
@@ -300,6 +317,56 @@ public class ManageFingerprints extends SettingsActivity {
         public static class Holder {
             public TextView mName;
             public ImageView mImage;
+        }
+    }
+
+
+    public static class RenameAndDeleteFragment extends DialogFragment {
+        private static final String ARG_FINGERPRINT = "fingerprint";
+
+        private Fingerprint mFingerprint;
+        private EditText mFingerNameEditText;
+
+        static RenameAndDeleteFragment newInstance(Fingerprint fingerprint) {
+            RenameAndDeleteFragment fragment = new RenameAndDeleteFragment();
+            Bundle args = new Bundle();
+            args.putParcelable("fingerprint", fingerprint);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            mFingerprint = getArguments().getParcelable(ARG_FINGERPRINT);
+
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.fingerprint_rename_dialog, null, false);
+            mFingerNameEditText = (EditText) dialogView.findViewById(R.id.name);
+            mFingerNameEditText.setText(mFingerprint.getName());
+
+            AlertDialog dialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.fingerprint_dialog_title_rename)
+                    .setPositiveButton(R.string.ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    String name = mFingerNameEditText.getText().toString();
+                                    ((FingerprintListFragment)getParentFragment())
+                                            .doRename(mFingerprint, name);
+                                }
+                            }
+                    )
+                    .setNegativeButton(R.string.dialog_delete_title,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    ((FingerprintListFragment)getParentFragment())
+                                            .doDelete(mFingerprint);
+                                }
+                            }
+                    )
+                    .setView(dialogView)
+                    .create();
+            return dialog;
         }
     }
 }
