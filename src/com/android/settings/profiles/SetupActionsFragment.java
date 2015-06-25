@@ -21,11 +21,7 @@ import android.app.AlertDialog;
 import android.app.BrightnessSettings;
 import android.app.ConnectionSettings;
 import android.app.Dialog;
-import android.app.Fragment;
 import android.app.NotificationGroup;
-import android.app.Profile;
-import android.app.ProfileGroup;
-import android.app.ProfileManager;
 import android.app.RingModeSettings;
 import android.app.StreamSettings;
 import android.app.admin.DevicePolicyManager;
@@ -45,12 +41,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.SeekBarVolumizer;
 import android.provider.Settings;
-import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -59,13 +53,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import cyanogenmod.app.Profile;
+import cyanogenmod.app.ProfileGroup;
+import cyanogenmod.app.ProfileManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
@@ -170,7 +167,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             mNewProfileMode = getArguments().getBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, false);
         }
 
-        mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
+        mProfileManager = ProfileManager.getInstance(getActivity());
         mAdapter = new ItemListAdapter(getActivity(), mItems);
         rebuildItemList();
 
@@ -269,13 +266,17 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     if (mProfileManager.getNotificationGroup(profileGroup.getUuid()) != null
                             && !mProfile.getDefaultGroup().getUuid().equals(
                             profileGroup.getUuid())) {
-                        mItems.add(new AppGroupItem(mProfile, profileGroup));
+                        mItems.add(new AppGroupItem(mProfile, profileGroup,
+                                mProfileManager.getNotificationGroup(
+                                profileGroup.getUuid())));
                         groupsAdded++;
                     }
                 }
                 if (groupsAdded > 0) {
                     // add "Other" at the end
-                    mItems.add(new AppGroupItem(mProfile, mProfile.getDefaultGroup()));
+                    mItems.add(new AppGroupItem(mProfile, mProfile.getDefaultGroup(),
+                            mProfileManager.getNotificationGroup(
+                                    mProfile.getDefaultGroup().getUuid())));
                 }
             }
             if (mProfileManager.getNotificationGroups().length > 0) {

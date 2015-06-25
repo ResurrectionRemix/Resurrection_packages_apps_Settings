@@ -18,15 +18,16 @@ package com.android.settings.profiles;
 
 import java.util.UUID;
 
-import android.app.Profile;
-import android.app.ProfileGroup;
-import android.app.ProfileGroup.Mode;
-import android.app.ProfileManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+
+import cyanogenmod.app.Profile;
+import cyanogenmod.app.ProfileGroup;
+import cyanogenmod.app.ProfileGroup.Mode;
+import cyanogenmod.app.ProfileManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
