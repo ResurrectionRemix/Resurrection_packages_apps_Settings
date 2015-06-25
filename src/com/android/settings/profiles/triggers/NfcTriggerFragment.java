@@ -17,7 +17,6 @@ package com.android.settings.profiles.triggers;
 
 import android.app.Fragment;
 import android.app.PendingIntent;
-import android.app.Profile;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +29,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import cyanogenmod.app.Profile;
+
 import com.android.settings.R;
 import com.android.settings.Settings;
 import com.android.settings.SubSettings;

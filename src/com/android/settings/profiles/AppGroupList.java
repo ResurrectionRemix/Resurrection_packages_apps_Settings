@@ -21,14 +21,12 @@ import java.util.UUID;
 import android.annotation.Nullable;
 import android.app.AlertDialog;
 import android.app.NotificationGroup;
-import android.app.ProfileManager;
+import cyanogenmod.app.ProfileManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.provider.Settings;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +37,6 @@ import android.widget.Toast;
 import com.android.internal.util.cm.ScreenType;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class AppGroupList extends SettingsPreferenceFragment {
 
@@ -57,7 +54,7 @@ public class AppGroupList extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.appgroup_list);
-        mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
+        mProfileManager = ProfileManager.getInstance(getActivity());
     }
 
     @Override

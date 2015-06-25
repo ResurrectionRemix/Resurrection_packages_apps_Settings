@@ -19,10 +19,6 @@ package com.android.settings.profiles;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.Profile;
-import android.app.ProfileManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -34,6 +30,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.util.Log;
 import android.view.Gravity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,11 +41,16 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import cyanogenmod.app.Profile;
+import cyanogenmod.app.ProfileManager;
+
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.SubSettings;
 import com.android.settings.Utils;
+
+import java.util.UUID;
 
 public class ProfilesSettings extends SettingsPreferenceFragment {
     private static final String TAG = "ProfilesSettings";
@@ -117,7 +119,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
+        mProfileManager = ProfileManager.getInstance(getActivity());
         // After confirming PreferenceScreen is available, we call super.
         super.onActivityCreated(savedInstanceState);
     }

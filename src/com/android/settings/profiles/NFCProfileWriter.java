@@ -20,8 +20,6 @@ import java.util.UUID;
 
 import android.app.Activity;
 import android.app.PendingIntent;
-import android.app.Profile;
-import android.app.ProfileManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -30,6 +28,9 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import cyanogenmod.app.Profile;
+import cyanogenmod.app.ProfileManager;
 
 import com.android.settings.R;
 
@@ -57,7 +58,7 @@ public class NFCProfileWriter extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        mProfileManager = (ProfileManager) getSystemService(Context.PROFILE_SERVICE);
+        mProfileManager = ProfileManager.getInstance(this);
 
         setContentView(R.layout.nfc_writer);
         setTitle(R.string.profile_write_nfc_tag);
