@@ -23,6 +23,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Build;
+import com.android.settings.util.AbstractAsyncSuCMDProcessor;
+import com.android.settings.util.CMDProcessor;
+import com.android.settings.util.Helpers;
 import android.preference.Preference;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -41,6 +44,10 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.List;
 import com.android.settings.Utils;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.DataOutputStream;
+
 import com.android.internal.logging.MetricsLogger;
 
 public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener{
@@ -48,10 +55,12 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
 private static final String ENABLE_MULTI_WINDOW_KEY = "enable_multi_window";
 private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.multi_window";
  private static final String RESTART_SYSTEMUI = "restart_systemui";
+private static final String SELINUX = "selinux";
+
 
 private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
-
+private SwitchPreference mSelinux;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,8 +70,20 @@ private Preference mRestartSystemUI;
 	  final ContentResolver resolver = getActivity().getContentResolver();
         mEnableMultiWindow = (SwitchPreference) findPreference(ENABLE_MULTI_WINDOW_KEY);
 	mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
-    }
 
+  //SELinux
+        mSelinux = (SwitchPreference) findPreference(SELINUX);
+        mSelinux.setOnPreferenceChangeListener(this);
+
+ 	 if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
+            mSelinux.setChecked(true);
+            mSelinux.setSummary(R.string.selinux_enforcing_title);
+        } else {
+            mSelinux.setChecked(false);
+            mSelinux.setSummary(R.string.selinux_permissive_title);
+         }
+
+	}
   private static boolean showEnableMultiWindowPreference() {
         return !"user".equals(Build.TYPE);
     }
@@ -92,13 +113,25 @@ private Preference mRestartSystemUI;
         }
  	else if (preference == mRestartSystemUI) {
            Helpers.restartSystemUI();  
-	}else {
+	}   else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
         return false;
     }
 
     public boolean onPreferenceChange(Preference preference, Object value) {
-         return true;
-    }
+     ContentResolver resolver = getActivity().getContentResolver();
+            if (preference == mSelinux) {
+            if (value.toString().equals("true")) {
+                CMDProcessor.runSuCommand("setenforce 1");
+                mSelinux.setSummary(R.string.selinux_enforcing_title);
+            } else if (value.toString().equals("false")) {
+                CMDProcessor.runSuCommand("setenforce 0");
+                mSelinux.setSummary(R.string.selinux_permissive_title);
+            }
+            return true;
+         }
+        return false;
+     } 
 }
+
