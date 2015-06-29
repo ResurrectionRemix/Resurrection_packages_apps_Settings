@@ -36,6 +36,10 @@ import android.preference.Preference;
 import android.preference.SwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.util.AbstractAsyncSuCMDProcessor;
+import com.android.settings.util.CMDProcessor;
+import com.android.settings.util.Helpers;
 import android.hardware.CmHardwareManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -50,6 +54,7 @@ import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.DataOutputStream;
 
 public class MiscSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -63,11 +68,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private ListPreference mRecentsClearAllLocation;
      
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
-
+    private static final String SELINUX = "selinux";
  
     private final Configuration mCurConfig = new Configuration();
     private Context mContext;
-
+    private SwitchPreference mSelinux;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +95,18 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mRecentsClearAllLocation.setValue(String.valueOf(location));
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
         updateRecentsLocation(location);
+
+        //SELinux
+        mSelinux = (SwitchPreference) findPreference(SELINUX);
+        mSelinux.setOnPreferenceChangeListener(this);
+
+        if (CMDProcessor.runSuCommand("getenforce").getStdout().contains("Enforcing")) {
+            mSelinux.setChecked(true);
+            mSelinux.setSummary(R.string.selinux_enforcing_title);
+        } else {
+            mSelinux.setChecked(false);
+            mSelinux.setSummary(R.string.selinux_permissive_title);
+        }
                          
 	// Toast animation
         mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
@@ -133,6 +151,15 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             updateRecentsLocation(location);
             return true;
+        } else if (preference == mSelinux) {
+            if (newValue.toString().equals("true")) {
+                CMDProcessor.runSuCommand("setenforce 1");
+                mSelinux.setSummary(R.string.selinux_enforcing_title);
+            } else if (newValue.toString().equals("false")) {
+                CMDProcessor.runSuCommand("setenforce 0");
+                mSelinux.setSummary(R.string.selinux_permissive_title);
+            }
+            return true;
          }
         return false;
      }
@@ -140,7 +167,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private void updateRecentsLocation(int value) {
         ContentResolver resolver = getContentResolver();
         Resources res = getResources();
-        int summary = -1;
+        int summary = -5;
 
         Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, value);
 
@@ -163,7 +190,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 5);
             summary = R.string.recents_clear_all_location_bottom_center;
         }
-        if (mRecentsClearAllLocation != null && summary != -1) {
+        if (mRecentsClearAllLocation != null && summary != -5) {
             mRecentsClearAllLocation.setSummary(res.getString(summary));
 
     }

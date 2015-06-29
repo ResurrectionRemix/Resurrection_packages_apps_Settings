@@ -20,6 +20,18 @@
         android:key="wakelock_blocker"
         android:fragment="com.android.settings.aicp.WakeLockBlocker"
         android:title="@string/wakelock_blocker_title" />    
+    <!-- SELinux -->
+        <Preference
+            android:key="selinux_switch"
+            android:title="@string/selinux_switch_title"
+            android:summary="@string/selinux_switch_summary"
+            android:selectable="false"/>
+
+        <SwitchPreference
+            android:key="selinux"
+            android:title="@string/selinux_title"
+            android:defaultValue="false" />
+
         <!-- animations -->
     <PreferenceCategory
         android:title="@string/rr_animations_title">
