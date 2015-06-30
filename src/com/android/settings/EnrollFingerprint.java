@@ -158,7 +158,7 @@ public class EnrollFingerprint extends SettingsActivity
         private View mCompletedCheckmark;
 
         private FingerprintManager mFpM;
-        private Stage mUiStage = Stage.Introduction;
+        protected Stage mUiStage = Stage.Introduction;
         private int mNumEnrollmentSteps;
         private int mCurrentEnrollmentStep;
         private String[] mSuccessfulScanTitles;
@@ -476,7 +476,7 @@ public class EnrollFingerprint extends SettingsActivity
             }
         }
 
-        private EnrollFingerprint getEnrollmentActivity() {
+        protected EnrollFingerprint getEnrollmentActivity() {
             return (EnrollFingerprint) getActivity();
         }
 

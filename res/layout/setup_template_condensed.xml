@@ -29,27 +29,27 @@
         android:layout_weight="1"
         android:fillViewport="true">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <com.android.settings.widget.SetupWizardIllustration
                 android:id="@+id/setup_illustration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:elevation="@dimen/setup_wizard_title_area_elevation"
                 android:background="@drawable/setup_illustration_bg"
-                android:foreground="@drawable/setup_illustration"
-                android:tag="stickyContainer"
-                settings:aspectRatio="2.22">
+                android:foreground="@drawable/setup_illustration_lock_screen_condensed"
+                android:tag="stickyContainer">
 
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:tag="sticky"
-                    android:text="@string/wifi_setup_title"
-                    style="@style/SetupTitle"/>
+                    android:layout_gravity="bottom"
+                    style="@style/SetupTitleLockSecurity"/>
 
             </com.android.settings.widget.SetupWizardIllustration>
 
@@ -57,10 +57,9 @@
                 android:id="@+id/setup_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/setup_illustration"
                 android:clipChildren="false"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </ScrollView>
 

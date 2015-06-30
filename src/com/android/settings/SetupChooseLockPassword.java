@@ -100,7 +100,7 @@ public class SetupChooseLockPassword extends ChooseLockPassword
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            final View view = inflater.inflate(R.layout.setup_template, container, false);
+            final View view = inflater.inflate(R.layout.setup_template_condensed, container, false);
             View scrollView = view.findViewById(R.id.bottom_scroll_view);
             scrollView.setOnApplyWindowInsetsListener(this);
             ViewGroup setupContent = (ViewGroup) view.findViewById(R.id.setup_content);
@@ -112,7 +112,7 @@ public class SetupChooseLockPassword extends ChooseLockPassword
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             SetupWizardUtils.setIllustration(getActivity(),
-                    R.drawable.setup_illustration_lock_screen);
+                    R.drawable.setup_illustration_lock_screen_condensed);
             SetupWizardUtils.setHeaderText(getActivity(), getActivity().getTitle());
         }
 

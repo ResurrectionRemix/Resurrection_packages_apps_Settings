@@ -124,12 +124,12 @@ public class ChooseLockPattern extends SettingsActivity {
         private TextView mFooterRightButton;
         protected List<LockPatternView.Cell> mChosenPattern = null;
 
-        private byte mPatternSize = LockPatternUtils.PATTERN_SIZE_DEFAULT;
+        protected byte mPatternSize = LockPatternUtils.PATTERN_SIZE_DEFAULT;
 
         /**
          * The patten used during the help screen to show how to draw a pattern.
          */
-        private List<LockPatternView.Cell> mAnimatePattern;
+        protected List<LockPatternView.Cell> mAnimatePattern;
 
         @Override
         public void onActivityResult(int requestCode, int resultCode,

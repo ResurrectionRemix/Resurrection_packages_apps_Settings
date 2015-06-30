@@ -24,13 +24,16 @@ import android.preference.PreferenceScreen;
 
 import com.android.internal.widget.LockPatternUtils;
 
-public class ChooseLockPatternSize extends PreferenceActivity {
+public class ChooseLockPatternSize extends SettingsActivity {
+
+    public static final String LOCK_PATTERN_SIZE_4 = "lock_pattern_size_4";
+    public static final String LOCK_PATTERN_SIZE_5 = "lock_pattern_size_5";
+    public static final String LOCK_PATTERN_SIZE_6 = "lock_pattern_size_6";
 
     @Override
     public Intent getIntent() {
         Intent modIntent = new Intent(super.getIntent());
         modIntent.putExtra(EXTRA_SHOW_FRAGMENT, ChooseLockPatternSizeFragment.class.getName());
-        modIntent.putExtra(EXTRA_NO_HEADERS, true);
         return modIntent;
     }
 
@@ -59,11 +62,11 @@ public class ChooseLockPatternSize extends PreferenceActivity {
             final String key = preference.getKey();
 
             byte patternSize;
-            if ("lock_pattern_size_4".equals(key)) {
+            if (LOCK_PATTERN_SIZE_4.equals(key)) {
                 patternSize = 4;
-            } else if ("lock_pattern_size_5".equals(key)) {
+            } else if (LOCK_PATTERN_SIZE_5.equals(key)) {
                 patternSize = 5;
-            } else if ("lock_pattern_size_6".equals(key)) {
+            } else if (LOCK_PATTERN_SIZE_6.equals(key)) {
                 patternSize = 6;
             } else {
                 patternSize = 3;

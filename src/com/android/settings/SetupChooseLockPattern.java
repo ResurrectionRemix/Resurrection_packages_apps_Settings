@@ -16,6 +16,8 @@
 
 package com.android.settings;
 
+import com.android.internal.widget.LockPatternUtils;
+import com.android.internal.widget.LockPatternView;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 
 import android.app.Fragment;
@@ -27,6 +29,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import com.google.android.collect.Lists;
+
+import java.util.Collections;
 
 /**
  * Setup Wizard's version of ChooseLockPattern screen. It inherits the logic and basic structure
@@ -38,17 +43,20 @@ import android.widget.Button;
 public class SetupChooseLockPattern extends ChooseLockPattern
         implements SetupWizardNavBar.NavigationBarListener {
 
-    public static Intent createIntent(Context context, final boolean isFallback,
-                                      boolean isFingerprintFallback,
-            boolean requirePassword, boolean confirmCredentials) {
-        Intent intent = ChooseLockPattern.createIntent(context, isFallback,
-                isFingerprintFallback, requirePassword, confirmCredentials);
-        intent.setClass(context, SetupChooseLockPattern.class);
-        return intent;
-    }
-
     private SetupWizardNavBar mNavigationBar;
     private SetupChooseLockPatternFragment mFragment;
+
+    public static Intent createIntent(Context context, final boolean isFallback,
+            final boolean isFingerprintFallback,
+            boolean requirePassword, boolean confirmCredentials) {
+        Intent intent = new Intent(context, SetupChooseLockPatternSize.class);
+        intent.putExtra("key_lock_method", "pattern");
+        intent.putExtra(ChooseLockGeneric.CONFIRM_CREDENTIALS, confirmCredentials);
+        intent.putExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, isFallback);
+        intent.putExtra(LockPatternUtils.LOCKSCREEN_FINGERPRINT_FALLBACK, isFingerprintFallback);
+        intent.putExtra(EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, requirePassword);
+        return intent;
+    }
 
     @Override
     protected boolean isValidFragment(String fragmentName) {
@@ -99,9 +107,18 @@ public class SetupChooseLockPattern extends ChooseLockPattern
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            final View view = inflater.inflate(R.layout.setup_template, container, false);
+            final View view = inflater.inflate(R.layout.setup_template_condensed, container, false);
             ViewGroup setupContent = (ViewGroup) view.findViewById(R.id.setup_content);
             inflater.inflate(R.layout.setup_choose_lock_pattern, setupContent, true);
+
+            mPatternSize = getActivity().getIntent().getByteExtra("pattern_size",
+                    LockPatternUtils.PATTERN_SIZE_DEFAULT);
+            LockPatternView.Cell.updateSize(mPatternSize);
+            mAnimatePattern = Collections.unmodifiableList(
+                    Lists.newArrayList(LockPatternView.Cell.of(0, 0, mPatternSize),
+                            LockPatternView.Cell.of(0, 1, mPatternSize),
+                            LockPatternView.Cell.of(1, 1, mPatternSize),
+                            LockPatternView.Cell.of(2, 1, mPatternSize)));
             return view;
         }
 
@@ -111,7 +128,7 @@ public class SetupChooseLockPattern extends ChooseLockPattern
             mRetryButton.setOnClickListener(this);
             super.onViewCreated(view, savedInstanceState);
             SetupWizardUtils.setIllustration(getActivity(),
-                    R.drawable.setup_illustration_lock_screen);
+                    R.drawable.setup_illustration_lock_screen_condensed);
             SetupWizardUtils.setHeaderText(getActivity(), getActivity().getTitle());
         }
 
