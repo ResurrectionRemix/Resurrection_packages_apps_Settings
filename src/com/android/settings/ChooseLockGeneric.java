@@ -181,7 +181,7 @@ public class ChooseLockGeneric extends SettingsActivity {
          * @param disabled
          */
         private void maybeEnableEncryption(int quality, boolean disabled) {
-            maybeEnableEncryption(quality, disabled, 0);
+            maybeEnableEncryption(quality, disabled, LockPatternUtils.BIOMETRIC_WEAK_UNKNOWN);
         }
 
         /**

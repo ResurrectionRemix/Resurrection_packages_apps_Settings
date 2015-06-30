@@ -128,7 +128,8 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric
 
         @Override
         protected Intent getLockPatternIntent(Context context, boolean isFallback,
-                boolean isFingerprintFallback, boolean requirePassword, boolean confirmCredentials) {
+                boolean isFingerprintFallback, boolean requirePassword,
+                boolean confirmCredentials) {
             final Intent intent = SetupChooseLockPattern.createIntent(context, isFallback,
                     requirePassword, isFingerprintFallback, confirmCredentials);
             SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);

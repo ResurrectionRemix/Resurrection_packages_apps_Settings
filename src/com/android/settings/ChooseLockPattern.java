@@ -68,7 +68,7 @@ public class ChooseLockPattern extends SettingsActivity {
     }
 
     public static Intent createIntent(Context context, final boolean isFallback,
-                                      final boolean isFingerprintFallback,
+            final boolean isFingerprintFallback,
             boolean requirePassword, boolean confirmCredentials) {
         Intent intent = new Intent(context, ChooseLockPatternSize.class);
         intent.putExtra("key_lock_method", "pattern");

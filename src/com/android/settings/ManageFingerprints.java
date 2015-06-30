@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,8 +99,7 @@ public class ManageFingerprints extends SettingsActivity {
             mWaitingForConfirmation = savedInstanceState.getBoolean(WAITING_FOR_CONFIRMATION);
         }
 
-        if (mPasswordConfirmed) {
-        } else if (!mWaitingForConfirmation) {
+        if (!mPasswordConfirmed && !mWaitingForConfirmation) {
             ChooseLockSettingsHelper helper =
                     new ChooseLockSettingsHelper(this, null);
             if (!helper.launchConfirmationActivity(CONFIRM_EXISTING_REQUEST, null, null)) {
@@ -136,6 +135,7 @@ public class ManageFingerprints extends SettingsActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CONFIRM_EXISTING_REQUEST && resultCode == Activity.RESULT_OK) {
+            mWaitingForConfirmation = false;
             mPasswordConfirmed = true;
         } else if (requestCode == SET_FALLBACK &&
                 (resultCode == Activity.RESULT_OK || resultCode == Activity.RESULT_FIRST_USER)) {
