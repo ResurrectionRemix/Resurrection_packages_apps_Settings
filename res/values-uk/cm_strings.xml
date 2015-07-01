@@ -84,6 +84,7 @@
   <string name="profile_choose_app">Вибрати програму</string>
   <string name="profile_system_settings_title">Налаштування системи</string>
   <string name="profile_lockmode_title">Режим блокування екрану</string>
+  <string name="profile_lockmode_policy_disabled_summary">Опцію профілю вимкнено згідно з політикою адміністратора пристрою</string>
   <string name="profile_lockmode_insecure_summary">Не запитувати PIN-код або пароль</string>
   <string name="profile_lockmode_disabled_summary">Вимкнути екран блокування</string>
   <string name="profile_airplanemode_title">Режим польоту</string>
@@ -210,6 +211,9 @@
   <string name="display_rotation_270_title">270 градусів</string>
   <string name="app_security_title">Безпека програм</string>
   <string name="sms_security_check_limit_title">Обмеження SMS-повідомлень</string>
+  <string name="sms_security_check_limit_summary">Додатки можуть відправляти без додаткового дозволу %d повідомлень на хвилину</string>
+  <string name="sms_security_check_limit_summary_none">Додаткам не дозволено надсилати будь-які повідомлення без підтвердження</string>
+  <string name="sms_security_check_limit_none">Немає</string>
   <string name="spam_added_title">Додано %1$s</string>
   <string name="spam_last_blocked_title">Останній заблокований %1$s</string>
   <string name="block_notifications_title">Фільтр сповіщень</string>
@@ -646,6 +650,7 @@
   <string name="usb_charging_summary">Вимикає всі передачі даних з комп\'ютером і заряджає пристрій через USB-порт</string>
   <string name="usb_sdcard_title">USB-накопичувач</string>
   <string name="usb_sdcard_summary">Увімкнути режим USB-носія (UMS)</string>
+  <string name="usb_not_connected">USB тепер відключено</string>
   <string name="external_storage_turn_on">Зовнішній носій увімкнений</string>
   <string name="external_storage_turn_off">Зовнішній носій вимкнений</string>
   <string name="stats_collection_title">Статистика</string>
@@ -731,6 +736,10 @@
   <string name="qs_tile_usb_tether">USB-модем</string>
   <string name="qs_tile_heads_up">Спливаючі сповіщення</string>
   <string name="qs_tile_ambient_display">Ambient display</string>
+  <string name="qs_tile_sync">Синхронізація</string>
+  <string name="qs_dynamic_tile_next_alarm">Наступний сигнал</string>
+  <string name="qs_dynamic_tile_ime_selector">Вибір способу вводу</string>
+  <string name="qs_dynamic_tile_su">Root доступ</string>
   <string name="qs_main_tiles_title">Збільшений перший рядок</string>
   <string name="qs_main_tiles_summary_on">Дві основні плитки на першому рядку</string>
   <string name="qs_main_tiles_summary_off">Три плитки на кожному рядку</string>
@@ -745,6 +754,7 @@
   <string name="wifi_ibss_freq_title">Канал / Частота</string>
   <string name="wifi_channel">Канал</string>
   <string name="wifi_mhz">MHz</string>
+  <string name="wifi_auto_config_priorities">Автоматичний пріоритет</string>
   <string name="maximum_head_level">Голова: %1$s Вт/кг</string>
   <string name="maximum_body_level">Тіло: %1$s Вт/кг</string>
   <string name="ic_code_model">Модель: %1$s</string>
@@ -806,6 +816,7 @@
   <string name="category_interface">Інтерфейс</string>
   <string name="category_calibration">Калібрування</string>
   <string name="display_and_lights">Екран та індикація</string>
+  <string name="notification_manager">Сповіщення</string>
   <string name="lockscreen_settings">Екран блокування</string>
   <string name="category_lights">Індикація</string>
   <string name="power_usage_history_title">Використання батареї</string>
@@ -857,4 +868,22 @@
   <string name="lock_to_cyanogen_disable_msg">Вимкнення цієї функції дозволить неавторизованим користувачам скинути до заводських налаштувань телефон, наприклад, при викраденні. Ваші персональні дані не будуть захищені. Ви хочете вимкнути цю функцію?</string>
   <string name="lock_to_cyanogen_master_clear_warning">Захист пристрою увімкнено. Необхідно вимкнути його, щоб виконати скидання налаштувань.</string>
   <string name="bluetooth_pan_profile_summary_use_for_error">Помилка підключення; на цьому пристрої увімкнено Bluetooth tethering?</string>
+  <string name="sim_card_status_title">Статус SIM %d</string>
+  <string name="sim_card_lock_settings_title">Налаштування блокування SIM %d</string>
+  <string name="sim_card_summary_empty">SIM не вставлено</string>
+  <string name="sim_mobile_network_settings_category_title">Налаштування мобільної мережі</string>
+  <string name="sim_mobile_network_settings_title">Налаштування SIM %d</string>
+  <string name="factory_reset_instructions_title">Особисті дані та додатки</string>
+  <string name="factory_reset_instructions_summary">Це призведе до видалення всіх ваших облікових записів, програм та їх даних, налаштувань системи на цьому пристрої</string>
+  <string name="factory_reset_personal_content">Особистий вміст</string>
+  <string name="factory_reset_erase_stored_content">Видалити збережений вміст</string>
+  <string name="factory_reset_erase_stored_content_summary">Стерти музику, фотографії, відео та інші дані користувача, що зберігаються на цьому пристрої</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">Стерти музику, фотографії, відео та інші дані користувача, що зберігаються на цьому пристрої.\n\n<b>вміст не можна зберегти через шифрування пристрою.</b></string>
+  <string name="factory_reset_erase_sd_card">Форматування картки SD</string>
+  <string name="factory_reset_erase_sd_card_summary">Видалити всі дані на SD-карті, у тому числі музику і фотографії</string>
+  <string name="factory_reset_warning_text_reset_now">СКИНУТИ ЗАРАЗ</string>
+  <string name="factory_reset_warning_text_message">Всі ваші облікові записи, програми та їх дані, налаштування системи буде видалено з пристрою. Це не може бути скасовано.</string>
+  <string name="wifi_setting_countrycode_title">Код регіону Wi-Fi</string>
+  <string name="wifi_setting_countrycode_summary">Вкажіть код регіону для Wi-Fi</string>
+  <string name="wifi_setting_countrycode_error">Під час налаштування коду регіону Wi-Fi виникла помилка.</string>
 </resources>
