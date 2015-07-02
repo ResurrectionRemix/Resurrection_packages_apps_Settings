@@ -17,11 +17,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.ComponentName;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -32,7 +28,6 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +37,8 @@ import java.util.List;
  */
 public class PrivacySettings extends SettingsPreferenceFragment implements Indexable {
 
-    private static final String TAG = "PrivacySettings";
     private static final String KEY_BLACKLIST = "blacklist";
     private static final String KEY_WHISPERPUSH = "whisperpush";
-    private static final String WHISPERPUSH_ORIGINAL = "org.whispersystems.whisperpush";
-    private static final String WHISPERPUSH_UPDATE = "org.whispersystems.whisperpush2";
 
     private PreferenceScreen mBlacklist;
     private Preference mWhisperPush;
@@ -62,62 +54,26 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
         // Add package manager to check if features are available
         PackageManager pm = getPackageManager();
 
+        // WhisperPush
+        // Only if device has telephony support and has WhisperPush installed.
+        if (!isWhisperPushable(getActivity(), pm)) {
+            // No telephony, remove dependent options
+            PreferenceScreen root = getPreferenceScreen();
+            root.removePreference(mWhisperPush);
+        }
+
         // Determine options based on device telephony support
         if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             // No telephony, remove dependent options
             PreferenceScreen root = getPreferenceScreen();
             root.removePreference(mBlacklist);
-            root.removePreference(mWhisperPush);
-        } else {
-            // TODO: once we are shipping with updated WhisperPush by default
-            // all this code can be pulled out - WF
-            if (isWhisperPushUpdated(pm, getActivity())) {
-                // redirect intent to updated whisperpush2 package
-                Intent intent = mWhisperPush.getIntent();
-                ComponentName component = intent.getComponent();
-                intent.setClassName(WHISPERPUSH_UPDATE, component.getClassName());
-                mWhisperPush.setIntent(intent);
-                Log.d(TAG, "Using WhisperPush2");
-            } else if (!isWhisperPushOriginalOK(pm)) {
-                getPreferenceScreen().removePreference(mWhisperPush);
-            }
         }
 
     }
 
-    private static boolean isWhisperPushUpdated(PackageManager pm, Context context) {
-        // updated package is present
-        if (!Utils.isPackageInstalled(context, WHISPERPUSH_UPDATE)) {
-            return false;
-        }
-
-        // ...and it has been granted the correct permission
-        int result = pm.checkPermission(
-            android.Manifest.permission.INTERCEPT_SMS,
-            WHISPERPUSH_UPDATE);
-        if(result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            // Stranger Danger!
-            Log.e(TAG, "WhisperPush2 package present, but missing required permission!");
-            return false;
-        }
-    }
-
-    private static boolean isWhisperPushOriginalOK(PackageManager pm) {
-        try {
-            PackageInfo info = pm.getPackageInfo(
-                WHISPERPUSH_ORIGINAL, PackageManager.GET_PERMISSIONS);
-            if (info != null && info.applicationInfo != null &&
-                (info.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                return true;
-            } else {
-                Log.e(TAG, "WhisperPush package present, but not system app");
-                return false;
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            return false; // not installed
-        }
+    private static boolean isWhisperPushable(Context context, PackageManager pm) {
+        return pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY) &&
+                Utils.isPackageInstalled(context, "org.whispersystems.whisperpush");
     }
 
     @Override
@@ -157,9 +113,8 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
                     // Determine options based on device telephony support
                     if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
                         result.add(KEY_BLACKLIST);
-                        result.add(KEY_WHISPERPUSH);
-                    } else if (!(isWhisperPushOriginalOK(pm) ||
-                                 isWhisperPushUpdated(pm, context))) {
+                    }
+                    if (!isWhisperPushable(context, pm)) {
                         result.add(KEY_WHISPERPUSH);
                     }
                     return result;
