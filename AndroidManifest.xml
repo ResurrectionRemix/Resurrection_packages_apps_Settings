@@ -719,6 +719,33 @@
                 android:value="true" />
         </activity>
 
+        <!-- Pie activity -->
+        <activity android:name="Settings$PieControl"
+                android:uiOptions="splitActionBarWhenNarrow"
+                android:label="@string/pie_control_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.PieControl" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/security_settings" />
+        </activity>
+
+        <activity-alias android:name="com.android.settings.rr.PieControl"
+                android:taskAffinity="com.android.settings"
+                android:label="@string/pie_control_title"
+                android:targetActivity="Settings$PieControl"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.rr.PieControl" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                       android:resource="@id/security_settings" />
+        </activity-alias>
+
         <!-- Keep compatibility with old shortcuts. -->
         <activity-alias android:name="DisplaySettings"
                 android:label="@string/display_settings"
