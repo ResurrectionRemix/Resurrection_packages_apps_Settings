@@ -256,10 +256,12 @@ public class PowerUsageSummary extends PowerUsageBase
                     .setAlphabeticShortcut('t');
         }
 
-        MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.battery_stats_reset)
-                .setIcon(R.drawable.ic_delete)
+        MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.menu_stats_reset)
+                .setIcon(R.drawable.ic_actionbar_delete)
                 .setAlphabeticShortcut('d');
-        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
+                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+
 
         MenuItem batterySaver = menu.add(0, MENU_BATTERY_SAVER, 0, R.string.battery_saver);
         batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
@@ -289,9 +291,6 @@ public class PowerUsageSummary extends PowerUsageBase
     public boolean onOptionsItemSelected(MenuItem item) {
         final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
-            case MENU_STATS_RESET:
-                resetStats();
-                return true;
             case MENU_STATS_TYPE:
                 if (mStatsType == BatteryStats.STATS_SINCE_CHARGED) {
                     mStatsType = BatteryStats.STATS_SINCE_UNPLUGGED;
@@ -299,6 +298,9 @@ public class PowerUsageSummary extends PowerUsageBase
                     mStatsType = BatteryStats.STATS_SINCE_CHARGED;
                 }
                 refreshStats();
+                return true;
+            case MENU_STATS_RESET:
+                 resetStats();
                 return true;
             case MENU_BATTERY_SAVER:
                 Resources res = getResources();
@@ -357,6 +359,7 @@ public class PowerUsageSummary extends PowerUsageBase
         notAvailable.setTitle(R.string.power_usage_not_available);
         mAppListGroup.addPreference(notAvailable);
     }
+
 
     private void refreshBatterySaverOptions() {
         if (mBatterySaverPref != null) {

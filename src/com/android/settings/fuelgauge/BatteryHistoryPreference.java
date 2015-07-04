@@ -38,8 +38,10 @@ import com.android.settings.SettingsActivity;
 public class BatteryHistoryPreference extends Preference {
 
     protected static final String BATTERY_HISTORY_FILE = "tmp_bat_history.bin";
+    protected static final String DOCK_BATTERY_HISTORY_FILE = "tmp_dock_bat_history.bin";
 
     private BatteryStats mStats;
+    private BatteryStats mDockStats;
     private Intent mBatteryBroadcast;
 
     private BatteryHistoryChart mChart;
@@ -57,6 +59,11 @@ public class BatteryHistoryPreference extends Preference {
         mHelper.storeStatsHistoryInFile(BATTERY_HISTORY_FILE);
         Bundle args = new Bundle();
         args.putString(BatteryHistoryDetail.EXTRA_STATS, BATTERY_HISTORY_FILE);
+        if (mDockStats != null) {
+                mHelper.storeDockStatsHistoryInFile(DOCK_BATTERY_HISTORY_FILE);
+                args.putString(BatteryHistoryDetail.EXTRA_DOCK_STATS, DOCK_BATTERY_HISTORY_FILE);
+            }
+
         args.putParcelable(BatteryHistoryDetail.EXTRA_BROADCAST,
                 mHelper.getBatteryBroadcast());
         if (getContext() instanceof SettingsActivity) {
@@ -71,16 +78,13 @@ public class BatteryHistoryPreference extends Preference {
         mChart = null;
         mHelper = batteryStats;
         mStats = batteryStats.getStats();
+        mDockStats = batteryStats.getDockStats();
         mBatteryBroadcast = batteryStats.getBatteryBroadcast();
         if (getLayoutResource() != R.layout.battery_history_chart) {
             // Now we should have some data, set the layout we want.
             setLayoutResource(R.layout.battery_history_chart);
         }
         notifyChanged();
-    }
-
-    BatteryStats getStats() {
-        return mStats;
     }
 
     @Override
@@ -95,6 +99,7 @@ public class BatteryHistoryPreference extends Preference {
         if (mChart == null) {
             // First time: use and initialize this chart.
             chart.setStats(mStats, mBatteryBroadcast);
+            chart.setDockStats(mDockStats, mBatteryBroadcast);
             mChart = chart;
         } else {
             // All future times: forget the newly inflated chart, re-use the

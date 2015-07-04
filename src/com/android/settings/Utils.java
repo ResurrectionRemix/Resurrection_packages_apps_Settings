@@ -486,6 +486,20 @@ public final class Utils {
         return (level * 100) / scale;
     }
 
+    public static boolean isDockBatteryPresent(Intent batteryChangedIntent) {
+        return batteryChangedIntent.getBooleanExtra(BatteryManager.EXTRA_DOCK_PRESENT, true);
+    }
+
+    public static String getDockBatteryPercentage(Intent batteryChangedIntent) {
+        return formatPercentage(getDockBatteryLevel(batteryChangedIntent));
+    }
+
+    public static int getDockBatteryLevel(Intent batteryChangedIntent) {
+        int level = batteryChangedIntent.getIntExtra(BatteryManager.EXTRA_DOCK_LEVEL, 0);
+        int scale = batteryChangedIntent.getIntExtra(BatteryManager.EXTRA_DOCK_SCALE, 100);
+        return (level * 100) / scale;
+    }
+
     public static String getBatteryStatus(Resources res, Intent batteryChangedIntent) {
         final Intent intent = batteryChangedIntent;
 
@@ -501,6 +515,36 @@ public final class Utils {
                 resId = R.string.battery_info_status_charging_usb;
             } else if (plugType == BatteryManager.BATTERY_PLUGGED_WIRELESS) {
                 resId = R.string.battery_info_status_charging_wireless;
+            } else {
+                resId = R.string.battery_info_status_charging;
+            }
+            statusString = res.getString(resId);
+        } else if (status == BatteryManager.BATTERY_STATUS_DISCHARGING) {
+            statusString = res.getString(R.string.battery_info_status_discharging);
+        } else if (status == BatteryManager.BATTERY_STATUS_NOT_CHARGING) {
+            statusString = res.getString(R.string.battery_info_status_not_charging);
+        } else if (status == BatteryManager.BATTERY_STATUS_FULL) {
+            statusString = res.getString(R.string.battery_info_status_full);
+        } else {
+            statusString = res.getString(R.string.battery_info_status_unknown);
+        }
+
+        return statusString;
+    }
+
+    public static String getDockBatteryStatus(Resources res, Intent batteryChangedIntent) {
+        final Intent intent = batteryChangedIntent;
+
+        int plugType = intent.getIntExtra(BatteryManager.EXTRA_DOCK_PLUGGED, 0);
+        int status = intent.getIntExtra(BatteryManager.EXTRA_DOCK_STATUS,
+                BatteryManager.BATTERY_STATUS_UNKNOWN);
+        String statusString;
+        if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
+            int resId;
+            if (plugType == BatteryManager.BATTERY_DOCK_PLUGGED_AC) {
+                resId = R.string.battery_info_status_charging_dock_ac;
+            } else if (plugType == BatteryManager.BATTERY_DOCK_PLUGGED_USB) {
+                resId = R.string.battery_info_status_charging_dock_usb;
             } else {
                 resId = R.string.battery_info_status_charging;
             }
