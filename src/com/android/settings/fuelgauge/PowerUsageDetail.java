@@ -85,9 +85,10 @@ public class PowerUsageDetail extends Fragment implements Button.OnClickListener
             SettingsActivity caller, BatteryStatsHelper helper, int statsType, BatteryEntry entry,
             boolean showLocationButton) {
         // Initialize mStats if necessary.
-        helper.getStats();
+        final BatteryStats stats = helper.getStats();
+        helper.getDockStats();
 
-        final int dischargeAmount = helper.getStats().getDischargeAmount(statsType);
+        final int dischargeAmount = stats.getDischargeAmount(statsType);
         Bundle args = new Bundle();
         args.putString(PowerUsageDetail.EXTRA_TITLE, entry.name);
         args.putInt(PowerUsageDetail.EXTRA_PERCENT, (int)
@@ -144,15 +145,13 @@ public class PowerUsageDetail extends Fragment implements Button.OnClickListener
                 if (entry.sipper.drainType == BatterySipper.DrainType.APP) {
                     Writer result = new StringWriter();
                     PrintWriter printWriter = new FastPrintWriter(result, false, 1024);
-                    helper.getStats().dumpLocked(caller, printWriter, "", helper.getStatsType(),
-                            uid.getUid());
+                    stats.dumpLocked(caller, printWriter, "", helper.getStatsType(), uid.getUid());
                     printWriter.flush();
                     args.putString(PowerUsageDetail.EXTRA_REPORT_DETAILS, result.toString());
 
                     result = new StringWriter();
                     printWriter = new FastPrintWriter(result, false, 1024);
-                    helper.getStats().dumpCheckinLocked(caller, printWriter, helper.getStatsType(),
-                            uid.getUid());
+                    stats.dumpCheckinLocked(caller, printWriter, helper.getStatsType(), uid.getUid());
                     printWriter.flush();
                     args.putString(PowerUsageDetail.EXTRA_REPORT_CHECKIN_DETAILS,
                             result.toString());

@@ -29,9 +29,11 @@ import com.android.settings.R;
 
 public class BatteryHistoryDetail extends Fragment {
     public static final String EXTRA_STATS = "stats";
+    public static final String EXTRA_DOCK_STATS = "dock_stats";
     public static final String EXTRA_BROADCAST = "broadcast";
 
     private BatteryStats mStats;
+    private BatteryStats mDockStats;
     private Intent mBatteryBroadcast;
 
     @Override
@@ -39,6 +41,12 @@ public class BatteryHistoryDetail extends Fragment {
         super.onCreate(icicle);
         String histFile = getArguments().getString(EXTRA_STATS);
         mStats = BatteryStatsHelper.statsFromFile(getActivity(), histFile);
+        String dockHistFile = getArguments().getString(EXTRA_DOCK_STATS);
+        if (dockHistFile != null) {
+            mDockStats = BatteryStatsHelper.statsFromFile(getActivity(), dockHistFile);
+        } else {
+            mDockStats = null;
+        }
         mBatteryBroadcast = getArguments().getParcelable(EXTRA_BROADCAST);
     }
     
@@ -48,6 +56,7 @@ public class BatteryHistoryDetail extends Fragment {
         BatteryHistoryChart chart = (BatteryHistoryChart)view.findViewById(
                 R.id.battery_history_chart);
         chart.setStats(mStats, mBatteryBroadcast);
+        chart.setDockStats(mDockStats, mBatteryBroadcast);
         return view;
     }
 }

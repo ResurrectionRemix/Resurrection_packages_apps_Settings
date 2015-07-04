@@ -20,7 +20,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.DashPathEffect;
 import android.os.BatteryManager;
-import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.text.format.Formatter;
 import android.util.Log;
@@ -129,6 +128,7 @@ public class BatteryHistoryChart extends View {
     final Paint mBatteryWarnPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     final Paint mBatteryCriticalPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     final Paint mTimeRemainPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    final Paint mDockBatteryBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     final Paint mChargingPaint = new Paint();
     final Paint mScreenOnPaint = new Paint();
     final Paint mGpsOnPaint = new Paint();
@@ -145,21 +145,26 @@ public class BatteryHistoryChart extends View {
     final Path mBatWarnPath = new Path();
     final Path mBatCriticalPath = new Path();
     final Path mTimeRemainPath = new Path();
+    final Path mDockBatLevelPath = new Path();
     final Path mChargingPath = new Path();
     final Path mScreenOnPath = new Path();
     final Path mGpsOnPath = new Path();
     final Path mWifiRunningPath = new Path();
     final Path mCpuRunningPath = new Path();
     final Path mDateLinePath = new Path();
-    
+
     BatteryStats mStats;
+    BatteryStats mDockStats;
     Intent mBatteryBroadcast;
     long mStatsPeriod;
     int mBatteryLevel;
+    long mDockStatsPeriod;
+    int mDockBatteryLevel;
     String mMaxPercentLabelString;
     String mMinPercentLabelString;
     String mDurationString;
     String mChargeLabelString;
+    String mDockChargeLabelString;
     String mChargeDurationString;
     String mDrainString;
     String mChargingLabel;
@@ -206,13 +211,21 @@ public class BatteryHistoryChart extends View {
     int mLevelRight;
 
     int mNumHist;
+    int mDockNumHist;
     long mHistStart;
     long mHistDataEnd;
     long mHistEnd;
     long mStartWallTime;
     long mEndDataWallTime;
     long mEndWallTime;
+    long mDockHistStart;
+    long mDockHistDataEnd;
+    long mDockHistEnd;
+    long mDockStartWallTime;
+    long mDockEndDataWallTime;
+    long mDockEndWallTime;
     boolean mDischarging;
+    boolean mDockDischarging;
     int mBatLow;
     int mBatHigh;
     boolean mHaveWifi;
@@ -224,6 +237,8 @@ public class BatteryHistoryChart extends View {
 
     Bitmap mBitmap;
     Canvas mCanvas;
+
+    private final boolean mDockBatterySupported;
 
     static class TextAttrs {
         ColorStateList textColor = null;
@@ -347,6 +362,10 @@ public class BatteryHistoryChart extends View {
 
         if (DEBUG) Log.d(TAG, "New BatteryHistoryChart!");
 
+        BatteryManager mBatteryService = (BatteryManager) context.getSystemService(
+                Context.BATTERY_SERVICE);
+        mDockBatterySupported = mBatteryService.isDockBatterySupported();
+
         mBatteryWarnLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_lowBatteryWarningLevel);
         mBatteryCriticalLevel = mContext.getResources().getInteger(
@@ -365,6 +384,10 @@ public class BatteryHistoryChart extends View {
         mBatteryCriticalPaint.setStyle(Paint.Style.STROKE);
         mTimeRemainPaint.setColor(0xFFCED7BB);
         mTimeRemainPaint.setStyle(Paint.Style.FILL);
+        if (mDockBatterySupported) {
+            mDockBatteryBackgroundPaint.setColor(0x803CA8B8);
+            mDockBatteryBackgroundPaint.setStyle(Paint.Style.FILL);
+        }
         mChargingPaint.setStyle(Paint.Style.STROKE);
         mScreenOnPaint.setStyle(Paint.Style.STROKE);
         mGpsOnPaint.setStyle(Paint.Style.STROKE);
@@ -610,6 +633,93 @@ public class BatteryHistoryChart extends View {
         if (mHistEnd <= mHistStart) mHistEnd = mHistStart+1;
     }
 
+    void setDockStats(BatteryStats dockStats, Intent broadcast) {
+        mDockStats = dockStats;
+        if (mDockBatterySupported && dockStats != null) {
+            final long elapsedRealtimeUs = SystemClock.elapsedRealtime() * 1000;
+
+            long uSecTime = mDockStats.computeBatteryRealtime(elapsedRealtimeUs,
+                    BatteryStats.STATS_SINCE_CHARGED);
+            mDockStatsPeriod = uSecTime;
+
+            mDockBatteryLevel = com.android.settings.Utils.getDockBatteryLevel(mBatteryBroadcast);
+            String batteryPercentString = Utils.formatPercentage(mDockBatteryLevel);
+            long remainingTimeUs = 0;
+            mDockDischarging = true;
+            if (mBatteryBroadcast.getBooleanExtra(BatteryManager.EXTRA_DOCK_PRESENT, false)) {
+                // We need to add a extra check over the status because of dock batteries
+                // PlugType doesn't means that the dock battery is charging (some devices
+                // doesn't charge under dock usb)
+                int plugType = mBatteryBroadcast.getIntExtra(BatteryManager.EXTRA_DOCK_PLUGGED, 0);
+                int status = mBatteryBroadcast.getIntExtra(BatteryManager.EXTRA_DOCK_STATUS,
+                        BatteryManager.BATTERY_STATUS_UNKNOWN);
+                boolean plugged = plugType != 0 &&
+                        (status == BatteryManager.BATTERY_STATUS_CHARGING ||
+                        status == BatteryManager.BATTERY_STATUS_FULL);
+                if (!plugged) {
+                    mDockChargeLabelString = batteryPercentString;
+                } else {
+                    final String statusLabel = com.android.settings.Utils.getDockBatteryStatus(
+                            getResources(), mBatteryBroadcast);
+                    mDockChargeLabelString = getContext().getResources().getString(
+                            R.string.power_charging, batteryPercentString, statusLabel);
+                }
+            } else {
+                mDockChargeLabelString = getContext().getResources().getString(
+                        R.string.dock_battery_not_present);
+            }
+
+            int pos = 0;
+            int lastInteresting = 0;
+            byte lastLevel = -1;
+            long lastWallTime = 0;
+            long lastRealtime = 0;
+            boolean first = true;
+            if (dockStats.startIteratingHistoryLocked()) {
+                final HistoryItem rec = new HistoryItem();
+                while (dockStats.getNextHistoryLocked(rec)) {
+                    pos++;
+                    if (first) {
+                        first = false;
+                        mDockHistStart = rec.time;
+                    }
+                    if (rec.cmd == HistoryItem.CMD_CURRENT_TIME
+                            || rec.cmd == HistoryItem.CMD_RESET) {
+                        // If there is a ridiculously large jump in time, then we won't be
+                        // able to create a good chart with that data, so just ignore the
+                        // times we got before and pretend like our data extends back from
+                        // the time we have now.
+                        // Also, if we are getting a time change and we are less than 5 minutes
+                        // since the start of the history real time, then also use this new
+                        // time to compute the base time, since whatever time we had before is
+                        // pretty much just noise.
+                        if (rec.currentTime > (lastWallTime+(180*24*60*60*1000L))
+                                || rec.time < (mDockHistStart+(5*60*1000L))) {
+                            mDockStartWallTime = 0;
+                        }
+                        lastWallTime = rec.currentTime;
+                        lastRealtime = rec.time;
+                        if (mDockStartWallTime == 0) {
+                            mDockStartWallTime = lastWallTime - (lastRealtime-mDockHistStart);
+                        }
+                    }
+                    if (rec.isDeltaData()) {
+                        if (rec.batteryLevel != lastLevel || pos == 1) {
+                            lastLevel = rec.batteryLevel;
+                        }
+                        lastInteresting = pos;
+                        mDockHistDataEnd = rec.time;
+                    }
+                }
+            }
+            mDockHistEnd = mDockHistDataEnd + (remainingTimeUs/1000);
+            mDockEndDataWallTime  = lastWallTime + mDockHistDataEnd - lastRealtime;
+            mDockEndWallTime = mDockEndDataWallTime + (remainingTimeUs/1000);
+            mDockNumHist = lastInteresting;
+            if (mDockHistEnd <= mDockHistStart) mDockHistEnd = mDockHistStart+1;
+        }
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mMaxPercentLabelStringWidth = (int)mTextPaint.measureText(mMaxPercentLabelString);
@@ -623,6 +733,9 @@ public class BatteryHistoryChart extends View {
         mHeaderTextDescent = (int)mHeaderTextPaint.descent();
         int headerTextHeight = mHeaderTextDescent - mHeaderTextAscent;
         mHeaderHeight = headerTextHeight*2 - mTextAscent;
+        if (mDockBatterySupported) {
+            mHeaderHeight += headerTextHeight;
+        }
         setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
                 getDefaultSize(mChartMinHeight+mHeaderHeight, heightMeasureSpec));
     }
@@ -630,18 +743,7 @@ public class BatteryHistoryChart extends View {
     void finishPaths(int w, int h, int levelh, int startX, int y, Path curLevelPath,
             int lastX, boolean lastCharging, boolean lastScreenOn, boolean lastGpsOn,
             boolean lastWifiRunning, boolean lastCpuRunning, Path lastPath) {
-        if (curLevelPath != null) {
-            if (lastX >= 0 && lastX < w) {
-                if (lastPath != null) {
-                    lastPath.lineTo(w, y);
-                }
-                curLevelPath.lineTo(w, y);
-            }
-            curLevelPath.lineTo(w, mLevelTop+levelh);
-            curLevelPath.lineTo(startX, mLevelTop+levelh);
-            curLevelPath.close();
-        }
-        
+        finishCurLevelPath(w, levelh, startX, y, curLevelPath, lastX, lastPath);
         if (lastCharging) {
             mChargingPath.lineTo(w, h-mChargingOffset);
         }
@@ -659,6 +761,21 @@ public class BatteryHistoryChart extends View {
         }
         if (mHavePhoneSignal) {
             mPhoneSignalChart.finish(w);
+        }
+    }
+
+    void finishCurLevelPath(int w, int levelh, int startX, int y,
+            Path curLevelPath, int lastX, Path lastPath) {
+        if (curLevelPath != null) {
+            if (lastX >= 0 && lastX < w) {
+                if (lastPath != null) {
+                    lastPath.lineTo(w, y);
+                }
+                curLevelPath.lineTo(w, y);
+            }
+            curLevelPath.lineTo(w, mLevelTop+levelh);
+            curLevelPath.lineTo(startX, mLevelTop+levelh);
+            curLevelPath.close();
         }
     }
 
@@ -751,8 +868,11 @@ public class BatteryHistoryChart extends View {
         mBatLevelPath.reset();
         mBatGoodPath.reset();
         mBatWarnPath.reset();
-        mTimeRemainPath.reset();
         mBatCriticalPath.reset();
+        mTimeRemainPath.reset();
+        if (mDockBatterySupported) {
+            mDockBatLevelPath.reset();
+        }
         mScreenOnPath.reset();
         mGpsOnPath.reset();
         mWifiRunningPath.reset();
@@ -762,9 +882,14 @@ public class BatteryHistoryChart extends View {
         mTimeLabels.clear();
         mDateLabels.clear();
 
-        final long walltimeStart = mStartWallTime;
-        final long walltimeChange = mEndWallTime > walltimeStart
-                ? (mEndWallTime-walltimeStart) : 1;
+        final long walltimeStart = mDockBatterySupported
+                ? Math.min(mStartWallTime, mDockStartWallTime) : mStartWallTime;
+        long w1 = mEndWallTime > walltimeStart ? (mEndWallTime-walltimeStart) : 1;
+        long w2 = mEndWallTime > walltimeStart ? (mEndWallTime-walltimeStart) : 1;
+        final long walltimeChange = mDockBatterySupported
+                ? Math.max(w1, w2) : w1;
+
+
         long curWalltime = mStartWallTime;
         long lastRealtime = 0;
 
@@ -781,7 +906,7 @@ public class BatteryHistoryChart extends View {
         boolean lastCharging = false, lastScreenOn = false, lastGpsOn = false;
         boolean lastWifiRunning = false, lastWifiSupplRunning = false, lastCpuRunning = false;
         int lastWifiSupplState = BatteryStats.WIFI_SUPPL_STATE_INVALID;
-        final int N = mNumHist;
+        int N = mNumHist;
         if (mEndDataWallTime > mStartWallTime && mStats.startIteratingHistoryLocked()) {
             final HistoryItem rec = new HistoryItem();
             while (mStats.getNextHistoryLocked(rec) && i < N) {
@@ -995,6 +1120,7 @@ public class BatteryHistoryChart extends View {
         finishPaths(x, h, levelh, startX, lastY, curLevelPath, lastX,
                 lastCharging, lastScreenOn, lastGpsOn, lastWifiRunning,
                 lastCpuRunning, lastLinePath);
+        int lastBatX = x;
 
         if (x < w) {
             // If we reserved room for the remaining time, create a final path to draw
@@ -1010,6 +1136,117 @@ public class BatteryHistoryChart extends View {
             }
             mTimeRemainPath.lineTo(x, emptyY);
             mTimeRemainPath.close();
+        }
+
+        // And now set the dock battery if is supported
+        if (mDockBatterySupported) {
+            x = mLevelLeft;
+            y = 0;
+            startX = mLevelLeft;
+            lastX = -1;
+            lastY = -1;
+            i = 0;
+            curLevelPath = null;
+            lastLinePath = null;
+            curWalltime = mDockStartWallTime;
+            lastRealtime = 0;
+            lastCharging = false;
+            N = mDockNumHist;
+            if (mDockEndDataWallTime > mDockStartWallTime
+                    && mDockStats.startIteratingHistoryLocked()) {
+                final HistoryItem rec = new HistoryItem();
+                while (mDockStats.getNextHistoryLocked(rec) && i < N) {
+                    if (rec.isDeltaData()) {
+                        curWalltime += rec.time-lastRealtime;
+                        lastRealtime = rec.time;
+                        int pos = (int)(((curWalltime-walltimeStart)*levelWidth)/walltimeChange);
+                        x = mLevelLeft + pos;
+                        if (x < 0) {
+                            x = 0;
+                        }
+                        if (false) {
+                            StringBuilder sb = new StringBuilder(128);
+                            sb.append("walloff=");
+                            TimeUtils.formatDuration(curWalltime - walltimeStart, sb);
+                            sb.append(" wallchange=");
+                            TimeUtils.formatDuration(walltimeChange, sb);
+                            sb.append(" x=");
+                            sb.append(x);
+                            Log.d("foo", sb.toString());
+                        }
+                        y = mLevelTop + levelh - ((rec.batteryLevel-batLow)*(levelh-1))/batChange;
+
+                        if (lastX != x) {
+                            // We have moved by at least a pixel.
+                            if (lastY != y) {
+                                if (curLevelPath == null) {
+                                    curLevelPath = mDockBatLevelPath;
+                                    curLevelPath.moveTo(x, y);
+                                    startX = x;
+                                } else {
+                                    curLevelPath.lineTo(x, y);
+                                }
+                                lastX = x;
+                                lastY = y;
+                            }
+                        }
+
+                    } else {
+                        long lastWalltime = curWalltime;
+                        if (rec.cmd == HistoryItem.CMD_CURRENT_TIME
+                                || rec.cmd == HistoryItem.CMD_RESET) {
+                            if (rec.currentTime >= mDockStartWallTime) {
+                                curWalltime = rec.currentTime;
+                            } else {
+                                curWalltime = mDockStartWallTime + (rec.time-mDockHistStart);
+                            }
+                            lastRealtime = rec.time;
+                        }
+
+                        if (rec.cmd != HistoryItem.CMD_OVERFLOW
+                                && (rec.cmd != HistoryItem.CMD_CURRENT_TIME
+                                        || Math.abs(lastWalltime-curWalltime) > (60*60*1000))) {
+                            if (curLevelPath != null) {
+                                finishCurLevelPath(x+1,levelh, startX, lastY, curLevelPath, lastX,
+                                        lastLinePath);
+                                lastX = lastY = -1;
+                                curLevelPath = null;
+                                lastLinePath = null;
+                                lastCharging = lastScreenOn = lastGpsOn = lastCpuRunning = false;
+                            }
+                        }
+                    }
+
+                    i++;
+                }
+                mDockStats.finishIteratingHistoryLocked();
+            }
+
+            if (lastY < 0 || lastX < 0) {
+                // Didn't get any data...
+                x = lastX = mLevelLeft;
+                y = lastY = mLevelTop + levelh - ((mDockBatteryLevel-batLow)*(levelh-1))/batChange;
+                mDockBatLevelPath.moveTo(x, y);
+                curLevelPath = mDockBatLevelPath;
+                x = w;
+            } else {
+                // Figure out where the actual data ends on the screen.
+                int pos = (int)(((mDockEndDataWallTime-walltimeStart)*levelWidth)/walltimeChange);
+                x = mLevelLeft + pos;
+                if (x < 0) {
+                    x = 0;
+                }
+            }
+
+            if (x < lastBatX) {
+                if (curLevelPath != null) {
+                    curLevelPath.lineTo(x, lastY);
+                }
+                x = lastBatX;
+            }
+
+            finishCurLevelPath(x,levelh, startX, lastY, curLevelPath, lastX,
+                    lastLinePath);
         }
 
         if (mStartWallTime > 0 && mEndWallTime > mStartWallTime) {
@@ -1145,6 +1382,9 @@ public class BatteryHistoryChart extends View {
             if (DEBUG) Log.d(TAG, "Drawing time remain path.");
             canvas.drawPath(mTimeRemainPath, mTimeRemainPaint);
         }
+        if (mDockBatterySupported && !mDockBatLevelPath.isEmpty()) {
+            canvas.drawPath(mDockBatLevelPath, mDockBatteryBackgroundPaint);
+        }
         if (mTimeLabels.size() > 1) {
             int y = mLevelBottom - mTextAscent + (mThinLineWidth*4);
             int ytick = mLevelBottom+mThinLineWidth+(mThinLineWidth/2);
@@ -1196,6 +1436,11 @@ public class BatteryHistoryChart extends View {
         mHeaderTextPaint.setTextAlign(textAlignLeft);
         if (DEBUG) Log.d(TAG, "Drawing charge label string: " + mChargeLabelString);
         canvas.drawText(mChargeLabelString, textStartX, headerTop, mHeaderTextPaint);
+        if (mDockBatterySupported) {
+            if (DEBUG) Log.d(TAG, "Drawing dock charge label string: " + mDockChargeLabelString);
+            canvas.drawText(mDockChargeLabelString, textStartX,
+                    headerTop + (mHeaderTextDescent - mHeaderTextAscent), mHeaderTextPaint);
+        }
         int stringHalfWidth = mChargeDurationStringWidth / 2;
         if (layoutRtl) stringHalfWidth = -stringHalfWidth;
         int headerCenter = ((width-mChargeDurationStringWidth-mDrainStringWidth)/2)
