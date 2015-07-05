@@ -10,7 +10,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/category_heads_up">
 
     <com.android.settings.rr.SeekBarPreference
         android:key="heads_up_time_out"
@@ -27,8 +29,8 @@
         android:max="30"
         settings:minimum="0"
         settings:unitsLeft=""
-        settings:unitsRight="min" />
-
+        settings:unitsRight="min"
+        android:persistent="false" />
 
     <PreferenceCategory
             android:title="@string/heads_up_dnd_title"
