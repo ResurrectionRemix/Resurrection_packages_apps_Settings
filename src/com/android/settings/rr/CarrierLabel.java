@@ -25,6 +25,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -72,7 +73,9 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         String hexColor;
 
         mStatusBarCarrier = (SwitchPreference) prefSet.findPreference(STATUS_BAR_CARRIER);
-        mStatusBarCarrier.setChecked((Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CARRIER, 0) == 1));
+        mStatusBarCarrier.setChecked((Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_CARRIER,
+                0, UserHandle.USER_CURRENT) == 1));
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         mCustomCarrierLabel = (PreferenceScreen) prefSet.findPreference(CUSTOM_CARRIER_LABEL);
 
@@ -115,7 +118,13 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
             return true;
         } else if (preference == mStatusBarCarrier) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CARRIER, value ? 1 : 0);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.STATUS_BAR_CARRIER,
+                    value ? 1 : 0, UserHandle.USER_CURRENT);
+            //send intent to have network controller update network name
+            Intent i = new Intent();
+            i.setAction(Intent.ACTION_CUSTOM_CARRIER_LABEL_CHANGED);
+            getActivity().sendBroadcast(i);
             return true;
          }
          return false;
