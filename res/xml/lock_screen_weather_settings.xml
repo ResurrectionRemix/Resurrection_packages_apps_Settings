@@ -58,4 +58,23 @@
             android:defaultValue="0xffffffff" />
 
 	</PreferenceCategory>
+	
+    <PreferenceCategory
+        android:key="weather_cat_notifications"
+        android:title="@string/weather_cat_notifications_title">
+
+        <ListPreference
+            android:key="weather_hide_panel"
+            android:title="@string/weather_hide_panel_title"
+            android:dialogTitle="@string/weather_hide_panel_dlg_title"
+            android:entries="@array/weather_hide_panel_entries"
+            android:entryValues="@array/weather_hide_panel_values" />
+
+        <ListPreference
+            android:key="weather_number_of_notifications"
+            android:title="@string/weather_number_of_notifications_title"
+            android:dialogTitle="@string/weather_number_of_notifications_dlg_title"
+            android:entries="@array/weather_number_of_notifications_entries"
+            android:entryValues="@array/weather_number_of_notifications_values" />
+    </PreferenceCategory>
 </PreferenceScreen>
