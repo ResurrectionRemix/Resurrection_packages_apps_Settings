@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:background="@color/setup_wizard_header_background_color">
+
+        <TextView
+            android:id="@+id/steps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="9dp"
+            android:layout_gravity="bottom|start"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:elevation="4dp"
+        android:background="@color/setup_wizard_header_title_background_color">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/processing_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="-7dp"
+            android:indeterminateOnly="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:id="@+id/completed_checkmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="72dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_complete_checkmark"
+            android:visibility="gone"/>
+
+        <com.android.settings.cyanogenmod.FingerprintProgressBar
+            android:id="@+id/enrollment_progress"
+            android:layout_width="112dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="136dp"/>
+
+        <ImageView
+            android:id="@+id/infographic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="-38dp"/>
+
+    </FrameLayout>
+
+    <fragment android:name="com.android.setupwizard.navigationbar.SetupWizardNavBar"
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dip"
+        style="@style/setup_wizard_navbar_style"/>
+
+</LinearLayout>

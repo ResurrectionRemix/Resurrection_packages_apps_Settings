@@ -14,23 +14,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
-    android:paddingLeft="25dp"
-    android:paddingRight="27dp">
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fingerprint_dialog_name_label" />
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:maxLength="20"
-        android:selectAllOnFocus="true"/>
-</LinearLayout>
+    android:padding="24dp"
+    android:textSize="16sp"
+    android:textColor="@color/manage_fingerprints_description_text_color"
+    android:text="@string/manage_fingerprints_description"/>
