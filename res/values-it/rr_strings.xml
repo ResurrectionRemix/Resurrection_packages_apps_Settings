@@ -275,7 +275,6 @@
     <string name="custom_carrier_label_title">Etichetta operatore personalizzata</string>
     <string name="custom_carrier_label_explain">Si prega di inserire una nuova etichetta. Lascia in bianco per ripristinare l\'etichetta.</string>
     <string name="custom_carrier_label_notset">Etichetta personalizzata al momento non impostata</string>
-    <string name="status_bar_carrier_color">t">Etichetta personalizzata al momento non impostata</string>
     <string name="status_bar_carrier_color">Colore etichetta operatore</string> 
 
     <!-- ListView interpolator -->
@@ -304,14 +303,10 @@
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Tempo di visualizzazione</string>
-    <string name="heads_up_time_out_summary">La notifica verrà visualizzata per <xliff:g id="number">%d</xliff:g> secondi</string>
-    <string name="heads_up_time_out_never_summary">La notifica verrà visualizzata fino a quando non verrà respinta</string>
-    <string name="heads_up_time_out_2sec">2 secondi</string>
-    <string name="heads_up_time_out_4sec">4 secondi</string>
-    <string name="heads_up_time_out_6sec">6 secondi</string>
-    <string name="heads_up_time_out_8sec">8 secondi</string>
-    <string name="heads_up_time_out_10sec">10 secondi</string>
-    <string name="heads_up_time_out_never">Mai</string>   
+ 
+     <!-- Heads up snooze -->
+    <string name="heads_up_snooze_title">Timer Snooze</string>
+    
     <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">Ripristina tutte le voci dimensioni predefinite?</string>
     <string name="navigation_bar_dimensions_title"><b>Dimensioni barra di navigazione</b></string>
@@ -549,8 +544,8 @@
     <string name="shortcut_action_media_previous">Musica - traccia precedente</string>
     <string name="shortcut_action_wake_device">Sveglia dispositivo</string>
     <!-- Gesture Anywhere -->
-    <string name="gesture_anywhere_title"><b>Gesto Ovunque</b></string>
-    <string name="gesture_anywhere_enabled_title">Gesto Ovunque</string>
+    <string name="gesture_anywhere_title"><b>Gesto ovunque</b></string>
+    <string name="gesture_anywhere_enabled_title">Gesto ovunque</string>
     <string name="gesture_anywhere_enabled_summary">Attiva la funzione gesto ovunque</string>
     <string name="gesture_anywhere_position_title">Posizione</string>
     <string name="gesture_anywhere_position_left">Bordo sinistro</string>
@@ -685,9 +680,10 @@
     <!-- Lockscreen weather -->
     <string name="lock_screen_weather_settings_title"><b>Meteo su blocca schermo</b></string>
     <string name="lock_screen_weather_settings_title_summary">Personalizza pannello del meteo in blocca schermo</string>
+    <string name="weather_cat_notifications_title">Notifica</string>
     <string name="weather_show_weather_title">Visualizza meteo</string>
     <string name="weather_show_weather_summary">Attiva per visualizzare le informazioni meteo</string>
-    <string name="weather_show_location_title">Visualizza località</string>
+    <string name="weather_condition_icon_title">Condition icon</string>
     <string name="weather_show_location_summary">Attiva per visualizzare la località</string>
     <string name="weather_show_timestamp_title">Visualizza timbro ora</string>
     <string name="weather_show_timestamp_summary">Attiva per visualizzare il timbro ora</string>
@@ -696,6 +692,22 @@
     <string name="weather_condition_icon_monochrome_title">Monocromatico</string>
     <string name="weather_condition_icon_colored_title">Colorato</string>
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_hide_panel_title">Nascondi pannello tempo</string>
+    <string name="weather_hide_panel_dlg_title">Scegli quanto il pannello del tempo può errete nascosto</string>
+    <string name="weather_hide_panel_auto_title">Automatico</string>
+    <string name="weather_hide_panel_custom_title">Personalizzato</string>
+    <string name="weather_hide_panel_never_title">Mai</string>
+    <string name="weather_hide_panel_auto_summary">Il pannello del tempo sarà nascosto, quando le notifiche visibili raggiungeranno le notifiche massime consentite sulla schermata di blocco</string>
+    <string name="weather_hide_panel_custom_summary">Il pannello del tempo sarà nascosto, quando le notifiche visibili raggiungeranno il numero scelto di notifiche (%s)</string>
+    <string name="weather_hide_panel_never_summary">Il pannello del tempo non sarà nascosto</string>
+    <string name="weather_number_of_notifications_title">Numero di notifiche</string>
+    <string name="weather_number_of_notifications_dlg_title">Scegli il numero di notifiche per nascondere il pannello del tempo</string>
+    <string name="weather_number_of_notifications_always_title">Sempre</string>
+    <string name="weather_number_of_notifications_two_title">2</string>
+    <string name="weather_number_of_notifications_three_title">3</string>
+    <string name="weather_number_of_notifications_four_title">4</string>
+    <string name="weather_number_of_notifications_five_title">5</string>
+    <string name="weather_number_of_notifications_six_title">6</string>
     <string name="weather_colorize_all_icons_title">Colora tutte le icone</string>
     <string name="weather_colorize_all_icons_summary">Attiva per colorare tutte le icone, disabilitare per colorare solo le icone monocromatiche</string>
     <string name="icons_title">Icone</string>
@@ -848,6 +860,10 @@
     <string name="heads_up_touch_outside_summary_enabled">Nascondere la notifica dopo un tocco al di fuori o alla pressione del pulsante home</string>
     <string name="heads_up_touch_outside_summary_disabled">Non nascondere la notifica dopo un tocco al di fuori o alla pressione del pulsante home</string>
 
+    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Show CPU info</string>
+    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
     <!-- long press back to kill configurable timeout -->
     <string name="kill_app_longpress_timeout_title">Tempo pressione prolungata</string>
     <string name="timeout_2000">2 secondi (predefinito)</string>
@@ -1078,4 +1094,26 @@
     <string name="selinux_permissive_title">Permissivo</string>
     <string name="selinux_enforcing_title">Applicazione</string>
 
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">App sidebar</string>
+    <string name="app_sidebar_enable_title">Attiva Appbar</string>
+    <string name="app_sidebar_enable_summaryOn">Appbar è abilitato</string>
+    <string name="app_sidebar_enable_summaryOff">Appbar è disabilitato</string>
+    <string name="app_sidebar_setup_items_title">Setup Appbar content</string>
+    <string name="app_sidebar_setup_items_summary">Aggiungi, rimuovie posiziona gli elementi nel appbar</string>
+    <string name="app_sidebar_transparency_title">Trasparenza Appbar</string>
+    <string name="app_sidebar_transparency_summary">Regolare il livello di trasparenza dell\'appbar</string>
+    <string name="app_sidebar_position_title">Posizione appbar</string>
+    <string name="app_sidebar_position_summary">Posiziona l\'appbar sul lato sinistro o destro dello schermo</string>
+    <string name="app_sidebar_position_left">Sinistra</string>
+    <string name="app_sidebar_position_right">Destra</string>
+    <string name="app_sidebar_hide_labels_title">Nascondi le etichette delle icone</string>
+    <string name="app_sidebar_hide_labels_summary">Nascondi dall\'appbar le etichette delle icone</string>
+    <string name="tab_category">Scheda visibile</string>
+    <string name="use_tab_title">Scheda visualizzazione</string>
+    <string name="use_tab_summary">Visualizza una linguetta visibile sul lato che visualizzerà la appbar quando viene toccato</string>
+    <string name="tab_position_title">Posizione scheda</string>
+    <string name="tab_position_summary">Visualizza la linguetta sulla parte superiore, centrale o inferiore sul lato dello schermo.</string>
+    <string name="tab_size_title">Dimensioni scheda</string>
+    <string name="tab_size_summary">Modifica le dimensioni della scheda visibile</string>
 </resources>
