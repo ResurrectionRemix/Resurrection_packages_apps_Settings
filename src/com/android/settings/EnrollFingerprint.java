@@ -121,6 +121,13 @@ public class EnrollFingerprint extends SettingsActivity
         private static final long TIME_TO_COMPLETE_ENROLLMENT = 10 * DateUtils.MINUTE_IN_MILLIS;
 
         /**
+         * Time before we show the user an error state if an enrollment step is not completed
+         * in this time.
+         */
+        private static final long ENROLLMENT_STEP_TIMEOUT_DURATION =
+                10 * DateUtils.SECOND_IN_MILLIS;
+
+        /**
          * Minimum number steps required to show the reminder screen half way through
          */
         private static final int STEPS_REQUIRED_TO_SHOW_HELP = 8;
@@ -129,6 +136,8 @@ public class EnrollFingerprint extends SettingsActivity
          * Value used to indicate # of enrollment steps is currently unknown
          */
         private static final int NUM_ENROLLMENT_STEPS_UNKNOWN = -1;
+
+        private static final int NUM_FAILED_ENROLLMENTS_FOR_FAILURE = 5;
 
         /**
          * String for formatting the enrollment step progress
@@ -153,7 +162,9 @@ public class EnrollFingerprint extends SettingsActivity
         private int mNumEnrollmentSteps;
         private int mCurrentEnrollmentStep;
         private String[] mSuccessfulScanTitles;
+        private String[] mErrorTitles;
         private int mScanSuccessTextIndex = 0;
+        private int mConsecutiveErrorCount = 0;
 
         /**
          * The states of the left footer button.
@@ -226,7 +237,7 @@ public class EnrollFingerprint extends SettingsActivity
                     BackButtonMode.Gone, NextButtonMode.Gone,
                     ID_EMPTY_MESSAGE, 0),
             EnrollmentError(
-                    R.string.fingerprint_enrollment_error_title,
+                    R.string.fingerprint_enrollment_error_title_1,
                     R.string.fingerprint_enrollment_error_message,
                     BackButtonMode.Gone, NextButtonMode.Gone,
                     ID_EMPTY_MESSAGE, 0),
@@ -294,6 +305,8 @@ public class EnrollFingerprint extends SettingsActivity
             mCurrentEnrollmentStep = 0;
             mSuccessfulScanTitles =
                     getResources().getStringArray(R.array.fingerprint_successful_scan_titles);
+            mErrorTitles =
+                    getResources().getStringArray(R.array.fingerprint_enrollment_error_titles);
             updateStage(Stage.Introduction);
         }
 
@@ -407,6 +420,7 @@ public class EnrollFingerprint extends SettingsActivity
                         // If the last step was an error, set back to success color in progress
                         if (previousStage == Stage.EnrollmentError) {
                             mStepProgress.showError(false);
+                            mConsecutiveErrorCount = 0;
                         }
                         mStepsCompleted.setVisibility(View.VISIBLE);
                         mStepsCompleted.setText(
@@ -424,6 +438,7 @@ public class EnrollFingerprint extends SettingsActivity
                         mFpM.enroll(TIME_TO_COMPLETE_ENROLLMENT);
                         mProcessingProgress.setVisibility(View.VISIBLE);
                         mStepProgress.setOnTouchListener(mWrongSensorTouchListener);
+                        startEnrollmentStepTimeout();
                     } else if (mCurrentEnrollmentStep == 1) {
                         mStepProgress.setOnTouchListener(null);
                         mTitle.setText(R.string.fingerprint_successful_scan_title_first);
@@ -434,6 +449,14 @@ public class EnrollFingerprint extends SettingsActivity
                     break;
                 case EnrollmentError:
                     mStepProgress.showError(true);
+                    mTitle.setText(mErrorTitles[mConsecutiveErrorCount % mErrorTitles.length]);
+                    mConsecutiveErrorCount++;
+                    if (mConsecutiveErrorCount >= NUM_FAILED_ENROLLMENTS_FOR_FAILURE) {
+                        mFpM.cancel();
+                        mFpM.stopListening();
+                        cancelEnrollmentStepTimeout();
+                        showFailedEnrollmentDialog();
+                    }
                     break;
                 case EnrollmentFinished:
                     mStepProgress.setVisibility(View.VISIBLE);
@@ -485,6 +508,23 @@ public class EnrollFingerprint extends SettingsActivity
             }
         };
 
+        private Runnable mEnrollmentStepTimeoutRunnable = new Runnable() {
+            @Override
+            public void run() {
+                startEnrollmentStepTimeout();
+                updateStage(Stage.EnrollmentError);
+            }
+        };
+
+        private void cancelEnrollmentStepTimeout() {
+            mTitle.removeCallbacks(mEnrollmentStepTimeoutRunnable);
+        }
+
+        private void startEnrollmentStepTimeout() {
+            cancelEnrollmentStepTimeout();
+            mTitle.postDelayed(mEnrollmentStepTimeoutRunnable, ENROLLMENT_STEP_TIMEOUT_DURATION);
+        }
+
         private FingerprintManagerReceiver mFingerprintReceiver = new FingerprintManagerReceiver() {
             @Override
             public void onEnrollResult(int fingerprintId, int remaining) {
@@ -499,6 +539,7 @@ public class EnrollFingerprint extends SettingsActivity
                     mCurrentEnrollmentStep = mNumEnrollmentSteps;
                     updateStage(Stage.EnrollmentFinished);
                 } else {
+                    startEnrollmentStepTimeout();
                     if (mUiStage == Stage.EnrollmentError || mUiStage == Stage.WrongSensor) {
                         dismissErrorDialogIfShowing();
                     }
