@@ -31,6 +31,14 @@
         settings:unitsLeft=""
         settings:unitsRight="min"
         android:persistent="false" />
+        
+    <!-- HeadsUp floating mode switch -->
+    <SwitchPreference
+        android:key="heads_up_floating"
+        android:title="@string/heads_up_floating_window_title"
+        android:summary="@string/heads_up_floating_window_summary"
+        android:persistent="false"
+        android:defaultValue="true" />
 
     <PreferenceCategory
             android:title="@string/heads_up_dnd_title"
