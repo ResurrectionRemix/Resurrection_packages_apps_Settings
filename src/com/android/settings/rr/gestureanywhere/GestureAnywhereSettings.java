@@ -35,6 +35,7 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
     private static final String TAG = "GestureAnywhereSettings";
 
     private static final String KEY_ENABLED = "gesture_anywhere_enabled";
+    private static final String GESTURE_ANYWHERE_FLOATING = "gesture_anywhere_floating";
     private static final String KEY_POSITION = "gesture_anywhere_position";
     private static final String KEY_GESTURES = "gesture_anywhere_gestures";
     private static final String KEY_TRIGGER_WIDTH = "gesture_anywhere_trigger_width";
@@ -42,6 +43,7 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
     private static final String KEY_TRIGGER_BOTTOM = "gesture_anywhere_trigger_bottom";
 
     private SwitchPreference mEnabledPref;
+    private SwitchPreference mGestureAnywhereFloatingWindow;
     private ListPreference mPositionPref;
     private SeekBarPreferenceCham mTriggerWidthPref;
     private SeekBarPreferenceCham mTriggerTopPref;
@@ -59,6 +61,11 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
         mEnabledPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.GESTURE_ANYWHERE_ENABLED, 0) == 1));
         mEnabledPref.setOnPreferenceChangeListener(this);
+
+        mGestureAnywhereFloatingWindow = (SwitchPreference) findPreference(GESTURE_ANYWHERE_FLOATING);
+        mGestureAnywhereFloatingWindow.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_FLOATING, 0) == 1);
+        mGestureAnywhereFloatingWindow.setOnPreferenceChangeListener(this);
 
         PreferenceScreen prefSet = getPreferenceScreen();
         mPositionPref = (ListPreference) prefSet.findPreference(KEY_POSITION);
@@ -116,6 +123,11 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
             Settings.System.putInt(getContentResolver(),
                     Settings.System.GESTURE_ANYWHERE_ENABLED,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
+            return true;
+        } else if (preference == mGestureAnywhereFloatingWindow) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_FLOATING,
+            (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mTriggerWidthPref) {
             int width = ((Integer)newValue).intValue();
