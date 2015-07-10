@@ -19,4 +19,23 @@
         <item name="android:colorControlActivated">@color/fingerprint_enrollment_color_control_activated</item>
         <item name="android:statusBarColor">@color/setup_wizard_header_background_color</item>
     </style>
+
+    <style name="SetupWizardThemeFingerprint"
+        parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorAccent">@color/setup_wizard_color_accent_light</item>
+        <item name="android:listPreferredItemPaddingEnd">@dimen/setup_wizard_margin_sides</item>
+        <item name="android:listPreferredItemPaddingStart">@dimen/setup_wizard_margin_sides</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
+        <item name="android:windowBackground">?android:attr/colorBackground</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="@*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add_light</item>
+        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_wps">@drawable/ic_wps_light</item>
+        <item name="setup_divider_color">@color/setup_divider_color_light</item>
+        <item name="side_margin">0dip</item>
+        <item name="wifi_signal_color">@color/setup_wizard_wifi_color_light</item>
+        <item name="wifi_signal">@drawable/wifi_signal_teal</item>
+        <item name="preferenceBackgroundColor">?android:attr/colorBackground</item>
+    </style>
 </resources>

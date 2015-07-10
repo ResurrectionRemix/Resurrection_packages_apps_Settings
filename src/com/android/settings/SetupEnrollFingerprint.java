@@ -49,6 +49,11 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
     private boolean mPasswordConfirmed = false;
     private boolean mWaitingForConfirmation = false;
 
+    public static Intent createIntent(Context context) {
+        Intent intent = new Intent().setClass(context, SetupEnrollFingerprint.class);
+        return intent;
+    }
+
     @Override
     protected boolean isValidFragment(String fragmentName) {
         return SetupEnrollFingerprintFragment.class.getName().equals(fragmentName);
@@ -82,14 +87,18 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
             }
         }
 
-        Intent fallBackIntent = new Intent().setClass(this,
-                SetupChooseLockGeneric.class);
-        fallBackIntent.putExtra(LockPatternUtils.LOCKSCREEN_FINGERPRINT_FALLBACK, true);
-        fallBackIntent.putExtra(ManageFingerprints.CONFIRM_CREDENTIALS, false);
-        fallBackIntent.putExtra(EXTRA_SHOW_FRAGMENT_TITLE,
-                R.string.backup_lock_settings_picker_title);
-        SetupWizardUtils.copySetupExtras(getIntent(), fallBackIntent);
-        startActivityForResult(fallBackIntent, SET_FALLBACK);
+        boolean needsFallback =
+                getIntent().getBooleanExtra(LockPatternUtils.LOCKSCREEN_FINGERPRINT_FALLBACK, true);
+
+        if (needsFallback) {
+            Intent fallBackIntent = new Intent().setClass(this, SetupChooseLockGeneric.class);
+            fallBackIntent.putExtra(LockPatternUtils.LOCKSCREEN_FINGERPRINT_FALLBACK, true);
+            fallBackIntent.putExtra(ManageFingerprints.CONFIRM_CREDENTIALS, false);
+            fallBackIntent.putExtra(EXTRA_SHOW_FRAGMENT_TITLE,
+                    R.string.backup_lock_settings_picker_title);
+            SetupWizardUtils.copySetupExtras(getIntent(), fallBackIntent);
+            startActivityForResult(fallBackIntent, SET_FALLBACK);
+        }
     }
 
     @Override
@@ -119,7 +128,7 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
 
     @Override
     protected void onApplyThemeResource(Resources.Theme theme, int resid, boolean first) {
-        resid = SetupWizardUtils.getTheme(getIntent(), resid);
+        resid = R.style.SetupWizardThemeFingerprint;
         super.onApplyThemeResource(theme, resid, first);
     }
 
@@ -154,11 +163,17 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
 
         @Override
         public void onNavigateNext() {
-            if (mUiStage == Stage.EnrollmentFinished) {
-                getActivity().setResult(Activity.RESULT_OK);
-                getActivity().finish();
-            } else {
-                super.onNavigateNext();
+            switch (mUiStage) {
+                case EnrollmentFinished:
+                    getActivity().setResult(Activity.RESULT_OK);
+                    Intent intent = new Intent(getActivity(), SetupManageFingerprints.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                    SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
+                    startActivity(intent);
+                    getActivity().finish();
+                    break;
+                default:
+                    super.onNavigateNext();
             }
         }
     }

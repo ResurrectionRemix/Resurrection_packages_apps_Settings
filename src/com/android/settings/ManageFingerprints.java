@@ -181,7 +181,7 @@ public class ManageFingerprints extends SettingsActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.fingerprint_list, container, false);
+            View v = inflater.inflate(getLayoutResource(), container, false);
             mFingerList = (ListView) v.findViewById(R.id.list);
             mAdapter = new FingerprintAdapter(getActivity());
             mFingerList.setAdapter(mAdapter);
@@ -209,13 +209,21 @@ public class ManageFingerprints extends SettingsActivity {
             super.onDestroy();
         }
 
+        protected int getLayoutResource() {
+            return R.layout.fingerprint_list;
+        }
+
+        protected Intent getEnrollmentIntent() {
+            return EnrollFingerprint.createIntent(getActivity());
+        }
+
         private void addFinger() {
             // Check if we can actually add more fingerprints
             if (mAdapter.getCount() - 1 == MAX_NUM_FINGERPRINTS)  {
                 DialogFragment dialogFragment = MaxNumFingerprintsDialog.newInstance();
                 dialogFragment.show(getChildFragmentManager(), "MaxFingers");
             } else {
-                Intent intent = EnrollFingerprint.createIntent(getActivity());
+                Intent intent = getEnrollmentIntent();
                 startActivity(intent);
             }
         }
