@@ -464,6 +464,7 @@ public class EnrollFingerprint extends SettingsActivity
                     mCompletedCheckmark.setVisibility(View.VISIBLE);
                     mStepsCompleted.setText(R.string.fingerprint_enrollment_done_label);
                     mProcessingProgress.setVisibility(View.GONE);
+                    cancelEnrollmentStepTimeout();
 
                     // Hide add another if at max number of enrolled fingerprints
                     List<Fingerprint> enrolled = mFpM.getEnrolledFingerprints();
