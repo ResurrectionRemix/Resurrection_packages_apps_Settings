@@ -136,27 +136,33 @@ public class LightSettingsDialog extends AlertDialog implements
         mHexColorInput = (EditText) layout.findViewById(R.id.hex_color_input);
         mNewColor = (ColorPanelView) layout.findViewById(R.id.color_panel);
         mLightsDialogDivider = (View) layout.findViewById(R.id.lights_dialog_divider);
+        mPulseSpeedOn = (Spinner) layout.findViewById(R.id.on_spinner);
+        mPulseSpeedOff = (Spinner) layout.findViewById(R.id.off_spinner);
 
         mColorPicker.setOnColorChangedListener(this);
         mColorPicker.setColor(color, true);
 
         mHexColorInput.setOnFocusChangeListener(this);
-        mPulseSpeedOn = (Spinner) layout.findViewById(R.id.on_spinner);
-        PulseSpeedAdapter pulseSpeedAdapter = new PulseSpeedAdapter(
-                R.array.notification_pulse_length_entries,
-                R.array.notification_pulse_length_values,
-                speedOn);
-        mPulseSpeedOn.setAdapter(pulseSpeedAdapter);
-        mPulseSpeedOn.setSelection(pulseSpeedAdapter.getTimePosition(speedOn));
-        mPulseSpeedOn.setOnItemSelectedListener(mPulseSelectionListener);
 
-        mPulseSpeedOff = (Spinner) layout.findViewById(R.id.off_spinner);
-        pulseSpeedAdapter = new PulseSpeedAdapter(R.array.notification_pulse_speed_entries,
-                R.array.notification_pulse_speed_values,
-                speedOff);
-        mPulseSpeedOff.setAdapter(pulseSpeedAdapter);
-        mPulseSpeedOff.setSelection(pulseSpeedAdapter.getTimePosition(speedOff));
-        mPulseSpeedOff.setOnItemSelectedListener(mPulseSelectionListener);
+        if (onOffChangeable) {
+            PulseSpeedAdapter pulseSpeedAdapter = new PulseSpeedAdapter(
+                    R.array.notification_pulse_length_entries,
+                    R.array.notification_pulse_length_values,
+                    speedOn);
+            mPulseSpeedOn.setAdapter(pulseSpeedAdapter);
+            mPulseSpeedOn.setSelection(pulseSpeedAdapter.getTimePosition(speedOn));
+            mPulseSpeedOn.setOnItemSelectedListener(mPulseSelectionListener);
+
+            pulseSpeedAdapter = new PulseSpeedAdapter(R.array.notification_pulse_speed_entries,
+                    R.array.notification_pulse_speed_values,
+                    speedOff);
+            mPulseSpeedOff.setAdapter(pulseSpeedAdapter);
+            mPulseSpeedOff.setSelection(pulseSpeedAdapter.getTimePosition(speedOff));
+            mPulseSpeedOff.setOnItemSelectedListener(mPulseSelectionListener);
+        } else {
+            View speedSettingsGroup = layout.findViewById(R.id.speed_title_view);
+            speedSettingsGroup.setVisibility(View.GONE);
+        }
 
         mPulseSpeedOn.setEnabled(onOffChangeable);
         mPulseSpeedOff.setEnabled((speedOn != 1) && onOffChangeable);
