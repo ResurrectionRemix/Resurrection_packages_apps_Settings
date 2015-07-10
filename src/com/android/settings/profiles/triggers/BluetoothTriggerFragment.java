@@ -131,13 +131,13 @@ public class BluetoothTriggerFragment extends ListFragment {
 
         entries = new String[triggers.size()];
         final int[] valueInts = new int[triggers.size()];
-        int currentTrigger = mProfile.getTrigger(triggerType, triggerId);
+        int currentTriggerState = mProfile.getTriggerState(triggerType, triggerId);
         int currentItem = -1;
         for (int i = 0; i < triggers.size(); i++) {
             Trigger t = triggers.get(i);
             entries[i] = t.name;
             valueInts[i] = t.value;
-            if (valueInts[i] == currentTrigger) {
+            if (valueInts[i] == currentTriggerState) {
                 currentItem = i;
             }
         }
@@ -206,7 +206,8 @@ public class BluetoothTriggerFragment extends ListFragment {
             for (BluetoothDevice device : pairedDevices) {
                 BluetoothTrigger bt =
                         new BluetoothTrigger(device);
-                int state = mProfile.getTrigger(Profile.TriggerType.BLUETOOTH, bt.getAddress());
+                int state = mProfile.getTriggerState(
+                        Profile.TriggerType.BLUETOOTH, bt.getAddress());
                 initPreference(bt, state, res, R.drawable.ic_settings_bluetooth2);
                 mTriggers.add(bt);
             }

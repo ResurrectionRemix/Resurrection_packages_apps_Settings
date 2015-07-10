@@ -150,13 +150,13 @@ public class WifiTriggerFragment extends ListFragment {
 
         entries = new String[triggers.size()];
         final int[] valueInts = new int[triggers.size()];
-        int currentTrigger = mProfile.getTrigger(triggerType, triggerId);
+        int currentTriggerState = mProfile.getTriggerState(triggerType, triggerId);
         int currentItem = -1;
         for (int i = 0; i < triggers.size(); i++) {
             Trigger t = triggers.get(i);
             entries[i] = t.name;
             valueInts[i] = t.value;
-            if (valueInts[i] == currentTrigger) {
+            if (valueInts[i] == currentTriggerState) {
                 currentItem = i;
             }
         }
@@ -200,7 +200,8 @@ public class WifiTriggerFragment extends ListFragment {
         if (configs != null) {
             for (WifiConfiguration config : configs) {
                 WifiTrigger accessPoint = new WifiTrigger(config);
-                int state = mProfile.getTrigger(Profile.TriggerType.WIFI, accessPoint.getSSID());
+                int state = mProfile.getTriggerState(
+                        Profile.TriggerType.WIFI, accessPoint.getSSID());
                 initPreference(accessPoint, state, res, R.drawable.ic_wifi_signal_4_teal);
                 mTriggers.add(accessPoint);
             }

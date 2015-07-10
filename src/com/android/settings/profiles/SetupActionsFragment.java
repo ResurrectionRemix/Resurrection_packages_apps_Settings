@@ -16,14 +16,14 @@
 package com.android.settings.profiles;
 
 import android.app.Activity;
-import android.app.AirplaneModeSettings;
+import cyanogenmod.profiles.AirplaneModeSettings;
 import android.app.AlertDialog;
-import android.app.BrightnessSettings;
-import android.app.ConnectionSettings;
+import cyanogenmod.profiles.BrightnessSettings;
+import cyanogenmod.profiles.ConnectionSettings;
 import android.app.Dialog;
 import android.app.NotificationGroup;
-import android.app.RingModeSettings;
-import android.app.StreamSettings;
+import cyanogenmod.profiles.RingModeSettings;
+import cyanogenmod.profiles.StreamSettings;
 import android.app.admin.DevicePolicyManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ContentResolver;
@@ -88,15 +88,15 @@ import com.android.settings.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_2G3G4G;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_GPS;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_NFC;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_SYNC;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_WIFI;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_WIFIAP;
-import static android.app.ConnectionSettings.PROFILE_CONNECTION_WIMAX;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_2G3G4G;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_BLUETOOTH;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_GPS;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_MOBILEDATA;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_NFC;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_SYNC;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_WIFI;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_WIFIAP;
+import static cyanogenmod.profiles.ConnectionSettings.PROFILE_CONNECTION_WIMAX;
 
 public class SetupActionsFragment extends SettingsPreferenceFragment
         implements AdapterView.OnItemClickListener {
