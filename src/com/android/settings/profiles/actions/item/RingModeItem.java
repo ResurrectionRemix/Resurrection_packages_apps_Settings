@@ -15,10 +15,7 @@
  */
 package com.android.settings.profiles.actions.item;
 
-import android.app.AlertDialog;
-import android.app.RingModeSettings;
-import android.content.Context;
-import android.content.DialogInterface;
+import cyanogenmod.profiles.RingModeSettings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
