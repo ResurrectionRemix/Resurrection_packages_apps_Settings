@@ -25,11 +25,6 @@
             android:summary="@string/qs_color_switch_summary"
             android:defaultValue="false" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notification_drawer_clear_all_icon_color"
-            android:title="@string/notification_drawer_clear_all_icon_color_title"
-            android:defaultValue="0xffffffff" />
-
         <SwitchPreference
             android:key="qs_transparent_shade"
             android:title="@string/qs_transparent_shade_title"
@@ -54,6 +49,26 @@
             android:title="@string/text_title"
             android:defaultValue="0xffffffff"
             android:dependency="qs_color_switch" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="qs_clear_all_color"
+        android:title="@string/clear_all_color_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_drawer_clear_all_icon_color"
+            android:title="@string/notification_drawer_clear_all_icon_color_title"
+            android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="qs_background_header_color"
+        android:title="@string/background_header_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+           android:key="expanded_header_background_color"
+           android:title="@string/expanded_header_background_color_title"
+           android:defaultValue="0xff384248" />
 
     </PreferenceCategory>
 </PreferenceScreen>
