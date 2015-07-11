@@ -319,6 +319,7 @@
             android:entryValues="@array/volbtn_cursor_control_values"
             android:persistent="false" />
 
+
         <SwitchPreference
             android:key="swap_volume_buttons"
             android:title="@string/swap_volume_buttons_title"/>
@@ -328,6 +329,12 @@
             android:title="@string/volume_answer_call_title"
             android:summary="@string/volume_answer_call_summary"
             android:defaultValue="false" />
+
+        <PreferenceScreen
+            android:key="vol_steps"
+            android:fragment="com.android.settings.rr.fragments.VolumeStepsFragment"
+            android:title="@string/volume_steps_fragment_title"
+            android:summary="@string/volume_steps_summary" />
 
     </PreferenceCategory>
 
