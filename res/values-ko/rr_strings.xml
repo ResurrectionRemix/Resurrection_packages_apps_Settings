@@ -68,9 +68,6 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">설정</string>
-    <!-- Superuser indicator-->
-    <string name="su_indicator">Superuser 표시</string>
-    <string name="su_indicator_summary">세션이 활성될 때 Superuser 표시를 보여줍니다</string>
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="device_settings_title">기기</string>
     <string name="rr_mod_version">Resurrection 버전</string>
@@ -119,8 +116,9 @@
     <string name="status_bar_am_pm_info">24시간 형식이 설정되었습니다</string>
     <string name="enable_clock_weekday">요일 표시</string>
     <string name="enable_clock_weekday_summary">시간 앞에 요일 문구를 삽입합니다</string>
-    <string name="right_clock">오른쪽</string>
-    <string name="center_clock">가운데</string>
+    <string name="right_clock">우측</string>
+    <string name="center_clock">중앙</string>
+    <string name="left_clock">좌측</string>
     <string name="dont_show">표시 안함</string>
     <string name="clock_date_display">날짜</string>
     <string name="clock_date_display_summary">시계 앞에 날짜를 표시합니다</string>
@@ -156,7 +154,7 @@
     <string name="app_notification_show_on_keyguard_summary">잠금화면에서 이 앱의 알림을 표기합니다</string>
     <string name="app_notification_no_ongoing_on_keyguard_title">잠금화면에서 진행중 표기 비활성화</string>
     <string name="app_notification_no_ongoing_on_keyguard_summary">잠금화면에서 이 앱의 진행중 알림을 표시하지 않습니다</string>
-    <string name="rrc_settings_title"><b>추가 설정</b></string>
+    <string name="rrc_settings_title">추가 설정</string>
     <!-- Toast animations -->
     <string name="toast_animation_title">토스트 애니메이션</string>
     <string name="toast_animation_summary">토스트 애니메이션을 미리 보고 선택합니다</string>
@@ -245,7 +243,7 @@
     <string name="sourcebase_title">기반 Source</string>
     <string name="title_about"><b>Resurrection에 대해</b></string>
     <string name="rr_lockscreen_title"><b>잠금화면</b></string>
-    <string name="rr_performance_settings_title"><b>성능</b></string>
+    <string name="rr_performance_settings_title">성능</string>
     <!-- QuickSettings: Quick Pulldown -->
     <string name="title_quick_pulldown">빠른 내리기</string>
     <string name="summary_quick_pulldown">상태바의 %1$s쪽 끝을 끌어내리면 빠른 설정을 보여줍니다</string>
@@ -281,16 +279,16 @@
 
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">리스트뷰 인터폴레이터</string>
-    <string name="listview_accelerate_interpolator">Accelerate interpolator</string>
-    <string name="listview_decelerate_interpolator">Decelerate interpolator</string>
-    <string name="listview_accelerate_decelerate_interpolator">Accelerate decelerate interpolator</string>
-    <string name="listview_anticipate_interpolator">Anticipate interpolator</string>
-    <string name="listview_overshoot_interpolator">Overshoot interpolator</string>
-    <string name="listview_anticipate_overshoot_interpolator">Anticipate overshoot interpolator</string>
-    <string name="listview_bounce_interpolator">Bounce interpolator</string>    
+    <string name="listview_accelerate_interpolator">가속 인터폴레이터</string>
+    <string name="listview_decelerate_interpolator">감속 인터폴레이터</string>
+    <string name="listview_accelerate_decelerate_interpolator">가속/감속 인터폴레이터</string>
+    <string name="listview_anticipate_interpolator">예측 인터폴레이터</string>
+    <string name="listview_overshoot_interpolator">오버 슈트 인터폴레이터</string>
+    <string name="listview_anticipate_overshoot_interpolator">예측/오버 슈트 인터폴레이터</string>
+    <string name="listview_bounce_interpolator">바운스 인터폴레이터</string>
 
     
-    <string name="rr_navbar_title">네비게이션 바 옵셕</string>
+    <string name="rr_navbar_title">네비게이션 바 옵션</string>
     <string name="rr_statusbar_title">상태바 옵션</string>
     <!-- Heads Up -->
     <string name="category_heads_up">헤드업 알림</string>
@@ -302,21 +300,16 @@
     <string name="heads_up_dnd_title">방해 금지</string>
     <string name="heads_up_blacklist_title">블랙리스트</string>
     <string name="heads_up_disabled_notice">화면의 팝업 창에서 상호작용 알림을 표시하려면, 헤드업 알림을 활성화하세요.</string>
+    <string name="heads_up_floating_window_title">헤드업 알림</string>
+    <string name="heads_up_floating_window_summary">홈 화면이 아닐 때 길게 눌렀다 떼서 플로팅 모드로 실행합니다</string>
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">지속 시간</string>
-    <string name="heads_up_time_out_summary">알림이 <xliff:g id="number">%d</xliff:g>초 동안 표시됩니다</string>
-    <string name="heads_up_time_out_never_summary">알림이 지워질 때까지 표시합니다</string>
-    <string name="heads_up_time_out_2sec">2초</string>
-    <string name="heads_up_time_out_4sec">4초</string>
-    <string name="heads_up_time_out_6sec">6초</string>
-    <string name="heads_up_time_out_8sec">8초</string>
-    <string name="heads_up_time_out_10sec">10초</string>
-    <string name="heads_up_time_out_never">계속</string>   
-    <!-- interface categories -->
-    <string name="fullscreen_keyboard_title">전체 화면 키보드</string>
-    <string name="fullscreen_keyboard_summary">가로 화면에서 키보드를 전체 화면으로 표시합니다</string>   
-   <!-- Navigation Bar Dimensions -->
+
+    <!-- Heads up snooze -->
+    <string name="heads_up_snooze_title">다시 알림 타이머</string>
+
+    <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">모든 변경사항을 초기화 할까요?</string>
     <string name="navigation_bar_dimensions_title"><b>네비게이션 바 크기</b></string>
     <string name="navigation_bar_dimensions_title_summary">네비게이션 바 크기를 조정합니다</string>
@@ -365,9 +358,15 @@
     <string name="shortcut_action_help_icon">, 앱 아이콘을 누르면 있으면 개인화 옵션이 나타납니다</string>
     <string name="shortcut_action_help_main">%1$s를 추가하려면, 추가 아이콘을 선택하세요. %1$s가 추가되면, 항목을 선택하여 다른 앱으로 바꿀 수 있고%2$s\n\n%1$s를 삭제하려면, 삭제하려는 항목을 왼쪽이나 오른쪽으로 스와이프 하세요. 왼쪽의 바를 수직으로 드래그하여 목록의 %1$s 순서를 바꿀 수 있습니다.\n\n지우거나 기본으로 돌아가려면, 초기화 옵션을 사용하세요.</string>
     <string name="shortcut_action_help_delete_last_entry">목록에 있는 모든 %1$s를 삭제하면 기능이 비활성화 됩니다.</string>
-    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">목록에 있는 모든 %1$s를 삭제하면 두 번째 파이 레이어가 비활성화 됩니다.</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">목록에 있는 모든 %1$s를 삭제하면 두 번째 Pie 레이어가 비활성화 됩니다.</string>
     <string name="shortcuts_applications">애플리케이션</string>
-    <string name="shortcuts_select_custom_app_title">애플리케이션을 선택하세요</string>
+    <string name="shortcut_action_kill">애플리케이션 종료</string>
+    <string name="shortcut_action_restartui">시스템UI 재시작</string>
+    <string name="shortcut_action_lastapp">최근 애플리케이션</string>
+    <string name="shortcut_action_assist">검색</string>
+    <string name="shortcut_action_screenshot">스크린샷</string>
+    <string name="shortcut_action_torch">손전등</string>
+    <string name="shortcuts_select_custom_app_title">사용자 지정 애플리케이션을 선택하세요</string>
     <string name="shortcuts_icon_picker_type">아이콘 형식 선택:</string>
     <string name="shortcuts_icon_default">기본</string>
     <string name="shortcuts_icon_presets">시스템 아이콘</string>
@@ -523,7 +522,7 @@
     <string name="twitter">Twitter</string>
     <string name="viber">Viber</string>
     <string name="videocamera">비디오 카메라</string>
-    <string name="whatsapp">Whatsapp</string>
+    <string name="whatsapp">WhatsApp</string>
     <string name="wifi">Wi-Fi</string>
     <string name="xda">Xda</string>
     <string name="yahoo">Yahoo</string>
@@ -555,6 +554,9 @@
     <string name="gesture_anywhere_position_right">오른쪽 가장자리</string>
     <string name="gesture_anywhere_gestures_title">제스처</string>
     <string name="gesture_anywhere_gestures_summary">제스처를 추가, 삭제하고 수정합니다</string>
+    <string name="gesture_anywhere_floating">플로팅 모드</string>
+    <string name="gesture_anywhere_floating_summary">애플리케이션 단축키를 플로팅 모드로 실행합니다</string>
+
     <!-- Label, button used to add a gesture -->
     <string name="ga_button_add">제스처 추가</string>
     <!-- Label, button used to reload all gestures -->
@@ -683,6 +685,7 @@
     <!-- Lockscreen weather -->
     <string name="lock_screen_weather_settings_title"><b>잠금화면 날씨</b></string>
     <string name="lock_screen_weather_settings_title_summary">잠금화면 날씨 패널을 설정합니다</string>
+    <string name="weather_cat_notifications_title">알림</string>
     <string name="weather_show_weather_title">날씨 보이기</string>
     <string name="weather_show_weather_summary">날씨 정보를 표시합니다</string>
     <string name="weather_show_location_title">위치 보이기</string>
@@ -694,6 +697,22 @@
     <string name="weather_condition_icon_monochrome_title">흑백</string>
     <string name="weather_condition_icon_colored_title">색채화</string>
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_hide_panel_title">날씨 패널 숨기기</string>
+    <string name="weather_hide_panel_dlg_title">날씨 패널을 숨길 때를 선택합니다</string>
+    <string name="weather_hide_panel_auto_title">자동</string>
+    <string name="weather_hide_panel_custom_title">직접 설정</string>
+    <string name="weather_hide_panel_never_title">숨기지 않음</string>
+    <string name="weather_hide_panel_auto_summary">잠금화면에서 알림이 최대 표시 가능 개수를 초과했을 때 날씨 패널을 숨깁니다</string>
+    <string name="weather_hide_panel_custom_summary">알림이 직접 설정한 표시 개수 (%s개)를 초과했을 때 날씨 패널을 숨깁니다</string>
+    <string name="weather_hide_panel_never_summary">날씨 패널을 숨기지 않습니다</string>
+    <string name="weather_number_of_notifications_title">알림 표시 개수</string>
+    <string name="weather_number_of_notifications_dlg_title">날씨 패널을 숨길 알림 표시 개수를 선택합니다</string>
+    <string name="weather_number_of_notifications_always_title">항상</string>
+    <string name="weather_number_of_notifications_two_title">2개</string>
+    <string name="weather_number_of_notifications_three_title">3개</string>
+    <string name="weather_number_of_notifications_four_title">4개</string>
+    <string name="weather_number_of_notifications_five_title">5개</string>
+    <string name="weather_number_of_notifications_six_title">6개</string>
     <string name="weather_colorize_all_icons_title">모든 아이콘 색채화</string>
     <string name="weather_colorize_all_icons_summary">모든 아이콘을 색채화하려면 활성화 하고, 흑백 아이콘만 색채화하려면 비활성화 하세요</string>
     <string name="icons_title">아이콘</string>
@@ -709,12 +728,14 @@
     <string name="privacy_guard_notifiation_summary">프라이버시 가드가 활성화되면 알림을 표시합니다</string>
     
     <string name="rr_lockscreen_targets_message"><b>빠른 바로가기</b></string>
+
     <!-- Display settings screen, setting options for LCD density -->
     <string name="lcd_density">LCD 밀도</string>
-    <string name="lcd_density_summary">%d DPI</string>
-    <string name="lcd_density_default">기기 기본값</string>
-    <string name="lcd_density_unsupported">지원되지 않음</string>
-    <string name="restarting_ui">다시 시작하는중..</string>    
+    <string name="dialog_title_lcd_density">LCD 밀도</string>
+    <string name="lcd_density_value_format">%d DPI</string>
+    <string name="lcd_density_default_value_format">%d DPI (기본)</string>
+    <string name="restarting_ui">UI를 다시 시작하는 중\u2026</string>
+  
     <!-- QuickSettings 4 columns -->
     <string name="qs_four_columns_title">한 줄에 4개 타일 표시하기</string>
     <!-- QuickSettings tiles -->
@@ -731,6 +752,9 @@
     <string name="qs_ambient_display_tile">절전모드 자동 해제</string>
     <string name="qs_music_play_tile">음악 재생</string>
     <string name="qs_tile_heads_up">헤드업 알림</string>
+    <string name="qs_systemui_restart_tile">시스템UI 재시작</string>
+    <string name="qs_tile_slim_floats">Slim Floats</string>
+    <string name="qs_pie_tile">Pie</string>
     <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">잠금 아이콘을 길게 눌러 화면 끄기</string>
     <string name="longpress_lock_icon_to_sleep_summary">스마트 잠금이나 접근성 조작 설명이 활성화되면 작동하지 않습니다</string>    
@@ -821,8 +845,8 @@
     <string name="qs_color_switch_summary">색 조절을 활성화 합니다</string>
 
     <!-- Double Tap Navbar to Sleep -->
-    <string name="double_tap_sleep_nav_bar_title">더블 탭 하여 화면 끄기</string>
-    <string name="double_tap_sleep_nav_bar_summary">네비게이션 바를 더블 탭하여 화면을 끕니다</string>
+    <string name="double_tap_sleep_nav_bar_title">더블 탭으로 화면 끄기</string>
+    <string name="double_tap_sleep_nav_bar_summary">네비게이션 바를 더블 탭해서 화면을 끕니다</string>
     <!-- Force expand notifications -->
     <string name="notification_force_expand_title">알림 강제 확장</string>
     <string name="notification_force_expand_summary">지원하는 모든 앱의 알림을 강제로 확장합니다</string>
@@ -841,10 +865,6 @@
     <string name="heads_up_touch_outside_summary_enabled">바깥쪽을 터치하거나 홈 버튼을 눌러 알림을 숨깁니다</string>
     <string name="heads_up_touch_outside_summary_disabled">바깥쪽을 터치하거나 홈 버튼을 눌러도 알림을 숨기지 않습니다</string>
 
-    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
-    <string name="show_cpu_info">CPU 정보 보이기</string>
-    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
-    <string name="show_cpu_info_summary">현재의 CPU 상태를 보여주는 창을 표시합니다</string>
     <!-- long press back to kill configurable timeout -->
     <string name="kill_app_longpress_timeout_title">길게 누름 시간</string>
     <string name="timeout_2000">2초 (기본)</string>
@@ -931,9 +951,170 @@
     <!-- Notification drawer clear all icon -->
     <string name="notification_drawer_clear_all_icon_color_title">모든 아이콘 지우기</string>
 
-    <string name="background_header_title">헤더 배경 색</string>
     <!-- Task Manager -->
     <string name="enable_task_manager_title">작업 관리자</string>
-    <string name="enable_task_manager_summary">확장된 상태바에 작업 관리자 실행을 활성/비활성화 합니다.\n설정 변경 후 시스템UI가 재시작 됩니다!</string>
+    <string name="enable_task_manager_summary">확장된 상태바에 작업 관리자 실행을 활성화 하거나 비활성화 합니다.</string>
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSU</string>
 
+    <!-- Pie control -->
+    <string name="pie_control_title"><b>Pie 컨트롤</b></string>
+    <string name="pie_control_summary">화면에 Pie 컨트롤을 표시합니다</string>
+    <string name="pie_control_size">네비게이션 크기</string>
+    <string name="pie_control_trigger_positions"><b>트리거 위치 설정</b></string>
+    <string name="pie_control_trigger_left">화면 좌측에 설정</string>
+    <string name="pie_control_trigger_bottom">화면 하단에 설정</string>
+    <string name="pie_control_trigger_right">화면 우측에 설정</string>
+    <string name="pie_control_trigger_top">화면 상단에 설정</string>
+    <string name="pie_control_trigger_top_summary">상단 Pie는 상태와 시간 정보를 표시하지 않습니다</string>
+    <string name="pie_button_style">버튼 형식</string>
+    <string name="pie_button_color_title">버튼 색</string>
+    <string name="pie_button_alpha_title">버튼 투명도</string>
+    <string name="pie_button_outline_color_title">버튼 경계선 색</string>
+    <string name="pie_button_pressed_color_title">버튼을 누를 때의 색</string>
+    <string name="pie_button_long_pressed_color_title">버튼을 길게 누를 때의 색</string>
+    <string name="pie_button_pressed_alpha_title">버튼을 누를 때의 투명도</string>
+    <string name="pie_icon_style">버튼 아이콘 형식</string>
+    <string name="pie_icon_color_title">버튼 아이콘 색</string>
+    <string name="pie_icon_color_mode_title">버튼 아이콘 색 모드</string>
+    <string name="pie_icon_color_mode_dialog_title">색채화</string>
+    <string name="pie_icon_color_mode_summary">버튼 아이콘 색 모드를 변경합니다</string>
+    <string name="pie_trigger_note_title">주의</string>
+    <string name="pie_trigger_note_summary">상태바와 네비게이션 바와의 충돌을 피하기 위해, 상태바와 네비게이션 바가 있을 때 이 둘쪽에 있는 트리거는 자동으로 비활성화됩니다</string>
+    <string name="pie_background_color_title">배경 색</string>
+    <string name="pie_snap_color_title">스냅 포인트 색</string>
+    <string name="pie_text_color_title">글자 색</string>
+    <string name="pie_background_alpha_title">배경 투명도</string>
+    <string name="pie_mirror_right_title">오른쪽 Pie의 버튼 역순 표시</string>
+    <string name="pie_mirror_right_summary">오른쪽 Pie의 버튼을 역순으로 표시합니다</string>
+    <string name="pie_style"><b>형태와 크기</b></string>
+    <string name="pie_style_title">형태</string>
+    <string name="pie_dimens_title">크기</string>
+    <string name="pie_additional_options">추가 옵션</string>
+    <string name="pie_show_snap_title">스냅 포인트 표시</string>
+    <string name="pie_show_snap_summary">스냅 포인트를 표시하여 트리거 가장자리를 동적으로 변경합니다</string>
+    <string name="pie_show_text_title">상태 및 시간 표시</string>
+    <string name="pie_show_text_summary">기기 상태, 시간과 날짜 정보를 표시합니다</string>
+    <string name="pie_show_background_title">배경 표시</string>
+    <string name="pie_show_background_summary">Pie 배경화면을 표시합니다</string>
+    <string name="pie_button"><b>버튼</b></string>
+    <string name="pie_button_second_layer">두번째 레이어 버튼</string>
+    <string name="pie_button_second_layer_summary">두번째 레이어 버튼을 변경합니다</string>
+    <string name="pie_button_style_summary">Pie 버튼 형태를 변경합니다</string>
+    <string name="pie_style_reset_message">모든 값을 초기화할까요?</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">모든 %1$s을(를) 제거하면 두번째 Pie 레이어를 완전히 비활성화 합니다.</string>
+    <string name="icon_color_mode_all_icons">모든 아이콘</string>
+    <string name="icon_color_mode_system_icons">시스템 아이콘</string>
+    <string name="icon_color_mode_system_custom_icons">시스템과 사용자 아이콘</string>
+    <string name="pie_disable_ime_triggers_title">키보드에서 트리거 크기 줄이기</string>
+    <string name="pie_disable_ime_triggers_summary">키보드가 있을 때 좌측이나 우측 트리거 크기를 줄입니다</string>
+    <string name="pie_trigger_sensitivity_title">트리거 민감도</string>
+    <string name="pie_trigger_sensitivity_summary">Pie 트리거의 민감도를 조절합니다</string>
+    <string name="additional_options_title">추가 옵션</string>
+
+    <string name="qs_tile_reboot">다시 시작</string>
+    <string name="qs_tile_powermenu">전원 메뉴</string>
+
+    <!-- Navigation bar visibility -->
+    <string name="navigation_menu_default_jb_behavior">요청에 따라 표시 (기본)</string>
+    <string name="navigation_menu_never_show">절대 표시 안함</string>
+    <string name="navigation_menu_always_show">항상 표시</string>
+    <string name="title_pref_menu_display">메뉴 버튼 보이기</string>
+    <string name="summary_pref_menu_display">메뉴 버튼의 표시 방식을 설정합니다</string>
+
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">볼륨 키로 전화 받기</string>
+    <string name="volume_answer_call_summary">볼륨+ 키로 전화를 받습니다</string>
+
+
+    <!-- Slim Shortcuts -->
+    <string name="slim_shortcut_picker">Slim Action</string>
+    <string name="qs_tile_slimaction">SlimAction</string>
+    <string name="qs_slim_action_summary">SlimAction을 추가하고 순서를 설정합니다</string>
+    <string name="qs_slim_action_title">SlimAction</string>
+
+    <!-- Custom Over scroll Settings -->
+    <string name="ui_overscroll_title">오버 스크롤 효과</string>
+    <string name="overscroll_glow_title">오버 스크롤 색</string>
+    <string name="edge_effect_title">가장자기 빛나기</string>
+    <string name="bounce_effect_title">튕겨내기</string>
+    <string name="none_effect_title">없음</string>
+    <string name="extra_heavy_title">가장 무겁게</string>
+    <string name="heavy_title">무겁게</string>
+    <string name="medium_title">중간</string>
+    <string name="light_title">가볍게</string>
+    <string name="extra_light_title">가장 가볍게</string>
+    <string name="overscroll_title">오버 스크롤 효과</string>
+    <string name="overscroll_summary">오버 스크롤의 효과를 선택합니다</string>
+    <string name="overscroll_weight_title">오버 스크롤 정도</string>
+    <string name="overscroll_weight_summary">오버 스크롤의 정도를 선택합니다</string>
+
+    <!-- Recent panel -->
+    <string name="recent_panel_slim">Slim Recents 작업 패널</string>
+    <string name="recent_panel_slim_summary">Slim Recents 작업 패널 설정</string>
+    <string name="recent_panel_category">Slim Recents 앱 패널</string>
+    <string name="use_slim_recents_title">Slim Recents</string>
+    <string name="show_running_tasks_title">실행중인 앱만 표시</string>
+    <string name="recents_max_apps_title">최대 허용 애플리케이션 개수</string>
+    <string name="recent_panel_scale_title">크기</string>
+    <string name="recent_panel_scale_summary">최근 실행목록 크기</string>
+    <string name="recent_panel_100">100% (기본)</string>
+    <string name="recent_panel_85">85%</string>
+    <string name="recent_panel_70">70%</string>
+    <string name="recent_panel_expanded_mode_title">확장 모드</string>
+    <string name="recent_panel_expanded_mode_summary">최근 실행목록이 확장된 미리보기 모드로 표시됩니다</string>
+    <string name="recent_panel_expanded_mode_auto">자동 (기본)</string>
+    <string name="recent_panel_expanded_mode_always">항상</string>
+    <string name="recent_panel_expanded_mode_never">사용 안함</string>
+    <string name="recent_panel_show_topmost_title">현재 실행중인 작업 표시</string>
+    <string name="recent_panel_show_topmost_summary">최근 실행 목록에 현재 실행중인 작업을 제외하지 않습니다</string>
+    <string name="recent_panel_bg_color_title">패널 배경 색</string>
+    <string name="recent_card_bg_color_title">카드 배경 색</string>
+    <string name="recent_card_text_color_title">카드 글씨 색</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">왼쪽 가장자리에 표시</string>
+    <string name="recent_panel_lefty_mode_summary">최근 실행목록 패널을 왼쪽 가장자리에 표시합니다</string>
+
+    <!-- Updater -->
+    <string name="updater_title">업데이트</string>
+    <string name="updater_summary">업데이트를 확인합니다</string>
+
+    <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
+    <string name="double_tap_sleep_anywhere_title">화면 아무 곳에서 더블 탭으로 화면 끄기</string>
+    <string name="double_tap_sleep_anywhere_summary">잠금화면의 아무 곳을 더블 탭하여 기기의 화면을 끕니다</string>
+
+    <!-- Floating Windows -->
+    <string name="slim_action_floats">Slim Action과 Pie</string>
+    <string name="slim_action_floats_summary">Slim과 Pie 액션을 플로팅 윈도우 모드로 실행합니다</string>
+
+    <!-- Selinux Switch -->
+    <string name="selinux_switch_title">SELinux 전환 옵션</string>
+    <string name="selinux_switch_summary">SELinux는 커널 수정과 사용자 공간 도구의 모음입니다. 모드의 전환은 원치 않은 효과를 불러올 수 있으며, 책임은 사용자 자신에게 있습니다.</string>
+    <string name="selinux_title">SELinux 모드</string>
+    <string name="selinux_permissive_title">Permissive</string>
+    <string name="selinux_enforcing_title">Enforcing</string>
+
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">앱 사이드바</string>
+    <string name="app_sidebar_enable_title">사이드바 활성화</string>
+    <string name="app_sidebar_enable_summaryOn">사이드바가 활성화됨</string>
+    <string name="app_sidebar_enable_summaryOff">사이드바가 비활성화됨</string>
+    <string name="app_sidebar_setup_items_title">사이드바 항목 설정</string>
+    <string name="app_sidebar_setup_items_summary">사이드바의 항목들을 추가, 위치조정 혹은 삭제합니다</string>
+    <string name="app_sidebar_transparency_title">사이드바 투명도</string>
+    <string name="app_sidebar_transparency_summary">사이드바의 투명도를 조절합니다</string>
+    <string name="app_sidebar_position_title">사이드바 위치</string>
+    <string name="app_sidebar_position_summary">사이드바를 화면의 어느 쪽에 표시할지 선택합니다</string>
+    <string name="app_sidebar_position_left">왼쪽</string>
+    <string name="app_sidebar_position_right">오른쪽</string>
+    <string name="app_sidebar_hide_labels_title">아이콘 이름 숨기기</string>
+    <string name="app_sidebar_hide_labels_summary">사이드바에서 아이콘의 이름을 표시하지 않습니다</string>
+    <string name="tab_category">탭 설정</string>
+    <string name="use_tab_title">탭 보이기</string>
+    <string name="use_tab_summary">누르면 사이드바를 실행하는 탭을 표시합니다.</string>
+    <string name="tab_position_title">탭 위치</string>
+    <string name="tab_position_summary">탭을 화면의 상단, 중앙 혹은 하단에 표시합니다.</string>
+    <string name="tab_size_title">탭 크기</string>
+    <string name="tab_size_summary">탭의 크기를 조절합니다.</string>
 </resources>
