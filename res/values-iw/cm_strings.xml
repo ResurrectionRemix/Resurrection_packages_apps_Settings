@@ -105,6 +105,7 @@
   <string name="hardware_keys_menu_key_title">לחצן התפריט</string>
   <string name="hardware_keys_assist_key_title">לחצן חיפוש</string>
   <string name="hardware_keys_appswitch_key_title">לחצן יישומים אחרונים</string>
+  <string name="hardware_keys_camera_key_title">לחצן מצלמה</string>
   <string name="hardware_keys_volume_keys_title">לחצני עוצמת קול</string>
   <string name="hardware_keys_short_press_title">פעולה בלחיצה קצרה</string>
   <string name="hardware_keys_long_press_title">פעולה בלחיצה ארוכה</string>
@@ -118,6 +119,9 @@
   <string name="hardware_keys_action_launch_camera">הפעל מצלמה</string>
   <string name="hardware_keys_action_sleep">כבה את המסך</string>
   <string name="hardware_keys_action_last_app">יישום אחרון</string>
+  <string name="camera_sleep_on_release_summary">חצי לחיצה תשמור את המסך דלוק כל עוד הכפתור לחוץ</string>
+  <string name="camera_launch_title">הפעל מצלמה</string>
+  <string name="camera_launch_summary">לחיצה ארוכה ושחרור תפעיל את המצלמה</string>
   <string name="volbtn_music_controls_title">מעביר מוזיקה</string>
   <string name="volbtn_music_controls_summary">כאשר המסך כבוי, הקשה ארוכה על מקשי עוצמת הקול יזיז את רצועת המוזיקה</string>
   <string name="volbtn_cursor_control_title">שליטה בסמן עם מקלדת</string>
@@ -667,24 +671,11 @@
   <string name="picker_activities">פעילויות</string>
   <string name="select_custom_app_title">בחר יישום אחר</string>
   <string name="select_custom_activity_title">בחר הפעילות המותאמת אישית</string>
-  <string name="performance_settings_title">ביצועים</string>
-  <string name="io_scheds_title">מתזמן קלט/פלט</string>
-  <string name="io_sched_title">מתזמן קלט/פלט</string>
+  <string name="autoperf_title">הפעל פרופילים מותאמים לכל יישום</string>
+  <string name="autoperf_summary">בחר באופן אוטומטי את מצב הסוללה המתאים עבור יישומים שונים</string>
   <string name="perf_profile_title">מצב סוללה</string>
   <string name="pref_force_highend_gfx_title">הכרח גרפיקה באיכות גבוהה</string>
   <string name="pref_force_highend_gfx_summary">אפשר אפקטים ויזואליים מתקדמים כמו ברים שקופים (דורש אתחול)</string>
-  <string name="performance_settings_warning_title">המשך בזהירות</string>
-  <string name="performance_settings_warning">הגדרות אלה ניסיוניות, והחלת השינויים עלולה לגרום לחוסר יציבות, קריסות, איבוד מידע או כשל חומרתי.\n\nאנו מבקשים לא למלא דיווח באגים אם בוצעו שינויים באחת (או יותר) מהגדרות אלו.</string>
-  <string name="performance_set_on_boot">קבע כל אתחול</string>
-  <string name="performance_set_on_boot_summary">שחזר הגדרות לאחר אתחול</string>
-  <string name="processor_title">מעבד</string>
-  <string name="cpu_cur_freq_title">מהירות מעבד נוכחי</string>
-  <string name="cpu_governors_title">ניהול CPU</string>
-  <string name="cpu_min_freq_title">תדר מעבד מינימלי</string>
-  <string name="cpu_max_freq_title">תדר מעבד מרבי</string>
-  <string name="autoperf_title">הפעל פרופילים מותאמים לכל יישום</string>
-  <string name="autoperf_summary">בחר באופן אוטומטי פרופיל ביצועים מתאים ליישומים שונים</string>
-  <string name="graphics_title">גרפיקה ועיבוד</string>
   <string name="edge_gesture_service_title">חסום אירועי מחוות מגע</string>
   <string name="edge_gesture_service_summary">אל תשלח נגיעות בסרגל הניווט ובשורת המצב לאפליקציות</string>
   <string name="cmlicense_title">CyanogenMod משפטי</string>
@@ -885,15 +876,6 @@
   <string name="wifi_setting_countrycode_title">קוד אזור Wi-Fi</string>
   <string name="wifi_setting_countrycode_summary">ציין קוד אזור עבור Wi-Fi</string>
   <string name="wifi_setting_countrycode_error">אירעה שגיאה בהגדרת הקוד האזורי.</string>
-  <string name="unlock_set_unlock_mode_fingerprint">טביעת אצבע</string>
-  <string name="unlock_set_unlock_fingerprint_title">טביעת אצבע</string>
-  <string name="fingerprint_item_add_new_fingerprint">הוסף טביעת אצבע חדשה</string>
-  <string name="fingerprint_manage_fingerprints">נהל טביעות אצבע</string>
-  <string name="unlock_backup_fingerprint_info_summary">אם אתה לא יכול להשתמש באצבע שלך, אז איך אתה רוצה לשחרר את הנעילה?</string>
-  <string name="fingerprint_dialog_title_rename">ערוך טביעת אצבע</string>
-  <string name="fingerprint_dialog_name_label">שם טביעת אצבע</string>
-  <string name="fingerprint_dialog_title_max_fingers_reached">הגעת למספר טביעות האצבע המרבי</string>
-  <string name="fingerprint_dialog_msg_max_fingers_reached">אתה יכול להכניס לרשימה רק עד <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> טביעות אצבע. מחק טביעת אצבע קיימת.</string>
   <string name="wifi_countrycode_entries_us">ארצות הברית</string>
   <string name="wifi_countrycode_entries_ca">קנדה, טאיוואן</string>
   <string name="wifi_countrycode_entries_de">גרמניה</string>
@@ -906,4 +888,36 @@
   <string name="wifi_countrycode_entries_sg">ישראל, סינגפור</string>
   <string name="wifi_countrycode_entries_br">ברזיל</string>
   <string name="wifi_countrycode_entries_in">הודו</string>
+  <string name="unlock_set_unlock_mode_fingerprint">טביעת אצבע</string>
+  <string name="unlock_set_unlock_fingerprint_title">טביעת אצבע</string>
+  <string name="fingerprint_item_add_new_fingerprint">הוסף טביעת אצבע חדשה</string>
+  <string name="fingerprint_manage_fingerprints">נהל טביעות אצבע</string>
+  <string name="unlock_backup_fingerprint_info_summary">אם אתה לא יכול להשתמש באצבע שלך, אז איך אתה רוצה לשחרר את הנעילה?</string>
+  <string name="fingerprint_dialog_title_rename">ערוך טביעת אצבע</string>
+  <string name="fingerprint_dialog_name_label">שם טביעת אצבע</string>
+  <string name="fingerprint_dialog_title_max_fingers_reached">הגעת למספר טביעות האצבע המרבי</string>
+  <string name="fingerprint_dialog_msg_max_fingers_reached">אתה יכול להכניס לרשימה רק עד <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> טביעות אצבע. מחק טביעת אצבע קיימת.</string>
+  <string name="fingerprint_title_manage_fingerprints">נהל טביעות אצבעות <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="fingerprint_enrollment_introduction_title">מצא את החיישן שלך</string>
+  <string name="fingerprint_enrollment_scan_title">החזק למשך 3 שניות</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">אנא נסה שנית</string>
+  <string name="fingerprint_enrollment_finished_title">טביעת אצבע הוספה!</string>
+  <string name="fingerprint_enrollment_found_it_label">מצאתי את זה</string>
+  <string name="fingerprint_enrollment_add_another_label">הוסף עוד</string>
+  <string name="fingerprint_enrollment_done_label">סיום</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">אופס, זה לא החיישן שלך</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">נסה להשתמש באצבע אחרת. טביעת אצבע זאת אינה ניתנת לקריאה.</string>
+  <string name="fingerprint_successful_scan_title_first">מושלם! עכשיו עוד פעם</string>
+  <string name="fingerprint_successful_scan_final">עוד פעם אחת, בבקשה</string>
+  <string name="fingerprint_successful_scan_title_1">יש לך את זה! תמשיך ככה</string>
+  <string name="fingerprint_successful_scan_title_2">נהדר! ועוד פעם</string>
+  <string name="fingerprint_successful_scan_title_3">עבודה טובה! תמשיך ככה</string>
+  <string name="fingerprint_successful_scan_title_4">רק עוד כמה פעמים</string>
+  <string name="fingerprint_successful_scan_title_5">אתה מתקדם נהדר! ועוד פעם</string>
+  <string name="fingerprint_successful_scan_title_6">כמעט שם</string>
+  <string name="fingerprint_enrollment_error_title_1">אופס. נסה שוב</string>
+  <string name="fingerprint_enrollment_error_title_2">מצטער, לא קלטתי את זה</string>
+  <string name="fingerprint_enrollment_error_title_3">הממ... משהו השתבש</string>
+  <string name="fingerprint_enrollment_error_title_5">אופס, אירעה שגיאה</string>
+  <string name="setup_lock_pattern_size_title">סיבוכיות הדפוס</string>
 </resources>

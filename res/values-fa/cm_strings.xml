@@ -36,6 +36,7 @@
   <string name="profiles_add">افزودن</string>
   <string name="profile_settings_title">پروفایل</string>
   <string name="profile_empty_list_profiles_off">برای پیکربندی و استفاده از پروفایل‌های سیستم، پروفیل‌ها را روشن کنید.</string>
+  <string name="profile_trigger_configure">پیکربندی راه‌انداز</string>
   <string name="profile_write_nfc_tag">نوشتن روی برچسب ان‌اف‌سی</string>
   <string name="profile_write_touch_tag">برچسب را برای نوشتن لمس کنید</string>
   <string name="profile_write_success">برچسب با موفقیت نوشته شده است</string>
@@ -62,8 +63,8 @@
   <string name="profile_profile_manage">مدیریت پروفایل</string>
   <string name="profile_settings">تنظیمات پروفایل</string>
   <string name="profile_trigger_connect">هنگام اتصال</string>
-  <string name="profile_trigger_disconnect">هنگام قطع</string>
-  <string name="profile_trigger_notrigger">بدون محرک</string>
+  <string name="profile_trigger_disconnect">هنگام قطع اتصال</string>
+  <string name="profile_trigger_notrigger">بدون راه‌انداز</string>
   <string name="profile_applist_title">برنامه‌ها</string>
   <string name="profile_choose_app">انتخاب برنامه</string>
   <string name="profile_system_settings_title">تنظیمات سیستم</string>
@@ -299,6 +300,9 @@
   <string name="profile_tabs_wifi">وای‌فای</string>
   <string name="profile_tabs_bluetooth">بلوتوث</string>
   <string name="profile_tabs_nfc">ان‌اف‌سی</string>
+  <string name="profile_triggers_header">راه‌اندازهایی که باعث فعال‌شدن این پروفایل می‌شوند</string>
+  <string name="profile_setup_setup_triggers_title">مرحله ۱: افزودن راه‌اندازها</string>
+  <string name="profile_setup_setup_triggers_title_config">تغییر راه‌اندازها: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_appgroup_name_title">نام</string>
   <string name="profile_app_delete_confirm">این برنامه را حذف می‌کنید؟</string>
   <string name="sound_mode">حالت اعلان</string>
@@ -308,6 +312,11 @@
   <string name="choose_soundtone">انتخاب صدای اعلان</string>
   <string name="choose_ringtone">انتخاب آهنگ زنگ</string>
   <string name="soundtone_title">صدای اعلان</string>
+  <string name="no_bluetooth_triggers">هیچ دستگاه بلوتوثی جفت نشد.\nقبل از پیکربندی راه‌اندازها، برای جفت‌شدن بلوتوث ضربه بزنید.</string>
+  <string name="no_wifi_triggers">هیچ نقطه دسترسی وای‌فای پیدا نشد.\nقبل از پیکربندی راه‌اندازها، برای اتصال به وای‌فای ضربه بزنید.</string>
+  <string name="no_triggers_configured">هیچ راه‌اندازی پیکربندی نشد. برای افزودن بیشتر ضربه بزنید.</string>
+  <string name="no_triggers_configured_nfc">برای تنظیم راه‌انداز ان‌اف‌سی جدید ضربه بزنید.</string>
+  <string name="profile_setup_setup_triggers_description">لطفاً راه‌اندازهای فعال کننده این پروفایل را انتخاب کنید</string>
   <string name="font_size_sample">نمونه</string>
   <string name="volume_adjust_sounds_title">تن تنظیم بلندی صدا</string>
   <string name="vibrator_intensity_title">شدت لرزش</string>
@@ -339,22 +348,10 @@
   <string name="power_notifications_ringtone_silent">سکوت</string>
   <string name="voice_wakeup_default_activity">اکنون گوگل</string>
   <string name="picker_activities">فعالیت‌ها</string>
-  <string name="performance_settings_title">کارایی</string>
-  <string name="io_scheds_title">زمان‌بند ورود/خروج</string>
-  <string name="io_sched_title">زمان‌بند ورود/خروج</string>
+  <string name="autoperf_title">فعال‌سازی پروفایل درون‌برنامه‌ای</string>
   <string name="perf_profile_title">حالت باتری</string>
   <string name="pref_force_highend_gfx_title">تحمیل گرافیک بالا</string>
   <string name="pref_force_highend_gfx_summary">جلوه‌های بصری بالا مانند نوار پیمایش/وضعیت شفاف را فعال می‌سازد (به راه‌اندازی مجدد نیاز دارد)</string>
-  <string name="performance_settings_warning_title">با احتیاط این کار را انجام دهید</string>
-  <string name="performance_set_on_boot">تنظیم در راه‌اندازی</string>
-  <string name="performance_set_on_boot_summary">بازیابی تنظیمات در راه‌اندازی</string>
-  <string name="processor_title">پردازنده</string>
-  <string name="cpu_cur_freq_title">فرکانس فعلی پردازنده</string>
-  <string name="cpu_governors_title">فرمان‌گر پردازنده</string>
-  <string name="cpu_min_freq_title">حداقل فرکانس پردازنده</string>
-  <string name="cpu_max_freq_title">حداکثر فرکانس پردازنده</string>
-  <string name="autoperf_title">فعال‌سازی پروفایل درون‌برنامه‌ای</string>
-  <string name="autoperf_summary">به صورت خودکار پروفایل کارایی مناسب را برای برنامه‌های مختلف انتخاب کن</string>
   <string name="lockpattern_settings_enable_error_path_title">نمایش خطای الگو</string>
   <string name="lockpattern_settings_enable_dots_title">نمایش نقطه‌های الگو</string>
   <string name="unlock_quick_unlock_control_title">بازگشایی سریع</string>
