@@ -93,6 +93,7 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
 
         if (needsFallback) {
             Intent fallBackIntent = new Intent().setClass(this, SetupChooseLockGeneric.class);
+            fallBackIntent.putExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK, true);
             fallBackIntent.putExtra(LockPatternUtils.LOCKSCREEN_FINGERPRINT_FALLBACK, true);
             fallBackIntent.putExtra(ManageFingerprints.CONFIRM_CREDENTIALS, false);
             fallBackIntent.putExtra(EXTRA_SHOW_FRAGMENT_TITLE,
