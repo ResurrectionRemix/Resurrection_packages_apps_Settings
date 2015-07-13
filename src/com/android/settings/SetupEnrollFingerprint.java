@@ -145,10 +145,12 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
         protected void updateStage(Stage stage) {
             super.updateStage(stage);
             final SetupWizardNavBar setupBar = getEnrollmentActivity().getSetupBar();
-            setupBar.getBackButton().setVisibility(View.VISIBLE);
-            if (stage == Stage.EnrollmentFinished) {
+            if (stage != Stage.EnrollmentFinished) {
+                setupBar.getBackButton().setVisibility(View.VISIBLE);
+            } else {
                 // setup needs the label to say "NEXT" instead of "DONE"
                 setupBar.getNextButton().setText(R.string.next_label);
+                setupBar.getBackButton().setVisibility(View.INVISIBLE);
             }
         }
 
@@ -172,10 +174,6 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
             switch (mUiStage) {
                 case EnrollmentFinished:
                     getActivity().setResult(Activity.RESULT_OK);
-                    Intent intent = new Intent(getActivity(), SetupManageFingerprints.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                    SetupWizardUtils.copySetupExtras(getActivity().getIntent(), intent);
-                    startActivity(intent);
                     getActivity().finish();
                     break;
                 default:
