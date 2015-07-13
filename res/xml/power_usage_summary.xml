@@ -34,6 +34,11 @@
             android:key="low_power"
             android:title="@string/battery_saver"/>
 
+    <PreferenceScreen
+            android:key="battery_saver_settings"
+            android:title="@string/battery_saver"
+            android:fragment="com.android.settings.fuelgauge.BatterySaverSettings" />
+
     <PreferenceCategory
             android:title="@string/power_usage_history_title"
             settings:keywords="@string/keywords_battery"
