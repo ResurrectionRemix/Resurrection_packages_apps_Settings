@@ -309,7 +309,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         } else if (preference == mCarrierLabelOnLockScreen) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCK_SCREEN_HIDE_CARRIER,
-                    (Boolean) objValue ? 1 : 0);
+                    (Boolean) newValue ? 1 : 0);
             Helpers.restartSystemUI();
             return true;  
         }
