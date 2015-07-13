@@ -146,6 +146,10 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
             super.updateStage(stage);
             final SetupWizardNavBar setupBar = getEnrollmentActivity().getSetupBar();
             setupBar.getBackButton().setVisibility(View.VISIBLE);
+            if (stage == Stage.EnrollmentFinished) {
+                // setup needs the label to say "NEXT" instead of "DONE"
+                setupBar.getNextButton().setText(R.string.next_label);
+            }
         }
 
         @Override
