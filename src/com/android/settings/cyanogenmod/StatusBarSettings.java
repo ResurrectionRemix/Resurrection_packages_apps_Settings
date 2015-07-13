@@ -41,6 +41,8 @@ import android.view.View;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.util.AbstractAsyncSuCMDProcessor;
+import com.android.settings.util.CMDProcessor;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.util.Helpers;
@@ -69,7 +71,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
     private static final String KEY_LOGO_COLOR = "status_bar_logo_color";
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
-
+    private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
+    
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
@@ -79,7 +82,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mLogoColor;
     private SwitchPreference mEnableTaskManager;
     private String mCustomGreetingText = "";
-
+    private SwitchPreference mCarrierLabelOnLockScreen;
+    
     private static final String TAG = "StatusBar";
 
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
@@ -170,7 +174,20 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             prefSet.removePreference(mCarrierLabel);
           }
         }
-        
+
+        //CarrierLabel on LockScreen
+        mCarrierLabelOnLockScreen = (SwitchPreference) findPreference(CARRIERLABEL_ON_LOCKSCREEN);
+        if (!Utils.isWifiOnly(getActivity())) {
+            mCarrierLabelOnLockScreen.setOnPreferenceChangeListener(this);
+
+            boolean hideCarrierLabelOnLS = Settings.System.getInt(
+                    getActivity().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0) == 1;
+            mCarrierLabelOnLockScreen.setChecked(hideCarrierLabelOnLS);
+        } else {
+            prefSet.removePreference(mCarrierLabelOnLockScreen);
+        }
+       
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
         if (lockPatternUtils.isSecure()) {
@@ -288,6 +305,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO_COLOR, intHex);
+            return true;
+        } else if (preference == mCarrierLabelOnLockScreen) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_HIDE_CARRIER,
+                    (Boolean) objValue ? 1 : 0);
+            Helpers.restartSystemUI();
             return true;  
         }
         return false;

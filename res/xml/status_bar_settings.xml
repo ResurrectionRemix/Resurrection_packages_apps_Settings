@@ -113,6 +113,12 @@
         android:entries="@array/status_bar_battery_percentage_entries"
         android:entryValues="@array/status_bar_battery_percentage_values" />
 
+    <!-- Hide carrier on lock screen -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="lock_screen_hide_carrier"
+        android:title="@string/lock_screen_hide_carrier_title"
+        android:summary="@string/lock_screen_hide_carrier_summary" />
+
     <PreferenceScreen
         android:key="carrier_options"
         android:fragment="com.android.settings.rr.CarrierLabel"
