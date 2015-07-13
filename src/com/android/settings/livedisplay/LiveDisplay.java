@@ -63,19 +63,20 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
 
     private static final String KEY_LIVE_DISPLAY = "live_display";
     private static final String KEY_LIVE_DISPLAY_AUTO_OUTDOOR_MODE =
-            "live_display_auto_outdoor_mode";
-    private static final String KEY_LIVE_DISPLAY_LOW_POWER = "live_display_low_power";
-    private static final String KEY_LIVE_DISPLAY_COLOR_ENHANCE = "live_display_color_enhance";
+            "display_auto_outdoor_mode";
+    private static final String KEY_LIVE_DISPLAY_LOW_POWER = "display_low_power";
+    private static final String KEY_LIVE_DISPLAY_COLOR_ENHANCE = "display_color_enhance";
     private static final String KEY_LIVE_DISPLAY_TEMPERATURE = "live_display_color_temperature";
 
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
     private static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
     private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
 
-    public static final int MODE_DAY = 0;
+    public static final int MODE_OFF = 0;
     public static final int MODE_NIGHT = 1;
     public static final int MODE_AUTO = 2;
     public static final int MODE_OUTDOOR = 3;
+    public static final int MODE_DAY = 4;
 
     private final Handler mHandler = new Handler();
     private final SettingsObserver mObserver = new SettingsObserver();
@@ -224,10 +225,17 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private void updateModeSummary() {
         int mode = CMSettings.System.getIntForUser(getContentResolver(),
                 CMSettings.System.DISPLAY_TEMPERATURE_MODE,
-                MODE_DAY, UserHandle.USER_CURRENT);
+                MODE_OFF, UserHandle.USER_CURRENT);
 
         int index = ArrayUtils.indexOf(mModeValues, String.valueOf(mode));
         mLiveDisplay.setSummary(mModeSummaries[index]);
+
+        if (mDisplayTemperature != null) {
+            mDisplayTemperature.setEnabled(mode != MODE_OFF);
+        }
+        if (mOutdoorMode != null) {
+            mOutdoorMode.setEnabled(mode != MODE_OFF);
+        }
     }
 
     private void updateTemperatureSummary() {
@@ -273,9 +281,9 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
         public void register(boolean register) {
             final ContentResolver cr = getContentResolver();
             if (register) {
-                cr.registerContentObserver(DISPLAY_TEMPERATURE_DAY_URI, false, this);
-                cr.registerContentObserver(DISPLAY_TEMPERATURE_NIGHT_URI, false, this);
-                cr.registerContentObserver(DISPLAY_TEMPERATURE_MODE_URI, false, this);
+                cr.registerContentObserver(DISPLAY_TEMPERATURE_DAY_URI, false, this, UserHandle.USER_ALL);
+                cr.registerContentObserver(DISPLAY_TEMPERATURE_NIGHT_URI, false, this, UserHandle.USER_ALL);
+                cr.registerContentObserver(DISPLAY_TEMPERATURE_MODE_URI, false, this, UserHandle.USER_ALL);
             } else {
                 cr.unregisterContentObserver(this);
             }
