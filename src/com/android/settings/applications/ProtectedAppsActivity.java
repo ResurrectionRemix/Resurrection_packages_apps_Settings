@@ -20,7 +20,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -30,13 +29,15 @@ import com.android.settings.cyanogenmod.ProtectedAppsReceiver;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ProtectedAppsActivity extends Activity {
     private static final int REQ_ENTER_PATTERN = 1;
     private static final int REQ_RESET_PATTERN = 2;
-    private static final String AUTH_KEY = "auth_key";
+
+    private static final String NEEDS_UNLOCK = "needs_unlock";
 
     private ListView mListView;
 
@@ -50,14 +51,13 @@ public class ProtectedAppsActivity extends Activity {
     private ArrayList<ComponentName> mProtect;
 
     private boolean mWaitUserAuth = false;
+    private boolean mUserIsAuth = false;
+
+    private HashSet<ComponentName> mProtectedApps = new HashSet<ComponentName>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            mWaitUserAuth = savedInstanceState.getBoolean(AUTH_KEY);
-        }
 
         setTitle(R.string.protected_apps);
         setContentView(R.layout.hidden_apps_list);
@@ -70,17 +70,27 @@ public class ProtectedAppsActivity extends Activity {
         mListView.setAdapter(mAppsAdapter);
 
         mProtect = new ArrayList<ComponentName>();
+
+        if (savedInstanceState != null) {
+            mUserIsAuth = savedInstanceState.getBoolean(NEEDS_UNLOCK);
+        }
+
+        if (!mUserIsAuth) {
+            // Require unlock
+            Intent lockPattern = new Intent(this, LockPatternActivity.class);
+            startActivityForResult(lockPattern, REQ_ENTER_PATTERN);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(NEEDS_UNLOCK, mUserIsAuth);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        // Require unlock
-        if (!mWaitUserAuth) {
-            Intent lockPattern = new Intent(this, LockPatternActivity.class);
-            startActivityForResult(lockPattern, REQ_ENTER_PATTERN);
-        }
 
         AsyncTask<Void, Void, List<AppEntry>> refreshAppsTask =
                 new AsyncTask<Void, Void, List<AppEntry>>() {
@@ -99,22 +109,37 @@ public class ProtectedAppsActivity extends Activity {
         refreshAppsTask.execute(null, null, null);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Update Protected Apps list
+        updateProtectedComponentsList();
     }
 
-    private boolean getProtectedStateFromComponentName(ComponentName componentName) {
-        PackageManager pm = getPackageManager();
-
-        try {
-            return pm.getApplicationInfo(componentName.getPackageName(), 0).protect;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
+    private void updateProtectedComponentsList() {
+        String protectedComponents = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.PROTECTED_COMPONENTS);
+        protectedComponents = protectedComponents == null ? "" : protectedComponents;
+        String [] flattened = protectedComponents.split("\\|");
+        mProtectedApps = new HashSet<ComponentName>(flattened.length);
+        for (String flat : flattened) {
+            ComponentName cmp = ComponentName.unflattenFromString(flat);
+            if (cmp != null) {
+                mProtectedApps.add(cmp);
+            }
         }
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean(AUTH_KEY, mWaitUserAuth);
-        super.onSaveInstanceState(outState);
+    public void onPause() {
+        super.onPause();
+
+        // Don't stick around
+        if (mWaitUserAuth && !mUserIsAuth) {
+            finish();
+        }
+    }
+
+    private boolean getProtectedStateFromComponentName(ComponentName componentName) {
+        return mProtectedApps.contains(componentName);
     }
 
     @Override
@@ -125,6 +150,7 @@ public class ProtectedAppsActivity extends Activity {
                 switch (resultCode) {
                     case RESULT_OK:
                         //Nothing to do, proceed!
+                        mUserIsAuth = true;
                         break;
                     case RESULT_CANCELED:
                         // user failed to define a pattern, do not lock the folder
@@ -134,6 +160,7 @@ public class ProtectedAppsActivity extends Activity {
                 break;
             case REQ_RESET_PATTERN:
                 mWaitUserAuth = true;
+                mUserIsAuth = false;
         }
     }
 
@@ -266,6 +293,7 @@ public class ProtectedAppsActivity extends Activity {
                         appList.componentNames, appList.state);
             }
 
+            updateProtectedComponentsList();
             return null;
         }
     }
