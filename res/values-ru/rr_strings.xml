@@ -71,7 +71,6 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Задать</string>
-    <string name="color_default">По умолчанию</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="device_settings_title">Устройство</string>
@@ -94,6 +93,7 @@
     <string name="listview_category_summary">Настройка анимации списков и интеполятора</string>
     <string name="status_bar_title_summary">Настройка отображения даты, времени, монитора трафика в строке состояния</string>
     <string name="changelog_title"><b>Список изменений</b></string>
+    <string name="changelog_title_summary">Посмотреть последние изменения в прошивке</string>
     <string name="changelog_loading">Загрузка списка изменений...</string>
     <string name="changelog_error">Не удаётся загрузить список изменений</string>
     <string name="changelog_unknown">Неизвестно</string>
@@ -114,6 +114,7 @@
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Дата и время</b></string>
+    <string name="status_bar_show_clock_second_title">Часы с секундами</string>
     <string name="status_bar_clock_title">Стиль даты и времени</string>
     <string name="clock_title_enable">Выравнивание</string>
     <string name="clock_enabled">Разрешено</string>
@@ -127,6 +128,7 @@
     <string name="enable_clock_weekday_summary">Аббревиатура дня недели перед временем</string>
     <string name="right_clock">Часы справа</string>
     <string name="center_clock">Часы по центру</string>
+    <string name="left_clock">Часы слева</string>
     <string name="dont_show">Не показывать</string>
     <string name="clock_date_display">Дата</string>
     <string name="clock_date_display_summary">Показывать дату перед временем</string>
@@ -158,6 +160,7 @@
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Показать строку поиска в недавних</string>
     <string name="recents_show_searchbar_summary">Включить/выключить строку поиска Google в списке недавних приложений</string>
+    <string name="keywords_recents_show_searchbar">Включить/выключить строку поиска Google в списке недавних приложений</string>
 
     <!-- Keyguard Notification Settings -->
     <string name="app_notification_show_on_keyguard_title">Показывать на экране блокировки</string>
@@ -227,7 +230,7 @@
     <string name="about_rr_settings_title"><b>О прошивке Resurrection</b></string>
     <string name="about_rr"><b>О прошивке Resurrection</b></string>
     <string name="about_r0m_summary">Всё о прошивке</string>
-    <string name="rr_donate">Пожертвовать на разработку</string>
+    <string name="rr_donate">Пожертвовать разработчикам</string>
     <string name="rr_donate_summary">Показать свою поддержку Resurrection ROM</string>
     <string name="devs">Главный разработчик</string>
     <string name="rr">Ссылки</string>
@@ -304,16 +307,14 @@
     <string name="heads_up_dnd_title">Не беспокоить</string>
     <string name="heads_up_blacklist_title">Чёрный список</string>
     <string name="heads_up_disabled_notice">Чтобы включить интерективные уведомления от приложений, включите всплывающие уведомления</string>
+    <string name="heads_up_floating_window_title">Открывать плавающее окно</string>
+    <string name="heads_up_floating_window_summary">Долгое нажатие и отпускание, когда не на домашнем экране, открывает программу в плавающем окне</string>
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Таймаут</string>
 
     <!-- Heads up snooze -->
     <string name="heads_up_snooze_title">Snooze timer</string>
-
-    <!-- interface categories -->
-    <string name="fullscreen_keyboard_title">Полноэкранная клавиатура</string>
-    <string name="fullscreen_keyboard_summary">Показывать полноэкранную клавиатуру в ландшафтном режиме</string>
 
     <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">Сбросить все настройки по умолчанию?</string>
@@ -363,6 +364,12 @@
     <string name="shortcut_action_help_delete_last_entry">Удаление последнего(-ей) %1$s в списке отключит эту функцию.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Удаление последнего %1$s отключит весь второй уровень pie.</string>
     <string name="shortcuts_applications">Приложения</string>
+    <string name="shortcut_action_kill">Закрыть приложение</string>
+    <string name="shortcut_action_restartui">Перезапуск интерфейса</string>
+    <string name="shortcut_action_lastapp">Последняя программа</string>
+    <string name="shortcut_action_assist">Поиск</string>
+    <string name="shortcut_action_screenshot">Скриншот</string>
+    <string name="shortcut_action_torch">Фонарь</string>
     <string name="shortcuts_select_custom_app_title">Выбрать собственное приложение</string>
     <string name="shortcuts_icon_picker_type">Выбрать тип значка:</string>
     <string name="shortcuts_icon_default">По умолчанию</string>
@@ -428,10 +435,6 @@
     <string name="shortcut_action_app">Пользовательское приложение</string>
     <string name="shortcut_action_home">Домой</string>
     <string name="shortcut_action_back">Назад</string>
-    <string name="shortcut_action_kill">Закрыть приложение</string>
-    <string name="shortcut_action_restartui">Перезапуск интерфейса</string>
-    <string name="shortcut_action_lastapp">Последнее приложение</string>
-    <string name="shortcut_action_screenshot">Скриншот</string>
     <string name="shortcut_action_menu">Меню</string>
     <string name="shortcut_action_ime">Выбор способа ввода</string>
     <string name="shortcut_action_power_menu">Меню кнопки питания</string>
@@ -456,6 +459,9 @@
     <string name="gesture_anywhere_position_right">По правому краю</string>
     <string name="gesture_anywhere_gestures_title">Жесты</string>
     <string name="gesture_anywhere_gestures_summary">Добавление, удаление и редактирование жестов</string>
+    <string name="gesture_anywhere_floating">Плавающий режим</string>
+    <string name="gesture_anywhere_floating_summary">Запускать приложение жеста в плавающем окне</string>
+
     <!-- Label, button used to add a gesture -->
     <string name="ga_button_add">Добавить жест</string>
     <!-- Label, button used to reload all gestures -->
@@ -567,6 +573,7 @@
     <string name="aokp_animation_title">Системные анимации</string>
     <string name="aokp_animation_summary">Настройка анимации от AOKP</string>
     <string name="activity_open_title">Анимация открытия раздела</string>
+    <string name="task_open_behind_title">Анимация фонового открытия приложения</string>
     <string name="activity_close_title">Анимация закрытия раздела</string>
     <string name="task_open_title">Анимация открытия задачи</string>
     <string name="task_close_title">Анимация закрытия задачи</string>
@@ -576,15 +583,13 @@
     <string name="wallpaper_close_title">Анимация закрытия обоев</string>
     <string name="wallpaper_intra_open_title">Анимация открытия меню запущеных приложений</string>
     <string name="wallpaper_intra_close_title">Анимация закрытия меню запущеных приложений</string>
-    <string name="task_open_behind_title">Анимация фонового открытия приложения</string>
     <string name="animation_duration_title">Продолжительность анимации</string>
     <string name="animation_duration_default">По умолчанию</string>
 
     <!-- Lockscreen weather -->
     <string name="lock_screen_weather_settings_title">Погода на экране блокировки</string>
     <string name="lock_screen_weather_settings_title_summary">Отображение погоды на экране блокировки</string>
-    <string name="lock_screen_colors_title">Цвета экрана блокировки</string>
-    <string name="lock_screen_color_settings_summary">Настройка цветов</string>
+    <string name="weather_cat_notifications_title">Уведомления</string>
     <string name="weather_show_weather_title">Показывать Погоду</string>
     <string name="weather_show_weather_summary">Включить отображение информации о погоде</string>
     <string name="weather_show_location_title">Показывать Расположение</string>
@@ -596,6 +601,17 @@
     <string name="weather_condition_icon_monochrome_title">Монохромные</string>
     <string name="weather_condition_icon_colored_title">Цветные</string>
     <string name="weather_condition_icon_vclouds_title">Объёмные</string>
+    <string name="weather_hide_panel_title">Hide weather panel</string>
+    <string name="weather_hide_panel_dlg_title">Выберете, когда погода будет скрываться</string>
+    <string name="weather_hide_panel_auto_title">Авто</string>
+    <string name="weather_hide_panel_custom_title">Настроить</string>
+    <string name="weather_hide_panel_never_title">Никогда</string>
+    <string name="weather_hide_panel_auto_summary">Погода будет скрыта, когда количество видимых уведомлний достигнет максимально допустимого значения</string>
+    <string name="weather_hide_panel_custom_summary">Погода будет скрыта, когда количество видимых уведомлний достигнет (%s)</string>
+    <string name="weather_hide_panel_never_summary">Погода не будет скрываться</string>
+    <string name="weather_number_of_notifications_title">Количество уведомлений</string>
+    <string name="weather_number_of_notifications_dlg_title">Выберете количество уведомлений для скрытия погоды</string>
+    <string name="weather_number_of_notifications_always_title">Всегда</string>
     <string name="weather_colorize_all_icons_title">Раскрасить все иконки</string>
     <string name="weather_colorize_all_icons_summary">Включить для раскраски всех иконок. Выключить для раскраски только монохромных иконок</string>
     <string name="icons_title">Иконки</string>
@@ -604,6 +620,7 @@
     <string name="hidden_title">Скрыть</string>
     <string name="dlg_reset_values_message">Сбросить по умолчанию</string>
     <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_temasek">Персональные</string>
 
     <!-- Privacy guard notification -->
     <string name="privacy_guard_notification_title">Уведомление</string>
@@ -636,6 +653,7 @@
     <string name="qs_music_play_tile">Играть</string>
     <string name="qs_tile_heads_up">Всплывающие уведомления</string>
     <string name="qs_systemui_restart_tile">Перезапуск интерфейса</string>
+    <string name="qs_tile_slim_floats">Плавающие окна</string>
 
     <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">Долгое нажатие на иконку блокировки уводит в сон</string>
@@ -744,11 +762,6 @@
     <string name="heads_up_touch_outside_title">Поведение при нажатии вне области уведомления</string>
     <string name="heads_up_touch_outside_summary_enabled">Скрывать при нажатии вне уведомления и нажатии кнопки домой</string>
     <string name="heads_up_touch_outside_summary_disabled">Не скрывать при нажатии вне уведомления и нажатии кнопки домой</string>
-
-    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
-    <string name="show_cpu_info">Информация о процессоре</string>
-    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
-    <string name="show_cpu_info_summary">На экран будет выводиться текущая информация о процессоре</string>
 
     <!-- long press back to kill configurable timeout -->
     <string name="kill_app_longpress_timeout_title">Задержка долгого нажатия</string>
@@ -998,12 +1011,10 @@
     <string name="tab_position_summary">Отображение вкладки в верхней, средней или нижней части экрана</string>
     <string name="tab_size_title">Размер вкладки</string>
     <string name="tab_size_summary">Изменение размера видимой вкладки</string>
-    <string name="trigger_category">Область вызова</string>
-    <string name="trigger_width_title">Ширина области вызова</string>
-    <string name="trigger_width_summary">Регулировка ширины области вызова</string>
-    <string name="trigger_top_title">Позиция области вызова</string>
-    <string name="trigger_top_summary">Установка вертикального расположения области вызова</string>
-    <string name="trigger_bottom_title">Высота области вызова</string>
-    <string name="trigger_bottom_summary">Установка высоты области вызова</string>
+
+    <!-- Hide lock screen carrier -->
+    <string name="lock_screen_hide_carrier_title">Скрыть имя оператора на экране блокировки</string>
+    <string name="lock_screen_hide_carrier_summary">После переключения, интерфейс перезагрузится</string>
+
 </resources>
 
