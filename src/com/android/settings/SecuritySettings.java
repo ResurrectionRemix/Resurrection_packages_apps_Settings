@@ -297,6 +297,15 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
           }
 
+        // Change title to include fingerprint if there is a sensor and primary owner
+        if (mIsPrimary && mLockPatternUtils.isFingerprintInstalled(getActivity())) {
+            Preference unlockSetOrChange = findPreference(KEY_UNLOCK_SET_OR_CHANGE);
+            if (unlockSetOrChange != null) {
+                unlockSetOrChange
+                        .setTitle(R.string.unlock_set_unlock_launch_picker_title_with_fingerprint);
+            }
+        }
+
         // lock after preference
         mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
         if (mLockAfter != null) {
@@ -933,6 +942,16 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     result.add(data);
                 }
             }
+
+            if (lockPatternUtils.isFingerprintInstalled(context)) {
+                data = new SearchIndexableRaw(context);
+                data.title =
+                        context.getString(
+                                R.string.unlock_set_unlock_launch_picker_title_with_fingerprint);
+                data.screenTitle = data.title;
+                result.add(data);
+            }
+
             return result;
         }
 
