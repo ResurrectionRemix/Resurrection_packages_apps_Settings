@@ -106,7 +106,7 @@ public class FingerprintProgressBar extends ProgressBar {
         final RectF progressFillRect = new RectF(0, splitAt, width, height);
         final Paint progressPaint = mShowError ? mErrorPaint : mSuccessPaint;
 
-        mMaskedCanvas.drawColor(0);
+        mMaskedCanvas.drawColor(0, PorterDuff.Mode.DST_ATOP);
         mFingerprintMask.draw(mMaskedCanvas);
         mMaskedCanvas.drawRect(progressFillRect, progressPaint);
         mMaskedCanvas.drawRect(normalFillRect, mNormalPaint);
