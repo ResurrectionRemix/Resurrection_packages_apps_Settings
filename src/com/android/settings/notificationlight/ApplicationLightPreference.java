@@ -36,7 +36,7 @@ public class ApplicationLightPreference extends DialogPreference {
 
     private static String TAG = "AppLightPreference";
     public static final int DEFAULT_TIME = 1000;
-    public static final int DEFAULT_COLOR = 0xffffff;
+    public static final int DEFAULT_COLOR = 0xeeeeee; //off-White since white does not show in UI
 
     private ImageView mLightColorView;
     private TextView mOnValueView;
@@ -137,11 +137,7 @@ public class ApplicationLightPreference extends DialogPreference {
 
         if (mLightColorView != null) {
             mLightColorView.setEnabled(true);
-            // adjust if necessary to prevent material whiteout
-            final int imageColor = ((mColorValue & 0xF0F0F0) == 0xF0F0F0) ?
-                    (mColorValue - 0x101010) : mColorValue;
-            mLightColorView.setImageDrawable(createRectShape(width, height,
-                    0xFF000000 + imageColor));
+            mLightColorView.setImageDrawable(createRectShape(width, height, 0xFF000000 + mColorValue));
         }
         if (mOnValueView != null) {
             mOnValueView.setText(mapLengthValue(mOnValue));

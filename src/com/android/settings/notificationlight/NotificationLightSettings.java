@@ -103,8 +103,11 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 com.android.internal.R.bool.config_multiColorNotificationLed);
 
         // Get the system defined default notification color
-        mDefaultColor =
-                resources.getColor(com.android.internal.R.color.config_defaultNotificationColor);
+        mDefaultColor = resources.getColor(com.android.internal.R.color.config_defaultNotificationColor);
+        if (mDefaultColor == Color.WHITE) {
+            // We cannot properly show white in the UI, change it to off white (#eeeeee)
+            mDefaultColor = 0xFFEEEEEE;
+        }
 
         mDefaultLedOn = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOn);
