@@ -16,6 +16,7 @@
 
 package com.android.settings;
 
+import android.app.Activity;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 
 import android.app.Fragment;
@@ -114,6 +115,23 @@ public class SetupChooseLockPassword extends ChooseLockPassword
             SetupWizardUtils.setIllustration(getActivity(),
                     R.drawable.setup_illustration_lock_screen_condensed);
             SetupWizardUtils.setHeaderText(getActivity(), getActivity().getTitle());
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode,
+                Intent data) {
+            switch (requestCode) {
+                case CONFIRM_EXISTING_REQUEST:
+                    if (resultCode != Activity.RESULT_OK) {
+                        getActivity().setResult(RESULT_CANCELED);
+                        getActivity().finish();
+                    } else {
+                        super.onActivityResult(requestCode, resultCode, data);
+                    }
+                    break;
+                default:
+                    super.onActivityResult(requestCode, resultCode, data);
+            }
         }
 
         @Override

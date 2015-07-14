@@ -124,7 +124,7 @@ public class ChooseLockPassword extends SettingsActivity {
         private boolean mIsAlphaMode;
         private Button mCancelButton;
         private Button mNextButton;
-        private static final int CONFIRM_EXISTING_REQUEST = 58;
+        protected static final int CONFIRM_EXISTING_REQUEST = 58;
         static final int RESULT_FINISHED = RESULT_FIRST_USER;
         private static final long ERROR_MESSAGE_TIMEOUT = 3000;
         private static final int MSG_SHOW_ERROR = 1;
