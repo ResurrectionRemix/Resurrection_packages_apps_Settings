@@ -27,12 +27,11 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:id="@+id/setup_illustration"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="241dp"
         android:background="@drawable/setup_illustration_bg"
         android:elevation="@dimen/setup_wizard_title_area_elevation"
         android:foreground="@drawable/setup_illustration"
-        android:tag="stickyContainer"
-        settings:aspectRatio="2.22">
+        android:tag="stickyContainer">
 
         <TextView
             android:id="@+id/title"
@@ -40,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:tag="sticky"
+            android:layout_gravity="bottom"
             android:text="@string/wifi_setup_wizard_title"/>
 
     </com.android.settings.widget.SetupWizardIllustration>
@@ -49,7 +49,7 @@
         style="@style/SetupDetails"
         android:layout_width="match_parent"
         android:layout_height="84dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:visibility="gone"/>
