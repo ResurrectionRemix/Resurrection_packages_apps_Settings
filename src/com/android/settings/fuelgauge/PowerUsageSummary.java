@@ -57,6 +57,7 @@ import com.android.settings.R;
 import com.android.settings.Settings.HighPowerApplicationsActivity;
 import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
+import com.android.settings.Utils;
 
 import cyanogenmod.power.PerformanceManager;
 import cyanogenmod.providers.CMSettings;
@@ -285,7 +286,7 @@ public class PowerUsageSummary extends PowerUsageBase
                     }
                     if (intVals[i] > 0 && intVals[i] < 100) {
                         strVals[i] = res.getString(R.string.battery_saver_turn_on_automatically_pct,
-                                intVals[i]);
+                                Utils.formatPercentage(intVals[i]));
                     } else {
                         strVals[i] =
                                 res.getString(R.string.battery_saver_turn_on_automatically_never);
