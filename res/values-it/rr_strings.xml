@@ -740,6 +740,7 @@
     <string name="qs_four_columns_title">Mostra quattro tiles per fila</string>
     <!-- QuickSettings tiles -->
     <string name="qs_screenshot_tile">Screenshot</string>
+    <string name="qs_screenrecord_tile">Registra schermo</string>
     <string name="qs_sync_tile">Sincronizzazione</string>
     <!-- Navring targets (enable/disable) -->
     <string name="navigation_ring_enable_title">Abilita anelli di navigazione</string>
@@ -948,12 +949,19 @@
 
     <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
     <string name="unlock_set_unlock_mode_gesture">Gesto</string>
-    <!-- Notification drawer clear all icon -->
-    <string name="notification_drawer_clear_all_icon_color_title">Icona cancella tutto</string>
+   
+    <!-- Expanded header color -->
+    <string name="background_header_title">Colore di sfondo intestazione</string>
+    <string name="expanded_header_background_color_title">Colore</string>
 
+    <!-- Clear button color -->
+    <string name="clear_all_color_title">Icona cancella tutto</string>
+    <string name="notification_drawer_clear_all_icon_color_title">Icona</string>
+    
     <!-- Task Manager -->
     <string name="enable_task_manager_title">Gestione attività</string>
     <string name="enable_task_manager_summary">Attiva/Disattiva il pulsante gestione attività dalla barra di stato</string>
+    
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
     <string name="supersu_title">SuperSU</string>
 
@@ -1052,10 +1060,10 @@
     <!-- Recent panel -->
     <string name="recent_panel_slim">Piccolo pannello delle attività recenti</string>
     <string name="recent_panel_slim_summary">Impostazioni pannello attività recenti</string>
-    <string name="recent_panel_category">pannello applicazioni recenti</string>
-    <string name="use_slim_recents_title">piccole attività</string>
+    <string name="recent_panel_category">Pannello applicazioni recenti</string>
+    <string name="use_slim_recents_title">Piccole attività</string>
     <string name="show_running_tasks_title">Mostra solo applicazioni in uso</string>
-    <string name="recents_max_apps_title">Massime applicazioni consentiti</string>
+    <string name="recents_max_apps_title">Numero massimo di applicazioni consentite</string>
     <string name="recent_panel_scale_title">Dimensione</string>
     <string name="recent_panel_scale_summary">Dimensioni del pannello delle applicazioni recenti in percentuale</string>
     <string name="recent_panel_100">100% (predefinito)</string>
@@ -1085,8 +1093,8 @@
     <string name="double_tap_sleep_anywhere_summary">Toccare due volte in un punto qualsiasi della schermata di blocco per bloccare il dispositivo</string>
 
     <!-- Floating Windows -->
-    <string name="slim_action_floats">Piccole azioni e Pie controll</string>
-    <string name="slim_action_floats_summary">Lanciare Piccole azioni e Controllo Pie in Modalità finestra Floating</string>
+    <string name="slim_action_floats">Piccole azioni e controlli pie</string>
+    <string name="slim_action_floats_summary">Lanciare piccole azioni e controllo Pie in modalità fluttuante</string>
 
     <!-- Selinux Switch -->
     <string name="selinux_switch_title">Opzioni Interruttore Selinux</string>
@@ -1096,20 +1104,20 @@
     <string name="selinux_enforcing_title">Applicazione</string>
 
     <!-- App sidebar -->
-    <string name="app_sidebar_title">App sidebar</string>
-    <string name="app_sidebar_enable_title">Attiva Appbar</string>
-    <string name="app_sidebar_enable_summaryOn">Appbar è abilitato</string>
-    <string name="app_sidebar_enable_summaryOff">Appbar è disabilitato</string>
-    <string name="app_sidebar_setup_items_title">Setup Appbar content</string>
-    <string name="app_sidebar_setup_items_summary">Aggiungi, rimuovie posiziona gli elementi nel appbar</string>
-    <string name="app_sidebar_transparency_title">Trasparenza Appbar</string>
-    <string name="app_sidebar_transparency_summary">Regolare il livello di trasparenza dell\'appbar</string>
-    <string name="app_sidebar_position_title">Posizione appbar</string>
-    <string name="app_sidebar_position_summary">Posiziona l\'appbar sul lato sinistro o destro dello schermo</string>
+    <string name="app_sidebar_title">Applicazioni in Dock</string>
+    <string name="app_sidebar_enable_title">Attiva Dock</string>
+    <string name="app_sidebar_enable_summaryOn">La Dock è abilitata</string>
+    <string name="app_sidebar_enable_summaryOff">La Dock è disabilitata</string>
+    <string name="app_sidebar_setup_items_title">Inserisci le app dentro la Dock</string>
+    <string name="app_sidebar_setup_items_summary">Aggiungi, rimuovi e posiziona gli elementi nella Dock</string>
+    <string name="app_sidebar_transparency_title">Trasparenza Dock</string>
+    <string name="app_sidebar_transparency_summary">Regola il livello di trasparenza della Dock</string>
+    <string name="app_sidebar_position_title">Posizione Dock</string>
+    <string name="app_sidebar_position_summary">Posiziona la Dock sul lato sinistro o destro dello schermo</string>
     <string name="app_sidebar_position_left">Sinistra</string>
     <string name="app_sidebar_position_right">Destra</string>
     <string name="app_sidebar_hide_labels_title">Nascondi le etichette delle icone</string>
-    <string name="app_sidebar_hide_labels_summary">Nascondi dall\'appbar le etichette delle icone</string>
+    <string name="app_sidebar_hide_labels_summary">Nascondi le etichette delle applicazioni dentro la Dock</string>
     <string name="tab_category">Scheda visibile</string>
     <string name="use_tab_title">Scheda visualizzazione</string>
     <string name="use_tab_summary">Visualizza una linguetta visibile sul lato che visualizzerà la appbar quando viene toccato</string>
@@ -1117,10 +1125,10 @@
     <string name="tab_position_summary">Visualizza la linguetta sulla parte superiore, centrale o inferiore sul lato dello schermo.</string>
     <string name="tab_size_title">Dimensioni scheda</string>
     <string name="tab_size_summary">Modifica le dimensioni della scheda visibile</string>
-    
+
     <!-- Hide lock screen carrier -->
     <string name="lock_screen_hide_carrier_title">Nascondi l\'operatore sulla schermata di blocco</string>
-    <string name="lock_screen_hide_carrier_summary">SystemUI verrà riavviato con l\'interruttore.</string>
-
+    <string name="lock_screen_hide_carrier_summary">SystemUI verrà riavviato con l\'interruttore</string>
+    
 </resources>
 
