@@ -81,7 +81,7 @@ public class AppGroupConfig extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mProfileManager = (ProfileManager) getActivity().getSystemService(PROFILE_SERVICE);
+        mProfileManager = ProfileManager.getInstance(getActivity());
         addPreferencesFromResource(R.xml.application_list);
 
         final Bundle args = getArguments();
