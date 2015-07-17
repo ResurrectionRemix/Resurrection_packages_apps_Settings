@@ -95,6 +95,13 @@
             android:dependency="enable_nav_bar"
             android:summary="@string/dim_nav_buttons_summary" />
 
+        <SwitchPreference
+            android:key="dim_nav_buttons_touch_anywhere"
+            android:dependency="dim_nav_buttons"
+            android:title="@string/dim_nav_buttons_touch_anywhere_title"
+            android:summaryOn="@string/dim_nav_buttons_touch_anywhere_summary_on"
+            android:summaryOff="@string/dim_nav_buttons_touch_anywhere_summary_off" />
+
         <SlimSeekBarPreference
             android:key="dim_nav_buttons_timeout"
             android:dependency="dim_nav_buttons"
