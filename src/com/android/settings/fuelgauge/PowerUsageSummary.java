@@ -56,6 +56,7 @@ import com.android.settings.HelpUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 import java.util.List;
 
@@ -346,7 +347,7 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
                     }
                     if (intVals[i] > 0 && intVals[i] < 100) {
                         strVals[i] = res.getString(R.string.battery_saver_turn_on_automatically_pct,
-                                intVals[i]);
+                                Utils.formatPercentage(intVals[i]));
                     } else {
                         strVals[i] =
                                 res.getString(R.string.battery_saver_turn_on_automatically_never);
