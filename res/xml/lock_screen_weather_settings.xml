@@ -14,7 +14,8 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lock_screen_weather_settings_title" >
+    android:title="@string/lock_screen_weather_settings_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="lock_screen_show_weather"
@@ -42,5 +43,27 @@
         android:entries="@array/weather_condition_icon_entries"
         android:entryValues="@array/weather_condition_icon_values"
         android:dependency="lock_screen_show_weather" />
+
+    <PreferenceCategory
+        android:key="weather_cat_notifications"
+        android:title="@string/weather_cat_notifications_title">
+
+        <ListPreference
+            android:key="weather_hide_panel"
+            android:title="@string/weather_hide_panel_title"
+            android:dialogTitle="@string/weather_hide_panel_dlg_title"
+            android:entries="@array/weather_hide_panel_entries"
+            android:entryValues="@array/weather_hide_panel_values"
+            android:dependency="lock_screen_show_weather" />
+
+        <com.android.settings.benzo.SeekBarPreference
+            android:key="weather_number_of_notifications"
+            android:title="@string/weather_number_of_notifications_title"
+            android:max="6"
+            settings:minimum="1"
+            android:persistent="false"
+            android:dependency="lock_screen_show_weather" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
