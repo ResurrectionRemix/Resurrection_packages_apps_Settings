@@ -31,6 +31,17 @@
             android:persistent="false"
             android:dependency="notification_light_pulse" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced_section"
+        android:title="@string/advanced">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="notification_light_screen_on_enable"
+            android:title="@string/notification_light_screen_on"
+            android:dependency="notification_light_pulse" />
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="notification_light_pulse_custom_enable"
             android:title="@string/notification_light_use_custom"
