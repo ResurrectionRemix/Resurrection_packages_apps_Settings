@@ -100,4 +100,9 @@
 
     <!-- Some vendors don't want to allow non slot 0 to be set to default for calls/sms -->
     <bool name="config_hardcodeDefaultMobileNetworks">false</bool>
+
+    <!-- Using this on MSIM devices leads to weird states that break telephony's
+    internal state machine. All MSIM devices should probably set this to "true"-->
+    <bool name="config_disablePreferredNetworkSwitch" translatable="false">false</bool>
+
 </resources>

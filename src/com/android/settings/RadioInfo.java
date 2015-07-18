@@ -139,6 +139,7 @@ public class RadioInfo extends Activity {
     private boolean mMwiValue = false;
     private boolean mCfiValue = false;
     private List<CellInfo> mCellInfoValue;
+    private boolean mDisablePreferredNetworkSwitch;
 
     private PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
         @Override
@@ -299,6 +300,10 @@ public class RadioInfo extends Activity {
         preferredNetworkType.setAdapter(adapter);
         preferredNetworkType.setOnItemSelectedListener(mPreferredNetworkHandler);
 
+        mDisablePreferredNetworkSwitch = getResources().getBoolean(
+                R.bool.config_disablePreferredNetworkSwitch);
+        preferredNetworkType.setEnabled(!mDisablePreferredNetworkSwitch);
+
         radioPowerButton = (Button) findViewById(R.id.radio_power);
         radioPowerButton.setOnClickListener(mPowerButtonHandler);
 
@@ -435,6 +440,9 @@ public class RadioInfo extends Activity {
                 break;
         }
         item.setVisible(visible);
+
+        item = menu.findItem(MENU_ITEM_SELECT_BAND);
+        item.setVisible(!mDisablePreferredNetworkSwitch);
         return true;
     }
 
