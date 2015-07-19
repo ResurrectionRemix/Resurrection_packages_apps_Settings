@@ -44,6 +44,8 @@
   <string name="profile_remove_dialog_message">Eliminați profilul %1$s?</string>
   <string name="profile_populate_profile_from_state">Configurați profilul utilizând setările curente ale dispozitivului?</string>
   <string name="profile_menu_fill_from_state">Încărcare setări curente ale dispozitivului</string>
+  <string name="profile_entries_on">Pornit</string>
+  <string name="profile_entries_off">Oprit</string>
   <string name="profile_name_title">Nume</string>
   <string name="new_profile_name">&lt;profil nou&gt;</string>
   <string name="rename_dialog_title">Redenumire</string>
@@ -123,6 +125,8 @@
   <string name="power_menu_screenshot_title">Captură</string>
   <string name="power_menu_profiles_title">Comutator profil</string>
   <string name="power_menu_airplane_title">Mod Avion</string>
+  <string name="power_menu_lockdown_title">Blocare dispozitiv</string>
+  <string name="power_menu_bug_report_title">Raport de eroare</string>
   <string name="power_menu_sound_title">Panou sunet</string>
   <string name="adaptive_backlight_title">Lumină de fundal adaptivă</string>
   <string name="adaptive_backlight_summary">Ajustează luminozitatea ecranului în mod dinamic pentru a mări durata bateriei fără a afecta performanța</string>
@@ -130,6 +134,7 @@
   <string name="sunlight_enhancement_summary">Sporește luminozitatea afişajului şi lizibilitatea sub lumina strălucitoare a soarelui</string>
   <string name="color_enhancement_title">Intensificare culoare</string>
   <string name="color_enhancement_summary">Intensificare dinamică a culorii de afișare</string>
+  <string name="blacklist_title">Lista apelanților blocați</string>
   <string name="blacklist_prefs">Setări</string>
   <string name="blacklist_button_delete">Șterge</string>
   <string name="blacklist_summary_disabled">Dezactivat</string>
@@ -195,7 +200,7 @@
   <string name="privacy_guard_manager_show_system_apps">Arată aplicațiile preinstalate</string>
   <string name="advanced_reboot_title">Repornire avansată</string>
   <string name="advanced_reboot_summary">Atunci când dispozitivul este deblocat, se includ opţiuni în meniul de putere pentru repornirea în recuperare, bootloader sau efectuarea unei reporniri a sistemului</string>
-  <string name="enable_adb_cm">Android debugging</string>
+  <string name="enable_adb_cm">Depanare Android</string>
   <string name="enable_adb_summary_cm">Activează interfața Android Debug Bridge (adb)</string>
   <string name="adb_over_network">ADB prin rețea</string>
   <string name="adb_over_network_summary">Activează depanarea TCP/IP prin interfețele de rețea (Wi\u2011Fi, rețele USB). Această setare este restaurată la repornire</string>
@@ -356,11 +361,12 @@
   <string name="app_ops_labels_read_mms">Citește MMS</string>
   <string name="app_ops_labels_write_mms">Scrie MMS</string>
   <string name="app_ops_labels_auto_start">Auto start</string>
+  <string name="app_ops_labels_nfc_change">Schimbare NFC</string>
   <string name="app_ops_labels_data_change">Schimbă date mobile</string>
   <string name="app_ops_labels_su">Acces root</string>
   <string name="app_ops_categories_location">Locație</string>
   <string name="app_ops_categories_personal">Personal</string>
-  <string name="app_ops_categories_messaging">Mesajerie</string>
+  <string name="app_ops_categories_messaging">Mesagerie</string>
   <string name="app_ops_categories_media">Media</string>
   <string name="app_ops_categories_device">Dispozitiv</string>
   <string name="app_ops_categories_bootup">Bootup</string>
@@ -444,6 +450,7 @@
   <string name="enable_quickboot_title">Activare modul QuickBoot</string>
   <string name="sim_enabled">activat</string>
   <string name="sim_disabled">dezactivat</string>
+  <string name="sim_missing">lipsă sau defect</string>
   <string name="sim_enabler_sim">SIM</string>
   <string name="usb_charging_title">Doar încărcare</string>
   <string name="power_notifications_category_title">Sunete de încărcare</string>
@@ -473,8 +480,10 @@
   <string name="notification_drawer_title">Sertar notificare</string>
   <string name="quick_pulldown_summary_left">Stânga</string>
   <string name="quick_pulldown_summary_right">Drepta</string>
+  <string name="quick_pulldown_off">Oprit</string>
   <string name="quick_pulldown_left">Stânga</string>
   <string name="quick_pulldown_right">Dreapta</string>
+  <string name="status_bar_show_weather_title">Arată vremea</string>
   <string name="qs_tile_wifi">Wi\u2011Fi</string>
   <string name="qs_tile_bluetooth">Bluetooth</string>
   <string name="qs_tile_flashlight">Lanternă</string>
@@ -485,6 +494,7 @@
   <string name="qs_tile_lte">4G</string>
   <string name="qs_tile_usb_tether">Tethering USB</string>
   <string name="qs_tile_sync">Sincronizare</string>
+  <string name="qs_dynamic_tile_next_alarm">Următoarea alarmă</string>
   <string name="qs_dynamic_tile_su">Acces root</string>
   <string name="sim_no_number_set">Niciun număr atribuit</string>
   <string name="gesture_settings_title">Gesturi</string>
@@ -507,6 +517,7 @@
   <string name="dialog_title_lcd_density">Densitate LCD</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (implicit)</string>
+  <string name="enable_spen_title_head">Activare gesturi</string>
   <string name="gestures_subcat_title">Gesturi</string>
   <string name="gestures_left_spen_title_head">Glisare stânga</string>
   <string name="gestures_right_spen_title_head">Glisare dreapta</string>
@@ -518,8 +529,10 @@
   <string name="gestures_action_home">Acasă</string>
   <string name="gestures_action_back">Înapoi</string>
   <string name="gestures_action_menu">Meniu</string>
+  <string name="gestures_action_recent">Aplicații recente</string>
   <string name="advanced">Avansat</string>
   <string name="advanced_mode_title">Modul avansat</string>
+  <string name="category_misc">Diverse</string>
   <string name="category_volume">Volum</string>
   <string name="category_sounds">Sunete</string>
   <string name="category_interface">Interfață</string>
@@ -539,7 +552,20 @@
   <string name="preview_version_title">Versiune</string>
   <string name="preview_country_title">Țara</string>
   <string name="preview_carrier_title">Operator</string>
+  <string name="lock_to_cyanogen_title">Protecție dispozitiv</string>
   <string name="wifi_countrycode_entries_us">Statele Unite</string>
   <string name="wifi_countrycode_entries_ca">Canada, Taiwan</string>
   <string name="wifi_countrycode_entries_de">Germania</string>
+  <string name="wifi_countrycode_entries_gb">Europa</string>
+  <string name="wifi_countrycode_entries_jp">Japonia, Rusia</string>
+  <string name="wifi_countrycode_entries_au">Australia</string>
+  <string name="wifi_countrycode_entries_cn">China</string>
+  <string name="wifi_countrycode_entries_kr">Coreea</string>
+  <string name="wifi_countrycode_entries_tr">Africa de Sud, Turcia</string>
+  <string name="wifi_countrycode_entries_sg">Israel, Singapore</string>
+  <string name="wifi_countrycode_entries_br">Brazilia</string>
+  <string name="wifi_countrycode_entries_in">India</string>
+  <string name="unlock_set_unlock_mode_fingerprint">Amprentă</string>
+  <string name="unlock_set_unlock_fingerprint_title">Amprentă</string>
+  <string name="setup_lock_pattern_size_title">Complexitatea modelului</string>
 </resources>

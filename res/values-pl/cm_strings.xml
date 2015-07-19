@@ -106,6 +106,7 @@
   <string name="hardware_keys_menu_key_title">Przycisk menu</string>
   <string name="hardware_keys_assist_key_title">Przycisk szukaj</string>
   <string name="hardware_keys_appswitch_key_title">Przycisk przełączania</string>
+  <string name="hardware_keys_camera_key_title">Przycisk aparatu</string>
   <string name="hardware_keys_volume_keys_title">Przyciski głośności</string>
   <string name="hardware_keys_short_press_title">Krótkie naciśnięcie</string>
   <string name="hardware_keys_long_press_title">Długie naciśnięcie</string>
@@ -119,6 +120,10 @@
   <string name="hardware_keys_action_launch_camera">Uruchom aparat</string>
   <string name="hardware_keys_action_sleep">Wyłączenie ekranu</string>
   <string name="hardware_keys_action_last_app">Ostatnia aplikacja</string>
+  <string name="camera_sleep_on_release_title">Podgląd ekranu</string>
+  <string name="camera_sleep_on_release_summary">Lekkie naciśnięcie aktywuje ekran tylko do czasu zwolnienia przycisku</string>
+  <string name="camera_launch_title">Uruchom aparat</string>
+  <string name="camera_launch_summary">Długie przytrzymanie i puszczenie uruchomi aparat</string>
   <string name="volbtn_music_controls_title">Przełączanie utworów</string>
   <string name="volbtn_music_controls_summary">Przełączaj utwory przyciskami głośności, gdy ekran jest wyłączony</string>
   <string name="volbtn_cursor_control_title">Poruszanie kursorem za pomocą klawiszy głośności</string>
@@ -887,13 +892,47 @@
   <string name="wifi_countrycode_entries_sg">Izrael, Singapur</string>
   <string name="wifi_countrycode_entries_br">Brazylia</string>
   <string name="wifi_countrycode_entries_in">Indie</string>
+  <string name="unlock_set_unlock_launch_picker_title_with_fingerprint">Odblokowanie ekranu &amp; Czytnik linii papilarnych</string>
   <string name="unlock_set_unlock_mode_fingerprint">Odcisk palca</string>
   <string name="unlock_set_unlock_fingerprint_title">Odcisk palca</string>
   <string name="fingerprint_item_add_new_fingerprint">Dodaj nowy odcisk palca</string>
   <string name="fingerprint_manage_fingerprints">Zarządzaj odciskami palców</string>
+  <string name="fingerprint_manage_fingerprints_summary">Dodaj lub usuń odciski palców</string>
   <string name="unlock_backup_fingerprint_info_summary">Jeśli nie możesz użyć swojego palca, jak chcesz odblokować swoje urządzenie?</string>
   <string name="fingerprint_dialog_title_rename">Edytuj odcisk palca</string>
   <string name="fingerprint_dialog_name_label">Nazwa odcisku palca</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Maksymalna ilość odcisków osiągnięta</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Możesz zapisać tylko <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> układów linii papilarnych. Usuń istniejący układ linii papilarnych.</string>
+  <string name="fingerprint_title_manage_fingerprints">Zarządzaj odciskami palców <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="manage_fingerprints_description">Odciski palców pozwalają na szybkie odblokowanie telefonu, potwierdzanie zakupów i robienie zdjęć.</string>
+  <string name="fingerprint_enrollment_introduction_title">Znajdź swój czujnik</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Czujnik odcisków palców jest umieszczony na przodzie lub tyle twojego telefonu.</string>
+  <string name="fingerprint_enrollment_scan_title">Przytrzymaj przez 3 sekundy</string>
+  <string name="fingerprint_enrollment_scan_instructions">Umieść palec wskazujący na czujniku linii papilarnych, aby rozpocząć konfigurację. Unieś palec, gdy poczujesz wibrację.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Spróbuj ponownie</string>
+  <string name="fingerprint_enrollment_scan_instructions">Umieść palec wskazujący na czujniku linii papilarnych, aby rozpocząć konfigurację. Unieś palec, gdy poczujesz wibrację.</string>
+  <string name="fingerprint_enrollment_finished_title">Odcisk palca dodany!</string>
+  <string name="fingerprint_enrollment_found_it_label">Znaleziono</string>
+  <string name="fingerprint_enrollment_add_another_label">Dodaj kolejny</string>
+  <string name="fingerprint_enrollment_done_label">Zrobione</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Ups, to nie twój sensor</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Użyj czujnika odcisków palców na tyle lub przodzie twojego telefonu</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Nie można odczytać linii papilarnych</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Spróbuj użyć innego palca. Ten odcisk palca nie może zostać odczytany.</string>
+  <string name="fingerprint_enrollment_restart_label">Restart</string>
+  <string name="fingerprint_successful_scan_title_first">Doskonale! Teraz powtórz</string>
+  <string name="fingerprint_successful_scan_final">Jeszcze raz, proszę</string>
+  <string name="fingerprint_successful_scan_title_1">Masz to! Kontynuuj</string>
+  <string name="fingerprint_successful_scan_title_2">Świetnie! I znowu</string>
+  <string name="fingerprint_successful_scan_title_3">Dobra robota! Tak trzymaj</string>
+  <string name="fingerprint_successful_scan_title_4">Jeszcze kilka razy</string>
+  <string name="fingerprint_successful_scan_title_5">Idzie Ci świetnie! Jeszcze raz</string>
+  <string name="fingerprint_successful_scan_title_6">Już prawie</string>
+  <string name="fingerprint_enrollment_error_title_1">Ups. Spróbuj ponownie</string>
+  <string name="fingerprint_enrollment_error_title_2">Przepraszam, nie załapałem</string>
+  <string name="fingerprint_enrollment_error_title_3">Hmm, coś poszło nie tak</string>
+  <string name="fingerprint_enrollment_error_title_5">Ups, tu był błąd</string>
+  <string name="menu_stats_reset">Resetuj statystyki</string>
+  <string name="reset_stats_msg">Statystyki baterii zostaną zresetowane</string>
+  <string name="setup_lock_pattern_size_details">Jak wiele kropek chcesz wykorzystać w swoim wzorze? Im więcej kropek, tym bardziej skomplikowany będzie wzór.</string>
 </resources>

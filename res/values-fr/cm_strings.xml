@@ -17,7 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étape de l\'activation des paramètres de développement.</item>
+    <item quantity="one">Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étape de l\'activation des paramètres de développement.
+Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'activation des paramètres de développement.</item>
     <item quantity="other">Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'activation des paramètres de développement.</item>
   </plurals>
   <string name="show_dev_on_cm">Vous avez activé les paramètres de développement !</string>
@@ -105,6 +106,7 @@
   <string name="hardware_keys_menu_key_title">Bouton Menu</string>
   <string name="hardware_keys_assist_key_title">Bouton Rechercher</string>
   <string name="hardware_keys_appswitch_key_title">Bouton Récents</string>
+  <string name="hardware_keys_camera_key_title">Bouton Appareil photo</string>
   <string name="hardware_keys_volume_keys_title">Boutons Volume</string>
   <string name="hardware_keys_short_press_title">Appui court</string>
   <string name="hardware_keys_long_press_title">Appui long</string>
@@ -118,6 +120,9 @@
   <string name="hardware_keys_action_launch_camera">Lancer l\'appareil photo</string>
   <string name="hardware_keys_action_sleep">Éteindre l\'écran</string>
   <string name="hardware_keys_action_last_app">Application précédente</string>
+  <string name="camera_sleep_on_release_title">Aperçu de l\'écran</string>
+  <string name="camera_sleep_on_release_summary">Un demi appui permet de garder l\'écran allumé tant que le bouton est maintenu appuyé</string>
+  <string name="camera_launch_title">Lancer l\'appareil photo</string>
   <string name="volbtn_music_controls_title">Contrôle de la musique</string>
   <string name="volbtn_music_controls_summary">Lorsque l\'écran est éteint, un appui long sur les boutons de volume permet de changer le titre en cours de lecture</string>
   <string name="volbtn_cursor_control_title">Contrôle du curseur par les touches du volume</string>
@@ -163,10 +168,13 @@
   <string name="color_enhancement_title">Amélioration des couleurs</string>
   <string name="color_enhancement_summary">Améliorer dynamiquement la couleur d\'affichage</string>
   <string name="blacklist_title">Liste des appelants bloqués</string>
+  <string name="blacklist_edit_dialog_title">Modifier le numéro de téléphone bloqué</string>
   <string name="blacklist_prefs">Paramètres</string>
   <string name="blacklist_button_delete">Supprimer</string>
+  <string name="blacklist_empty_text">Aucun numéro dans votre liste noire. Ajoutez un numéro en appuyant sur le bouton Ajouter (+).</string>
   <string name="blacklist_disabled_empty_text">Pour éviter de recevoir des appels et des messages de certains numéros, activez la liste noire.</string>
   <string name="blacklist_summary_disabled">Désactivé</string>
+  <string name="blacklist_summary">Vous ne recevrez pas d’appels ou de messages de numéros présents dans la liste noire</string>
   <string name="blacklist_notify">Afficher les notifications</string>
   <string name="blacklist_private_numbers_title">Numéros privés</string>
   <string name="blacklist_private_numbers_summary_disabled">Ne pas bloquer les appels des numéros privés</string>
@@ -181,7 +189,9 @@
   <string name="blacklist_regex_summary">Utiliser un point comme caractère générique et une astérisque pour la répétition. Exemple, 123.* si le numéro de téléphone commence par 123 et .*123.* si le numéro de téléphone contient 123</string>
   <string name="blacklist_policy_block_calls">Bloquer les appels entrants</string>
   <string name="blacklist_policy_block_messages">Bloquer les messages entrants</string>
+  <string name="blacklist_bad_number_add">Impossible d\'ajouter le numéro de téléphone à la liste noire</string>
   <string name="remove_blacklist_number_title">Supprimer le numéro</string>
+  <string name="remove_blacklist_entry">Voulez-vous supprimer ce numéro de téléphone bloqué ?</string>
   <string name="select_contact">Sélectionner un contact</string>
   <string name="lockpattern_reset_button">Réinitialiser le schéma</string>
   <string name="lockpattern_settings_reset_summary">Entrez l\'adresse e-mail du compte principal et son mot de passe pour réinitialiser le schéma de déverrouillage</string>
@@ -205,6 +215,8 @@
   <string name="display_rotation_270_title">270 degrés</string>
   <string name="app_security_title">Sécurité des applications</string>
   <string name="sms_security_check_limit_title">Limiter l\'émission de SMS</string>
+  <string name="sms_security_check_limit_summary">Les applications peuvent envoyer %d messages en une minute avant de d\'exiger une confirmation</string>
+  <string name="sms_security_check_limit_summary_none">Les applications ne sont pas autorisées à envoyer des messages sans confirmation</string>
   <string name="sms_security_check_limit_none">Aucun</string>
   <string name="spam_added_title">%1$s ajouté</string>
   <string name="spam_last_blocked_title">Dernier bloqué %1$s</string>
@@ -571,6 +583,7 @@
   <string name="sdcard_eject" product="default">Démonter la carte SD</string>
   <string name="sdcard_eject_summary" product="default">Démonter la carte SD pour la retirer en toute sécurité</string>
   <string name="sd_card_format" product="default">Effacer la carte SD</string>
+  <string name="sd_card_format_summary" product="default">Effacer toutes les données de la carte SD, telles que la musique et les photos</string>
   <string name="sdcard_mount" product="default">Monter la carte SD</string>
   <string name="sdcard_insert_summary" product="default">Insérer une carte SD pour la monter</string>
   <string name="usb_eject" product="default">Démonter le stockage USB</string>
@@ -590,8 +603,10 @@
   <string name="dlg_confirm_sdcard_unmount_title" product="default">Démonter la carte SD ?</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">Démonter le stockage USB ?</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">Démonter le stockage UICC ?</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">Si vous démontez la carte SD, certaines applications que vous utilisez seront arrêtées et peuvent ne plus être disponible jusqu’à ce que la carte SD soit remontée.</string>
   <string name="dlg_confirm_usb_unmount_text" product="default">Si vous démontez le stockage USB, certaines applications que vous utilisez seront arrêtées et peuvent ne plus être disponibles jusqu’à ce que le stockage USB soit remonté.</string>
   <string name="dlg_confirm_uicc_unmount_text" product="default">Si vous démontez le stockage UICC, certaines applications que vous utilisez seront arrêtées et peuvent ne plus être disponibles jusqu’à ce que le stockage UICC soit remonté.</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Impossible de démonter la carte SD. Essayez plus tard.</string>
   <string name="dlg_error_usb_unmount_text" product="default">Impossible de démonter le stockage USB. Veuillez essayer plus tard.</string>
   <string name="dlg_error_uicc_unmount_text" product="default">Impossible de démonter le stockage UICC. Veuillez essayer plus tard.</string>
   <string name="sdcard_unmount_inform_text" product="default">La carte SD sera démontée.</string>
@@ -603,8 +618,10 @@
   <string name="sdcard_media_format_button_text" product="default">Effacer la carte SD</string>
   <string name="usb_media_format_button_text" product="default">Effacer le stockage USB</string>
   <string name="uicc_media_format_button_text" product="default">Effacer le stockage UICC</string>
+  <string name="sdcard_media_format_final_desc" product="default">Effacer la carte SD et supprimer tous les fichiers stockés ici ? Cette action est irréversible !</string>
   <string name="usb_media_format_final_desc" product="default">Effacer le stockage USB et supprimer tous les fichiers stockés ici\u00A0? Cette action est irréversible\u00A0!</string>
   <string name="uicc_media_format_final_desc" product="default">Effacer le stockage UICC et supprimer tous les fichiers qui y sont stockés ? Cette action est irréversible !</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">Vous devez dessiner votre schéma de déverrouillage pour confirmer que vous voulez effacer la carte SD.</string>
   <string name="usb_media_format_gesture_explanation" product="default">Vous devez dessiner votre schéma de déverrouillage pour confirmer que vous voulez effacer le stockage USB.</string>
   <string name="uicc_media_format_gesture_explanation" product="default">Vous devez dessiner votre schéma de déverrouillage pour confirmer que vous voulez effacer le stockage UICC.</string>
   <string name="internal_sd_format">Effacer le stockage média interne</string>
@@ -709,6 +726,10 @@
   <string name="qs_tile_usb_tether">Modem USB</string>
   <string name="qs_tile_heads_up">Notifications flottantes</string>
   <string name="qs_tile_ambient_display">Affichage ambiant</string>
+  <string name="qs_tile_sync">Synchronisation</string>
+  <string name="qs_dynamic_tile_next_alarm">Prochaine alarme</string>
+  <string name="qs_dynamic_tile_ime_selector">Mode de saisie</string>
+  <string name="qs_dynamic_tile_su">Accès root</string>
   <string name="qs_main_tiles_title">Agrandir la première ligne</string>
   <string name="qs_main_tiles_summary_on">Deux raccourcis principaux sur la première ligne</string>
   <string name="qs_main_tiles_summary_off">Trois raccourcis par ligne</string>
@@ -723,6 +744,7 @@
   <string name="wifi_ibss_freq_title">Canal/Fréquence</string>
   <string name="wifi_channel">Canal</string>
   <string name="wifi_mhz">MHz</string>
+  <string name="wifi_auto_config_priorities">Priorité automatique</string>
   <string name="maximum_head_level">Tête : %1$s W/kg</string>
   <string name="maximum_body_level">Corps : %1$s W/kg</string>
   <string name="ic_code_model">Modèle : %1$s</string>
@@ -793,6 +815,9 @@
   <string name="sim_ringtone_title">Sonnerie SIM %d</string>
   <string name="interruptions_ignore_while_media_title">Empêcher l\'atténuation audio</string>
   <string name="interruptions_ignore_while_media_summary">Ne pas réduire le volume de lecture de médias lors d\'une notification</string>
+  <string name="none_is_silent_title">Ne jamais couper les alarmes</string>
+  <string name="none_is_silent_summary">Les alarmes sonnent toujours en mode silencieux</string>
+  <string name="allow_lights_title">Permettre voyants de notification</string>
   <string name="live_display_summary">Optimiser votre écran en fonction de l\'heure et des conditions ambiantes pour améliorer la lisibilité et réduire la fatigue oculaire</string>
   <string name="live_display_mode">Mode d\'affichage</string>
   <string name="live_display_color_temperature_title">Température de couleur</string>
@@ -825,11 +850,15 @@
   <string name="heads_up_notifications">Notifications flottantes</string>
   <string name="summary_heads_up_enabled">Les notifications flottantes sont activées</string>
   <string name="summary_heads_up_disabled">Les notifications flottantes sont désactivées</string>
+  <string name="master_clear_desc_cm" product="tablet">Cela effacera  toutes les données du <b>stockage interne</b> de votre tablette, y compris :\n\n<li>Les comptes enregistrés sur votre appareil</li>\n<li>Les paramètres et données des applications et du système</li>\n<li>Les applications téléchargées</li></string>
+  <string name="master_clear_desc_cm" product="default">Cela effacera  toutes les données du <b>stockage interne</b> de votre téléphone, y compris :\n\n<li>Les comptes enregistrés sur votre appareil</li>\n<li>Les paramètres et données des applications et du système</li>\n<li>Les applications téléchargées</li></string>
   <string name="lock_to_cyanogen_title">Protection de l\'appareil</string>
   <string name="lock_to_cyanogen_summary">Exiger le mot de passe de votre compte Cyanogen OS même après une réinitialisation d\'usine</string>
   <string name="lock_to_cyanogen_create_account_msg">Votre appareil utilise le mot de passe du compte Cyanogen OS pour protéger votre appareil même dans le cas d\'une réinitialisation d\'usine. Vous devrez créer un compte Cyanogen OS.</string>
   <string name="lock_to_cyanogen_disable_msg">La désactivation de cette fonctionnalité permettra à des utilisateurs non autorisés de réinitialiser votre téléphone aux paramètres par défaut s\'il est volé. Vos données personnelles ne peuvent pas être protégées. Voulez-vous désactiver cette fonctionnalité ?</string>
   <string name="lock_to_cyanogen_master_clear_warning">La protection de l\'appareil est activée. Veuillez la désactiver pour continuer la réinitialisation de votre appareil.</string>
+  <string name="bluetooth_pan_profile_summary_use_for_error">Erreur de connexion. Est-ce que le partage de connexion Bluetooth est activé sur cet appareil ?</string>
+  <string name="sim_card_status_title">Status de la SIM %d</string>
   <string name="sim_card_lock_settings_title">Paramètres de verrouillage de la carte SIM %d</string>
   <string name="sim_card_summary_empty">Carte SIM non insérée</string>
   <string name="sim_mobile_network_settings_category_title">Paramètres de réseau mobile</string>
@@ -838,7 +867,49 @@
   <string name="factory_reset_instructions_summary">Cette opération effacera vos comptes, applications, données d\'applications ainsi que les paramètres système de l\'appareil</string>
   <string name="factory_reset_personal_content">Contenu personnel</string>
   <string name="factory_reset_erase_stored_content">Effacer le contenu stocké</string>
+  <string name="factory_reset_erase_stored_content_summary">Effacer la musique, photos, vidéos et autres données utilisateur stockées sur cet appareil</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">Effacer la musique, photos, vidéos et autres données utilisateur stockées sur cet appareil.\n\n<b>Le contenu ne peut pas être sauvegardé en raison du chiffrement de l\'appareil</b></string>
   <string name="factory_reset_erase_sd_card">Formater la carte SD</string>
   <string name="factory_reset_erase_sd_card_summary">Effacer toutes les données de la carte SD, y compris la musique et les photos</string>
+  <string name="factory_reset_warning_text_reset_now">RÉINITIALISER MAINTENANT</string>
   <string name="factory_reset_warning_text_message">Tous vos comptes, applications, données d\'applications ainsi que les paramètres système seront effacés de cet appareil. Cette action est irréversible.</string>
+  <string name="wifi_setting_countrycode_title">Code région Wi\u2011Fi</string>
+  <string name="wifi_setting_countrycode_summary">Indiquer le code région pour le Wi\u2011Fi</string>
+  <string name="wifi_setting_countrycode_error">Il y a eu un problème lors du réglage du code région.</string>
+  <string name="wifi_countrycode_entries_us">États-Unis</string>
+  <string name="wifi_countrycode_entries_ca">Canada, Taïwan</string>
+  <string name="wifi_countrycode_entries_de">Allemagne</string>
+  <string name="wifi_countrycode_entries_gb">Europe</string>
+  <string name="wifi_countrycode_entries_jp">Japon, Russie</string>
+  <string name="wifi_countrycode_entries_au">Australie</string>
+  <string name="wifi_countrycode_entries_cn">Chine</string>
+  <string name="wifi_countrycode_entries_kr">Corée</string>
+  <string name="wifi_countrycode_entries_tr">Afrique du Sud, Turquie</string>
+  <string name="wifi_countrycode_entries_sg">Israël, Singapour</string>
+  <string name="wifi_countrycode_entries_br">Brésil</string>
+  <string name="wifi_countrycode_entries_in">Inde</string>
+  <string name="unlock_set_unlock_mode_fingerprint">Empreintes digitales</string>
+  <string name="unlock_set_unlock_fingerprint_title">Empreintes digitales</string>
+  <string name="fingerprint_item_add_new_fingerprint">Ajouter une empreinte digitale</string>
+  <string name="fingerprint_manage_fingerprints">Gérer les empreintes digitales</string>
+  <string name="unlock_backup_fingerprint_info_summary">Si vous ne pouvez pas utiliser votre doigt, comment voulez-vous débloquer votre appareil ?</string>
+  <string name="fingerprint_dialog_title_rename">Modifier l\'empreinte digitale</string>
+  <string name="fingerprint_dialog_name_label">Nom de l\'empreinte digitale</string>
+  <string name="fingerprint_enrollment_introduction_title">Trouver votre capteur</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Le capteur d\'empreintes digitales est situé à l\'avant ou à l\'arrière de votre téléphone.</string>
+  <string name="fingerprint_enrollment_scan_title">Maintenir pendant 3 secondes</string>
+  <string name="fingerprint_enrollment_scan_instructions">Placez votre index sur le capteur d\'empreintes digitales pour commencer l\'installation. Lever le doigt une fois que vous sentez une vibration.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Veuillez essayer de nouveau</string>
+  <string name="fingerprint_enrollment_error_message">Placez fermement votre doigt sur le capteur d\'empreintes digitales pour assurer une analyse précise. Assurez-vous aussi d\'utiliser le même doigt qu\'auparavant. Lever le doigt une fois que vous sentez une vibration.</string>
+  <string name="fingerprint_enrollment_scan_instructions">Placez votre index sur le capteur d\'empreintes digitales pour commencer l\'installation. Lever le doigt une fois que vous sentez une vibration.</string>
+  <string name="fingerprint_enrollment_finished_title">Empreinte digitale ajoutée !</string>
+  <string name="fingerprint_enrollment_finished_message">Votre empreinte digitale permet maintenant de déverrouiller votre écran ou de prendre des selfies à l\'aide de votre appareil photo.</string>
+  <string name="fingerprint_enrollment_add_another_label">En ajouter une autre</string>
+  <string name="fingerprint_enrollment_done_label">OK</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Oups, ce n\'est pas votre capteur</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Utiliser le capteur d\'empreintes digitales situé à l\'avant ou l\'arrière de votre téléphone</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Impossible de lire l\'empreinte digitale</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Essayez d\'utiliser un autre doigt. Cette empreinte n\'a pas pu être lue.</string>
+  <string name="fingerprint_enrollment_restart_label">Redémarrez</string>
+  <string name="fingerprint_successful_scan_title_first">Parfait ! Maintenant, répétez</string>
 </resources>
