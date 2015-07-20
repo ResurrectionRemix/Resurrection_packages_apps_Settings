@@ -17,6 +17,7 @@
 package com.android.settings.cmstats;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -60,11 +61,11 @@ public class Utilities {
     }
 
     public static String getDevice() {
-        return SystemProperties.get("ro.cm.device");
+        return SystemProperties.get("ro.cm.device", Build.PRODUCT);
     }
 
     public static String getModVersion() {
-        return SystemProperties.get("ro.cm.version");
+        return SystemProperties.get("ro.cm.version", Build.DISPLAY);
     }
 
     public static String digest(String input) {
