@@ -138,7 +138,12 @@ public class SetupEnrollFingerprint extends EnrollFingerprint
         @Override
         protected void updateStage(Stage stage) {
             super.updateStage(stage);
-            final SetupWizardNavBar setupBar = getEnrollmentActivity().getSetupBar();
+            final EnrollFingerprint enrollmentActivity = getEnrollmentActivity();
+            if (enrollmentActivity == null) {
+                // no activity so nothing to do here.
+                return;
+            }
+            final SetupWizardNavBar setupBar = enrollmentActivity.getSetupBar();
             if (stage != Stage.EnrollmentFinished) {
                 setupBar.getBackButton().setVisibility(View.VISIBLE);
             } else {
