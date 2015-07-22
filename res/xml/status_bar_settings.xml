@@ -82,6 +82,11 @@
         android:entryValues="@array/smart_pulldown_values"
         android:persistent="false" />       
 
+    <PreferenceScreen
+            android:key="status_bar_temperature_style"
+            android:title="@string/status_bar_temperature_title"
+            android:fragment="com.android.settings.aicp.StatusBarWeather" />
+
     <PreferenceCategory
             android:title="@string/status_bar_greeting_category_title">
 
