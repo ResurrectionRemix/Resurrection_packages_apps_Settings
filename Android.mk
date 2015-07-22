@@ -36,7 +36,6 @@ LOCAL_AAPT_FLAGS := \
     --extra-packages android.support.v7.cardview
 
 LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
-LOCAL_ASSET_DIR := $(LOCAL_PATH)/assets
 
 include frameworks/opt/setupwizard/navigationbar/common.mk
 include $(BUILD_PACKAGE)
