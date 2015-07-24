@@ -16,21 +16,33 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Resources;
+import android.os.UserHandle;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.provider.Settings;
 
 import android.provider.SearchIndexableResource;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import android.preference.ListPreference;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+
+import com.android.settings.cyanogenmod.qs.DraggableGridView;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Indexable {
+public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Indexable,
+        Preference.OnPreferenceChangeListener {
     private Preference mQSTiles;
+    private ListPreference mNumColumns;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -40,6 +52,25 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mQSTiles = findPreference("qs_order");
     }
 
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+       mNumColumns = (ListPreference) findPreference("sysui_qs_num_columns");
+       int numColumns = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
+                UserHandle.USER_CURRENT);
+        mNumColumns.setValue(String.valueOf(numColumns));
+        updateNumColumnsSummary(numColumns);
+        mNumColumns.setOnPreferenceChangeListener(this);
+        DraggableGridView.setColumnCount(numColumns);
+}
+
     @Override
     public void onResume() {
         super.onResume();
@@ -48,6 +79,44 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mQSTiles.setSummary(getResources().getQuantityString(R.plurals.qs_tiles_summary,
                     qsTileCount, qsTileCount));
     }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+	 ContentResolver resolver = getContentResolver();
+	if (preference == mNumColumns) {
+            int numColumns = Integer.valueOf((String) newValue);
+            Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.QS_NUM_TILE_COLUMNS,
+                    numColumns, UserHandle.USER_CURRENT);
+            updateNumColumnsSummary(numColumns);
+            DraggableGridView.setColumnCount(numColumns);
+            return true;
+        	}
+	return false;
+	}
+
+ public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+	
+    private void updateNumColumnsSummary(int numColumns) {
+        String prefix = (String) mNumColumns.getEntries()[mNumColumns.findIndexOfValue(String
+                .valueOf(numColumns))];
+        mNumColumns.setSummary(getResources().getString(R.string.qs_num_columns_showing, prefix));
+    }
+
+    private int getDefaultNumColums() {
+        try {
+            Resources res = getPackageManager()
+                    .getResourcesForApplication("com.android.systemui");
+            int val = res.getInteger(res.getIdentifier("quick_settings_num_columns", "integer",
+                    "com.android.systemui")); // better not be larger than 5, that's as high as the
+                                              // list goes atm
+            return Math.max(1, val);
+       } catch (Exception e) {
+            return 3;
+        }
+    }
+
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
@@ -70,3 +139,4 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                 }
             };
 }
+
