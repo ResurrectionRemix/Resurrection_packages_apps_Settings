@@ -16,10 +16,17 @@
     android:title="@string/status_bar_temperature_title">
 
         <ListPreference
-            android:key="status_bar_temperature_style"
+            android:key="status_bar_temperature"
             android:title="@string/status_bar_temperature_title"
             android:dialogTitle="@string/status_bar_temperature_title"
             android:entries="@array/status_bar_temperature_entries"
             android:entryValues="@array/status_bar_temperature_values" />
+
+        <ListPreference
+            android:key="status_bar_temperature_style"
+            android:title="@string/status_bar_temperature_location_title"
+            android:dialogTitle="@string/status_bar_temperature_location_title"
+            android:entries="@array/status_bar_temperature_location_entries"
+            android:entryValues="@array/status_bar_temperature_location_values" />
 
 </PreferenceScreen>
