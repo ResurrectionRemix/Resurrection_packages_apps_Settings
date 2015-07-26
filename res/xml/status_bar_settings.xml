@@ -49,6 +49,14 @@
             android:defaultValue="0xffffffff"
             android:dependency="status_bar_logo" />
 
+
+    <!-- Headset icon switch -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="show_headset_icon"
+            android:title="@string/show_headset_icon_title"
+            android:summary="@string/show_headset_icon_summary"
+            android:defaultValue="true" />
+
     <PreferenceScreen
             android:key="status_bar_temperature_style"
             android:title="@string/status_bar_temperature_title"
