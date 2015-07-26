@@ -49,6 +49,11 @@
             android:defaultValue="0xffffffff"
             android:dependency="status_bar_logo" />
 
+    <PreferenceScreen
+            android:key="status_bar_temperature_style"
+            android:title="@string/status_bar_temperature_title"
+            android:fragment="com.android.settings.aicp.StatusBarWeather" />
+
     <SwitchPreference
         android:key="block_on_secure_keyguard"
         android:title="@string/block_on_secure_keyguard_title"
@@ -68,11 +73,6 @@
         android:entries="@array/smart_pulldown_entries"
         android:entryValues="@array/smart_pulldown_values"
         android:persistent="false" />       
-
-    <PreferenceScreen
-            android:key="status_bar_temperature_style"
-            android:title="@string/status_bar_temperature_title"
-            android:fragment="com.android.settings.aicp.StatusBarWeather" />
 
     <PreferenceCategory
             android:title="@string/status_bar_greeting_category_title">
