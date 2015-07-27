@@ -233,7 +233,6 @@
   <string name="device_model">Enhedsmodel</string>
   <string name="device_name">Enhedens navn</string>
   <string name="build_date">Kørselsdato</string>
-  <string name="contributor_cloud_title">Bidragydere</string>
   <string name="phone_service_state">Stemme: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dobbelttryk for at vække</string>
   <string name="double_tap_to_wake_summary">Dobbelttryk på skærmen for at tænde den</string>
@@ -889,6 +888,7 @@
   <string name="wifi_countrycode_entries_sg">Israel, Singapore</string>
   <string name="wifi_countrycode_entries_br">Brasilien</string>
   <string name="wifi_countrycode_entries_in">Indien</string>
+  <string name="unlock_set_unlock_launch_picker_title_with_fingerprint">Skærmlåse &amp; fingeraftryk</string>
   <string name="unlock_set_unlock_mode_fingerprint">Fingeraftryk</string>
   <string name="unlock_set_unlock_fingerprint_title">Fingeraftryk</string>
   <string name="fingerprint_item_add_new_fingerprint">Tilføj nyt fingeraftryk</string>
@@ -900,15 +900,42 @@
   <string name="fingerprint_dialog_title_max_fingers_reached">Det maksimale antal fingeraftryk er nået</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Du kan kun optage <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> fingeraftryk. Slet et eksisterende fingeraftryk.</string>
   <string name="fingerprint_title_manage_fingerprints">Administrere fingeraftryk <xliff:g id="finger">%d </xliff:g> / <xliff:g id="max"> %d </xliff:g></string>
-  <string name="manage_fingerprints_description">Fingeraftryk lader dig hurtigt låse din telefon op, bekræfte indkøb og tage billeder.</string>
   <string name="fingerprint_enrollment_introduction_title">Find din sensor</string>
   <string name="fingerprint_enrollment_introduction_instructions">Fingeraftrykssensoren er placeret på forsiden eller bagsiden af telefonen.</string>
   <string name="fingerprint_enrollment_scan_title">Hold i 3 sekunder</string>
   <string name="fingerprint_enrollment_scan_instructions">Placér pegefingeren på fingeraftrykssensoren for at begynde installationen. Løft fingeren, når du mærker en vibration.</string>
   <string name="fingerprint_enrollment_error_title_wrong_sensor">Prøv venligst igen</string>
-  <string name="fingerprint_enrollment_error_message">Placer fingeren solidt på fingeraftrykssensoren for at sikre en nøjagtig scanning. Sørg også for at du bruger den samme finger som før. Løft fingeren, når du mærker en vibration.</string>
   <string name="fingerprint_enrollment_scan_instructions">Placér pegefingeren på fingeraftrykssensoren for at begynde installationen. Løft fingeren, når du mærker en vibration.</string>
+  <string name="fingerprint_enrollment_break_title">Fortsæt med nuværende aftryk</string>
   <string name="fingerprint_enrollment_break_instructions">Fortsæt med at scanne enderne af dit aftryk. Løft fingeren, når du mærker en vibration.</string>
   <string name="fingerprint_enrollment_finished_title">Fingeraftryk tilføjet!</string>
   <string name="fingerprint_enrollment_finished_message">Dit fingeraftryk kan nu bruges til at låse din skærm op eller tage selfies ved hjælp af dit kamera.</string>
+  <string name="fingerprint_enrollment_found_it_label">Fandt det</string>
+  <string name="fingerprint_enrollment_add_another_label">Tilføje et andet</string>
+  <string name="fingerprint_enrollment_done_label">Udført</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Hovsa, det ikke er din sensor</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Brug fingeraftrykssensoren på forsiden eller bagsiden af telefonen</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Kunne ikke aflæse fingeraftryk</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Prøv at bruge en anden finger. Dette fingeraftryk kunne ikke aflæses.</string>
+  <string name="fingerprint_enrollment_restart_label">Start igen</string>
+  <string name="fingerprint_successful_scan_title_first">Perfekt! Gentag så</string>
+  <string name="fingerprint_successful_scan_final">Endnu en gang</string>
+  <string name="fingerprint_successful_scan_title_1">Sådan! Du kan fortsætte</string>
+  <string name="fingerprint_successful_scan_title_2">Flot! En gang til</string>
+  <string name="fingerprint_successful_scan_title_3">Godt gået! Bliv ved</string>
+  <string name="fingerprint_successful_scan_title_4">Bare et par gange til</string>
+  <string name="fingerprint_successful_scan_title_5">Du gør det godt! Kom igen</string>
+  <string name="fingerprint_successful_scan_title_6">Du er der næsten</string>
+  <string name="fingerprint_enrollment_error_title_1">Ups. Prøv igen</string>
+  <string name="fingerprint_enrollment_error_title_2">Fik det desværre ikke</string>
+  <string name="fingerprint_enrollment_error_title_3">Hmm, der gik noget galt</string>
+  <string name="fingerprint_enrollment_error_title_4">Prøv igen</string>
+  <string name="fingerprint_enrollment_error_title_5">Ups, der var en fejl</string>
+  <string name="menu_stats_reset">Nulstil statistikker</string>
+  <string name="reset_stats_msg">Batterihistoriestatistik vil blive nulstillet</string>
+  <string name="dock_battery_not_present">Dockbatteri findes ikke</string>
+  <string name="battery_info_status_charging_dock_ac">Oplader på dock AC</string>
+  <string name="battery_info_status_charging_dock_usb">Oplader via dock USB</string>
+  <string name="setup_lock_pattern_size_title">Mønsterkompleksitet</string>
+  <string name="setup_lock_pattern_size_details">Hvor mange noder vil du bruge til mønsteret? Jo flere noder, jo mere komplekse kan mønstrene være.</string>
 </resources>

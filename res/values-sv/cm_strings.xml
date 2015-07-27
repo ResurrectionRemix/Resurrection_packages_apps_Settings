@@ -105,6 +105,7 @@
   <string name="hardware_keys_menu_key_title">Menyknapp</string>
   <string name="hardware_keys_assist_key_title">Sökknapp</string>
   <string name="hardware_keys_appswitch_key_title">Senasteknapp</string>
+  <string name="hardware_keys_camera_key_title">Kameraknapp</string>
   <string name="hardware_keys_volume_keys_title">Volymknappar</string>
   <string name="hardware_keys_short_press_title">Korttrycksåtgärd</string>
   <string name="hardware_keys_long_press_title">Långtrycksåtgärd</string>
@@ -118,6 +119,10 @@
   <string name="hardware_keys_action_launch_camera">Öppna kamera</string>
   <string name="hardware_keys_action_sleep">Stäng av skärmen</string>
   <string name="hardware_keys_action_last_app">Senaste app</string>
+  <string name="camera_sleep_on_release_title">Tjuvkika på skärmen</string>
+  <string name="camera_sleep_on_release_summary">Ett halvtryck kommer att hålla skärmen på endast medan knappen är nedtryckt</string>
+  <string name="camera_launch_title">Starta kamera</string>
+  <string name="camera_launch_summary">Ett långt tryck och släpp startar kameran</string>
   <string name="volbtn_music_controls_title">Uppspelningskontroll</string>
   <string name="volbtn_music_controls_summary">Långtryck på volymknapparna kommer att hoppa mellan musikspår medan skärmen är av</string>
   <string name="volbtn_cursor_control_title">Kontrollera tangentbordsmarkören</string>
@@ -228,7 +233,6 @@
   <string name="device_model">Enhetsmodell</string>
   <string name="device_name">Enhetsnamn</string>
   <string name="build_date">Byggdatum</string>
-  <string name="contributor_cloud_title">Bidragsgivare</string>
   <string name="phone_service_state">Röst: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dubbeltryck för att väcka</string>
   <string name="double_tap_to_wake_summary">Dubbeltryck på skärmen för att slå på displayen</string>
@@ -668,6 +672,7 @@
   <string name="select_custom_app_title">Välj anpassad app</string>
   <string name="select_custom_activity_title">Välj anpassad aktivitet</string>
   <string name="autoperf_title">Aktivera profiler per app</string>
+  <string name="autoperf_summary">Välj automatiskt ett lämpligt batteriläge för olika appar</string>
   <string name="perf_profile_title">Batteriläge</string>
   <string name="pref_force_highend_gfx_title">Tvinga högklassgrafik</string>
   <string name="pref_force_highend_gfx_summary">Aktiverar visuella effekter av hög klass som exempelvis transparent status- och navigeringsfält (kräver omstart)</string>
@@ -886,13 +891,54 @@ inkluderar en unik identifikation,
   <string name="wifi_countrycode_entries_sg">Israel, Singapore</string>
   <string name="wifi_countrycode_entries_br">Brasilien</string>
   <string name="wifi_countrycode_entries_in">Indien</string>
+  <string name="unlock_set_unlock_launch_picker_title_with_fingerprint">Skärmupplåsning &amp; Fingeravtryck</string>
   <string name="unlock_set_unlock_mode_fingerprint">Fingeravtryck</string>
   <string name="unlock_set_unlock_fingerprint_title">Fingeravtryck</string>
   <string name="fingerprint_item_add_new_fingerprint">Lägg till nytt fingeravtryck</string>
   <string name="fingerprint_manage_fingerprints">Hantera fingeravtryck</string>
+  <string name="fingerprint_manage_fingerprints_summary">Lägg till eller ta bort registrerade fingeravtryck</string>
   <string name="unlock_backup_fingerprint_info_summary">Om du inte kan använda ditt finger, hur vill du att låsa upp?</string>
   <string name="fingerprint_dialog_title_rename">Redigera fingeravtryck</string>
   <string name="fingerprint_dialog_name_label">Fingeravtrycksnamn</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Maximalt antal fingeravtryck uppnått</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Du kan enbart registrera <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> fingeravtryck. Ta bort ett befintligt fingeravtryck.</string>
+  <string name="fingerprint_title_manage_fingerprints">Hantera fingeravtryck <xliff:g id="finger">%d</xliff:g><xliff:g id="max">%d</xliff:g></string>
+  <string name="fingerprint_enrollment_introduction_title">Hitta din avläsare</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Fingertrycksavläsare är placerad på fram- eller baksidan av din telefon.</string>
+  <string name="fingerprint_enrollment_scan_title">Håll i 3 sekunder</string>
+  <string name="fingerprint_enrollment_scan_instructions">Placera ditt indexfinger på fingeravtrycksavläsaren för att börja konfigurering. Lyft ditt finger när du känner en vibration.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Försök igen</string>
+  <string name="fingerprint_enrollment_scan_instructions">Placera ditt indexfinger på fingeravtrycksavläsaren för att börja konfigurering. Lyft ditt finger när du känner en vibration.</string>
+  <string name="fingerprint_enrollment_break_title">Fortsätt med nuvarande grepp</string>
+  <string name="fingerprint_enrollment_break_instructions">Fortsätt för att fånga kanterna av ditt avtryck. Lyft fingret när du känner en vibration.</string>
+  <string name="fingerprint_enrollment_finished_title">Fingeravtryck tillagt!</string>
+  <string name="fingerprint_enrollment_finished_message">Ditt fingeravtryck kan nu användas för att låsa upp din skärm eller för att ta selfies med din kamera.</string>
+  <string name="fingerprint_enrollment_found_it_label">Hittade den</string>
+  <string name="fingerprint_enrollment_add_another_label">Lägg till en till</string>
+  <string name="fingerprint_enrollment_done_label">Färdig</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Oj då, det är inte din avläsare</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Använd fingeravtrycksavläsaren på framsidan eller baksidan av din telefon</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Kunde inte läsa fingeravtryck</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Prova att använda ett annat finger. Det gick inte att läsa detta fingeravtryck.</string>
+  <string name="fingerprint_enrollment_restart_label">Starta om</string>
+  <string name="fingerprint_successful_scan_title_first">Perfekt! Repetera nu igen</string>
+  <string name="fingerprint_successful_scan_final">En gång till tack</string>
+  <string name="fingerprint_successful_scan_title_1">Du klarade det! Fortsätt</string>
+  <string name="fingerprint_successful_scan_title_2">Grattis! En gång till</string>
+  <string name="fingerprint_successful_scan_title_3">Bra gjort! Fortsätt så</string>
+  <string name="fingerprint_successful_scan_title_4">Bara ett par gånger till</string>
+  <string name="fingerprint_successful_scan_title_5">Du gjorde ett bra jobb! Och en gång till</string>
+  <string name="fingerprint_successful_scan_title_6">Nästan framme</string>
+  <string name="fingerprint_enrollment_error_title_1">Oj då. Försök igen</string>
+  <string name="fingerprint_enrollment_error_title_2">Tyvärr fungerade det inte</string>
+  <string name="fingerprint_enrollment_error_title_3">Hmm, något gick fel</string>
+  <string name="fingerprint_enrollment_error_title_4">Försök igen</string>
+  <string name="fingerprint_enrollment_error_title_5">Oj, det var uppstod ett fel</string>
+  <string name="menu_stats_reset">Återställ statistik</string>
+  <string name="reset_stats_msg">Statistiken för batterihistorik kommer att återställas</string>
+  <string name="dock_battery_not_present">Dockningsstationsbatteri hittades inte</string>
+  <string name="battery_info_status_charging_dock_ac">Laddar i dockningsstationens AC</string>
+  <string name="battery_info_status_charging_dock_usb">Laddar över dockningsstationens USB</string>
+  <string name="setup_lock_pattern_size_title">Mönsterkomplexitet</string>
+  <string name="setup_lock_pattern_size_details">Hur många noder vill du använda med ditt mönster? Ju fler noder, desto mer komplext kan mönstret bli.</string>
 </resources>

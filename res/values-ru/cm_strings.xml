@@ -234,7 +234,6 @@
   <string name="device_model">Модель устройства</string>
   <string name="device_name">Имя устройства</string>
   <string name="build_date">Дата сборки</string>
-  <string name="contributor_cloud_title">Имена разработчиков</string>
   <string name="phone_service_state">Голосовая связь: <xliff:g id="voice_state">%1$s</xliff:g>\nПередача данных: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Включение при двойном нажатии</string>
   <string name="double_tap_to_wake_summary">Дважды коснитесь экрана, чтобы вывести устройство из спящего режима</string>
@@ -675,6 +674,7 @@
   <string name="select_custom_app_title">Выбор приложения</string>
   <string name="select_custom_activity_title">Выбор действия</string>
   <string name="autoperf_title">Профили приложений</string>
+  <string name="autoperf_summary">Автоматически выбирать соответствующий режим батареи для приложений</string>
   <string name="perf_profile_title">Энергопотребление</string>
   <string name="pref_force_highend_gfx_title">Высококачественная графика</string>
   <string name="pref_force_highend_gfx_summary">Использовать эффекты, отключенные для устройств с низкой производительностью, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
@@ -895,10 +895,51 @@
   <string name="unlock_set_unlock_fingerprint_title">Отпечаток пальца</string>
   <string name="fingerprint_item_add_new_fingerprint">Добавить отпечаток пальца</string>
   <string name="fingerprint_manage_fingerprints">Управление отпечатками</string>
+  <string name="fingerprint_manage_fingerprints_summary">Добавление или удаление зарегистрированных отпечатков</string>
   <string name="unlock_backup_fingerprint_info_summary">Каким методом следует разблокировать устройство при невозможности использовать отпечаток?</string>
   <string name="fingerprint_dialog_title_rename">Переименовать отпечаток</string>
   <string name="fingerprint_dialog_name_label">Название отпечатка</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Добавлено максимальное количество отпечатков</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Можно зарегистрировать только <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> отпечатков пальцев. Удалите какой-нибудь из добавленных.</string>
+  <string name="fingerprint_title_manage_fingerprints">Зарегистрировано отпечатков <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="manage_fingerprints_description">Отпечатки пальцев позволяют быстро разблокировать телефон и делать фотоснимки.</string>
+  <string name="fingerprint_enrollment_introduction_title">Определите месторасположение сканера отпечатков</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Сканер отпечатков располагается на передней или задней панели вашего телефона.</string>
+  <string name="fingerprint_enrollment_scan_title">Удерживайте в течение 3 секунд</string>
+  <string name="fingerprint_enrollment_scan_instructions">Приложите указательный палец к сканеру для начала настройки. Уберите палец после вибросигнала.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Повторите попытку</string>
+  <string name="fingerprint_enrollment_error_message">Плотно приложите палец к сканеру, чтобы обеспечить правильное считывание. Убедитесь также, что прикладываете тот же самый палец. Уберите палец после вибросигнала.</string>
+  <string name="fingerprint_enrollment_scan_instructions">Приложите указательный палец к сканеру для начала настройки. Уберите палец после вибросигнала.</string>
+  <string name="fingerprint_enrollment_break_title">Продолжайте с тем же усилием нажатия</string>
+  <string name="fingerprint_enrollment_break_instructions">Продолжайте для сканирования краёв отпечатка. Уберите палец после вибросигнала.</string>
+  <string name="fingerprint_enrollment_finished_title">Отпечаток добавлен!</string>
+  <string name="fingerprint_enrollment_finished_message">Теперь при помощи отпечатка пальца вы можете разблокировать экран или снимать себя на камеру.</string>
+  <string name="fingerprint_enrollment_found_it_label">Сканер найден</string>
+  <string name="fingerprint_enrollment_add_another_label">Добавить ещё</string>
   <string name="fingerprint_enrollment_done_label">Готово</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Ошибочка! Это не сканер</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Используйте сканер отпечатков на передней или задней панели вашего телефона</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Не удалось считать отпечаток</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Попробуйте другой палец. Данный отпечаток не удалось отсканировать.</string>
+  <string name="fingerprint_enrollment_restart_label">Повторить заново</string>
+  <string name="fingerprint_successful_scan_title_first">Отлично! Теперь повторим</string>
+  <string name="fingerprint_successful_scan_final">Ещё раз, пожалуйста</string>
+  <string name="fingerprint_successful_scan_title_1">Получилось! Продолжайте</string>
+  <string name="fingerprint_successful_scan_title_2">Великолепно! И ещё раз</string>
+  <string name="fingerprint_successful_scan_title_3">Отлично! Так держать</string>
+  <string name="fingerprint_successful_scan_title_4">Осталось совсем немного</string>
+  <string name="fingerprint_successful_scan_title_5">Хорошо получается! И ещё разок</string>
+  <string name="fingerprint_successful_scan_title_6">Ещё чуть-чуть</string>
+  <string name="fingerprint_enrollment_error_title_1">Ой! Попробуйте ещё раз</string>
+  <string name="fingerprint_enrollment_error_title_2">Жаль, попытка не удалась</string>
+  <string name="fingerprint_enrollment_error_title_3">Хмм, что-то пошло не так</string>
+  <string name="fingerprint_enrollment_error_title_4">О нет, попробуйте ещё раз</string>
+  <string name="fingerprint_enrollment_error_title_5">Ой-ой-ой! Произошла ошибка</string>
+  <string name="menu_stats_reset">Сброс статистики</string>
+  <string name="reset_stats_msg">История использования батареи будет удалена</string>
+  <string name="dock_battery_not_present">Батарея док-станции отсутствует</string>
+  <string name="battery_info_status_charging_dock_ac">Зарядка от адаптера док-станции</string>
+  <string name="battery_info_status_charging_dock_usb">Зарядка через USB док-станции</string>
+  <string name="setup_lock_pattern_size_title">Сложность узора</string>
+  <string name="setup_lock_pattern_size_details">Сколько узлов будет использовано для вашей схемы? Чем больше узлов, тем сложнее может быть узор графического ключа.</string>
 </resources>

@@ -102,6 +102,7 @@
   <string name="hardware_keys_menu_key_title">Menü gomb</string>
   <string name="hardware_keys_assist_key_title">Keresés gomb</string>
   <string name="hardware_keys_appswitch_key_title">Előzmények gomb</string>
+  <string name="hardware_keys_camera_key_title">Kamera gomb</string>
   <string name="hardware_keys_volume_keys_title">Hangerő gombok</string>
   <string name="hardware_keys_short_press_title">Rövid érintés eseménye</string>
   <string name="hardware_keys_long_press_title">Hosszan érintés eseménye</string>
@@ -115,6 +116,10 @@
   <string name="hardware_keys_action_launch_camera">Kamera indítása</string>
   <string name="hardware_keys_action_sleep">Képernyő kikapcsolása</string>
   <string name="hardware_keys_action_last_app">Utolsó alkalmazás</string>
+  <string name="camera_sleep_on_release_title">Betekintés</string>
+  <string name="camera_sleep_on_release_summary">A kijelző ébren marad, amíg félig lenyomva tartja a gombot</string>
+  <string name="camera_launch_title">Kamera indítása</string>
+  <string name="camera_launch_summary">Hosszan nyomva és elengedve elindítja a kamerát</string>
   <string name="volbtn_music_controls_title">Zene vezérlése</string>
   <string name="volbtn_music_controls_summary">Kikapcsolt képernyőnél a hangerőgombok nyomva tartásával válthat az éppen lejátszott zeneszámok között</string>
   <string name="volbtn_cursor_control_title">Kurzor mozgatás</string>
@@ -225,7 +230,6 @@
   <string name="device_model">Eszköz modellje</string>
   <string name="device_name">Eszköz neve</string>
   <string name="build_date">Build dátuma</string>
-  <string name="contributor_cloud_title">Közreműködők</string>
   <string name="phone_service_state">Hang: <xliff:g id="voice_state">%1$s</xliff:g>, adat: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dupla érintésre felébresztés</string>
   <string name="double_tap_to_wake_summary">Érintse meg kétszer a képernyőt a kijelző bekapcsolásához</string>
@@ -881,13 +885,46 @@
   <string name="wifi_countrycode_entries_sg">Izrael, Szingapúr</string>
   <string name="wifi_countrycode_entries_br">Brazília</string>
   <string name="wifi_countrycode_entries_in">India</string>
+  <string name="unlock_set_unlock_launch_picker_title_with_fingerprint">Képernyő feloldás &amp; ujjlenyomat</string>
   <string name="unlock_set_unlock_mode_fingerprint">Ujjlenyomat</string>
   <string name="unlock_set_unlock_fingerprint_title">Ujjlenyomat</string>
   <string name="fingerprint_item_add_new_fingerprint">Új ujjlenyomat hozzáadása</string>
   <string name="fingerprint_manage_fingerprints">Ujjlenyomatok kezelése</string>
+  <string name="fingerprint_manage_fingerprints_summary">Beolvasott ujjlenyomatok kezelése</string>
   <string name="unlock_backup_fingerprint_info_summary">Ha nem tudja az ujját használni, hogyan szeretné feloldani?</string>
   <string name="fingerprint_dialog_title_rename">Ujjlenyomat szerkesztése</string>
   <string name="fingerprint_dialog_name_label">Ujjlenyomat neve</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Elérte az ujjlenyomatok maximális számát</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Egyszerre csak <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> ujjlenyomatot vehet fel. Töröljön egy meglévő ujjlenyomatot.</string>
+  <string name="fingerprint_title_manage_fingerprints">Ujjlenyomatok kezelése <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="fingerprint_enrollment_introduction_title">Találja meg érzékelőjét</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Az ujjlenyomat-érzékelő a telefon elején vagy hátoldalán található.</string>
+  <string name="fingerprint_enrollment_scan_title">Tartsa 3 másodpercig</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Kérjük, próbálja újra</string>
+  <string name="fingerprint_enrollment_finished_title">Ujjlenyomat hozzáadva!</string>
+  <string name="fingerprint_enrollment_found_it_label">Megtaláltam</string>
+  <string name="fingerprint_enrollment_add_another_label">Újabb hozzáadása</string>
+  <string name="fingerprint_enrollment_done_label">Kész</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Hoppá, ez nem az érzékelő</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">A telefon elején vagy hátoldalán található ujjlenyomat-érzékelőt használja</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Ujjlenyomat olvasása sikertelen</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Próbáljon másik ujjat használni. Ez az ujjlenyomat nem olvasható.</string>
+  <string name="fingerprint_enrollment_restart_label">Újraindítás</string>
+  <string name="fingerprint_successful_scan_title_first">Tökéletes! Most ismételje meg</string>
+  <string name="fingerprint_successful_scan_final">Még egyszer</string>
+  <string name="fingerprint_successful_scan_title_1">Ez megvan! Folytassa</string>
+  <string name="fingerprint_successful_scan_title_2">Nagyszerű! És újra</string>
+  <string name="fingerprint_successful_scan_title_3">Szép munka! Csak így tovább</string>
+  <string name="fingerprint_successful_scan_title_4">Csak még néhányszor</string>
+  <string name="fingerprint_successful_scan_title_5">Jól csinálja! És ismét</string>
+  <string name="fingerprint_successful_scan_title_6">Majdnem megvagyunk</string>
+  <string name="fingerprint_enrollment_error_title_1">Hoppá. Próbálja újra</string>
+  <string name="fingerprint_enrollment_error_title_2">Sajnálom, nem értem</string>
+  <string name="fingerprint_enrollment_error_title_3">Hmm, valami rosszul sikerült</string>
+  <string name="fingerprint_enrollment_error_title_4">Uh oh, próbálja újra</string>
+  <string name="fingerprint_enrollment_error_title_5">Hoppá, hiba történt</string>
+  <string name="menu_stats_reset">Statisztika törlése</string>
+  <string name="reset_stats_msg">Akkumulátor használati statisztika törlésre kerül</string>
+  <string name="setup_lock_pattern_size_title">Minta összetettsége</string>
+  <string name="setup_lock_pattern_size_details">Hány csomópontot szeretne használni a mintához? Minél több a csomópont, annál bonyolultabb lehet a minta.</string>
 </resources>

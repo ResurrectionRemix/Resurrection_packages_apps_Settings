@@ -119,6 +119,7 @@
   <string name="hardware_keys_action_launch_camera">Camera openen</string>
   <string name="hardware_keys_action_sleep">Scherm uitschakelen</string>
   <string name="hardware_keys_action_last_app">Vorige app</string>
+  <string name="camera_sleep_on_release_title">Scherm kort aan</string>
   <string name="camera_sleep_on_release_summary">Scherm aan tijdens half indrukken knop</string>
   <string name="camera_launch_title">Camera openen</string>
   <string name="camera_launch_summary">Lang indrukken en loslaten om camera te openen</string>
@@ -232,7 +233,6 @@
   <string name="device_model">Model</string>
   <string name="device_name">Apparaatnaam</string>
   <string name="build_date">Build-datum</string>
-  <string name="contributor_cloud_title">Bijdragers</string>
   <string name="phone_service_state">Spraak: <xliff:g id="voice_state">%1$s</xliff:g>, gegevens: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dubbeltikken om te ontwaken</string>
   <string name="double_tap_to_wake_summary">Dubbeltikken op het scherm om te ontwaken</string>
@@ -672,6 +672,7 @@
   <string name="select_custom_app_title">Aangepaste app kiezen</string>
   <string name="select_custom_activity_title">Aangepaste activiteit kiezen</string>
   <string name="autoperf_title">Profielen per app</string>
+  <string name="autoperf_summary">Automatisch een bijpassende accumodus kiezen voor verschillende apps</string>
   <string name="perf_profile_title">Accumodus</string>
   <string name="pref_force_highend_gfx_title">Hoge kwaliteit graphics forceren</string>
   <string name="pref_force_highend_gfx_summary">Visuele effecten van hoge kwaliteit, zoals transparente status- en navigatiebalk, inschakelen (herstart vereist)</string>
@@ -887,6 +888,7 @@
   <string name="wifi_countrycode_entries_sg">Israël, Singapore</string>
   <string name="wifi_countrycode_entries_br">Brazilië</string>
   <string name="wifi_countrycode_entries_in">India</string>
+  <string name="unlock_set_unlock_launch_picker_title_with_fingerprint">Schermvergrendeling &amp; vingerafdruk</string>
   <string name="unlock_set_unlock_mode_fingerprint">Vingerafdruk</string>
   <string name="unlock_set_unlock_fingerprint_title">Vingerafdruk</string>
   <string name="fingerprint_item_add_new_fingerprint">Nieuwe vingerafdruk toevoegen</string>
@@ -898,25 +900,44 @@
   <string name="fingerprint_dialog_title_max_fingers_reached">Maximaal aantal vingerafdrukken bereikt</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">U kunt <xliff:g id="finger" example="5 fingerprints">%d </xliff:g> vingerafdrukken toevoegen. Verwijder een bestaande vingerafdruk.</string>
   <string name="fingerprint_title_manage_fingerprints">Vingerafdrukken beheren <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="manage_fingerprints_description">Met vingerafdrukken kunt u uw apparaat snel ontgrendelen en foto\'s nemen.</string>
   <string name="fingerprint_enrollment_introduction_title">Uw sensor opzoeken</string>
+  <string name="fingerprint_enrollment_introduction_instructions">De vingerafdruksensor bevindt zich op de voor- of achterkant van uw apparaat.</string>
+  <string name="fingerprint_enrollment_scan_title">Drie seconden stil houden</string>
+  <string name="fingerprint_enrollment_scan_instructions">Plaats uw wijsvinger op de vingerafdruksensor om te beginnen. Verwijder uw vinger wanneer u een trilling voelt.</string>
   <string name="fingerprint_enrollment_error_title_wrong_sensor">Probeer het opnieuw</string>
+  <string name="fingerprint_enrollment_error_message">Plaats uw vinger op de vingerafdruksensor voor een nauwkeurige scan. Gebruik dezelfde vinger als eerder. Verwijder uw vinger wanneer u een trilling voelt.</string>
+  <string name="fingerprint_enrollment_scan_instructions">Plaats uw wijsvinger op de vingerafdruksensor om te beginnen. Verwijder uw vinger wanneer u een trilling voelt.</string>
+  <string name="fingerprint_enrollment_break_title">Doorgaan met huidige positionering</string>
+  <string name="fingerprint_enrollment_break_instructions">Ga zo door om de randen van uw afdruk vast te leggen. Verwijder uw vinger wanneer u een trilling voelt.</string>
   <string name="fingerprint_enrollment_finished_title">Vingerafdruk toegevoegd</string>
   <string name="fingerprint_enrollment_finished_message">Uw vingerafdruk kan nu gebruikt worden om uw scherm te ontgrendelen of selfies te nemen met uw camera.</string>
   <string name="fingerprint_enrollment_found_it_label">Gevonden</string>
+  <string name="fingerprint_enrollment_add_another_label">Nog een toevoegen</string>
   <string name="fingerprint_enrollment_done_label">Gereed</string>
   <string name="fingerprint_dialog_title_wrong_sensor">Dat is niet uw sensor</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Gebruik de vingerafdruksensor aan de voor- of achterkant van uw apparaat</string>
   <string name="fingerprint_dialog_title_failed_enrollment">Kan vingerafdruk niet lezen</string>
   <string name="fingerprint_dialog_msg_failed_enrollment">Probeer een andere vinger. Deze vingerafdruk kan niet worden gelezen.</string>
   <string name="fingerprint_enrollment_restart_label">Opnieuw</string>
+  <string name="fingerprint_successful_scan_title_first">Perfect! Nog een keer</string>
+  <string name="fingerprint_successful_scan_final">Nog een keer a.u.b.</string>
+  <string name="fingerprint_successful_scan_title_1">Gaat goed! Ga door</string>
   <string name="fingerprint_successful_scan_title_2">Prachtig! En nog een keer</string>
+  <string name="fingerprint_successful_scan_title_3">Goed gedaan! Ga zo door</string>
   <string name="fingerprint_successful_scan_title_4">Nog maar een paar keer</string>
+  <string name="fingerprint_successful_scan_title_5">U doet het geweldig! En nogmaals</string>
+  <string name="fingerprint_successful_scan_title_6">Bijna klaar</string>
   <string name="fingerprint_enrollment_error_title_1">Probeer het nog een keer</string>
   <string name="fingerprint_enrollment_error_title_2">Probeer het nogmaals</string>
   <string name="fingerprint_enrollment_error_title_3">Er is iets fouts gegaan</string>
   <string name="fingerprint_enrollment_error_title_4">Probeer het opnieuw</string>
   <string name="fingerprint_enrollment_error_title_5">Er is een fout opgetreden</string>
+  <string name="menu_stats_reset">Statistieken opnieuw instellen</string>
   <string name="reset_stats_msg">Statistieken over accugeschiedenis worden opnieuw ingesteld</string>
   <string name="dock_battery_not_present">Dock-accu niet aanwezig</string>
+  <string name="battery_info_status_charging_dock_ac">Opladen via dock (AC)</string>
+  <string name="battery_info_status_charging_dock_usb">Opladen via dock (USB)</string>
   <string name="setup_lock_pattern_size_title">Complexiteit patroon</string>
   <string name="setup_lock_pattern_size_details">Hoe groot moet het raster zijn waarop u uw patroon tekent? Hoe meer punten, hoe complexer uw patroon kan worden.</string>
 </resources>
