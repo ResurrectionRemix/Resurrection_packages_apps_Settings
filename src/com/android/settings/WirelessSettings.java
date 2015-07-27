@@ -512,6 +512,10 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
                     result.add(KEY_CELL_BROADCAST_SETTINGS);
                 }
 
+                if (!ImsManager.isWfcEnabledByPlatform(context)) {
+                    result.add(KEY_WFC_SETTINGS);
+                }
+
                 return result;
             }
         };
