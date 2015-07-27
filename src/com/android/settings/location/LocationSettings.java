@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,27 +17,35 @@
 
 package com.android.settings.location;
 
+import static android.hardware.CmHardwareManager.FEATURE_LONG_TERM_ORBITS;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.hardware.CmHardwareManager;
 import android.location.SettingInjectorService;
-import android.os.Binder;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import android.provider.Settings;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.util.Log;
 import android.widget.Switch;
 
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.LtoService;
 import com.android.settings.widget.SwitchBar;
 
 import java.util.Collections;
@@ -47,7 +56,7 @@ import java.util.List;
  * Location access settings.
  */
 public class LocationSettings extends LocationSettingsBase
-        implements SwitchBar.OnSwitchChangeListener {
+        implements SwitchBar.OnSwitchChangeListener, OnPreferenceChangeListener {
 
     private static final String TAG = "LocationSettings";
 
@@ -69,12 +78,16 @@ public class LocationSettings extends LocationSettingsBase
     /** Key for preference category "Location services" */
     private static final String KEY_LOCATION_SERVICES = "location_services";
 
+    /** Key for preference LTO over Wi-Fi only */
+    public static final String KEY_LTO_DOWNLOAD_DATA_WIFI_ONLY = "lto_download_data_wifi_only";
+
     private SwitchBar mSwitchBar;
     private Switch mSwitch;
     private boolean mValidListener = false;
     private UserHandle mManagedProfile;
     private Preference mManagedProfilePreference;
     private Preference mLocationMode;
+    private SwitchPreference mLtoDownloadDataWifiOnly;
     private PreferenceCategory mCategoryRecentLocationRequests;
     /** Receives UPDATE_INTENT  */
     private BroadcastReceiver mReceiver;
@@ -161,6 +174,17 @@ public class LocationSettings extends LocationSettingsBase
                         return true;
                     }
                 });
+
+        mLtoDownloadDataWifiOnly =
+                (SwitchPreference) root.findPreference(KEY_LTO_DOWNLOAD_DATA_WIFI_ONLY);
+        if (mLtoDownloadDataWifiOnly != null) {
+            if (!isLtoSupported(activity) || !checkGpsDownloadWiFiOnly(activity)) {
+                root.removePreference(mLtoDownloadDataWifiOnly);
+                mLtoDownloadDataWifiOnly = null;
+            } else {
+                mLtoDownloadDataWifiOnly.setOnPreferenceChangeListener(this);
+            }
+        }
 
         mCategoryRecentLocationRequests =
                 (PreferenceCategory) root.findPreference(KEY_RECENT_LOCATION_REQUESTS);
@@ -283,6 +307,9 @@ public class LocationSettings extends LocationSettingsBase
         // Disable the whole switch bar instead of the switch itself. If we disabled the switch
         // only, it would be re-enabled again if the switch bar is not disabled.
         mSwitchBar.setEnabled(!restricted);
+        if (mLtoDownloadDataWifiOnly != null) {
+            mLtoDownloadDataWifiOnly.setEnabled(enabled && !restricted);
+        }
         mLocationMode.setEnabled(enabled && !restricted);
         mCategoryRecentLocationRequests.setEnabled(enabled);
 
@@ -325,5 +352,69 @@ public class LocationSettings extends LocationSettingsBase
         } else {
             setLocationMode(android.provider.Settings.Secure.LOCATION_MODE_OFF);
         }
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (mLtoDownloadDataWifiOnly != null && preference.equals(mLtoDownloadDataWifiOnly)) {
+            updateLtoServiceStatus(getActivity(), isLocationModeEnabled(getActivity()));
+        }
+        return true;
+    }
+
+    private static void updateLtoServiceStatus(Context context, boolean start) {
+        Intent intent = new Intent(context, LtoService.class);
+        if (start) {
+            context.startService(intent);
+        } else {
+            context.stopService(intent);
+        }
+    }
+
+    private static boolean checkGpsDownloadWiFiOnly(Context context) {
+        PackageManager pm = context.getPackageManager();
+        boolean supportsTelephony = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+        boolean supportsWifi = pm.hasSystemFeature(PackageManager.FEATURE_WIFI);
+        if (!supportsWifi || !supportsTelephony) {
+            SharedPreferences.Editor editor =
+                    PreferenceManager.getDefaultSharedPreferences(context).edit();
+            editor.putBoolean(KEY_LTO_DOWNLOAD_DATA_WIFI_ONLY, supportsWifi);
+            editor.apply();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isLocationModeEnabled(Context context) {
+        int mode = android.provider.Settings.Secure.getInt(context.getContentResolver(),
+                android.provider.Settings.Secure.LOCATION_MODE,
+                android.provider.Settings.Secure.LOCATION_MODE_OFF);
+        return (mode != android.provider.Settings.Secure.LOCATION_MODE_OFF);
+    }
+
+    /**
+     * Restore the properties associated with this preference on boot
+     * @param ctx A valid context
+     */
+    public static void restore(final Context context) {
+        if (isLtoSupported(context) && isLocationModeEnabled(context)) {
+            // Check and adjust the value for Gps download data on wifi only
+            checkGpsDownloadWiFiOnly(context);
+
+            // Starts the LtoService, but delayed 2 minutes after boot (this should give a
+            // proper time to start all device services)
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(context, LtoService.class);
+            PendingIntent pi = PendingIntent.getService(context, 0, intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
+            long nextLtoDownload = System.currentTimeMillis() + (1000 * 60 * 2L);
+            am.set(AlarmManager.RTC, nextLtoDownload, pi);
+        }
+    }
+
+    private static boolean isLtoSupported(Context context) {
+        final CmHardwareManager hwManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        return hwManager != null && hwManager.isSupported(FEATURE_LONG_TERM_ORBITS);
     }
 }
