@@ -62,9 +62,9 @@ public class LockModeItem implements Item {
     }
 
     public static int getSummaryString(Profile profile) {
-        switch (profile.getScreenLockMode()) {
+        switch (profile.getScreenLockMode().getValue()) {
             case Profile.LockMode.DEFAULT:
-                return R.string.profile_action_none; //"leave unchanged"
+                return R.string.profile_action_system; //"leave unchanged"
             case Profile.LockMode.DISABLE:
                 return R.string.profile_lockmode_disabled_summary;
             case Profile.LockMode.INSECURE:
