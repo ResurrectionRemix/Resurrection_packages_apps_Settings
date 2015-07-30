@@ -148,7 +148,7 @@ public class ApplicationLightPreference extends DialogPreference {
             mOnValueView.setText(mapLengthValue(mOnValue));
         }
         if (mOffValueView != null) {
-            if (mOnValue == 1) {
+            if (mOnValue == 1 || !mOnOffChangeable) {
                 mOffValueView.setVisibility(View.GONE);
             } else {
                 mOffValueView.setVisibility(View.VISIBLE);
@@ -226,7 +226,6 @@ public class ApplicationLightPreference extends DialogPreference {
         mColorValue = color;
         mOnValue = onValue;
         mOffValue = offValue;
-        mOnOffChangeable = true;
         updatePreferenceViews();
     }
 
@@ -260,6 +259,9 @@ public class ApplicationLightPreference extends DialogPreference {
     }
 
     private String mapLengthValue(Integer time) {
+        if (!mOnOffChangeable) {
+            return getContext().getString(R.string.pulse_length_always_on);
+        }
         if (time == DEFAULT_TIME) {
             return getContext().getString(R.string.default_time);
         }
