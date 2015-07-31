@@ -47,6 +47,100 @@ public class MasterClearConfirm extends Fragment {
     private View mContentView;
     private boolean mWipeMedia;
     private boolean mEraseSdCard;
+<<<<<<< HEAD
+=======
+    private boolean mEraseInternal;
+
+    public static class FrpDialog extends DialogFragment {
+
+        private int mOriginalOrientation;
+
+        public static FrpDialog createInstance(boolean wipeInternal, boolean wipeExternal) {
+            Bundle b = new Bundle();
+            b.putBoolean(MasterClear.EXTRA_WIPE_MEDIA, wipeInternal);
+            b.putBoolean(MasterClear.EXTRA_WIPE_SDCARD, wipeExternal);
+            FrpDialog fragment = new FrpDialog();
+            fragment.setArguments(b);
+
+            return fragment;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity(), getTheme());
+            progressDialog.setIndeterminate(true);
+            progressDialog.setCancelable(false);
+            progressDialog.setTitle(getActivity().getString(R.string.master_clear_progress_title));
+            progressDialog.setMessage(getActivity().getString(R.string.master_clear_progress_text));
+            return progressDialog;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setShowsDialog(true);
+            setCancelable(false);
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+
+            // need to prevent orientation changes as we're about to go into
+            // a long IO request, so we won't be able to access inflate resources on flash
+            mOriginalOrientation = getActivity().getRequestedOrientation();
+            getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+        }
+
+        @Override
+        public void onStop() {
+            super.onStop();
+            getActivity().setRequestedOrientation(mOriginalOrientation);
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            new AsyncTask<Void, Void, Void>() {
+
+                Context mContext;
+                boolean mWipeMedia;
+                boolean mWipeSdCard;
+
+                @Override
+                protected void onPreExecute() {
+                    mContext = getActivity().getApplicationContext();
+                    mWipeMedia = getArguments().getBoolean(MasterClear.EXTRA_WIPE_MEDIA);
+                    mWipeSdCard = getArguments().getBoolean(MasterClear.EXTRA_WIPE_SDCARD);
+                }
+
+                @Override
+                protected Void doInBackground(Void... params) {
+                    final PersistentDataBlockManager pdbManager = (PersistentDataBlockManager)
+                            mContext.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
+                    if (pdbManager != null) pdbManager.wipe();
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    FrpDialog.this.dismissAllowingStateLoss();
+                    doMasterClear(mContext, mWipeMedia, mWipeSdCard);
+                }
+            }.execute();
+        }
+    }
+
+    public static MasterClearConfirm createInstance(boolean wipeInternal, boolean wipeExternal) {
+        Bundle b = new Bundle();
+        b.putBoolean(MasterClear.EXTRA_WIPE_MEDIA, wipeInternal);
+        b.putBoolean(MasterClear.EXTRA_WIPE_SDCARD, wipeExternal);
+        MasterClearConfirm fragment = new MasterClearConfirm();
+        fragment.setArguments(b);
+
+        return fragment;
+    }
+>>>>>>> 656d2ad... Settings: continue factory reset if user leaves activity
 
     /**
      * The user has gone through the multiple confirmation, so now we go ahead
