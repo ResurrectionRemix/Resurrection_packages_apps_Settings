@@ -2369,6 +2369,14 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.android.settings.rr.hfm.IntentReceiver" >
+            <intent-filter>
+                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.android.settings.rr.hfm.CheckHosts" />
+
         <receiver android:name=".cyanogenmod.UserChangedReceiver" android:enabled="true">
             <intent-filter >
                 <action android:name="com.cyanogenmod.action.UserChanged" />
