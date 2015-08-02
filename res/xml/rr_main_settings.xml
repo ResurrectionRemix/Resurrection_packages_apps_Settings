@@ -48,6 +48,13 @@
             android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
             android:icon="@drawable/ic_settings_notification_drawer"
                 />
+
+       <PreferenceScreen
+            android:key="lock_screen_general_category"
+            android:fragment="com.android.settings.rr.LockScreenSettings"
+            android:title="@string/rr_lockscreen_title" 
+            android:layout="@layout/preference_rr_lockscreen"
+            />
                 
 </PreferenceCategory>
 
