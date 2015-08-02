@@ -22,7 +22,7 @@
         android:paddingEnd="@dimen/dashboard_category_padding_end"
         android:orientation="vertical"
         android:background="@color/dashboard_category_background_color"
-        android:layout_marginBottom="8dip"
+        android:layout_marginBottom="@dimen/dashboard_category_margin_bottom"
         android:elevation="@dimen/dashboard_category_elevation">
 
     <TextView android:id="@+id/category_title"
@@ -34,6 +34,7 @@
             android:gravity="center_vertical"
             android:textAppearance="@style/TextAppearance.CategoryTitle"
             android:textAlignment="viewStart"
+            android:background="@color/dashboard_category_title_bg_color"
             />
 
     <com.android.settings.dashboard.DashboardContainerView
