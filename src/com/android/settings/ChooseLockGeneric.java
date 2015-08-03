@@ -94,6 +94,7 @@ public class ChooseLockGeneric extends SettingsActivity {
         private static final String TAG = "ChooseLockGenericFragment";
         public static final String MINIMUM_QUALITY_KEY = "minimum_quality";
         public static final String ENCRYPT_REQUESTED_QUALITY = "encrypt_requested_quality";
+        public static final String ENCRYPT_REQUESTED_SUBQUALITY = "encrypt_requested_subquality";
         public static final String ENCRYPT_REQUESTED_DISABLED = "encrypt_requested_disabled";
         public static final String TAG_FRP_WARNING_DIALOG = "frp_warning_dialog";
 
@@ -106,6 +107,7 @@ public class ChooseLockGeneric extends SettingsActivity {
         private boolean mWaitingForConfirmation = false;
         private boolean mFinishPending = false;
         private int mEncryptionRequestQuality;
+        private int mEncryptionRequestSubQuality;
         private boolean mEncryptionRequestDisabled;
         private boolean mRequirePassword;
         private LockPatternUtils mLockPatternUtils;
@@ -131,6 +133,8 @@ public class ChooseLockGeneric extends SettingsActivity {
                 mWaitingForConfirmation = savedInstanceState.getBoolean(WAITING_FOR_CONFIRMATION);
                 mFinishPending = savedInstanceState.getBoolean(FINISH_PENDING);
                 mEncryptionRequestQuality = savedInstanceState.getInt(ENCRYPT_REQUESTED_QUALITY);
+                mEncryptionRequestSubQuality =
+                        savedInstanceState.getInt(ENCRYPT_REQUESTED_SUBQUALITY);
                 mEncryptionRequestDisabled = savedInstanceState.getBoolean(
                         ENCRYPT_REQUESTED_DISABLED);
             }
@@ -195,6 +199,7 @@ public class ChooseLockGeneric extends SettingsActivity {
         private void maybeEnableEncryption(int quality, boolean disabled, int subQuality) {
             if (Process.myUserHandle().isOwner() && LockPatternUtils.isDeviceEncryptionEnabled()) {
                 mEncryptionRequestQuality = quality;
+                mEncryptionRequestSubQuality = subQuality;
                 mEncryptionRequestDisabled = disabled;
                 final Context context = getActivity();
                 // If accessibility is enabled and the user hasn't seen this dialog before, set the
@@ -245,7 +250,8 @@ public class ChooseLockGeneric extends SettingsActivity {
                     && resultCode == Activity.RESULT_OK) {
                 mRequirePassword = data.getBooleanExtra(
                         EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, true);
-                updateUnlockMethodAndFinish(mEncryptionRequestQuality, mEncryptionRequestDisabled);
+                updateUnlockMethodAndFinish(mEncryptionRequestQuality, mEncryptionRequestDisabled,
+                        mEncryptionRequestSubQuality);
             } else {
                 getActivity().setResult(Activity.RESULT_CANCELED);
                 finish();
@@ -260,6 +266,7 @@ public class ChooseLockGeneric extends SettingsActivity {
             outState.putBoolean(WAITING_FOR_CONFIRMATION, mWaitingForConfirmation);
             outState.putBoolean(FINISH_PENDING, mFinishPending);
             outState.putInt(ENCRYPT_REQUESTED_QUALITY, mEncryptionRequestQuality);
+            outState.putInt(ENCRYPT_REQUESTED_SUBQUALITY, mEncryptionRequestSubQuality);
             outState.putBoolean(ENCRYPT_REQUESTED_DISABLED, mEncryptionRequestDisabled);
         }
 
@@ -620,9 +627,8 @@ public class ChooseLockGeneric extends SettingsActivity {
                 updateUnlockMethodAndFinish(
                         DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK, false);
             } else if (KEY_UNLOCK_SET_FINGERPRINT.equals(unlockMethod)) {
-                maybeEnableEncryption(
-                        DevicePolicyManager.PASSWORD_QUALITY_BIOMETRIC_WEAK, false,
-                        LockPatternUtils.BIOMETRIC_WEAK_FINGERPRINT);
+                updateUnlockMethodAndFinish(DevicePolicyManager.PASSWORD_QUALITY_BIOMETRIC_WEAK,
+                        false, LockPatternUtils.BIOMETRIC_WEAK_FINGERPRINT);
             } else {
                 Log.e(TAG, "Encountered unknown unlock method to set: " + unlockMethod);
                 return false;
