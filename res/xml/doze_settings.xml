@@ -53,6 +53,13 @@
             android:persistent="false"
             android:dependency="doze_trigger_notification" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="doze_notification_invert_enabled"
+            android:title="@string/doze_notification_color_invert_title"
+            android:summaryOn="@string/doze_notification_color_invert_summary_on"
+            android:summaryOff="@string/doze_notification_color_invert_summary_off"
+            android:defaultValue="true" />
+
     <SlimSeekBarPreference
             android:key="doze_brightness"
             android:title="@string/doze_brightness_title"
