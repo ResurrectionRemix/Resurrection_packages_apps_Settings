@@ -77,9 +77,8 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private static final int NAME_INDEX = 1;
     private static final int APN_INDEX = 2;
     private static final int TYPES_INDEX = 3;
-    private static final int RO_INDEX = 4;
-    private static final int MVNOTYPE_INDEX = 5;
-    private static final int MVNODATA_INDEX = 6;
+    private static final int MVNOTYPE_INDEX = 4;
+    private static final int MVNODATA_INDEX = 5;
 
     private static final int MENU_NEW = Menu.FIRST;
     private static final int MENU_RESTORE = Menu.FIRST + 1;
@@ -218,9 +217,10 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     private void fillList() {
+        boolean isSelectedKeyMatch = false;
         String where = getOperatorNumericSelection();
         Cursor cursor = getContentResolver().query(getUri(Telephony.Carriers.CONTENT_URI),
-                new String[] {"_id", "name", "apn", "type", "read_only", "mvno_type", "mvno_match_data" }, where, null,
+                new String[] {"_id", "name", "apn", "type", "mvno_type", "mvno_match_data" }, where, null,
                 Telephony.Carriers.DEFAULT_SORT_ORDER);
         String simOperatorName = TelephonyManager.getDefault().getSimOperatorNameForSubscription(mSubId);
 
@@ -237,7 +237,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 String apn = cursor.getString(APN_INDEX);
                 String key = cursor.getString(ID_INDEX);
                 String type = cursor.getString(TYPES_INDEX);
-                boolean readOnly = (cursor.getInt(RO_INDEX) == 1);
                 String mvnoType = cursor.getString(MVNOTYPE_INDEX);
                 String mvnoData = cursor.getString(MVNODATA_INDEX);
                 boolean isMvno = !TextUtils.isEmpty(mvnoType) && !TextUtils.isEmpty(mvnoData);
@@ -254,7 +253,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
                 ApnPreference pref = new ApnPreference(getActivity());
 
-                pref.setApnReadOnly(readOnly);
                 pref.setKey(key);
                 pref.setTitle(name);
                 pref.setSummary(apn);
@@ -266,6 +264,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 if (selectable) {
                     if ((mSelectedKey != null) && mSelectedKey.equals(key)) {
                         pref.setChecked();
+                        isSelectedKeyMatch = true;
                         Log.d(TAG, "find select key = " + mSelectedKey);
                     }
                     apnList.addPreference(pref);
@@ -273,6 +272,13 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                     mmsApnList.add(pref);
                 }
                 cursor.moveToNext();
+            }
+            //if find no selectedKey, set the first one as selected key
+            if (!isSelectedKeyMatch && apnList.getPreferenceCount() > 0) {
+                ApnPreference pref = (ApnPreference) apnList.getPreference(0);
+                setSelectedApnKey(pref.getKey());
+                Log.d(TAG, "find no select key = " + mSelectedKey);
+                Log.d(TAG, "set key to  " +pref.getKey());
             }
             cursor.close();
 
