@@ -70,6 +70,7 @@ import android.widget.SearchView;
 
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
+import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
@@ -1109,6 +1110,18 @@ public class SettingsActivity extends Activity
                                     com.android.internal.R.styleable.PreferenceHeader_title);
                             if (tv != null && tv.type == TypedValue.TYPE_STRING) {
                                 if (tv.resourceId != 0) {
+                                    // Need to adjust the title for lockscreen settings if the
+                                    // device supports the fingerprint feature
+                                    if (tile.id == R.id.lockscreen_settings) {
+                                        boolean isPrimary =
+                                                UserHandle.myUserId() == UserHandle.USER_OWNER;
+                                        boolean hasFingerprint = new LockPatternUtils(this)
+                                                .isFingerprintInstalled(this);
+                                        if (isPrimary && hasFingerprint) {
+                                            tv.resourceId =
+                                                    R.string.lockscreen_settings_and_fingerprint;
+                                        }
+                                    }
                                     tile.titleRes = tv.resourceId;
                                 } else {
                                     tile.title = tv.string;
