@@ -70,6 +70,11 @@ public class AnonymousStats extends SettingsPreferenceFragment {
         jobQueue.remove(String.valueOf(jobId));
         getPreferences(context)
                 .edit()
+                .remove(KEY_JOB_QUEUE)
+                .commit();
+
+        getPreferences(context)
+                .edit()
                 .putStringSet(KEY_JOB_QUEUE, jobQueue)
                 .commit();
     }
