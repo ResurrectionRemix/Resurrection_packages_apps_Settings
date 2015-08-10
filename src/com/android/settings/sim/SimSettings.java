@@ -69,6 +69,13 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final String TAG = "SimSettings";
     private static final boolean DBG = false;
 
+    // These are the list of  possible values that
+    // IExtTelephony.getCurrentUiccCardProvisioningStatus() can return
+    private static final int PROVISIONED = 1;
+    private static final int NOT_PROVISIONED = 0;
+    private static final int INVALID_STATE = -1;
+    private static final int CARD_NOT_PRESENT = -2;
+
     private static final String DISALLOW_CONFIG_SIM = "no_config_sim";
     private static final String SIM_CARD_CATEGORY = "sim_cards";
     private static final String KEY_CELLULAR_DATA = "sim_cellular_data";
@@ -93,6 +100,12 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static AlertDialog sAlertDialog = null;
     private static ProgressDialog sProgressDialog = null;
     private boolean needUpdate = false;
+    private int mPhoneCount = TelephonyManager.getDefault().getPhoneCount();
+    private int[] mUiccProvisionStatus = new int[mPhoneCount];
+
+    static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
+            "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
+    static final String EXTRA_NEW_PROVISION_STATE = "newProvisionState";
 
     public SimSettings() {
         super(DISALLOW_CONFIG_SIM);
@@ -118,17 +131,14 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         mAvailableSubInfos = new ArrayList<SubscriptionInfo>(mNumSlots);
         mSelectableSubInfos = new ArrayList<SubscriptionInfo>();
         SimSelectNotification.cancelNotification(getActivity());
+
+        IntentFilter intentFilter = new IntentFilter(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
+        mContext.registerReceiver(mReceiver, intentFilter);
     }
 
     @Override
     public void onDestroy() {
-        for (int i = 0; i < mSimCards.getPreferenceCount(); ++i) {
-            Preference pref = mSimCards.getPreference(i);
-            if (pref instanceof SimEnablerPreference) {
-                // Calling destroy() here to unregister all intent listeners.
-                ((SimEnablerPreference)pref).destroy();
-            }
-        }
+        mContext.unregisterReceiver(mReceiver);
         Log.d(TAG,"on onDestroy");
         super.onDestroy();
     }
@@ -149,10 +159,6 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             if (pref instanceof SimPreference) {
                 mSimCards.removePreference(pref);
             }
-            if (pref instanceof SimEnablerPreference) {
-                // Calling destroy() here to unregister all intent listeners.
-                ((SimEnablerPreference)pref).destroy();
-            }
         }
         mAvailableSubInfos.clear();
         mSelectableSubInfos.clear();
@@ -164,7 +170,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             simPreference.setOrder(i-mNumSlots);
             mSimCards.addPreference(simPreference);
             mAvailableSubInfos.add(sir);
-            if (sir != null) {
+            if (sir != null && (isSubProvisioned(i))) {
                 mSelectableSubInfos.add(sir);
             }
         }
@@ -203,7 +209,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         } else if (sir == null) {
             simPref.setSummary(R.string.sim_selection_required_pref);
         }
-        simPref.setEnabled(mSelectableSubInfos.size() >= 1);
+        simPref.setEnabled(mSelectableSubInfos.size() > 1);
     }
 
     private void updateCellularDataValues() {
@@ -217,7 +223,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         } else if (sir == null) {
             simPref.setSummary(R.string.sim_selection_required_pref);
         }
-        simPref.setEnabled(mSelectableSubInfos.size() >= 1);
+        simPref.setEnabled(mSelectableSubInfos.size() > 1);
     }
 
     private void updateCallValues() {
@@ -273,7 +279,8 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             if (pref != null) {
                 final boolean ecbMode = SystemProperties.getBoolean(
                         TelephonyProperties.PROPERTY_INECM_MODE, false);
-                pref.setEnabled((state == TelephonyManager.CALL_STATE_IDLE) && !ecbMode);
+                pref.setEnabled((state == TelephonyManager.CALL_STATE_IDLE) && !ecbMode
+                        && (mSelectableSubInfos.size() > 1));
             }
         }
     };
@@ -384,16 +391,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         private static final int INVALID_INPUT = -2;
         private static final int REQUEST_IN_PROGRESS = -3;
 
-        // These are the list of  possible values that
-        // IExtTelephony.getCurrentUiccCardProvisioningStatus() can return
-        static final int PROVISIONED = 1;
-        static final int NOT_PROVISIONED = 0;
-        static final int INVALID_STATE = -1;
-        static final int CARD_NOT_PRESENT = -2;
 
-        static final String ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED =
-                "org.codeaurora.intent.action.ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED";
-        static final String EXTRA_NEW_PROVISION_STATE = "newProvisionState";
 
         private static final String DISPLAY_NUMBERS_TYPE = "display_numbers_type";
 
@@ -408,8 +406,6 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         private static final int PROGRESS_DLG_TIME_OUT = 30000;
         private static final int MSG_DELAY_TIME = 2000;
 
-        private int mPhoneCount = TelephonyManager.getDefault().getPhoneCount();
-        int[] mUiccProvisionStatus = new int[mPhoneCount];
         private IExtTelephony mExtTelephony;
 
 
@@ -432,9 +428,6 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             setSwitchVisibility(View.VISIBLE);
             setKey("sim" + mSlotId);
             update();
-            IntentFilter intentFilter = new IntentFilter(
-                    ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
-            mContext.registerReceiver(mReceiver, intentFilter);
         }
 
         private void sendMessage(int event, Handler handler, int delay) {
@@ -783,23 +776,6 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                     }
                 };
 
-        private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                logd("Intent received: " + action);
-                if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
-                    int phoneId = intent.getIntExtra(PhoneConstants.PHONE_KEY,
-                            SubscriptionManager.INVALID_SUBSCRIPTION_ID);
-                    int newProvisionedState = intent.getIntExtra(EXTRA_NEW_PROVISION_STATE,
-                            NOT_PROVISIONED);
-                     update();
-
-                    logd("Received ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED on phoneId: "
-                            + phoneId + " new sub state " + newProvisionedState);
-                }
-            }
-        };
 
         private Handler mHandler = new Handler() {
                 @Override
@@ -844,15 +820,6 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 }
             };
 
-        public void destroy() {
-            try {
-                mContext.unregisterReceiver(mReceiver);
-            } catch (IllegalArgumentException e) {
-                // May receive Receiver not registered error
-                logd(e.getMessage());
-            }
-        }
-
         private void logd(String msg) {
             if (DBG) Log.d(TAG + "(" + mSlotId + ")", msg);
         }
@@ -894,4 +861,30 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                     return result;
                 }
             };
+
+    // Internal utility, returns true if Uicc card
+    // corresponds to given slotId is provisioned.
+    private boolean isSubProvisioned(int slotId) {
+        boolean retVal = false;
+
+        if (mUiccProvisionStatus[slotId] == PROVISIONED) retVal = true;
+        return retVal;
+    }
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            Log.d(TAG, "Intent received: " + action);
+            if (ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED.equals(action)) {
+                int phoneId = intent.getIntExtra(PhoneConstants.PHONE_KEY,
+                        SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+                int newProvisionedState = intent.getIntExtra(EXTRA_NEW_PROVISION_STATE,
+                        NOT_PROVISIONED);
+                 updateSubscriptions();
+                 Log.d(TAG, "Received ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED on phoneId: "
+                         + phoneId + " new sub state " + newProvisionedState);
+            }
+        }
+    };
 }
