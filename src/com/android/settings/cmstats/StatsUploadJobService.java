@@ -21,7 +21,7 @@ import android.app.job.JobService;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.PersistableBundle;
-import android.support.v4.util.ArrayMap;
+import android.util.ArrayMap;
 import android.util.Log;
 import com.android.settings.R;
 import org.json.JSONException;
@@ -37,8 +37,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Collections;
+import java.util.Map;
 
 public class StatsUploadJobService extends JobService {
 
@@ -57,16 +57,15 @@ public class StatsUploadJobService extends JobService {
     public static final String KEY_CARRIER_ID = "carrierId";
     public static final String KEY_TIMESTAMP = "timeStamp";
 
-    private final ArrayMap<JobParameters, StatsUploadTask> mCurrentJobs = new ArrayMap<>();
+    private final Map<JobParameters, StatsUploadTask> mCurrentJobs
+            = Collections.synchronizedMap(new ArrayMap<JobParameters, StatsUploadTask>());
 
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
         if (DEBUG)
             Log.d(TAG, "onStartJob() called with " + "jobParameters = [" + jobParameters + "]");
         final StatsUploadTask uploadTask = new StatsUploadTask(jobParameters);
-        synchronized (mCurrentJobs) {
-            mCurrentJobs.put(jobParameters, uploadTask);
-        }
+        mCurrentJobs.put(jobParameters, uploadTask);
         uploadTask.execute((Void) null);
         return true;
     }
@@ -77,9 +76,7 @@ public class StatsUploadJobService extends JobService {
             Log.d(TAG, "onStopJob() called with " + "jobParameters = [" + jobParameters + "]");
 
         final StatsUploadTask cancelledJob;
-        synchronized (mCurrentJobs) {
-            cancelledJob = mCurrentJobs.remove(jobParameters);
-        }
+        cancelledJob = mCurrentJobs.remove(jobParameters);
 
         if (cancelledJob != null) {
             // cancel the ongoing background task
@@ -90,7 +87,7 @@ public class StatsUploadJobService extends JobService {
         return false;
     }
 
-    private class StatsUploadTask extends AsyncTask<Void, Void, Boolean> {
+    private class StatsUploadTask extends AsyncTask<Void, Void, Void> {
 
         private JobParameters mJobParams;
 
@@ -99,7 +96,7 @@ public class StatsUploadJobService extends JobService {
         }
 
         @Override
-        protected Boolean doInBackground(Void... params) {
+        protected Void doInBackground(Void... params) {
 
             PersistableBundle extras = mJobParams.getExtras();
 
@@ -140,21 +137,15 @@ public class StatsUploadJobService extends JobService {
 
             if (success) {
                 // we hit the server, succeed either which way.
-                synchronized (mCurrentJobs) {
-                    mCurrentJobs.remove(mJobParams);
-                }
+                mCurrentJobs.remove(mJobParams);
                 AnonymousStats.removeJob(StatsUploadJobService.this, mJobParams.getJobId());
             }
 
-            return success;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean success) {
             if (DEBUG)
                 Log.d(TAG, "job id " + mJobParams.getJobId() + ", has finished with success="
                         + success);
             jobFinished(mJobParams, !success);
+            return null;
         }
     }
 
