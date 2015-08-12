@@ -1112,7 +1112,7 @@ public class SettingsActivity extends Activity
                                 if (tv.resourceId != 0) {
                                     // Need to adjust the title for lockscreen settings if the
                                     // device supports the fingerprint feature
-                                    if (tile.id == R.id.security_settings.) {
+                                    if (tile.id == R.id.lockscreen_settings) {
                                         boolean isPrimary =
                                                 UserHandle.myUserId() == UserHandle.USER_OWNER;
                                         boolean hasFingerprint = new LockPatternUtils(this)
