@@ -16,6 +16,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Ești la <xliff:g id="step_count">%1$d</xliff:g> pas distanță de a activa opțiunile de dezvoltator.</item>
+    <item quantity="few">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
+    <item quantity="other">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
+  </plurals>
+  <string name="show_dev_on_cm">Ați deblocat setările de dezvoltator!</string>
   <string name="development_tools_title">Unelte de dezvoltare</string>
   <string name="root_access">Acces root</string>
   <string name="root_access_warning_title">Permite acces la root?</string>
@@ -139,7 +145,7 @@
   <string name="adaptive_backlight_title">Lumină de fundal adaptivă</string>
   <string name="adaptive_backlight_summary">Ajustează luminozitatea ecranului în mod dinamic pentru a mări durata bateriei fără a afecta performanța</string>
   <string name="sunlight_enhancement_title">Îmbunătățire la lumina soarelui</string>
-  <string name="sunlight_enhancement_summary">Sporește luminozitatea afişajului şi lizibilitatea sub lumina strălucitoare a soarelui</string>
+  <string name="sunlight_enhancement_summary">Sporește luminozitatea afișajului și lizibilitatea sub lumina strălucitoare a soarelui</string>
   <string name="color_enhancement_title">Intensificare culoare</string>
   <string name="color_enhancement_summary">Intensificare dinamică a culorii de afișare</string>
   <string name="blacklist_title">Lista apelanților blocați</string>
@@ -187,13 +193,14 @@
   <string name="sms_security_check_limit_summary_none">Aplicațiile nu pot trimite niciun mesaj decât cu confirmare</string>
   <string name="sms_security_check_limit_none">Fără</string>
   <string name="block_notifications_title">Filtru notificări</string>
-  <string name="block_notifications_summary">Gestionaţi notificările ignorate şi filtrele</string>
+  <string name="block_notifications_summary">Gestionați notificările ignorate și filtrele</string>
   <string name="no_filters_title">Niciun filtru setat</string>
   <string name="cmupdate_settings_title">Actualizări CyanogenMod</string>
   <string name="mod_version">versiune CyanogenMod</string>
   <string name="mod_version_default">Necunoscut</string>
   <string name="build_date">Dată compilare</string>
   <string name="double_tap_to_wake_title">Dublă-apăsare pentru trezire</string>
+  <string name="double_tap_to_wake_summary">Atingeți de două ori ecranul pentru a activa afișajul</string>
   <string name="proximity_wake_title">Previne trezirea accidentală</string>
   <string name="proximity_wake_summary">Verificaţi senzorul de proximitate înainte de trezirea ecranului</string>
   <string name="privacy_settings_cyanogenmod_title">Intimitate</string>
@@ -291,7 +298,7 @@
   <string name="headset_connect_player_summary">Lansează aplicația implicită de muzică când se conectează casca audio</string>
   <string name="app_notification_show_on_keyguard_summary">Afișează notificări de la acestă aplicație pe ecranul de blocare</string>
   <string name="high_touch_sensitivity_title">Sensibilitate tactilă înaltă </string>
-  <string name="high_touch_sensitivity_summary">Creşte sensibilitatea ecranului tactil, astfel încât acesta poate fi utilizat în timp ce se poartă mănuşi</string>
+  <string name="high_touch_sensitivity_summary">Crește sensibilitatea ecranului tactil, astfel încât acesta poate fi utilizat în timp ce se poartă mănuși</string>
   <string name="touchscreen_hovering_title">Plutire peste ecran</string>
   <string name="app_ops_summaries_coarse_location">locație aspră</string>
   <string name="app_ops_summaries_fine_location">locație fină</string>
@@ -338,6 +345,7 @@
   <string name="app_ops_summaries_monitor_high_power_location">monitorizează locația de putere mare</string>
   <string name="app_ops_summaries_get_usage_stats">obține statistici de utilizare a aplicației</string>
   <string name="app_ops_summaries_mute_unmute_microphone">dezactivează/activează microfon</string>
+  <string name="app_ops_summaries_toast_window">afișare mesaje temporare</string>
   <string name="app_ops_summaries_project_media">proiect media</string>
   <string name="app_ops_summaries_wifi_change">Schimbare Wi\u2011Fi</string>
   <string name="app_ops_summaries_bluetooth_change">Schimbare Bluetooth</string>
@@ -346,6 +354,9 @@
   <string name="app_ops_summaries_write_mms">scrie MMS</string>
   <string name="app_ops_summaries_auto_start">auto start</string>
   <string name="app_ops_summaries_nfc_change">Schimbare NFC</string>
+  <string name="app_ops_summaries_delete_sms">șterge SMS</string>
+  <string name="app_ops_summaries_delete_mms">șterge MMS</string>
+  <string name="app_ops_summaries_delete_contacts">șterge contacte</string>
   <string name="app_ops_summaries_data_change">schimbă date mobile</string>
   <string name="app_ops_summaries_su">acces root</string>
   <string name="app_ops_labels_location">Locație</string>
@@ -382,6 +393,8 @@
   <string name="app_ops_labels_bluetooth_volume">Volum Bluetooth</string>
   <string name="app_ops_labels_keep_awake">Ține treaz</string>
   <string name="app_ops_labels_mute_unmute_microphone">Dezactivează/activează microfon</string>
+  <string name="app_ops_labels_toast_window">Afișare mesaje temporare</string>
+  <string name="app_ops_labels_project_media">Proiectare media</string>
   <string name="app_ops_labels_activate_vpn">Activează VPN</string>
   <string name="app_ops_labels_wifi_change">Schimbare Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">Schimbă bluetooth</string>
@@ -390,6 +403,8 @@
   <string name="app_ops_labels_write_mms">Scrie MMS</string>
   <string name="app_ops_labels_auto_start">Auto start</string>
   <string name="app_ops_labels_nfc_change">Schimbare NFC</string>
+  <string name="app_ops_labels_delete_sms">Șterge SMS</string>
+  <string name="app_ops_labels_delete_mms">Șterge Mesaj Multimedia</string>
   <string name="app_ops_labels_data_change">Schimbă date mobile</string>
   <string name="app_ops_labels_su">Acces root</string>
   <string name="app_ops_categories_location">Locație</string>
@@ -470,6 +485,8 @@
   <string name="sim_pin_enabled">PIN1 activat</string>
   <string name="sim_pin_disabled">PIN1 dezactivat</string>
   <string name="storage_usb">Stocare USB</string>
+  <string name="sd_card_format" product="default">Șterge card SD</string>
+  <string name="sd_card_format_summary" product="default">Șterge toate datele de pe cardul SD, cum ar fi muzică și fotografii</string>
   <string name="sdcard_unmount_inform_text" product="default">Cardul SD va fi demontat.</string>
   <string name="usb_unmount_inform_text" product="default">Mediul de stocare USB va fi demontat.</string>
   <string name="usb_media_format_button_text" product="default">Șterge stocarea USB</string>
@@ -480,6 +497,7 @@
   <string name="location_category_enhanced_location">Locație îmbunătățită (IZat)</string>
   <string name="enable_adb_summary_charging">Aparatul este în modul de încărcare, depanarea USB este dezactivată</string>
   <string name="enable_quickboot_title">Activare modul QuickBoot</string>
+  <string name="sim_enabler_summary">SIM-ul este <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="sim_enabled">activat</string>
   <string name="sim_disabled">dezactivat</string>
   <string name="sim_missing">lipsă sau defect</string>
@@ -523,7 +541,7 @@
   <string name="qs_tile_bluetooth">Bluetooth</string>
   <string name="qs_tile_airplane_mode">Mod Avion</string>
   <string name="qs_tile_flashlight">Lanternă</string>
-  <string name="qs_tile_location">Locaţie</string>
+  <string name="qs_tile_location">Locație</string>
   <string name="qs_tile_adb_over_network">ADB prin rețea</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Busolă</string>
@@ -532,6 +550,7 @@
   <string name="qs_tile_ambient_display">Afișare ambientală</string>
   <string name="qs_tile_sync">Sincronizare</string>
   <string name="qs_dynamic_tile_next_alarm">Următoarea alarmă</string>
+  <string name="qs_dynamic_tile_ime_selector">Selector IME</string>
   <string name="qs_dynamic_tile_su">Acces root</string>
   <string name="sim_no_number_set">Niciun număr atribuit</string>
   <string name="gesture_settings_title">Gesturi</string>
@@ -547,6 +566,7 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Desktop extins</string>
   <string name="expanded_hide_both">Ascunde ambele</string>
+  <string name="expanded_desktop_style">Stil desktop extins</string>
   <string name="expanded_desktop_style_description">Alegeți un stil desktop extins implicit</string>
   <string name="title_general">General</string>
   <string name="lockscreen_default_target">Implicit</string>
