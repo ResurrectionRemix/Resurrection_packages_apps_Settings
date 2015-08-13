@@ -46,7 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-import libcore.icu.ICU;
+
 import libcore.icu.TimeZoneNames;
 
 /**
@@ -68,6 +68,8 @@ public class ZonePicker extends ListFragment {
     private static final String KEY_GMT = "gmt";  // value: String
     private static final String KEY_OFFSET = "offset";  // value: int (Integer)
     private static final String XMLTAG_TIMEZONE = "timezone";
+    private static final String XML_ATTR_ID = "id";
+    private static final String XML_ATTR_LOCALIZE_IN_PICKER = "localizeInPicker";
 
     private static final int HOURS_1 = 60 * 60000;
 
@@ -249,8 +251,10 @@ public class ZonePicker extends ListFragment {
                         xrp.next();
                     }
                     if (xrp.getName().equals(XMLTAG_TIMEZONE)) {
-                        String olsonId = xrp.getAttributeValue(0);
-                        addTimeZone(olsonId);
+                        String olsonId = xrp.getAttributeValue(null, XML_ATTR_ID);
+                        boolean localize = xrp.getAttributeBooleanValue(null,
+                                XML_ATTR_LOCALIZE_IN_PICKER, true);
+                        addTimeZone(olsonId, localize);
                     }
                     while (xrp.getEventType() != XmlResourceParser.END_TAG) {
                         xrp.next();
@@ -266,7 +270,7 @@ public class ZonePicker extends ListFragment {
             return mZones;
         }
 
-        private void addTimeZone(String olsonId) {
+        private void addTimeZone(String olsonId, boolean localize) {
             // We always need the "GMT-07:00" string.
             final TimeZone tz = TimeZone.getTimeZone(olsonId);
 
@@ -274,7 +278,7 @@ public class ZonePicker extends ListFragment {
             // from other countries' time zones. So in en_US you'd get "Pacific Daylight Time"
             // but in de_DE you'd get "Los Angeles" for the same time zone.
             String displayName;
-            if (mLocalZones.contains(olsonId)) {
+            if (mLocalZones.contains(olsonId) && localize) {
                 // Within a country, we just use the local name for the time zone.
                 mZoneNameFormatter.setTimeZone(tz);
                 displayName = mZoneNameFormatter.format(mNow);
