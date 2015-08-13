@@ -58,9 +58,10 @@ public class RRperformance extends SettingsPreferenceFragment
 private PreferenceScreen mProcessor;
 private PreferenceScreen mIOScheduler;
 private PreferenceScreen mKernelAdiutor;
- private ListPreference mSystemCategory;
+private ListPreference mSystemCategory;
 private SwitchPreference mForceHighEndGfx;
 private PreferenceCategory mKernel;
+private ListPreference mScrollingCachePref;
 private static final String CATEGORY_KERNEL="kernel_aduitor";
 private static final String CATEGORY_KERNEL_ADIUTOR = "kernel_tweaks";
 private static final String CATEGORY_PROFILES = "pref_perf_profile";
@@ -76,6 +77,9 @@ private AlertDialog mAlertDialog;
 private PowerManager mPowerManager;
 private SharedPreferences mDevelopmentPreferences;
 private PerformanceProfileObserver mPerformanceProfileObserver = null;
+private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
+private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
+private static final String SCROLLINGCACHE_DEFAULT = "1";
 
 
 
@@ -137,7 +141,14 @@ private PerformanceProfileObserver mPerformanceProfileObserver = null;
         } else  {
             prefSet.removePreference(mIOScheduler);	
  	 }
-	mPerformanceProfileObserver = new PerformanceProfileObserver(new Handler());		
+	mPerformanceProfileObserver = new PerformanceProfileObserver(new Handler());	
+	
+	
+        // Scrolling cache
+        mScrollingCachePref = (ListPreference) prefSet.findPreference(SCROLLINGCACHE_PREF);
+        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setOnPreferenceChangeListener(this);	
 	}	
     
 	@Override
@@ -212,10 +223,15 @@ private PerformanceProfileObserver mPerformanceProfileObserver = null;
                 mPowerManager.setPowerProfile(String.valueOf(newValue));
                 updatePerformanceSummary();
                 return true;
-            }
-        }
-        return false;
-    }
+       } else if (preference == mScrollingCachePref) {
+            if (newValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String)newValue);
+            return true;
+	            }
+	        }
+	    }
+	        return false;
+	 }		
     
    @Override
     public void onStop() {
