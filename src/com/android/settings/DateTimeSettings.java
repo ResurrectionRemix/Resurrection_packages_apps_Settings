@@ -42,6 +42,9 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import libcore.icu.TimeZoneNames;
+
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -328,6 +331,16 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         if (when / 1000 < Integer.MAX_VALUE) {
             ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
         }
+        updateLocaleStrings();
+    }
+
+    static void updateLocaleStrings() {
+        // If a device was boot up with date 1970 and then date changes to some later time,
+        // the wrong string might be cached if the country's zones have changed.
+        // See external/icu/icu4c/source/data/misc/metaZones.txt for complete mapping
+        TimeZoneNames.clearLocaleCache();
+        Locale locale = Locale.getDefault();
+        DateFormatSymbols.getInstance(locale).setZoneStrings(TimeZoneNames.getZoneStrings(locale));
     }
 
     /* package */ static void setTime(Context context, int hourOfDay, int minute) {
