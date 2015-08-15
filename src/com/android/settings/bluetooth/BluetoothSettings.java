@@ -83,6 +83,8 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
     private static final String BTOPP_ACTION_OPEN_RECEIVED_FILES =
             "android.btopp.intent.action.OPEN_RECEIVED_FILES";
 
+    private SettingsActivity mActivity;
+
     private static View mSettingsDialogView = null;
 
     private BluetoothEnabler mBluetoothEnabler;
@@ -104,6 +106,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
             new BluetoothProfile.ServiceListener() {
                 public void onServiceConnected(int profile, BluetoothProfile proxy) {
                     mBluetoothPan.set((BluetoothPan) proxy);
+                    mActivity.invalidateOptionsMenu();
                 }
                 public void onServiceDisconnected(int profile) {
                     mBluetoothPan.set(null);
@@ -152,15 +155,15 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
         mEmptyView = (TextView) getView().findViewById(android.R.id.empty);
         getListView().setEmptyView(mEmptyView);
 
-        final SettingsActivity activity = (SettingsActivity) getActivity();
-        mSwitchBar = activity.getSwitchBar();
+        mActivity = (SettingsActivity) getActivity();
+        mSwitchBar = mActivity.getSwitchBar();
 
-        mBluetoothEnabler = new BluetoothEnabler(activity, mSwitchBar);
+        mBluetoothEnabler = new BluetoothEnabler(mActivity, mSwitchBar);
         mBluetoothEnabler.setupSwitchBar();
 
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         if (adapter != null) {
-            adapter.getProfileProxy(activity.getApplicationContext(), mProfileServiceListener,
+            adapter.getProfileProxy(mActivity.getApplicationContext(), mProfileServiceListener,
                     BluetoothProfile.PAN);
         }
 
@@ -242,7 +245,8 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
                 Settings.System.BLUETOOTH_ACCEPT_ALL_FILES, 0) == 1;
 
         final BluetoothPan bluetoothPan = mBluetoothPan.get();
-        boolean isBluetoothTetheringEnabled = bluetoothPan != null && bluetoothPan.isTetheringOn();
+        boolean isBluetoothPanAllowed = isBtPanAllowed();
+        boolean isBluetoothTetheringEnabled = isBluetoothPanAllowed && bluetoothPan.isTetheringOn();
 
         menu.add(Menu.NONE, MENU_ID_SCAN, 0, textId)
                 .setEnabled(bluetoothIsEnabled && !isDiscovering)
@@ -260,6 +264,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
                 R.string.bluetooth_tether_checkbox_text)
                 .setCheckable(true)
                 .setChecked(isBluetoothTetheringEnabled)
+                .setEnabled(isBluetoothPanAllowed)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -455,6 +460,20 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
         setDeviceListGroup(getPreferenceScreen());
         removeAllDevices();
         updateContent(mLocalAdapter.getBluetoothState());
+    }
+
+    private boolean isBtPanAllowed() {
+        try {
+            BluetoothPan btPan = mBluetoothPan.get();
+            if (btPan == null) {
+                return false;
+            }
+            btPan.isTetheringOn();
+        } catch (NullPointerException ex) {
+            // Ignore
+            return false;
+        }
+        return true;
     }
 
     private final View.OnClickListener mDeviceProfilesListener = new View.OnClickListener() {
