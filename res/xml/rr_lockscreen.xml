@@ -57,6 +57,14 @@
         android:defaultValue="14"
         android:dependency="lockscreen_see_through" />
 
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="locksystem_category"
+        android:title="@string/lockscreen_shortcuts_category">
+
         <PreferenceScreen
             android:title="@string/lockscreen_targets_message" 
             android:summary="@string/lockscreen_targets_summary" >
@@ -64,12 +72,6 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
         </PreferenceScreen>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="locksystem_category"
-        android:title="@string/lockscreen_shortcuts_category">
 
         <PreferenceScreen
                  android:key="lockscreen_shortcuts"
@@ -84,22 +86,19 @@
         </PreferenceScreen>
 
     </PreferenceCategory>
+    <PreferenceCategory
+        android:key="rr_wallpaper"
+        android:title="@string/lockscreen_wallpaper_cat">
 
-       <!--PreferenceCategory
-        android:key="lockscreen_wallpaper"
-        android:title="@string/lockscreen_wallpaper_title" >
+  <PreferenceScreen
+            android:key="lockscreen_wallpaper"
+            android:title="@string/lockscreen_wallpaper_title"
+            android:summary="@string/lockscreen_wallpaper_summary"
+            android:persistent="false"
+            android:fragment="com.android.settings.rr.LockscreenWallpaper">
+        </PreferenceScreen>
 
-        <Preference
-            android:key="lockscreen_wallpaper_set"
-            android:title="@string/lockscreen_wallpaper_set_title"
-            android:persistent="false"/>
-
-        <Preference
-            android:key="lockscreen_wallpaper_clear"
-            android:title="@string/lockscreen_wallpaper_clear_title"
-            android:persistent="false">
-
-    </PreferenceCategory-->
+</PreferenceCategory>
 
     <PreferenceCategory
         android:key="lockscreen_weather_cat"
