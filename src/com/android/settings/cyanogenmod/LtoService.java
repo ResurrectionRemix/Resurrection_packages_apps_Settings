@@ -16,7 +16,7 @@
 
 package com.android.settings.cyanogenmod;
 
-import static android.hardware.CmHardwareManager.FEATURE_LONG_TERM_ORBITS;
+import static cyanogenmod.hardware.CMHardwareManager.FEATURE_LONG_TERM_ORBITS;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -24,7 +24,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.CmHardwareManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -36,6 +35,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.android.settings.location.LocationSettings;
+
+import cyanogenmod.hardware.CMHardwareManager;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -58,13 +59,13 @@ public class LtoService extends Service {
 
     private static final int DOWNLOAD_TIMEOUT = 45000; /* 45 seconds */
 
-    private CmHardwareManager mCmHardwareManager;
+    private CMHardwareManager mHardware;
     private LtoDownloadTask mTask;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (mCmHardwareManager == null ||
-                !mCmHardwareManager.isSupported(FEATURE_LONG_TERM_ORBITS)) {
+        if (mHardware == null ||
+                !mHardware.isSupported(FEATURE_LONG_TERM_ORBITS)) {
             if (ALOGV) Log.v(TAG, "LTO is not supported by this device");
             return START_NOT_STICKY;
         }
@@ -84,8 +85,8 @@ public class LtoService extends Service {
             return START_NOT_STICKY;
         }
 
-        mTask = new LtoDownloadTask(mCmHardwareManager.getLtoSource(),
-                new File(mCmHardwareManager.getLtoDestination()));
+        mTask = new LtoDownloadTask(mHardware.getLtoSource(),
+                new File(mHardware.getLtoDestination()));
         mTask.execute();
 
         return START_REDELIVER_INTENT;
@@ -99,7 +100,7 @@ public class LtoService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mCmHardwareManager = (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
+        mHardware = CMHardwareManager.getInstance(this);
     }
 
     @Override
@@ -131,7 +132,7 @@ public class LtoService extends Service {
 
         long now = System.currentTimeMillis();
         long lastDownload = getLastDownload();
-        long due = lastDownload + mCmHardwareManager.getLtoDownloadInterval();
+        long due = lastDownload + mHardware.getLtoDownloadInterval();
 
         if (ALOGV) {
             Log.v(TAG, "Now " + now + " due " + due + "(" + new Date(due) + ")");
@@ -325,7 +326,7 @@ public class LtoService extends Service {
         PendingIntent pi = PendingIntent.getService(this, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
 
-        long nextLtoDownload = lastDownload + mCmHardwareManager.getLtoDownloadInterval();
+        long nextLtoDownload = lastDownload + mHardware.getLtoDownloadInterval();
         am.set(AlarmManager.RTC, nextLtoDownload, pi);
         return pi;
     }
