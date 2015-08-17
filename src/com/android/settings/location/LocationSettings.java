@@ -17,7 +17,7 @@
 
 package com.android.settings.location;
 
-import static android.hardware.CmHardwareManager.FEATURE_LONG_TERM_ORBITS;
+import static cyanogenmod.hardware.CMHardwareManager.FEATURE_LONG_TERM_ORBITS;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.hardware.CmHardwareManager;
 import android.location.SettingInjectorService;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -47,6 +46,8 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.LtoService;
 import com.android.settings.widget.SwitchBar;
+
+import cyanogenmod.hardware.CMHardwareManager;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -413,8 +414,7 @@ public class LocationSettings extends LocationSettingsBase
     }
 
     private static boolean isLtoSupported(Context context) {
-        final CmHardwareManager hwManager =
-                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
-        return hwManager != null && hwManager.isSupported(FEATURE_LONG_TERM_ORBITS);
+        final CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+        return hardware != null && hardware.isSupported(FEATURE_LONG_TERM_ORBITS);
     }
 }
