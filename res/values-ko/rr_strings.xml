@@ -740,6 +740,7 @@
     <string name="qs_four_columns_title">한 줄에 4개 타일 표시하기</string>
     <!-- QuickSettings tiles -->
     <string name="qs_screenshot_tile">스크린샷</string>
+    <string name="qs_screenrecord_tile">화면 녹화</string>
     <string name="qs_sync_tile">동기화</string>
     <!-- Navring targets (enable/disable) -->
     <string name="navigation_ring_enable_title">네비게이션 링 활성화</string>
@@ -757,7 +758,9 @@
     <string name="qs_pie_tile">Pie</string>
     <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">잠금 아이콘을 길게 눌러 화면 끄기</string>
-    <string name="longpress_lock_icon_to_sleep_summary">스마트 잠금이나 접근성 조작 설명이 활성화되면 작동하지 않습니다</string>    
+    <string name="longpress_lock_icon_to_sleep_summary">스마트 잠금과 접근성 터치 탐색이 활성화되면 작동하지 않습니다</string>
+ 
+    <string name="qs_tile_themes">테마</string>
 
     <string name="qs_navbar_tile">네비게이션 바</string>
     <string name="qs_appcirclebar_tile">앱 서클 바</string>
@@ -948,12 +951,19 @@
 
     <!-- Summary for "Configure lockscreen" when security gesture is enabled [CHAR LIMIT=45] -->
     <string name="unlock_set_unlock_mode_gesture">제스처</string>
-    <!-- Notification drawer clear all icon -->
-    <string name="notification_drawer_clear_all_icon_color_title">모든 아이콘 지우기</string>
+
+    <!-- Expanded header color -->
+    <string name="background_header_title">헤더 배경색</string>
+    <string name="expanded_header_background_color_title">색</string>
+
+    <!-- Clear button color -->
+    <string name="clear_all_color_title">모든 아이콘의 색 지우기</string>
+    <string name="notification_drawer_clear_all_icon_color_title">아이콘</string>
 
     <!-- Task Manager -->
     <string name="enable_task_manager_title">작업 관리자</string>
     <string name="enable_task_manager_summary">확장된 상태바에 작업 관리자 실행을 활성화 하거나 비활성화 합니다.</string>
+
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
     <string name="supersu_title">SuperSU</string>
 
@@ -1121,5 +1131,41 @@
     <!-- Hide lock screen carrier -->
     <string name="lock_screen_hide_carrier_title">잠금화면에서 통신사 문구 숨기기</string>
     <string name="lock_screen_hide_carrier_summary">설정 변경 후 시스템UI가 재시작됩니다.</string>
+
+    <!-- Status bar temperature -->
+    <string name="status_bar_temperature_title">온도 표시</string>
+    <string name="status_bar_temperature_hidden">숨기기</string>
+    <string name="status_bar_temperature_show_scale">단위와 함께 표시</string>
+    <string name="status_bar_temperature_hide_scale">단위 없이 표시</string>
+    <string name="status_bar_temperature_location_title">표시 위치</string>
+    <string name="status_bar_temperature_location_summary">상태바에 표시될 온도의 위치를 선택합니다</string>
+    <string name="status_bar_temperature_location_right">오른쪽에 표시</string>
+    <string name="status_bar_temperature_location_left">왼쪽에 표시</string>
+    <string name="status_bar_weather_color_title">글자 색</string>
+    <string name="status_bar_weather_size_title">글자 크기</string>
+
+    <!-- SlimDim -->
+    <string name="dim_nav_buttons_category">SlimDim</string>
+    <string name="dim_nav_buttons_title">활동이 없으면 버튼 색 어둡게 하기</string>
+    <string name="dim_nav_buttons_summary">설정된 시간 이후 네비게이션 바를 사용하지 않으면 버튼의 색을 어둡게 합니다</string>
+    <string name="dim_nav_buttons_timeout_title">어둡게 하기 전까지의 시간</string>
+    <string name="dim_nav_buttons_timeout_summary">버튼을 어둡게 하기 전까지 기다릴 시간을 설정합니다</string>
+    <string name="dim_nav_buttons_alpha_title">버튼 밝기 정도</string>
+    <string name="dim_nav_buttons_alpha_summary">버튼의 밝기를 설정합니다</string>
+    <string name="dim_nav_buttons_animate_title">애니메이션 적용</string>
+    <string name="dim_nav_buttons_animate_summary">버튼의 색을 동적으로 전환합니다</string>
+    <string name="dim_nav_buttons_animate_duration_title">애니메이션 길이</string>
+    <string name="dim_nav_buttons_animate_duration_summary">버튼 색 전환 애니메이션의 길이를 설정합니다</string>
+    <string name="dim_nav_buttons_touch_anywhere_title">화면 전체의 터치에 반응</string>
+    <string name="dim_nav_buttons_touch_anywhere_summary_on">화면의 아무 곳이나 누르면 버튼을 밝게 합니다</string>
+    <string name="dim_nav_buttons_touch_anywhere_summary_off">네비게이션 바를 누를 때만 버튼을 밝게 합니다</string>
+
+    <!-- Headphones icon switch -->
+    <string name="show_headset_icon_title">헤드셋 아이콘</string>
+    <string name="show_headset_icon_summary">헤드셋이 연결되면 아이콘을 표시합니다.</string>
+
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">세 손가락 제스처</string>
+    <string name="three_finger_gesture_summary">세 손가락을 스와이프하여 스크린샷 찍기</string>
 
 </resources>
