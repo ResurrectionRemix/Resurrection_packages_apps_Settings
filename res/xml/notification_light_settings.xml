@@ -37,6 +37,14 @@
         android:key="advanced_section"
         android:title="@string/advanced">
 
+        <PreferenceScreen
+            android:key="notification_light_brightness_level"
+            android:title="@string/notification_light_brightness"
+            android:dependency="notification_light_pulse"
+            settings:keywords="@string/keywords_lights_brightness_level">
+            <intent android:action="android.intent.action.SHOW_NOTIFICATION_BRIGHTNESS_DIALOG" />
+        </PreferenceScreen>
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="notification_light_screen_on_enable"
             android:title="@string/notification_light_screen_on"
