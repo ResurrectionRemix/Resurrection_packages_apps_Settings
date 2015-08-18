@@ -23,12 +23,18 @@
         android:summary="@string/device_g3_tmo_summary"
         android:selectable="false" 
         android:title="@string/device_g3_tmo" />
-   <Preference
+    <Preference
         android:id="@+id/device_att_g3"
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_att_g3_summary"
         android:selectable="false" 
-        android:title="@string/device_att_g3" />    
+        android:title="@string/device_att_g3" />
+    <Preference
+        android:id="@+id/device_g3_kr"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_g3_kr_summary"
+        android:selectable="false" 
+        android:title="@string/device_g3_kr" />
     <Preference
         android:id="@+id/device_g2"
         android:icon="@drawable/phone_tint"
@@ -47,12 +53,6 @@
         android:summary="@string/device_n4_summary"
         android:selectable="false" 
         android:title="@string/device_n4" />
-     <Preference
-        android:id="@+id/device_maguro"
-        android:icon="@drawable/phone_tint"
-        android:summary="@string/device_maguro_summary"
-        android:selectable="false" 
-        android:title="@string/device_maguro" /> 
     <Preference
         android:id="@+id/device_l9"
         android:icon="@drawable/phone_tint"
@@ -129,7 +129,13 @@
     <PreferenceCategory
         android:id="@+id/device_category_samsung"
         android:title="@string/device_category_samsung_title" >
-        
+
+     <Preference
+        android:id="@+id/device_maguro"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_maguro_summary"
+        android:selectable="false" 
+        android:title="@string/device_maguro" />        
     <Preference
         android:id="@+id/device_i9300"
         android:icon="@drawable/phone_tint"
