@@ -72,8 +72,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private static final int MENU_ADD = 0;
     private static final int DIALOG_APPS = 0;
 
-    private boolean mAdjustableNotificationLedBrightness;
-    private boolean mMultiColorNotificationLed;
     private int mDefaultColor;
     private int mDefaultLedOn;
     private int mDefaultLedOff;
@@ -99,14 +97,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         PreferenceScreen prefSet = getPreferenceScreen();
         Resources resources = getResources();
 
-        PreferenceGroup mGeneralPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
         PreferenceGroup mAdvancedPrefs = (PreferenceGroup) prefSet.findPreference("advanced_section");
-        PreferenceGroup mPhonePrefs = (PreferenceGroup) prefSet.findPreference("phone_list");
-
-        mAdjustableNotificationLedBrightness = resources.getBoolean(
-                com.android.internal.R.bool.config_adjustableNotificationLedBrightness);
-        mMultiColorNotificationLed = resources.getBoolean(
-                com.android.internal.R.bool.config_multiColorNotificationLed);
 
         // Get the system defined default notification color
         mDefaultColor =
@@ -133,7 +124,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mCustomEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         mCustomEnabledPref.setOnPreferenceChangeListener(this);
-        if (!mAdjustableNotificationLedBrightness) {
+        if (!resources.getBoolean(
+                com.android.internal.R.bool.config_adjustableNotificationLedBrightness)) {
             mAdvancedPrefs.removePreference(mNotificationLedBrightnessPref);
         } else {
             mNotificationLedBrightnessPref.setOnPreferenceChangeListener(this);
@@ -159,13 +151,9 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mPackageAdapter = new PackageListAdapter(getActivity());
 
         mPackages = new HashMap<String, Package>();
+        setHasOptionsMenu(true);
 
-        if (mMultiColorNotificationLed) {
-            setHasOptionsMenu(true);
-        } else {
-            mAdvancedPrefs.removePreference(mCustomEnabledPref);
-            prefSet.removePreference(mPhonePrefs);
-            prefSet.removePreference(mApplicationPrefList);
+        if (!resources.getBoolean(com.android.internal.R.bool.config_multiColorNotificationLed)) {
             resetColors();
         }
     }
@@ -242,10 +230,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             mVoicemailPref.setAllValues(vmailColor, vmailTimeOn, vmailTimeOff);
         }
 
-        if (mMultiColorNotificationLed) {
-            mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
-            mApplicationPrefList.setOrderingAsAdded(false);
-        }
+        mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
+        mApplicationPrefList.setOrderingAsAdded(false);
     }
 
     private void refreshCustomApplicationPrefs() {
@@ -385,13 +371,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
         Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_CALL_COLOR, mDefaultColor);
         Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, mDefaultColor);
-
-        // Reset to the framework default custom pulse length & speed
-        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_CALL_LED_ON, mDefaultLedOn);
-        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF, mDefaultLedOff);
-
-        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, mDefaultLedOn);
-        Settings.System.putInt(resolver, NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, mDefaultLedOff);
 
         refreshDefault();
     }
