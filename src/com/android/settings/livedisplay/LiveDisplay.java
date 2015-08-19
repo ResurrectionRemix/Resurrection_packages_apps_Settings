@@ -17,6 +17,7 @@ package com.android.settings.livedisplay;
 
 import static cyanogenmod.hardware.CMHardwareManager.FEATURE_ADAPTIVE_BACKLIGHT;
 import static cyanogenmod.hardware.CMHardwareManager.FEATURE_COLOR_ENHANCEMENT;
+import static cyanogenmod.hardware.CMHardwareManager.FEATURE_DISPLAY_MODES;
 import static cyanogenmod.hardware.CMHardwareManager.FEATURE_DISPLAY_GAMMA_CALIBRATION;
 import static cyanogenmod.hardware.CMHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT;
 
@@ -38,6 +39,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.util.Log;
 
 import com.android.internal.util.ArrayUtils;
 import com.android.settings.R;
@@ -47,6 +49,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
 import cyanogenmod.hardware.CMHardwareManager;
+import cyanogenmod.hardware.DisplayMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +60,7 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private static final String TAG = "LiveDisplay";
 
     private static final String KEY_CATEGORY_LIVE_DISPLAY = "live_display_options";
-    private static final String KEY_CATEGORY_CALIBRATION = "calibration";
+    private static final String KEY_CATEGORY_ADVANCED = "advanced";
 
     private static final String KEY_LIVE_DISPLAY = "live_display";
     private static final String KEY_LIVE_DISPLAY_AUTO_OUTDOOR_MODE =
@@ -69,6 +72,8 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
     private static final String KEY_DISPLAY_GAMMA = "gamma_tuning";
     private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
+
+    private static final String KEY_LIVE_DISPLAY_COLOR_PROFILE = "live_display_color_profile";
 
     public static final int MODE_OFF = 0;
     public static final int MODE_NIGHT = 1;
@@ -88,12 +93,16 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private PreferenceScreen mScreenColorSettings;
     private DisplayTemperature mDisplayTemperature;
 
+    private ListPreference mColorProfile;
+
     private String[] mModeEntries;
     private String[] mModeValues;
     private String[] mModeSummaries;
 
     private int mDefaultDayTemperature;
     private int mDefaultNightTemperature;
+
+    private boolean mHasDisplayModes = false;
 
     private CMHardwareManager mHardware;
 
@@ -115,14 +124,14 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
 
         PreferenceCategory liveDisplayPrefs = (PreferenceCategory)
                 findPreference(KEY_CATEGORY_LIVE_DISPLAY);
-        PreferenceCategory calibrationPrefs = (PreferenceCategory)
-                findPreference(KEY_CATEGORY_CALIBRATION);
+        PreferenceCategory advancedPrefs = (PreferenceCategory)
+                findPreference(KEY_CATEGORY_ADVANCED);
 
-        int displayMode = Settings.System.getIntForUser(resolver,
+        int adaptiveMode = Settings.System.getIntForUser(resolver,
                 Settings.System.DISPLAY_TEMPERATURE_MODE,
                 0, UserHandle.USER_CURRENT);
         mLiveDisplay = (ListPreference) findPreference(KEY_LIVE_DISPLAY);
-        mLiveDisplay.setValue(String.valueOf(displayMode));
+        mLiveDisplay.setValue(String.valueOf(adaptiveMode));
 
         mModeEntries = res.getStringArray(
                 com.android.internal.R.array.live_display_entries);
@@ -158,11 +167,13 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
 
         mDisplayTemperature = (DisplayTemperature) findPreference(KEY_LIVE_DISPLAY_TEMPERATURE);
 
-        mLowPower = (SwitchPreference) findPreference(KEY_LIVE_DISPLAY_LOW_POWER);
-        if (liveDisplayPrefs != null && mLowPower != null
-                && !mHardware.isSupported(FEATURE_ADAPTIVE_BACKLIGHT)) {
-            liveDisplayPrefs.removePreference(mLowPower);
-            mLowPower = null;
+        mColorProfile = (ListPreference) findPreference(KEY_LIVE_DISPLAY_COLOR_PROFILE);
+        if (liveDisplayPrefs != null && mColorProfile != null
+                && (!mHardware.isSupported(FEATURE_DISPLAY_MODES) || !updateDisplayModes())) {
+            liveDisplayPrefs.removePreference(mColorProfile);
+        } else {
+            mHasDisplayModes = true;
+            mColorProfile.setOnPreferenceChangeListener(this);
         }
 
         mOutdoorMode = (SwitchPreference) findPreference(KEY_LIVE_DISPLAY_AUTO_OUTDOOR_MODE);
@@ -172,31 +183,33 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
             mOutdoorMode = null;
         }
 
+        mLowPower = (SwitchPreference) findPreference(KEY_LIVE_DISPLAY_LOW_POWER);
+        if (advancedPrefs != null && mLowPower != null
+                && !mHardware.isSupported(FEATURE_ADAPTIVE_BACKLIGHT)) {
+            advancedPrefs.removePreference(mLowPower);
+            mLowPower = null;
+        }
+
         mColorEnhancement = (SwitchPreference) findPreference(KEY_LIVE_DISPLAY_COLOR_ENHANCE);
-        if (liveDisplayPrefs != null && mColorEnhancement != null
+        if (advancedPrefs != null && mColorEnhancement != null
                 && !mHardware.isSupported(FEATURE_COLOR_ENHANCEMENT)) {
-            liveDisplayPrefs.removePreference(mColorEnhancement);
+            advancedPrefs.removePreference(mColorEnhancement);
             mColorEnhancement = null;
         }
 
-        if (calibrationPrefs != null
+        if (advancedPrefs != null
                 && !mHardware.isSupported(FEATURE_DISPLAY_GAMMA_CALIBRATION)) {
             Preference gammaPref = findPreference(KEY_DISPLAY_GAMMA);
             if (gammaPref != null) {
-                calibrationPrefs.removePreference(gammaPref);
+                advancedPrefs.removePreference(gammaPref);
             }
         }
 
         mScreenColorSettings = (PreferenceScreen) findPreference(KEY_SCREEN_COLOR_SETTINGS);
-        if (calibrationPrefs != null) {
-            if (!isPostProcessingSupported(getActivity()) && mScreenColorSettings != null) {
-                calibrationPrefs.removePreference(mScreenColorSettings);
-            } else if ("user".equals(Build.TYPE)) {
-                // Remove simple RGB controls if HSIC controls are available
-                Preference displayColor = findPreference(KEY_DISPLAY_COLOR);
-                if (displayColor != null) {
-                    calibrationPrefs.removePreference(displayColor);
-                }
+        if (advancedPrefs != null) {
+            if (mScreenColorSettings != null &&
+                    (mHasDisplayModes ||!isPostProcessingSupported(getActivity()))) {
+                advancedPrefs.removePreference(mScreenColorSettings);
             }
         }
     }
@@ -206,6 +219,7 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
         super.onResume();
         updateModeSummary();
         updateTemperatureSummary();
+        updateColorProfileSummary(null);
         mObserver.register(true);
     }
 
@@ -215,12 +229,78 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
         mObserver.register(false);
     }
 
+    private boolean updateDisplayModes() {
+        final DisplayMode[] modes = mHardware.getDisplayModes();
+        if (modes == null || modes.length == 0) {
+            return false;
+        }
+
+        final DisplayMode cur = mHardware.getDefaultDisplayMode();
+        int curId = -1;
+        String[] entries = new String[modes.length];
+        String[] values = new String[modes.length];
+        String[] summaries = new String[modes.length];
+        for (int i = 0; i < modes.length; i++) {
+            values[i] = String.valueOf(modes[i].id);
+            entries[i] = modes[i].name;
+            summaries[i] = modes[i].name;
+            if (cur != null && modes[i].id == cur.id) {
+                curId = -1;
+            }
+        }
+        mColorProfile.setEntries(entries);
+        mColorProfile.setEntryValues(values);
+        if (curId >= 0) {
+            mColorProfile.setValue(String.valueOf(curId));
+        }
+
+        return true;
+    }
+
+    private void updateColorProfileSummary(String value) {
+        if (!mHasDisplayModes) {
+            return;
+        }
+
+        if (value == null) {
+            DisplayMode cur = mHardware.getDefaultDisplayMode();
+            if (cur != null && cur.id >= 0) {
+                value = String.valueOf(cur.id);
+            }
+        }
+
+        int idx = mColorProfile.findIndexOfValue(value);
+        if (idx < 0) {
+            Log.e(TAG, "No summary resource found for profile " + value);
+            mColorProfile.setSummary(null);
+            return;
+        }
+
+        mColorProfile.setValue(value);
+
+        String entry = mColorProfile.getEntries()[idx].toString();
+        String name = entry.toLowerCase().replace(" ", "_");
+        String summaryRes = String.format("live_display_color_profile_%s_summary", name);
+        int resId = getResources().getIdentifier(summaryRes, "string", "com.android.settings");
+        if (resId <= 0) {
+            Log.e(TAG, "No summary resource found for profile " + name);
+            mColorProfile.setSummary(null);
+            return;
+        }
+        mColorProfile.setSummary(String.format("%s - %s", entry.toString(),
+                getResources().getString(resId)));
+    }
+
     private void updateModeSummary() {
         int mode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.DISPLAY_TEMPERATURE_MODE,
                 MODE_OFF, UserHandle.USER_CURRENT);
 
         int index = ArrayUtils.indexOf(mModeValues, String.valueOf(mode));
+        if (index < 0) {
+            index = ArrayUtils.indexOf(mModeValues, String.valueOf(MODE_OFF));
+        }
+
         mLiveDisplay.setSummary(mModeSummaries[index]);
 
         if (mDisplayTemperature != null) {
@@ -251,6 +331,16 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.DISPLAY_TEMPERATURE_MODE,
                     Integer.valueOf((String)objValue), UserHandle.USER_CURRENT);
+        } else if (preference == mColorProfile) {
+            int id = Integer.valueOf((String)objValue);
+            Log.i("LiveDisplay", "Setting mode: " + id);
+            for (DisplayMode mode : mHardware.getDisplayModes()) {
+                if (mode.id == id) {
+                    mHardware.setDisplayMode(mode, true);
+                    updateColorProfileSummary((String)objValue);
+                    break;
+                }
+            }
         }
         return true;
     }
@@ -313,6 +403,9 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
              CMHardwareManager hardware = CMHardwareManager.getInstance(context);
 
             ArrayList<String> result = new ArrayList<String>();
+            if (!hardware.isSupported(FEATURE_DISPLAY_MODES)) {
+                result.add(KEY_LIVE_DISPLAY_COLOR_PROFILE);
+            }
             if (!hardware.isSupported(FEATURE_SUNLIGHT_ENHANCEMENT)) {
                 result.add(KEY_LIVE_DISPLAY_AUTO_OUTDOOR_MODE);
             }

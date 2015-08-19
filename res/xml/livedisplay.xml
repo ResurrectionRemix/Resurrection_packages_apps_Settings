@@ -21,6 +21,12 @@
         android:key="live_display_options"
         android:title="@string/live_display_title">
 
+        <!-- Color profile -->
+        <ListPreference
+                android:key="live_display_color_profile"
+                android:title="@string/live_display_color_profile_title"
+                android:persistent="false" />
+
         <ListPreference
                 android:key="live_display"
                 android:title="@string/live_display_mode"
@@ -40,27 +46,11 @@
                 android:summary="@string/live_display_outdoor_mode_summary"
                 android:defaultValue="true" />
 
-        <!-- Adaptive backlight -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                android:key="display_low_power"
-                android:title="@string/live_display_low_power_title"
-                android:summary="@string/live_display_low_power_summary"
-                android:defaultValue="true"
-                settings:advanced="true" />
-
-        <!-- Color enhancement -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                android:key="display_color_enhance"
-                android:title="@string/live_display_enhance_color_title"
-                android:summary="@string/live_display_enhance_color_summary"
-                android:defaultValue="true"
-                settings:advanced="true" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:key="calibration"
-            android:title="@string/category_calibration"
+            android:key="advanced"
+            android:title="@string/advanced"
             settings:advanced="true">
 
         <!-- screen color -->
@@ -91,6 +81,22 @@
                 android:summary="@string/gamma_tuning_summary_head"
                 android:persistent="false"
                 settings:advanced="true"/>
+
+        <!-- Adaptive backlight -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="display_low_power"
+                android:title="@string/live_display_low_power_title"
+                android:summary="@string/live_display_low_power_summary"
+                android:defaultValue="true"
+                settings:advanced="true" />
+
+        <!-- Color enhancement -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="display_color_enhance"
+                android:title="@string/live_display_enhance_color_title"
+                android:summary="@string/live_display_enhance_color_summary"
+                android:defaultValue="true"
+                settings:advanced="true" />
 
     </PreferenceCategory>
 
