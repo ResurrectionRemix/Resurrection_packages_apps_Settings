@@ -721,10 +721,10 @@ public class Status extends PreferenceActivity {
         CMHardwareManager hardware = CMHardwareManager.getInstance(this);
         if (hardware.isSupported(CMHardwareManager.FEATURE_SERIAL_NUMBER)) {
             return hardware.getSerialNumber();
-            }
-            
+        } else {
             return Build.SERIAL;
         }
+    }
 
     public static String getSarValues(Resources res) {
         String headLevel = String.format(res.getString(R.string.maximum_head_level,
