@@ -22,6 +22,7 @@
     <item quantity="other">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
   </plurals>
   <string name="show_dev_on_cm">Ați deblocat setările de dezvoltator!</string>
+  <string name="show_dev_already_cm">Nu este nevoie, deja ai deblocat setările de dezvoltator.</string>
   <string name="development_tools_title">Unelte de dezvoltare</string>
   <string name="root_access">Acces root</string>
   <string name="root_access_warning_title">Permite acces la root?</string>
@@ -54,6 +55,7 @@
   <string name="profile_remove_current_profile">Nu se poate șterge profilul curent!</string>
   <string name="profile_entries_on">Pornit</string>
   <string name="profile_entries_off">Oprit</string>
+  <string name="profile_entries_no_override">Nu suprascrie</string>
   <string name="profile_name_title">Nume</string>
   <string name="new_profile_name">&lt;profil nou&gt;</string>
   <string name="rename_dialog_title">Redenumire</string>
@@ -148,6 +150,7 @@
   <string name="power_menu_lockdown_title">Blocare dispozitiv</string>
   <string name="power_menu_bug_report_title">Raport de eroare</string>
   <string name="power_menu_sound_title">Panou sunet</string>
+  <string name="power_menu_profiles_disabled">Profilele de sistem sunt dezactivate</string>
   <string name="adaptive_backlight_title">Lumină de fundal adaptivă</string>
   <string name="adaptive_backlight_summary">Ajustează luminozitatea ecranului în mod dinamic pentru a mări durata bateriei fără a afecta performanța</string>
   <string name="sunlight_enhancement_title">Îmbunătățire la lumina soarelui</string>
@@ -155,6 +158,7 @@
   <string name="color_enhancement_title">Intensificare culoare</string>
   <string name="color_enhancement_summary">Intensificare dinamică a culorii de afișare</string>
   <string name="blacklist_title">Lista apelanților blocați</string>
+  <string name="blacklist_edit_dialog_title">Editați numărul de telefon blocat</string>
   <string name="blacklist_prefs">Setări</string>
   <string name="blacklist_button_delete">Șterge</string>
   <string name="blacklist_summary_disabled">Dezactivat</string>
@@ -172,7 +176,9 @@
   <string name="blacklist_regex_summary">Utilizează . ca metacaracter și * pentru repetare. Ex. 123.* blocuri de numere pornind cu 123 și .*123.* blocuri de numere ce conțin 123</string>
   <string name="blacklist_policy_block_calls">Blochează apelurile primite</string>
   <string name="blacklist_policy_block_messages">Blochează mesajele primite</string>
+  <string name="blacklist_bad_number_add">Nu se poate adăuga numărul de telefon incorect în lista abonaților blocați</string>
   <string name="remove_blacklist_number_title">Șterge număr</string>
+  <string name="remove_blacklist_entry">Doriți să eliminați acest număr de telefon blocat?</string>
   <string name="select_contact">Selectare contact</string>
   <string name="lockpattern_reset_button">Model de resetare</string>
   <string name="lockpattern_settings_reset_summary">Introduceți contul de email primar și parola asociată pentru a reseta modelul de blocare</string>
@@ -205,6 +211,8 @@
   <string name="cmupdate_settings_title">Actualizări CyanogenMod</string>
   <string name="mod_version">versiune CyanogenMod</string>
   <string name="mod_version_default">Necunoscut</string>
+  <string name="device_model">Modelul dispozitivului</string>
+  <string name="device_name">Numele dispozitivului</string>
   <string name="build_date">Dată compilare</string>
   <string name="double_tap_to_wake_title">Dublă-apăsare pentru trezire</string>
   <string name="double_tap_to_wake_summary">Atingeți de două ori ecranul pentru a activa afișajul</string>
@@ -221,6 +229,8 @@
   <string name="privacy_guard_reset_text">Resetați permisiunile?</string>
   <string name="privacy_guard_help_text">În acest ecran poți alege pentru ce aplicații este activă Garda de Confidențialitate prin simpla lor apăsare. Aplicațiile selectate nu îți vor putea accesa datele personale, cum ar fi contactele, mesajele sau jurnalul de apeluri. Apăsarea lungă pe o aplicație deschide ecranul cu detaliile aplicației.\n\nAplicațiile prestabilite nu sunt arătate implicit dar pot fi arătate prin selectarea opțiunii respective din meniu.</string>
   <string name="privacy_guard_manager_show_system_apps">Arată aplicațiile preinstalate</string>
+  <string name="app_ops_btn_text">Modifică</string>
+  <string name="increasing_ring_volume_option_title">Volum crescător</string>
   <string name="increasing_ring_min_volume_title">Volum inițial</string>
   <string name="advanced_reboot_title">Repornire avansată</string>
   <string name="advanced_reboot_summary">Atunci când dispozitivul este deblocat, se includ opţiuni în meniul de putere pentru repornirea în recuperare, bootloader sau efectuarea unei reporniri a sistemului</string>
@@ -228,7 +238,7 @@
   <string name="enable_adb_summary_cm">Activează interfața Android Debug Bridge (adb)</string>
   <string name="adb_over_network">ADB prin rețea</string>
   <string name="adb_over_network_summary">Activează depanarea TCP/IP prin interfețele de rețea (Wi\u2011Fi, rețele USB). Această setare este restaurată la repornire</string>
-  <string name="adb_notify">Notifică depanarea</string>
+  <string name="adb_notify">Notificare depanare</string>
   <string name="adb_notify_summary">Afișează o notificare atunci când depanarea prin USB sau rețea este activată</string>
   <string name="device_hostname">Hostname dispozitiv</string>
   <string name="development_shortcut_title">Comandă rapidă dezvoltare</string>
@@ -247,6 +257,7 @@
   <string name="navigation_edit_button_text">Editare</string>
   <string name="navigation_save_button_text">Salvare</string>
   <string name="navigation_bar_reset_message">Șterge setările curente și restaurează aspectul implicit?</string>
+  <string name="navigation_bar_arrow_keys_title">Arată butoanele de direcție în timp ce tastați</string>
   <string name="header_category_personalization">Personalizare</string>
   <string name="status_bar_title">Bara de stare</string>
   <string name="status_bar_toggle_brightness">Control luminozitate</string>
@@ -264,6 +275,8 @@
   <string name="status_bar_am_pm_small">Mic</string>
   <string name="status_bar_am_pm_hidden">Ascuns</string>
   <string name="status_bar_battery_style_title">Stilul de stare al bateriei</string>
+  <string name="status_bar_battery_style_icon_portrait">Icon portret</string>
+  <string name="status_bar_battery_style_icon_landscape">Icon peisaj</string>
   <string name="status_bar_battery_style_circle">Cerc</string>
   <string name="status_bar_battery_style_text">Text</string>
   <string name="status_bar_battery_style_hidden">Ascuns</string>
@@ -306,11 +319,15 @@
   <string name="headset_connect_player_title">Lansează aplicație muzică</string>
   <string name="headset_connect_player_summary">Lansează aplicația implicită de muzică când se conectează casca audio</string>
   <string name="ime_switcher_notify">Selectorul pictogramă</string>
+  <string name="ime_switcher_notify_summary">Afișează pictograma selectorului metodei de introducere</string>
   <string name="app_notification_show_on_keyguard_title">Afișează pe ecranul de blocare</string>
   <string name="app_notification_show_on_keyguard_summary">Afișează notificări de la acestă aplicație pe ecranul de blocare</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Dezactivați notificarea persistentă pe ecranul de blocare</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Nu arată notificări persistente de la acestă aplicație pe ecranul de blocare</string>
   <string name="high_touch_sensitivity_title">Sensibilitate tactilă înaltă </string>
   <string name="high_touch_sensitivity_summary">Crește sensibilitatea ecranului tactil, astfel încât acesta poate fi utilizat în timp ce se poartă mănuși</string>
   <string name="touchscreen_hovering_title">Plutire peste ecran</string>
+  <string name="touchscreen_hovering_summary">Vă permite să plutiți degetul peste ecran ca un mouse în browserele web, remote desktop-uri, etc</string>
   <string name="app_ops_summaries_coarse_location">locație aspră</string>
   <string name="app_ops_summaries_fine_location">locație fină</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -418,6 +435,7 @@
   <string name="app_ops_labels_nfc_change">Schimbare NFC</string>
   <string name="app_ops_labels_delete_sms">Șterge SMS</string>
   <string name="app_ops_labels_delete_mms">Șterge Mesaj Multimedia</string>
+  <string name="app_ops_labels_delete_contacts">Șterge contacte</string>
   <string name="app_ops_labels_data_change">Schimbă date mobile</string>
   <string name="app_ops_labels_su">Acces root</string>
   <string name="app_ops_categories_location">Locație</string>
@@ -457,7 +475,7 @@
   <string name="no_triggers_configured">Niciun declanșator configurat. Atingeți pentru a adăuga suplimentar.</string>
   <string name="no_triggers_configured_nfc">Atingeți pentru a configura un nou declanșator NFC.</string>
   <string name="profile_setup_setup_triggers_description">Selectați declanșatoarele care vor activa acest profil</string>
-  <string name="profile_setup_actions_description">Acum configuraţi ceea ce se întâmplă atunci când este activat profilul</string>
+  <string name="profile_setup_actions_description">Acum configurați ceea ce se întâmplă atunci când este activat profilul</string>
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (folosit <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Permis <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Respins <xliff:g id="count" example="2 times">%s</xliff:g></string>
@@ -466,6 +484,7 @@
   <string name="app_ops_show_system_apps">Arată aplicații preinstalate</string>
   <string name="app_ops_reset_counters">Permite/refuză resetare contoare</string>
   <string name="app_ops_reset_confirm_title">Confirmare resetare contoare</string>
+  <string name="app_ops_reset_confirm_mesg">Sunteți sigur că doriți să resetați contoarele?</string>
   <string name="font_size_sample">Exemplu</string>
   <string name="vibrator_intensity_title">Intensitate vibrare</string>
   <string name="vibrator_warning">Valorile mai mari de %1$d nu sunt recomandate</string>
@@ -481,6 +500,7 @@
   <string name="gamma_tuning_brightness">Luminozitate</string>
   <string name="gamma_tuning_saturation">Saturație</string>
   <string name="screencolor">Culoare ecran</string>
+  <string name="screencolor_summary">Reglează nuanța, saturația, contrastul sau intensitatea ecranului</string>
   <string name="custom_screencolor">Culoare ecran personalizată</string>
   <string name="screencolor_save">Salvaţi</string>
   <string name="screencolor_cancel">Revocaţi</string>
@@ -495,32 +515,50 @@
   <string name="screen_color_setting_standard">Standard</string>
   <string name="screen_color_setting_vivid">Viu</string>
   <string name="screen_color_setting_custom">Particularizat</string>
+  <string name="settings_reset_button">Resetare</string>
   <string name="bluetooth_enter_pin_msg_hs">Pentru a asocia cu:<xliff:g id="bold">&lt;br&gt;&lt;b&gt;</xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b&gt;&lt;br&gt;&lt;br&gt;</xliff:g>Scrie PIN-ul cerut de dispozitiv (16 cifre sau mai multe):</string>
   <string name="bluetooth_profile_dun">Acces Rețea Dial-up</string>
   <string name="bluetooth_profile_sap">Acces SIM</string>
+  <string name="bluetooth_dun_profile_summary_connected">Conectat la serverul DUN</string>
+  <string name="bluetooth_pbap_profile_summary_connected">Conectat la serverul pbap</string>
   <string name="bluetooth_dun_profile_summary_use_for">Utilizat pentru acces rețea dial-up</string>
   <string name="bluetooth_sap_profile_summary_use_for">Utilizat pentru acces SIM</string>
   <string name="bluetooth_accept_all_files">Acceptă toate tipurile de fișiere</string>
   <string name="sim_pin_disable_failed">Nu se poate dezactiva PIN.</string>
+  <string name="sim_pin_enable_failed">Imposibil de activat PIN-ul.</string>
   <string name="sim_pin_enabled">PIN1 activat</string>
   <string name="sim_pin_disabled">PIN1 dezactivat</string>
   <string name="storage_usb">Stocare USB</string>
+  <string name="storage_uicc">Stocare UICC</string>
+  <string name="sdcard_eject" product="default">Demontează cardul SD</string>
   <string name="sdcard_eject_summary" product="default">Demontați cardul SD pentru a-l înlătura în condiții de siguranță</string>
   <string name="sd_card_format" product="default">Șterge card SD</string>
   <string name="sd_card_format_summary" product="default">Șterge toate datele de pe cardul SD, cum ar fi muzică și fotografii</string>
   <string name="sdcard_mount" product="default">Montare card SD</string>
+  <string name="sdcard_insert_summary" product="default">Introduceți un card SD pentru a monta</string>
+  <string name="usb_eject" product="default">Demontează mediul de stocare USB</string>
   <string name="usb_format" product="default">Șterge stocarea USB</string>
   <string name="usb_format_summary" product="default">Șterge toate datele de pe dispozitivul de stocare USB, cum ar fi muzică și fotografii</string>
+  <string name="uicc_format_summary" product="default">Șterge toate datele de pe dispozitivul de stocare UICC, cum ar fi muzică și fotografii</string>
   <string name="usb_settings_enable_ums_title">Activați stocarea în masă?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">Demontează cardul SD?</string>
+  <string name="dlg_confirm_usb_unmount_title" product="default">Demontează mediul de stocare USB?</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">Nu s-a putut demonta cardul SD. Încercați din nou mai târziu.</string>
+  <string name="dlg_error_usb_unmount_text" product="default">Nu s-a putut demonta mediul de stocare USB. Încercați din nou mai târziu.</string>
   <string name="sdcard_unmount_inform_text" product="default">Cardul SD va fi demontat.</string>
   <string name="usb_unmount_inform_text" product="default">Mediul de stocare USB va fi demontat.</string>
+  <string name="sdcard_media_format_desc" product="default">Ștergeți cardul SD? Veți pierde <b>toate</b> datele de pe card!</string>
   <string name="usb_media_format_button_text" product="default">Șterge stocarea USB</string>
-  <string name="usb_media_format_final_desc" product="default">Ştergeți mediul de stocare USB, ştergând toate fişierele stocate acolo? Această acţiune nu este reversibilă!</string>
+  <string name="sdcard_media_format_final_desc" product="default">Ștergeți cardul SD, ștergând toate fișierele stocate acolo? Această acțiune nu este reversibilă!</string>
+  <string name="usb_media_format_final_desc" product="default">Ștergeți mediul de stocare USB, ștergând toate fișierele stocate acolo? Această acțiune nu este reversibilă!</string>
+  <string name="uicc_media_format_final_desc" product="default">Ștergeți mediul de stocare UICC, ștergând toate fișierele stocate acolo? Această acțiune nu este reversibilă!</string>
   <string name="usb_media_format_gesture_explanation" product="default">Este necesar să desenați modelul dumneavoastră de deblocare pentru a confirma ștergerea mediului de stocare USB.</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">Este necesar să desenați modelul dumneavoastră de deblocare pentru a confirma ștergerea mediului de stocare UICC.</string>
   <string name="internal_sd_format">Șterge mediul de stocare intern</string>
   <string name="master_clear_desc_erase_internal_storage">\n\nPentru a șterge muzică, imagini și alte date de utilizator, <b>mediul intern de stocare</b> trebuie să fie șters.</string>
   <string name="erase_internal_storage">Șterge mediul de stocare intern</string>
   <string name="location_category_enhanced_location">Locație îmbunătățită (IZat)</string>
+  <string name="app_ops_settings_summary">Vezi sau schimbă permisiunile aplicației</string>
   <string name="enable_adb_summary_charging">Aparatul este în modul de încărcare, depanarea USB este dezactivată</string>
   <string name="enable_quickboot_title">Activare modul QuickBoot</string>
   <string name="data_usage_tab_slot">SIM <xliff:g id="sub">%d</xliff:g></string>
@@ -529,11 +567,16 @@
   <string name="sim_disabled">dezactivat</string>
   <string name="sim_missing">lipsă sau defect</string>
   <string name="sim_enabler_need_disable_sim">Dezactivarea cartelei SIM?</string>
+  <string name="sim_enabler_in_call">Nu se poate efectua operațiunea în timpul unui apel.</string>
   <string name="sim_enabler_both_inactive">Nu se pot dezactiva toate cartelele SIM</string>
   <string name="sim_enabler_sim">SIM</string>
+  <string name="sim_enabler_enabling">Activând <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_disabling">Dezactivând <xliff:g id="name">%s</xliff:g>\u2026</string>
   <string name="sim_enabler_deactivate">Dezactivează</string>
   <string name="primary_sub_select_title">Abonament 3G/LTE implicit</string>
   <string name="usb_charging_title">Doar încărcare</string>
+  <string name="usb_charging_summary">Dezactivează toate transferurile de date cu computerul și încarcă bateria prin portul USB</string>
+  <string name="usb_sdcard_title">Spațiul de stocare (UMS)</string>
   <string name="stats_collection_title">Colectarea de statistici</string>
   <string name="power_notifications_category_title">Sunete de încărcare</string>
   <string name="power_notifications_enable_title">Activare</string>
@@ -571,30 +614,40 @@
   <string name="status_bar_show_weather_title">Arată vremea</string>
   <string name="qs_order_title">Selectați și organizați plăcuțele</string>
   <string name="add_qs">Adaugă o plăcuță nouă</string>
+  <string name="qs_action_delete">Ștergeți</string>
   <string name="qs_action_add">Adăugare</string>
   <string name="qs_action_no_more_tiles">Nu mai sunt plăcuțe disponibile</string>
   <string name="qs_tile_wifi">Wi\u2011Fi</string>
   <string name="qs_tile_bluetooth">Bluetooth</string>
   <string name="qs_tile_display_inversion">Inversiune de culoare</string>
+  <string name="qs_tile_cellular_data">Conexiune de date</string>
   <string name="qs_tile_airplane_mode">Mod Avion</string>
+  <string name="qs_tile_display_rotation">Rotație</string>
   <string name="qs_tile_flashlight">Lanternă</string>
   <string name="qs_tile_location">Locație</string>
+  <string name="qs_tile_cast_screen">Partajare ecran</string>
+  <string name="qs_tile_hotspot">Hotspot</string>
   <string name="qs_tile_adb_over_network">ADB prin rețea</string>
+  <string name="qs_tile_profiles">Profile de sistem</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">Busolă</string>
+  <string name="qs_tile_lockscreen">Ecran de blocare</string>
   <string name="qs_tile_lte">4G</string>
   <string name="qs_tile_usb_tether">Tethering USB</string>
+  <string name="qs_tile_heads_up">Atenționare</string>
   <string name="qs_tile_ambient_display">Afișare ambientală</string>
   <string name="qs_tile_sync">Sincronizare</string>
   <string name="qs_dynamic_tile_next_alarm">Următoarea alarmă</string>
   <string name="qs_dynamic_tile_ime_selector">Selector IME</string>
   <string name="qs_dynamic_tile_su">Acces root</string>
+  <string name="qs_main_tiles_title">Mărire primul rând</string>
   <string name="qs_main_tiles_summary_off">Trei plăcuțe pe fiecare rând</string>
   <string name="qs_advanced_location_title">Setări avansate locație</string>
   <string name="sim_no_number_set">Niciun număr atribuit</string>
   <string name="gesture_settings_title">Gesturi</string>
   <string name="themes_settings_title">Teme</string>
   <string name="wifi_mode">Mod</string>
+  <string name="wifi_mode_ibss">Rețea Ad-Hoc (IBSS)</string>
   <string name="wifi_mode_ibss_short">Ad-Hoc</string>
   <string name="wifi_ibss_freq_title">Canal / Frecvență</string>
   <string name="wifi_channel">Canal</string>
@@ -605,11 +658,16 @@
   <string name="ic_code_model">Model: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">Desktop extins</string>
+  <string name="expanded_hide_status">Ascundere bară de stare</string>
   <string name="expanded_hide_both">Ascunde ambele</string>
+  <string name="expanded_enabled_for_all">Activat pentru toate</string>
   <string name="expanded_desktop_style">Stil desktop extins</string>
   <string name="expanded_desktop_style_description">Alegeți un stil desktop extins implicit</string>
+  <string name="expanded_desktop_title">Opțiuni desktop extins</string>
   <string name="title_general">General</string>
+  <string name="lockscreen_targets_message">Comenzi rapide ale ecranului de blocare</string>
   <string name="lockscreen_default_target">Implicit</string>
+  <string name="lockscreen_message">Apăsați o pictogramă de pe stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
   <string name="lockscreen_choose_action_title">Alege acțiunea</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Gestionare setări SMS sigur</string>
@@ -641,6 +699,7 @@
   <string name="stylus_app_not_installed">%s nu este instalat</string>
   <string name="advanced">Avansat</string>
   <string name="advanced_mode_title">Modul avansat</string>
+  <string name="advanced_mode_summary">Arată opțiuni suplimentare pentru configurarea dispozitivului în diferite meniuri de setări</string>
   <string name="category_misc">Diverse</string>
   <string name="category_vibrate">Vibrare</string>
   <string name="category_volume">Volum</string>
@@ -658,6 +717,7 @@
   <string name="live_display_mode">Mod de afișare</string>
   <string name="live_display_color_temperature_title">Temperatura culorii</string>
   <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">Zi</string>
   <string name="live_display_night">Noapte</string>
   <string name="live_display_outdoor_mode_summary">Crește luminozitatea și saturația automat în lumina strălucitoare a soarelui</string>
   <string name="live_display_enhance_color_title">Sporește culorile</string>
@@ -684,6 +744,7 @@
   <string name="sim_mobile_network_settings_category_title">Setări rețea mobilă</string>
   <string name="sim_mobile_network_settings_title">Setări cartelă SIM %d</string>
   <string name="factory_reset_instructions_title">Date personale &amp; aplicații</string>
+  <string name="factory_reset_erase_sd_card">Formatare card SD</string>
   <string name="wifi_setting_countrycode_title">Codul de regiune Wi\u2011Fi</string>
   <string name="wifi_setting_countrycode_summary">Specificați codul de regiune pentru Wi\u2011Fi</string>
   <string name="wifi_setting_countrycode_error">A intervenit o problemă la setarea codului de regiune.</string>
