@@ -16,6 +16,8 @@
 package com.android.settings.cyanogenmod.qs;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -26,6 +28,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -47,7 +52,38 @@ public class QSTiles extends Fragment implements
     private DraggableGridView mDraggableGridView;
     private View mAddDeleteTile;
     private boolean mDraggingActive;
-    private Context mSystemUiContext;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.quick_settings_tiles, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        final MenuItem search = menu.findItem(R.id.search);
+        if (search != null) {
+            search.setVisible(false);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.reset_qs_tiles) {
+            final ConfirmTileResetFragment confirmFrag = new ConfirmTileResetFragment();
+            confirmFrag.setTargetFragment(this, 0);
+            confirmFrag.show(getFragmentManager(), "confirm_reset");
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,13 +97,21 @@ public class QSTiles extends Fragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mSystemUiContext = Utils.createPackageContext(getActivity(), "com.android.systemui");
-
         ContentResolver resolver = getActivity().getContentResolver();
-        String order = Settings.Secure.getString(resolver, Settings.Secure.QS_TILES);
+        rebuildTiles();
+
+        mDraggableGridView.setOnRearrangeListener(this);
+        mDraggableGridView.setOnItemClickListener(this);
+        mDraggableGridView.setUseLargeFirstRow(Settings.Secure.getInt(resolver,
+                Settings.Secure.QS_USE_MAIN_TILES, 1) == 1);
+    }
+
+    private void rebuildTiles() {
+        mDraggableGridView.resetState();
+        String order = Settings.Secure.getString(getActivity().getContentResolver(),
+                Settings.Secure.QS_TILES);
         if (order == null) {
-            order = QSUtils.getDefaultTilesAsString(getActivity());
-            Settings.Secure.putString(resolver, Settings.Secure.QS_TILES, order);
+            order = resetTiles(getActivity());
         }
 
         if (!TextUtils.isEmpty(order)) {
@@ -82,11 +126,6 @@ public class QSTiles extends Fragment implements
         mAddDeleteTile = buildQSTile(QSTileHolder.TILE_ADD_DELETE);
         mDraggableGridView.addView(mAddDeleteTile);
         updateAddDeleteState();
-
-        mDraggableGridView.setOnRearrangeListener(this);
-        mDraggableGridView.setOnItemClickListener(this);
-        mDraggableGridView.setUseLargeFirstRow(Settings.Secure.getInt(resolver,
-                Settings.Secure.QS_USE_MAIN_TILES, 1) == 1);
     }
 
     @Override
@@ -116,7 +155,9 @@ public class QSTiles extends Fragment implements
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // Add / delete button clicked
         if (view == mAddDeleteTile) {
-            addTile();
+            final ChooseNewTileFragment chooseNewTileFragment = new ChooseNewTileFragment();
+            chooseNewTileFragment.setTargetFragment(this, 0);
+            chooseNewTileFragment.show(getFragmentManager(), "choose_tile");
         }
     }
 
@@ -137,60 +178,14 @@ public class QSTiles extends Fragment implements
         icon.setEnabled(!limitReached);
     }
 
-    private void addTile() {
-        ContentResolver resolver = getActivity().getContentResolver();
+    private void addTile(String tile) {
+        // Add the new tile to the last available position before "Add / Delete" tile
+        int newPosition = mDraggableGridView.getChildCount() - 1;
+        if (newPosition < 0) newPosition = 0;
 
-        // We load the added tiles and compare it to the list of available tiles.
-        // We only show the tiles that aren't already on the grid.
-        String order = Settings.Secure.getString(resolver, Settings.Secure.QS_TILES);
-
-        List<String> savedTiles = Arrays.asList(order.split(","));
-
-        final List<QSTileHolder> tilesList = new ArrayList<QSTileHolder>();
-        for (String tile : QSUtils.getAvailableTiles(getActivity())) {
-            // Don't count the already added tiles
-            if (!savedTiles.contains(tile)) {
-                QSTileHolder holder = QSTileHolder.from(getActivity(), tile);
-                if (holder != null) {
-                    tilesList.add(holder);
-                }
-            }
-        }
-
-        if (tilesList.isEmpty()) {
-            return;
-        }
-
-        final DialogInterface.OnClickListener selectionListener =
-                new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Add the new tile to the last available position before "Add / Delete" tile
-                int newPosition = mDraggableGridView.getChildCount() - 1;
-                if (newPosition < 0) newPosition = 0;
-
-                QSTileHolder holder = tilesList.get(which);
-                mDraggableGridView.addView(buildQSTile(holder.value), newPosition);
-                updateAddDeleteState();
-                updateSettings();
-                dialog.dismiss();
-            }
-        };
-
-        Collections.sort(tilesList, new Comparator<QSTileHolder>() {
-            @Override
-            public int compare(QSTileHolder lhs, QSTileHolder rhs) {
-                return lhs.name.compareTo(rhs.name);
-            }
-        });
-
-        final QSListAdapter adapter = new QSListAdapter(getActivity(),
-                mSystemUiContext, tilesList);
-        new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.add_qs)
-                .setSingleChoiceItems(adapter, -1, selectionListener)
-                .setNegativeButton(R.string.cancel, null)
-                .show();
+        mDraggableGridView.addView(buildQSTile(tile), newPosition);
+        updateAddDeleteState();
+        updateSettings();
     }
 
     private void updateSettings() {
@@ -222,7 +217,8 @@ public class QSTiles extends Fragment implements
         qsTile.setColor(defaultColor);
         if (item.name != null) {
             ImageView icon = (ImageView) qsTile.findViewById(android.R.id.icon);
-            Drawable d = Utils.getNamedDrawable(mSystemUiContext, item.resourceName);
+            Drawable d = Utils.getNamedDrawable(getSystemUIContext(getActivity()),
+                    item.resourceName);
             d.setColorFilter(getResources().getColor(R.color.qs_tile_tint_color),
                     PorterDuff.Mode.SRC_ATOP);
             icon.setImageDrawable(d);
@@ -239,6 +235,13 @@ public class QSTiles extends Fragment implements
         return qsTile;
     }
 
+    private static String resetTiles(Context context) {
+        String tiles = QSUtils.getDefaultTilesAsString(context);
+        Settings.Secure.putString(context.getContentResolver(),
+                Settings.Secure.QS_TILES, tiles);
+        return tiles;
+    }
+
     public static int determineTileCount(Context context) {
         String order = Settings.Secure.getString(context.getContentResolver(),
                 Settings.Secure.QS_TILES);
@@ -249,5 +252,96 @@ public class QSTiles extends Fragment implements
             return 0;
         }
         return order.split(",").length;
+    }
+
+    private static Context getSystemUIContext(Context context) {
+        return Utils.createPackageContext(context, "com.android.systemui");
+    }
+
+    public static class ChooseNewTileFragment extends DialogFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setCancelable(true);
+            setShowsDialog(true);
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            ContentResolver resolver = getActivity().getContentResolver();
+
+            // We load the added tiles and compare it to the list of available tiles.
+            // We only show the tiles that aren't already on the grid.
+            String order = Settings.Secure.getString(resolver, Settings.Secure.QS_TILES);
+
+            List<String> savedTiles = Arrays.asList(order.split(","));
+
+            final List<QSTileHolder> tilesList = new ArrayList<QSTileHolder>();
+            for (String tile : QSUtils.getAvailableTiles(getActivity())) {
+                // Don't count the already added tiles
+                if (!savedTiles.contains(tile)) {
+                    QSTileHolder holder = QSTileHolder.from(getActivity(), tile);
+                    if (holder != null) {
+                        tilesList.add(holder);
+                    }
+                }
+            }
+
+            final DialogInterface.OnClickListener selectionListener =
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            final QSTiles tiles = (QSTiles) getTargetFragment();
+                            if (tiles != null) {
+                                tiles.addTile(tilesList.get(which).value);
+                            }
+                        }
+                    };
+
+            Collections.sort(tilesList, new Comparator<QSTileHolder>() {
+                @Override
+                public int compare(QSTileHolder lhs, QSTileHolder rhs) {
+                    return lhs.name.compareTo(rhs.name);
+                }
+            });
+
+            final QSListAdapter adapter = new QSListAdapter(getActivity(),
+                    getSystemUIContext(getActivity()),
+                    tilesList);
+            return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.add_qs)
+                    .setSingleChoiceItems(adapter, -1, selectionListener)
+                    .setNegativeButton(R.string.cancel, null)
+                    .create();
+        }
+    }
+
+    public static class ConfirmTileResetFragment extends DialogFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setShowsDialog(true);
+            setCancelable(true);
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getActivity())
+                    .setMessage(R.string.quick_settings_reset_message)
+                    .setNegativeButton(R.string.no, null)
+                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            resetTiles(getActivity());
+                            final QSTiles targetFragment = (QSTiles) getTargetFragment();
+                            if ((targetFragment != null)) {
+                                targetFragment.rebuildTiles();
+                            }
+                        }
+                    })
+                    .create();
+        }
     }
 }
