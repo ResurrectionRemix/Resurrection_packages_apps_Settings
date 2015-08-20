@@ -40,7 +40,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
 import com.android.settings.util.CMDProcessor;
 import com.android.settings.util.Helpers;
-import android.hardware.CmHardwareManager;
+import cyanogenmod.hardware.CMHardwareManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.Display;
@@ -116,9 +116,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
         
-        CmHardwareManager cmHardwareManager =
-                (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
-        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_VIBRATOR)) {
+        CMHardwareManager hardware = CMHardwareManager.getInstance(mContext);
+        if (!hardware.isSupported(CMHardwareManager.FEATURE_VIBRATOR)) {
             Preference preference = prefSet.findPreference(KEY_VIBRATION_INTENSITY);
             if (preference != null) {
                 prefSet.removePreference(preference);
