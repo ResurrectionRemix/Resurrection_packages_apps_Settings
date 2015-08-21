@@ -183,8 +183,8 @@
   <string name="blacklist_unknown_numbers_title">Невідомі номери</string>
   <string name="blacklist_unknown_numbers_summary_disabled">Не блокувати дзвінок чи повідомлення якщо номера немає в контактах</string>
   <string name="blacklist_unknown_numbers_summary">Блокувати вхідні <xliff:g id="type">%s</xliff:g> від номерів яких немає в контактах</string>
-  <string name="blacklist_summary_type_calls_only">дзвінки</string>
-  <string name="blacklist_summary_type_messages_only">повідомлення</string>
+  <string name="blacklist_summary_type_calls_only">Виклик</string>
+  <string name="blacklist_summary_type_messages_only">Повідомлення</string>
   <string name="blacklist_summary_type_calls_and_messages">дзвінки та повідомлення</string>
   <string name="blacklist_regex_title">Регулярний вираз</string>
   <string name="blacklist_regex_summary">Використовуйте . як маску і * для повторення. Наприклад, вираз 123.* буде блокувати номери, які починаються з 123, а .*123.* — номера, що містять 123 в будь-якій частині</string>
@@ -340,7 +340,7 @@
   <string name="notification_light_applist_title">Програми</string>
   <string name="notification_light_phonelist_title">Телефон</string>
   <string name="notification_light_use_custom">Власні значення</string>
-  <string name="notification_light_default_value">Типово</string>
+  <string name="notification_light_default_value">За замовчуванням</string>
   <string name="notification_light_missed_call_title">Пропущений виклик</string>
   <string name="notification_light_voicemail_title">Голосова пошта</string>
   <string name="notification_ringtone_title_cm">Звук сповіщення</string>
@@ -483,6 +483,7 @@
   <string name="ok">OK</string>
   <string name="profile_menu_delete_title">Видалити</string>
   <string name="profile_action_none">Залишити без змін</string>
+  <string name="profile_action_system">Типово</string>
   <string name="profile_action_disable">Вимкнути</string>
   <string name="profile_action_enable">Увімкнути</string>
   <string name="profile_trigger_a2dp_connect">При увімкненні A2DP</string>
@@ -545,7 +546,7 @@
   <string name="screencolor_summary">Налаштування відтінку екрану, насиченості, контрасту або інтенсивності</string>
   <string name="custom_screencolor">Налаштування кольору екрану</string>
   <string name="screencolor_save">Зберегти</string>
-  <string name="screencolor_cancel">Відміна</string>
+  <string name="screencolor_cancel">Скасувати</string>
   <string name="restore_preview">Стандартний значок</string>
   <string name="selectnewfile_menu">Вибрати нове зображення з «Галереї»</string>
   <string name="selectfile_menu">Вибрати зображення з «Галереї»</string>
@@ -762,7 +763,7 @@
   <string name="expanded_desktop_title">Налаштування розширеного екрану</string>
   <string name="title_general">Основні</string>
   <string name="lockscreen_targets_message">Ярлики екрану блокування</string>
-  <string name="lockscreen_default_target">Стандартний</string>
+  <string name="lockscreen_default_target">За замовчуванням</string>
   <string name="lockscreen_none_target">Немає</string>
   <string name="lockscreen_message">Натисніть на іконку зліва чи справа для зміни ярлика екрану блокування.</string>
   <string name="lockscreen_choose_action_title">Виберіть дію</string>
@@ -797,7 +798,7 @@
   <string name="gestures_action_search">Відкрити пошук</string>
   <string name="gestures_action_recent">Нещодавні застосунки</string>
   <string name="stylus_app_not_installed">%s не встановлено</string>
-  <string name="advanced">Додаткові функції</string>
+  <string name="advanced">Додатково</string>
   <string name="advanced_mode_title">Розширений режим</string>
   <string name="advanced_mode_summary">Показати додаткові параметри налаштування вашого пристрою в різних розділах</string>
   <string name="category_misc">Різне</string>
@@ -864,11 +865,11 @@
   <string name="sim_card_summary_empty">SIM не вставлено</string>
   <string name="sim_mobile_network_settings_category_title">Налаштування мобільної мережі</string>
   <string name="sim_mobile_network_settings_title">Налаштування SIM %d</string>
-  <string name="factory_reset_instructions_title">Особисті дані та додатки</string>
+  <string name="factory_reset_instructions_title">Особисті дані і додатки</string>
   <string name="factory_reset_instructions_summary">Це призведе до видалення всіх ваших облікових записів, програм та їх даних, налаштувань системи на цьому пристрої</string>
-  <string name="factory_reset_personal_content">Особистий вміст</string>
-  <string name="factory_reset_erase_stored_content">Видалити збережений вміст</string>
-  <string name="factory_reset_erase_stored_content_summary">Стерти музику, фотографії, відео та інші дані користувача, що зберігаються на цьому пристрої</string>
+  <string name="factory_reset_personal_content">Особисті дані</string>
+  <string name="factory_reset_erase_stored_content">Стерти розміщені дані</string>
+  <string name="factory_reset_erase_stored_content_summary">Стерти музику, фотографії, відео та інші дані користувача, збережені на цьому пристрої</string>
   <string name="factory_reset_erase_stored_content_summary_forced">Стерти музику, фотографії, відео та інші дані користувача, що зберігаються на цьому пристрої.\n\n<b>вміст не можна зберегти через шифрування пристрою.</b></string>
   <string name="factory_reset_erase_sd_card">Форматування картки SD</string>
   <string name="factory_reset_erase_sd_card_summary">Видалити всі дані на SD-карті, у тому числі музику і фотографії</string>
@@ -934,6 +935,7 @@
   <string name="fingerprint_enrollment_error_title_3">Хм, щось пішло не так</string>
   <string name="fingerprint_enrollment_error_title_4">Ой-ой, спробуйте ще раз</string>
   <string name="fingerprint_enrollment_error_title_5">От же ж, таки маємо помилку</string>
+  <string name="lockscreen_settings_and_fingerprint">Блокування екрану та відбитків пальців</string>
   <string name="menu_stats_reset">Скинути статистику</string>
   <string name="reset_stats_msg">Історія і статистика акумулятора будуть скинуті</string>
   <string name="dock_battery_not_present">Акумулятор док-станції відсутній</string>
