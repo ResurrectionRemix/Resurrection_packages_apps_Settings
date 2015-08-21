@@ -15,6 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
                   android:title="@string/security_settings_title">
 
     <PreferenceCategory android:key="sim_lock"
@@ -59,6 +60,12 @@
     <PreferenceCategory android:key="device_admin_category"
             android:title="@string/device_admin_title"
             android:persistent="false">
+
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+                    android:key="enable_device_policy_override"
+                    android:title="@string/device_policy_override_title"
+                    android:summary="@string/device_policy_override_summary"
+                    android:defaultValue="true" />
 
         <Preference android:key="manage_device_admin"
                 android:title="@string/manage_device_admin"
