@@ -18,14 +18,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="show_dev_countdown_cm">
     <item quantity="zero">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
-    <item quantity="one">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="two">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
+    <item quantity="one">أنت الآن على بُعد خطوتين من تمكين خيارات المطور.</item>
+    <item quantity="two">أنت الآن على بُعد خطوتين من تمكين خيارات المطور.</item>
     <item quantity="few">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="many">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="other">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
+    <item quantity="many">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
+    <item quantity="other">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
   </plurals>
-  <string name="show_dev_on_cm">قمت بتمكين خيارات المطور!</string>
-  <string name="show_dev_already_cm">لا داعي، لقد قمت بالفعل بتمكين خيارات المطور.</string>
+  <string name="show_dev_on_cm">مكّنتَ خيارات المطور!</string>
+  <string name="show_dev_already_cm">لا داعي، فخيارات المطور مفعّلة.</string>
   <string name="development_tools_title">أدوات المطور</string>
   <string name="root_access">صلاحيات الجذر</string>
   <string name="root_access_warning_title">السماح بي صلاحيات الجذر؟</string>
@@ -38,10 +38,10 @@
   <string name="ring_mode_normal">عادي</string>
   <string name="ring_mode_vibrate">هزاز</string>
   <string name="ring_mode_mute">كتم الصوت</string>
-  <string name="profiles_settings_title">ملفات تعريف النظام</string>
+  <string name="profiles_settings_title">أوضاع الجهاز</string>
   <string name="profiles_add">إضافة</string>
   <string name="profile_settings_title">ملف شخصي</string>
-  <string name="profile_empty_list_profiles_off">لتكوين واستخدام نظام ملفات تعريف، تشغيل التشكيلات الجانبية.</string>
+  <string name="profile_empty_list_profiles_off">فعّل خيار أوضاع الجهاز لضبط أوضاع الجهاز واستخدامها.</string>
   <string name="profile_trigger_configure">تكوين المشغل</string>
   <string name="profile_write_nfc_tag">كتابة إلى العلامة NFC</string>
   <string name="profile_write_touch_tag">المس العنوان للتعديل</string>
@@ -68,7 +68,8 @@
   <string name="rename_dialog_message">قم بإدخال اسم جديد</string>
   <string name="rename_dialog_hint">أدخل اسم الوضع</string>
   <string name="profile_reset_title">إعادة تعيين</string>
-  <string name="profile_reset_message">أتريد حذف كل الأوضاع التي أنشأتها وإعادة الأوضاع الأساسية؟</string>
+  <string name="profile_reset_message">أتريد حذف كل الأوضاع التي أنشأتها وإعادة الأوضاع المبدئيّة؟
+</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
@@ -110,9 +111,9 @@
   <string name="hardware_keys_assist_key_title">زر البحث</string>
   <string name="hardware_keys_appswitch_key_title">زر الأخيرة</string>
   <string name="hardware_keys_camera_key_title">زر الكاميرا</string>
-  <string name="hardware_keys_volume_keys_title">صوت الأزرار</string>
+  <string name="hardware_keys_volume_keys_title">أزرار الصّوت</string>
   <string name="hardware_keys_short_press_title">يحدث ضغط قصير</string>
-  <string name="hardware_keys_long_press_title">يحدث ضغط طويل</string>
+  <string name="hardware_keys_long_press_title">فعل ضغط الزّر مُطوّلًا</string>
   <string name="hardware_keys_double_tap_title">انقر نقراتان العمل</string>
   <string name="hardware_keys_action_nothing">لا إجراء</string>
   <string name="hardware_keys_action_menu">فتح/إغلاق القائمة</string>
@@ -127,16 +128,16 @@
   <string name="camera_sleep_on_release_summary">بنصف ضغطة ستظل الشاشة تعمل فقط أثناء الظغط على الزر</string>
   <string name="camera_launch_title">تشغيل الكاميرا</string>
   <string name="camera_launch_summary">بضغطة طويلة على الزر ثم تحريرها يتم تشغيل الكاميرا </string>
-  <string name="volbtn_music_controls_title">التحكم في التشغيل في الخلفية</string>
-  <string name="volbtn_music_controls_summary">عند إيقاف تشغيل الشاشة، طويلة الضغط على مفتاحي الصوت ستسعى المقطوعات الموسيقية</string>
-  <string name="volbtn_cursor_control_title">لوحة مفاتيح تتحكم بالمؤشر</string>
+  <string name="volbtn_music_controls_title">التّحكم في تشغيل الصوت</string>
+  <string name="volbtn_music_controls_summary">يؤدّي ضغط أزرار الصّوت مُطوّلًا عندما تكون الشاشة مُطفأة إلى الانتقال في مقاطع الصّوت</string>
+  <string name="volbtn_cursor_control_title">التحكم بمؤشر لوحة المفاتيح</string>
   <string name="volbtn_cursor_control_off">معطلة</string>
-  <string name="volbtn_cursor_control_on">الصوت أعلى/أسفل يحرك المؤشر يمين/يسار</string>
-  <string name="volbtn_cursor_control_on_reverse">حجم أعلى/أسفل يحرك المؤشر يمين/يسار</string>
-  <string name="swap_volume_buttons_title">إعادة توجيه</string>
-  <string name="swap_volume_buttons_summary">تبديل صوت الأزرار عندما يتم استدارة الشاشة</string>
-  <string name="volume_keys_control_ring_stream_title">مفاتيح الصوت تتحكم في حجم صوت النغمة</string>
-  <string name="volume_keys_control_ring_stream_summary">في وضع التشغيل، مفاتيح الصوت تتحكم في حجم صوت النغمة. في وضع الإيقاف، مفاتيح الصوت تتحكم في حجم صوت الوسائط.</string>
+  <string name="volbtn_cursor_control_on">زرّ رفع الصوت يحرك المؤشر يسارًا وزر خفض الصوت يحرّكه يمينًا</string>
+  <string name="volbtn_cursor_control_on_reverse">زرّ رفع الصوت يحرك المؤشر يمينًا وزر خفض الصوت يحرّكه يسارًا</string>
+  <string name="swap_volume_buttons_title">تبديل موضعي زرّي الصّوت</string>
+  <string name="swap_volume_buttons_summary">التبديل بين موضعي زرّي الصّوت عند دوران الشاشة</string>
+  <string name="volume_keys_control_ring_stream_title">مفاتيح الصوت تتحكم في حجم صوت نغمة الرّنين</string>
+  <string name="volume_keys_control_ring_stream_summary">عندما يُفعّل هذا الخيار، تتحكمّ مفاتيح الصّوت في حجم صوت نغمة رنين الجهاز، وإلّا فإن مفاتيح الصّوت تتحّكم بصوت الوسائط.</string>
   <string name="power_end_call_title">إنهاء المكالمة</string>
   <string name="power_end_call_summary">الضغط على زر الطاقة سوف ينهي المكالمة الحالية</string>
   <string name="button_wake_title">إيقاظ الجهاز</string>
@@ -145,7 +146,7 @@
   <string name="home_answer_call_summary">الضغط على زر الصفحة الرئيسية يرد على المكالمة الواردة حالياً</string>
   <string name="button_backlight_title">الإضاءة الخلفية</string>
   <string name="button_backlight_enabled">إضاءة أزرار</string>
-  <string name="keyboard_backlight_enabled">إيضائة لوحة المفاتيح</string>
+  <string name="keyboard_backlight_enabled">إضاءة لوحة المفاتيح</string>
   <string name="button_backlight_seekbar_title">سطوع الزر</string>
   <string name="keyboard_backlight_seekbar_title">سطوع لوحة المفاتيح</string>
   <string name="backlight_timeout_title">مهلة الإضاءة</string>
@@ -164,7 +165,7 @@
   <string name="power_menu_bug_report_title">تقرير الأخطاء</string>
   <string name="power_menu_sound_title">لوحة الصوت</string>
   <string name="power_menu_bug_report_disabled">تقرير الأخطاء معطل في إعدادات التطوير</string>
-  <string name="power_menu_profiles_disabled">تم تعطيل ملفات تعريف النظام</string>
+  <string name="power_menu_profiles_disabled">أوضاع الجهاز مُعطّلة</string>
   <string name="adaptive_backlight_title">الإضاءة التكيفية</string>
   <string name="adaptive_backlight_summary">بشكل حيوي ضبط سطوع الإضاءة الخلفية للعرض لي إطالة عمر البطارية مع الحفاظ على قابليتها للاستخدام</string>
   <string name="sunlight_enhancement_title">تعزيز أشعة الشمس</string>
@@ -208,11 +209,11 @@
   <string name="pa_login_submit_button">تسجيل الدخول</string>
   <string name="pa_login_checking_password">التحقق من الحساب\u2026</string>
   <string name="pa_login_incorrect_login">تسجيل دخول غير صحيحة</string>
-  <string name="display_rotation_title">التناوب</string>
+  <string name="display_rotation_title">الدوران التلقائي</string>
   <string name="display_rotation_disabled">معطلة</string>
   <string name="display_rotation_unit">درجات</string>
   <string name="display_lockscreen_rotation_title">قفل تدوير الشاشة</string>
-  <string name="display_rotation_category_title">وسائط التناوب</string>
+  <string name="display_rotation_category_title">أوضاع الدوران التلقائي</string>
   <string name="display_rotation_0_title">0 درجة</string>
   <string name="display_rotation_90_title">90 درجة</string>
   <string name="display_rotation_180_title">180 درجة</string>
@@ -279,22 +280,22 @@
   <string name="disable_navkeys_summary">تمكين على الشاشة الملاحة وتعطيل أزرار الأجهزة</string>
   <string name="navigation_bar_category">شريط التنقل</string>
   <string name="navigation_bar_left_title">وضع اليد اليسرى</string>
-  <string name="navigation_bar_left_summary">وضع شريط التنقل على الجانب الأيسر من الشاشة في وضع أفقي</string>
-  <string name="navigation_bar_title">الأزرار و التخطيط</string>
+  <string name="navigation_bar_left_summary">وضع شريط التنقل على الجانب الأيسر من الشاشة عندما تكون في وضعها الأفقي</string>
+  <string name="navigation_bar_title">الأزرار والتخطيط</string>
   <string name="navigation_bar_help_text">للبدء المس رمز التحرير لفتح شريط التنقل للقيام بالتحرير.\n\nويمكنك لمس أي رمز لتغيير اختصاره، أو الضغط عليه طويلاً لإعادة ترتيب التخطيط.\n\nالمس \'حفظ\' لتطبيق التغييرات التي قمت بها، أو \"استعادة الأوضاع الافتراضية\" لإعادة تعيين التخطيط إلى الإعدادات الافتراضية.</string>
-  <string name="navigation_restore_button_text">استعادة n\الأوضاع الافتراضية</string>
-  <string name="navigation_edit_button_text">تحرير</string>
+  <string name="navigation_restore_button_text">استعادة الضّبط المبدئيّ</string>
+  <string name="navigation_edit_button_text">تعديل</string>
   <string name="navigation_save_button_text">حفظ</string>
   <string name="navigation_bar_reset_message">حذف الإعدادات الحالية واستعادة التخطيط الافتراضي؟</string>
   <string name="navigation_bar_arrow_keys_title">إظهار مفاتيح الأسهم أثناء الكتابة</string>
-  <string name="navigation_bar_arrow_keys_summary">عرض أزرار المؤشر يميناً ويساراً أثناء الكتابة. يتجاوز مبدل IME.</string>
+  <string name="navigation_bar_arrow_keys_summary">عرض أزرار المؤشر يميناً ويساراً أثناء الكتابة (يمنع ظهور زر مبدل وسيلة الإدخال).</string>
   <string name="navigation_bar_recents_title">يحدث ضغط طويل</string>
   <string name="header_category_personalization">إضفاء الطابع الشخصي</string>
   <string name="status_bar_title">شريط المعلومات</string>
   <string name="status_bar_toggle_brightness">التحكم بالسطوع</string>
   <string name="status_bar_toggle_brightness_summary">ضبط السطوع عن طريق الانزلاق عبر شريط الحالة</string>
   <string name="status_bar_notif_count_title">إظهار عدد الإشعار</string>
-  <string name="status_bar_notif_count_summary">عرض عدد الإعلامات المعلقة</string>
+  <string name="status_bar_notif_count_summary">عرض عدد الإشعارات المعلقة</string>
   <string name="status_bar_clock_style_title">نمط الساعة</string>
   <string name="status_bar_clock_style_right">يمين</string>
   <string name="status_bar_clock_style_left">يسار</string>
@@ -338,7 +339,7 @@
   <string name="battery_light_low_color_title">البطارية منخفضة</string>
   <string name="battery_light_medium_color_title">يشحن</string>
   <string name="battery_light_full_color_title">مشحونة بالكامل</string>
-  <string name="notification_light_title">ضوء الإعلام</string>
+  <string name="notification_light_title">ضوء الإشعار</string>
   <string name="notification_light_general_title">عام</string>
   <string name="notification_light_applist_title">تطبيقات</string>
   <string name="notification_light_phonelist_title">الهاتف</string>
@@ -353,8 +354,8 @@
   <string name="ime_switcher_notify_summary">عرض رمز تحديد طريقة الإدخال </string>
   <string name="app_notification_show_on_keyguard_title">إظهار على شاشة القفل</string>
   <string name="app_notification_show_on_keyguard_summary">إظهار إشعارات من هذا التطبيق على شاشة القفل</string>
-  <string name="app_notification_no_ongoing_on_keyguard_title">تعطيل الإشعارات المستمرة على شاشة القفل</string>
-  <string name="app_notification_no_ongoing_on_keyguard_summary">لا تظهر أبداً إشعارات مستمرة من هذا التطبيق على شاشة القفل</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">منع الإشعارات الثابتة على شاشة القفل</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">عدم إظهار إشعارات ثابتة من هذا التطبيق على شاشة القفل</string>
   <string name="high_touch_sensitivity_title">حساس اللمس عالي</string>
   <string name="high_touch_sensitivity_summary">زيادة حساسية المس حتى يمكن استخدامه أثناء ارتداء القفازات</string>
   <string name="touchscreen_hovering_title">المرور فوق الشاشة اللمسية</string>
@@ -370,7 +371,7 @@
   <string name="app_ops_summaries_read_calendar">قراءة التقويم</string>
   <string name="app_ops_summaries_modify_calendar">تعديل التقويم</string>
   <string name="app_ops_summaries_wifi_scan">مسح بحثاً عن واي فاي</string>
-  <string name="app_ops_summaries_notification">إعلام</string>
+  <string name="app_ops_summaries_notification">إشعار</string>
   <string name="app_ops_summaries_cell_scan">فحص الإتصال</string>
   <string name="app_ops_summaries_call_phone">مكالمة هاتفية</string>
   <string name="app_ops_summaries_read_sms">قراءة الرسائل القصيرة</string>
@@ -384,7 +385,7 @@
   <string name="app_ops_summaries_write_icc_sms">كتابة الرسائل القصيرة ICC</string>
   <string name="app_ops_summaries_modify_settings">تعديل الإعدادات</string>
   <string name="app_ops_summaries_draw_on_top">رسم على أعلى</string>
-  <string name="app_ops_summaries_access_notifications">إعلامات الوصول</string>
+  <string name="app_ops_summaries_access_notifications">الوصول للإشعارات</string>
   <string name="app_ops_summaries_camera">الكاميرا</string>
   <string name="app_ops_summaries_record_audio">سجل الصوت</string>
   <string name="app_ops_summaries_play_audio">تشغيل الصوت</string>
@@ -689,8 +690,8 @@
   <string name="lockpattern_settings_enable_dots_title">إظهار نقاط النمط</string>
   <string name="unlock_quick_unlock_control_title">فتح سريع</string>
   <string name="unlock_quick_unlock_control_summary">فتح تلقائياً عندما يتم إدخال PIN/كلمة السر صحيحة</string>
-  <string name="unlock_scramble_pin_layout_title">تخطيط التدافع</string>
-  <string name="unlock_scramble_pin_layout_summary">تخطيط PIN التدافع عند فتح الجهاز</string>
+  <string name="unlock_scramble_pin_layout_title">ترتيب عشوائي للأرقام</string>
+  <string name="unlock_scramble_pin_layout_summary">جعل ترتيب الأرقام في شاشة القفل مختلفًا في كل مرّة</string>
   <string name="link_volume_option_title">ربط حجم صوت النغمة وصوت الإشعارات</string>
   <string name="notification_volume_option_title">حجم صوت الإخطارات</string>
   <string name="notification_drawer_title">شكل الإشعار</string>
@@ -715,13 +716,13 @@
   <string name="qs_tile_display_inversion">عكس الألوان</string>
   <string name="qs_tile_cellular_data">اتصال بالبيانات</string>
   <string name="qs_tile_airplane_mode">وضع الطيران</string>
-  <string name="qs_tile_display_rotation">التناوب</string>
+  <string name="qs_tile_display_rotation">الدوران التلقائي</string>
   <string name="qs_tile_flashlight">مصباح يدوي</string>
   <string name="qs_tile_location">الموقع</string>
   <string name="qs_tile_cast_screen">Cast screen</string>
   <string name="qs_tile_hotspot">نقطة فعالة</string>
   <string name="qs_tile_adb_over_network">ADB عبر الشبكة</string>
-  <string name="qs_tile_profiles">ملفات تعريف النظام</string>
+  <string name="qs_tile_profiles">أوضاع الجهاز</string>
   <string name="qs_tile_performance">وضع البطارية</string>
   <string name="qs_tile_nfc">NFC</string>
   <string name="qs_tile_compass">بوصلة</string>
@@ -729,7 +730,7 @@
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">مهلة الشاشة</string>
   <string name="qs_tile_usb_tether">الربط عبر USB</string>
-  <string name="qs_tile_heads_up">الإنذار المسبق</string>
+  <string name="qs_tile_heads_up">الإشعارات العائمة</string>
   <string name="qs_tile_ambient_display">العرض المحيط</string>
   <string name="qs_tile_sync">المزامنة</string>
   <string name="qs_dynamic_tile_next_alarm">التنبيه المقبل</string>
@@ -770,15 +771,15 @@
   <string name="lockscreen_none_target">لا شيء</string>
   <string name="lockscreen_message">انقر فوق رمز على اليسار أو اليمين لإعادة تعيين اختصار لشاشة القفل.</string>
   <string name="lockscreen_choose_action_title">اختر إجراء</string>
-  <string name="lockscreen_visualizer_title">عرض المصور المرئي للموسيقى</string>
+  <string name="lockscreen_visualizer_title">عرض صورة الغلاف للموسيقى</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">إدارة إعدادات SMS آمنة</string>
-  <string name="navigation_ring_title">أهداف نغمة التنقل</string>
-  <string name="navigation_ring_message">المس رمز التحرير لفتح حلقة التنقل للقيام بالتحرير.\n\nحدد هدفاً لتهيئة أدائه.\n\nالمس رمز \'\u2713\' التغييرات التي قمت بها، أو \"استعادة الأوضاع الافتراضية\" لإعادة الإعدادات إلى الإعدادات الافتراضية.</string>
-  <string name="lcd_density">كثافة شاشات الكريستال السائل</string>
-  <string name="dialog_title_lcd_density">كثافة شاشات الكريستال السائل</string>
+  <string name="navigation_ring_title">أهداف حلقة التنقّل</string>
+  <string name="navigation_ring_message">اضغط رمز \"تعديل\" لبدء تعديل حلقة التنقل.\n\nحدد واحدًا من الأهداف لتهيئة سلوكه.\n\nاضغط رمز \'\u2713\' لحفظ التغييرات التي قمت بها، أو \"استعادة الضّبط المبدئيّ\" لإعادة الإعدادات إلى وضعها المبدئيّ.</string>
+  <string name="lcd_density">كثافة الشاشة</string>
+  <string name="dialog_title_lcd_density">كثافة الشاشة</string>
   <string name="lcd_density_value_format">%d نقطة في البوصة</string>
-  <string name="lcd_density_default_value_format">%d نقطة في البوصة (افتراضي)</string>
+  <string name="lcd_density_default_value_format">%d نقطة في البوصة (المبدئي)</string>
   <string name="restarting_ui">إعادة التشغيل\u2026</string>
   <string name="stylus_icon_enabled_title">إظهار الرمز عند استخدام القلم</string>
   <string name="stylus_icon_enabled_summary">إظهار رمز المؤشر عند المرور بالماوس أو الرسم  النمط</string>
@@ -853,9 +854,9 @@
   <string name="preview_version_title">الإصدار</string>
   <string name="preview_country_title">الدولة</string>
   <string name="preview_carrier_title">شركة المحمول</string>
-  <string name="heads_up_notifications">إنذار مسبق</string>
-  <string name="summary_heads_up_enabled">تمكين الإشعارات المنبثقة</string>
-  <string name="summary_heads_up_disabled">تعطيل الإشعارات المنبثقة</string>
+  <string name="heads_up_notifications">الإشعارات العائمة</string>
+  <string name="summary_heads_up_enabled">الإشعارات العائمة مُفعّلة</string>
+  <string name="summary_heads_up_disabled">الإشعارات العائمة مُعطَّلة</string>
   <string name="master_clear_desc_cm" product="tablet">سيؤدي ذلك إلى مسح كافة البيانات من <b>التخزين الداخلي</b> للكمبيوتر اللوحي الخاص بك، بما في ذلك: \n\n <li>حسابات جهازك</li> \n <li> وبيانات وإعدادات النظام والتطبيقات </li> \n <li>والتطبيقات التي تم تنزيلها</li></string>
   <string name="master_clear_desc_cm" product="default">سيؤدي ذلك إلى مسح كافة البيانات من <b>التخزين الداخلي</b> لهاتفك، بما في ذلك: \n\n <li>حسابات جهازك</li> \n <li> وبيانات وإعدادات النظام والتطبيقات </li> \n <li>والتطبيقات التي تم تنزيلها</li></string>
   <string name="lock_to_cyanogen_title">حماية الجهاز</string>
