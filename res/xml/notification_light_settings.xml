@@ -46,6 +46,11 @@
         </PreferenceScreen>
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="notification_light_multiple_leds_enable"
+            android:title="@string/notification_light_use_multiple_leds"
+            android:dependency="notification_light_pulse" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="notification_light_screen_on_enable"
             android:title="@string/notification_light_screen_on"
             android:dependency="notification_light_pulse" />
