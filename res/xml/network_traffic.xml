@@ -45,6 +45,12 @@
         android:dependency="network_traffic_state"
         android:persistent="false" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="network_traffic_hide_arrow"
+            android:title="@string/network_traffic_hide_arrow"
+            android:summary="@string/network_traffic_hide_arrow_summary"
+            android:defaultValue="false" />
+
     <CheckBoxPreference
         android:key="network_traffic_autohide"
         android:title="@string/network_traffic_autohide"
