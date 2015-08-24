@@ -1073,8 +1073,16 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
     }
 
     private void setMobileDataEnabled(int subId, boolean enabled) {
-        if (LOGD) Log.d(TAG, "setMobileDataEnabled()");
-        mTelephonyManager.setDataEnabled(subId, enabled);
+        if (LOGD) Log.d(TAG, "setMobileDataEnabled: subId = " + subId + " enabled = " + enabled);
+        int dataSubId = mSubscriptionManager.getDefaultDataSubId();
+        if (subId == dataSubId || TelephonyManager.getDefault().getSimCount() == 1) {
+            mTelephonyManager.setDataEnabled(subId, enabled);
+        } else {
+            // Update mobile data status of a non DDS sub in provider
+            final Context context = getActivity();
+            android.provider.Settings.Global.putInt(context.getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA + subId, enabled ? 1 : 0);
+        }
         mMobileDataEnabled.put(String.valueOf(subId), enabled);
         updatePolicy(false);
     }
@@ -1228,16 +1236,6 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
         }
     }
 
-    private void disableDataForOtherSubscriptions(SubscriptionInfo currentSir) {
-        if (mSubInfoList != null) {
-            for (SubscriptionInfo subInfo : mSubInfoList) {
-                if (subInfo.getSubscriptionId() != currentSir.getSubscriptionId()) {
-                    setMobileDataEnabled(subInfo.getSubscriptionId(), false);
-                }
-            }
-        }
-    }
-
     private View.OnClickListener mDataEnabledListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -1248,12 +1246,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             if (isMobileTab(currentTab)) {
                 MetricsLogger.action(getContext(), MetricsLogger.ACTION_CELL_DATA_TOGGLE, enabled);
                 if (enabled) {
-                    // If we are showing the Sim Card tile then we are a Multi-Sim device.
-                    if (Utils.showSimCardTile(getActivity())) {
-                        handleMultiSimDataDialog();
-                    } else {
-                        setMobileDataEnabled(getSubId(currentTab), true);
-                    }
+                    setMobileDataEnabled(getSubId(currentTab), true);
                 } else {
                     // disabling data; show confirmation dialog which eventually
                     // calls setMobileDataEnabled() once user confirms.
@@ -1264,55 +1257,6 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             updatePolicy(false);
         }
     };
-
-    private void handleMultiSimDataDialog() {
-        final Context context = getActivity();
-        final SubscriptionInfo currentSir = getCurrentTabSubInfo(context);
-
-        //If sim has not loaded after toggling data switch, return.
-        if (currentSir == null) {
-            return;
-        }
-
-        final SubscriptionInfo nextSir = mSubscriptionManager.getDefaultDataSubscriptionInfo();
-
-        // If the device is single SIM or is enabling data on the active data SIM then forgo
-        // the pop-up.
-        if (!Utils.showSimCardTile(context) ||
-                (nextSir != null && currentSir != null &&
-                currentSir.getSubscriptionId() == nextSir.getSubscriptionId())) {
-            setMobileDataEnabled(currentSir.getSubscriptionId(), true);
-            if (nextSir != null && currentSir != null &&
-                currentSir.getSubscriptionId() == nextSir.getSubscriptionId()) {
-                disableDataForOtherSubscriptions(currentSir);
-            }
-            updateBody();
-            return;
-        }
-
-        final String previousName = (nextSir == null)
-            ? context.getResources().getString(R.string.sim_selection_required_pref)
-            : nextSir.getDisplayName().toString();
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        builder.setTitle(R.string.sim_change_data_title);
-        builder.setMessage(getActivity().getResources().getString(R.string.sim_change_data_message,
-                    currentSir.getDisplayName(), previousName));
-
-        builder.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                mSubscriptionManager.setDefaultDataSubId(currentSir.getSubscriptionId());
-                setMobileDataEnabled(currentSir.getSubscriptionId(), true);
-                disableDataForOtherSubscriptions(currentSir);
-                updateBody();
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, null);
-
-        builder.create().show();
-    }
 
     private View.OnClickListener mDisableAtLimitListener = new View.OnClickListener() {
         @Override
