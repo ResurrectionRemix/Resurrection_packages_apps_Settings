@@ -240,8 +240,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mProximityWakePreference != null && proximityCheckOnWake) {
             mProximityWakePreference.setOnPreferenceChangeListener(this);
         } else {
-            if (displayPrefs != null && mProximityWakePreference != null) {
-                displayPrefs.removePreference(mProximityWakePreference);
+            if (advancedPrefs!= null && mProximityWakePreference != null) {
+                advancedPrefs.removePreference(mProximityWakePreference);
                 Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 0);
             }
         }
