@@ -90,7 +90,6 @@
             android:supportsRtl="true"
             android:allowBackup="false">
 
-        <uses-library android:name="org.cyanogenmod.hardware" required="false" />
         <!-- Screen color Settings Controls -->
         <activity android:name=".ScreenColorSettings" android:label="@string/screencolor"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -100,10 +99,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor">
         </activity>
-
-        <!-- Settings -->
-        <uses-library android:name="org.cyanogenmod.hardware"
-                android:required="false" />
 
         <activity android:name="Settings"
                 android:taskAffinity="com.android.settings"
