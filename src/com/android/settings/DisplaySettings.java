@@ -104,6 +104,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_DENSITY = "display_density";
     private static final String KEY_DISPLAY_DENSITY_OVERRIDE = "display_density_override";
 
+    private static final String ROTATION_LOCKSCREEN = "Lockscreen";
+
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
     private FontDialogPreference mFontSizePref;
@@ -293,7 +295,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 | DisplayRotation.ROTATION_270_MODE);
         ArrayList<String> rotationList = new ArrayList<String>();
         String delim = "";
-
+	if (lockScreenRotationEnabled) {
+                rotationList.add(ROTATION_LOCKSCREEN);
+            }
         if ((mode & DisplayRotation.ROTATION_0_MODE) != 0) {
             rotationList.add("0");
         }
@@ -355,6 +359,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         preference.setSummary(summary);
     }
+
 
     private void disableUnusableTimeouts(ListPreference screenTimeoutPreference) {
         final DevicePolicyManager dpm =
