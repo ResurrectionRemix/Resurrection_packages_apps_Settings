@@ -63,6 +63,7 @@ public class TetherSettings extends RestrictedSettingsFragment
 
     private static final String USB_TETHER_SETTINGS = "usb_tether_settings";
     private static final String ENABLE_WIFI_AP = "enable_wifi_ap";
+    private static final String ENABLE_WIFI_AP_EXT = "enable_wifi_ap_ext";
     private static final String ENABLE_BLUETOOTH_TETHERING = "enable_bluetooth_tethering";
     private static final String TETHER_CHOICE = "TETHER_TYPE";
     private static final String DATA_SAVER_FOOTER = "disabled_on_data_saver";
@@ -74,7 +75,7 @@ public class TetherSettings extends RestrictedSettingsFragment
     private SwitchPreference mUsbTether;
 
     private WifiApEnabler mWifiApEnabler;
-    private SwitchPreference mEnableWifiAp;
+    private Preference mEnableWifiAp;
 
     private SwitchPreference mBluetoothTether;
 
@@ -151,9 +152,29 @@ public class TetherSettings extends RestrictedSettingsFragment
                     BluetoothProfile.PAN);
         }
 
-        mEnableWifiAp =
-                (SwitchPreference) findPreference(ENABLE_WIFI_AP);
-        Preference wifiApSettings = findPreference(WIFI_AP_SSID_AND_SECURITY);
+        mCreateNetwork = findPreference(WIFI_AP_SSID_AND_SECURITY);
+
+        boolean enableWifiApSettingsExt = getResources().getBoolean(R.bool.show_wifi_hotspot_settings);
+        boolean isWifiApEnabled = getResources().getBoolean(R.bool.hide_wifi_hotspot);
+        if (enableWifiApSettingsExt) {
+            mEnableWifiAp =
+                    (HotspotPreference) findPreference(ENABLE_WIFI_AP_EXT);
+            getPreferenceScreen().removePreference(findPreference(ENABLE_WIFI_AP));
+            getPreferenceScreen().removePreference(mCreateNetwork);
+            Intent intent = new Intent();
+            intent.setAction("com.qti.ap.settings");
+            intent.setPackage("com.qti.extsettings");
+            mEnableWifiAp.setIntent(intent);
+        } else {
+            mEnableWifiAp =
+                    (SwitchPreference) findPreference(ENABLE_WIFI_AP);
+            getPreferenceScreen().removePreference(findPreference(ENABLE_WIFI_AP_EXT));
+        }
+        if (isWifiApEnabled) {
+            getPreferenceScreen().removePreference(mEnableWifiAp);
+            getPreferenceScreen().removePreference(mCreateNetwork);
+        }
+
         mUsbTether = (SwitchPreference) findPreference(USB_TETHER_SETTINGS);
         mBluetoothTether = (SwitchPreference) findPreference(ENABLE_BLUETOOTH_TETHERING);
 
@@ -179,7 +200,7 @@ public class TetherSettings extends RestrictedSettingsFragment
             initWifiTethering();
         } else {
             getPreferenceScreen().removePreference(mEnableWifiAp);
-            getPreferenceScreen().removePreference(wifiApSettings);
+            getPreferenceScreen().removePreference(mCreateNetwork);
         }
 
         if (!bluetoothAvailable) {
@@ -223,10 +244,11 @@ public class TetherSettings extends RestrictedSettingsFragment
         final Activity activity = getActivity();
         mWifiConfig = mWifiManager.getWifiApConfiguration();
         mSecurityType = getResources().getStringArray(R.array.wifi_ap_security);
-
-        mCreateNetwork = findPreference(WIFI_AP_SSID_AND_SECURITY);
-
         mRestartWifiApAfterConfigChange = false;
+
+        if (mCreateNetwork == null) {
+            return;
+        }
 
         if (mWifiConfig == null) {
             final String s = activity.getString(
