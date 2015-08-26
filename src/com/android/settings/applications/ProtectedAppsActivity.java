@@ -13,6 +13,8 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -261,8 +263,11 @@ public class ProtectedAppsActivity extends Activity {
     }
 
     public class StoreComponentProtectedStatus extends AsyncTask<AppProtectList, Void, Void> {
+        private static final int SHOW_SAVE_PROGRESS_THRESHOLD_MS = 50;
+
         private ProgressDialog mDialog;
         private Context mContext;
+        private Handler mDialogHandler = new Handler(Looper.getMainLooper());
 
         public StoreComponentProtectedStatus(Context context) {
             mContext = context;
@@ -274,11 +279,19 @@ public class ProtectedAppsActivity extends Activity {
             mDialog.setMessage(getResources().getString(R.string.saving_protected_components));
             mDialog.setCancelable(false);
             mDialog.setCanceledOnTouchOutside(false);
-            mDialog.show();
+
+            mDialogHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mDialog.show();
+                }
+            }, SHOW_SAVE_PROGRESS_THRESHOLD_MS);
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            mDialogHandler.removeCallbacksAndMessages(null);
+
             if (mDialog.isShowing()) {
                 mDialog.dismiss();
             }
