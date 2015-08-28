@@ -42,6 +42,12 @@
                 android:entries="@array/toast_animation_entries"
                 android:entryValues="@array/toast_animation_values"
                 android:persistent="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="toast_icon"
+            android:title="@string/toast_icon_title"
+            android:defaultValue="true" />
+
     <PreferenceScreen
         android:id="@+id/listview"
         android:fragment="com.android.settings.rr.Listview"
