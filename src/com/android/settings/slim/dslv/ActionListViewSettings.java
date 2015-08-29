@@ -92,6 +92,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int LOCKSCREEN_SHORTCUT   = 4;
     private static final int POWER_MENU_SHORTCUT   = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
+    private static final int RECENT_APP_SIDEBAR    = 7;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
 
@@ -539,6 +540,9 @@ public class ActionListViewSettings extends ListFragment implements
             case SHAKE_EVENTS_DISABLED:
                 return ActionHelper.getDisabledShakeApps(mActivity);
 */
+            case RECENT_APP_SIDEBAR:
+                return ActionHelper.getRecentAppSidebarConfigWithDescription(
+                        mActivity, mActionValuesKey, mActionEntriesKey);
         }
         return null;
     }
@@ -568,6 +572,9 @@ public class ActionListViewSettings extends ListFragment implements
                 ActionHelper.setDisabledShakeApps(mActivity, actionConfigs, reset);
                 break;
 */
+            case RECENT_APP_SIDEBAR:
+                ActionHelper.setRecentAppSidebarConfig(mActivity, actionConfigs, reset);
+                break;
         }
     }
 
@@ -726,6 +733,7 @@ public class ActionListViewSettings extends ListFragment implements
                         case NAV_RING:
                         case PIE:
                         case PIE_SECOND:
+                        case RECENT_APP_SIDEBAR:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;

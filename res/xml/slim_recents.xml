@@ -25,6 +25,19 @@
              android:key="use_slim_recents"
              android:title="@string/use_slim_recents_title"
              android:defaultValue="false" />
+
+  <PreferenceScreen
+               android:dependency="use_slim_recents"
+               android:key="recent_app_sidebar_content"
+               android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+               android:title="@string/recent_app_sidebar_title"
+               android:summary="@string/recent_app_sidebar_summary">
+           <extra android:name="actionMode" android:value="7" />
+           <extra android:name="maxAllowedActions" android:value="-1" />
+           <extra android:name="useAppPickerOnly" android:value="true" />
+           <extra android:name="fragment" android:value="com.android.settings.slim.fragments.RecentAppSidebarFragment" />
+       </PreferenceScreen>
+
  
          <SwitchPreference
              android:key="only_show_running_tasks"
