@@ -43,6 +43,11 @@
             android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
             android:summary="@string/rr_lockscreen_targets_message_summary"
             android:title="@string/rr_lockscreen_targets_message" />
+
+        <PreferenceScreen
+            android:key="lockscreen_colors"
+            android:title="@string/lockscreen_colors"
+            android:fragment="com.android.settings.rr.LockscreenColors" />
             
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="long_press_lock_icon_to_sleep"
