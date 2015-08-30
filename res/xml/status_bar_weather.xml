@@ -35,6 +35,12 @@
             android:title="@string/status_bar_weather_color_title"
             android:defaultValue="0xffffffff" />
 
+        <ListPreference
+            android:key="status_bar_weather_font_style"
+            android:entries="@array/status_bar_weather_font_style_entries"
+            android:entryValues="@array/status_bar_weather_font_style_values"
+            android:title="@string/status_bar_weather_font_style_title" />
+
         <com.android.settings.widget.SeekBarPreferenceCham
             android:key="status_bar_weather_size"
             android:title="@string/status_bar_weather_size_title"
