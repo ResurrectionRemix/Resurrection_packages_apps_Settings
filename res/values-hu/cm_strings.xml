@@ -479,6 +479,7 @@
   <string name="ok">OK</string>
   <string name="profile_menu_delete_title">Törlés</string>
   <string name="profile_action_none">Változatlanul hagy</string>
+  <string name="profile_action_system">Rendszer alapértelmezett</string>
   <string name="profile_action_disable">Kikapcsolás</string>
   <string name="profile_action_enable">Bekapcsolás</string>
   <string name="profile_trigger_a2dp_connect">A2DP kapcsolat létrehozása</string>
@@ -828,6 +829,12 @@
   <string name="live_display_low_power_summary">A kijelző beállítása a legkisebb energiafogyasztásra, minőségromlás nélkül</string>
   <string name="live_display_enhance_color_title">Színek élénkítése</string>
   <string name="live_display_enhance_color_summary">Bőr színek, tájképek és egyéb képek színerősségének javítása</string>
+  <string name="live_display_color_profile_title">Színprofil</string>
+  <string name="live_display_color_profile_standard_title">Általános</string>
+  <string name="live_display_color_profile_natural_title">Természetes</string>
+  <string name="live_display_color_profile_dynamic_title">Dinamikus</string>
+  <string name="live_display_color_profile_cinema_title">Mozi</string>
+  <string name="live_display_color_profile_astronomy_title">Csillagászat</string>
   <string name="battery_saver_threshold">Akkumulátor kímélő küszöb</string>
   <string name="battery_saver_summary">Csökkenti a teljesítményt és korlátozza a háttér adatokat</string>
   <string name="battery_saver_summary_unavailable">Töltés közben nem érhető el</string>
@@ -897,11 +904,18 @@
   <string name="fingerprint_dialog_title_max_fingers_reached">Elérte az ujjlenyomatok maximális számát</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Egyszerre csak <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> ujjlenyomatot vehet fel. Töröljön egy meglévő ujjlenyomatot.</string>
   <string name="fingerprint_title_manage_fingerprints">Ujjlenyomatok kezelése <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="manage_fingerprints_description">Ujjlenyomatával gyorsan feloldhatja telefonját és készíthet fotókat.</string>
   <string name="fingerprint_enrollment_introduction_title">Találja meg érzékelőjét</string>
   <string name="fingerprint_enrollment_introduction_instructions">Az ujjlenyomat-érzékelő a telefon elején vagy hátoldalán található.</string>
   <string name="fingerprint_enrollment_scan_title">Tartsa 3 másodpercig</string>
+  <string name="fingerprint_enrollment_scan_instructions">Helyezze a mutatóujját az ujjlenyomat-érzékelőre a beállítás megkezdéséhez. Emelje fel az ujját mikor rezgést érez.</string>
   <string name="fingerprint_enrollment_error_title_wrong_sensor">Kérjük, próbálja újra</string>
+  <string name="fingerprint_enrollment_error_message">Helyezze az ujját az ujjlenyomat-érzékelőre a pontos beolvasáshoz. Ügyeljen rá, hogy ugyanazt az ujját használja mint előtte. Emelje fel az ujját mikor rezgést érez.</string>
+  <string name="fingerprint_enrollment_scan_instructions">Helyezze a mutatóujját az ujjlenyomat-érzékelőre a beállítás megkezdéséhez. Emelje fel az ujját mikor rezgést érez.</string>
+  <string name="fingerprint_enrollment_break_title">Folytassa a jelenlegi lenyomattal</string>
+  <string name="fingerprint_enrollment_break_instructions">Folytassa az ujja széleinek feldolgozásához. Emelje fel az ujját mikor rezgést érez.</string>
   <string name="fingerprint_enrollment_finished_title">Ujjlenyomat hozzáadva!</string>
+  <string name="fingerprint_enrollment_finished_message">Most már feloldhatja a kijelzőt az ujjlenyomatával vagy szelfiket készíthet a kamerával.</string>
   <string name="fingerprint_enrollment_found_it_label">Megtaláltam</string>
   <string name="fingerprint_enrollment_add_another_label">Újabb hozzáadása</string>
   <string name="fingerprint_enrollment_done_label">Kész</string>
@@ -923,8 +937,33 @@
   <string name="fingerprint_enrollment_error_title_3">Hmm, valami rosszul sikerült</string>
   <string name="fingerprint_enrollment_error_title_4">Uh oh, próbálja újra</string>
   <string name="fingerprint_enrollment_error_title_5">Hoppá, hiba történt</string>
+  <string name="lockscreen_settings_and_fingerprint">Képernyőzár &amp; ujjlenyomat</string>
   <string name="menu_stats_reset">Statisztika törlése</string>
   <string name="reset_stats_msg">Akkumulátor használati statisztika törlésre kerül</string>
+  <string name="dock_battery_not_present">Dokkoló akkumulátor hiányzik</string>
+  <string name="battery_info_status_charging_dock_ac">Töltés dokkolón (AC)</string>
+  <string name="battery_info_status_charging_dock_usb">Töltés dokkolón (USB)</string>
   <string name="setup_lock_pattern_size_title">Minta összetettsége</string>
   <string name="setup_lock_pattern_size_details">Hány csomópontot szeretne használni a mintához? Minél több a csomópont, annál bonyolultabb lehet a minta.</string>
+  <string name="lto_download_data_wifi_only">GPS támogatási adatok letöltése</string>
+  <string name="lto_download_data_wifi_only_on">Minden hálózaton</string>
+  <string name="lto_download_data_wifi_only_off">Csak Wi\u2011Fi hálózatokon</string>
+  <string name="keep_screen_on_never">Soha</string>
+  <string name="keep_screen_on_debugging">USB hibakeresés közben</string>
+  <string name="keep_screen_on_charging">Töltés közben</string>
+  <string name="contributors_cloud_fragment_title">Közreműködők</string>
+  <string name="contributors_cloud_loading_message">Közreműködői adatok betöltése\u2026</string>
+  <string name="contributors_cloud_failed_message">Közreműködői adatok betöltés sikertelen</string>
+  <string name="contributor_info_menu">Közreműködői információ</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>Név:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>Becenév:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>Változtatások:</b> <xliff:g id="commits">%3$s</xliff:g><br/><br/>
+                 <b>Helyezés:</b> <xliff:g id="rank">%4$s</xliff:g>]]></string>
+  <string name="contributions_info_menu">Közreműködési információ</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>Közreműködő összesen:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>Összes változtatás:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>Utolsó frissítés:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+  <string name="quick_settings_reset_message">Gyors beállítások csempék visszaállítása?</string>
 </resources>
