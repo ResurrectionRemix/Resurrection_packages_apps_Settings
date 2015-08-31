@@ -16,33 +16,12 @@
  -->
 
 <resources>
-     
-    <!-- Base attributes available to CustomSeekBarPreference. -->
-    <declare-styleable name="SeekBarPreference">
-       <attr name="interval" format="integer" />
-        <attr name="minimum" format="integer" />
-        <attr name="unitsLeft" format="string|reference" />
-        <attr name="unitsRight" format="string|reference" />
-        <attr name="defaultVal" format="integer" />
-        <attr name="maximum" format="integer" />
-        <attr name="units" format="string|reference" />
-    </declare-styleable>
 
     <declare-styleable name="IntervalSeekBar">
         <attr name="minI" format="float" />
         <attr name="maxI" format="float" />
         <attr name="defaultValuePure" format="float" />
         <attr name="digits" format="integer" />
-    </declare-styleable>
-
-     <!-- Color picker preference -->
-    <declare-styleable name="ColorPickerPreference">
-        <attr name="defaultColor" format="color" />
-        <attr name="resetColor1" format="color" />
-        <attr name="resetColor2" format="color" />
-        <attr name="resetColor1Title" format="string" />
-        <attr name="resetColor2Title" format="string" />
-        <attr name="alphaSliderVisible" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="IconPreferenceScreen">
@@ -184,6 +163,11 @@
         <attr name="min" format="integer" />
         <attr name="units" format="string|reference" />
         <attr name="defaultText" format="string|reference" />
+    </declare-styleable>
+
+    <!-- Value to pass to callback when restore button is pressed -->
+    <declare-styleable name="ColorPreference">
+        <attr name="defaultColorValue" format="integer" />
     </declare-styleable>
 
 </resources>
