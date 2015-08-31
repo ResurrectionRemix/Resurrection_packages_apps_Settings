@@ -20,6 +20,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.net.NetworkPolicy;
 import android.net.NetworkTemplate;
 import android.os.Bundle;
@@ -57,6 +58,10 @@ public class BillingCycleSettings extends DataUsageBase implements
     private static final String KEY_DATA_WARNING = "data_warning";
     private static final String KEY_SET_DATA_LIMIT = "set_data_limit";
     private static final String KEY_DATA_LIMIT = "data_limit";
+    private static final String KEY_SET_DATA_TIME_RANGE= "set_data_time_range";
+
+    public static final String PREF_SHOW_DATA_USAGE = "show_data_usage";
+    public static final String PREF_FILE = "data_usage";
 
     private NetworkTemplate mNetworkTemplate;
     private Preference mBillingCycle;
@@ -64,6 +69,9 @@ public class BillingCycleSettings extends DataUsageBase implements
     private SwitchPreference mEnableDataLimit;
     private Preference mDataLimit;
     private DataUsageController mDataUsageController;
+    private SwitchPreference mEnableDataTimeRange;
+
+    private boolean mShowDataUsage = false;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -80,6 +88,12 @@ public class BillingCycleSettings extends DataUsageBase implements
         mEnableDataLimit = (SwitchPreference) findPreference(KEY_SET_DATA_LIMIT);
         mEnableDataLimit.setOnPreferenceChangeListener(this);
         mDataLimit = findPreference(KEY_DATA_LIMIT);
+        mEnableDataTimeRange = (SwitchPreference) findPreference(KEY_SET_DATA_TIME_RANGE);
+        mEnableDataTimeRange.setOnPreferenceChangeListener(this);
+
+        Context context = getActivity();
+        mShowDataUsage = isShowDataUsage(context);
+        mEnableDataTimeRange.setVisible(isDataSelectionEnable(context));
     }
 
     @Override
@@ -103,6 +117,7 @@ public class BillingCycleSettings extends DataUsageBase implements
             mDataLimit.setEnabled(false);
             mEnableDataLimit.setChecked(false);
         }
+        mEnableDataTimeRange.setChecked(mShowDataUsage);
     }
 
     @Override
@@ -129,6 +144,13 @@ public class BillingCycleSettings extends DataUsageBase implements
             } else {
                 setPolicyLimitBytes(LIMIT_DISABLED);
             }
+            return true;
+        } else if (mEnableDataTimeRange == preference) {
+            boolean enabled = (Boolean) newValue;
+            mShowDataUsage = !mShowDataUsage;
+            SharedPreferences prefs = getActivity().getSharedPreferences(PREF_FILE,
+                    Context.MODE_PRIVATE);
+            prefs.edit().putBoolean(PREF_SHOW_DATA_USAGE, mShowDataUsage).apply();
             return true;
         }
         return false;
@@ -358,5 +380,14 @@ public class BillingCycleSettings extends DataUsageBase implements
                 target.setPolicyLimitBytes(limitBytes);
             }
         }
+    }
+
+    public static boolean isShowDataUsage(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);
+        return prefs.getBoolean(PREF_SHOW_DATA_USAGE, false);
+    }
+
+    public static boolean isDataSelectionEnable(Context context) {
+        return context.getResources().getBoolean(R.bool.config_data_usage_selection);
     }
 }

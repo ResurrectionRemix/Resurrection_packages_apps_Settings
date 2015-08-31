@@ -21,8 +21,15 @@
         android:key="usage_amount"
         android:layout="@layout/preference_category_short">
 
+        <com.android.settings.datausage.ChartDataUsageDeprecatedPreference
+            android:key="chart_data_deprecated" />
+
         <com.android.settings.datausage.ChartDataUsagePreference
             android:key="chart_data" />
+
+        <Preference
+            android:key="usage_summary"
+            android:selectable="false" />
 
         <Preference
             android:summary="@string/operator_warning"

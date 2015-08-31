@@ -48,6 +48,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
+import com.android.settings.Utils;
+import com.android.settings.widget.ChartDataUsageView.DataUsageChartListener;
 import com.android.settingslib.AppItem;
 import com.android.settingslib.net.ChartData;
 import com.android.settingslib.net.ChartDataLoader;
@@ -56,6 +58,7 @@ import com.android.settingslib.net.UidDetailProvider;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,7 +80,9 @@ public class DataUsageList extends DataUsageBase {
     private static final boolean LOGD = false;
 
     private static final String KEY_USAGE_AMOUNT = "usage_amount";
+    private static final String KEY_CHART_DATA_DEPRECATED = "chart_data_deprecated";
     private static final String KEY_CHART_DATA = "chart_data";
+    private static final String KEY_USAGE_SUMMARY= "usage_summary";
     private static final String KEY_APPS_GROUP = "apps_group";
 
     private static final int LOADER_CHART_DATA = 2;
@@ -87,6 +92,7 @@ public class DataUsageList extends DataUsageBase {
 
     private INetworkStatsSession mStatsSession;
 
+    private ChartDataUsageDeprecatedPreference mChartDeprecated;
     private ChartDataUsagePreference mChart;
 
     private NetworkTemplate mTemplate;
@@ -95,6 +101,12 @@ public class DataUsageList extends DataUsageBase {
 
     /** Flag used to ignore listeners during binding. */
     private boolean mBinding;
+    private boolean mShowDataUsage = false;
+    private boolean mDataSelectionEnable = false;
+
+    //used to save selected range.
+    private static long mSelectLeft;
+    private static long mSelectRight;
 
     private UidDetailProvider mUidDetailProvider;
 
@@ -105,6 +117,7 @@ public class DataUsageList extends DataUsageBase {
     private CycleAdapter mCycleAdapter;
     private Spinner mCycleSpinner;
     private Preference mUsageAmount;
+    private Preference mUsageSummary;
     private PreferenceGroup mApps;
     private View mHeader;
 
@@ -139,6 +152,26 @@ public class DataUsageList extends DataUsageBase {
         final Bundle args = getArguments();
         mSubId = args.getInt(EXTRA_SUB_ID, SubscriptionManager.INVALID_SUBSCRIPTION_ID);
         mTemplate = args.getParcelable(EXTRA_NETWORK_TEMPLATE);
+
+        mChartDeprecated = (ChartDataUsageDeprecatedPreference)
+                findPreference(KEY_CHART_DATA_DEPRECATED);
+        mChartDeprecated.setListener(mChartListener);
+        mChartDeprecated.bindNetworkPolicy(null);
+
+        mUsageSummary = (Preference) findPreference(KEY_USAGE_SUMMARY);
+
+        mDataSelectionEnable = BillingCycleSettings.isDataSelectionEnable(context);
+        mShowDataUsage = BillingCycleSettings.isShowDataUsage(context);
+        if (mDataSelectionEnable) {
+            //use chartDataUsageDeprecatedPreference instead;
+            ((PreferenceGroup)mUsageAmount).removePreference(mChart);
+            //getPreferenceScreen().removePreference(mChart);
+            mChart = null;
+        } else {
+            ((PreferenceGroup)mUsageAmount).removePreference(mChartDeprecated);
+            //getPreferenceScreen().removePreference(mChartDeprecated);
+            mChartDeprecated = null;
+        }
     }
 
     @Override
@@ -210,6 +243,17 @@ public class DataUsageList extends DataUsageBase {
         super.onDestroy();
     }
 
+    /*@Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String className = data.getExtra(EXTRA_SHOW_FRAGMENT);
+        if (BillingCycleSettings.class.getName().equil(className)) {
+            //Update body
+            updateBody();
+        }
+    }
+    */
+
     /**
      * Update body content based on current tab. Loads
      * {@link NetworkStatsHistory} and {@link NetworkPolicy} from system, and
@@ -232,19 +276,23 @@ public class DataUsageList extends DataUsageBase {
 
         mBinding = false;
 
-        int seriesColor = context.getColor(R.color.sim_noitification);
-        if (mSubId != SubscriptionManager.INVALID_SUBSCRIPTION_ID){
-            final SubscriptionInfo sir = services.mSubscriptionManager
-                    .getActiveSubscriptionInfo(mSubId);
-
-            if (sir != null) {
-                seriesColor = sir.getIconTint();
+        if (!mDataSelectionEnable) {
+            int seriesColor = context.getColor(R.color.sim_noitification);
+            if (mSubId != SubscriptionManager.INVALID_SUBSCRIPTION_ID){
+                final SubscriptionInfo sir = services.mSubscriptionManager
+                        .getActiveSubscriptionInfo(mSubId);
+                if (sir != null) {
+                    seriesColor = sir.getIconTint();
+                }
             }
+            final int secondaryColor = Color.argb(127, Color.red(seriesColor),
+                        Color.green(seriesColor), Color.blue(seriesColor));
+            mChart.setColors(seriesColor, secondaryColor);
         }
 
-        final int secondaryColor = Color.argb(127, Color.red(seriesColor), Color.green(seriesColor),
-                Color.blue(seriesColor));
-        mChart.setColors(seriesColor, secondaryColor);
+        if (!mShowDataUsage) {
+            getPreferenceScreen().removePreference(mUsageSummary);
+        }
     }
 
     /**
@@ -255,7 +303,11 @@ public class DataUsageList extends DataUsageBase {
         final NetworkPolicy policy = services.mPolicyEditor.getPolicy(mTemplate);
         //SUB SELECT
         if (isNetworkPolicyModifiable(policy, mSubId) && isMobileDataAvailable(mSubId)) {
-            mChart.setNetworkPolicy(policy);
+            if (mDataSelectionEnable) {
+                mChartDeprecated.bindNetworkPolicy(policy);
+            } else {
+                mChart.setNetworkPolicy(policy);
+            }
             mHeader.findViewById(R.id.filter_settings).setVisibility(View.VISIBLE);
             mHeader.findViewById(R.id.filter_settings).setOnClickListener(
                     new View.OnClickListener() {
@@ -269,7 +321,12 @@ public class DataUsageList extends DataUsageBase {
             });
         } else {
             // controls are disabled; don't bind warning/limit sweeps
-            mChart.setNetworkPolicy(null);
+            if (mDataSelectionEnable) {
+                mChartDeprecated.bindNetworkPolicy(null);
+            } else {
+                mChart.setNetworkPolicy(null);
+            }
+
             mHeader.findViewById(R.id.filter_settings).setVisibility(View.GONE);
         }
 
@@ -289,8 +346,24 @@ public class DataUsageList extends DataUsageBase {
     private void updateDetailData() {
         if (LOGD) Log.d(TAG, "updateDetailData()");
 
-        final long start = mChart.getInspectStart();
-        final long end = mChart.getInspectEnd();
+        final long start;
+        final long end;
+        if (mDataSelectionEnable) {
+            if(mShowDataUsage) {
+                start = mChartDeprecated.getInspectLeft();
+                end = mChartDeprecated.getInspectRight();
+                mSelectLeft = mChartDeprecated.getInspectLeft();
+                mSelectRight = mChartDeprecated.getInspectRight();
+                Log.d(TAG, "Will get left and right data here:" + new Date(start).toString()+ "-->"
+                        + new Date(end).toString());
+            } else {
+                start = mChartDeprecated.getInspectStart();
+                end = mChartDeprecated.getInspectEnd();
+            }
+        } else {
+            start = mChart.getInspectStart();
+            end = mChart.getInspectEnd();
+        }
         final long now = System.currentTimeMillis();
 
         final Context context = getActivity();
@@ -307,6 +380,12 @@ public class DataUsageList extends DataUsageBase {
         final long totalBytes = entry != null ? entry.rxBytes + entry.txBytes : 0;
         final String totalPhrase = Formatter.formatFileSize(context, totalBytes);
         mUsageAmount.setTitle(getString(R.string.data_used_template, totalPhrase));
+
+        if (mShowDataUsage) {
+            final int summaryRes = R.string.data_usage_total_during_range;
+            final String rangePhrase = Utils.formatDateRange(context, mSelectLeft, mSelectRight);
+            mUsageSummary.setSummary(getString(summaryRes, totalPhrase, rangePhrase));
+        }
     }
 
     /**
@@ -499,7 +578,12 @@ public class DataUsageList extends DataUsageBase {
 
             // update chart to show selected cycle, and update detail data
             // to match updated sweep bounds.
-            mChart.setVisibleRange(cycle.start, cycle.end);
+            if (mDataSelectionEnable) {
+                mChartDeprecated.setVisibleRange(cycle.start, cycle.end,
+                        mSelectLeft, mSelectRight);
+            } else {
+                mChart.setVisibleRange(cycle.start, cycle.end);
+            }
 
             updateDetailData();
         }
@@ -521,7 +605,12 @@ public class DataUsageList extends DataUsageBase {
         public void onLoadFinished(Loader<ChartData> loader, ChartData data) {
             setLoading(false, true);
             mChartData = data;
-            mChart.setNetworkStats(mChartData.network);
+            if (mDataSelectionEnable) {
+                mChartDeprecated.bindNetworkStats(mChartData.network);
+                mChartDeprecated.bindDetailNetworkStats(mChartData.detail);
+            } else {
+                 mChart.setNetworkStats(mChartData.network);
+            }
 
             // calcuate policy cycles based on available data
             updatePolicy(true);
@@ -530,7 +619,12 @@ public class DataUsageList extends DataUsageBase {
         @Override
         public void onLoaderReset(Loader<ChartData> loader) {
             mChartData = null;
-            mChart.setNetworkStats(null);
+            if (mDataSelectionEnable ) {
+                 mChartDeprecated.bindNetworkStats(null);
+                 mChartDeprecated.bindDetailNetworkStats(null);
+            } else {
+                 mChart.setNetworkStats(null);
+            }
         }
     };
 
@@ -558,7 +652,9 @@ public class DataUsageList extends DataUsageBase {
         private void updateEmptyVisible() {
             if ((mApps.getPreferenceCount() != 0) !=
                     (getPreferenceScreen().getPreferenceCount() != 0)) {
-                if (mApps.getPreferenceCount() != 0) {
+                // We still show chart if mShowDataUsage is enabled, then we can adjust left and
+                // right sweep
+                if (mApps.getPreferenceCount() != 0 || mShowDataUsage) {
                     getPreferenceScreen().addPreference(mUsageAmount);
                     getPreferenceScreen().addPreference(mApps);
                 } else {
@@ -567,4 +663,43 @@ public class DataUsageList extends DataUsageBase {
             }
         }
     };
+
+    private DataUsageChartListener mChartListener = new DataUsageChartListener() {
+        @Override
+        public void onInspectRangeChanged() {
+            updateDetailData();
+            mChartDeprecated.setInspectRangeChanged();
+        }
+
+        @Override
+        public void onWarningChanged() {
+            setPolicyWarningBytes(mChartDeprecated.getWarningBytes());
+        }
+
+        @Override
+        public void onLimitChanged() {
+            setPolicyLimitBytes(mChartDeprecated.getLimitBytes());
+            updateBody();
+        }
+
+        @Override
+        public void requestWarningEdit() {
+        }
+
+        @Override
+        public void requestLimitEdit() {
+        }
+    };
+
+    private void setPolicyWarningBytes(long warningBytes) {
+        if (LOGD) Log.d(TAG, "setPolicyWarningBytes()");
+        services.mPolicyEditor.setPolicyWarningBytes(mTemplate, warningBytes);
+        updatePolicy(false);
+    }
+
+    private void setPolicyLimitBytes(long limitBytes) {
+        if (LOGD) Log.d(TAG, "setPolicyLimitBytes()");
+        services.mPolicyEditor.setPolicyLimitBytes(mTemplate, limitBytes);
+        updatePolicy(false);
+    }
 }
