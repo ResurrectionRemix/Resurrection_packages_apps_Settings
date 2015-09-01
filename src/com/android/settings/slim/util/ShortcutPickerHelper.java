@@ -17,9 +17,14 @@
 package com.android.settings.slim.util;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -27,12 +32,21 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
 
+import com.android.settings.slim.util.ShortcutPickerHelper.AppExpandableAdapter.GroupInfo;
 import com.android.settings.R;
 
 import com.android.internal.util.slim.AppHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class ShortcutPickerHelper {
 
@@ -41,6 +55,7 @@ public class ShortcutPickerHelper {
     public static final int REQUEST_CREATE_SHORTCUT = 102;
 
     private Activity mParent;
+    private AlertDialog mAlertDialog;
     private OnPickListener mListener;
     private PackageManager mPackageManager;
     private int lastFragmentId;
@@ -76,6 +91,12 @@ public class ShortcutPickerHelper {
     }
 
     public void pickShortcut(int fragmentId, boolean fullAppsOnly) {
+        pickShortcut(fragmentId, fullAppsOnly, false, false);
+    }
+
+
+    public void pickShortcut(int fragmentId, boolean fullAppsOnly,
+            boolean newAction, boolean reassignAction) {
         lastFragmentId = fragmentId;
 
         if (fullAppsOnly) {
@@ -89,18 +110,31 @@ public class ShortcutPickerHelper {
             Bundle bundle = new Bundle();
 
             ArrayList<String> shortcutNames = new ArrayList<String>();
-            shortcutNames.add(mParent.getString(R.string.shortcuts_applications));
+            shortcutNames.add(mParent.getString(R.string.shortcut_picker_applications_title));
+            shortcutNames.add(mParent.getString(R.string.shortcut_picker_activities_title));
             bundle.putStringArrayList(Intent.EXTRA_SHORTCUT_NAME, shortcutNames);
 
             ArrayList<ShortcutIconResource> shortcutIcons = new ArrayList<ShortcutIconResource>();
             shortcutIcons.add(ShortcutIconResource.fromContext(mParent,
                     android.R.drawable.sym_def_app_icon));
+            shortcutIcons.add(ShortcutIconResource.fromContext(mParent, R.drawable.activities_icon));
             bundle.putParcelableArrayList(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, shortcutIcons);
+
+            CharSequence title;
+            if (newAction) {
+                title = mParent.getText(
+                    R.string.shortcut_picker_choose_new_action);
+            } else if (reassignAction) {
+                title = mParent.getText(
+                    R.string.shortcut_picker_reassign_action);
+            } else {
+                title = mParent.getText(
+                    R.string.shortcut_picker_choose_action);
+            }
 
             Intent pickIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
             pickIntent.putExtra(Intent.EXTRA_INTENT, new Intent(Intent.ACTION_CREATE_SHORTCUT));
-            pickIntent.putExtra(Intent.EXTRA_TITLE, mParent.getText(
-                    R.string.shortcuts_select_custom_app_title));
+            pickIntent.putExtra(Intent.EXTRA_TITLE, title);
             pickIntent.putExtras(bundle);
             startFragmentOrActivity(pickIntent, REQUEST_PICK_SHORTCUT);
         }
@@ -120,7 +154,8 @@ public class ShortcutPickerHelper {
     private void processShortcut(Intent intent,
         int requestCodeApplication, int requestCodeShortcut) {
         // Handle case where user selected "Applications"
-        String applicationName = mParent.getResources().getString(R.string.shortcuts_applications);
+        String applicationName = mParent.getResources().getString(R.string.shortcut_picker_applications_title);
+        String application2name = mParent.getString(R.string.shortcut_picker_activities_title);
         String shortcutName = intent.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
 
         if (applicationName != null && applicationName.equals(shortcutName)) {
@@ -129,10 +164,143 @@ public class ShortcutPickerHelper {
 
             Intent pickIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
             pickIntent.putExtra(Intent.EXTRA_INTENT, mainIntent);
+            pickIntent.putExtra(Intent.EXTRA_TITLE, mParent.getText(
+                    R.string.shortcut_picker_select_app_title));
             startFragmentOrActivity(pickIntent, requestCodeApplication);
+        } else if (application2name != null && application2name.equals(shortcutName)){
+            final List<PackageInfo> pInfos = mPackageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES);
+            ExpandableListView appListView = new ExpandableListView(mParent);
+            AppExpandableAdapter appAdapter = new AppExpandableAdapter(pInfos, mParent);
+            appListView.setAdapter(appAdapter);
+            appListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+                @Override
+                public boolean onChildClick(ExpandableListView parent, View v,
+                        int groupPosition, int childPosition, long id) {
+                    Intent shortIntent = new Intent(Intent.ACTION_MAIN);
+                    String pkgName = ((GroupInfo)parent.getExpandableListAdapter().getGroup(groupPosition))
+                            .info.packageName;
+                    String actName = ((GroupInfo)parent.getExpandableListAdapter().getGroup(groupPosition))
+                            .info.activities[childPosition].name;
+                    shortIntent.setClassName(pkgName, actName);
+                    completeSetCustomApp(shortIntent);
+                    mAlertDialog.dismiss();
+                    return true;
+                }
+            });
+            Builder builder = new Builder(mParent, com.android.internal.R.style.Theme_DeviceDefault_Dialog_Alert);
+            builder.setView(appListView);
+            mAlertDialog = builder.create();
+            mAlertDialog.setTitle(mParent.getString(R.string.shortcut_picker_select_activity_title));
+            mAlertDialog.show();
+            mAlertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+
+                }
+            });
         } else {
             startFragmentOrActivity(intent, requestCodeShortcut);
         }
+    }
+
+    public class AppExpandableAdapter extends BaseExpandableListAdapter {
+
+        ArrayList<GroupInfo> allList = new ArrayList<GroupInfo>();
+        final int groupPadding;
+
+        public class LabelCompare implements Comparator<GroupInfo>{
+            @Override
+            public int compare(GroupInfo item1, GroupInfo item2) {
+                String rank1 = item1.label.toLowerCase();
+                String rank2 = item2.label.toLowerCase();
+                int result = rank1.compareTo(rank2);
+                if(result == 0) {
+                    return 0;
+                } else if(result < 0) {
+                    return -1;
+                } else {
+                    return +1;
+                }
+            }
+        }
+
+        class GroupInfo {
+            String label;
+            PackageInfo info;
+            GroupInfo (String l, PackageInfo p) {
+                label = l;
+                info = p;
+            }
+        }
+
+        public AppExpandableAdapter(List<PackageInfo> pInfos, Context context) {
+            for (PackageInfo i : pInfos) {
+                allList.add(new GroupInfo(i.applicationInfo.loadLabel(mPackageManager).toString(), i));
+            }
+            Collections.sort(allList, new LabelCompare());
+            groupPadding = context.getResources().getDimensionPixelSize(R.dimen.shortcut_picker_left_padding);
+        }
+
+        public String getChild(int groupPosition, int childPosition) {
+            return allList.get(groupPosition).info.activities[childPosition].name;
+        }
+
+        public long getChildId(int groupPosition, int childPosition) {
+            return childPosition;
+        }
+
+        public int getChildrenCount(int groupPosition) {
+            if (allList.get(groupPosition).info.activities != null) {
+                return allList.get(groupPosition).info.activities.length;
+            } else {
+                return 0;
+            }
+        }
+
+
+        public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
+                View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = View.inflate(mParent, android.R.layout.simple_list_item_1, null);
+                convertView.setPadding(groupPadding, 0, 0, 0);
+
+            }
+            TextView textView = (TextView)convertView.findViewById(android.R.id.text1);
+            textView.setText(getChild(groupPosition, childPosition).replaceFirst(allList.get(groupPosition).info.packageName + ".", ""));
+            return convertView;
+        }
+
+        public GroupInfo getGroup(int groupPosition) {
+            return allList.get(groupPosition);
+        }
+
+        public int getGroupCount() {
+            return allList.size();
+        }
+
+        public long getGroupId(int groupPosition) {
+            return groupPosition;
+        }
+
+        public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
+                ViewGroup parent) {
+            if (convertView == null) {
+                convertView = View.inflate(mParent, android.R.layout.simple_list_item_1, null);
+                convertView.setPadding(groupPadding, 0, 0, 0);
+            }
+            TextView textView = (TextView)convertView.findViewById(android.R.id.text1);
+            textView.setText(getGroup(groupPosition).label);
+            return convertView;
+        }
+
+        public boolean isChildSelectable(int groupPosition, int childPosition) {
+            return true;
+        }
+
+        public boolean hasStableIds() {
+            return true;
+        }
+
     }
 
     private void completeSetCustomApp(Intent data) {
