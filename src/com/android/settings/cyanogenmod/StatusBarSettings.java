@@ -70,6 +70,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
     private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
     private static final String KEY_LOGO_COLOR = "status_bar_logo_color";
+    private static final String KEY_LOGO_STYLE = "status_bar_logo_style";
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
     private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
     
@@ -83,6 +84,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private SwitchPreference mEnableTaskManager;
     private String mCustomGreetingText = "";
     private SwitchPreference mCarrierLabelOnLockScreen;
+    private ListPreference mLogoStyle;
     
     private static final String TAG = "StatusBar";
 
@@ -134,6 +136,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
             mLogoColor.setSummary(hexColor);
             mLogoColor.setNewPreviewColor(intColor);
+
+        mLogoStyle = (ListPreference) findPreference(KEY_LOGO_STYLE);
+        int LogoStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+        mLogoStyle.setValue(String.valueOf(LogoStyle));
+        mLogoStyle.setSummary(mLogoStyle.getEntry());
+        mLogoStyle.setOnPreferenceChangeListener(this);
 
         // Greeting
         mStatusBarGreeting = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_GREETING);
@@ -305,6 +315,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO_COLOR, intHex);
+            return true;
+        } else if (preference == mLogoStyle) {
+            int LogoStyle = Integer.valueOf((String) newValue);
+            int index = mLogoStyle.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(
+                    getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, LogoStyle,
+                    UserHandle.USER_CURRENT);
+            mLogoStyle.setSummary(
+                    mLogoStyle.getEntries()[index]);
             return true;
         } else if (preference == mCarrierLabelOnLockScreen) {
             Settings.System.putInt(getActivity().getContentResolver(),

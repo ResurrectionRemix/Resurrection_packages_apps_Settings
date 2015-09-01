@@ -37,6 +37,11 @@
            android:title="@string/enable_task_manager_title"
            android:summary="@string/enable_task_manager_summary" />
 
+    <PreferenceScreen
+        android:key="carrier_options"
+        android:fragment="com.android.settings.rr.CarrierLabel"
+        android:title="@string/carrier_options" />  
+      
     <!-- Status bar logo -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="status_bar_logo"
@@ -49,6 +54,12 @@
             android:defaultValue="0xffffffff"
             android:dependency="status_bar_logo" />
 
+    <ListPreference
+           android:key="status_bar_logo_style"
+           android:title="@string/status_bar_logo_position"
+           android:dialogTitle="@string/status_bar_logo_position"
+           android:entries="@array/status_bar_logo_position_entries"
+           android:entryValues="@array/status_bar_logo_position_values" />
 
     <!-- Headset icon switch -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -130,12 +141,7 @@
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="lock_screen_hide_carrier"
         android:title="@string/lock_screen_hide_carrier_title"
-        android:summary="@string/lock_screen_hide_carrier_summary" />
-
-    <PreferenceScreen
-        android:key="carrier_options"
-        android:fragment="com.android.settings.rr.CarrierLabel"
-        android:title="@string/carrier_options" />                
+        android:summary="@string/lock_screen_hide_carrier_summary" />              
 
     <PreferenceScreen
         android:key="battery_bar"
