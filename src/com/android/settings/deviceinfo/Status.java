@@ -19,6 +19,7 @@ package com.android.settings.deviceinfo;
 import android.app.ActionBar;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -416,14 +417,18 @@ public class Status extends PreferenceActivity {
                     ListAdapter listAdapter = (ListAdapter) parent.getAdapter();
                     Preference pref = (Preference) listAdapter.getItem(position);
 
-                    ClipboardManager cm = (ClipboardManager)
-                            getSystemService(Context.CLIPBOARD_SERVICE);
-                    cm.setText(pref.getSummary());
-                    Toast.makeText(
-                        Status.this,
-                        com.android.internal.R.string.text_copied,
-                        Toast.LENGTH_SHORT).show();
-                    return true;
+                    CharSequence summary = pref.getSummary();
+                    if (!TextUtils.isEmpty(summary)) {
+                        ClipboardManager cm = (ClipboardManager)
+                                getSystemService(Context.CLIPBOARD_SERVICE);
+                        cm.setPrimaryClip(ClipData.newPlainText(pref.getTitle(), summary));
+                        Toast.makeText(
+                                Status.this,
+                                com.android.internal.R.string.text_copied,
+                                Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                    return false;
                 }
             });
 
