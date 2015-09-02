@@ -15,6 +15,9 @@
  */
 package com.android.settings.rr;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +27,7 @@ import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.view.View;
 
@@ -39,17 +43,19 @@ import java.util.Map;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class StatusBarWeather extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+        implements OnPreferenceChangeListener, Indexable {
 
     private static final String STATUS_BAR_TEMPERATURE = "status_bar_temperature";
     private static final String STATUS_BAR_TEMPERATURE_STYLE = "status_bar_temperature_style";
     private static final String PREF_STATUS_BAR_WEATHER_COLOR = "status_bar_weather_color";
     private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
+    private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
 
     private ListPreference mStatusBarTemperature;
     private ListPreference mStatusBarTemperatureStyle;
     private ColorPickerPreference mStatusBarTemperatureColor;
     private SeekBarPreferenceCham mStatusBarTemperatureSize;
+    private ListPreference mStatusBarTemperatureFontStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -87,6 +93,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment
         mStatusBarTemperatureSize.setValue(Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_WEATHER_SIZE, 14));
         mStatusBarTemperatureSize.setOnPreferenceChangeListener(this);
+
+        mStatusBarTemperatureFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_WEATHER_FONT_STYLE);
+        mStatusBarTemperatureFontStyle.setOnPreferenceChangeListener(this);
+        mStatusBarTemperatureFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0)));
+        mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntry());
 
         updateWeatherOptions();
     }
@@ -126,6 +138,13 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_WEATHER_SIZE, width);
             return true;
+        } else if (preference == mStatusBarTemperatureFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mStatusBarTemperatureFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, val);
+            mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -136,12 +155,34 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             mStatusBarTemperatureStyle.setEnabled(false);
             mStatusBarTemperatureColor.setEnabled(false);
             mStatusBarTemperatureSize.setEnabled(false);
+            mStatusBarTemperatureFontStyle.setEnabled(false);
         } else {
             mStatusBarTemperatureStyle.setEnabled(true);
             mStatusBarTemperatureColor.setEnabled(true);
             mStatusBarTemperatureSize.setEnabled(true);
+            mStatusBarTemperatureFontStyle.setEnabled(true);
         }
     }
 
-}
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
 
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.status_bar_weather;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+            };
+}
