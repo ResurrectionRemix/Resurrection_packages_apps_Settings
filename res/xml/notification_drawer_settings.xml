@@ -34,6 +34,12 @@
             android:title="@string/qs_order_title"
             android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
 
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+          android:key="status_bar_custom_header"
+          android:title="@string/status_bar_custom_header_title"
+          android:summary="@string/status_bar_custom_header_summary"
+          android:defaultValue="false"/>
+
         <PreferenceScreen
                 android:key="navbar_targets_settings"
                 android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
