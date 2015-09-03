@@ -16,6 +16,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_title">
 
 
@@ -37,10 +38,6 @@
         android:entries="@array/status_bar_am_pm_entries"
         android:entryValues="@array/status_bar_am_pm_values" />
      </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="battery"
-        android:title="@string/battery_category" >
 
     <ListPreference
         android:key="status_bar_date"
@@ -79,6 +76,19 @@
         android:title="@string/status_bar_show_clock_second_title"
         android:defaultValue="false" />
 
+   <com.android.settings.temasek.SeekBarPreference
+            android:key="font_size"
+            android:title="@string/clock_font_size_title"
+            android:defaultValue="14"
+            android:max="23"
+            settings:min="4"
+            settings:unitsLeft=""
+            settings:unitsRight="dp" />
+
+    <PreferenceCategory
+        android:key="battery"
+        android:title="@string/battery_category" >
+
     <ListPreference
         android:key="status_bar_battery_style"
         android:title="@string/status_bar_battery_style_title"
@@ -101,6 +111,8 @@
             android:title="@string/battery_bar"       
             />
      </PreferenceCategory>
+
+
 
     <PreferenceCategory
         android:key="icons"
