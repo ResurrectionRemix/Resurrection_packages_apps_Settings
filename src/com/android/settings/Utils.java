@@ -1089,8 +1089,8 @@ public final class Utils {
     public static boolean showSimCardTile(Context context) {
         final TelephonyManager tm =
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-
-        return tm.getSimCount() > 1;
+        final boolean isPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        return isPrimary && tm.getSimCount() > 1;
     }
 
     /**
