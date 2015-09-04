@@ -65,46 +65,7 @@
             android:title="@string/ui_overscroll_title"
             android:summary="@string/overscroll_weight_summary"
             android:fragment="com.android.settings.rr.OverscrollEffects" />
-
 </PreferenceCategory>
-        <!-- animations -->
-    <PreferenceCategory
-        android:title="@string/rr_gesture_title">
-
-    <!-- PIE Controls -->
-    <PreferenceScreen
-        android:key="pie_settings"
-        android:fragment="com.android.settings.rr.PieControl"
-        android:title="@string/pie_control_title" />
-
-    <!-- Gesture anywhere -->
-    <PreferenceScreen
-    	android:key="gesture_anywhere"
-    	android:fragment="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings"
-    	android:summary="@string/gesture_anywhere_gestures_summary"
-	    android:title="@string/gesture_anywhere_title" />
-
-    <!-- Three-fingers-swipe to screenshot -->
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="three_finger_gesture"
-        android:title="@string/three_finger_gesture"
-        android:summary="@string/three_finger_gesture_summary"
-        android:defaultValue="false" />
-
-    <!-- App sidebar -->
-    <PreferenceScreen
-        android:key="app_sidebar"
-        android:fragment="com.android.settings.rr.AppSidebar"
-        android:title="@string/app_sidebar_title"/>
-
-    <!-- Circle app bar -->
-    <PreferenceScreen
-        android:key="app_circle_bar"
-        android:fragment="com.android.settings.rr.AppCircleBar"
-        android:title="@string/app_circle_bar_title"/>
-
-</PreferenceCategory>
-
 
      <PreferenceCategory
         android:key="widgets"
