@@ -24,12 +24,20 @@
             android:key="show_clear_all_recents"
             android:title="@string/show_clear_all_recents_button_title"
             android:summary="@string/show_clear_all_recents_button_summary"
+            android:defaultValue="true" />               
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_search_bar"
+		    android:title="@string/recents_show_searchbar"
+		    android:summary="@string/recents_show_searchbar_summary"
             android:defaultValue="true" />
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
             android:title="@string/recents_show_membar_title"
             android:summary="@string/recents_show_membar_summary"
             android:defaultValue="false" />
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="recents_clear_all_dismiss_all"
             android:title="@string/recents_clear_all_dismiss_all_title"
