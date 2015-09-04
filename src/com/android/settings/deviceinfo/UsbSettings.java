@@ -31,7 +31,6 @@ import android.os.SystemProperties;
 import android.os.storage.StorageEventListener;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
-import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -64,17 +63,19 @@ public class UsbSettings extends SettingsPreferenceFragment {
             "ro.sys.usb.default.config", "mtp");
 
     private UsbManager mUsbManager;
+    private StorageManager mStorageManager;
+    private UserManager mUserManager;
+
     private CheckBoxPreference mMtp;
     private CheckBoxPreference mPtp;
     private CheckBoxPreference mCharging;
     private CheckBoxPreference mSDCard;
-    private boolean mUsbAccessoryMode;
-    private boolean operateInprogress = false;
 
-    private StorageManager mStorageManager = null;
+    private boolean mUsbAccessoryMode;
+    private boolean mOperationInProgress = false;
 
     private final BroadcastReceiver mStateReceiver = new BroadcastReceiver() {
-        public void onReceive(Context content, Intent intent) {
+        public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(UsbManager.ACTION_USB_STATE)) {
                mUsbAccessoryMode = intent.getBooleanExtra(UsbManager.USB_FUNCTION_ACCESSORY, false);
@@ -86,8 +87,8 @@ public class UsbSettings extends SettingsPreferenceFragment {
                     finish();
                     return;
                 } else {
-                    // once USB connected agian, we take setting operation as completed
-                    operateInprogress = false;
+                    // once USB connected again, we take setting operation as completed
+                    mOperationInProgress = false;
                     updateUsbFunctionState();
                 }
             }
@@ -132,8 +133,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
             root.removePreference(mSDCard);
         }
 
-        UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
-        if (um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
+        if (mUserManager.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
             mMtp.setEnabled(false);
             mPtp.setEnabled(false);
             mSDCard.setEnabled(false);
@@ -145,8 +145,9 @@ public class UsbSettings extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        mUsbManager = (UsbManager)getSystemService(Context.USB_SERVICE);
+        mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
         mStorageManager = (StorageManager) getSystemService(Context.STORAGE_SERVICE);
+        mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
     }
 
     private StorageEventListener mStorageListener = new StorageEventListener() {
@@ -226,13 +227,12 @@ public class UsbSettings extends SettingsPreferenceFragment {
             mCharging.setChecked(false);
         }
 
-        UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
-        if (um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
+        if (mUserManager.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
             Log.e(TAG, "USB is locked down");
             mMtp.setEnabled(false);
             mPtp.setEnabled(false);
             mSDCard.setEnabled(false);
-        } else if (!mUsbAccessoryMode && !operateInprogress) {
+        } else if (!mUsbAccessoryMode && !mOperationInProgress) {
             //Enable MTP and PTP switch while USB is not in Accessory Mode, otherwise disable it
             Log.e(TAG, "USB Normal Mode");
             getPreferenceScreen().setEnabled(true);
@@ -252,13 +252,12 @@ public class UsbSettings extends SettingsPreferenceFragment {
         }
         // If this user is disallowed from using USB, don't handle their attempts to change the
         // setting.
-        UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
-        if (um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
+        if (mUserManager.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
             return true;
         }
 
         //if choose none, we set the function as the default config
-        operateInprogress = true;
+        mOperationInProgress = true;
         String function = USB_FUNCTION_DEFAULT;
         if (preference == mMtp && mMtp.isChecked()) {
             function = UsbManager.USB_FUNCTION_MTP;
@@ -275,7 +274,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
         } else if(preference == mMtp && !mMtp.isChecked()) {
             Log.w(TAG, "MTP is default and if you uncheck it, we will default back to it.  " +
                     "Skipping the work.");
-            operateInprogress = false;
+            mOperationInProgress = false;
         }
 
         mUsbManager.setCurrentFunction(function, true);
@@ -291,7 +290,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
     }
 
     private void enableUms() {
-        operateInprogress = true;
+        mOperationInProgress = true;
         mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_MASS_STORAGE, true);
         updateToggles(UsbManager.USB_FUNCTION_MASS_STORAGE);
     }
