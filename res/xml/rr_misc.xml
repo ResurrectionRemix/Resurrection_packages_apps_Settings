@@ -31,42 +31,6 @@
             android:key="selinux"
             android:title="@string/selinux_title"
             android:defaultValue="false" />
-
-        <!-- animations -->
-    <PreferenceCategory
-        android:title="@string/rr_animations_title">
-
-        <ListPreference
-                android:key="toast_animation"
-                android:title="@string/toast_animation_title"
-                android:entries="@array/toast_animation_entries"
-                android:entryValues="@array/toast_animation_values"
-                android:persistent="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="toast_icon"
-            android:title="@string/toast_icon_title"
-            android:defaultValue="true" />
-
-    <PreferenceScreen
-        android:id="@+id/listview"
-        android:fragment="com.android.settings.rr.Listview"
-        android:summary="@string/listview_category_summary"
-        android:title="@string/listview_category" />
-
-    <PreferenceScreen
-        android:key="aokp_animation"
-        android:title="@string/aokp_animation_title"
-        android:summary="@string/aokp_animation_summary"
-        android:fragment="com.android.settings.rr.AnimationControls" />
-
-        <PreferenceScreen
-            android:key="overscroll_effects"
-            android:title="@string/ui_overscroll_title"
-            android:summary="@string/overscroll_weight_summary"
-            android:fragment="com.android.settings.rr.OverscrollEffects" />
-</PreferenceCategory>
-
      <PreferenceCategory
         android:key="widgets"
         android:title="@string/widgets_category" >

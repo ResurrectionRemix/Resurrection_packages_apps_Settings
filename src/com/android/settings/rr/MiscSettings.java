@@ -63,7 +63,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VIBRATION_INTENSITY = "vibration_intensity";
     private ListPreference mToastAnimation;
 
-    private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String SELINUX = "selinux";
 
     private final Configuration mCurConfig = new Configuration();
@@ -92,15 +91,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             mSelinux.setChecked(false);
             mSelinux.setSummary(R.string.selinux_permissive_title);
         }
-
-	// Toast animation
-        mToastAnimation = (ListPreference)findPreference(KEY_TOAST_ANIMATION);
-        mToastAnimation.setSummary(mToastAnimation.getEntry());
-        int CurrentToastAnimation = Settings.System.getInt(getContentResolver(), Settings.System.TOAST_ANIMATION, 1);
-        mToastAnimation.setValueIndex(CurrentToastAnimation);
-        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
-        mToastAnimation.setOnPreferenceChangeListener(this);
-
+	
+	//Vibrator Intensity
         CMHardwareManager hardware = CMHardwareManager.getInstance(mContext);
         if (!hardware.isSupported(CMHardwareManager.FEATURE_VIBRATOR)) {
             Preference preference = prefSet.findPreference(KEY_VIBRATION_INTENSITY);
@@ -118,13 +110,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mToastAnimation) {
-            int index = mToastAnimation.findIndexOfValue((String) newValue);
-            Settings.System.putString(getContentResolver(), Settings.System.TOAST_ANIMATION, (String) newValue);
-            mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
-            Toast.makeText(mContext, "Toast Test", Toast.LENGTH_SHORT).show();
-            return true;
-        }  else if (preference == mSelinux) {
+            if (preference == mSelinux) {
             if (newValue.toString().equals("true")) {
                 CMDProcessor.runSuCommand("setenforce 1");
                 mSelinux.setSummary(R.string.selinux_enforcing_title);
