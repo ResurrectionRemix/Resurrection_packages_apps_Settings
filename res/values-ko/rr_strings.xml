@@ -81,6 +81,9 @@
     <!-- misc -->
     <string name="misc_settings_title"><b>기타 설정</b></string>
     <string name="interface_settings_title"><b>인터페이스</b></string>
+    <string name="recents_settings"><b>최근 실행 목록</b></string>
+    <string name="gesture_settings"><b>제스처</b></string>
+    <string name="animation_settings"><b>애니메이션</b></string>
     <string name="rr_display_title">디스플레이</string>
     <string name="rr_animations_title">애니메이션</string>
     <string name="listview_category_summary">리스트뷰 애니메이션과 인터폴레이터를 설정합니다</string>
@@ -91,7 +94,7 @@
     <string name="changelog_error">변경점을 불러올 수 없습니다</string>
     <string name="changelog_unknown">알 수 없음</string>
     <string name="changelog_version">버전</string>
-     <!-- Status bar greeting -->
+    <!-- Status bar greeting -->
     <string name="status_bar_greeting_category_title">상태바 환영 인사</string>
     <string name="status_bar_greeting_title">환영 인사</string>
     <string name="status_bar_greeting_summary">기기 잠금을 해제한 후 상태바에 설정된 환영 인사를 표시합니다</string>
@@ -102,6 +105,10 @@
     <string name="status_bar_logo_title">RR 로고 보이기</string>
     <string name="status_bar_logo_summary">상태바의 왼쪽에 RR 로고를 표시합니다</string>
     <string name="status_bar_logo_color">RR 로고 색</string>
+    <string name="status_bar_logo_position">RR 로고 위치</string>
+    <string name="status_bar_logo_position_summary">로고가 표시될 위치를 선택합니다</string>
+    <string name="status_bar_logo_position_right">오른쪽</string>
+    <string name="status_bar_logo_position_left">왼쪽</string>
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>시계와 날짜</b></string>
     <string name="status_bar_show_clock_second_title">초 시계</string>
@@ -212,7 +219,7 @@
     <string name="listview_translate_left">Translate (Left)</string>
     <string name="listview_translate_right">Translate (Right)</string>
     
-       <!-- About RR -->
+    <!-- About RR -->
     <string name="about_rr_settings_title"><b>Resurrection에 대해</b></string>
     <string name="about_rr"><b>Resurrection에 대해</b></string>
     <string name="about_rr_summary">@null</string>
@@ -620,6 +627,8 @@
     <string name="recents_clear_all_location_bottom_center">중앙 하단</string>
     <string name="recents_clear_all_dismiss_all_title">모든 작업 지우기</string>
     <string name="recents_clear_all_dismiss_all_summary">모든 작업을 종료하거나 포그라운드 작업은 무시합니다</string>
+    <string name="omniswitch_settings_title">OmniSwitch</string>
+
     <!-- Battery Bar -->
     <string name="battery_icon">배터리 아이콘 스타일</string>
     <string name="battery_not_title">알림 내 배터리 아이콘</string>
@@ -635,6 +644,10 @@
     <!-- Full screen keyboard -->
     <string name="fullscreen_keyboard_title">전체화면 키보드</string>
     <string name="fullscreen_keyboard_summary">가로모드일 때 키보드를 전체화면으로 표시합니다</string>
+
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">토스트 알림 아이콘</string>
+
     <!-- Volume Steps -->
     <string name="volume_steps_title">볼륨 단계</string>
     <string name="volume_steps_alarm_title">볼륨 단계: 알람</string>
@@ -1065,7 +1078,7 @@
     <string name="recent_panel_slim">Slim Recents 작업 패널</string>
     <string name="recent_panel_slim_summary">Slim Recents 작업 패널 설정</string>
     <string name="recent_panel_category">Slim Recents 앱 패널</string>
-    <string name="use_slim_recents_title">Slim Recents</string>
+    <string name="use_slim_recents_title"><b>Slim Recents</b></string>
     <string name="show_running_tasks_title">실행중인 앱만 표시</string>
     <string name="recents_max_apps_title">최대 허용 애플리케이션 개수</string>
     <string name="recent_panel_scale_title">크기</string>
@@ -1090,7 +1103,6 @@
 
     <!-- Updater -->
     <string name="updater_title">업데이트</string>
-    <string name="updater_summary">업데이트를 확인합니다</string>
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">화면 아무 곳에서 더블 탭으로 화면 끄기</string>
@@ -1108,7 +1120,7 @@
     <string name="selinux_enforcing_title">Enforcing</string>
 
     <!-- App sidebar -->
-    <string name="app_sidebar_title">앱 사이드바</string>
+    <string name="app_sidebar_title"><b>앱 사이드바</b></string>
     <string name="app_sidebar_enable_title">사이드바 활성화</string>
     <string name="app_sidebar_enable_summaryOn">사이드바가 활성화됨</string>
     <string name="app_sidebar_enable_summaryOff">사이드바가 비활성화됨</string>
@@ -1135,7 +1147,7 @@
     <string name="lock_screen_hide_carrier_summary">설정 변경 후 시스템UI가 재시작됩니다.</string>
 
     <!-- Status bar temperature -->
-    <string name="status_bar_temperature_title">온도 표시</string>
+    <string name="status_bar_temperature_title"><b>온도 표시</b></string>
     <string name="status_bar_temperature_hidden">숨기기</string>
     <string name="status_bar_temperature_show_scale">단위와 함께 표시</string>
     <string name="status_bar_temperature_hide_scale">단위 없이 표시</string>
@@ -1145,9 +1157,16 @@
     <string name="status_bar_temperature_location_left">왼쪽에 표시</string>
     <string name="status_bar_weather_color_title">글자 색</string>
     <string name="status_bar_weather_size_title">글자 크기</string>
+    <string name="status_bar_weather_font_style_title">폰트</string>
+    <string name="status_bar_weather_font_normal">보통</string>
+    <string name="status_bar_weather_font_bold">굵게</string>
+    <string name="status_bar_weather_font_bold_italic">굵은 이탤릭체</string>
+    <string name="status_bar_weather_font_condensed">좁게</string>
+    <string name="status_bar_weather_font_light">얇게</string>
+    <string name="status_bar_weather_font_light_italic">얇은 이탤릭체</string>
 
     <!-- SlimDim -->
-    <string name="dim_nav_buttons_category">SlimDim</string>
+    <string name="dim_nav_buttons_category"><b>SlimDim</b></string>
     <string name="dim_nav_buttons_title">활동이 없으면 버튼 색 어둡게 하기</string>
     <string name="dim_nav_buttons_summary">설정된 시간 이후 네비게이션 바를 사용하지 않으면 버튼의 색을 어둡게 합니다</string>
     <string name="dim_nav_buttons_timeout_title">어둡게 하기 전까지의 시간</string>
@@ -1170,16 +1189,25 @@
     <string name="three_finger_gesture">세 손가락 제스처</string>
     <string name="three_finger_gesture_summary">세 손가락을 스와이프하여 스크린샷 찍기</string>
 
-    <!--User preferences settings-->
-    <string name="personalization">개인 설정</string>
-    <string name="reset_user_preferences_title">설정 초기화</string>
-    <string name="reset_user_preferences_summary">사용자 설정 값을 초기값으로 되돌립니다</string>
-    <string name="reset_user_preferences_dialog">모든 설정을 초기화 하겠습니까?</string>
+    <!--Time Contexual Header -->
+    <string name="notification_title">알림 패널</string>
+    <string name="status_bar_custom_header_title">사용자 설정 헤더 이미지</string>
+    <string name="status_bar_custom_header_summary">알림 패널 헤더 이미지를 활성화 합니다</string>
 
-    <!--Shake To Clear Recents Settings -->
-    <string name="shake_clean_recent">최근 실행 목록 지우기</string>
-    <string name="shake_clean_recent_summary">기기를 흔들어서 최근 실행 목록을 지웁니다</string>
-    <string name="shake_clean_notification">알림 지우기</string>
-    <string name="shake_clean_notification_summary">기기를 흔들어서 알림을 지웁니다</string>
+    <!-- Chamber of Secrets -->
+    <string name="chamber_title">비밀의 방</string>
+    <string name="chamber_toast">비밀의 방이 열렸습니다</string>
+
+    <!-- Lockscreen Colors -->
+    <string name="lockscreen_colors"><b>잠금화면 색 조정</b></string>
+    <string name="lockscreen_phone_icon_color">잠금화면 좌측 하단 바로가기</string>
+    <string name="lockscreen_lock_icon_color">잠금화면 잠금 아이콘</string>
+    <string name="lockscreen_camera_icon_color">잠금화면 우측 하단 바로가기</string>
+    <string name="lockscreen_indication_text_color">잠금화면 글자</string>
+    <string name="lockscreen_clock_color">잠금화면 시계</string>
+    <string name="lockscreen_clock_date_color">잠금화면 날짜</string>
+    <string name="lockscreen_colors_reset_title">잠금화면 색 초기화</string>
+    <string name="lockscreen_colors_reset_message">모든 색을 원래대로 되돌리겠습니까?</string>
+    <string name="yes">네</string>
 
 </resources>
