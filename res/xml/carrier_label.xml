@@ -13,6 +13,7 @@
 
 <PreferenceScreen
     android:title="@string/carrier_options"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <SwitchPreference
@@ -25,6 +26,15 @@
         android:key="custom_carrier_label"
         android:title="@string/custom_carrier_label_title"
         android:dependency="status_bar_carrier" />
+
+    <com.android.settings.widget.SeekBarPreferenceCham
+        android:key="status_bar_carrier_font_size"
+        android:title="@string/status_bar_carrier_size"
+        android:defaultValue="14"
+        android:max="23"
+        settings:min="4"
+        settings:unitsLeft=""
+        settings:unitsRight="dp" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="status_bar_carrier_color"
