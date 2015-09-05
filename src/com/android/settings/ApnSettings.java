@@ -77,8 +77,9 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private static final int NAME_INDEX = 1;
     private static final int APN_INDEX = 2;
     private static final int TYPES_INDEX = 3;
-    private static final int MVNOTYPE_INDEX = 4;
-    private static final int MVNODATA_INDEX = 5;
+    private static final int RO_INDEX = 4;
+    private static final int MVNOTYPE_INDEX = 5;
+    private static final int MVNODATA_INDEX = 6;
 
     private static final int MENU_NEW = Menu.FIRST;
     private static final int MENU_RESTORE = Menu.FIRST + 1;
@@ -219,10 +220,20 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private void fillList() {
         boolean isSelectedKeyMatch = false;
         String where = getOperatorNumericSelection();
+        String[] projection = {
+                "_id", "name",
+                "apn", "type",
+                "read_only",
+                "mvno_type",
+                "mvno_match_data"
+        };
         Cursor cursor = getContentResolver().query(getUri(Telephony.Carriers.CONTENT_URI),
-                new String[] {"_id", "name", "apn", "type", "mvno_type", "mvno_match_data" }, where, null,
-                Telephony.Carriers.DEFAULT_SORT_ORDER);
-        String simOperatorName = TelephonyManager.getDefault().getSimOperatorNameForSubscription(mSubId);
+                projection, where, null, Telephony.Carriers.DEFAULT_SORT_ORDER);
+
+        final TelephonyManager tm = TelephonyManager.getDefault();
+        String simOperatorName = tm.getSimOperatorNameForSubscription(mSubId);
+        String imsiSIM = tm.getSubscriberId(mSubId);
+        String gid1 = tm.getGroupIdLevel1(mSubId);
 
         if (cursor != null) {
             PreferenceGroup apnList = (PreferenceGroup) findPreference("apn_list");
@@ -230,38 +241,39 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
             ArrayList<Preference> mmsApnList = new ArrayList<Preference>();
 
+            ArrayList<ApnInfo> mvnoSpnList = new ArrayList<ApnInfo>();
+            ArrayList<ApnInfo> mvnoGid1List = new ArrayList<ApnInfo>();
+            ArrayList<ApnInfo> mvnoImsiList = new ArrayList<ApnInfo>();
+
             mSelectedKey = getSelectedApnKey();
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
+            while (cursor.moveToNext()) {
                 String name = cursor.getString(NAME_INDEX);
                 String apn = cursor.getString(APN_INDEX);
                 String key = cursor.getString(ID_INDEX);
                 String type = cursor.getString(TYPES_INDEX);
+                boolean readOnly = (cursor.getInt(RO_INDEX) == 1);
                 String mvnoType = cursor.getString(MVNOTYPE_INDEX);
                 String mvnoData = cursor.getString(MVNODATA_INDEX);
                 boolean isMvno = !TextUtils.isEmpty(mvnoType) && !TextUtils.isEmpty(mvnoData);
 
-                // Incomplete set of skip rules for MVNOs. We still need
-                // something for IMSI and GID mismatches, but those rules
-                // are a bit more complex. Still... spn-type is 93% of what
-                // we support...
-                if (isMvno &&
-                  (mvnoType.equalsIgnoreCase("spn") && !mvnoData.equalsIgnoreCase(simOperatorName))) {
-                    cursor.moveToNext();
+                if (isMvno) {
+                    if (!mvnoMatches(mvnoType, mvnoData, simOperatorName, imsiSIM, gid1)) {
+                    } else {
+                        ApnInfo apnInfo = new ApnInfo(name, apn, key, type, mvnoType, readOnly);
+                        if ("sbn".equals(mvnoType)) {
+                            mvnoSpnList.add(apnInfo);
+                        } else if ("gid".equals(mvnoType)) {
+                            mvnoGid1List.add(apnInfo);
+                        } else if ("imsi".equals(mvnoType)) {
+                            mvnoImsiList.add(apnInfo);
+                        }
+                    }
                     continue;
                 }
 
-                ApnPreference pref = new ApnPreference(getActivity());
+                ApnPreference pref = createApnPreference(name, key, apn, type, readOnly);
 
-                pref.setKey(key);
-                pref.setTitle(name);
-                pref.setSummary(apn);
-                pref.setPersistent(false);
-                pref.setOnPreferenceChangeListener(this);
-
-                boolean selectable = ((type == null) || !type.equals("mms"));
-                pref.setSelectable(selectable);
-                if (selectable) {
+                if (pref.getSelectable()) {
                     if ((mSelectedKey != null) && mSelectedKey.equals(key)) {
                         pref.setChecked();
                         isSelectedKeyMatch = true;
@@ -271,7 +283,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 } else {
                     mmsApnList.add(pref);
                 }
-                cursor.moveToNext();
             }
             //if find no selectedKey, set the first one as selected key
             if (!isSelectedKeyMatch && apnList.getPreferenceCount() > 0) {
@@ -282,10 +293,93 @@ public class ApnSettings extends SettingsPreferenceFragment implements
             }
             cursor.close();
 
+            ArrayList<ApnInfo> mvnoList = null;
+            if (mvnoImsiList.size() > 0) {
+                mvnoList = mvnoImsiList;
+            } else if (mvnoGid1List.size() > 0) {
+                mvnoList = mvnoGid1List;
+            } else if (mvnoSpnList.size() > 0) {
+                mvnoList = mvnoSpnList;
+            }
+            if (mvnoList != null) {
+                for (ApnInfo apnInfo : mvnoList) {
+                    ApnPreference pref = createApnPreference(apnInfo.name, apnInfo.key, apnInfo.apn,
+                            apnInfo.type, apnInfo.readOnly);
+                    if (apnInfo.selectable) {
+                        if ((mSelectedKey != null) && mSelectedKey.equals(apnInfo.key)) {
+                            pref.setChecked();
+                            Log.d(TAG, "find select key = " + mSelectedKey);
+                        }
+                        apnList.addPreference(pref);
+                    } else {
+                        mmsApnList.add(pref);
+                    }
+                }
+            }
+
             for (Preference preference : mmsApnList) {
                 apnList.addPreference(preference);
             }
         }
+    }
+
+    private ApnPreference createApnPreference(String name, String key,
+            String apn, String type, boolean readOnly) {
+        ApnPreference pref = new ApnPreference(getActivity());
+
+        pref.setApnReadOnly(readOnly);
+        pref.setKey(key);
+        pref.setTitle(name);
+        pref.setSummary(apn);
+        pref.setPersistent(false);
+        pref.setOnPreferenceChangeListener(this);
+
+        pref.setSelectable(((type == null) || !type.equals("mms")));
+        return pref;
+    }
+
+    private static boolean imsiMatches(String imsiDB, String imsiSIM) {
+        // Note: imsiDB value has digit number or 'x' character for seperating USIM information
+        // for MVNO operator. And then digit number is matched at same order and 'x' character
+        // could replace by any digit number.
+        // ex) if imsiDB inserted '310260x10xxxxxx' for GG Operator,
+        //     that means first 6 digits, 8th and 9th digit
+        //     should be set in USIM for GG Operator.
+        int len = imsiDB.length();
+
+        if (len <= 0) return false;
+        if (len > imsiSIM.length()) return false;
+
+        for (int idx=0; idx<len; idx++) {
+            char c = imsiDB.charAt(idx);
+            if ((c == 'x') || (c == 'X') || (c == imsiSIM.charAt(idx))) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean mvnoMatches(String mvnoType, String mvnoMatchData,
+            String serviceProviderName, String imsiSIM, String gid1) {
+        if (mvnoType.equalsIgnoreCase("spn")) {
+            if ((serviceProviderName != null) &&
+                    serviceProviderName.equalsIgnoreCase(mvnoMatchData)) {
+                return true;
+            }
+        } else if (mvnoType.equalsIgnoreCase("imsi")) {
+            if ((imsiSIM != null) && imsiMatches(mvnoMatchData, imsiSIM)) {
+                return true;
+            }
+        } else if (mvnoType.equalsIgnoreCase("gid")) {
+            int mvno_match_data_length = mvnoMatchData.length();
+            if ((gid1 != null) && (gid1.length() >= mvno_match_data_length) &&
+                    gid1.substring(0, mvno_match_data_length).equalsIgnoreCase(mvnoMatchData)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -428,6 +522,26 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                         .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;
             }
+        }
+    }
+
+    private class ApnInfo {
+        String name;
+        String apn;
+        String key;
+        String type;
+        String mvnoType;
+        boolean readOnly;
+        boolean selectable;
+
+        public ApnInfo(String name, String apn, String key, String type, String mvnoType,
+                boolean readOnly) {
+            this.name = name;
+            this.apn = apn;
+            this.key = key;
+            this.mvnoType = mvnoType;
+            this.readOnly = readOnly;
+            this.selectable = ((type == null) || !type.equals("mms"));
         }
     }
 
