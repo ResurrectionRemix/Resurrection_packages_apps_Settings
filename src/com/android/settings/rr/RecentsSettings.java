@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -36,7 +37,6 @@ import android.preference.SwitchPreference;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.util.Helpers;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.Display;
@@ -44,6 +44,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.android.settings.R;
+import com.android.settings.util.Helpers;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
@@ -58,7 +59,13 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
 
+    private static final String KEY_OMNISWITCH = "omniswitch";
+    public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
+
+
     private Context mContext;
+
+    private Preference mOmniSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +74,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
+	PackageManager pm = getPackageManager();
 
         mContext = getActivity();
 
@@ -82,7 +90,11 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
         updateRecentsLocation(location);
 
-
+        mOmniSwitch = (Preference)
+                prefSet.findPreference(KEY_OMNISWITCH);
+        if (!Helpers.isPackageInstalled(OMNISWITCH_PACKAGE_NAME, pm)) {
+            prefSet.removePreference(mOmniSwitch);
+        }
     }
 
     @Override
@@ -103,9 +115,9 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             updateRecentsLocation(location);
-            return true;
-         }
-        return false;
+		return true;
+	}
+	return false;
      }
 
     private void updateRecentsLocation(int value) {
