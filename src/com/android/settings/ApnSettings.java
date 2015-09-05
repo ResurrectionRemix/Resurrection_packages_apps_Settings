@@ -77,8 +77,9 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private static final int NAME_INDEX = 1;
     private static final int APN_INDEX = 2;
     private static final int TYPES_INDEX = 3;
-    private static final int MVNOTYPE_INDEX = 4;
-    private static final int MVNODATA_INDEX = 5;
+    private static final int RO_INDEX = 4;
+    private static final int MVNOTYPE_INDEX = 5;
+    private static final int MVNODATA_INDEX = 6;
 
     private static final int MENU_NEW = Menu.FIRST;
     private static final int MENU_RESTORE = Menu.FIRST + 1;
@@ -250,6 +251,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 String apn = cursor.getString(APN_INDEX);
                 String key = cursor.getString(ID_INDEX);
                 String type = cursor.getString(TYPES_INDEX);
+                boolean readOnly = (cursor.getInt(RO_INDEX) == 1);
                 String mvnoType = cursor.getString(MVNOTYPE_INDEX);
                 String mvnoData = cursor.getString(MVNODATA_INDEX);
                 boolean isMvno = !TextUtils.isEmpty(mvnoType) && !TextUtils.isEmpty(mvnoData);
