@@ -40,7 +40,8 @@ public class SpamList extends ListFragment {
 
     private static final int MENU_NOTIFICATIONS = Menu.FIRST;
     private static final Uri PACKAGES_URI;
-    private static final Uri PACKAGES_NOTIFICATION_URI;
+    private static final Uri MESSAGES_URI;
+
     static {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme(ContentResolver.SCHEME_CONTENT);
@@ -48,8 +49,9 @@ public class SpamList extends ListFragment {
         builder.encodedPath("packages");
         PACKAGES_URI = builder.build();
 
-        builder.encodedPath("message").build();
-        PACKAGES_NOTIFICATION_URI = builder.build();
+        MESSAGES_URI = builder
+                .encodedPath("messages")
+                .build();
     }
 
     private SpamAdapter mAdapter;
@@ -142,7 +144,7 @@ public class SpamList extends ListFragment {
     }
 
     private static class ItemInfo {
-        int id;
+        String id;
     }
 
     private static final class PackageInfo extends ItemInfo {
@@ -160,8 +162,10 @@ public class SpamList extends ListFragment {
     private class FetchFilters extends AsyncTask<Void, Void, List<ItemInfo>> {
 
         private void addNotificationsForPackage(PackageInfo pInfo, List<ItemInfo> items) {
-            Uri notificationUri = Uri.withAppendedPath(PACKAGES_NOTIFICATION_URI, String.valueOf(pInfo.id));
-            Cursor c = getActivity().getContentResolver().query(notificationUri, null, null, null, null);
+            String selection = SpamContract.NotificationTable.PACKAGE_ID + "=?";
+            String[] selectionArgs = new String[] {pInfo.id};
+            Cursor c = getActivity().getContentResolver().query(MESSAGES_URI, null, selection,
+                    selectionArgs, null);
             if (c != null) {
                 int notificationIdIndex = c.getColumnIndex(SpamContract.NotificationTable.ID);
                 int notificationMessageIndex = c.getColumnIndex(SpamContract.NotificationTable.MESSAGE_TEXT);
@@ -170,7 +174,7 @@ public class SpamList extends ListFragment {
                 while (c.moveToNext()) {
                     NotificationInfo nInfo = new NotificationInfo();
                     nInfo.messageText = c.getString(notificationMessageIndex);
-                    nInfo.id = c.getInt(notificationIdIndex);
+                    nInfo.id = c.getString(notificationIdIndex);
                     nInfo.date = c.getLong(notificationBlockedIndex);
                     nInfo.count = c.getInt(notificationCountIndex);
                     nInfo.appLabel = pInfo.applicationLabel;
@@ -192,7 +196,7 @@ public class SpamList extends ListFragment {
                     PackageInfo pInfo = new PackageInfo();
                     pInfo.packageName = c.getString(packageNameIndex);
                     getAppInfo(pInfo);
-                    pInfo.id = c.getInt(packageIdIndex);
+                    pInfo.id = c.getString(packageIdIndex);
                     items.add(pInfo);
                     addNotificationsForPackage(pInfo, items);
                 }
@@ -258,9 +262,12 @@ public class SpamList extends ListFragment {
 
         public void removeItem(int position) {
             ItemInfo item = mItems.get(position);
-            Uri uri = Uri.withAppendedPath(PACKAGES_NOTIFICATION_URI,
-                    String.valueOf(((NotificationInfo) item).id));
-            getActivity().getContentResolver().delete(uri, null, null);
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme(ContentResolver.SCHEME_CONTENT);
+            builder.authority(SpamFilter.AUTHORITY);
+            builder.encodedPath(SpamFilter.MESSAGE_PATH);
+            builder.appendEncodedPath(((NotificationInfo) item).id);
+            getActivity().getContentResolver().delete(builder.build(), null, null);
             notifyDataSetChanged();
         }
 
