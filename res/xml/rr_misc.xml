@@ -31,6 +31,12 @@
             android:key="selinux"
             android:title="@string/selinux_title"
             android:defaultValue="false" />
+    <!-- SlimSizer -->
+        <PreferenceScreen 
+            android:key="system_app_remover"
+            android:title="@string/system_app_remover"
+            android:summary="@string/systemappremover_summary"
+            android:fragment="com.android.settings.rr.SystemappRemover" />
      <PreferenceCategory
         android:key="widgets"
         android:title="@string/widgets_category" >
