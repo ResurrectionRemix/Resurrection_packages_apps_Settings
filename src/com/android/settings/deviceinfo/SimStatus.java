@@ -289,6 +289,7 @@ public class SimStatus extends InstrumentedPreferenceActivity {
 
     private void updateServiceState(ServiceState serviceState) {
         final int state = serviceState.getState();
+        final int dataState = mPhone.getServiceState().getDataRegState();
         String display = mRes.getString(R.string.radioInfo_unknown);
 
         switch (state) {
@@ -297,7 +298,9 @@ public class SimStatus extends InstrumentedPreferenceActivity {
                 break;
             case ServiceState.STATE_OUT_OF_SERVICE:
                 // Set signal strength to 0 when service state is STATE_OUT_OF_SERVICE
-                mSignalStrength.setSummary("0");
+                if (ServiceState.STATE_OUT_OF_SERVICE == dataState) {
+                    mSignalStrength.setSummary("0");
+                }
             case ServiceState.STATE_EMERGENCY_ONLY:
                 // Set summary string of service state to radioInfo_service_out when
                 // service state is both STATE_OUT_OF_SERVICE & STATE_EMERGENCY_ONLY
@@ -329,9 +332,11 @@ public class SimStatus extends InstrumentedPreferenceActivity {
     void updateSignalStrength(SignalStrength signalStrength) {
         if (mSignalStrength != null) {
             final int state = mPhone.getServiceState().getState();
+            final int dataState = mPhone.getServiceState().getDataRegState();
             Resources r = getResources();
 
-            if ((ServiceState.STATE_OUT_OF_SERVICE == state) ||
+            if (((ServiceState.STATE_OUT_OF_SERVICE == state) &&
+                    (ServiceState.STATE_OUT_OF_SERVICE == dataState)) ||
                     (ServiceState.STATE_POWER_OFF == state)) {
                 mSignalStrength.setSummary("0");
                 return;
