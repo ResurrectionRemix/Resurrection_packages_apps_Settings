@@ -232,7 +232,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_themes";
                 stringId = R.string.qs_tile_themes;
                 break;
-
+            case QSConstants.TILE_CONFIGURATIONS:
+                resourceName = "ic_qs_rrtools";
+                stringId = R.string.qs_tile_rrtools;
+                break;
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:
                 resourceName = "ic_dynamic_qs_next_alarm";
