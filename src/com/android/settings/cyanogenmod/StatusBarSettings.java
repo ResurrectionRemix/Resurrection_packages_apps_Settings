@@ -73,7 +73,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
     private static final String PREF_COLOR_PICKER = "clock_color";
     private static final String PREF_FONT_STYLE = "font_style";
-    private static final String PREF_FONT_SIZE  = "font_size";
+    private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "status_bar_clock_font_size";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
@@ -96,7 +96,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarDateFormat;
     private ColorPickerPreference mColorPicker;
     private ListPreference mFontStyle;
-    private ListPreference mFontSize;
+    private ListPreference mStatusBarClockFontSize;
+
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
 
@@ -204,12 +205,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 0)));
         mFontStyle.setSummary(mFontStyle.getEntry());
 
-        mFontSize = (ListPreference) findPreference(PREF_FONT_SIZE);
-        mFontSize.setOnPreferenceChangeListener(this);
-        mFontSize.setValue(Integer.toString(Settings.System.getInt(getActivity()
+        mStatusBarClockFontSize = (ListPreference) findPreference(PREF_STATUS_BAR_CLOCK_FONT_SIZE);
+        mStatusBarClockFontSize.setOnPreferenceChangeListener(this);
+        mStatusBarClockFontSize.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 
                 14)));
-        mFontSize.setSummary(mFontSize.getEntry());
+        mStatusBarClockFontSize.setSummary(mStatusBarClockFontSize.getEntry());
 
         setHasOptionsMenu(true);
         mCheckPreferences = true;
@@ -345,12 +346,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     Settings.System.STATUSBAR_CLOCK_FONT_STYLE, val);
             mFontStyle.setSummary(mFontStyle.getEntries()[index]);
             return true;
-        } else if (preference == mFontSize) {
+        } else if (preference == mStatusBarClockFontSize) {
             int val = Integer.parseInt((String) newValue);
-            int index = mFontSize.findIndexOfValue((String) newValue);
+            int index = mStatusBarClockFontSize.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_FONT_SIZE, val);
-            mFontSize.setSummary(mFontSize.getEntries()[index]);
+            mStatusBarClockFontSize.setSummary(mStatusBarClockFontSize.getEntries()[index]);
             return true;
         }
         return false;
