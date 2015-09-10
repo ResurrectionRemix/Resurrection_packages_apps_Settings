@@ -35,8 +35,10 @@ import android.net.wifi.WifiEnterpriseConfig.Eap;
 import android.net.wifi.WifiEnterpriseConfig.Phase2;
 import android.net.wifi.WifiInfo;
 import android.os.Handler;
+import android.provider.Settings;
 import android.security.Credentials;
 import android.security.KeyStore;
+import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -54,11 +56,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import com.android.settings.ProxySelector;
 import com.android.settings.R;
 import com.android.settingslib.wifi.AccessPoint;
 import com.android.settings.Utils;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.net.InetAddress;
 import java.net.Inet4Address;
 import java.util.Iterator;
@@ -116,6 +123,8 @@ public class WifiConfigController implements TextWatcher,
     private Spinner mEapMethodSpinner;
     private Spinner mEapCaCertSpinner;
     private Spinner mPhase2Spinner;
+    private Spinner mSimCardSpinner;
+    private ArrayList<String> mSimDisplayNames;
     // Associated with mPhase2Spinner, one of PHASE2_FULL_ADAPTER or PHASE2_PEAP_ADAPTER
     private ArrayAdapter<String> mPhase2Adapter;
     private Spinner mEapUserCertSpinner;
@@ -146,6 +155,11 @@ public class WifiConfigController implements TextWatcher,
     private TextView mSsidView;
 
     private Context mContext;
+    private TelephonyManager mTelephonyManager;
+    private SubscriptionManager mSubscriptionManager = null;
+    private String selectedSimCardName;
+    private int selectedSimCardNumber;
+
 
     public WifiConfigController(
             WifiConfigUiBase parent, View view, AccessPoint accessPoint, boolean edit,
@@ -163,6 +177,8 @@ public class WifiConfigController implements TextWatcher,
         mContext = mConfigUi.getContext();
         final Resources res = mContext.getResources();
 
+        mTelephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        mSimDisplayNames = new ArrayList<String>();
         mLevels = res.getStringArray(R.array.wifi_signal);
         PHASE2_PEAP_ADAPTER = new ArrayAdapter<String>(
             mContext, android.R.layout.simple_spinner_item,
@@ -447,6 +463,14 @@ public class WifiConfigController implements TextWatcher,
                                 break;
                         }
                         break;
+                    case Eap.SIM:
+                    case Eap.AKA:
+                    case Eap.AKA_PRIME:
+                        selectedSimCardName = (String)mSimCardSpinner.getSelectedItem();
+                        selectedSimCardNumber = mSimDisplayNames.
+                              indexOf(selectedSimCardName) + 1;
+                        config.SIMNum = selectedSimCardNumber;
+                        break;
                     default:
                         // The default index from PHASE2_FULL_ADAPTER maps to the API
                         config.enterpriseConfig.setPhase2Method(phase2Method);
@@ -634,6 +658,7 @@ public class WifiConfigController implements TextWatcher,
         mView.findViewById(R.id.eap).setVisibility(View.VISIBLE);
 
         if (mEapMethodSpinner == null) {
+            getSIMInfo();
             mEapMethodSpinner = (Spinner) mView.findViewById(R.id.method);
             mEapMethodSpinner.setOnItemSelectedListener(this);
             if (Utils.isWifiOnly(mContext) || !mContext.getResources().getBoolean(
@@ -649,6 +674,7 @@ public class WifiConfigController implements TextWatcher,
             mPhase2Spinner = (Spinner) mView.findViewById(R.id.phase2);
             mEapCaCertSpinner = (Spinner) mView.findViewById(R.id.ca_cert);
             mEapUserCertSpinner = (Spinner) mView.findViewById(R.id.user_cert);
+            mSimCardSpinner = (Spinner) mView.findViewById(R.id.sim_card);
             mEapIdentityView = (TextView) mView.findViewById(R.id.identity);
             mEapAnonymousView = (TextView) mView.findViewById(R.id.anonymous);
 
@@ -678,6 +704,12 @@ public class WifiConfigController implements TextWatcher,
                                 Log.e(TAG, "Invalid phase 2 method " + phase2Method);
                                 break;
                         }
+                        break;
+                    case Eap.SIM:
+                    case Eap.AKA:
+                    case Eap.AKA_PRIME:
+                        WifiConfiguration config =  mAccessPoint.getConfig();
+                        mSimCardSpinner.setSelection(config.SIMNum-1);
                         break;
                     default:
                         mPhase2Spinner.setSelection(phase2Method);
@@ -734,12 +766,14 @@ public class WifiConfigController implements TextWatcher,
                 setCaCertInvisible();
                 setAnonymousIdentInvisible();
                 setUserCertInvisible();
+                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_TLS:
                 mView.findViewById(R.id.l_user_cert).setVisibility(View.VISIBLE);
                 setPhase2Invisible();
                 setAnonymousIdentInvisible();
                 setPasswordInvisible();
+                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_PEAP:
                 // Reset adapter if needed
@@ -750,6 +784,7 @@ public class WifiConfigController implements TextWatcher,
                 mView.findViewById(R.id.l_phase2).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.l_anonymous).setVisibility(View.VISIBLE);
                 setUserCertInvisible();
+                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_TTLS:
                 // Reset adapter if needed
@@ -760,10 +795,23 @@ public class WifiConfigController implements TextWatcher,
                 mView.findViewById(R.id.l_phase2).setVisibility(View.VISIBLE);
                 mView.findViewById(R.id.l_anonymous).setVisibility(View.VISIBLE);
                 setUserCertInvisible();
+                setSimCardInvisible();
                 break;
             case WIFI_EAP_METHOD_SIM:
             case WIFI_EAP_METHOD_AKA:
             case WIFI_EAP_METHOD_AKA_PRIME:
+                WifiConfiguration config = mAccessPoint.getConfig();
+                ArrayAdapter<String> eapSimAdapter = new ArrayAdapter<String>(
+                         mContext, android.R.layout.simple_spinner_item,
+                         mSimDisplayNames.toArray(new String[mSimDisplayNames.size()])
+                );
+                eapSimAdapter.setDropDownViewResource(
+                              android.R.layout.simple_spinner_dropdown_item);
+                mSimCardSpinner.setAdapter(eapSimAdapter);
+                mView.findViewById(R.id.l_sim_card).setVisibility(View.VISIBLE);
+                if(config != null){
+                    mSimCardSpinner.setSelection(config.SIMNum-1);
+                }
                 setPhase2Invisible();
                 setAnonymousIdentInvisible();
                 setCaCertInvisible();
@@ -772,6 +820,10 @@ public class WifiConfigController implements TextWatcher,
                 setIdentityInvisible();
                 break;
         }
+    }
+
+    private void setSimCardInvisible() {
+        mView.findViewById(R.id.l_sim_card).setVisibility(View.GONE);
     }
 
     private void setIdentityInvisible() {
@@ -1024,5 +1076,21 @@ public class WifiConfigController implements TextWatcher,
                 (((CheckBox) mView.findViewById(R.id.show_password)).isChecked() ?
                 InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD :
                 InputType.TYPE_TEXT_VARIATION_PASSWORD));
+    }
+
+    private void getSIMInfo() {
+        int numOfSims;
+        String displayname;
+        mSubscriptionManager = SubscriptionManager.from(mContext);
+        for(int i = 0; i < mTelephonyManager.getSimCount(); i++) {
+            final SubscriptionInfo sir = mSubscriptionManager.
+                  getActiveSubscriptionInfoForSimSlotIndex(i);
+            if (sir != null) {
+                displayname = String.valueOf(sir.getDisplayName());
+            } else {
+                displayname = mContext.getString(R.string.sim_editor_title, i + 1);
+            }
+             mSimDisplayNames.add(displayname);
+        }
     }
 }
