@@ -226,7 +226,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         boolean isSelectedKeyMatch = false;
         final TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final String mccmnc = mSubscriptionInfo == null ? ""
-            : tm.getSimOperator(mSubscriptionInfo.getSubscriptionId());
+            : tm.getIccOperatorNumericForData(mSubscriptionInfo.getSubscriptionId());
         Log.d(TAG, "mccmnc = " + mccmnc);
         final String where = "numeric=\""
             + mccmnc
