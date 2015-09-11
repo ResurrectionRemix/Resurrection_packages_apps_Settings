@@ -343,6 +343,8 @@
   <string name="notification_light_default_value">За замовчуванням</string>
   <string name="notification_light_missed_call_title">Пропущений виклик</string>
   <string name="notification_light_voicemail_title">Голосова пошта</string>
+  <string name="notification_light_screen_on">Індикатор при увімкн. екрані</string>
+  <string name="keywords_lights_brightness_level">Зменшити яскравість світлодіодів</string>
   <string name="notification_ringtone_title_cm">Звук сповіщення</string>
   <string name="headset_connect_player_title">Запуск програвача</string>
   <string name="headset_connect_player_summary">Запускати програвач при під’єднанні навушників</string>
@@ -702,6 +704,7 @@
   <string name="status_bar_show_weather_summary">Показувати погоду вище панелі Швидких Налаштувань</string>
   <string name="qs_category_title">Панель Швидких Налаштувань</string>
   <string name="qs_brightness_slider_title">Показати повзунок яскравості</string>
+  <string name="qs_hide_tiles_with_sensitive_data">Приховати особливі плитки, коли заблоковано екран</string>
   <string name="qs_order_title">Обрати та впорядкувати плитки</string>
   <string name="add_qs">Додати нову плитку</string>
   <string name="qs_action_delete">Видалити</string>
@@ -724,6 +727,7 @@
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Екран блокування</string>
   <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_volume_panel">Панель гучності</string>
   <string name="qs_tile_screen_timeout">Тайм-аут екрана</string>
   <string name="qs_tile_usb_tether">USB-модем</string>
   <string name="qs_tile_heads_up">Спливаючі сповіщення</string>
@@ -833,6 +837,17 @@
   <string name="live_display_low_power_summary">Налаштування екрану для найнижчого енергоспоживання без псування зображення</string>
   <string name="live_display_enhance_color_title">Покращити кольори</string>
   <string name="live_display_enhance_color_summary">Поліпшити кольорову насиченість зображень</string>
+  <string name="live_display_color_profile_title">Профіль кольорів</string>
+  <string name="live_display_color_profile_standard_title">Стандартний</string>
+  <string name="live_display_color_profile_standard_summary">Точна передача кольору та яскравий білий</string>
+  <string name="live_display_color_profile_natural_title">Природний</string>
+  <string name="live_display_color_profile_natural_summary">Природні кольори та відтінки шкіри</string>
+  <string name="live_display_color_profile_dynamic_title">Динамічний</string>
+  <string name="live_display_color_profile_dynamic_summary">Підвищена контрастність та яскравість зображення</string>
+  <string name="live_display_color_profile_cinema_title">Кіно</string>
+  <string name="live_display_color_profile_cinema_summary">Ідеальна передача кольору для перегляду фільмів</string>
+  <string name="live_display_color_profile_astronomy_title">Астрономія</string>
+  <string name="live_display_color_profile_astronomy_summary">Глибокий червоний для збереження видимості вночі</string>
   <string name="battery_saver_threshold">Поріг збереження енергії</string>
   <string name="battery_saver_summary">Зниження продуктивності і обмеження передачі даних</string>
   <string name="battery_saver_summary_unavailable">Недоступно під час зарядки</string>
@@ -874,7 +889,7 @@
   <string name="factory_reset_erase_sd_card">Форматування картки SD</string>
   <string name="factory_reset_erase_sd_card_summary">Видалити всі дані на SD-карті, у тому числі музику і фотографії</string>
   <string name="factory_reset_warning_text_reset_now">СКИНУТИ ЗАРАЗ</string>
-  <string name="factory_reset_warning_text_message">Всі ваші облікові записи, програми та їх дані, налаштування системи буде видалено з пристрою. Це не може бути скасовано.</string>
+  <string name="factory_reset_warning_text_message">Всі ваші облікові записи, додатки, дані програми і налаштування системи будуть видалені з цього пристрою. Це не можливо буде скасувати.</string>
   <string name="wifi_setting_countrycode_title">Код регіону Wi-Fi</string>
   <string name="wifi_setting_countrycode_summary">Вкажіть код регіону для Wi-Fi</string>
   <string name="wifi_setting_countrycode_error">Під час налаштування коду регіону Wi-Fi виникла помилка.</string>
@@ -946,4 +961,22 @@
   <string name="lto_download_data_wifi_only">Завантажувати допоміжні дані GPS</string>
   <string name="lto_download_data_wifi_only_on">Через будь-яку мережу</string>
   <string name="lto_download_data_wifi_only_off">Тільки через Wi\u2011Fi</string>
+  <string name="keep_screen_on_never">Ніколи</string>
+  <string name="keep_screen_on_debugging">Під час налагодження USB</string>
+  <string name="keep_screen_on_charging">Під час зарядки</string>
+  <string name="contributors_cloud_fragment_title">Розробники</string>
+  <string name="contributors_cloud_loading_message">Завантаження даних\u2026</string>
+  <string name="contributors_cloud_failed_message">Не вдалося завантажити дані розробників</string>
+  <string name="contributor_info_menu">Інформація про розробників</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>Ім\'я:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>Псевдонім:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>Коммітів:</b> <xliff:g id="commits">%3$s</xliff:g><br/><br/>
+                 <b>Рейтинг:</b> <xliff:g id="rank">%4$s</xliff:g>]]></string>
+  <string name="contributions_info_menu">Загальна статистика</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>Всього учасників проекту:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>Всього коммітів:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>Останнє оновлення:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+  <string name="quick_settings_reset_message">Скинути налаштування плиток?</string>
 </resources>
