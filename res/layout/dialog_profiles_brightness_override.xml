@@ -17,6 +17,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:paddingStart="20dip"
+              android:paddingEnd="20dip"
               android:gravity="center_horizontal">
 
     <CheckBox
@@ -24,11 +26,12 @@
             android:text="@string/profile_brightness_override_checkbox_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dip" />
+            android:layout_marginTop="20dip" />
 
     <SeekBar android:id="@+id/seekbar"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:padding="20dip" />
+             android:layout_marginTop="20dip"
+             android:layout_marginBottom="20dip" />
 
 </LinearLayout>
