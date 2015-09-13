@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_clock_title">
 
        <SwitchPreference
@@ -29,6 +30,15 @@
             android:defaultValue="false"
             android:dependency="status_bar_show_clock" />
 
+        <com.android.settings.widget.SeekBarPreferenceCham
+            android:key="font_size_clock"
+            android:title="@string/clock_font_size_title"
+            android:defaultValue="14"
+            android:max="23"
+            settings:min="4"
+            settings:unitsLeft=""
+            settings:unitsRight="dp"
+            android:dependency="status_bar_show_clock" />
             
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="clock_color"
