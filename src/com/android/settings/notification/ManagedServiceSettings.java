@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -82,27 +83,30 @@ public abstract class ManagedServiceSettings extends ListFragment {
         }
     };
 
-    public class ScaryWarningDialogFragment extends DialogFragment {
+    public static class ScaryWarningDialogFragment extends DialogFragment {
         static final String KEY_COMPONENT = "c";
         static final String KEY_LABEL = "l";
+        static final String KEY_SUMMARY = "s";
 
-        public ScaryWarningDialogFragment setServiceInfo(ComponentName cn, String label) {
+        public static ScaryWarningDialogFragment newInstance(ManagedServiceSettings caller,
+                                                             ComponentName cn, String label, String summary) {
+            ScaryWarningDialogFragment fragment = new ScaryWarningDialogFragment();
             Bundle args = new Bundle();
             args.putString(KEY_COMPONENT, cn.flattenToString());
             args.putString(KEY_LABEL, label);
-            setArguments(args);
-            return this;
+            args.putString(KEY_SUMMARY, summary);
+            fragment.setArguments(args);
+            fragment.setTargetFragment(caller, 0);
+            return fragment;
         }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             final Bundle args = getArguments();
-            final String label = args.getString(KEY_LABEL);
-            final ComponentName cn = ComponentName.unflattenFromString(args.getString(KEY_COMPONENT));
 
-            final String title = getResources().getString(mConfig.warningDialogTitle, label);
-            final String summary = getResources().getString(mConfig.warningDialogSummary, label);
+            final String title = args.getString(KEY_LABEL);
+            final String summary = args.getString(KEY_SUMMARY);
             return new AlertDialog.Builder(getActivity())
                     .setMessage(summary)
                     .setTitle(title)
@@ -110,8 +114,9 @@ public abstract class ManagedServiceSettings extends ListFragment {
                     .setPositiveButton(android.R.string.ok,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    mEnabledServices.add(cn);
-                                    saveEnabledServices();
+                                    final ComponentName cn = ComponentName.unflattenFromString(
+                                            args.getString(KEY_COMPONENT));
+                                    ((ManagedServiceSettings) getTargetFragment()).addService(cn);
                                 }
                             })
                     .setNegativeButton(android.R.string.cancel,
@@ -166,6 +171,11 @@ public abstract class ManagedServiceSettings extends ListFragment {
 
         getActivity().unregisterReceiver(mPackageReceiver);
         mCR.unregisterContentObserver(mSettingsObserver);
+    }
+
+    private void addService(ComponentName cn) {
+        mEnabledServices.add(cn);
+        saveEnabledServices();
     }
 
     private void loadEnabledServices() {
@@ -263,9 +273,11 @@ public abstract class ManagedServiceSettings extends ListFragment {
             saveEnabledServices();
         } else {
             // show a scary dialog
-            new ScaryWarningDialogFragment()
-                .setServiceInfo(cn, info.loadLabel(mPM).toString())
-                .show(getFragmentManager(), "dialog");
+            final String pmLabel = info.loadLabel(mPM).toString();
+            String title = getResources().getString(mConfig.warningDialogTitle, pmLabel);
+            String summary = getResources().getString(mConfig.warningDialogSummary, pmLabel);
+            ScaryWarningDialogFragment.newInstance(this, cn, title, summary)
+                    .show(getFragmentManager(), "dialog");
         }
     }
 
