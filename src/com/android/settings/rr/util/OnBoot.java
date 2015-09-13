@@ -17,7 +17,7 @@ import com.android.settings.util.CMDProcessor;
 public class OnBoot extends BroadcastReceiver {
 
     Context settingsContext = null;
-    private static final String TAG = "DU_onboot";
+    private static final String TAG = "RR_onboot";
     Boolean mSetupRunning = false;
 
     @Override
