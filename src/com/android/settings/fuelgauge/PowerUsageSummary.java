@@ -175,6 +175,7 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
         } else if (mPerfProfilePref != null) {
             // Remove the battery saver switch, power profiles have 3 modes
             removePreference(KEY_BATTERY_SAVER);
+	    removePreference(KEY_PERF_PROFILE);	
             mBatterySaverPref = null;
             mPerfProfilePref.setOrder(-1);
             mPerfProfilePref.setEntries(mPerfProfileEntries);
