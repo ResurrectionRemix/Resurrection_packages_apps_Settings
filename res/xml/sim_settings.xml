@@ -25,6 +25,13 @@
             android:key="sim_activities"
             android:title="@string/sim_pref_divider" >
 
+        <Preference
+            android:key="select_primary_sub"
+            android:persistent="false"
+            android:title="@string/primary_sub_select_title" >
+            <intent android:action="codeaurora.intent.action.ACTION_LTE_CONFIGURE" />
+        </Preference>
+
         <Preference android:key="sim_cellular_data"
             android:title="@string/cellular_data_title" />
 
