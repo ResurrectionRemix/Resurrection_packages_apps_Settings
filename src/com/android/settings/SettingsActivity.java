@@ -1306,6 +1306,15 @@ public class SettingsActivity extends Activity
                     if (!supported) {
                         removeTile = true;
                     }
+                } else if (id == R.id.kernel_adiutor) {
+                    boolean supported = false;
+                    try {
+                        supported = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode > 0);
+                    } catch (PackageManager.NameNotFoundException e) {
+                    }
+                    if (!supported) {
+                        removeTile = true;
+                    }
                 } else if (id == R.id.voice_wakeup_settings) {
                     if (!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME, false)) {
                         removeTile = true;
