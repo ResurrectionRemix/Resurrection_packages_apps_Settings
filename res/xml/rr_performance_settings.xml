@@ -15,19 +15,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/performance_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-
-	<!-- Performance/Kernel Auditor -->  
-     <PreferenceScreen
-		android:id="@+id/kernel_tweaks"
-              	android:key="kernel_tweaks"
-                android:title="@string/kernel_aduitor">
- 	<intent
-                    android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.grarak.kerneladiutor"
-                    android:targetClass="com.grarak.kerneladiutor.MainActivity" />
-	</PreferenceScreen>
-        <!-- Performance -->
-
+      <!-- Performance -->
     <PreferenceCategory
    	android:title="@string/perf_profile_title"
         android:key="pref_perf_profile"
@@ -44,5 +32,16 @@
             android:key="ioscheduler"
             android:fragment="com.android.settings.rr.IOScheduler"
             android:title="@string/io_scheds_title" />
+
+	<!-- Performance/Kernel Auditor -->  
+     <PreferenceScreen
+		android:id="@+id/kernel_tweaks"
+              	android:key="kernel_tweaks"
+                android:title="@string/kernel_aduitor">
+ 	<intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.grarak.kerneladiutor"
+                    android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+	</PreferenceScreen>
 
 </PreferenceScreen>
