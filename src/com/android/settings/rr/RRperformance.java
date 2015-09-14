@@ -60,6 +60,8 @@ private PreferenceScreen mIOScheduler;
 private PreferenceScreen mKernelAdiutor;
  private ListPreference mSystemCategory;
 private SwitchPreference mForceHighEndGfx;
+private PreferenceCategory mKernel;
+private static final String CATEGORY_KERNEL="kernel_aduitor";
 private static final String CATEGORY_KERNEL_ADIUTOR = "kernel_tweaks";
 private static final String CATEGORY_PROFILES = "pref_perf_profile";
 private static final String FORCE_HIGHEND_GFX_PREF = "pref_force_highend_gfx";
@@ -91,6 +93,7 @@ private PerformanceProfileObserver mPerformanceProfileObserver = null;
 	mProcessor = (PreferenceScreen) prefSet.findPreference(CATEGORY_PROCESSOR);
        mIOScheduler = (PreferenceScreen) prefSet.findPreference(CATEGORY_IOSCHEDUlER);
 	mKernelAdiutor = (PreferenceScreen) prefSet.findPreference(CATEGORY_KERNEL_ADIUTOR);
+	mKernel = (PreferenceCategory) prefSet.findPreference(CATEGORY_KERNEL);
 	mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
 	mSystemCategory = (ListPreference) findPreference(CATEGORY_PROFILES);
 	mForceHighEndGfx = (SwitchPreference) prefSet.findPreference(FORCE_HIGHEND_GFX_PREF);
@@ -121,6 +124,7 @@ private PerformanceProfileObserver mPerformanceProfileObserver = null;
         }
         if (!supported) {
            prefSet.removePreference(mKernelAdiutor);
+		prefSet.removePreference(mKernel);
 		prefSet.addPreference(mSystemCategory);
 		 prefSet.addPreference(category);
 	   	    mSystemCategory.setOrder(-1);
