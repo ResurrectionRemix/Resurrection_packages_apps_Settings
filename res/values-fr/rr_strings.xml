@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2015 Resurrection Remix ROM Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012-2015 Resurrection Remix ROM Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -9,11 +8,10 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
-<!--
+--><!--
 Aide à la traduction
 ~~~~~~~~~~~~~~~~~~~~
-Avant tout apostrophe vous devez mettre un antislash de la manière suivante : \' .
+Avant tout apostrophe vous devez mettre un antislash de la manière suivante : \' . (Regex : #[^\\]'#)
 Les règles de traductions :
 Status bar => Barre de notifications
 Status bar ticker => Bande des notifications
@@ -24,6 +22,7 @@ Heads up => Notifications tête haute (Flottantes ???)
 Pie menu => Menu circulaire
 Navigation bar => Barre de navigation
 App circle bar => Barre de cercle d\'application
+App side bar => Barre d\'application
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
@@ -94,9 +93,12 @@ App circle bar => Barre de cercle d\'application
     <!-- misc -->
     <string name="misc_settings_title"><b>Divers</b></string>
     <string name="interface_settings_title"><b>Interface</b></string>
+    <string name="recents_settings"><b>Recents</b></string>
+    <string name="gesture_settings"><b>Gestes</b></string>
+    <string name="animation_settings"><b>Animations</b></string>
     <string name="rr_display_title">Affichage</string>
     <string name="rr_animations_title">Animations</string>
-    <string name="listview_category_summary">Choisissez les animations de défilement et interpolateur des vues liste</string>
+    <string name="listview_category_summary">Choisissez les animations de défilement et interpolateur des vues liste (listview)</string>
     <string name="status_bar_title_summary">Personnaliser la date de l\'horloge, moniteur de trafic, etc. dans la barre de notification</string>
     <string name="changelog_title"><b>Journal des changements</b></string>
     <string name="changelog_title_summary">Voir le journal des changements réçents de la ROM</string>
@@ -112,9 +114,13 @@ App circle bar => Barre de cercle d\'application
     <string name="status_bar_greeting_main">Resurrection Remix ツ</string>
     <string name="status_bar_greeting_timeout_title">Temps du message de salutation</string>
     <!-- Statusbar logo -->
-    <string name="status_bar_logo_title">Affiche le logo Resurrection Remix</string>
-    <string name="status_bar_logo_summary">Activer pour afficher le logo Resurrection Remix dans le côté droit de la barre de notifications</string>
-    <string name="status_bar_logo_color">Couleur du logo Resurrection Remix</string>
+    <string name="status_bar_logo_title">Afficher le logo RR</string>
+    <string name="status_bar_logo_summary">Activer pour afficher le logo Resurrection Remix dans la barre de notifications.</string>
+    <string name="status_bar_logo_color">Couleur du logo RR</string>
+    <string name="status_bar_logo_position">Position du logo RR</string>
+    <string name="status_bar_logo_position_summary">Choisissez de quel côté afficher le logo RR, gauche ou droit.</string>
+    <string name="status_bar_logo_position_right">Droite</string>
+    <string name="status_bar_logo_position_left">Gauche</string>
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Date et Heure</b></string>
     <string name="status_bar_show_clock_second_title">Secondes</string>
@@ -169,8 +175,8 @@ App circle bar => Barre de cercle d\'application
     <string name="app_notification_no_ongoing_on_keyguard_summary">Ne jamais afficher les notifications de cette application sur l\'écran de verrouillage</string>
     <string name="rrc_settings_title">Configuration</string>
     <!-- Toast animations -->
-    <string name="toast_animation_title">Animations Toast</string>
-    <string name="toast_animation_summary">Sélectionner et prévisualiser les animations toast système</string>
+    <string name="toast_animation_title">Animations des messages informatifs (toasts)</string>
+    <string name="toast_animation_summary">Sélectionner et prévisualiser les animations des messages informatifs (toasts) système.</string>
     <string name="toast_none_animation">Aucune</string>
     <string name="toast_default_animation">Par défaut</string>
     <string name="toast_fade_animation">Animation fondu</string>
@@ -188,7 +194,6 @@ App circle bar => Barre de cercle d\'application
     <!-- Network traffic -->
     <string name="network_traffic_title"><b>Trafic réseau</b></string>
     <string name="show_network_traffic_state">Moniteur de trafic sur la barre de notifications</string>
-    <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
     <string name="network_traffic_color_style">Style de couleur</string>
     <string name="network_traffic_color_reset">Réinitialiser la couleur</string>
     <string name="network_traffic_color_reset_message">Réinitialiser la couleur par défaut du moniteur de trafic ?</string>
@@ -197,6 +202,8 @@ App circle bar => Barre de cercle d\'application
     <string name="show_network_traffic_frequency">Intervalle de mise à jour</string>
     <string name="show_network_traffic_disable">Désactivé</string>
     <string name="show_network_traffic_up">Sortant</string>
+    <string name="network_traffic_hide_arrow">Cacher les flèches</string>
+    <string name="network_traffic_hide_arrow_summary">Cacher les flèches indicatrices de traffic</string>
     <string name="show_network_traffic_down">Entrant</string>
     <string name="show_network_traffic_all">Sortant et entrant</string>
     <string name="show_network_traffic_bit">Bits par seconde</string>
@@ -207,9 +214,10 @@ App circle bar => Barre de cercle d\'application
     <string name="show_network_traffic_2000">2000 ms</string>
     <string name="network_traffic_autohide">Masqué automatiquement</string>
     <string name="network_traffic_autohide_summary">Cacher le moniteur de trafic quand il n\'y a aucune activité.</string>
+    <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
     <!-- ListView animation -->
-    <string name="listview_category"><b>Animation des vues liste</b></string>
-    <string name="listview_animation_title"><b>Animation des vues liste</b></string>
+    <string name="listview_category"><b>Animation des vues liste (listview)</b></string>
+    <string name="listview_animation_title"><b>Animation des vues liste (listview)</b></string>
     <string name="listview_off">Éteint</string>
     <string name="listview_wave_left">Vague (Gauche)</string>
     <string name="listview_wave_right">Vague (Droite)</string>
@@ -288,9 +296,10 @@ App circle bar => Barre de cercle d\'application
     <string name="custom_carrier_label_explain">Entrez une nouvelle étiquette. Laissez blanc pour retrouver l\'étiquette par défaut.</string>
     <string name="custom_carrier_label_notset">Étiquette personalisée non définie actuellement</string>
     <string name="status_bar_carrier_color">Couleur de l\'étiquette</string>
+    <string name="status_bar_carrier_size">Taille du texte de l\'étiquette</string>
 
     <!-- ListView interpolator -->
-    <string name="listview_interpolator_title">Interpolateur des vues liste</string>
+    <string name="listview_interpolator_title">Interpolateur des vues liste (listview)</string>
     <string name="listview_accelerate_interpolator">Accelerate interpolator</string>
     <string name="listview_decelerate_interpolator">Decelerate interpolator</string>
     <string name="listview_accelerate_decelerate_interpolator">Accelerate decelerate interpolator</string>
@@ -298,7 +307,6 @@ App circle bar => Barre de cercle d\'application
     <string name="listview_overshoot_interpolator">Overshoot interpolator</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate overshoot interpolator</string>
     <string name="listview_bounce_interpolator">Bounce interpolator</string>
-
 
     <string name="rr_navbar_title">Options de la barre de navigation</string>
     <string name="rr_statusbar_title">Options de la barre de notifications</string>
@@ -368,10 +376,8 @@ App circle bar => Barre de cercle d\'application
     <string name="shortcut_action_help_button">bouton</string>
     <string name="shortcut_action_help_app">application</string>
     <string name="shortcut_action_help_icon">, quand l\'icône est selectionnée les options de personalisation seront affichés</string>
-
     <string name="shortcut_action_help_main">Pour ajouter une %1$s, sélectionnez l\'icône d\'ajout. Une fois une %1$s est ajoutée, la sélection de la ligne va changer %2$s de la cible\n\n pour supprimer %1$s, swiper la ligne horizontale vers la droite ou vers la gauche. Réorganisez %1$s dans la liste en déplaçant le symbole sur la gauche vers le haut ou vers le bas.\n\nPour revenir aux paramètres par défaut, choisisez rétablir paramètres par défaut.</string>
     <string name="shortcut_action_help_delete_last_entry">Supprimer tout %1$s dans la liste va désactiver cette fonction totalement.</string>
-    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Supprimer tout %1$s dans la liste va désactiver la seconde couche du menu circulaire entièrement.</string>
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcut_action_kill">Tuer application</string>
     <string name="shortcut_action_restartui">Redémarrer SystemUI</string>
@@ -636,6 +642,8 @@ App circle bar => Barre de cercle d\'application
     <string name="recents_clear_all_location_bottom_center">En bas au centre</string>
     <string name="recents_clear_all_dismiss_all_title">Effacer toutes les tâches</string>
     <string name="recents_clear_all_dismiss_all_summary">Choisissez si il faut fermer toutes les tâches ou ignorer la tâche de premier plan</string>
+    <string name="omniswitch_settings_title">OmniSwitch</string>
+
     <!-- Battery Bar -->
     <string name="battery_icon">Style de l\'icône de la batterie</string>
     <string name="battery_not_title">Icône de batterie dans les notifications</string>
@@ -651,6 +659,10 @@ App circle bar => Barre de cercle d\'application
     <!-- Full screen keyboard -->
     <string name="fullscreen_keyboard_title">Clavier plein écran</string>
     <string name="fullscreen_keyboard_summary">Afficher un clavier plein écran en mode paysage</string>
+
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">Icône pour les messages informatifs (toasts)</string>
+
     <!-- Volume Steps -->
     <string name="volume_steps_title">Niveaux du volume</string>
     <string name="volume_steps_alarm_title">Niveau de volume : Alarme</string>
@@ -705,12 +717,12 @@ App circle bar => Barre de cercle d\'application
     <string name="weather_show_timestamp_title">Afficher l\'horodatage</string>
     <string name="weather_show_timestamp_summary">Activer pour afficher l\'horodatage</string>
     <string name="weather_condition_icon_title">Icône de condition</string>
-    <string name="weather_condition_icon_dlg_title">Choissisez une icône pour afficher la condition météorologique</string>
+    <string name="weather_condition_icon_dlg_title">Choisissez une icône pour afficher la condition météorologique</string>
     <string name="weather_condition_icon_monochrome_title">Monochrome</string>
     <string name="weather_condition_icon_colored_title">Colorée</string>
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
     <string name="weather_hide_panel_title">Cacher le panneau de météo</string>
-    <string name="weather_hide_panel_dlg_title">Choissisez quand le panneau de météo doit être caché</string>
+    <string name="weather_hide_panel_dlg_title">Choisissez quand le panneau de météo doit être caché</string>
     <string name="weather_hide_panel_auto_title">Auto</string>
     <string name="weather_hide_panel_custom_title">Personalisé</string>
     <string name="weather_hide_panel_never_title">Jamais</string>
@@ -718,7 +730,7 @@ App circle bar => Barre de cercle d\'application
     <string name="weather_hide_panel_custom_summary">Le panneau de météo sera caché quand les notifications visibles atteignent le nombre choisi de notifications (%s)</string>
     <string name="weather_hide_panel_never_summary">Le panneau de météo ne sera pas caché</string>
     <string name="weather_number_of_notifications_title">Nombre de notifications</string>
-    <string name="weather_number_of_notifications_dlg_title">Choissisez le nombre de notifications pour cacher le panneau de météo</string>
+    <string name="weather_number_of_notifications_dlg_title">Choisissez le nombre de notifications pour cacher le panneau de météo</string>
     <string name="weather_number_of_notifications_always_title">Toujours</string>
     <string name="weather_number_of_notifications_two_title">2</string>
     <string name="weather_number_of_notifications_three_title">3</string>
@@ -773,10 +785,10 @@ App circle bar => Barre de cercle d\'application
     <string name="longpress_lock_icon_to_sleep_summary">This option will not work if both smart lock and accessibility touch exploration are enabled</string>
 
     <string name="qs_tile_themes">Thèmes</string>
+    <string name="qs_tile_rrtools">Configurations</string>
 
     <string name="qs_navbar_tile">Barre de navigation</string>
     <string name="qs_appcirclebar_tile">Barre de cercle d\'application</string>
-
 
     <!-- Doze pulse (ambient display) options -->
     <string name="doze_overwrite_value_title">Overwrite value</string>
@@ -791,13 +803,13 @@ App circle bar => Barre de cercle d\'application
 
     <string name="doze_pulse_title">Time settings</string>
     <string name="doze_pulse_duration_in_title">Fade in</string>
-    <string name="doze_pulse_duration_in_summary"/>
+    <string name="doze_pulse_duration_in_summary" />
 
     <string name="doze_pulse_duration_visible_title">Visible duration</string>
-    <string name="doze_pulse_duration_visible_summary"/>
+    <string name="doze_pulse_duration_visible_summary" />
 
     <string name="doze_pulse_duration_out_title">Fade out</string>
-    <string name="doze_pulse_duration_out_summary"/>
+    <string name="doze_pulse_duration_out_summary" />
 
     <string name="doze_pulse_on_notifications_title">Pulse on notifications</string>
     <string name="doze_pulse_on_notifications_summary">Trigger activation only on pending notifications</string>
@@ -874,7 +886,6 @@ App circle bar => Barre de cercle d\'application
     <string name="wakelock_blocker_warning_title">Procèdez avec précaution</string>
     <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
 
-
     <!-- Heads up touch outside -->
     <string name="heads_up_touch_outside_title">Comportement au touché extérieur</string>
     <string name="heads_up_touch_outside_summary_enabled">Cache les notifications au touché extérieur et à l\'appui du bouton accueil.</string>
@@ -900,7 +911,6 @@ App circle bar => Barre de cercle d\'application
     <!-- Lock Gesture settings -->
     <!-- Security & location settings screen, setting option name -->
     <string name="lockgesture_change_lock_pattern_label">Changer le geste de déverrouillage</string>
-
 
     <!-- Security & location settings screen, change unlock gesture screen instruction when the user chooses "Change unlock gesture".  We first ask the user toe nter the current pattern, and this is the message seen -->
     <string name="lockgesture_change_lock_pin_label">Changer le PIN de déverrouillage</string>
@@ -1026,6 +1036,7 @@ App circle bar => Barre de cercle d\'application
     <string name="pie_button_second_layer_summary">Change second layer buttons</string>
     <string name="pie_button_style_summary">Change pie button style</string>
     <string name="pie_style_reset_message">Reset style entries to default?</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Supprimer tout %1$s dans la liste va désactiver la seconde couche du menu circulaire entièrement.</string>
     <string name="icon_color_mode_all_icons">Toutes icônes</string>
     <string name="icon_color_mode_system_icons">Icônes systèmes</string>
     <string name="icon_color_mode_system_custom_icons">Icônes systèmes et personnalisées</string>
@@ -1048,7 +1059,6 @@ App circle bar => Barre de cercle d\'application
     <!-- The volume key answer -->
     <string name="volume_answer_call_title">Volume key Answer</string>
     <string name="volume_answer_call_summary">Volume up key Answer</string>
-
 
     <!-- Slim Shortcuts -->
     <string name="slim_shortcut_picker">Slim Actions</string>
@@ -1101,7 +1111,6 @@ App circle bar => Barre de cercle d\'application
 
     <!-- Updater -->
     <string name="updater_title">Mise à jour</string>
-    <string name="updater_summary">Vérifier mises à jour et plus</string>
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
@@ -1119,20 +1128,21 @@ App circle bar => Barre de cercle d\'application
     <string name="selinux_enforcing_title">Enforcing</string>
 
     <!-- App sidebar -->
-    <string name="app_sidebar_title">App sidebar</string>
-    <string name="app_sidebar_enable_title">Enable Appbar</string>
-    <string name="app_sidebar_enable_summaryOn">Appbar is enabled</string>
-    <string name="app_sidebar_enable_summaryOff">Appbar is disabled</string>
-    <string name="app_sidebar_setup_items_title">Setup Appbar content</string>
-    <string name="app_sidebar_setup_items_summary">Add, remove, and position items in the appbar</string>
-    <string name="app_sidebar_transparency_title">Appbar transparency</string>
-    <string name="app_sidebar_transparency_summary">Adjust the Appbar transparency level</string>
-    <string name="app_sidebar_position_title">Appbar position</string>
-    <string name="app_sidebar_position_summary">Position the Appbar on the left or right side of the screen</string>
+    <string name="app_sidebar_title">Barre d\'application</string>
+    <string name="app_sidebar_enable_title">Activer le barre d\'application</string>
+    <string name="app_sidebar_enable_summaryOn">La barre d\'application est activée.</string>
+    <string name="app_sidebar_enable_summaryOff">La barre d\'application est désactivée.</string>
+    <string name="app_sidebar_setup_items_title">Configurer le contenu de la barre d\'application</string>
+    <string name="app_sidebar_setup_items_summary">Ajoutez, supprimez et positionnez les applications dans la barre d\'applications</string>
+    <string name="app_sidebar_transparency_title">Transparance de la barre d\'application</string>
+    <string name="app_sidebar_transparency_summary">Ajustez le niveau de transparence de la barre d\'application.</string>
+    <string name="app_sidebar_position_title">Position de la barre d\'application</string>
+    <string name="app_sidebar_position_summary">Positionnez la barre d\'application sur le côté gauche ou droit de l\'écran.</string>
     <string name="app_sidebar_position_left">Gauche</string>
-    <string name="app_sidebar_position_right">Droite</string>
-    <string name="app_sidebar_hide_labels_title">Hide icon labels</string>
-    <string name="app_sidebar_hide_labels_summary">Hide Appbar icon labels</string>
+    <string name="app_sidebar_position_right">Droit</string>
+    <string name="app_sidebar_hide_labels_title">Cache les noms des icônes</string>
+    <string name="app_sidebar_hide_labels_summary">Cacher les noms des icônes dans la barre d\'application.</string>
+
     <string name="tab_category">Visible Tab</string>
     <string name="use_tab_title">Display tab</string>
     <string name="use_tab_summary">Display a visible tab on the side which will display the appbar when touched.</string>
@@ -1156,6 +1166,13 @@ App circle bar => Barre de cercle d\'application
     <string name="status_bar_temperature_location_left">Température à gauche</string>
     <string name="status_bar_weather_color_title">Couleur</string>
     <string name="status_bar_weather_size_title">Taille de la police</string>
+    <string name="status_bar_weather_font_style_title">Police</string>
+    <string name="status_bar_weather_font_normal">Normal</string>
+    <string name="status_bar_weather_font_bold">Gras</string>
+    <string name="status_bar_weather_font_bold_italic">Gras Italique</string>
+    <string name="status_bar_weather_font_condensed">Condensé</string>
+    <string name="status_bar_weather_font_light">Light</string>
+    <string name="status_bar_weather_font_light_italic">Light Italique</string>
 
     <!-- SlimDim -->
     <string name="dim_nav_buttons_category">SlimDim</string>
@@ -1178,7 +1195,37 @@ App circle bar => Barre de cercle d\'application
     <string name="show_headset_icon_summary">Affiche l\'icône quand les écouteurs sont connectés.</string>
 
     <!-- Three-fingers-swipe to screenshot -->
-    <string name="three_finger_gesture">Three finger gesture</string>
-    <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
+    <string name="three_finger_gesture">Activer le geste à trois doigts</string>
+    <string name="three_finger_gesture_summary">Glissez trois doigts vers le bas pour faire une capture d\'écran.</string>
+
+    <!--Time Contexual Header -->
+    <string name="notification_title">Notification panel</string>
+    <string name="status_bar_custom_header_title">Custom header image</string>
+    <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
+
+    <!-- Chamber of Secrets -->
+    <string name="chamber_title">Chambre des secrets</string>
+    <string name="chamber_toast">La chambre des secrets à été ouverte</string>
+
+    <!-- Lockscreen Colors -->
+    <string name="lockscreen_colors"><b>Lockscreen Colors</b></string>
+    <string name="lockscreen_phone_icon_color">Lockscreen Bottom Left shortcut</string>
+    <string name="lockscreen_lock_icon_color">Lockscreen Lock icon</string>
+    <string name="lockscreen_camera_icon_color">Lockscreen Bottom Right shortcut</string>
+    <string name="lockscreen_indication_text_color">Lockscreen Indication text</string>
+    <string name="lockscreen_clock_color">Lockscreen Clock</string>
+    <string name="lockscreen_clock_date_color">Lockscreen Date</string>
+    <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
+    <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
+    <string name="yes">YES</string>
+
+    <!-- OmniSwitch -->
+    <string name="omniswitch_category">OmniSwitch</string>
+    <string name="recents_use_omniswitch_title">Use for recents</string>
+    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
+    <string name="omniswitch_start_settings_title">Settings</string>
+    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
+    <string name="omniswitch_first_time_title">Information</string>
+    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 
 </resources>
