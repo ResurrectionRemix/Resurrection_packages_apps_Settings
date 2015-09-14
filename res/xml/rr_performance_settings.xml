@@ -45,15 +45,23 @@
             android:summary="@string/pref_force_highend_gfx_summary" />
 	</PreferenceCategory>
 
-	<!-- Performance/Kernel Auditor -->  
+	<!-- Performance/Kernel Auditor --> 
+    <PreferenceCategory
+    android:key="kernel_tweaks"
+    android:title="@string/kernel_aduitor">
+ 
      <PreferenceScreen
-		android:id="@+id/kernel_tweaks"
+		android:id="@+id/kernel_adiutor"
               	android:key="kernel_tweaks"
-                android:title="@string/kernel_aduitor">
+                android:title="@string/kernel_aduitor"
+		android:summary="@string/kernel_settings_warning">
  	<intent
                     android:action="android.intent.action.MAIN"
                     android:targetPackage="com.grarak.kerneladiutor"
                     android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+	 
 	</PreferenceScreen>
+
+</PreferenceCategory>
 
 </PreferenceScreen>
