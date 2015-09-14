@@ -111,6 +111,7 @@
     <string name="status_bar_logo_position_left">Sinistra</string>
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Ora e data</b></string>
+    <string name="clock_font_size_title">Formato carattere</string>
     <string name="status_bar_show_clock_second_title">Secondi orologio</string>
     <string name="status_bar_clock_title">Stile ora e data</string>
     <string name="clock_title_enable">Allineamento</string>
@@ -145,13 +146,22 @@
     <string name="clock_date_format_custom">Formato java personalizzato</string>
     <string name="status_bar_clock_style_reset_message">Ripristina colore orologio?</string>
     <!-- StatusbarClock -->
-    <string name="clock_font_style_title">Carattere</string>
-    <string name="clock_font_bold">Predefinito</string>
-    <string name="clock_font_light">Light</string>
-    <string name="clock_font_normal">Sans serif</string>
-    <string name="clock_font_condensed">Condensed</string>
-    <string name="clock_font_light_italic">Light Italic</string>
-    <string name="clock_font_resurrection">Resurrection Font</string>   
+    <string name="clock_font_style_title">Stile carattere orologio</string>
+    <string name="clock_font_normal">Normale</string>
+    <string name="clock_font_italic">Corsivo</string>
+    <string name="clock_font_bold">Grassetto</string>
+    <string name="clock_font_bold_italic">Grassetto corsivo</string>
+    <string name="clock_font_light">Leggero</string>
+    <string name="clock_font_light_italic">Leggero corsivo</string>
+    <string name="clock_font_thin">Magro</string>
+    <string name="clock_font_thin_italic">Magro corsivo</string>
+    <string name="clock_font_condensed">Condensato</string>
+    <string name="clock_font_condensed_italic">Condensato corsivo</string>
+    <string name="clock_font_condensed_bold">Condensato grassetto</string>
+    <string name="clock_font_condensed_bold_italic">Condensato grassetto corsivo</string>
+    <string name="clock_font_medium">Medio</string>
+    <string name="clock_font_medium_italic">Medio corsivo</string>
+
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Barra di ricerca in app recenti</string>
     <string name="recents_show_searchbar_summary">Disattiva o attiva la barra di ricerca Google in app recenti</string>
@@ -252,7 +262,6 @@
     <string name="sourcebase_title">Source Base</string>
     <string name="title_about"><b>Info su Resurrection</b></string>
     <string name="rr_lockscreen_title"><b>Blocco schermo</b></string>
-    <string name="rr_performance_settings_title">Prestazioni</string>
     <!-- QuickSettings: Quick Pulldown -->
     <string name="title_quick_pulldown">Discesa rapida</string>
     <string name="summary_quick_pulldown">Tira giù le Impostazioni Rapide dal bordo della barra di stato da %1$s</string>
@@ -1119,6 +1128,37 @@
     <string name="selinux_title">Modalità Selinux</string>
     <string name="selinux_permissive_title">Permissivo</string>
     <string name="selinux_enforcing_title">Applicazione</string>
+    <!--Performance Settings--> 	
+    <string name="performance_settings"><b>Prestazione</b></string>
+    <string name="performance_settings_warning">Profili trovati nessuno</string>
+<string name="performance_settings_warning_title">Procedere con attenzione</string>
+    <!-- Performance Settings : I/O scheduler settings title -->
+    <string name="io_scheds_title">I/O scheduler</string>
+
+    <!-- Performance Settings : I/O scheduler settings sub items -->
+    <string name="io_sched_title">I/O scheduler</string>
+    <string name="io_sched_summary" translatable="false">%S</string>
+    <!-- Performance Settings : Set on boot option -->
+    <string name="performance_set_on_boot">Imposta all\'avvio</string>
+    <string name="performance_set_on_boot_summary">Ripristinare le impostazioni all\'avvio</string>
+
+    <!-- Performance Settings : Processor Settings -->
+    <!-- Performance Settings : Processor settings title -->
+    <string name="processor_title">Processore</string>
+	<!--Kernel Aduitor-->
+    <string name="kernel_aduitor">Modifiche al kernel</string>
+    <string name="kernel_settings_warning_title">Attenzione Kernel Auditor non è installato</string>
+    <string name="kernel_settings_warning">Perfavore installare Kernel Auditor dal Play Store. Se si desidera continuare senza Kernel Auditor,Non fare click su Modifiche al Kernel oppure si potrebbe verificare una chiusura forzata</string>
+
+
+    <!-- Performance Settings : Processor settings sub items -->
+    <string name="cpu_cur_freq_title">Frequenza della CPU attuale</string>
+    <string name="cpu_governors_title">CPU governor</string>
+    <string name="cpu_governors_summary" translatable="false">%S</string>
+    <string name="cpu_min_freq_title">Frequenza minima della CPU</string>
+    <string name="cpu_min_freq_summary" translatable="false">%s</string>
+    <string name="cpu_max_freq_title">Frequenza massima della CPU</string>
+    <string name="cpu_max_freq_summary" translatable="false">%s</string>
 
     <!-- App sidebar -->
     <string name="app_sidebar_title">Applicazioni in Dock</string>
@@ -1164,7 +1204,15 @@
     <string name="status_bar_weather_font_bold_italic">Grassetto corsivo</string>
     <string name="status_bar_weather_font_condensed">Condensato</string>
     <string name="status_bar_weather_font_light">Leggero</string>
-    <string name="status_bar_weather_font_light_italic">Leggero corsiovo</string>
+    <string name="status_bar_weather_font_light_italic">Leggero corsivo</string>
+    <string name="status_bar_weather_font_thin">Magro</string>
+    <string name="status_bar_weather_font_thin_italic">Magro corsivo</string>
+    <string name="status_bar_weather_font_condensed">Condensato</string>
+    <string name="status_bar_weather_font_condensed_italic">Condensato corsivo</string>
+    <string name="status_bar_weather_font_condensed_bold">Condensato grassetto</string>
+    <string name="status_bar_weather_font_condensed_bold_italic">Condensato grassetto corsivo</string>
+    <string name="status_bar_weather_font_medium">Medio</string>
+    <string name="status_bar_weather_font_medium_italic">Medio corsivo</string>
 
     <!-- SlimDim -->
     <string name="dim_nav_buttons_category">SlimDim</string>
@@ -1238,7 +1286,11 @@
     <string name="sizer_message_filesuccess">Profilo creato</string>
     <string name="sizer_message_filefail">Impossibile creare il profilo</string>
     <string name="sizer_message_noselect">Nessuno selezionato</string>
-    <string name="system_app_remover">Sistema rimozione applicazioni</string>
-    <string name="systemappremover_summary">Rimuovere le applicazioni di sistema a proprio rischio e pericolo...PUÒ CAUSARE INSTABILITÀ</string>
+    <string name="system_app_remover"></b>Sistema rimozione applicazioni</b></string>
+    <string name="systemappremover_summary">Rimuovere le applicazioni di sistema a proprio rischio e pericolo. \"PUÒ CAUSARE INSTABILITÀ\"</string>
+
+    <!-- Device policy override -->
+    <string name="device_policy_override_title">Politica al disopra del dispositivo</string>
+    <string name="device_policy_override_summary">Consentire alle applicazioni di forzare schermata di blocco protetto e sovrascrivere le impostazioni del profilo</string>
 
 </resources>
