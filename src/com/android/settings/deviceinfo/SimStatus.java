@@ -135,7 +135,12 @@ public class SimStatus extends PreferenceActivity {
         // Note - missing in zaku build, be careful later...
         mSignalStrength = findPreference(KEY_SIGNAL_STRENGTH);
 
-        int slotId = getIntent().getIntExtra(EXTRA_SLOT_ID, 0);
+        int defaultSlotId = SubscriptionManager.getSlotId(SubscriptionManager.getDefaultSubId());
+        if (!SubscriptionManager.isValidSlotId(defaultSlotId)) {
+            defaultSlotId = 0;
+        }
+
+        int slotId = getIntent().getIntExtra(EXTRA_SLOT_ID, defaultSlotId);
         mSir = Utils.findRecordBySlotId(this, slotId);
 
         updatePhoneInfos();
