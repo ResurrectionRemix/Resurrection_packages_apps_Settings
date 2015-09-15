@@ -65,7 +65,7 @@
 </PreferenceCategory>
 	 <PreferenceCategory 
    	 android:key="rr_scrollingcache"
-    	 android:title="@string/pref_scrollingcache_title">
+    	 android:title="@string/rr_scrollingcache">
         <ListPreference 
             android:key="pref_scrollingcache"
             android:dialogTitle="@string/pref_scrollingcache_title"
@@ -73,6 +73,17 @@
             android:summary="@string/pref_scrollingcache_summary"
             android:entries="@array/entries_scrollingcache"
             android:entryValues="@array/values_scrollingcache" />
+</PreferenceCategory>
+
+        <PreferenceCategory 
+   	 android:key="rr_advanced"
+    	 android:title="@string/advanced">
+        <!-- Advanced mode -->
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="advanced_mode"
+            android:title="@string/advanced_mode_title"
+	    android:summary="@string/advanced_mode_summary"/>
+
 </PreferenceCategory>
 
 </PreferenceScreen>
