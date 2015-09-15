@@ -16,10 +16,13 @@
 
 package com.android.settings.rr;
 
+
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -43,6 +46,10 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 
 import com.android.settings.DevelopmentSettings;
+import com.android.settings.cyanogenmod.SecureSettingSwitchPreference;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.rr.IOScheduler;
@@ -55,13 +62,7 @@ import android.view.MenuItem;
 
 public class RRperformance extends SettingsPreferenceFragment  
 	implements Preference.OnPreferenceChangeListener  {
-private PreferenceScreen mProcessor;
-private PreferenceScreen mIOScheduler;
-private PreferenceScreen mKernelAdiutor;
-private ListPreference mSystemCategory;
-private SwitchPreference mForceHighEndGfx;
-private PreferenceCategory mKernel;
-private ListPreference mScrollingCachePref;
+
 private static final String CATEGORY_KERNEL="kernel_aduitor";
 private static final String CATEGORY_KERNEL_ADIUTOR = "kernel_tweaks";
 private static final String CATEGORY_PROFILES = "pref_perf_profile";
@@ -80,8 +81,16 @@ private PerformanceProfileObserver mPerformanceProfileObserver = null;
 private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
 private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
 private static final String SCROLLINGCACHE_DEFAULT = "1";
+public static final String KEY_ADVANCED_MODE = "advanced_mode";
 
-
+private PreferenceScreen mProcessor;
+private PreferenceScreen mIOScheduler;
+private PreferenceScreen mKernelAdiutor;
+private ListPreference mSystemCategory;
+private SwitchPreference mForceHighEndGfx;
+private PreferenceCategory mKernel;
+private ListPreference mScrollingCachePref;
+SecureSettingSwitchPreference mAdvancedSettings;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,16 +104,17 @@ private static final String SCROLLINGCACHE_DEFAULT = "1";
         addPreferencesFromResource(R.xml.rr_performance_settings);
 	PreferenceScreen prefSet = getPreferenceScreen();
 	mProcessor = (PreferenceScreen) prefSet.findPreference(CATEGORY_PROCESSOR);
-       mIOScheduler = (PreferenceScreen) prefSet.findPreference(CATEGORY_IOSCHEDUlER);
+        mIOScheduler = (PreferenceScreen) prefSet.findPreference(CATEGORY_IOSCHEDUlER);
 	mKernelAdiutor = (PreferenceScreen) prefSet.findPreference(CATEGORY_KERNEL_ADIUTOR);
 	mKernel = (PreferenceCategory) prefSet.findPreference(CATEGORY_KERNEL);
 	mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
 	mSystemCategory = (ListPreference) findPreference(CATEGORY_PROFILES);
 	mForceHighEndGfx = (SwitchPreference) prefSet.findPreference(FORCE_HIGHEND_GFX_PREF);
-	 PreferenceCategory category = (PreferenceCategory) prefSet.findPreference(CATEGORY_GRAPHICS);
+	PreferenceCategory category = (PreferenceCategory) prefSet.findPreference(CATEGORY_GRAPHICS);
         mScrollingCachePref = (ListPreference) prefSet.findPreference(SCROLLINGCACHE_PREF);
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+	mAdvancedSettings = (SecureSettingSwitchPreference) findPreference(KEY_ADVANCED_MODE);
 	//Look For Power Profiles
         if (!mPowerManager.hasPowerProfiles()) {
 	prefSet.removePreference(mSystemCategory);
@@ -112,12 +122,12 @@ private static final String SCROLLINGCACHE_DEFAULT = "1";
 	else {
 	prefSet.removePreference(mIOScheduler);
 	    prefSet.addPreference(mSystemCategory);
-	   prefSet.addPreference(category);	
+	    prefSet.addPreference(category);	
 	    mSystemCategory.setOrder(-1);
             mSystemCategory.setEntries(mPerfProfileEntries);
             mSystemCategory.setEntryValues(mPerfProfileValues);
-	   updatePerformanceValue();
-	mSystemCategory.setOnPreferenceChangeListener(this);
+	    updatePerformanceValue();
+	    mSystemCategory.setOnPreferenceChangeListener(this);
 	   
 		String forceHighendGfx = SystemProperties.get(FORCE_HIGHEND_GFX_PERSIST_PROP, "false");
         mForceHighEndGfx.setChecked("true".equals(forceHighendGfx));	
@@ -130,12 +140,12 @@ private static final String SCROLLINGCACHE_DEFAULT = "1";
         }
         if (!supported) {
            prefSet.removePreference(mKernelAdiutor);
-		prefSet.removePreference(mKernel);
-		prefSet.addPreference(mSystemCategory);
-		 prefSet.addPreference(category);
-	   	    mSystemCategory.setOrder(-1);
-            mSystemCategory.setEntries(mPerfProfileEntries);
-            mSystemCategory.setEntryValues(mPerfProfileValues);
+           prefSet.removePreference(mKernel);
+	   prefSet.addPreference(mSystemCategory);
+           prefSet.addPreference(category);
+	   mSystemCategory.setOrder(-1);
+           mSystemCategory.setEntries(mPerfProfileEntries);
+           mSystemCategory.setEntryValues(mPerfProfileValues);
 	   updatePerformanceValue();	
 	mSystemCategory.setOnPreferenceChangeListener(this);	
 	String forceHighendGfx = SystemProperties.get(FORCE_HIGHEND_GFX_PERSIST_PROP, "false");
@@ -153,6 +163,7 @@ private static final String SCROLLINGCACHE_DEFAULT = "1";
 	@Override
     public void onResume() {
         super.onResume();
+	mAdvancedSettings.setChecked(SettingsActivity.showAdvancedPreferences(getActivity()));
         if (mSystemCategory != null) {
             updatePerformanceValue();
             ContentResolver resolver = getActivity().getContentResolver();
