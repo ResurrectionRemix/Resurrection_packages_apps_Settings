@@ -32,7 +32,7 @@
         
     <string name="advanced">Gelişmiş</string>
     <string name="advanced_mode_title">Gelişmiş mod</string>
-    <string name="advanced_mode_summary">@null</string>
+    <string name="advanced_mode_summary">Ayarlarda Gelişmiş Seçenekleri Görünür yapmak için Bunu Etkinleştirin.</string>
     
     <string name="lockscreen_shortcuts_categories">Kısayollar</string>
     <string name="rr_lockscreen_targets_message_summary">Kilit ekranı alt kısayollarını yeniden düzenleyebilirsiniz</string>
@@ -81,6 +81,9 @@
     <!-- misc -->
     <string name="misc_settings_title"><b>Diğerleri</b></string>
     <string name="interface_settings_title"><b>Kullanıcı Arayüzü</b></string>
+    <string name="recents_settings"><b>Son kullanılanlar</b></string>
+    <string name="gesture_settings"><b>Hareketler</b></string>
+    <string name="animation_settings"><b>Animasyonlar</b></string>
     <string name="rr_display_title">Ekran</string>
     <string name="rr_animations_title">Animasyonlar</string>
     <string name="listview_category_summary">Choose list view scroll animations and interpolator</string>
@@ -108,6 +111,7 @@
     <string name="status_bar_logo_position_left">Sol</string>
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Saat ve tarih</b></string>
+    <string name="clock_font_size_title">Yazı boyutu</string>
     <string name="status_bar_show_clock_second_title">Saat\'te saniye</string>
     <string name="status_bar_clock_title">Saat ve tarih stili</string>
     <string name="clock_title_enable">Hizala</string>
@@ -142,13 +146,22 @@
     <string name="clock_date_format_custom">Özel java formatı</string>
     <string name="status_bar_clock_style_reset_message">Saat rengi sıfırlansın mı?</string>
     <!-- StatusbarClock -->
-    <string name="clock_font_style_title">Yazı Tipi</string>
-    <string name="clock_font_bold">Varsayılan</string>
-    <string name="clock_font_light">İnce</string>
-    <string name="clock_font_normal">Sans serif</string>
-    <string name="clock_font_condensed">Yoğun</string>
+    <string name="clock_font_style_title">Saat yazı stili</string>
+    <string name="clock_font_normal">Normal</string>
+    <string name="clock_font_italic">İtalik</string>
+    <string name="clock_font_bold">Kalın</string>
+    <string name="clock_font_bold_italic">Kalın İtalik</string>
+    <string name="clock_font_light">Hafif</string>
     <string name="clock_font_light_italic">İnce İtalik</string>
-    <string name="clock_font_resurrection">Resurrection Yazı Tipi</string>   
+    <string name="clock_font_thin">İnce</string>
+    <string name="clock_font_thin_italic">İnce İtalik</string>
+    <string name="clock_font_condensed">Yoğun</string>
+    <string name="clock_font_condensed_italic">Yoğun İtalik</string>
+    <string name="clock_font_condensed_bold">Kalın Yoğun</string>
+    <string name="clock_font_condensed_bold_italic">Kalın Yoğun İtalik</string>
+    <string name="clock_font_medium">Orta</string>
+    <string name="clock_font_medium_italic">Orta İtalik</string>
+    
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Son kullanılanlar ekranında arama çubuğunu devre dışı bırak</string>
     <string name="recents_show_searchbar_summary">Son kullanılanlar ekranında Google arama çubuğunu devre dışı bırakır</string>
@@ -249,7 +262,6 @@
     <string name="sourcebase_title">Kaynak Tabanı</string>
     <string name="title_about"><b>Resurrection Hakkında</b></string>
     <string name="rr_lockscreen_title"><b>Kilit ekranı</b></string>
-    <string name="rr_performance_settings_title">Performans</string>
     <!-- QuickSettings: Quick Pulldown -->
     <string name="title_quick_pulldown">Hızlı ayarlar</string>
     <string name="summary_quick_pulldown">Durum çubuğunun %1$s kenarı Hızlı Ayarları aşağı çeker</string>
@@ -281,7 +293,8 @@
     <string name="custom_carrier_label_title">Özel şebeke etiketi</string>
     <string name="custom_carrier_label_explain">Yeni bir etiket girin. Hazır etikete geri dönmek için boş bırakın.</string>
     <string name="custom_carrier_label_notset">Özel etiket belirlenmiş olan değil</string>
-    <string name="status_bar_carrier_color">Şebeke etiketi rengi</string> 
+    <string name="status_bar_carrier_color">Şebeke etiketi rengi</string>
+    <string name="status_bar_carrier_size">Şebeke etiketi yazı boyutu</string>
 
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">Liste Görünümü efekti</string>
@@ -624,6 +637,8 @@
     <string name="recents_clear_all_location_bottom_center">Alt ortada</string>
     <string name="recents_clear_all_dismiss_all_title">Tüm görevleri temizle</string>
     <string name="recents_clear_all_dismiss_all_summary">Tüm görevleri temizler yada son görevi bırakır</string>
+    <string name="omniswitch_settings_title">OmniSwitch</string>
+    
     <!-- Battery Bar -->
     <string name="battery_icon">Pil simgesi tarzı</string>
     <string name="battery_not_title">Bildirimlerde pil simgesi</string>
@@ -1098,8 +1113,7 @@
 
     <!-- Updater -->
     <string name="updater_title">Güncellemeler</string>
-    <string name="updater_summary">Güncellemeler ve daha fazlası için kontrol edin</string>
-
+    
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Uyku için her hangi bir yere dokunun</string>
     <string name="double_tap_sleep_anywhere_summary">Kilit ekranında herhangi bir yere iki kez dokunarak cihazı uyku moduna alabilirsiniz</string>
@@ -1114,6 +1128,37 @@
     <string name="selinux_title">Selinux Mode</string>
     <string name="selinux_permissive_title">Permissive (Serbest)</string>
     <string name="selinux_enforcing_title">Enforcing (Zorunlu)</string>
+    <!--Performance Settings--> 	
+    <string name="performance_settings"><b>Performans</b></string>
+    <string name="performance_settings_warning">Hiçbir Profil Bulunamadı</string>
+    <string name="performance_settings_warning_title">Dikkatli ilerle</string>
+    <!-- Performance Settings : I/O scheduler settings title -->
+    <string name="io_scheds_title">I/O zamanlayıcı</string>
+
+    <!-- Performance Settings : I/O scheduler settings sub items -->
+    <string name="io_sched_title">I/O zamanlayıcı</string>
+    <string name="io_sched_summary" translatable="false">%S</string>
+    <!-- Performance Settings : Set on boot option -->
+    <string name="performance_set_on_boot">Açılışta ayarla</string>
+    <string name="performance_set_on_boot_summary">Açılışta ayarları geri yükleme</string>
+
+    <!-- Performance Settings : Processor Settings -->
+    <!-- Performance Settings : Processor settings title -->
+    <string name="processor_title">İşlemci</string>
+	<!--Kernel Aduitor-->
+    <string name="kernel_aduitor">Çekirdek İnce Ayarları</string>
+    <string name="kernel_settings_warning_title">Uyarı Kernel Auditor yüklü değil</string>
+    <string name="kernel_settings_warning">Lütfen Playstore'/dan Kernel Auditor'/u yükleyin. Kernel Auditor olmadan devam etmek isterseniz Çekirdek İnce Ayarları Başlığına Tıklamayın, Kapatmaya zorlama deneyimi olabilir</string>
+
+
+    <!-- Performance Settings : Processor settings sub items -->
+    <string name="cpu_cur_freq_title">Güncel CPU frekansı</string>
+    <string name="cpu_governors_title">CPU governor</string>
+    <string name="cpu_governors_summary" translatable="false">%S</string>
+    <string name="cpu_min_freq_title">En düşük işlemci frekansı</string>
+    <string name="cpu_min_freq_summary" translatable="false">%s</string>
+    <string name="cpu_max_freq_title">En yüksek işlemci frekansı</string>
+    <string name="cpu_max_freq_summary" translatable="false">%s</string>
 
     <!-- App sidebar -->
     <string name="app_sidebar_title">Uygulama çubuğu</string>
@@ -1155,11 +1200,19 @@
     <string name="status_bar_weather_size_title">Yazı Boyutu</string>
     <string name="status_bar_weather_font_style_title">Yazı</string>
     <string name="status_bar_weather_font_normal">Normal</string>
+    <string name="status_bar_weather_font_italic">İtalik</string>
     <string name="status_bar_weather_font_bold">Kalın</string>
     <string name="status_bar_weather_font_bold_italic">Kalın İtalik</string>
+    <string name="status_bar_weather_font_light">Hafif</string>
+    <string name="status_bar_weather_font_light_italic">Hafif İtalik</string>
+    <string name="status_bar_weather_font_thin">İnce</string>
+    <string name="status_bar_weather_font_thin_italic">İnce İtalik</string>
     <string name="status_bar_weather_font_condensed">Yoğun</string>
-    <string name="status_bar_weather_font_light">İnce</string>
-    <string name="status_bar_weather_font_light_italic">İnce İtalik</string>
+    <string name="status_bar_weather_font_condensed_italic">Yoğun İtalik</string>
+    <string name="status_bar_weather_font_condensed_bold">Yoğun Kalın</string>
+    <string name="status_bar_weather_font_condensed_bold_italic">Yoğun Kalın İtalik</string>
+    <string name="status_bar_weather_font_medium">Orta</string>
+    <string name="status_bar_weather_font_medium_italic">Orta İtalik</string>
 
     <!-- SlimDim -->
     <string name="dim_nav_buttons_category">SlimDim</string>
@@ -1205,5 +1258,48 @@
     <string name="lockscreen_colors_reset_title">Kilit ekranı renklerini sıfırlayın</string>
     <string name="lockscreen_colors_reset_message">Bu renkleri varsayılana sıfırlamak istediğinizden emin misiniz?</string>
     <string name="yes">EVET</string>
+    
+    <!-- OmniSwitch -->
+    <string name="omniswitch_category">OmniSwitch</string>
+    <string name="recents_use_omniswitch_title">Son arananlar için kullan</string>
+    <string name="recents_use_omniswitch_summary">Varsayılan Son kullanılanları görüntüleme yerine OMNISWITCH kullanın</string>
+    <string name="omniswitch_start_settings_title">Ayarlar</string>
+    <string name="omniswitch_start_settings_summary">OmniSwitch ayarlarını aç</string>
+    <string name="omniswitch_first_time_title">Bilgilendirme</string>
+    <string name="omniswitch_first_time_message">OmniSwitch'/in etkin olduğundan emin olun.. Bunu aşağıda ki \"Ayarları\" kullanarak yapabilirsiniz</string>
+
+    <!-- SlimSizer  -->
+    <string name="listsystem">liste</string>
+    <string name="sizer_title">Uygulama silici</string>
+    <string name="caution">Dikkat</string>
+    <string name="sizer_message_startup">Bu araç, sistem uygulamalarını silmenize olanak verir. Dikkatli kullanın ve yanlızca uygulamalar güvenli bir şekilde kaldırılacak.</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="sizer_message_delete">Bu uygulamayı silmek istediğinizden emin misiniz?</string>
+    <string name="btn_delete">Şimdi seçili uygulamalar silinecek!</string>
+    <string name="delete_progress_title">Siliniyor</string>
+    <string name="delete_progress">Seçilen dosyalar siliniyorsilindi...</string>
+    <string name="delete_success">Silindi</string>
+    <string name="delete_fail">Silinemiyor</string>
+    <string name="btn_profile">Profil</string>
+    <string name="sizer_message_sdnowrite">SD Kart yazılamıyor</string>
+    <string name="sizer_message_sdnoread">SD Kart okunamıyor</string>
+    <string name="sizer_message_filesuccess">Profil oluşturuldu</string>
+    <string name="sizer_message_filefail">Profil oluşturmak başarısız oldu</string>
+    <string name="sizer_message_noselect">Hiçbir şey seçilmedi</string>
+    <string name="system_app_remover"><b>Sistem Uygulamaları Silici<b></string>
+    <string name="systemappremover_summary">Kendi sorumluluğunuzdadır sistem uygulamaları kaldırın ...\"Kararsızlığa neden olabilir\"</string>
+    
+    <!-- Device policy override -->
+    <string name="device_policy_override_title">Cihaz politikasını geçersiz kıl</string>
+    <string name="device_policy_override_summary">Uygulamalara güvenli kilit ekranını zorlama ve profil ayarlarını geçersiz kılmak için izin ver</string>
+
+    <!-- Scrolling Cache -->
+    <string name="rr_scrollingcache">Kaydırma İnce Ayarları</string>	
+    <string name="pref_scrollingcache_title">kaydırma önbelleği</string>
+    <string name="pref_scrollingcache_summary">Kaydırma Önbelleği kaydırma performansını bellek kullanımı pahasına iyileştirebilir</string>
+    <string name="pref_scrollingcache_force_enable">Etkinleştirmeye zorla</string>
+    <string name="pref_scrollingcache_default_enable">Varsayılan olarak etkinleştir</string>
+    <string name="pref_scrollingcache_default_disable">Varsayılan olarak devre dışı</string>
+    <string name="pref_scrollingcache_force_disable">Devre dışı bırakmaya zorla</string>
 
 </resources>
