@@ -43,6 +43,14 @@
             android:key="pref_force_highend_gfx"
             android:title="@string/pref_force_highend_gfx_title"
             android:summary="@string/pref_force_highend_gfx_summary" />
+	<SwitchPreference
+                android:key="force_hw_ui"
+                android:title="@string/rr_force_graphics_ui"
+                android:summary="@string/rr_force_graphics_ui_summary"/>
+        <SwitchPreference
+                android:key="disable_overlays"
+                android:title="@string/rr_disable_hw"
+                android:summary="@string/rr_disable_hw_summary"/>
 	</PreferenceCategory>
 
 	<!-- Performance/Kernel Auditor --> 
@@ -75,15 +83,26 @@
             android:entryValues="@array/values_scrollingcache" />
 </PreferenceCategory>
 
-        <PreferenceCategory 
-   	 android:key="rr_advanced"
-    	 android:title="@string/advanced">
-        <!-- Advanced mode -->
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="advanced_mode"
-            android:title="@string/advanced_mode_title"
-	    android:summary="@string/advanced_mode_summary"/>
+<PreferenceCategory 
+   	 android:key="proc_limit"
+    	 android:title="@string/background_apps">
 
+        <ListPreference
+            android:key="app_process_limit"
+            android:title="@string/app_process_limit_title"
+            android:persistent="false"
+            android:entries="@array/app_process_limit_entries"
+            android:entryValues="@array/app_process_limit_values" />
 </PreferenceCategory>
+
+<PreferenceCategory 
+   	 android:key="rr_boot"
+    	 android:title="@string/rr_boot">
+    <SwitchPreference
+        android:key="enable_quickboot"
+        android:title="@string/enable_quickboot_title"
+        android:summary="@string/enable_quickboot_summary" />
+</PreferenceCategory>	
+
 
 </PreferenceScreen>
