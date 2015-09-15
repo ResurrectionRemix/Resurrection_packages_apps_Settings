@@ -75,4 +75,15 @@
             android:entryValues="@array/values_scrollingcache" />
 </PreferenceCategory>
 
+        <PreferenceCategory 
+   	 android:key="rr_advanced"
+    	 android:title="@string/advanced">
+        <!-- Advanced mode -->
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="advanced_mode"
+            android:title="@string/advanced_mode_title"
+	    android:summary="@string/advanced_mode_summary"/>
+
+</PreferenceCategory>
+
 </PreferenceScreen>
