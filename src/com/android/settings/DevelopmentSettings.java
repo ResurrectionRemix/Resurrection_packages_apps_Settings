@@ -488,6 +488,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         } else {
             removePreference(mChamberUnlocked);
         }
+	removePreference(mQuickBoot);
     }
 
     private ListPreference addListPreference(String prefKey) {
