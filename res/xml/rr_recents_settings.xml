@@ -24,7 +24,14 @@
             android:key="show_clear_all_recents"
             android:title="@string/show_clear_all_recents_button_title"
             android:summary="@string/show_clear_all_recents_button_summary"
-            android:defaultValue="true" />               
+            android:defaultValue="true" />   
+
+         <!-- Shake to Clear Recents -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="shake_clean_recent"
+            android:title="@string/shake_clear_recents"
+            android:summary="@string/shake_clear_recents_summary"
+            android:defaultValue="false" />                       
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="recents_search_bar"
