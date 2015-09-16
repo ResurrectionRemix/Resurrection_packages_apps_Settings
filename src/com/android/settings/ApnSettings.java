@@ -260,7 +260,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                     if (!mvnoMatches(mvnoType, mvnoData, simOperatorName, imsiSIM, gid1)) {
                     } else {
                         ApnInfo apnInfo = new ApnInfo(name, apn, key, type, mvnoType, readOnly);
-                        if ("sbn".equals(mvnoType)) {
+                        if ("spn".equals(mvnoType)) {
                             mvnoSpnList.add(apnInfo);
                         } else if ("gid".equals(mvnoType)) {
                             mvnoGid1List.add(apnInfo);
