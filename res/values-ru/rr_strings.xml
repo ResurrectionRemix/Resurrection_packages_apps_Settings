@@ -45,7 +45,7 @@
     <string name="status_bar_ticker_summary">Анимация текста уведомления в строке состояния</string>
 
     <!-- Lockscreen Shortcuts -->
-    <string name="lockscreen_shortcuts_title">Ярлыки в центре экрана блокировки</string>
+    <string name="lockscreen_shortcuts_title">Ярлыки экрана блокировки</string>
     <string name="lockscreen_shortcuts_summary">Просмотреть или изменить ярлыки в центре экрана блокировки</string>
     <string name="lockscreen_shorcuts_longpress_title">Долгое нажатие на ярлык</string>
     <string name="lockscreen_shorcuts_longpress_summary">Открывать выбранные ярлыки в центре экрана блокировки по долгому нажатию</string>
@@ -62,10 +62,9 @@
     <string name="press_color_to_apply">Нажмите на цвет, чтобы применить</string>
     <string name="palette_custom_title">Пользовательские</string>
     <string name="palette_material_title">Материал</string>
-    <string name="palette_rgb_title">RGB</string>
     <string name="reset_android_title">Стандартные Android</string>
     <string name="reset_custom_title">Стандартные пользователя</string>
-    <string name="set">Задать</string>
+    <string name="set">Установить</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="device_settings_title">Устройство</string>
@@ -73,12 +72,12 @@
 
     <!-- Status bar -->
     <string name="status_bar_title"><b>Строка состояния</b></string>
-    <string name="status_bar_style_title">Стиль и Твики</string>
+    <string name="status_bar_style_title">Стиль и настройки</string>
     <string name="rr_cat_title">Персонализация</string>
     <string name="status_bar_style_title">Стиль</string>
 
     <!-- Navigation bar button color -->
-    <string name="navbar_button_tint_title">Цвет кнопок панели навигации</string> 
+    <string name="navbar_button_tint_title">Цвет кнопок панели навигации</string>
 
     <!-- misc -->
     <string name="misc_settings_title"><b>Прочее</b></string>
@@ -102,7 +101,6 @@
     <string name="status_bar_greeting_title">Приветствие</string>
     <string name="status_bar_greeting_summary">Показывать пользовательское приветствие в строке состояния после разблокировки устройства</string>
     <string name="status_bar_greeting_dialog">Установить своё приветствие</string>
-    <string name="status_bar_greeting_main">Resurrection Remix ツ</string>
     <string name="status_bar_greeting_timeout_title">Таймаут приветствия</string>
 
     <!-- Statusbar logo -->
@@ -116,6 +114,7 @@
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock"><b>Время и дата</b></string>
+    <string name="clock_font_size_title">Размер шрифта</string>
     <string name="status_bar_show_clock_second_title">Часы с секундами</string>
     <string name="status_bar_clock_title">Стиль времени и даты</string>
     <string name="clock_title_enable">Выравнивание часов</string>
@@ -135,6 +134,7 @@
     <string name="clock_date_display">Дата</string>
     <string name="clock_date_display_summary">Показывать дату перед часами</string>
     <string name="clock_date_style">Стиль даты</string>
+    <string name="clock_date_position">Положение даты</string>
     <string name="clock_date_format">Формат даты</string>
     <string name="clock_date_string_edittext_title">Должно быть в формате даты, например: ММ/дд/гг</string>
     <string name="clock_date_string_edittext_summary">Введите строку</string>
@@ -147,17 +147,27 @@
     <string name="clock_date_style_normal">Обычный</string>
     <string name="clock_date_style_lowercase">строчными</string>
     <string name="clock_date_style_uppercase">ПРОПИСНЫМИ</string>
+    <string name="clock_date_right">Справа от часов</string>
+    <string name="clock_date_left">Слева от часов</string>
     <string name="clock_date_format_custom">Свой Java-формат</string>
     <string name="status_bar_clock_style_reset_message">Сбросить цвет часов?</string>
 
     <!-- StatusbarClock -->
     <string name="clock_font_style_title">Шрифт</string>
-    <string name="clock_font_bold">По умолчанию</string>
-    <string name="clock_font_light">Тонкий</string>
-    <string name="clock_font_normal">Без засечек</string>
+    <string name="clock_font_normal">Нормальный</string>
+    <string name="clock_font_italic">Курсив</string>
+    <string name="clock_font_bold">Жирный</string>
+    <string name="clock_font_bold_italic">Жирный курсив</string>
+    <string name="clock_font_light">Светлый</string>
+    <string name="clock_font_light_italic">Светлый курсив</string>
+    <string name="clock_font_thin">Tонкий</string>
+    <string name="clock_font_thin_italic">Тонкий курсив</string>
     <string name="clock_font_condensed">Уплотнённый</string>
-    <string name="clock_font_light_italic">Тонкий курсив</string>
-    <string name="clock_font_resurrection">Шрифт Resurrection</string> 
+    <string name="clock_font_condensed_italic">Уплотнённый курсив</string>
+    <string name="clock_font_condensed_bold">Уплотнённый жирный</string>
+    <string name="clock_font_condensed_bold_italic">Уплотнённый жирный курсив</string>
+    <string name="clock_font_medium">Средний</string>
+    <string name="clock_font_medium_italic">Средний курсив</string>
 
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Показать строку поиска</string>
@@ -287,6 +297,7 @@
     <string name="custom_carrier_label_explain">Пожалуйста, введите своё имя оператора. Оставить пустым для отображения по умолчанию.</string>
     <string name="custom_carrier_label_notset">Пользовательский логотип не установлен</string>
     <string name="status_bar_carrier_color">Цвет логотипа</string>
+    <string name="status_bar_carrier_size">Размер щрифта логотипа</string>
 
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">Эффекты анимации списков</string>
@@ -528,6 +539,7 @@
     <string name="recents_clear_all_location_bottom_center">Внизу по центру</string>
     <string name="recents_clear_all_dismiss_all_title">Очистить все задачи</string>
     <string name="recents_clear_all_dismiss_all_summary">При очистке всех завершать текущую задачу</string>
+    <string name="omniswitch_settings_title">Переключатель Omni</string>
 
     <!-- Battery Bar -->
     <string name="battery_icon">Стиль иконки батареи</string>
@@ -650,7 +662,7 @@
     <string name="qs_sync_tile">Синхронизация</string>
 
     <!-- Navring targets (enable/disable) -->
-    <string name="navigation_ring_enable_title">Включить ярлыки кольца панели навигации</string>
+    <string name="navigation_ring_enable_title">Включить кольцо навигации</string>
 
     <!-- Quick Settings tiles -->
     <string name="qs_battery_saver_tile">Энергосбережение</string>
@@ -670,6 +682,7 @@
     <string name="longpress_lock_icon_to_sleep_summary">Эта функция не будет работать при одновременно включенных Smart Lock и \"Предотвращение случайных нажатий\"</string>
 
     <string name="qs_tile_themes">Темы</string>
+    <string name="qs_tile_rrtools">Настройки RR</string>
 
     <string name="qs_navbar_tile">Панель навигации</string>
     <string name="qs_appcirclebar_tile">Круг приложений</string>
@@ -991,7 +1004,6 @@
 
     <!-- Updater -->
     <string name="updater_title">Обновления</string>
-    <string name="updater_summary">Проверка обновлений и другое...</string>
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Двойное касание уводит в сон</string>
@@ -1007,6 +1019,45 @@
     <string name="selinux_title">Режим SELinux</string>
     <string name="selinux_permissive_title">Разрешающий</string>
     <string name="selinux_enforcing_title">Принудительный</string>
+
+    <!--Performance Settings-->
+    <string name="performance_settings"><b>Настройка производительности</b></string>
+    <string name="performance_settings_warning">Профили не найдены</string>
+    <string name="performance_settings_warning_title">Соблюдайте осторожность</string>
+    <!-- Performance Settings : I/O scheduler settings title -->
+    <string name="io_scheds_title">Планировщик I/O</string>
+    <!-- Performance Settings : I/O scheduler settings sub items -->
+    <string name="io_sched_title">Планировщик I/O</string>
+    <!-- Performance Settings : Set on boot option -->
+    <string name="performance_set_on_boot">Устанавливать при загрузке</string>
+    <string name="performance_set_on_boot_summary">Восстанавливать текущие настройки после перезагрузки</string>
+    <!-- Performance Settings : Processor Settings -->
+    <!-- Performance Settings : Processor settings title -->
+    <string name="processor_title">Процессор</string>
+    <!-- Performance Settings-->
+    <string name="background_apps">Приложения</string>
+    <string name="rr_boot">Варианты загрузки</string>
+
+    <!--Kernel Aduitor-->
+    <string name="kernel_aduitor">Настройки ядра</string>
+    <string name="kernel_aduitor_title">Ядро</string>
+    <string name="kernel_settings_warning_title">Внимание, Kernel Auditor не установлен</string>
+    <string name="kernel_settings_warning">Только для опытных пользователей. Действуйте с осторожностью</string>
+
+    <!--Graphics-->
+    <string name="graphics_title">Настройки графики</string>
+    <string name="rr_force_graphics_ui">Принудительно использовать GPU</string>
+    <string name="rr_disable_hw">Настройки GPU</string>
+    <string name="rr_disable_hw_summary">Использовать GPU для построения экрана. Может исправить проблемы воспроизведения видео на некоторых устройствах, которые плохо поддерживают аппаратное декодирование. ВНИМАНИЕ! Открытие настроек \"Для раздаботчиков\" нереопределит эту настройку.</string>
+    <string name="rr_force_graphics_ui_summary">Принудительно использовать GPU для 2D отрисовки. Увеличивает производительность. Может влиять на аккумулятор. ВНИМАНИЕ! Открытие настроек \"Для раздаботчиков\" нереопределит эту настройку.</string>
+    <string name="warning_gpu">Внимание !!!</string>
+    <string name="message_gpu">Если Вы войдёте в настройки \"Для раздаботчиков\", то эта настройка будет сброшена</string>
+
+    <!-- Performance Settings : Processor settings sub items -->
+    <string name="cpu_cur_freq_title">Текуцая частота CPU</string>
+    <string name="cpu_governors_title">Планировщик CPU</string>
+    <string name="cpu_min_freq_title">Минимальная частота CPU</string>
+    <string name="cpu_max_freq_title">Максимальная частота CPU</string>
 
     <!-- App sidebar -->
     <string name="app_sidebar_title"><b>Боковая панель приложений</b></string>
@@ -1048,11 +1099,19 @@
     <string name="status_bar_weather_size_title">Размер шрифта</string>
     <string name="status_bar_weather_font_style_title">Шрифт</string>
     <string name="status_bar_weather_font_normal">Нормальный</string>
+    <string name="status_bar_weather_font_italic">Курсив</string>
     <string name="status_bar_weather_font_bold">Жирный</string>
     <string name="status_bar_weather_font_bold_italic">Жирный курсив</string>
-    <string name="status_bar_weather_font_condensed">Уплотнённый</string>
     <string name="status_bar_weather_font_light">Светлый</string>
     <string name="status_bar_weather_font_light_italic">Светлый курсив</string>
+    <string name="status_bar_weather_font_thin">Tонкий</string>
+    <string name="status_bar_weather_font_thin_italic">Тонкий курсив</string>
+    <string name="status_bar_weather_font_condensed">Уплотнённый</string>
+    <string name="status_bar_weather_font_condensed_italic">Уплотнённый курсив</string>
+    <string name="status_bar_weather_font_condensed_bold">Уплотнённый жирный</string>
+    <string name="status_bar_weather_font_condensed_bold_italic">Уплотнённый жирный курсив</string>
+    <string name="status_bar_weather_font_medium">Средний</string>
+    <string name="status_bar_weather_font_medium_italic">Средний курсив</string>
 
     <!-- SlimDim -->
     <string name="dim_nav_buttons_category"><b>Затемнение кнопок</b></string>
@@ -1074,9 +1133,9 @@
     <string name="show_headset_icon_title">Значок гарнитуры</string>
     <string name="show_headset_icon_summary">Показывать значок, когда гарнитура подключена</string>
 
-    <!-- Three finger screenshot gesture -->
+    <!-- Three-fingers-swipe to screenshot -->
     <string name="three_finger_gesture">Жест тремя пальцами</string>
-    <string name="three_finger_gesture_summary">Проведите тремя пальцами вниз для создания скриншота</string>
+    <string name="three_finger_gesture_summary">Проведите тремя пальцами для создания скриншота</string>
 
     <!--Time Contexual Header -->
     <string name="notification_title">Панель уведомлений</string>
@@ -1098,5 +1157,47 @@
     <string name="lockscreen_colors_reset_title">Сброс цветов экрана блокировки</string>
     <string name="lockscreen_colors_reset_message">Вы уверены, что хотите сбросить настройки цветов по умолчанию?</string>
     <string name="yes">ДА</string>
+
+    <!-- OmniSwitch -->
+    <string name="omniswitch_category">Переключатель Omni</string>
+    <string name="recents_use_omniswitch_title">Использовать для \"Недавних приложений\"</string>
+    <string name="recents_use_omniswitch_summary">Использовать по умолчанию для передлючения между \"Недавними приложениями\"</string>
+    <string name="omniswitch_start_settings_title">Настройки</string>
+    <string name="omniswitch_start_settings_summary">Открыть настройки Omni переключателя</string>
+    <string name="omniswitch_first_time_title">Примечание</string>
+    <string name="omniswitch_first_time_message">Убедитесь, что у вас активирован переключатель Omni. Вы можете это сделать в \"Настройках\" ниже.</string>
+
+    <!-- SlimSizer  -->
+    <string name="listsystem">Список</string>
+    <string name="sizer_title">Системные приложения</string>
+    <string name="caution">Внимание!</string>
+    <string name="sizer_message_startup">Эта программа позволяет удалять системные приложения. Используйте с осторожностью и удаляйте только то, что можно удалить без последствий.</string>
+    <string name="cancel">Отмена</string>
+    <string name="sizer_message_delete">Вы точно хотите удалить это/эти приложение(-ия)?</string>
+    <string name="btn_delete">Удалить выделенные приложения!</string>
+    <string name="delete_progress_title">Удаление</string>
+    <string name="delete_progress">Удаляются выбранные приложения...</string>
+    <string name="delete_success">Удалено</string>
+    <string name="delete_fail">Невозможно удалить</string>
+    <string name="btn_profile">Профиль</string>
+    <string name="sizer_message_sdnowrite">Невозможна запись на SD-карту.</string>
+    <string name="sizer_message_sdnoread">Невозможно чтение с SD-карты.</string>
+    <string name="sizer_message_filesuccess">Профиль создан.</string>
+    <string name="sizer_message_filefail">Невозможно создать профиль.</string>
+    <string name="sizer_message_noselect">Ничего не выбрано.</string>
+    <string name="system_app_remover"><b>Удаление системных приложений</b></string>
+    <string name="systemappremover_summary">Удаляйте системные приложений на свой страх и риск. \"Система может стать нестабильной\"</string>
+
+    <!-- Device policy override -->
+    <string name="device_policy_override_title">Переопределение политики устройства</string>
+    <string name="device_policy_override_summary">Разрешить приложениям усилить безопасность Блокировки и переопределить настройки профиля</string>
+
+    <!-- Scrolling Cache -->
+    <string name="pref_scrollingcache_title">Кэш прокрутки</string>
+    <string name="pref_scrollingcache_summary">Кэш прокрутки может улучшить производительность прокрутки в зависимости от объема памяти</string>
+    <string name="pref_scrollingcache_force_enable">Принудительная активация</string>
+    <string name="pref_scrollingcache_default_enable">Активировать по умолчанию</string>
+    <string name="pref_scrollingcache_default_disable">Отключить по умолчанию</string>
+    <string name="pref_scrollingcache_force_disable">Принудительно отключить</string>
 
 </resources>
