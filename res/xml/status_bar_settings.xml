@@ -103,13 +103,6 @@
  <PreferenceCategory
 	android:title="@string/status_bar_quick_settings">
 
-
-    <SwitchPreference
-        android:key="block_on_secure_keyguard"
-        android:title="@string/block_on_secure_keyguard_title"
-        android:summary="@string/block_on_secure_keyguard_summary"
-        android:persistent="false" />        
-
     <ListPreference
         android:key="quick_pulldown"
         android:title="@string/title_quick_pulldown"
@@ -122,8 +115,21 @@
         android:title="@string/smart_pulldown_title"
         android:entries="@array/smart_pulldown_entries"
         android:entryValues="@array/smart_pulldown_values"
-        android:persistent="false" />       
+        android:persistent="false" /> 
 
+ </PreferenceCategory>
+
+<PreferenceCategory
+	android:key="block_on_lockscreen"
+	android:title="@string/status_bar_quick_security">
+
+    <SwitchPreference
+        android:key="block_on_secure_keyguard"
+        android:title="@string/block_on_secure_keyguard_title"
+        android:summary="@string/block_on_secure_keyguard_summary"
+        android:persistent="false" />        
+
+   
  </PreferenceCategory>
 
     <PreferenceCategory

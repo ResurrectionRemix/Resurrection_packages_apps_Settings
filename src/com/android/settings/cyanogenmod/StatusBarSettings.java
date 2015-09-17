@@ -29,6 +29,7 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
@@ -73,6 +74,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String KEY_LOGO_STYLE = "status_bar_logo_style";
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
     private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
+    private static final String LOCK_SECURITY_LOCKSCREEN="block_on_lockscreen";
     
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
@@ -85,6 +87,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private String mCustomGreetingText = "";
     private SwitchPreference mCarrierLabelOnLockScreen;
     private ListPreference mLogoStyle;
+    private PreferenceCategory mLock;  	
+
     
     private static final String TAG = "StatusBar";
 
@@ -200,12 +204,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
        
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+	mLock =(PreferenceCategory) findPreference(LOCK_SECURITY_LOCKSCREEN);
         if (lockPatternUtils.isSecure()) {
             mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(getContentResolver(),
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
             mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
         } else {
             prefSet.removePreference(mBlockOnSecureKeyguard);
+	    prefSet.removePreference(mLock);
         }
     }
 
