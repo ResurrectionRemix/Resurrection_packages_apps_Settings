@@ -16,10 +16,19 @@
     android:title="@string/misc_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     <!-- Wakelock blocker -->
+
+     <PreferenceCategory
+        android:title="@string/rr_wakelocks" >
+
     <PreferenceScreen
         android:key="wakelock_blocker"
         android:fragment="com.android.settings.aicp.WakeLockBlocker"
         android:title="@string/wakelock_blocker_title" />
+
+</PreferenceCategory>
+
+     <PreferenceCategory
+        android:title="@string/selinux_settings" >
     <!-- SELinux -->
         <Preference
             android:key="selinux_switch"
@@ -31,12 +40,19 @@
             android:key="selinux"
             android:title="@string/selinux_title"
             android:defaultValue="false" />
+
+</PreferenceCategory>
+
+     <PreferenceCategory
+        android:title="@string/slimsizer_settings" >
     <!-- SlimSizer -->
         <PreferenceScreen 
             android:key="system_app_remover"
             android:title="@string/system_app_remover"
             android:summary="@string/systemappremover_summary"
             android:fragment="com.android.settings.rr.SystemappRemover" />
+
+</PreferenceCategory>
      <PreferenceCategory
         android:key="widgets"
         android:title="@string/widgets_category" >

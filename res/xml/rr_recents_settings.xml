@@ -17,21 +17,8 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="recents_panel"
-        android:title="@string/recents_panel_category" >
-
-        <SwitchPreference
-            android:key="show_clear_all_recents"
-            android:title="@string/show_clear_all_recents_button_title"
-            android:summary="@string/show_clear_all_recents_button_summary"
-            android:defaultValue="true" />   
-
-         <!-- Shake to Clear Recents -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="shake_clean_recent"
-            android:title="@string/shake_clear_recents"
-            android:summary="@string/shake_clear_recents_summary"
-            android:defaultValue="false" />                       
+	android:key="recents_panel"
+        android:title="@string/recents_panel_category" >                      
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="recents_search_bar"
@@ -44,14 +31,23 @@
             android:title="@string/recents_show_membar_title"
             android:summary="@string/recents_show_membar_summary"
             android:defaultValue="false" />
+      
+ </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/recents_panel_clear_all" >
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+  <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="recents_clear_all_dismiss_all"
             android:title="@string/recents_clear_all_dismiss_all_title"
             android:summary="@string/recents_clear_all_dismiss_all_summary"
             android:defaultValue="true"
             android:dependency="show_clear_all_recents" />
 
+        <SwitchPreference
+            android:key="show_clear_all_recents"
+            android:title="@string/show_clear_all_recents_button_title"
+            android:summary="@string/show_clear_all_recents_button_summary"
+            android:defaultValue="true" />  
 
         <ListPreference
             android:key="recents_clear_all_location"
@@ -61,7 +57,22 @@
             android:defaultValue="5"
             android:dependency="show_clear_all_recents" />
 
+ </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/recents_panel_gestures" >
+
+         <!-- Shake to Clear Recents -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="shake_clean_recent"
+            android:title="@string/shake_clear_recents"
+            android:summary="@string/shake_clear_recents_summary"
+            android:defaultValue="false" /> 
+
+ </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/recents_panel_other" >
         <PreferenceScreen
             android:key="recent_panel"
             android:title="@string/recent_panel_slim"

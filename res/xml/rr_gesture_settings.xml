@@ -21,18 +21,13 @@
     <PreferenceCategory
         android:title="@string/rr_gesture_title">
 
-    <!-- PIE Controls -->
-    <PreferenceScreen
-        android:key="pie_settings"
-        android:fragment="com.android.settings.rr.PieControl"
-        android:title="@string/pie_control_title" />
-
     <!-- Gesture anywhere -->
     <PreferenceScreen
     	android:key="gesture_anywhere"
     	android:fragment="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings"
     	android:summary="@string/gesture_anywhere_gestures_summary"
 	    android:title="@string/gesture_anywhere_title" />
+
 
     <!-- Three-fingers-swipe to screenshot -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -41,6 +36,22 @@
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="false" />
 
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_pie">
+
+    <!-- PIE Controls -->
+    <PreferenceScreen
+        android:key="pie_settings"
+        android:fragment="com.android.settings.rr.PieControl"
+        android:title="@string/pie_control_title" />
+
+</PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/rr_app_bars">
     <!-- App sidebar -->
     <PreferenceScreen
         android:key="app_sidebar"

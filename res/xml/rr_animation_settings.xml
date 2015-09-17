@@ -16,11 +16,8 @@
     android:title="@string/misc_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-
-
-    <!-- animations -->
     <PreferenceCategory
-        android:title="@string/rr_animations_title">
+        android:title="@string/rr_toast_title">
 
         <ListPreference
                 android:key="toast_animation"
@@ -34,6 +31,11 @@
             android:title="@string/toast_icon_title"
             android:defaultValue="true" />
 
+</PreferenceCategory>
+
+    <!-- animations -->
+    <PreferenceCategory
+        android:title="@string/rr_animations_title">
     <PreferenceScreen
         android:id="@+id/listview"
         android:fragment="com.android.settings.rr.Listview"
@@ -46,6 +48,10 @@
         android:summary="@string/aokp_animation_summary"
         android:fragment="com.android.settings.rr.AnimationControls" />
 
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_scrolling_title">
         <PreferenceScreen
             android:key="overscroll_effects"
             android:title="@string/ui_overscroll_title"

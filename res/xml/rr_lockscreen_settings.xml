@@ -30,25 +30,19 @@
              <extra android:name="disableLongpress" android:value="true" />
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.android.settings.slim.LockscreenShortcut" />
-    </PreferenceScreen>
-
-        <PreferenceScreen
-            android:key="lockscreen_weather"
-            android:title="@string/lock_screen_weather_settings_title"
-            android:summary="@string/lock_screen_weather_settings_title_summary"
-            android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
 
         <PreferenceScreen
             android:key="lockscreen_shortcuts_settings"
             android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
             android:summary="@string/rr_lockscreen_targets_message_summary"
             android:title="@string/rr_lockscreen_targets_message" />
+    </PreferenceScreen>
 
-        <PreferenceScreen
-            android:key="lockscreen_colors"
-            android:title="@string/lockscreen_colors"
-            android:fragment="com.android.settings.rr.LockscreenColors" />
-            
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/lockscreen_Gestures">
+
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="long_press_lock_icon_to_sleep"
             android:title="@string/longpress_lock_icon_to_sleep_title"
@@ -57,8 +51,33 @@
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_anywhere"
             android:title="@string/double_tap_sleep_anywhere_title"
-            android:summary="@string/double_tap_sleep_anywhere_summary"/>            
+            android:summary="@string/double_tap_sleep_anywhere_summary"/> 
 
+</PreferenceCategory>  
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_weather">
+        <PreferenceScreen
+            android:key="lockscreen_weather"
+            android:title="@string/lock_screen_weather_settings_title"
+            android:summary="@string/lock_screen_weather_settings_title_summary"
+            android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
+
+</PreferenceCategory>  
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_colors">
+
+        <PreferenceScreen
+            android:key="lockscreen_colors"
+            android:title="@string/lockscreen_colors"
+            android:fragment="com.android.settings.rr.LockscreenColors" />
+
+</PreferenceCategory>  
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_vizualizer">
+                   
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
                 android:key="lockscreen_visualizer"
                 android:title="@string/lockscreen_visualizer_title"
