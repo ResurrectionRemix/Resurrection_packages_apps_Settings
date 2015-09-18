@@ -242,9 +242,9 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
             ArrayList<Preference> mmsApnList = new ArrayList<Preference>();
 
-            ArrayList<ApnInfo> mvnoSpnList = new ArrayList<ApnInfo>();
-            ArrayList<ApnInfo> mvnoGid1List = new ArrayList<ApnInfo>();
-            ArrayList<ApnInfo> mvnoImsiList = new ArrayList<ApnInfo>();
+            ArrayList<Preference> mvnoSpnList = new ArrayList<Preference>();
+            ArrayList<Preference> mvnoGid1List = new ArrayList<Preference>();
+            ArrayList<Preference> mvnoImsiList = new ArrayList<Preference>();
 
             mSelectedKey = getSelectedApnKey();
             while (cursor.moveToNext()) {
@@ -257,21 +257,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 String mvnoData = cursor.getString(MVNODATA_INDEX);
                 boolean isMvno = !TextUtils.isEmpty(mvnoType) && !TextUtils.isEmpty(mvnoData);
 
-                if (isMvno) {
-                    if (!mvnoMatches(mvnoType, mvnoData, simOperatorName, imsiSIM, gid1)) {
-                    } else {
-                        ApnInfo apnInfo = new ApnInfo(name, apn, key, type, mvnoType, readOnly);
-                        if ("spn".equals(mvnoType)) {
-                            mvnoSpnList.add(apnInfo);
-                        } else if ("gid".equals(mvnoType)) {
-                            mvnoGid1List.add(apnInfo);
-                        } else if ("imsi".equals(mvnoType)) {
-                            mvnoImsiList.add(apnInfo);
-                        }
-                    }
-                    continue;
-                }
-
                 ApnPreference pref = createApnPreference(name, key, apn, type, readOnly);
 
                 if (pref.getSelectable()) {
@@ -283,30 +268,34 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 } else {
                     mmsApnList.add(pref);
                 }
+
+                if (isMvno) {
+                    if (!mvnoMatches(mvnoType, mvnoData, simOperatorName, imsiSIM, gid1)) {
+                        apnList.removePreference(pref);
+                    } else {
+                        ApnInfo apnInfo = new ApnInfo(name, apn, key, type, mvnoType, readOnly);
+                        if ("spn".equals(mvnoType)) {
+                            mvnoSpnList.add(pref);
+                        } else if ("gid".equals(mvnoType)) {
+                            mvnoGid1List.add(pref);
+                        } else if ("imsi".equals(mvnoType)) {
+                            mvnoImsiList.add(pref);
+                        }
+                    }
+                }
+
             }
             cursor.close();
 
-            ArrayList<ApnInfo> mvnoList = null;
-            if (mvnoImsiList.size() > 0) {
-                mvnoList = mvnoImsiList;
-            } else if (mvnoGid1List.size() > 0) {
-                mvnoList = mvnoGid1List;
-            } else if (mvnoSpnList.size() > 0) {
-                mvnoList = mvnoSpnList;
-            }
-            if (mvnoList != null) {
-                for (ApnInfo apnInfo : mvnoList) {
-                    ApnPreference pref = createApnPreference(apnInfo.name, apnInfo.key, apnInfo.apn,
-                            apnInfo.type, apnInfo.readOnly);
-                    if (apnInfo.selectable) {
-                        if ((mSelectedKey != null) && mSelectedKey.equals(apnInfo.key)) {
-                            pref.setChecked();
-                            Log.d(TAG, "find select key = " + mSelectedKey);
-                        }
-                        apnList.addPreference(pref);
-                    } else {
-                        mmsApnList.add(pref);
+            // remove preferences for mvnos that should not be shown
+            if (mvnoImsiList.size() > 0 || mvnoGid1List.size() > 0) {
+                if (mvnoImsiList.size() > 0) {
+                    for (Preference pref : mvnoGid1List) {
+                        apnList.removePreference(pref);
                     }
+                }
+                for (Preference pref : mvnoSpnList) {
+                    apnList.removePreference(pref);
                 }
             }
 
