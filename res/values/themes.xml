@@ -188,11 +188,7 @@
         <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
     </style>
 
-    <style name="Theme.NotificationStation" parent="@android:style/Theme.Material">
-        <!-- Redefine the ActionBar style for contentInsetStart -->
-        <item name="android:actionBarStyle">@style/Theme.ActionBar.SubSettings</item>
-        <item name="@*android:actionBarSize">@dimen/actionbar_size</item>
-
+    <style name="Theme.NotificationStation" parent="Theme.SettingsBase">
         <item name="preferenceBackgroundColor">@android:color/transparent</item>
     </style>
 
