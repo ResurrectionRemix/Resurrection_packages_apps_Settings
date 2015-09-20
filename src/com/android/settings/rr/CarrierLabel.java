@@ -71,7 +71,6 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        int intColor;
         String hexColor;
 
         mStatusBarCarrier = (ListPreference) prefSet.findPreference(STATUS_BAR_CUSTOM_CARRIER);
