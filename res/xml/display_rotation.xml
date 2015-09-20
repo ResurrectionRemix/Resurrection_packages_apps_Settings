@@ -22,10 +22,11 @@
         android:key="accelerometer"
         android:title="@string/accelerometer_title" />
 
-    <SwitchPreference
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="lockscreen_rotation"
         android:title="@string/display_lockscreen_rotation_title"
-        android:dependency="accelerometer" />
+        android:dependency="accelerometer" 
+        android:defaultValue="true" />
 
     <PreferenceCategory
         android:key="display_rotation_category"

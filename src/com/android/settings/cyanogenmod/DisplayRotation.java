@@ -61,7 +61,6 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.display_rotation);
 
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -96,12 +95,11 @@ public class DisplayRotation extends SettingsPreferenceFragment {
             mRotation270Pref.setDependency(null);
         }
 
-        final SwitchPreference lockScreenRotation =
-                (SwitchPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
-        boolean canRotateLockscreen = getResources().getBoolean(
+        final Preference lockScreenRotation = findPreference(KEY_LOCKSCREEN_ROTATION);
+        final boolean canRotateLockScreen = getResources().getBoolean(
                 com.android.internal.R.bool.config_enableLockScreenRotation);
 
-        if (lockScreenRotation != null && !canRotateLockscreen) {
+        if (lockScreenRotation != null && !canRotateLockScreen) {
             getPreferenceScreen().removePreference(lockScreenRotation);
         }
     }
