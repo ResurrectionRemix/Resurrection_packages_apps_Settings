@@ -16,8 +16,12 @@
 
 package com.android.settings.rr;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -32,6 +36,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.Spannable;
@@ -40,12 +45,15 @@ import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreferenceCham;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class CarrierLabel extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class CarrierLabel extends SettingsPreferenceFragment implements OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "CarrierLabel";
 
@@ -73,7 +81,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
 
         String hexColor;
 
-        mStatusBarCarrier = (ListPreference) prefSet.findPreference(STATUS_BAR_CUSTOM_CARRIER);
+        mStatusBarCarrier = (ListPreference) findPreference(STATUS_BAR_CUSTOM_CARRIER);
         int statusBarCarrier = Settings.System.getInt(getContentResolver(),
                     Settings.System.STATUS_BAR_CUSTOM_CARRIER, 1);
         mStatusBarCarrier.setValue(String.valueOf(statusBarCarrier));
@@ -89,20 +97,15 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getContentResolver(),
-                       Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
+                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mCarrierColorPicker.setSummary(hexColor);
         mCarrierColorPicker.setNewPreviewColor(intColor);
-        mCarrierColorPicker.setAlphaSliderEnabled(true);
 
         updateCustomLabelTextSummary();
-
     }
 
     private void updateCustomLabelTextSummary() {
-        if (mCustomCarrierLabel == null) {
-            return;
-        }
         mCustomCarrierLabelText = Settings.System.getString(
             getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
 
@@ -123,12 +126,13 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
-         } else if (preference == mStatusBarCarrier) {
+        } else if (preference == mStatusBarCarrier) {
             int statusBarCarrier = Integer.valueOf((String) newValue);
             int index = mStatusBarCarrier.findIndexOfValue((String) newValue);
             Settings.System.putInt(
                     getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_CARRIER, statusBarCarrier);
             mStatusBarCarrier.setSummary(mStatusBarCarrier.getEntries()[index]);
+            return true;
          } else if (preference == mStatusBarCarrierSize) {
             int width = ((Integer)newValue).intValue();
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -173,4 +177,26 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.carrier_label;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+            };
 }
