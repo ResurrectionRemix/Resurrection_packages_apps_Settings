@@ -73,7 +73,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String KEY_LOGO_COLOR = "status_bar_logo_color";
     private static final String KEY_LOGO_STYLE = "status_bar_logo_style";
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
-    private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
     private static final String LOCK_SECURITY_LOCKSCREEN="block_on_lockscreen";
     
     private SwitchPreference mBlockOnSecureKeyguard;
@@ -85,7 +84,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mLogoColor;
     private SwitchPreference mEnableTaskManager;
     private String mCustomGreetingText = "";
-    private SwitchPreference mCarrierLabelOnLockScreen;
     private ListPreference mLogoStyle;
     private PreferenceCategory mLock;  	
 
@@ -187,19 +185,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         if (Utils.isWifiOnly(getActivity())) {
             prefSet.removePreference(mCarrierLabel);
           }
-        }
-
-        //CarrierLabel on LockScreen
-        mCarrierLabelOnLockScreen = (SwitchPreference) findPreference(CARRIERLABEL_ON_LOCKSCREEN);
-        if (!Utils.isWifiOnly(getActivity())) {
-            mCarrierLabelOnLockScreen.setOnPreferenceChangeListener(this);
-
-            boolean hideCarrierLabelOnLS = Settings.System.getInt(
-                    getActivity().getContentResolver(),
-                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0) == 1;
-            mCarrierLabelOnLockScreen.setChecked(hideCarrierLabelOnLS);
-        } else {
-            prefSet.removePreference(mCarrierLabelOnLockScreen);
         }
        
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
@@ -331,12 +316,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mLogoStyle.setSummary(
                     mLogoStyle.getEntries()[index]);
             return true;
-        } else if (preference == mCarrierLabelOnLockScreen) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LOCK_SCREEN_HIDE_CARRIER,
-                    (Boolean) newValue ? 1 : 0);
-            Helpers.restartSystemUI();
-            return true;  
         }
         return false;
     }
