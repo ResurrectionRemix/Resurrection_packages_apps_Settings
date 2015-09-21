@@ -32,7 +32,6 @@
 
     <string name="advanced">Расширенный</string>
     <string name="advanced_mode_title">Расширенный режим</string>
-    <string name="advanced_mode_summary">@null</string>
 
     <string name="lockscreen_shortcuts_categories">Ярлыки</string>
     <string name="rr_lockscreen_targets_message_summary">Настройка угловых ярлыков на экране блокировки</string>
@@ -183,7 +182,7 @@
 
     <!-- Toast animations -->
     <string name="toast_animation_title">Анимация всплывающих уведомлений</string>
-    <string name="toast_animation_summary">Выберите и просмотрите анимацию подсказок</string>
+    <string name="toast_animation_summary">Выберите и посмотрите анимацию</string>
     <string name="toast_none_animation">Нет</string>
     <string name="toast_default_animation">По умолчанию</string>
     <string name="toast_fade_animation">Угасание</string>
@@ -297,6 +296,10 @@
     <string name="custom_carrier_label_explain">Пожалуйста, введите своё имя оператора. Оставить пустым для отображения по умолчанию.</string>
     <string name="custom_carrier_label_notset">Пользовательский логотип не установлен</string>
     <string name="status_bar_carrier_color">Цвет логотипа</string>
+    <string name="show_carrier_disabled">Отключен</string>
+    <string name="show_carrier_keyguard">Только на экране блокировки</string>
+    <string name="show_carrier_statusbar">Только в строке состояния</string>
+    <string name="show_carrier_enabled">Везде</string>
     <string name="status_bar_carrier_size">Размер щрифта логотипа</string>
 
     <!-- ListView interpolator -->
@@ -677,9 +680,9 @@
     <string name="qs_tile_slim_floats">Плавающие окна</string>
     <string name="qs_pie_tile">Панель Pie</string>
 
-    <!-- Long press on lock screen lock icon to sleep -->
-    <string name="longpress_lock_icon_to_sleep_title">Долгое нажатие на иконку блокировки уводит в сон</string>
-    <string name="longpress_lock_icon_to_sleep_summary">Эта функция не будет работать при одновременно включенных Smart Lock и \"Предотвращение случайных нажатий\"</string>
+    <!-- Long press on lock screen lock icon to launch torch-->
+    <string name="longpress_lock_icon_torch_title">Долгое нажатие на иконку блокировки включает онарик</string>
+    <string name="longpress_lock_icon_torch_summary">Эта функция не будет работать при одновременно включенных Smart Lock и \"Предотвращение случайных нажатий\"</string>
 
     <string name="qs_tile_themes">Темы</string>
     <string name="qs_tile_rrtools">Настройки RR</string>
@@ -699,7 +702,7 @@
     <string name="doze_list_mode_summary">Настройка \"Режима сна\"</string>
 
     <string name="doze_pulse_title">Настройки времени</string>
-    <string name="doze_pulse_duration_in_title">Появление</string>
+    <string name="doze_pulse_duration_in_title">Проявление</string>
 
     <string name="doze_pulse_duration_visible_title">Время видимости</string>
 
@@ -775,7 +778,7 @@
     <string name="notification_force_expand_summary">Всегда использовать расширенный вид уведомлений для всех приложений, поддерживающих это</string>
 
     <!-- Wakelock blocker -->
-    <string name="wakelock_blocker_title">Блокировка пробуждений</string>
+    <string name="wakelock_blocker_title"><b>Блокировка пробуждений</b></string>
     <string name="wakelock_blocker_summary">Блокировка пробуждений от системных процессов</string>
     <string name="wakelock_blocker_save">Сохранить</string>
     <string name="wakelock_list_header">Обнаруженные пробуждения</string>
@@ -1082,10 +1085,6 @@
     <string name="tab_size_title">Размер вкладки</string>
     <string name="tab_size_summary">Изменение размера видимой вкладки</string>
 
-    <!-- Hide lock screen carrier -->
-    <string name="lock_screen_hide_carrier_title">Скрыть имя оператора на экране блокировки</string>
-    <string name="lock_screen_hide_carrier_summary">После переключения, интерфейс перезагрузится</string>
-
     <!-- Status bar temperature -->
     <string name="status_bar_temperature_title"><b>Температура воздуха</b></string>
     <string name="status_bar_temperature_hidden">Не показывать</string>
@@ -1148,9 +1147,9 @@
 
     <!-- Lockscreen Colors -->
     <string name="lockscreen_colors"><b>Цвета на экране блокировки</b></string>
-    <string name="lockscreen_phone_icon_color">Нижний левый значок</string>
-    <string name="lockscreen_lock_icon_color">Значок блокировки</string>
-    <string name="lockscreen_camera_icon_color">Нижний правый значок</string>
+    <string name="lockscreen_bottom_icons_color">Нижние ярлыки</string>
+    <string name="lockscreen_owner_info_color">Информация о владельце</string>
+    <string name="lockscreen_alarm_color">Будильник</string>
     <string name="lockscreen_indication_text_color">Текст индикации</string>
     <string name="lockscreen_clock_color">Часы</string>
     <string name="lockscreen_clock_date_color">Дата</string>
@@ -1203,5 +1202,51 @@
     <!--Shake To Clear Recents Settings -->
     <string name="shake_clear_recents">Очистка встряхиванием</string>
     <string name="shake_clear_recents_summary">Встряхните аппарат, чтобы очистить список недавних приложений</string>
+
+    <!--RR Configuration Preference Strings-->
+
+    <!--StatusBar-->
+    <string name="rr_status_bar_main"><b>Основные настройки</b></string>
+    <string name="rr_temprature"><b>Температура в строке состояния</b></string>
+    <string name="rr_icons"><b>Значки строки состояния</b></string>
+    <string name="rr_logo_title"><b>Логотип Resurrection Remix</b></string>
+    <string name="status_bar_quick_settings"><b>Действия быстрых настроек</b></string>
+    <string name="status_bar_battery_title"><b>Батарея</b></string>
+    <string name="status_bar_lock_screen"><b>Строка состояния на экране блокировки</b></string>
+    <string name="status_bar_quick_security"><b>Безопасность строки состояния</b></string>
+
+    <!--Notication Drawer-->
+    <string name="rr_qs_colors"><b>Цвета</b></string>
+    <string name="rr_notifcation_header"><b>Заголовок уведомления</b></string>
+    <string name="rr_weather_title"><b>Погода в панели уведомления</b></string>
+    <string name="rr_misc_notif"><b>Прочее</b></string>
+
+    <!--Recents -->
+    <string name="recents_panel_clear_all"><b>Очистка недавних приложений</b></string>
+    <string name="recents_panel_gestures"><b>Жесты панели недавних приложений</b></string>
+    <string name="recents_panel_other"><b>Другие реализации панели недавних приложений</b></string>
+
+    <!--Lockscreen-->
+    <string name="lockscreen_Gestures"><b>Настройки касаний</b> </string>
+    <string name="rr_lockscreen_weather"><b>Погода и часы</b></string>
+    <string name="rr_lockscreen_colors"><b>Цвета</b></string>
+    <string name="rr_lockscreen_vizualizer"><b>Визуализация</b></string>
+
+    <!--Gestures-->
+    <string name="rr_app_bars"><b>Панели приложений</b></string>
+ 
+    <!--Animations-->
+    <string name="rr_toast_title"><b>Уведомления</b></string>
+    <string name="rr_scrolling_title"><b>Опции прокрутки</b></string>
+
+    <!--Misc-->
+    <string name="rr_wakelocks"><b>Пробуждения</b></string>
+    <string name="slimsizer_settings"><b>Системные приложения</b></string>
+
+    <!-- On-The-Go -->
+    <string name="power_menu_onthego_title">Режим \"На ходу\"</string>
+
+    <!-- Whether the keyguard will directly pass to gesture entry -->
+    <string name="lock_directly_show_gesture">Отображать нарисованный жест</string>
 
 </resources>
