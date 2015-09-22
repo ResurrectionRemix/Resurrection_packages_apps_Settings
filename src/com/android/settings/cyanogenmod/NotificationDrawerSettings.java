@@ -47,6 +47,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private Preference mQSTiles;
     private ListPreference mNumColumns;
     private SwitchPreference mCustomHeader;
+    private ListPreference mCustomHeaderDefault;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -75,10 +76,12 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         DraggableGridView.setColumnCount(numColumns);
 
         // Status bar custom header default
-        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER_DEFAULT);
-        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0) == 1));
-    }
+        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
+        int customHeaderDefault = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
+
 
     @Override
     public void onResume() {
@@ -99,9 +102,26 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             updateNumColumnsSummary(numColumns);
             DraggableGridView.setColumnCount(numColumns);
             return true;
-        	}
-	return false;
-	}
+        } else if (preference == mCustomHeader) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mCustomHeaderDefault) {
+            int customHeaderDefault = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), 
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
+                    customHeaderDefault, UserHandle.USER_CURRENT);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    0);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    1);
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
