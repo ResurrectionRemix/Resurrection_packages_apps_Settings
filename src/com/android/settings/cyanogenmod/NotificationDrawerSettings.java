@@ -40,7 +40,7 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
 
     private SwitchPreference mForceExpanded;
     private SwitchPreference mCustomHeader;	
-    private SwitchPreference mCustomHeaderDefault;
+    private ListPreference mCustomHeaderDefault;
     
     @Override
     public void onCreate(Bundle icicle) {
@@ -60,11 +60,11 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
         mCustomHeader.setOnPreferenceChangeListener(this);
 
          // Status bar custom header hd
-        mCustomHeaderDefault = (SwitchPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
-        mCustomHeaderDefault.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0) == 1));
+        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
         mCustomHeaderDefault.setOnPreferenceChangeListener(this);
-
+           int customHeaderDefault = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
     }
 
     @Override
@@ -86,9 +86,10 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mCustomHeaderDefault) {
-            Settings.System.putInt(getContentResolver(),
+           int customHeaderDefault = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), 
                     Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
-                    (Boolean) newValue ? 1 : 0);
+                    customHeaderDefault, UserHandle.USER_CURRENT);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_CUSTOM_HEADER,
                     0);
@@ -114,3 +115,4 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
 
 
 }
+
