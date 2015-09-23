@@ -82,6 +82,10 @@ public class AppGroupConfig extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (savedInstanceState != null) {
+            mPackageToDelete = savedInstanceState.getString("package_delete");
+        }
+
         mProfileManager = ProfileManager.getInstance(getActivity());
         addPreferencesFromResource(R.xml.application_list);
 
@@ -318,5 +322,11 @@ public class AppGroupConfig extends SettingsPreferenceFragment
     private void doDelete() {
         mNotificationGroup.removePackage(mPackageToDelete);
         updatePackages();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle in) {
+        super.onSaveInstanceState(in);
+        in.putString("package_delete", mPackageToDelete);
     }
 }
