@@ -286,8 +286,10 @@ public class EntryEditDialogFragment extends DialogFragment
         }
     }
 
-    private static class DeleteConfirmationFragment extends DialogFragment
+    public static class DeleteConfirmationFragment extends DialogFragment
             implements DialogInterface.OnClickListener {
+        public DeleteConfirmationFragment() {
+        }
         public static DialogFragment newInstance(EntryEditDialogFragment parent) {
             DialogFragment fragment = new DeleteConfirmationFragment();
             fragment.setTargetFragment(parent, 0);
