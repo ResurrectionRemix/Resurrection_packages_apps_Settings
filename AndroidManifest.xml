@@ -2462,26 +2462,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".applications.ProtectedAppsActivity"
-                  android:label="@string/protected_apps"
-                  android:excludeFromRecents="true"
-                  android:configChanges="orientation|keyboardHidden|screenSize">
-
-            <intent-filter>
-                <action android:name=".applications.ProtectedAppsActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".applications.LockPatternActivity"
-                  android:label="@string/protected_apps"
-                  android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name=".applications.LockPatternActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <receiver android:name=".profiles.SetupDefaultProfileReceiver">
             <intent-filter>
                 <action android:name="com.cyanogenmod.setupwizard.SETUP_FINISHED" />
