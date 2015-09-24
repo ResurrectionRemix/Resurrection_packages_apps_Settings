@@ -251,6 +251,7 @@
   <string name="privacy_guard_reset_text">Ресетуј дозволе?</string>
   <string name="privacy_guard_help_text">У овом екрану можеш одабрати која апликација заштите приватности треба да буде активна са једноставним додиром. Изабране апликације неће моћи да приступе твојим личним подацима, као што су контакти, поруке или евиденција позива. Дугим притиском при уласку отварају се детаљи за ту апликацију.\n\nУ уграђеним апликацијама није приказано као подразумевано, али може бити подешено избором одговарајућих опција у менију.</string>
   <string name="privacy_guard_manager_show_system_apps">Прикажи уграђене апликације</string>
+  <string name="privacy_guard_notification_title">Прикажи обавештења</string>
   <string name="app_ops_btn_text">Преуреди</string>
   <string name="increasing_ring_volume_option_title">Појачавање тона звона</string>
   <string name="increasing_ring_min_volume_title">Стартна гласноћа</string>
@@ -344,6 +345,8 @@
   <string name="notification_light_default_value">Подразумевано</string>
   <string name="notification_light_missed_call_title">Пропуштен позив</string>
   <string name="notification_light_voicemail_title">Говорна пошта</string>
+  <string name="notification_light_screen_on">Светли када је екран укључен</string>
+  <string name="keywords_lights_brightness_level">Затамљивање осветљења леда</string>
   <string name="notification_ringtone_title_cm">Тон обавештења</string>
   <string name="headset_connect_player_title">Покрени музичку апликацију</string>
   <string name="headset_connect_player_summary">Покрени подразумевану музичку апликацију када су слушалице повезане</string>
@@ -685,6 +688,9 @@
   <string name="settings_cmlicense_activity_title">CyanogenMod лиценца</string>
   <string name="lockpattern_settings_enable_error_path_title">Прикажи грешку шаблона</string>
   <string name="lockpattern_settings_enable_dots_title">Прикажи тачкице шаблона</string>
+  <string name="lock_directly_show_password">Директно приказивање уноса лозинке</string>
+  <string name="lock_directly_show_pattern">Директно приказивање прегледа шаре</string>
+  <string name="lock_directly_show_pin">Директно приказивање PIN уноса</string>
   <string name="unlock_quick_unlock_control_title">Брзо откључавање</string>
   <string name="unlock_quick_unlock_control_summary">Откључај аутоматски када се унесе исправан PIN/лозинка</string>
   <string name="unlock_scramble_pin_layout_title">Насумичан распоред</string>
@@ -703,6 +709,7 @@
   <string name="status_bar_show_weather_summary">Покажи време изнад табле брзог подешавања</string>
   <string name="qs_category_title">Панел за Брза подешавања</string>
   <string name="qs_brightness_slider_title">Прикажи клизач оветљености</string>
+  <string name="qs_hide_tiles_with_sensitive_data">Сакриј осетљиве плочице када је закључан</string>
   <string name="qs_order_title">Изабери и распореди плочице</string>
   <string name="add_qs">Додај нову плочицу</string>
   <string name="qs_action_delete">Избриши</string>
@@ -725,6 +732,7 @@
   <string name="qs_tile_compass">Компас</string>
   <string name="qs_tile_lockscreen">Закључан екран</string>
   <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_volume_panel">Панел гласноће</string>
   <string name="qs_tile_screen_timeout">Искључивање екрана</string>
   <string name="qs_tile_usb_tether">USB привезивање</string>
   <string name="qs_tile_heads_up">Искачуће поруке</string>
@@ -834,6 +842,17 @@
   <string name="live_display_low_power_summary">Прилагоди екран за најмању потрошњу батерије без деградације</string>
   <string name="live_display_enhance_color_title">Побољшај боје</string>
   <string name="live_display_enhance_color_summary">Побољшај треперење боја светлих тонова, сцена или осталих слика</string>
+  <string name="live_display_color_profile_title">Профил боја</string>
+  <string name="live_display_color_profile_standard_title">Стандардно</string>
+  <string name="live_display_color_profile_standard_summary">Тачне боје и светла бела</string>
+  <string name="live_display_color_profile_natural_title">Природно</string>
+  <string name="live_display_color_profile_natural_summary">Реалистичне боје и тонови коже</string>
+  <string name="live_display_color_profile_dynamic_title">Динамично</string>
+  <string name="live_display_color_profile_dynamic_summary">Побољшане боје и светло бела</string>
+  <string name="live_display_color_profile_cinema_title">Биоскоп</string>
+  <string name="live_display_color_profile_cinema_summary">Савршена боја за пуштање медија</string>
+  <string name="live_display_color_profile_astronomy_title">Астрономија</string>
+  <string name="live_display_color_profile_astronomy_summary">Дубоко црвена за очување ноћног погледа</string>
   <string name="battery_saver_threshold">Праг чувања батерије</string>
   <string name="battery_saver_summary">Умањује перформансе и ограничава позадинске податке</string>
   <string name="battery_saver_summary_unavailable">Није могуће док је на пуњењу</string>
@@ -947,4 +966,22 @@
   <string name="lto_download_data_wifi_only">Скидање помоћних података за GPS</string>
   <string name="lto_download_data_wifi_only_on">Преко било које мреже</string>
   <string name="lto_download_data_wifi_only_off">Само преко Wi\u2011Fi мрежа</string>
+  <string name="keep_screen_on_never">Никад</string>
+  <string name="keep_screen_on_debugging">Док траје отклањање USB грешака</string>
+  <string name="keep_screen_on_charging">Док је на пуњењу</string>
+  <string name="contributors_cloud_fragment_title">Сарадници</string>
+  <string name="contributors_cloud_loading_message">Учитавање података сарадника\u2026</string>
+  <string name="contributors_cloud_failed_message">Није могуће учитати податке сарадника</string>
+  <string name="contributor_info_menu">Информације сарадника</string>
+  <string name="contributor_info_msg">
+<![CDATA[<b>Име:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+<b>Надимак:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+<b>Посвећеност:</b> <xliff:g id="commits">%3$s</xliff:g><br/><br/>
+<b>Ранг:</b> <xliff:g id="rank">%4$s</xliff:g>]]></string>
+  <string name="contributions_info_menu">Информације сарадника</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>Укупно сарадника:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>Укупно доприноса:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>Последње ажурирање:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+  <string name="quick_settings_reset_message">Ресетуј брзо подешавање плочица?</string>
 </resources>

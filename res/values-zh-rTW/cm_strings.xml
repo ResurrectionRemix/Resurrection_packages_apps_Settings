@@ -51,7 +51,12 @@
   <string name="profile_populate_profile_from_state">使用目前的裝置設定配置設定檔嗎?</string>
   <string name="profile_menu_fill_from_state">匯入目前裝置的設定</string>
   <string name="profile_remove_current_profile">無法刪除目前的設定檔</string>
+  <string name="profile_app_group_category_title">覆蓋通知</string>
   <string name="profile_app_group_item_instructions">新增或移除群組</string>
+  <string name="profile_app_group_item_instructions_summary">添加或刪除覆蓋通知應用程式到此設定檔</string>
+  <string name="profile_entries_on">開啟</string>
+  <string name="profile_entries_off">關閉</string>
+  <string name="profile_entries_no_override">不覆蓋</string>
   <string name="profile_name_title">名稱</string>
   <string name="new_profile_name">&lt;新設定檔&gt;</string>
   <string name="rename_dialog_title">重新命名</string>
@@ -77,9 +82,13 @@
   <string name="profile_choose_app">選擇應用程式</string>
   <string name="profile_system_settings_title">系統設定</string>
   <string name="profile_lockmode_title">鎖定螢幕模式</string>
+  <string name="profile_lockmode_policy_disabled_summary">此設定檔被裝置管理員禁用</string>
   <string name="profile_lockmode_insecure_summary">不要詢問 PIN 或密碼</string>
   <string name="profile_lockmode_disabled_summary">停用鎖定螢幕</string>
   <string name="profile_airplanemode_title">飛航模式</string>
+  <string name="profile_brightness_title">螢幕亮度</string>
+  <string name="profile_brightness_override_summary">設為 %1$d%%</string>
+  <string name="profile_brightness_override_checkbox_label">強制亮度設定</string>
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">可攜式 Wi\u2011Fi 無線基地台</string>
   <string name="toggleBluetooth">藍牙</string>
@@ -95,6 +104,7 @@
   <string name="hardware_keys_menu_key_title">選單鍵</string>
   <string name="hardware_keys_assist_key_title">搜尋鍵</string>
   <string name="hardware_keys_appswitch_key_title">多工鍵</string>
+  <string name="hardware_keys_camera_key_title">拍照鍵</string>
   <string name="hardware_keys_volume_keys_title">音量鍵</string>
   <string name="hardware_keys_short_press_title">短按動作</string>
   <string name="hardware_keys_long_press_title">長按動作</string>
@@ -108,6 +118,7 @@
   <string name="hardware_keys_action_launch_camera">啟動相機</string>
   <string name="hardware_keys_action_sleep">關閉螢幕</string>
   <string name="hardware_keys_action_last_app">最後一個應用程式</string>
+  <string name="camera_launch_title">開啟相機</string>
   <string name="volbtn_music_controls_title">播放控制</string>
   <string name="volbtn_music_controls_summary">螢幕關閉時，長按音量鍵將可以改變音樂曲目</string>
   <string name="volbtn_cursor_control_title">鍵盤游標控制</string>
@@ -116,6 +127,8 @@
   <string name="volbtn_cursor_control_on_reverse">音量上/下使游標右/左移動</string>
   <string name="swap_volume_buttons_title">調整方向</string>
   <string name="swap_volume_buttons_summary">旋轉螢幕時交換上/下音量鍵</string>
+  <string name="volume_keys_control_ring_stream_title">音量鍵可控制鈴聲音量</string>
+  <string name="volume_keys_control_ring_stream_summary">如啟用，音量鍵控制鈴聲音量，如停用，音量鍵控制媒體音量。</string>
   <string name="power_end_call_title">結束通話</string>
   <string name="power_end_call_summary">按下電源按鈕將會結束目前通話</string>
   <string name="button_wake_title">喚醒裝置</string>
@@ -150,9 +163,14 @@
   <string name="sunlight_enhancement_summary">在明亮的陽光下提高螢幕亮度和可讀性</string>
   <string name="color_enhancement_title">色彩增強</string>
   <string name="color_enhancement_summary">動態增強螢幕中的色彩</string>
+  <string name="blacklist_title">已封鎖來電者名單</string>
+  <string name="blacklist_edit_dialog_title">更改已封鎖的電話號碼</string>
   <string name="blacklist_prefs">設定</string>
   <string name="blacklist_button_delete">刪除</string>
+  <string name="blacklist_empty_text">您沒有任何已封鎖的號碼，輕觸新增 (+) 按鈕加入號碼。</string>
+  <string name="blacklist_disabled_empty_text">為了防止某些電話號碼打電話或傳簡訊給您，請啟用已封鎖來電者名單功能。</string>
   <string name="blacklist_summary_disabled">已停用</string>
+  <string name="blacklist_summary">您將不會收到任何在已封鎖來電者名單上的電話號碼的來電或簡訊</string>
   <string name="blacklist_notify">顯示通知</string>
   <string name="blacklist_private_numbers_title">私人號碼</string>
   <string name="blacklist_private_numbers_summary_disabled">不要封鎖私人號碼的來電</string>
@@ -167,7 +185,9 @@
   <string name="blacklist_regex_summary">使用「.」作萬用字元、「*」作重複字元。例子：123.* 會封鎖所有以 123 開頭的號碼，而 .*123.* 會封鎖所有包含 123 的號碼</string>
   <string name="blacklist_policy_block_calls">封鎖來電</string>
   <string name="blacklist_policy_block_messages">封鎖訊息</string>
+  <string name="blacklist_bad_number_add">無法將不正確的電話號碼加至已封鎖來電者名單</string>
   <string name="remove_blacklist_number_title">移除號碼</string>
+  <string name="remove_blacklist_entry">您確定您要將此已封鎖電話號碼移除？</string>
   <string name="select_contact">選取聯絡人</string>
   <string name="lockpattern_reset_button">重設圖形</string>
   <string name="lockpattern_settings_reset_summary">輸入主電子郵件帳戶和相關的密碼重設圖形鎖</string>
@@ -191,6 +211,9 @@
   <string name="display_rotation_270_title">270 度</string>
   <string name="app_security_title">應用程式安全</string>
   <string name="sms_security_check_limit_title">簡訊訊息限制</string>
+  <string name="sms_security_check_limit_summary">在使用者認可之前，應用程式在1分鐘內只能傳送 %d 條訊息</string>
+  <string name="sms_security_check_limit_summary_none">未經確認的應用程式不允許傳送任何訊息</string>
+  <string name="sms_security_check_limit_none">無</string>
   <string name="spam_added_title">新增「%1$s」</string>
   <string name="spam_last_blocked_title">最後封鎖「%1$s」</string>
   <string name="block_notifications_title">篩選通知</string>
@@ -203,8 +226,12 @@
   <string name="update_recovery_off_warning">警告:停用此功能後，您的 Recovery 將不會隨著系統一起更新。\n\n未來的系統更新可能無法使用過舊的或客製 Recovery 安裝。\n\n您確定要停用此功能?</string>
   <string name="mod_version">CyanogenMod 版本</string>
   <string name="mod_version_default">未知</string>
+  <string name="device_model">裝置型號</string>
+  <string name="device_name">裝置名稱</string>
   <string name="build_date">版本日期</string>
+  <string name="phone_service_state">語音：<xliff:g id="voice_state">%1$s</xliff:g>，資料：<xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">輕按兩下即可喚醒</string>
+  <string name="double_tap_to_wake_summary">輕點螢幕兩次來喚醒手機</string>
   <string name="proximity_wake_title">防止意外喚醒</string>
   <string name="proximity_wake_summary">喚醒螢幕前檢查接近感應器</string>
   <string name="privacy_settings_cyanogenmod_title">隱私</string>
@@ -218,6 +245,7 @@
   <string name="privacy_guard_reset_text">重設權限？</string>
   <string name="privacy_guard_help_text">在此畫面您只要輕按應用程式即可選擇是否對其啟用隱私守衛。被選取的應用程式將不能存取您的個人資料，例如聯絡人、訊息或通話記錄。長按應用程式可開啟其應用程式資訊畫面。\n\n內建應用程式預設不會顯示，但是可從選單中開啟顯示。</string>
   <string name="privacy_guard_manager_show_system_apps">顯示系統應用程式</string>
+  <string name="app_ops_btn_text">修改</string>
   <string name="increasing_ring_volume_option_title">漸強鈴聲音量</string>
   <string name="increasing_ring_min_volume_title">開始音量</string>
   <string name="increasing_ring_ramp_up_time_title">漸強時間</string>
@@ -234,6 +262,7 @@
   <string name="development_shortcut_title">開發捷徑</string>
   <string name="development_shortcut_summary">在最近的應用程式清單中啟用應用程式管理捷徑</string>
   <string name="double_tap_to_sleep_title">輕按兩下即可休眠</string>
+  <string name="double_tap_to_sleep_summary">輕點兩次狀態欄來關閉螢幕</string>
   <string name="wake_when_plugged_or_unplugged_title">接上或移除電源時喚醒</string>
   <string name="wake_when_plugged_or_unplugged_summary">連接或拔除電源時開啟螢幕</string>
   <string name="kill_app_longpress_back">返回按鈕可終止應用程式</string>
@@ -316,8 +345,12 @@
   <string name="ime_switcher_notify_summary">顯示輸入法選擇器圖示</string>
   <string name="app_notification_show_on_keyguard_title">在鎖定螢幕上顯示</string>
   <string name="app_notification_show_on_keyguard_summary">在鎖定畫面中顯示此應用程式的通知</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">在鎖屏上停用持久通知</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">在鎖屏上不再顯示來自此應用程式的持久通知</string>
   <string name="high_touch_sensitivity_title">高觸摸靈敏度</string>
   <string name="high_touch_sensitivity_summary">增加觸控螢幕的靈敏度，因此戴著手套也可以使用手機</string>
+  <string name="touchscreen_hovering_title">懸浮操作</string>
+  <string name="touchscreen_hovering_summary">允許您把手指懸停在螢幕上作為瀏覽器、遠程桌面等的滑鼠</string>
   <string name="app_ops_summaries_coarse_location">約略位置</string>
   <string name="app_ops_summaries_fine_location">精確位置</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -416,6 +449,7 @@
   <string name="app_ops_labels_get_usage_stats">取得應用程式使用狀況統計</string>
   <string name="app_ops_labels_mute_unmute_microphone">將麥克風靜音/解除靜音</string>
   <string name="app_ops_labels_toast_window">顯示 toasts 通知</string>
+  <string name="app_ops_labels_project_media">媒體投放</string>
   <string name="app_ops_labels_activate_vpn">啟用 VPN</string>
   <string name="app_ops_labels_wifi_change">變更 Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">藍牙更改</string>
@@ -444,6 +478,7 @@
   <string name="ok">確定</string>
   <string name="profile_menu_delete_title">刪除</string>
   <string name="profile_action_none">保持不變</string>
+  <string name="profile_action_system">系統預設</string>
   <string name="profile_action_disable">關閉</string>
   <string name="profile_action_enable">開啟</string>
   <string name="profile_trigger_a2dp_connect">A2DP 已連線</string>
@@ -451,6 +486,7 @@
   <string name="profile_tabs_wifi">Wi\u2011Fi</string>
   <string name="profile_tabs_bluetooth">藍牙</string>
   <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_triggers_header">將激活此配置文件的觸發器</string>
   <string name="profile_setup_setup_triggers_title">步驟 1：新增觸發器</string>
   <string name="profile_setup_setup_triggers_title_config">修改觸發器：<xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">步驟 2：指定動作</string>
@@ -472,6 +508,9 @@
   <string name="choose_ringtone">選取鈴聲</string>
   <string name="soundtone_title">通知音效</string>
   <string name="no_bluetooth_triggers">沒有藍牙設備配對。 \n在配置觸發器之前，點擊配對藍牙設備。</string>
+  <string name="no_wifi_triggers">沒有已設定的 Wi\u2011Fi 連結。 \n設定前輕按以連接 Wi\u2011Fi</string>
+  <string name="no_triggers_configured">觸法器未設定，輕按以新建。</string>
+  <string name="no_triggers_configured_nfc">輕觸以設置一個新的 NFC 觸發器。</string>
   <string name="profile_setup_setup_triggers_description">請選擇啟動此設定檔的觸發器</string>
   <string name="profile_setup_actions_description">現在配置設定檔啟動時將發生的操作</string>
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (已使用 <xliff:g id="count">%2$s</xliff:g>)</string>
@@ -522,11 +561,14 @@
   <string name="bluetooth_pbap_profile_summary_connected">已連線到 pbap 伺服器</string>
   <string name="bluetooth_sap_profile_summary_connected">已連接到 SIM 卡存取伺服器</string>
   <string name="bluetooth_dun_profile_summary_use_for">用於撥號網絡存取</string>
+  <string name="bluetooth_pbap_profile_summary_use_for">用於分享連絡人</string>
   <string name="bluetooth_sap_profile_summary_use_for">用於 SIM 卡存取</string>
   <string name="bluetooth_accept_all_files">接受所有檔案類型</string>
   <string name="sim_lock_settings_cm">SIM/RUIM 卡鎖定設定</string>
   <string name="sim_lock_settings_category_cm">設定 SIM/RUIM 卡鎖</string>
   <string name="sim_lock_settings_title_cm">SIM/RUIM 卡鎖</string>
+  <string name="sim_pin_disable_failed">無法停用 PIN 碼。</string>
+  <string name="sim_pin_enable_failed">無法啟用 PIN 碼。</string>
   <string name="sim_pin_change_failed_enable_sim_lock">要變更 SIM/RUIM 碼 ，請先開啟 SIM/RUIM 鎖。</string>
   <string name="sim_enable_disable_lock_not_supported">SIM 卡不支援 SIM/RUIM 鎖。</string>
   <string name="sim_pin_attempts">\n剩餘次數:</string>
@@ -534,6 +576,12 @@
   <string name="sim_pin_disabled">PIN1 已停用</string>
   <string name="storage_usb">USB 儲存裝置</string>
   <string name="storage_uicc">UICC 儲存裝置</string>
+  <string name="sdcard_eject" product="default">卸載 SD 卡</string>
+  <string name="sdcard_eject_summary" product="default">請先卸載 SD 卡，才能將其安全移除</string>
+  <string name="sd_card_format" product="default">清除 SD 卡</string>
+  <string name="sd_card_format_summary" product="default">清除 SD 卡中的所有資料，例如音樂和相片</string>
+  <string name="sdcard_mount" product="default">掛載 SD 卡</string>
+  <string name="sdcard_insert_summary" product="default">插入 SD 卡</string>
   <string name="usb_eject" product="default">卸載 USB 儲存裝置</string>
   <string name="usb_eject_summary" product="default">請先卸載 USB 儲存裝置，才能將其安全移除</string>
   <string name="usb_format" product="default">格式化 USB 儲存裝置</string>
@@ -547,17 +595,38 @@
   <string name="uicc_mount" product="default">掛載 UICC 儲存裝置</string>
   <string name="uicc_insert_summary" product="default">插入 UICC 儲存裝置以掛載</string>
   <string name="usb_settings_enable_ums_title">啟用大容量儲存空間？</string>
+  <string name="usb_settings_enable_ums_message">系統組件和應用程式依賴可用的主存儲器。大容量存儲模式無法使用此功能。強烈建議您使用 MTP 作為替代。您確定要打開大容量存儲模式嗎?</string>
+  <string name="dlg_confirm_sdcard_unmount_title" product="default">卸載 SD 卡？</string>
   <string name="dlg_confirm_usb_unmount_title" product="default">卸載 USB 儲存裝置？</string>
   <string name="dlg_confirm_uicc_unmount_title" product="default">卸載 UICC 儲存裝置？</string>
+  <string name="dlg_confirm_sdcard_unmount_text" product="default">如果您將 SD 卡退出，則某些正在使用中的應用程式會停止運作，而且可能無法使用，直到重新插入 SD 卡之後才會恢復正常。</string>
+  <string name="dlg_confirm_usb_unmount_text" product="default">如果您不卸載 USB 儲存裝置，一些使用中的應用程式將會停止甚至無法使用直到您重新掛載 USB 儲存裝置。</string>
+  <string name="dlg_confirm_uicc_unmount_text" product="default">如果您卸載 UICC 儲存裝置，一些使用中的應用程式將會停止甚至無法使用直到您重新掛載 UICC 儲存裝置。</string>
+  <string name="dlg_error_sdcard_unmount_text" product="default">無法將 SD 卡退出，請稍後再試。</string>
   <string name="dlg_error_usb_unmount_text" product="default">無法卸載 USB 儲存裝置。請稍後再試。</string>
   <string name="dlg_error_uicc_unmount_text" product="default">無法卸載 UICC 儲存裝置。請稍後再試。</string>
+  <string name="sdcard_unmount_inform_text" product="default">即將卸載 SD 卡。</string>
   <string name="usb_unmount_inform_text" product="default"> USB 儲存裝置將會被卸載。</string>
   <string name="uicc_unmount_inform_text" product="default">UICC 儲存裝置將會被卸載。</string>
+  <string name="sdcard_media_format_desc" product="default">您要清除 SD 卡嗎？您將失去 SD 卡上的<b>所有</b>資料！</string>
+  <string name="usb_media_format_desc" product="default">确定重設 USB 嗎？您將失去<b>所有</b>資料！</string>
+  <string name="uicc_media_format_desc" product="default">確定重設 UICC 嗎？您將失去<b>所有</b>資料！</string>
+  <string name="sdcard_media_format_button_text" product="default">清除 SD 卡</string>
   <string name="usb_media_format_button_text" product="default">清除 USB 儲存裝置</string>
   <string name="uicc_media_format_button_text" product="default">格式化 UICC 儲存裝置</string>
+  <string name="sdcard_media_format_final_desc" product="default">清除 SD 卡時，是否刪除其中儲存的所有檔案？這項動作無法復原！</string>
   <string name="usb_media_format_final_desc" product="default">清除 USB 儲存裝置時，是否刪除其中儲存的所有檔案？這項動作無法復原！</string>
   <string name="uicc_media_format_final_desc" product="default">確定要抹除 UICC 儲存並刪掉其中所有的檔案？您將無法取消此操作！</string>
+  <string name="sdcard_media_format_gesture_explanation" product="default">請畫出解鎖圖形，確認您要清除 SD 卡中的資料。</string>
   <string name="usb_media_format_gesture_explanation" product="default">請畫出解鎖圖形，確認您要清除 USB 儲存裝置中的資料。</string>
+  <string name="uicc_media_format_gesture_explanation" product="default">請畫出解鎖圖形，確認您要抹除 UICC 儲存。</string>
+  <string name="internal_sd_format">清除內部存儲空間</string>
+  <string name="internal_sd_format_summary">清除內部存儲空間上所有資料，例如音樂和照片</string>
+  <string name="master_clear_desc_erase_internal_storage">\n\n要清除音樂、圖片和其他使用者資料，<b>內部存儲空間</b> 必須要被清除。</string>
+  <string name="erase_internal_storage">清除內部存儲空間</string>
+  <string name="erase_internal_storage_description">清除內部存儲空間上所有資料，例如音樂或照片</string>
+  <string name="storage_rescan_media">為儲存裝置重新掃描媒體</string>
+  <string name="location_category_enhanced_location">增強位置 (IZat)</string>
   <string name="app_ops_settings_summary">檢視或變更應用程式權限</string>
   <string name="enable_adb_summary_charging">裝置處於充電模式， USB 偵錯已停用</string>
   <string name="enable_quickboot_title">啟用 QuickBoot 模式</string>
@@ -568,7 +637,24 @@
   <string name="sim_enabled">已啟用</string>
   <string name="sim_disabled">已停用</string>
   <string name="sim_missing">遺失或毀損</string>
+  <string name="sim_enabler_need_disable_sim">停用 SIM 卡?</string>
+  <string name="sim_enabler_airplane_on">飛行模式開啟时無法進行此操作。</string>
+  <string name="sim_enabler_in_call">通話時無法進行此操作。</string>
+  <string name="sim_enabler_both_inactive">無法停用所有 SIM 卡</string>
+  <string name="sim_enabler_sim">SIM 卡</string>
+  <string name="sim_enabler_enabling">正在啟動 <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_disabling">正在關閉 <xliff:g id="name">%s</xliff:g>\u2026</string>
+  <string name="sim_enabler_deactivate">停用</string>
+  <string name="primary_sub_select_title">預設使用3G/LTE</string>
+  <string name="usb_charging_title">僅充電</string>
+  <string name="usb_charging_summary">禁止透過USB 進行全部的數據傳輸</string>
+  <string name="usb_sdcard_title">大量儲存裝置 (UMS)</string>
+  <string name="usb_sdcard_summary">透過掛載 SD 卡為快閃裝置，使您可在電腦及 SD 卡之間傳輸檔案</string>
+  <string name="usb_not_connected">USB目前已失去連線</string>
+  <string name="external_storage_turn_on">外部儲存空間已開啟</string>
+  <string name="external_storage_turn_off">外部儲存空間已關閉</string>
   <string name="stats_collection_title">統計資料收集</string>
+  <string name="stats_collection_summary">啟用時，允許收集數據</string>
   <string name="power_notifications_category_title">充電音效</string>
   <string name="power_notifications_enable_title">啟用</string>
   <string name="power_notifications_enable_summary">接上或移除電源時播放音效</string>
@@ -590,12 +676,38 @@
   <string name="edge_gesture_service_summary">不向應用程式傳送導覽列與狀態列手勢的觸控事件</string>
   <string name="cmlicense_title">CyanogenMod 法律條款</string>
   <string name="settings_cmlicense_activity_title">CyanogenMod 法律條款</string>
+  <string name="lockpattern_settings_enable_error_path_title">顯示解鎖圖形錯誤</string>
+  <string name="lockpattern_settings_enable_dots_title">顯示解鎖圖形點</string>
   <string name="unlock_quick_unlock_control_title">快速解鎖</string>
   <string name="unlock_quick_unlock_control_summary">當正確的 PIN 碼/密碼被輸入時自動解鎖</string>
   <string name="unlock_scramble_pin_layout_title">亂序布局</string>
   <string name="unlock_scramble_pin_layout_summary">解鎖裝置時使用亂序 PIN 布局</string>
   <string name="link_volume_option_title">同步鈴聲和通知音量</string>
+  <string name="notification_volume_option_title">通知音量</string>
   <string name="notification_drawer_title">通知列表</string>
+  <string name="quick_pulldown_title">快速下拉</string>
+  <string name="quick_pulldown_summary">從狀態列的%1$s邊拉下快速設定</string>
+  <string name="quick_pulldown_summary_left">左</string>
+  <string name="quick_pulldown_summary_right">右</string>
+  <string name="quick_pulldown_off">關閉</string>
+  <string name="quick_pulldown_left">左</string>
+  <string name="quick_pulldown_right">右</string>
+  <string name="status_bar_show_weather_title">顯示天氣資訊</string>
+  <string name="status_bar_show_weather_summary">在快速設定面板上方顯示天氣資訊</string>
+  <string name="qs_category_title">快速設定面板</string>
+  <string name="qs_brightness_slider_title">顯示亮度滑桿</string>
+  <string name="qs_order_title">選擇與排序設定方塊</string>
+  <string name="add_qs">新增設定方塊</string>
+  <string name="qs_action_delete">刪除</string>
+  <string name="qs_action_add">添加</string>
+  <string name="qs_action_no_more_tiles">沒有更多的設定方塊了</string>
+  <string name="qs_tile_wifi">Wi\u2011Fi</string>
+  <string name="qs_tile_bluetooth">藍牙</string>
+  <string name="qs_tile_display_inversion">色彩反轉</string>
+  <string name="qs_tile_cellular_data">數據連接</string>
+  <string name="qs_tile_airplane_mode">飛航模式</string>
+  <string name="qs_tile_display_rotation">旋轉</string>
+  <string name="qs_tile_flashlight">手電筒</string>
   <string name="qs_tile_location">定位</string>
   <string name="qs_tile_cast_screen">投放螢幕</string>
   <string name="qs_tile_hotspot">可攜式無線基地台</string>
@@ -607,6 +719,13 @@
   <string name="qs_tile_lockscreen">鎖定畫面</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="qs_tile_screen_timeout">螢幕逾時</string>
+  <string name="qs_tile_usb_tether">USB 網路共用</string>
+  <string name="qs_tile_heads_up">浮動通知</string>
+  <string name="qs_tile_ambient_display">環境顯示</string>
+  <string name="qs_tile_sync">同步處理</string>
+  <string name="qs_dynamic_tile_next_alarm">下一個鬧鐘</string>
+  <string name="qs_dynamic_tile_ime_selector">輸入法選擇器</string>
+  <string name="qs_dynamic_tile_su">Root 權限</string>
   <string name="qs_main_tiles_title">擴大首行</string>
   <string name="qs_main_tiles_summary_on">將頭兩個設定方塊強調顯示</string>
   <string name="qs_main_tiles_summary_off">每一列顯示三個設定方塊</string>
@@ -622,45 +741,165 @@
   <string name="wifi_mhz">MHz</string>
   <string name="maximum_head_level">頭部：%1$s W/kg</string>
   <string name="maximum_body_level">身體：%1$s W/kg</string>
+  <string name="ic_code_model">型號：%1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="power_menu_expanded_desktop">擴展桌面</string>
   <string name="expanded_hide_nothing">不隱藏</string>
   <string name="expanded_hide_status">隱藏狀態列</string>
   <string name="expanded_hide_navigation">隱藏導覽列</string>
   <string name="expanded_hide_both">全部隱藏</string>
+  <string name="expanded_nothing_to_show">若要添加一個讓應用程式啟動的擴展狀態，請先關閉“全部開啟”</string>
+  <string name="expanded_enabled_for_all">啟動全部</string>
+  <string name="expanded_desktop_style">擴展桌面樣式</string>
+  <string name="expanded_desktop_style_description">選擇個默認的擴展桌面樣式</string>
+  <string name="expanded_desktop_title">擴展桌面選項</string>
+  <string name="title_general">一般</string>
   <string name="lockscreen_targets_message">鎖定畫面捷徑</string>
   <string name="lockscreen_default_target">預設</string>
   <string name="lockscreen_none_target">無</string>
+  <string name="lockscreen_message">輕點左邊或右邊的圖標來重新分配鎖屏時快捷方式。</string>
   <string name="lockscreen_choose_action_title">選擇動作</string>
+  <string name="lockscreen_visualizer_title">顯示音樂視覺效果</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">管理安全簡訊設定</string>
   <string name="navigation_ring_title">導覽列捷徑</string>
+  <string name="navigation_ring_message">輕按編輯圖標以打開導航環編輯。 \n\n選擇個目標以設定該行為。 \n\n輕按“\u2713”圖標以保存您的變更，或“還原默預設值”以重置設置到預設狀態。</string>
+  <string name="lcd_density">LCD密度</string>
+  <string name="dialog_title_lcd_density">LCD密度</string>
+  <string name="lcd_density_value_format">DPI %d</string>
+  <string name="lcd_density_default_value_format">%d DPI (預設值)</string>
+  <string name="restarting_ui">重新開機 UI\u2026</string>
+  <string name="stylus_icon_enabled_title">使用觸控筆時顯示圖示</string>
+  <string name="stylus_icon_enabled_summary">使用觸控筆漂浮或繪圖時顯示指標圖示</string>
+  <string name="gestures_settings_title">觸控筆手勢</string>
+  <string name="category_spen_title">觸控筆手勢</string>
+  <string name="enable_subcat_title">觸控筆</string>
   <string name="enable_spen_title_head">啟用手勢</string>
+  <string name="enable_spen_summary_head">按住觸控筆按鈕以使用滑動手勢</string>
+  <string name="gestures_subcat_title">手勢</string>
+  <string name="gestures_left_spen_title_head">向左滑動</string>
+  <string name="gestures_right_spen_title_head">向右滑動</string>
+  <string name="gestures_up_spen_title_head">向上滑動</string>
+  <string name="gestures_down_spen_title_head">向下滑動</string>
   <string name="gestures_long_spen_title_head">長按</string>
   <string name="gestures_double_spen_title_head">輕按兩下</string>
   <string name="gestures_action_empty">無動作</string>
   <string name="gestures_action_home">首頁</string>
   <string name="gestures_action_back">返回</string>
   <string name="gestures_action_menu">選單</string>
+  <string name="gestures_action_search">啟動搜尋</string>
   <string name="gestures_action_recent">最近使用的應用程式</string>
   <string name="stylus_app_not_installed">未安裝 %s</string>
   <string name="advanced">進階</string>
   <string name="advanced_mode_title">進階模式</string>
+  <string name="advanced_mode_summary">在設置選單中顯示額外選項以設定您的裝置</string>
+  <string name="category_misc">其他</string>
   <string name="category_vibrate">震動</string>
   <string name="category_volume">音量</string>
   <string name="category_sounds">音效</string>
   <string name="category_interface">介面</string>
   <string name="category_calibration">校正</string>
   <string name="display_and_lights">顯示與指示燈</string>
+  <string name="notification_manager">通知</string>
   <string name="lockscreen_settings">鎖定畫面</string>
   <string name="category_lights">指示燈</string>
+  <string name="power_usage_history_title">電池使用狀況</string>
   <string name="recents_show_searchbar">在最近使用總覽中顯示搜尋列</string>
+  <string name="keywords_recents_show_searchbar">最近 最近 停用 啟用 顯示 隱藏 搜索欄 搜索欄</string>
+  <string name="sim_ringtone_title">SIM %d 鈴聲</string>
+  <string name="interruptions_ignore_while_media_title">防止聲音回避</string>
+  <string name="interruptions_ignore_while_media_summary">有通知時，不減少媒體播放的音量</string>
+  <string name="none_is_silent_title">永不靜音鬧鈴</string>
+  <string name="none_is_silent_summary">鬧鐘在靜默模式下永遠會響</string>
+  <string name="allow_lights_title">允許通知燈</string>
   <string name="live_display_summary">基於日夜和環境條件調整您的螢幕色溫，以改善可讀性和減少眼睛疲勞</string>
   <string name="live_display_mode">顯示模式</string>
   <string name="live_display_color_temperature_title">色溫</string>
+  <string name="live_display_color_temperature_summary">白天：<xliff:g id="day_temperature">%1$d</xliff:g>K 夜晚：<xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d </xliff:g>K</string>
   <string name="live_display_day">白天</string>
   <string name="live_display_night">夜晚</string>
   <string name="live_display_outdoor_mode_title">自動戶外模式</string>
+  <string name="live_display_outdoor_mode_summary">自動在陽光下提高亮度和飽和度</string>
+  <string name="live_display_low_power_title">降低耗電</string>
+  <string name="live_display_low_power_summary">在不降低亮度的情況下調整顯示以降低耗電</string>
   <string name="live_display_enhance_color_title">增強色彩</string>
+  <string name="live_display_enhance_color_summary">為色調、 風景和其他圖片提高色調</string>
+  <string name="live_display_color_profile_standard_title">標準</string>
+  <string name="live_display_color_profile_natural_title">自然</string>
+  <string name="live_display_color_profile_dynamic_title">動態</string>
+  <string name="live_display_color_profile_cinema_title">劇院</string>
+  <string name="battery_saver_threshold">省電助手的閾值</string>
+  <string name="battery_saver_summary">降低效能，並限制背景資料</string>
   <string name="battery_saver_summary_unavailable">無法在充電時啟用</string>
+  <string name="anonymous_statistics_title">CyanogenMod 統計</string>
+  <string name="anonymous_statistics_summary">加入匿名統計報告以協助改進 CyanogenMod</string>
+  <string name="anonymous_statistics_warning_title">關於</string>
+  <string name="anonymous_statistics_warning">加入 CyanogenMod 統計將允許非個人資料被提交到 CyanogenMod 的開發者，
+        以追蹤每個裝置上的獨特安裝。提交的資訊包含一個唯一識別碼，此識別碼並不會泄露您的隱私或個人資料。
+        該資料在每次開機時被提交。\n\n輕按預覽資料以預覽被提交資料的例子。</string>
+  <string name="enable_reporting_title">啟用報告</string>
+  <string name="preview_data_title">預覽資料</string>
+  <string name="view_stats_title">檢視統計</string>
+  <string name="anonymous_learn_more">了解更多</string>
+  <string name="preview_id_title">Unique ID</string>
+  <string name="preview_device_title">裝置</string>
+  <string name="preview_version_title">版本</string>
+  <string name="preview_country_title">國家</string>
+  <string name="preview_carrier_title">電信業者</string>
+  <string name="heads_up_notifications">浮動通知</string>
+  <string name="summary_heads_up_enabled">浮動通知已啟用</string>
+  <string name="summary_heads_up_disabled">浮動通知已停用</string>
+  <string name="lock_to_cyanogen_title">裝置保護</string>
+  <string name="lock_to_cyanogen_summary">即使裝置重設後，仍需要您的Cyanogen OS帳戶密碼</string>
+  <string name="lock_to_cyanogen_create_account_msg">您的裝置使用Cyanogen OS帳戶密碼來保護裝置（即使裝置被重設至出廠狀態），您需要建立一個Cyanogen OS帳戶。</string>
+  <string name="lock_to_cyanogen_disable_msg">停用此功能後如裝置被盜，將允許未經授權的使用者將此裝置重設至出廠預設狀態，您的個人資料可能不受保護。您是否要停用此功能？</string>
+  <string name="lock_to_cyanogen_master_clear_warning">裝置保護已啟用，請先停用以繼續進行裝置重設。</string>
+  <string name="sim_card_status_title">Sim 卡 %d 狀態</string>
+  <string name="sim_card_lock_settings_title">Sim 卡 %d 鎖定設置</string>
+  <string name="sim_card_summary_empty">沒有插入Sim卡</string>
+  <string name="sim_mobile_network_settings_category_title">行動網路設定</string>
+  <string name="sim_mobile_network_settings_title">Sim 卡 %d 設定</string>
+  <string name="factory_reset_instructions_title">個人資料和應用程式</string>
+  <string name="factory_reset_instructions_summary">這將移除在此設備上您所有帳戶、應用程式、應用程式資料及系統設置</string>
+  <string name="factory_reset_personal_content">個人內容</string>
+  <string name="factory_reset_erase_stored_content">移除存儲內容</string>
+  <string name="factory_reset_erase_stored_content_summary">移除音樂、相片、視頻及其他儲存在此設備上的用戶資料</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">移除音樂、相片、視頻及其他儲存在此設備上的用戶資料。\n\n<b>由於設備加密，無法儲存內容。</b></string>
+  <string name="factory_reset_erase_sd_card">格式化SD卡</string>
+  <string name="factory_reset_erase_sd_card_summary">移除SD卡上所有資料，包括音樂和相片。</string>
+  <string name="factory_reset_warning_text_reset_now">現在重置</string>
+  <string name="factory_reset_warning_text_message">您所有帳戶、應用程式、應用程式資料及系統設置將從此設備上移除，並不可逆轉。</string>
+  <string name="wifi_countrycode_entries_us">美國</string>
+  <string name="wifi_countrycode_entries_ca">加拿大，台灣</string>
+  <string name="wifi_countrycode_entries_de">德國</string>
+  <string name="wifi_countrycode_entries_gb">歐洲</string>
+  <string name="wifi_countrycode_entries_jp">日本，俄羅斯</string>
+  <string name="wifi_countrycode_entries_au">澳洲</string>
+  <string name="wifi_countrycode_entries_cn">中國</string>
+  <string name="wifi_countrycode_entries_kr">南韓</string>
+  <string name="wifi_countrycode_entries_tr">南非，土耳其</string>
+  <string name="wifi_countrycode_entries_sg">以色列，新加坡</string>
+  <string name="wifi_countrycode_entries_br">巴西</string>
+  <string name="wifi_countrycode_entries_in">印度</string>
+  <string name="unlock_set_unlock_mode_fingerprint">指紋</string>
+  <string name="unlock_set_unlock_fingerprint_title">指紋</string>
+  <string name="fingerprint_item_add_new_fingerprint">新增新的指紋</string>
+  <string name="fingerprint_manage_fingerprints">管理指紋感應</string>
+  <string name="fingerprint_manage_fingerprints_summary">新增或刪除已登記的指紋</string>
+  <string name="fingerprint_dialog_title_rename">編輯指紋</string>
+  <string name="fingerprint_dialog_name_label">指紋名稱</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">請再試一次</string>
+  <string name="fingerprint_enrollment_finished_title">已新增指紋!</string>
+  <string name="fingerprint_enrollment_done_label">完成</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">哎呦，這不是您的感應器</string>
+  <string name="fingerprint_enrollment_error_title_1">哦噢，請再試一次</string>
+  <string name="fingerprint_enrollment_error_title_4">哦噢，再試一次</string>
+  <string name="keep_screen_on_never">永不</string>
+  <string name="keep_screen_on_debugging">在 USB 偵錯時</string>
+  <string name="keep_screen_on_charging">在充電時</string>
+  <string name="contributors_cloud_fragment_title">貢獻者</string>
+  <string name="contributors_cloud_loading_message">貢獻者名單載入中\u2026</string>
+  <string name="contributor_info_menu">貢獻者名單</string>
+  <string name="contributions_info_menu">貢獻者名單</string>
 </resources>
