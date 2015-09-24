@@ -107,6 +107,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
             "persist.radio.use_nv_for_ehrpd", false);
 
     private IntentFilter mMobileStateFilter;
+    private ProgressDialog mDialog;
 
     private boolean mUnavailable;
 
@@ -120,7 +121,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 case CONNECTED:
                     if (!mRestoreDefaultApnMode) {
                         fillList();
-                    } else {
+                    } else if (mDialog == null || !mDialog.isShowing()) {
                         showDialog(DIALOG_RESTORE_DEFAULTAPN);
                     }
                     break;
@@ -538,12 +539,21 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
+    public void removeDialog(int id) {
+        super.removeDialog(id);
+        mDialog = null;
+    }
+
+    @Override
     public Dialog onCreateDialog(int id) {
         if (id == DIALOG_RESTORE_DEFAULTAPN) {
-            ProgressDialog dialog = new ProgressDialog(getActivity());
-            dialog.setMessage(getResources().getString(R.string.restore_default_apn));
-            dialog.setCancelable(false);
-            return dialog;
+            if (mDialog != null) {
+                mDialog.dismiss();
+            }
+            mDialog = new ProgressDialog(getActivity());
+            mDialog.setMessage(getResources().getString(R.string.restore_default_apn));
+            mDialog.setCancelable(false);
+            return mDialog;
         }
         return null;
     }
