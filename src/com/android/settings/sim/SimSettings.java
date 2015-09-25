@@ -85,6 +85,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final String SIM_ACTIVITIES_CATEGORY = "sim_activities";
     private static final String KEY_PRIMARY_SUB_SELECT = "select_primary_sub";
 
+    private IExtTelephony mExtTelephony = IExtTelephony.Stub.
+            asInterface(ServiceManager.getService("extphone"));
+
     /**
      * By UX design we use only one Subscription Information(SubInfo) record per SIM slot.
      * mAvalableSubInfos is the list of SubInfos we present to the user.
@@ -210,14 +213,23 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
 
     private void updateSmsValues() {
         final Preference simPref = findPreference(KEY_SMS);
-        final SubscriptionInfo sir = mSubscriptionManager.getDefaultSmsSubscriptionInfo();
         simPref.setTitle(R.string.sms_messages_title);
-        if (DBG) log("[updateSmsValues] mSubInfoList=" + mSubInfoList);
-
-        if (sir != null) {
+        boolean isSMSPrompt = false;
+        SubscriptionInfo sir = mSubscriptionManager.getActiveSubscriptionInfo(
+                mSubscriptionManager.getDefaultSmsSubId());
+        try {
+            isSMSPrompt = mExtTelephony.isSMSPromptEnabled();
+        } catch (RemoteException ex) {
+            loge("RemoteException @isSMSPromptEnabled" + ex);
+        } catch (NullPointerException ex) {
+            loge("NullPointerException @isSMSPromptEnabled" + ex);
+        }
+        log("[updateSmsValues] isSMSPrompt: " + isSMSPrompt);
+        if (isSMSPrompt || sir == null) {
+            simPref.setSummary(mContext.getResources().getString(
+                    R.string.sim_sms_ask_first_prefs_title));
+        } else {
             simPref.setSummary(sir.getDisplayName());
-        } else if (sir == null) {
-            simPref.setSummary(R.string.sim_selection_required_pref);
         }
         simPref.setEnabled(mSelectableSubInfos.size() > 1);
     }
@@ -321,6 +333,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         }
 
         return true;
+    }
+    private void loge(String msg) {
+        if (DBG) Log.e(TAG + "message", msg);
     }
 
     private void simEnablerUpdate() {
@@ -846,7 +861,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         }
 
         private void loge(String msg) {
-            if (DBG) Log.e(TAG + "(" + mSlotId + ")", msg);
+            Log.e(TAG + "(" + mSlotId + ")", msg);
         }
     }
 

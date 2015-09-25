@@ -23,6 +23,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -33,12 +35,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.internal.telephony.IExtTelephony;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import java.util.ArrayList;
@@ -55,6 +59,9 @@ public class SimDialogActivity extends Activity {
     public static final int CALLS_PICK = 1;
     public static final int SMS_PICK = 2;
     public static final int PREFERRED_PICK = 3;
+
+    private IExtTelephony mExtTelephony = IExtTelephony.Stub.
+            asInterface(ServiceManager.getService("extphone"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +159,7 @@ public class SimDialogActivity extends Activity {
     public Dialog createDialog(final Context context, final int id) {
         final ArrayList<String> list = new ArrayList<String>();
         final SubscriptionManager subscriptionManager = SubscriptionManager.from(context);
+        final ArrayList<SubscriptionInfo> smsSubInfoList = new ArrayList<SubscriptionInfo>();
         final List<SubscriptionInfo> subInfoList =
             subscriptionManager.getActiveSubscriptionInfoList();
         final int selectableSubInfoLength = subInfoList == null ? 0 : subInfoList.size();
@@ -177,8 +185,26 @@ public class SimDialogActivity extends Activity {
                                         value < 1 ? null : phoneAccountsList.get(value - 1));
                                 break;
                             case SMS_PICK:
-                                sir = subInfoList.get(value);
-                                setDefaultSmsSubId(context, sir.getSubscriptionId());
+                                boolean isSmsPrompt = false;
+                                if (value < 1) {
+                                    isSmsPrompt = true;
+                                } else {
+                                    sir = smsSubInfoList.get(value);
+                                    if ( sir != null) {
+                                        setDefaultSmsSubId(context, sir.getSubscriptionId());
+                                    } else {
+                                        isSmsPrompt = true;
+                                    }
+                                    Log.d(TAG, "SubscriptionInfo:" + sir);
+                                }
+                                Log.d(TAG, "isSmsPrompt: " + isSmsPrompt);
+                                try {
+                                    mExtTelephony.setSMSPromptEnabled(isSmsPrompt);
+                                } catch (RemoteException ex) {
+                                    Log.e(TAG, "RemoteException @setSMSPromptEnabled" + ex);
+                                } catch (NullPointerException ex) {
+                                    Log.e(TAG, "NullPointerException @setSMSPromptEnabled" + ex);
+                                }
                                 break;
                             default:
                                 throw new IllegalArgumentException("Invalid dialog type "
@@ -222,6 +248,18 @@ public class SimDialogActivity extends Activity {
                     callsSubInfoList.add(null);
                 }
             }
+        } else if ((id == SMS_PICK)){
+            list.add(getResources().getString(R.string.sim_sms_ask_first_prefs_title));
+            smsSubInfoList.add(null);
+            for (int i = 0; i < selectableSubInfoLength; ++i) {
+                final SubscriptionInfo sir = subInfoList.get(i);
+                smsSubInfoList.add(sir);
+                CharSequence displayName = sir.getDisplayName();
+                if (displayName == null) {
+                    displayName = "";
+                }
+                list.add(displayName.toString());
+            }
         } else {
             for (int i = 0; i < selectableSubInfoLength; ++i) {
                 final SubscriptionInfo sir = subInfoList.get(i);
@@ -238,7 +276,8 @@ public class SimDialogActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         ListAdapter adapter = new SelectAccountListAdapter(
-                id == CALLS_PICK ? callsSubInfoList : subInfoList,
+                id == CALLS_PICK ? callsSubInfoList :
+                (id == SMS_PICK ? smsSubInfoList: subInfoList),
                 builder.getContext(),
                 R.layout.select_account_list_item,
                 arr, id);
