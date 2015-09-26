@@ -457,6 +457,10 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
         updatePerformanceSummary();
     }
 
+    private boolean sipperCanBePruned(BatterySipper sipper) {
+        return sipper.drainType != BatterySipper.DrainType.SCREEN;
+    }
+
     private void refreshStats() {
         final BatteryStats stats = mStatsHelper.getStats();
         final BatteryStats dockStats = mStatsHelper.getDockStats();
@@ -481,13 +485,15 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
             final int numSippers = usageList.size();
             for (int i = 0; i < numSippers; i++) {
                 final BatterySipper sipper = usageList.get(i);
-                if ((sipper.value * SECONDS_IN_HOUR) < MIN_POWER_THRESHOLD_MILLI_AMP) {
-                    continue;
-                }
                 final double percentOfTotal =
                         ((sipper.value / mStatsHelper.getTotalPower()) * dischargeAmount);
-                if (((int) (percentOfTotal + .5)) < 1) {
-                    continue;
+                if (sipperCanBePruned(sipper)) {
+                    if ((sipper.value * SECONDS_IN_HOUR) < MIN_POWER_THRESHOLD_MILLI_AMP) {
+                        continue;
+                    }
+                    if (((int) (percentOfTotal + .5)) < 1) {
+                        continue;
+                    }
                 }
                 if (sipper.drainType == BatterySipper.DrainType.OVERCOUNTED) {
                     // Don't show over-counted unless it is at least 2/3 the size of
