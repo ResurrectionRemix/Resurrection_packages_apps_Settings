@@ -31,6 +31,7 @@ import android.os.Handler;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -45,9 +46,9 @@ import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.util.cm.ScreenType;
+import com.android.internal.util.slim.RRUtils;
 
 import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
-import android.preference.PreferenceFragment;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -59,7 +60,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.android.internal.util.slim.RRUtils;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class ButtonSettings extends SettingsPreferenceFragment implements
@@ -75,16 +75,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_ASSIST_LONG_PRESS = "hardware_keys_assist_long_press";
     private static final String KEY_APP_SWITCH_PRESS = "hardware_keys_app_switch_press";
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
-    private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
-    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
-    private static final String KEY_ENABLE_NAVIGATION_BAR = "enable_nav_bar";
     private static final String KEY_ENABLE_HW_KEYS = "enable_hw_keys";
+    private static final String KEY_ENABLE_NAVIGATION_BAR = "enable_nav_bar";
+    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
     private static final String KEY_NAVIGATION_RECENTS_LONG_PRESS = "navigation_recents_long_press";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_BLUETOOTH_INPUT_SETTINGS = "bluetooth_input_settings";
-    private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
     private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
 
@@ -104,9 +102,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_CAMERA = "camera_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
-    private static final String CATEGORY_NAVBAR = "nav_cat";
     private static final String CATEGORY_HW_KEYS = "hw_keys";
-    
+    private static final String CATEGORY_NAVBAR = "navigation_bar";
+
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
     // frameworks/base/core/java/android/provider/Settings.java
@@ -130,6 +128,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public static final int KEY_MASK_CAMERA = 0x20;
     public static final int KEY_MASK_VOLUME = 0x40;
 
+    private ColorPickerPreference mNavbarButtonTint;
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
     private ListPreference mMenuPressAction;
@@ -141,27 +140,23 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mCameraWakeScreen;
     private SwitchPreference mCameraSleepOnRelease;
     private SwitchPreference mCameraLaunch;
-    private ListPreference mVolumeKeyCursorControl;
-    private SwitchPreference mVolumeWakeScreen;
-    private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
-    private SwitchPreference mEnableNavigationBar;
     private SwitchPreference mEnableHwKeys;
+    private SwitchPreference mEnableNavigationBar;
     private SwitchPreference mNavigationBarLeftPref;
     private ListPreference mNavigationRecentsLongPressAction;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
-    private ColorPickerPreference mNavbarButtonTint;
     private SwitchPreference mVolumeAnswerCall;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
-    SwitchPreference mDimNavButtons;
-    SwitchPreference mDimNavButtonsTouchAnywhere;
-    SlimSeekBarPreference mDimNavButtonsTimeout;
-    SlimSeekBarPreference mDimNavButtonsAlpha;
-    SwitchPreference mDimNavButtonsAnimate;
-    SlimSeekBarPreference mDimNavButtonsAnimateDuration;
+    private SwitchPreference mDimNavButtons;
+    private SwitchPreference mDimNavButtonsTouchAnywhere;
+    private SlimSeekBarPreference mDimNavButtonsTimeout;
+    private SlimSeekBarPreference mDimNavButtonsAlpha;
+    private SwitchPreference mDimNavButtonsAnimate;
+    private SlimSeekBarPreference mDimNavButtonsAnimateDuration;
 
     private Handler mHandler;
 
@@ -185,12 +180,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         mHandler = new Handler();
 
-        // Navigation bar category
-        final PreferenceCategory navBarCategory = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
-
-        // Navigation bar keys switch
+        // Navigation bar keys switxh
         mEnableNavigationBar = (SwitchPreference) findPreference(KEY_ENABLE_NAVIGATION_BAR);
-        
+
+        mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
+
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
 
@@ -201,6 +195,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 Settings.System.NAVIGATION_BAR_SHOW, hasNavBarByDefault ? 1 : 0) == 1;
         mEnableNavigationBar.setChecked(enableNavigationBar);
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
+
         // Navigation bar button color
         mNavbarButtonTint = (ColorPickerPreference) findPreference(NAVIGATION_BAR_TINT);
         mNavbarButtonTint.setOnPreferenceChangeListener(this);
@@ -209,23 +204,51 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNavbarButtonTint.setSummary(hexColor);
         mNavbarButtonTint.setNewPreviewColor(intColor);
-        
-        // Enable/disable hw keys
-        boolean enableHwKeys = Settings.System.getInt(getContentResolver(),
-                Settings.System.ENABLE_HW_KEYS, 1) == 1;
-        mEnableHwKeys = (SwitchPreference) findPreference(KEY_ENABLE_HW_KEYS);
-        mEnableHwKeys.setChecked(enableHwKeys);
-        mEnableHwKeys.setOnPreferenceChangeListener(this);
-        // Check if this feature is enable through device config
-        if(!getResources().getBoolean(com.android.internal.R.bool.config_hwKeysPref)) {
-            PreferenceCategory hwKeysPref = (PreferenceCategory)
-                    getPreferenceScreen().findPreference(CATEGORY_HW_KEYS);
-            getPreferenceScreen().removePreference(hwKeysPref);
-        }
 
         // Navigation bar recents long press activity needs custom setup
         mNavigationRecentsLongPressAction =
                 initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
+
+        mDimNavButtons = (SwitchPreference) findPreference(DIM_NAV_BUTTONS);
+        mDimNavButtons.setOnPreferenceChangeListener(this);
+
+        mDimNavButtonsTouchAnywhere = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_TOUCH_ANYWHERE);
+        mDimNavButtonsTouchAnywhere.setOnPreferenceChangeListener(this);
+
+        mDimNavButtonsTimeout = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_TIMEOUT);
+        mDimNavButtonsTimeout.setDefault(3000);
+        mDimNavButtonsTimeout.isMilliseconds(true);
+        mDimNavButtonsTimeout.setInterval(1);
+        mDimNavButtonsTimeout.minimumValue(100);
+        mDimNavButtonsTimeout.multiplyValue(100);
+        mDimNavButtonsTimeout.setOnPreferenceChangeListener(this);
+        final int dimTimeout = Settings.System.getInt(getContentResolver(),
+                 Settings.System.DIM_NAV_BUTTONS_TIMEOUT, 3000);
+        // minimum 100 is 1 interval of the 100 multiplier
+        mDimNavButtonsTimeout.setInitValue((dimTimeout / 100) - 1);
+
+        mDimNavButtonsAlpha = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ALPHA);
+        mDimNavButtonsAlpha.setDefault(50);
+        mDimNavButtonsAlpha.setInterval(1);
+        mDimNavButtonsAlpha.setOnPreferenceChangeListener(this);
+        int alphaScale = Settings.System.getInt(getContentResolver(),
+                Settings.System.DIM_NAV_BUTTONS_ALPHA, 50);
+        mDimNavButtonsAlpha.setInitValue(alphaScale);
+
+        mDimNavButtonsAnimate = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE);
+        mDimNavButtonsAnimate.setOnPreferenceChangeListener(this);
+
+        mDimNavButtonsAnimateDuration = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE_DURATION);
+        mDimNavButtonsAnimateDuration.setDefault(2000);
+        mDimNavButtonsAnimateDuration.isMilliseconds(true);
+        mDimNavButtonsAnimateDuration.setInterval(1);
+        mDimNavButtonsAnimateDuration.minimumValue(100);
+        mDimNavButtonsAnimateDuration.multiplyValue(100);
+        mDimNavButtonsAnimateDuration.setOnPreferenceChangeListener(this);
+        final int animateDuration = Settings.System.getInt(getContentResolver(),
+                Settings.System.DIM_NAV_BUTTONS_ANIMATE_DURATION, 2000);
+        // minimum 100 is 1 interval of the 100 multiplier
+        mDimNavButtonsAnimateDuration.setInitValue((animateDuration / 100) - 1);
 
         HashMap<String, String> prefsToRemove = (HashMap<String, String>)
                 getPreferencesToRemove(this, getActivity());
@@ -247,16 +270,17 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         if (Utils.hasVolumeRocker(getActivity())) {
-            int cursorControlAction = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
-            mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
-                    cursorControlAction);
 
             int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
             mSwapVolumeButtons = (SwitchPreference)
                     prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
             mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
+        }
+
+        if (mNavigationPreferencesCat.getPreferenceCount() == 0) {
+            // Hide navigation bar category
+            prefScreen.removePreference(mNavigationPreferencesCat);
         }
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
@@ -274,47 +298,20 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             }
         }
 
-        mVolumeWakeScreen = (SwitchPreference) findPreference(Settings.System.VOLUME_WAKE_SCREEN);
-        mVolumeMusicControls = (SwitchPreference) findPreference(KEY_VOLUME_MUSIC_CONTROLS);
-
-        if (mVolumeWakeScreen != null) {
-            if (mVolumeMusicControls != null) {
-                mVolumeMusicControls.setDependency(Settings.System.VOLUME_WAKE_SCREEN);
-                mVolumeWakeScreen.setDisableDependentsState(true);
-           }
+        // Enable/disable hw keys
+        boolean enableHwKeys = Settings.System.getInt(getContentResolver(),
+                Settings.System.ENABLE_HW_KEYS, 1) == 1;
+        mEnableHwKeys = (SwitchPreference) findPreference(KEY_ENABLE_HW_KEYS);
+        mEnableHwKeys.setChecked(enableHwKeys);
+        mEnableHwKeys.setOnPreferenceChangeListener(this);
+        // Check if this feature is enable through device config
+        if(!getResources().getBoolean(com.android.internal.R.bool.config_hwKeysPref)) {
+            PreferenceCategory hwKeysPref = (PreferenceCategory)
+                    getPreferenceScreen().findPreference(CATEGORY_HW_KEYS);
+            getPreferenceScreen().removePreference(hwKeysPref);
         }
 
-        mDimNavButtons = (SwitchPreference) findPreference(DIM_NAV_BUTTONS);
-        mDimNavButtons.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsTouchAnywhere = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_TOUCH_ANYWHERE);
-        mDimNavButtonsTouchAnywhere.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsTimeout = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_TIMEOUT);
-        mDimNavButtonsTimeout.setDefault(3000);
-        mDimNavButtonsTimeout.isMilliseconds(true);
-        mDimNavButtonsTimeout.setInterval(1);
-        mDimNavButtonsTimeout.minimumValue(100);
-        mDimNavButtonsTimeout.multiplyValue(100);
-        mDimNavButtonsTimeout.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsAlpha = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ALPHA);
-        mDimNavButtonsAlpha.setDefault(50);
-        mDimNavButtonsAlpha.setInterval(1);
-        mDimNavButtonsAlpha.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsAnimate = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE);
-        mDimNavButtonsAnimate.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsAnimateDuration = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE_DURATION);
-        mDimNavButtonsAnimateDuration.setDefault(2000);
-        mDimNavButtonsAnimateDuration.isMilliseconds(true);
-        mDimNavButtonsAnimateDuration.setInterval(1);
-        mDimNavButtonsAnimateDuration.minimumValue(100);
-        mDimNavButtonsAnimateDuration.multiplyValue(100);
-        mDimNavButtonsAnimateDuration.setOnPreferenceChangeListener(this);
-
-        updateDisableHwKeysOption();
+        updateDisableHwkeysOption();
         updateNavBarSettings();
     }
 
@@ -465,8 +462,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                         KEY_APP_SWITCH_PRESS, pressAction);
 
                 int longPressAction = Settings.System.getInt(resolver,
-                        Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
-                        hasMenuKey ? ACTION_NOTHING : ACTION_MENU);
+                        Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION, ACTION_NOTHING);
                 settings.mAppSwitchLongPressAction = settings.initActionList(
                         KEY_APP_SWITCH_LONG_PRESS, longPressAction);
             }
@@ -541,7 +537,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private ListPreference initRecentsLongPressAction(String key) {
         ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
-        if (list == null) return null;
         list.setOnPreferenceChangeListener(this);
 
         // Read the componentName from Settings.Secure, this is the user's prefered setting
@@ -611,65 +606,28 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         pref.setSummary(pref.getEntries()[index]);
         Settings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
     }
-    
-   private void updateNavBarSettings() {
+
+    private void updateNavBarSettings() {
         boolean enableNavigationBar = Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_SHOW,
                 RRUtils.isNavBarDefault(getActivity()) ? 1 : 0) == 1;
         mEnableNavigationBar.setChecked(enableNavigationBar);
 
-        if (mDimNavButtons != null) {
-            mDimNavButtons.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS, 0) == 1);
-        }
-
-        if (mDimNavButtonsTouchAnywhere != null) {
-            mDimNavButtonsTouchAnywhere.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_TOUCH_ANYWHERE, 0) == 1);
-        }
-
-        if (mDimNavButtonsTimeout != null) {
-            final int dimTimeout = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_TIMEOUT, 3000);
-            // minimum 100 is 1 interval of the 100 multiplier
-            mDimNavButtonsTimeout.setInitValue((dimTimeout / 100) - 1);
-        }
-
-        if (mDimNavButtonsAlpha != null) {
-            int alphaScale = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_ALPHA, 50);
-            mDimNavButtonsAlpha.setInitValue(alphaScale);
-        }
-
-        if (mDimNavButtonsAnimate != null) {
-            mDimNavButtonsAnimate.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_ANIMATE, 0) == 1);
-        }
-
-        if (mDimNavButtonsAnimateDuration != null) {
-            final int animateDuration = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_ANIMATE_DURATION, 2000);
-            // minimum 100 is 1 interval of the 100 multiplier
-            mDimNavButtonsAnimateDuration.setInitValue((animateDuration / 100) - 1);
-        }
-
         updateNavbarPreferences(enableNavigationBar);
     }
 
     private void updateNavbarPreferences(boolean show) {
-        mDimNavButtons.setEnabled(show);
-        mDimNavButtonsTouchAnywhere.setEnabled(show);
-        mDimNavButtonsTimeout.setEnabled(show);
-        mDimNavButtonsAlpha.setEnabled(show);
-        mDimNavButtonsAnimate.setEnabled(show);
-        mDimNavButtonsAnimateDuration.setEnabled(show);
     }
-    
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mHomeLongPressAction) {
-            handleActionListChange(mHomeLongPressAction, newValue,
-                    Settings.System.KEY_HOME_LONG_PRESS_ACTION);
+        if (preference == mEnableHwKeys) {
+            boolean hWkeysValue = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.ENABLE_HW_KEYS, hWkeysValue ? 1 : 0);
+            writeDisableHwkeysOption(getActivity(), hWkeysValue);
+            updateDisableHwkeysOption();
+            updateDisableHwkeysCategories(hWkeysValue);
             return true;
         } else if (preference == mEnableNavigationBar) {
             mEnableNavigationBar.setEnabled(true);
@@ -677,12 +635,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.NAVIGATION_BAR_SHOW,
                         ((Boolean) newValue) ? 1 : 0);
             return true;
-        } else if (preference == mEnableHwKeys) {
-            boolean hWkeysValue = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.ENABLE_HW_KEYS, hWkeysValue ? 1 : 0);
-            writeDisableHwKeysOption(getActivity(), hWkeysValue);
-            updateDisableHwKeysOption();
+        } else if (preference == mHomeLongPressAction) {
+            handleActionListChange(mHomeLongPressAction, newValue,
+                    Settings.System.KEY_HOME_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mHomeDoubleTapAction) {
             handleActionListChange(mHomeDoubleTapAction, newValue,
@@ -712,9 +667,18 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleActionListChange(mAppSwitchLongPressAction, newValue,
                     Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
             return true;
-        } else if (preference == mVolumeKeyCursorControl) {
-            handleActionListChange(mVolumeKeyCursorControl, newValue,
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL);
+        } else if (preference == mNavbarButtonTint) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_TINT, intHex);
+            return true;
+        } else if (preference == mVolumeAnswerCall) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                   Settings.System.ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER, value ? 1 : 0);
             return true;
         } else if (preference == mNavigationRecentsLongPressAction) {
             // RecentsLongPressAction is handled differently because it intentionally uses
@@ -738,10 +702,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_TINT, intHex);
             return true;
-        } else if (preference == mVolumeAnswerCall) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(),
-                   Settings.System.ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER, value ? 1 : 0);
         } else if (preference == mDimNavButtons) {
             Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.DIM_NAV_BUTTONS,
@@ -773,6 +733,90 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
         return false;
     }
+
+    private static void writeDisableHwkeysOption(Context context, boolean enabled) {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final int defaultBrightness = context.getResources().getInteger(
+                com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
+
+        Settings.System.putInt(context.getContentResolver(),
+                Settings.System.ENABLE_HW_KEYS, enabled ? 1 : 0);
+        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+        hardware.set(CMHardwareManager.FEATURE_KEY_DISABLE, !enabled);
+
+        /* Save/restore button timeouts to disable them in softkey mode */
+        if (!enabled) {
+            Settings.System.putInt(context.getContentResolver(),
+                    Settings.System.BUTTON_BRIGHTNESS, 0);
+        } else {
+            int oldBright = prefs.getInt(ButtonBacklightBrightness.KEY_BUTTON_BACKLIGHT,
+                    defaultBrightness);
+            Settings.System.putInt(context.getContentResolver(),
+                    Settings.System.BUTTON_BRIGHTNESS, oldBright);
+        }
+    }
+
+    private void updateDisableHwkeysOption() {
+        boolean enabled = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.ENABLE_HW_KEYS, 1) == 1;
+
+        mEnableHwKeys.setChecked(enabled);
+        updateDisableHwkeysCategories(enabled);
+    }
+
+    private void updateDisableHwkeysCategories(boolean enabled) {
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        /* Disable hw-key options if they're disabled */
+        final PreferenceCategory homeCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_HOME);
+        final PreferenceCategory backCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_BACK);
+        final PreferenceCategory menuCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_MENU);
+        final PreferenceCategory assistCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_ASSIST);
+        final PreferenceCategory appSwitchCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
+        final ButtonBacklightBrightness backlight =
+                (ButtonBacklightBrightness) prefScreen.findPreference(KEY_BUTTON_BACKLIGHT);
+
+        /* Toggle backlight control depending on navbar state, force it to
+           off if enabling */
+        if (backlight != null) {
+            backlight.setEnabled(enabled);
+            backlight.updateSummary();
+        }
+
+        /* Toggle hardkey control availability depending on navbar state */
+        if (homeCategory != null) {
+            homeCategory.setEnabled(enabled);
+        }
+        if (backCategory != null) {
+            backCategory.setEnabled(enabled);
+        }
+        if (menuCategory != null) {
+            menuCategory.setEnabled(enabled);
+        }
+        if (assistCategory != null) {
+            assistCategory.setEnabled(enabled);
+        }
+        if (appSwitchCategory != null) {
+            appSwitchCategory.setEnabled(enabled);
+        }
+    }
+
+    public static void restoreKeyDisabler(Context context) {
+        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
+        if (!hardware.isSupported(CMHardwareManager.FEATURE_KEY_DISABLE)) {
+            return;
+        }
+
+        writeDisableHwkeysOption(context, Settings.System.getInt(context.getContentResolver(),
+                Settings.System.ENABLE_HW_KEYS, 1) == 1);
+    }
+
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSwapVolumeButtons) {
@@ -789,84 +833,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    private static void writeDisableHwKeysOption(Context context, boolean enabled) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final int defaultBrightness = context.getResources().getInteger(
-                com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
-
-        Settings.System.putInt(context.getContentResolver(),
-                Settings.System.ENABLE_HW_KEYS, enabled ? 1 : 0);
-        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
-        hardware.set(CMHardwareManager.FEATURE_KEY_DISABLE, !enabled);
-
-        /* Save/restore button timeouts to disable them in softkey mode */
-        if (!enabled) {
-            Settings.Secure.putInt(context.getContentResolver(),
-                    Settings.Secure.BUTTON_BRIGHTNESS, 0);
-        } else {
-            int oldBright = prefs.getInt(ButtonBacklightBrightness.KEY_BUTTON_BACKLIGHT,
-                    defaultBrightness);
-            Settings.Secure.putInt(context.getContentResolver(),
-                    Settings.Secure.BUTTON_BRIGHTNESS, oldBright);
-        }
-    }
-
-    private void updateDisableHwKeysOption() {
-        boolean enabled = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.ENABLE_HW_KEYS, 1) == 1;
-
-      mEnableHwKeys.setChecked(enabled);
-      updateDisableHwkeysCategories(enabled);
-
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-
-        /* Disable hw-key options if they're disabled */
-        final PreferenceCategory homeCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_HOME);
-        final PreferenceCategory menuCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_MENU);
-        final PreferenceCategory assistCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_ASSIST);
-        final PreferenceCategory appSwitchCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
-        final ButtonBacklightBrightness backlight =
-                (ButtonBacklightBrightness) prefScreen.findPreference(KEY_BUTTON_BACKLIGHT);
-
-        /* Toggle backlight control depending on navbar state, force it to
-           off if enabling */
-        if (backlight != null) {
-			backlight.setEnabled(enabled);
-            backlight.updateSummary();
-        }
-
-        /* Toggle hardkey control availability depending on navbar state */
-        if (homeCategory != null) {
-            homeCategory.setEnabled(enabled);
-        }
-        if (menuCategory != null) {
-            menuCategory.setEnabled(enabled);
-        }
-        if (assistCategory != null) {
-            assistCategory.setEnabled(enabled);
-        }
-        if (appSwitchCategory != null) {
-            appSwitchCategory.setEnabled(enabled);
-        }
-        if (mNavigationBarLeftPref != null) {
-            mNavigationBarLeftPref.setEnabled(enabled);
-        }
-    }
-
-    public static void restoreKeyDisabler(Context context) {
-        CMHardwareManager hardware = CMHardwareManager.getInstance(context);
-        if (!hardware.isSupported(CMHardwareManager.FEATURE_KEY_DISABLE)) {
-            return;
-        }
-
-        writeDisableHwKeysOption(context, Settings.System.getInt(context.getContentResolver(),
-                Settings.System.ENABLE_HW_KEYS, 1) == 1);
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
