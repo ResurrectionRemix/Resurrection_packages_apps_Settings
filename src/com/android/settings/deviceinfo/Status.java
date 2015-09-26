@@ -62,8 +62,6 @@ import com.android.internal.util.ArrayUtils;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
-import org.cyanogenmod.hardware.SerialNumber;
-
 import cyanogenmod.hardware.CMHardwareManager;
 
 import java.lang.ref.WeakReference;
