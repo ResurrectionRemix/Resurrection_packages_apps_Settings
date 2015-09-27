@@ -66,11 +66,6 @@
                 android:key="doze_fragment"
                 android:title="@string/doze_title"
                 android:fragment="com.android.settings.rr.ambientdisplay.AmbientSettings" />
-        
-        <SwitchPreference
-                android:key="lift_to_wake"
-                android:title="@string/lift_to_wake_title"
-                android:persistent="false" />
 
         <PreferenceScreen
                 android:key="expanded_desktop"
@@ -96,6 +91,12 @@
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
      </PreferenceCategory>                   
+
+        
+        <SwitchPreference
+                android:key="lift_to_wake"
+                android:title="@string/lift_to_wake_title"
+                android:persistent="false" />
 
         <PreferenceCategory
                 android:key="advanced_display_prefs"
