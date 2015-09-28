@@ -50,10 +50,10 @@ import java.util.List;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LockscreenColors extends SettingsPreferenceFragment implements
+public class LockscreenAdvanced extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
-    private static final String TAG = "LockscreenColors";
+    private static final String TAG = "LockscreenAdvanced";
 
     private static final String LOCKSCREEN_BOTTOM_ICONS_COLOR = "lockscreen_bottom_icons_color";
     private static final String LOCKSCREEN_OWNER_INFO_COLOR = "lockscreen_owner_info_color";
@@ -80,7 +80,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.lockscreen_colors);
+        addPreferencesFromResource(R.xml.rr_lockscreen_advanced);
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -288,7 +288,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.lockscreen_colors;
+                    sir.xmlResId = R.xml.rr_lockscreen_advanced;
                     result.add(sir);
 
                     return result;

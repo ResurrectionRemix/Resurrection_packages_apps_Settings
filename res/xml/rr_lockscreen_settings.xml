@@ -46,9 +46,20 @@
         <PreferenceScreen
             android:key="lockscreen_colors"
             android:title="@string/lockscreen_colors"
-            android:fragment="com.android.settings.rr.LockscreenColors" />
+            android:fragment="com.android.settings.rr.LockscreenAdvanced" />
 
 </PreferenceCategory> 
+
+
+    <PreferenceCategory
+        android:title="@string/rr_lockscreen_weather">
+        <PreferenceScreen
+            android:key="lockscreen_weather"
+            android:title="@string/lock_screen_weather_settings_title"
+            android:summary="@string/lock_screen_weather_settings_title_summary"
+            android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
+
+</PreferenceCategory>   
 
     <PreferenceCategory
         android:title="@string/lockscreen_Gestures">
@@ -62,18 +73,7 @@
             android:key="double_tap_sleep_anywhere"
             android:title="@string/double_tap_sleep_anywhere_title"
             android:summary="@string/double_tap_sleep_anywhere_summary"/> 
-
 </PreferenceCategory>  
-
-    <PreferenceCategory
-        android:title="@string/rr_lockscreen_weather">
-        <PreferenceScreen
-            android:key="lockscreen_weather"
-            android:title="@string/lock_screen_weather_settings_title"
-            android:summary="@string/lock_screen_weather_settings_title_summary"
-            android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
-
-</PreferenceCategory>   
 
     <PreferenceCategory
         android:title="@string/rr_lockscreen_vizualizer">
