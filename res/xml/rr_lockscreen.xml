@@ -15,6 +15,29 @@
     android:title="@string/power_menu_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+
+    <PreferenceCategory
+        android:title="@string/lockscreen_options_title" >
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="lockscreen_see_through"
+                android:title="@string/lockscreen_see_through_title"
+                android:summary="@string/lockscreen_see_through_summary"
+                android:defaultValue="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+                android:key="lockscreen_blur_radius"
+                android:title="@string/lockscreen_blur_radius"
+                android:max="25"
+                settings:minimum="0"
+                settings:unitsLeft=""
+                settings:unitsRight=""
+                android:persistent="false"
+                android:dependency="lockscreen_see_through" />
+
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="lockscreen_wallpaper"
         android:title="@string/lockscreen_wallpaper_title" >
