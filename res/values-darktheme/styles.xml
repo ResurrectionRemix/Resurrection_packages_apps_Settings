@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SettingsBase" parent="@android:style/Theme.Material" />
+    <style name="Theme.Light.WifiDialog" parent="@android:style/Theme.Material.Dialog.Alert" />
+    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.SegmentedButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:weightSum">2.0</item>
+        <item name="android:dividerPadding">8.0dip</item>
+    </style>
+    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Button.Borderless">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="Widget.TimePicker" parent="@android:style/Widget.Material.TimePicker" />
+    <style name="Theme.ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
+        <item name="android:colorBackground">#ff000000</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge" />
+    <style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:colorBackground">#ff000000</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
+    </style>
+</resources>

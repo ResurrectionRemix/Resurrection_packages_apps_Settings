@@ -104,7 +104,13 @@
                 android:fragment="com.android.settings.rr.MainSettings"
                 android:icon="@drawable/ic_rr_tools_tint"
                 />       
-
+        <!-- TRDS -->
+        <dashboard-tile
+                android:id="@+id/theme_settings"
+                android:icon="@drawable/ic_settings_theme"
+                android:fragment="com.android.settings.slim.themes.ThemeSettings"
+                android:title="@string/theme_settings_title"
+                />
         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
         <dashboard-tile
@@ -116,8 +122,7 @@
                 <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
             </intent>
         </dashboard-tile>
-                                      
-    </dashboard-category>
+
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"
