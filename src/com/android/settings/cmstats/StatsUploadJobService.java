@@ -43,7 +43,7 @@ import java.util.Map;
 public class StatsUploadJobService extends JobService {
 
     private static final String TAG = StatsUploadJobService.class.getSimpleName();
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
     public static final String KEY_JOB_TYPE = "job_type";
     public static final int JOB_TYPE_CYANOGEN = 1;
@@ -56,6 +56,7 @@ public class StatsUploadJobService extends JobService {
     public static final String KEY_CARRIER = "carrier";
     public static final String KEY_CARRIER_ID = "carrierId";
     public static final String KEY_TIMESTAMP = "timeStamp";
+    public static final String KEY_OPT_OUT = "optOut";
 
     private final Map<JobParameters, StatsUploadTask> mCurrentJobs
             = Collections.synchronizedMap(new ArrayMap<JobParameters, StatsUploadTask>());
@@ -107,16 +108,25 @@ public class StatsUploadJobService extends JobService {
             String deviceCarrier = extras.getString(KEY_CARRIER);
             String deviceCarrierId = extras.getString(KEY_CARRIER_ID);
             long timeStamp = extras.getLong(KEY_TIMESTAMP);
+            boolean optOut = extras.getBoolean(KEY_OPT_OUT);
 
             boolean success = false;
+            int jobType = extras.getInt(KEY_JOB_TYPE, -1);
             if (!isCancelled()) {
-                int jobType = extras.getInt(KEY_JOB_TYPE, -1);
-
                 switch (jobType) {
                     case JOB_TYPE_CYANOGEN:
                         try {
-                            success = uploadToCyanogen(deviceId, deviceName, deviceVersion,
-                                    deviceCountry, deviceCarrier, deviceCarrierId, timeStamp);
+                            JSONObject json = new JSONObject();
+                            json.put("optOut", optOut);
+                            json.put("uniqueId", deviceId);
+                            json.put("deviceName", deviceName);
+                            json.put("version", deviceVersion);
+                            json.put("country", deviceCountry);
+                            json.put("carrier", deviceCarrier);
+                            json.put("carrierId", deviceCarrierId);
+                            json.put("timestamp", timeStamp);
+
+                            success = uploadToCyanogen(json);
                         } catch (IOException | JSONException e) {
                             Log.e(TAG, "Could not upload stats checkin to cyanogen server", e);
                             success = false;
@@ -126,7 +136,7 @@ public class StatsUploadJobService extends JobService {
                     case JOB_TYPE_CMORG:
                         try {
                             success = uploadToCM(deviceId, deviceName, deviceVersion, deviceCountry,
-                                    deviceCarrier, deviceCarrierId);
+                                    deviceCarrier, deviceCarrierId, optOut);
                         } catch (IOException e) {
                             Log.e(TAG, "Could not upload stats checkin to commnity server", e);
                             success = false;
@@ -138,7 +148,6 @@ public class StatsUploadJobService extends JobService {
             if (success) {
                 // we hit the server, succeed either which way.
                 mCurrentJobs.remove(mJobParams);
-                AnonymousStats.removeJob(StatsUploadJobService.this, mJobParams.getJobId());
             }
 
             if (DEBUG)
@@ -151,10 +160,12 @@ public class StatsUploadJobService extends JobService {
 
 
     private boolean uploadToCM(String deviceId, String deviceName, String deviceVersion,
-                               String deviceCountry, String deviceCarrier, String deviceCarrierId)
+                               String deviceCountry, String deviceCarrier, String deviceCarrierId,
+                               boolean optOut)
             throws IOException {
 
         final Uri uri = Uri.parse(getString(R.string.stats_cm_url)).buildUpon()
+                .appendQueryParameter("opt_out", optOut ? "1" : "0")
                 .appendQueryParameter("device_hash", deviceId)
                 .appendQueryParameter("device_name", deviceName)
                 .appendQueryParameter("device_version", deviceVersion)
@@ -182,24 +193,13 @@ public class StatsUploadJobService extends JobService {
 
     }
 
-    private boolean uploadToCyanogen(String deviceId, String deviceName, String deviceVersion,
-                                     String deviceCountry, String carrier, String carrierId,
-                                     long timeStamp)
+    private boolean uploadToCyanogen(JSONObject json)
             throws IOException, JSONException {
         String authToken = getAuthToken();
 
         if (authToken.isEmpty()) {
             Log.w(TAG, "no auth token!");
         }
-
-        JSONObject json = new JSONObject();
-        json.put("uniqueId", deviceId);
-        json.put("deviceName", deviceName);
-        json.put("version", deviceVersion);
-        json.put("country", deviceCountry);
-        json.put("carrier", carrier);
-        json.put("carrierId", carrierId);
-        json.put("timestamp", timeStamp);
 
         URL url = new URL(getString(R.string.stats_cyanogen_url));
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -223,9 +223,13 @@ public class StatsUploadJobService extends JobService {
 
             final int responseCode = urlConnection.getResponseCode();
             final boolean success = responseCode == HttpURLConnection.HTTP_OK;
+
+            final String response = getResponse(urlConnection, !success);
+            if (DEBUG)
+                Log.d(TAG, "server responseCode: " + responseCode +", response=" + response);
+
             if (!success) {
-                Log.w(TAG, "failed sending, server returned: " + getResponse(urlConnection,
-                        !success));
+                Log.w(TAG, "failed sending, server returned: " + response);
             }
             return success;
         } finally {

@@ -22,15 +22,18 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.PersistableBundle;
+import android.os.UserHandle;
 import android.util.Log;
+import cyanogenmod.providers.CMSettings;
 
 import java.util.List;
 
 public class ReportingService extends IntentService {
     /* package */ static final String TAG = "CMStats";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
+
+    public static final String EXTRA_OPTING_OUT = "cmstats::opt_out";
 
     public ReportingService() {
         super(ReportingService.class.getSimpleName());
@@ -40,42 +43,21 @@ public class ReportingService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         JobScheduler js = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
-        if (AnonymousStats.getNextJobId(this) == -1) {
-            // if we've filled up to the threshold, we may have some stale job queue ids, purge them
-            // then re-add what hasn't executed yet
-            AnonymousStats.clearJobQueue(this);
-
-            final List<JobInfo> allPendingJobs = js.getAllPendingJobs();
-
-            // add two extra jobs to the size for what we will schedule below so we *always*
-            // have room for both.
-            if (js.getAllPendingJobs().size() + 2 >= AnonymousStats.QUEUE_MAX_THRESHOLD) {
-                // there are still as many actual pending jobs as our threshold allows.
-                // since we are past the threshold we will be losing data if we don't schedule
-                // another job here, so just clear out all the old data and start fresh
-                js.cancelAll();
-            } else {
-                for (JobInfo pendingJob : allPendingJobs) {
-                    AnonymousStats.addJob(this, pendingJob.getId());
-                }
-            }
-        }
-
-        int cyanogenJobId, cmOrgJobId;
-        AnonymousStats.addJob(this, cyanogenJobId = AnonymousStats.getNextJobId(this));
-        AnonymousStats.addJob(this, cmOrgJobId = AnonymousStats.getNextJobId(this));
-
-        if (DEBUG) Log.d(TAG, "scheduling jobs id: " + cyanogenJobId + ", " + cmOrgJobId);
-
-        // get snapshot and persist it
         String deviceId = Utilities.getUniqueID(getApplicationContext());
         String deviceName = Utilities.getDevice();
         String deviceVersion = Utilities.getModVersion();
         String deviceCountry = Utilities.getCountryCode(getApplicationContext());
         String deviceCarrier = Utilities.getCarrier(getApplicationContext());
         String deviceCarrierId = Utilities.getCarrierId(getApplicationContext());
+        boolean optOut = intent.getBooleanExtra(EXTRA_OPTING_OUT, false);
+
+        final int cyanogenJobId = AnonymousStats.getNextJobId(getApplicationContext());
+        final int cmOrgJobId = AnonymousStats.getNextJobId(getApplicationContext());
+
+        if (DEBUG) Log.d(TAG, "scheduling jobs id: " + cyanogenJobId + ", " + cmOrgJobId);
 
         PersistableBundle cyanogenBundle = new PersistableBundle();
+        cyanogenBundle.putBoolean(StatsUploadJobService.KEY_OPT_OUT, optOut);
         cyanogenBundle.putString(StatsUploadJobService.KEY_DEVICE_NAME, deviceName);
         cyanogenBundle.putString(StatsUploadJobService.KEY_UNIQUE_ID, deviceId);
         cyanogenBundle.putString(StatsUploadJobService.KEY_VERSION, deviceVersion);
@@ -84,6 +66,7 @@ public class ReportingService extends IntentService {
         cyanogenBundle.putString(StatsUploadJobService.KEY_CARRIER_ID, deviceCarrierId);
         cyanogenBundle.putLong(StatsUploadJobService.KEY_TIMESTAMP, System.currentTimeMillis());
 
+        // get snapshot and persist it
         PersistableBundle cmBundle = new PersistableBundle(cyanogenBundle);
 
         // set job types
@@ -110,11 +93,14 @@ public class ReportingService extends IntentService {
                 .setPersisted(true)
                 .build());
 
-        // reschedule
-        final SharedPreferences prefs = AnonymousStats.getPreferences(this);
-        prefs.edit().putLong(AnonymousStats.ANONYMOUS_LAST_CHECKED,
-                System.currentTimeMillis()).apply();
-        ReportingServiceManager.setAlarm(this, 0);
-    }
+        if (optOut) {
+            // we've successfully scheduled the opt out.
+            CMSettings.Secure.putIntForUser(getContentResolver(),
+                    CMSettings.Secure.STATS_COLLECTION_REPORTED, 1, UserHandle.USER_OWNER);
+        }
 
+        // reschedule
+        AnonymousStats.updateLastSynced(this);
+        ReportingServiceManager.setAlarm(this);
+    }
 }
