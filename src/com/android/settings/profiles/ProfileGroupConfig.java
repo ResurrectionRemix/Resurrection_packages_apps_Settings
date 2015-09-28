@@ -35,8 +35,6 @@ import com.android.settings.SettingsPreferenceFragment;
 public class ProfileGroupConfig extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    public static final String PROFILE_SERVICE = "profile";
-
     private static final CharSequence KEY_SOUNDMODE = "sound_mode";
 
     private static final CharSequence KEY_VIBRATEMODE = "vibrate_mode";
@@ -78,7 +76,7 @@ public class ProfileGroupConfig extends SettingsPreferenceFragment implements
             mProfile = (Profile) args.getParcelable("Profile");
             UUID uuid = UUID.fromString(args.getString("ProfileGroup"));
 
-            mProfileManager = (ProfileManager) getSystemService(PROFILE_SERVICE);
+            mProfileManager = ProfileManager.getInstance(getActivity());
             mProfileGroup = mProfile.getProfileGroup(uuid);
 
             mRingerMode = (ListPreference) findPreference(KEY_RINGERMODE);
