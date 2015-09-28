@@ -29,6 +29,8 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
@@ -38,8 +40,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
+import com.android.internal.view.RotationPolicy;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreferenceCham;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +61,8 @@ public class LockscreenColors extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_INDICATION_TEXT_COLOR = "lockscreen_indication_text_color";
     private static final String LOCKSCREEN_CLOCK_COLOR = "lockscreen_clock_color";
     private static final String LOCKSCREEN_CLOCK_DATE_COLOR = "lockscreen_clock_date_color";
+    private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
+    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
 
     static final int DEFAULT = 0xffffffff;
     private static final int MENU_RESET = Menu.FIRST;
@@ -67,7 +73,9 @@ public class LockscreenColors extends SettingsPreferenceFragment implements
     private ColorPickerPreference mLockscreenIndicationTextColorPicker;
     private ColorPickerPreference mLockscreenClockColorPicker;
     private ColorPickerPreference mLockscreenClockDateColorPicker;
-
+    private SeekBarPreferenceCham mBlurRadius;
+    private SwitchPreference mAccelerometer;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,9 +136,22 @@ public class LockscreenColors extends SettingsPreferenceFragment implements
         mLockscreenClockDateColorPicker.setSummary(hexColor);
         mLockscreenClockDateColorPicker.setNewPreviewColor(intColor);
 
-        setHasOptionsMenu(true);
-    }
+        mBlurRadius = (SeekBarPreferenceCham) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+        mBlurRadius.setValue(Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
+        mBlurRadius.setOnPreferenceChangeListener(this);
 
+        setHasOptionsMenu(true);
+
+        final Preference lockScreenRotation = findPreference(KEY_LOCKSCREEN_ROTATION);
+        final boolean canRotateLockScreen = getResources().getBoolean(
+                com.android.internal.R.bool.config_enableLockScreenRotation);
+
+        if (lockScreenRotation != null && !canRotateLockScreen) {
+            getPreferenceScreen().removePreference(lockScreenRotation);
+        }
+    }
+    
     public boolean onPreferenceChange(Preference preference, Object newValue) {
                 ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mLockscreenBottomIconsColorPicker) {
@@ -180,6 +201,11 @@ public class LockscreenColors extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR, intHex);
+            return true;
+        } else if (preference == mBlurRadius) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
             return true;
          }
          return false;

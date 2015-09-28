@@ -41,6 +41,16 @@
 </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/rr_lockscreen_advanced">
+
+        <PreferenceScreen
+            android:key="lockscreen_colors"
+            android:title="@string/lockscreen_colors"
+            android:fragment="com.android.settings.rr.LockscreenColors" />
+
+</PreferenceCategory> 
+
+    <PreferenceCategory
         android:title="@string/lockscreen_Gestures">
 
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
@@ -63,17 +73,7 @@
             android:summary="@string/lock_screen_weather_settings_title_summary"
             android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
 
-</PreferenceCategory>  
-
-    <PreferenceCategory
-        android:title="@string/rr_lockscreen_colors">
-
-        <PreferenceScreen
-            android:key="lockscreen_colors"
-            android:title="@string/lockscreen_colors"
-            android:fragment="com.android.settings.rr.LockscreenColors" />
-
-</PreferenceCategory>  
+</PreferenceCategory>   
 
     <PreferenceCategory
         android:title="@string/rr_lockscreen_vizualizer">
