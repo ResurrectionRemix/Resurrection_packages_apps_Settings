@@ -19,6 +19,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
+import android.telephony.CarrierConfigManager;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -41,6 +42,7 @@ public class ImeiInformation extends SettingsPreferenceFragment {
 
     private SubscriptionManager mSubscriptionManager;
     private boolean isMultiSIM = false;
+    private static final int IMEI_14_DIGIT = 14;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,30 @@ public class ImeiInformation extends SettingsPreferenceFragment {
 
     private void setPreferenceValue(int phoneId) {
         final Phone phone = PhoneFactory.getPhone(phoneId);
+        String imeiStr =  null;
+        boolean enable14DigitImei = false;
+        try {
+            CarrierConfigManager configManager =
+                    (CarrierConfigManager) getContext().getSystemService(
+                     Context.CARRIER_CONFIG_SERVICE);
+            int[] subIds = SubscriptionManager.getSubId(phoneId);
+            if (configManager != null &&
+                    configManager.getConfigForSubId(subIds[0]) != null) {
+                enable14DigitImei =
+                        configManager.getConfigForSubId(subIds[0]).getBoolean(
+                        "config_enable_display_14digit_imei");
+            }
+        } catch(RuntimeException ex) {
+            //do Nothing
+        }
 
         if (phone != null) {
+            imeiStr = phone.getImei();
+            if (enable14DigitImei &&
+                     imeiStr != null && imeiStr.length() > 14) {
+                imeiStr = imeiStr.substring(0, IMEI_14_DIGIT);
+            }
+
             if (phone.getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA) {
                 setSummaryText(KEY_MEID_NUMBER, phone.getMeid());
                 setSummaryText(KEY_MIN_NUMBER, phone.getCdmaMin());
@@ -80,7 +104,7 @@ public class ImeiInformation extends SettingsPreferenceFragment {
                 if (phone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE) {
                     // Show ICC ID and IMEI for LTE device
                     setSummaryText(KEY_ICC_ID, phone.getIccSerialNumber());
-                    setSummaryText(KEY_IMEI, phone.getImei());
+                    setSummaryText(KEY_IMEI, imeiStr);
                 } else {
                     // device is not GSM/UMTS, do not display GSM/UMTS features
                     // check Null in case no specified preference in overlay xml
@@ -95,7 +119,7 @@ public class ImeiInformation extends SettingsPreferenceFragment {
                 } else {
                     removePreferenceFromScreen(KEY_ICC_ID);
                 }
-                setSummaryText(KEY_IMEI, phone.getImei());
+                setSummaryText(KEY_IMEI, imeiStr);
                 setSummaryText(KEY_IMEI_SV, phone.getDeviceSvn());
                 // device is not CDMA, do not display CDMA features
                 // check Null in case no specified preference in overlay xml
