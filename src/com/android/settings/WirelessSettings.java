@@ -276,7 +276,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
 
         mSmsApplicationPreference = (AppListPreference) findPreference(KEY_SMS_APPLICATION);
         // Restricted users cannot currently read/write SMS.
-        if (isRestrictedUser) {
+        if (isRestrictedUser || !Utils.canUserMakeCallsSms(activity)) {
             removePreference(KEY_SMS_APPLICATION);
         } else {
             mSmsApplicationPreference.setOnPreferenceChangeListener(this);
