@@ -1439,4 +1439,18 @@ public final class Utils {
         }
         activity.setRequestedOrientation(frozenRotation);
     }
+
+    public static boolean isUserOwner() {
+        return UserHandle.myUserId() == UserHandle.USER_OWNER;
+    }
+
+    public static boolean canUserMakeCallsSms(Context context) {
+        UserManager userManager = UserManager.get(context);
+        UserHandle userHandle = new UserHandle(UserHandle.myUserId());
+        boolean callSmsNotAllowed = userManager.hasUserRestriction(
+                userManager.DISALLOW_OUTGOING_CALLS, userHandle);
+        callSmsNotAllowed &= userManager.hasUserRestriction(
+                UserManager.DISALLOW_SMS, userHandle);
+        return !callSmsNotAllowed;
+    }
 }

@@ -32,6 +32,7 @@ import com.android.internal.telephony.util.BlacklistUtils;
 public class PrivacySettings extends SettingsPreferenceFragment {
 
     private static final String KEY_BLACKLIST = "blacklist";
+    private static final String KEY_STATS = "cmstats";
 
     private PreferenceScreen mBlacklist;
 
@@ -45,8 +46,14 @@ public class PrivacySettings extends SettingsPreferenceFragment {
         // Add package manager to check if features are available
         PackageManager pm = getPackageManager();
 
+        boolean isOwner = Utils.isUserOwner();
+        if (!isOwner) {
+            PreferenceScreen root = getPreferenceScreen();
+            root.removePreference(findPreference(KEY_STATS));
+        }
+
         // Determine options based on device telephony support
-        if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY) || !isOwner) {
             // No telephony, remove dependent options
             PreferenceScreen root = getPreferenceScreen();
             root.removePreference(mBlacklist);

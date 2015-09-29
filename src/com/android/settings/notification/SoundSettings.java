@@ -348,7 +348,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
 
     private void initRingtones(PreferenceCategory root) {
         mPhoneRingtonePreference = root.findPreference(KEY_PHONE_RINGTONE);
-        if (mPhoneRingtonePreference != null && !mVoiceCapable) {
+        if (mPhoneRingtonePreference != null && (!mVoiceCapable || !Utils.isUserOwner())) {
             root.removePreference(mPhoneRingtonePreference);
             mPhoneRingtonePreference = null;
         }
@@ -450,7 +450,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             Log.i(TAG, "Preference not found: " + KEY_VIBRATE_WHEN_RINGING);
             return;
         }
-        if (!mVoiceCapable) {
+        if (!mVoiceCapable || !Utils.isUserOwner()) {
             root.removePreference(mVibrateWhenRinging);
             mVibrateWhenRinging = null;
             return;
