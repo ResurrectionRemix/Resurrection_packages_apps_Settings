@@ -475,6 +475,7 @@ public class EnrollFingerprint extends SettingsActivity
                     break;
                 case EnrollmentFinished:
                     mStepProgress.setVisibility(View.VISIBLE);
+                    mStepProgress.showError(false);
                     mStepProgress.setProgress(100);
                     mCompletedCheckmark.setVisibility(View.VISIBLE);
                     mStepsCompleted.setText(R.string.fingerprint_enrollment_done_label);
