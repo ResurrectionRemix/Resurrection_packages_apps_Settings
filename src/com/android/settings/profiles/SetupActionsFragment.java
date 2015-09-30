@@ -1046,7 +1046,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Item itemAtPosition = (Item) parent.getItemAtPosition(position);
         mSelectedItem = itemAtPosition;
-        mLastSelectedPosition = position;
+        mLastSelectedPosition = mAdapter.getPosition(itemAtPosition);
 
         if (itemAtPosition instanceof AirplaneModeItem) {
             showDialog(DIALOG_AIRPLANE_MODE);
