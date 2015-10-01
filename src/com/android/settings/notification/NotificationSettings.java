@@ -341,10 +341,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
     private void initRingtones(PreferenceCategory root) {
         mPhoneRingtonePreference = root.findPreference(KEY_PHONE_RINGTONE);
-        if (mPhoneRingtonePreference != null && !mVoiceCapable) {
+        if (phoneRingtonePreference != null && !mVoiceCapable) {
             root.removePreference(mPhoneRingtonePreference);
             mPhoneRingtonePreference = null;
-        }
+       }
         mNotificationRingtonePreference = root.findPreference(KEY_NOTIFICATION_RINGTONE);
         mAlarmRingtonePreference = root.findPreference(KEY_ALARM_RINGTONE);
     }
