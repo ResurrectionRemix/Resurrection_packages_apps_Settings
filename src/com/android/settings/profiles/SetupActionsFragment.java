@@ -895,12 +895,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         override.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                brightnessSettings.setOverride(isChecked);
                 seekBar.setEnabled(isChecked);
-
-                mProfile.setBrightness(brightnessSettings);
-                mAdapter.notifyDataSetChanged();
-                updateProfile();
             }
         });
         seekBar.setEnabled(brightnessSettings.isOverride());
@@ -912,6 +907,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             public void onClick(DialogInterface dialog, int which) {
                 int value = seekBar.getProgress();
                 brightnessSettings.setValue(value);
+                brightnessSettings.setOverride(override.isChecked());
                 mProfile.setBrightness(brightnessSettings);
                 mAdapter.notifyDataSetChanged();
                 updateProfile();
