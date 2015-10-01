@@ -36,13 +36,26 @@
 </PreferenceCategory>
 
      <PreferenceCategory
-        android:title="@string/rr_lockscreen_rotation_cat" >
+        android:title="@string/rr_lockscreen_misc_cat" >
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="lockscreen_rotation"
         android:title="@string/display_lockscreen_rotation_title"
         android:dependency="lockscreen_see_through" 
         android:defaultValue="false" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="disable_torch_on_screen_off"
+            android:title="@string/disable_torch_screen_off_title"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="disable_torch_on_screen_off_delay"
+            android:title="@string/disable_torch_screen_off_delay_title"
+            android:dialogTitle="@string/disable_torch_screen_off_delay_title"
+            android:entries="@array/torch_screen_off_delay_entries"
+            android:entryValues="@array/torch_screen_off_delay_values"
+            android:dependency="disable_torch_on_screen_off" />
 
 </PreferenceCategory>
 

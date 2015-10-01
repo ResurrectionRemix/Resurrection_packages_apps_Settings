@@ -20,6 +20,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
 import android.app.ActivityManager;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
@@ -30,6 +31,7 @@ import android.database.ContentObserver;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.SwitchPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
@@ -42,6 +44,7 @@ import android.view.MenuInflater;
 
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.R;
+import com.android.internal.util.cm.QSUtils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreferenceCham;
 
@@ -63,7 +66,9 @@ public class LockscreenAdvanced extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_CLOCK_DATE_COLOR = "lockscreen_clock_date_color";
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
-
+    private static final String DISABLE_TORCH_ON_SCREEN_OFF = "disable_torch_on_screen_off";
+    private static final String DISABLE_TORCH_ON_SCREEN_OFF_DELAY = "disable_torch_on_screen_off_delay";
+ 
     static final int DEFAULT = 0xffffffff;
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -74,7 +79,8 @@ public class LockscreenAdvanced extends SettingsPreferenceFragment implements
     private ColorPickerPreference mLockscreenClockColorPicker;
     private ColorPickerPreference mLockscreenClockDateColorPicker;
     private SeekBarPreferenceCham mBlurRadius;
-    private SwitchPreference mAccelerometer;
+    private SwitchPreference mTorchOff;
+    private ListPreference mTorchOffDelay;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +90,7 @@ public class LockscreenAdvanced extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        Activity activity = getActivity();
 
         int intColor;
         String hexColor;
@@ -135,6 +142,19 @@ public class LockscreenAdvanced extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mLockscreenClockDateColorPicker.setSummary(hexColor);
         mLockscreenClockDateColorPicker.setNewPreviewColor(intColor);
+
+        mTorchOff = (SwitchPreference) prefSet.findPreference(DISABLE_TORCH_ON_SCREEN_OFF);
+        mTorchOffDelay = (ListPreference) prefSet.findPreference(DISABLE_TORCH_ON_SCREEN_OFF_DELAY);
+        int torchOffDelay = Settings.System.getInt(resolver,
+                Settings.System.DISABLE_TORCH_ON_SCREEN_OFF_DELAY, 10);
+        mTorchOffDelay.setValue(String.valueOf(torchOffDelay));
+        mTorchOffDelay.setSummary(mTorchOffDelay.getEntry());
+        mTorchOffDelay.setOnPreferenceChangeListener(this);
+
+        if (!QSUtils.deviceSupportsFlashLight(activity)) {
+            prefSet.removePreference(mTorchOff);
+            prefSet.removePreference(mTorchOffDelay);
+        }
 
         mBlurRadius = (SeekBarPreferenceCham) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
         mBlurRadius.setValue(Settings.System.getInt(resolver,
@@ -201,6 +221,13 @@ public class LockscreenAdvanced extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR, intHex);
+            return true;
+        } else if (preference == mTorchOffDelay) {
+            int torchOffDelay = Integer.valueOf((String) newValue);
+            int index = mTorchOffDelay.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DISABLE_TORCH_ON_SCREEN_OFF_DELAY, torchOffDelay);
+            mTorchOffDelay.setSummary(mTorchOffDelay.getEntries()[index]);
             return true;
         } else if (preference == mBlurRadius) {
             int width = ((Integer)newValue).intValue();
