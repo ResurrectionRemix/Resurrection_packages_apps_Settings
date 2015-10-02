@@ -16,6 +16,7 @@
 
 package com.android.settings;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -31,6 +32,7 @@ import android.service.fingerprint.FingerprintManager;
 import android.service.fingerprint.FingerprintManagerReceiver;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -81,6 +83,10 @@ public class ManageFingerprints extends SettingsActivity {
         return false;
     }
 
+    protected boolean hasBackToFinish() {
+        return true;
+    }
+
     Class<? extends Fragment> getFragmentClass() {
         return FingerprintListFragment.class;
     }
@@ -88,8 +94,7 @@ public class ManageFingerprints extends SettingsActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CharSequence msg = getText(R.string.fingerprint_item_add_new_fingerprint);
-        setTitle(msg);
+        setTitle(R.string.fingerprint_manage_fingerprints);
 
         final boolean confirmCredentials = getIntent().getBooleanExtra(CONFIRM_CREDENTIALS, true);
         mPasswordConfirmed = !confirmCredentials;
@@ -97,6 +102,13 @@ public class ManageFingerprints extends SettingsActivity {
         if (savedInstanceState != null) {
             mPasswordConfirmed = savedInstanceState.getBoolean(PASSWORD_CONFIRMED);
             mWaitingForConfirmation = savedInstanceState.getBoolean(WAITING_FOR_CONFIRMATION);
+        }
+
+        if (hasBackToFinish()) {
+            ActionBar actionBar = getActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+            }
         }
 
         if (!mPasswordConfirmed && !mWaitingForConfirmation) {
@@ -141,6 +153,15 @@ public class ManageFingerprints extends SettingsActivity {
             Log.d("TAG", "fallback password NOT set");
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home && hasBackToFinish()) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     protected Intent createFallbackIntent() {
@@ -190,7 +211,7 @@ public class ManageFingerprints extends SettingsActivity {
             mFingerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    if(FingerprintAdapter.TYPE_ADD_FINGER == mAdapter.getItemViewType(position)) {
+                    if (FingerprintAdapter.TYPE_ADD_FINGER == mAdapter.getItemViewType(position)) {
                         addFinger();
                     } else {
                         Fingerprint fingerprint = (Fingerprint) mAdapter.getItem(position);
@@ -340,20 +361,16 @@ public class ManageFingerprints extends SettingsActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = createFingerprintView(parent);
+            }
+            Holder holder = (Holder) convertView.getTag();
             int viewType = getItemViewType(position);
             if (viewType == TYPE_FINGERPRINT) {
                 Fingerprint fingerprintInfo = (Fingerprint) getItem(position);
-                if (convertView == null) {
-                    convertView = createFingerprintView(parent);
-                }
-                Holder holder = (Holder) convertView.getTag();
                 holder.mName.setText(fingerprintInfo.getName());
                 holder.mImage.setImageResource(R.drawable.ic_fingerprint);
             } else {
-                if (convertView == null) {
-                    convertView = createAddFingerprintView(parent);
-                }
-                Holder holder = (Holder) convertView.getTag();
                 holder.mName.setText(R.string.fingerprint_item_add_new_fingerprint);
                 holder.mImage.setImageResource(R.drawable.ic_add_fingerprint);
 
@@ -383,15 +400,6 @@ public class ManageFingerprints extends SettingsActivity {
             return v;
         }
 
-        private View createAddFingerprintView(ViewGroup parent) {
-            View v = mInflater.inflate(R.layout.fingerprint_item, parent, false);
-            Holder holder = new Holder();
-            v.setTag(holder);
-            holder.mName = (TextView) v.findViewById(R.id.name);
-            holder.mImage = (ImageView) v.findViewById(R.id.image);
-            return v;
-        }
-
         public static class Holder {
             public TextView mName;
             public ImageView mImage;
@@ -400,8 +408,6 @@ public class ManageFingerprints extends SettingsActivity {
 
 
     public static class RenameAndDeleteFragment extends DialogFragment {
-        private static final String ARG_FINGERPRINT = "fingerprint";
-
         private Fingerprint mFingerprint;
         private EditText mFingerNameEditText;
 
@@ -416,7 +422,7 @@ public class ManageFingerprints extends SettingsActivity {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            mFingerprint = getArguments().getParcelable(ARG_FINGERPRINT);
+            mFingerprint = getArguments().getParcelable("fingerprint");
             boolean canDelete = getArguments().getBoolean("canDelete");
 
             LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -424,28 +430,29 @@ public class ManageFingerprints extends SettingsActivity {
             mFingerNameEditText = (EditText) dialogView.findViewById(R.id.name);
             mFingerNameEditText.setText(mFingerprint.getName());
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(R.string.fingerprint_dialog_title_rename)
-                    .setPositiveButton(R.string.ok,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    String name = mFingerNameEditText.getText().toString();
-                                    ((FingerprintListFragment)getParentFragment())
-                                            .doRename(mFingerprint, name);
-                                }
-                            }
-                    );
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.fingerprint_dialog_title_rename)
+                    .setView(dialogView)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            String name = mFingerNameEditText.getText().toString();
+                            ((FingerprintListFragment) getParentFragment())
+                                    .doRename(mFingerprint, name);
+                        }
+                    });
+
             if (canDelete) {
                 builder.setNegativeButton(R.string.dialog_delete_title,
                         new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ((FingerprintListFragment) getParentFragment())
-                                        .doDelete(mFingerprint);
-                            }
-                        });
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ((FingerprintListFragment) getParentFragment())
+                                .doDelete(mFingerprint);
+                    }
+                })
             }
-            builder.setView(dialogView);
+
             return builder.create();
         }
     }
@@ -460,18 +467,16 @@ public class ManageFingerprints extends SettingsActivity {
             String msg = getString(R.string.fingerprint_dialog_msg_max_fingers_reached,
                     FingerprintListFragment.MAX_NUM_FINGERPRINTS);
 
-            AlertDialog dialog = new AlertDialog.Builder(getActivity())
+            return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.fingerprint_dialog_title_max_fingers_reached)
-                    .setPositiveButton(R.string.ok,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    dismiss();
-                                }
-                            }
-                    )
                     .setMessage(msg)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            dismiss();
+                        }
+                    })
                     .create();
-            return dialog;
         }
     }
 }

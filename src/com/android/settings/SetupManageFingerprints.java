@@ -39,6 +39,11 @@ public class SetupManageFingerprints extends ManageFingerprints
     }
 
     @Override
+    protected boolean hasBackToFinish() {
+        return false;
+    }
+
+    @Override
     /* package */ Class<? extends Fragment> getFragmentClass() {
         return SetupManageFingerprintsFragment.class;
     }
