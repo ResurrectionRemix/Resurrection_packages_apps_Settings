@@ -41,6 +41,12 @@ public class DimmableIconPreference extends RestrictedPreference {
         this(context, (AttributeSet) null);
     }
 
+    public DimmableIconPreference(Context context, AttributeSet attrs, int defStyleAttr,
+                                  @Nullable CharSequence contentDescription) {
+        super(context, attrs, defStyleAttr);
+        mContentDescription = contentDescription;
+    }
+
     public DimmableIconPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContentDescription = null;
@@ -53,7 +59,7 @@ public class DimmableIconPreference extends RestrictedPreference {
         useAdminDisabledSummary(true);
     }
 
-    private void dimIcon(boolean dimmed) {
+    protected void dimIcon(boolean dimmed) {
         Drawable icon = getIcon();
         if (icon != null) {
             icon.mutate().setAlpha(dimmed ? ICON_ALPHA_DISABLED : ICON_ALPHA_ENABLED);
