@@ -334,9 +334,13 @@
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Длительность</string>
+    <string name="heads_up_time_out_summary">Уведомление будет отображаться: </string>
+    <string name="heads_up_time_out_never_summary">Уведомление будет отображаться, пока не будет закрыто.</string>
 
     <!-- Heads up snooze -->
     <string name="heads_up_snooze_title">Длительность \"отложить\"</string>
+    <string name="heads_up_snooze_summary">Если кнопка \"отложить\" была нажата, отключить уведомления на: </string>
+    <string name="heads_up_snooze_disabled_summary">Таймер отключён</string>
 
     <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">Сбросить все размеры на значения по умолчанию?</string>
@@ -1149,8 +1153,8 @@
     <string name="chamber_title">Тайная комната</string>
     <string name="chamber_toast">Тайная комната открыта</string>
 
-    <!-- Lockscreen Colors -->
-    <string name="lockscreen_colors"><b>Цвета на экране блокировки</b></string>
+    <!-- Lockscreen advanced colors-->
+    <string name="lockscreen_advanced">Дополнительные настройки</string>
     <string name="lockscreen_bottom_icons_color">Нижние ярлыки</string>
     <string name="lockscreen_owner_info_color">Информация о владельце</string>
     <string name="lockscreen_alarm_color">Будильник</string>
@@ -1160,6 +1164,7 @@
     <string name="lockscreen_colors_reset_title">Сброс цветов экрана блокировки</string>
     <string name="lockscreen_colors_reset_message">Вы уверены, что хотите сбросить настройки цветов по умолчанию?</string>
     <string name="yes">ДА</string>
+    <string name="lockscreen_clock_color_cat">Установка цветов</string>
 
     <!-- OmniSwitch -->
     <string name="omniswitch_category">Переключатель Omni</string>
@@ -1210,47 +1215,72 @@
     <!--RR Configuration Preference Strings-->
 
     <!--StatusBar-->
-    <string name="rr_status_bar_main"><b>Основные настройки</b></string>
-    <string name="rr_temprature"><b>Температура в строке состояния</b></string>
-    <string name="rr_icons"><b>Значки строки состояния</b></string>
-    <string name="rr_logo_title"><b>Логотип Resurrection Remix</b></string>
-    <string name="status_bar_quick_settings"><b>Действия быстрых настроек</b></string>
-    <string name="status_bar_battery_title"><b>Батарея</b></string>
-    <string name="status_bar_lock_screen"><b>Строка состояния на экране блокировки</b></string>
-    <string name="status_bar_quick_security"><b>Безопасность строки состояния</b></string>
+    <string name="rr_status_bar_main">Основные настройки</string>
+    <string name="rr_temprature">Температура в строке состояния</string>
+    <string name="rr_icons">Значки строки состояния</string>
+    <string name="rr_logo_title">Логотип Resurrection Remix</string>
+    <string name="status_bar_quick_settings">Действия быстрых настроек</string>
+    <string name="status_bar_battery_title">Батарея</string>
+    <string name="status_bar_lock_screen">Строка состояния на экране блокировки</string>
+    <string name="status_bar_quick_security">Безопасность строки состояния</string>
 
     <!--Notication Drawer-->
-    <string name="rr_qs_colors"><b>Цвета</b></string>
-    <string name="rr_notifcation_header"><b>Заголовок уведомления</b></string>
-    <string name="rr_weather_title"><b>Погода в панели уведомления</b></string>
-    <string name="rr_misc_notif"><b>Прочее</b></string>
+    <string name="rr_qs_colors">Цвета</string>
+    <string name="rr_notifcation_header">Заголовок уведомления</string>
+    <string name="rr_weather_title">Погода в панели уведомления</string>
+    <string name="rr_misc_notif">Прочее</string>
 
     <!--Recents -->
-    <string name="recents_panel_clear_all"><b>Очистка недавних приложений</b></string>
-    <string name="recents_panel_gestures"><b>Жесты панели недавних приложений</b></string>
-    <string name="recents_panel_other"><b>Другие реализации панели недавних приложений</b></string>
+    <string name="recents_panel_clear_all">Очистка недавних приложений</string>
+    <string name="recents_panel_gestures">Жесты панели недавних приложений</string>
+    <string name="recents_panel_other">Другие реализации панели недавних приложений</string>
 
     <!--Lockscreen-->
-    <string name="lockscreen_Gestures"><b>Настройки касаний</b> </string>
-    <string name="rr_lockscreen_weather"><b>Погода и часы</b></string>
-    <string name="rr_lockscreen_colors"><b>Цвета</b></string>
-    <string name="rr_lockscreen_vizualizer"><b>Визуализация</b></string>
+    <string name="lockscreen_Gestures">Настройки касаний</string>
+    <string name="rr_lockscreen_weather">Погода и часы</string>
+    <string name="rr_lockscreen_advanced">Потребительские</string>
+    <string name="rr_lockscreen_misc_cat">Прочее</string>
+    <string name="rr_lockscreen_vizualizer">Визуализация</string>
 
     <!--Gestures-->
-    <string name="rr_app_bars"><b>Панели приложений</b></string>
+    <string name="rr_app_bars">Панели приложений</string>
  
     <!--Animations-->
-    <string name="rr_toast_title"><b>Уведомления</b></string>
-    <string name="rr_scrolling_title"><b>Опции прокрутки</b></string>
+    <string name="rr_toast_title">Уведомления</string>
+    <string name="rr_scrolling_title">Опции прокрутки</string>
 
     <!--Misc-->
-    <string name="rr_wakelocks"><b>Пробуждения</b></string>
-    <string name="slimsizer_settings"><b>Системные приложения</b></string>
+    <string name="rr_wakelocks">Пробуждения</string>
+    <string name="slimsizer_settings">Системные приложения</string>
 
     <!-- On-The-Go -->
     <string name="power_menu_onthego_title">Режим \"На ходу\"</string>
 
     <!-- Whether the keyguard will directly pass to gesture entry -->
     <string name="lock_directly_show_gesture">Отображать нарисованный жест</string>
+
+    <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Размытие экрана блокировки</string>
+    <string name="lockscreen_see_through_summary">Размытие и отображение содержимого находящегося за экраном блокировки.</string>
+    <string name="lockscreen_blur_radius">Интенсивность эффекта размытия</string>
+    <string name="lockscreen_see_through_cat">Вид насквозь и размытие</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">Медиа обложки</string>
+    <string name="media_art_summary">Включает показ обложек мультимедиа на экране блокировки</string>
+
+    <!-- Status Bar Activity Indicators -->
+    <string name="status_bar_network_activity_title">Индикаторы активности</string>
+    <string name="status_bar_network_activity_summary">Показывать активность на значке уровня сигнала</string>
+
+    <!-- Disable torch when screen goes off -->
+    <string name="disable_torch_screen_off_title">Отключать фонарик при выключенном экране</string>
+    <string name="disable_torch_screen_off_delay_title">Задержка</string>
+    <string name="torch_screen_off_one_second">1 секунда</string>
+    <string name="torch_screen_off_ten_second">10 секунд (по умолч.)</string>
+    <string name="torch_screen_off_thirty_second">30 секунд</string>
+    <string name="torch_screen_off_one_minute">1 минуту</string>
+    <string name="torch_screen_off_five_minutes">5 минут</string>
+    <string name="torch_screen_off_ten_minutes">10 минут</string>
 
 </resources>
