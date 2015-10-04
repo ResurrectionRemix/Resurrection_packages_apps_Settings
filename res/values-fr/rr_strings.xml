@@ -1208,24 +1208,134 @@ App side bar => Barre d\'application
     <string name="chamber_toast">La chambre des secrets à été ouverte</string>
 
     <!-- Lockscreen Colors -->
-    <string name="lockscreen_colors"><b>Lockscreen Colors</b></string>
-    <string name="lockscreen_phone_icon_color">Lockscreen Bottom Left shortcut</string>
-    <string name="lockscreen_lock_icon_color">Lockscreen Lock icon</string>
-    <string name="lockscreen_camera_icon_color">Lockscreen Bottom Right shortcut</string>
-    <string name="lockscreen_indication_text_color">Lockscreen Indication text</string>
-    <string name="lockscreen_clock_color">Lockscreen Clock</string>
-    <string name="lockscreen_clock_date_color">Lockscreen Date</string>
-    <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
-    <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
-    <string name="yes">YES</string>
+    <string name="lockscreen_colors"><b>Couleur de l\'écran de déverrouillage</b></string>
+    <string name="lockscreen_phone_icon_color">Bouton de raccourcis gauche</string>
+    <string name="lockscreen_lock_icon_color">Icône de verrouillage</string>
+    <string name="lockscreen_camera_icon_color">Bouton de raccourcis droit</string>
+    <string name="lockscreen_indication_text_color">Texte d\'information</string>
+    <string name="lockscreen_clock_color">Horloge</string>
+    <string name="lockscreen_clock_date_color">Date</string>
+    <string name="lockscreen_colors_reset_title">Réinitialiser</string>
+    <string name="lockscreen_colors_reset_message">Revenir à la configuration d\'origine?</string>
+    <string name="yes">OUI</string>
 
     <!-- OmniSwitch -->
     <string name="omniswitch_category">OmniSwitch</string>
-    <string name="recents_use_omniswitch_title">Use for recents</string>
-    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
-    <string name="omniswitch_start_settings_title">Settings</string>
-    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
+    <string name="recents_use_omniswitch_title">Activer comme récent</string>
+    <string name="recents_use_omniswitch_summary">Utiliser OmniSwitch à la place des applications récentes AOSP</string>
+    <string name="omniswitch_start_settings_title">Paramètre</string>
+    <string name="omniswitch_start_settings_summary">Ouvrir les paramètres d\'OmniSwitch</string>
     <string name="omniswitch_first_time_title">Information</string>
-    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
+    <string name="omniswitch_first_time_message">Soyez sur d\'avoir activer OmniSwitch. Vous pouvez le faire en utilisant \"Paramètre\" en dessous</string>
 
+    <!-- SlimSizer  -->
+    <string name="listsystem">liste</string>
+    <string name="sizer_title">Suppression d\'app</string>
+    <string name="caution">prudence</string>
+    <string name="sizer_message_startup">Cet outil va vous permettre de supprimer des applications système. Utiliser ceci avec prudence et supprimer seulement des applications que vous connaissez.</string>
+    <string name="cancel">Supprimer</string>
+    <string name="sizer_message_delete">Êtes-vous sûr de vouloir supprimer cette application?</string>
+    <string name="btn_delete">Suppression de l\'app!</string>
+    <string name="delete_progress_title">Suppression</string>
+    <string name="delete_progress">Les fichiers sélectionnés ont été supprimés...</string>
+    <string name="delete_success">Supprimé</string>
+    <string name="delete_fail">Impossible de supprimer</string>
+    <string name="btn_profile">Profil</string>
+    <string name="sizer_message_sdnowrite">Impossible d\'écrire dans la carte SD</string>
+    <string name="sizer_message_sdnoread">Impossible de lire la carte SD</string>
+    <string name="sizer_message_filesuccess">Création de profils</string>
+    <string name="sizer_message_filefail">Impossible de créer le profil</string>
+    <string name="sizer_message_noselect">Aucune sélection</string>
+    <string name="system_app_remover"><b>Suppression d\'app système</b></string>
+    <string name="systemappremover_summary">Supprimer les app en connaissant les risques. \"Peut causer des instabilités\"</string>
+ 
+    <!-- Device policy override -->
+    <string name="device_policy_override_title">Annuler la politique de périphériques</string>
+    <string name="device_policy_override_summary">Autoriser les applications à forcer l\'écran de verrouillage sécurisé et remplacer les paramètres de profil</string>
+
+    <!-- Scrolling Cache -->
+    <string name="pref_scrollingcache_title">Mémoire cache</string>
+    <string name="pref_scrollingcache_summary">Le défilement cache peut améliorer les performances de défilement mais augmente l\'utilisation de la mémoire RAM</string>
+    <string name="pref_scrollingcache_force_enable">Forcer l\'activation</string>
+    <string name="pref_scrollingcache_default_enable">Activé par défaut</string>
+    <string name="pref_scrollingcache_default_disable">Désactiver par défaut</string>
+    <string name="pref_scrollingcache_force_disable">Forcer la désactivation</string>
+    
+    <!--Shake To Clear Recents Settings -->
+    <string name="shake_clear_recents">Secouer pour effacer</string>
+    <string name="shake_clear_recents_summary">Effacer les récents en secouant l\'appareil</string>
+
+    <!--RR Configuration Preference Strings-->
+ 
+      <!--StatusBar-->	
+    <string name="rr_status_bar_main">Paramètres principaux</string>
+    <string name="rr_temprature">Température de la barre d\'état</string>
+    <string name="rr_icons">Icones de la barre d\'état</string>
+    <string name="rr_logo_title">Logo Resurrection Remix</string>
+    <string name="status_bar_quick_settings">Actions des paramètres rapide</string>
+    <string name="status_bar_battery_title">Batterie</string>	
+    <string name="status_bar_lock_screen">Barre d\'état dans l\'écran de déverrouillage</string>
+    <string name="status_bar_quick_security">Sécurité de la barre d\'état</string>
+
+    <!--Notication Drawer-->	
+    <string name="rr_qs_colors">Couleurs</string>
+    <string name="rr_notifcation_header">En-tête contextuel</string>
+    <string name="rr_weather_title">Panneau de la météo dans le panneau de notification </string>
+    <string name="rr_misc_notif">Divers</string>
+
+     <!--Recents -->	
+    <string name="recents_panel_clear_all">Effacer les app récentes</string>
+    <string name="recents_panel_gestures">Geste du pannel d\'applications récente</string>
+    <string name="recents_panel_other">Autre récents</string>
+
+    <!--Lockscreen-->	
+    <string name="lockscreen_Gestures">Paramètre du tap</string>
+    <string name="rr_lockscreen_weather">Météo et horloge</string>
+    <string name="rr_lockscreen_advanced">Personnaliser</string>
+    <string name="rr_lockscreen_misc_cat">Divers</string>
+    <string name="rr_lockscreen_vizualizer">Visualiser</string>
+
+    <!--Gestures-->
+    <string name="rr_pie">Pie</string>
+    <string name="rr_app_bars">Barre d\'app</string>
+ 
+     <!--Animations-->
+    <string name="rr_toast_title">Toast</string>
+    <string name="rr_scrolling_title">Options de défilement</string>
+
+     <!--Misc-->	
+    <string name="rr_wakelocks">Wakelocks</string>
+    <string name="selinux_settings">SElinux</string>
+    <string name="slimsizer_settings">Slim Sizer</string>
+
+    <!-- On-The-Go -->
+    <string name="power_menu_onthego_title">Mode On-The-Go</string>
+
+    <!-- Whether the keyguard will directly pass to gesture entry -->
+    <string name="lock_directly_show_gesture">Montrer directement le geste</string>
+
+     <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Floutage de l\'écran de déverrouillage</string>
+    <string name="lockscreen_see_through_summary">Flouter et afficher le contenu de votre écran de déverrouillage.</string>
+    <string name="lockscreen_blur_radius">Intensité de l\'effet de floutage</string>
+    <string name="lockscreen_see_through_cat">Voir a travers &amp; flout</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">Pochette de média</string>
+    <string name="media_art_summary">Activer la pochette de média sur votre écran de déverrouillage</string>
+
+ 
+    <!-- Status Bar Activity Indicators -->
+    <string name="status_bar_network_activity_title">Indicateur d\'activité</string>
+    <string name="status_bar_network_activity_summary">Afficher l\'indicateur dans la barre d\'état</string>
+
+    <!-- Disable torch when screen goes off -->
+    <string name="disable_torch_screen_off_title">Désactiver la torche lors de l\'extinction de l\'écran</string>
+    <string name="disable_torch_screen_off_delay_title">Delai</string>
+    <string name="torch_screen_off_one_second">1 seconde</string>
+    <string name="torch_screen_off_ten_second">10 secondes (défaut)</string>
+    <string name="torch_screen_off_thirty_second">30 secondes</string>
+    <string name="torch_screen_off_one_minute">1 minute</string>
+    <string name="torch_screen_off_five_minutes">5 minutes</string>
+    <string name="torch_screen_off_ten_minutes">10 minutes</string>
 </resources>
