@@ -331,11 +331,15 @@
     
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Tempo di visualizzazione</string>
- 
-     <!-- Heads up snooze -->
+    <string name="heads_up_time_out_summary">La notifica verrà visualizzata per: </string>
+    <string name="heads_up_time_out_never_summary">La notifica verrà visualizzata fino a quando non viene espulsa</string>
+
+    <!-- Heads up snooze -->
     <string name="heads_up_snooze_title">Timer Snooze</string>
-    
-    <!-- Navigation Bar Dimensions -->
+    <string name="heads_up_snooze_summary">Se si preme il pulsante snooze, disabiliterà heads up: </string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer è disattivato</string>
+ 
+   <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">Ripristina tutte le voci dimensioni predefinite?</string>
     <string name="navigation_bar_dimensions_title"><b>Dimensioni barra di navigazione</b></string>
     <string name="navigation_bar_dimensions_title_summary">Ridimensiona la barra di navigazione</string>
@@ -681,7 +685,7 @@
     <string name="volume_steps_7">7</string>
     <string name="volume_steps_5">5</string>
 
-      <!-- QuickSettings brightness slider -->
+    <!-- QuickSettings brightness slider -->
     <string name="qs_brightness_slider_title">Visualizza selettore luminosità</string>
     <string name="qs_brightness_slider_summary">Visualizza uno slider della luminosità nel pannello delle impostazioni rapide</string>
     <!-- Circle app bar -->
@@ -1274,6 +1278,7 @@
     <string name="lockscreen_colors_reset_title">Ripristina colori schermata di blocco</string>
     <string name="lockscreen_colors_reset_message">Sei sicuro di voler ripristinare i colori predefiniti?</string>
     <string name="yes">SI</string>
+    <string name="lockscreen_clock_color_cat">Cambiacolore</string>
     
     <!-- OmniSwitch -->
     <string name="omniswitch_category">OmniSwitch</string>
@@ -1321,7 +1326,7 @@
     <string name="shake_clear_recents">Scuoti per cancellare</string>
     <string name="shake_clear_recents_summary">Scuotendo le applicazioni recenti si cancellano</string>
 
-   <!--Configuration Preference Strings-->
+    <!--RR Configuration Preference Strings-->
 
      <!--StatusBar-->	
     <string name="rr_status_bar_main"><b>Impostazioni principali</b> </string>
@@ -1347,12 +1352,13 @@
     <!--Lockscreen-->	
     <string name="lockscreen_Gestures"><b>Impostazioni tocchi</b> </string>
     <string name="rr_lockscreen_weather"><b>Meteo e orologio</b></string>
-    <string name="rr_lockscreen_colors"><b>Colori</b></string>
+    <string name="rr_lockscreen_advanced">Personalizza</string>
+    <string name="rr_lockscreen_misc_cat">Misto</string>
     <string name="rr_lockscreen_vizualizer"><b>Visualizer</b></string>
 
     <!--Gestures-->
     <string name="rr_pie"><b>Pie</b></string>
-    <string name="rr_app_bars"><b>App Bars</b></string>
+    <string name="rr_app_bars"><b>Barre applicazioni</b></string>
  
      <!--Animations-->
     <string name="rr_toast_title"><b>Impostazioni tocchi</b> </string>
@@ -1368,5 +1374,30 @@
 
     <!-- Whether the keyguard will directly pass to gesture entry -->
     <string name="lock_directly_show_gesture">Mostra direttamente il gesto</string>
+
+     <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Sfocatura schermata di blocco</string>
+    <string name="lockscreen_see_through_summary">Sfoca e visualizza il contenuto dietro la schermata di blocco.</string>
+    <string name="lockscreen_blur_radius">Intensità dell\'effetto sfocatura</string>
+    <string name="lockscreen_see_through_cat">Guardare attraverso &amp; sfocatura</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">Copertina media</string>
+    <string name="media_art_summary">Attiva supporto copertina nella schermata di blocco</string>
+
+ 
+    <!-- Status Bar Activity Indicators -->
+    <string name="status_bar_network_activity_title">Indicatori di attività</string>
+    <string name="status_bar_network_activity_summary">Mostra indicatori barre del segnale</string>
+
+    <!-- Disable torch when screen goes off -->
+    <string name="disable_torch_screen_off_title">Disattivare la torcia schermo spento</string>
+    <string name="disable_torch_screen_off_delay_title">Ritardo</string>
+    <string name="torch_screen_off_one_second">1 secondo</string>
+    <string name="torch_screen_off_ten_second">10 secondi (predefinito)</string>
+    <string name="torch_screen_off_thirty_second">30 secondi</string>
+    <string name="torch_screen_off_one_minute">1 minuto</string>
+    <string name="torch_screen_off_five_minutes">5 minuti</string>
+    <string name="torch_screen_off_ten_minutes">10 minuti</string>
 
 </resources>
