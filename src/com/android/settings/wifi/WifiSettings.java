@@ -55,6 +55,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +66,7 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.SearchIndexableRaw;
+import com.android.settings.widget.SwitchBar;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -119,10 +121,12 @@ public class WifiSettings extends RestrictedSettingsFragment
     private WifiManager.ActionListener mConnectListener;
     private WifiManager.ActionListener mSaveListener;
     private WifiManager.ActionListener mForgetListener;
-    
+
     private WifiEnabler mWifiEnabler;
     // An access point being editted is stored here.
     private AccessPoint mSelectedAccessPoint;
+    private Collection<AccessPoint> mAccessPoints;
+    private int mWifiFilterState;
 
     private NetworkInfo mLastNetworkInfo;
     private WifiInfo mLastInfo;
@@ -361,7 +365,40 @@ public class WifiSettings extends RestrictedSettingsFragment
      */
     /* package */ WifiEnabler createWifiEnabler() {
         final SettingsActivity activity = (SettingsActivity) getActivity();
+        activity.getSwitchBar().addOnItemSelectedListener(
+                new SwitchBar.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(Switch switchView, int position) {
+                        mWifiFilterState = position;
+                        updateAccessPoints(mAccessPoints);
+                    }
+                });
         return new WifiEnabler(activity, activity.getSwitchBar());
+    }
+
+    private Collection<AccessPoint> filterAccessPoints(Collection<AccessPoint> accessPoints) {
+        ArrayList<AccessPoint> aps = new ArrayList<AccessPoint>();
+        for (AccessPoint accessPoint : accessPoints) {
+            int security = accessPoint.getSecurity();
+            boolean add = false;
+            switch (mWifiFilterState) {
+                case 1:
+                    add = security == AccessPoint.SECURITY_WEP
+                            || security == AccessPoint.SECURITY_PSK
+                            || security == AccessPoint.SECURITY_EAP;
+                    break;
+                case 2:
+                    add = security == AccessPoint.SECURITY_NONE;
+                    break;
+                default:
+                    add = true;
+                    break;
+            }
+            if (add) {
+                aps.add(accessPoint);
+            }
+        }
+        return aps;
     }
 
     @Override
@@ -644,6 +681,10 @@ public class WifiSettings extends RestrictedSettingsFragment
      * the strength of network and the security for it.
      */
     private void updateAccessPoints() {
+        updateAccessPoints(null);
+    }
+
+    private void updateAccessPoints(Collection<AccessPoint> accessPoints) {
         // Safeguard from some delayed event handling
         if (getActivity() == null) return;
 
@@ -659,12 +700,30 @@ public class WifiSettings extends RestrictedSettingsFragment
         switch (wifiState) {
             case WifiManager.WIFI_STATE_ENABLED:
                 // AccessPoints are automatically sorted with TreeSet.
-                final Collection<AccessPoint> accessPoints =
-                        constructAccessPoints(getActivity(), mWifiManager, mLastInfo,
-                                mLastNetworkInfo);
+                if (accessPoints == null) {
+                    mAccessPoints = constructAccessPoints(getActivity(), mWifiManager, mLastInfo,
+                            mLastNetworkInfo);
+                    accessPoints = filterAccessPoints(mAccessPoints);
+                } else {
+                    accessPoints = filterAccessPoints(accessPoints);
+                }
                 getPreferenceScreen().removeAll();
                 if (accessPoints.size() == 0) {
-                    addMessagePreference(R.string.wifi_empty_list_wifi_on);
+                    if (mAccessPoints.size() == 0) {
+                        addMessagePreference(R.string.wifi_empty_list_wifi_on);
+                    } else {
+                        switch (mWifiFilterState) {
+                            case 0:
+                                addMessagePreference(R.string.wifi_empty_list_wifi_on);
+                                break;
+                            case 1:
+                                addMessagePreference(R.string.wifi_empty_list_protected);
+                                break;
+                            case 2:
+                                addMessagePreference(R.string.wifi_empty_list_open);
+                                break;
+                        }
+                    }
                 }
 
                 for (AccessPoint accessPoint : accessPoints) {

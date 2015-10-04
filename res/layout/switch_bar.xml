@@ -19,14 +19,24 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <TextView android:id="@+id/switch_text"
-              android:layout_height="wrap_content"
-              android:layout_width="0dp"
-              android:layout_weight="1"
-              android:layout_gravity="center_vertical"
-              android:textAppearance="@style/TextAppearance.Switch"
-              android:textColor="@color/switchbar_text_color"
-              android:textAlignment="viewStart" />
+    <FrameLayout android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:layout_weight="1"
+                 android:layout_gravity="center_vertical" >
+
+        <TextView android:id="@+id/switch_text"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:textAppearance="@style/TextAppearance.Switch"
+                  android:textColor="@color/switchbar_text_color"
+                  android:textAlignment="viewStart" />
+
+        <Spinner android:id="@+id/switch_spinner"
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:visibility="gone" />
+
+    </FrameLayout>
 
     <com.android.settings.widget.ToggleSwitch android:id="@+id/switch_widget"
             android:layout_width="wrap_content"

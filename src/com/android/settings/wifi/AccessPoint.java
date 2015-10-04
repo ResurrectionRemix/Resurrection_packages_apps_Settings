@@ -88,10 +88,10 @@ class AccessPoint extends Preference {
     /**
      * These values are matched in string arrays -- changes must be kept in sync
      */
-    static final int SECURITY_NONE = 0;
-    static final int SECURITY_WEP = 1;
-    static final int SECURITY_PSK = 2;
-    static final int SECURITY_EAP = 3;
+    public static final int SECURITY_NONE = 0;
+    public static final int SECURITY_WEP = 1;
+    public static final int SECURITY_PSK = 2;
+    public static final int SECURITY_EAP = 3;
 
     enum PskType {
         UNKNOWN,
@@ -149,6 +149,10 @@ class AccessPoint extends Preference {
             return SECURITY_EAP;
         }
         return SECURITY_NONE;
+    }
+
+    public int getSecurity() {
+        return security;
     }
 
     public String getSecurityString(boolean concise) {
