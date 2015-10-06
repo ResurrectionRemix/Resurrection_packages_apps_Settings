@@ -16,6 +16,8 @@
 
 package com.android.settings.deviceinfo;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -35,6 +37,7 @@ import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.util.Log;
 
 import com.android.internal.logging.MetricsLogger;
@@ -133,6 +136,13 @@ public class SimStatus extends InstrumentedPreferenceActivity {
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         mTelephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 
         mSelectableSubInfos = SubscriptionManager.from(this).getActiveSubscriptionInfoList();
@@ -437,4 +447,24 @@ public class SimStatus extends InstrumentedPreferenceActivity {
         return mTabHost.newTabSpec(tag).setIndicator(title).setContent(
                 mEmptyTabContent);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        switch (itemId) {
+            case android.R.id.home:
+                goUpToTopLevelSetting(this);
+                return true;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Finish current Activity and go up to the top level Settings.
+     */
+    public static void goUpToTopLevelSetting(Activity activity) {
+        activity.finish();
+    }
+
 }
