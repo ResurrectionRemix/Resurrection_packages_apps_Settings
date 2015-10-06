@@ -16,12 +16,14 @@
 
 package com.android.settings;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.backup.IBackupManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -80,6 +82,12 @@ Log.i(TAG, "failure; password mismatch?");
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         mBackupManager = IBackupManager.Stub.asInterface(ServiceManager.getService("backup"));
 
         setContentView(R.layout.set_backup_pw);
@@ -103,4 +111,24 @@ Log.i(TAG, "failure; password mismatch?");
             return false;
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        switch (itemId) {
+            case android.R.id.home:
+                goUpToTopLevelSetting(this);
+                return true;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Finish current Activity and go up to the top level Settings.
+     */
+    public static void goUpToTopLevelSetting(Activity activity) {
+        activity.finish();
+    }
+
 }
