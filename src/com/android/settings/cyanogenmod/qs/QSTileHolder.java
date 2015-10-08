@@ -238,7 +238,7 @@ public class QSTileHolder {
                 break;
             case QSConstants.TILE_TRDS:
                 resourceName = "ic_qs_trds_on";
-                stringId = R.string.qs_tile_trds;
+                stringId = R.string.qs_tile_pb;
                 break;
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:

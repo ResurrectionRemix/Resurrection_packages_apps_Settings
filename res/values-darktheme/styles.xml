@@ -1,30 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.SettingsBase" parent="@android:style/Theme.Material" />
-    <style name="Theme.Light.WifiDialog" parent="@android:style/Theme.Material.Dialog.Alert" />
-    <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.SegmentedButton">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:weightSum">2.0</item>
-        <item name="android:dividerPadding">8.0dip</item>
-    </style>
-    <style name="SecurityPreferenceButton" parent="@android:style/Widget.Material.Button.Borderless">
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:layout_weight">1.0</item>
-    </style>
-    <style name="Widget.TimePicker" parent="@android:style/Widget.Material.TimePicker" />
-    <style name="Theme.ActionBar" parent="@android:style/Widget.Material.ActionBar.Solid">
-        <item name="android:colorBackground">#ff000000</item>
-        <item name="android:textColor">#ffffffff</item>
-    </style>
-    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge" />
-    <style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog.Alert">
-        <item name="android:colorBackground">#ff000000</item>
-        <item name="android:textColor">#ffffffff</item>
+	<style name="Theme.SettingsBase" parent="@android:style/Theme.Material">
+        <item name="android:textColor">@color/midnight_white</item>
+		<item name="android:colorPrimary">@color/midnight_primary</item>
+        <item name="android:colorPrimaryDark">@color/midnight_primary</item>
+        <item name="android:colorAccent">@color/midnight_theme</item>
+		<item name="android:colorBackground">@color/midnight_primary</item>
+		<item name="android:statusBarColor">@color/pb_sb</item>
+		<item name="android:actionBarStyle">@style/Theme.ActionBar</item>
+		<item name="android:textColorPrimary">@color/midnight_white</item>
+		<item name="android:textColorSecondary">@color/midnight_text</item>
+        <item name="android:alertDialogTheme">@style/Theme.AlertDialog</item>
+		<item name="android:colorControlHighlight">@color/midnight_theme</item>
+		<item name="android:colorControlNormal">@color/midnight_theme</item>
+		<item name="android:windowBackground">@color/midnight_primary</item>
+	</style>
+	    <style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:colorBackground">@color/midnight_primary</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
+        <item name="android:colorPrimary">@color/midnight_secondary</item>
+        <item name="android:colorPrimaryDark">@color/midnight_primary</item>
+        <item name="android:colorAccent">@color/midnight_theme</item>
+	</style>
+	<style name="Theme.ActionBar" parent="@android:style/Widget.Material.ActionBar">
+		<item name="android:background">@color/pb_ab</item>
+		<item name="colorPrimary">@color/pb_ab</item>		
     </style>
+	<!-- About phone and Status windows, do not remove SubSettingsDialogWhenLarge as parent has been changed-->
+		<style name="Theme.SubSettingsDialogWhenLarge" parent="@style/Theme.SettingsBase" />
+		<style name="Theme.DialogWhenLarge" parent="@style/Theme.SettingsBase">
+			<item name="android:statusBarColor">@color/midnight_primary</item>
+		</style>
+	<style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge">
+		<item name="android:colorPrimary">@color/midnight_secondary</item>
+		<item name="android:colorPrimaryDark">@color/midnight_primary</item>
+		<item name="android:colorAccent">@color/midnight_theme</item>
+		<item name="android:actionBarStyle">@style/Theme.ActionBar</item>		
+    </style>
+	<style name="wifi_item_label">
+		<item name="android:textColor">@color/midnight_white</item>
+    </style>
+    <style name="wifi_item_content">
+		<item name="android:textColor">@color/midnight_white</item>
+    </style>
+    <style name="wifi_item_edit_content">
+		<item name="android:textColor">@color/midnight_white</item>
+    </style>
+	<style name="bt_item">
+		<item name="android:textColor">@color/midnight_white</item>
+    </style>
+    <style name="bt_item_label">
+		<item name="android:textColor">@color/midnight_white</item>
+    </style>
+    <style name="bt_item_edit_content">
+		<item name="android:textColor">@color/midnight_white</item>
+    </style>
+	
 </resources>
