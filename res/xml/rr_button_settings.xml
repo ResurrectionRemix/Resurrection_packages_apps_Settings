@@ -32,4 +32,25 @@
                 android:title="@string/volume_steps_title"
                 android:fragment="com.android.settings.rr.VolumeSteps" />
 
+    <PreferenceCategory
+        android:key="navigation_other"
+        android:title="@string/navbar_settings_title" >
+
+        <SwitchPreference
+            android:key="kill_app_longpress_back"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"/>
+
+       <com.android.settings.SeekBarPreference
+            android:key="long_press_kill_delay"
+            android:title="@string/long_press_kill_delay"
+            android:max="3000"
+            settings:minimum="250"
+            settings:unitsLeft=""
+            settings:unitsRight="ms"
+            android:dependency="kill_app_longpress_back"
+			android:persistent="false" />
+		
+    </PreferenceCategory>
+
 </PreferenceScreen>

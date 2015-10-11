@@ -14,10 +14,11 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -29,6 +30,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "ButtonSettings";
 
+    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
+
+
+    private SwitchPreference mKillAppLongPressBack;
+	private SeekBarPreference mLongpressKillDelay;
+
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.APPLICATION;
@@ -38,11 +46,36 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.rr_button_settings);
+        addPreferencesFromResource(R.xml.rr_button_settings); 
+
+        // kill-app long press back
+        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
+        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
+        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
+                KILL_APP_LONGPRESS_BACK, 0);
+        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
+
+        // kill-app long press back delay
+        mLongpressKillDelay = (SeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
+        int killconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LONG_PRESS_KILL_DELAY, 1000);
+        mLongpressKillDelay.setProgress(killconf);
+        mLongpressKillDelay.setOnPreferenceChangeListener(this);
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
-        return true;
+        if (preference == mKillAppLongPressBack) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), KILL_APP_LONGPRESS_BACK,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mLongpressKillDelay) {
+            int killconf = (Integer) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LONG_PRESS_KILL_DELAY, killconf);
+            return true;
+        }
+        return false;
     }
 }
