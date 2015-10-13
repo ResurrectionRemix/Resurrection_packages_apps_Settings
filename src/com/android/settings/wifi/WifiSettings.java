@@ -934,10 +934,6 @@ public class WifiSettings extends RestrictedSettingsFragment
 
         // We need to rename/replace "Next" button in wifi setup context.
         changeNextButtonState(false);
-
-        mDlgEdit = false;
-        mAccessPointSavedState = null;
-        mDlgAccessPoint = null;
     }
 
     protected void connect(final WifiConfiguration config) {
