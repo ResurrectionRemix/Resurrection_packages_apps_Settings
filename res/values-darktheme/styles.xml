@@ -16,32 +16,66 @@
 
 		<style name="Theme.SettingsBase" parent="@android:style/Theme.Material" >
 			<item name="android:textColor">@color/midnight_white</item>
-			<item name="android:colorBackground">@color/theme_primary</item>
-			<item name="android:statusBarColor">@color/pb_sb</item>
-		    <item name="android:actionBarStyle">@style/Theme.ActionBar</item>
 		    <item name="android:colorEdgeEffect">@color/midnight_theme</item>
             <item name="android:colorAccent">@color/midnight_theme</item>
 		    <item name="android:colorControlHighlight">@color/midnight_theme</item>
 			<item name="android:textColorPrimary">@color/midnight_white</item>
 			<item name="android:textColorSecondary">@color/midnight_text</item>
-			<item name="android:windowBackground">@color/theme_primary</item>
-			<item name="android:navigationBarColor">@color/theme_primary</item>
+            <item name="android:colorPrimaryDark">@color/pb_sb</item>
+            <item name="android:colorPrimary">@color/pb_ab</item>
+			<item name="android:windowBackground">@color/midnight_primary</item>
+			<item name="android:navigationBarColor">@color/midnight_primary</item>
 		</style>
 
-	<style name="Theme.ActionBar" parent="@android:style/Widget.Material.ActionBar">
-		<item name="android:background">@color/pb_ab</item>
-		<item name="colorPrimary">@color/pb_ab</item>		
+    <style name="Theme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:icon">@color/midnight_transparent</item>
+        <item name="android:background">@color/pb_ab</item>
+    </style>        
+
+    <style name="Theme.SubSettings" parent="@android:style/Theme.Material">
+        <item name="android:windowBackground">@color/midnight_primary</item>
+        <item name="android:navigationBarColor">@color/midnight_primary</item>
+        <item name="android:colorPrimaryDark">@color/pb_sb</item>
+        <item name="android:colorPrimary">@color/pb_ab</item>
+		<item name="android:textColorPrimary">@color/midnight_white</item>
+		<item name="android:textColorSecondary">@color/midnight_text</item>
+    </style>
+    <style name="Theme.SubSettingsDialogWhenLarge" parent="@android:style/Theme.Material">
+        <item name="android:windowBackground">@color/midnight_primary</item>
+        <item name="android:navigationBarColor">@color/midnight_primary</item>
+        <item name="android:colorPrimaryDark">@color/pb_sb</item>
+        <item name="android:colorPrimary">@color/pb_ab</item>
+    </style>
+    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge">
+        <item name="android:colorAccent">@color/midnight_theme</item>
     </style>
 
-	<style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog.Alert" />		
-	<style name="Theme.SubSettingsDialogWhenLarge" parent="@style/Theme.SettingsBase" />
-	<style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge" />
-		
-	<style name="wifi_item_label">
-		<item name="android:textColor">@color/midnight_white</item>
+    <style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:colorAccent">@color/midnight_theme</item>
+    </style>
+    
+    
+    <style name="TextAppearance.Medium" parent="@android:style/TextAppearance.Material.Medium" />
+    <style name="TextAppearance.Switch" parent="@style/TextAppearance.Medium" />
+    <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.Material.Small">
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/midnight_text</item>
+    </style>
+
+
+	
+
+    <style name="wifi_item_label">
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/midnight_white</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:paddingStart">8.0dip</item>
     </style>
     <style name="wifi_item_content">
-		<item name="android:textColor">@color/midnight_white</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
+        <item name="android:textColor">@color/midnight_white</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
     <style name="wifi_item_edit_content">
 		<item name="android:textColor">@color/midnight_white</item>
