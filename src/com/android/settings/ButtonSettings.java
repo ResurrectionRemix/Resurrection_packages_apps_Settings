@@ -200,44 +200,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mNavigationRecentsLongPressAction =
                 initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
 
-        mDimNavButtonsTouchAnywhere = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_TOUCH_ANYWHERE);
-        mDimNavButtonsTouchAnywhere.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsTimeout = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_TIMEOUT);
-        mDimNavButtonsTimeout.setDefault(3000);
-        mDimNavButtonsTimeout.isMilliseconds(true);
-        mDimNavButtonsTimeout.setInterval(1);
-        mDimNavButtonsTimeout.minimumValue(100);
-        mDimNavButtonsTimeout.multiplyValue(100);
-        mDimNavButtonsTimeout.setOnPreferenceChangeListener(this);
-        final int dimTimeout = Settings.System.getInt(getContentResolver(),
-                 Settings.System.DIM_NAV_BUTTONS_TIMEOUT, 3000);
-        // minimum 100 is 1 interval of the 100 multiplier
-        mDimNavButtonsTimeout.setInitValue((dimTimeout / 100) - 1);
-
-        mDimNavButtonsAlpha = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ALPHA);
-        mDimNavButtonsAlpha.setDefault(50);
-        mDimNavButtonsAlpha.setInterval(1);
-        mDimNavButtonsAlpha.setOnPreferenceChangeListener(this);
-        int alphaScale = Settings.System.getInt(getContentResolver(),
-                Settings.System.DIM_NAV_BUTTONS_ALPHA, 50);
-        mDimNavButtonsAlpha.setInitValue(alphaScale);
-
-        mDimNavButtonsAnimate = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE);
-        mDimNavButtonsAnimate.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsAnimateDuration = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE_DURATION);
-        mDimNavButtonsAnimateDuration.setDefault(2000);
-        mDimNavButtonsAnimateDuration.isMilliseconds(true);
-        mDimNavButtonsAnimateDuration.setInterval(1);
-        mDimNavButtonsAnimateDuration.minimumValue(100);
-        mDimNavButtonsAnimateDuration.multiplyValue(100);
-        mDimNavButtonsAnimateDuration.setOnPreferenceChangeListener(this);
-        final int animateDuration = Settings.System.getInt(getContentResolver(),
-                Settings.System.DIM_NAV_BUTTONS_ANIMATE_DURATION, 2000);
-        // minimum 100 is 1 interval of the 100 multiplier
-        mDimNavButtonsAnimateDuration.setInitValue((animateDuration / 100) - 1);
-
         HashMap<String, String> prefsToRemove = (HashMap<String, String>)
                 getPreferencesToRemove(this, getActivity());
         for (String key : prefsToRemove.keySet()) {
@@ -619,7 +581,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         updateNavbarPreferences(enableNavigationBar);
     }
-    
+
+    private void updateNavbarPreferences(boolean show) {
+
+    }    
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mHomeLongPressAction) {
