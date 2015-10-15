@@ -32,7 +32,7 @@
         <item name="android:background">@color/pb_ab</item>
     </style>        
 
-    <style name="Theme.SubSettings" parent="@android:style/Theme.Material">
+    <style name="Theme.SubSettings" parent="@style/Theme.SettingsBase" >
         <item name="android:windowBackground">@color/midnight_primary</item>
         <item name="android:navigationBarColor">@color/midnight_primary</item>
         <item name="android:colorPrimaryDark">@color/pb_sb</item>
@@ -40,21 +40,20 @@
 		<item name="android:textColorPrimary">@color/midnight_white</item>
 		<item name="android:textColorSecondary">@color/midnight_text</item>
     </style>
-    <style name="Theme.SubSettingsDialogWhenLarge" parent="@android:style/Theme.Material">
+	<style name="Theme.SubSettingsDialogWhenLarge" parent="@style/Theme.SettingsBase" >
         <item name="android:windowBackground">@color/midnight_primary</item>
         <item name="android:navigationBarColor">@color/midnight_primary</item>
         <item name="android:colorPrimaryDark">@color/pb_sb</item>
         <item name="android:colorPrimary">@color/pb_ab</item>
     </style>
-    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge">
+    <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge" >
         <item name="android:colorAccent">@color/midnight_theme</item>
     </style>
 
-    <style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog">
+	<style name="Theme.AlertDialog" parent="@android:style/Theme.Material.Dialog.Alert" >		
         <item name="android:colorAccent">@color/midnight_theme</item>
     </style>
-    
-    
+        
     <style name="TextAppearance.Medium" parent="@android:style/TextAppearance.Material.Medium" />
     <style name="TextAppearance.Switch" parent="@style/TextAppearance.Medium" />
     <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.Material.Small">
@@ -66,16 +65,10 @@
 	
 
     <style name="wifi_item_label">
-        <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
-        <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">@color/midnight_white</item>
-        <item name="android:textAlignment">viewStart</item>
-        <item name="android:paddingStart">8.0dip</item>
     </style>
     <style name="wifi_item_content">
-        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
         <item name="android:textColor">@color/midnight_white</item>
-        <item name="android:textAlignment">viewStart</item>
     </style>
     <style name="wifi_item_edit_content">
 		<item name="android:textColor">@color/midnight_white</item>
