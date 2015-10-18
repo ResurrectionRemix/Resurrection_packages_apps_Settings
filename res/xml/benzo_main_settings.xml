@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/benzo_extras_title" >
+
+    <!-- BR Extra Apps -->
+    <PreferenceCategory
+        android:key="benzo_ex_apps"
+        android:title="@string/benzo_ex_apps_title">
+
+        <!-- Equalizer -->
+        <Preference
+            android:id="@+id/equalizer_settings"
+            android:title="@string/equalizer_settings_title"
+            android:icon="@drawable/ic_xd_eq" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.vipercn.viper4android_v2.activity.ViPER4Android"
+                android:targetPackage="com.vipercn.viper4android_v2" />
+        </Preference>
+
+        <!-- Density Changer -->
+        <PreferenceScreen
+            android:key="density_changer"
+            android:title="@string/lcd_density_title"
+            android:fragment="com.android.settings.benzo.Density"
+            android:icon="@drawable/ic_dt_density" />
+
+        <!-- LMT PIE -->
+        <Preference
+            android:id="@+id/lmt_settings"
+            android:title="@string/lmt_settings"
+            android:icon="@drawable/ic_xd_pie">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.lmt"
+                android:targetClass="com.android.lmt.LMT" />
+        </Preference>
+
+    </PreferenceCategory>
+
+
+    <!-- BR System Settings -->
+    <PreferenceCategory
+        android:key="benzo_ex_settings"
+        android:title="@string/benzo_ex_settings_title">
+
+        <!-- Buttons -->
+        <PreferenceScreen
+            android:id="@+id/button_settings"
+            android:fragment="com.android.settings.ButtonSettings"
+            android:title="@string/button_settings_title"
+            android:icon="@drawable/ic_settings_buttons"
+            />
+
+        <!-- Home -->
+        <PreferenceScreen
+            android:id="@+id/home_settings"
+            android:title="@string/home_settings"
+            android:fragment="com.android.settings.HomeSettings"
+            android:icon="@drawable/ic_settings_home"
+            />
+
+        <!-- Navbar -->
+        <PreferenceScreen
+            android:id="@+id/navbar_settings"
+            android:fragment="com.android.settings.benzo.NavbarSettings"
+            android:title="@string/navbar_settings_title"
+            android:icon="@drawable/ic_settings_navbar"
+            />
+
+        <!-- Notification drawer -->
+        <PreferenceScreen
+            android:id="@+id/notification_drawer_settings"
+            android:title="@string/notification_drawer_title"
+            android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
+            android:icon="@drawable/ic_settings_notification_drawer"
+                />
+
+        <!-- Recents -->
+        <PreferenceScreen
+            android:id="@+id/recents_settings"
+            android:fragment="com.android.settings.benzo.RecentsSettings"
+            android:title="@string/recents_settings_title"
+            android:icon="@drawable/ic_xd_recents"
+            />
+
+        <!-- Statusbar -->
+        <PreferenceScreen
+            android:id="@+id/statusbar_settings"
+            android:fragment="com.android.settings.benzo.StatusBarSettings"
+            android:title="@string/statusbar_settings_title"
+            android:icon="@drawable/ic_xd_statusbar"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
