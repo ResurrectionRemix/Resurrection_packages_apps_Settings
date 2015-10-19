@@ -58,10 +58,8 @@ public class RunningServices extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         mOptionsMenu = menu;
-        menu.add(0, SHOW_RUNNING_SERVICES, 1, R.string.show_running_services)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        menu.add(0, SHOW_BACKGROUND_PROCESSES, 2, R.string.show_background_processes)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        menu.add(0, SHOW_RUNNING_SERVICES, 1, R.string.show_running_services);
+        menu.add(0, SHOW_BACKGROUND_PROCESSES, 2, R.string.show_background_processes);
         updateOptionsMenu();
     }
 
