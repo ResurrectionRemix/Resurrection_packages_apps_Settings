@@ -28,11 +28,22 @@
             android:title="@string/qs_brightness_slider_title"
             android:defaultValue="true"/>
 
+
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="lockscreen_hide_qs_tiles_with_sensitive_data"
+            android:title="@string/qs_hide_tiles_with_sensitive_data"
+            android:defaultValue="false"
+            settings:advanced="true"/>
+
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="qs_location_advanced"
             android:title="@string/qs_advanced_location_title"
             android:summary="@string/qs_advanced_location_summary"
             android:defaultValue="false" />
+  </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_tile_row_category_title">
 
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="sysui_qs_main_tiles"
@@ -45,13 +56,6 @@
         android:key="qs_use_four_columns"
         android:title="@string/qs_four_columns_title"
         android:defaultValue="false" />
-
-
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="lockscreen_hide_qs_tiles_with_sensitive_data"
-            android:title="@string/qs_hide_tiles_with_sensitive_data"
-            android:defaultValue="false"
-            settings:advanced="true"/>
 
         <ListPreference
             android:key="sysui_qs_num_columns"
