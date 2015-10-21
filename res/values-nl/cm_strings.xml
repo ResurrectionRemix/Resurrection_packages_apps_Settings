@@ -230,6 +230,7 @@
   <string name="update_recovery_off_warning">Let op: als deze functie is uitgeschakeld, wordt uw recovery niet bijgewerkt bij systeemupdates.\n\nToekomstige systeemupdates kunnen wellicht niet geïnstalleerd worden op oude recovery-versies.\n\nWeet u zeker dat u deze functie wilt uitschakelen?</string>
   <string name="mod_version">CyanogenMod-versie</string>
   <string name="mod_version_default">Onbekend</string>
+  <string name="security_patch">Niveau van Android-beveiligingspatch</string>
   <string name="device_model">Model</string>
   <string name="device_name">Apparaatnaam</string>
   <string name="build_date">Build-datum</string>
@@ -249,6 +250,7 @@
   <string name="privacy_guard_reset_text">Machtigingen opnieuw instellen?</string>
   <string name="privacy_guard_help_text">Op dit scherm kunt u kiezen voor welke apps Privacybescherming ingeschakeld moet zijn door op ze te tikken. Geselecteerde apps zullen geen toegang hebben tot persoonsgegevens zoals contacten, berichten of gespreksstatistieken. Door een app lang aan te raken opent het info-scherm voor die app.\n\nIngebouwde apps worden standaard niet getoond, maar kunnen getoond worden door de desbetreffende optie in het menu te selecteren.</string>
   <string name="privacy_guard_manager_show_system_apps">Ingebouwde apps tonen</string>
+  <string name="privacy_guard_notification_title">Melding weergeven</string>
   <string name="app_ops_btn_text">Wijzigen</string>
   <string name="increasing_ring_volume_option_title">In volume toenemende beltoon</string>
   <string name="increasing_ring_min_volume_title">Startvolume</string>
@@ -343,6 +345,7 @@
   <string name="notification_light_missed_call_title">Gemiste oproep</string>
   <string name="notification_light_voicemail_title">Voicemail</string>
   <string name="notification_light_screen_on">Verlichting met scherm aan</string>
+  <string name="notification_light_use_multiple_leds">Meerdere LEDs</string>
   <string name="keywords_lights_brightness_level">dimmen led LED helderheid</string>
   <string name="notification_ringtone_title_cm">Meldingstoon</string>
   <string name="headset_connect_player_title">Muziek-app openen</string>
@@ -685,6 +688,9 @@
   <string name="settings_cmlicense_activity_title">Juridische afdeling van CyanogenMod</string>
   <string name="lockpattern_settings_enable_error_path_title">Patroonfout weergeven</string>
   <string name="lockpattern_settings_enable_dots_title">Patroonknoppen weergeven</string>
+  <string name="lock_directly_show_password">Direct wachtwoordscherm tonen</string>
+  <string name="lock_directly_show_pattern">Direct patroonscherm tonen</string>
+  <string name="lock_directly_show_pin">Direct pincodescherm tonen</string>
   <string name="unlock_quick_unlock_control_title">Snel ontgrendelen</string>
   <string name="unlock_quick_unlock_control_summary">Automatisch ontgrendelen als uw pincode/wachtwoord correct is ingevoerd</string>
   <string name="unlock_scramble_pin_layout_title">Lay-out husselen</string>
@@ -732,6 +738,7 @@
   <string name="qs_tile_heads_up">Heads-up</string>
   <string name="qs_tile_ambient_display">Omgevingsdisplay</string>
   <string name="qs_tile_sync">Synchroniseren</string>
+  <string name="qs_tile_battery_saver">Accubesparing</string>
   <string name="qs_dynamic_tile_next_alarm">Volgend alarm</string>
   <string name="qs_dynamic_tile_ime_selector">Invoermethode</string>
   <string name="qs_dynamic_tile_su">Root-toegang</string>
@@ -914,8 +921,8 @@
   <string name="fingerprint_dialog_title_rename">Vingerafdruk bewerken</string>
   <string name="fingerprint_dialog_name_label">Naam vingerafdruk</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Maximaal aantal vingerafdrukken bereikt</string>
-  <string name="fingerprint_dialog_msg_max_fingers_reached">U kunt <xliff:g id="finger" example="5 fingerprints">%d </xliff:g> vingerafdrukken toevoegen. Verwijder een bestaande vingerafdruk.</string>
-  <string name="fingerprint_title_manage_fingerprints">Vingerafdrukken beheren <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="fingerprint_dialog_msg_max_fingers_reached">U kunt maximaal <xliff:g id="finger" example="5">%d</xliff:g> vingerafdrukken toevoegen. Verwijder een bestaande vingerafdruk.</string>
+  <string name="fingerprint_title_manage_fingerprints"><xliff:g id="finger">%d</xliff:g> van <xliff:g id="max">%d</xliff:g> vingerafdrukken toegevoegd</string>
   <string name="manage_fingerprints_description">Met vingerafdrukken kunt u uw apparaat snel ontgrendelen en foto\'s nemen.</string>
   <string name="fingerprint_enrollment_introduction_title">Uw sensor opzoeken</string>
   <string name="fingerprint_enrollment_introduction_instructions">De vingerafdruksensor bevindt zich op de voor- of achterkant van uw apparaat.</string>

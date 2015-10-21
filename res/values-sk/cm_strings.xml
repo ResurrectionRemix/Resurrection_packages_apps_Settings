@@ -231,6 +231,7 @@
   <string name="update_recovery_off_warning">VAROVANIE: Ak je táto funkcia zakázaná, vaša nainštalovaná recovery nebude nahradená s aktualizáciami operačného systému.\n\nBudúce aktualizácie operačného systému sa nemusia nainštalovať kvôli zastaraným alebo vlastným verziám recovery.\n\nChcete zakázať túto funkciu?</string>
   <string name="mod_version">Verzia CyanogenMod</string>
   <string name="mod_version_default">Neznáme</string>
+  <string name="security_patch">Úroveň bezpečnostných záplat Android</string>
   <string name="device_model">Model zariadenia</string>
   <string name="device_name">Názov zariadenia</string>
   <string name="build_date">Dátum zostavy</string>
@@ -250,6 +251,7 @@
   <string name="privacy_guard_reset_text">Obnoviť povolenia?</string>
   <string name="privacy_guard_help_text">Na tejto obrazovke môžete jednoduchým kliknutím vybrať, pre ktoré aplikácie bude Ochrana súkromia aktívna. Vybraným aplikáciám nebude umožnený prístup k vašim osobným údajom ako sú kontakty, správy alebo denníky hovorov. Dlhým kliknutím na položku sa otvorí obrazovka s podrobnosťami o danej aplikácii.\n\nPredvolene nie sú zobrazené vstavané aplikácie. Ak ich chcete zobraziť, vyberte príslušnú možnosť v ponuke.</string>
   <string name="privacy_guard_manager_show_system_apps">Zobraziť vstavané aplikácie</string>
+  <string name="privacy_guard_notification_title">Zobraziť oznámenie</string>
   <string name="app_ops_btn_text">Upraviť</string>
   <string name="increasing_ring_volume_option_title">Zvyšovanie hlasitosti zvonenia</string>
   <string name="increasing_ring_min_volume_title">Počiatočná hlasitosť</string>
@@ -344,6 +346,7 @@
   <string name="notification_light_missed_call_title">Zmeškaný hovor</string>
   <string name="notification_light_voicemail_title">Hlasový hovor</string>
   <string name="notification_light_screen_on">Upozorňovať pomocou LED pri zapnutej obrazovke</string>
+  <string name="notification_light_use_multiple_leds">Viaceré LED</string>
   <string name="keywords_lights_brightness_level">stlmiť jas LED svetiel</string>
   <string name="notification_ringtone_title_cm">Tón oznámenia</string>
   <string name="headset_connect_player_title">Spustiť aplikáciu na prehrávanie hudby</string>
@@ -586,7 +589,7 @@
   <string name="sdcard_eject" product="default">Odpojiť kartu SD</string>
   <string name="sdcard_eject_summary" product="default">Odpojiť kartu SD, takže ju môžete bezpečne odstrániť</string>
   <string name="sd_card_format" product="default">Vymazať kartu SD</string>
-  <string name="sd_card_format_summary" product="default">Vymažzať všetky dáta na karte SD, ako napríklad hudbu alebo fotografie</string>
+  <string name="sd_card_format_summary" product="default">Vymazať všetky dáta na karte SD, ako napríklad hudbu alebo fotografie</string>
   <string name="sdcard_mount" product="default">Pripojiť kartu SD</string>
   <string name="sdcard_insert_summary" product="default">Vložte kartu SD na pripojenie</string>
   <string name="usb_eject" product="default">Odpojiť USB úložisko</string>
@@ -686,6 +689,9 @@
   <string name="settings_cmlicense_activity_title">Právne informácie CyanogenMod</string>
   <string name="lockpattern_settings_enable_error_path_title">Zobraziť chybu vzoru</string>
   <string name="lockpattern_settings_enable_dots_title">Zobraziť body vzoru</string>
+  <string name="lock_directly_show_password">Priamo zobraziť zadanie hesla</string>
+  <string name="lock_directly_show_pattern">Priamo zobraziť zobrazenie vzoru</string>
+  <string name="lock_directly_show_pin">Priamo zobraziť zadanie PINu</string>
   <string name="unlock_quick_unlock_control_title">Rýchle odomknutie</string>
   <string name="unlock_quick_unlock_control_summary">Odomknúť automaticky po zadaní správneho PIN kódu alebo hesla</string>
   <string name="unlock_scramble_pin_layout_title">Dynamické rozloženie</string>
@@ -733,6 +739,7 @@
   <string name="qs_tile_heads_up">Plávajúce oznámenia</string>
   <string name="qs_tile_ambient_display">Ambientné zobrazenie</string>
   <string name="qs_tile_sync">Synchronizácia</string>
+  <string name="qs_tile_battery_saver">Šetrič batérie</string>
   <string name="qs_dynamic_tile_next_alarm">Ďalší budík</string>
   <string name="qs_dynamic_tile_ime_selector">Výber IME</string>
   <string name="qs_dynamic_tile_su">Root prístup</string>
@@ -915,8 +922,8 @@
   <string name="fingerprint_dialog_title_rename">Upraviť odtlačok prstov</string>
   <string name="fingerprint_dialog_name_label">Názov odtlačku prstov</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Dosiahnutý maximálny počet odtlačkov prstov</string>
-  <string name="fingerprint_dialog_msg_max_fingers_reached">Môžete zapísať len <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> odtlačkov prstov. Vymažte existujúce odtlačky.</string>
-  <string name="fingerprint_title_manage_fingerprints">Spravovať odtlačky prstov <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="fingerprint_dialog_msg_max_fingers_reached">Môžete zapísať iba <xliff:g id="finger" example="5">%d</xliff:g> odtlačkov prstov. Vymažte existujúci odtlačok.</string>
+  <string name="fingerprint_title_manage_fingerprints"><xliff:g id="finger">%d</xliff:g> z <xliff:g id="max">%d</xliff:g> odtlačkov zapísaných</string>
   <string name="manage_fingerprints_description">Odtlačky prstov umožňujú rýchlo odomknúť telefón a zosnímať fotografie.</string>
   <string name="fingerprint_enrollment_introduction_title">Nájsť váš senzor</string>
   <string name="fingerprint_enrollment_introduction_instructions">Snímač odtlačkov prstov sa nachádza na prednej alebo zadnej strane telefónu.</string>
