@@ -375,6 +375,12 @@
                        android:value="com.android.settings.ApnSettings" />
         </activity>
 
+        <activity android:name=".SubSettings$BluetoothSubSettings"
+                android:taskAffinity="com.android.settings"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:parentActivityName="Settings">
+        </activity>
+
         <activity android:name="Settings$BluetoothSettingsActivity"
                 android:label="@string/bluetooth_settings_title"
                 android:taskAffinity="">
@@ -2423,7 +2429,7 @@
         <activity android:name="RegulatoryInfoDisplayActivity"
                   android:label="@string/regulatory_information"
                   android:taskAffinity=""
-                  android:enabled="@bool/config_show_regulatory_info">
+                  android:enabled="true">
             <intent-filter>
                 <action android:name="android.settings.SHOW_REGULATORY_INFO" />
                 <category android:name="android.intent.category.DEFAULT" />

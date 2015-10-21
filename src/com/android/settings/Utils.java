@@ -69,6 +69,7 @@ import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.Profile;
 import android.provider.ContactsContract.RawContacts;
 import android.service.persistentdata.PersistentDataBlockManager;
+import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -91,6 +92,7 @@ import com.android.settings.UserAdapter.UserDetails;
 import com.android.settings.dashboard.DashboardTile;
 import com.android.settings.drawable.CircleFramedDrawable;
 import com.android.settingslib.applications.ApplicationsState;
+import com.android.settings.bluetooth.BluetoothSettings;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -716,7 +718,12 @@ public final class Utils {
             Bundle args, String titleResPackageName, int titleResId, CharSequence title,
             boolean isShortcut) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClass(context, SubSettings.class);
+        if (BluetoothSettings.class.getName().equals(fragmentName)) {
+            intent.setClass(context, SubSettings.BluetoothSubSettings.class);
+            intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+         } else {
+             intent.setClass(context, SubSettings.class);
+         }
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT, fragmentName);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, args);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_TITLE_RES_PACKAGE_NAME,
@@ -1245,5 +1252,19 @@ public final class Utils {
             return UserHandle.myUserId();
         }
     }
-}
 
+    public static String getServiceStateString(int state, Resources res) {
+        switch (state) {
+            case ServiceState.STATE_IN_SERVICE:
+                return res.getString(R.string.radioInfo_service_in);
+            case ServiceState.STATE_OUT_OF_SERVICE:
+            case ServiceState.STATE_EMERGENCY_ONLY:
+                return res.getString(R.string.radioInfo_service_out);
+            case ServiceState.STATE_POWER_OFF:
+                return res.getString(R.string.radioInfo_service_off);
+            default:
+                return res.getString(R.string.radioInfo_unknown);
+        }
+    }
+
+}
