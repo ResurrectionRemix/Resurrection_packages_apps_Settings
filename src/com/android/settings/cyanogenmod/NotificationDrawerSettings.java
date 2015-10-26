@@ -81,6 +81,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         int customHeaderDefault = Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
         mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
+	}
 
 
     @Override
