@@ -39,6 +39,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
@@ -76,6 +77,8 @@ public class WirelessSettings extends SettingsPreferenceFragment
     private static final String KEY_SMS_APPLICATION = "sms_application";
     private static final String KEY_TOGGLE_NSD = "toggle_nsd"; //network service discovery
     private static final String KEY_CELL_BROADCAST_SETTINGS = "cell_broadcast_settings";
+    private static final String KEY_NFC_CATEGORY_SETTINGS = "nfc_category_settings";
+    private static final String KEY_NFC_PAYMENT_SETTINGS = "nfc_payment_settings";
 
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
@@ -267,6 +270,8 @@ public class WirelessSettings extends SettingsPreferenceFragment
         final Activity activity = getActivity();
         mAirplaneModePreference = (SwitchPreference) findPreference(KEY_TOGGLE_AIRPLANE);
         SwitchPreference nfc = (SwitchPreference) findPreference(KEY_TOGGLE_NFC);
+        PreferenceCategory nfcCategory = (PreferenceCategory)
+                findPreference(KEY_NFC_CATEGORY_SETTINGS);
 
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
         SwitchPreference nsd = (SwitchPreference) findPreference(KEY_TOGGLE_NSD);
@@ -329,8 +334,7 @@ public class WirelessSettings extends SettingsPreferenceFragment
         // Remove NFC if not available
         mNfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if (mNfcAdapter == null) {
-            getPreferenceScreen().removePreference(nfc);
-            getPreferenceScreen().removePreference(androidBeam);
+            getPreferenceScreen().removePreference(nfcCategory);
             mNfcEnabler = null;
         }
 
