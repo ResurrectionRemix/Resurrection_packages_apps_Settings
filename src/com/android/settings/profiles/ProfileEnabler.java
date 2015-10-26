@@ -16,7 +16,7 @@
 
 package com.android.settings.profiles;
 
-import android.app.ProfileManager;
+import cyanogenmod.app.ProfileManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -30,7 +30,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
 import android.widget.Switch;
 import android.widget.Toast;
 import com.android.settings.R;
@@ -38,6 +37,8 @@ import com.android.settings.WirelessSettings;
 import com.android.settings.search.Index;
 import com.android.settings.widget.SwitchBar;
 import com.android.settings.wifi.WifiSettings;
+
+import cyanogenmod.providers.CMSettings;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -99,8 +100,8 @@ public class ProfileEnabler implements SwitchBar.OnSwitchChangeListener  {
     }
 
     private void setSwitchState() {
-        boolean enabled = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
+        boolean enabled = CMSettings.System.getInt(mContext.getContentResolver(),
+                CMSettings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
         mStateMachineEvent = true;
         setSwitchBarChecked(enabled);
         mStateMachineEvent = false;
@@ -114,8 +115,8 @@ public class ProfileEnabler implements SwitchBar.OnSwitchChangeListener  {
         }
 
         // Handle a switch change
-        Settings.System.putInt(mContext.getContentResolver(),
-                Settings.System.SYSTEM_PROFILES_ENABLED, isChecked ? 1 : 0);
+        CMSettings.System.putInt(mContext.getContentResolver(),
+                CMSettings.System.SYSTEM_PROFILES_ENABLED, isChecked ? 1 : 0);
 
         // Send a broadcast intent to the world
         // TODO Enabling or disabling profiles should be at ProfileManager, not here
@@ -135,8 +136,8 @@ public class ProfileEnabler implements SwitchBar.OnSwitchChangeListener  {
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.SYSTEM_PROFILES_ENABLED), false, this);
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.SYSTEM_PROFILES_ENABLED), false, this);
             update();
         }
 
@@ -147,11 +148,6 @@ public class ProfileEnabler implements SwitchBar.OnSwitchChangeListener  {
 
         @Override
         public void onChange(boolean selfChange) {
-            update();
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
             update();
         }
 

@@ -16,12 +16,14 @@
 package com.android.settings.profiles;
 
 import android.app.Activity;
+import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.profiles.AirplaneModeSettings;
 import android.app.AlertDialog;
 import cyanogenmod.profiles.BrightnessSettings;
 import cyanogenmod.profiles.ConnectionSettings;
 import android.app.Dialog;
 import android.app.NotificationGroup;
+import cyanogenmod.profiles.LockSettings;
 import cyanogenmod.profiles.RingModeSettings;
 import cyanogenmod.profiles.StreamSettings;
 import android.bluetooth.BluetoothAdapter;
@@ -34,7 +36,7 @@ import android.media.AudioManager;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
-import android.net.wimax.WimaxHelper;
+//import android.net.wimax.WimaxHelper;
 import android.nfc.NfcManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -218,9 +220,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_2G3G4G));
             }
         }
-        if (WimaxHelper.isWimaxSupported(getActivity())) {
-            mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIMAX));
-        }
+        //if (WimaxHelper.isWimaxSupported(getActivity())) {
+        //    mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_WIMAX));
+        //}
         if (DeviceUtils.deviceSupportsNfc(getActivity())) {
             mItems.add(generateConnectionOverrideItem(PROFILE_CONNECTION_NFC));
         }
@@ -245,38 +247,36 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
 
         // app groups
-        if (SettingsActivity.showAdvancedPreferences(getActivity())) {
-            mItems.add(new Header(getString(R.string.profile_app_group_category_title)));
+        mItems.add(new Header(getString(R.string.profile_app_group_category_title)));
 
-            int groupsAdded = 0;
-            ProfileGroup[] profileGroups = mProfile.getProfileGroups();
-            if (profileGroups != null && profileGroups.length > 1) { // it will always have "other"
-                for (ProfileGroup profileGroup : profileGroups) {
-                    // only display profile group if there's a matching notification group
-                    // and don't' show the wildcard group
-                    if (mProfileManager.getNotificationGroup(profileGroup.getUuid()) != null
-                            && !mProfile.getDefaultGroup().getUuid().equals(
-                            profileGroup.getUuid())) {
-                        mItems.add(new AppGroupItem(mProfile, profileGroup,
-                                mProfileManager.getNotificationGroup(
-                                profileGroup.getUuid())));
-                        groupsAdded++;
-                    }
-                }
-                if (groupsAdded > 0) {
-                    // add "Other" at the end
-                    mItems.add(new AppGroupItem(mProfile, mProfile.getDefaultGroup(),
+        int groupsAdded = 0;
+        ProfileGroup[] profileGroups = mProfile.getProfileGroups();
+        if (profileGroups != null && profileGroups.length > 1) { // it will always have "other"
+            for (ProfileGroup profileGroup : profileGroups) {
+                // only display profile group if there's a matching notification group
+                // and don't' show the wildcard group
+                if (mProfileManager.getNotificationGroup(profileGroup.getUuid()) != null
+                        && !mProfile.getDefaultGroup().getUuid().equals(
+                        profileGroup.getUuid())) {
+                    mItems.add(new AppGroupItem(mProfile, profileGroup,
                             mProfileManager.getNotificationGroup(
-                                    mProfile.getDefaultGroup().getUuid())));
+                                    profileGroup.getUuid())));
+                    groupsAdded++;
                 }
             }
             if (groupsAdded > 0) {
-                // add dummy "add/remove app groups" entry
-                mItems.add(new AppGroupItem());
-            } else {
-                // remove the header since there are no options
-                mItems.remove(mItems.get(mItems.size() - 1));
+                // add "Other" at the end
+                mItems.add(new AppGroupItem(mProfile, mProfile.getDefaultGroup(),
+                        mProfileManager.getNotificationGroup(
+                                mProfile.getDefaultGroup().getUuid())));
             }
+        }
+        if (groupsAdded > 0) {
+            // add dummy "add/remove app groups" entry
+            mItems.add(new AppGroupItem());
+        } else {
+            // remove the header since there are no options
+            mItems.remove(mItems.get(mItems.size() - 1));
         }
 
         mAdapter.notifyDataSetChanged();
@@ -580,7 +580,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
         int defaultIndex = 0; // no action
         for (int i = 0; i < LOCKMODE_MAPPING.length; i++) {
-            if (LOCKMODE_MAPPING[i] == mProfile.getScreenLockMode()) {
+            if (LOCKMODE_MAPPING[i] == mProfile.getScreenLockMode().getValue()) {
                 defaultIndex = i;
                 break;
             }
@@ -591,7 +591,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
-                        mProfile.setScreenLockMode(LOCKMODE_MAPPING[item]);
+                        mProfile.setScreenLockMode(new LockSettings(LOCKMODE_MAPPING[item]));
                         updateProfile();
                         mAdapter.notifyDataSetChanged();
                         dialog.dismiss();
@@ -998,7 +998,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setMultiChoiceItems(items, checked, listener)
                 .setTitle(R.string.profile_appgroups_title)
-                .setPositiveButton(R.string.ok, null);
+                .setPositiveButton(android.R.string.ok, null);
         builder.show();
     }
 
@@ -1085,5 +1085,10 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         SubSettings pa = (SubSettings) getActivity();
         pa.startPreferencePanel(SetupTriggersFragment.class.getCanonicalName(), args,
                 R.string.profile_profile_manage, null, this, NEW_TRIGGER_REQUEST_CODE);
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 }

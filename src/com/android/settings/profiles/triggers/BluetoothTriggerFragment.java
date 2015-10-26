@@ -179,7 +179,7 @@ public class BluetoothTriggerFragment extends ListFragment {
             for (BluetoothDevice device : pairedDevices) {
                 BluetoothTrigger bt =
                         new BluetoothTrigger(device);
-                int state = mProfile.getTrigger(Profile.TriggerType.BLUETOOTH, bt.getAddress());
+                int state = mProfile.getTriggerState(Profile.TriggerType.BLUETOOTH, bt.getAddress());
                 initPreference(bt, state, res, R.drawable.ic_settings_bluetooth);
                 mTriggers.add(bt);
             }

@@ -18,6 +18,8 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import cyanogenmod.providers.CMSettings;
+
 import com.android.internal.telephony.PhoneConstants;
 
 public class ProfilesUtils {
@@ -41,7 +43,7 @@ public class ProfilesUtils {
         }
 
         public static boolean systemProfilesEnabled(ContentResolver resolver) {
-            return (Settings.System.getInt(resolver, Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1);
+            return (CMSettings.System.getInt(resolver, CMSettings.System.SYSTEM_PROFILES_ENABLED, 1) == 1);
         }
 
         public static boolean deviceSupportsNfc(Context ctx) {

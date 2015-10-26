@@ -53,6 +53,11 @@ public class ProfileGroupConfig extends SettingsPreferenceFragment implements
 
     ProfileGroup mProfileGroup;
 
+    @Override
+    protected int getMetricsCategory() {
+        return 0;
+    }
+
     private ListPreference mSoundMode;
 
     private ListPreference mRingerMode;

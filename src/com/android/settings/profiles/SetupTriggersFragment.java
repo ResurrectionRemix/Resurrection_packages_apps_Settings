@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
 
@@ -73,6 +74,11 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
             mPreselectedItem = getArguments().getInt(EXTRA_INITIAL_PAGE, 0);
         }
         mProfileManager = ProfileManager.getInstance(getActivity());
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override

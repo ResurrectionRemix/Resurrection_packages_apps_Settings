@@ -217,10 +217,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
     }
 
-    private static boolean isAutomaticBrightnessAvailable(Resources res) {
-        return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
-    }
-
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
         ListPreference preference = mScreenTimeoutPreference;
         String summary;

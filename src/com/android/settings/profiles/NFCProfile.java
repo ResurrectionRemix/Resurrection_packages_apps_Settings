@@ -27,11 +27,11 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.provider.Settings;
 import android.widget.Toast;
 
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
+import cyanogenmod.providers.CMSettings;
 
 import com.android.settings.R;
 
@@ -86,8 +86,8 @@ public class NFCProfile extends Activity {
     private void handleProfileMimeType(byte[] payload) {
         UUID profileUuid = NFCProfileUtils.toUUID(payload);
 
-        boolean enabled = Settings.System.getInt(getContentResolver(),
-                Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
+        boolean enabled = CMSettings.System.getInt(getContentResolver(),
+                CMSettings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
 
         if (enabled) {
             // Only do NFC profile changing if System Profile support is enabled

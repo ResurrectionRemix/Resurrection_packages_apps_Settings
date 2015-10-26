@@ -19,6 +19,8 @@ package com.android.settings.profiles;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -41,6 +43,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
 
@@ -49,6 +52,7 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.SubSettings;
 import com.android.settings.Utils;
+import cyanogenmod.providers.CMSettings;
 
 import java.util.UUID;
 
@@ -122,6 +126,11 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         mProfileManager = ProfileManager.getInstance(getActivity());
         // After confirming PreferenceScreen is available, we call super.
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override
@@ -205,7 +214,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
                 .setTitle(R.string.profile_reset_title)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(R.string.profile_reset_message)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         mProfileManager.resetAll();
@@ -219,8 +228,8 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     private void updateProfilesEnabledState() {
         Activity activity = getActivity();
 
-        mEnabled = Settings.System.getInt(activity.getContentResolver(),
-                Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
+        mEnabled = CMSettings.System.getInt(activity.getContentResolver(),
+                CMSettings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
         activity.invalidateOptionsMenu();
 
         mAddProfileFab.setVisibility(mEnabled ? View.VISIBLE : View.GONE);

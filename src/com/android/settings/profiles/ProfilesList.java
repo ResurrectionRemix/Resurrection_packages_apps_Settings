@@ -18,8 +18,9 @@ package com.android.settings.profiles;
 
 import java.util.UUID;
 
-import android.app.Profile;
-import android.app.ProfileManager;
+import com.android.internal.logging.MetricsLogger;
+import cyanogenmod.app.Profile;
+import cyanogenmod.app.ProfileManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -44,7 +45,12 @@ public class ProfilesList extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.profiles_settings);
-        mProfileManager = (ProfileManager) getActivity().getSystemService(Context.PROFILE_SERVICE);
+        mProfileManager = ProfileManager.getInstance(getActivity());
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override

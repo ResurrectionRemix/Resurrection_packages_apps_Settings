@@ -27,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -43,6 +44,11 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     private ApplicationLightPreference mMediumColorPref;
     private ApplicationLightPreference mFullColorPref;
     private static final int MENU_RESET = Menu.FIRST;
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

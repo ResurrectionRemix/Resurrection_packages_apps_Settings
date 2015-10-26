@@ -193,6 +193,11 @@ public class AppGroupConfig extends SettingsPreferenceFragment
     }
 
     @Override
+    protected int getMetricsCategory() {
+        return 0;
+    }
+
+    @Override
     public void onPause() {
         if (mNotificationGroup != null) {
             mProfileManager.addNotificationGroup(mNotificationGroup);

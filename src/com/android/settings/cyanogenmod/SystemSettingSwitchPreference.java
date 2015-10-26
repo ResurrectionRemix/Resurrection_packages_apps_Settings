@@ -18,7 +18,7 @@ package com.android.settings.cyanogenmod;
 
 import android.content.Context;
 import android.preference.SwitchPreference;
-import android.provider.Settings;
+import cyanogenmod.providers.CMSettings;
 import android.util.AttributeSet;
 
 public class SystemSettingSwitchPreference extends SwitchPreference {
@@ -41,7 +41,7 @@ public class SystemSettingSwitchPreference extends SwitchPreference {
                 // It's already there, so the same as persisting
                 return true;
             }
-            Settings.System.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
+            CMSettings.System.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -52,7 +52,7 @@ public class SystemSettingSwitchPreference extends SwitchPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
-        return Settings.System.getInt(getContext().getContentResolver(),
+        return CMSettings.System.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 
@@ -60,6 +60,6 @@ public class SystemSettingSwitchPreference extends SwitchPreference {
     protected boolean isPersisted() {
         // Using getString instead of getInt so we can simply check for null
         // instead of catching an exception. (All values are stored as strings.)
-        return Settings.System.getString(getContext().getContentResolver(), getKey()) != null;
+        return CMSettings.System.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }
