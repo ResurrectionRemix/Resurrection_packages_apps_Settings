@@ -95,6 +95,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_CM_UPDATES = "cm_updates";
+    private static final String RR_ROM_TC = "rr_android";
+    private static final String RR_KERNEL_TC = "rr_kernel";
+    private static final String RR_OPTI_FLAGS = "rr_flags";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -142,6 +145,16 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_MOD_VERSION, "ro.rr_modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+        findPreference(RR_ROM_TC).setEnabled(true);
+        findPreference(RR_KERNEL_TC).setEnabled(true);
+	findPreference(RR_OPTI_FLAGS).setEnabled(true);
+        setValueSummary(RR_ROM_TC, "ro.rr.android");
+        setValueSummary(RR_KERNEL_TC, "ro.rr.kernel");
+        setValueSummary(RR_OPTI_FLAGS, "ro.rr.flags");
+	//Remove the properties if not present
+	removePreferenceIfPropertyMissing(getPreferenceScreen(), RR_ROM_TC, "ro.rr.android");
+	removePreferenceIfPropertyMissing(getPreferenceScreen(), RR_KERNEL_TC, "ro.rr.kernel");
+	removePreferenceIfPropertyMissing(getPreferenceScreen(), RR_OPTI_FLAGS, "ro.rr.flags");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
