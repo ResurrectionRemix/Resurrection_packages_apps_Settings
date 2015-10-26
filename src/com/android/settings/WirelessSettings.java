@@ -40,6 +40,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -74,6 +75,7 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
     private static final String KEY_MANAGE_MOBILE_PLAN = "manage_mobile_plan";
     private static final String KEY_WFC_SETTINGS = "wifi_calling_settings";
     private static final String KEY_NETWORK_RESET = "network_reset";
+    private static final String KEY_NFC_CATEGORY_SETTINGS = "nfc_category_settings";
 
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
@@ -233,6 +235,8 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
         SwitchPreference nfc = (SwitchPreference) findPreference(KEY_TOGGLE_NFC);
         RestrictedPreference androidBeam = (RestrictedPreference) findPreference(
                 KEY_ANDROID_BEAM_SETTINGS);
+        PreferenceCategory nfcCategory = (PreferenceCategory)
+                findPreference(KEY_NFC_CATEGORY_SETTINGS);
 
         mAirplaneModeEnabler = new AirplaneModeEnabler(activity, mAirplaneModePreference);
         mNfcEnabler = new NfcEnabler(activity, nfc, androidBeam);
@@ -283,8 +287,7 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
         // Remove NFC if not available
         mNfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if (mNfcAdapter == null) {
-            getPreferenceScreen().removePreference(nfc);
-            getPreferenceScreen().removePreference(androidBeam);
+            getPreferenceScreen().removePreference(nfcCategory);
             mNfcEnabler = null;
         }
 
