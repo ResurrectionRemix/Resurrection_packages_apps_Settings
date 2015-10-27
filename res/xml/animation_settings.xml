@@ -31,6 +31,12 @@
         android:entryValues="@array/toast_animation_values"
         android:persistent="false" />
 
+    <com.android.settings.preference.SystemSettingSwitchPreference
+        android:key="toast_icon"
+        android:title="@string/toast_icon_title"
+        android:summary="@string/toast_icon_summary"
+        android:defaultValue="true" />
+
     <ListPreference
         android:key="listview_animation"
         android:dialogTitle="@string/listview_animation_title"
