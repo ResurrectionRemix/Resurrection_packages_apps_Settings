@@ -206,8 +206,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private boolean mDontPokeProperties;
 
     private SwitchPreference mEnableAdb;
-    private CheckBoxPreference mAdbNotify;
-    private CheckBoxPreference mAdbOverNetwork;
+    private SwitchPreference mAdbNotify;
+    private SwitchPreference mAdbOverNetwork;
     private Preference mClearAdbKeys;
     private SwitchPreference mEnableTerminal;
     private Preference mBugreport;
@@ -315,9 +315,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 findPreference(DEBUG_DEBUGGING_CATEGORY_KEY);
         mEnableAdb = findAndInitSwitchPref(ENABLE_ADB);
 
-        mAdbNotify = findAndInitCheckboxPref(ADB_NOTIFY);
+        mAdbNotify = findAndInitSwitchPref(ADB_NOTIFY);
         mAllPrefs.add(mAdbNotify);
-        mAdbOverNetwork = findAndInitCheckboxPref(ADB_TCPIP);
+        mAdbOverNetwork = findAndInitSwitchPref(ADB_TCPIP);
 
         mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
         if (!SystemProperties.getBoolean("ro.adb.secure", false)) {
@@ -658,7 +658,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 Settings.Secure.ADB_PORT, 0);
         boolean enabled = port > 0;
 
-        updateCheckBox(mAdbOverNetwork, enabled);
+        updateSwitchPreference(mAdbOverNetwork, enabled);
 
         WifiInfo wifiInfo = null;
 
