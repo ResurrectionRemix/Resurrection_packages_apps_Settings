@@ -87,6 +87,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
     private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
+    private static final String ADVANCED_REBOOT_KEY = "power_menu_advanced_reboot";
 
     private static final String DIM_NAV_BUTTONS = "dim_nav_buttons";
     private static final String DIM_NAV_BUTTONS_TOUCH_ANYWHERE = "dim_nav_buttons_touch_anywhere";
@@ -106,7 +107,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
     private static final String CATEGORY_NAVBAR = "nav_cat";
     private static final String CATEGORY_HW_KEYS = "hw_keys";
-    
+
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
     // frameworks/base/core/java/android/provider/Settings.java
@@ -153,6 +154,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mHomeAnswerCall;
     private ColorPickerPreference mNavbarButtonTint;
     private SwitchPreference mVolumeAnswerCall;
+    private SwitchPreference mAdvancedReboot;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -176,6 +178,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Power button ends calls.
         mPowerEndCall = (SwitchPreference) findPreference(KEY_POWER_END_CALL);
 
+	// Reboot menu from development settings
+	mAdvancedReboot = (SwitchPreference) findPreference(ADVANCED_REBOOT_KEY);
+	mAdvancedReboot.setOnPreferenceChangeListener(this);
+
         // Home button answers calls.
         mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
 
@@ -190,9 +196,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Navigation bar keys switch
         mEnableNavigationBar = (SwitchPreference) findPreference(KEY_ENABLE_NAVIGATION_BAR);
-        
+
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
+
+	// Custom setup for advanced reboot
+	boolean enableAdvancedReboot = Settings.Secure.getInt(getContentResolver(),
+	    Settings.Secure.ADVANCED_REBOOT, 0) == 1;
+	mAdvancedReboot.setChecked(enableAdvancedReboot);
 
         // Internal bool to check if the device have a navbar by default or not!
         boolean hasNavBarByDefault = getResources().getBoolean(
@@ -680,7 +691,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mDimNavButtonsAnimate.setEnabled(show);
         mDimNavButtonsAnimateDuration.setEnabled(show);
     }
-    
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mHomeLongPressAction) {
@@ -788,7 +799,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 Settings.System.DIM_NAV_BUTTONS_ANIMATE_DURATION,
                 Integer.parseInt((String) newValue));
             return true;
-        }
+        } else if (preference == mAdvancedReboot) {
+	    Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.ADVANCED_REBOOT,
+                    ((Boolean) newValue) ? 1 : 0);
+	    return true;
+	}
         return false;
     }
     @Override
