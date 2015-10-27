@@ -1545,7 +1545,8 @@ public class InstalledAppDetails extends Fragment
     private boolean isProtectedApp() {
         // Some system apps doesn't have applicationInfo. Ensure we don't access to a null
         // reference. In that case we assume the app isn't protected
-        return mPackageInfo.applicationInfo != null && mPackageInfo.applicationInfo.protect;
+        return mPackageInfo != null && mPackageInfo.applicationInfo != null
+                && mPackageInfo.applicationInfo.protect;
     }
 }
 
