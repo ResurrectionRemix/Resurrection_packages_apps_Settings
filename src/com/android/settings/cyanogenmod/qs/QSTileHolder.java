@@ -117,7 +117,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_tile_profiles;
                 break;
             case QSConstants.TILE_PERFORMANCE:
-                resourceName = "ic_qs_perf_profile_highperf_avd";
+                resourceName = "ic_qs_perf_profile";
                 stringId = R.string.qs_tile_performance;
                 break;
             case QSConstants.TILE_NFC:
