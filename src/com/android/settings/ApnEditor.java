@@ -281,7 +281,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
     private void fillUi() {
         if (mFirstTime) {
             mFirstTime = false;
-            String numeric = mTelephonyManager.getSimOperator(mSubId);
+            String numeric = mTelephonyManager.getIccOperatorNumericForData(mSubId);
             // Fill in all the values from the db in both text editor and summary
             mName.setText(mCursor.getString(NAME_INDEX));
             mApn.setText(mCursor.getString(APN_INDEX));
@@ -489,7 +489,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
                 if (values[mvnoIndex].equals("SPN")) {
                     mMvnoMatchData.setText(mTelephonyManager.getSimOperatorName());
                 } else if (values[mvnoIndex].equals("IMSI")) {
-                    String numeric = mTelephonyManager.getSimOperator(mSubId);
+                    String numeric = mTelephonyManager.getIccOperatorNumericForData(mSubId);
                     mMvnoMatchData.setText(numeric + "x");
                 } else if (values[mvnoIndex].equals("GID")) {
                     mMvnoMatchData.setText(mTelephonyManager.getGroupIdLevel1());
