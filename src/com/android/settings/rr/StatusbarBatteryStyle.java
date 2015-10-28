@@ -46,6 +46,8 @@ public class StatusbarBatteryStyle extends SettingsPreferenceFragment implements
     private static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
+    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
+
     private ListPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarBattery;
 
@@ -71,6 +73,7 @@ public class StatusbarBatteryStyle extends SettingsPreferenceFragment implements
                 Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0);
         mStatusBarBattery.setValue(String.valueOf(batteryStyle));
         mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
+        enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBattery.setOnPreferenceChangeListener(this);
 
     }
@@ -92,12 +95,19 @@ public class StatusbarBatteryStyle extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(resolver,
                     Settings.Secure.STATUS_BAR_BATTERY_STYLE, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+            enableStatusBarBatteryDependents(batteryStyle);
             return true;
         }
 	return false;
     }
 
-
+    private void enableStatusBarBatteryDependents(int batteryIconStyle) {
+        if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_TEXT) {
+            mStatusBarBatteryShowPercent.setEnabled(false);
+        } else {
+            mStatusBarBatteryShowPercent.setEnabled(true);
+        }
+    }
 
     @Override
     public int getMetricsCategory() {
