@@ -40,6 +40,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 
 import com.android.internal.util.ArrayUtils;
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -198,6 +199,11 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
                 }
             }
         }
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override

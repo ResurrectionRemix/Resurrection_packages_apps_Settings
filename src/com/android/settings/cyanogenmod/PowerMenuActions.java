@@ -31,6 +31,7 @@ import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.cm.PowerMenuConstants;
@@ -102,6 +103,11 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         }
 
         getUserConfig();
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override

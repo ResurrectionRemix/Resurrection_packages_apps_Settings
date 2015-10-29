@@ -32,6 +32,8 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.logging.MetricsLogger;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -79,6 +81,11 @@ public class StylusGestures extends SettingsPreferenceFragment implements
         mSwipeDown   = setupGesturePref(KEY_SPEN_DOWN,   Settings.System.GESTURES_DOWN_SWIPE);
         mSwipeLong   = setupGesturePref(KEY_SPEN_LONG,   Settings.System.GESTURES_LONG_PRESS);
         mSwipeDouble = setupGesturePref(KEY_SPEN_DOUBLE, Settings.System.GESTURES_DOUBLE_TAP);
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     private ListPreference setupGesturePref(String key, String settingName) {

@@ -63,7 +63,7 @@ public class NavRing extends Fragment implements View.OnClickListener {
                     .setTitle(R.string.profile_reset_title)
                     .setIcon(R.drawable.ic_navbar_restore)
                     .setMessage(R.string.navigation_bar_reset_message)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             for (int i = 0; i < 3; i++) {
                                 Settings.Secure.putString(getActivity().getContentResolver(),

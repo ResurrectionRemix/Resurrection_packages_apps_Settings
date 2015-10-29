@@ -89,7 +89,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_NIGHT_MODE = "night_mode";
-    private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
     private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
@@ -110,7 +109,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
-    private SwitchPreference mTapToWake;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
 
     private CMHardwareManager mHardware;
@@ -171,7 +169,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
         } else {
             if (mAutoBrightnessPreference != null) {
-                removePreference(mAutoBrightnessPreference);
+                removePreference(KEY_AUTO_BRIGHTNESS);
                 mAutoBrightnessPreference = null;
             }
         }
@@ -181,7 +179,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mLiftToWakePreference.setOnPreferenceChangeListener(this);
         } else {
             if (mLiftToWakePreference != null) {
-                removePreference(mLiftToWakePreference);
+                removePreference(KEY_LIFT_TO_WAKE);
                 mLiftToWakePreference = null;
             }
         }
@@ -193,7 +191,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_DOZE);
         }
 
-        if (isTapToWakeAvailable(getResources())) {
+        if (isTapToWakeAvailable(getResources()) || mHardware.isSupported(FEATURE_TAP_TO_WAKE)) {
             mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
             mTapToWakePreference.setOnPreferenceChangeListener(this);
         } else {
@@ -207,13 +205,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             final int currentNightMode = uiManager.getNightMode();
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
-        }
-
-        mTapToWake = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
-        if (mTapToWake != null
-                && !mHardware.isSupported(FEATURE_TAP_TO_WAKE)) {
-            advancedPrefs.removePreference(mTapToWake);
-            mTapToWake = null;
         }
 
         boolean proximityCheckOnWait = getResources().getBoolean(
@@ -365,10 +356,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         super.onResume();
         updateDisplayRotationPreferenceDescription();
 
-        if (mTapToWake != null) {
-            mTapToWake.setChecked(mHardware.get(FEATURE_TAP_TO_WAKE));
-        }
-
         RotationPolicy.registerRotationPolicyListener(getActivity(),
                 mRotationPolicyListener);
 
@@ -479,9 +466,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mTapToWake) {
-            return mHardware.set(FEATURE_TAP_TO_WAKE, mTapToWake.isChecked());
-        } else if (preference == mWakeWhenPluggedOrUnplugged) {
+        if (preference == mWakeWhenPluggedOrUnplugged) {
             Settings.Global.putInt(getContentResolver(),
                     Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                     mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
