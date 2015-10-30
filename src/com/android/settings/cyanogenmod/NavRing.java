@@ -30,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import cyanogenmod.providers.CMSettings;
 
 public class NavRing extends Fragment implements View.OnClickListener {
     private LinearLayout mRestore, mSave, mEdit;
@@ -66,8 +67,8 @@ public class NavRing extends Fragment implements View.OnClickListener {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             for (int i = 0; i < 3; i++) {
-                                Settings.Secure.putString(getActivity().getContentResolver(),
-                                        Settings.Secure.NAVIGATION_RING_TARGETS[i], null);
+                                CMSettings.Secure.putString(getActivity().getContentResolver(),
+                                        CMSettings.Secure.NAVIGATION_RING_TARGETS[i], null);
                             }
                         }
                     })

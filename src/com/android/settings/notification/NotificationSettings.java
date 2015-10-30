@@ -59,6 +59,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import cyanogenmod.providers.CMSettings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -392,7 +393,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
     private void initIncreasingRing(PreferenceCategory root) {
         mIncreasingRing = (TwoStatePreference)
-                root.findPreference(Settings.System.INCREASING_RING);
+                root.findPreference(CMSettings.System.INCREASING_RING);
         mIncreasingRingVolume = (IncreasingRingVolumePreference)
                 root.findPreference(KEY_INCREASING_RING_VOLUME);
 

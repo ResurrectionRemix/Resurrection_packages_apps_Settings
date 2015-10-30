@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.android.settings.R;
 import com.android.settings.Utils;
+import cyanogenmod.providers.CMSettings;
 
 public class NavBar extends Fragment implements View.OnClickListener {
 
@@ -90,8 +91,8 @@ public class NavBar extends Fragment implements View.OnClickListener {
                             if (mEditMode) {
                                 toggleEditMode(false, false);
                             }
-                            Settings.System.putString(getActivity().getContentResolver(),
-                                    Settings.System.NAV_BUTTONS, null);
+                            CMSettings.System.putString(getActivity().getContentResolver(),
+                                    CMSettings.System.NAV_BUTTONS, null);
                             toggleEditMode(true, false);
                             toggleEditMode(false, false);
                             mEditMode = false;

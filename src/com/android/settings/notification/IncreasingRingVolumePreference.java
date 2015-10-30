@@ -35,6 +35,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import cyanogenmod.providers.CMSettings;
 
 public class IncreasingRingVolumePreference extends Preference implements
         PreferenceManager.OnActivityStopListener, Handler.Callback,
@@ -122,10 +123,10 @@ public class IncreasingRingVolumePreference extends Preference implements
         mRampUpTimeValue = (TextView) view.findViewById(R.id.ramp_up_time_value);
 
         final ContentResolver cr = getContext().getContentResolver();
-        float startVolume = Settings.System.getFloat(cr,
-                Settings.System.INCREASING_RING_START_VOLUME, 0.1f);
-        int rampUpTime = Settings.System.getInt(cr,
-                Settings.System.INCREASING_RING_RAMP_UP_TIME, 10);
+        float startVolume = CMSettings.System.getFloat(cr,
+                CMSettings.System.INCREASING_RING_START_VOLUME, 0.1f);
+        int rampUpTime = CMSettings.System.getInt(cr,
+                CMSettings.System.INCREASING_RING_RAMP_UP_TIME, 10);
 
         mStartVolumeSeekBar.setProgress(Math.round(startVolume * 1000F));
         mStartVolumeSeekBar.setOnSeekBarChangeListener(this);
@@ -151,14 +152,14 @@ public class IncreasingRingVolumePreference extends Preference implements
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
         ContentResolver cr = getContext().getContentResolver();
         if (fromTouch && seekBar == mStartVolumeSeekBar) {
-            Settings.System.putFloat(cr, Settings.System.INCREASING_RING_START_VOLUME,
+            CMSettings.System.putFloat(cr, CMSettings.System.INCREASING_RING_START_VOLUME,
                         (float) progress / 1000F);
         } else if (seekBar == mRampUpTimeSeekBar) {
             int seconds = (progress + 1) * 5;
             mRampUpTimeValue.setText(
                     Formatter.formatShortElapsedTime(getContext(), seconds * 1000));
             if (fromTouch) {
-                Settings.System.putInt(cr, Settings.System.INCREASING_RING_RAMP_UP_TIME, seconds);
+                CMSettings.System.putInt(cr, CMSettings.System.INCREASING_RING_RAMP_UP_TIME, seconds);
             }
         }
     }

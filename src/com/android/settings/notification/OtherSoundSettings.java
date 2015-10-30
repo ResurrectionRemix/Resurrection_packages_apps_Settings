@@ -47,6 +47,7 @@ import com.android.settings.Utils;
 import com.android.settings.hardware.VibratorIntensity;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import cyanogenmod.providers.CMSettings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -114,7 +115,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     };
 
     private static final SettingPref PREF_VOLUME_ADJUST_SOUNDS = new SettingPref(
-            TYPE_SYSTEM, KEY_VOLUME_ADJUST_SOUNDS, System.VOLUME_ADJUST_SOUNDS_ENABLED,
+            TYPE_SYSTEM, KEY_VOLUME_ADJUST_SOUNDS, CMSettings.System.VOLUME_ADJUST_SOUNDS_ENABLED,
             DEFAULT_ON) {
         @Override
         public boolean isApplicable(Context context) {

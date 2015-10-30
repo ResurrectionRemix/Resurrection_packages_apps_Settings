@@ -48,6 +48,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 
+import cyanogenmod.providers.CMSettings;
 import org.cyanogenmod.hardware.KeyDisabler;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -345,6 +346,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
+        mCameraWakeScreen = (SwitchPreference) findPreference(Settings.System.CAMERA_WAKE_SCREEN);
+        mCameraSleepOnRelease =
+                (SwitchPreference) findPreference(Settings.System.CAMERA_SLEEP_ON_RELEASE);
+        mCameraLaunch = (SwitchPreference) findPreference(Settings.System.CAMERA_LAUNCH);
+
         if (hasCameraKey) {
             if (!showCameraWake) {
                 prefScreen.removePreference(mCameraWakeScreen);
@@ -406,24 +412,19 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_BLUETOOTH_INPUT_SETTINGS);
 
-            mCameraWakeScreen = (SwitchPreference) findPreference(Settings.System.CAMERA_WAKE_SCREEN);
-            mCameraSleepOnRelease =
-                    (SwitchPreference) findPreference(Settings.System.CAMERA_SLEEP_ON_RELEASE);
-            mCameraLaunch = (SwitchPreference) findPreference(Settings.System.CAMERA_LAUNCH);
-
-            if (mCameraWakeScreen != null) {
-                if (mCameraSleepOnRelease != null && !getResources().getBoolean(
-                        com.android.internal.R.bool.config_singleStageCameraKey)) {
-                    mCameraSleepOnRelease.setDependency(Settings.System.CAMERA_WAKE_SCREEN);
-                }
+        if (mCameraWakeScreen != null) {
+            if (mCameraSleepOnRelease != null && !getResources().getBoolean(
+                    com.android.internal.R.bool.config_singleStageCameraKey)) {
+                mCameraSleepOnRelease.setDependency(Settings.System.CAMERA_WAKE_SCREEN);
             }
+        }
         mVolumeWakeScreen = (SwitchPreference) findPreference(Settings.System.VOLUME_WAKE_SCREEN);
         mVolumeMusicControls = (SwitchPreference) findPreference(KEY_VOLUME_MUSIC_CONTROLS);
 
         mVolumeControlRingStream = (SwitchPreference)
                 findPreference(KEY_VOLUME_CONTROL_RING_STREAM);
-        int volumeControlRingtone = Settings.System.getInt(getContentResolver(),
-                Settings.System.VOLUME_KEYS_CONTROL_RING_STREAM, 1);
+        int volumeControlRingtone = CMSettings.System.getInt(getContentResolver(),
+                CMSettings.System.VOLUME_KEYS_CONTROL_RING_STREAM, 1);
         if (mVolumeControlRingStream != null) {
             mVolumeControlRingStream.setChecked(volumeControlRingtone > 0);
         }
@@ -452,11 +453,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Home button answers calls.
         if (mHomeAnswerCall != null) {
-            final int incallHomeBehavior = Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.RING_HOME_BUTTON_BEHAVIOR,
-                    Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DEFAULT);
+            final int incallHomeBehavior = CMSettings.Secure.getInt(getContentResolver(),
+                    CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR,
+                    CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DEFAULT);
             final boolean homeButtonAnswersCall =
-                (incallHomeBehavior == Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER);
+                (incallHomeBehavior == CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER);
             mHomeAnswerCall.setChecked(homeButtonAnswersCall);
         }
 
@@ -475,8 +476,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         list.setOnPreferenceChangeListener(this);
 
         // Read the componentName from Settings.Secure, this is the user's prefered setting
-        String componentString = Settings.Secure.getString(getContentResolver(),
-                Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY);
+        String componentString = CMSettings.Secure.getString(getContentResolver(),
+                CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY);
         ComponentName targetComponent = null;
         if (componentString == null) {
             list.setSummary(getString(R.string.hardware_keys_action_last_app));
@@ -487,14 +488,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Dyanamically generate the list array,
         // query PackageManager for all Activites that are registered for ACTION_RECENTS_LONG_PRESS
         PackageManager pm = getPackageManager();
-        Intent intent = new Intent(Intent.ACTION_RECENTS_LONG_PRESS);
+        Intent intent = new Intent(cyanogenmod.content.Intent.ACTION_RECENTS_LONG_PRESS);
         List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent,
                 PackageManager.MATCH_DEFAULT_ONLY);
         if (recentsActivities.size() == 0) {
             // No entries available, disable
             list.setSummary(getString(R.string.hardware_keys_action_last_app));
-            Settings.Secure.putString(getContentResolver(),
-                    Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
+            CMSettings.Secure.putString(getContentResolver(),
+                    CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
             list.setEnabled(false);
             return list;
         }
@@ -596,8 +597,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             if (putString.length() == 0) {
                 putString = null;
             }
-            Settings.Secure.putString(getContentResolver(),
-                    Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
+            CMSettings.Secure.putString(getContentResolver(),
+                    CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
             return true;
         }
         return false;
@@ -694,8 +695,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
         } else if (preference == mVolumeControlRingStream) {
             int value = mVolumeControlRingStream.isChecked() ? 1 : 0;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.VOLUME_KEYS_CONTROL_RING_STREAM, value);
+            CMSettings.System.putInt(getActivity().getContentResolver(),
+                    CMSettings.System.VOLUME_KEYS_CONTROL_RING_STREAM, value);
         } else if (preference == mDisableNavigationKeys) {
             mDisableNavigationKeys.setEnabled(false);
             mNavigationPreferencesCat.setEnabled(false);
@@ -729,9 +730,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     private void handleToggleHomeButtonAnswersCallPreferenceClick() {
-        Settings.Secure.putInt(getContentResolver(),
-                Settings.Secure.RING_HOME_BUTTON_BEHAVIOR, (mHomeAnswerCall.isChecked()
-                        ? Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
-                        : Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
+        CMSettings.Secure.putInt(getContentResolver(),
+                CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR, (mHomeAnswerCall.isChecked()
+                        ? CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
+                        : CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
 }
