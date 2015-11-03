@@ -19,9 +19,17 @@
         android:title="@string/power_usage_summary_title"
         settings:keywords="@string/keywords_battery">
 
-        <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
-            android:key="low_power"
-            android:title="@string/battery_saver"/>
+        <ListPreference
+            android:key="pref_perf_profile"
+            android:dialogTitle="@string/perf_profile_title"
+            android:title="@string/perf_profile_title"
+            android:persistent="false" />
+
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="app_perf_profiles_enabled"
+            android:title="@string/autoperf_title"
+            android:summary="@string/autoperf_summary"
+            android:defaultValue="true" />
 
         <com.android.settings.fuelgauge.BatteryHistoryPreference
             android:key="battery_history" />

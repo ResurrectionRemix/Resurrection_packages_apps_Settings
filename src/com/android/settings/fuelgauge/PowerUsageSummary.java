@@ -19,10 +19,13 @@ package com.android.settings.fuelgauge;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.BatteryStats;
 import android.os.Build;
@@ -32,6 +35,7 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.os.Process;
 import android.os.UserHandle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -54,6 +58,9 @@ import com.android.settings.Settings.HighPowerApplicationsActivity;
 import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 
+import cyanogenmod.power.PerformanceManager;
+import cyanogenmod.providers.CMSettings;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -63,7 +70,8 @@ import java.util.List;
  * Displays a list of apps and subsystems that consume power, ordered by how much power was
  * consumed since the last time it was unplugged.
  */
-public class PowerUsageSummary extends PowerUsageBase {
+public class PowerUsageSummary extends PowerUsageBase
+        implements Preference.OnPreferenceChangeListener {
 
     private static final boolean DEBUG = false;
 
@@ -74,6 +82,8 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final String KEY_APP_LIST = "app_list";
 
     private static final String KEY_BATTERY_HISTORY = "battery_history";
+    private static final String KEY_PERF_PROFILE = "pref_perf_profile";
+    private static final String KEY_PER_APP_PROFILES = "app_perf_profiles_enabled";
 
     private static final String KEY_BATTERY_SAVER = "low_power";
 
@@ -84,6 +94,14 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
+    private ListPreference mPerfProfilePref;
+    private SwitchPreference mPerAppProfiles;
+    private SwitchPreference mBatterySaverPref;
+
+    private String[] mPerfProfileEntries;
+    private String[] mPerfProfileValues;
+    private PerformanceProfileObserver mPerformanceProfileObserver = null;
+    private int mNumPerfProfiles = 0;
 
     private boolean mBatteryPluggedIn;
 
@@ -94,20 +112,67 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final int MIN_AVERAGE_POWER_THRESHOLD_MILLI_AMP = 10;
     private static final int SECONDS_IN_HOUR = 60 * 60;
 
-    private SwitchPreference mBatterySaverPref;
-
     private PowerManager mPowerManager;
+    private PerformanceManager mPerf;
+
+    private class PerformanceProfileObserver extends ContentObserver {
+        public PerformanceProfileObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            updatePerformanceValue();
+        }
+    }
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        mPowerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
+        mPerf = PerformanceManager.getInstance(getActivity());
 
         addPreferencesFromResource(R.xml.power_usage_summary);
         mHistPref = (BatteryHistoryPreference) findPreference(KEY_BATTERY_HISTORY);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
         mBatterySaverPref = (SwitchPreference) findPreference(KEY_BATTERY_SAVER);
 
-        mPowerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
+        mNumPerfProfiles = mPerf.getNumberOfProfiles();
+        mPerfProfilePref = (ListPreference) findPreference(KEY_PERF_PROFILE);
+        mPerAppProfiles = (SwitchPreference) findPreference(KEY_PER_APP_PROFILES);
+        if (mNumPerfProfiles < 1) {
+            removePreference(KEY_PERF_PROFILE);
+            removePreference(KEY_PER_APP_PROFILES);
+            mPerfProfilePref = null;
+            mPerAppProfiles = null;
+        } else {
+            // Remove the battery saver switch, power profiles have 3 modes
+            removePreference(KEY_BATTERY_SAVER);
+            mBatterySaverPref = null;
+            mPerfProfilePref.setOrder(-1);
+            mPerfProfileEntries = new String[mNumPerfProfiles];
+            mPerfProfileValues = new String[mNumPerfProfiles];
+
+            // Filter out unsupported profiles
+            final String[] entries = getResources().getStringArray(
+                    org.cyanogenmod.platform.internal.R.array.perf_profile_entries);
+            final int[] values = getResources().getIntArray(
+                    org.cyanogenmod.platform.internal.R.array.perf_profile_values);
+            int i = 0;
+            for (int j = 0; i < values.length; j++) {
+                if (values[j] < mNumPerfProfiles) {
+                    mPerfProfileEntries[i] = entries[j];
+                    mPerfProfileValues[i] = String.valueOf(values[j]);
+                    i++;
+                }
+            }
+            mPerfProfilePref.setEntries(mPerfProfileEntries);
+            mPerfProfilePref.setEntryValues(mPerfProfileValues);
+            updatePerformanceValue();
+            mPerfProfilePref.setOnPreferenceChangeListener(this);
+        }
+        mPerformanceProfileObserver = new PerformanceProfileObserver(new Handler());
     }
 
     @Override
@@ -123,6 +188,13 @@ public class PowerUsageSummary extends PowerUsageBase {
         if (mBatterySaverPref != null) {
             refreshBatterySaverOptions();
         }
+
+        if (mPerfProfilePref != null) {
+            updatePerformanceValue();
+            ContentResolver resolver = getActivity().getContentResolver();
+            resolver.registerContentObserver(CMSettings.Secure.getUriFor(
+                    CMSettings.Secure.PERFORMANCE_PROFILE), false, mPerformanceProfileObserver);
+        }
     }
 
     @Override
@@ -130,6 +202,11 @@ public class PowerUsageSummary extends PowerUsageBase {
         BatteryEntry.stopRequestQueue();
         mHandler.removeMessages(BatteryEntry.MSG_UPDATE_NAME_ICON);
         super.onPause();
+
+        if (mPerfProfilePref != null) {
+            ContentResolver resolver = getActivity().getContentResolver();
+            resolver.unregisterContentObserver(mPerformanceProfileObserver);
+        }
     }
 
     @Override
@@ -150,6 +227,18 @@ public class PowerUsageSummary extends PowerUsageBase {
         PowerUsageDetail.startBatteryDetailPage((SettingsActivity) getActivity(), mStatsHelper,
                 mStatsType, entry, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (newValue != null) {
+            if (preference == mPerfProfilePref) {
+                mPerf.setPowerProfile(Integer.valueOf((String)(newValue)));
+                updatePerformanceSummary();
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -350,6 +439,30 @@ public class PowerUsageSummary extends PowerUsageBase {
             }
         });
         return results;
+    }
+
+    private void updatePerformanceSummary() {
+        int value = mPerf.getPowerProfile();
+        String summary = "";
+        int count = mPerfProfileValues.length;
+        for (int i = 0; i < count; i++) {
+            try {
+                if (mPerfProfileValues[i].equals(String.valueOf(value))) {
+                    summary = mPerfProfileEntries[i];
+                }
+            } catch (IndexOutOfBoundsException ex) {
+                // Ignore
+            }
+        }
+        mPerfProfilePref.setSummary(String.format("%s", summary));
+    }
+
+    private void updatePerformanceValue() {
+        if (mPerfProfilePref == null) {
+            return;
+        }
+        mPerfProfilePref.setValue(String.valueOf(mPerf.getPowerProfile()));
+        updatePerformanceSummary();
     }
 
     protected void refreshStats() {
