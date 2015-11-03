@@ -26,6 +26,7 @@ import android.preference.Preference;
 import android.text.format.Formatter;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -43,6 +44,7 @@ public class StorageVolumePreference extends Preference {
     private final VolumeInfo mVolume;
 
     private int mColor;
+    private int mSecondaryColor;
     private int mUsedPercent = -1;
 
     public StorageVolumePreference(Context context, VolumeInfo volume, int color) {
@@ -51,6 +53,10 @@ public class StorageVolumePreference extends Preference {
         mStorageManager = context.getSystemService(StorageManager.class);
         mVolume = volume;
         mColor = color;
+
+        TypedValue typedValue = new TypedValue();
+        context.getTheme().resolveAttribute(android.R.attr.textColorSecondary, typedValue, true);
+        mSecondaryColor = context.getResources().getColor(typedValue.resourceId);
 
         setLayoutResource(R.layout.storage_volume);
 
@@ -100,7 +106,7 @@ public class StorageVolumePreference extends Preference {
     protected void onBindView(View view) {
         final ImageView unmount = (ImageView) view.findViewById(R.id.unmount);
         if (unmount != null) {
-            unmount.setImageTintList(ColorStateList.valueOf(Color.parseColor("#8a000000")));
+	    unmount.setImageTintList(ColorStateList.valueOf(mSecondaryColor));
             unmount.setOnClickListener(mUnmountListener);
         }
 
