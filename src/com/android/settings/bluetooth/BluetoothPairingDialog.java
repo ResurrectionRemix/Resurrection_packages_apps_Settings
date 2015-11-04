@@ -212,8 +212,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                 }
             }
         });
-        if (mDevice.getBluetoothClass().getDeviceClass()
-                == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE) {
+        if ((mDevice.getBluetoothClass() != null) && (mDevice.getBluetoothClass().getDeviceClass()
+                    == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE)) {
             contactSharing.setVisibility(View.VISIBLE);
         } else {
             contactSharing.setVisibility(View.GONE);
@@ -284,8 +284,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                 }
             }
         });
-        if (mDevice.getBluetoothClass().getDeviceClass()
-                == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE) {
+        if ((mDevice.getBluetoothClass() != null) && (mDevice.getBluetoothClass().getDeviceClass()
+                    == BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE)) {
             contactSharing.setVisibility(View.VISIBLE);
         } else {
             contactSharing.setVisibility(View.GONE);
