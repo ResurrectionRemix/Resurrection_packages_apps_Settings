@@ -147,7 +147,8 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mInitialScanStarted = false;
+        /* Don't auto start scan if screen reconstructs due to frozen screen*/
+        mInitialScanStarted = (savedInstanceState != null);
         mInitiateDiscoverable = true;
 
         final SettingsActivity activity = (SettingsActivity) getActivity();
