@@ -516,6 +516,10 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 loge("Failed to get pref, slotId: "+ mSlotId +" Exception: " + ex);
             }
 
+            if (mUiccProvisionStatus[mSlotId] == INVALID_STATE) {
+                mUiccProvisionStatus[mSlotId] = PROVISIONED;
+            }
+
             boolean isSubValid = isCurrentSubValid();
             setEnabled(isSubValid);
 
