@@ -161,7 +161,7 @@ public class PowerUsageSummary extends PowerUsageBase
             final int[] values = getResources().getIntArray(
                     org.cyanogenmod.platform.internal.R.array.perf_profile_values);
             int i = 0;
-            for (int j = 0; i < values.length; j++) {
+            for (int j = 0; j < values.length; j++) {
                 if (values[j] < mNumPerfProfiles) {
                     mPerfProfileEntries[i] = entries[j];
                     mPerfProfileValues[i] = String.valueOf(values[j]);
