@@ -322,6 +322,7 @@
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> impressões digitais configuradas</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> impressões digitais configuradas</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Config. de imp digital"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"Para usar sua impressão digital para desbloquear sua tela ou confirmar compras, precisaremos:"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Configure seu método secundário de bloqueio de tela"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Sempre que esse ícone é exibido, você pode usar sua impressão digital para fins de identificação ou para autorizar uma compra."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Basta tocar no sensor de impressão digital para ativar e desbloquear seu dispositivo."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Sempre que esse ícone é exibido, você pode usar sua impressão digital."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Pular configuração da impressão digital?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Você optou por usar a impressão digital como uma maneira de desbloquear seu smartphone. Se você pular agora, precisará fazer essa configuração mais tarde. A configuração demora apenas um minuto aproximadamente."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Configurar bloqueio de tela"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"Concluído"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Opa, este não é o sensor"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Use o sensor de impr. digital do seu disp."</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"O registro não foi concluído"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Prazo de registro de impressões digitais atingido. Tente novamente."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"O registro de impressões digitais não funcionou. Tente novamente ou use um dedo diferente."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Adicionar outra"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Próximo"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Além de desbloquear seu smartphone, também é possível usar sua impressão digital para autorizar compras e acesso a apps. "<annotation id="url">"Saiba mais"</annotation></string>
@@ -1208,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Ver informações legais, status, versão do software"</string>
     <string name="legal_information" msgid="5769301644270604095">"Informações legais"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Colaboradores"</string>
+    <string name="manual" msgid="3025943393642974445">"Manual"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Informação regulamentar"</string>
     <string name="copyright_title" msgid="865906688917260647">"Direitos autorais"</string>
     <string name="license_title" msgid="1990487604356037871">"Licença"</string>
@@ -1215,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"Licença do sistema Webview"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Planos de fundo"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Provedores de imagens de satélite:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Manual"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Ocorreu um problema ao carregar o manual."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Licenças código aberto"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Há um problema ao carregar as licenças."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Carregando..."</string>
@@ -1587,7 +1596,7 @@
     <string name="accessibility_settings_title" msgid="2130492524656204459">"Configurações de acessibilidade"</string>
     <string name="accessibility_services_title" msgid="2592221829284342237">"Serviços"</string>
     <string name="accessibility_system_title" msgid="7187919089874130484">"Sistema"</string>
-    <string name="accessibility_display_title" msgid="7610175687949675162">"Display"</string>
+    <string name="accessibility_display_title" msgid="7610175687949675162">"Exibição"</string>
     <string name="accessibility_captioning_title" msgid="7589266662024836291">"Legendas"</string>
     <string name="accessibility_screen_magnification_title" msgid="7001782548715744981">"Gestos de ampliação"</string>
     <string name="accessibility_screen_magnification_summary" msgid="1178289000423776584">"Quando este recurso está ativado, você pode aumentar e diminuir o zoom com um toque triplo na tela.\n\nQuando o zoom é aplicado, você pode:\n"<ul><li>"Deslocar: arraste dois ou mais dedos pela tela."</li>\n<li>"Ajustar o nível de zoom: use o gesto de pinçagem ou expanda usando dois ou mais dedos."</li></ul>\n\n"Você também pode ampliar temporariamente o que estiver sob seu dedo dando um toque triplo e segurando. No estado ampliado, arraste o dedo para explorar as diferentes partes da tela. Levante o dedo para voltar ao estado anterior.\n\nObservação: o toque triplo para ampliar funciona em qualquer parte da tela, exceto no teclado e na barra de navegação."</string>
@@ -2502,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"segurança das permissões de apps"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"apps padrão"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"ignorar otimizações hibernação app em espera"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"cor vibrante RGB sRGB natural padrão"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"deslizar senha padrão pin"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"Configurar etiqueta NFC Wi-Fi"</string>
     <string name="write_tag" msgid="8571858602896222537">"Gravar"</string>
@@ -2799,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"Mostrar sintonizador SystemUI"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Permissões adicionais"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"Mais <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Carregamento apenas"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Transferir arquivos (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Transferir fotos (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Carregar"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Somente carregar este dispositivo"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Fonte de alimentação"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Carregar o outro dispositivo conectado"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Transferências de arquivos"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Transferir arquivos para Windows ou Mac (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Transferência de fotos (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"Transferir fotos ou arquivos se o MTP não for compatível (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Usar dispositivo para entrada de MIDI"</string>
     <string name="usb_use" msgid="3372728031108932425">"Usar USB para"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Apps inativos"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Inativo. Toque para alternar."</string>
@@ -2868,4 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Esta permissão permite que um app modifique configurações do sistema."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Sim"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Não"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Girar duas vezes para abrir a câmera"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Abrir o app Câmera girando o pulso duas vezes"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"Press. o botão liga/desliga duas vezes p/ abrir a câmera"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Abrir a câmera rapidamente sem desbloquear a tela"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Vibrante (padrão)"</item>
+    <item msgid="8446070607501413455">"Natural"</item>
+    <item msgid="6553408765810699025">"Padrão"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Cores aprimoradas"</item>
+    <item msgid="8280754435979370728">"Cores naturais, como vistas pelos olhos"</item>
+    <item msgid="5363960654009010371">"Cores otimizadas para conteúdo digital"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Modo de cor da imagem"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"Usar sRGB"</string>
 </resources>

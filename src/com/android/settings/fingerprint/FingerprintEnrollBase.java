@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.settings.ChooseLockSettingsHelper;
+import com.android.settings.InstrumentedActivity;
 import com.android.settings.R;
 import com.android.setupwizardlib.SetupWizardLayout;
 import com.android.setupwizardlib.view.NavigationBar;
@@ -35,24 +36,11 @@ import com.android.setupwizardlib.view.NavigationBar;
 /**
  * Base activity for all fingerprint enrollment steps.
  */
-public class FingerprintEnrollBase extends Activity implements View.OnClickListener {
-
-    /**
-     * Used by the choose fingerprint wizard to indicate the wizard is
-     * finished, and each activity in the wizard should finish.
-     * <p>
-     * Previously, each activity in the wizard would finish itself after
-     * starting the next activity. However, this leads to broken 'Back'
-     * behavior. So, now an activity does not finish itself until it gets this
-     * result.
-     */
-    protected static final int RESULT_FINISHED = RESULT_FIRST_USER;
-
-    /**
-     * Used by the enrolling screen during setup wizard to skip over setting up fingerprint, which
-     * will be useful if the user accidentally entered this flow.
-     */
-    protected static final int RESULT_SKIP = RESULT_FIRST_USER + 1;
+public abstract class FingerprintEnrollBase extends InstrumentedActivity
+        implements View.OnClickListener {
+    static final int RESULT_FINISHED = FingerprintSettings.RESULT_FINISHED;
+    static final int RESULT_SKIP = FingerprintSettings.RESULT_SKIP;
+    static final int RESULT_TIMEOUT = FingerprintSettings.RESULT_TIMEOUT;
 
     protected byte[] mToken;
 

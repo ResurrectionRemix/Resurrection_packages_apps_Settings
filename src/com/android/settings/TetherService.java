@@ -69,7 +69,7 @@ public class TetherService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (DEBUG) Log.d(TAG, "Creating WifiProvisionService");
+        if (DEBUG) Log.d(TAG, "Creating TetherService");
         String provisionResponse = getResources().getString(
                 com.android.internal.R.string.config_mobile_hotspot_provision_response);
         registerReceiver(mReceiver, new IntentFilter(provisionResponse),
@@ -89,21 +89,28 @@ public class TetherService extends Service {
                 mCurrentTethers.add(type);
             }
         }
+
         if (intent.hasExtra(TetherUtil.EXTRA_REM_TETHER_TYPE)) {
-            int type = intent.getIntExtra(TetherUtil.EXTRA_REM_TETHER_TYPE,
-                    TetherUtil.TETHERING_INVALID);
-            if (DEBUG) Log.d(TAG, "Removing tether " + type);
-            int index = mCurrentTethers.indexOf(type);
-            if (index >= 0) {
-                mCurrentTethers.remove(index);
-                // If we are currently in the middle of a check, we may need to adjust the
-                // index accordingly.
-                if (index <= mCurrentTypeIndex && mCurrentTypeIndex > 0) {
-                    mCurrentTypeIndex--;
+            if (!mInProvisionCheck) {
+                int type = intent.getIntExtra(TetherUtil.EXTRA_REM_TETHER_TYPE,
+                        TetherUtil.TETHERING_INVALID);
+                int index = mCurrentTethers.indexOf(type);
+                if (DEBUG) Log.d(TAG, "Removing tether " + type + ", index " + index);
+                if (index >= 0) {
+                    mCurrentTethers.remove(index);
+                    // If we are currently in the middle of a check, we may need to adjust the
+                    // index accordingly.
+                    if (DEBUG) Log.d(TAG, "mCurrentTypeIndex: " + mCurrentTypeIndex);
+                    if (index <= mCurrentTypeIndex && mCurrentTypeIndex > 0) {
+                        mCurrentTypeIndex--;
+                    }
                 }
+                cancelAlarmIfNecessary();
+            } else {
+                if (DEBUG) Log.d(TAG, "Don't cancel alarm during provisioning");
             }
-            cancelAlarmIfNecessary();
         }
+
         // Only set the alarm if we have one tether, meaning the one just added,
         // to avoid setting it when it was already set previously for another
         // type.
@@ -125,7 +132,7 @@ public class TetherService extends Service {
         }
         // We want to be started if we are killed accidently, so that we can be sure we finish
         // the check.
-        return START_STICKY;
+        return START_REDELIVER_INTENT;
     }
 
     @Override
@@ -137,7 +144,7 @@ public class TetherService extends Service {
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         prefs.edit().putString(KEY_TETHERS, tethersToString(mCurrentTethers)).commit();
 
-        if (DEBUG) Log.d(TAG, "Destroying WifiProvisionService");
+        if (DEBUG) Log.d(TAG, "Destroying TetherService");
         unregisterReceiver(mReceiver);
         super.onDestroy();
     }
@@ -199,15 +206,17 @@ public class TetherService extends Service {
     }
 
     private void startProvisioning(int index) {
-        String provisionAction = getResources().getString(
-                com.android.internal.R.string.config_mobile_hotspot_provision_app_no_ui);
-        if (DEBUG) Log.d(TAG, "Sending provisioning broadcast: " + provisionAction + " type: "
-                + mCurrentTethers.get(index));
-        Intent intent = new Intent(provisionAction);
-        intent.putExtra(TETHER_CHOICE, mCurrentTethers.get(index));
-        intent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-        sendBroadcast(intent);
-        mInProvisionCheck = true;
+        if (index < mCurrentTethers.size()) {
+            String provisionAction = getResources().getString(
+                    com.android.internal.R.string.config_mobile_hotspot_provision_app_no_ui);
+            if (DEBUG) Log.d(TAG, "Sending provisioning broadcast: " + provisionAction + " type: "
+                    + mCurrentTethers.get(index));
+            Intent intent = new Intent(provisionAction);
+            intent.putExtra(TETHER_CHOICE, mCurrentTethers.get(index));
+            intent.setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+            sendBroadcast(intent);
+            mInProvisionCheck = true;
+        }
     }
 
     public static void scheduleRecheckAlarm(Context context, int type) {
@@ -261,9 +270,14 @@ public class TetherService extends Service {
             if (DEBUG) Log.d(TAG, "Got provision result " + intent);
             String provisionResponse = context.getResources().getString(
                     com.android.internal.R.string.config_mobile_hotspot_provision_response);
+
             if (provisionResponse.equals(intent.getAction())) {
-                mInProvisionCheck = false;
+                if (!mInProvisionCheck) {
+                    Log.e(TAG, "Unexpected provision response " + intent);
+                    return;
+                }
                 int checkType = mCurrentTethers.get(mCurrentTypeIndex);
+                mInProvisionCheck = false;
                 if (intent.getIntExtra(EXTRA_RESULT, RESULT_DEFAULT) == RESULT_OK) {
                     if (checkType == TetherUtil.TETHERING_WIFI && mEnableWifiAfterCheck) {
                         enableWifiTetheringIfNeeded();
@@ -282,7 +296,8 @@ public class TetherService extends Service {
                             break;
                     }
                 }
-                if (++mCurrentTypeIndex == mCurrentTethers.size()) {
+
+                if (++mCurrentTypeIndex >= mCurrentTethers.size()) {
                     // We are done with all checks, time to die.
                     stopSelf();
                 } else {

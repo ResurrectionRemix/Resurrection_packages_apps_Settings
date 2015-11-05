@@ -322,6 +322,7 @@
       <item quantity="other">已设置 <xliff:g id="COUNT_1">%1$d</xliff:g> 个指纹</item>
       <item quantity="one">已设置 <xliff:g id="COUNT_0">%1$d</xliff:g> 个指纹</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"指纹设置"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"要使用您的指纹解锁屏幕或确认购买交易，您需要："</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"设置备用屏幕锁定方式"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"只要您看见此图标，就可以使用指纹进行身份验证或对购买交易进行授权。"</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"只需触摸指纹传感器即可唤醒并解锁设备。"</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"当您看到此图标时，就可以使用指纹。"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"要跳过指纹设置？"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"您已选择使用指纹作为解锁手机的方式之一。如果您现在跳过这项设置，则以后还需要再进行设置。设置过程只需大约一分钟的时间。"</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"设置屏幕锁定"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"完成"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"糟糕，这不是传感器"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"使用您设备上的指纹传感器。"</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"未完成注册"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"指纹注册操作超时，请重试。"</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"无法注册指纹。请重试或使用其他手指。"</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"再添加一个"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"下一步"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"除了将手机解锁，您还可以在购买物品时和登录应用时使用自己的指纹来验证身份。"<annotation id="url">"了解详情"</annotation></string>
@@ -1075,7 +1081,6 @@
     <string name="apn_type" msgid="469613123902220544">"APN 类型"</string>
     <string name="apn_protocol" msgid="3272222921649348640">"APN 协议"</string>
     <string name="apn_roaming_protocol" msgid="3386954381510788422">"APN 漫游协议"</string>
-    <string name="apn_ppp_number">"PPP 拨叫号码""</string>
     <string name="carrier_enabled" msgid="407655861175280806">"APN 启用/停用"</string>
     <string name="carrier_enabled_summaryOn" msgid="6338915271908057531">"APN 已启用"</string>
     <string name="carrier_enabled_summaryOff" msgid="4300790190221203756">"未启用 APN"</string>
@@ -1209,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"查看法律信息、状态和软件版本"</string>
     <string name="legal_information" msgid="5769301644270604095">"法律信息"</string>
     <string name="contributors_title" msgid="5917703088825286504">"活动提供商"</string>
+    <string name="manual" msgid="3025943393642974445">"手册"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"监管信息"</string>
     <string name="copyright_title" msgid="865906688917260647">"版权"</string>
     <string name="license_title" msgid="1990487604356037871">"许可"</string>
@@ -1216,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"系统 WebView 许可"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"壁纸"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"卫星图像提供商：\n©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"手册"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"加载手册时出现问题。"</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"开放源代码许可"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"加载许可时出现问题。"</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"正在加载..."</string>
@@ -2503,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"应用 权限 安全"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"应用 默认"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"忽略对低电耗模式应用的待机优化"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"鲜亮 RGB SRGB 颜色 自然 标准"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"滑动 密码 图案 PIN码"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"设置WLAN NFC标签"</string>
     <string name="write_tag" msgid="8571858602896222537">"写入"</string>
@@ -2735,7 +2744,7 @@
     <string name="configure_apps" msgid="6685680790825882528">"配置应用"</string>
     <string name="unknown_app" msgid="5275921288718717656">"未知应用"</string>
     <string name="choose_profile" msgid="8229363046053568878">"选择个人资料"</string>
-    <string name="app_permissions" msgid="4148222031991883874">"应用权限"</string>
+    <string name="app_permissions" msgid="4148222031991883874">"应用所需权限"</string>
     <string name="app_permissions_summary" msgid="2098173899436407221">"已授予 <xliff:g id="COUNT_0">%d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%d</xliff:g> 个）其他权限"</string>
     <string name="app_permissions_group_summary" msgid="2721303391744909000">"已授权 <xliff:g id="COUNT_0">%d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%d</xliff:g> 个）"</string>
     <string name="tap_to_wake" msgid="7211944147196888807">"点按唤醒"</string>
@@ -2800,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"显示 SystemUI 调整程序"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"其他权限"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"另外 <xliff:g id="COUNT">%1$d</xliff:g> 项"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"仅限充电"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"传输文件 (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"传输照片 (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"充电"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"仅为此设备充电"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"电源供给"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"为其他已连接的设备充电"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"文件传输"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"将文件传输到 Windows 或 Mac (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"照片传输 (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"如果 MTP 不受支持，则传输照片或文件 (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"将设备用作 MIDI 输入设备"</string>
     <string name="usb_use" msgid="3372728031108932425">"USB 的用途"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"未启用的应用"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"未启用。触摸即可切换。"</string>
@@ -2869,6 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"此权限允许应用修改系统设置。"</string>
     <string name="write_settings_on" msgid="8230580416068832239">"允许"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"不允许"</string>
-
-    <string name="primary_sub_select_title">默认4G/3G SIM卡</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"扭转两次即可打开相机"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"扭转手腕两次即可打开相机应用"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"按电源按钮两次即可打开相机"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"在不解锁屏幕的情况下快速打开相机"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"鲜亮（默认）"</item>
+    <item msgid="8446070607501413455">"自然"</item>
+    <item msgid="6553408765810699025">"标准"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"增强的颜色"</item>
+    <item msgid="8280754435979370728">"肉眼所看到的自然颜色"</item>
+    <item msgid="5363960654009010371">"针对数字内容优化的颜色"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"图片颜色模式"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"使用 sRGB"</string>
 </resources>

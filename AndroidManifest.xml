@@ -93,7 +93,7 @@
             android:requiredForAllUsers="true"
             android:supportsRtl="true"
             android:allowBackup="false"
-            android:usesCleartextTraffic="false">
+            android:usesCleartextTraffic="true">
 
         <!-- Screen color Settings Controls -->
         <activity android:name=".ScreenColorSettings" android:label="@string/screencolor"
@@ -1423,7 +1423,7 @@
         <!-- Lock screen settings -->
         <activity android:name="ConfirmDeviceCredentialActivity"
             android:exported="true"
-            android:theme="@style/Transparent">
+            android:theme="@android:style/Theme.NoDisplay">
             <intent-filter android:priority="1">
                 <action android:name="android.app.action.CONFIRM_DEVICE_CREDENTIAL" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1842,7 +1842,7 @@
                   android:excludeFromRecents="true"
                   android:exported="true"
                   android:permission="android.permission.MANAGE_USB"
-                  android:theme="@style/Transparent">
+                  android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar">
         </activity>
 
         <activity android:name=".bluetooth.RequestPermissionHelperActivity"
@@ -2484,6 +2484,19 @@
                 android:value="com.android.settings.notification.AppNotificationSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/notification_settings" />
+        </activity>
+
+        <!-- Show Manual (from settings item) -->
+        <activity android:name="ManualDisplayActivity"
+                  android:label="@string/manual"
+                  android:taskAffinity=""
+                  android:enabled="@bool/config_show_manual">
+            <intent-filter>
+                <action android:name="android.settings.SHOW_MANUAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
         </activity>
 
         <!-- Show regulatory info (from settings item or dialing "*#07#") -->

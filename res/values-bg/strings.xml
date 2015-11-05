@@ -322,6 +322,7 @@
       <item quantity="other">Настроени са <xliff:g id="COUNT_1">%1$d</xliff:g> отпечатъка</item>
       <item quantity="one">Настроен е <xliff:g id="COUNT_0">%1$d</xliff:g> отпечатък</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Отпечатък: Настройване"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"За да използвате отпечатъка си за отключване на екрана или за потвърждаване на покупки, ще трябва:"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Настройте резервен начин за заключване на екрана"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Когато видите тази икона, можете да използвате отпечатъка си за идентификация или за оторизиране на покупка."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Трябва само да докоснете сензора за отпечатъци, за да „събудите“ и отключите устройството си."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Когато видите тази икона, можете да използвате отпечатъка си."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Пропуск. на настройването на отпечатък?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Избрахте да използвате отпечатъка си като един от начините за отключване на телефона си. Ако пропуснете сега, ще трябва да настроите по-късно. Настройването отнема около минута."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Заключване на екрана: Настройване"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"Готово"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Ами сега! Това не е сензорът"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Ползвайте сензора за отпечатък на у-вото си."</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"Регистрирането не бе завършено"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Времевото ограничение за регистриране на отпечатък бе достигнато. Опитайте отново."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"Регистрирането на отпечатък не проработи. Опитайте отново или използвайте друг пръст."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Добавяне на друг"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Напред"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Освен за отключване на телефона си можете да използвате отпечатъка си и за упълномощаване на покупки и достъп до приложения. "<annotation id="url">"Научете повече"</annotation></string>
@@ -1208,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Преглед на състоянието, правната информация и версията на софтуера"</string>
     <string name="legal_information" msgid="5769301644270604095">"Правна информация"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Сътрудници"</string>
+    <string name="manual" msgid="3025943393642974445">"Ръководство"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Регулативна информация"</string>
     <string name="copyright_title" msgid="865906688917260647">"Авторски права"</string>
     <string name="license_title" msgid="1990487604356037871">"Лиценз"</string>
@@ -1215,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"Системен лиценз за WebView"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Тапети"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Доставчици на сателитни изображения:\n©2014 CNES/Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Ръководство"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Възникна проблем при зареждане на ръководството."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Лицензи с отворен код"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Възникна проблем при зареждането на лицензите."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Зарежда се…"</string>
@@ -2502,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"сигурност на разрешенията за приложения"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"приложения, по подразбиране"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"пренебрегване на оптимизациите, отлагане, приложение, готовност"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"ярък, rgb, srgb, цвят, естествен, стандартен"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"плъзгане, парола, фигура, ПИН код"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"Маркер за КБП за Wi-Fi: Настр."</string>
     <string name="write_tag" msgid="8571858602896222537">"Записване"</string>
@@ -2799,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"Показване на тунера на системния ПИ"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Допълнителни разрешения"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"Още <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Само за зареждане"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Прехвърляне на файлове (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Прехвърляне на снимки (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Зареждане"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Само за зареждане на това устройство"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Захранване"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Зареждане на другото свързано устройство"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Прехвърляния на файлове"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Прехвърляне на файлове на устройство с Windows или Mac (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Прехвърляне на снимки (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"Прехвърляне на снимки или файлове, ако MTP не се поддържа (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Използване на устройството за вход за MIDI"</string>
     <string name="usb_use" msgid="3372728031108932425">"Използване на USB за"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Неактивни приложения"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Неактивно. Докоснете за превключване."</string>
@@ -2868,4 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Това разрешение позволява на дадено приложение да променя системните настройки."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Да"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Не"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Завъртане два пъти за достъп до камерата"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Отворете приложението Камера с двукратно завъртане на китката си"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"За камерата натиснете бутона за захранване 2 пъти"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Бързо отваряйте камерата, без да отключвате екрана си"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Ярък (по подразбиране)"</item>
+    <item msgid="8446070607501413455">"Естествен"</item>
+    <item msgid="6553408765810699025">"Стандартен"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Подобрени цветове"</item>
+    <item msgid="8280754435979370728">"Естествени цветове, без подобрения"</item>
+    <item msgid="5363960654009010371">"Цветове, оптимизирани за дигитално съдържание"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Цветови режим за снимките"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"Използване на sRGB"</string>
 </resources>

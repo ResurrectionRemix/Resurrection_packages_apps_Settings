@@ -322,6 +322,7 @@
       <item quantity="other">已設定 <xliff:g id="COUNT_1">%1$d</xliff:g> 個指紋</item>
       <item quantity="one">已設定 <xliff:g id="COUNT_0">%1$d</xliff:g> 個指紋</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"已設定指紋"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"要使用您的指紋解鎖屏幕或確認購買，我們需要："</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"設定後備螢幕鎖定的方法"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"如果看到這個圖示，您可以使用您的指紋加以識別或授權購買。"</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"只需輕觸指紋感應器即可喚醒裝置或為裝置解鎖。"</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"只要看到這個圖示，即可使用指紋。"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"略過指紋設定？"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"您已選擇使用指紋作為唯一的手機解鎖方式。如果您現在略過，將需要稍後設定。設定過程只需約一分鐘。"</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"設定螢幕鎖定"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"完成"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"糟糕，這不是感應器"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"使用您裝置上的指紋感應器。"</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"尚未完成註冊"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"已達到指紋註冊次數上限，請重試。"</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"無法註冊指紋，請重試或使用另一隻手指。"</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"新增其他"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"下一步"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"除了解鎖您的手機，您也可以使用您的指紋授權購買和存取應用程式。"<annotation id="url">"瞭解詳情"</annotation></string>
@@ -1209,6 +1215,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"查看法律資訊、狀態、軟件版本"</string>
     <string name="legal_information" msgid="5769301644270604095">"法律資訊"</string>
     <string name="contributors_title" msgid="5917703088825286504">"作者"</string>
+    <string name="manual" msgid="3025943393642974445">"手動"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"監管資訊"</string>
     <string name="copyright_title" msgid="865906688917260647">"版權"</string>
     <string name="license_title" msgid="1990487604356037871">"授權"</string>
@@ -1216,6 +1223,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"System WebView License"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"桌布"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"衛星影像供應商：\n©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"手動"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"載入指南時發生問題。"</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"開放原始碼授權"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"載入授權時發生問題。"</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"正在載入..."</string>
@@ -2157,7 +2166,7 @@
     <string name="data_usage_menu_show_wifi" msgid="2296217964873872571">"顯示 Wi‑Fi 用量"</string>
     <string name="data_usage_menu_hide_wifi" msgid="7290056718050186769">"隱藏 Wi-Fi"</string>
     <string name="data_usage_menu_show_ethernet" msgid="5181361208532314097">"顯示以太網使用量"</string>
-    <string name="data_usage_menu_hide_ethernet" msgid="3326702187179943681">"隱藏乙太網數據用量"</string>
+    <string name="data_usage_menu_hide_ethernet" msgid="3326702187179943681">"隱藏以太網數據用量"</string>
     <string name="data_usage_menu_metered" msgid="6235119991372755026">"網絡限制"</string>
     <string name="data_usage_menu_auto_sync" msgid="8203999775948778560">"資料自動同步"</string>
     <string name="data_usage_menu_sim_cards" msgid="6410498422797244073">"SIM 卡"</string>
@@ -2507,6 +2516,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"應用程式權限安全性"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"應用程式預設"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"略過 優化 非使用中 應用程式 待機"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"生動 RGB SRGB 顏色 自然 標準"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"滑動 密碼 圖案 PIN"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"設定 Wi-Fi NFC 標籤"</string>
     <string name="write_tag" msgid="8571858602896222537">"寫入"</string>
@@ -2804,10 +2814,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"顯示系統使用者介面調諧器"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"其他權限"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"還有 <xliff:g id="COUNT">%1$d</xliff:g> 個"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"只供充電"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"傳送檔案 (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"傳送相片 (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"正在充電"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"只為此裝置充電"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"電源"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"為其他已連接的裝置充電"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"檔案傳輸"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"透過媒體傳輸協定傳送檔案至 Windows 或 Mac"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"相片傳輸 (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"如不支援媒體傳輸協定，則使用相片傳輸協定傳送相片或檔案"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"使用裝置作為 MIDI 輸入"</string>
     <string name="usb_use" msgid="3372728031108932425">"使用 USB 於"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"已暫停的應用程式"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"已暫停。輕觸即可切換。"</string>
@@ -2873,4 +2889,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"此權限允許應用程式修改系統設定。"</string>
     <string name="write_settings_on" msgid="8230580416068832239">"允許"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"不允許"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"轉動兩下即可使用相機功能"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"轉動手腕兩下即可開啟相機應用程式"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"按開關按鈕兩次即可開啟相機"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"快速開啟相機，無需解鎖螢幕"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"生動 (預設)"</item>
+    <item msgid="8446070607501413455">"自然"</item>
+    <item msgid="6553408765810699025">"標準"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"顏色已強化"</item>
+    <item msgid="8280754435979370728">"如眼前所見的自然顏色"</item>
+    <item msgid="5363960654009010371">"優化作數碼內容使用的顏色"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"相片顏色模式"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"使用 sRGB"</string>
 </resources>

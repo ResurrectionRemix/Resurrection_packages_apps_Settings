@@ -322,6 +322,7 @@
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> sidik jari disiapkan</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> sidik jari disiapkan</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Penyiapan sidik jari"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"Untuk menggunakan sidik jari guna membuka kunci layar atau mengonfirmasi pembelian, kami perlu:"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Menyiapkan metode kunci layar cadangan"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Setiap kali melihat ikon ini, Anda dapat menggunakan sidik jari untuk identifikasi atau mengotorisasi pembelian."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Cukup sentuh sensor sidik jari untuk membangunkan dan membuka kunci perangkat."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Jika melihat ikon ini, Anda dapat menggunakan sidik jari."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Lewati penyiapan sidik jari?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Anda telah memilih untuk menggunakan sidik jari sebagai satu cara untuk membuka kunci perangkat. Jika dilewati sekarang, Anda harus menyiapkannya nanti. Penyiapan hanya memerlukan waktu sekitar satu menit."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Siapkan kunci layar"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"Selesai"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Ups, bukan itu sensornya"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Gunakan sensor sidik jari di perangkat."</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"Pendaftaran tidak selesai"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Batas waktu pendaftaran sidik jari tercapai. Coba lagi."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"Pendaftaran sidik jari tidak berhasil. Coba lagi atau gunakan jari lain."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Tambahkan yang lain"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Berikutnya"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Selain membuka kunci ponsel, Anda juga dapat menggunakan sidik jari untuk mengotorisasi pembelian dan akses aplikasi. "<annotation id="url">"Pelajari lebih lanjut"</annotation></string>
@@ -1208,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Lihat info legal, status, versi perangkat lunak"</string>
     <string name="legal_information" msgid="5769301644270604095">"Informasi hukum"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Kontributor"</string>
+    <string name="manual" msgid="3025943393642974445">"Manual"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Informasi pengaturan"</string>
     <string name="copyright_title" msgid="865906688917260647">"Hak cipta"</string>
     <string name="license_title" msgid="1990487604356037871">"Lisensi"</string>
@@ -1215,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"Lisensi WebView Sistem"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Wallpaper"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Penyedia citra satelit:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Manual"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Ada masalah saat memuat manual."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Lisensi sumber terbuka"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Ada masalah saat memuat lisensi."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Memuat…"</string>
@@ -2502,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"keamanan izin aplikasi"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"aplikasi default"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"abaikan pengoptimalan nonaktifkan aplikasi siaga"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"terang rgb srgb warna alami standar"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"geser pin pola sandi"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"Siapkan Tag NFC Wi-Fi"</string>
     <string name="write_tag" msgid="8571858602896222537">"Tulis"</string>
@@ -2799,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"Tampilkan Penyetel SystemUI"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Izin tambahan"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"<xliff:g id="COUNT">%1$d</xliff:g> lainnya"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Hanya untuk pengisian daya"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Transfer file (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Transfer foto (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Mengisi daya"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Isi daya perangkat ini saja"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Pasokan daya"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Isi daya perangkat lain yang terhubung"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Transfer file"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Transfer file ke Windows atau Mac (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Transfer foto (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"Transfer foto atau file jika MTP tidak didukung (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Gunakan perangkat untuk masukan MIDI"</string>
     <string name="usb_use" msgid="3372728031108932425">"Gunakan USB untuk"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Aplikasi yang tidak aktif"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Tidak aktif. Sentuh untuk mengalihkan."</string>
@@ -2868,4 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Izin ini memungkinkan aplikasi mengubah setelan sistem."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Ya"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Tidak"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Putar dua kali untuk kamera"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Membuka aplikasi kamera dengan memutar pergelangan tangan dua kali"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"Tekan tombol daya dua kali untuk kamera"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Buka kamera dengan cepat tanpa membuka kunci layar"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Terang (default)"</item>
+    <item msgid="8446070607501413455">"Alami"</item>
+    <item msgid="6553408765810699025">"Standar"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Warna yang disempurnakan"</item>
+    <item msgid="8280754435979370728">"Warna-warni alami seperti yang dilihat oleh mata"</item>
+    <item msgid="5363960654009010371">"Warna yang dioptimalkan untuk konten digital"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Mode warna gambar"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"Gunakan sRGB"</string>
 </resources>

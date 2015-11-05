@@ -361,6 +361,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     fingerprintCount, fingerprintCount));
             clazz = FingerprintSettings.class.getName();
         } else {
+            fingerprintPreference.setSummary(
+                    R.string.security_settings_fingerprint_preference_summary_none);
             clazz = FingerprintEnrollIntroduction.class.getName();
         }
         intent.setClassName("com.android.settings", clazz);
@@ -795,8 +797,14 @@ public class SecuritySettings extends SettingsPreferenceFragment
             FingerprintManager fpm =
                     (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
             if (fpm.isHardwareDetected()) {
+                // This catches the title which can be overloaded in an overlay
                 data = new SearchIndexableRaw(context);
                 data.title = res.getString(R.string.security_settings_fingerprint_preference_title);
+                data.screenTitle = screenTitle;
+                result.add(data);
+                // Fallback for when the above doesn't contain "fingerprint"
+                data = new SearchIndexableRaw(context);
+                data.title = res.getString(R.string.fingerprint_manage_category_title);
                 data.screenTitle = screenTitle;
                 result.add(data);
             }

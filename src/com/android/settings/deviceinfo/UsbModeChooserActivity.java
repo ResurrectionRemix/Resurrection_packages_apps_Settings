@@ -20,13 +20,14 @@ import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.hardware.usb.UsbManager;
 import android.os.Bundle;
-import android.os.UserManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Checkable;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.settings.R;
 
@@ -36,83 +37,102 @@ import com.android.settings.R;
  */
 public class UsbModeChooserActivity extends Activity {
 
-    private UsbManager mUsbManager;
-    private String[] mFunctions;
-    private boolean mIsUnlocked;
+    public static final int[] DEFAULT_MODES = {
+        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_NONE,
+        UsbBackend.MODE_POWER_SOURCE | UsbBackend.MODE_DATA_NONE,
+        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MTP,
+        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_PTP,
+        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI
+    };
+
+    private UsbBackend mBackend;
+    private AlertDialog mDialog;
+    private LayoutInflater mLayoutInflater;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Intent i = getBaseContext().registerReceiver(null, new IntentFilter(UsbManager.ACTION_USB_STATE));
-        mIsUnlocked = i.getBooleanExtra(UsbManager.USB_DATA_UNLOCKED, false);
 
         super.onCreate(savedInstanceState);
-        mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
-        boolean isFileTransferRestricted = ((UserManager) getSystemService(Context.USER_SERVICE))
-                .hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER);
-        CharSequence[] items;
-        if (isFileTransferRestricted) {
-            items = new CharSequence[] { getText(R.string.usb_use_charging_only), getText(R.string.usb_use_MIDI)};
-            mFunctions = new String[] { null, UsbManager.USB_FUNCTION_MIDI };
-        } else {
-            items = new CharSequence[] {
-                    getText(R.string.usb_use_charging_only), getText(R.string.usb_use_file_transfers),
-                    getText(R.string.usb_use_photo_transfers), getText(R.string.usb_use_MIDI)};
-            mFunctions = new String[] { null, UsbManager.USB_FUNCTION_MTP,
-                    UsbManager.USB_FUNCTION_PTP, UsbManager.USB_FUNCTION_MIDI };
-        }
 
-        final AlertDialog levelDialog;
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.usb_use);
+        mLayoutInflater = LayoutInflater.from(this);
 
-        builder.setSingleChoiceItems(items, getCurrentFunction(),
-                new DialogInterface.OnClickListener() {
+        mDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.usb_use)
+                .setView(R.layout.usb_dialog_container)
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (!ActivityManager.isUserAMonkey()) {
-                            setCurrentFunction(which);
-                        }
-                        dialog.dismiss();
-                        UsbModeChooserActivity.this.finish();
+                        finish();
                     }
-                });
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                UsbModeChooserActivity.this.finish();
+                }).create();
+        mDialog.show();
+
+        LinearLayout container = (LinearLayout) mDialog.findViewById(R.id.container);
+
+        mBackend = new UsbBackend(this);
+        int current = mBackend.getCurrentMode();
+        for (int i = 0; i < DEFAULT_MODES.length; i++) {
+            if (mBackend.isModeSupported(DEFAULT_MODES[i])) {
+                inflateOption(DEFAULT_MODES[i], current == DEFAULT_MODES[i], container);
             }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                UsbModeChooserActivity.this.finish();
-            }
-        });
-        levelDialog = builder.create();
-        levelDialog.show();
+        }
     }
 
-    private int getCurrentFunction() {
-        if (!mIsUnlocked) {
-            return 0;
-        }
+    private void inflateOption(final int mode, boolean selected, LinearLayout container) {
+        View v = mLayoutInflater.inflate(R.layout.radio_with_summary, container, false);
 
-        for (int i = 1; i < mFunctions.length; i++) {
-            if (mUsbManager.isFunctionEnabled(mFunctions[i])) {
-                return i;
+        ((TextView) v.findViewById(android.R.id.title)).setText(getTitle(mode));
+        ((TextView) v.findViewById(android.R.id.summary)).setText(getSummary(mode));
+
+        v.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!ActivityManager.isUserAMonkey()) {
+                    mBackend.setMode(mode);
+                }
+                mDialog.dismiss();
+                finish();
             }
+        });
+        ((Checkable) v).setChecked(selected);
+        container.addView(v);
+    }
+
+    private static int getSummary(int mode) {
+        switch (mode) {
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_NONE:
+                return R.string.usb_use_charging_only_desc;
+            case UsbBackend.MODE_POWER_SOURCE | UsbBackend.MODE_DATA_NONE:
+                return R.string.usb_use_power_only_desc;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MTP:
+                return R.string.usb_use_file_transfers_desc;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_PTP:
+                return R.string.usb_use_photo_transfers_desc;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI:
+                return R.string.usb_use_MIDI_desc;
         }
         return 0;
     }
 
-    private void setCurrentFunction(int which) {
-        if (which == 0) {
-            mUsbManager.setCurrentFunction(null);
-            mUsbManager.setUsbDataUnlocked(false);
-            return;
+    private static int getTitle(int mode) {
+        switch (mode) {
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_NONE:
+                return R.string.usb_use_charging_only;
+            case UsbBackend.MODE_POWER_SOURCE | UsbBackend.MODE_DATA_NONE:
+                return R.string.usb_use_power_only;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MTP:
+                return R.string.usb_use_file_transfers;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_PTP:
+                return R.string.usb_use_photo_transfers;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI:
+                return R.string.usb_use_MIDI;
         }
-
-        mUsbManager.setCurrentFunction(mFunctions[which]);
-        mUsbManager.setUsbDataUnlocked(true);
+        return 0;
     }
 }

@@ -322,6 +322,7 @@
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> fingeraftryk er oprettet</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> fingeraftryk er oprettet</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Registrer fingeraftryk"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"Før du kan bruge dit fingeraftryk til at låse skærmen op eller bekræfte køb, skal vi:"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Konfigurer din alternative metode til skærmlåsning"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Når du ser dette ikon, kan du bruge dit fingeraftryk til brugeridentifikation eller til at godkende et køb."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Tryk på fingeraftrykssensoren for at vække din enhed og låse den op."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Når du ser dette ikon, kan du bruge dit fingeraftryk."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Vil du springe registrering af fingeraftryk over?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Du har valgt at bruge fingeraftryk som en metode til at låse din telefon op. Hvis du springer det over nu, skal du konfigurere dette senere. Konfigurationen tager kun omkring et minut."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Konfigurer skærmlås"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"Færdig"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Hov! Dette er ikke sensoren"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Brug fingeraftrykssensoren på din enhed."</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"Registreringen kunne ikke gennemføres"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Tidsgrænsen for registrering af fingeraftryk blev overskredet. Prøv igen."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"Registrering af fingeraftryk virkede ikke. Prøv igen, eller brug en anden finger."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Tilføj endnu et"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Næste"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Ud over at bruge fingeraftryk til at låse telefonen op kan du også bruge fingeraftryk til at godkende køb og få adgang til apps. "<annotation id="url">"Få flere oplysninger"</annotation></string>
@@ -1208,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Vis juridiske oplysninger, status, softwareversion"</string>
     <string name="legal_information" msgid="5769301644270604095">"Juridiske oplysninger"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Bidragydere"</string>
+    <string name="manual" msgid="3025943393642974445">"Brugervejledning"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Certificeringer"</string>
     <string name="copyright_title" msgid="865906688917260647">"Ophavsret"</string>
     <string name="license_title" msgid="1990487604356037871">"Licens"</string>
@@ -1215,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"System WebView-licens"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Baggrunde"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Leverandører af satellitbilleder:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Brugervejledning"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Der er problemer med at indlæse brugervejledningen."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Open source-licenser"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Der er problemer med at indlæse licenserne."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Indlæser..."</string>
@@ -2502,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"apps tilladelser sikkerhed"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"apps standard"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"ignorer, optimeringer, doze-app, standby"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"klare rgb srgb farve naturlige standard"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"stryg adgangskode mønster pinkode"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"Konfigurer NFC-tag for Wi-Fi"</string>
     <string name="write_tag" msgid="8571858602896222537">"Skriv"</string>
@@ -2557,13 +2567,13 @@
     <string name="no_notification_listeners" msgid="3487091564454192821">"Ingen installerede apps har anmodet om adgang til underretninger."</string>
     <string name="notification_listener_security_warning_title" msgid="5522924135145843279">"Tillad adgang til underretninger for <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
     <string name="notification_listener_security_warning_summary" msgid="548925084229440829">"<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> vil kunne læse alle underretninger, herunder personlige oplysninger, som f.eks. kontaktpersoner og teksten i beskeder, du modtager. Den vil også kunne afvise underretninger eller udløse handlingsknapper i dem."</string>
-    <string name="manage_zen_access_title" msgid="2611116122628520522">"Adgang til \"vil ikke forstyrres\""</string>
-    <string name="zen_access_empty_text" msgid="8772967285742259540">"Ingen installerede apps har anmodet om adgang, når indstillingen \"vil ikke forstyrres\" er aktiveret."</string>
+    <string name="manage_zen_access_title" msgid="2611116122628520522">"Adgang til \"Forstyr ikke\""</string>
+    <string name="zen_access_empty_text" msgid="8772967285742259540">"Ingen installerede apps har anmodet om adgang, når indstillingen \"Forstyr ikke\" er aktiveret."</string>
     <string name="loading_notification_apps" msgid="5031818677010335895">"Indlæser apps..."</string>
     <string name="app_notification_block_title" msgid="4069351066849087649">"Bloker alle"</string>
     <string name="app_notification_block_summary" msgid="9049487483231233726">"Vis aldrig underretninger fra denne app"</string>
     <string name="app_notification_priority_title" msgid="5949923919607295595">"Vis som prioritet"</string>
-    <string name="app_notification_priority_summary" msgid="2538018111338754446">"Tillad, at underretninger fra denne app høres, når \"Vil ikke forstyrres\" er indstillet til \"Kun prioritet\""</string>
+    <string name="app_notification_priority_summary" msgid="2538018111338754446">"Tillad, at underretninger fra denne app høres, når \"Forstyr ikke\" er indstillet til \"Kun prioritet\""</string>
     <string name="app_notification_peekable_title" msgid="8647856880382324822">"Tillad smugkig"</string>
     <string name="app_notification_peekable_summary" msgid="678845517890921158">"Lad denne app fremhæve visse underretninger ved kortvarigt at lade dem glide ind i synsfeltet på den aktuelle skærm"</string>
     <string name="app_notification_sensitive_title" msgid="8465860579482264139">"Skjul følsomt indhold"</string>
@@ -2583,9 +2593,9 @@
     <string name="zen_mode_rule_type_unknown" msgid="3049377282766700600">"Ukendt"</string>
     <string name="zen_mode_configure_rule" msgid="8865785428056490305">"Konfigurer regel"</string>
     <string name="zen_schedule_rule_type_name" msgid="142936744435271449">"Tidsafhængig regel"</string>
-    <string name="zen_schedule_rule_enabled_toast" msgid="3379499360390382259">"Der er oprettet en automatisk regel om at aktivere \"Vil ikke forstyrres\" på bestemte tidspunkter"</string>
+    <string name="zen_schedule_rule_enabled_toast" msgid="3379499360390382259">"Der er oprettet en automatisk regel om at aktivere \"Forstyr ikke\" på bestemte tidspunkter"</string>
     <string name="zen_event_rule_type_name" msgid="2645981990973086797">"Regel for begivenheder"</string>
-    <string name="zen_event_rule_enabled_toast" msgid="6910577623330811480">"En automatisk regel er indstillet til at slå \"Vil ikke forstyrres\" til ved bestemte begivenheder"</string>
+    <string name="zen_event_rule_enabled_toast" msgid="6910577623330811480">"En automatisk regel er indstillet til at slå \"Forstyr ikke\" til ved bestemte begivenheder"</string>
     <string name="zen_mode_event_rule_calendar" msgid="8787906563769067418">"Under begivenheder for"</string>
     <string name="zen_mode_event_rule_summary_calendar_template" msgid="5135844750232403975">"Under begivenheder for <xliff:g id="CALENDAR">%1$s</xliff:g>"</string>
     <string name="zen_mode_event_rule_summary_any_calendar" msgid="4936646399126636358">"enhver kalender"</string>
@@ -2799,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"Vis SystemUI Tuner"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Flere tilladelser"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"<xliff:g id="COUNT">%1$d</xliff:g> mere"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Udelukkende til opladning"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Til at overføre filer (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Til at overføre billeder (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Oplader"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Oplad denne enhed"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Strømforsyning"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Oplad den anden tilsluttede enhed"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Filoverførsler"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Overfør filer til Windows eller Mac (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Billedoverførsel (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"Overfør billeder eller filer, hvis MTP ikke understøttes (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"Til MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Brug enheden til MIDI-indgang"</string>
     <string name="usb_use" msgid="3372728031108932425">"Brug USB"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Inaktive apps"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Inaktiv. Tryk for at skifte."</string>
@@ -2833,8 +2849,8 @@
     <string name="running_frequency" msgid="6622624669948277693">"Hyppighed"</string>
     <string name="memory_maximum_usage" msgid="6513785462055278341">"Maksimal forbrug"</string>
     <string name="no_data_usage" msgid="9131454024293628063">"Der blev ikke brugt nogen data"</string>
-    <string name="zen_access_warning_dialog_title" msgid="1198189958031157142">"Vil du give <xliff:g id="APP">%1$s</xliff:g> adgang til Vil ikke forstyrres?"</string>
-    <string name="zen_access_warning_dialog_summary" msgid="4015885767653010873">"Appen vil kunne aktivere/deaktivere Vil ikke forstyrres og foretage ændringer i relaterede indstillinger."</string>
+    <string name="zen_access_warning_dialog_title" msgid="1198189958031157142">"Vil du give <xliff:g id="APP">%1$s</xliff:g> adgang til Forstyr ikke?"</string>
+    <string name="zen_access_warning_dialog_summary" msgid="4015885767653010873">"Appen vil kunne aktivere/deaktivere Forstyr ikke og foretage ændringer i relaterede indstillinger."</string>
     <string name="ignore_optimizations_on" msgid="6915689518016285116">"Undlad at optimere"</string>
     <string name="ignore_optimizations_off" msgid="6153196256410296835">"Optimer"</string>
     <string name="ignore_optimizations_on_desc" msgid="2321398930330555815">"Kan medføre, at batteriet aflades hurtigere."</string>
@@ -2868,4 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Denne tilladelse giver en app lov til at ændre systemindstillinger."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Ja"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Nej"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Drej to gange for at åbne kameraet"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Åbn kameraappen ved at dreje håndleddet to gange"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"Tryk to gange på afbryderknappen for at åbne kameraet"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Åbn hurtigt kameraet uden at låse skærmen op"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Klare (standard)"</item>
+    <item msgid="8446070607501413455">"Naturlige"</item>
+    <item msgid="6553408765810699025">"Standard"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Forbedrede farver"</item>
+    <item msgid="8280754435979370728">"Naturlige farver, som øjet opfatter dem"</item>
+    <item msgid="5363960654009010371">"Farver, der er optimeret til digitalt indhold"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Farvetilstand for billeder"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"Brug sRGB"</string>
 </resources>

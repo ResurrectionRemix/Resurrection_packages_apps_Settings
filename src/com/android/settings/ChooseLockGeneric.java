@@ -109,11 +109,18 @@ public class ChooseLockGeneric extends SettingsActivity {
             @Override
             public void onRemovalSucceeded(Fingerprint fingerprint) {
                 Log.v(TAG, "Fingerprint removed: " + fingerprint.getFingerId());
+                if (mFingerprintManager.getEnrolledFingerprints().size() == 0) {
+                    finish();
+                }
             }
 
             @Override
             public void onRemovalError(Fingerprint fp, int errMsgId, CharSequence errString) {
-                Toast.makeText(getActivity(), errString, Toast.LENGTH_SHORT);
+                Activity activity = getActivity();
+                if (activity != null) {
+                    Toast.makeText(getActivity(), errString, Toast.LENGTH_SHORT);
+                }
+                finish();
             }
         };
 
@@ -355,6 +362,10 @@ public class ChooseLockGeneric extends SettingsActivity {
                     boolean visible = true;
                     if (KEY_UNLOCK_SET_OFF.equals(key)) {
                         enabled = quality <= DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
+                        if (getResources().getBoolean(R.bool.config_hide_none_security_option)) {
+                            enabled = false;
+                            visible = false;
+                        }
                     } else if (KEY_UNLOCK_SET_NONE.equals(key)) {
                         enabled = quality <= DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
                     } else if (KEY_UNLOCK_SET_PATTERN.equals(key)) {
@@ -491,18 +502,19 @@ public class ChooseLockGeneric extends SettingsActivity {
                 mChooseLockSettingsHelper.utils().clearLock(UserHandle.myUserId());
                 mChooseLockSettingsHelper.utils().setLockScreenDisabled(disabled,
                         UserHandle.myUserId());
-                removeAllFingerprintTemplates();
+                removeAllFingerprintTemplatesAndFinish();
                 getActivity().setResult(Activity.RESULT_OK);
-                finish();
             } else {
-                removeAllFingerprintTemplates();
-                finish();
+                removeAllFingerprintTemplatesAndFinish();
             }
         }
 
-        private void removeAllFingerprintTemplates() {
-            if (mFingerprintManager != null && mFingerprintManager.isHardwareDetected()) {
+        private void removeAllFingerprintTemplatesAndFinish() {
+            if (mFingerprintManager != null && mFingerprintManager.isHardwareDetected()
+                    && mFingerprintManager.getEnrolledFingerprints().size() > 0) {
                 mFingerprintManager.remove(new Fingerprint(null, 0, 0, 0), mRemovalCallback);
+            } else {
+                finish();
             }
         }
 

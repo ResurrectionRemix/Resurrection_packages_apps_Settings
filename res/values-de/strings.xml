@@ -322,6 +322,7 @@
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> Fingerabdrücke einrichten</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> Fingerabdruck einrichten</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Abdruck einrichten"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"Zum Entsperren des Displays oder Bestätigen von Käufen per Fingerabdruck sind folgende Aktionen erforderlich:"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Richten Sie Ihre alternative Methode für die Displaysperre ein."</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Wenn Sie dieses Symbol sehen, können Sie Ihren Fingerabdruck zur Identifizierung oder zur Autorisierung eines Kaufs verwenden."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Tippen Sie einfach auf den Fingerabdrucksensor, um Ihr Gerät zu aktivieren und zu entsperren."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Wenn Sie dieses Symbol sehen, können Sie Ihren Fingerabdruck verwenden."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Fingerabdruck-Einrichtung überspringen?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Sie haben festgelegt, dass Sie unter anderem Ihren Fingerabdruck zum Entsperren Ihres Smartphones verwenden möchten. Wenn Sie diesen Schritt jetzt überspringen, müssen Sie die Einrichtung zu einem späteren Zeitpunkt vornehmen. Die Einrichtung dauert nur ca. eine Minute."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Displaysperre einrichten"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"Fertig"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Das ist nicht der Sensor"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Fingerabdrucksensor auf Gerät verwenden"</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"Registrierung wurde nicht abgeschlossen."</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Zeitüberschreitung für Fingerabdruckregistrierung. Versuchen Sie es erneut."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"Fehler bei Fingerabdruckregistrierung. Versuchen Sie es erneut oder verwenden Sie einen anderen Finger."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Weitere hinzufügen"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Weiter"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Mit Ihrem Fingerabdruck können Sie nicht nur Ihr Smartphone entsperren, sondern auch Käufe und App-Zugriffe autorisieren. "<annotation id="url">"Weitere Informationen"</annotation></string>
@@ -1209,6 +1215,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Rechtliche Hinweise, Status und Softwareversion anzeigen"</string>
     <string name="legal_information" msgid="5769301644270604095">"Rechtliche Hinweise"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Mitwirkende"</string>
+    <string name="manual" msgid="3025943393642974445">"Handbuch"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Regulierungsinformationen"</string>
     <string name="copyright_title" msgid="865906688917260647">"Urheberrecht"</string>
     <string name="license_title" msgid="1990487604356037871">"Lizenz"</string>
@@ -1216,6 +1223,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"System-WebView-Lizenz"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Hintergründe"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Satellitenbilder bereitgestellt von:\n© 2014 CNES/Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Handbuch"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Problem beim Laden des Handbuchs."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Open-Source-Lizenzen"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Beim Laden der Lizenzen ist ein Problem aufgetreten."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Wird geladen..."</string>
@@ -2503,6 +2512,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"App-Berechtigungen – Sicherheit"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"Apps-Standardeinstellung"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"Ignorieren Optimierungen Stromsparmodus App Standby"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"brillant rgb srgb farbe natürlich standard"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"ziehen passwort muster pin slide password pattern"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"WLAN-NFC-Tag einrichten"</string>
     <string name="write_tag" msgid="8571858602896222537">"Schreiben"</string>
@@ -2785,7 +2795,7 @@
     <string name="high_power_apps" msgid="3459065925679828230">"Akku-Leistungsoptimierung"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Nicht optimiert"</string>
     <string name="high_power_on" msgid="3382367497549906927">"Akku-Leistungsoptimierung ignorieren"</string>
-    <string name="high_power_off" msgid="3393904131961263278">"Akkuverbrauch optimieren"</string>
+    <string name="high_power_off" msgid="3393904131961263278">"Akkuverbrauch optimiert"</string>
     <string name="high_power_system" msgid="7362862974428225301">"Akku-Leistungsoptimierung nicht verfügbar"</string>
     <string name="high_power_desc" msgid="6283926163708585760">"Keine Optimierung bezüglich der Akkuleistung anwenden. Ihr Akku entleert sich hierdurch möglicherweise schneller."</string>
     <plurals name="high_power_count" formatted="false" msgid="2464701722383894640">
@@ -2802,10 +2812,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"SystemUI-Tuner anzeigen"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Zusätzliche Berechtigungen"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"<xliff:g id="COUNT">%1$d</xliff:g> weitere"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Nur aufladen"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Dateien übertragen (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Fotos übertragen (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Ladevorgang"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Nur zum Aufladen dieses Geräts"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Stromversorgung"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Anderes angeschlossenes Gerät aufladen"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Dateiübertragungen"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Dateien an Windows oder Mac übertragen (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Fotoübertragung (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"Fotos oder Dateien übertragen, falls MTP nicht unterstützt wird (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Gerät für MIDI-Eingabe verwenden"</string>
     <string name="usb_use" msgid="3372728031108932425">"USB verwenden für"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Inaktive Apps"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Inaktiv. Berühren zum Aktivieren."</string>
@@ -2871,4 +2887,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Diese Berechtigung ermöglicht einer App das Ändern von Systemeinstellungen."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Ja"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Nein"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Zum Öffnen der Kamera zweimal drehen"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Kamera App durch zweimaliges Drehen des Handgelenks öffnen"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"Für Kamera Ein/Aus zweimal drücken"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Kamera ohne Entsperren des Displays schnell öffnen"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Brillant (Standardeinstellung)"</item>
+    <item msgid="8446070607501413455">"Natürlich"</item>
+    <item msgid="6553408765810699025">"Standard"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Verstärkte Farben"</item>
+    <item msgid="8280754435979370728">"Natürliche Farben wie vom Auge wahrgenommen"</item>
+    <item msgid="5363960654009010371">"Für digitale Inhalte optimierte Farben"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Farbmodus für Bilder"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"sRGB verwenden"</string>
 </resources>

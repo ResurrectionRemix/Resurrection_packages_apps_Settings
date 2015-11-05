@@ -707,6 +707,8 @@
         <item quantity="one"><xliff:g id="count">%1$d</xliff:g> fingerprint set up</item>
         <item quantity="other"><xliff:g id="count">%1$d</xliff:g> fingerprints set up</item>
     </plurals>
+    <!-- message shown in summary field when no fingerprints are registered -->
+    <string name="security_settings_fingerprint_preference_summary_none"></string>
     <!-- Introduction title shown in fingerprint enrollment dialog [CHAR LIMIT=29] -->
     <string name="security_settings_fingerprint_enroll_onboard_title">Fingerprint setup</string>
     <!-- Introduction message shown in fingerprint enrollment dialog when the user needs to choose an
@@ -759,6 +761,11 @@
     <string name="setup_fingerprint_enroll_finish_message">Just touch the fingerprint sensor to wake and unlock your device.</string>
     <!-- Message shown when fingerprint enrollment is completed, telling user about the fingerprint icon that will be shown whenever they can use their fingerprint [CHAR LIMIT=NONE] -->
     <string name="setup_fingerprint_enroll_finish_message_secondary">When you see this icon, you can use your fingerprint.</string>
+    <!-- Title of the dialog shown when the user tries to skip fingerprint setup, asking them to confirm the action [CHAR LIMIT=40] -->
+    <string name="setup_fingerprint_enroll_enrolling_skip_title">Skip fingerprint setup?</string>
+    <!-- Content of the dialog shown when the user tries to skip fingerprint setup, asking them to confirm the action [CHAR LIMIT=NONE] -->
+    <string name="setup_fingerprint_enroll_enrolling_skip_message">You\u2019ve chosen to use your fingerprint as one way to unlock your phone. If you skip now, you\u2019ll need to set this up later. Setup takes only a minute or so.</string>
+
     <!-- Button text to setup screen lock in onboard dialog [CHAR LIMIT=34] -->
     <string name="security_settings_fingerprint_enroll_setup_screen_lock">Set up screen lock</string>
     <!-- Button text to exit fingerprint wizard after everything is done [CHAR LIMIT=15] -->
@@ -767,6 +774,12 @@
     <string name="security_settings_fingerprint_enroll_touch_dialog_title">Whoops, that\u2019s not the sensor</string>
     <!-- Dialog message for dialog which shows when user touches the icon on the screen, instead of the sensor at the back [CHAR LIMIT=45] -->
     <string name="security_settings_fingerprint_enroll_touch_dialog_message">Use the fingerprint sensor on your device.</string>
+    <!-- Dialog message for dialog which shows when finger cannot be enrolled. [CHAR LIMIT=45] -->
+    <string name="security_settings_fingerprint_enroll_error_dialog_title">Enrollment was not completed</string>
+    <!-- Dialog message for dialog which shows when finger cannot be enrolled due to being idle too long. -->
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message">Fingerprint enrollment time limit reached. Try again.</string>
+    <!-- Dialog message for dialog which shows when finger cannot be enrolled due to an internal error or fingerprint can't be read. -->
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message">Fingerprint enrollment didn\'t work. Try again or use a different finger.</string>
     <!-- Button text shown at the end of enrollment that allows the user to add another fingerprint -->
     <string name="fingerprint_enroll_button_add">Add another</string>
     <!-- Button text shown at the end of enrollment that allows the user to move to the next step -->
@@ -2870,6 +2883,8 @@
     <string name="legal_information">Legal information</string>
     <!-- About phone settings screen, setting option name to see a list of contributors -->
     <string name="contributors_title">Contributors</string>
+    <!-- About phone settings screen, setting option name to show Manual [CHAR LIMIT=25] -->
+    <string name="manual">Manual</string>
     <!-- About phone settings screen, setting option name to show regulatory information [CHAR LIMIT=25] -->
     <string name="regulatory_information">Regulatory information</string>
     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
@@ -2888,6 +2903,11 @@
     <string name="wallpaper_attributions">Wallpapers</string>
     <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
     <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
+
+    <!-- Phone Manual -->
+    <string name="settings_manual_activity_title">Manual</string>
+    <!-- About phone settings screen, Manual dialog message when manual cannot be loaded -->
+    <string name="settings_manual_activity_unavailable">There is a problem loading the manual.</string>
 
     <!-- Title for actual Settings license activity. --> <skip />
     <!-- About phone settings, Legal information setting option name and title of dialog box holding license info -->
@@ -5947,6 +5967,7 @@
     <string name="keywords_app_permissions">apps permissions security</string>
     <string name="keywords_default_apps">apps default</string>
     <string name="keywords_ignore_optimizations">ignore optimizations doze app standby</string>
+    <string name="keywords_color_mode">vibrant rgb srgb color natural standard</string>
     <!-- Search keywords for different screen unlock modes : slide to unlock, password, pattern and PIN [CHAR LIMIT=none] -->
     <string name="keywords_lockscreen">slide password pattern pin</string>
 
@@ -6775,22 +6796,46 @@
     <!-- Description of how many more permissions to view on next page [CHAR LIMIT=30] -->
     <string name="additional_permissions_more"><xliff:g id="count" example="2">%1$d</xliff:g> more</string>
 
-    <!-- One of the choices in a dialog (with title defined in usb_use) that lets the user
+    <!-- Title of one of the choices in a dialog (with title defined in usb_use) that lets the user
          select what the USB connection for this device should be used for. This choice
          is for charging only. -->
-    <string name="usb_use_charging_only">Charging only</string>
-    <!-- One of the choices in a dialog (with title defined in usb_use) that lets the user
+    <string name="usb_use_charging_only">Charging</string>
+    <!-- Decription of one of the choices in a dialog (with title defined in usb_use) that lets the
+         user select what the USB connection for this device should be used for. This choice
+         is for charging only. -->
+    <string name="usb_use_charging_only_desc">Just charge this device</string>
+    <!-- Title of one of the choices in a dialog (with title defined in usb_use) that lets the user
+         select what the USB connection for this device should be used for. This choice
+         is for powering the other device only. -->
+    <string name="usb_use_power_only">Power supply</string>
+    <!-- Decription of one of the choices in a dialog (with title defined in usb_use) that lets the
+         user select what the USB connection for this device should be used for. This choice
+         is for powering the other device only. -->
+    <string name="usb_use_power_only_desc">Charge the other connected device</string>
+    <!-- Title of one of the choices in a dialog (with title defined in usb_use) that lets the user
          select what the USB connection for this device should be used for. This choice
          is for transferring files via MTP. -->
-    <string name="usb_use_file_transfers">Transfer files (MTP)</string>
-    <!-- One of the choices in a dialog (with title defined in usb_use) that lets the user
+    <string name="usb_use_file_transfers">File transfers</string>
+    <!-- Description of one of the choices in a dialog (with title defined in usb_use) that lets the user
+         select what the USB connection for this device should be used for. This choice
+         is for transferring files via MTP. -->
+    <string name="usb_use_file_transfers_desc">Transfer files to Windows or Mac (MTP)</string>
+    <!-- Title of one of the choices in a dialog (with title defined in usb_use) that lets the user
          select what the USB connection for this device should be used for. This choice
          is for transferring photos via PTP. -->
-    <string name="usb_use_photo_transfers">Transfer photos (PTP)</string>
-    <!-- One of the choices in a dialog (with title defined in usb_use) that lets the user
+    <string name="usb_use_photo_transfers">Photo transfer (PTP)</string>
+    <!-- Description of one of the choices in a dialog (with title defined in usb_use) that lets the user
+         select what the USB connection for this device should be used for. This choice
+         is for transferring photos via PTP. -->
+    <string name="usb_use_photo_transfers_desc">Transfer photos or files if MTP is not supported (PTP)</string>
+    <!-- Title of one of the choices in a dialog (with title defined in usb_use) that lets the user
          select what the USB connection for this device should be used for. This choice
          is for entering MIDI mode. -->
     <string name="usb_use_MIDI">MIDI</string>
+    <!-- Description of one of the choices in a dialog (with title defined in usb_use) that lets the user
+         select what the USB connection for this device should be used for. This choice
+         is for entering MIDI mode. -->
+    <string name="usb_use_MIDI_desc">Use device for MIDI input</string>
     <!-- The title used in a dialog which lets the user select what the USB connection
          for this device should be used for. Choices are usb_use_charging_only,
          usb_use_file_transfer, use_use_photo_transfer, and usb_use_MIDI -->
@@ -6985,4 +7030,36 @@
 
     <string name="primary_sub_select_title">Default 4G/3G Subscription</string>
     <string name="select_sim_card">Select SIM card</string>
+
+    <!-- Title of setting that controls gesture to open camera [CHAR LIMIT=40] -->
+    <string name="camera_gesture_title">Double twist for camera</string>
+
+    <!-- Description of setting that controls gesture to open camera [CHAR LIMIT=NONE] -->
+    <string name="camera_gesture_desc">Open the camera app by twisting your wrist twice</string>
+
+    <!-- Title of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=40] -->
+    <string name="camera_double_tap_power_gesture_title">Press power button twice for camera</string>
+
+    <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
+    <string name="camera_double_tap_power_gesture_desc">Quickly open camera without unlocking your screen</string>
+
+    <!-- Name of each color mode for the display. [CHAR LIMIT=40] -->
+    <string-array name="color_mode_names">
+        <item>Vibrant (default)</item>
+        <item>Natural</item>
+        <item>Standard</item>
+    </string-array>
+
+    <!-- Description of each color mode for the display. [CHAR LIMIT=NONE] -->
+    <string-array name="color_mode_descriptions">
+        <item>Enhanced colors</item>
+        <item>Natural colors as seen by the eye</item>
+        <item>Colors optimized for digital content</item>
+    </string-array>
+
+    <!-- Name of feature to change color setting for the display [CHAR LIMIT=60] -->
+    <string name="picture_color_mode">Picture color mode</string>
+
+    <!-- Description of feature to change color setting for the display [CHAR LIMIT=NONE] -->
+    <string name="picture_color_mode_desc">Use sRGB</string>
 </resources>

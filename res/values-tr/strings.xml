@@ -322,6 +322,7 @@
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> parmak izi ayarlandı</item>
       <item quantity="one"><xliff:g id="COUNT_0">%1$d</xliff:g> parmak izi ayarlandı</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Parmak izi ayarlandı"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"Ekranınızın kilidini açmak veya satın alma işlemlerini onaylamak üzere parmak izinizi kullanmak için şunları yapmanız gerekiyor:"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Yedek ekran kilitleme yönteminizi ayarlayın"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Bu simgeyi her gördüğünüzde, kimlik belirlemek veya bir satın alma işlemine onay vermek için parmak izinizi kullanabilirsiniz."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Cihazınızı uyandırmak ve kilidini açmak için parmak izi sensörüne dokunmanız yeterli."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Bu simgeyi gördüğünüzde parmak izinizi kullanabilirsiniz."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Parmak izi ayarlama atlansın mı?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Telefonunuzun kilidini açmak için tek yöntem olarak parmak izinizi kullanmayı seçtiniz. Şimdi atlarsanız bunu daha sonra ayarlamanız gerekecek. Ayarlama işlemi yalnızca bir veya birkaç dakika sürer."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Ekran kilidini ayarla"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"Bitti"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Yanlış oldu, bu sensör değil"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Cihazınızda parmak izi sensörünü kullanın."</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"Kayıt işlemi tamamlanmadı"</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Parmak izi kayıt işlemi için süre sınırı aşıldı. Tekrar deneyin."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"Parmak izi kaydı çalışmadı. Tekrar deneyin veya farklı bir parmak kullanın."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Başka ekle"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Sonraki"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Telefonunuzun kilidini açmanın yanında satın alma işlemlerini ve uygulama erişimini yetkilendirmek için de parmak izinizi kullanabilirsiniz. "<annotation id="url">"Daha fazla bilgi edinin"</annotation></string>
@@ -1208,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Yasal bilgileri, durumu, yazılım sürümünü görüntüle"</string>
     <string name="legal_information" msgid="5769301644270604095">"Yasal bilgiler"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Katkıda bulunanlar"</string>
+    <string name="manual" msgid="3025943393642974445">"Manuel"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Düzenleme bilgileri"</string>
     <string name="copyright_title" msgid="865906688917260647">"Telif Hakkı"</string>
     <string name="license_title" msgid="1990487604356037871">"Lisans"</string>
@@ -1215,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"Sistem WebView Lisansı"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Duvar kağıtları"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Uydu görüntüleri sağlayıcıları:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Manuel"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Kılavuzun yüklenmesiyle ilgili bir sorun var."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Açık kaynak lisansları"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Lisanslar yüklenirken bir sorun oluştu."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Yükleniyor…"</string>
@@ -1726,7 +1735,7 @@
     <string name="controls_subtitle" msgid="390468421138288702">"Pil kullanımını ayarla"</string>
     <string name="packages_subtitle" msgid="4736416171658062768">"Dahil olan paketler"</string>
     <string name="power_screen" msgid="3023346080675904613">"Ekran"</string>
-    <string name="power_flashlight" msgid="7794409781003567614">"Fener"</string>
+    <string name="power_flashlight" msgid="7794409781003567614">"El feneri"</string>
     <string name="power_camera" msgid="4976286950934622605">"Kamera"</string>
     <string name="power_wifi" msgid="1135085252964054957">"Kablosuz"</string>
     <string name="power_bluetooth" msgid="4373329044379008289">"Bluetooth"</string>
@@ -1768,7 +1777,7 @@
     <string name="battery_desc_standby" product="default" msgid="3009080001948091424">"Telefon boştayken kullanılan pil"</string>
     <string name="battery_desc_radio" msgid="5479196477223185367">"Telefon radyosu tarafından kullanılan pil"</string>
     <string name="battery_sugg_radio" msgid="8211336978326295047">"Cep telefonunun kapsama alanı dışında olduğu yerlerde pilden tasarruf etmek için uçak moduna geçin"</string>
-    <string name="battery_desc_flashlight" msgid="2908579430841025494">"Flaş ışığının kullandığı pil"</string>
+    <string name="battery_desc_flashlight" msgid="2908579430841025494">"El fenerinin kullandığı pil"</string>
     <string name="battery_desc_camera" msgid="7375389919760613499">"Kamera tarafından kullanılan pil"</string>
     <string name="battery_desc_display" msgid="5432795282958076557">"Ekran ve arka aydınlatma ışığı tarafından kullanılan pil"</string>
     <string name="battery_sugg_display" msgid="3370202402045141760">"Ekran parlaklığını ve/veya ekranın zaman aşımını azaltın"</string>
@@ -2502,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"uygulama izinleri güvenliği"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"uygulama varsayılanı"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"optimizasyonları yoksay doz uygulama bekleme"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"canlı rgb srgb renk doğal standart"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"kaydırma şifre desen pin"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"Kablosuz NFC Etiketini ayarla"</string>
     <string name="write_tag" msgid="8571858602896222537">"Yaz"</string>
@@ -2799,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"SystemUI Ayarlayıcısını Göster"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Ek izinler"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"<xliff:g id="COUNT">%1$d</xliff:g> tane daha"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Yalnızca şarj"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Dosya aktarma (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Fotoğraf aktarma (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Şarj etme"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Yalnızca bu cihazı şarj et"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Güç kaynağı"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Diğer bağlı cihazı şarj et"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Dosya aktarımları"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Dosyaları Windows\'a veya Mac\'e aktar (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Fotoğraf aktarımı (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"MTP desteklenmiyorsa fotoğrafları veya dosyaları aktar (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Cihazı MIDI girişi için kullan"</string>
     <string name="usb_use" msgid="3372728031108932425">"USB\'yi şunun için kullan:"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Devre dışı uygulamalar"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Devre dışı. Değiştirmek için dokunun."</string>
@@ -2868,4 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Bu izin, bir uygulanın sistem ayarlarını değiştirmesine olanak sağlar."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Evet"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Hayır"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Kamera için iki kez bükün"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Bileğinizi iki kez bükerek kamera uygulamasını açın"</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"Kamera için güç düğmesine iki kez basın"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Ekranınızı kilitlemeden kamerayı hızlıca açın"</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Canlı (varsayılan)"</item>
+    <item msgid="8446070607501413455">"Doğal"</item>
+    <item msgid="6553408765810699025">"Standart"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Geliştirilmiş renkler"</item>
+    <item msgid="8280754435979370728">"Göze göründüğü şekilde doğal renkler"</item>
+    <item msgid="5363960654009010371">"Dijital içerik için optimize edilmiş renkler"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Resim renk modu"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"sRGB\'yi kullan"</string>
 </resources>

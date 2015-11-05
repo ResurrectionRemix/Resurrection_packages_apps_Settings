@@ -322,6 +322,7 @@
       <item quantity="one"><xliff:g id="COUNT_1">%1$d</xliff:g> empreinte digitale configurée</item>
       <item quantity="other"><xliff:g id="COUNT_1">%1$d</xliff:g> empreintes digitales configurées</item>
     </plurals>
+    <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_onboard_title" msgid="4735546436672054254">"Configurer empreinte"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message" msgid="2655449737443418341">"Pour utiliser votre empreinte digitale afin de déverrouiller l\'écran ou de confirmer des achats, nous devons effectuer les opérations suivantes :"</string>
     <string name="security_settings_fingerprint_enroll_onboard_message_1" msgid="2799884038398627882">"Configurer le mode de verrouillage de secours de l\'écran"</string>
@@ -346,10 +347,15 @@
     <string name="security_settings_fingerprint_enroll_finish_message" msgid="835496875787664316">"Chaque fois que cette icône apparaît, vous pouvez utiliser votre empreinte pour vous identifier ou autoriser un achat."</string>
     <string name="setup_fingerprint_enroll_finish_message" msgid="7234264291957984004">"Il vous suffit de toucher le capteur d\'empreintes digitales pour activer et déverrouiller votre appareil."</string>
     <string name="setup_fingerprint_enroll_finish_message_secondary" msgid="7280546429133276374">"Lorsque cette icône s\'affiche, vous pouvez utiliser votre empreinte digitale."</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_title" msgid="6808422329107426923">"Ignorer config. empreintes digitales ?"</string>
+    <string name="setup_fingerprint_enroll_enrolling_skip_message" msgid="274849306857859783">"Vous avez choisi de déverrouiller votre téléphone à l\'aide de votre empreinte digitale. Si vous ignorez cette étape maintenant, vous devrez reprendre la configuration ultérieurement. L\'opération prend environ une minute."</string>
     <string name="security_settings_fingerprint_enroll_setup_screen_lock" msgid="1195743489835505376">"Verrouillage de l\'écran"</string>
     <string name="security_settings_fingerprint_enroll_done" msgid="4014607378328187567">"OK"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_title" msgid="1863561601428695160">"Petit problème… Il ne s\'agit pas du capteur"</string>
     <string name="security_settings_fingerprint_enroll_touch_dialog_message" msgid="5053971232594165142">"Utilisez capteur empreinte dig. sur appareil."</string>
+    <string name="security_settings_fingerprint_enroll_error_dialog_title" msgid="3618021988442639280">"L\'enregistrement n\'est pas terminé."</string>
+    <string name="security_settings_fingerprint_enroll_error_timeout_dialog_message" msgid="2942551158278899627">"Délai d\'enregistrement de l\'empreinte digitale expiré. Veuillez réessayer."</string>
+    <string name="security_settings_fingerprint_enroll_error_generic_dialog_message" msgid="3624760637222239293">"L\'enregistrement de l\'empreinte digitale n\'a pas fonctionné. Veuillez réessayer ou utiliser un autre doigt."</string>
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Ajouter une empreinte"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Suivant"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Votre empreinte digitale vous permet non seulement de déverrouiller votre téléphone, mais également d\'autoriser des achats et l\'accès à l\'application. "<annotation id="url">"En savoir plus"</annotation></string>
@@ -497,7 +503,7 @@
     <string name="bluetooth_enable_alphanumeric_pin" msgid="7222713483058171357">"Le code PIN contient des lettres ou des symboles."</string>
     <string name="bluetooth_pin_values_hint" msgid="3815897557875873646">"Habituellement 0000 ou 1234"</string>
     <string name="bluetooth_pin_values_hint_16_digits" msgid="7849359451584101077">"Doit comporter 16 chiffres."</string>
-    <string name="bluetooth_enter_pin_other_device" msgid="4637977124526813470">"Vous devrez peut-être également saisir ce code PIN sur l\'autre appareil."</string>
+    <string name="bluetooth_enter_pin_other_device" msgid="4637977124526813470">"Vous devrez peut-être également saisir ce code sur l\'autre appareil."</string>
     <string name="bluetooth_enter_passkey_other_device" msgid="2798719004030279602">"Vous devrez peut-être également saisir ce mot de passe sur l\'autre appareil."</string>
     <string name="bluetooth_confirm_passkey_msg" msgid="3708312912841950052">"Pour associer votre appareil à :&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%1$s</xliff:g>&lt;/b&gt;&lt;br&gt;&lt;br&gt;Assurez-vous que le mot de passe &lt;br&gt;&lt;b&gt;<xliff:g id="PASSKEY">%2$s</xliff:g>&lt;/b&gt; s\'affiche."</string>
     <string name="bluetooth_incoming_pairing_msg" msgid="1615930853859551491">"De :&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%1$s</xliff:g>&lt;/b&gt;&lt;br&gt;&lt;br&gt;Associer à cet appareil ?"</string>
@@ -1208,6 +1214,7 @@
     <string name="about_settings_summary" msgid="3371517697156165959">"Informations légales, état et version du logiciel"</string>
     <string name="legal_information" msgid="5769301644270604095">"Informations légales"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Collaborateurs"</string>
+    <string name="manual" msgid="3025943393642974445">"Manuel"</string>
     <string name="regulatory_information" msgid="5695464367088752150">"Réglementations"</string>
     <string name="copyright_title" msgid="865906688917260647">"Droits d\'auteur"</string>
     <string name="license_title" msgid="1990487604356037871">"Licence"</string>
@@ -1215,6 +1222,8 @@
     <string name="webview_license_title" msgid="2813507464175738967">"Licence WebView du système"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Fonds d\'écran"</string>
     <string name="wallpaper_attributions_values" msgid="2996183537914690469">"Fournisseurs d\'images satellite :\n© CNES/Astrium, DigitalGlobe, Bluesky 2014"</string>
+    <string name="settings_manual_activity_title" msgid="8133150693616006051">"Manuel"</string>
+    <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Un problème est survenu lors du chargement du manuel."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Licences open source"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Un problème est survenu lors du chargement des licences."</string>
     <string name="settings_license_activity_loading" msgid="3337535809093591740">"Chargement..."</string>
@@ -2502,6 +2511,7 @@
     <string name="keywords_app_permissions" msgid="8677901415217188314">"sécurité des autorisations des applications"</string>
     <string name="keywords_default_apps" msgid="3581727483175522599">"applications par défaut"</string>
     <string name="keywords_ignore_optimizations" msgid="946516741848647905">"ignorer les optimisations, mettre en veille l\'application"</string>
+    <string name="keywords_color_mode" msgid="4670570451841540200">"couleurs éclatantes rgb srgb couleur couleurs naturelles couleurs normales"</string>
     <string name="keywords_lockscreen" msgid="4806191868723291541">"faire glisser mot de passe schéma code d\'accès"</string>
     <string name="setup_wifi_nfc_tag" msgid="9028353016222911016">"Créer un tag NFC pour Wi-Fi"</string>
     <string name="write_tag" msgid="8571858602896222537">"Modifier"</string>
@@ -2670,7 +2680,7 @@
     <string name="encrypt_dont_require_pin" msgid="1082444817726247368">"Non, merci"</string>
     <string name="encrypt_dont_require_pattern" msgid="6668299362640433843">"Non, merci"</string>
     <string name="encrypt_dont_require_password" msgid="2580403214917009046">"Non, merci"</string>
-    <string name="encrypt_talkback_dialog_require_pin" msgid="8299960550048989807">"Exiger le code PIN ?"</string>
+    <string name="encrypt_talkback_dialog_require_pin" msgid="8299960550048989807">"Exiger le code ?"</string>
     <string name="encrypt_talkback_dialog_require_pattern" msgid="1499790256154146639">"Exiger le schéma ?"</string>
     <string name="encrypt_talkback_dialog_require_password" msgid="8841994614218049215">"Exiger le mot de passe ?"</string>
     <string name="encrypt_talkback_dialog_message_pin" msgid="7582096542997635316">"Lorsque vous saisissez votre code PIN pour démarrer cet appareil, les services d\'accessibilité comme <xliff:g id="SERVICE">%1$s</xliff:g> ne sont pas disponibles."</string>
@@ -2799,10 +2809,16 @@
     <string name="system_ui_settings" msgid="579824306467081123">"Afficher l\'adaptateur de l\'IU système"</string>
     <string name="additional_permissions" msgid="6463784193877056080">"Autorisations supplémentaires"</string>
     <string name="additional_permissions_more" msgid="3538612272673191451">"<xliff:g id="COUNT">%1$d</xliff:g> autres"</string>
-    <string name="usb_use_charging_only" msgid="2625934955897625321">"Charge uniquement"</string>
-    <string name="usb_use_file_transfers" msgid="479119385461326763">"Transférer des fichiers (MTP)"</string>
-    <string name="usb_use_photo_transfers" msgid="7794775645350330454">"Transférer des photos (PTP)"</string>
+    <string name="usb_use_charging_only" msgid="167707234832117768">"Charger"</string>
+    <string name="usb_use_charging_only_desc" msgid="3066256793008540627">"Uniquement pour charger cet appareil"</string>
+    <string name="usb_use_power_only" msgid="6304554004177083963">"Source d\'alimentation"</string>
+    <string name="usb_use_power_only_desc" msgid="708134382305728112">"Charger l\'autre appareil connecté"</string>
+    <string name="usb_use_file_transfers" msgid="6978904665877785548">"Transférer des fichiers"</string>
+    <string name="usb_use_file_transfers_desc" msgid="1663579896876922124">"Transférer des fichiers vers Windows ou Mac (MTP)"</string>
+    <string name="usb_use_photo_transfers" msgid="8276445551694259039">"Transférer des photos (PTP)"</string>
+    <string name="usb_use_photo_transfers_desc" msgid="2963034811151325996">"Transférer des photos ou des fichiers si MTP n\'est pas compatible (PTP)"</string>
     <string name="usb_use_MIDI" msgid="5116404702692483166">"MIDI"</string>
+    <string name="usb_use_MIDI_desc" msgid="6895383550910152384">"Utiliser l\'appareil pour l\'entrée MIDI"</string>
     <string name="usb_use" msgid="3372728031108932425">"Utiliser la connexion USB pour"</string>
     <string name="inactive_apps_title" msgid="1317817863508274533">"Applications inactives"</string>
     <string name="inactive_app_inactive_summary" msgid="6768756967594202411">"Application inactive. Appuyez ici pour l\'activer."</string>
@@ -2868,4 +2884,20 @@
     <string name="write_settings_description" msgid="6868293938839954623">"Cette autorisation permet à une application de modifier les paramètres système."</string>
     <string name="write_settings_on" msgid="8230580416068832239">"Oui"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"Non"</string>
+    <string name="camera_gesture_title" msgid="1075838577642393011">"Double rotation pour l\'appareil photo"</string>
+    <string name="camera_gesture_desc" msgid="1831390075255870960">"Ouvrez l\'application Appareil photo en faisant pivoter votre poignet deux fois."</string>
+    <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"Appuyer deux fois sur bouton Marche/Arrêt pour lancer caméra"</string>
+    <string name="camera_double_tap_power_gesture_desc" msgid="7355664631775680376">"Lancez rapidement la caméra sans déverrouiller l\'écran."</string>
+  <string-array name="color_mode_names">
+    <item msgid="2425514299220523812">"Couleurs éclatantes (par défaut)"</item>
+    <item msgid="8446070607501413455">"Couleurs naturelles"</item>
+    <item msgid="6553408765810699025">"Couleurs normales"</item>
+  </string-array>
+  <string-array name="color_mode_descriptions">
+    <item msgid="4979629397075120893">"Couleurs améliorées"</item>
+    <item msgid="8280754435979370728">"Couleurs naturelles vues par l\'œil"</item>
+    <item msgid="5363960654009010371">"Couleurs optimisées pour les contenus numériques"</item>
+  </string-array>
+    <string name="picture_color_mode" msgid="4560755008730283695">"Mode de couleur des images"</string>
+    <string name="picture_color_mode_desc" msgid="1141891467675548590">"Utiliser sRGB"</string>
 </resources>
