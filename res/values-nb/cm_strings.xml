@@ -230,7 +230,7 @@
   <string name="mod_version_default">Ukjent</string>
   <string name="device_model">Enhetsmodell</string>
   <string name="device_name">Enhetsnavn</string>
-  <string name="build_date">Bygge dato</string>
+  <string name="build_date">Byggdato</string>
   <string name="phone_service_state">Stemme: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Dobbelttapp for å vekke</string>
   <string name="double_tap_to_wake_summary">Dobbelttrykk på skjermen for å aktivere displayet</string>
@@ -247,6 +247,7 @@
   <string name="privacy_guard_reset_text">Tilbakestill tillatelser?</string>
   <string name="privacy_guard_help_text">I dette skjermbildet kan du velge hvilke apps Privacy Guard skal være aktiv for ved å trykke på dem. Valgte apps vil ikke ha tilgang til personlige data som kontakter, meldinger eller ringelogg. Langt trykk på en apps oppføring åpner app detaljer skjermen.\n\nSystem apps vises ikke som standard, men kan vises ved å velge alternativet i menyen.</string>
   <string name="privacy_guard_manager_show_system_apps">Vis innebygde programmer</string>
+  <string name="privacy_guard_notification_title">Vis varsel</string>
   <string name="app_ops_btn_text">Endre</string>
   <string name="increasing_ring_volume_option_title">Økende ringevolum</string>
   <string name="increasing_ring_min_volume_title">Start volum</string>
@@ -480,6 +481,7 @@
   <string name="ok">Ok</string>
   <string name="profile_menu_delete_title">Slett</string>
   <string name="profile_action_none">La stå uendret</string>
+  <string name="profile_action_system">Systemstandard</string>
   <string name="profile_action_disable">slå av</string>
   <string name="profile_action_enable">Slå på</string>
   <string name="profile_trigger_a2dp_connect">Ved A2DP tilkobling</string>
@@ -698,6 +700,7 @@
   <string name="status_bar_show_weather_summary">Vis været over hurtiginnstillinger panelet</string>
   <string name="qs_category_title">Hurtinginnstillingspanel</string>
   <string name="qs_brightness_slider_title">Vis lysstyrkeendrer</string>
+  <string name="qs_hide_tiles_with_sensitive_data">Skjul sensitive fliser når låst</string>
   <string name="qs_order_title">Velg og sorter fliser</string>
   <string name="add_qs">Legg til ny flis</string>
   <string name="qs_action_delete">Slett</string>
@@ -720,11 +723,13 @@
   <string name="qs_tile_compass">Kompass</string>
   <string name="qs_tile_lockscreen">Låsskjerm</string>
   <string name="qs_tile_lte">LTE</string>
+  <string name="qs_tile_volume_panel">Volumpanel</string>
   <string name="qs_tile_screen_timeout">Tidsavbrudd for skjermen</string>
   <string name="qs_tile_usb_tether">USB tethering</string>
   <string name="qs_tile_heads_up">Flytende notifikasjoner</string>
   <string name="qs_tile_ambient_display">Ambient skjerm</string>
   <string name="qs_tile_sync">Synkroniser</string>
+  <string name="qs_tile_battery_saver">Batterisparing</string>
   <string name="qs_dynamic_tile_next_alarm">Neste alarm</string>
   <string name="qs_dynamic_tile_ime_selector">IME-velger</string>
   <string name="qs_dynamic_tile_su">Root-tilgang</string>
@@ -828,6 +833,14 @@
   <string name="live_display_low_power_summary">Justere visningen for laveste strømforbruk uten degradering</string>
   <string name="live_display_enhance_color_title">Forbedre farger</string>
   <string name="live_display_enhance_color_summary">Forbedre fargefullhet på hudfarger, natur og andre bilder</string>
+  <string name="live_display_color_profile_title">Fargeprofil</string>
+  <string name="live_display_color_profile_standard_title">Standard</string>
+  <string name="live_display_color_profile_standard_summary">Nøyaktige farger og lyse hvitfarger</string>
+  <string name="live_display_color_profile_natural_title">Naturlig</string>
+  <string name="live_display_color_profile_natural_summary">Realistiske farger og varme toner</string>
+  <string name="live_display_color_profile_dynamic_title">Dynamisk</string>
+  <string name="live_display_color_profile_astronomy_title">Astronomi</string>
+  <string name="live_display_color_profile_astronomy_summary">Dyp rød for å bevare nattsynet</string>
   <string name="battery_saver_threshold">Batterisparingsterskel</string>
   <string name="battery_saver_summary">Reduser ytelsen og begrens bakgrunnsdata</string>
   <string name="battery_saver_summary_unavailable">Ikke tilgjengelig under lading</string>
@@ -901,6 +914,7 @@
   <string name="fingerprint_enrollment_scan_title">Hold i 3 sekunder</string>
   <string name="fingerprint_enrollment_scan_instructions">Sett pekefingeren din på fingeravtrykkssensoren for å begynne oppsettet. Løft fingeren når du føler en vibrering.</string>
   <string name="fingerprint_enrollment_error_title_wrong_sensor">Prøv igjen</string>
+  <string name="fingerprint_enrollment_error_message">Plasser fingeren på fingeravtrykkssensoren for å sikre en nøyaktig skanning. Kontroller også at du bruker samme finger som før. Løft fingeren når du føler en vibrasjon.</string>
   <string name="fingerprint_enrollment_scan_instructions">Sett pekefingeren din på fingeravtrykkssensoren for å begynne oppsettet. Løft fingeren når du føler en vibrering.</string>
   <string name="fingerprint_enrollment_break_title">Fortsett med nåværende grep</string>
   <string name="fingerprint_enrollment_break_instructions">Fortsett for å skanne kantene av avtrykket ditt. Løft fingeren når du føler en vibrering.</string>
@@ -934,4 +948,5 @@
   <string name="battery_info_status_charging_dock_usb">Lader via dokk-USB</string>
   <string name="setup_lock_pattern_size_title">Mønsterkompleksitet</string>
   <string name="setup_lock_pattern_size_details">Hvor mange noder vil du bruke med mønsteret ditt? Jo flere noder, desto mer komplisert vil mønsteret være.</string>
+  <string name="keep_screen_on_never">Aldri</string>
 </resources>
