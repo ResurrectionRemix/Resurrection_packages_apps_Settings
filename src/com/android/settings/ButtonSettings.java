@@ -244,7 +244,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (hasHomeKey) {
             if (!showHomeWake) {
-                homeCategory.removePreference(findPreference(Settings.System.HOME_WAKE_SCREEN));
+                homeCategory.removePreference(findPreference(CMSettings.System.HOME_WAKE_SCREEN));
             }
 
             if (!Utils.isVoiceCapable(getActivity())) {
@@ -266,13 +266,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 defaultDoubleTapAction = ACTION_NOTHING;
             }
 
-            int longPressAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_HOME_LONG_PRESS_ACTION,
+            int longPressAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_HOME_LONG_PRESS_ACTION,
                     defaultLongPressAction);
             mHomeLongPressAction = initActionList(KEY_HOME_LONG_PRESS, longPressAction);
 
-            int doubleTapAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_HOME_DOUBLE_TAP_ACTION,
+            int doubleTapAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_HOME_DOUBLE_TAP_ACTION,
                     defaultDoubleTapAction);
             mHomeDoubleTapAction = initActionList(KEY_HOME_DOUBLE_TAP, doubleTapAction);
 
@@ -283,7 +283,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (hasBackKey) {
             if (!showBackWake) {
-                backCategory.removePreference(findPreference(Settings.System.BACK_WAKE_SCREEN));
+                backCategory.removePreference(findPreference(CMSettings.System.BACK_WAKE_SCREEN));
                 prefScreen.removePreference(backCategory);
             }
         } else {
@@ -292,15 +292,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (hasMenuKey) {
             if (!showMenuWake) {
-                menuCategory.removePreference(findPreference(Settings.System.MENU_WAKE_SCREEN));
+                menuCategory.removePreference(findPreference(CMSettings.System.MENU_WAKE_SCREEN));
             }
 
-            int pressAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_MENU_ACTION, ACTION_MENU);
+            int pressAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_MENU_ACTION, ACTION_MENU);
             mMenuPressAction = initActionList(KEY_MENU_PRESS, pressAction);
 
-            int longPressAction = Settings.System.getInt(resolver,
-                        Settings.System.KEY_MENU_LONG_PRESS_ACTION,
+            int longPressAction = CMSettings.System.getInt(resolver,
+                        CMSettings.System.KEY_MENU_LONG_PRESS_ACTION,
                         hasAssistKey ? ACTION_NOTHING : ACTION_SEARCH);
             mMenuLongPressAction = initActionList(KEY_MENU_LONG_PRESS, longPressAction);
 
@@ -311,15 +311,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (hasAssistKey) {
             if (!showAssistWake) {
-                assistCategory.removePreference(findPreference(Settings.System.ASSIST_WAKE_SCREEN));
+                assistCategory.removePreference(findPreference(CMSettings.System.ASSIST_WAKE_SCREEN));
             }
 
-            int pressAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_ASSIST_ACTION, ACTION_SEARCH);
+            int pressAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_ASSIST_ACTION, ACTION_SEARCH);
             mAssistPressAction = initActionList(KEY_ASSIST_PRESS, pressAction);
 
-            int longPressAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_ASSIST_LONG_PRESS_ACTION, ACTION_VOICE_SEARCH);
+            int longPressAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_ASSIST_LONG_PRESS_ACTION, ACTION_VOICE_SEARCH);
             mAssistLongPressAction = initActionList(KEY_ASSIST_LONG_PRESS, longPressAction);
 
             hasAnyBindableKey = true;
@@ -330,15 +330,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (hasAppSwitchKey) {
             if (!showAppSwitchWake) {
                 appSwitchCategory.removePreference(findPreference(
-                        Settings.System.APP_SWITCH_WAKE_SCREEN));
+                        CMSettings.System.APP_SWITCH_WAKE_SCREEN));
             }
 
-            int pressAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_APP_SWITCH_ACTION, ACTION_APP_SWITCH);
+            int pressAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_APP_SWITCH_ACTION, ACTION_APP_SWITCH);
             mAppSwitchPressAction = initActionList(KEY_APP_SWITCH_PRESS, pressAction);
 
-            int longPressAction = Settings.System.getInt(resolver,
-                    Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION, ACTION_NOTHING);
+            int longPressAction = CMSettings.System.getInt(resolver,
+                    CMSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION, ACTION_NOTHING);
             mAppSwitchLongPressAction = initActionList(KEY_APP_SWITCH_LONG_PRESS, longPressAction);
 
             hasAnyBindableKey = true;
@@ -346,10 +346,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
-        mCameraWakeScreen = (SwitchPreference) findPreference(Settings.System.CAMERA_WAKE_SCREEN);
+        mCameraWakeScreen = (SwitchPreference) findPreference(CMSettings.System.CAMERA_WAKE_SCREEN);
         mCameraSleepOnRelease =
-                (SwitchPreference) findPreference(Settings.System.CAMERA_SLEEP_ON_RELEASE);
-        mCameraLaunch = (SwitchPreference) findPreference(Settings.System.CAMERA_LAUNCH);
+                (SwitchPreference) findPreference(CMSettings.System.CAMERA_SLEEP_ON_RELEASE);
+        mCameraLaunch = (SwitchPreference) findPreference(CMSettings.System.CAMERA_LAUNCH);
 
         if (hasCameraKey) {
             if (!showCameraWake) {
@@ -365,7 +365,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (Utils.hasVolumeRocker(getActivity())) {
             if (!showVolumeWake) {
-                volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
+                volumeCategory.removePreference(findPreference(CMSettings.System.VOLUME_WAKE_SCREEN));
             }
 
             int cursorControlAction = Settings.System.getInt(resolver,
@@ -373,8 +373,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
                     cursorControlAction);
 
-            int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
-                    Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
+            int swapVolumeKeys = CMSettings.System.getInt(getContentResolver(),
+                    CMSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
             mSwapVolumeButtons = (SwitchPreference)
                     prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
             mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
@@ -415,10 +415,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (mCameraWakeScreen != null) {
             if (mCameraSleepOnRelease != null && !getResources().getBoolean(
                     com.android.internal.R.bool.config_singleStageCameraKey)) {
-                mCameraSleepOnRelease.setDependency(Settings.System.CAMERA_WAKE_SCREEN);
+                mCameraSleepOnRelease.setDependency(CMSettings.System.CAMERA_WAKE_SCREEN);
             }
         }
-        mVolumeWakeScreen = (SwitchPreference) findPreference(Settings.System.VOLUME_WAKE_SCREEN);
+        mVolumeWakeScreen = (SwitchPreference) findPreference(CMSettings.System.VOLUME_WAKE_SCREEN);
         mVolumeMusicControls = (SwitchPreference) findPreference(KEY_VOLUME_MUSIC_CONTROLS);
 
         mVolumeControlRingStream = (SwitchPreference)
@@ -431,7 +431,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         if (mVolumeWakeScreen != null) {
             if (mVolumeMusicControls != null) {
-                mVolumeMusicControls.setDependency(Settings.System.VOLUME_WAKE_SCREEN);
+                mVolumeMusicControls.setDependency(CMSettings.System.VOLUME_WAKE_SCREEN);
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
@@ -443,11 +443,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Power button ends calls.
         if (mPowerEndCall != null) {
-            final int incallPowerBehavior = Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR,
-                    Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT);
+            final int incallPowerBehavior = CMSettings.Secure.getInt(getContentResolver(),
+                    CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR,
+                    CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT);
             final boolean powerButtonEndsCall =
-                    (incallPowerBehavior == Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
+                    (incallPowerBehavior == CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
             mPowerEndCall.setChecked(powerButtonEndsCall);
         }
 
@@ -540,6 +540,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         String value = (String) newValue;
         int index = pref.findIndexOfValue(value);
         pref.setSummary(pref.getEntries()[index]);
+        CMSettings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
+    }
+
+    private void handleSystemActionListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
         Settings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
     }
 
@@ -552,38 +559,38 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mHomeLongPressAction) {
             handleActionListChange(mHomeLongPressAction, newValue,
-                    Settings.System.KEY_HOME_LONG_PRESS_ACTION);
+                    CMSettings.System.KEY_HOME_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mHomeDoubleTapAction) {
             handleActionListChange(mHomeDoubleTapAction, newValue,
-                    Settings.System.KEY_HOME_DOUBLE_TAP_ACTION);
+                    CMSettings.System.KEY_HOME_DOUBLE_TAP_ACTION);
             return true;
         } else if (preference == mMenuPressAction) {
             handleActionListChange(mMenuPressAction, newValue,
-                    Settings.System.KEY_MENU_ACTION);
+                    CMSettings.System.KEY_MENU_ACTION);
             return true;
         } else if (preference == mMenuLongPressAction) {
             handleActionListChange(mMenuLongPressAction, newValue,
-                    Settings.System.KEY_MENU_LONG_PRESS_ACTION);
+                    CMSettings.System.KEY_MENU_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mAssistPressAction) {
             handleActionListChange(mAssistPressAction, newValue,
-                    Settings.System.KEY_ASSIST_ACTION);
+                    CMSettings.System.KEY_ASSIST_ACTION);
             return true;
         } else if (preference == mAssistLongPressAction) {
             handleActionListChange(mAssistLongPressAction, newValue,
-                    Settings.System.KEY_ASSIST_LONG_PRESS_ACTION);
+                    CMSettings.System.KEY_ASSIST_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mAppSwitchPressAction) {
             handleActionListChange(mAppSwitchPressAction, newValue,
-                    Settings.System.KEY_APP_SWITCH_ACTION);
+                    CMSettings.System.KEY_APP_SWITCH_ACTION);
             return true;
         } else if (preference == mAppSwitchLongPressAction) {
             handleActionListChange(mAppSwitchLongPressAction, newValue,
-                    Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
+                    CMSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
             return true;
         } else if (preference == mVolumeKeyCursorControl) {
-            handleActionListChange(mVolumeKeyCursorControl, newValue,
+            handleSystemActionListChange(mVolumeKeyCursorControl, newValue,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
         } else if (preference == mNavigationRecentsLongPressAction) {
@@ -691,8 +698,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (preference == mSwapVolumeButtons) {
             int value = mSwapVolumeButtons.isChecked()
                     ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
+            CMSettings.System.putInt(getActivity().getContentResolver(),
+                    CMSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
         } else if (preference == mVolumeControlRingStream) {
             int value = mVolumeControlRingStream.isChecked() ? 1 : 0;
             CMSettings.System.putInt(getActivity().getContentResolver(),
@@ -723,10 +730,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
-        Settings.Secure.putInt(getContentResolver(),
-                Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
-                        ? Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
-                        : Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
+        CMSettings.Secure.putInt(getContentResolver(),
+                CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
+                        ? CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
+                        : CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
     }
 
     private void handleToggleHomeButtonAnswersCallPreferenceClick() {
