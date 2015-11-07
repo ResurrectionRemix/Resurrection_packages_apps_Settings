@@ -135,17 +135,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Lollipop 6.0_r26 - MDB08M");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.rr_modversion");
+        setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         setExplicitValueSummary(KEY_MOD_API_LEVEL, constructApiLevelString());
-        findPreference(KEY_MOD_API_LEVEL).setEnabled(true);
-        findPreference(KEY_UBER_KERNEL).setEnabled(true);
-        findPreference(KEY_UBER_FLAGS).setEnabled(true);
-        setValueSummary(KEY_UBER_AND, "ro.uber.android");
-        setValueSummary(KEY_UBER_KERNEL, "ro.uber.kernel");
-        setValueSummary(KEY_UBER_FLAGS, "ro.uber.flags");
-
+        findPreference(KEY_MOD_API_LEVEL).setEnabled(false);
+	getPreferenceScreen().removePreference(findPreference(KEY_MOD_API_LEVEL));
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
             setStringSummary(KEY_SELINUX_STATUS, status);
