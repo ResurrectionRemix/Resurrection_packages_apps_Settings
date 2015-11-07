@@ -80,8 +80,15 @@
         <!-- Mod version -->
         <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/mod_version"
+                android:title="@string/rr_mod_version"
                 android:summary="@string/mod_version_default" />
+
+        <!-- About Resurrection >        
+       <PreferenceScreen
+        android:key="about_rom"
+        android:fragment="com.android.settings.rr.About"
+        android:title="@string/about_rr_settings_title"
+        android:summary="@string/about_r0m_summary" /-->
 
         <!-- CyanogenMod API Version -->
         <Preference android:key="mod_api_level"
@@ -118,7 +125,6 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/build_date"
                 android:summary="@string/build_date_default" />
-
         <!-- Detailed build version -->
         <Preference android:key="build_number"
                 style="?android:preferenceInformationStyle"
@@ -130,5 +136,4 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"/>
-
 </PreferenceScreen>
