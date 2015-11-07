@@ -157,7 +157,6 @@ public class WifiConfigController implements TextWatcher,
     private Context mContext;
     private TelephonyManager mTelephonyManager;
     private SubscriptionManager mSubscriptionManager = null;
-    private String selectedSimCardName;
     private int selectedSimCardNumber;
 
 
@@ -466,9 +465,7 @@ public class WifiConfigController implements TextWatcher,
                     case Eap.SIM:
                     case Eap.AKA:
                     case Eap.AKA_PRIME:
-                        selectedSimCardName = (String)mSimCardSpinner.getSelectedItem();
-                        selectedSimCardNumber = mSimDisplayNames.
-                              indexOf(selectedSimCardName) + 1;
+                        selectedSimCardNumber = mSimCardSpinner.getSelectedItemPosition() + 1;
                         config.SIMNum = selectedSimCardNumber;
                         break;
                     default:
