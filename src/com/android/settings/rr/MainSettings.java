@@ -28,6 +28,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.List;
 
+import com.android.internal.logging.MetricsLogger;
+
 public class MainSettings extends SettingsPreferenceFragment {
 
     @Override
@@ -35,5 +37,10 @@ public class MainSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_main_settings);
+    }
+
+    protected int getMetricsCategory()
+    {
+	return MetricsLogger.APPLICATION;
     }
 }
