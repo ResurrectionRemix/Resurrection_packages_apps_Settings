@@ -132,10 +132,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
-        setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
+        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Lollipop 6.0_r26 - MDB08M");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, cyanogenmod.os.Build.CYANOGENMOD_DISPLAY_VERSION);
+        setValueSummary(KEY_MOD_VERSION, "ro.rr_modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         setExplicitValueSummary(KEY_MOD_API_LEVEL, constructApiLevelString());
