@@ -174,11 +174,16 @@ public final class DeviceProfilesSettings extends DialogFragment implements
     private void addPreferencesForProfiles() {
         mProfileContainer.removeAllViews();
         for (LocalBluetoothProfile profile : mCachedDevice.getConnectableProfiles()) {
-            CheckBox pref = createProfilePreference(profile);
-            mProfileContainer.addView(pref);
+            // MAP and PBAP profiles would be added based on permission access
+            if (!((profile instanceof PbapServerProfile) ||
+                (profile instanceof MapProfile))) {
+                CheckBox pref = createProfilePreference(profile);
+                mProfileContainer.addView(pref);
+            }
         }
 
         final int pbapPermission = mCachedDevice.getPhonebookPermissionChoice();
+        Log.d(TAG, "addPreferencesForProfiles: pbapPermission = " + pbapPermission);
         // Only provide PBAP cabability if the client device has requested PBAP.
         if (pbapPermission != CachedBluetoothDevice.ACCESS_UNKNOWN) {
             final PbapServerProfile psp = mManager.getProfileManager().getPbapProfile();
@@ -188,6 +193,7 @@ public final class DeviceProfilesSettings extends DialogFragment implements
 
         final MapProfile mapProfile = mManager.getProfileManager().getMapProfile();
         final int mapPermission = mCachedDevice.getMessagePermissionChoice();
+        Log.d(TAG, "addPreferencesForProfiles: mapPermission = " + mapPermission);
         if (mapPermission != CachedBluetoothDevice.ACCESS_UNKNOWN) {
             CheckBox mapPreference = createProfilePreference(mapProfile);
             mProfileContainer.addView(mapPreference);
@@ -242,15 +248,6 @@ public final class DeviceProfilesSettings extends DialogFragment implements
     private void onProfileClicked(LocalBluetoothProfile profile, CheckBox profilePref) {
         BluetoothDevice device = mCachedDevice.getDevice();
 
-        if (KEY_PBAP_SERVER.equals(profilePref.getTag())) {
-            final int newPermission = mCachedDevice.getPhonebookPermissionChoice()
-                == CachedBluetoothDevice.ACCESS_ALLOWED ? CachedBluetoothDevice.ACCESS_REJECTED
-                : CachedBluetoothDevice.ACCESS_ALLOWED;
-            mCachedDevice.setPhonebookPermissionChoice(newPermission);
-            profilePref.setChecked(newPermission == CachedBluetoothDevice.ACCESS_ALLOWED);
-            return;
-        }
-
         if (!profilePref.isChecked()) {
             // Recheck it, until the dialog is done.
             profilePref.setChecked(true);
@@ -258,6 +255,11 @@ public final class DeviceProfilesSettings extends DialogFragment implements
         } else {
             if (profile instanceof MapProfile) {
                 mCachedDevice.setMessagePermissionChoice(BluetoothDevice.ACCESS_ALLOWED);
+            }
+            if (profile instanceof PbapServerProfile) {
+                mCachedDevice.setPhonebookPermissionChoice(BluetoothDevice.ACCESS_ALLOWED);
+                refreshProfilePreference(profilePref, profile);
+                return;
             }
             if (profile.isPreferred(device)) {
                 // profile is preferred but not connected: disable auto-connect
@@ -296,9 +298,12 @@ public final class DeviceProfilesSettings extends DialogFragment implements
                 if (which == OK_BUTTON) {
                     device.disconnect(profile);
                     profile.setPreferred(device.getDevice(), false);
-                }
-                if (profile instanceof MapProfile) {
-                    device.setMessagePermissionChoice(BluetoothDevice.ACCESS_REJECTED);
+                    if (profile instanceof MapProfile) {
+                        device.setMessagePermissionChoice(BluetoothDevice.ACCESS_REJECTED);
+                    }
+                    if (profile instanceof PbapServerProfile) {
+                        device.setPhonebookPermissionChoice(BluetoothDevice.ACCESS_REJECTED);
+                    }
                 }
                 refreshProfilePreference(findProfile(profile.toString()), profile);
             }
