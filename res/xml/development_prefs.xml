@@ -32,6 +32,11 @@
             android:title="@*android:string/bugreport_title"
             android:dialogTitle="@*android:string/bugreport_title" />
 
+    <SwitchPreference
+        android:key="advanced_reboot"
+        android:title="@string/advanced_reboot_title"
+        android:summary="@string/advanced_reboot_summary" />
+
     <PreferenceScreen
             android:key="local_backup_password"
             android:title="@string/local_backup_password_title"
@@ -133,6 +138,11 @@
 
         <PreferenceScreen android:key="mock_location_app"
             android:title="@string/mock_location_app" />
+
+        <SwitchPreference
+            android:key="development_shortcut"
+            android:title="@string/development_shortcut_title"
+            android:summary="@string/development_shortcut_summary" />
 
         <SwitchPreference
                 android:key="debug_view_attributes"
