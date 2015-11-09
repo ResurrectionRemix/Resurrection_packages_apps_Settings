@@ -25,7 +25,7 @@
                 android:summary="@string/lockscreen_see_through_summary"
                 android:defaultValue="false" />
 
-        <!--com.android.settings.rr.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
                 android:key="lockscreen_blur_radius"
                 android:title="@string/lockscreen_blur_radius"
                 android:max="25"
@@ -33,11 +33,12 @@
                 settings:unitsLeft=""
                 settings:unitsRight=""
                 android:persistent="false"
-                android:dependency="lockscreen_see_through" /-->
+                android:dependency="lockscreen_see_through" />
 
 
         <PreferenceScreen
-            android:title="@string/lockscreen_targets_message" >
+            android:title="@string/lockscreen_targets_message" 
+            android:summary="@string/lockscreen_targets_summary" >
             <intent
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
