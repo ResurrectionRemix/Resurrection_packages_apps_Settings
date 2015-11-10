@@ -33,10 +33,13 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment {
+public class NotificationDrawerSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener{
     private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+    private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
 
     private SwitchPreference mForceExpanded;
+    private SwitchPreference mCustomHeader;
+    
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -46,6 +49,13 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment {
 
 	mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
         mForceExpanded.setChecked((Settings.System.getInt(resolver, Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
+
+         // Status bar custom header hd
+        mCustomHeader = (SwitchPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0) == 1));
+        mCustomHeader.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -57,6 +67,19 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment {
     public void onResume() {
         super.onResume();
     }
+
+	@Override
+	public boolean onPreferenceChange(Preference preference, Object newValue) {
+	ContentResolver resolver = getContentResolver();
+         if (preference == mCustomHeader) {
+           boolean value = (Boolean) newValue;
+           Settings.System.putInt(resolver,
+                   Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, value ? 1 : 0);
+            return true;
+         }
+         return false;
+	}
+
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
