@@ -71,6 +71,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
+import cyanogenmod.providers.CMSettings;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
@@ -222,10 +223,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         boolean proximityCheckOnWait = getResources().getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWake);
+                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
         if (!proximityCheckOnWait) {
             removePreference(KEY_PROXIMITY_WAKE);
-            Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
+            CMSettings.System.putInt(getContentResolver(), CMSettings.System.PROXIMITY_ON_WAKE, 1);
         }
 
         mWakeWhenPluggedOrUnplugged =
@@ -624,7 +625,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         result.add(KEY_TAP_TO_WAKE);
                     }
                     if (!context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_proximityCheckOnWake)) {
+                            org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake)) {
                         result.add(KEY_PROXIMITY_WAKE);
                     }
                     if (!isCameraGestureAvailable(context.getResources())) {
