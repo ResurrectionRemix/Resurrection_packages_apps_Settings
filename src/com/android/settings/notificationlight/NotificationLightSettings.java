@@ -46,6 +46,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.PackageListAdapter;
 import com.android.settings.cyanogenmod.PackageListAdapter.PackageItem;
+import com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private PackageManager mPackageManager;
     private PreferenceGroup mApplicationPrefList;
     private SystemSettingSwitchPreference mEnabledPref;
-    private SystemSettingSwitchPreference mCustomEnabledPref;
+    private CMSystemSettingSwitchPreference mCustomEnabledPref;
     private ApplicationLightPreference mDefaultPref;
     private ApplicationLightPreference mCallPref;
     private ApplicationLightPreference mVoicemailPref;
@@ -111,7 +112,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE);
         mEnabledPref.setOnPreferenceChangeListener(this);
-        mCustomEnabledPref = (SystemSettingSwitchPreference)
+        mCustomEnabledPref = (CMSystemSettingSwitchPreference)
                 findPreference(CMSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         mCustomEnabledPref.setOnPreferenceChangeListener(this);
 
