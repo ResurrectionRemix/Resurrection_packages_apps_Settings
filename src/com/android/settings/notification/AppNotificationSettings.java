@@ -218,10 +218,12 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
                 UserHandle.myUserId());
         final boolean lockscreenNotificationsEnabled = getLockscreenNotificationsEnabled();
         final boolean allowPrivate = getLockscreenAllowPrivateNotifications();
+        final boolean headsUpEnabled  = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0) != 0;
 
         setVisible(mBlock, !mIsSystemPackage);
         setVisible(mPriority, mIsSystemPackage || !banned);
-        setVisible(mPeekable, mIsSystemPackage || !banned);
+        setVisible(mPeekable, mIsSystemPackage || !banned && headsUpEnabled);
         setVisible(mSensitive, mIsSystemPackage || !banned && lockscreenSecure
                 && lockscreenNotificationsEnabled && allowPrivate);
     }
