@@ -18,6 +18,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/about_settings">
 
+        <!-- Mod version -->
+        <Preference android:key="mod_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/rr_mod_version"
+                android:summary="@string/mod_version_default"
+		android:icon="@drawable/ic_rr_tools_tint" />
+
  <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"
                 android:title="@string/system_update_settings_list_item_title" 
@@ -119,12 +126,6 @@
                 android:title="@string/device_model"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/rr_mod_version"
-                android:summary="@string/mod_version_default" />
-                
         <!-- About Resurrection -->        
        <PreferenceScreen
         android:key="about_rom"
