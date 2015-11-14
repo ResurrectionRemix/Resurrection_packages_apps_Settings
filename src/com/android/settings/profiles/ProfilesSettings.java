@@ -50,11 +50,13 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.SubSettings;
 import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 import cyanogenmod.providers.CMSettings;
 
 import java.util.UUID;
 
-public class ProfilesSettings extends SettingsPreferenceFragment {
+public class ProfilesSettings extends SettingsPreferenceFragment
+        implements BaseSystemSettingSwitchBar.SwitchBarChangeCallback {
     private static final String TAG = "ProfilesSettings";
 
     public static final String EXTRA_PROFILE = "Profile";
@@ -67,7 +69,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     private final BroadcastReceiver mReceiver;
 
     private ProfileManager mProfileManager;
-    private ProfileEnabler mProfileEnabler;
+    private BaseSystemSettingSwitchBar mProfileEnabler;
 
     private ViewPager mViewPager;
     private TextView mEmptyText;
@@ -156,7 +158,8 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     public void onStart() {
         super.onStart();
         final SettingsActivity activity = (SettingsActivity) getActivity();
-        mProfileEnabler = new ProfileEnabler(activity, activity.getSwitchBar());
+        mProfileEnabler = new BaseSystemSettingSwitchBar(activity, activity.getSwitchBar(),
+                CMSettings.System.SYSTEM_PROFILES_ENABLED, true, this);
     }
 
     @Override
@@ -229,6 +232,16 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         mAddProfileFab.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mViewPager.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mEmptyText.setVisibility(mEnabled ? View.GONE : View.VISIBLE);
+    }
+
+    @Override
+    public void onEnablerChanged(boolean isEnabled) {
+        Intent intent = new Intent(ProfileManager.PROFILES_STATE_CHANGED_ACTION);
+        intent.putExtra(ProfileManager.EXTRA_PROFILES_STATE,
+                isEnabled ?
+                        ProfileManager.PROFILES_STATE_ENABLED :
+                        ProfileManager.PROFILES_STATE_DISABLED);
+        getActivity().sendBroadcast(intent);
     }
 
     class ProfilesPagerAdapter extends FragmentStatePagerAdapter {

@@ -178,6 +178,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static final String SHOW_ALL_ANRS_KEY = "show_all_anrs";
 
+    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
     private static final String TERMINAL_APP_PACKAGE = "com.android.terminal";
@@ -271,6 +273,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private ListPreference mAppProcessLimit;
 
     private SwitchPreference mShowAllANRs;
+    private SwitchPreference mKillAppLongpressBack;
 
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
@@ -441,6 +444,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mAllPrefs.add(mShowAllANRs);
         mResetSwitchPrefs.add(mShowAllANRs);
 
+        mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
+
         Preference hdcpChecking = findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
             mAllPrefs.add(hdcpChecking);
@@ -454,7 +459,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         }
 
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
-        mAllPrefs.add(mDevelopmentTools);
+        if (Utils.updatePreferenceToSpecificActivityOrRemove(getActivity(),
+                getPreferenceScreen(), mDevelopmentTools.getKey(), 0)) {
+            mAllPrefs.add(mDevelopmentTools);
+        }
 
         mColorModePreference = (ColorModePreference) findPreference(KEY_COLOR_MODE);
         mColorModePreference.updateCurrentAndSupported();
@@ -579,6 +587,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             setPrefsEnabledState(mLastEnabledState);
         }
         mSwitchBar.show();
+        updateKillAppLongpressBackOptions();
 
         if (mColorModePreference != null) {
             mColorModePreference.startListening();
@@ -627,8 +636,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateSwitchPreference(mEnableAdb, Settings.Global.getInt(cr,
                 Settings.Global.ADB_ENABLED, 0) != 0);
 
-        mAdbNotify.setChecked(Settings.Secure.getInt(cr,
-                Settings.Secure.ADB_NOTIFY, 1) != 0);
+        mAdbNotify.setChecked(CMSettings.Secure.getInt(cr,
+                CMSettings.Secure.ADB_NOTIFY, 1) != 0);
         updateAdbOverNetwork();
 
         if (mEnableTerminal != null) {
@@ -691,14 +700,14 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void writeAdvancedRebootOptions() {
-        Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.Secure.ADVANCED_REBOOT,
+        CMSettings.Secure.putInt(getActivity().getContentResolver(),
+                CMSettings.Secure.ADVANCED_REBOOT,
                 mAdvancedReboot.isChecked() ? 1 : 0);
     }
 
     private void updateAdvancedRebootOptions() {
-        mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.ADVANCED_REBOOT, 0) != 0);
+        mAdvancedReboot.setChecked(CMSettings.Secure.getInt(getActivity().getContentResolver(),
+                CMSettings.Secure.ADVANCED_REBOOT, 0) != 0);
     }
 
     private void resetDevelopmentShortcutOptions() {
@@ -718,8 +727,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void updateAdbOverNetwork() {
-        int port = Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.ADB_PORT, 0);
+        int port = CMSettings.Secure.getInt(getActivity().getContentResolver(),
+                CMSettings.Secure.ADB_PORT, 0);
         boolean enabled = port > 0;
 
         updateSwitchPreference(mAdbOverNetwork, enabled);
@@ -848,6 +857,17 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             hdcpChecking.setSummary(summaries[index]);
             hdcpChecking.setOnPreferenceChangeListener(this);
         }
+    }
+
+    private void writeKillAppLongpressBackOptions() {
+        CMSettings.Secure.putInt(getActivity().getContentResolver(),
+                CMSettings.Secure.KILL_APP_LONGPRESS_BACK,
+                mKillAppLongpressBack.isChecked() ? 1 : 0);
+    }
+
+    private void updateKillAppLongpressBackOptions() {
+        mKillAppLongpressBack.setChecked(CMSettings.Secure.getInt(
+            getActivity().getContentResolver(), CMSettings.Secure.KILL_APP_LONGPRESS_BACK, 0) != 0);
     }
 
     private void updatePasswordSummary() {
@@ -1803,8 +1823,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 updateBugreportOptions();
             }
         } else if (preference == mAdbNotify) {
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_NOTIFY,
+            CMSettings.Secure.putInt(getActivity().getContentResolver(),
+                    CMSettings.Secure.ADB_NOTIFY,
                     mAdbNotify.isChecked() ? 1 : 0);
         } else if (preference == mAdbOverNetwork) {
             if (mAdbOverNetwork.isChecked()) {
@@ -1819,8 +1839,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                         .show();
                 mAdbTcpDialog.setOnDismissListener(this);
             } else {
-                Settings.Secure.putInt(getActivity().getContentResolver(),
-                        Settings.Secure.ADB_PORT, -1);
+                CMSettings.Secure.putInt(getActivity().getContentResolver(),
+                        CMSettings.Secure.ADB_PORT, -1);
                 updateAdbOverNetwork();
             }
         } else if (preference == mClearAdbKeys) {
@@ -1920,6 +1940,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             startInactiveAppsFragment();
         } else if (preference == mDevelopmentShortcut) {
             writeDevelopmentShortcutOptions();
+        } else if (preference == mKillAppLongpressBack) {
+            writeKillAppLongpressBackOptions();
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
@@ -2041,8 +2063,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             }
         } else if (dialog == mAdbTcpDialog) {
             if (which == DialogInterface.BUTTON_POSITIVE) {
-                Settings.Secure.putInt(getActivity().getContentResolver(),
-                        Settings.Secure.ADB_PORT, 5555);
+                CMSettings.Secure.putInt(getActivity().getContentResolver(),
+                        CMSettings.Secure.ADB_PORT, 5555);
             }
         } else if (dialog == mAdbKeysDialog) {
             if (which == DialogInterface.BUTTON_POSITIVE) {

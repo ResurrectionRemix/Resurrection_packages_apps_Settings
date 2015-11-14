@@ -97,6 +97,9 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_TRACKPAD_SETTINGS = "gesture_pad_settings";
     private static final String KEY_STYLUS_GESTURES = "stylus_gestures";
     private static final String KEY_STYLUS_ICON_ENABLED = "stylus_icon_enabled";
+    private static final String KEY_VOICE_WAKEUP = "voice_wakeup";
+
+    private static final String VOICE_WAKEUP_PACKAGE = "com.cyanogenmod.voicewakeup";
 
     // false: on ICS or later
     private static final boolean SHOW_INPUT_METHOD_SWITCHER_SETTINGS = false;
@@ -238,7 +241,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         boolean showCmImeSwitcher = getResources().getBoolean(
                 com.android.internal.R.bool.config_show_cmIMESwitcher);
         if (!showCmImeSwitcher) {
-            Preference pref = findPreference(Settings.System.STATUS_BAR_IME_SWITCHER);
+            Preference pref = findPreference(CMSettings.System.STATUS_BAR_IME_SWITCHER);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
@@ -270,6 +273,14 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (mShowsOnlyFullImeAndKeyboardList && identifier != null) {
             showKeyboardLayoutDialog(identifier);
         }
+
+        if (!Utils.isPackageInstalled(getActivity(), KEY_VOICE_WAKEUP, false)) {
+            Preference wakeup = findPreference(KEY_VOICE_WAKEUP);
+            if (wakeup != null) {
+                getPreferenceScreen().removePreference(wakeup);
+            }
+        }
+
     }
 
     private void updateInputMethodSelectorSummary(int value) {

@@ -109,10 +109,16 @@
                 android:summary="@string/proximity_wake_summary"
                 android:defaultValue="true" />
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="double_tap_sleep_gesture"
                 android:title="@string/double_tap_to_sleep_title"
                 android:summary="@string/double_tap_to_sleep_summary"
+                android:defaultValue="true" />
+
+        <!-- Search in Recents -->
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+                android:key="recents_show_search_bar"
+                android:title="@string/recents_show_searchbar"
                 android:defaultValue="true" />
 
         <com.android.settings.FontDialogPreference
@@ -127,6 +133,16 @@
                 android:title="@string/wifi_display_settings_title"
                 settings:keywords="@string/keywords_display_cast_screen"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+
+        <PreferenceCategory
+                android:key="interface"
+                android:title="@string/category_interface">
+                <!-- expanded desktop -->
+                <PreferenceScreen
+                        android:key="expanded_desktop"
+                        android:title="@string/power_menu_expanded_desktop"
+                        android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
+        </PreferenceCategory>
 
         <PreferenceCategory
                 android:key="advanced_display_prefs"

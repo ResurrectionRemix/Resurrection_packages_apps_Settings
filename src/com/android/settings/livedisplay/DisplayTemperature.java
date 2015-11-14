@@ -32,6 +32,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import cyanogenmod.providers.CMSettings;
 
 /**
  * Preference for selection of color temperature range for LiveDisplay
@@ -55,9 +56,9 @@ public class DisplayTemperature extends DialogPreference {
         mContext = context;
 
         mDefaultDayTemperature = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_dayColorTemperature);
+                org.cyanogenmod.platform.internal.R.integer.config_dayColorTemperature);
         mDefaultNightTemperature = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_nightColorTemperature);
+                org.cyanogenmod.platform.internal.R.integer.config_nightColorTemperature);
 
         setDialogLayoutResource(R.layout.display_temperature);
     }
@@ -76,12 +77,12 @@ public class DisplayTemperature extends DialogPreference {
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        mOriginalDayTemperature = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_TEMPERATURE_DAY,
+        mOriginalDayTemperature = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                CMSettings.System.DISPLAY_TEMPERATURE_DAY,
                 mDefaultDayTemperature,
                 UserHandle.USER_CURRENT);
-        mOriginalNightTemperature = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_TEMPERATURE_NIGHT,
+        mOriginalNightTemperature = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                CMSettings.System.DISPLAY_TEMPERATURE_NIGHT,
                 mDefaultNightTemperature,
                 UserHandle.USER_CURRENT);
 
@@ -205,12 +206,12 @@ public class DisplayTemperature extends DialogPreference {
         int night = accept ? mNightTemperature.getProgress() : mOriginalNightTemperature;
         callChangeListener(new Integer[] { day, night });
 
-        Settings.System.putIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_TEMPERATURE_DAY, day,
+        CMSettings.System.putIntForUser(mContext.getContentResolver(),
+                CMSettings.System.DISPLAY_TEMPERATURE_DAY, day,
                 UserHandle.USER_CURRENT);
 
-        Settings.System.putIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_TEMPERATURE_NIGHT, night,
+        CMSettings.System.putIntForUser(mContext.getContentResolver(),
+                CMSettings.System.DISPLAY_TEMPERATURE_NIGHT, night,
                 UserHandle.USER_CURRENT);
     }
 

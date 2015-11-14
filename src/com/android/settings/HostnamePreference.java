@@ -25,6 +25,8 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import cyanogenmod.providers.CMSettings;
+
 public class HostnamePreference extends EditTextPreference {
 
     private static final String TAG = "HostnamePreference";
@@ -121,7 +123,7 @@ public class HostnamePreference extends EditTextPreference {
     }
 
     public void persistHostname(String hostname) {
-        Settings.Secure.putString(getContext().getContentResolver(),
-                Settings.Secure.DEVICE_HOSTNAME, hostname);
+        CMSettings.Secure.putString(getContext().getContentResolver(),
+                CMSettings.Secure.DEVICE_HOSTNAME, hostname);
     }
 }

@@ -236,25 +236,25 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
 
         // power state change notification sounds
         mPowerSounds = (SwitchPreference) findPreference(KEY_POWER_NOTIFICATIONS);
-        mPowerSounds.setChecked(Global.getInt(getContentResolver(),
-                Global.POWER_NOTIFICATIONS_ENABLED, 0) != 0);
+        mPowerSounds.setChecked(CMSettings.Global.getInt(getContentResolver(),
+                CMSettings.Global.POWER_NOTIFICATIONS_ENABLED, 0) != 0);
         mPowerSoundsVibrate = (SwitchPreference) findPreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
-        mPowerSoundsVibrate.setChecked(Global.getInt(getContentResolver(),
-                Global.POWER_NOTIFICATIONS_VIBRATE, 0) != 0);
+        mPowerSoundsVibrate.setChecked(CMSettings.Global.getInt(getContentResolver(),
+                CMSettings.Global.POWER_NOTIFICATIONS_VIBRATE, 0) != 0);
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
             removePreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
         }
 
         mPowerSoundsRingtone = findPreference(KEY_POWER_NOTIFICATIONS_RINGTONE);
-        String currentPowerRingtonePath =
-                Global.getString(getContentResolver(), Global.POWER_NOTIFICATIONS_RINGTONE);
+        String currentPowerRingtonePath = CMSettings.Global.getString(getContentResolver(),
+                CMSettings.Global.POWER_NOTIFICATIONS_RINGTONE);
 
         // set to default notification if we don't yet have one
         if (currentPowerRingtonePath == null) {
                 currentPowerRingtonePath = System.DEFAULT_NOTIFICATION_URI.toString();
-                Global.putString(getContentResolver(),
-                        Global.POWER_NOTIFICATIONS_RINGTONE, currentPowerRingtonePath);
+            CMSettings.Global.putString(getContentResolver(),
+                    CMSettings.Global.POWER_NOTIFICATIONS_RINGTONE, currentPowerRingtonePath);
         }
         // is it silent ?
         if (currentPowerRingtonePath.equals(POWER_NOTIFICATIONS_SILENT_URI)) {
@@ -288,19 +288,19 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mPowerSounds) {
-            Global.putInt(getContentResolver(),
-                    Global.POWER_NOTIFICATIONS_ENABLED,
+            CMSettings.Global.putInt(getContentResolver(),
+                    CMSettings.Global.POWER_NOTIFICATIONS_ENABLED,
                     mPowerSounds.isChecked() ? 1 : 0);
 
         } else if (preference == mPowerSoundsVibrate) {
-            Global.putInt(getContentResolver(),
-                    Global.POWER_NOTIFICATIONS_VIBRATE,
+            CMSettings.Global.putInt(getContentResolver(),
+                    CMSettings.Global.POWER_NOTIFICATIONS_VIBRATE,
                     mPowerSoundsVibrate.isChecked() ? 1 : 0);
 
         } else if (preference == mPowerSoundsRingtone) {
             launchNotificationSoundPicker(REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE,
-                    Global.getString(getContentResolver(),
-                            Global.POWER_NOTIFICATIONS_RINGTONE));
+                    CMSettings.Global.getString(getContentResolver(),
+                            CMSettings.Global.POWER_NOTIFICATIONS_RINGTONE));
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -407,8 +407,8 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         }
 
         mPowerSoundsRingtone.setSummary(toneName);
-        Global.putString(getContentResolver(),
-                Global.POWER_NOTIFICATIONS_RINGTONE, toneUriPath);
+        CMSettings.Global.putString(getContentResolver(),
+                CMSettings.Global.POWER_NOTIFICATIONS_RINGTONE, toneUriPath);
     }
 
     @Override

@@ -37,6 +37,7 @@ import com.android.settings.IntervalSeekBar;
 import com.android.settings.R;
 
 import cyanogenmod.hardware.CMHardwareManager;
+import cyanogenmod.providers.CMSettings;
 
 /**
  * Special preference type that allows configuration of Color settings
@@ -104,8 +105,9 @@ public class DisplayColor extends DialogPreference {
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        String colorAdjustmentTemp = Settings.System.getStringForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_COLOR_ADJUSTMENT,
+        String colorAdjustmentTemp = CMSettings.System.getStringForUser(
+                mContext.getContentResolver(),
+                CMSettings.System.DISPLAY_COLOR_ADJUSTMENT,
                 UserHandle.USER_CURRENT);
         String[] colorAdjustment = colorAdjustmentTemp == null ?
                 null : colorAdjustmentTemp.split(" ");
@@ -239,8 +241,8 @@ public class DisplayColor extends DialogPreference {
     }
 
     private void updateColors(float[] colors) {
-        Settings.System.putStringForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_COLOR_ADJUSTMENT,
+        CMSettings.System.putStringForUser(mContext.getContentResolver(),
+                CMSettings.System.DISPLAY_COLOR_ADJUSTMENT,
                 new StringBuilder().append(colors[0]).append(" ")
                                    .append(colors[1]).append(" ")
                                    .append(colors[2]).toString(),

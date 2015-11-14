@@ -398,8 +398,13 @@
             android:summary="@string/show_all_anrs_summary"/>
 
         <Preference
-                android:key="inactive_apps"
-                android:title="@string/inactive_apps_title" />
+            android:key="inactive_apps"
+            android:title="@string/inactive_apps_title" />
+
+        <SwitchPreference
+            android:key="kill_app_longpress_back"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"/>
 
      </PreferenceCategory>
 

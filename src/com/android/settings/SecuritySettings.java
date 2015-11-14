@@ -103,6 +103,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
+    private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -114,6 +115,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
+    private PackageManager mPM;
     private DevicePolicyManager mDPM;
     private SubscriptionManager mSubscriptionManager;
 
@@ -132,9 +134,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private DialogInterface mWarnInstallApps;
     private SwitchPreference mPowerButtonInstantlyLocks;
 
+    private ListPreference mSmsSecurityCheck;
+
     private boolean mIsPrimary;
 
     private Intent mTrustAgentClickIntent;
+
     private Preference mOwnerInfoPref;
 
     @Override
@@ -201,6 +206,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
+
+        // Add package manager to check if features are available
+        PackageManager pm = getPackageManager();
 
         // Add options for lock/unlock screen
         final int resid = getResIdForLockUnlockScreen(getActivity(), mLockPatternUtils);
@@ -281,6 +289,15 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     getResources().getString(R.string.switch_on_text));
         }
 
+        // SMS rate limit security check
+        boolean isTelephony = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+        if (isTelephony) {
+            mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
+            mSmsSecurityCheck.setOnPreferenceChangeListener(this);
+            int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
+            updateSmsSecuritySummary(smsSecurityCheck);
+        }
+
         // Show password
         mShowPassword = (SwitchPreference) root.findPreference(KEY_SHOW_PASSWORD);
         mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
@@ -338,6 +355,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             final Preference pref = findPreference(SWITCH_PREFERENCE_KEYS[i]);
             if (pref != null) pref.setOnPreferenceChangeListener(this);
         }
+
         return root;
     }
 
@@ -511,6 +529,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mWarnInstallApps != null) {
             mWarnInstallApps.dismiss();
         }
+    }
+
+    private void updateSmsSecuritySummary(int i) {
+        String message = getString(R.string.sms_security_check_limit_summary, i);
+        mSmsSecurityCheck.setSummary(message);
     }
 
     private void setupLockAfterPreference() {
@@ -704,6 +727,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
             } else {
                 setNonMarketAppsAllowed(false);
             }
+        } else if (KEY_SMS_SECURITY_CHECK_PREF.equals(key)) {
+            int smsSecurityCheck = Integer.valueOf((String) value);
+            Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
+                    smsSecurityCheck);
+            updateSmsSecuritySummary(smsSecurityCheck);
         }
         return result;
     }

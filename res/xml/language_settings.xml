@@ -87,7 +87,7 @@
 
     </PreferenceCategory>
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+    <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
             android:key="status_bar_ime_switcher"
             android:title="@string/ime_switcher_notify"
             android:summary="@string/ime_switcher_notify_summary"
@@ -96,6 +96,12 @@
     <PreferenceCategory
             android:key="voice_category"
             android:title="@string/voice_category" >
+
+        <PreferenceScreen
+                android:key="voice_wakeup"
+                android:title="@string/voice_wakeup_settings_title"
+                android:fragment="com.android.settings.voicewakeup.VoiceWakeupSettings"
+                />
 
         <PreferenceScreen
                 android:key="tts_settings"

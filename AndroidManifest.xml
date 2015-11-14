@@ -2161,12 +2161,12 @@
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.SHORTCUT" />
-                </intent-filter>
+            </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.profiles.ProfilesSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/profiles_settings" />
-            </activity>
+        </activity>
 
         <!-- Keep compatibility with old shortcuts. -->
         <activity-alias android:name="ProfileSettings"
@@ -2219,6 +2219,37 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                        android:resource="@id/display_settings" />
         </activity-alias>
+
+
+        <activity android:name=".cyanogenmod.SpamList" />
+
+        <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
+        <activity android:name="Settings$BlacklistSettingsActivity"
+                android:uiOptions="splitActionBarWhenNarrow"
+                android:label="@string/blacklist_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.blacklist.BlacklistSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/security_settings" />
+        </activity>
+
+        <activity-alias android:name=".blacklist.BlacklistSettings"
+                android:taskAffinity="com.android.settings"
+                android:label="@string/blacklist_title"
+                android:targetActivity="Settings$BlacklistSettingsActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.blacklist.BlacklistSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                       android:resource="@id/security_settings" />
+        </activity-alias>
+
         <!-- CyanogenMod activities End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->

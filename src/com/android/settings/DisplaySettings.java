@@ -397,8 +397,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
 
-        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(getContentResolver(),
-                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+        mWakeWhenPluggedOrUnplugged.setChecked(CMSettings.Global.getInt(getContentResolver(),
+                CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                 (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
 
         updateState();
@@ -507,8 +507,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mWakeWhenPluggedOrUnplugged) {
-            Settings.Global.putInt(getContentResolver(),
-                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+            CMSettings.Global.putInt(getContentResolver(),
+                    CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                     mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
         }
