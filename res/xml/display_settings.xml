@@ -44,12 +44,6 @@
             android:entryValues="@array/night_mode_values" /> -->
 
         <PreferenceScreen
-                android:key="wallpaper"
-                android:title="@string/wallpaper_settings_title"
-                settings:keywords="@string/keywords_display_wallpaper"
-                android:fragment="com.android.settings.WallpaperTypeSettings" />
-
-        <PreferenceScreen
                 android:key="display_rotation"
                 android:title="@string/display_rotation_title"
                 android:fragment="com.android.settings.cyanogenmod.DisplayRotation" />
@@ -115,19 +109,6 @@
                 android:summary="@string/double_tap_to_sleep_summary"
                 android:defaultValue="true" />
 
-        <!-- Search in Recents -->
-        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
-                android:key="recents_show_search_bar"
-                android:title="@string/recents_show_searchbar"
-                android:defaultValue="true" />
-
-        <com.android.settings.FontDialogPreference
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                settings:keywords="@string/keywords_display_font_size"
-                android:summary="@string/summary_font_size"
-                android:dialogTitle="@string/dialog_title_font_size" />
-
         <PreferenceScreen
                 android:key="wifi_display"
                 android:title="@string/wifi_display_settings_title"
@@ -137,11 +118,32 @@
         <PreferenceCategory
                 android:key="interface"
                 android:title="@string/category_interface">
-                <!-- expanded desktop -->
-                <PreferenceScreen
-                        android:key="expanded_desktop"
-                        android:title="@string/power_menu_expanded_desktop"
-                        android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
+
+            <PreferenceScreen
+                    android:key="wallpaper"
+                    android:title="@string/wallpaper_settings_title"
+                    settings:keywords="@string/keywords_display_wallpaper"
+                    android:fragment="com.android.settings.WallpaperTypeSettings" />
+
+            <!-- expanded desktop -->
+            <PreferenceScreen
+                    android:key="expanded_desktop"
+                    android:title="@string/power_menu_expanded_desktop"
+                    android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
+
+            <!-- Search in Recents -->
+            <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+                    android:key="recents_show_search_bar"
+                    android:title="@string/recents_show_searchbar"
+                    android:defaultValue="true" />
+
+            <com.android.settings.FontDialogPreference
+                    android:key="font_size"
+                    android:title="@string/title_font_size"
+                    settings:keywords="@string/keywords_display_font_size"
+                    android:summary="@string/summary_font_size"
+                    android:dialogTitle="@string/dialog_title_font_size" />
+
         </PreferenceCategory>
 
         <PreferenceCategory
