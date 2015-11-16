@@ -37,6 +37,13 @@
             android:summary="@string/show_clear_all_recents_button_summary"
             android:defaultValue="true" />
 
+        <com.android.settings.preference.SystemSettingSwitchPreference
+            android:key="recents_clear_all_dismiss_all"
+            android:title="@string/recents_clear_all_dismiss_all_title"
+            android:summary="@string/recents_clear_all_dismiss_all_summary"
+            android:defaultValue="true"
+            android:dependency="show_clear_all_recents" />
+
         <ListPreference
             android:key="recents_clear_all_location"
             android:title="@string/recents_clear_all_location_title"
