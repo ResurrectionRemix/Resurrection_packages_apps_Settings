@@ -22,22 +22,31 @@ import com.android.internal.logging.MetricsLogger;
 import android.app.Activity;
 import android.app.WallpaperManager;
 import android.content.Intent;
+import android.preference.ListPreference;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.os.UserHandle;
+import android.os.UserManager;
+import com.android.settings.rr.SeekBarPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
+import android.preference.SwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenSettings extends SettingsPreferenceFragment {
+public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
     public static final int IMAGE_PICK = 1;
 
     private static final String KEY_WALLPAPER_SET = "lockscreen_wallpaper_set";
     private static final String KEY_WALLPAPER_CLEAR = "lockscreen_wallpaper_clear";
+    private static final String KEY_BLUR_RADIUS = "lockscreen_blur_radius";	
 
     private Preference mSetWallpaper;
     private Preference mClearWallpaper;
+    private SeekBarPreference mBlurRadius;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +55,20 @@ public class LockScreenSettings extends SettingsPreferenceFragment {
 
         mSetWallpaper = (Preference) findPreference(KEY_WALLPAPER_SET);
         mClearWallpaper = (Preference) findPreference(KEY_WALLPAPER_CLEAR);
+     
+	// Blur
+        mBlurRadius =
+                (SeekBarPreference) findPreference(KEY_BLUR_RADIUS);
+        if (mBlurRadius != null) {
+            int blurRadius = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, 14);
+            mBlurRadius.setValue(blurRadius);
+            mBlurRadius.setOnPreferenceChangeListener(this);
+        }
     }
+
+
+   
 
     @Override
     protected int getMetricsCategory() {
@@ -61,10 +83,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment {
         } else if (preference == mClearWallpaper) {
             clearKeyguardWallpaper();
             return true;
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
+        }  
+	return super.onPreferenceTreeClick(preferenceScreen, preference);
+}
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == IMAGE_PICK && resultCode == Activity.RESULT_OK) {
@@ -91,4 +112,17 @@ public class LockScreenSettings extends SettingsPreferenceFragment {
         wallpaperManager = WallpaperManager.getInstance(getActivity());
         wallpaperManager.clearKeyguardWallpaper();
     }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object value)
+	{
+ boolean result = true;
+        final String key = preference.getKey();
+	if (KEY_BLUR_RADIUS.equals(key)) {
+            int bluRadius = (Integer) value;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, bluRadius);
+        }
+        return result;
+	}
 }
