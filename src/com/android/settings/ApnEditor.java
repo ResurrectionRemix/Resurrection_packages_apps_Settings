@@ -60,6 +60,8 @@ public class ApnEditor extends InstrumentedPreferenceActivity
     private final static String KEY_BEARER_MULTI = "bearer_multi";
     private final static String KEY_MVNO_TYPE = "mvno_type";
 
+    private final static String PROTOCOL_IPV4V6= "IPV4V6";
+
     private static final int MENU_DELETE = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
     private static final int MENU_CANCEL = Menu.FIRST + 2;
@@ -216,7 +218,10 @@ public class ApnEditor extends InstrumentedPreferenceActivity
             mUri = intent.getData();
         } else if (action.equals(Intent.ACTION_INSERT)) {
             if (mFirstTime || icicle.getInt(SAVED_POS) == 0) {
-                mUri = getContentResolver().insert(intent.getData(), new ContentValues());
+                ContentValues values = new ContentValues();
+                values.put(Telephony.Carriers.PROTOCOL, PROTOCOL_IPV4V6);
+                values.put(Telephony.Carriers.ROAMING_PROTOCOL, PROTOCOL_IPV4V6);
+                mUri = getContentResolver().insert(intent.getData(), values);
             } else {
                 mUri = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI,
                         icicle.getInt(SAVED_POS));
