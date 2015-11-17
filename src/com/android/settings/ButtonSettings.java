@@ -688,8 +688,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             return;
         }
 
-        writeDisableNavkeysOption(context, Settings.System.getInt(context.getContentResolver(),
-                Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) != 0);
+        writeDisableNavkeysOption(context, CMSettings.Secure.getInt(context.getContentResolver(),
+                CMSettings.Secure.DEV_FORCE_SHOW_NAVBAR, 0) != 0);
     }
 
 
