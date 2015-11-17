@@ -446,10 +446,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Power button ends calls.
         if (mPowerEndCall != null) {
             final int incallPowerBehavior = CMSettings.Secure.getInt(getContentResolver(),
-                    CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR,
-                    CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT);
+                    Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR,
+                    Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT);
             final boolean powerButtonEndsCall =
-                    (incallPowerBehavior == CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
+                    (incallPowerBehavior == Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
             mPowerEndCall.setChecked(powerButtonEndsCall);
         }
 
@@ -732,10 +732,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
-        CMSettings.Secure.putInt(getContentResolver(),
-                CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
-                        ? CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
-                        : CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
+                        ? Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
+                        : Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
     }
 
     private void handleToggleHomeButtonAnswersCallPreferenceClick() {
