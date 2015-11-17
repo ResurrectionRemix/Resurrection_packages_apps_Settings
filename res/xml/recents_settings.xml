@@ -19,6 +19,11 @@
         android:key="recents_panel"
         android:title="@string/recents_panel_category" >
 
+        <!-- Search in Recents -->
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+                android:key="recents_show_search_bar"
+                android:title="@string/recents_show_searchbar"
+                android:defaultValue="true" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
