@@ -188,6 +188,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
         final PreferenceCategory volumeCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
+        final PreferenceCategory cameraCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
 
         // Power button ends calls.
         mPowerEndCall = (SwitchPreference) findPreference(KEY_POWER_END_CALL);
@@ -346,12 +348,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(appSwitchCategory);
         }
 
-        mCameraWakeScreen = (SwitchPreference) findPreference(CMSettings.System.CAMERA_WAKE_SCREEN);
-        mCameraSleepOnRelease =
-                (SwitchPreference) findPreference(CMSettings.System.CAMERA_SLEEP_ON_RELEASE);
-        mCameraLaunch = (SwitchPreference) findPreference(CMSettings.System.CAMERA_LAUNCH);
-
         if (hasCameraKey) {
+            mCameraWakeScreen = (SwitchPreference) findPreference(CMSettings.System.CAMERA_WAKE_SCREEN);
+            mCameraSleepOnRelease =
+                    (SwitchPreference) findPreference(CMSettings.System.CAMERA_SLEEP_ON_RELEASE);
+            mCameraLaunch = (SwitchPreference) findPreference(CMSettings.System.CAMERA_LAUNCH);
+
             if (!showCameraWake) {
                 prefScreen.removePreference(mCameraWakeScreen);
             }
@@ -360,7 +362,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 prefScreen.removePreference(mCameraSleepOnRelease);
             }
         } else {
-            prefScreen.removePreference(mCameraLaunch);
+            prefScreen.removePreference(cameraCategory);
         }
 
         if (Utils.hasVolumeRocker(getActivity())) {
@@ -444,10 +446,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Power button ends calls.
         if (mPowerEndCall != null) {
             final int incallPowerBehavior = CMSettings.Secure.getInt(getContentResolver(),
-                    CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR,
-                    CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT);
+                    Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR,
+                    Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT);
             final boolean powerButtonEndsCall =
-                    (incallPowerBehavior == CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
+                    (incallPowerBehavior == Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
             mPowerEndCall.setChecked(powerButtonEndsCall);
         }
 
@@ -730,10 +732,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
-        CMSettings.Secure.putInt(getContentResolver(),
-                CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
-                        ? CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
-                        : CMSettings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
+                        ? Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
+                        : Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
     }
 
     private void handleToggleHomeButtonAnswersCallPreferenceClick() {

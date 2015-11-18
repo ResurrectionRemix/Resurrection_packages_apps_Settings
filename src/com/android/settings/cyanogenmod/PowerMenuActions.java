@@ -259,8 +259,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     }
 
     private void updatePreferences() {
-        boolean bugreport = CMSettings.Secure.getInt(getContentResolver(),
-                CMSettings.Secure.BUGREPORT_IN_POWER_MENU, 0) != 0;
+        boolean bugreport = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) != 0;
         boolean profiles = CMSettings.System.getInt(getContentResolver(),
                 CMSettings.System.SYSTEM_PROFILES_ENABLED, 1) != 0;
 
