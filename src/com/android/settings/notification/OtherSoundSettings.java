@@ -149,7 +149,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
             TYPE_SYSTEM, KEY_VIBRATION_INTENSITY, System.HAPTIC_FEEDBACK_ENABLED, DEFAULT_ON) {
         @Override
         public boolean isApplicable(Context context) {
-            return false; //VibratorIntensity.isSupported();
+            return VibratorIntensity.isSupported(context);
         }
     };
 
