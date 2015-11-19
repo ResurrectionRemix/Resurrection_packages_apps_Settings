@@ -33,8 +33,14 @@
                 settings:unitsLeft=""
                 settings:unitsRight=""
                 android:persistent="false"
-                android:dependency="lockscreen_see_through" /-->
+                android:dependency="lockscreen_see_through"/-->
 
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="true" />
 
         <PreferenceScreen
             android:title="@string/lockscreen_targets_message" 
@@ -58,7 +64,7 @@
         <Preference
             android:key="lockscreen_wallpaper_clear"
             android:title="@string/lockscreen_wallpaper_clear_title"
-            android:persistent="false"/>
+            android:persistent="false">
 
     </PreferenceCategory-->
 

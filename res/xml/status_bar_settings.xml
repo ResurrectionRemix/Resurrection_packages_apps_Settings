@@ -51,6 +51,13 @@
            android:title="@string/network_traffic_title"
            android:fragment="com.android.settings.rr.NetworkTrafficSettings" />
 
+       <!-- Bettery Bar -->
+        <PreferenceScreen
+            android:key="battery_bar"
+            android:fragment="com.android.settings.rr.BatteryBar"
+            android:title="@string/battery_bar"       
+            />
+
 
     <ListPreference
         android:key="status_bar_show_battery_percent"
