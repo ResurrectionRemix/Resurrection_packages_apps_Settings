@@ -58,6 +58,12 @@
             android:title="@string/battery_bar"       
             />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="show_su_indicator"
+        android:title="@string/su_indicator"
+        android:summaryOn="@string/su_indicator_summary_on"
+        android:summaryOff="@string/su_indicator_summary_off"
+        android:defaultValue="true" />
 
     <ListPreference
         android:key="status_bar_show_battery_percent"
