@@ -210,79 +210,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
 
         mHandler = new Handler();
- // SlimDim
-        mDimNavButtons = (SwitchPreference) findPreference(DIM_NAV_BUTTONS);
-        mDimNavButtons.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsTimeout = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_TIMEOUT);
-        mDimNavButtonsTimeout.setDefault(3000);
-        mDimNavButtonsTimeout.isMilliseconds(true);
-        mDimNavButtonsTimeout.setInterval(1);
-        mDimNavButtonsTimeout.minimumValue(100);
-        mDimNavButtonsTimeout.multiplyValue(100);
-       mDimNavButtonsTimeout.setOnPreferenceChangeListener(this);
-        mDimNavButtonsAlpha = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ALPHA);
-        mDimNavButtonsAlpha.setDefault(50);
-        mDimNavButtonsAlpha.setInterval(1);
-        mDimNavButtonsAlpha.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsAnimate = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE);
-        mDimNavButtonsAnimate.setOnPreferenceChangeListener(this);
-
-        mDimNavButtonsAnimateDuration = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE_DURATION);
-        mDimNavButtonsAnimateDuration.setDefault(2000);
-        mDimNavButtonsAnimateDuration.isMilliseconds(true);
-        mDimNavButtonsAnimateDuration.setInterval(1);
-        mDimNavButtonsAnimateDuration.minimumValue(100);
-        mDimNavButtonsAnimateDuration.multiplyValue(100);
-        mDimNavButtonsAnimateDuration.setOnPreferenceChangeListener(this);
-        updateSettings();
-    }
-
-
-    private void updateSettings() {
-        boolean enableNavigationBar = Action.isNavBarEnabled(getActivity());
-
-        if (mDimNavButtons != null) {
-            mDimNavButtons.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS, 0) == 1);
-        }
-
-        if (mDimNavButtonsTimeout != null) {
-            final int dimTimeout = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_TIMEOUT, 3000);
-            // minimum 100 is 1 interval of the 100 multiplier
-            mDimNavButtonsTimeout.setInitValue((dimTimeout / 100) - 1);
-       }
-
-        if (mDimNavButtonsAlpha != null) {
-            int alphaScale = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_ALPHA, 50);
-            mDimNavButtonsAlpha.setInitValue(alphaScale);
-        }
-
-        if (mDimNavButtonsAnimate != null) {
-            mDimNavButtonsAnimate.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_ANIMATE, 0) == 1);
-        }
-
-        if (mDimNavButtonsAnimateDuration != null) {
-            final int animateDuration = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DIM_NAV_BUTTONS_ANIMATE_DURATION, 2000);
-            // minimum 100 is 1 interval of the 100 multiplier
-            mDimNavButtonsAnimateDuration.setInitValue((animateDuration / 100) - 1);
-        }
-
-        updateNavbarPreferences(enableNavigationBar);
-    }
-
-    private void updateNavbarPreferences(boolean show) {
-        mDimNavButtons.setEnabled(show);
-        mDimNavButtonsTimeout.setEnabled(show);
-        mDimNavButtonsAlpha.setEnabled(show);
-        mDimNavButtonsAnimate.setEnabled(show);
-        mDimNavButtonsAnimateDuration.setEnabled(show);
-     }
 
         // Force Navigation bar related options
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
@@ -522,7 +449,80 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+
+
+ // SlimDim
+        mDimNavButtons = (SwitchPreference) findPreference(DIM_NAV_BUTTONS);
+        mDimNavButtons.setOnPreferenceChangeListener(this);
+
+        mDimNavButtonsTimeout = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_TIMEOUT);
+        mDimNavButtonsTimeout.setDefault(3000);
+        mDimNavButtonsTimeout.isMilliseconds(true);
+        mDimNavButtonsTimeout.setInterval(1);
+        mDimNavButtonsTimeout.minimumValue(100);
+        mDimNavButtonsTimeout.multiplyValue(100);
+       mDimNavButtonsTimeout.setOnPreferenceChangeListener(this);
+        mDimNavButtonsAlpha = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ALPHA);
+        mDimNavButtonsAlpha.setDefault(50);
+        mDimNavButtonsAlpha.setInterval(1);
+        mDimNavButtonsAlpha.setOnPreferenceChangeListener(this);
+
+        mDimNavButtonsAnimate = (SwitchPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE);
+        mDimNavButtonsAnimate.setOnPreferenceChangeListener(this);
+
+        mDimNavButtonsAnimateDuration = (SlimSeekBarPreference) findPreference(DIM_NAV_BUTTONS_ANIMATE_DURATION);
+        mDimNavButtonsAnimateDuration.setDefault(2000);
+        mDimNavButtonsAnimateDuration.isMilliseconds(true);
+        mDimNavButtonsAnimateDuration.setInterval(1);
+        mDimNavButtonsAnimateDuration.minimumValue(100);
+        mDimNavButtonsAnimateDuration.multiplyValue(100);
+        mDimNavButtonsAnimateDuration.setOnPreferenceChangeListener(this);
+        updateSettings();
     }
+
+
+    private void updateSettings() {
+
+
+        if (mDimNavButtons != null) {
+            mDimNavButtons.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.DIM_NAV_BUTTONS, 0) == 1);
+        }
+
+        if (mDimNavButtonsTimeout != null) {
+            final int dimTimeout = Settings.System.getInt(getContentResolver(),
+                    Settings.System.DIM_NAV_BUTTONS_TIMEOUT, 3000);
+            // minimum 100 is 1 interval of the 100 multiplier
+            mDimNavButtonsTimeout.setInitValue((dimTimeout / 100) - 1);
+       }
+
+        if (mDimNavButtonsAlpha != null) {
+            int alphaScale = Settings.System.getInt(getContentResolver(),
+                    Settings.System.DIM_NAV_BUTTONS_ALPHA, 50);
+            mDimNavButtonsAlpha.setInitValue(alphaScale);
+        }
+
+        if (mDimNavButtonsAnimate != null) {
+            mDimNavButtonsAnimate.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.DIM_NAV_BUTTONS_ANIMATE, 0) == 1);
+        }
+
+        if (mDimNavButtonsAnimateDuration != null) {
+            final int animateDuration = Settings.System.getInt(getContentResolver(),
+                    Settings.System.DIM_NAV_BUTTONS_ANIMATE_DURATION, 2000);
+            // minimum 100 is 1 interval of the 100 multiplier
+            mDimNavButtonsAnimateDuration.setInitValue((animateDuration / 100) - 1);
+        }
+    }
+
+    private void updateNavbarPreferences(boolean show) {
+        mDimNavButtons.setEnabled(show);
+        mDimNavButtonsTimeout.setEnabled(show);
+        mDimNavButtonsAlpha.setEnabled(show);
+        mDimNavButtonsAnimate.setEnabled(show);
+        mDimNavButtonsAnimateDuration.setEnabled(show);
+     }
+
 
     @Override
     public void onResume() {
