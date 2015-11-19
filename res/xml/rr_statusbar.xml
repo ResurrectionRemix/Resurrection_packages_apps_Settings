@@ -56,6 +56,12 @@
 		android:icon="@drawable/rr_network_traffic_icon"
         android:fragment="com.android.settings.rr.NetworkTrafficSettings" />
 
+     <PreferenceScreen
+        android:key="rr_carrier"
+		android:fragment="com.android.settings.rr.carrierlabel.CarrierLabel"
+        android:title="@string/carrier_title" 
+		android:icon="@drawable/rr_carrier_label_icon" />
+
    	<PreferenceScreen
         android:key="rr_breathing_notif"
         android:title="@string/breathing_notifications_title"
