@@ -15,6 +15,10 @@
 */
 package com.android.settings.cyanogenmod;
 
+
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.ListPreference;
@@ -29,7 +33,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class NotificationDrawerSettings extends SettingsPreferenceFragment {
     private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
 
     private SwitchPreference mForceExpanded;
