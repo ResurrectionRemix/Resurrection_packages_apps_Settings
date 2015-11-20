@@ -23,6 +23,8 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import cyanogenmod.providers.CMSettings;
+
 import java.math.BigInteger;
 import java.net.NetworkInterface;
 import java.security.MessageDigest;
@@ -83,8 +85,8 @@ public class Utilities {
      * @return Whether or not stats collection is enabled.
      */
     public static boolean isStatsCollectionEnabled(Context context) {
-        return Settings.Secure.getInt(context.getContentResolver(),
-                Settings.Secure.STATS_COLLECTION, 1) != 0;
+        return CMSettings.Secure.getInt(context.getContentResolver(),
+                CMSettings.Secure.STATS_COLLECTION, 1) != 0;
     }
 
     /**
@@ -94,7 +96,7 @@ public class Utilities {
      */
     public static void setStatsCollectionEnabled(Context context, boolean enabled) {
         int enable = (enabled) ? 1 : 0;
-        Settings.Secure.putInt(context.getContentResolver(),
-                Settings.Secure.STATS_COLLECTION, enable);
+        CMSettings.Secure.putInt(context.getContentResolver(),
+                CMSettings.Secure.STATS_COLLECTION, enable);
     }
 }
