@@ -55,17 +55,19 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
 
         mSetWallpaper = (Preference) findPreference(KEY_WALLPAPER_SET);
         mClearWallpaper = (Preference) findPreference(KEY_WALLPAPER_CLEAR);
-     
-	// Blur
-        mBlurRadius =
-                (SeekBarPreference) findPreference(KEY_BLUR_RADIUS);
-        if (mBlurRadius != null) {
+
+  mBlurRadius = (SeekBarPreference) findPreference(KEY_BLUR_RADIUS);
+ if (mBlurRadius != null) {
             int blurRadius = Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, 14);
             mBlurRadius.setValue(blurRadius);
             mBlurRadius.setOnPreferenceChangeListener(this);
         }
-    }
+
+	}
+      
+     
+	// Blur
 
 
    
@@ -116,13 +118,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
     @Override
     public boolean onPreferenceChange(Preference preference, Object value)
 	{
- boolean result = true;
-        final String key = preference.getKey();
-	if (KEY_BLUR_RADIUS.equals(key)) {
+    
+	if (preference==mBlurRadius) {
             int bluRadius = (Integer) value;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, bluRadius);
-        }
-        return result;
+			return true ;
+        	}
+        return false;
 	}
 }
