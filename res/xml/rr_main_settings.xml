@@ -81,6 +81,25 @@
             android:title="@string/app_sidebar_title"
             android:icon="@drawable/ic_xd_sidebar" 
             />
+
+
+       <!-- App sidebar -->
+        <PreferenceScreen
+            android:key="misc"
+            android:fragment="com.android.settings.rr.MiscSettings"
+            android:title="@string/rr_misc_title"
+            android:icon="@drawable/ic_rrutilities" 
+            />
+
+        <PreferenceScreen
+            android:key="systemuituner"
+            android:title="@string/rr_systemuituner"
+            android:icon="@drawable/ic_systemui_tuner" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.TunerActivity" />
+       </PreferenceScreen>
                 
 </PreferenceCategory>
 
