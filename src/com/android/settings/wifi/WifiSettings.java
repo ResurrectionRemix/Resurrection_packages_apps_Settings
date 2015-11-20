@@ -666,6 +666,10 @@ public class WifiSettings extends RestrictedSettingsFragment
                 for (AccessPoint accessPoint : accessPoints) {
                     // Ignore access points that are out of range.
                     if (accessPoint.getLevel() != -1) {
+                        if (accessPoint.isSaved() && (!accessPoint.foundInScanResult)
+                               && (accessPoint.getDetailedState() == null)) {
+                            continue;
+                        }
                         hasAvailableAccessPoints = true;
                         if (accessPoint.getTag() != null) {
                             final Preference pref = (Preference) accessPoint.getTag();
