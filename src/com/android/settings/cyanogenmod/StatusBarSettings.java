@@ -27,6 +27,8 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
+import android.os.UserHandle;
+import android.content.res.Resources;
 import android.view.View;
 
 import com.android.internal.logging.MetricsLogger;
