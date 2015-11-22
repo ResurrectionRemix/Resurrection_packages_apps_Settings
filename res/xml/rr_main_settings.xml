@@ -100,6 +100,20 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.TunerActivity" />
        </PreferenceScreen>
+
+        <!-- Weather Settings -->
+       <Preference
+           android:id="@+id/weather_settings"
+           android:title="@string/weather_settings_title" 
+	   android:icon="@drawable/ic_xd_weather">
+           <intent
+               android:action="android.intent.action.MAIN"
+               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+               android:targetPackage="com.cyanogenmod.lockclock" >
+               <extra android:name=":android:show_fragment"
+                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
+           </intent>
+       </Preference>
                 
 </PreferenceCategory>
 
