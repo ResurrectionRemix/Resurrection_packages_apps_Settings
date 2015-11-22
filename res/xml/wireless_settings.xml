@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,22 +24,11 @@
         android:persistent="false"
         android:disableDependentsState="true" />
 
-    <SwitchPreference
-        android:key="toggle_nfc"
-        android:title="@string/nfc_quick_toggle_title"
-        android:summary="@string/nfc_quick_toggle_summary"
-        android:persistent="false" />
-
     <PreferenceScreen
         android:key="wifi_calling_settings"
         android:title="@string/wifi_calling_settings_title"
         settings:keywords="@string/keywords_wifi_calling"
         android:fragment="com.android.settings.WifiCallingSettings" />
-
-    <PreferenceScreen
-        android:fragment="com.android.settings.nfc.AndroidBeam"
-        android:key="android_beam_settings"
-        android:title="@string/android_beam_settings_title" />
 
     <PreferenceScreen
         android:fragment="com.android.settings.TetherSettings"
@@ -51,21 +40,11 @@
         android:key="vpn_settings"
         android:title="@string/vpn_settings_title" />
 
-    <PreferenceScreen
-        android:key="mobile_network_settings"
-        android:title="@string/network_settings_title"
-        settings:keywords="@string/keywords_more_mobile_networks"
-        android:dependency="toggle_airplane">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.phone"
-            android:targetClass="com.android.phone.MobileNetworkSettings" />
-    </PreferenceScreen>
-
     <Preference
         android:key="manage_mobile_plan"
         android:title="@string/manage_mobile_plan_title"
-        android:persistent="false" />
+        android:persistent="false"
+        android:visibility="gone" />
 
     <PreferenceScreen
         android:key="wimax_settings"
@@ -95,5 +74,22 @@
             android:targetPackage="com.android.cellbroadcastreceiver"
             android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
     </PreferenceScreen>
+
+     <PreferenceCategory
+        android:key="nfc_category_settings"
+        android:title="@string/nfc_title_category" >
+
+        <SwitchPreference
+            android:key="toggle_nfc"
+            android:title="@string/nfc_quick_toggle_title"
+            android:summary="@string/nfc_quick_toggle_summary"
+            android:persistent="false" />
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.nfc.AndroidBeam"
+            android:key="android_beam_settings"
+            android:title="@string/android_beam_settings_title" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

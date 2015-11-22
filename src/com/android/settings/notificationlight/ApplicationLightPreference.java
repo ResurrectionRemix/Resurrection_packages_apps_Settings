@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
@@ -132,12 +132,11 @@ public class ApplicationLightPreference extends DialogPreference {
     }
 
     private void updatePreferenceViews() {
-        final int width = (int) mResources.getDimension(R.dimen.device_memory_usage_button_width);
-        final int height = (int) mResources.getDimension(R.dimen.device_memory_usage_button_height);
+        final int size = (int) mResources.getDimension(R.dimen.oval_notification_size);
 
         if (mLightColorView != null) {
             mLightColorView.setEnabled(true);
-            mLightColorView.setImageDrawable(createRectShape(width, height, 0xFF000000 + mColorValue));
+            mLightColorView.setImageDrawable(createOvalShape(size, 0xFF000000 + mColorValue));
         }
         if (mOnValueView != null) {
             mOnValueView.setText(mapLengthValue(mOnValue));
@@ -246,10 +245,10 @@ public class ApplicationLightPreference extends DialogPreference {
     /**
      * Utility methods
      */
-    private static ShapeDrawable createRectShape(int width, int height, int color) {
-        ShapeDrawable shape = new ShapeDrawable(new RectShape());
-        shape.setIntrinsicHeight(height);
-        shape.setIntrinsicWidth(width);
+    private static ShapeDrawable createOvalShape(int size, int color) {
+        ShapeDrawable shape = new ShapeDrawable(new OvalShape());
+        shape.setIntrinsicHeight(size);
+        shape.setIntrinsicWidth(size);
         shape.getPaint().setColor(color);
         return shape;
     }
