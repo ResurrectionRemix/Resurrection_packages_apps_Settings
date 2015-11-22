@@ -50,7 +50,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String TAG = "CarrierLabel";
 
-    private static final String SHOW_CARRIER_LABEL = "status_bar_show_carrier";
+    private static final String STATUS_BAR_SHOW_CARRIER = "status_bar_show_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
@@ -66,7 +66,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.carrierlabel);
+        addPreferencesFromResource(R.xml.rr_carrierlabel);
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -75,7 +75,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         String hexColor;
 
         mShowCarrierLabel =
-                (ListPreference) findPreference(SHOW_CARRIER_LABEL);
+                (ListPreference) findPreference(STATUS_BAR_SHOW_CARRIER);
         int showCarrierLabel = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
