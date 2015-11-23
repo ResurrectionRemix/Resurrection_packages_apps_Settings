@@ -97,17 +97,18 @@
                 android:summary="@string/tap_to_wake_summary"
                 android:persistent="false" />
 
+
         <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="proximity_on_wake"
                 android:title="@string/proximity_wake_title"
                 android:summary="@string/proximity_wake_summary"
                 android:defaultValue="true" />
 
-        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+        <!--com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="double_tap_sleep_gesture"
                 android:title="@string/double_tap_to_sleep_title"
                 android:summary="@string/double_tap_to_sleep_summary"
-                android:defaultValue="true" />
+                android:defaultValue="true" /-->
 
         <com.android.settings.FontDialogPreference
                 android:key="font_size"
@@ -143,7 +144,7 @@
                     android:title="@string/power_menu_expanded_desktop"
                     android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
 
-            <!-- Search in Recents -->
+            <!-- Search in Recents >
             <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                     android:key="recents_show_search_bar"
                     android:title="@string/recents_show_searchbar"
@@ -154,7 +155,7 @@
                     android:title="@string/title_font_size"
                     settings:keywords="@string/keywords_display_font_size"
                     android:summary="@string/summary_font_size"
-                    android:dialogTitle="@string/dialog_title_font_size" />
+                    android:dialogTitle="@string/dialog_title_font_size" /-->
 
         </PreferenceCategory>
 
