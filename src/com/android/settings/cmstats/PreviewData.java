@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -45,5 +46,10 @@ public class PreviewData extends SettingsPreferenceFragment {
         prefSet.findPreference(VERSION).setSummary(Utilities.getModVersion());
         prefSet.findPreference(COUNTRY).setSummary(Utilities.getCountryCode(context));
         prefSet.findPreference(CARRIER).setSummary(Utilities.getCarrier(context));
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 }
