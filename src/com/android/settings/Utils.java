@@ -372,8 +372,10 @@ public final class Utils {
                     }
 
                     // Set icon, title and summary for the preference
-                    tile.iconRes = icon;
-                    tile.iconPkg = resolveInfo.activityInfo.packageName;
+                    if (icon != 0) {
+                        tile.iconRes = icon;
+                        tile.iconPkg = resolveInfo.activityInfo.packageName;
+                    }
                     tile.title = title;
                     tile.summary = summary;
                     // Replace the intent with this specific activity
