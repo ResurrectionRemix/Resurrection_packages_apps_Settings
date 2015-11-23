@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.rr;
+package com.android.settings.rr.fragments;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -36,9 +36,9 @@ import com.android.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class RRLogo extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class Logo extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "RrLogo";
+    public static final String TAG = "Logo";
 
     private static final String KEY_RR_LOGO_COLOR = "status_bar_rr_logo_color";
 
@@ -85,6 +85,11 @@ public class RRLogo extends SettingsPreferenceFragment implements OnPreferenceCh
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
 }
