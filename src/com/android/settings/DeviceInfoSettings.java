@@ -597,5 +597,5 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         return result;
 
-}
-
+     }
+ }
