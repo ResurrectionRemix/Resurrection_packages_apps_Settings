@@ -180,7 +180,7 @@ public class PublicVolumeSettings extends SettingsPreferenceFragment {
         if (mVolume.getState() == VolumeInfo.STATE_UNMOUNTED) {
             addPreference(mMount);
         }
-        if (mVolume.isMountedReadable()) {
+        if (!mDisk.isNonRemovable() && mVolume.isMountedReadable()) {
             getButtonBar().setVisibility(View.VISIBLE);
         }
         addPreference(mFormatPublic);
