@@ -18,10 +18,10 @@
         android:title="@string/display_rotation_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="accelerometer"
         android:title="@string/accelerometer_title" />
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="lockscreen_rotation"
         android:title="@string/display_lockscreen_rotation_title"
         android:dependency="accelerometer" />

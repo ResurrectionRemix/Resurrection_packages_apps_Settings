@@ -123,7 +123,8 @@ public abstract class AppInfoBase extends SettingsPreferenceFragment
                 mPackageInfo = mPm.getPackageInfo(mAppEntry.info.packageName,
                         PackageManager.GET_DISABLED_COMPONENTS |
                         PackageManager.GET_UNINSTALLED_PACKAGES |
-                        PackageManager.GET_SIGNATURES);
+                        PackageManager.GET_SIGNATURES |
+                        PackageManager.GET_ACTIVITIES);
             } catch (NameNotFoundException e) {
                 Log.e(TAG, "Exception when retrieving package:" + mAppEntry.info.packageName, e);
             }
