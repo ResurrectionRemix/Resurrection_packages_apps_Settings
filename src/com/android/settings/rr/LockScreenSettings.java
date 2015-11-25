@@ -53,6 +53,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
 
         mSetWallpaper = (Preference) findPreference(KEY_WALLPAPER_SET);
         mClearWallpaper = (Preference) findPreference(KEY_WALLPAPER_CLEAR);
+}
 
     @Override
     protected int getMetricsCategory() {
@@ -101,4 +102,5 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
     public boolean onPreferenceChange(Preference preference, Object value)
 	{
         return true;
+	}
 }
