@@ -42,6 +42,7 @@ import android.telephony.TelephonyManager;
 import android.text.Spannable;
 import android.text.TextUtils;
 import android.provider.Settings.SettingNotFoundException;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -49,12 +50,13 @@ import android.widget.LinearLayout;
 
 import com.android.settings.R;
 import com.android.settings.rr.Utils;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
+
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class CarrierLabel extends PreferenceActivity
-        implements OnPreferenceChangeListener {
+public class CarrierLabel  extends PreferenceActivity  implements OnPreferenceChangeListener {
 
     private static final String TAG = "CarrierLabel";
 
