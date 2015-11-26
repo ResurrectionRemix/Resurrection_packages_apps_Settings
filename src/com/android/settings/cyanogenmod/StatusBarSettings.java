@@ -61,7 +61,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
-    private String PREF_CARRIE_LABEL = "carrierlabel";
+    //private String PREF_CARRIE_LABEL = "carrierlabel";
 
     private ListPreference mStatusBarClock;
     private ListPreference mStatusBarAmPm;
@@ -69,7 +69,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarTemperatureStyle;
     private ListPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarTemperature;
-    private Preference mCarrierLabel;		
+    //private Preference mCarrierLabel;		
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -132,8 +132,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarTemperatureStyle.setOnPreferenceChangeListener(this);
 
         enableStatusBarTemperatureDependents();
-	PreferenceScreen prefSet = getPreferenceScreen();
-        mCarrierLabel = prefSet.findPreference(PREF_CARRIE_LABEL);
+	//PreferenceScreen prefSet = getPreferenceScreen();
+        //mCarrierLabel = prefSet.findPreference(PREF_CARRIE_LABEL);
 	
 
     }
@@ -155,16 +155,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 mStatusBarClock.setSummary(mStatusBarClock.getEntry());
         }
     }
- 	@Override
-        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-           if (preference == mCarrierLabel) {
-                Intent intent = new Intent(getActivity(), com.android.settings.rr.CarrierLabel.class);
-                getActivity().startActivity(intent);
-            } else {
-                return super.onPreferenceTreeClick(preferenceScreen, preference);
-            }
-            return false;
-	}
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {

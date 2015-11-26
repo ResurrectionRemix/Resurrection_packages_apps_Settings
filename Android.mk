@@ -51,6 +51,8 @@ include frameworks/base/packages/SettingsLib/common.mk
 LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 include $(BUILD_PACKAGE)
 
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := libsuperuser:src/com/android/settings/rr/lib/libsuperuser.jar
+
 # Use the following include to make our test apk.
 ifeq (,$(ONE_SHOT_MAKEFILE))
 include $(call all-makefiles-under,$(LOCAL_PATH))

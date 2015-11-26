@@ -68,9 +68,10 @@
         android:key="icons"
         android:title="@string/icons_category" >
 
-    <Preference
+    <PreferenceScreen
            android:key="carrierlabel"
-           android:title="@string/carrier_options" />
+           android:title="@string/carrier_options"
+	   android:fragment="com.android.settings.rr.CarrierLabel"  />
 
     <PreferenceScreen
            android:key="network_traffic_settings"
