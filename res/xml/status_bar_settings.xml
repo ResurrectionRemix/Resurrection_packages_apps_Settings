@@ -68,10 +68,10 @@
         android:key="icons"
         android:title="@string/icons_category" >
 
-      <PreferenceScreen
-           android:key="carrier_options"
-           android:fragment="com.android.settings.rr.CarrierLabel"
-           android:title="@string/carrier_options" />
+    <PreferenceScreen
+           android:key="carrierlabel"
+           android:title="@string/carrier_options"
+	   android:fragment="com.android.settings.rr.CarrierLabel"  />
 
     <PreferenceScreen
            android:key="network_traffic_settings"
@@ -82,6 +82,14 @@
             android:key="rr_logo"
             android:fragment="com.android.settings.rr.fragments.Logo"
             android:title="@string/status_bar_rr_logo_title" />
+
+    <!-- Headset icon switch -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="show_headset_icon"
+        android:title="@string/show_headset_icon_title"
+        android:summary="@string/show_headset_icon_summary"
+        android:defaultValue="true" />
+
 
      </PreferenceCategory>
 
