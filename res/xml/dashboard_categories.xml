@@ -91,14 +91,14 @@
                 android:id="@+id/main_settings"
                 android:title="@string/rr_settings_title"
                 android:fragment="com.android.settings.rr.MainSettings"
-                android:icon="@drawable/ic_ic_settings_about_rr"
+                android:icon="@drawable/ic_rr_tools_tint"
                 />        
                         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
         <dashboard-tile
             android:id="@+id/theme_settings"
             android:title="@string/themes_settings_title"
-            android:icon="@drawable/ic_settings_themes">
+            android:icon="@drawable/ic_themes_tint">
             <intent
                 android:action="android.intent.action.MAIN" >
                 <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
@@ -224,7 +224,7 @@
                 android:id="@+id/profile_settings"
                 android:fragment="com.android.settings.profiles.ProfilesSettings"
                 android:title="@string/profiles_settings_title"
-                android:icon="@drawable/ic_action_action_perm_identity"
+                android:icon="@drawable/ic_action_action_perm_identity_tint"
                 />
 
         <!-- Status bar >

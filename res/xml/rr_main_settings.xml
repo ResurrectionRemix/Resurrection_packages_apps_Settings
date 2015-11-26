@@ -24,36 +24,35 @@
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
                 android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-                android:icon="@drawable/ic_settings_extdesk_hidenavbar"
+                android:icon="@drawable/ic_rr_statusbar_tint"
                 />
 
-  <PreferenceScreen
+       <PreferenceScreen
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
                 android:fragment="com.android.settings.ButtonSettings"
-                android:icon="@drawable/ic_settings_buttons"
+                android:icon="@drawable/ic_rr_buttons_tint"
 		/>
 
-  <PreferenceScreen
+       <PreferenceScreen
             android:id="@+id/recents_settings"
             android:fragment="com.android.settings.rr.RecentsSettings"
             android:title="@string/recents_settings_title"
-            android:icon="@drawable/ic_xd_recents"
-            />
+            android:icon="@drawable/ic_rr_recents_tint" />
 
         <!-- Notification drawer -->
         <PreferenceScreen
             android:id="@+id/notification_drawer_settings"
             android:title="@string/notification_drawer_title"
             android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
-            android:icon="@drawable/ic_settings_notification_drawer"
+            android:icon="@drawable/ic_rr_notification_panel_tint"
                 />
 
        <PreferenceScreen
 	    android:title="@string/rr_lockscreen_title"	
             android:key="lock_screen_general_category"
             android:fragment="com.android.settings.rr.LockScreenSettings"  
-            android:icon="@drawable/ic_xd_lock"		
+            android:icon="@drawable/ic_rr_lockscreen_tint"
             />
 
         <!-- Gesture anywhere -->
@@ -70,7 +69,7 @@
             android:key="animation_settings"
             android:title="@string/animation_title"
             android:fragment="com.android.settings.rr.animation.AnimationSettings" 
-            android:icon="@drawable/ic_xd_animation"
+            android:icon="@drawable/ic_rr_animations_tint"
             />
 
 
@@ -88,7 +87,7 @@
             android:key="misc"
             android:fragment="com.android.settings.rr.MiscSettings"
             android:title="@string/rr_misc_title"
-            android:icon="@drawable/ic_rrutilities" 
+            android:icon="@drawable/ic_rr_misc_tint" 
             />
 
         <PreferenceScreen
