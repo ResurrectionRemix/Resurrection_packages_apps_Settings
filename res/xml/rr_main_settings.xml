@@ -113,6 +113,16 @@
                    android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
            </intent>
        </Preference>
+
+       <!-- Updater -->
+        <PreferenceScreen
+                android:key="update_settings"
+                android:title="@string/updater_title"
+                android:icon="@drawable/ic_rr_updates_tint">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.fusionjack.slimota"
+                    android:targetClass="com.fusionjack.slimota.MainActivity" />
+        </PreferenceScreen>   
                 
 </PreferenceCategory>
 
