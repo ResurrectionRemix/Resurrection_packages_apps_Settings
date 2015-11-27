@@ -154,7 +154,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
             final Preference preference) {
-        final ContentResolver resolver = this.getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
         if (preference.getKey().equals(CUSTOM_CARRIER_LABEL)) {
              AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
