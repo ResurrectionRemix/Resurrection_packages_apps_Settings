@@ -56,7 +56,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String STATUS_BAR_TEMPERATURE = "status_bar_temperature";
     private static final String STATUS_BAR_TEMPERATURE_STYLE = "status_bar_temperature_style";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
@@ -66,7 +65,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarClock;
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
-    private ListPreference mStatusBarTemperatureStyle;
     private ListPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarTemperature;
     //private Preference mCarrierLabel;		
@@ -115,23 +113,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
 
       // tempature
-        mStatusBarTemperature = (ListPreference) findPreference(STATUS_BAR_TEMPERATURE);
-        int temperatureShow = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0,
-                UserHandle.USER_CURRENT);
-        mStatusBarTemperature.setValue(String.valueOf(temperatureShow));
+       mStatusBarTemperature = (ListPreference) findPreference(STATUS_BAR_TEMPERATURE_STYLE);
+        int temperatureStyle = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0);
+        mStatusBarTemperature.setValue(String.valueOf(temperatureStyle));
         mStatusBarTemperature.setSummary(mStatusBarTemperature.getEntry());
         mStatusBarTemperature.setOnPreferenceChangeListener(this);
 
-        mStatusBarTemperatureStyle = (ListPreference) findPreference(STATUS_BAR_TEMPERATURE_STYLE);
-        int temperatureStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_WEATHER_TEMP_STYLE, 0,
-                UserHandle.USER_CURRENT);
-        mStatusBarTemperatureStyle.setValue(String.valueOf(temperatureStyle));
-        mStatusBarTemperatureStyle.setSummary(mStatusBarTemperatureStyle.getEntry());
-        mStatusBarTemperatureStyle.setOnPreferenceChangeListener(this);
 
-        enableStatusBarTemperatureDependents();
 	//PreferenceScreen prefSet = getPreferenceScreen();
         //mCarrierLabel = prefSet.findPreference(PREF_CARRIE_LABEL);
 	
@@ -190,39 +179,16 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     mStatusBarBatteryShowPercent.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarTemperature) {
-            int temperatureShow = Integer.valueOf((String) newValue);
+            int temperatureStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarTemperature.findIndexOfValue((String) newValue);
- 	    Settings.System.putIntForUser(
-                    resolver, Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, temperatureShow,
-                    UserHandle.USER_CURRENT);
+            Settings.System.putInt(
+                    resolver, Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, temperatureStyle);
             mStatusBarTemperature.setSummary(
                     mStatusBarTemperature.getEntries()[index]);
-            enableStatusBarTemperatureDependents();
-            return true;
-        } else if (preference == mStatusBarTemperatureStyle) {
-            int temperatureStyle = Integer.valueOf((String) newValue);
-            int index = mStatusBarTemperatureStyle.findIndexOfValue((String) newValue);
-            Settings.System.putIntForUser(
-                    resolver, Settings.System.STATUS_BAR_WEATHER_TEMP_STYLE, temperatureStyle,
-                    UserHandle.USER_CURRENT);
-            mStatusBarTemperatureStyle.setSummary(
-                    mStatusBarTemperatureStyle.getEntries()[index]);
             return true;
 	}
         return false;
     }
-
-
-    private void enableStatusBarTemperatureDependents() {
-        int temperatureShow = Settings.System.getIntForUser(getActivity()
-                .getContentResolver(), Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0,
-                UserHandle.USER_CURRENT);
-        if (temperatureShow == 0) {
-            mStatusBarTemperatureStyle.setEnabled(false);
-        } else {
-            mStatusBarTemperatureStyle.setEnabled(true);
-        }
-    } 
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
         if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_HIDDEN ||
