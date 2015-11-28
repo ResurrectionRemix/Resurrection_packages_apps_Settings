@@ -92,7 +92,6 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int LOCKSCREEN_SHORTCUT   = 4;
     private static final int POWER_MENU_SHORTCUT   = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
-    private static final int QUICKTILE             = 7;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
 
@@ -492,14 +491,15 @@ public class ActionListViewSettings extends ListFragment implements
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, MENU_HELP, 0, R.string.help)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         menu.add(0, MENU_RESET, 0, R.string.shortcut_action_reset)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-        menu.add(0, MENU_ADD, 0, R.string.shortcut_action_add)
-                .setIcon(R.drawable.ic_menu_add_white)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
+        menu.add(0, MENU_ADD, 0, R.string.shortcut_action_add)
+                .setIcon(R.drawable.ic_menu_add_dark)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, MENU_HELP, 0, R.string.help_label)
+                .setIcon(R.drawable.ic_settings_about)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     private void addNewAction(String action, String description) {
@@ -520,28 +520,25 @@ public class ActionListViewSettings extends ListFragment implements
         switch (mActionMode) {
             case LOCKSCREEN_SHORTCUT:
                 return ActionHelper.getLockscreenShortcutConfig(mActivity);
-            case QUICKTILE:
-                return ActionHelper.getQuickTileConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
 /* Disabled for now till all features are back. Enable it step per step!!!!!!
             case NAV_BAR:
                 return ActionHelper.getNavBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
             case NAV_RING:
                 return ActionHelper.getNavRingConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);*/
+                    mActivity, mActionValuesKey, mActionEntriesKey);
             case PIE:
                 return ActionHelper.getPieConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
             case PIE_SECOND:
                 return ActionHelper.getPieSecondLayerConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
-/*            case POWER_MENU_SHORTCUT:
+            case POWER_MENU_SHORTCUT:
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
             case SHAKE_EVENTS_DISABLED:
-                return ActionHelper.getDisabledShakeApps(mActivity);*/
-
+                return ActionHelper.getDisabledShakeApps(mActivity);
+*/
         }
         return null;
     }
@@ -551,28 +548,26 @@ public class ActionListViewSettings extends ListFragment implements
             case LOCKSCREEN_SHORTCUT:
                 ActionHelper.setLockscreenShortcutConfig(mActivity, actionConfigs, reset);
                 break;
-            case QUICKTILE:
-                ActionHelper.setQuickTileConfig(mActivity, actionConfigs, reset);
-                break;
 /* Disabled for now till all features are back. Enable it step per step!!!!!!
             case NAV_BAR:
                 ActionHelper.setNavBarConfig(mActivity, actionConfigs, reset);
                 break;
             case NAV_RING:
                 ActionHelper.setNavRingConfig(mActivity, actionConfigs, reset);
-                break;*/
+                break;
             case PIE:
                 ActionHelper.setPieConfig(mActivity, actionConfigs, reset);
                 break;
             case PIE_SECOND:
                 ActionHelper.setPieSecondLayerConfig(mActivity, actionConfigs, reset);
                 break;
-/*            case POWER_MENU_SHORTCUT:
+            case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
                 break;
             case SHAKE_EVENTS_DISABLED:
                 ActionHelper.setDisabledShakeApps(mActivity, actionConfigs, reset);
-                break;*/
+                break;
+*/
         }
     }
 
@@ -616,23 +611,19 @@ public class ActionListViewSettings extends ListFragment implements
                     getResources().getString(R.string.shortcut_action_longpress)
                     + " " + getItem(position).getLongpressActionDescription());
             }
-
-            Drawable d = null;
-            String iconUri = getItem(position).getIcon();
             if (mActionMode == POWER_MENU_SHORTCUT) {
 /* Disabled for now till slims power menu is back!!!!!!!!!!!!!!
-                d = ImageHelper.resize(
+
+                holder.iconView.setImageDrawable(ImageHelper.resize(
                         mActivity, PolicyHelper.getPowerMenuIconImage(mActivity,
                         getItem(position).getClickAction(),
-                        iconUri, false), 36); */
+                        getItem(position).getIcon(), false), 36)); */
             } else {
-                d = ImageHelper.resize(
+                holder.iconView.setImageDrawable(ImageHelper.resize(
                         mActivity, ActionHelper.getActionIconImage(mActivity,
                         getItem(position).getClickAction(),
-                        iconUri), 36);
+                        getItem(position).getIcon()), 36));
             }
-
-            holder.iconView.setImageDrawable(d);
 
             if (!mDisableIconPicker && holder.iconView.getDrawable() != null) {
                 holder.iconView.setOnClickListener(new OnClickListener() {
@@ -910,12 +901,10 @@ public class ActionListViewSettings extends ListFragment implements
 
             TypedArray icons;
             String[] labels;
-            int color;
 
             public IconAdapter() {
                 labels = getResources().getStringArray(R.array.shortcut_icon_picker_labels);
                 icons = getResources().obtainTypedArray(R.array.shortcut_icon_picker_icons);
-
             }
 
             @Override
