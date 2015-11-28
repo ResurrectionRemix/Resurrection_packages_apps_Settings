@@ -483,6 +483,31 @@ public class ActionListViewSettings extends ListFragment implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_ADD:
+                if (mActionConfigs.size() == mMaxAllowedActions) {
+                    Toast.makeText(mActivity,
+                            getResources().getString(R.string.shortcut_action_max),
+                            Toast.LENGTH_LONG).show();
+                    break;
+                }
+                if (mUseFullAppsOnly) {
+                    if (mPicker != null) {
+                        mPendingIndex = 0;
+                        mPendingLongpress = false;
+                        mPendingNewAction = true;
+                        mPicker.pickShortcut(getId(), true);
+                    }
+                } else if (!mUseAppPickerOnly) {
+                    showDialogInner(DLG_SHOW_ACTION_DIALOG, 0, false, true);
+                } else {
+                    if (mPicker != null) {
+                        mPendingIndex = 0;
+                        mPendingLongpress = false;
+                        mPendingNewAction = true;
+                        mPicker.pickShortcut(getId());
+                    }
+                }
+                break;
             case MENU_RESET:
                     showDialogInner(DLG_RESET_TO_DEFAULT, 0, false, true);
                 break;
@@ -499,6 +524,9 @@ public class ActionListViewSettings extends ListFragment implements
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         menu.add(0, MENU_RESET, 0, R.string.shortcut_action_reset)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        menu.add(0, MENU_ADD, 0, R.string.shortcut_action_add)
+                .setIcon(R.drawable.ic_menu_add_white)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     private void addNewAction(String action, String description) {
@@ -638,9 +666,6 @@ public class ActionListViewSettings extends ListFragment implements
                         iconUri), 36);
             }
 
-            if (iconUri != null && iconUri.startsWith(ActionConstants.SYSTEM_ICON_IDENTIFIER)) {
-                d.setTint(getResources().getColor(R.color.dslv_icon_dark));
-            }
             holder.iconView.setImageDrawable(d);
 
             if (!mDisableIconPicker && holder.iconView.getDrawable() != null) {
@@ -917,10 +942,6 @@ public class ActionListViewSettings extends ListFragment implements
 
         public class IconAdapter extends BaseAdapter {
 
-            ActionListViewSettings getOwner() {
-                return (ActionListViewSettings) getTargetFragment();
-            }
-
             TypedArray icons;
             String[] labels;
             int color;
@@ -928,7 +949,6 @@ public class ActionListViewSettings extends ListFragment implements
             public IconAdapter() {
                 labels = getResources().getStringArray(R.array.shortcut_icon_picker_labels);
                 icons = getResources().obtainTypedArray(R.array.shortcut_icon_picker_icons);
-                color = getResources().getColor(R.color.dslv_icon_dark);
             }
 
             @Override
@@ -963,7 +983,6 @@ public class ActionListViewSettings extends ListFragment implements
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
                 Drawable ic = ((Drawable) getItem(position)).mutate();
-                ic.setTint(color);
                 tt.setCompoundDrawablePadding(15);
                 tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);
                 return iView;
