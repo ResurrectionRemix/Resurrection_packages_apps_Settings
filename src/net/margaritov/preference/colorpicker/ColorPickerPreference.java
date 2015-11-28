@@ -52,7 +52,7 @@ public class ColorPickerPreference extends DialogPreference implements
     int mDarkKatColor = mAndroidColor;
     private int mValue = Color.BLACK;
     private float mDensity = 0;
-    private boolean mAlphaSliderEnabled = false;
+    private boolean mAlphaSliderEnabled = true;
 
     private static final String androidns = "http://schemas.android.com/apk/res/android";
 
