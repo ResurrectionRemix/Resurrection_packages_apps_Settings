@@ -26,7 +26,7 @@
             android:summary="@string/double_tap_ls_summary"
             android:defaultValue="true" />
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <!--com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="lockscreen_media_metadata"
             android:title="@string/media_art_title"
             android:summary="@string/media_art_summary"
@@ -38,11 +38,11 @@
             <intent
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
-        </PreferenceScreen>
+        </PreferenceScreen-->
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--PreferenceCategory
         android:key="locksystem_category"
         android:title="@string/lockscreen_shortcuts_category">
 
@@ -60,7 +60,7 @@
 
     </PreferenceCategory>
 
-       <!--PreferenceCategory
+       <PreferenceCategory
         android:key="lockscreen_wallpaper"
         android:title="@string/lockscreen_wallpaper_title" >
 
@@ -76,7 +76,7 @@
 
     </PreferenceCategory-->
 
-    <PreferenceCategory
+    <!--PreferenceCategory
         android:key="lockscreen_weather_cat"
         android:title="@string/lockscreen_weather_title" >
 
@@ -85,6 +85,6 @@
                 android:title="@string/lock_screen_weather_settings_title"
                 android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
 
-    </PreferenceCategory>
+    </PreferenceCategory-->
 
 </PreferenceScreen>
