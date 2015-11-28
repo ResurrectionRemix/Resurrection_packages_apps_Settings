@@ -84,6 +84,12 @@
             android:fragment="com.android.settings.rr.fragments.Logo"
             android:title="@string/status_bar_logo" />
 
+     <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+        android:key="status_bar_show_weather"
+        android:title="@string/status_bar_show_weather_title"
+        android:summary="@string/status_bar_show_weather_summary"
+        android:defaultValue="true" />
+
      <PreferenceScreen
         android:key="statusbar_weather"
 	android:fragment="com.android.settings.rr.StatusBarWeather"
@@ -103,12 +109,12 @@
         android:key="misc"
         android:title="@string/misc_category" >
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+    <!--com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="show_su_indicator"
         android:title="@string/su_indicator"
         android:summaryOn="@string/su_indicator_summary_on"
         android:summaryOff="@string/su_indicator_summary_off"
-        android:defaultValue="true" />
+        android:defaultValue="true" /-->
 
 
 
