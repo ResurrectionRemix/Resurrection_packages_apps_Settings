@@ -48,7 +48,6 @@ include frameworks/opt/setupwizard/navigationbar/common.mk
 include frameworks/opt/setupwizard/library/common.mk
 include frameworks/base/packages/SettingsLib/common.mk
 
-LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 include $(BUILD_PACKAGE)
 
 LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := libsuperuser:src/com/android/settings/rr/lib/libsuperuser.jar
