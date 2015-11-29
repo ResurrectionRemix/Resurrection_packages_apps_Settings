@@ -49,7 +49,6 @@ import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 
 import cyanogenmod.providers.CMSettings;
-import org.cyanogenmod.hardware.KeyDisabler;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
