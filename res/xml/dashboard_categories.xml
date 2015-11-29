@@ -82,18 +82,42 @@
 
     </dashboard-category>
 
+    <!-- Personalization -->
+    <dashboard-category
+            android:id="@+id/device_personalization"
+            android:title="@string/header_category_personalization" >
+        <!-- ResurrectionRemix -->
+        <dashboard-tile
+                android:id="@+id/main_settings"
+                android:title="@string/rr_settings_title"
+                android:fragment="com.android.settings.rr.MainSettings"
+                android:icon="@drawable/ic_rr_tools_tint"
+                />        
+                        <!-- Themes -->
+        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
+        <dashboard-tile
+            android:id="@+id/theme_settings"
+            android:title="@string/themes_settings_title"
+            android:icon="@drawable/ic_themes_tint">
+            <intent
+                android:action="android.intent.action.MAIN" >
+                <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
+            </intent>
+        </dashboard-tile>
+    </dashboard-category>
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"
             android:key="@string/category_key_device"
             android:title="@string/header_category_device" >
 
-        <dashboard-tile
+
+        <!--dashboard-tile
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
                 android:fragment="com.android.settings.ButtonSettings"
                 android:icon="@drawable/ic_settings_buttons"
-                />
+                /-->
 
         <!-- Home -->
         <dashboard-tile
@@ -122,17 +146,7 @@
                 android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
         </dashboard-tile>
 
-        <!-- Themes -->
-        <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
-        <dashboard-tile
-            android:id="@+id/theme_settings"
-            android:title="@string/themes_settings_title"
-            android:icon="@drawable/ic_settings_themes">
-            <intent
-                android:action="android.intent.action.MAIN" >
-                <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
-            </intent>
-        </dashboard-tile>
+
 
         <!-- Notifications -->
         <dashboard-tile
@@ -210,10 +224,10 @@
                 android:id="@+id/profile_settings"
                 android:fragment="com.android.settings.profiles.ProfilesSettings"
                 android:title="@string/profiles_settings_title"
-                android:icon="@drawable/ic_settings_profiles"
+                android:icon="@drawable/ic_action_action_perm_identity_tint"
                 />
 
-        <!-- Status bar -->
+        <!-- Status bar >
         <dashboard-tile
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
@@ -221,7 +235,7 @@
                 android:icon="@drawable/ic_settings_extdesk_hidenavbar"
                 />
 
-        <!-- Location -->
+        < Location -->
         <dashboard-tile
                 android:id="@+id/location_settings"
                 android:title="@string/location_settings_title"
@@ -312,6 +326,17 @@
                 android:fragment="com.android.settings.DevelopmentSettings"
                 android:icon="@drawable/ic_settings_development"
                 />
+
+        <!-- SuperSU -->
+        <dashboard-tile
+            android:id="@+id/supersu_settings"
+            android:icon="@drawable/ic_settings_supersu"
+            android:title="@string/supersu_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="eu.chainfire.supersu"
+                android:targetClass="eu.chainfire.supersu.MainActivity" />
+        </dashboard-tile>
 
         <!-- About Device -->
         <dashboard-tile

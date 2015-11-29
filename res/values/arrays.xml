@@ -48,6 +48,7 @@
         <item>5 minutes</item>
         <item>10 minutes</item>
         <item>30 minutes</item>
+        <item>60 minutes</item>
     </string-array>
 
     <!-- Do not translate. -->
@@ -66,6 +67,8 @@
         <item>600000</item>
         <!-- Do not translate. -->
         <item>1800000</item>
+        <!-- Do not translate. -->
+        <item>3600000</item>
     </string-array>
 
     <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
@@ -965,7 +968,9 @@
     <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
     <string-array name="window_animation_scale_entries">
         <item>Animation off</item>
+        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -976,7 +981,9 @@
     <!-- Values for window animation scale preference. -->
     <string-array name="window_animation_scale_values" translatable="false" >
         <item>0</item>
+        <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -987,7 +994,9 @@
     <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
     <string-array name="transition_animation_scale_entries">
         <item>Animation off</item>
+        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -998,7 +1007,9 @@
     <!-- Values for transition animation scale preference. -->
     <string-array name="transition_animation_scale_values" translatable="false" >
         <item>0</item>
+        <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -1009,7 +1020,9 @@
     <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
     <string-array name="animator_duration_scale_entries">
         <item>Animation off</item>
+        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
         <item>Animation scale 1.5x</item>
         <item>Animation scale 2x</item>
@@ -1020,7 +1033,9 @@
     <!-- Values for animator duration scale preference. -->
     <string-array name="animator_duration_scale_values" translatable="false" >
         <item>0</item>
+        <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
         <item>1.5</item>
         <item>2</item>
@@ -1262,7 +1277,12 @@
     <integer-array name="battery_saver_trigger_values" translatable="false" >
         <item>0</item>
         <item>5</item>
+        <item>10</item>
         <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
     </integer-array>
 
     <!-- Process stats memory use details: labels for memory states -->
@@ -1351,6 +1371,20 @@
         <item>2</item>
         <!-- Do not translate. -->
         <item>0</item>
+    </string-array>
+  <!-- Carrier Label -->
+    <string-array name="carrier_label_entries">
+        <item>@string/show_carrier_disabled</item>
+        <item>@string/show_carrier_keyguard</item>
+        <item>@string/show_carrier_statusbar</item>
+        <item>@string/show_carrier_enabled</item>
+    </string-array>
+
+    <string-array name="carrier_label_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>

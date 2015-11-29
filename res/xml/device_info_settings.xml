@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2008 The Android Open Source Project
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -17,29 +16,26 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
 
+        <!-- Mod version -->
+        <Preference android:key="mod_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/rr_mod_version"
+                android:summary="@string/mod_version_default"
+		android:icon="@drawable/ic_rr_tools_tint"/>
+
         <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"
                 android:title="@string/system_update_settings_list_item_title"
                 android:summary="@string/system_update_settings_list_item_summary">
-            <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"
-                    android:targetPackage="com.cyngn.fota"
-                    android:targetClass="com.cyngn.fota.SystemUpdateActivity" />
+            <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
         </PreferenceScreen>
+
 
         <PreferenceScreen android:key="additional_system_update_settings"
                           android:title="@string/additional_system_update_settings_list_item_title">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
-        </PreferenceScreen>
-
-        <!-- CyanogenMod Updates -->
-        <PreferenceScreen android:key="cm_updates"
-                android:title="@string/cmupdate_settings_title"
-                android:summary="@string/system_update_settings_list_item_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.cyanogenmod.updater"
-                    android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
         </PreferenceScreen>
 
         <!-- Device status - launches activity -->
@@ -56,14 +52,6 @@
                 android:key="manual"
                 android:title="@string/manual">
             <intent android:action="android.settings.SHOW_MANUAL" />
-        </PreferenceScreen>
-
-        <!-- Anonymous statistics - (CMStats) -->
-        <PreferenceScreen
-            android:key="cmstats"
-            android:title="@string/anonymous_statistics_title"
-            android:summary="@string/anonymous_statistics_summary"
-            android:fragment="com.android.settings.cmstats.AnonymousStats" >
         </PreferenceScreen>
 
         <!-- Legal Information -->
@@ -95,11 +83,12 @@
                 android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mod_version"
-                android:summary="@string/mod_version_default" />
+        <!-- About Resurrection >
+       <PreferenceScreen
+        android:key="about_rom"
+        android:fragment="com.android.settings.rr.About"
+        android:title="@string/about_rr_settings_title"
+        android:summary="@string/about_r0m_summary" /-->
 
         <!-- CyanogenMod API Version -->
         <Preference android:key="mod_api_level"
@@ -131,12 +120,23 @@
                 android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
 
+        <!-- Device cpu info -->
+        <Preference android:key="device_cpu"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/cpu_info"
+                android:summary="@string/device_info_default"/>
+
+        <!-- Device mem info -->
+        <Preference android:key="device_memory"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/mem_info"
+                android:summary="@string/device_info_default"/>
+
         <!-- Build date -->
         <Preference android:key="build_date"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/build_date"
                 android:summary="@string/build_date_default" />
-
         <!-- Detailed build version -->
         <Preference android:key="build_number"
                 style="?android:preferenceInformationStyle"
@@ -148,5 +148,4 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"/>
-
 </PreferenceScreen>

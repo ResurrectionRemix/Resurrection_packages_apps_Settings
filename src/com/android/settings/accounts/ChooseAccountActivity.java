@@ -18,6 +18,8 @@ package com.android.settings.accounts;
 
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +35,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.CharSequences;
@@ -98,6 +101,12 @@ public class ChooseAccountActivity extends InstrumentedPreferenceActivity {
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         setContentView(R.layout.add_account_screen);
         addPreferencesFromResource(R.xml.add_account_settings);
@@ -278,4 +287,24 @@ public class ChooseAccountActivity extends InstrumentedPreferenceActivity {
         setResult(RESULT_OK, intent);
         finish();
     }
+
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        switch (itemId) {
+            case android.R.id.home:
+                goUpToTopLevelSetting(this);
+                return true;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Finish current Activity and go up to the top level Settings.
+     */
+    public static void goUpToTopLevelSetting(Activity activity) {
+        activity.finish();
+    }
+
 }

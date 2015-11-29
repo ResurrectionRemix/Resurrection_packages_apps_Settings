@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/power_menu_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+
+    <PreferenceCategory
+        android:title="@string/lockscreen_options_title" >
+
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_lock_screen"
+            android:title="@string/double_tap_ls"
+            android:summary="@string/double_tap_ls_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="true" />
+
+        <PreferenceScreen
+            android:title="@string/lockscreen_targets_message" 
+            android:summary="@string/lockscreen_targets_summary" >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="locksystem_category"
+        android:title="@string/lockscreen_shortcuts_category">
+
+        <PreferenceScreen
+                 android:key="lockscreen_shortcuts"
+                 android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+                 android:summary="@string/lockscreen_shortcuts_summary"
+                 android:title="@string/lockscreen_shortcuts_title">
+             <extra android:name="actionMode" android:value="4" />
+             <extra android:name="maxAllowedActions" android:value="5" />
+             <extra android:name="disableLongpress" android:value="true" />
+             <extra android:name="useAppPickerOnly" android:value="true" />
+             <extra android:name="fragment" android:value="com.android.settings.slim.fragments.LockscreenShortcutFragment" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+       <!--PreferenceCategory
+        android:key="lockscreen_wallpaper"
+        android:title="@string/lockscreen_wallpaper_title" >
+
+        <Preference
+            android:key="lockscreen_wallpaper_set"
+            android:title="@string/lockscreen_wallpaper_set_title"
+            android:persistent="false"/>
+
+        <Preference
+            android:key="lockscreen_wallpaper_clear"
+            android:title="@string/lockscreen_wallpaper_clear_title"
+            android:persistent="false">
+
+    </PreferenceCategory-->
+
+    <PreferenceCategory
+        android:key="lockscreen_weather_cat"
+        android:title="@string/lockscreen_weather_title" >
+
+        <PreferenceScreen
+                android:key="lockscreen_weather"
+                android:title="@string/lock_screen_weather_settings_title"
+                android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

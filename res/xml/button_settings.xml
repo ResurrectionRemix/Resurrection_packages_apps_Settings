@@ -65,6 +65,53 @@
             android:title="@string/navigation_bar_recents_title"
             android:persistent="false" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="navigation_bar_tint"
+            android:title="@string/navbar_button_tint_title"
+            android:defaultValue="0xffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="navigation_bar"
+        android:title="@string/navigation_bar_category">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_navbar"
+            android:title="@string/double_tap_sleep_nav_bar_title"
+            android:summary="@string/double_tap_sleep_nav_bar_summary"
+            android:defaultValue="false" />
+
+ <SwitchPreference
+            android:key="dim_nav_buttons"
+            android:title="@string/dim_nav_buttons_title"
+            android:summary="@string/dim_nav_buttons_summary" />
+
+        <SlimSeekBarPreference
+            android:key="dim_nav_buttons_timeout"
+            android:dependency="dim_nav_buttons"
+            android:title="@string/dim_nav_buttons_timeout_title"
+            android:summary="@string/dim_nav_buttons_timeout_summary" />
+
+        <SlimSeekBarPreference
+            android:key="dim_nav_buttons_alpha"
+	    android:dependency="dim_nav_buttons"	
+            android:title="@string/dim_nav_buttons_alpha_title"
+            android:summary="@string/dim_nav_buttons_alpha_summary" />
+
+        <SwitchPreference
+            android:key="dim_nav_buttons_animate"
+            android:dependency="dim_nav_buttons"
+            android:title="@string/dim_nav_buttons_animate_title"
+            android:summary="@string/dim_nav_buttons_animate_summary" />
+
+        <SlimSeekBarPreference
+            android:key="dim_nav_buttons_animate_duration"
+            android:dependency="dim_nav_buttons_animate"
+            android:title="@string/dim_nav_buttons_animate_duration_title"
+            android:summary="@string/dim_nav_buttons_animate_duration_summary" />
+
+
     </PreferenceCategory>
 
     <PreferenceCategory

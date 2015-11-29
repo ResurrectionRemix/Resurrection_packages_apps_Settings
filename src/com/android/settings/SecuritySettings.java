@@ -53,6 +53,7 @@ import android.util.Log;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.rr.SeekBarPreference;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
 import com.android.settings.fingerprint.FingerprintEnrollIntroduction;
 import com.android.settings.fingerprint.FingerprintSettings;
@@ -344,7 +345,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 manageAgents.setSummary(R.string.disabled_because_no_backup_security);
             }
         }
-
         // The above preferences come and go based on security state, so we need to update
         // the index. This call is expected to be fairly cheap, but we may want to do something
         // smarter in the future.
@@ -727,6 +727,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             } else {
                 setNonMarketAppsAllowed(false);
             }
+
         } else if (KEY_SMS_SECURITY_CHECK_PREF.equals(key)) {
             int smsSecurityCheck = Integer.valueOf((String) value);
             Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,

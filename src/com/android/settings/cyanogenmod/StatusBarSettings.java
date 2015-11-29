@@ -16,17 +16,22 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceFragment;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.preference.PreferenceScreen;
 import android.text.format.DateFormat;
+import android.os.UserHandle;
+import android.content.res.Resources;
 import android.view.View;
 
 import com.android.internal.logging.MetricsLogger;
@@ -54,11 +59,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
+    //private String PREF_CARRIE_LABEL = "carrierlabel";
 
     private ListPreference mStatusBarClock;
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
+
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -102,6 +109,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
+
     }
 
     @Override

@@ -9,6 +9,7 @@
 
     <original-package android:name="com.android.settings" />
 
+    <uses-permission android:name="android.permission.SET_ANIMATION_SCALE" />
     <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -147,6 +148,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <receiver android:name="com.android.settings.rr.util.OnBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
         <!-- Wireless Controls -->
 
@@ -1529,12 +1536,6 @@
 
         <activity android:name=".EncryptionInterstitial"/>
 
-        <service android:label="ReportingService"
-            android:enabled="true"
-            android:exported="false"
-            android:name=".cmstats.ReportingService">
-        </service>
-
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"
                 android:label="@string/device_status_activity_title"
@@ -1928,6 +1929,9 @@
                 android:value="com.android.settings.wfd.WifiDisplaySettings" />
         </activity>
 
+
+        <activity android:name=".rr.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".rr.gestureanywhere.GestureAnywhereCreateGestureActivity" />   
 
         <!-- Development settings -->
 
@@ -2600,26 +2604,6 @@
             </intent-filter>$
         </receiver>
 
-        <!-- Anonymous Statistics -->
-        <receiver android:name=".cmstats.ReportingServiceManager"
-            android:enabled="true"
-            android:exported="false"
-            android:label="ReportingServiceManager">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="com.android.settings.action.TRIGGER_REPORT_METRICS" />
-            </intent-filter>
-        </receiver>
-
-        <service android:label="ReportingService"
-            android:enabled="true"
-            android:exported="false"
-            android:name=".cmstats.ReportingService">
-        </service>
-
-        <service android:name=".cmstats.StatsUploadJobService"
-                 android:permission="android.permission.BIND_JOB_SERVICE" />
-
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
         <receiver android:name=".users.ProfileUpdateReceiver">
             <intent-filter>
@@ -2660,6 +2644,30 @@
                 android:resource="@id/sim_settings" />
         </activity>
 
+        <!-- RR Extra info -->
+        <activity android:name="com.android.settings.rr.extrainfo.MainActivity"
+                  android:theme="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        
+        <!-- Resurrection Settings -->
+        <activity android:name="Settings$MainSettingsActivity"
+             android:label="@string/rr_settings_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.MainSettings" />
+        </activity>
+
+        <activity
+             android:name=".rr.MainSettings" />
+             
         <activity android:name=".sim.SimPreferenceDialog"
             android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar"
             android:excludeFromRecents="true">
@@ -2793,6 +2801,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 </manifest>
+
