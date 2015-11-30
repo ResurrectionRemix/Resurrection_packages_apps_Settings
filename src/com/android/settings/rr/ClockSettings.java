@@ -419,7 +419,6 @@ private void enableStatusBarClockDependents() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
                                 Settings.System.STATUSBAR_CLOCK_COLOR, -2);
-                            getOwner().createCustomView();
                         }
                     })
                     .create();
