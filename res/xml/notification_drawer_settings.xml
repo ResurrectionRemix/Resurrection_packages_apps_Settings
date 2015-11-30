@@ -19,18 +19,20 @@
     android:title="@string/notification_drawer_title">
 
 
-     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+     <SwitchPreference
             android:key="status_bar_custom_header"
             android:title="@string/status_bar_custom_header_title"
             android:summary="@string/status_bar_custom_header_summary"
             android:defaultValue="false"/>
 
-     <SwitchPreference
+        <ListPreference
             android:key="status_bar_custom_header_default"
             android:title="@string/status_bar_custom_header_default_title"
             android:summary="@string/status_bar_custom_header_default_summary"
             android:dependency="status_bar_custom_header"
-            android:defaultValue="false"/>
+            android:entries="@array/custom_header_entries"
+            android:entryValues="@array/custom_header_values"
+            android:persistent="false" />
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"

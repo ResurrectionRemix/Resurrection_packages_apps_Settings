@@ -35,10 +35,12 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class NotificationDrawerSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener{
     private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
 
     private SwitchPreference mForceExpanded;
-    private SwitchPreference mCustomHeader;
+    private SwitchPreference mCustomHeader;	
+    private ListPreference mCustomHeaderDefault;
     
     @Override
     public void onCreate(Bundle icicle) {
@@ -50,12 +52,19 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment  impl
 	mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
         mForceExpanded.setChecked((Settings.System.getInt(resolver, Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
 
-         // Status bar custom header hd
-        mCustomHeader = (SwitchPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+ 
+        // Status bar custom header
+        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
         mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0) == 1));
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
         mCustomHeader.setOnPreferenceChangeListener(this);
 
+         // Status bar custom header hd
+        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
+           int customHeaderDefault = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
     }
 
     @Override
@@ -70,11 +79,23 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment  impl
 
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
-	ContentResolver resolver = getContentResolver();
-         if (preference == mCustomHeader) {
-           boolean value = (Boolean) newValue;
-           Settings.System.putInt(resolver,
-                   Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, value ? 1 : 0);
+	ContentResolver resolver = getActivity().getContentResolver();
+	 if (preference == mCustomHeader) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mCustomHeaderDefault) {
+           int customHeaderDefault = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), 
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
+                    customHeaderDefault, UserHandle.USER_CURRENT);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    0);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    1);
             return true;
          }
          return false;
@@ -94,3 +115,4 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment  impl
 
 
 }
+
