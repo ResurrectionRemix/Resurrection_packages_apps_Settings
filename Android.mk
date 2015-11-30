@@ -13,6 +13,8 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := \
         $(call all-java-files-under, src) \
         src/com/android/settings/EventLogTags.logtags
+        
+LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
