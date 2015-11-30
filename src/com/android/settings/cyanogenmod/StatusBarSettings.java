@@ -149,8 +149,17 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             return false;
         }
         AlertDialog dialog;
-        ContentResolver resolver = getActivity().getContentResolver();     
-		if (preference == mStatusBarBatteryShowPercent) {
+        ContentResolver resolver = getActivity().getContentResolver(); 
+	if (preference == mStatusBarBattery) {
+            int batteryStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarBattery.findIndexOfValue((String) newValue);
+            CMSettings.System.putInt(
+                    resolver, CMSettings.System.STATUS_BAR_BATTERY_STYLE, batteryStyle);
+            mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+            enableStatusBarBatteryDependents(batteryStyle);
+            return true;    
+		}
+		else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
             int index = mStatusBarBatteryShowPercent.findIndexOfValue((String) newValue);
             CMSettings.System.putInt(
