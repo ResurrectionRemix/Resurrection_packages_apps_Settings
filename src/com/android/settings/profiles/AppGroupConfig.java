@@ -43,6 +43,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.PackageListAdapter;
@@ -194,7 +195,7 @@ public class AppGroupConfig extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return 0;
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 
     @Override
