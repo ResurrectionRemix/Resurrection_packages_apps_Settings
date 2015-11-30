@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_misc_title" >
 
+    <PreferenceCategory
+        android:key="misc_1"
+        android:title="@string/misc_1" >
+
     <!-- SELinux -->
         <Preference
             android:key="selinux_switch"
@@ -29,6 +33,13 @@
             android:key="selinux"
             android:title="@string/selinux_title"
             android:defaultValue="false" />
+</PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="misc_2"
+        android:title="@string/misc_2" >
+
 
          <!--Preference
             android:key="warning_multi_window"
@@ -41,8 +52,22 @@
             android:summary="@string/enable_multi_window_summary"/-->
 
 
+
    <Preference android:key="restart_systemui"
         android:title="@string/restart_systemui" />
+
+        <!-- Weather Settings -->
+       <Preference
+           android:id="@+id/weather_settings"
+           android:title="@string/weather_settings_title">
+           <intent
+               android:action="android.intent.action.MAIN"
+               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+               android:targetPackage="com.cyanogenmod.lockclock" >
+               <extra android:name=":android:show_fragment"
+                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
+           </intent>
+       </Preference>
 
 	<!-- Bar color -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -56,6 +81,8 @@
         android:title="@string/disable_fc_notifications_title"
         android:summary="@string/disable_fc_notifications_summary"
         android:defaultValue="false" />
+
+</PreferenceCategory>
 
 
 </PreferenceScreen>
