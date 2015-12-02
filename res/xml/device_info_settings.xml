@@ -14,6 +14,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+
         android:title="@string/about_settings">
 
         <!-- Mod version -->
@@ -22,6 +24,13 @@
                 android:title="@string/rr_mod_version"
                 android:summary="@string/mod_version_default"
 		android:icon="@drawable/ic_rr_tools_tint"/>
+
+        <!-- About Resurrection -->        
+       <PreferenceScreen
+        android:key="about_rom"
+        android:fragment="com.android.settings.rr.About"
+        android:title="@string/about_rr_settings_title"
+        android:summary="@string/about_r0m_summary" />
 
         <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"

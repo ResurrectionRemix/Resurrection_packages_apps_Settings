@@ -19,10 +19,19 @@
     android:title="@string/animation_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="animations_1"
+        android:title="@string/animations_cat" >
+
     <PreferenceScreen
         android:key="aokp_animation"
         android:title="@string/system_animation_title"
         android:fragment="com.android.settings.rr.animation.AnimationControls" />
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="animations_2"
+        android:title="@string/toast_cat" >
 
     <ListPreference
         android:key="toast_animation"
@@ -36,6 +45,11 @@
         android:title="@string/toast_icon_title"
         android:summary="@string/toast_icon_summary"
         android:defaultValue="true" />
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="animations_3"
+        android:title="@string/list_cat" >
 
     <ListPreference
         android:key="listview_animation"
@@ -52,6 +66,11 @@
         android:entries="@array/listview_interpolator_entries"
         android:entryValues="@array/listview_interpolator_values"
         android:defaultValue="0" />
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="animations_4"
+        android:title="@string/perf_cat" >
 
     <ListPreference
         android:key="pref_scrollingcache"
@@ -60,5 +79,6 @@
         android:summary="@string/pref_scrollingcache_summary"
         android:entries="@array/entries_scrollingcache"
         android:entryValues="@array/values_scrollingcache" />
+</PreferenceCategory>
 
 </PreferenceScreen>
