@@ -32,6 +32,20 @@
             android:summary="@string/media_art_summary"
             android:defaultValue="true" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="lockscreen_see_through"
+        android:title="@string/lockscreen_see_through_title"
+        android:summary="@string/lockscreen_see_through_summary"
+        android:defaultValue="false" />
+
+      <com.android.settings.rr.SeekBarPreference
+        android:key="lockscreen_blur_radius"
+        android:title="@string/lockscreen_blur_radius"
+        android:max="25"
+        settings:min="0"
+        android:defaultValue="14"
+        android:dependency="lockscreen_see_through" />
+
         <PreferenceScreen
             android:title="@string/lockscreen_targets_message" 
             android:summary="@string/lockscreen_targets_summary" >

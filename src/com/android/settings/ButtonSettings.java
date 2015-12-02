@@ -58,7 +58,6 @@ import cyanogenmod.hardware.CMHardwareManager;
 import cyanogenmod.providers.CMSettings;
 
 import org.cyanogenmod.internal.util.ScreenType;
-
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.List;
