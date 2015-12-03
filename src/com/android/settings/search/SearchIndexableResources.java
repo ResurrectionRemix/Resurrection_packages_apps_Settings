@@ -42,8 +42,9 @@ import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.location.ScanningSettings;
 import com.android.settings.net.DataUsageMeteredSettings;
-import com.android.settings.notification.NotificationSettings;
+import com.android.settings.notification.NotificationManagerSettings;
 import com.android.settings.notification.OtherSoundSettings;
+import com.android.settings.notification.SoundSettings;
 import com.android.settings.notification.ZenModePrioritySettings;
 import com.android.settings.notification.ZenModeSettings;
 import com.android.settings.print.PrintSettingsFragment;
@@ -120,6 +121,13 @@ public final class SearchIndexableResources {
                         WirelessSettings.class.getName(),
                         R.drawable.ic_settings_more));
 
+        sResMap.put(SecuritySettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(SecuritySettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        SecuritySettings.class.getName(),
+                        R.drawable.ic_settings_security));
+
         sResMap.put(HomeSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(HomeSettings.class.getName()),
@@ -141,11 +149,18 @@ public final class SearchIndexableResources {
                         WallpaperTypeSettings.class.getName(),
                         R.drawable.ic_settings_display));
 
-        sResMap.put(NotificationSettings.class.getName(),
+        sResMap.put(SoundSettings.class.getName(),
                 new SearchIndexableResource(
-                        Ranking.getRankForClassName(NotificationSettings.class.getName()),
+                        Ranking.getRankForClassName(SoundSettings.class.getName()),
                         NO_DATA_RES_ID,
-                        NotificationSettings.class.getName(),
+                        SoundSettings.class.getName(),
+                        R.drawable.ic_settings_notifications));
+
+        sResMap.put(NotificationManagerSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(NotificationManagerSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        NotificationManagerSettings.class.getName(),
                         R.drawable.ic_settings_notifications));
 
         sResMap.put(OtherSoundSettings.class.getName(),

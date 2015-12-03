@@ -40,8 +40,9 @@ import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.location.ScanningSettings;
 import com.android.settings.net.DataUsageMeteredSettings;
-import com.android.settings.notification.NotificationSettings;
+import com.android.settings.notification.NotificationManagerSettings;
 import com.android.settings.notification.OtherSoundSettings;
+import com.android.settings.notification.SoundSettings;
 import com.android.settings.notification.ZenModeAutomationSettings;
 import com.android.settings.notification.ZenModePrioritySettings;
 import com.android.settings.notification.ZenModeSettings;
@@ -121,7 +122,8 @@ public final class Ranking {
         sRankMap.put(WallpaperTypeSettings.class.getName(), RANK_WALLPAPER);
 
         // Notifications
-        sRankMap.put(NotificationSettings.class.getName(), RANK_NOTIFICATIONS);
+        sRankMap.put(SoundSettings.class.getName(), RANK_NOTIFICATIONS);
+        sRankMap.put(NotificationManagerSettings.class.getName(), RANK_NOTIFICATIONS);
         sRankMap.put(OtherSoundSettings.class.getName(), RANK_NOTIFICATIONS);
         sRankMap.put(ZenModeSettings.class.getName(), RANK_NOTIFICATIONS);
         sRankMap.put(ZenModePrioritySettings.class.getName(), RANK_NOTIFICATIONS);

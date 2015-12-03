@@ -123,4 +123,6 @@ public class Settings extends SettingsActivity {
     public static class BlacklistSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AnonymousStatsActivity extends Settings { /* empty */ }
     public static class ContributorsCloudActivity extends SettingsActivity { /* empty */ }
+    public static class SoundSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class LockScreenSettingsActivity extends SettingsActivity { /* empty */ }
 }

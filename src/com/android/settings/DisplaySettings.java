@@ -91,6 +91,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
+    private static final String KEY_CATEGORY_LIGHTS = "lights";
+    private static final String KEY_CATEGORY_DISPLAY = "display";
+    private static final String KEY_CATEGORY_INTERFACE = "interface";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String KEY_FONT_SIZE = "font_size";
@@ -107,6 +110,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+    private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
+    private static final String KEY_BATTERY_LIGHT = "battery_light";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -119,6 +124,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
+    private SwitchPreference mAccelerometer;
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
@@ -130,6 +136,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         @Override
         public void onChange(boolean selfChange) {
             updateDisplayRotationPreferenceDescription();
+            updateAccelerometerRotationSwitch();
         }
     };
 
@@ -153,15 +160,23 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity();
         final ContentResolver resolver = activity.getContentResolver();
-        addPreferencesFromResource(R.xml.display_settings);
+        addPreferencesFromResource(R.xml.display);
 
+        PreferenceCategory displayPrefs = (PreferenceCategory)
+                findPreference(KEY_CATEGORY_DISPLAY);
+        PreferenceCategory interfacePrefs = (PreferenceCategory)
+                findPreference(KEY_CATEGORY_INTERFACE);
         mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
+        mAccelerometer = (SwitchPreference) findPreference(DisplayRotation.KEY_ACCELEROMETER);
+        if (mAccelerometer != null) {
+            mAccelerometer.setPersistent(false);
+        }
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
         if (mScreenSaverPreference != null
                 && getResources().getBoolean(
                         com.android.internal.R.bool.config_dreamsSupported) == false) {
-            getPreferenceScreen().removePreference(mScreenSaverPreference);
+            interfacePrefs.removePreference(mScreenSaverPreference);
         }
 
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
@@ -176,7 +191,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         if (mLcdDensityPreference != null) {
             if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
-                getPreferenceScreen().removePreference(mLcdDensityPreference);
+                interfacePrefs.removePreference(mLcdDensityPreference);
             } else {
                 int defaultDensity = getDefaultDensity();
                 int currentDensity = getCurrentDensity();
@@ -220,8 +235,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mAutoBrightnessPreference != null && isAutomaticBrightnessAvailable(getResources())) {
             mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
         } else {
-            if (mAutoBrightnessPreference != null) {
-                removePreference(KEY_AUTO_BRIGHTNESS);
+            if (displayPrefs != null && mAutoBrightnessPreference != null) {
+                displayPrefs.removePreference(mAutoBrightnessPreference);
                 mAutoBrightnessPreference = null;
             }
         }
@@ -230,8 +245,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mLiftToWakePreference != null && isLiftToWakeAvailable(activity)) {
             mLiftToWakePreference.setOnPreferenceChangeListener(this);
         } else {
-            if (mLiftToWakePreference != null) {
-                removePreference(KEY_LIFT_TO_WAKE);
+            if (displayPrefs != null && mLiftToWakePreference != null) {
+                displayPrefs.removePreference(mLiftToWakePreference);
                 mLiftToWakePreference = null;
             }
         }
@@ -240,7 +255,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mDozePreference != null && Utils.isDozeAvailable(activity)) {
             mDozePreference.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(KEY_DOZE);
+            if (displayPrefs != null && mDozePreference != null) {
+                displayPrefs.removePreference(mDozePreference);
+            }
         }
 
         if (isCameraGestureAvailable(getResources())) {
@@ -283,6 +300,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mWakeWhenPluggedOrUnplugged =
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
+        initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
     }
 
     private int getDefaultDensity() {
@@ -325,6 +343,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
     }
 
+    private void updateAccelerometerRotationSwitch() {
+        if (mAccelerometer != null) {
+            mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
+        }
+    }
     private void updateDisplayRotationPreferenceDescription() {
         if (mDisplayRotationPreference == null) {
             // The preference was removed, do nothing
@@ -477,11 +500,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
 
+        if (mWakeWhenPluggedOrUnplugged != null) {
         mWakeWhenPluggedOrUnplugged.setChecked(CMSettings.Global.getInt(getContentResolver(),
                 CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                 (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
+        }
 
         updateState();
+        updateAccelerometerRotationSwitch();
     }
 
     @Override
@@ -600,6 +626,22 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         task.execute();
     }
 
+    // === Pulse notification light ===
+
+    private void initPulse(PreferenceCategory parent) {
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+            parent.removePreference(parent.findPreference(KEY_NOTIFICATION_LIGHT));
+        }
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveBatteryLed)
+                || UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            parent.removePreference(parent.findPreference(KEY_BATTERY_LIGHT));
+        }
+        if (parent.getPreferenceCount() == 0) {
+            getPreferenceScreen().removePreference(parent);
+        }
+    }
     /**
      * Reads the current font size and sets the value in the summary text
      */
@@ -632,6 +674,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                     mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
+        } else if (preference == mAccelerometer) {
+            RotationPolicy.setRotationLockForAccessibility(getActivity(),
+                    !mAccelerometer.isChecked());
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -729,7 +774,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.display_settings;
+                    sir.xmlResId = R.xml.display;
                     result.add(sir);
 
                     return result;
@@ -741,6 +786,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (!context.getResources().getBoolean(
                             com.android.internal.R.bool.config_dreamsSupported)) {
                         result.add(KEY_SCREEN_SAVER);
+                    }
+                    if (!context.getResources().getBoolean(
+                            com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+                        result.add(KEY_NOTIFICATION_LIGHT);
+                    }
+                    if (!context.getResources().getBoolean(
+                            com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+                        result.add(KEY_BATTERY_LIGHT);
                     }
                     if (!isAutomaticBrightnessAvailable(context.getResources())) {
                         result.add(KEY_AUTO_BRIGHTNESS);

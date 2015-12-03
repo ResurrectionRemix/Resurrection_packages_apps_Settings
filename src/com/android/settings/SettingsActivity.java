@@ -95,7 +95,9 @@ import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.livedisplay.LiveDisplay;
+import com.android.settings.notification.NotificationManagerSettings;
 import com.android.settings.notification.OtherSoundSettings;
+import com.android.settings.notification.SoundSettings;
 import com.android.settings.profiles.NFCProfileTagCallback;
 import com.android.settings.search.DynamicIndexableContentMonitor;
 import com.android.settings.search.Index;
@@ -108,7 +110,6 @@ import com.android.settings.nfc.AndroidBeam;
 import com.android.settings.nfc.PaymentSettings;
 import com.android.settings.notification.AppNotificationSettings;
 import com.android.settings.notification.NotificationAccessSettings;
-import com.android.settings.notification.NotificationSettings;
 import com.android.settings.notification.NotificationStation;
 import com.android.settings.notification.OtherSoundSettings;
 import com.android.settings.notification.ZenAccessSettings;
@@ -271,8 +272,10 @@ public class SettingsActivity extends Activity
             R.id.sim_settings,
             R.id.wireless_settings,
             R.id.device_section,
-            R.id.notification_settings,
-            R.id.display_settings,
+            R.id.sound_settings,
+            R.id.display_and_lights_settings,
+            R.id.lockscreen_settings,
+            R.id.notification_manager,
             R.id.storage_settings,
             R.id.application_settings,
             R.id.battery_settings,
@@ -287,7 +290,6 @@ public class SettingsActivity extends Activity
             R.id.about_settings,
             R.id.accessibility_settings,
             R.id.print_settings,
-            R.id.nfc_payment_settings,
             R.id.home_settings,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod
@@ -347,7 +349,7 @@ public class SettingsActivity extends Activity
             PaymentSettings.class.getName(),
             KeyboardLayoutPickerFragment.class.getName(),
             ZenModeSettings.class.getName(),
-            NotificationSettings.class.getName(),
+            SoundSettings.class.getName(),
             ChooseLockPassword.ChooseLockPasswordFragment.class.getName(),
             ChooseLockPattern.ChooseLockPatternFragment.class.getName(),
             InstalledAppDetails.class.getName(),
@@ -369,7 +371,8 @@ public class SettingsActivity extends Activity
             com.android.settings.cyanogenmod.DisplayRotation.class.getName(),
             com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
             BlacklistSettings.class.getName(),
-            ContributorsCloudFragment.class.getName()
+            ContributorsCloudFragment.class.getName(),
+            NotificationManagerSettings.class.getName()
     };
 
 
@@ -1296,18 +1299,6 @@ public class SettingsActivity extends Activity
                             || !UserManager.supportsMultipleUsers()
                             || Utils.isMonkeyRunning()) {
                         removeTile = true;
-                    }
-                } else if (id == R.id.nfc_payment_settings) {
-                    if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC)) {
-                        removeTile = true;
-                    } else {
-                        // Only show if NFC is on and we have the HCE feature
-                        NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
-                        if (adapter == null || !adapter.isEnabled() ||
-                                !getPackageManager().hasSystemFeature(
-                                        PackageManager.FEATURE_NFC_HOST_CARD_EMULATION)) {
-                            removeTile = true;
-                        }
                     }
                 } else if (id == R.id.print_settings) {
                     boolean hasPrintingSupport = getPackageManager().hasSystemFeature(

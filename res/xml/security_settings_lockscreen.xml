@@ -29,11 +29,25 @@
             settings:keywords="@string/keywords_lockscreen"
             android:persistent="false"/>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/title_general">
+
         <com.android.settings.SingleLineSummaryPreference
             android:key="owner_info_settings"
             android:enabled="false"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
+
+        <PreferenceScreen
+            android:key="lockscreen_shortcuts_settings"
+            android:title="@string/lockscreen_targets_message" >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 

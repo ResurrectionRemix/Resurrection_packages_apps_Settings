@@ -17,6 +17,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   android:title="@string/security_settings_title">
 
+    <PreferenceCategory android:title="@string/security_passwords_title"
+                        android:persistent="false">
+
+        <SwitchPreference android:key="show_password"
+                          android:title="@string/show_password"
+                          android:persistent="false"/>
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:key="sim_lock"
             android:title="@string/sim_lock_settings_title"
             android:persistent="false">
@@ -30,29 +39,6 @@
                     android:targetClass="com.android.settings.IccLockSettings"/>
 
         </Preference>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="app_security"
-        android:title="@string/app_security_title">
-
-        <ListPreference
-            android:key="sms_security_check_limit"
-            android:dialogTitle="@string/sms_security_check_limit_title"
-            android:title="@string/sms_security_check_limit_title"
-            android:entries="@array/sms_security_check_limit_entries"
-            android:entryValues="@array/sms_security_check_limit_values"
-            android:defaultValue="30" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/security_passwords_title"
-            android:persistent="false">
-
-        <SwitchPreference android:key="show_password"
-                android:title="@string/show_password"
-                android:persistent="false"/>
 
     </PreferenceCategory>
 
@@ -113,15 +99,17 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="advanced_security"
-            android:title="@string/advanced_security_title"
+    <PreferenceCategory android:key="advanced"
+            android:title="@string/category_misc"
             android:persistent="false">
 
-        <Preference android:key="manage_trust_agents"
-                android:title="@string/manage_trust_agents"
-                android:summary="@string/manage_trust_agents_summary"
-                android:persistent="false"
-                android:fragment="com.android.settings.TrustAgentSettings"/>
+        <ListPreference
+                android:key="sms_security_check_limit"
+                android:dialogTitle="@string/sms_security_check_limit_title"
+                android:title="@string/sms_security_check_limit_title"
+                android:entries="@array/sms_security_check_limit_entries"
+                android:entryValues="@array/sms_security_check_limit_values"
+                android:defaultValue="30" />
 
         <PreferenceScreen
                 android:key="screen_pinning_settings"
