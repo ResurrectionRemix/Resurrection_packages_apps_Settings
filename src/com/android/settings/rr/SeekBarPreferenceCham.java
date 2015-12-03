@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-
 import com.android.settings.R;
 
 public class SeekBarPreferenceCham extends Preference implements OnSeekBarChangeListener {
@@ -21,7 +20,7 @@ public class SeekBarPreferenceCham extends Preference implements OnSeekBarChange
     private final String TAG = getClass().getName();
 
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
-    private static final String RR = "http://schemas.android.com/apk/res/com.android.settings";
+    private static final String SETTINGS = "http://schemas.android.com/apk/res/com.android.settings";
     private static final int DEFAULT_VALUE = 50;
 
     private int mMaxValue      = 100;
@@ -54,12 +53,12 @@ public class SeekBarPreferenceCham extends Preference implements OnSeekBarChange
 
     private void setValuesFromXml(AttributeSet attrs) {
         mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
-        mMinValue = attrs.getAttributeIntValue(RR, "min", 0);
-        mUnitsLeft = getAttributeStringValue(attrs, RR, "unitsLeft", "");
-        String units = getAttributeStringValue(attrs, RR, "units", "");
-        mUnitsRight = getAttributeStringValue(attrs, RR, "unitsRight", units);
+        mMinValue = attrs.getAttributeIntValue(SETTINGS, "min", 0);
+        mUnitsLeft = getAttributeStringValue(attrs, SETTINGS, "unitsLeft", "");
+        String units = getAttributeStringValue(attrs, SETTINGS, "units", "");
+        mUnitsRight = getAttributeStringValue(attrs, SETTINGS, "unitsRight", units);
         try {
-            String newInterval = attrs.getAttributeValue(RR, "interval");
+            String newInterval = attrs.getAttributeValue(SETTINGS, "interval");
             if(newInterval != null)
                 mInterval = Integer.parseInt(newInterval);
         }
