@@ -42,16 +42,12 @@ import com.android.internal.logging.MetricsLogger;
 public class Slimrecents extends SettingsPreferenceFragment
             implements OnPreferenceChangeListener  {
     
-    private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
-    private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";	
     private static final String USE_SLIM_RECENTS = "use_slim_recents";
     private static final String RECENTS_MAX_APPS = "recents_max_apps";
     private static final String RECENT_PANEL_SCALE = "recent_panel_scale_factor";
     private static final String RECENT_PANEL_EXPANDED_MODE = "recent_panel_expanded_mode";
     private static final String RECENT_PANEL_LEFTY_MODE = "recent_panel_lefty_mode";
 
-    private SwitchPreference mRecentsClearAll;
-    private ListPreference mRecentsClearAllLocation;
     private SwitchPreference mUseSlimRecents;
     private SeekBarPreference mMaxApps;
     private SeekBarPreference mRecentPanelScale;
@@ -69,10 +65,6 @@ public class Slimrecents extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.slim_recents);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
-	
-        mRecentsClearAll = (SwitchPreference) prefSet.findPreference(SHOW_CLEAR_ALL_RECENTS);
-	mRecentsClearAllLocation = (ListPreference) prefSet.findPreference(RECENTS_CLEAR_ALL_LOCATION);
-
 
         mUseSlimRecents = (SwitchPreference) prefSet.findPreference(USE_SLIM_RECENTS);
         mUseSlimRecents.setChecked(Settings.System.getInt(resolver,
