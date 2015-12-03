@@ -19,6 +19,13 @@
     <PreferenceCategory
         android:title="@string/lockscreen_options_title" >
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="power_menu_lockscreen"
+            android:title="@string/powermenu_lockscreen_title"
+            android:summary="@string/powermenu_lockscreen_summary"
+            android:defaultValue="true" />
+
+
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_lock_screen"
