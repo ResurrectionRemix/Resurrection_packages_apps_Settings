@@ -13,6 +13,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/recents_settings_title">
 
     <PreferenceCategory
@@ -73,7 +74,18 @@
             android:defaultValue="false" />
 
     </PreferenceCategory>
+    <PreferenceCategory
+        android:key="rr_slim_recents_panel"
+        android:title="@string/rr_recent_slim_category" >
 
+        <!-- Slim Recents -->
+        <PreferenceScreen
+            android:key="slim_recents"
+            android:id="@+id/slim_recents"
+            android:title="@string/slim_recents_panel"
+	    android:fragment="com.android.settings.rr.Slimrecents" />
+
+ </PreferenceCategory>
     <PreferenceCategory
         android:key="omni_recents_panel"
         android:title="@string/omniswitch_category" >
