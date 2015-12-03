@@ -82,6 +82,18 @@
         android:summary="@string/disable_fc_notifications_summary"
         android:defaultValue="false" />
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="lockscreen_quick_unlock_control"
+            android:title="@string/unlock_quick_unlock_control_title"
+            android:summary="@string/unlock_quick_unlock_control_summary" />
+
+      <ListPreference
+        android:key="media_scanner_on_boot"
+        android:title="@string/media_scanner_on_boot_title"
+        android:persistent="false"
+        android:entries="@array/media_scanner_on_boot_entries"
+        android:entryValues="@array/media_scanner_on_boot_values" />
+
         <!-- Advanced options -->
         <PreferenceScreen
                 android:key="advanced_sound_settings"

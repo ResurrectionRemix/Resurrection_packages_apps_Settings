@@ -31,6 +31,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.PreferenceScreen;
 import android.preference.Preference;
+import android.preference.ListPreference;
 import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
@@ -41,12 +42,16 @@ import dalvik.system.VMRuntime;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import java.util.List;
 import com.android.settings.Utils;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.DataOutputStream;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 import com.android.internal.logging.MetricsLogger;
 
@@ -56,11 +61,15 @@ private static final String ENABLE_MULTI_WINDOW_KEY = "enable_multi_window";
 private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.multi_window";
  private static final String RESTART_SYSTEMUI = "restart_systemui";
 private static final String SELINUX = "selinux";
+private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 
 
 private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
 private SwitchPreference mSelinux;
+private ListPreference mMSOB;
+
+private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +91,11 @@ private SwitchPreference mSelinux;
             mSelinux.setChecked(false);
             mSelinux.setSummary(R.string.selinux_permissive_title);
          }
+
+        mMSOB = (ListPreference) findPreference(MEDIA_SCANNER_ON_BOOT);
+        mAllPrefs.add(mMSOB);
+        mMSOB.setOnPreferenceChangeListener(this);
+        updateMSOBOptions();
 
 	}
   private static boolean showEnableMultiWindowPreference() {
@@ -119,19 +133,41 @@ private SwitchPreference mSelinux;
         return false;
     }
 
-    public boolean onPreferenceChange(Preference preference, Object value) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
      ContentResolver resolver = getActivity().getContentResolver();
             if (preference == mSelinux) {
-            if (value.toString().equals("true")) {
+            if (newValue.toString().equals("true")) {
                 CMDProcessor.runSuCommand("setenforce 1");
                 mSelinux.setSummary(R.string.selinux_enforcing_title);
-            } else if (value.toString().equals("false")) {
+            } else if (newValue.toString().equals("false")) {
                 CMDProcessor.runSuCommand("setenforce 0");
                 mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
-         }
+         } else if (preference == mMSOB) {
+            writeMSOBOptions(newValue);
+            return true;
+	}
         return false;
      } 
+
+   private void resetMSOBOptions() {
+        Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.MEDIA_SCANNER_ON_BOOT, 0);
+    }
+
+    private void writeMSOBOptions(Object newValue) {
+        Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.MEDIA_SCANNER_ON_BOOT,
+                Integer.valueOf((String) newValue));
+        updateMSOBOptions();
+    }
+
+    private void updateMSOBOptions() {
+        int value = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.MEDIA_SCANNER_ON_BOOT, 0);
+        mMSOB.setValue(String.valueOf(value));
+        mMSOB.setSummary(mMSOB.getEntry());
+     }
 }
 
