@@ -208,14 +208,19 @@
 
     <!-- Lock screen settings -->
     <string name="rr_lockscreen_title">Kilit Ekranı</string>
-    <string name="lockscreen_settings_title">Kilit ekranı duvar kağıdı</string>
-    <string name="lockscreen_wallpaper_title">Duvar Kağıdı</string>
     <string name="double_tap_ls">Uyutmak için Kilit Ekranına Çift Dokunun</string>
     <string name="double_tap_ls_summary">Kilit ekranında herhangi bir yere iki kez dokunarak cihazı uyku moduna alabilirsiniz</string>
-    <string name="lockscreen_wallpaper_set_title">Kilit ekranı duvar kağıdını ayarla</string>
+    
+    <!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Duvar kağıdı</string>
+    <string name="lockscreen_wallpaper_summary">Kilit eranı duvar kağıdını ayarla</string>
+    <string name="lockscreen_wallpaper_set_title">Kilit eranı duvar kağıdını ayarla</string>
     <string name="lockscreen_wallpaper_clear_title">Kilit ekranı duvar kağıdını temizle</string>
+    <string name="reset_lockscreen_wallpaper">Varsayılana ayarla</string>
     <string name="lockscreen_options_title">Seçenekler</string>
-
+    <string name="lockscreen_wallpaper_summary_warning">Değişililerin Etkili Olabilmesi için Yeniden Başlatmak Gerekli Olabilir</string>	
+    <string name="lockscreen_wallpaper_cat">Duvar kağıdı</string>
+    
     <!-- Lockscreen see through -->
     <string name="lockscreen_see_through_title">Kilit Ekranı Bulanıklık</string>
     <string name="lockscreen_see_through_summary">Bulanıklaştırır ve kilit ekranının arkadsındaki içeriği görüntüler.</string>
@@ -761,6 +766,7 @@
     <string name="show_status_bar_carrier_summary">Durum çubuğunda şebeke adını göster</string>
     <string name="custom_carrier_label_title">Özel şebeke etiketi</string>
     <string name="custom_carrier_label_explain">Yeni bir etiket girin. Hazır etikete geri dönmek için boş bırakın.</string>
+    <string name="status_bar_carrier_size">Şebeke etiketi yazı boyutu</string>
     <string name="custom_carrier_label_notset">Özel etiket belirlenmiş olan değil</string>
     <string name="status_bar_carrier_color">Şebeke etiketi rengi</string>
 
@@ -902,5 +908,66 @@
     <string name="clock_font_size_21">21</string>
     <string name="clock_font_size_22">22</string>
     <string name="clock_font_size_23">23</string>
+    
+    <!-- Sound settings -->
+    <string name="advanced_sound_title">Advanced options</string>
+    <string name="sound_title">Sound</string>
+
+    <!-- Camera sound switch -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
+    <string name="camera_sounds_summary">Enable system camera shutter sound</string>
+    <string name="camera_sound_warning_dialog_text">Disabling the camera shutter sound is illegal in some areas! Please check the applicable law in your country</string>
+
+    <!-- Slim recents panel -->
+    <string name="rr_recent_slim_category">Slim Son Kullanılanlar</string>
+    <string name="slim_recents_panel">Slim son kullanılanlar görev paneli</string>
+    <string name="use_slim_recents_title">Etin</string>
+    <string name="show_running_tasks_title">Sadece çalışan uygulamaları göster</string>
+    <string name="recents_max_apps_title">İzin verilen maksimum uygulama sayısı</string>
+    <string name="recent_panel_scale_title">Panel boyutu</string>
+    <string name="recent_panel_expanded_mode_title">Genişletilmiş mod</string>
+    <string name="recent_panel_expanded_mode_summary">Son görevlerin genişletilmiş önizleme modu</string>
+    <string name="recent_panel_expanded_mode_auto">Otomatik (varsayılan)</string>
+    <string name="recent_panel_expanded_mode_always">Herzaman</string>
+    <string name="recent_panel_expanded_mode_never">Asla</string>
+    <string name="recent_panel_show_topmost_title">Üstteki görevi göster</string>
+    <string name="recent_panel_show_topmost_summary">Son kullanılanlar ekranında son kullanılan uygulamayı dahil et</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Sol kenarda göster</string>
+    <string name="recent_panel_lefty_mode_summary">Sol kenarda son uygulamalar panelini göster</string>
+
+    <!-- Circle app bar -->
+    <string name="category_app_circle_bar_title">Uygulama başlatıcısı</string>
+    <string name="app_circle_bar_title">Daire uygulama çubuğu</string>
+    <string name="app_circle_bar_summary">Ekranın sağ tarafında dokunduktan sonra daire uygulama başlatıcısını göster</string>
+    <string name="app_circle_bar_included_apps_title">Dahil olan uygulamalar</string>
+    <string name="app_circle_bar_included_apps_summary">Uygulamaları daire uygulama çubuğunda gösterecektir</string>
+    <string name="trigger_width_title">Tetikleyici genişliği</string>
+    <string name="trigger_width_summary">Tetikleyici alanın genişliğini ayarlayın</string>
+    <string name="trigger_top_title">Tetikleyici konumu</string>
+    <string name="trigger_top_summary">Tetikleyici alanının dikey konumunu ayarlayın</string>
+    <string name="trigger_bottom_title">Tetikleyici yüksekliği</string>
+    <string name="trigger_bottom_summary">Tetikleyici alanın yüksekliğini ayarlayın</string>
+
+    <string name="powermenu_lockscreen_title">Kilit eranında güç menüsü</string>
+    <string name="powermenu_lockscreen_summary">Kilit ekranında güç menüsünü göster</string>
+
+    <!-- Qucik unlock -->
+    <string name="unlock_quick_unlock_control_title">Hızlı kilit açma</string>
+    <string name="unlock_quick_unlock_control_summary">Doğru PIN/şifre girildiğinde kilidi otomatik aç</string>
+
+    <!-- MediaScanner behavior on boot -->
+    <string name="options_settings_title">Seçenekler</string>
+    <string name="media_scanner_on_boot_title">Açılışta Medya Tarayıcı davranışı</string>
+    <string name="media_scanner_on_boot_enabled">Medyayı tara</string>
+    <string name="media_scanner_on_boot_ask">Taramak için sor (bildirim)</string>
+    <string name="media_scanner_on_boot_disabled">Medyayı tarama</string>
+
+    <!-- Whether the keyguard will directly pass to password entry -->
+    <string name="lock_directly_show_password">Doğrudan şifre girişini göster</string>
+    <!-- Whether the keyguard will directly pass to pattern view -->
+    <string name="lock_directly_show_pattern">Doğrudan hareketi göster</string>
+    <!-- Whether the keyguard will directly pass to PIN entry -->
+    <string name="lock_directly_show_pin">Doğrudan PIN girişini göstermek</string>
 
 </resources>
