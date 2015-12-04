@@ -129,6 +129,10 @@ public class VolumeSeekBarPreference extends SeekBarPreference
                 mMuted = muted;
                 mZenMuted = zenMuted;
                 updateIconView();
+
+                if (mCallback != null) {
+                    mCallback.onMuted(mStream, muted, zenMuted);
+                }
             }
         };
         final Uri sampleUri = mStream == AudioManager.STREAM_MUSIC ? getMediaVolumeUri() : null;
@@ -202,5 +206,6 @@ public class VolumeSeekBarPreference extends SeekBarPreference
     public interface Callback {
         void onSampleStarting(SeekBarVolumizer sbv);
         void onStreamValueChanged(int stream, int progress);
+        void onMuted(int stream, boolean muted, boolean zenMuted);
     }
 }
