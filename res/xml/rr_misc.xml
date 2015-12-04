@@ -34,41 +34,10 @@
             android:title="@string/selinux_title"
             android:defaultValue="false" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="fingerprint_success_vib"
-            android:title="@string/fprint_sucess_vib_title"
-            android:summary="@string/fprint_sucess_vib_summary"
-			android:icon="@drawable/rr_fingerprint_icon"
-            android:defaultValue="true" />
-
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="battery_save_mode_color"
-            android:title="@string/battery_saver_color_title"
-            android:summary="@string/battery_saver_color_summary"
-			android:icon="@drawable/rr_battery_saver_icon"
-            android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="rr_ota_fab"
-            android:title="@string/rr_ota_fab_title"
-            android:summary="@string/rr_ota_fab_summary"
-            android:defaultValue="true" />
-
-
-        <!-- Weather Settings -->
-       <Preference
-           android:id="@+id/weather_settings"
-           android:title="@string/weather_settings_title"
-		   android:icon="@drawable/rr_weather_main_icon">
-           <intent
-               android:action="android.intent.action.MAIN"
-               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
-               android:targetPackage="com.cyanogenmod.lockclock" >
-               <extra android:name=":android:show_fragment"
-                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
-           </intent>
-       </Preference>
+    <!-- Weather providers -->
+    <org.cyanogenmod.internal.cmparts.CMPartsPreference
+        	android:key="weather_settings"
+		    android:icon="@drawable/rr_weather_main_icon" />
 
      <!-- Ad Blocker -->
         <Preference
@@ -90,5 +59,27 @@
                     android:targetPackage="com.rr.ota"
                     android:targetClass="com.rr.center.OTACenter" />
 	  </PreferenceScreen>
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="fingerprint_success_vib"
+            android:title="@string/fprint_sucess_vib_title"
+            android:summary="@string/fprint_sucess_vib_summary"
+			android:icon="@drawable/rr_fingerprint_icon"
+            android:defaultValue="true" />
+
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="battery_save_mode_color"
+            android:title="@string/battery_saver_color_title"
+            android:summary="@string/battery_saver_color_summary"
+			android:icon="@drawable/rr_battery_saver_icon"
+            android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="rr_ota_fab"
+            android:title="@string/rr_ota_fab_title"
+            android:summary="@string/rr_ota_fab_summary"
+            android:defaultValue="true" />
+
 
 </PreferenceScreen>
