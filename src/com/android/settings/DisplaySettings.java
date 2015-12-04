@@ -277,7 +277,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             // The preference was removed, do nothing
             return;
         }
-
+  boolean configEnableLockRotation = getResources().
+                        getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation);
+        boolean lockScreenRotationEnabled = Settings.System.getInt(getContentResolver(),
+                        Settings.System.LOCKSCREEN_ROTATION, configEnableLockRotation ? 1 : 0) != 0;
         // We have a preference, lets update the summary
         boolean rotationEnabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
