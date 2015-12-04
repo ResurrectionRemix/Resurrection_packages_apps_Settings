@@ -25,6 +25,13 @@
             android:summary="@string/gesture_anywhere_summary"
 			android:icon="@drawable/rr_gesture_anywhere_icon" />
 
+        <!-- App Circle Bar -->
+        <PreferenceScreen
+            android:key="app_circle_bar"
+            android:fragment="com.android.settings.rr.AppCircleBar"
+            android:title="@string/app_circle_bar_title"
+            android:icon="@drawable/rr_appcirclebar_icon" />
+
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="three_finger_gesture"
