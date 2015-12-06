@@ -98,6 +98,15 @@
                 android:persistent="false"
                 android:fragment="com.android.settings.slim.SoundSettings" />
 
+     <!-- Ad Blocker -->
+        <Preference
+             android:title="@string/adaway_settings_title">
+             <intent
+                 android:action="android.intent.action.MAIN"
+                 android:targetPackage="org.adaway"
+                 android:targetClass="org.adaway.ui.BaseActivity" />
+        </Preference>
+
 </PreferenceCategory>
 
 
