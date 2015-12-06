@@ -45,6 +45,9 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class MiscSettings extends SettingsPreferenceFragment {
 
+    private static final String APP_REMOVER = "system_app_remover";
+    private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
+
 
 
     @Override
@@ -52,6 +55,25 @@ public class MiscSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_misc);
   	    final ContentResolver resolver = getActivity().getContentResolver();
+        mAppRemover = (PreferenceScreen) findPreference(APP_REMOVER);
+
+        // Magisk Manager
+        boolean magiskSupported = false;
+        // SuperSU
+        boolean suSupported = false;
+        try {
+            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        try {
+            suSupported = (getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        if (magiskSupported || suSupported || isRootForAppsEnabled()) {
+        } else {
+            if (mAppRemover != null)
+                getPreferenceScreen().removePreference(mAppRemover);
+        }
 
     }
 

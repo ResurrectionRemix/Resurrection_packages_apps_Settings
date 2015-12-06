@@ -32,6 +32,17 @@
             android:icon="@drawable/ic_settings_weather"
             android:fragment="com.android.settings.rr.Weather" />
 
+
+       <PreferenceScreen
+            android:id="@+id/system_app_remover"
+            android:key="system_app_remover"
+            android:title="@string/system_app_remover"
+            android:icon="@drawable/rr_system_app_remover_icon"
+            android:summary="@string/system_app_remover_summary"
+            android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
+
+     </PreferenceCategory>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="sensor_block"
             android:title="@string/sensor_block_title"
