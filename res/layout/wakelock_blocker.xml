@@ -29,15 +29,11 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dip"
-            android:layout_marginBottom="6dip"
-            android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <TextView android:id="@+id/wakelock_blocker_title"
                 android:layout_width="wrap_content"
@@ -46,6 +42,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:ellipsize="marquee"
                 android:text="@string/wakelock_blocker_title"
+                android:padding="6dp"
                 android:fadingEdge="horizontal" />
 
             <TextView android:id="@+id/wakelock_blocker_title_summary"
@@ -56,26 +53,18 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?android:attr/textColorSecondary"
                 android:text="@string/wakelock_blocker_summary"
+                android:padding="6dp"
                 android:maxLines="4" />
 
-     </RelativeLayout>
-
-        <LinearLayout android:id="@+android:id/widget_frame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical" >
-
-            <Switch
+            <Switch 
                 android:id="@+id/wakelock_blocker_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dip"/>
+                android:layout_alignParentRight="true" />
 
- 	</LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
-
 
     <TextView
         android:id="@+id/wakelock_list_header"
