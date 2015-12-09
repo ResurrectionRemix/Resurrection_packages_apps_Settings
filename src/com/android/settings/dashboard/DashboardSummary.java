@@ -189,6 +189,7 @@ public class DashboardSummary extends InstrumentedFragment {
                         context.getTheme().resolveAttribute(tintColorValue.data,
                                 tintColorValue, true);
                     }
+                    drawable.setTintMode(android.graphics.PorterDuff.Mode.SRC_ATOP);
                     drawable.setTint(tintColorValue.data);
                 }
                 tileIcon.setImageDrawable(drawable);
