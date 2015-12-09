@@ -50,6 +50,8 @@ import com.android.settings.InstrumentedPreferenceActivity;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
+import cyanogenmod.hardware.CMHardwareManager;
+
 import java.lang.ref.WeakReference;
 
 /**
@@ -207,15 +209,17 @@ public class Status extends InstrumentedPreferenceActivity {
 
         updateConnectivity();
 
-        String serial = Build.SERIAL;
+        String serial = getSerialNumber();
         if (serial != null && !serial.equals("")) {
             setSummaryText(KEY_SERIAL_NUMBER, serial);
         } else {
             removePreferenceFromScreen(KEY_SERIAL_NUMBER);
         }
 
-        //Remove SimStatus and Imei for Secondary user as it access Phone b/19165700
-        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+        // Remove SimStatus and Imei for Secondary user as it access Phone b/19165700
+        // Also remove on Wi-Fi only devices.
+        if (UserHandle.myUserId() != UserHandle.USER_OWNER
+                || Utils.isWifiOnly(this)) {
             removePreferenceFromScreen(KEY_SIM_STATUS);
             removePreferenceFromScreen(KEY_IMEI_INFO);
         }
@@ -388,4 +392,12 @@ public class Status extends InstrumentedPreferenceActivity {
         activity.finish();
     }
 
+    private String getSerialNumber() {
+        CMHardwareManager hardware = CMHardwareManager.getInstance(this);
+        if (hardware.isSupported(CMHardwareManager.FEATURE_SERIAL_NUMBER)) {
+            return hardware.getSerialNumber();
+        } else {
+            return Build.SERIAL;
+        }
+    }
 }

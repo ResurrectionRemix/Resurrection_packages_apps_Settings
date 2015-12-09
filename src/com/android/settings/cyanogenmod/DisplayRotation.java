@@ -32,7 +32,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.MetricsLogger;
 
-public class DisplayRotation extends SettingsPreferenceFragment {
+public class DisplayRotation extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener{
     private static final String TAG = "DisplayRotation";
 
     private static final String KEY_ACCELEROMETER = "accelerometer";
@@ -47,6 +48,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     private CheckBoxPreference mRotation90Pref;
     private CheckBoxPreference mRotation180Pref;
     private CheckBoxPreference mRotation270Pref;
+    private SwitchPreference mLockScreenRotationPref;	
 
     public static final int ROTATION_0_MODE = 1;
     public static final int ROTATION_90_MODE = 2;
@@ -70,6 +72,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 
         mAccelerometer = (SwitchPreference) findPreference(KEY_ACCELEROMETER);
         mAccelerometer.setPersistent(false);
+        mLockScreenRotationPref = (SwitchPreference) prefSet.findPreference(KEY_LOCKSCREEN_ROTATION);
 
         mRotation0Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_0_PREF);
         mRotation90Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_90_PREF);
@@ -84,6 +87,8 @@ public class DisplayRotation extends SettingsPreferenceFragment {
         mRotation90Pref.setChecked((mode & ROTATION_90_MODE) != 0);
         mRotation180Pref.setChecked((mode & ROTATION_180_MODE) != 0);
         mRotation270Pref.setChecked((mode & ROTATION_270_MODE) != 0);
+	mLockScreenRotationPref.setOnPreferenceChangeListener(this);
+	
 
         boolean hasRotationLock = false;
 //        getResources().getBoolean(
@@ -98,14 +103,15 @@ public class DisplayRotation extends SettingsPreferenceFragment {
             mRotation270Pref.setDependency(null);
         }
 
-        final SwitchPreference lockScreenRotation =
-                (SwitchPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
-        boolean canRotateLockscreen = getResources().getBoolean(
-                com.android.internal.R.bool.config_enableLockScreenRotation);
 
-        if (lockScreenRotation != null && !canRotateLockscreen) {
-            getPreferenceScreen().removePreference(lockScreenRotation);
-        }
+
+ boolean configEnableLockRotation = getResources().
+                        getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation);
+        boolean lockScreenRotationEnabled = Settings.System.getInt(getContentResolver(),
+                        Settings.System.LOCKSCREEN_ROTATION, configEnableLockRotation ? 1 : 0) != 0;
+
+        mLockScreenRotationPref.setChecked(lockScreenRotationEnabled);
+
     }
 
     @Override
@@ -177,4 +183,15 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+		if (preference == mLockScreenRotationPref) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ROTATION, ((Boolean) objValue) ? 1 : 0);
+            return true;
+        }
+        return false;
+    }
 }
+

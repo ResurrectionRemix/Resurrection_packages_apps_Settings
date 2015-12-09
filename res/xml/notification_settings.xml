@@ -39,8 +39,22 @@
         <!-- Ring volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="ring_volume"
-                android:icon="@*android:drawable/ic_audio_ring_notif"
-                android:title="@string/ring_volume_option_title" />
+                android:icon="@drawable/ring_ring"
+                android:title="@string/ring_notification_volume_option_title" />
+
+        <!-- Link Volume Notification -->
+        <SwitchPreference
+                android:key="volume_link_notification"
+                android:title="@string/link_volume_option_title"
+                android:persistent = "false"
+                android:defaultValue = "true" />
+
+        <!-- Notification volume -->
+        <com.android.settings.notification.VolumeSeekBarPreference
+                android:key="notification_volume"
+                android:icon="@*android:drawable/ic_audio_notification_new"
+                android:title="@string/notification_volume_option_title" />
+
 
         <!-- Increasing ring -->
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -52,12 +66,6 @@
                 android:key="increasing_ring_volume"
                 android:icon="@drawable/ring_notif_increasing"
                 android:dependency="increasing_ring" />
-
-        <!-- Notification volume -->
-        <com.android.settings.notification.VolumeSeekBarPreference
-                android:key="notification_volume"
-                android:icon="@*android:drawable/ic_audio_ring_notif"
-                android:title="@string/notification_volume_option_title" />
 
         <!-- Also vibrate for calls -->
         <SwitchPreference
@@ -107,6 +115,13 @@
         android:key="notification"
         android:title="@string/notification_section_header" >
 
+        <!-- Heads up -->
+        <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
+                android:key="heads_up_notifications_enabled"
+                android:title="@string/heads_up_notifications"
+                android:summaryOn="@string/summary_heads_up_enabled"
+                android:summaryOff="@string/summary_heads_up_disabled" />
+
         <!-- Pulse notification light -->
         <PreferenceScreen
                 android:key="notification_light"
@@ -154,19 +169,6 @@
                 android:title="@string/manage_zen_access_title"
                 android:persistent="false"
                 android:fragment="com.android.settings.notification.ZenAccessSettings" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="headsup"
-        android:title="@string/headsup_section_header" >
-
-        <!-- Heads up-->
-        <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
-            android:key="heads_up_notifications_enabled"
-            android:title="@string/heads_up_notifications"
-            android:summaryOn="@string/summary_heads_up_enabled"
-            android:summaryOff="@string/summary_heads_up_disabled" />
 
     </PreferenceCategory>
 

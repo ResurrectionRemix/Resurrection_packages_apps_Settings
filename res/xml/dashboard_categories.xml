@@ -104,20 +104,22 @@
                 <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
             </intent>
         </dashboard-tile>
+
+    <dashboard-tile
+		android:id="@+id/kernel_adiutor"
+                android:title="@string/kernel_aduitor"
+		android:icon="@drawable/ic_rr_performance_tint">
+ 	<intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.grarak.kerneladiutor"
+                    android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+	</dashboard-tile>
     </dashboard-category>
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"
             android:key="@string/category_key_device"
             android:title="@string/header_category_device" >
-
-
-        <!--dashboard-tile
-                android:id="@+id/button_settings"
-                android:title="@string/button_pref_title"
-                android:fragment="com.android.settings.ButtonSettings"
-                android:icon="@drawable/ic_settings_buttons"
-                /-->
 
         <!-- Home -->
         <dashboard-tile

@@ -42,9 +42,10 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 import com.android.settings.cyanogenmod.ShortcutPickHelper;
+
+import org.cyanogenmod.internal.util.ScreenType;
 
 public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, ShortcutPickHelper.OnPickListener,
@@ -138,7 +139,7 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
         }
 
         // If running on a phone, remove padding around tabs
-        if (!Utils.isTablet(getActivity())) {
+        if (!ScreenType.isTablet(getActivity())) {
             mContainer.setPadding(0, 0, 0, 0);
         }
     }

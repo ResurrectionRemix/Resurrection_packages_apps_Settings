@@ -19,6 +19,17 @@
     <PreferenceCategory
         android:title="@string/lockscreen_options_title" >
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="power_menu_lockscreen"
+            android:title="@string/powermenu_lockscreen_title"
+            android:summary="@string/powermenu_lockscreen_summary"
+            android:defaultValue="true" />
+
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="lockscreen_quick_unlock_control"
+            android:title="@string/unlock_quick_unlock_control_title"
+            android:summary="@string/unlock_quick_unlock_control_summary" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_lock_screen"
@@ -32,6 +43,28 @@
             android:summary="@string/media_art_summary"
             android:defaultValue="true" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="lockscreen_see_through"
+        android:title="@string/lockscreen_see_through_title"
+        android:summary="@string/lockscreen_see_through_summary"
+        android:defaultValue="false" />
+
+      <com.android.settings.rr.SeekBarPreference
+        android:key="lockscreen_blur_radius"
+        android:title="@string/lockscreen_blur_radius"
+        android:max="25"
+        settings:min="0"
+        android:defaultValue="14"
+        android:dependency="lockscreen_see_through" />
+
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="locksystem_category"
+        android:title="@string/lockscreen_shortcuts_category">
+
         <PreferenceScreen
             android:title="@string/lockscreen_targets_message" 
             android:summary="@string/lockscreen_targets_summary" >
@@ -39,12 +72,6 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
         </PreferenceScreen>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="locksystem_category"
-        android:title="@string/lockscreen_shortcuts_category">
 
         <PreferenceScreen
                  android:key="lockscreen_shortcuts"
@@ -59,22 +86,19 @@
         </PreferenceScreen>
 
     </PreferenceCategory>
+    <PreferenceCategory
+        android:key="rr_wallpaper"
+        android:title="@string/lockscreen_wallpaper_cat">
 
-       <!--PreferenceCategory
-        android:key="lockscreen_wallpaper"
-        android:title="@string/lockscreen_wallpaper_title" >
+  <PreferenceScreen
+            android:key="lockscreen_wallpaper"
+            android:title="@string/lockscreen_wallpaper_title"
+            android:summary="@string/lockscreen_wallpaper_summary"
+            android:persistent="false"
+            android:fragment="com.android.settings.rr.LockscreenWallpaper">
+        </PreferenceScreen>
 
-        <Preference
-            android:key="lockscreen_wallpaper_set"
-            android:title="@string/lockscreen_wallpaper_set_title"
-            android:persistent="false"/>
-
-        <Preference
-            android:key="lockscreen_wallpaper_clear"
-            android:title="@string/lockscreen_wallpaper_clear_title"
-            android:persistent="false">
-
-    </PreferenceCategory-->
+</PreferenceCategory>
 
     <PreferenceCategory
         android:key="lockscreen_weather_cat"

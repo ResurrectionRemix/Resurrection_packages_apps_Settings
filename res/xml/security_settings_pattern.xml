@@ -36,6 +36,12 @@
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
         </PreferenceScreen>
 
+
+        <SwitchPreference
+            android:key="directlyshow"
+            android:persistent="false"
+            android:title="@string/lock_directly_show_password"/>
+
         <SwitchPreference
             android:key="visiblepattern"
             android:title="@string/lockpattern_settings_enable_visible_pattern_title"/>

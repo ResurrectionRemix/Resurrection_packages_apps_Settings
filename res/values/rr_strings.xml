@@ -84,11 +84,27 @@
 
     <!--Categories-->
 
-    <string name="clock_category">Clock Settings</string>
+    <string name="clock_category">Clock Customizations</string>
     <string name="battery_category">Battery Customizations</string>
     <string name="weather_category">Weather Settings</string>
     <string name="icons_category">Status Bar Icons</string>
     <string name="misc_category">Misc Statusbar Settings</string>
+
+    <string name="recents_panel_search_category">Recent SearchBar</string>
+    <string name="recents_panel_memory_category">Memory Bar</string>
+    <string name="recents_panel_clear_all_category"> Clear All Tweaks</string>
+
+    <string name="animations_cat">System Animations</string>
+    <string name="toast_cat">Toast Settings</string>
+    <string name="list_cat">Listview</string>
+    <string name="perf_cat">Animation And Performance</string>
+
+
+    <string name="header_cat">Notification Header</string>
+    <string name="notifications_cat">Notifications</string>
+
+    <string name="misc_1">System Tools</string>
+    <string name="misc_2">Tweaks</string>
 
 
     <!-- Color picker -->
@@ -190,19 +206,29 @@
     <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
     <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
 
+    <!--Performance/Kernel Aduitor-->
+    <string name="kernel_aduitor">Performance</string>
+
+    <!-- Lock screen rotation -->
+    <string name="display_lockscreen_rotation_title">Lock screen</string>
 	<!-- Lock screen settings -->
     <string name="rr_lockscreen_title">Lock Screen</string>
-    <string name="lockscreen_settings_title">Lockscreen wallpaper</string>
-    <string name="lockscreen_wallpaper_title">Wallpaper</string>
     <string name="double_tap_ls">Double Tap Sleep LockScreen</string>
-    <string name="double_tap_ls_summary">Double tap on the top third or the bottom shortcut area to sleep</string>
+    <string name="double_tap_ls_summary">Double tap on the top third or the bottom shortcut area to sleep</string>	
+
+    <!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Wallpaper</string>
+    <string name="lockscreen_wallpaper_summary">Set lockscreen wallpaper</string>
     <string name="lockscreen_wallpaper_set_title">Set lock screen wallpaper</string>
     <string name="lockscreen_wallpaper_clear_title">Clear lock screen wallpaper</string>
+    <string name="reset_lockscreen_wallpaper">Set to default</string>
     <string name="lockscreen_options_title">Options</string>
+    <string name="lockscreen_wallpaper_summary_warning">Reboot Might Be needed For Changes To Take Effect</string>	
+    <string name="lockscreen_wallpaper_cat">Wallpaper</string>
 
-    <!-- Lockscreen blur/see through -->
-    <string name="lockscreen_see_through_title">Blur</string>
-    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen</string>
+   <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Lockscreen blur</string>
+    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
     <string name="lockscreen_blur_radius">Blur effect intensity</string>
 
     <!-- CM Lockscreen shortcuts -->
@@ -295,7 +321,7 @@
     <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
 
  <!-- Gesture Anywhere -->
-     <string name="gesture_anywhere_title">Gesture Anywhere</string>
+     <string name="gesture_anywhere_title">Gestures</string>
      <string name="gesture_anywhere_enabled_title">Gesture Anywhere</string>
      <string name="gesture_anywhere_enabled_summary">Enable the Gesture Anywhere feature</string>
      <string name="gesture_anywhere_position_title">Loction</string>
@@ -424,6 +450,7 @@
     <string name="battery_bar_thickness_title">Battery bar thickness</string>
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+
 
     <string name="help">Help</string>
     <string name="reset_message">Reset all entries to default?</string>
@@ -744,7 +771,8 @@
     <string name="show_status_bar_carrier_title">Status bar carrier</string>
     <string name="show_status_bar_carrier_summary">Show carrier in status bar</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string> 	
+    <string name="status_bar_carrier_size">Carrier label text size</string>	
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="status_bar_carrier_color">Carrier label color</string>
 
@@ -887,4 +915,186 @@
     <string name="clock_font_size_22">22</string>
     <string name="clock_font_size_23">23</string>
 
+    <!-- Sound settings -->
+    <string name="advanced_sound_title">Advanced options</string>
+    <string name="sound_title">Sound</string>
+
+    <!-- Camera sound switch -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
+    <string name="camera_sounds_summary">Enable system camera shutter sound</string>
+    <string name="camera_sound_warning_dialog_text">Disabling the camera shutter sound is illegal in some areas! Please check the applicable law in your country</string>
+
+    <!-- Slim recents panel -->
+    <string name="rr_recent_slim_category">Slim Recents</string>
+    <string name="slim_recents_panel">Slim recents panel</string>
+    <string name="use_slim_recents_title">Enable</string>
+    <string name="show_running_tasks_title">Only show running apps</string>
+    <string name="recents_max_apps_title">Max allowed apps</string>
+    <string name="recent_panel_scale_title">Panel size</string>
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
+    <string name="recent_panel_show_topmost_title">Show topmost task</string>
+    <string name="recent_panel_show_topmost_summary">Don\'t exclude the topmost task in recents view</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
+    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
+    <!-- Circle app bar -->
+    <string name="category_app_circle_bar_title">App launcher</string>
+    <string name="app_circle_bar_title">App circle bar</string>
+    <string name="app_circle_bar_summary">Show circle app launcher after touching right side of screen</string>
+    <string name="app_circle_bar_included_apps_title">Included apps</string>
+    <string name="app_circle_bar_included_apps_summary">Apps will show in app circle bar</string>
+    <string name="trigger_width_title">Trigger width</string>
+    <string name="trigger_width_summary">Adjust the width of the trigger area</string>
+    <string name="trigger_top_title">Trigger position</string>
+    <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
+    <string name="trigger_bottom_title">Trigger height</string>
+    <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+
+    <string name="powermenu_lockscreen_title">Power menu on lock screen</string>
+    <string name="powermenu_lockscreen_summary">Show power menu on the lock screen</string>
+
+    <!-- Qucik unlock -->
+    <string name="unlock_quick_unlock_control_title">Quick unlock</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
+
+   <!-- MediaScanner behavior on boot -->
+    <string name="options_settings_title">Options</string>
+    <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
+    <string name="media_scanner_on_boot_enabled">Scan media</string>
+    <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
+    <string name="media_scanner_on_boot_disabled">Do not scan media</string>
+
+    <!-- Whether the keyguard will directly pass to password entry -->
+    <string name="lock_directly_show_password">Directly show password entry</string>
+    <!-- Whether the keyguard will directly pass to pattern view -->
+    <string name="lock_directly_show_pattern">Directly show pattern view</string>
+    <!-- Whether the keyguard will directly pass to PIN entry -->
+    <string name="lock_directly_show_pin">Directly show PIN entry</string>
+
+    <!-- Sound & Notification Settings -->
+    <!-- Linked / unlinked notification volume -->
+    <string name="link_volume_option_title">Link ring and notification volumes</string>
+    <string name="notification_volume_option_title">Notification volume</string>
+    <string name="ring_notification_volume_option_title">Ring and notification volume</string>
+
+
+    <!-- Keyboard and Input ASS methods  -->
+    <string name="title_keyboard_input">Advanced options</string>
+    <string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
+    <string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
+    <string name="keyboard_rotation_toggle_title">Auto keyboard rotation</string>
+    <string name="keyboard_rotation_toggle_summary">Force auto-rotate when keyboard is shown</string>
+    <string name="keyboard_rotation_timeout_title">Auto-rotate timeout</string>
+    <string name="keyboard_rotation_timeout_summary">Disables auto-rotate sensor <xliff:g id="rotate_timeout">%1$s</xliff:g> seconds after keyboard is hidden</string>
+    <string name="keyboard_rotation_dialog">This feature forces auto-rotate to turn on temporarily while the keyboard is shown.  It has no effect when auto-rotate is already enabled.</string>
+    <string name="show_enter_key_title">Show enter key</string>
+    <string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
+
+ <!-- Wakelock blocker -->
+    <string name="wakelock_blocker_title">Wakelock Blocker</string>
+    <string name="wakelock_blocker_summary">Block system wakelocks</string>
+    <string name="wakelock_blocker_save">Save</string>
+    <string name="wakelock_list_header">Available wakelocks</string>
+    <string name="wakelock_blocker_reload">Reload</string>
+    <string name="wakelock_blocker_warning_title">Proceed with caution</string>
+    <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
+
+	<!--Ad-Blocker-->
+  <string name="adaway_settings_title">Ad Blocker</string>
+
+    <!-- PA Pie control -->
+    <string name="pa_piecontrol_settings_summary">Customize PA Pie 2.0 targets, sytle, size and color</string>
+    <string name="pa_pie_control_title">Pie Control</string>
+    <string name="pa_pie_control_enable_title">Enable Pie Control</string>
+    <string name="pa_pie_targets_title">Pie Targets</string>
+    <string name="pa_pie_style_title">Pie Style</string>
+    <string name="pa_pie_menu_title">Always show menu button</string>
+    <string name="pa_pie_menu_summary">Whether or not the menu button should always be shown, even when its not needed</string>
+    <string name="pa_pie_size_title">Pie Size</string>
+    <string name="pa_pie_size_summary">Define Pie controls size</string>
+    <string name="pa_pie_size_small">Small</string>
+    <string name="pa_pie_size_default">@string/pa_pie_mode_default</string>
+    <string name="pa_pie_size_large">Large</string>
+    <string name="pa_pie_size_gigantic">Gigantic</string>
+    <string name="pa_pie_size_monster">Monster</string>
+    <string name="pa_pie_size_enormous">Enormous</string>
+    <string name="pa_pie_mode_default">Default</string>
+    <string name="pa_pie_gravity_title">Pie Gravity</string>
+    <string name="pa_pie_gravity_summary">Select the location where the Pie will be placed</string>
+    <string name="pa_pie_gravity_bottom">Bottom</string>
+    <string name="pa_pie_gravity_right">Right</string>
+    <string name="pa_pie_gravity_left">Left</string>
+    <string name="pa_pie_gap_title">Item gap</string>
+    <string name="pa_pie_gap_summary">Adjust the gap that separates the Pie elements</string>
+    <string name="pa_pie_angle_title">Pie Angle</string>
+    <string name="pa_pie_angle_summary">Adjust the angle of pie\'s egdes from the attachment</string>
+    <string name="pa_pie_angle_none">None (old)</string>
+    <string name="pa_pie_angle_small">Small</string>
+    <string name="pa_pie_angle_big">Normal (default)</string>
+    <string name="pa_pie_angle_huge">Big</string>
+    <string name="pa_pie_angle_super">Huge</string>
+    <string name="pa_pie_gap_none">None</string>
+    <string name="pa_pie_gap_small">Small</string>
+    <string name="pa_pie_gap_big">Big (default)</string>
+    <string name="pa_pie_gap_huge">Huge</string>
+    <string name="pa_pie_mode_title">Pie Style</string>
+    <string name="pa_pie_mode_summary">Manage how animations and status additions will be handled</string>
+    <string name="pa_pie_mode_bare">Bare</string>
+    <string name="pa_pie_mode_quick">Quick</string>
+    <string name="pa_pie_mode_default">Default</string>
+    <string name="pa_pie_mode_slow">Slow</string>
+    <string name="pa_pie_lastapp_title">Last App</string>
+    <string name="pa_pie_lastapp_summary">Enable last app button</string>
+    <string name="pa_pie_killtask_title">Kill Task</string>
+    <string name="pa_pie_killtask_summary">Enable kill task button</string>
+    <string name="pa_pie_notifications_title">Notifications</string>
+    <string name="pa_pie_notifications_summary">Enable notifications button</string>
+    <string name="pa_pie_settings_panel_title">Quick Settings Panel</string>
+    <string name="pa_pie_settings_panel_summary">Enable expand quick settings panel button</string>
+    <string name="pa_pie_screenshot_title">Screenshot</string>
+    <string name="pa_pie_screenshot_summary">Enable screenshot button</string>
+    <string name="pa_pie_color_title">Pie Color Settings</string>
+    <string name="pa_pie_color_style_title">Pie Color Style</string>
+    <string name="pa_pie_background_title">Background Color</string>
+    <string name="pa_pie_select_title">Selection Color</string>
+    <string name="pa_pie_outlines_title">Outlines Color</string>
+    <string name="pa_pie_status_clock_title">Clock Color</string>
+    <string name="pa_pie_status_title">Status Color</string>
+    <string name="pa_pie_chevron_title">Chevron Color</string>
+    <string name="pa_pie_juice_title">Battery Juice Color</string>
+    <string name="pa_pie_button_color">Button Color</string>
+    <string name="pa_pie_button_color_title">Buttons Color</string>
+
+    <string name="reset_paranoid">Paranoid</string>
+    <string name="reset_android">Android</string>
+
+    <!-- Task Manager -->
+    <string name="enable_task_manager_title">Task Manager</string>
+    <string name="enable_task_manager_summary">Enable/Disable action for the task manager button in the expanded statusbar area.</string>
+
+    <!-- SlimSizer  -->
+    <string name="listsystem">list</string>
+    <string name="sizer_title">App remover</string>
+    <string name="caution">Caution!</string>
+    <string name="sizer_message_startup">This tool allows you to delete system apps. Use with caution and only delete apps you know are safe to be removed.</string>
+    <string name="cancel">Cancel</string>
+    <string name="sizer_message_delete">Are you sure you want to delete this app?</string>
+    <string name="btn_delete">Delete selected APPs now!</string>
+    <string name="delete_progress_title">Deleting</string>
+    <string name="delete_progress">Selected files are being deleted...</string>
+    <string name="delete_success">Deleted</string>
+    <string name="delete_fail">Unable to delete</string>
+    <string name="btn_profile">Profile</string>
+    <string name="sizer_message_sdnowrite">Cannot write to SD Card.</string>
+    <string name="sizer_message_sdnoread">Cannot read SD Card.</string>
+    <string name="sizer_message_filesuccess">Created profile.</string>
+    <string name="sizer_message_filefail">Failed to create profile.</string>
+    <string name="sizer_message_noselect">Nothing selected.</string>
+    <string name="system_app_remover">System App Remover</string>
+	
 </resources>

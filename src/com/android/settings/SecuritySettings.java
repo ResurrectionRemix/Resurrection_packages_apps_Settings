@@ -88,6 +88,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_ADVANCED_SECURITY = "advanced_security";
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
     private static final String KEY_FINGERPRINT_SETTINGS = "fingerprint_settings";
+    private static final String KEY_DIRECTLY_SHOW = "directlyshow";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CHANGE_TRUST_AGENT_SETTINGS = 126;
@@ -108,7 +109,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
-            KEY_VISIBLE_PATTERN, KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD,
+            KEY_VISIBLE_PATTERN, KEY_POWER_INSTANTLY_LOCKS, KEY_DIRECTLY_SHOW, KEY_SHOW_PASSWORD,
             KEY_TOGGLE_INSTALL_APPLICATIONS };
 
     // Only allow one trust agent on the platform.
@@ -125,7 +126,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private ListPreference mLockAfter;
 
     private SwitchPreference mVisiblePattern;
-
+    private SwitchPreference mDirectlyShow;
     private SwitchPreference mShowPassword;
 
     private KeyStore mKeyStore;
@@ -256,6 +257,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         // visible pattern
         mVisiblePattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_PATTERN);
+
+        // directly show
+        mDirectlyShow = (SwitchPreference) root.findPreference(KEY_DIRECTLY_SHOW);
 
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (SwitchPreference) root.findPreference(
@@ -636,6 +640,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     MY_USER_ID));
         }
 
+        if (mDirectlyShow != null) {
+            mDirectlyShow.setChecked(lockPatternUtils.shouldPassToSecurityView(
+                    MY_USER_ID));
+        }
+
         if (mShowPassword != null) {
             mShowPassword.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.TEXT_SHOW_PASSWORD, 1) != 0);
@@ -712,6 +721,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
             updateLockAfterPreferenceSummary();
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
             lockPatternUtils.setVisiblePatternEnabled((Boolean) value, MY_USER_ID);
+        } else if (KEY_DIRECTLY_SHOW.equals(key)) {
+            lockPatternUtils.setPassToSecurityView((Boolean) value, MY_USER_ID);
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) value, MY_USER_ID);
         } else if (KEY_SHOW_PASSWORD.equals(key)) {

@@ -30,7 +30,7 @@
 
     <!-- Development shortcut -->
     <string name="development_shortcut_title">Development shortcut</string>
-    <string name="development_shortcut_summary">Enable application management shortcuts in notification area and recent apps list</string>
+    <string name="development_shortcut_summary">Enable application management shortcuts in recent apps list</string>
 
     <!-- Setting checkbox title for root access -->
     <string name="root_access">Root access</string>
@@ -438,6 +438,7 @@
     <string name="power_menu_power_title">Power off</string>
     <string name="power_menu_reboot_title">Reboot menu</string>
     <string name="power_menu_screenshot_title">Screenshot</string>
+    <string name="power_menu_screenrecord_title">Screenrecord</string>
     <string name="power_menu_profiles_title">Profile switcher</string>
     <string name="power_menu_airplane_title">Airplane mode</string>
     <string name="power_menu_users_title">User switcher</string>
@@ -447,6 +448,7 @@
     <string name="power_menu_sound_title">Sound panel</string>
     <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>
     <string name="power_menu_profiles_disabled">System profiles are disabled</string>
+    <string name="powermenu_screenshot_delay_title">Set screenshot delay</string>
 
     <!-- Buttons - Enable navbar -->
     <string name="disable_navkeys_title">Enable on-screen nav bar</string>
@@ -458,7 +460,7 @@
 
     <!-- tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
-    <string name="double_tap_to_sleep_summary">Double tap status bar or lock screen slider to put the device to sleep</string>
+    <string name="double_tap_to_sleep_summary">Double tap on the status bar to put the device to sleep</string>
 
     <!-- Proximity wake -->
     <string name="proximity_wake_title">Prevent accidental wake-up</string>
@@ -497,6 +499,9 @@
     <!-- Launch music player when headset is connected -->
     <string name="headset_connect_player_title">Launch music app</string>
     <string name="headset_connect_player_summary">Launch the default music app when headset is connected</string>
+
+    <!-- WiFi auto-configure priorities -->
+    <string name="wifi_auto_config_priorities">Automatic priority</string>
 
     <string name="auto_brightness_reset_button">Reset</string>
 
@@ -547,6 +552,11 @@
     <!-- Whether to display IME switcher notifcation -->
     <string name="ime_switcher_notify">Selector notification</string>
     <string name="ime_switcher_notify_summary">Display input method selector notification</string>
+
+    <!-- Heads up -->
+    <string name="heads_up_notifications">Heads up</string>
+    <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
 
     <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">High touch sensitivity</string>
@@ -629,6 +639,8 @@
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+    <string name="status_bar_quick_qs_pulldown_title">Quick pulldown</string>
+    <string name="status_bar_quick_qs_pulldown_summary">Right edge of the status bar pulls down Quick Settings</string>
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_style_title">Clock style</string>
@@ -741,6 +753,7 @@
     <string name="select_custom_app_title">Select custom app</string>
     <string name="select_custom_activity_title">Select custom activity</string>
 
+
     <!-- Blacklist preferences -->
     <string name="blacklist_title">Blocked caller list</string>
     <string name="blacklist_edit_dialog_title">Edit blocked phone number</string>
@@ -801,5 +814,20 @@
     <string name="pa_login_submit_button">Sign in</string>
     <string name="pa_login_checking_password">Checking account\u2026</string>
     <string name="pa_login_incorrect_login">Login was incorrect</string>
+
+    <!-- Contributors cloud activity -->
+    <string name="contributors_cloud_fragment_title">Contributors</string>
+    <string name="contributors_cloud_loading_message">Loading contributors data\u2026</string>
+    <string name="contributors_cloud_failed_message">Cannot load contributors data</string>
+    <string name="contributor_info_menu">Contributor info</string>
+    <string name="contributor_info_msg">
+        <![CDATA[<b>Name:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>Nick:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>Commits:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
+    <string name="contributions_info_menu">Contributions info</string>
+    <string name="contributions_info_msg">
+        <![CDATA[<b>Total contributors:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>Total commits:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>Last update:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
 
 </resources>

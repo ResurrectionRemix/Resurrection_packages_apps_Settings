@@ -81,14 +81,30 @@
             android:icon="@drawable/ic_xd_sidebar" 
             />
 
+     <!-- App circlebar -->
+     <PreferenceScreen
+           android:key="app_circle_bar"
+           android:fragment="com.android.settings.rr.fragments.AppCircleBar"
+           android:title="@string/app_circle_bar_title"
+	   android:icon="@drawable/ic_appcirclebar"/>
 
-       <!-- App sidebar -->
+        <!-- Pie Control -->
+        <PreferenceScreen
+             android:key="pa_pie_control"
+             android:title="@string/pa_pie_control_title"
+             android:fragment="com.android.settings.paranoid.PieControl"
+             android:icon="@drawable/ic_rr_papie" 
+             />
+
+       <!-- Misc -->
         <PreferenceScreen
             android:key="misc"
             android:fragment="com.android.settings.rr.MiscSettings"
             android:title="@string/rr_misc_title"
             android:icon="@drawable/ic_rr_misc_tint" 
             />
+
+
 
         <PreferenceScreen
             android:key="systemuituner"
@@ -100,19 +116,15 @@
                 android:targetClass="com.android.systemui.tuner.TunerActivity" />
        </PreferenceScreen>
 
-        <!-- Weather Settings -->
-       <Preference
-           android:id="@+id/weather_settings"
-           android:title="@string/weather_settings_title" 
-	   android:icon="@drawable/ic_xd_weather">
-           <intent
-               android:action="android.intent.action.MAIN"
-               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
-               android:targetPackage="com.cyanogenmod.lockclock" >
-               <extra android:name=":android:show_fragment"
-                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
-           </intent>
-       </Preference>
+
+
+        <!-- Wakelock blocker -->
+        <PreferenceScreen
+            android:key="wakelock_blocker"
+            android:fragment="com.android.settings.rr.WakeLockBlocker"
+            android:title="@string/wakelock_blocker_title"
+            android:icon="@drawable/ic_xd_wakelock" 
+            />
 
        <!-- Updater -->
         <PreferenceScreen
@@ -123,6 +135,8 @@
                     android:targetPackage="com.resurrection.ota"
                     android:targetClass="com.resurrection.ota.MainActivity" />
         </PreferenceScreen>   
+
+
                 
 </PreferenceCategory>
 

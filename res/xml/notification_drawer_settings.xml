@@ -19,6 +19,11 @@
     android:title="@string/notification_drawer_title">
 
 
+    <PreferenceCategory
+        android:key="notification_1"
+        android:title="@string/header_cat" >
+
+
      <SwitchPreference
             android:key="status_bar_custom_header"
             android:title="@string/status_bar_custom_header_title"
@@ -34,6 +39,23 @@
             android:entryValues="@array/custom_header_values"
             android:persistent="false" />
 
+      <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+        android:key="status_bar_quick_qs_pulldown"
+        android:title="@string/status_bar_quick_qs_pulldown_title"
+        android:summary="@string/status_bar_quick_qs_pulldown_summary"
+        android:defaultValue="true" />
+
+       <SwitchPreference
+           android:key="enable_task_manager"
+           android:title="@string/enable_task_manager_title"
+           android:summary="@string/enable_task_manager_summary" />
+
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="notification_2"
+        android:title="@string/notifications_cat" >
+
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
@@ -43,5 +65,7 @@
         android:key="disable_immersive_message"
         android:title="@string/disable_immersive_message_title"
         android:summary="@string/disable_immersive_message_summary" />
+
+</PreferenceCategory>
 
 </PreferenceScreen>

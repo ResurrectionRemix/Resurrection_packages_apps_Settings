@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     android:title="@string/carrier_options"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <ListPreference
@@ -33,6 +34,15 @@
         android:key="status_bar_carrier_color"
         android:title="@string/status_bar_carrier_color"
         android:defaultValue="0xffffffff" />
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="status_bar_carrier_font_size"
+        android:title="@string/status_bar_carrier_size"
+        android:max="23"
+        settings:minimum="4"
+        settings:defaultVal="14"
+        settings:unitsLeft=""
+        settings:unitsRight="dp" />
 
 </PreferenceScreen> 
 
