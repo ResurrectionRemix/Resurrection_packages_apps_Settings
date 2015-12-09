@@ -18,6 +18,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/gesture_anywhere_title" >
 
+
+     <!-- Three-fingers-swipe to screenshot -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="three_finger_gesture"
+        android:title="@string/three_finger_gesture"
+        android:summary="@string/three_finger_gesture_summary"
+        android:defaultValue="false" />
+
     <SwitchPreference
         android:key="gesture_anywhere_enabled"
         android:title="@string/gesture_anywhere_enabled_title"
