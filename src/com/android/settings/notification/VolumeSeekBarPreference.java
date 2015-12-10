@@ -142,7 +142,9 @@ public class VolumeSeekBarPreference extends SeekBarPreference
         mVolumizer.start();
         mVolumizer.setSeekBar(mSeekBar);
         updateIconView();
-        mCallback.onStreamValueChanged(mStream, mSeekBar.getProgress());
+        if (mCallback != null) {
+            mCallback.onStreamValueChanged(mStream, mSeekBar.getProgress());
+        }
         updateSuppressionText();
         if (!isEnabled()) {
             mSeekBar.setEnabled(false);
@@ -154,7 +156,9 @@ public class VolumeSeekBarPreference extends SeekBarPreference
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
         super.onProgressChanged(seekBar, progress, fromTouch);
-        mCallback.onStreamValueChanged(mStream, progress);
+        if (mCallback != null) {
+            mCallback.onStreamValueChanged(mStream, progress);
+        }
     }
 
     private void updateIconView() {

@@ -54,6 +54,7 @@ import android.util.Log;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.rr.SeekBarPreference;
+import com.android.settings.Settings.LockScreenSettingsActivity;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
 import com.android.settings.fingerprint.FingerprintEnrollIntroduction;
 import com.android.settings.fingerprint.FingerprintSettings;
@@ -77,6 +78,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String TRUST_AGENT_CLICK_INTENT = "trust_agent_click_intent";
     private static final Intent TRUST_AGENT_INTENT =
             new Intent(TrustAgentService.SERVICE_INTERFACE);
+
+    // Fitler types for this panel
+    private static final String FILTER_TYPE_EXTRA = "filter_type";
+    private static final int TYPE_LOCKSCREEN_EXTRA = 0;
+    private static final int TYPE_SECURITY_EXTRA = 1;
 
     // Lock Settings
     private static final String KEY_UNLOCK_SET_OR_CHANGE = "unlock_set_or_change";
@@ -143,6 +149,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private Intent mTrustAgentClickIntent;
 
     private Preference mOwnerInfoPref;
+    private int mFilterType = TYPE_SECURITY_EXTRA;
 
     @Override
     protected int getMetricsCategory() {
@@ -152,6 +159,19 @@ public class SecuritySettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Ugly hack for legacy shortcuts :'(
+        Intent intent = getActivity().getIntent();
+        ComponentName componentName = intent.getComponent();
+        if (componentName.getClassName().equals(
+                LockScreenSettingsActivity.class.getName())) {
+            mFilterType = TYPE_LOCKSCREEN_EXTRA;
+        } else {
+            Bundle bundle = getArguments();
+            if (bundle != null) {
+                mFilterType = bundle.getInt(FILTER_TYPE_EXTRA, TYPE_SECURITY_EXTRA);
+            }
+        }
 
         mSubscriptionManager = SubscriptionManager.from(getActivity());
 
@@ -212,25 +232,27 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // Add package manager to check if features are available
         PackageManager pm = getPackageManager();
 
-        // Add options for lock/unlock screen
-        final int resid = getResIdForLockUnlockScreen(getActivity(), mLockPatternUtils);
-        addPreferencesFromResource(resid);
-
         // Add options for device encryption
         mIsPrimary = MY_USER_ID == UserHandle.USER_OWNER;
 
-        mOwnerInfoPref = findPreference(KEY_OWNER_INFO_SETTINGS);
-        if (mOwnerInfoPref != null) {
-            mOwnerInfoPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    OwnerInfoSettings.show(SecuritySettings.this);
-                    return true;
-                }
-            });
+        if (mFilterType == TYPE_LOCKSCREEN_EXTRA) {
+            // Add options for lock/unlock screen
+            final int resid = getResIdForLockUnlockScreen(getActivity(), mLockPatternUtils);
+            addPreferencesFromResource(resid);
+
+            mOwnerInfoPref = findPreference(KEY_OWNER_INFO_SETTINGS);
+            if (mOwnerInfoPref != null) {
+                mOwnerInfoPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+                        OwnerInfoSettings.show(SecuritySettings.this);
+                        return true;
+                    }
+                });
+            }
         }
 
-        if (mIsPrimary) {
+        if (mIsPrimary && mFilterType == TYPE_SECURITY_EXTRA) {
             if (LockPatternUtils.isDeviceEncryptionEnabled()) {
                 // The device is currently encrypted.
                 addPreferencesFromResource(R.xml.security_settings_encrypted);
@@ -240,23 +262,40 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
-        // Fingerprint and trust agents
-        PreferenceGroup securityCategory = (PreferenceGroup)
-                root.findPreference(KEY_SECURITY_CATEGORY);
-        if (securityCategory != null) {
-            maybeAddFingerprintPreference(securityCategory);
-            addTrustAgentSettings(securityCategory);
-        }
+        if (mFilterType == TYPE_LOCKSCREEN_EXTRA) {
+            // Fingerprint and trust agents
+            PreferenceGroup securityCategory = (PreferenceGroup)
+                    root.findPreference(KEY_SECURITY_CATEGORY);
+            if (securityCategory != null) {
+                maybeAddFingerprintPreference(securityCategory);
+                addTrustAgentSettings(securityCategory);
+            }
 
-        // lock after preference
-        mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
-        if (mLockAfter != null) {
-            setupLockAfterPreference();
-            updateLockAfterPreferenceSummary();
-        }
+            // lock after preference
+            mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);
+            if (mLockAfter != null) {
+                setupLockAfterPreference();
+                updateLockAfterPreferenceSummary();
+            }
 
-        // visible pattern
-        mVisiblePattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_PATTERN);
+            // visible pattern
+            mVisiblePattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_PATTERN);
+
+            // lock instantly on power key press
+            mPowerButtonInstantlyLocks = (SwitchPreference) root.findPreference(
+                    KEY_POWER_INSTANTLY_LOCKS);
+            Preference trustAgentPreference = root.findPreference(KEY_TRUST_AGENT);
+            if (mPowerButtonInstantlyLocks != null &&
+                    trustAgentPreference != null &&
+                    trustAgentPreference.getTitle().length() > 0) {
+                mPowerButtonInstantlyLocks.setSummary(getString(
+                        R.string.lockpattern_settings_power_button_instantly_locks_summary,
+                        trustAgentPreference.getTitle()));
+            }
+        } else {
+            // Append the rest of the settings
+            addPreferencesFromResource(R.xml.security_settings_misc);
+
 
         // directly show
         mDirectlyShow = (SwitchPreference) root.findPreference(KEY_DIRECTLY_SHOW);
@@ -272,72 +311,54 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     R.string.lockpattern_settings_power_button_instantly_locks_summary,
                     trustAgentPreference.getTitle()));
         }
+            // Do not display SIM lock for devices without an Icc card
+            TelephonyManager tm = TelephonyManager.getDefault();
+            CarrierConfigManager cfgMgr = (CarrierConfigManager)
+                    getActivity().getSystemService(Context.CARRIER_CONFIG_SERVICE);
+            PersistableBundle b = cfgMgr.getConfig();
+            if (!mIsPrimary || !isSimIccReady() ||
+                    b.getBoolean(CarrierConfigManager.KEY_HIDE_SIM_LOCK_SETTINGS_BOOL)) {
+                root.removePreference(root.findPreference(KEY_SIM_LOCK));
+            } else {
+                // Disable SIM lock if there is no ready SIM card.
+                root.findPreference(KEY_SIM_LOCK).setEnabled(isSimReady());
+            }
+            if (Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
+                root.findPreference(KEY_SCREEN_PINNING).setSummary(
+                        getResources().getString(R.string.switch_on_text));
+            }
+            // SMS rate limit security check
+            boolean isTelephony = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+            if (isTelephony) {
+                mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
+                mSmsSecurityCheck.setOnPreferenceChangeListener(this);
+                int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
+                updateSmsSecuritySummary(smsSecurityCheck);
+            }
 
-        // Append the rest of the settings
-        addPreferencesFromResource(R.xml.security_settings_misc);
+            // Show password
+            mShowPassword = (SwitchPreference) root.findPreference(KEY_SHOW_PASSWORD);
+            mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
 
-        // Do not display SIM lock for devices without an Icc card
-        TelephonyManager tm = TelephonyManager.getDefault();
-        CarrierConfigManager cfgMgr = (CarrierConfigManager)
-                getActivity().getSystemService(Context.CARRIER_CONFIG_SERVICE);
-        PersistableBundle b = cfgMgr.getConfig();
-        if (!mIsPrimary || !isSimIccReady() ||
-                b.getBoolean(CarrierConfigManager.KEY_HIDE_SIM_LOCK_SETTINGS_BOOL)) {
-            root.removePreference(root.findPreference(KEY_SIM_LOCK));
-        } else {
-            // Disable SIM lock if there is no ready SIM card.
-            root.findPreference(KEY_SIM_LOCK).setEnabled(isSimReady());
-        }
-        if (Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
-            root.findPreference(KEY_SCREEN_PINNING).setSummary(
-                    getResources().getString(R.string.switch_on_text));
-        }
+            // Credential storage
+  final UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
 
-        // SMS rate limit security check
-        boolean isTelephony = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
-        if (isTelephony) {
-            mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
-            mSmsSecurityCheck.setOnPreferenceChangeListener(this);
-            int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
-            updateSmsSecuritySummary(smsSecurityCheck);
-        }
+            mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
+            if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
+                Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
 
-        // Show password
-        mShowPassword = (SwitchPreference) root.findPreference(KEY_SHOW_PASSWORD);
-        mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);
-
-        // Credential storage
-        final UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
-        mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
-        if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
-            Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
-
-            final int storageSummaryRes =
-                mKeyStore.isHardwareBacked() ? R.string.credential_storage_type_hardware
-                        : R.string.credential_storage_type_software;
-            credentialStorageType.setSummary(storageSummaryRes);
-        } else {
-            PreferenceGroup credentialsManager = (PreferenceGroup)
-                    root.findPreference(KEY_CREDENTIALS_MANAGER);
-            credentialsManager.removePreference(root.findPreference(KEY_RESET_CREDENTIALS));
-            credentialsManager.removePreference(root.findPreference(KEY_CREDENTIALS_INSTALL));
-            credentialsManager.removePreference(root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE));
-        }
-
-        // Application install
-        PreferenceGroup deviceAdminCategory = (PreferenceGroup)
-                root.findPreference(KEY_DEVICE_ADMIN_CATEGORY);
-        mToggleAppInstallation = (SwitchPreference) findPreference(
-                KEY_TOGGLE_INSTALL_APPLICATIONS);
-        mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
-        // Side loading of apps.
-        // Disable for restricted profiles. For others, check if policy disallows it.
-        mToggleAppInstallation.setEnabled(!um.getUserInfo(MY_USER_ID).isRestricted());
-        if (um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)
-                || um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS)) {
-            mToggleAppInstallation.setEnabled(false);
-        }
+                final int storageSummaryRes =
+                        mKeyStore.isHardwareBacked() ? R.string.credential_storage_type_hardware
+                                : R.string.credential_storage_type_software;
+                credentialStorageType.setSummary(storageSummaryRes);
+            } else {
+                PreferenceGroup credentialsManager = (PreferenceGroup)
+                        root.findPreference(KEY_CREDENTIALS_MANAGER);
+                credentialsManager.removePreference(root.findPreference(KEY_RESET_CREDENTIALS));
+                credentialsManager.removePreference(root.findPreference(KEY_CREDENTIALS_INSTALL));
+                credentialsManager.removePreference(root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE));
+            }
 
         // Advanced Security features
         PreferenceGroup advancedCategory =
@@ -355,6 +376,27 @@ public class SecuritySettings extends SettingsPreferenceFragment
         Index.getInstance(getActivity())
                 .updateFromClassNameResource(SecuritySettings.class.getName(), true, true);
 
+            // Application install
+            PreferenceGroup deviceAdminCategory = (PreferenceGroup)
+                    root.findPreference(KEY_DEVICE_ADMIN_CATEGORY);
+            mToggleAppInstallation = (SwitchPreference) findPreference(
+                    KEY_TOGGLE_INSTALL_APPLICATIONS);
+            mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
+            // Side loading of apps.
+            // Disable for restricted profiles. For others, check if policy disallows it.
+            mToggleAppInstallation.setEnabled(!um.getUserInfo(MY_USER_ID).isRestricted());
+            if (um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)
+                    || um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS)) {
+                mToggleAppInstallation.setEnabled(false);
+            }
+
+
+            // The above preferences come and go based on security state, so we need to update
+            // the index. This call is expected to be fairly cheap, but we may want to do something
+            // smarter in the future.
+            Index.getInstance(getActivity())
+                    .updateFromClassNameResource(SecuritySettings.class.getName(), true, true);
+        }
         for (int i = 0; i < SWITCH_PREFERENCE_KEYS.length; i++) {
             final Preference pref = findPreference(SWITCH_PREFERENCE_KEYS[i]);
             if (pref != null) pref.setOnPreferenceChangeListener(this);

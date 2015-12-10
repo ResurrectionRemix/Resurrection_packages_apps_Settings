@@ -43,14 +43,6 @@
             android:title="@string/docking_sounds_title"
             android:persistent="false" />
 
-    <!-- Volume adjust sounds -->
-    <SwitchPreference
-            android:key="volume_adjust_sounds"
-            android:title="@string/volume_adjust_sounds_title"
-            android:switchTextOff=""
-            android:switchTextOn=""
-            android:persistent="false" />
-
     <!-- Touch sounds -->
     <SwitchPreference
             android:key="touch_sounds"
@@ -59,15 +51,8 @@
 
     <!-- Vibrate on touch -->
     <SwitchPreference
-            android:key="vibrate_on_touch"
-            android:title="@string/vibrate_on_touch_title"
-            android:persistent="false" />
-
-    <!-- CMHW vibration intensity -->
-    <com.android.settings.hardware.VibratorIntensity
-            android:key="vibration_intensity"
-            android:title="@string/vibrator_intensity_title"
-            android:dialogTitle="@string/vibrator_intensity_title"
+            android:key="volume_adjust_sounds"
+            android:title="@string/volume_adjust_sounds_title"
             android:persistent="false" />
 
     <!-- Dock speaker plays -->
@@ -83,7 +68,7 @@
             android:persistent="false" />
 
     <PreferenceCategory
-            android:title="@string/power_notifications_category_title"/>
+            android:title="@string/power_notifications_category_title">
 
     <SwitchPreference
             android:key="power_notifications"
@@ -105,4 +90,5 @@
             android:dependency="power_notifications"
             android:persistent="false" />
 
+    </PreferenceCategory>
 </PreferenceScreen>
