@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The LiquidSmooth Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/multitasking" >
+
+       <!-- App sidebar -->
+        <PreferenceScreen
+            android:key="app_sidebar"
+            android:fragment="com.android.settings.rr.AppSidebar"
+            android:title="@string/app_sidebar_title"
+            android:icon="@drawable/ic_rr_sidebar" 
+            />
+
+     <!-- App circlebar -->
+     <PreferenceScreen
+           android:key="app_circle_bar"
+           android:fragment="com.android.settings.rr.fragments.AppCircleBar"
+           android:title="@string/app_circle_bar_title"
+	   android:icon="@drawable/ic_appcirclebar"/>
+
+
+        <!-- Pie Control -->
+        <PreferenceScreen
+             android:key="pa_pie_control"
+             android:title="@string/pa_pie_control_title"
+             android:fragment="com.android.settings.paranoid.PieControl"
+             android:icon="@drawable/ic_rr_papie" 
+             />
+
+</PreferenceScreen>
+

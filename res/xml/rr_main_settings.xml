@@ -60,7 +60,7 @@
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings"
             android:title="@string/gesture_anywhere_title"
-            android:icon="@drawable/ic_xd_gesture" 
+            android:icon="@drawable/ic_rr_gestures_tint" 
             />
 
 
@@ -72,29 +72,12 @@
             android:icon="@drawable/ic_rr_animations_tint"
             />
 
-
-       <!-- App sidebar -->
-        <PreferenceScreen
-            android:key="app_sidebar"
-            android:fragment="com.android.settings.rr.AppSidebar"
-            android:title="@string/app_sidebar_title"
-            android:icon="@drawable/ic_xd_sidebar" 
-            />
-
-     <!-- App circlebar -->
+     <!-- Multitasking -->
      <PreferenceScreen
-           android:key="app_circle_bar"
-           android:fragment="com.android.settings.rr.fragments.AppCircleBar"
-           android:title="@string/app_circle_bar_title"
-	   android:icon="@drawable/ic_appcirclebar"/>
-
-        <!-- Pie Control -->
-        <PreferenceScreen
-             android:key="pa_pie_control"
-             android:title="@string/pa_pie_control_title"
-             android:fragment="com.android.settings.paranoid.PieControl"
-             android:icon="@drawable/ic_rr_papie" 
-             />
+           android:key="multitasking"
+           android:title="@string/multitasking"
+	     android:fragment="com.android.settings.rr.MultiTasking" 
+	   android:icon="@drawable/ic_rr_multitask_tint"/>
 
        <!-- Misc -->
         <PreferenceScreen
@@ -103,8 +86,6 @@
             android:title="@string/rr_misc_title"
             android:icon="@drawable/ic_rr_misc_tint" 
             />
-
-
 
         <PreferenceScreen
             android:key="systemuituner"
@@ -115,16 +96,6 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.TunerActivity" />
        </PreferenceScreen>
-
-
-
-        <!-- Wakelock blocker -->
-        <PreferenceScreen
-            android:key="wakelock_blocker"
-            android:fragment="com.android.settings.rr.WakeLockBlocker"
-            android:title="@string/wakelock_blocker_title"
-            android:icon="@drawable/ic_xd_wakelock" 
-            />
 
        <!-- Updater -->
         <PreferenceScreen

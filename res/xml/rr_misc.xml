@@ -83,6 +83,37 @@
         android:defaultValue="false" />
 
 
+</PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="misc_3"
+        android:title="@string/misc_3" >
+
+     <!-- Ad Blocker -->
+        <Preference
+             android:title="@string/adaway_settings_title">
+             <intent
+                 android:action="android.intent.action.MAIN"
+                 android:targetPackage="org.adaway"
+                 android:targetClass="org.adaway.ui.BaseActivity" />
+        </Preference>
+
+        <!-- Wakelock blocker -->
+        <PreferenceScreen
+            android:key="wakelock_blocker"
+            android:fragment="com.android.settings.rr.WakeLockBlocker"
+            android:title="@string/wakelock_blocker_title"
+            />
+
+    <!-- System APP Remover -->
+    <PreferenceScreen
+            android:id="@+id/system_app_remover"
+            android:title="@string/system_app_remover"
+            android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
+
+
+
       <ListPreference
         android:key="media_scanner_on_boot"
         android:title="@string/media_scanner_on_boot_title"
@@ -97,21 +128,6 @@
                 android:title="@string/advanced_sound_title"
                 android:persistent="false"
                 android:fragment="com.android.settings.slim.SoundSettings" />
-
-     <!-- Ad Blocker -->
-        <Preference
-             android:title="@string/adaway_settings_title">
-             <intent
-                 android:action="android.intent.action.MAIN"
-                 android:targetPackage="org.adaway"
-                 android:targetClass="org.adaway.ui.BaseActivity" />
-        </Preference>
-
-    <!-- System APP Remover -->
-    <PreferenceScreen
-            android:id="@+id/system_app_remover"
-            android:title="@string/system_app_remover"
-            android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
 
 </PreferenceCategory>
 
