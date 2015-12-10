@@ -35,6 +35,7 @@ import android.view.MenuInflater;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsLogger;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class LockscreenColors extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
@@ -241,5 +242,9 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    protected int getMetricsCategory() {
+        return MetricsLogger.APPLICATION;
     }
 }
