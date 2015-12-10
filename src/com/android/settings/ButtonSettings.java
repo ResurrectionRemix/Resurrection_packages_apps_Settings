@@ -154,10 +154,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SlimSeekBarPreference mDimNavButtonsAnimateDuration;
     private ColorPickerPreference mNavbarButtonTint;
     private SwitchPreference mVolumeAnswerCall;
-
-    private PreferenceCategory mNavigationPreferencesCat;
-
-
     private PreferenceCategory mNavigationPreferencesCat;
 
     private Handler mHandler;
