@@ -357,6 +357,10 @@ public class ApnEditor extends SettingsPreferenceFragment
                 mMvnoType.setValue(mMvnoTypeStr);
                 mMvnoMatchData.setText(mMvnoMatchDataStr);
             }
+            String localizedName = ApnSettings.getLocalizedName(getActivity(), mCursor,NAME_INDEX);
+            if (!TextUtils.isEmpty(localizedName)) {
+                mName.setText(localizedName);
+            }
         }
 
         mName.setSummary(checkNull(mName.getText()));
