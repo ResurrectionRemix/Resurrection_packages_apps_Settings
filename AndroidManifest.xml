@@ -137,6 +137,17 @@
             </intent-filter>
         </receiver>
 
+        <!-- Xposed support -->
+        <service android:name=".rr.XposedNotifyService" />
+        <receiver android:name=".rr.XposedCheckReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PACKAGE_ADDED"  />
+                <action android:name="android.intent.action.PACKAGE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
