@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 import android.app.AlertDialog;
@@ -55,6 +56,7 @@ public class SystemappRemover extends Fragment {
     private ArrayList<String> mSysApp;
     private boolean startup =true;
     public final String systemPath = "/system/app/";
+    public final String systemPrivPath = "/system/priv-app/";
     protected Process superUser;
     protected DataOutputStream dos;
 
@@ -80,17 +82,35 @@ public class SystemappRemover extends Fragment {
 
         // create arraylist of apps not to be removed
         final ArrayList<String> safetyList = new ArrayList<String>();
+	 // app
         safetyList.add("CertInstaller.apk");
         safetyList.add("DrmProvider.apk");
         safetyList.add("PackageInstaller.apk");
         safetyList.add("Superuser.apk");
         safetyList.add("TelephonyProvider.apk");
+	 // priv-app
+        safetyList.add("ContactsProvider.apk");
+        safetyList.add("DefaultContainerService.apk");
+        safetyList.add("Dialer.apk");
+        safetyList.add("DownloadProvider.apk");
+        safetyList.add("FusedLocation.apk");
+        safetyList.add("Keyguard.apk");
+        safetyList.add("MediaProvider.apk");
+        safetyList.add("ProxyHandler.apk");
+        safetyList.add("Settings.apk");
+        safetyList.add("SettingsProvider.apk");
+        safetyList.add("SystemUI.apk");
+        safetyList.add("TeleService.apk");
 
-        // create arraylist from /system/app content
+       // create arraylist from /system/app and /system/priv-app content
         File system = new File(systemPath);
-        String[] sysappArray = system.list();
+	File systemPriv = new File(systemPrivPath);
+        String[] sysappArray = combine(system.list(), systemPriv.list());
         mSysApp = new ArrayList<String>(
                 Arrays.asList(sysappArray));
+	
+ 	// remove .odex files from list
+        filterOdex();
 
         // remove "apps not to be removed" from list and sort list
         mSysApp.removeAll(safetyList);
@@ -227,6 +247,23 @@ public class SystemappRemover extends Fragment {
         // show warning dialog
         alert.show();
     }
+private String[] combine(String[] a, String[] b) {
+        int length = a.length + b.length;
+        String[] result = new String[length];
+        System.arraycopy(a, 0, result, 0, a.length);
+        System.arraycopy(b, 0, result, a.length, b.length);
+        return result;
+    }
+
+    private void filterOdex() {
+        ListIterator<String> it = mSysApp.listIterator();
+        while ( it.hasNext() ) {
+            String str = it.next();
+            if ( str.endsWith(".odex") ) {
+                it.remove();
+            }
+        }
+    }
 
     // profile select dialog
     private void selectDialog(final ArrayList<String> sysAppProfile,
@@ -239,7 +276,7 @@ public class SystemappRemover extends Fragment {
                         // of the selected item
                         short state = sdAvailable();
                         File path = new File(Environment
-                                .getExternalStorageDirectory() + "/aicp");
+                                .getExternalStorageDirectory() + "/rr");
                         File savefile = new File(path + "/systemappremover.stf");
                         if (which == 0) {
                             // load profile action
@@ -373,7 +410,7 @@ public class SystemappRemover extends Fragment {
             super.onPreExecute();
             if (dos == null) {
                 try {
-                    superUser = new ProcessBuilder("su", "-c", "/system/xbin/ash").start();
+                    superUser = new ProcessBuilder("su", "-c", "/system/bin/sh").start();
                     dos = new DataOutputStream(superUser.getOutputStream());
                     dos.writeBytes("\n" + "mount -o remount,rw /system" + "\n");
                 } catch (IOException e) {
@@ -388,8 +425,19 @@ public class SystemappRemover extends Fragment {
 
         protected Void doInBackground(String... params) {
             for (String appName : params) {
+      		String odexAppName = appName.replaceAll(".apk$", ".odex");
+                String basePath = systemPath;
+                 File app = new File(systemPath);
+
+                if( ! app.exists() )
+                    basePath = systemPrivPath;
+
                 try {
-                    dos.writeBytes("\n" + "rm -rf '" + systemPath + appName + "'\n");
+                    dos.writeBytes("\n" + "rm -rf '" + basePath + "*" + appName + "'\n");
+                    // needed in case user is using odexed ROM
+                    File odex = new File(basePath + odexAppName);
+                    if( odex.exists() )
+                         dos.writeBytes("\n" + "rm -rf '" + basePath + odexAppName + "'\n");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
