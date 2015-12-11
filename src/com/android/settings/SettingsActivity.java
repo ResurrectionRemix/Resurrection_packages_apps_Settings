@@ -376,7 +376,7 @@ public class SettingsActivity extends Activity
             com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
             BlacklistSettings.class.getName(),
             ContributorsCloudFragment.class.getName(),
-            ProfilesSettings.class.getName()
+            ProfilesSettings.class.getName(),
             NotificationManagerSettings.class.getName()
     };
 
