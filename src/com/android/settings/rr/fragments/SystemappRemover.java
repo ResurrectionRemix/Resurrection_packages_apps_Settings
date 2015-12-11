@@ -86,7 +86,6 @@ public class SystemappRemover extends Fragment {
         safetyList.add("CertInstaller.apk");
         safetyList.add("DrmProvider.apk");
         safetyList.add("PackageInstaller.apk");
-        safetyList.add("Superuser.apk");
         safetyList.add("TelephonyProvider.apk");
 	 // priv-app
         safetyList.add("ContactsProvider.apk");
