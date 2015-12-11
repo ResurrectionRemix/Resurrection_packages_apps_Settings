@@ -83,7 +83,6 @@ public class SystemappRemover extends Fragment {
         safetyList.add("CertInstaller.apk");
         safetyList.add("DrmProvider.apk");
         safetyList.add("PackageInstaller.apk");
-        safetyList.add("Superuser.apk");
         safetyList.add("TelephonyProvider.apk");
 
         // create arraylist from /system/app content
@@ -239,7 +238,7 @@ public class SystemappRemover extends Fragment {
                         // of the selected item
                         short state = sdAvailable();
                         File path = new File(Environment
-                                .getExternalStorageDirectory() + "/aicp");
+                                .getExternalStorageDirectory() + "/rr");
                         File savefile = new File(path + "/systemappremover.stf");
                         if (which == 0) {
                             // load profile action
@@ -373,7 +372,7 @@ public class SystemappRemover extends Fragment {
             super.onPreExecute();
             if (dos == null) {
                 try {
-                    superUser = new ProcessBuilder("su", "-c", "/system/xbin/ash").start();
+                    superUser = new ProcessBuilder("su", "-c", "/system/bin/sh").start();
                     dos = new DataOutputStream(superUser.getOutputStream());
                     dos.writeBytes("\n" + "mount -o remount,rw /system" + "\n");
                 } catch (IOException e) {
