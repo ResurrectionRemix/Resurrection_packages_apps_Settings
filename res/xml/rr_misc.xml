@@ -112,8 +112,6 @@
             android:title="@string/system_app_remover"
             android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
 
-
-
       <ListPreference
         android:key="media_scanner_on_boot"
         android:title="@string/media_scanner_on_boot_title"
@@ -128,14 +126,6 @@
                 android:title="@string/advanced_sound_title"
                 android:persistent="false"
                 android:fragment="com.android.settings.slim.SoundSettings" />
-
-       <!-- Logcat or GTFO -->
-	<PreferenceScreen
-            android:key="drill"
-            android:fragment="com.android.settings.rr.rrdrill"
-            android:title="@string/rr_drill_title"
-            />
-
 
 </PreferenceCategory>
 
