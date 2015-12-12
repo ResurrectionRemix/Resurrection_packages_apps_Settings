@@ -15,7 +15,8 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    settings:keywords="@string/keywords_display">
 
     <PreferenceCategory
         android:key="display"
@@ -43,12 +44,6 @@
                 android:title="@string/live_display_title"
                 android:summary="@string/live_display_summary"
                 android:fragment="com.android.settings.livedisplay.LiveDisplay" />
-
-        <PreferenceScreen
-                android:key="wallpaper"
-                android:title="@string/wallpaper_settings_title"
-                settings:keywords="@string/keywords_display_wallpaper"
-                android:fragment="com.android.settings.WallpaperTypeSettings" />
 
         <!-- Rotation modes -->
         <PreferenceScreen
@@ -89,10 +84,11 @@
                 android:persistent="false" />
 
         <!-- Prevent accidental wake-up -->
-        <SwitchPreference
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="proximity_on_wake"
                 android:title="@string/proximity_wake_title"
-                android:summary="@string/proximity_wake_summary"/>
+                android:summary="@string/proximity_wake_summary"
+                android:defaultValue="true" />
 
         <!-- Seconds before sleep -->
         <ListPreference
@@ -121,7 +117,15 @@
     <PreferenceCategory
             android:key="interface"
             android:title="@string/category_interface">
-        <!-- expanded desktop -->
+
+        <!-- Wallpaper -->
+        <PreferenceScreen
+                android:key="wallpaper"
+                android:title="@string/wallpaper_settings_title"
+                settings:keywords="@string/keywords_display_wallpaper"
+                android:fragment="com.android.settings.WallpaperTypeSettings" />
+
+        <!-- Expanded desktop -->
         <PreferenceScreen
                 android:key="expanded_desktop"
                 android:title="@string/power_menu_expanded_desktop"
