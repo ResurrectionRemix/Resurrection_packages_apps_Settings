@@ -44,12 +44,6 @@
                 android:summary="@string/live_display_summary"
                 android:fragment="com.android.settings.livedisplay.LiveDisplay" />
 
-        <PreferenceScreen
-                android:key="wallpaper"
-                android:title="@string/wallpaper_settings_title"
-                settings:keywords="@string/keywords_display_wallpaper"
-                android:fragment="com.android.settings.WallpaperTypeSettings" />
-
         <!-- Rotation modes -->
         <PreferenceScreen
                 android:key="display_rotation"
@@ -96,10 +90,11 @@
                 android:persistent="false" />
 
         <!-- Prevent accidental wake-up -->
-        <SwitchPreference
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="proximity_on_wake"
                 android:title="@string/proximity_wake_title"
-                android:summary="@string/proximity_wake_summary"/>
+                android:summary="@string/proximity_wake_summary"
+                android:defaultValue="true" />
 
         <!-- Seconds before sleep -->
         <ListPreference
@@ -128,6 +123,13 @@
     <PreferenceCategory
             android:key="interface"
             android:title="@string/category_interface">
+        <!-- wallpaper -->
+        <PreferenceScreen
+                android:key="wallpaper"
+                android:title="@string/wallpaper_settings_title"
+                settings:keywords="@string/keywords_display_wallpaper"
+                android:fragment="com.android.settings.WallpaperTypeSettings" />
+
         <!-- expanded desktop -->
         <PreferenceScreen
                 android:key="expanded_desktop"
@@ -155,7 +157,7 @@
                 android:dialogTitle="@string/dialog_title_font_size" />
 
         <!-- Search in Recents -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="recents_show_search_bar"
                 android:title="@string/recents_show_searchbar"
                 settings:keywords="@string/keywords_recents_show_searchbar"
