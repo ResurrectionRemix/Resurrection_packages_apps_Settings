@@ -171,7 +171,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
 
         mVolumesCategory = (PreferenceCategory) findPreference(KEY_VOLUMES);
         mSoundCategory = (PreferenceCategory) findPreference(KEY_SOUND);
-        final PreferenceCategory vibrate = (PreferenceCategory) findPreference(KEY_VIBRATE);
+        mVibrateCategory = (PreferenceCategory) findPreference(KEY_VIBRATE);
         initVolumePreference(KEY_MEDIA_VOLUME, AudioManager.STREAM_MUSIC,
                 com.android.internal.R.drawable.ic_audio_media_mute);
         initVolumePreference(KEY_ALARM_VOLUME, AudioManager.STREAM_ALARM,
