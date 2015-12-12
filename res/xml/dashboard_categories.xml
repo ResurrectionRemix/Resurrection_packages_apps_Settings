@@ -147,6 +147,16 @@
                 android:icon="@drawable/ic_settings_buttons"
                 />
 
+        <!-- O-Click -->
+        <dashboard-tile
+                android:id="@+id/oclick"
+                android:icon="@drawable/ic_settings_oclick">
+            <intent
+                    android:action="com.cyanogenmod.action.LAUNCH_BLUETOOTH_INPUT_SETTINGS"
+                    android:targetPackage="com.cyanogenmod.settings.device"
+                    android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
+        </dashboard-tile>
+
         <!-- Gestures -->
         <dashboard-tile
                 android:id="@+id/device_specific_gesture_settings"
@@ -171,8 +181,8 @@
                 android:id="@+id/security_settings"
                 android:title="@string/security_settings_title"
                 android:fragment="com.android.settings.SecuritySettings"
-                android:icon="@drawable/ic_settings_security">
-        </dashboard-tile>
+                android:icon="@drawable/ic_settings_security"
+                />
 
         <!-- Memory -->
         <dashboard-tile
