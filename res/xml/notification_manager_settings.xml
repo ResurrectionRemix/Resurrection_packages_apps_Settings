@@ -14,7 +14,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
     <!-- Heads up -->
     <com.android.settings.cyanogenmod.GlobalSettingSwitchPreference
             android:key="heads_up_notifications_enabled"
@@ -26,7 +28,15 @@
     <PreferenceScreen
             android:key="zen_mode"
             android:title="@string/zen_mode_settings_title"
+            settings:keywords="@string/keywords_sounds_and_notifications_interruptions"
             android:fragment="com.android.settings.notification.ZenModeSettings" />
+
+    <!-- Do Not Disturb access -->
+    <Preference
+            android:key="manage_zen_access"
+            android:title="@string/manage_zen_access_title"
+            android:persistent="false"
+            android:fragment="com.android.settings.notification.ZenAccessSettings" />
 
     <!-- When device is locked -->
     <com.android.settings.DropDownPreference
@@ -38,7 +48,11 @@
     <PreferenceScreen
             android:key="app_notifications"
             android:title="@string/app_notifications_title"
-            android:fragment="com.android.settings.applications.ManageApplications" />
+            android:fragment="com.android.settings.applications.ManageApplications">
+            <extra
+                android:name="classname"
+                android:value="com.android.settings.Settings$NotificationAppListActivity" />
+    </PreferenceScreen>
 
     <!-- Notification access -->
     <Preference
