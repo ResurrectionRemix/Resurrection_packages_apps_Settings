@@ -44,7 +44,6 @@ import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
 import android.preference.SeekBarVolumizer;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
@@ -64,7 +63,6 @@ import com.android.settings.Utils;
 import com.android.settings.hardware.VibratorIntensity;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-import cyanogenmod.hardware.CMHardwareManager;
 import cyanogenmod.providers.CMSettings;
 
 import java.util.ArrayList;
@@ -92,7 +90,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private static final String KEY_NOTIFICATION_ACCESS = "manage_notification_access";
     private static final String KEY_INCREASING_RING_VOLUME = "increasing_ring_volume";
     private static final String KEY_VIBRATION_INTENSITY = "vibration_intensity";
-    private static final String KEY_VIBRATE_ON_TOUCH = "vibrate_on_touch";
     private static final String KEY_ZEN_ACCESS = "manage_zen_access";
     private static final String KEY_ZEN_MODE = "zen_mode";
 
@@ -192,9 +189,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                     KEY_VOLUME_LINK_NOTIFICATION));
         }
 
-        CMHardwareManager hardware = CMHardwareManager.getInstance(mContext);
-        if (!hardware.isSupported(CMHardwareManager.FEATURE_VIBRATOR)) {
-            vibrate.removePreference(vibrate.findPreference(KEY_VIBRATION_INTENSITY));
+        if (!VibratorIntensity.isSupported(mContext)) {
+            removePreference(KEY_VIBRATION_INTENSITY);
         }
 
         initRingtones(mSoundCategory);
@@ -239,11 +235,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         mVolumeCallback.stopSample();
         mSettingsObserver.register(false);
         mReceiver.register(false);
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     // === Volumes ===
@@ -708,12 +699,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
-        private boolean mHasVibratorIntensity;
-
-        @Override
-        public void prepare() {
-            super.prepare();
-        }
 
         public List<SearchIndexableResource> getXmlResourcesToIndex(
                 Context context, boolean enabled) {
@@ -731,15 +716,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 rt.add(KEY_VIBRATE_WHEN_RINGING);
                 rt.add(KEY_VOLUME_LINK_NOTIFICATION);
             }
-            Vibrator vib = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-            if (vib == null || !vib.hasVibrator()) {
-                rt.add(KEY_VIBRATE);
-            }
-            CMHardwareManager hardware = CMHardwareManager.getInstance(context);
-            if (!hardware.isSupported(CMHardwareManager.FEATURE_VIBRATOR)) {
-                rt.add(KEY_VIBRATION_INTENSITY);
-            }
-
             return rt;
         }
     };

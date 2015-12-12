@@ -104,10 +104,12 @@
                 android:persistent="false" />
 
         <!-- Vibrate on touch -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                android:key="haptic_feedback_enabled"
+        <SwitchPreference
+                android:key="vibrate_on_touch"
                 android:title="@string/vibrate_on_touch_title"
-                android:defaultValue="true" />
+                android:switchTextOff=""
+                android:switchTextOn=""
+                android:persistent="false" />
 
         <!-- CMHW vibration intensity -->
         <com.android.settings.hardware.VibratorIntensity
