@@ -84,7 +84,8 @@
 
     <!--Categories-->
 
-    <string name="clock_category">Saati Özelleştir</string>
+    <string name="clock_category">Saat</string>
+    <string name="clock_custom">Saati Özelleştir</string>
     <string name="battery_category">Pili Özelleştir</string>
     <string name="weather_category">Hava Durumu Ayarları</string>
     <string name="icons_category">Durum Çubuğu Sİmgeleri</string>
@@ -92,9 +93,10 @@
 
     <string name="recents_panel_search_category">Son Kullanılanlar Arama Çubuğu</string>
     <string name="recents_panel_memory_category">Bellek Çubuğu</string>
-    <string name="recents_panel_clear_all_category"> Tüm Düzenlemeleri Temizle</string>
+    <string name="recents_panel_clear_all_category">Tüm Düzenlemeleri Temizle</string>
+    <string name="multitasking">Çoklu Görev</string>
 
-    <string name="animations_cat">Sistem Animasyonları</string>
+    <string name="animations_cat">Sistem</string>
     <string name="toast_cat">Tost Ayarları</string>
     <string name="list_cat">Liste görünümü</string>
     <string name="perf_cat">Animasyon ve Performans</string>
@@ -105,6 +107,7 @@
 
     <string name="misc_1">Sistem Araçları</string>
     <string name="misc_2">İnce Ayarlar</string>
+    <string name="misc_3">Sistem</string>
 
 
     <!-- Color picker -->
@@ -135,39 +138,39 @@
  
 
     <!-- RR Extra Info -->
-   <string name="rrextrainfo">Ekstra bilgiler</string>
-   <string name="cancel">Vazgeç</string>	
-   <string name="rrextrainfo_summary">İşlemci, ekran, vb için ekstra bilgi görüntüler</string>
-   <string name="basicinfo">BASİT BİLGİ</string>
-   <string name="manufacturer">Üretici</string>
-   <string name="hardwaretype">Donanım türü</string>
-   <string name="systempartition">Sistem bölümü</string>
-   <string name="datapartition">Veri bölümü</string>
-   <string name="ram">RAM</string>
-   <string name="bootloader">Ön Yükleyici</string>
-   <string name="bytes"> Bit</string>
-   <string name="cpuinfo">İŞLEMCİ BİLGİSİ</string>
-   <string name="chipset_processor">İşlemci / Yonga seti</string>
-   <string name="features">Özellikler</string>
-   <string name="bogomips">BogoMIPS</string>
-   <string name="abi">ABI</string>
-   <string name="abitwo">ABI2</string>
-   <string name="architecture">Mimari</string>
-   <string name="implementer">Uygulayıcı</string>
-   <string name="variant">Varyant</string>
-   <string name="part">Bölüm</string>
-   <string name="revision">Revizyon</string>
-   <string name="displayinfo">GÖRÜNTÜ BİLGİLERİ</string>
-   <string name="diagonal">Diagonal</string>
-   <string name="height">Yükseklik</string>
-   <string name="width">Genişlik</string>
-   <string name="density">Yoğunluk</string>
-   <string name="dots_per_inch">INÇ BAŞINA NOKTA</string>
-   <string name="actualdpi_x">Gerçek DPI X</string>
-   <string name="actualdpi_y">Gerçek DPI Y</string>
-   <string name="refresh_rate">Yenileme Hızı</string>
-   <string name="pixels">Piksel</string>
-   <string name="inches">İnç</string>
+    <string name="rrextrainfo">Ekstra bilgiler</string>
+    <string name="cancel">Vazgeç</string>	
+    <string name="rrextrainfo_summary">İşlemci, ekran, vb için ekstra bilgi görüntüler</string>
+    <string name="basicinfo">BASİT BİLGİ</string>
+    <string name="manufacturer">Üretici</string>
+    <string name="hardwaretype">Donanım türü</string>
+    <string name="systempartition">Sistem bölümü</string>
+    <string name="datapartition">Veri bölümü</string>
+    <string name="ram">RAM</string>
+    <string name="bootloader">Ön Yükleyici</string>
+    <string name="bytes"> Bit</string>
+    <string name="cpuinfo">İŞLEMCİ BİLGİSİ</string>
+    <string name="chipset_processor">İşlemci / Yonga seti</string>
+    <string name="features">Özellikler</string>
+    <string name="bogomips">BogoMIPS</string>
+    <string name="abi">ABI</string>
+    <string name="abitwo">ABI2</string>
+    <string name="architecture">Mimari</string>
+    <string name="implementer">Uygulayıcı</string>
+    <string name="variant">Varyant</string>
+    <string name="part">Bölüm</string>
+    <string name="revision">Revizyon</string>
+    <string name="displayinfo">GÖRÜNTÜ BİLGİLERİ</string>
+    <string name="diagonal">Diagonal</string>
+    <string name="height">Yükseklik</string>
+    <string name="width">Genişlik</string>
+    <string name="density">Yoğunluk</string>
+    <string name="dots_per_inch">INÇ BAŞINA NOKTA</string>
+    <string name="actualdpi_x">Gerçek DPI X</string>
+    <string name="actualdpi_y">Gerçek DPI Y</string>
+    <string name="refresh_rate">Yenileme Hızı</string>
+    <string name="pixels">Piksel</string>
+    <string name="inches">İnç</string>
 
     <!--Recents-->
     <string name="recents_settings_title">Son Kullanılanalar</string>
@@ -191,7 +194,7 @@
     <string name="recents_fullscreen_summary_enabled">Son kullanılanlar tam ekran etkin</string>
     <string name="recents_fullscreen_summary_disabled">Son kullanılanlar tam ekran devre dışı</string>
 
-<!--Notification Drawer-->
+    <!--Notification Drawer-->
 
     <string name="notification_drawer_title">Bildirim Çekmecesi</string>
 
@@ -206,19 +209,29 @@
     <string name="summary_heads_up_enabled">Açılır Pencere bildirimleri etkin</string>
     <string name="summary_heads_up_disabled">Açılır Pencere bildirimleri devre dışı</string>
 
-	<!-- Lock screen settings -->
+    <!--Performance/Kernel Aduitor-->
+    <string name="kernel_aduitor">Performans</string>
+
+    <!-- Lock screen rotation -->
+    <string name="display_lockscreen_rotation_title">Kilit ekranı</string>
+    <!-- Lock screen settings -->
     <string name="rr_lockscreen_title">Kilit Ekranı</string>
-    <string name="lockscreen_settings_title">Kilit ekranı duvar kağıdı</string>
-    <string name="lockscreen_wallpaper_title">Duvar Kağıdı</string>
     <string name="double_tap_ls">Uyutmak için Kilit Ekranına Çift Dokunun</string>
     <string name="double_tap_ls_summary">Kilit ekranında herhangi bir yere iki kez dokunarak cihazı uyku moduna alabilirsiniz</string>
-    <string name="lockscreen_wallpaper_set_title">Kilit ekranı duvar kağıdını ayarla</string>
+    
+    <!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Duvar kağıdı</string>
+    <string name="lockscreen_wallpaper_summary">Kilit eranı duvar kağıdını ayarla</string>
+    <string name="lockscreen_wallpaper_set_title">Kilit eranı duvar kağıdını ayarla</string>
     <string name="lockscreen_wallpaper_clear_title">Kilit ekranı duvar kağıdını temizle</string>
+    <string name="reset_lockscreen_wallpaper">Varsayılana ayarla</string>
     <string name="lockscreen_options_title">Seçenekler</string>
-
-    <!-- Lockscreen blur/see through -->
-    <string name="lockscreen_see_through_title">Bulanıklık</string>
-    <string name="lockscreen_see_through_summary">Bulanıklaştırır ve kilit ekranının arkadsındaki içeriği görüntüler</string>
+    <string name="lockscreen_wallpaper_summary_warning">Değişililerin Etkili Olabilmesi için Yeniden Başlatmak Gerekli Olabilir</string>	
+    <string name="lockscreen_wallpaper_cat">Duvar kağıdı</string>
+    
+    <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Kilit Ekranı Bulanıklık</string>
+    <string name="lockscreen_see_through_summary">Bulanıklaştırır ve kilit ekranının arkadsındaki içeriği görüntüler.</string>
     <string name="lockscreen_blur_radius">Bulanıklık efekti yoğunluğu</string>
 
     <!-- CM Lockscreen shortcuts -->
@@ -287,7 +300,7 @@
     <string name="listview_anticipate_overshoot_interpolator">Beklet ve ilerlet</string>
     <string name="listview_bounce_interpolator">Sıçrat</string>    
 
-	<!-- Toast Icons -->
+    <!-- Toast Icons -->
     <string name="toast_icon_title">Tost simgesi</string>
     <string name="toast_icon_summary">Tost ile gelen uygulama simgesini görüntüler</string>
 
@@ -367,7 +380,7 @@
     <string name="select_custom_activity_title">Özel etkinlik seçin</string>
     <string name="profile_applist_title">Uygulamalar</string>
 
-	<!-- Network traffic -->
+    <!-- Network traffic -->
     <string name="network_traffic_title">Ağ trafiği</string>
     <string name="show_network_traffic_state">Durum çubuğu trafik monitörü</string>
     <string name="show_network_traffic_unit">Gösterge ünitesi</string>
@@ -441,6 +454,7 @@
     <string name="battery_bar_animate_title">Şarj animasyonu</string>
     <string name="battery_bar_animate_summary">Şarj animasyonu kötü bir kullanıcı deneyimine neden olabilir. Kendi takdirinize bağlı olarak etkinleştirin.</string>
 
+    
     <string name="help">Yardım</string>
     <string name="reset_message">Varsayılan tüm girdiler sıfırlansın mı?</string>
     <string name="attention">Dikkat</string>
@@ -718,10 +732,10 @@
     <string name="enable_multi_window_summary">Ekranda aynı anda birden fazla etkinlik.</string>
     <string name="warning_multi_window_text">UYARI: Bu Son uygulamalar kullanıcı arayüzü aracılığı ile ekranda aynı anda birden fazla etkinliğe izin veren ileri düzeyde deneysel bir özelliktir. Bazı uygulamalar bu özellikle birlikte kullanıldığında kilitlenebilir veya düzgün çalışmayabilir.</string>
 
-	<!-- Restart SystemUI -->
+    <!-- Restart SystemUI -->
     <string name="restart_systemui">SistemUI Yeniden Başlat</string>
 
-	<!-- SuperSU -->
+    <!-- SuperSU -->
     <string name="supersu_title">SuperSU</string>
 
     <string name="weather_settings_title">Hava Durumu</string> 
@@ -761,6 +775,7 @@
     <string name="show_status_bar_carrier_summary">Durum çubuğunda şebeke adını göster</string>
     <string name="custom_carrier_label_title">Özel şebeke etiketi</string>
     <string name="custom_carrier_label_explain">Yeni bir etiket girin. Hazır etikete geri dönmek için boş bırakın.</string>
+    <string name="status_bar_carrier_size">Şebeke etiketi yazı boyutu</string>
     <string name="custom_carrier_label_notset">Özel etiket belirlenmiş olan değil</string>
     <string name="status_bar_carrier_color">Şebeke etiketi rengi</string>
 
@@ -902,5 +917,213 @@
     <string name="clock_font_size_21">21</string>
     <string name="clock_font_size_22">22</string>
     <string name="clock_font_size_23">23</string>
+    
+    <!-- Sound settings -->
+    <string name="advanced_sound_title">Advanced options</string>
+    <string name="sound_title">Sound</string>
+
+    <!-- Camera sound switch -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
+    <string name="camera_sounds_summary">Enable system camera shutter sound</string>
+    <string name="camera_sound_warning_dialog_text">Disabling the camera shutter sound is illegal in some areas! Please check the applicable law in your country</string>
+
+    <!-- Slim recents panel -->
+    <string name="rr_recent_slim_category">Slim Son Kullanılanlar</string>
+    <string name="slim_recents_panel">Slim son kullanılanlar görev paneli</string>
+    <string name="use_slim_recents_title">Etin</string>
+    <string name="show_running_tasks_title">Sadece çalışan uygulamaları göster</string>
+    <string name="recents_max_apps_title">İzin verilen maksimum uygulama sayısı</string>
+    <string name="recent_panel_scale_title">Panel boyutu</string>
+    <string name="recent_panel_expanded_mode_title">Genişletilmiş mod</string>
+    <string name="recent_panel_expanded_mode_summary">Son görevlerin genişletilmiş önizleme modu</string>
+    <string name="recent_panel_expanded_mode_auto">Otomatik (varsayılan)</string>
+    <string name="recent_panel_expanded_mode_always">Herzaman</string>
+    <string name="recent_panel_expanded_mode_never">Asla</string>
+    <string name="recent_panel_show_topmost_title">Üstteki görevi göster</string>
+    <string name="recent_panel_show_topmost_summary">Son kullanılanlar ekranında son kullanılan uygulamayı dahil et</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Sol kenarda göster</string>
+    <string name="recent_panel_lefty_mode_summary">Sol kenarda son uygulamalar panelini göster</string>
+
+    <!-- Circle app bar -->
+    <string name="category_app_circle_bar_title">Uygulama başlatıcısı</string>
+    <string name="app_circle_bar_title">Daire uygulama çubuğu</string>
+    <string name="app_circle_bar_summary">Ekranın sağ tarafında dokunduktan sonra daire uygulama başlatıcısını göster</string>
+    <string name="app_circle_bar_included_apps_title">Dahil olan uygulamalar</string>
+    <string name="app_circle_bar_included_apps_summary">Uygulamaları daire uygulama çubuğunda gösterecektir</string>
+    <string name="trigger_width_title">Tetikleyici genişliği</string>
+    <string name="trigger_width_summary">Tetikleyici alanın genişliğini ayarlayın</string>
+    <string name="trigger_top_title">Tetikleyici konumu</string>
+    <string name="trigger_top_summary">Tetikleyici alanının dikey konumunu ayarlayın</string>
+    <string name="trigger_bottom_title">Tetikleyici yüksekliği</string>
+    <string name="trigger_bottom_summary">Tetikleyici alanın yüksekliğini ayarlayın</string>
+
+    <string name="powermenu_lockscreen_title">Kilit eranında güç menüsü</string>
+    <string name="powermenu_lockscreen_summary">Kilit ekranında güç menüsünü göster</string>
+
+    <!-- Qucik unlock -->
+    <string name="unlock_quick_unlock_control_title">Hızlı kilit açma</string>
+    <string name="unlock_quick_unlock_control_summary">Doğru PIN/şifre girildiğinde kilidi otomatik aç</string>
+
+    <!-- MediaScanner behavior on boot -->
+    <string name="options_settings_title">Seçenekler</string>
+    <string name="media_scanner_on_boot_title">Açılışta Medya Tarayıcı davranışı</string>
+    <string name="media_scanner_on_boot_enabled">Medyayı tara</string>
+    <string name="media_scanner_on_boot_ask">Taramak için sor (bildirim)</string>
+    <string name="media_scanner_on_boot_disabled">Medyayı tarama</string>
+
+    <!-- Whether the keyguard will directly pass to password entry -->
+    <string name="lock_directly_show_password">Doğrudan şifre girişini göster</string>
+    <!-- Whether the keyguard will directly pass to pattern view -->
+    <string name="lock_directly_show_pattern">Doğrudan hareketi göster</string>
+    <!-- Whether the keyguard will directly pass to PIN entry -->
+    <string name="lock_directly_show_pin">Doğrudan PIN girişini göstermek</string>
+    
+    <!-- Sound & Notification Settings -->
+    <!-- Linked / unlinked notification volume -->
+    <string name="link_volume_option_title">Zil sesi ve bildirim seslerini bağla</string>
+    <string name="notification_volume_option_title">Bildirim sesi</string>
+    <string name="ring_notification_volume_option_tile">Zil sesi ve bildirim sesi</string>
+
+
+    <!-- Keyboard and Input ASS methods  -->
+    <string name="title_keyboard_input">Gelişmiş seçenekler</string>
+    <string name="disable_fullscreen_keyboard_title">Tam ekra klavye devre dışı</string>
+    <string name="disable_fullscreen_keyboard_summary">Yatay klavye tüm ekranı asla kaplamayacak</string>
+    <string name="keyboard_rotation_toggle_title">Otomatik kalvye döndürme</string>
+    <string name="keyboard_rotation_toggle_summary">Klavye görüntülendiğinde otomatik döndürmeye zorla</string>
+    <string name="keyboard_rotation_timeout_title">Otomatik döndürme zaman aşımı</string>
+    <string name="keyboard_rotation_timeout_summary">Klavye gizlendikten <xliff:g id="rotate_timeout">%1$s</xliff:g> saniye sonra otomatik döndürme devre dışı bırakılır</string>
+    <string name="keyboard_rotation_dialog">Klavye gösterilirken bu özellik otomatik döndürmeyi geçici açmak için zorlar. Otomatik döndür zaten etkin olduğunda hiçbir etkisi yoktur.</string>
+    <string name="show_enter_key_title">Enter tuşunu göster</string>
+    <string name="show_enter_key_summary">Klavyede ifade tuşu yerine enter tuşunu göstermeye zorlar</string>
+
+    <!-- Wakelock blocker -->
+    <string name="wakelock_blocker_title">Uyandırma kilidi engelleyici</string>
+    <string name="wakelock_blocker_summary">Sistem uyandırma kilitlerini engelle</string>
+    <string name="wakelock_blocker_save">Kaydet</string>
+    <string name="wakelock_list_header">Mevcut uyandırma kilitleri</string>
+    <string name="wakelock_blocker_reload">Tekrar Yükle</string>
+    <string name="wakelock_blocker_warning_title">Dikkatli devam edin</string>
+    <string name="wakelock_blocker_warning">Uyandırma kilitlerini engelleme, istikrarsızlık, çökme veya veri kaybına neden olma potansiyeline sahiptir unutmayın</string>
+    
+    <!--Ad-Blocker-->
+    <string name="adaway_settings_title">Reklam Engelleyici</string>
+
+    <!-- PA Pie control -->
+    <string name="pa_piecontrol_settings_summary">PA Pie 2.0 hedefler, stil, boyut ve renkleri özelleştir</string>
+    <string name="pa_pie_control_title">Pie Kontrol</string>
+    <string name="pa_pie_control_enable_title">Pie Kontrolü Ekinleştir</string>
+    <string name="pa_pie_targets_title">Pie Hedefler</string>
+    <string name="pa_pie_style_title">Pie Stili</string>
+    <string name="pa_pie_menu_title">Menü tuşunu her zaman göster</string>
+    <string name="pa_pie_menu_summary">Menü tuşunun her zaman gösterilmesi gerektiği olsun veya olmasın, hatta gerekli olmadığında bile</string>
+    <string name="pa_pie_size_title">Pie Boyutu</string>
+    <string name="pa_pie_size_summary">Pie kontrolleri boyutunu tanımlayın</string>
+    <string name="pa_pie_size_small">Küçük</string>
+    <string name="pa_pie_size_default">@string/pa_pie_mode_default</string>
+    <string name="pa_pie_size_large">Orta</string>
+    <string name="pa_pie_size_gigantic">Devasa</string>
+    <string name="pa_pie_size_monster">Canavar</string>
+    <string name="pa_pie_size_enormous">En Büyük</string>
+    <string name="pa_pie_mode_default">Varsayılan</string>
+    <string name="pa_pie_gravity_title">Pie Yer Çekimi</string>
+    <string name="pa_pie_gravity_summary">Pie'\ın yer alacağı konumu seçin</string>
+    <string name="pa_pie_gravity_bottom">Alt</string>
+    <string name="pa_pie_gravity_right">Sağ</string>
+    <string name="pa_pie_gravity_left">Sol</string>
+    <string name="pa_pie_gap_title">Öğe aralığı</string>
+    <string name="pa_pie_gap_summary">Pie öğelerini ayıran boşluğu ayarlayın</string>
+    <string name="pa_pie_angle_title">Pie Açısı</string>
+    <string name="pa_pie_angle_summary">Adjust the angle of pie\'s egdes from the attachment</string>
+    <string name="pa_pie_angle_none">Hiçbiri (eski)</string>
+    <string name="pa_pie_angle_small">Küçük</string>
+    <string name="pa_pie_angle_big">Normal (varsayılan)</string>
+    <string name="pa_pie_angle_huge">Büyük</string>
+    <string name="pa_pie_angle_super">En Büyük</string>
+    <string name="pa_pie_gap_none">Hiçbiri</string>
+    <string name="pa_pie_gap_small">Küçük</string>
+    <string name="pa_pie_gap_big">Büyük (varsayılan)</string>
+    <string name="pa_pie_gap_huge">En Büyük</string>
+    <string name="pa_pie_mode_title">Pie Stili</string>
+    <string name="pa_pie_mode_summary">Manage how animations and status additions will be handled</string>
+    <string name="pa_pie_mode_bare">Sade</string>
+    <string name="pa_pie_mode_quick">Hızlı</string>
+    <string name="pa_pie_mode_default">Varsayılan</string>
+    <string name="pa_pie_mode_slow">Yavaş</string>
+    <string name="pa_pie_lastapp_title">Son uygulama</string>
+    <string name="pa_pie_lastapp_summary">Son uygulama tuşunu etkinleştir</string>
+    <string name="pa_pie_killtask_title">Görevleri sonlandır</string>
+    <string name="pa_pie_killtask_summary">Görevleri sonlandır tuşunu etkinleştir</string>
+    <string name="pa_pie_notifications_title">Bildirimler</string>
+    <string name="pa_pie_notifications_summary">Bildirimler tuşunu etkinleştir</string>
+    <string name="pa_pie_settings_panel_title">Hızlı Ayarlar Paneli</string>
+    <string name="pa_pie_settings_panel_summary">Hızlı ayarları paneli genişletme tuşunu etkinleştirin</string>
+    <string name="pa_pie_screenshot_title">Ekran görüntüsü</string>
+    <string name="pa_pie_screenshot_summary">Ekran görüntüsü tuşunu etkinleştir</string>
+    <string name="pa_pie_color_title">Pie Renk Ayarları</string>
+    <string name="pa_pie_color_style_title">Pie Renk Stili</string>
+    <string name="pa_pie_background_title">Arkaplan Rnegi</string>
+    <string name="pa_pie_select_title">Seçim Rengi</string>
+    <string name="pa_pie_outlines_title">Outlines Color</string>
+    <string name="pa_pie_status_clock_title">Saat Rengi</string>
+    <string name="pa_pie_status_title">Durum Rnegi</string>
+    <string name="pa_pie_chevron_title">Chevron Rengi</string>
+    <string name="pa_pie_juice_title">Pil Suyu Rengi</string>
+    <string name="pa_pie_button_color">Tuş Rengi</string>
+    <string name="pa_pie_button_color_title">Tuşların Rengi</string>
+
+    <string name="reset_paranoid">Paranoid</string>
+    <string name="reset_android">Android</string>
+
+    <!-- Task Manager -->
+    <string name="enable_task_manager_title">Görev Yöneticisi</string>
+    <string name="enable_task_manager_summary">Genişletilmiş durum çubuğu alanındaki görev yöneticisi düğmesini etkinleştir/devre dışı bırak.</string>
+
+    <!-- SlimSizer  -->
+    <string name="listsystem">liste</string>
+    <string name="sizer_title">Uygulama silici</string>
+    <string name="caution">Dikkat!</string>
+    <string name="sizer_message_startup">Bu araç, sistem uygulamalarını silmenize olanak verir. Dikkatli kullanın ve sadece kaldırılması güvenli olduğunu bildiğiniz uygulamaları silin.</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="sizer_message_delete">Bu uygulamayı silmek istediğinizden emin misiniz?</string>
+    <string name="btn_delete">Şimdi seçili uygulamalar silinecek!</string>
+    <string name="delete_progress_title">Siliniyor</string>
+    <string name="delete_progress">Seçilen dosyalar siliniyor...</string>
+    <string name="delete_success">Silindi</string>
+    <string name="delete_fail">Silinemiyor</string>
+    <string name="btn_profile">Profil</string>
+    <string name="sizer_message_sdnowrite">SD Kart yazılamıyor</string>
+    <string name="sizer_message_sdnoread">SD Kart okunamıyor</string>
+    <string name="sizer_message_filesuccess">Profil oluşturuldu</string>
+    <string name="sizer_message_filefail">Profil oluşturma başarısız oldu</string>
+    <string name="sizer_message_noselect">Hiçbir şey seçilmedi</string>
+    <string name="system_app_remover">Sisitem Uygulamarı Silici</string>
+
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">Ses tuşu ile Cevapla</string>
+    <string name="volume_answer_call_summary">Ses yükseltme tuşu ile aramaları Cevapla</string>
+    
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Üç parmak hareketi</string>
+    <string name="three_finger_gesture_summary">Ekran görüntüsü almak için üç parmağınızı kaydırın</string>
+
+    <!-- Lockscreen Colors -->
+    <string name="lockscreen_colors">Kilit Ekranı Renkleri</string>
+    <string name="lockscreen_phone_icon_color">Kilit Ekranı Sol Alt Kısayolu</string>
+    <string name="lockscreen_lock_icon_color">Lockscreen Lock icon</string>
+    <string name="lockscreen_camera_icon_color">Kilit Ekranı Sağ Alt Kısayolu</string>
+    <string name="lockscreen_indication_text_color">Kilit ekranı Gösterge yazısı</string>
+    <string name="lockscreen_clock_color">Kilit Ekranı Saat</string>
+    <string name="lockscreen_clock_date_color">Kilit Ekranı Tarih</string>
+    <string name="lockscreen_colors_reset_title">Kilit ekranı renklerini sıfırla</string>
+    <string name="lockscreen_colors_reset_message">Varsayılan bu renkleri sıfırlamak istediğinizden emin misiniz?</string>
+    <string name="yes">EVET</string>
+
+    <!-- On-The-Go -->
+    <string name="power_menu_onthego_title">On-The-Go Modu</string>
+    
+    <!-- The Drill -->
+    <string name="rr_drill_title">Matkap</string>
 
 </resources>
