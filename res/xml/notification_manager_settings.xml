@@ -28,6 +28,13 @@
             android:title="@string/zen_mode_settings_title"
             android:fragment="com.android.settings.notification.ZenModeSettings" />
 
+    <!-- Do Not Disturb access -->
+    <Preference
+            android:key="manage_zen_access"
+            android:title="@string/manage_zen_access_title"
+            android:persistent="false"
+            android:fragment="com.android.settings.notification.ZenAccessSettings" />
+
     <!-- When device is locked -->
     <com.android.settings.DropDownPreference
             android:key="lock_screen_notifications"
