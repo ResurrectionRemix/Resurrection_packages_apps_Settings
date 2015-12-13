@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ChangeLog extends Fragment {
-    private static final String CHANGELOG_PATH = "/system/etc/Changelog.txt";
+    private static final String CHANGELOG_PATH = "/system/etc/RR/Changelog.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
