@@ -81,7 +81,7 @@ import com.android.settings.fuelgauge.InactiveApps;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.widget.SwitchBar;
-
+import com.android.settings.widget.SeekBarPreferenceCham;
 import cyanogenmod.providers.CMSettings;
 import com.android.settings.util.Helpers;
 
@@ -186,6 +186,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String SHOW_ALL_ANRS_KEY = "show_all_anrs";
 
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+    private static final String HOLD_BACK_TO_KILL_TIMEOUT = "hold_back_to_kill_timeout";
 
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
@@ -280,6 +281,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mShowAllANRs;
     private SwitchPreference mKillAppLongpressBack;
+    private SeekBarPreferenceCham mHoldBackToKillTimeout;
 
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
@@ -443,6 +445,12 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mResetSwitchPrefs.add(mShowAllANRs);
 
         mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
+        mHoldBackToKillTimeout =
+                    (SeekBarPreferenceCham) findPreference(HOLD_BACK_TO_KILL_TIMEOUT);
+        int holdBackToKillTimeout = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HOLD_BACK_TO_KILL_TIMEOUT, 750);
+        mHoldBackToKillTimeout.setValue(holdBackToKillTimeout / 1);
+        mHoldBackToKillTimeout.setOnPreferenceChangeListener(this);
 
         Preference hdcpChecking = findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
@@ -2030,6 +2038,11 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mKeepScreenOn) {
             writeStayAwakeOptions(newValue);
+            return true;
+        } else if (preference == mHoldBackToKillTimeout) {
+            int killTimeout = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HOLD_BACK_TO_KILL_TIMEOUT, killTimeout * 1);
             return true;
         }
         return false;
