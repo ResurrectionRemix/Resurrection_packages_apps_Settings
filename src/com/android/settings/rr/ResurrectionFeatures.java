@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ResurrectionFeatures extends Fragment {
-    private static final String FEATURES_PATH = "/system/etc/RR/Features.txt";
+    private static final String FEATURES_PATH = "/system/etc/Features.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
