@@ -109,12 +109,12 @@
         android:key="misc"
         android:title="@string/misc_category" >
 
-    <!--com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="show_su_indicator"
         android:title="@string/su_indicator"
         android:summaryOn="@string/su_indicator_summary_on"
         android:summaryOff="@string/su_indicator_summary_off"
-        android:defaultValue="true" /-->
+        android:defaultValue="true" />
 
 
 
@@ -130,7 +130,7 @@
         android:summary="@string/status_bar_notif_count_summary"
         android:defaultValue="false" />
 
-     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+     <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="double_tap_sleep_gesture"
                 android:title="@string/double_tap_to_sleep_title"
                 android:summary="@string/double_tap_to_sleep_summary"
