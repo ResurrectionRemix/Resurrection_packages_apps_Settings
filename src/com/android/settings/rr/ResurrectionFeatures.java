@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2016 The Resurrection Remix Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +31,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ChangeLog extends Fragment {
-    private static final String CHANGELOG_PATH = "/system/etc/RR/Changelog.txt";
+public class ResurrectionFeatures extends Fragment {
+    private static final String FEATURES_PATH = "/system/etc/RR/Features.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,13 +45,13 @@ public class ChangeLog extends Fragment {
             char tmp[] = new char[2048];
             int numRead;
 
-            inputReader = new FileReader(CHANGELOG_PATH);
+            inputReader = new FileReader(FEATURES_PATH);
             while ((numRead = inputReader.read(tmp)) >= 0) {
                 data.append(tmp, 0, numRead);
             }
             text = data.toString();
         } catch (IOException e) {
-            text = getString(R.string.changelog_error);
+            text = getString(R.string.features_error);
         } finally {
             try {
                 if (inputReader != null) {
