@@ -35,6 +35,14 @@
         android:fragment="com.android.settings.paranoid.PieColor"
         android:dependency="pa_pie_state" />
 
+
+   <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="pa_pie_always_right"
+            android:title="@string/pa_pie_always_right_title"
+            android:summary="@string/pa_pie_always_right_summary"
+            android:defaultValue="true"
+            android:dependency="pa_pie_state" />
+
     <PreferenceCategory
         android:title="@string/pa_pie_style_title">
 
