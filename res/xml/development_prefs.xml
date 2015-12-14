@@ -15,7 +15,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/development_settings_title">
+        android:title="@string/development_settings_title"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceScreen
             android:key="development_tools"
@@ -406,6 +407,15 @@
             android:key="kill_app_longpress_back"
             android:title="@string/kill_app_longpress_back"
             android:summary="@string/kill_app_longpress_back_summary"/>
+
+        <com.android.settings.widget.SeekBarPreferenceCham
+            android:key="hold_back_to_kill_timeout"
+            android:title="@string/hold_back_to_kill_timeout_title"
+            android:max="2000"
+            settings:min="100"
+            settings:defaultValue="750"
+            settings:unitsRight="ms"
+            android:dependency="kill_app_longpress_back" />
 
      </PreferenceCategory>
 
