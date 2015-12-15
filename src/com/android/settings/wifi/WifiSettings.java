@@ -675,7 +675,7 @@ public class WifiSettings extends RestrictedSettingsFragment
                             continue;
                         }
                         AccessPointPreference preference = new AccessPointPreference(accessPoint,
-                                getActivity(), mUserBadgeCache, false);
+                                getActivity(), mUserBadgeCache, false, false);
                         preference.setOrder(index++);
 
                         if (mOpenSsid != null && mOpenSsid.equals(accessPoint.getSsidStr())

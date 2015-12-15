@@ -164,7 +164,7 @@ public class SavedAccessPointsWifiSettings extends RestrictedSettingsFragment
                              Bundle savedInstanceState) {
         mNetworksListView = new DraggableSortListView(getActivity());
         mNetworksListView.setId(android.R.id.list);
-        mNetworksListView.setDropListener(isAutoConfigPriorities() ? null : mDropListener);
+        mNetworksListView.setDropListener(mDropListener);
         return mNetworksListView;
     }
 
@@ -271,13 +271,12 @@ public class SavedAccessPointsWifiSettings extends RestrictedSettingsFragment
         final int accessPointsSize = accessPoints.size();
         for (int i = 0; i < accessPointsSize; ++i){
             AccessPointPreference preference = new AccessPointPreference(accessPoints.get(i),
-                    context, mUserBadgeCache, true);
-            preference.setIcon(null);
+                    context, mUserBadgeCache, true, true);
             preference.setOrder(i);
             preferenceScreen.addPreference(preference);
         }
 
-        if(getPreferenceScreen().getPreferenceCount() < 1) {
+        if (getPreferenceScreen().getPreferenceCount() < 1) {
             Log.w(TAG, "Saved networks activity loaded, but there are no saved networks!");
         }
     }

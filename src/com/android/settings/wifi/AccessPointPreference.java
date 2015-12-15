@@ -40,6 +40,7 @@ public class AccessPointPreference extends Preference {
     private static final int[] STATE_NONE = {};
 
     private static int[] wifi_signal_attributes = { R.attr.wifi_signal };
+    private static int[] wifi_no_signal_attributes = { R.attr.wifi_no_signal };
 
     private final StateListDrawable mWifiSld;
     private final int mBadgePadding;
@@ -51,6 +52,9 @@ public class AccessPointPreference extends Preference {
     private Drawable mBadge;
     private int mLevel;
     private CharSequence mContentDescription;
+
+    private boolean mShowNoSignalIcon;
+    private boolean mNoSignalLoaded;
 
     static final int[] WIFI_CONNECTION_STRENGTH = {
         R.string.accessibility_wifi_one_bar,
@@ -68,7 +72,7 @@ public class AccessPointPreference extends Preference {
     }
 
     public AccessPointPreference(AccessPoint accessPoint, Context context, UserBadgeCache cache,
-                                 boolean forSavedNetworks) {
+                                 boolean forSavedNetworks, boolean showNoSignal) {
         super(context);
         mBadgeCache = cache;
         mAccessPoint = accessPoint;
@@ -82,6 +86,7 @@ public class AccessPointPreference extends Preference {
         // Distance from the end of the title at which this AP's user badge should sit.
         mBadgePadding = context.getResources()
                 .getDimensionPixelSize(R.dimen.wifi_preference_badge_padding);
+        mShowNoSignalIcon = showNoSignal;
         refresh();
     }
 
@@ -112,9 +117,24 @@ public class AccessPointPreference extends Preference {
 
     protected void updateIcon(int level, Context context) {
         if (level == -1) {
-            setIcon(null);
+            if (mShowNoSignalIcon) {
+                Drawable drawable = getIcon();
+                if (drawable == null || !mNoSignalLoaded) {
+                    StateListDrawable sld = (StateListDrawable) context.getTheme()
+                            .obtainStyledAttributes(wifi_no_signal_attributes).getDrawable(0);
+                    if (sld != null) {
+                        sld.setState((getAccessPoint().getSecurity() != AccessPoint.SECURITY_NONE)
+                                ? STATE_SECURED : STATE_NONE);
+                        setIcon(sld.getCurrent());
+                        mNoSignalLoaded = true;
+                    }
+                }
+            }
+            if (!mNoSignalLoaded) {
+                setIcon(null);
+            }
         } else {
-            if (getIcon() == null) {
+            if (getIcon() == null || mNoSignalLoaded) {
                 // To avoid a drawing race condition, we first set the state (SECURE/NONE) and then
                 // set the icon (drawable) to that state's drawable.
                 // If sld is null then we are indexing and therefore do not have access to
@@ -124,7 +144,7 @@ public class AccessPointPreference extends Preference {
                             ? STATE_SECURED
                             : STATE_NONE);
                     Drawable drawable = mWifiSld.getCurrent();
-                    if (!mForSavedNetworks) {
+                    if (!mForSavedNetworks || mShowNoSignalIcon) {
                         setIcon(drawable);
                     } else {
                         setIcon(null);
@@ -156,7 +176,7 @@ public class AccessPointPreference extends Preference {
 
         final Context context = getContext();
         int level = mAccessPoint.getLevel();
-        if (level != mLevel) {
+        if (level != mLevel || mShowNoSignalIcon) {
             mLevel = level;
             updateIcon(mLevel, context);
             notifyChanged();
