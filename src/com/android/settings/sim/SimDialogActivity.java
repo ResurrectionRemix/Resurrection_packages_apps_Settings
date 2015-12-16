@@ -28,6 +28,7 @@ import android.os.ServiceManager;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+import android.telephony.SmsManager;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -204,6 +205,11 @@ public class SimDialogActivity extends Activity {
                                     Log.e(TAG, "RemoteException @setSMSPromptEnabled" + ex);
                                 } catch (NullPointerException ex) {
                                     Log.e(TAG, "NullPointerException @setSMSPromptEnabled" + ex);
+                                }
+
+                                //Regardless, ignore the secondary telephony framework
+                                if (mExtTelephony == null) {
+                                    SmsManager.getDefault().setSMSPromptEnabled(isSmsPrompt);
                                 }
                                 break;
                             default:
