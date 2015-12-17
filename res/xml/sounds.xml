@@ -45,6 +45,17 @@
                 android:key="alarm_volume"
                 android:icon="@*android:drawable/ic_audio_alarm"
                 android:title="@string/alarm_volume_option_title" />
+
+        <!-- Link Volume Notification -->
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+                android:key="volume_link_notification"
+                android:title="@string/link_volume_option_title" />
+
+        <!-- Notification volume -->
+        <com.android.settings.notification.VolumeSeekBarPreference
+                android:key="notification_volume"
+                android:icon="@*android:drawable/ic_audio_ring_notif"
+                android:title="@string/notification_volume_option_title"/>
     </PreferenceCategory>
 
     <PreferenceCategory
