@@ -17,6 +17,9 @@
 
 package com.android.settings;
 import com.android.internal.logging.MetricsLogger;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.preference.CheckBoxPreference;
 
 import android.os.UserHandle;
@@ -692,13 +695,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         if (KEY_LCD_DENSITY.equals(key)) {
-            try {
-                int value = Integer.parseInt((String) objValue);
-                writeLcdDensityPreference(preference.getContext(), value);
-                updateLcdDensityPreferenceDescription(value);
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "could not persist display density setting", e);
+            String newValue = (String) objValue;
+            String oldValue = mLcdDensityPreference.getValue();
+            if (!TextUtils.equals(newValue, oldValue)) {
+                showLcdConfirmationDialog((String) objValue);
             }
+            return false;
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
@@ -736,6 +738,26 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         return true;
+    }
+
+    private void showLcdConfirmationDialog(final String lcdDensity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.lcd_density);
+        builder.setMessage(R.string.lcd_density_prompt_message);
+        builder.setPositiveButton(R.string.print_restart,
+                new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                try {
+                    int value = Integer.parseInt(lcdDensity);
+                    writeLcdDensityPreference(getActivity(), value);
+                    updateLcdDensityPreferenceDescription(value);
+                } catch (NumberFormatException e) {
+                    Log.e(TAG, "could not persist display density setting", e);
+                }
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.show();
     }
 
     @Override
