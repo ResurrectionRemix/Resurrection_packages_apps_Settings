@@ -36,7 +36,7 @@ import android.text.TextUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.utils.TelephonyUtils;
+import com.android.settings.rr.utils.TelephonyUtils;
 
 public class UISettings extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
