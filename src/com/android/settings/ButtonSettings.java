@@ -145,6 +145,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mVolumeKeyCursorControl;
     private SwitchPreference mVolumeWakeScreen;
     private SwitchPreference mVolumeMusicControls;
+    private SwitchPreference mVolumeControlRingStream;	
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mEnableNavigationBar;
     private SwitchPreference mNavigationBarLeftPref;
@@ -914,10 +915,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     ? (ScreenType.isTablet(getActivity()) ? 2 : 1) : 0;
             CMSettings.System.putInt(getActivity().getContentResolver(),
                     CMSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
-        } else if (preference == mVolumeControlRingStream) {
-            int value = mVolumeControlRingStream.isChecked() ? 1 : 0;
-            CMSettings.System.putInt(getActivity().getContentResolver(),
-                    CMSettings.System.VOLUME_KEYS_CONTROL_RING_STREAM, value);
         } else if (preference == mPowerEndCall) {
             handleTogglePowerButtonEndsCallPreferenceClick();
             return true;
