@@ -269,7 +269,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                         : mRingerMode == AudioManager.RINGER_MODE_VIBRATE
                         ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
                         : com.android.internal.R.drawable.ic_audio_ring_notif);
-                mRingPreference.setTitle(R.string.ring_notification_volume_option_tile);
             } else {
                 mRingPreference.showIcon(mSuppressor != null ||
                         mRingerMode == AudioManager.RINGER_MODE_SILENT
@@ -277,7 +276,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                         : mRingerMode == AudioManager.RINGER_MODE_VIBRATE
                         ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
                         :R.drawable.ring_ring);
-                mRingPreference.setTitle(R.string.ring_volume_option_title);
             }
         }
     }
