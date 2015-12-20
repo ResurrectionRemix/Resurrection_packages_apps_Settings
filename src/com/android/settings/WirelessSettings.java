@@ -296,7 +296,7 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
             mNfcEnabler = null;
         } else if (!mPm.hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION)) {
             // Only show if we have the HCE feature
-            getPreferenceScreen().removePreference(nfcPayment);
+            nfcCategory.removePreference(nfcPayment);
         }
 
         // Remove Mobile Network Settings and Manage Mobile Plan for secondary users,
