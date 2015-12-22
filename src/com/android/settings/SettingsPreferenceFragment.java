@@ -76,12 +76,12 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
     private DataSetObserver mDataSetObserver = new DataSetObserver() {
         @Override
         public void onChanged() {
-            highlightPreferenceIfNeeded();
+            highlightPreferenceIfNeeded(true);
         }
 
         @Override
         public void onInvalidated() {
-            highlightPreferenceIfNeeded();
+            highlightPreferenceIfNeeded(true);
         }
     };
 
@@ -157,7 +157,7 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
         final Bundle args = getArguments();
         if (args != null) {
             mPreferenceKey = args.getString(SettingsActivity.EXTRA_FRAGMENT_ARG_KEY);
-            highlightPreferenceIfNeeded();
+            highlightPreferenceIfNeeded(false);
         }
     }
 
@@ -204,8 +204,9 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
         }
     }
 
-    public void highlightPreferenceIfNeeded() {
-        if (isAdded() && !mPreferenceHighlighted &&!TextUtils.isEmpty(mPreferenceKey)) {
+    public void highlightPreferenceIfNeeded(boolean forceHighlight) {
+        if (isAdded() && (!mPreferenceHighlighted || forceHighlight)
+                && !TextUtils.isEmpty(mPreferenceKey)) {
             highlightPreference(mPreferenceKey);
         }
     }
