@@ -64,6 +64,13 @@
                 android:summary="@string/tap_to_wake_summary"
                 android:persistent="false" />
 
+        <!-- Double tap to sleep -->
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+                android:key="double_tap_sleep_gesture"
+                android:title="@string/double_tap_to_sleep_title"
+                android:summary="@string/double_tap_to_sleep_summary"
+                android:defaultValue="true" />
+
         <SwitchPreference
                 android:key="camera_gesture"
                 android:title="@string/camera_gesture_title"
