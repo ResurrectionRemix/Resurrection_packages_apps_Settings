@@ -483,31 +483,6 @@ public class ActionListViewSettings extends ListFragment implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case MENU_ADD:
-                if (mActionConfigs.size() == mMaxAllowedActions) {
-                    Toast.makeText(mActivity,
-                            getResources().getString(R.string.shortcut_action_max),
-                            Toast.LENGTH_LONG).show();
-                    break;
-                }
-                if (mUseFullAppsOnly) {
-                    if (mPicker != null) {
-                        mPendingIndex = 0;
-                        mPendingLongpress = false;
-                        mPendingNewAction = true;
-                        mPicker.pickShortcut(getId(), true);
-                    }
-                } else if (!mUseAppPickerOnly) {
-                    showDialogInner(DLG_SHOW_ACTION_DIALOG, 0, false, true);
-                } else {
-                    if (mPicker != null) {
-                        mPendingIndex = 0;
-                        mPendingLongpress = false;
-                        mPendingNewAction = true;
-                        mPicker.pickShortcut(getId());
-                    }
-                }
-                break;
             case MENU_RESET:
                     showDialogInner(DLG_RESET_TO_DEFAULT, 0, false, true);
                 break;
@@ -524,9 +499,6 @@ public class ActionListViewSettings extends ListFragment implements
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         menu.add(0, MENU_RESET, 0, R.string.shortcut_action_reset)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-        menu.add(0, MENU_ADD, 0, R.string.shortcut_action_add)
-                .setIcon(R.drawable.ic_menu_add_white)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     private void addNewAction(String action, String description) {
