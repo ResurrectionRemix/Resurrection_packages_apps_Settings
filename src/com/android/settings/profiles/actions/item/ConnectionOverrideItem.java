@@ -122,7 +122,7 @@ public class ConnectionOverrideItem implements Item {
                     return R.string.profile_action_disable;
                 }
             } else {
-                return R.string.profile_action_disable;
+                return R.string.profile_action_none;
             }
         } else {
             return R.string.profile_action_none;
