@@ -79,11 +79,10 @@
         android:title="@string/device_maintainers_title" />
                  	
 	</PreferenceCategory>
+
 	<PreferenceCategory
 		android:key="devs"
-		android:title="@string/devs">
-
-
+		android:title="@string/dev_categorie_title">
 
 		<com.android.settings.widgets.DeveloperPreference
             android:title="Westcrip"
@@ -92,6 +91,11 @@
             resurrection:donateLink="@string/github_westcrip"
             resurrection:emailDev="korukaltan@gmail.com"/>
 
+</PreferenceCategory> 
+
+	<PreferenceCategory
+		android:key="dev_categorie_two"
+		android:title="@string/dev_categorie_title">
 
 		<com.android.settings.widgets.DeveloperPreference
             android:title="varund7726"
@@ -100,11 +104,23 @@
             resurrection:donateLink="@string/github_varund7726"
             resurrection:emailDev="date.varun123@gmail.com"/>
 
+</PreferenceCategory> 
+
+	<PreferenceCategory
+		android:key="dev_categorie_three"
+		android:title="@string/dev_categorie_title">
+
 		<com.android.settings.widgets.DeveloperPreference
             android:title="akhilnarang"
             resurrection:nameDev="akhilnarang"
             resurrection:donateLink="@string/github_akhilnaranag"
             resurrection:emailDev="akhilnarang.1999@gmail.com"/>
+
+</PreferenceCategory> 
+
+	<PreferenceCategory
+		android:key="dev_categorie_four"
+		android:title="@string/dev_categorie_title">
 
 		<com.android.settings.widgets.DeveloperPreference
             android:title="bdogg718k"
@@ -114,17 +130,6 @@
             resurrection:emailDev="bdogg718k@gmail.com"/>
 
 
-	</PreferenceCategory>             
-	<!--PreferenceCategory
-		android:key="sourcebase"
-		android:title="@string/sourcebase_title">
-				
-		<com.android.settings.widgets.DeveloperPreference
-            android:title="CyanogenMod"
-            resurrection:nameDev="CyanogenMod"
-            resurrection:donateLink="@string/github_cm"
-            resurrection:emailDev="cyanogenmod18@yahoo.com"/>
+</PreferenceCategory>             
 
-
-	</PreferenceCategory-->
 </PreferenceScreen>
