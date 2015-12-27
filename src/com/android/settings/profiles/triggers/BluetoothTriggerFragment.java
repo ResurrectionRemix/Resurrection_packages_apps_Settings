@@ -45,7 +45,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
 public class BluetoothTriggerFragment extends ListFragment {
 
     private BluetoothAdapter mBluetoothAdapter;
@@ -207,7 +206,8 @@ public class BluetoothTriggerFragment extends ListFragment {
             for (BluetoothDevice device : pairedDevices) {
                 BluetoothTrigger bt =
                         new BluetoothTrigger(device);
-                int state = mProfile.getTriggerState(Profile.TriggerType.BLUETOOTH, bt.getAddress());
+                int state = mProfile.getTriggerState(
+                        Profile.TriggerType.BLUETOOTH, bt.getAddress());
                 initPreference(bt, state, res, R.drawable.ic_settings_bluetooth);
                 mTriggers.add(bt);
             }

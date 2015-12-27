@@ -17,11 +17,8 @@
 package com.android.settings.profiles;
 
 import android.annotation.Nullable;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,9 +28,6 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.provider.Settings;
-import android.support.v4.view.ViewPager;
-import android.support.v13.app.FragmentStatePagerAdapter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -42,24 +36,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
-
-import com.android.internal.logging.MetricsLogger;
-
-import com.android.settings.R;
-import com.android.settings.SettingsActivity;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SubSettings;
-import com.android.settings.cyanogenmod.CMBaseSystemSettingSwitchBar;
 
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
 import cyanogenmod.providers.CMSettings;
 
-import org.cyanogenmod.internal.util.ScreenType;
+import com.android.internal.logging.MetricsLogger;
+import com.android.settings.R;
+import com.android.settings.SettingsActivity;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cyanogenmod.CMBaseSystemSettingSwitchBar;
 
 import java.util.UUID;
 
@@ -172,11 +160,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment
 
         // check if we are enabled
         updateProfilesEnabledState();
-
-        // If running on a phone, remove padding around tabs
-        if (!ScreenType.isTablet(getActivity())) {
-            mContainer.setPadding(0, 0, 0, 0);
-        }
     }
 
     @Override
@@ -329,5 +312,4 @@ public class ProfilesSettings extends SettingsPreferenceFragment
             ex.printStackTrace();
         }
     }
-
 }

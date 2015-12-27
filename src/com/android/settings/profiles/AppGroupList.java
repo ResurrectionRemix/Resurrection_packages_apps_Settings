@@ -21,8 +21,6 @@ import java.util.UUID;
 import android.annotation.Nullable;
 import android.app.AlertDialog;
 import android.app.NotificationGroup;
-import com.android.internal.logging.MetricsLogger;
-import cyanogenmod.app.ProfileManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -35,9 +33,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-//import com.android.internal.util.cm.ScreenType;
+
+import cyanogenmod.app.ProfileManager;
+
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import org.cyanogenmod.internal.util.ScreenType;
 
 public class AppGroupList extends SettingsPreferenceFragment {
 
@@ -69,9 +72,9 @@ public class AppGroupList extends SettingsPreferenceFragment {
         refreshList();
 
         // On tablet devices remove the padding
-        //if (ScreenType.isTablet(getActivity())) {
-        //    getListView().setPadding(0, 0, 0, 0);
-        //}
+        if (ScreenType.isTablet(getActivity())) {
+            getListView().setPadding(0, 0, 0, 0);
+        }
     }
 
     @Override

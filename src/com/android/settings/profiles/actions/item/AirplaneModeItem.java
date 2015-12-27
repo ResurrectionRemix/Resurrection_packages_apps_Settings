@@ -15,11 +15,13 @@
  */
 package com.android.settings.profiles.actions.item;
 
-import cyanogenmod.profiles.AirplaneModeSettings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import cyanogenmod.profiles.AirplaneModeSettings;
+
 import com.android.settings.R;
 import com.android.settings.profiles.actions.ItemListAdapter;
 

@@ -16,9 +16,6 @@
 
 package com.android.settings.profiles;
 
-import java.io.IOException;
-import java.util.UUID;
-
 import android.content.Context;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -29,6 +26,9 @@ import android.os.Vibrator;
 import android.util.Log;
 
 import cyanogenmod.app.Profile;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public class NFCProfileUtils {
 

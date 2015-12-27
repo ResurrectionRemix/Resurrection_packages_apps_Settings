@@ -15,11 +15,12 @@
  */
 package com.android.settings.profiles.actions.item;
 
-import cyanogenmod.profiles.RingModeSettings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import cyanogenmod.profiles.RingModeSettings;
 
 import com.android.settings.R;
 import com.android.settings.profiles.actions.ItemListAdapter;
@@ -76,7 +77,7 @@ public class RingModeItem implements Item {
                 return R.string.ring_mode_mute;
             }
         } else {
-            return R.string.ring_mode_unchanged;
+            return R.string.profile_action_none; //"leave unchanged"
         }
     }
 

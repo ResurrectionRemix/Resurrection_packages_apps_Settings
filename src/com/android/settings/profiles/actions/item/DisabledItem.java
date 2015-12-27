@@ -63,5 +63,4 @@ public class DisabledItem implements Item {
 
         return view;
     }
-
 }

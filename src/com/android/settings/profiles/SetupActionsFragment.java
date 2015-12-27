@@ -16,23 +16,16 @@
 package com.android.settings.profiles;
 
 import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.android.internal.logging.MetricsLogger;
-import cyanogenmod.profiles.AirplaneModeSettings;
 import android.app.AlertDialog;
-import cyanogenmod.profiles.BrightnessSettings;
-import cyanogenmod.profiles.ConnectionSettings;
 import android.app.Dialog;
 import android.app.NotificationGroup;
-import cyanogenmod.profiles.LockSettings;
-import cyanogenmod.profiles.RingModeSettings;
-import cyanogenmod.profiles.StreamSettings;
 import android.app.admin.DevicePolicyManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
@@ -66,7 +59,14 @@ import android.widget.TextView;
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileGroup;
 import cyanogenmod.app.ProfileManager;
+import cyanogenmod.profiles.AirplaneModeSettings;
+import cyanogenmod.profiles.BrightnessSettings;
+import cyanogenmod.profiles.ConnectionSettings;
+import cyanogenmod.profiles.LockSettings;
+import cyanogenmod.profiles.RingModeSettings;
+import cyanogenmod.profiles.StreamSettings;
 
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SubSettings;
@@ -74,8 +74,8 @@ import com.android.settings.cyanogenmod.DeviceUtils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.profiles.actions.ItemListAdapter;
 import com.android.settings.profiles.actions.item.AirplaneModeItem;
-import com.android.settings.profiles.actions.item.BrightnessItem;
 import com.android.settings.profiles.actions.item.AppGroupItem;
+import com.android.settings.profiles.actions.item.BrightnessItem;
 import com.android.settings.profiles.actions.item.ConnectionOverrideItem;
 import com.android.settings.profiles.actions.item.DisabledItem;
 import com.android.settings.profiles.actions.item.DozeModeItem;
@@ -133,15 +133,15 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
     boolean mNewProfileMode;
 
-    private static final int[] LOCKMODE_MAPPING = new int[]{
+    private static final int[] LOCKMODE_MAPPING = new int[] {
             Profile.LockMode.DEFAULT, Profile.LockMode.INSECURE, Profile.LockMode.DISABLE
     };
-    private static final int[] EXPANDED_DESKTOP_MAPPING = new int[]{
+    private static final int[] EXPANDED_DESKTOP_MAPPING = new int[] {
             Profile.ExpandedDesktopMode.DEFAULT,
             Profile.ExpandedDesktopMode.ENABLE,
             Profile.ExpandedDesktopMode.DISABLE
     };
-    private static final int[] DOZE_MAPPING = new int[]{
+    private static final int[] DOZE_MAPPING = new int[] {
             Profile.DozeMode.DEFAULT,
             Profile.DozeMode.ENABLE,
             Profile.DozeMode.DISABLE
@@ -205,7 +205,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         }
 
         // connection overrides
-        mItems.add(new Header(getString(R.string.profile_connectionoverrides_title)));
+        mItems.add(new Header(getString(R.string.wireless_networks_settings_title)));
         if (DeviceUtils.deviceSupportsBluetooth()) {
             mItems.add(new ConnectionOverrideItem(PROFILE_CONNECTION_BLUETOOTH,
                     mProfile.getSettingsForConnection(PROFILE_CONNECTION_BLUETOOTH)));
@@ -841,6 +841,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                 }
             }
         }
+
         builder.setTitle(ConnectionOverrideItem.getConnectionTitle(setting.getConnectionId()));
         builder.setSingleChoiceItems(connectionNames, defaultIndex,
                 new DialogInterface.OnClickListener() {

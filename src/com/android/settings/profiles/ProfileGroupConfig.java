@@ -37,38 +37,21 @@ public class ProfileGroupConfig extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final CharSequence KEY_SOUNDMODE = "sound_mode";
-
     private static final CharSequence KEY_VIBRATEMODE = "vibrate_mode";
-
     private static final CharSequence KEY_LIGHTSMODE = "lights_mode";
-
     private static final CharSequence KEY_RINGERMODE = "ringer_mode";
-
     private static final CharSequence KEY_SOUNDTONE = "soundtone";
-
     private static final CharSequence KEY_RINGTONE = "ringtone";
 
     Profile mProfile;
-
     ProfileGroup mProfileGroup;
 
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
-    }
-
     private ListPreference mSoundMode;
-
     private ListPreference mRingerMode;
-
     private ListPreference mVibrateMode;
-
     private ListPreference mLightsMode;
-
     private ProfileRingtonePreference mRingTone;
-
     private ProfileRingtonePreference mSoundTone;
-
     private ProfileManager mProfileManager;
 
     @Override
@@ -106,8 +89,12 @@ public class ProfileGroupConfig extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateState() {
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DONT_TRACK_ME_BRO;
+    }
 
+    private void updateState() {
         mVibrateMode.setValue(mProfileGroup.getVibrateMode().name());
         mSoundMode.setValue(mProfileGroup.getSoundMode().name());
         mRingerMode.setValue(mProfileGroup.getRingerMode().name());
@@ -125,7 +112,6 @@ public class ProfileGroupConfig extends SettingsPreferenceFragment implements
         if (mProfileGroup.getRingerOverride() != null) {
             mRingTone.setRingtone(mProfileGroup.getRingerOverride());
         }
-
     }
 
     @Override
