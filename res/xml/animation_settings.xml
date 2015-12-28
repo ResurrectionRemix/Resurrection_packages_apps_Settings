@@ -68,6 +68,15 @@
         android:defaultValue="0" />
 </PreferenceCategory>
 
+    <ListPreference
+            android:key="power_menu_animations"
+            android:title="@string/power_menu_animation_title"
+            android:dialogTitle="@string/power_menu_animation_dialog_title"
+            android:entries="@array/power_menu_animations_entries"
+            android:entryValues="@array/power_menu_animations_values"
+            android:summary="@string/power_menu_animation_summary"
+            android:persistent="false" />
+
     <PreferenceCategory
         android:key="animations_4"
         android:title="@string/perf_cat" >
