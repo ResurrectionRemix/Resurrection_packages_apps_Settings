@@ -79,6 +79,18 @@ public class ChooseLockPatternSize extends PreferenceActivity {
             intent.putExtra("confirm_credentials", false);
             intent.putExtra(LockPatternUtils.LOCKSCREEN_BIOMETRIC_WEAK_FALLBACK,
                     isFallback);
+
+            Intent originatingIntent = getActivity().getIntent();
+            // Forward the challenge extras if available in originating intent.
+            if (originatingIntent.hasExtra(ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE)) {
+                intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE,
+                        originatingIntent.getBooleanExtra(
+                                ChooseLockSettingsHelper.EXTRA_KEY_HAS_CHALLENGE, false));
+
+                intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE,
+                        originatingIntent.getLongExtra(
+                                ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE, 0));
+            }
             intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
                     startActivity(intent);
 
