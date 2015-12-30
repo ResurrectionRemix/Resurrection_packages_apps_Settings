@@ -77,6 +77,12 @@
             android:summary="@string/power_menu_animation_summary"
             android:persistent="false" />
 
+  <PreferenceScreen
+        android:key="ime_animations"
+	android:fragment="com.android.settings.rr.KeyboardAnimationInterfaceSettings" 
+        android:title="@string/ime_animation_title"
+        android:summary="@string/ime_animation_summary" />
+
     <PreferenceCategory
         android:key="animations_4"
         android:title="@string/perf_cat" >

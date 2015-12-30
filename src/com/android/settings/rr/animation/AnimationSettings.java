@@ -49,6 +49,7 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+    private static final String PREF_IME_ANIMATIONS = "ime_animations";	
 
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
@@ -59,6 +60,7 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private ListPreference mListViewInterpolator;
     private ListPreference mScrollingCachePref;
     private ListPreference mPowerMenuAnimations;
+    private PreferenceScreen mImeAnimations;
 
 
     @Override
@@ -105,6 +107,8 @@ public class AnimationSettings extends SettingsPreferenceFragment
                 getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
         mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
         mPowerMenuAnimations.setOnPreferenceChangeListener(this);
+
+       mImeAnimations = prefSet.findPreference(PREF_IME_ANIMATIONS);
     }
 
     @Override
