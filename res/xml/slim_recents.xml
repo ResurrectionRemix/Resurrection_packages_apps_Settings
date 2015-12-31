@@ -18,59 +18,74 @@
 
 
 <PreferenceCategory
-        android:key="slim_recents_panel"
-        android:title="@string/slim_recents_panel" >
-
-        <SwitchPreference
-            android:key="use_slim_recents"
-            android:title="@string/use_slim_recents_title"
-            android:defaultValue="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:dependency="use_slim_recents"
-            android:key="recent_panel_show_topmost"
-            android:title="@string/recent_panel_show_topmost_title"
-            android:summary="@string/recent_panel_show_topmost_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:dependency="use_slim_recents"
-            android:key="recent_panel_lefty_mode"
-            android:title="@string/recent_panel_lefty_mode_title"
-            android:summary="@string/recent_panel_lefty_mode_summary"
-            android:defaultValue="false" />
-
-        <ListPreference
-            android:dependency="use_slim_recents"
-            android:key="recent_panel_expanded_mode"
-            android:entries="@array/recent_panel_expanded_mode_entries"
-            android:entryValues="@array/recent_panel_expanded_mode_values"
-            android:title="@string/recent_panel_expanded_mode_title"
-            android:summary="@string/recent_panel_expanded_mode_summary"
-            android:persistent="false" />
-
-        <com.android.settings.rr.SeekBarPreference
-            android:key="recents_max_apps"
-            android:title="@string/recents_max_apps_title"
-            android:max="100"
-            settings:minimum="5"
-            settings:unitsLeft=""
-            settings:unitsRight=""
-            android:persistent="false"
-            android:dependency="use_slim_recents" />
-
-        <com.android.settings.rr.SeekBarPreference
-            android:key="recent_panel_scale_factor"
-            android:title="@string/recent_panel_scale_title"
-            android:max="160"
-            settings:minimum="60"
-            settings:interval="5"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
-            android:persistent="false"
-            android:dependency="use_slim_recents" />
-
-    </PreferenceCategory>
-
+         android:key="slim_recents_panel"
+         android:title="@string/slim_recents_panel" >
+ 
+         <SwitchPreference
+             android:key="use_slim_recents"
+             android:title="@string/use_slim_recents_title"
+             android:defaultValue="false" />
+ 
+         <SwitchPreference
+             android:key="only_show_running_tasks"
+             android:title="@string/show_running_tasks_title"
+             android:dependency="use_slim_recents"
+             android:defaultValue="false" />
+ 
+         <SlimSeekBarPreference
+             android:key="max_apps"
+             android:title="@string/recents_max_apps_title" 
+             android:dependency="use_slim_recents" />
+ 
+         <ListPreference
+             android:dependency="use_slim_recents"
+             android:key="recent_panel_expanded_mode"
+             android:entries="@array/recent_panel_expanded_mode_entries"
+             android:entryValues="@array/recent_panel_expanded_mode_values"
+             android:title="@string/recent_panel_expanded_mode_title"
+             android:summary="@string/recent_panel_expanded_mode_summary"
+             android:persistent="false" />
+ 
+         <SwitchPreference
+             android:dependency="use_slim_recents"
+             android:key="recent_panel_lefty_mode"
+             android:title="@string/recent_panel_lefty_mode_title"
+             android:summary="@string/recent_panel_lefty_mode_summary"
+             android:persistent="false" />
+ 
+         <SwitchPreference
+             android:dependency="use_slim_recents"
+             android:key="recent_panel_show_topmost"
+             android:title="@string/recent_panel_show_topmost_title"
+             android:summary="@string/recent_panel_show_topmost_summary"
+             android:persistent="false" />
+ 
+         <SlimSeekBarPreference
+             android:key="recent_panel_scale"
+             android:title="@string/recent_panel_scale_title" 
+             android:dependency="use_slim_recents" />
+ 
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:dependency="use_slim_recents"
+             android:key="recent_panel_bg_color"
+             android:title="@string/recent_panel_bg_color_title"
+             android:defaultValue="0x00ffffff"
+             alphaSlider="true" />
+ 
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:dependency="use_slim_recents"
+             android:key="recent_card_bg_color"
+             android:title="@string/recent_card_bg_color_title"
+             android:defaultValue="0x00ffffff"
+             alphaSlider="true" />
+ 
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:dependency="use_slim_recents"
+             android:key="recent_card_text_color"
+             android:title="@string/recent_card_text_color_title"
+             android:defaultValue="0x00ffffff"
+             alphaSlider="true" />
+ 
+     </PreferenceCategory>
 </PreferenceScreen>
 
