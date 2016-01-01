@@ -106,6 +106,8 @@ public class Slimrecents extends SettingsPreferenceFragment
   private void updatePreference() {
         boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
                    Settings.System.USE_SLIM_RECENTS, 0) == 1;
+            initializeAllPreferences();
+            updateRecentPanelPreferences();
       }
 
       @Override
