@@ -51,6 +51,9 @@ package com.android.settings.rr;
   import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class Slimrecents extends SettingsPreferenceFragment
             implements DialogCreatable, Preference.OnPreferenceChangeListener  {
+
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DEFAULT_BACKGROUND_COLOR = 0x00ffffff;
     
  // Preferences
     private static final String USE_SLIM_RECENTS = "use_slim_recents";
@@ -103,24 +106,6 @@ public class Slimrecents extends SettingsPreferenceFragment
   private void updatePreference() {
         boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
                    Settings.System.USE_SLIM_RECENTS, 0) == 1;
-
-        if (slimRecent) {
-            mRecentsSearchBar.setEnabled(false);
-            mRecentsMemBar.setEnabled(false);
-            mRecentsFullscreen.setEnabled(false);
-            mRecentsClearAll.setEnabled(false);
-            mRecentsDismissAll.setEnabled(false);
-            mRecentsClearAllLocation.setEnabled(false);
-            initializeAllPreferences();
-            updateRecentPanelPreferences();
-        } else {
-            mRecentsSearchBar.setEnabled(true);
-            mRecentsMemBar.setEnabled(true);
-            mRecentsFullscreen.setEnabled(true);
-            mRecentsClearAll.setEnabled(true);
-            mRecentsDismissAll.setEnabled(true);
-            mRecentsClearAllLocation.setEnabled(true);
-        }
       }
 
       @Override
@@ -128,15 +113,10 @@ public class Slimrecents extends SettingsPreferenceFragment
          super.onResume();
         updatePreference();
     }
-
-	private void updatePreference() {
-        boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.USE_SLIM_RECENTS, 0) == 1;
-    }
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-	else if (preference == mUseSlimRecents) {
+	 if (preference == mUseSlimRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SLIM_RECENTS,
                     ((Boolean) newValue) ? 1 : 0);
             updatePreference();
@@ -270,7 +250,7 @@ public class Slimrecents extends SettingsPreferenceFragment
   
           final int recentExpandedMode = Settings.System.getInt(getContentResolver(),
                   Settings.System.RECENT_PANEL_EXPANDED_MODE, 0);
-          mRecentPanelExpandedMode.setValue(recentExpandedMode    "");
+          mRecentPanelExpandedMode.setValue(recentExpandedMode + "");
       }
   
       private void initializeAllPreferences() {
