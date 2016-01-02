@@ -47,21 +47,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-public class KeyboardAnimationInterfaceSettings extends SettingsPreferenceFragment {
 
+    public class KeyboardAnimationInterfaceSettings extends  SettingsPreferenceFragment
+            implements OnPreferenceChangeListener {
 
     @Override
     protected int getMetricsCategory() {
         return MetricsLogger.DEVELOPMENT;
     }
-
-    /*@Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }*/
-
-    public static class KeyboardAnimationInterfaceSettingsFragment extends PreferenceFragment
-            implements OnPreferenceChangeListener {
 
         private static final String TAG = "KeyboardAnimationInterfaceSettings";
 
@@ -251,6 +244,5 @@ public class KeyboardAnimationInterfaceSettings extends SettingsPreferenceFragme
             String[] str = getActivity().getResources().getStringArray(R.array.listview_interpolator_entries);
             return str[index];
         }
-
-    }
+  
 }
