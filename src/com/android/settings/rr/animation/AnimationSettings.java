@@ -60,7 +60,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private ListPreference mListViewInterpolator;
     private ListPreference mScrollingCachePref;
     private ListPreference mPowerMenuAnimations;
-    private PreferenceScreen mImeAnimations;
 
 
     @Override
@@ -107,8 +106,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
                 getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
         mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
         mPowerMenuAnimations.setOnPreferenceChangeListener(this);
-
-       mImeAnimations = prefSet.findPreference(PREF_IME_ANIMATIONS);
     }
 
     @Override

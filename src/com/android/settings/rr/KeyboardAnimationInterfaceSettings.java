@@ -16,7 +16,7 @@
  *
  */
 
-package com.lordclockan.aicpextras;
+package com.android.settings.rr;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -32,23 +32,33 @@ import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.text.TextUtils;
 
-import com.lordclockan.aicpextras.widget.SeekBarPreferenceCham;
-import com.android.internal.util.aicp.AwesomeAnimationHelper;
+import com.android.settings.rr.SeekBarPreferenceCham;
+import com.android.internal.util.benzo.AwesomeAnimationHelper;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsLogger;
 
-import com.lordclockan.R;
+import com.android.settings.R;
 
-public class KeyboardAnimationInterfaceSettings extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+
+public class KeyboardAnimationInterfaceSettings extends SettingsPreferenceFragment {
+
 
     @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DEVELOPMENT;
+    }
+
+    /*@Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getFragmentManager().beginTransaction().replace(android.R.id.content,
-                new KeyboardAnimationInterfaceSettingsFragment()).commit();
-    }
+    }*/
 
     public static class KeyboardAnimationInterfaceSettingsFragment extends PreferenceFragment
             implements OnPreferenceChangeListener {
