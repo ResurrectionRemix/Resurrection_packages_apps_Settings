@@ -95,3 +95,4 @@ public class LockscreenWallpaper extends SettingsPreferenceFragment {
         wallpaperManager.clearKeyguardWallpaper();
     }
 }
+

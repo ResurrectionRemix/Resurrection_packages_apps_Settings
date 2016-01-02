@@ -62,6 +62,23 @@
         android:defaultValue="14"
         android:dependency="lockscreen_see_through" />
 
+     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+               android:key="lock_screen_custom_notif"
+               android:title="@string/lockscreen_maxnotif_title"
+               android:summary="@string/lockscreen_maxnotif_sumary"
+               android:defaultValue="false" />
+
+     <com.android.settings.rr.SeekBarPreference
+               android:key="lockscreen_max_notif_cofig"
+               android:title="@string/lockscreen_maxnotif_config"
+               android:max="5"
+               settings:minimum="3"
+               settings:interval="1"
+               settings:unitsLeft=""
+               settings:unitsRight=""
+               android:persistent="false"
+               android:dependency="lock_screen_custom_notif" />
+
    <PreferenceScreen
             android:key="lockscreen_colors"
             android:title="@string/lockscreen_colors"
