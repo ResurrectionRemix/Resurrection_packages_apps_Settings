@@ -25,6 +25,7 @@ import android.util.SparseArray;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.SearchIndexableRaw;
@@ -77,21 +78,21 @@ public class ZenModeSettings extends ZenModeSettingsBase implements Indexable {
     }
 
     private void updatePrioritySettingsSummary() {
-        final boolean callers = mConfig.allowCalls || mConfig.allowRepeatCallers;
-        String s = getResources().getString(R.string.zen_mode_alarms);
-        s = appendLowercase(s, mConfig.allowReminders, R.string.zen_mode_reminders);
-        s = appendLowercase(s, mConfig.allowEvents, R.string.zen_mode_events);
-        s = appendLowercase(s, callers, R.string.zen_mode_selected_callers);
-        s = appendLowercase(s, mConfig.allowMessages, R.string.zen_mode_selected_messages);
-        mPrioritySettings.setSummary(s);
-    }
-
-    private String appendLowercase(String s, boolean condition, int resId) {
-        if (condition) {
-            return getResources().getString(R.string.join_many_items_middle, s,
-                    getResources().getString(resId).toLowerCase());
+        final ArrayList<String> items = new ArrayList<>();
+        items.add(getString(R.string.zen_mode_alarms));
+        if (mConfig.allowReminders) {
+            items.add(getString(R.string.zen_mode_summary_reminders));
         }
-        return s;
+        if (mConfig.allowEvents) {
+            items.add(getString(R.string.zen_mode_summary_events));
+        }
+        if (mConfig.allowCalls || mConfig.allowRepeatCallers) {
+            items.add(getString(R.string.zen_mode_summary_selected_callers));
+        }
+        if (mConfig.allowMessages) {
+            items.add(getString(R.string.zen_mode_summary_selected_messages));
+        }
+        mPrioritySettings.setSummary(Utils.join(getResources(), items));
     }
 
     private static SparseArray<String> allKeyTitles(Context context) {
