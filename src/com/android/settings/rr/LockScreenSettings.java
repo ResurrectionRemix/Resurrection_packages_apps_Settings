@@ -39,9 +39,11 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
-    private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";		
+    private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";		
 
-    private SeekBarPreference mBlurRadius;	
+    private SeekBarPreference mBlurRadius;
+    private ListPreference mLockClockFonts;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
             mBlurRadius.setValue(Settings.System.getInt(resolver,
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
             mBlurRadius.setOnPreferenceChangeListener(this);
+
+
+            mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+            mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
+                    resolver, Settings.System.LOCK_CLOCK_FONTS, 0)));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            mLockClockFonts.setOnPreferenceChangeListener(this);
 }
 
     @Override
@@ -69,6 +78,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
                 int width = ((Integer)newValue).intValue();
                 Settings.System.putInt(resolver,
                         Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
+                return true;
+	} else if (preference == mLockClockFonts) {
+                Settings.System.putInt(resolver, Settings.System.LOCK_CLOCK_FONTS,
+                        Integer.valueOf((String) newValue));
+                mLockClockFonts.setValue(String.valueOf(newValue));
+                mLockClockFonts.setSummary(mLockClockFonts.getEntry());
                 return true;
 	}
 	return false;
