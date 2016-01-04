@@ -73,6 +73,20 @@
             android:summaryOff="@string/recents_fullscreen_summary_disabled"
             android:defaultValue="false" />
 
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="recents_full_screen_clock"
+        android:title="@string/recents_full_screen_clock_title"
+        android:summary="@string/recents_full_screen_clock_summary"
+        android:defaultValue="false"
+        android:dependency="recents_full_screen" />
+
+      <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="recents_full_screen_date"
+        android:title="@string/recents_full_screen_date_title"
+        android:summary="@string/recents_full_screen_date_summary"
+        android:defaultValue="false"
+        android:dependency="recents_full_screen" />
+
     </PreferenceCategory>
     <PreferenceCategory
         android:key="rr_slim_recents_panel"
