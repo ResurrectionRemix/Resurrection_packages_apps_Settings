@@ -255,7 +255,7 @@ public class SimDialogActivity extends Activity {
                 }
             }
         } else if ((id == SMS_PICK)){
-            list.add(getResources().getString(R.string.sim_sms_ask_first_prefs_title));
+            list.add(getResources().getString(R.string.sim_calls_ask_first_prefs_title));
             smsSubInfoList.add(null);
             for (int i = 0; i < selectableSubInfoLength; ++i) {
                 final SubscriptionInfo sir = subInfoList.get(i);
