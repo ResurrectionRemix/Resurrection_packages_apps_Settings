@@ -289,8 +289,8 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
         }
 
         // Remove Mobile Network Settings and Manage Mobile Plan for secondary users,
-        // if it's a wifi-only device.
-        if (!isAdmin || Utils.isWifiOnly(getActivity()) ||
+        // if it's a wifi-only device, or for MSIM devices
+        if (!isAdmin || Utils.isWifiOnly(getActivity()) || Utils.showSimCardTile(getActivity()) ||
                 RestrictedLockUtils.hasBaseUserRestriction(activity,
                         UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS, UserHandle.myUserId())) {
             removePreference(KEY_MOBILE_NETWORK_SETTINGS);
