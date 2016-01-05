@@ -168,6 +168,8 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         final int subId = activity.getIntent().getIntExtra(SUB_ID,
                 SubscriptionManager.INVALID_SUBSCRIPTION_ID);
         fillOperatorIccidset();
+        Log.d(TAG, "onCreate: subId = " + subId);
+
 
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
@@ -519,13 +521,13 @@ public class ApnSettings extends RestrictedSettingsFragment implements
 
         ContentValues values = new ContentValues();
         values.put(APN_ID, mSelectedKey);
-        resolver.update(PREFERAPN_URI, values, null, null);
+        resolver.update(getUri(PREFERAPN_URI), values, null, null);
     }
 
     private String getSelectedApnKey() {
         String key = null;
 
-        Cursor cursor = getContentResolver().query(PREFERAPN_URI, new String[] {"_id"},
+        Cursor cursor = getContentResolver().query(getUri(PREFERAPN_URI), new String[] {"_id"},
                 null, null, Telephony.Carriers.DEFAULT_SORT_ORDER);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
@@ -596,7 +598,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
             switch (msg.what) {
                 case EVENT_RESTORE_DEFAULTAPN_START:
                     ContentResolver resolver = getContentResolver();
-                    resolver.delete(DEFAULTAPN_URI, null, null);
+                    resolver.delete(getUri(DEFAULTAPN_URI), null, null);
                     mRestoreApnUiHandler
                         .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;
@@ -617,5 +619,14 @@ public class ApnSettings extends RestrictedSettingsFragment implements
             return dialog;
         }
         return null;
+    }
+
+    private Uri getUri(Uri uri) {
+        int subId = SubscriptionManager.getDefaultDataSubscriptionId();
+        if (mSubscriptionInfo != null && SubscriptionManager.isValidSubscriptionId(
+                mSubscriptionInfo.getSubscriptionId())) {
+            subId = mSubscriptionInfo.getSubscriptionId();
+        }
+        return Uri.withAppendedPath(uri, "/subId/" + subId);
     }
 }
