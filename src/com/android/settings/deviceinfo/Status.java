@@ -36,11 +36,16 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserManager;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.util.ArrayUtils;
 import com.android.settings.R;
+import com.android.settings.Settings;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
@@ -209,6 +214,39 @@ public class Status extends SettingsPreferenceFragment {
                 || Utils.isWifiOnly(getContext())) {
             removePreferenceFromScreen(KEY_SIM_STATUS);
             removePreferenceFromScreen(KEY_IMEI_INFO);
+        } else {
+            int numPhones = TelephonyManager.getDefault().getPhoneCount();
+
+            if (numPhones > 1) {
+                PreferenceScreen prefSet = getPreferenceScreen();
+                Preference singleSimPref = prefSet.findPreference(KEY_SIM_STATUS);
+                SubscriptionManager subscriptionManager = SubscriptionManager.from(getActivity());
+
+                for (int i = 0; i < numPhones; i++) {
+                    SubscriptionInfo sir =
+                            subscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(i);
+                    Preference pref = new Preference(getActivity());
+
+                    pref.setOrder(singleSimPref.getOrder());
+                    pref.setTitle(getString(R.string.sim_card_status_title, i + 1));
+                    if (sir != null) {
+                        pref.setSummary(sir.getDisplayName());
+                    } else {
+                        pref.setSummary(R.string.sim_card_summary_empty);
+                    }
+
+                    Intent intent = new Intent(getActivity(), Settings.SimStatusActivity.class);
+                    intent.putExtra(Settings.EXTRA_SHOW_FRAGMENT_TITLE,
+                            getString(R.string.sim_card_status_title, i + 1));
+                    intent.putExtra(Settings.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+                    intent.putExtra(SimStatus.EXTRA_SLOT_ID, i);
+                    pref.setIntent(intent);
+
+                    prefSet.addPreference(pref);
+                }
+
+                prefSet.removePreference(singleSimPref);
+            }
         }
     }
 

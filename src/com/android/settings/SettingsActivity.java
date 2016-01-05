@@ -1278,6 +1278,18 @@ public class SettingsActivity extends SettingsDrawerActivity
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (super.onOptionsItemSelected(item)) {
+            return true;
+        }
+        if (mDisplayHomeAsUpEnabled && item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public boolean onMenuItemActionExpand(MenuItem item) {
         if (item.getItemId() == mSearchMenuItem.getItemId()) {
             switchToSearchResultsFragmentIfNeeded();

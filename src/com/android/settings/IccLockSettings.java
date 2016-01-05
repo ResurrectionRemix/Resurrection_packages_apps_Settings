@@ -16,6 +16,7 @@
 
 package com.android.settings;
 
+import android.app.ActionBar;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -35,11 +36,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabContentFactory;
-import android.widget.TabHost.TabSpec;
-import android.widget.TabWidget;
 import android.widget.Toast;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.telephony.IccCardConstants.State;
@@ -71,6 +67,9 @@ public class IccLockSettings extends SettingsPreferenceFragment
     // State when entering the new pin - second time
     private static final int ICC_REENTER_MODE = 4;
 
+    static final String EXTRA_SUB_ID = "slot_id";
+    static final String EXTRA_SUB_DISPLAY_NAME = "sub_display_name";
+
     // Keys in xml file
     private static final String PIN_DIALOG = "sim_pin";
     private static final String PIN_TOGGLE = "sim_toggle";
@@ -96,10 +95,6 @@ public class IccLockSettings extends SettingsPreferenceFragment
     private String mError;
     // Are we trying to enable or disable ICC lock?
     private boolean mToState;
-
-    private TabHost mTabHost;
-    private TabWidget mTabWidget;
-    private ListView mListView;
 
     private Phone mPhone;
 
@@ -201,44 +196,20 @@ public class IccLockSettings extends SettingsPreferenceFragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        final TelephonyManager tm =
-                (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
-        final int numSims = tm.getSimCount();
-        if (numSims > 1) {
-            View view = inflater.inflate(R.layout.icc_lock_tabs, container, false);
-            final ViewGroup prefs_container = (ViewGroup) view.findViewById(R.id.prefs_container);
-            Utils.prepareCustomPreferencesList(container, view, prefs_container, false);
-            View prefs = super.onCreateView(inflater, prefs_container, savedInstanceState);
-            prefs_container.addView(prefs);
-
-            mTabHost = (TabHost) view.findViewById(android.R.id.tabhost);
-            mTabWidget = (TabWidget) view.findViewById(android.R.id.tabs);
-            mListView = (ListView) view.findViewById(android.R.id.list);
-
-            mTabHost.setup();
-            mTabHost.setOnTabChangedListener(mTabListener);
-            mTabHost.clearAllTabs();
-
-            SubscriptionManager sm = SubscriptionManager.from(getContext());
-            for (int i = 0; i < numSims; ++i) {
-                final SubscriptionInfo subInfo = sm.getActiveSubscriptionInfoForSimSlotIndex(i);
-                mTabHost.addTab(buildTabSpec(String.valueOf(i),
-                        String.valueOf(subInfo == null
-                            ? getContext().getString(R.string.sim_editor_title, i + 1)
-                            : subInfo.getDisplayName())));
-            }
-            final SubscriptionInfo sir = sm.getActiveSubscriptionInfoForSimSlotIndex(0);
-
-            mPhone = (sir == null) ? null
-                : PhoneFactory.getPhone(SubscriptionManager.getPhoneId(sir.getSubscriptionId()));
-            return view;
-        } else {
-            mPhone = PhoneFactory.getDefaultPhone();
-            return super.onCreateView(inflater, container, savedInstanceState);
+        Intent intent = getActivity().getIntent();
+        ActionBar actionBar = getActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.setSubtitle(intent.getStringExtra(EXTRA_SUB_DISPLAY_NAME));
         }
+
+        int subId = intent.getIntExtra(EXTRA_SUB_ID,
+                SubscriptionManager.getDefaultSubscriptionId());
+        int phoneId = SubscriptionManager.getPhoneId(subId);
+        mPhone = PhoneFactory.getPhone(phoneId);
+
     }
 
     @Override
@@ -498,32 +469,5 @@ public class IccLockSettings extends SettingsPreferenceFragment
         mPin = "";
         setDialogValues();
         mDialogState = OFF_MODE;
-    }
-
-    private OnTabChangeListener mTabListener = new OnTabChangeListener() {
-        @Override
-        public void onTabChanged(String tabId) {
-            final int slotId = Integer.parseInt(tabId);
-            final SubscriptionInfo sir = SubscriptionManager.from(getActivity().getBaseContext())
-                    .getActiveSubscriptionInfoForSimSlotIndex(slotId);
-
-            mPhone = (sir == null) ? null
-                : PhoneFactory.getPhone(SubscriptionManager.getPhoneId(sir.getSubscriptionId()));
-
-            // The User has changed tab; update the body.
-            updatePreferences();
-        }
-    };
-
-    private TabContentFactory mEmptyTabContent = new TabContentFactory() {
-        @Override
-        public View createTabContent(String tag) {
-            return new View(mTabHost.getContext());
-        }
-    };
-
-    private TabSpec buildTabSpec(String tag, String title) {
-        return mTabHost.newTabSpec(tag).setIndicator(title).setContent(
-                mEmptyTabContent);
     }
 }

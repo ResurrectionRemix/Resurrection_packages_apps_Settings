@@ -102,6 +102,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     // Misc Settings
     private static final String KEY_SIM_LOCK = "sim_lock";
+    private static final String KEY_SIM_LOCK_SETTINGS = "sim_lock_settings";
     private static final String KEY_SHOW_PASSWORD = "show_password";
     private static final String KEY_CREDENTIAL_STORAGE_TYPE = "credential_storage_type";
     private static final String KEY_USER_CREDENTIALS = "user_credentials";
@@ -301,17 +302,67 @@ public class SecuritySettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.security_settings_misc);
 
         // Do not display SIM lock for devices without an Icc card
-        TelephonyManager tm = TelephonyManager.getDefault();
         CarrierConfigManager cfgMgr = (CarrierConfigManager)
                 getActivity().getSystemService(Context.CARRIER_CONFIG_SERVICE);
         PersistableBundle b = cfgMgr.getConfig();
-        if (!mIsAdmin || !isSimIccReady() ||
-                b.getBoolean(CarrierConfigManager.KEY_HIDE_SIM_LOCK_SETTINGS_BOOL)) {
-            root.removePreference(root.findPreference(KEY_SIM_LOCK));
+        PreferenceGroup iccLockGroup = (PreferenceGroup) root.findPreference(KEY_SIM_LOCK);
+        Preference iccLock = root.findPreference(KEY_SIM_LOCK_SETTINGS);
+
+        if (!mIsAdmin
+                || b.getBoolean(CarrierConfigManager.KEY_HIDE_SIM_LOCK_SETTINGS_BOOL)) {
+            root.removePreference(iccLockGroup);
         } else {
-            // Disable SIM lock if there is no ready SIM card.
-            root.findPreference(KEY_SIM_LOCK).setEnabled(isSimReady());
+            SubscriptionManager subMgr = SubscriptionManager.from(getActivity());
+            TelephonyManager tm = TelephonyManager.getDefault();
+            int numPhones = tm.getPhoneCount();
+            boolean hasAnySim = false;
+
+            for (int i = 0; i < numPhones; i++) {
+                final Preference pref;
+
+                if (numPhones > 1) {
+                    SubscriptionInfo sir = subMgr.getActiveSubscriptionInfoForSimSlotIndex(i);
+                    if (sir == null) {
+                        continue;
+                    }
+
+                    pref = new Preference(getActivity());
+                    pref.setOrder(iccLock.getOrder());
+                    pref.setTitle(getString(R.string.sim_card_lock_settings_title, i + 1));
+                    pref.setSummary(sir.getDisplayName());
+
+                    Intent intent = new Intent(getActivity(),
+                            com.android.settings.Settings.IccLockSettingsActivity.class);
+                    intent.putExtra(IccLockSettings.EXTRA_SUB_ID, sir.getSubscriptionId());
+                    intent.putExtra(IccLockSettings.EXTRA_SUB_DISPLAY_NAME,
+                            sir.getDisplayName());
+                    intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+                    pref.setIntent(intent);
+
+                    iccLockGroup.addPreference(pref);
+                } else {
+                    pref = iccLock;
+                }
+
+                // Do not display SIM lock for devices without an Icc card
+                hasAnySim |= tm.hasIccCard(i);
+
+                int simState = tm.getSimState(i);
+                boolean simPresent = simState != TelephonyManager.SIM_STATE_ABSENT
+                        && simState != TelephonyManager.SIM_STATE_UNKNOWN
+                        && simState != TelephonyManager.SIM_STATE_CARD_IO_ERROR;
+                if (!simPresent) {
+                    pref.setEnabled(false);
+                }
+            }
+
+            if (!hasAnySim) {
+                root.removePreference(iccLockGroup);
+            } else if (numPhones > 1) {
+                iccLockGroup.removePreference(iccLock);
+            }
         }
+
         if (Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) != 0) {
             root.findPreference(KEY_SCREEN_PINNING).setSummary(
@@ -454,43 +505,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 trustAgentPreference.setSummary(R.string.disabled_because_no_backup_security);
             }
         }
-    }
-
-    /* Return true if a there is a Slot that has Icc.
-     */
-    private boolean isSimIccReady() {
-        TelephonyManager tm = TelephonyManager.getDefault();
-        final List<SubscriptionInfo> subInfoList =
-                mSubscriptionManager.getActiveSubscriptionInfoList();
-
-        if (subInfoList != null) {
-            for (SubscriptionInfo subInfo : subInfoList) {
-                if (tm.hasIccCard(subInfo.getSimSlotIndex())) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /* Return true if a SIM is ready for locking.
-     * TODO: consider adding to TelephonyManager or SubscritpionManasger.
-     */
-    private boolean isSimReady() {
-        int simState = TelephonyManager.SIM_STATE_UNKNOWN;
-        final List<SubscriptionInfo> subInfoList =
-                mSubscriptionManager.getActiveSubscriptionInfoList();
-        if (subInfoList != null) {
-            for (SubscriptionInfo subInfo : subInfoList) {
-                simState = TelephonyManager.getDefault().getSimState(subInfo.getSimSlotIndex());
-                if((simState != TelephonyManager.SIM_STATE_ABSENT) &&
-                            (simState != TelephonyManager.SIM_STATE_UNKNOWN)){
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     private static ArrayList<TrustAgentComponentInfo> getActiveTrustAgents(

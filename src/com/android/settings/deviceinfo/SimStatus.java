@@ -42,11 +42,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabContentFactory;
-import android.widget.TabHost.TabSpec;
-import android.widget.TabWidget;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.telephony.DefaultPhoneNotifier;
@@ -68,7 +63,6 @@ import static android.content.Context.TELEPHONY_SERVICE;
  * # Phone Number
  * # Network
  * # Roaming
- * # Device Id (IMEI in GSM and MEID in CDMA)
  * # Network type
  * # Operator info (area info cell broadcast for Brazil)
  * # Signal Strength
@@ -85,8 +79,6 @@ public class SimStatus extends SettingsPreferenceFragment {
     private static final String KEY_LATEST_AREA_INFO = "latest_area_info";
     private static final String KEY_PHONE_NUMBER = "number";
     private static final String KEY_SIGNAL_STRENGTH = "signal_strength";
-    private static final String KEY_IMEI = "imei";
-    private static final String KEY_IMEI_SV = "imei_sv";
     private static final String KEY_ICCID = "iccid";
     private static final String COUNTRY_ABBREVIATION_BRAZIL = "br";
 
@@ -100,6 +92,7 @@ public class SimStatus extends SettingsPreferenceFragment {
     static final String CB_AREA_INFO_SENDER_PERMISSION =
             "android.permission.RECEIVE_EMERGENCY_BROADCAST";
 
+    static final String EXTRA_SLOT_ID = "slot_id";
 
     private TelephonyManager mTelephonyManager;
     private CarrierConfigManager mCarrierConfigManager;
@@ -112,11 +105,6 @@ public class SimStatus extends SettingsPreferenceFragment {
 
     // Default summary for items
     private String mDefaultText;
-
-    private TabHost mTabHost;
-    private TabWidget mTabWidget;
-    private ListView mListView;
-    private List<SubscriptionInfo> mSelectableSubInfos;
 
     private PhoneStateListener mPhoneStateListener;
     private BroadcastReceiver mAreaInfoReceiver = new BroadcastReceiver() {
@@ -144,9 +132,6 @@ public class SimStatus extends SettingsPreferenceFragment {
         mTelephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
         mCarrierConfigManager = (CarrierConfigManager) getSystemService(CARRIER_CONFIG_SERVICE);
 
-        mSelectableSubInfos = SubscriptionManager.from(getContext())
-                .getActiveSubscriptionInfoList();
-
         addPreferencesFromResource(R.xml.device_info_sim_status);
 
         mRes = getResources();
@@ -156,42 +141,13 @@ public class SimStatus extends SettingsPreferenceFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        if (mSelectableSubInfos == null) {
-            mSir = null;
-        } else {
-            mSir = mSelectableSubInfos.size() > 0 ? mSelectableSubInfos.get(0) : null;
-
-            if (mSelectableSubInfos.size() > 1) {
-                View view = inflater.inflate(R.layout.icc_lock_tabs, container, false);
-                final ViewGroup prefs_container = (ViewGroup) view.findViewById(
-                        R.id.prefs_container);
-                Utils.prepareCustomPreferencesList(container, view, prefs_container, false);
-                View prefs = super.onCreateView(inflater, prefs_container, savedInstanceState);
-                prefs_container.addView(prefs);
-
-                mTabHost = (TabHost) view.findViewById(android.R.id.tabhost);
-                mTabWidget = (TabWidget) view.findViewById(android.R.id.tabs);
-                mListView = (ListView) view.findViewById(android.R.id.list);
-
-                mTabHost.setup();
-                mTabHost.setOnTabChangedListener(mTabListener);
-                mTabHost.clearAllTabs();
-
-                for (int i = 0; i < mSelectableSubInfos.size(); i++) {
-                    mTabHost.addTab(buildTabSpec(String.valueOf(i),
-                            String.valueOf(mSelectableSubInfos.get(i).getDisplayName())));
-                }
-                return view;
-            }
-        }
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Intent intent = getActivity().getIntent();
+        SubscriptionManager subscriptionManager = SubscriptionManager.from(getActivity());
+        int slotId = intent.getIntExtra(EXTRA_SLOT_ID, 0);
+        mSir = subscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(slotId);
 
         updatePhoneInfos();
     }
@@ -412,8 +368,6 @@ public class SimStatus extends SettingsPreferenceFragment {
         // If formattedNumber is null or empty, it'll display as "Unknown".
         setSummaryText(KEY_PHONE_NUMBER,
                 DeviceInfoUtils.getFormattedPhoneNumber(getContext(), mSir));
-        setSummaryText(KEY_IMEI, mPhone.getImei());
-        setSummaryText(KEY_IMEI_SV, mPhone.getDeviceSvn());
 
         if (!mShowICCID) {
             removePreferenceFromScreen(KEY_ICCID);
@@ -460,37 +414,5 @@ public class SimStatus extends SettingsPreferenceFragment {
                 };
             }
         }
-    }
-    private OnTabChangeListener mTabListener = new OnTabChangeListener() {
-        @Override
-        public void onTabChanged(String tabId) {
-            final int slotId = Integer.parseInt(tabId);
-            mSir = mSelectableSubInfos.get(slotId);
-            if (mPhoneStateListener != null) {
-                mTelephonyManager.listen(mPhoneStateListener,
-                        PhoneStateListener.LISTEN_NONE);
-            }
-            // The User has changed tab; update the SIM information.
-            updatePhoneInfos();
-            mTelephonyManager.listen(mPhoneStateListener,
-                    PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
-                    | PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
-                    | PhoneStateListener.LISTEN_SERVICE_STATE);
-            updateDataState();
-            updateNetworkType();
-            updatePreference();
-        }
-    };
-
-    private TabContentFactory mEmptyTabContent = new TabContentFactory() {
-        @Override
-        public View createTabContent(String tag) {
-            return new View(mTabHost.getContext());
-        }
-    };
-
-    private TabSpec buildTabSpec(String tag, String title) {
-        return mTabHost.newTabSpec(tag).setIndicator(title).setContent(
-                mEmptyTabContent);
     }
 }
