@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -84,6 +85,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final String KEY_SMS = "sim_sms";
     public static final String EXTRA_SLOT_ID = "slot_id";
     private static final String SIM_ACTIVITIES_CATEGORY = "sim_activities";
+    private static final String MOBILE_NETWORK_CATEGORY = "mobile_network";
     private static final String KEY_PRIMARY_SUB_SELECT = "select_primary_sub";
 
     private IExtTelephony mExtTelephony = IExtTelephony.Stub.
@@ -99,6 +101,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private List<SubscriptionInfo> mSubInfoList = null;
     private List<SubscriptionInfo> mSelectableSubInfos = null;
     private PreferenceCategory mSimCards = null;
+    private PreferenceCategory mMobileNetwork;
     private SubscriptionManager mSubscriptionManager;
     private int mNumSlots;
     private Context mContext;
@@ -144,6 +147,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         mPrimarySubSelect = (Preference) findPreference(KEY_PRIMARY_SUB_SELECT);
         mNumSlots = tm.getSimCount();
         mSimCards = (PreferenceCategory)findPreference(SIM_CARD_CATEGORY);
+        mMobileNetwork = (PreferenceCategory) findPreference(MOBILE_NETWORK_CATEGORY);
         mAvailableSubInfos = new ArrayList<SubscriptionInfo>(mNumSlots);
         mSelectableSubInfos = new ArrayList<SubscriptionInfo>();
         SimSelectNotification.cancelNotification(getActivity());
@@ -176,6 +180,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 mSimCards.removePreference(pref);
             }
         }
+        mMobileNetwork.removeAll();
         mAvailableSubInfos.clear();
         mSelectableSubInfos.clear();
 
@@ -189,6 +194,17 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             if (sir != null && (isSubProvisioned(i))) {
                 mSelectableSubInfos.add(sir);
             }
+
+            Intent mobileNetworkIntent = new Intent();
+            mobileNetworkIntent.setComponent(new ComponentName(
+                        "com.android.phone", "com.android.phone.MobileNetworkSettings"));
+            SubscriptionManager.putPhoneIdAndSubIdExtra(mobileNetworkIntent,
+                    i, sir != null ? sir.getSubscriptionId() : -1);
+            Preference mobileNetworkPref = new Preference(getActivity());
+            mobileNetworkPref.setTitle(
+                    getString(R.string.sim_mobile_network_settings_title, (i + 1)));
+            mobileNetworkPref.setIntent(mobileNetworkIntent);
+            mMobileNetwork.addPreference(mobileNetworkPref);
         }
         updateAllOptions();
     }
@@ -311,20 +327,22 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             Intent newIntent = new Intent(context, SimPreferenceDialog.class);
             newIntent.putExtra(EXTRA_SLOT_ID, ((SimPreference)preference).getSlotId());
             startActivity(newIntent);
+            return true;
         } else if (findPreference(KEY_CELLULAR_DATA) == preference) {
             intent.putExtra(SimDialogActivity.DIALOG_TYPE_KEY, SimDialogActivity.DATA_PICK);
             context.startActivity(intent);
+            return true;
         } else if (findPreference(KEY_CALLS) == preference) {
             intent.putExtra(SimDialogActivity.DIALOG_TYPE_KEY, SimDialogActivity.CALLS_PICK);
             context.startActivity(intent);
+            return true;
         } else if (findPreference(KEY_SMS) == preference) {
             intent.putExtra(SimDialogActivity.DIALOG_TYPE_KEY, SimDialogActivity.SMS_PICK);
             context.startActivity(intent);
-        } else if (preference == mPrimarySubSelect) {
-            startActivity(mPrimarySubSelect.getIntent());
+            return true;
         }
 
-        return true;
+        return false;
     }
     private void loge(String msg) {
         if (DBG) Log.e(TAG + "message", msg);
