@@ -61,6 +61,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
     private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
+    private static final String STATUS_BAR_CARRIER_SPOT = "status_bar_carrier_spot";	
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
@@ -69,7 +70,8 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private ListPreference mShowCarrierLabel;
     private String mCustomCarrierLabelText;
     private ColorPickerPreference mCarrierColorPicker;
-    private SeekBarPreference mStatusBarCarrierSize;	
+    private SeekBarPreference mStatusBarCarrierSize;
+    private ListPreference mStatusBarCarrierSpot;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,14 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 10));
         mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
+
+    mStatusBarCarrierSpot =
+                    (ListPreference) findPreference(STATUS_BAR_CARRIER_SPOT);
+            int statusBarCarrierSpot = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_CARRIER_SPOT, 0, UserHandle.USER_CURRENT);
+            mStatusBarCarrierSpot.setValue(String.valueOf(statusBarCarrierSpot));
+            mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntry());
+            mStatusBarCarrierSpot.setOnPreferenceChangeListener(this);
 
 
 
@@ -152,6 +162,13 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, width);
             return true;
+	} else if (preference == mStatusBarCarrierSpot) {
+                int statusBarCarrierSpot = Integer.valueOf((String) newValue);
+                int index = mStatusBarCarrierSpot.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(resolver, Settings.System.
+                        STATUS_BAR_CARRIER_SPOT, statusBarCarrierSpot, UserHandle.USER_CURRENT);
+                mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntries()[index]);
+                return true;
 	}
          return false;
     }
