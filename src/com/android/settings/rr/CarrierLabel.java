@@ -62,6 +62,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
     private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
     private static final String HIDE_CARRIER_MAX_NOTIFICATION = "hide_carrier_max_notification";
+    private static final String STATUS_BAR_CARRIER_SPOT = "status_bar_carrier_spot";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
@@ -72,6 +73,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private ColorPickerPreference mCarrierColorPicker;
     private SeekBarPreference mStatusBarCarrierSize;
     private ListPreference mHideCarrierMaxNotification;	
+    private ListPreference mStatusBarCarrierSpot;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,14 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mHideCarrierMaxNotification.setValue(String.valueOf(numberOfNotificationIcons));
         mHideCarrierMaxNotification.setSummary(mHideCarrierMaxNotification.getEntry());
         mHideCarrierMaxNotification.setOnPreferenceChangeListener(this);
+        
+	mStatusBarCarrierSpot = (ListPreference) findPreference(STATUS_BAR_CARRIER_SPOT);
+            int statusBarCarrierSpot = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_CARRIER_SPOT, 0, UserHandle.USER_CURRENT);
+            mStatusBarCarrierSpot.setValue(String.valueOf(statusBarCarrierSpot));
+            mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntry());
+            mStatusBarCarrierSpot.setOnPreferenceChangeListener(this);
+
 
             updateCustomLabelTextSummary();
 
@@ -160,6 +170,13 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
             Settings.System.putInt(resolver, Settings.System.HIDE_CARRIER_MAX_NOTIFICATION, intValue);
             preference.setSummary(mHideCarrierMaxNotification.getEntries()[index]);
             return true;
+	} else if (preference == mStatusBarCarrierSpot) {
+                int statusBarCarrierSpot = Integer.valueOf((String) newValue);
+                int index = mStatusBarCarrierSpot.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(resolver, Settings.System.
+                        STATUS_BAR_CARRIER_SPOT, statusBarCarrierSpot, UserHandle.USER_CURRENT);
+                mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntries()[index]);
+                return true;
 	}
          return false;
     }
