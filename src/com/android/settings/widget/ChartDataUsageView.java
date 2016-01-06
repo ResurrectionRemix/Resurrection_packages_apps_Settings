@@ -225,7 +225,7 @@ public class ChartDataUsageView extends ChartView {
         final long maxSweep = Math.max(mSweepWarning.getValue(), mSweepLimit.getValue());
         final long maxSeries = Math.max(mSeries.getMaxVisible(), mDetailSeries.getMaxVisible());
         final long maxVisible = Math.max(maxSeries, maxSweep) * 12 / 10;
-        final long maxDefault = Math.max(maxVisible, 50 * MB_IN_BYTES);
+        final long maxDefault = Math.max(maxVisible, 20 * MB_IN_BYTES);
         newMax = Math.max(maxDefault, newMax);
 
         // only invalidate when vertMax actually changed
