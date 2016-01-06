@@ -167,27 +167,29 @@ public class ChartDataUsageView extends ChartView {
     }
 
     public void bindNetworkPolicy(NetworkPolicy policy) {
+        final long warningBytes, limitBytes;
+
         if (policy == null) {
-            mSweepLimit.setVisibility(View.INVISIBLE);
-            mSweepLimit.setValue(-1);
-            mSweepWarning.setVisibility(View.INVISIBLE);
-            mSweepWarning.setValue(-1);
-            return;
+            warningBytes = NetworkPolicy.LIMIT_DISABLED;
+            limitBytes = NetworkPolicy.LIMIT_DISABLED;
+        } else {
+            warningBytes = policy.warningBytes;
+            limitBytes = policy.limitBytes;
         }
 
-        if (policy.limitBytes != NetworkPolicy.LIMIT_DISABLED) {
+        if (limitBytes != NetworkPolicy.LIMIT_DISABLED) {
             mSweepLimit.setVisibility(View.VISIBLE);
             mSweepLimit.setEnabled(true);
-            mSweepLimit.setValue(policy.limitBytes);
+            mSweepLimit.setValue(limitBytes);
         } else {
             mSweepLimit.setVisibility(View.INVISIBLE);
             mSweepLimit.setEnabled(false);
             mSweepLimit.setValue(-1);
         }
 
-        if (policy.warningBytes != NetworkPolicy.WARNING_DISABLED) {
+        if (warningBytes != NetworkPolicy.WARNING_DISABLED) {
             mSweepWarning.setVisibility(View.VISIBLE);
-            mSweepWarning.setValue(policy.warningBytes);
+            mSweepWarning.setValue(warningBytes);
         } else {
             mSweepWarning.setVisibility(View.INVISIBLE);
             mSweepWarning.setValue(-1);
