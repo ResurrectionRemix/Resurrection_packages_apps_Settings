@@ -58,6 +58,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String KEY_PRIORITY = "priority";
     private static final String KEY_PEEKABLE = "peekable";
     private static final String KEY_SENSITIVE = "sensitive";
+    private static final String KEY_KEYGUARD = "keyguard";
     private static final String KEY_APP_SETTINGS = "app_settings";
 
     private static final Intent APP_NOTIFICATION_PREFS_CATEGORY_INTENT
@@ -71,6 +72,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private SwitchPreference mPriority;
     private SwitchPreference mPeekable;
     private SwitchPreference mSensitive;
+    private SwitchPreference mKeyguard;
     private AppRow mAppRow;
     private boolean mCreated;
     private boolean mIsSystemPackage;
@@ -137,6 +139,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mPeekable = (SwitchPreference) findPreference(KEY_PEEKABLE);
         mSensitive = (SwitchPreference) findPreference(KEY_SENSITIVE);
+        mKeyguard = (SwitchPreference) findPreference(KEY_KEYGUARD);
 
         mAppRow = mBackend.loadAppRow(pm, info.applicationInfo);
 
@@ -150,6 +153,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPriority.setChecked(mAppRow.priority);
         mPeekable.setChecked(mAppRow.peekable);
         mSensitive.setChecked(mAppRow.sensitive);
+        mKeyguard.setChecked(!mAppRow.keyguard);
 
         mBlock.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
@@ -190,6 +194,14 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             }
         });
 
+        mKeyguard.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final boolean keyguard = (Boolean) newValue;
+                return mBackend.setKeyguard(pkg, mUid, !keyguard);
+            }
+        });
+
         if (mAppRow.settingsIntent != null) {
             findPreference(KEY_APP_SETTINGS).setOnPreferenceClickListener(
                     new OnPreferenceClickListener() {
@@ -224,6 +236,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         setVisible(mBlock, !mIsSystemPackage);
         setVisible(mPriority, mIsSystemPackage || !banned);
         setVisible(mPeekable, mIsSystemPackage || !banned && headsUpEnabled);
+        setVisible(mKeyguard, mIsSystemPackage || !banned && lockscreenNotificationsEnabled);
         setVisible(mSensitive, mIsSystemPackage || !banned && lockscreenSecure
                 && lockscreenNotificationsEnabled && allowPrivate);
     }

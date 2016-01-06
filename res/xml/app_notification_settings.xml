@@ -50,11 +50,19 @@
             android:order="4"
             android:persistent="false" />
 
+    <!-- Keguard -->
+    <SwitchPreference
+            android:key="keyguard"
+            android:title="@string/app_notification_no_keyguard_title"
+            android:summary="@string/app_notification_no_keyguard_summary"
+            android:order="5"
+            android:persistent="false" />
+
     <!-- App notification preferences -->
     <Preference
             android:key="app_settings"
             android:title="@string/app_notification_preferences"
-            android:order="5"
+            android:order="6"
             android:persistent="false" />
 
 </PreferenceScreen>
