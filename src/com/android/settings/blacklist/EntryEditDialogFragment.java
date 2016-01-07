@@ -197,6 +197,8 @@ public class EntryEditDialogFragment extends DialogFragment
             mEditText.setEnabled(true);
         }
 
+        // Mirror contacts selector to state of editText
+        mContactPickButton.setEnabled(mEditText.isEnabled());
         return view;
     }
 
