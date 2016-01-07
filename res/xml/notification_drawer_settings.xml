@@ -56,6 +56,12 @@
          android:summary="@string/qs_brightness_slider_summary"
          android:defaultValue="true"/>
 
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+         android:key="brightness_icon"
+         android:title="@string/brightness_icon_title"
+         android:summary="@string/brightness_icon_summary"
+         android:dependency="qs_show_brightness_slider"/>
+
 </PreferenceCategory>
 
     <PreferenceCategory
