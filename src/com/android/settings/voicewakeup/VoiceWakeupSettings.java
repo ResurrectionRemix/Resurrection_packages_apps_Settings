@@ -16,48 +16,50 @@
 
 package com.android.settings.voicewakeup;
 
-import android.app.ActionBar;
+import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
-import android.database.ContentObserver;
-import android.net.Uri;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Toast;
 import com.android.internal.logging.MetricsLogger;
-
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 import com.android.settings.cyanogenmod.ShortcutPickHelper;
-
 import org.cyanogenmod.internal.util.ScreenType;
+
+import java.net.URISyntaxException;
 
 public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, ShortcutPickHelper.OnPickListener,
         BaseSystemSettingSwitchBar.SwitchBarChangeCallback {
     private static final String TAG = "VoiceWakeupSettings";
 
+    public static final int REQUEST_CALL_PERMS = 111;
+
     private static final String KEY_RETRAIN = "retrain";
     private static final String KEY_SHORTCUT_PICKER = "voice_wakeup_launch_intent";
+
+    public static final String VOICE_WAKEUP_PACKAGE = "com.cyanogenmod.voicewakeup";
     private static final ComponentName VOICE_TRAINING_COMPONENT = new ComponentName(
             "com.cyanogenmod.voicewakeup", "com.cyanogenmod.voicewakeup.VoiceTrainingActivity");
     private static final ComponentName VOICE_TRAINING_SERVICE = new ComponentName(
             "com.cyanogenmod.voicewakeup", "com.cyanogenmod.voicewakeup.VoiceWakeupEngine");
+    private static final String ACTION_REQUEST_DIAL_PERMISSION
+            = "com.cyanogenmod.voicewakeup.ACTION_REQUEST_DIAL_PERMISSION";
 
     private BaseSystemSettingSwitchBar mVoiceWakeupEnabler;
 
@@ -164,8 +166,22 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     };
 
+    private boolean voiceWakeupHasCallPerms() {
+        return getPackageManager().checkPermission(Manifest.permission.CALL_PHONE,
+                VOICE_WAKEUP_PACKAGE) == PackageManager.PERMISSION_GRANTED;
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CALL_PERMS) {
+            if (resultCode != Activity.RESULT_OK || !voiceWakeupHasCallPerms()) {
+                Toast.makeText(getActivity(), R.string.voice_wakeup_needs_dial_permission_warning,
+                        Toast.LENGTH_SHORT).show();
+                // reset to default
+                shortcutPicked("", mDefaultActivityString, true);
+            }
+            return;
+        }
         String shortcutName = null;
         if (data != null) {
             shortcutName = data.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
@@ -181,6 +197,16 @@ public class VoiceWakeupSettings extends SettingsPreferenceFragment implements
 
     @Override
     public void shortcutPicked(String uri, String friendlyName, boolean isApplication) {
+        try {
+            final Intent intent = Intent.parseUri(uri, 0);
+            if (intent.getAction().equals(Intent.ACTION_CALL)) {
+                Intent requestCallPerms = new Intent(ACTION_REQUEST_DIAL_PERMISSION);
+                requestCallPerms.setPackage(VOICE_WAKEUP_PACKAGE);
+                startActivityForResult(requestCallPerms, REQUEST_CALL_PERMS);
+            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         Settings.System.putString(getContentResolver(), Settings.System.VOICE_LAUNCH_INTENT, uri);
     }
 
