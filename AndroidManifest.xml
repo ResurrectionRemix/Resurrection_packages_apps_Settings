@@ -2735,6 +2735,32 @@
         <activity
              android:name=".rr.MainSettings" />
 
+     <!-- App Circle Bar -->
+        <activity android:name="Settings$AppCircleBarActivity"
+             android:label="@string/app_circle_bar_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.fragments.AppCircleBar" />
+        </activity>
+
+
+     <!-- ButtonSettings Activity -->
+        <activity android:name="Settings$ButtonSettingsActivity"
+             android:label="@string/button_pref_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ButtonSettings" />
+        </activity>
+
+
         <activity android:name=".sim.SimPreferenceDialog"
             android:theme="@style/Theme.SettingsDialog"
             android:excludeFromRecents="true">
