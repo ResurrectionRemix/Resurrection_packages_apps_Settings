@@ -62,6 +62,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.SearchIndexableRaw;
+import cyanogenmod.providers.CMSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
     private static final String KEY_FINGERPRINT_SETTINGS = "fingerprint_settings";
     private static final String KEY_DIRECTLY_SHOW = "directlyshow";
+
+    private static final String KEY_LOCKSCREEN_ENABLED_INTERNAL = "lockscreen_enabled_internally";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CHANGE_TRUST_AGENT_SETTINGS = 126;
@@ -151,6 +154,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private Preference mOwnerInfoPref;
     private int mFilterType = TYPE_SECURITY_EXTRA;
+
+    private Preference mLockscreenDisabledPreference;
 
     @Override
     protected int getMetricsCategory() {
@@ -235,6 +240,16 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         // Add options for device encryption
         mIsPrimary = MY_USER_ID == UserHandle.USER_OWNER;
+
+        if (CMSettings.Secure.getIntForUser(getContentResolver(),
+                CMSettings.Secure.LOCKSCREEN_INTERNALLY_ENABLED, 1, UserHandle.USER_OWNER) != 1) {
+            // lock screen is disabled by quick settings tile, let the user know!~
+            mLockscreenDisabledPreference = new Preference(getActivity());
+            mLockscreenDisabledPreference.setKey(KEY_LOCKSCREEN_ENABLED_INTERNAL);
+            mLockscreenDisabledPreference.setTitle(R.string.lockscreen_disabled_by_qs_tile_title);
+            mLockscreenDisabledPreference.setSummary(R.string.lockscreen_disabled_by_qs_tile_summary);
+            root.addPreference(mLockscreenDisabledPreference);
+        }
 
         if (mFilterType == TYPE_LOCKSCREEN_EXTRA) {
             // Add options for lock/unlock screen
@@ -733,11 +748,18 @@ public class SecuritySettings extends SettingsPreferenceFragment
             mTrustAgentClickIntent = preference.getIntent();
             boolean confirmationLaunched = helper.launchConfirmationActivity(
                     CHANGE_TRUST_AGENT_SETTINGS, preference.getTitle());
-            if (!confirmationLaunched&&  mTrustAgentClickIntent != null) {
+            if (!confirmationLaunched && mTrustAgentClickIntent != null) {
                 // If this returns false, it means no password confirmation is required.
                 startActivity(mTrustAgentClickIntent);
                 mTrustAgentClickIntent = null;
             }
+        } else if (KEY_LOCKSCREEN_ENABLED_INTERNAL.equals(key)) {
+            CMSettings.Secure.putIntForUser(getActivity().getContentResolver(),
+                    CMSettings.Secure.LOCKSCREEN_INTERNALLY_ENABLED,
+                    1, UserHandle.USER_CURRENT);
+            mLockscreenDisabledPreference.setEnabled(false);
+            mLockscreenDisabledPreference.setSummary(
+                    R.string.lockscreen_disabled_by_qs_tile_summary_enabled);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
