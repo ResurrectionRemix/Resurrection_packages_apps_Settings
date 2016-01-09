@@ -25,6 +25,12 @@
             android:key="notification_light_pulse"
             android:title="@string/notification_light_title" />
 
+        <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+            android:key="notification_light_color_auto"
+            android:title="@string/notification_light_automagic"
+            android:dependency="notification_light_pulse"
+            android:defaultValue="true" />
+
         <com.android.settings.notificationlight.ApplicationLightPreference
             android:key="default"
             android:title="@string/notification_light_default_value"
