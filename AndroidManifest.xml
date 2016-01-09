@@ -2731,9 +2731,22 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.MainSettings" />
         </activity>
-
         <activity
              android:name=".rr.MainSettings" />
+
+        <!-- App Sidebar -->
+        <activity android:name="Settings$AppSidebarActivity"
+             android:label="@string/app_sidebar_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.AppSidebar" />
+        </activity>
+
+
 
      <!-- App Circle Bar -->
         <activity android:name="Settings$AppCircleBarActivity"
