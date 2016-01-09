@@ -348,14 +348,14 @@ public class ExpandedDesktopPreferenceFragment extends SettingsPreferenceFragmen
     int getStateDrawable(int state) {
         switch (state) {
             case STATE_STATUS_HIDDEN:
-                return R.drawable.ic_settings_extdesk_hidestatusbar;
+                return R.drawable.ic_extdesk_hidestatusbar;
             case STATE_NAVIGATION_HIDDEN:
-                return R.drawable.ic_settings_extdesk_hidenavbar;
+                return R.drawable.ic_extdesk_hidenavbar;
             case STATE_BOTH_HIDDEN:
-                return R.drawable.ic_settings_extdesk_hideboth;
+                return R.drawable.ic_extdesk_hideboth;
             case STATE_DISABLED:
             default:
-                return R.drawable.ic_settings_extdesk_hidenone;
+                return R.drawable.ic_extdesk_hidenone;
         }
     }
 
