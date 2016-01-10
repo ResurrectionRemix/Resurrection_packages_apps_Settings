@@ -192,17 +192,6 @@ public class ImeiInformation extends InstrumentedPreferenceActivity {
         return MetricsLogger.DEVICEINFO_IMEI_INFORMATION;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        switch (itemId) {
-            case android.R.id.home:
-                goUpToTopLevelSetting(this);
-                return true;
-            default:
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     /**
      * Finish current Activity and go up to the top level Settings.
