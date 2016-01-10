@@ -130,5 +130,6 @@ public class Settings extends SettingsActivity {
     public static class ButtonSettingsActivity extends SettingsActivity { /* empty */ }	
     public static class AppCircleBarActivity extends SettingsActivity { /* empty */ }	
     public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class AppSidebarActivity extends SettingsActivity { /* empty */ }		
+    public static class AppSidebarActivity extends SettingsActivity { /* empty */ }	
+    public static class GestrueAnywhereActivity extends SettingsActivity { /* empty */ }			
 }
