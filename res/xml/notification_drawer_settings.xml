@@ -61,7 +61,13 @@
          android:title="@string/brightness_icon_title"
          android:summary="@string/brightness_icon_summary"
          android:dependency="qs_show_brightness_slider"
-        android:defaultValue="true"/>
+         android:defaultValue="true"/>
+	
+	 <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+         android:key="persist_add"
+         android:title="@string/persist_add_title"
+         android:summary="@string/persist_add_summary"
+         android:defaultValue="true"/>
 
 </PreferenceCategory>
 
