@@ -43,11 +43,11 @@ import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
 import cyanogenmod.providers.CMSettings;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.CMBaseSystemSettingSwitchBar;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.UUID;
 
@@ -147,7 +147,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
+        return CMMetricsLogger.PROFILES_SETTINGS;
     }
 
     @Override

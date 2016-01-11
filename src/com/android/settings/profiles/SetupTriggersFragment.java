@@ -32,11 +32,11 @@ import android.widget.Button;
 import cyanogenmod.app.Profile;
 import cyanogenmod.app.ProfileManager;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.SubSettings;
 import com.android.settings.profiles.triggers.NfcTriggerFragment;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class SetupTriggersFragment extends SettingsPreferenceFragment {
 
@@ -78,7 +78,7 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
+        return CMMetricsLogger.SETUP_TRIGGERS_FRAGMENT;
     }
 
     @Override

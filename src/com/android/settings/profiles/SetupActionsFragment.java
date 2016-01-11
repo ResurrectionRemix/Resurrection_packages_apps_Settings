@@ -66,7 +66,6 @@ import cyanogenmod.profiles.LockSettings;
 import cyanogenmod.profiles.RingModeSettings;
 import cyanogenmod.profiles.StreamSettings;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SubSettings;
@@ -87,6 +86,7 @@ import com.android.settings.profiles.actions.item.RingModeItem;
 import com.android.settings.profiles.actions.item.TriggerItem;
 import com.android.settings.profiles.actions.item.VolumeStreamItem;
 import com.android.settings.Utils;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1125,6 +1125,6 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
+        return CMMetricsLogger.SETUP_ACTIONS_FRAGMENT;
     }
 }
