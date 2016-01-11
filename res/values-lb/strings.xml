@@ -21,6 +21,10 @@
   <string name="allow">Erlaben</string>
   <string name="deny">Verweigeren</string>
   <string name="device_info_default">Onbekannt</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one">Du bass nach <xliff:g id="step_count">%1$d</xliff:g> Schrëtt dovun ewech en Entwéckler ze sinn.</item>
+    <item quantity="other">Du bass nach <xliff:g id="step_count">%1$d</xliff:g> Schrëtter dovun ewech en Entwéckler ze sinn.</item>
+  </plurals>
   <string name="show_dev_on">Du bass elo en Entwéckler!</string>
   <string name="show_dev_already">Net néideg, du bass schonn en Entwéckler.</string>
   <string name="header_category_wireless_networks">Kabellos an Netzwierker</string>
@@ -354,6 +358,30 @@
   <string name="lockpassword_password_requires_alpha">D\'Passwuert muss mindestens ee Buschtaf hunn.</string>
   <string name="lockpassword_password_requires_digit">D\'Passwuert muss mindestens eng Ziffer hunn.</string>
   <string name="lockpassword_password_requires_symbol">D\'Passwuert muss mindestens ee Spezialzeechen hunn.</string>
+  <plurals name="lockpassword_password_requires_letters">
+    <item quantity="one">D\'Passwuert muss mindestens 1 Buschtaf hunn.</item>
+    <item quantity="other">D\'Passwuert muss mindestens %d Buschtawen hunn.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_lowercase">
+    <item quantity="one">D\'Passwuert muss mindestens ee klenge Buschtaf hunn.</item>
+    <item quantity="other">D\'Passwuert muss mindestens %d kleng Buschtawen hunn.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_uppercase">
+    <item quantity="one">D\'Passwuert muss mindestens ee grousse Buschtaf hunn.</item>
+    <item quantity="other">D\'Passwuert muss mindestens %d grouss Buschtawen hunn.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_numeric">
+    <item quantity="one">D\'Passwuert muss mindestens eng Ziffer hunn.</item>
+    <item quantity="other">D\'Passwuert muss mindestens %d Zifferen hunn.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_symbols">
+    <item quantity="one">D\'Passwuert muss mindestens ee Sonnerzeechen hunn.</item>
+    <item quantity="other">D\'Passwuert muss mindestens %d Sonnerzeechen hunn.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_nonletter">
+    <item quantity="one">D\'Passwuert muss mindestens een Zeechen hunn dat kee Buschtaf ass.</item>
+    <item quantity="other">D\'Passwuert muss mindestens %d Zeechen hunn déi keng Buschtawe sinn.</item>
+  </plurals>
   <string name="lockpassword_pin_no_sequential_digits">Eng opsteigend, ofsteigend oder widderhuelend Sequenz vun Zifferen ass verbueden</string>
   <string name="lockpassword_ok_label">OK</string>
   <string name="lockpassword_cancel_label">Ofbriechen</string>
@@ -692,6 +720,10 @@
   <string name="sim_change_data_title">Date-SIM änneren?</string>
   <string name="sim_preferred_title">Preferéiert SIM-Kaart änneren?</string>
   <string name="wrong_pin_code_pukked">Inkorrekte SIM-PIN-Code. Du muss elo däi Provider kontaktéiere fir däin Apparat z\'entspären.</string>
+  <plurals name="wrong_pin_code">
+    <item quantity="one">Inkorrekte SIM-PIN-Code, du hues nach <xliff:g id="number">%d</xliff:g> Versuch iwwreg ier s de däi Provider kontaktéiere muss fir däin Apparat z\'entspären.</item>
+    <item quantity="other">Inkorrekte SIM-PIN-Code, du hues nach <xliff:g id="number">%d</xliff:g> Versich iwwreg.</item>
+  </plurals>
   <string name="pin_failed">SIM-PIN-Operatioun feelgeschloen!</string>
   <string name="device_info_settings" product="tablet">Tablet-Status</string>
   <string name="device_info_settings" product="default">Telefonsstatus</string>
@@ -825,6 +857,11 @@
   <string name="reset_network_confirm_title">Zrécksetzen?</string>
   <string name="device_reset_title">Apparat zrécksetzen</string>
   <string name="master_clear_title">Op d\'Wierksastellungen zrécksetzen</string>
+  <string name="master_clear_accounts" product="default">\n\nDu bass momentan an dëse Konten ugemellt:\n</string>
+  <string name="master_clear_other_users_present" product="default">\n\nOp dësem Apparat sinn aner Benotzer.\n</string>
+  <string name="master_clear_desc_also_erases_external"><li>Musek</li>\n<li>Fotoen</li>\n<li>Aner Benotzerdaten</li></string>
+  <string name="master_clear_desc_erase_external_storage" product="nosdcard">\n\nFir d\'Musek, Biller an aner Benotzerdaten ze läsche muss den <b>USB-Späicher</b> geläscht ginn.</string>
+  <string name="master_clear_desc_erase_external_storage" product="default">\n\nFir d\'Musek, Biller an aner Benotzerdaten ze läsche muss d\'<b>SD-Kaart</b> geläscht ginn.</string>
   <string name="erase_external_storage" product="nosdcard">USB-Späicher läschen</string>
   <string name="erase_external_storage" product="default">SD-Kaart läschen</string>
   <string name="erase_external_storage_description" product="nosdcard">All d\'Daten um internen USB-Späicher läschen, wéi Musek oder Fotoen</string>
@@ -2018,7 +2055,6 @@ Fir d\'Performance ze verbesseren an de Späicherverbrauch ze reduzéiere stinn 
   <string name="sim_notification_summary">Drécke fir anzestellen</string>
   <string name="sim_pref_divider">Preferéiert SIM fir</string>
   <string name="sim_calls_ask_first_prefs_title">All Kéier froen</string>
-  <string name="sim_sms_ask_first_prefs_title">All Kéier froen</string>
   <string name="sim_selection_required_pref">Auswiel néideg</string>
   <string name="dashboard_title">Astellungen</string>
   <string name="search_results_title">Astellungen</string>
@@ -2089,6 +2125,10 @@ Fir d\'Performance ze verbesseren an de Späicherverbrauch ze reduzéiere stinn 
   <string name="emergency_tone_vibrate">Vibréieren</string>
   <string name="manage_notification_access_title">Notifikatiounszougrëff</string>
   <string name="manage_notification_access_summary_zero">Appe kënnen d\'Notifikatioune net liesen</string>
+  <plurals name="manage_notification_access_summary_nonzero">
+    <item quantity="one">%d App kann Notifikatioune liesen</item>
+    <item quantity="other">%d Appe kënnen Notifikatioune liesen</item>
+  </plurals>
   <string name="loading_notification_apps">Appe gi gelueden...</string>
   <string name="app_notification_block_summary">Ni Notifikatioune vun dëser App uweisen</string>
   <string name="app_notification_row_banned">Blockéiert</string>
@@ -2168,6 +2208,4 @@ Fir d\'Performance ze verbesseren an de Späicherverbrauch ze reduzéiere stinn 
   <string name="system_alert_window_off">Nee</string>
   <string name="write_settings_on">Jo</string>
   <string name="write_settings_off">Nee</string>
-  <string name="sim_enabler_will_disable_sim_title">Opgepasst</string>
-  <string name="select_sim_card">SIM-Kaart auswielen</string>
 </resources>

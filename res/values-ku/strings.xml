@@ -311,6 +311,30 @@
   <string name="lockpassword_password_requires_alpha">وشه‌ی نهێنی ده‌بێ که‌مترینی یه‌ک پیت بێت.</string>
   <string name="lockpassword_password_requires_digit">وشه‌ی نهێنی ده‌بێ که‌مترینی یه‌ک ڕه‌نووس بێت.</string>
   <string name="lockpassword_password_requires_symbol">وشه‌ی نهێنی ده‌بێ که‌مترینی یه‌ک هێما بێت.</string>
+  <plurals name="lockpassword_password_requires_letters">
+    <item quantity="one">نهێنووشە ئەبێ هیچ نەبێ یەک پیت لەخۆ بگرێت.</item>
+    <item quantity="other">نهێنووشە ئەبێ هیچ نەبی %d پیت لەخۆ بگرێت.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_lowercase">
+    <item quantity="one">نهێنووشە ئەبێ هیچ نەبێ یەک پیتی بچوک لەخۆ بگرێت.</item>
+    <item quantity="other">نهێنووشە ئەبێ هیچ نەبێ %d پیتی بچوک لەخۆ بگرێت.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_uppercase">
+    <item quantity="one">نهێنووشە ئەبێ هیچ نەبێ یەک پیتی گەورە لەخۆ بگرێت.</item>
+    <item quantity="other">نهێنووشە ئەبێ هیچ نەبێ %d پیتی گەورە لەخۆ بگرێت.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_numeric">
+    <item quantity="one">نهێنووشە ئەبێ هیچ نەبێ یەک هێمای ژمارەیی لەخۆ بگرێت.</item>
+    <item quantity="other">نهێنووشە ئەبێ هیچ نەبێ %d هێمای ژمارەیی لەخۆ بگرێت.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_symbols">
+    <item quantity="one">نهێنووشە ئەبێ هیچ نەبێ یەک هێمای تاییبەت لەخۆ بگرێت.</item>
+    <item quantity="other">نهێنووشە ئەبێ هیچ نەبێ %d هێمای تاییبەت لەخۆ بگرێت.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_nonletter">
+    <item quantity="one">نهێنووشە ئەبێ هیچ نەبێ یەک هێمای لە پیت نەچوو لەخۆ بگرێت.</item>
+    <item quantity="other">نهێنووشە ئەبێ هیچ نەبێ %d هێمای لە پیت نەچوو لەخۆ بگرێت.</item>
+  </plurals>
   <string name="lockpassword_ok_label">باشه‌</string>
   <string name="lockpassword_cancel_label">لابردن</string>
   <string name="lockpattern_tutorial_cancel_label">لابردن</string>
@@ -592,6 +616,10 @@
   <string name="sim_enter_ok">باش</string>
   <string name="sim_enter_cancel">لابردن</string>
   <string name="wrong_pin_code_pukked">کۆدی PINت بە هەڵە داخل کردوە،پەیوەندی بکە بە کۆمپانیای پەیوەندیکردنەوە بۆ کردنەوی ئامێرەکەت.</string>
+  <plurals name="wrong_pin_code">
+    <item quantity="one">کۆدی PIN هەڵەبوو. تەنها  <xliff:g id="number">%d</xliff:g> جارت ماوە هەڵە بکەی.ئەگەر دڵینا نیت دوبارەی مەکەوە.</item>
+    <item quantity="other">کۆدی PIN هەڵەبوو. تەنها  <xliff:g id="number">%d</xliff:g> جارت ماوە هەڵە بکەی.ئەگەر دڵینا نیت دوبارەی مەکەوە.</item>
+  </plurals>
   <string name="pin_failed">کارکردنی کۆدی PIN شکستی هێنا!</string>
   <string name="device_info_settings" product="tablet">دۆخی تاتەژمێرەکە</string>
   <string name="device_info_settings" product="default">دۆخی تەلەفۆنەکە</string>
@@ -723,6 +751,10 @@
   <string name="restore_default_apn_completed">ڕێکخستنەوەی APN بۆ باری بنەڕەتی تەواوبوو.</string>
   <string name="reset_network_confirm_title">ڕێکخستنەوە?</string>
   <string name="master_clear_title">سڕینەوەی داتاکان بۆ بنەڕەتی خۆی</string>
+  <string name="master_clear_accounts" product="default">\n\nئێستا تۆ لە ژورەوەیت بۆ ئەم هەژمارانەی خوارەوە:\n</string>
+  <string name="master_clear_desc_also_erases_external"><li>مۆسیقا</li>\n<li>وێنەکان</li>\n<li>دراوەکانی دیکەی بەکارهێنەر</li></string>
+  <string name="master_clear_desc_erase_external_storage" product="nosdcard">\n\nبۆ پاککردنەوەی مۆسیقا، وێنەکان و دیکەی دراوەکانی بەکارهێنەر  <b>بیرگەی یو ئێس بی</b> پێویستە بسڕدرێتەوە.</string>
+  <string name="master_clear_desc_erase_external_storage" product="default">\n\nبۆ پاککردنەوەی مۆسیقا، وێنەکان و دیکەی دراوەکانی بەکارهێنەر  <b>بیرگەی هەڵگرتنی</b> پێویستە بسڕدرێتەوە.</string>
   <string name="erase_external_storage" product="nosdcard">سڕینه‌وه‌ی كۆگای USB</string>
   <string name="erase_external_storage" product="default">پاککردنەوەی بیرگەی دەرەکی</string>
   <string name="erase_external_storage_description" product="nosdcard">سڕینەوەی هەموو داتاکان لەسەر بیرگەی ناوەکی ،وەکو گۆرانی و وێنەکان</string>
@@ -1702,6 +1734,10 @@
   <string name="notification_pulse_title">لێدانی چرای ئاگادارکردنەوە</string>
   <string name="lock_screen_notifications_interstitial_title">ئاگادارییه‌کان</string>
   <string name="manage_notification_access_summary_zero">ئه‌په‌کان ناتوانن ئاگاداری بخوێننه‌وه‌</string>
+  <plurals name="manage_notification_access_summary_nonzero">
+    <item quantity="one">%d بەرنامەکە ئەتوانێت ئاگادارکردنەوەکان بخوێنێتەوە</item>
+    <item quantity="other">%d بەرنامەکان ئەتوانن ئاگادارکردنەوەکان بخوێنێتەوە</item>
+  </plurals>
   <string name="zen_mode_delete_rule_button">سڕینه‌وه‌</string>
   <string name="zen_mode_rule_type_unknown">نەناسراو</string>
   <string name="zen_mode_event_rule_reply_yes">بەڵێ</string>
@@ -1720,5 +1756,4 @@
   <string name="system_alert_window_off">نەخێر</string>
   <string name="write_settings_on">بەڵێ</string>
   <string name="write_settings_off">نەخێر</string>
-  <string name="sim_enabler_will_disable_sim_title">ئاگاداری</string>
 </resources>

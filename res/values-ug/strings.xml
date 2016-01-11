@@ -21,6 +21,9 @@
   <string name="allow">يول قوي</string>
   <string name="deny">رەت قىل</string>
   <string name="device_info_default">يوچۇن</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="other">سىز <xliff:g id="step_count">%1$d</xliff:g> قەدەمدە ئىجادكارلار ھالىتىگە كىرەلەيسىز.</item>
+  </plurals>
   <string name="show_dev_on">سىز ھازىر ئىجادكار ھالىتىدە!</string>
   <string name="show_dev_already">ھاجەتسىز، سىز ئاللىبۇرۇن ئىجادكار ھالىتىدە.</string>
   <string name="turn_on_radio">سىمسىز تورنى ئاچ</string>
@@ -310,6 +313,24 @@
   <string name="lockpassword_password_requires_alpha">ئىمدا ئاز دېگەندە بىر ھەرپ بولۇشى لازىم.</string>
   <string name="lockpassword_password_requires_digit">ئىمدا ئاز دېگەندە بىر سان بولۇشى لازىم.</string>
   <string name="lockpassword_password_requires_symbol">ئىمدا ئاز دېگەندە بىر بەلگە بولۇشى لازىم.</string>
+  <plurals name="lockpassword_password_requires_letters">
+    <item quantity="other">ئىمدا ئاز دېگەندە بىر ھەرپ بولۇشى لازىم.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_lowercase">
+    <item quantity="other">ئىمدا ئاز دېگەندە بىر كىچىك ھەرپ بولۇشى لازىم.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_uppercase">
+    <item quantity="other">ئىمدا ئاز دېگەندە بىر چوڭ ھەرپ بولۇشى لازىم.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_numeric">
+    <item quantity="other">ئىمدا ئاز دېگەندە بىر سان بولۇشى لازىم.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_symbols">
+    <item quantity="other">ئىمدا ئاز دېگەندە بىر ئالاھىدە بەلگە بولۇشى لازىم.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_nonletter">
+    <item quantity="other">ئىمدا ئاز دېگەندە بىر ھەرپ ئەمەس بەلگە بولۇشى لازىم.</item>
+  </plurals>
   <string name="lockpassword_ok_label">جەزملە</string>
   <string name="lockpassword_cancel_label">ۋاز كەچ</string>
   <string name="lockpattern_tutorial_cancel_label">ۋاز كەچ</string>
@@ -589,6 +610,9 @@
   <string name="sim_enter_ok">جەزملە</string>
   <string name="sim_enter_cancel">ۋاز كەچ</string>
   <string name="wrong_pin_code_pukked">SIM كارتا PIN كودى توغرا ئەمەس، ھازىر مۇلازىمەت سودىگىرىڭىز بىلەن ئالاقە قىلىپ ئۈسكۈنىڭىزنىڭ قۇلۇپىنى ئېچىڭ.</string>
+  <plurals name="wrong_pin_code">
+    <item quantity="other">\"SIM كارتا PIN كودى توغرا ئەمەس، سىزنىڭ %d قېتىم سىناش پۇرسىتىڭىز بار. ئەگەر يەنىلا مەغلۇپ بولسىڭىز مۇلازىمەت سودىگىرىڭىز بىلەن ئالاقە قىلىپ ئۈسكۈنىڭىزنىڭ قۇلۇپىنى ئېچىڭ.\"<xliff:g id="NUMBER"/></item>
+  </plurals>
   <string name="pin_failed">SIM كارتا PIN مەشغۇلاتى مەغلۇپ بولدى!</string>
   <string name="device_info_settings" product="tablet">تاختا كومپيۇتېر ھالىتى</string>
   <string name="device_info_settings" product="default">تېلېفون ھالىتى</string>
@@ -718,6 +742,10 @@
   <string name="restore_default_apn_completed">كۆڭۈلدىكى APN تەڭشەككە ئەسلىگە قايتۇرۇش تاماملاندى</string>
   <string name="reset_network_confirm_title">ئەسلىگە قايتۇرامدۇ؟</string>
   <string name="master_clear_title">زاۋۇت تەڭشىكىگە ئەسلىگە قايتۇر</string>
+  <string name="master_clear_accounts" product="default">\n\nنۆۋەتتە سىز تۆۋەندىكى ھېساباتقا تىزىمغا كىردىڭىز :\n</string>
+  <string name="master_clear_desc_also_erases_external"><li>"نەغمە"</li>\n<li>"سۈرەتلەر"</li>\n<li>"باشقا ئىشلەتكۈچى سانلىق مەلۇماتى"</li></string>
+  <string name="master_clear_desc_erase_external_storage" product="nosdcard">\n\nنەغمە، رەسىملەر ۋە باشقا ئىشلەتكۈچى سانلىق مەلۇماتىنى تازىلاشتا، \"<b>"USB ساقلىغۇچ"</b>\" نى تازىلىشىڭىز كېرەك.</string>
+  <string name="master_clear_desc_erase_external_storage" product="default">\n\nنەغمە، رەسىملەر ۋە باشقا ئىشلەتكۈچى سانلىق مەلۇماتىنى تازىلاشتا، \"<b>"SD كارتا"</b>\" نى تازىلىشىڭىز كېرەك.</string>
   <string name="erase_external_storage" product="nosdcard">بۇ USB ساقلىغۇچنى ئۆچۈرىدۇ</string>
   <string name="erase_external_storage" product="default">SD كارتىنى ئۆچۈر</string>
   <string name="erase_external_storage_description" product="nosdcard">ئىچىدىكى USB ساقلىغۇچتىكى نەغمە ياكى سۈرەتكە ئوخشاش ھەممە سانلىق مەلۇماتلارنى ئۆچۈرىدۇ</string>
@@ -1642,6 +1670,9 @@
   <string name="notification_pulse_title">ئۇقتۇرۇش چىرىغى ئەسكەرتىشى</string>
   <string name="lock_screen_notifications_interstitial_title">ئۇقتۇرۇشلار</string>
   <string name="manage_notification_access_summary_zero">ئەپلەر ئۇقتۇرۇشلارنى ئوقۇيالمىدى</string>
+  <plurals name="manage_notification_access_summary_nonzero">
+    <item quantity="other">%d ئەپ ئۇقتۇرۇشلارنى ئوقۇيالايدۇ</item>
+  </plurals>
   <string name="zen_mode_delete_rule_button">ئۆچۈر</string>
   <string name="zen_mode_rule_type_unknown">يوچۇن</string>
   <string name="zen_mode_event_rule_reply_yes">ھەئە</string>
@@ -1660,5 +1691,4 @@
   <string name="system_alert_window_off">ياق</string>
   <string name="write_settings_on">ھەئە</string>
   <string name="write_settings_off">ياق</string>
-  <string name="sim_enabler_will_disable_sim_title">دىققەت</string>
 </resources>

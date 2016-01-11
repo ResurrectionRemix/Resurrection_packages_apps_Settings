@@ -21,6 +21,10 @@
   <string name="allow">Permitir</string>
   <string name="deny">Refugar</string>
   <string name="device_info_default">Desconocíu</string>
+  <plurals name="show_dev_countdown">
+    <item quantity="one">Agora tas a <xliff:g id="step_count">%1$d</xliff:g> pasu de ser desendolcador.</item>
+    <item quantity="other">Agora tas a <xliff:g id="step_count">%1$d</xliff:g> pasos de ser desendolcador.</item>
+  </plurals>
   <string name="show_dev_on">¡Agora yes un desendolcador!</string>
   <string name="show_dev_already">Nun hai necesidá, yá yes un desendolcador.</string>
   <string name="header_category_wireless_networks">Conexones inalámbriques y redes</string>
@@ -352,6 +356,30 @@
   <string name="lockpassword_password_requires_alpha">La contraseña tien de tener polo menos una lletra.</string>
   <string name="lockpassword_password_requires_digit">La contraseña tien de tener polo menos un díxitu.</string>
   <string name="lockpassword_password_requires_symbol">La contraseña tien de tener polo menos un símbolu.</string>
+  <plurals name="lockpassword_password_requires_letters">
+    <item quantity="one">La contraseña tien de tener polo menos una lletra.</item>
+    <item quantity="other">La contraseña tien de tener polo menos %d lletres.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_lowercase">
+    <item quantity="one">La contraseña tien de tener polo menos una lletra minúscula.</item>
+    <item quantity="other">La contraseña tien de tener polo menos %d lletres minúscules.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_uppercase">
+    <item quantity="one">La contraseña tien de tener polo menos una lletra mayúscula.</item>
+    <item quantity="other">La contraseña tien de tener polo menos %d lletres mayúscules.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_numeric">
+    <item quantity="one">La contraseña tien de tener polo menos un díxitu numbéricu.</item>
+    <item quantity="other">La contraseña tien de tener polo menos %d díxitos numbéricos.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_symbols">
+    <item quantity="one">La contraseña tien de tener polo menos un símbolu especial.</item>
+    <item quantity="other">La contraseña tien de tener polo menos %d símbolos especiales.</item>
+  </plurals>
+  <plurals name="lockpassword_password_requires_nonletter">
+    <item quantity="one">La contraseña tien de tener polo menos un caráuter non alfabéticu.</item>
+    <item quantity="other">La contraseña tien de tener polo menos %d caráuteres non alfabéticos.</item>
+  </plurals>
   <string name="lockpassword_pin_no_sequential_digits">Nun se permiten una secuencia ascendente, descendente nin repitida de díxitos</string>
   <string name="lockpassword_ok_label">Aceutar</string>
   <string name="lockpassword_cancel_label">Encaboxar</string>
@@ -682,6 +710,10 @@
   <string name="sim_enter_cancel">Encaboxar</string>
   <string name="sim_multi_sims_title">Atopáronse delles SIM</string>
   <string name="wrong_pin_code_pukked">Códigu PIN de la tarxeta SIM incorreutu. Tienes de contautar col operador pa desbloquiar el preséu.</string>
+  <plurals name="wrong_pin_code">
+    <item quantity="one">Códigu PIN de la tarxeta SIM incorreutu. Queda <xliff:g id="NUMBER">%d</xliff:g> intentu pa tener que ponete en contautu col operador pa desbloquiar el preséu.</item>
+    <item quantity="other">Códigu PIN de la tarxeta SIM incorreutu. Queden <xliff:g id="NUMBER">%d</xliff:g> intentos.</item>
+  </plurals>
   <string name="pin_failed">Fallu al intentar desbloquiar la tarxeta SIM col códigu PIN</string>
   <string name="device_info_settings" product="tablet">Estáu de la tablet</string>
   <string name="device_info_settings" product="default">Estáu del teléfonu</string>
@@ -814,6 +846,10 @@
   <string name="reset_network_confirm_title">¿Restablecer?</string>
   <string name="device_reset_title">Resetiar preséu</string>
   <string name="master_clear_title">Reafitar datos de fábrica</string>
+  <string name="master_clear_accounts" product="default">\n\nAccedisti a les cuentes que s\'indiquen darréu:\n</string>
+  <string name="master_clear_desc_also_erases_external"><li>Música</li>\n<li>Semeyes</li>\n<li>Otros datos d\'usuariu</li></string>
+  <string name="master_clear_desc_erase_external_storage" product="nosdcard">\n\nPa llimpiar la música, les semeyes, y otros datos d\'usuariu, necesítase desaniciar l\'<b>almacenamientu USB </b>.</string>
+  <string name="master_clear_desc_erase_external_storage" product="default">\n\nPa llimpiar la música, les semeyes, y otros datos d\'usuariu, necesítase desaniciar la <b>tarxeta SD </b>.</string>
   <string name="erase_external_storage" product="nosdcard">Desaniciar almacenamientu USB</string>
   <string name="erase_external_storage" product="default">Desaniciar tarxeta SD</string>
   <string name="erase_external_storage_description" product="nosdcard">Desanicia tolos datos del almacenamientu USB internu, como la música o les semeyes.</string>
@@ -2024,6 +2060,10 @@
   <string name="emergency_tone_vibrate">Vibrar</string>
   <string name="manage_notification_access_title">Accesu a notificaciones</string>
   <string name="manage_notification_access_summary_zero">Les aplicaciones nun puen lleer notificaciones</string>
+  <plurals name="manage_notification_access_summary_nonzero">
+    <item quantity="one">%d aplicación pue lleer notificaciones.</item>
+    <item quantity="other">%d aplicaciones puen lleer notificaciones.</item>
+  </plurals>
   <string name="loading_notification_apps">Cargando apps...</string>
   <string name="app_notification_block_summary">Nunca nun amosar notificaciones d\'esta aplicación</string>
   <string name="app_notification_row_banned">Bloquiada</string>
@@ -2092,5 +2132,4 @@
   <string name="system_alert_window_off">Non</string>
   <string name="write_settings_on">Sí</string>
   <string name="write_settings_off">Non</string>
-  <string name="sim_enabler_will_disable_sim_title">Atención</string>
 </resources>
