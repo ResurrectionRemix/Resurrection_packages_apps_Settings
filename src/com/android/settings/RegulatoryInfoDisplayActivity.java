@@ -64,10 +64,10 @@ public class RegulatoryInfoDisplayActivity extends Activity implements
         if (resId != 0) {
             try {
                 Drawable d = getDrawable(resId);
-                // set to false if the width or height is <= 2
-                // (missing PNG can return an empty 2x2 pixel Drawable)
-                regulatoryInfoDrawableExists = (d.getIntrinsicWidth() > 2
-                        && d.getIntrinsicHeight() > 2);
+                // set to false if the width or height is <= 32
+                // (default PNG is a 1x1 pixel image scaled to the display density)
+                regulatoryInfoDrawableExists = (d.getIntrinsicWidth() > 32
+                        && d.getIntrinsicHeight() > 32);
             } catch (Resources.NotFoundException ignored) {
                 regulatoryInfoDrawableExists = false;
             }
