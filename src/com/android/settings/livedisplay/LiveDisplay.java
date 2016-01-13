@@ -42,7 +42,6 @@ import android.provider.Settings;
 import android.util.Log;
 
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -52,6 +51,7 @@ import com.android.settings.search.Indexable;
 import cyanogenmod.hardware.CMHardwareManager;
 import cyanogenmod.hardware.DisplayMode;
 import cyanogenmod.providers.CMSettings;
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -219,7 +219,7 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.DONT_TRACK_ME_BRO;
+        return CMMetricsLogger.LIVE_DISPLAY;
     }
 
     @Override
