@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 DarkKat
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-          http://www.apache.org/licenses/LICENSE-2.0
+<!-- Copyright (C) 2016 RR:
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,15 +12,65 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"	
     android:title="@string/notification_color_settings_title">
 
+
+    <PreferenceCategory
+        android:key="notification_cat_background"
+        android:title="@string/background_title">
+
+        <ListPreference
+            android:key="notification_media_bg_mode"
+            android:title="@string/notification_media_bg_mode_title"
+            android:entries="@array/notification_bg_mode_entries"
+            android:entryValues="@array/notification_color_mode_values" />
+
+        <ListPreference
+            android:key="notification_app_icon_bg_mode"
+            android:title="@string/notification_app_icon_bg_mode_title"
+            android:entries="@array/notification_bg_mode_entries"
+            android:entryValues="@array/notification_color_mode_values" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="notification_cat_icon"
+        android:title="@string/icon_title">
+
+    <ListPreference
+        android:key="notification_app_icon_color_mode"
+        android:title="@string/notification_app_icon_color_mode_title"
+        android:entries="@array/notification_icons_color_mode_entries"
+        android:entryValues="@array/notification_color_mode_values" />
+
+	</PreferenceCategory>
+
     <PreferenceCategory
         android:key="notification_cat_colors"
         android:title="@string/colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_bg_color"
+            android:title="@string/background_title"
+            android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_bg_guts_color"
+            android:title="@string/notification_bg_guts_color_title"
+            android:defaultValue="0xff384248" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_app_icon_bg_color"
+            android:title="@string/notification_app_icon_bg_color_title"
+            android:defaultValue="0xffe5e5e5" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_icon_color"
+            android:title="@string/icons_title"
+            android:defaultValue="0xff000000" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
            android:key="notification_drawer_clear_all_icon_color"
            android:title="@string/notification_drawer_clear_all_icon_color_title"
            android:defaultValue="0xffffffff" />
-
 
         <com.android.settings.rr.SeekBarPreference
             android:key="qs_transparent_shade"
@@ -36,4 +82,6 @@
             android:persistent="false" />
 
     </PreferenceCategory>
+    
+
 </PreferenceScreen>
