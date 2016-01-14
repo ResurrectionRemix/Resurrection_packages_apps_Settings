@@ -28,6 +28,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.util.Helpers;
+import org.cyanogenmod.internal.util.CmLockPatternUtils;
 
 import com.android.internal.logging.MetricsLogger;
 
@@ -39,17 +40,31 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment  impl
 private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
  private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
+ private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
 
     private SwitchPreference mForceExpanded;
     private SwitchPreference mCustomHeader;	
     private ListPreference mCustomHeaderDefault;
     private SwitchPreference mEnableTaskManager;
+    private SwitchPreference mBlockOnSecureKeyguard;
+    private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.notification_drawer_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
+	final CmLockPatternUtils lockPatternUtils = new CmLockPatternUtils(getActivity());
+
+            // Block QS on secure LockScreen
+            mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+            if (lockPatternUtils.isSecure(MY_USER_ID)) {
+                mBlockOnSecureKeyguard.setChecked(Settings.Secure.getIntForUser(resolver,
+                        Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1, UserHandle.USER_CURRENT) == 1);
+                mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
+           } else if (mBlockOnSecureKeyguard != null) {
+                prefSet.removePreference(mBlockOnSecureKeyguard);
+            }
 
 	mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
         mForceExpanded.setChecked((Settings.System.getInt(resolver, Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
@@ -106,7 +121,12 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
                     Settings.System.STATUS_BAR_CUSTOM_HEADER,
                     1);
             return true;
-         }
+         }else if (preference == mBlockOnSecureKeyguard) {
+                Settings.Secure.putInt(resolver,
+                        Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+                        (Boolean) newValue ? 1 : 0);
+                return true;
+	}
          return false;
 	}
 
