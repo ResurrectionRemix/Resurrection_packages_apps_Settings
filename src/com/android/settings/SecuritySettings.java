@@ -99,8 +99,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     private static final String KEY_LOCKSCREEN_ENABLED_INTERNAL = "lockscreen_enabled_internally";
 
-    private static final String KEY_LOCKSCREEN_ENABLED_INTERNAL = "lockscreen_enabled_internally";
-
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CHANGE_TRUST_AGENT_SETTINGS = 126;
 
