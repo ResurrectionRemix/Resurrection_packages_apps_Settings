@@ -4,40 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="@string/display_order_text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:id="@+id/typeSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/usage_stats_display_order_types" />
-
     <LinearLayout
-        android:orientation="horizontal"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        android:background="@*android:color/material_grey_300"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" > 
+        android:layout_height="?android:attr/actionBarSize">
         <TextView
-            android:text="@string/app_name_label"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:paddingEnd="6dip"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text="@string/last_time_used_label"
-            android:paddingEnd="6dip"
+            android:layout_marginStart="11dp"
+            android:text="@string/display_order_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView
-            android:text="@string/usage_time_label"
+
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:entries="@array/usage_stats_display_order_types" />
     </LinearLayout>
+
     <ListView android:id="@+id/pkg_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
