@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.Build;
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
@@ -72,6 +73,8 @@ private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
 private SwitchPreference mSelinux;
 private ListPreference mMSOB;
+private FingerprintManager mFingerprintManager;
+private SwitchPreference mFingerprintVib;
 
 private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
@@ -81,6 +84,7 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
         addPreferencesFromResource(R.xml.rr_misc);
 	  final ContentResolver resolver = getActivity().getContentResolver();
+          final PreferenceScreen prefScreen = getPreferenceScreen();
         mEnableMultiWindow = (SwitchPreference) findPreference(ENABLE_MULTI_WINDOW_KEY);
 	mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
 
@@ -100,8 +104,14 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
         mAllPrefs.add(mMSOB);
         mMSOB.setOnPreferenceChangeListener(this);
         updateMSOBOptions();
-
-	}
+	
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintVib = (SwitchPreference) prefScreen.findPreference("fingerprint_success_vib");
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(mFingerprintVib);
+        }
+     }
+        
   private static boolean showEnableMultiWindowPreference() {
         return !"user".equals(Build.TYPE);
     }
