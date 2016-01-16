@@ -105,7 +105,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
 
         mStatusBarCarrierSize = (SeekBarPreference) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
         mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 14));
+                Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 10));
         mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
 
 
