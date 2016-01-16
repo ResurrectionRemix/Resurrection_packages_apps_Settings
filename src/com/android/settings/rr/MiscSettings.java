@@ -35,6 +35,9 @@ import android.preference.ListPreference;
 import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 import android.preference.SwitchPreference;
 import com.android.settings.util.Helpers;
 import dalvik.system.VMRuntime;
@@ -55,11 +58,12 @@ import java.util.List;
 
 import com.android.internal.logging.MetricsLogger;
 
-public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener{
+public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
 
+private static final String TAG = "MiscSettings";
 private static final String ENABLE_MULTI_WINDOW_KEY = "enable_multi_window";
 private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.multi_window";
- private static final String RESTART_SYSTEMUI = "restart_systemui";
+private static final String RESTART_SYSTEMUI = "restart_systemui";
 private static final String SELINUX = "selinux";
 private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 
@@ -169,5 +173,26 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
         mMSOB.setValue(String.valueOf(value));
         mMSOB.setSummary(mMSOB.getEntry());
      }
+   public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                   sir.xmlResId = R.xml.rr_misc;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    return keys;
+                }
+        };
 }
 

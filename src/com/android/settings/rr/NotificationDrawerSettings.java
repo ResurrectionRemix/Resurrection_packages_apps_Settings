@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2014 The CyanogenMod Project
+* Copyright (C) 2016 RR
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.android.settings.cyanogenmod;
+package com.android.settings.rr;
 
 
 import android.content.ContentResolver;
@@ -29,13 +29,20 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.util.Helpers;
 import org.cyanogenmod.internal.util.CmLockPatternUtils;
+import com.android.settings.Utils;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
 import com.android.internal.logging.MetricsLogger;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener{
+import java.util.List;
+import java.util.ArrayList;
+
+public class NotificationDrawerSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener, Indexable{
     private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
 private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
@@ -146,6 +153,26 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
+   public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
 
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                   sir.xmlResId = R.xml.notification_drawer_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    return keys;
+                }
+        };
 }
 

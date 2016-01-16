@@ -16,21 +16,28 @@
 
 package com.android.settings.rr;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import com.android.internal.logging.MetricsLogger;
 
-public class MainSettings extends SettingsPreferenceFragment {
+public class MainSettings extends SettingsPreferenceFragment  implements Indexable {
+
+private static final String TAG = "MainSettings";	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,4 +50,25 @@ public class MainSettings extends SettingsPreferenceFragment {
     {
 	return MetricsLogger.APPLICATION;
     }
+   public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                   sir.xmlResId = R.xml.rr_main_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    return keys;
+                }
+        };
 }

@@ -36,6 +36,8 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.preference.PreferenceScreen;
@@ -65,7 +67,7 @@ import cyanogenmod.providers.CMSettings;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class ClockSettings extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+        implements OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "ClockSettings";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
@@ -430,6 +432,28 @@ private void enableStatusBarClockDependents() {
         public void onCancel(DialogInterface dialog) {
 
         	}
+        };
+
+   public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                   sir.xmlResId = R.xml.rr_clock;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    return keys;
+                }
         };
 }
 

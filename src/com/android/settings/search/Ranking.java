@@ -50,6 +50,12 @@ import com.android.settings.notification.ZenModeAutomationSettings;
 import com.android.settings.notification.ZenModePrioritySettings;
 import com.android.settings.notification.ZenModeSettings;
 import com.android.settings.print.PrintSettingsFragment;
+import com.android.settings.rr.LockScreenSettings;
+import com.android.settings.rr.MiscSettings;
+import com.android.settings.rr.animation.AnimationSettings;
+import com.android.settings.rr.RecentsSettings;
+import com.android.settings.rr.ClockSettings;
+import com.android.settings.rr.NotificationDrawerSettings;
 import com.android.settings.sim.SimSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
@@ -88,6 +94,12 @@ public final class Ranking {
     public static final int RANK_RR = 23;
     public static final int RANK_BUTTONS = 24;
     public static final int RANK_STATUSBAR = 25;
+    public static final int RANK_RR_LOCKSCREEN = 26;
+    public static final int RANK_RR_MISC = 27;
+    public static final int RANK_RR_ANIMATION = 28;
+    public static final int RANK_RR_RECENTS = 29;
+    public static final int RANK_RR_CLOCK = 30;
+    public static final int RANK_RR_NF = 31;
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
     public static final int BASE_RANK_DEFAULT = 2048;
@@ -186,7 +198,27 @@ public final class Ranking {
 
         // Statusbar settings
         sRankMap.put(StatusBarSettings.class.getName(), RANK_STATUSBAR);
+	
 
+        // RR Lockscreen Settings
+        sRankMap.put(LockScreenSettings.class.getName(), RANK_RR_LOCKSCREEN);
+
+        // Misc Settings
+        sRankMap.put(MiscSettings.class.getName(), RANK_RR_MISC);
+	
+        // Animation Settings
+        sRankMap.put(AnimationSettings.class.getName(), RANK_RR_ANIMATION);
+
+        // Recent settings
+        sRankMap.put(RecentsSettings.class.getName(), RANK_RR_RECENTS);
+	
+        // Clock settings
+        sRankMap.put(ClockSettings.class.getName(), RANK_RR_CLOCK);
+
+	
+        // Clock settings
+        sRankMap.put(NotificationDrawerSettings.class.getName(), RANK_RR_NF);
+	
         sBaseRankMap.put("com.android.settings", 0);
     }
 
