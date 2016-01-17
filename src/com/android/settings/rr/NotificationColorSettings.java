@@ -31,6 +31,7 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import com.android.settings.rr.SeekBarPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -43,6 +44,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
     private static final String PREF_CLEAR_ALL_ICON_COLOR =
             "notification_drawer_clear_all_icon_color";
+    private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 
     private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
@@ -53,6 +55,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mClearAllIconColor;
 
     private ContentResolver mResolver;
+    private SeekBarPreference mQSShadeAlpha;	
 
     @Override
     protected int getMetricsCategory() {
@@ -88,6 +91,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mClearAllIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
+
+	// QS shade alpha
+        mQSShadeAlpha =
+                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
+        int qSShadeAlpha = Settings.System.getInt(resolver,
+                Settings.System.QS_TRANSPARENT_SHADE, 255);
+        mQSShadeAlpha.setValue(qSShadeAlpha / 1);
+        mQSShadeAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -121,7 +132,12 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 Settings.System.NOTIFICATION_DRAWER_CLEAR_ALL_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        }
+        } else if (preference == mQSShadeAlpha) {
+            int alpha = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
+            return true;
+	}
         return false;
     }
 

@@ -13,6 +13,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"	
     android:title="@string/notification_color_settings_title">
 
     <PreferenceCategory
@@ -23,6 +24,16 @@
            android:key="notification_drawer_clear_all_icon_color"
            android:title="@string/notification_drawer_clear_all_icon_color_title"
            android:defaultValue="0xffffffff" />
+
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="qs_transparent_shade"
+            android:title="@string/qs_transparent_shade"
+            android:max="255"
+            settings:minimum="0"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:persistent="false" />
 
     </PreferenceCategory>
 </PreferenceScreen>
