@@ -20,6 +20,7 @@ package com.android.settings.rr;
 import com.android.internal.logging.MetricsLogger;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.ContentResolver;
 import android.app.WallpaperManager;
 import android.content.Intent;
@@ -34,11 +35,20 @@ import com.android.settings.rr.SeekBarPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.preference.SwitchPreference;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
+import java.util.List;
+import java.util.ArrayList;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
+public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
+
+    private static final String TAG = "LockScreenSettings"; 
+
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";	
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";	
@@ -101,4 +111,26 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
         	}
 	return false;
 	}
+
+     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                   sir.xmlResId = R.xml.rr_lockscreen;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    return keys;
+                }
+        };
 }	

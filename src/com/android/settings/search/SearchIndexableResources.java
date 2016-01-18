@@ -18,6 +18,7 @@ package com.android.settings.search;
 
 import android.provider.SearchIndexableResource;
 
+import com.android.settings.ButtonSettings;
 import com.android.settings.DataUsageSummary;
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DevelopmentSettings;
@@ -37,6 +38,7 @@ import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.applications.AdvancedAppSettings;
 import com.android.settings.applications.ManageDefaultApps;
 import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.cyanogenmod.StatusBarSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
@@ -49,6 +51,12 @@ import com.android.settings.notification.SoundSettings;
 import com.android.settings.notification.ZenModePrioritySettings;
 import com.android.settings.notification.ZenModeSettings;
 import com.android.settings.print.PrintSettingsFragment;
+import com.android.settings.rr.LockScreenSettings;
+import com.android.settings.rr.MiscSettings;
+import com.android.settings.rr.animation.AnimationSettings;
+import com.android.settings.rr.RecentsSettings;
+import com.android.settings.rr.ClockSettings;
+import com.android.settings.rr.NotificationDrawerSettings;
 import com.android.settings.sim.SimSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
@@ -315,6 +323,62 @@ public final class SearchIndexableResources {
                         R.xml.wifi_calling_settings,
                         WifiCallingSettings.class.getName(),
                         R.drawable.ic_settings_wireless));
+
+        sResMap.put(ButtonSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(ButtonSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        ButtonSettings.class.getName(),
+                        R.drawable.ic_settings_buttons));
+
+        sResMap.put(StatusBarSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(StatusBarSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        StatusBarSettings.class.getName(),
+                        R.drawable.ic_settings_extdesk_hidenavbar));
+
+        sResMap.put(LockScreenSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(LockScreenSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        LockScreenSettings.class.getName(),
+                        R.drawable.rr_lock_icon));
+
+        sResMap.put(MiscSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(MiscSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        MiscSettings.class.getName(),
+                        R.drawable.rr_misc_icon));
+
+        sResMap.put(AnimationSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(AnimationSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        AnimationSettings.class.getName(),
+                        R.drawable.rr_animations_icon));
+
+        sResMap.put(RecentsSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(RecentsSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        RecentsSettings.class.getName(),
+                        R.drawable.rr_recents_icon));
+
+       sResMap.put(ClockSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(ClockSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        ClockSettings.class.getName(),
+                        R.drawable.ic_settings_date_time_alpha));
+
+       sResMap.put(NotificationDrawerSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(NotificationDrawerSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        NotificationDrawerSettings.class.getName(),
+                        R.drawable.rr_notification_drawer_icon));
     }
 
     private SearchIndexableResources() {

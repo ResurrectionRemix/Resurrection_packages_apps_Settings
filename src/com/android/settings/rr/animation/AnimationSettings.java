@@ -29,6 +29,9 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 import android.view.View;
 import android.widget.Toast;
 
@@ -43,7 +46,9 @@ import java.util.HashSet;
 import java.util.List;
 
 public class AnimationSettings extends SettingsPreferenceFragment
-            implements OnPreferenceChangeListener {
+            implements OnPreferenceChangeListener, Indexable {
+
+    private static final String TAG = "AnimationSettings";
 
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
@@ -151,4 +156,25 @@ public class AnimationSettings extends SettingsPreferenceFragment
         }
         return false;
     }
+   public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                   sir.xmlResId = R.xml.animation_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = new ArrayList<String>();
+                    return keys;
+                }
+        };
 }
