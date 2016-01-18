@@ -111,28 +111,11 @@
 	android:fragment="com.android.settings.rr.StatusBarWeather"
         android:title="@string/status_bar_temperature_title" />
 
-
-
      </PreferenceCategory>
 
     <PreferenceCategory
         android:key="misc"
         android:title="@string/misc_category" >
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="show_su_indicator"
-        android:title="@string/su_indicator"
-        android:summaryOn="@string/su_indicator_summary_on"
-        android:summaryOff="@string/su_indicator_summary_off"
-        android:defaultValue="true" />
-
-        <SwitchPreference
-            android:key="show_fourg"
-            android:title="@string/show_fourg_title"
-            android:summary="@string/show_fourg_summary"
-            android:defaultValue="false" />
-
-    </PreferenceCategory>
 
 
      <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
@@ -152,6 +135,21 @@
                 android:title="@string/double_tap_to_sleep_title"
                 android:summary="@string/double_tap_to_sleep_summary"
                 android:defaultValue="true" />
+
+
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="show_su_indicator"
+        android:title="@string/su_indicator"
+        android:summaryOn="@string/su_indicator_summary_on"
+        android:summaryOff="@string/su_indicator_summary_off"
+        android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="show_fourg"
+            android:title="@string/show_fourg_title"
+            android:summary="@string/show_fourg_summary"
+            android:defaultValue="false" />
 
      </PreferenceCategory>
 

@@ -127,6 +127,25 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_CAMERA_SOUND:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.attention)
+                    .setMessage(R.string.camera_sound_warning_dialog_text)
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            SystemProperties.set(PROP_CAMERA_SOUND, "0");
+                        }
+                    })
+                    .setNegativeButton(R.string.dlg_cancel,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+                    .create();
+
                 case DLG_SAFE_HEADSET_VOLUME:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.attention)
@@ -137,24 +156,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().getContentResolver(),
                                     Settings.System.SAFE_HEADSET_VOLUME, 0);
 
-                        }
-                    })
-                    .setNegativeButton(R.string.dlg_cancel,
-                        new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    })
-                    .create();
-            switch (id) {
-                case DLG_CAMERA_SOUND:
-                    return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.attention)
-                    .setMessage(R.string.camera_sound_warning_dialog_text)
-                    .setPositiveButton(R.string.dlg_ok,
-                        new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            SystemProperties.set(PROP_CAMERA_SOUND, "0");
                         }
                     })
                     .setNegativeButton(R.string.dlg_cancel,

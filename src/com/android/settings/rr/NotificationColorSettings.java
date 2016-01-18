@@ -94,8 +94,8 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
 	// QS shade alpha
         mQSShadeAlpha =
-                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
-        int qSShadeAlpha = Settings.System.getInt(resolver,
+                (SeekBarPreference) findPreference(PREF_QS_TRANSPARENT_SHADE);
+        int qSShadeAlpha = Settings.System.getInt(mResolver,
                 Settings.System.QS_TRANSPARENT_SHADE, 255);
         mQSShadeAlpha.setValue(qSShadeAlpha / 1);
         mQSShadeAlpha.setOnPreferenceChangeListener(this);
@@ -134,7 +134,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             return true;
         } else if (preference == mQSShadeAlpha) {
             int alpha = (Integer) newValue;
-            Settings.System.putInt(resolver,
+            Settings.System.putInt(mResolver,
                     Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
             return true;
 	}
