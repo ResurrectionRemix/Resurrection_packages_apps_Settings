@@ -79,16 +79,6 @@
             android:icon="@drawable/rr_misc_icon" 
             />
 
-        <PreferenceScreen
-            android:key="systemuituner"
-            android:title="@string/rr_systemuituner"
-            android:icon="@drawable/rr_ui_tuner_icon" >
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.TunerActivity" />
-       </PreferenceScreen>
-
        <!-- Updater -->
         <PreferenceScreen
                 android:key="update_settings"
