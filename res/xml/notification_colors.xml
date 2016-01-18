@@ -29,16 +29,13 @@
             android:entryValues="@array/notification_color_mode_values"
 	    android:dependency="notif_color_switch"/>
 
-        <ListPreference
-            android:key="notification_app_icon_bg_mode"
-            android:title="@string/notification_app_icon_bg_mode_title"
-            android:entries="@array/notification_bg_mode_entries"
-            android:entryValues="@array/notification_color_mode_values" 
-	    android:dependency="notif_color_switch"/>
+</PreferenceCategory>
 
-	</PreferenceCategory>
 
-    <PreferenceCategory
+
+	
+
+    <!--PreferenceCategory
         android:key="notification_cat_icon"
         android:title="@string/icon_title">
 
@@ -49,7 +46,14 @@
         android:entryValues="@array/notification_color_mode_values" 
 	android:dependency="notif_color_switch"  />
 
-	</PreferenceCategory>
+        <ListPreference
+            android:key="notification_app_icon_bg_mode"
+            android:title="@string/notification_app_icon_bg_mode_title"
+            android:entries="@array/notification_bg_mode_entries"
+            android:entryValues="@array/notification_color_mode_values" 
+	    android:dependency="notif_color_switch"/>
+
+	</PreferenceCategory-->
 
     <PreferenceCategory
         android:key="notification_cat_colors"
@@ -67,7 +71,7 @@
             android:defaultValue="0xff384248" 
 	    android:dependency="notif_color_switch"  />
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
+         <!--net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notification_app_icon_bg_color"
             android:title="@string/notification_app_icon_bg_color_title"
             android:defaultValue="0xffe5e5e5" 
@@ -77,7 +81,7 @@
             android:key="notification_icon_color"
             android:title="@string/icons_title"
             android:defaultValue="0xff000000" 
-	    android:dependency="notif_color_switch"  />
+	    android:dependency="notif_color_switch"  /-->
 
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
@@ -94,8 +98,7 @@
             settings:minimum="0"
             settings:unitsLeft=""
             settings:unitsRight=""
-            android:persistent="false" 
-	    android:dependency="notif_color_switch"  />
+            android:persistent="false" />
 
     </PreferenceCategory>
     
