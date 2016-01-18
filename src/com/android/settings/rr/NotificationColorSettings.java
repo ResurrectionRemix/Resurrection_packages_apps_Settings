@@ -185,6 +185,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
+	// QS shade alpha
+        mQSShadeAlpha =
+                (SeekBarPreference) findPreference(PREF_QS_TRANSPARENT_SHADE);
+        int qSShadeAlpha = Settings.System.getInt(mResolver,
+                Settings.System.QS_TRANSPARENT_SHADE, 255);
+        mQSShadeAlpha.setValue(qSShadeAlpha / 1);
+        mQSShadeAlpha.setOnPreferenceChangeListener(this);
+
         mClearAllIconColor =
                 (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
