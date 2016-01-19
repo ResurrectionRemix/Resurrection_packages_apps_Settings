@@ -39,11 +39,11 @@
             android:entryValues="@array/custom_header_values"
             android:persistent="false" />
 
-      <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
-        android:key="qs_quick_pulldown"
-        android:title="@string/status_bar_quick_qs_pulldown_title"
-        android:summary="@string/status_bar_quick_qs_pulldown_summary"
-        android:defaultValue="true" />
+       <ListPreference
+            android:key="qs_quick_pulldown"
+            android:title="@string/status_bar_quick_qs_pulldown_title"
+            android:entries="@array/status_bar_quick_qs_pulldown_entries"
+            android:entryValues="@array/status_bar_quick_qs_pulldown_values" />
 
 
     <SwitchPreference
