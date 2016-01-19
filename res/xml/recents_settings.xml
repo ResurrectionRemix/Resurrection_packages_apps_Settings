@@ -66,26 +66,28 @@
             android:defaultValue="3"
             android:dependency="show_clear_all_recents" />
 
-       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-	    android:key="recents_full_screen"
-            android:title="@string/recents_show_fullscreen"
-            android:summaryOn="@string/recents_fullscreen_summary_enabled"
-            android:summaryOff="@string/recents_fullscreen_summary_disabled"
-            android:defaultValue="false" />
+        <ListPreference
+            android:key="immersive_recents"
+            android:title="@string/immersive_recents_title"
+            android:dialogTitle="@string/immersive_recents_dialog_title"
+            android:entries="@array/immersive_recents_entries"
+            android:entryValues="@array/immersive_recents_values"
+            android:summary="@string/power_menu_animation_summary"
+            android:persistent="false" />
 
-       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="recents_full_screen_clock"
-        android:title="@string/recents_full_screen_clock_title"
-        android:summary="@string/recents_full_screen_clock_summary"
-        android:defaultValue="false"
-        android:dependency="recents_full_screen" />
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_full_screen_clock"
+            android:title="@string/recents_full_screen_clock_title"
+            android:summary="@string/recents_full_screen_clock_summary"
+            android:defaultValue="false"
+            android:dependency="immersive_recents" />
 
-      <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="recents_full_screen_date"
-        android:title="@string/recents_full_screen_date_title"
-        android:summary="@string/recents_full_screen_date_summary"
-        android:defaultValue="false"
-        android:dependency="recents_full_screen" />
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_full_screen_date"
+            android:title="@string/recents_full_screen_date_title"
+            android:summary="@string/recents_full_screen_date_summary"
+            android:defaultValue="false"
+            android:dependency="immersive_recents" />
 
     </PreferenceCategory>
     <PreferenceCategory
