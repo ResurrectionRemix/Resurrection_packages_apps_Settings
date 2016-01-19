@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2016 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -30,4 +31,12 @@
             android:key="automation_settings"
             android:title="@string/zen_mode_automation_settings_title"
             android:fragment="com.android.settings.notification.ZenModeAutomationSettings" />
+
+    <!-- Do Not Disturb access -->
+    <Preference
+            android:key="manage_zen_access"
+            android:title="@string/manage_zen_access_title"
+            android:persistent="false"
+            android:fragment="com.android.settings.notification.ZenAccessSettings" />
+
 </PreferenceScreen>

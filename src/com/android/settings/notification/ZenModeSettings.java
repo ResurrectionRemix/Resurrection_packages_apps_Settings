@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +37,10 @@ import java.util.List;
 public class ZenModeSettings extends ZenModeSettingsBase implements Indexable {
     private static final String KEY_PRIORITY_SETTINGS = "priority_settings";
     private static final String KEY_AUTOMATION_SETTINGS = "automation_settings";
+    private static final String KEY_ZEN_ACCESS = "manage_zen_access";
 
     private Preference mPrioritySettings;
+    private Preference mZenAccess;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,12 +53,16 @@ public class ZenModeSettings extends ZenModeSettingsBase implements Indexable {
         if (!isScheduleSupported(mContext)) {
             removePreference(KEY_AUTOMATION_SETTINGS);
         }
+
+        mZenAccess = findPreference(KEY_ZEN_ACCESS);
+        refreshZenAccess();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         updateControls();
+        refreshZenAccess();
     }
 
     @Override
@@ -136,4 +143,10 @@ public class ZenModeSettings extends ZenModeSettingsBase implements Indexable {
                 return rt;
             }
         };
+
+    // === Zen access ===
+
+    private void refreshZenAccess() {
+        // noop for now
+    }
 }

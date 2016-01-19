@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2015 The CyanogenMod Project
+     Copyright (C) 2015-2016 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -30,13 +30,6 @@
             android:title="@string/zen_mode_settings_title"
             settings:keywords="@string/keywords_sounds_and_notifications_interruptions"
             android:fragment="com.android.settings.notification.ZenModeSettings" />
-
-    <!-- Do Not Disturb access -->
-    <Preference
-            android:key="manage_zen_access"
-            android:title="@string/manage_zen_access_title"
-            android:persistent="false"
-            android:fragment="com.android.settings.notification.ZenAccessSettings" />
 
     <!-- When device is locked -->
     <com.android.settings.DropDownPreference

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -91,7 +92,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private static final String KEY_INCREASING_RING_VOLUME = "increasing_ring_volume";
     private static final String KEY_VIBRATION_INTENSITY = "vibration_intensity";
     private static final String KEY_VIBRATE_ON_TOUCH = "vibrate_on_touch";
-    private static final String KEY_ZEN_ACCESS = "manage_zen_access";
     private static final String KEY_ZEN_MODE = "zen_mode";
     private static final String KEY_VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
@@ -100,7 +100,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         KEY_ALARM_VOLUME,
         KEY_RING_VOLUME,
         KEY_NOTIFICATION_VOLUME,
-        KEY_ZEN_ACCESS,
         KEY_ZEN_MODE,
     };
 
@@ -136,7 +135,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private Preference mNotificationRingtonePreference;
     private TwoStatePreference mVibrateWhenRinging;
     private Preference mNotificationAccess;
-    private Preference mZenAccess;
     private boolean mSecure;
     private int mLockscreenSelectedValue;
     private ComponentName mSuppressor;
@@ -192,8 +190,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
         refreshNotificationListeners();
-        mZenAccess = findPreference(KEY_ZEN_ACCESS);
-        refreshZenAccess();
         updateRingerMode();
         updateEffectsSuppressor();
     }
@@ -202,7 +198,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     public void onResume() {
         super.onResume();
         refreshNotificationListeners();
-        refreshZenAccess();
         lookupRingtoneNames();
         updateNotificationPreferenceState();
         mSettingsObserver.register(true);
@@ -542,12 +537,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                         n, n)));
             }
         }
-    }
-
-    // === Zen access ===
-
-    private void refreshZenAccess() {
-        // noop for now
     }
 
     // === Callbacks ===
