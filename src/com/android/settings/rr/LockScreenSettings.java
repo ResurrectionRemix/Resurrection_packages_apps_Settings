@@ -51,11 +51,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
 
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";	
-    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";	
-
+    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+    private static final String KEYGUARD_TOGGLE_TORCH = "keyguard_toggle_torch";
+	
     private SeekBarPreference mBlurRadius;
     private ListPreference mLockClockFonts;
-    private SeekBarPreference mMaxKeyguardNotifConfig;	
+    private SeekBarPreference mMaxKeyguardNotifConfig;
+    private SwitchPreference mKeyguardTorch;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
