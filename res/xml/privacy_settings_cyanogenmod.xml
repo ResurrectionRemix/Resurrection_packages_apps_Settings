@@ -29,4 +29,14 @@
             android:summary="@string/blacklist_summary"
             android:fragment="com.android.settings.blacklist.BlacklistSettings" />
 
+        <!-- Protected Apps! -->
+        <Preference
+            android:key="protected_apps_manager"
+            android:title="@string/protected_apps"
+            android:summary="@string/protected_apps_summary">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.applications.ProtectedAppsActivity" />
+        </Preference>
 </PreferenceScreen>

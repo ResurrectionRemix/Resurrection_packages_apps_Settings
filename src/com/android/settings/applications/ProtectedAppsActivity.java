@@ -70,12 +70,21 @@ public class ProtectedAppsActivity extends Activity {
 
     private boolean mWaitUserAuth = false;
     private boolean mUserIsAuth = false;
+    private Intent mTargetIntent;
 
     private HashSet<ComponentName> mProtectedApps = new HashSet<ComponentName>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Handle incoming target activity
+        Intent incomingIntent = getIntent();
+        if (incomingIntent.hasExtra("com.android.settings.PROTECTED_APP_TARGET_INTENT")) {
+            mTargetIntent =
+                    incomingIntent.getParcelableExtra(
+                            "com.android.settings.PROTECTED_APP_TARGET_INTENT");
+        }
 
         setTitle(R.string.protected_apps);
         setContentView(R.layout.hidden_apps_list);
@@ -97,6 +106,11 @@ public class ProtectedAppsActivity extends Activity {
             // Require unlock
             Intent lockPattern = new Intent(this, LockPatternActivity.class);
             startActivityForResult(lockPattern, REQ_ENTER_PATTERN);
+        } else {
+            //LAUNCH
+            if (mTargetIntent != null) {
+                launchTargetActivityInfoAndFinish();
+            }
         }
     }
 
@@ -169,6 +183,9 @@ public class ProtectedAppsActivity extends Activity {
                     case RESULT_OK:
                         //Nothing to do, proceed!
                         mUserIsAuth = true;
+                        if (mTargetIntent != null) {
+                            launchTargetActivityInfoAndFinish();
+                        }
                         break;
                     case RESULT_CANCELED:
                         // user failed to define a pattern, do not lock the folder
@@ -180,6 +197,12 @@ public class ProtectedAppsActivity extends Activity {
                 mWaitUserAuth = true;
                 mUserIsAuth = false;
         }
+    }
+
+    private void launchTargetActivityInfoAndFinish() {
+        Intent launchIntent = mTargetIntent;
+        startActivity(launchIntent);
+        finish();
     }
 
     @Override
