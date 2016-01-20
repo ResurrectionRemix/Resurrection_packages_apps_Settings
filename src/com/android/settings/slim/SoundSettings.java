@@ -47,9 +47,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String PROP_CAMERA_SOUND = "persist.sys.camera-sound";
 
     private static final String KEY_SAFE_HEADSET_VOLUME = "safe_headset_volume";
+    private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
 
     private SwitchPreference mSafeHeadsetVolume;
     private SwitchPreference mCameraSounds;
+    private ListPreference mAnnoyingNotifications;
 
     @Override
     protected int getMetricsCategory() {
@@ -71,6 +73,14 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mCameraSounds = (SwitchPreference) findPreference(KEY_CAMERA_SOUNDS);
         mCameraSounds.setChecked(SystemProperties.getBoolean(PROP_CAMERA_SOUND, true));
         mCameraSounds.setOnPreferenceChangeListener(this);
+
+
+        mAnnoyingNotifications = (ListPreference) findPreference(PREF_LESS_NOTIFICATION_SOUNDS);
+        int notificationThreshold = Settings.System.getInt(getContentResolver(),
+                Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD,
+                0);
+        mAnnoyingNotifications.setValue(Integer.toString(notificationThreshold));
+        mAnnoyingNotifications.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -100,6 +110,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
            } else {
                showDialogInner(DLG_CAMERA_SOUND);
            }
+        }
+  	if (PREF_LESS_NOTIFICATION_SOUNDS.equals(key)) {
+            final int val = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, val);
         }
         return true;
     }
