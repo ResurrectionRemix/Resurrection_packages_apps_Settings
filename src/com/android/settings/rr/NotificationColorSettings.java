@@ -221,7 +221,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
         if (preference == mMediaBgMode) {
             int mediaBgMode = Integer.valueOf((String) newValue);
-            int index = mAppIconColorMode.findIndexOfValue((String) newValue);
+            int index = mMediaBgMode.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                 Settings.System.NOTIFICATION_MEDIA_BG_MODE, mediaBgMode);
             preference.setSummary(mMediaBgMode.getEntries()[index]);
