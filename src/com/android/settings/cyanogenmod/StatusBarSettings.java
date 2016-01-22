@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -70,10 +71,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
   
     private static final String SHOW_FOURG = "show_fourg";
     private SwitchPreference mShowFourG;
-
-
+    private SwitchPreference mMissedCallBreath;
+    private SwitchPreference mVoicemailBreath;
+    
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
@@ -102,7 +106,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.status_bar_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
+        ContentResolver resolver = getActivity().getContentResolver(); 
+        Context context = getActivity();
 
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
@@ -120,6 +125,26 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mShowFourG.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_FOURG, 0) == 1));
         }
+
+         mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
+         mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
+
+         ConnectivityManager cm = (ConnectivityManager)
+                   context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+         if (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
+
+             mMissedCallBreath.setChecked(Settings.System.getInt(resolver,
+                     Settings.System.KEY_MISSED_CALL_BREATH, 0) == 1);
+             mMissedCallBreath.setOnPreferenceChangeListener(this);
+
+             mVoicemailBreath.setChecked(Settings.System.getInt(resolver,
+                     Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
+             mVoicemailBreath.setOnPreferenceChangeListener(this);
+         } else {
+             prefSet.removePreference(mMissedCallBreath);
+             prefSet.removePreference(mVoicemailBreath);
+         }
 
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBatteryShowPercent =
@@ -169,9 +194,19 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     resolver, CMSettings.System.STATUS_BAR_BATTERY_STYLE, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
             enableStatusBarBatteryDependents(batteryStyle);
-            return true;    
-		}
-		else if (preference == mStatusBarBatteryShowPercent) {
+            return true;
+        }   
+        else if (preference == mMissedCallBreath) {
+             boolean value = (Boolean) newValue;
+             Settings.System.putInt(resolver, Settings.System.KEY_MISSED_CALL_BREATH, value ? 1 : 0);
+             return true;
+        }
+        else if (preference == mVoicemailBreath) {
+          boolean value = (Boolean) newValue;
+          Settings.System.putInt(resolver, Settings.System.KEY_VOICEMAIL_BREATH, value ? 1 : 0);
+          return true;
+        }
+        else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
             int index = mStatusBarBatteryShowPercent.findIndexOfValue((String) newValue);
             CMSettings.System.putInt(
@@ -226,5 +261,4 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 }
             };
 }
-
 

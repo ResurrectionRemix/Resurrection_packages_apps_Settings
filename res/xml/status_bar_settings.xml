@@ -94,7 +94,7 @@
         android:summary="@string/show_headset_icon_summary"
         android:defaultValue="true" />
 
-     </PreferenceCategory>
+      </PreferenceCategory>
 
     <PreferenceCategory
         android:key="weather"
@@ -152,6 +152,22 @@
             android:defaultValue="false" />
 
      </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="breathing_notifications_category"
+        android:title="@string/breathing_notifications_category" />
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="missed_call_breath"
+        android:title="@string/missed_call_breath_title"
+        android:summary="@string/missed_call_breath_summary"
+        android:persistent="false"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="voicemail_breath"
+        android:title="@string/voicemail_breath_title"
+        android:summary="@string/voicemail_breath_summary"
+        android:persistent="false"/>
 
 </PreferenceScreen>
 
