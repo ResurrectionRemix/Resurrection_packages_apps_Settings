@@ -38,6 +38,18 @@
                   android:paddingTop="20dp"
                   android:text="@string/lockpattern_recording_intro_header"/>
 
+        <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
+        <ImageView
+                android:id="@+id/protected_apps_fingerprint_icon"
+                android:src="@drawable/ic_fingerprint_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
         <!-- footer can show a message, or confirm / restart buttons -->
         <RelativeLayout
                 android:layout_width="match_parent"

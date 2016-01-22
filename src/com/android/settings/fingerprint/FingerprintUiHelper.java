@@ -18,6 +18,7 @@ package com.android.settings.fingerprint;
 
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,11 +39,15 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
     private Callback mCallback;
     private FingerprintManager mFingerprintManager;
 
+    private boolean mDark;
+    private String mIdleText;
+
     public FingerprintUiHelper(ImageView icon, TextView errorTextView, Callback callback) {
         mFingerprintManager = icon.getContext().getSystemService(FingerprintManager.class);
         mIcon = icon;
         mErrorTextView = errorTextView;
         mCallback = callback;
+        mDark = false;
     }
 
     public void startListening() {
@@ -50,7 +55,8 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
             mCancellationSignal = new CancellationSignal();
             mFingerprintManager.authenticate(null, mCancellationSignal, 0 /* flags */, this, null);
             setFingerprintIconVisibility(true);
-            mIcon.setImageResource(R.drawable.ic_fingerprint);
+            mIcon.setImageResource(mDark ? R.drawable.ic_fingerprint_dark
+                    : R.drawable.ic_fingerprint);
         }
     }
 
@@ -59,6 +65,14 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
             mCancellationSignal.cancel();
             mCancellationSignal = null;
         }
+    }
+
+    public void setDarkIconography(boolean dark) {
+        mDark = dark;
+    }
+
+    public void setIdleText(String idleText) {
+        mIdleText = idleText;
     }
 
     private boolean isListening() {
@@ -107,8 +121,9 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
     private Runnable mResetErrorTextRunnable = new Runnable() {
         @Override
         public void run() {
-            mErrorTextView.setText("");
-            mIcon.setImageResource(R.drawable.ic_fingerprint);
+            mErrorTextView.setText(TextUtils.isEmpty(mIdleText) ? "" : mIdleText);
+            mIcon.setImageResource(mDark ? R.drawable.ic_fingerprint_dark
+                    : R.drawable.ic_fingerprint);
         }
     };
 

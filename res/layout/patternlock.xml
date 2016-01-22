@@ -35,6 +35,7 @@
         android:text="@string/lockpattern_recording_intro_header"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
+        android:padding="10dp"
         android:textSize="18sp" />
 
     <View
@@ -89,4 +90,18 @@
             android:layout_weight="1"
             android:text="@string/lockpattern_continue_button_text"/>
     </LinearLayout>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="0dip"
+        android:layout_weight=".5" />
+
+    <ImageView
+        android:id="@+id/protected_apps_fingerprint_icon"
+        android:src="@drawable/ic_fingerprint_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:visibility="gone" />
 </LinearLayout>
