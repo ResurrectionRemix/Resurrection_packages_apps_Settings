@@ -56,6 +56,7 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.rr.SeekBarPreference;
 import com.android.settings.Settings.LockScreenSettingsActivity;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
+import com.android.settings.cyanogenmod.LiveLockScreenSettings;
 import com.android.settings.fingerprint.FingerprintEnrollIntroduction;
 import com.android.settings.fingerprint.FingerprintSettings;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -116,6 +117,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
+    private static final String KEY_GENERAL_CATEGORY = "general_category";
+    private static final String KEY_LIVE_LOCK_SCREEN = "live_lock_screen";
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -126,6 +129,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
+
+    private static final String LIVE_LOCK_SCREEN_FEATURE = "org.cyanogenmod.livelockscreen";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -307,6 +312,18 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 mPowerButtonInstantlyLocks.setSummary(getString(
                         R.string.lockpattern_settings_power_button_instantly_locks_summary,
                         trustAgentPreference.getTitle()));
+            }
+
+            // Add live lock screen preference if supported
+            PreferenceGroup generalCategory = (PreferenceGroup)
+                    root.findPreference(KEY_GENERAL_CATEGORY);
+            if (pm.hasSystemFeature(LIVE_LOCK_SCREEN_FEATURE) && generalCategory != null) {
+                Preference liveLockPreference = new Preference(getContext(), null);
+                liveLockPreference.setFragment(LiveLockScreenSettings.class.getCanonicalName());
+                liveLockPreference.setOrder(0);
+                liveLockPreference.setTitle(R.string.live_lock_screen_title);
+                liveLockPreference.setSummary(R.string.live_lock_screen_summary);
+                generalCategory.addPreference(liveLockPreference);
             }
         } else {
             // Append the rest of the settings
