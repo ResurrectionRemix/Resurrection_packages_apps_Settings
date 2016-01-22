@@ -19,6 +19,8 @@ package com.android.settings.dashboard;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import com.android.settings.R;
@@ -37,7 +39,24 @@ public class DashboardContainerView extends ViewGroup {
         final Resources res = context.getResources();
         mCellGapX = res.getDimension(R.dimen.dashboard_cell_gap_x);
         mCellGapY = res.getDimension(R.dimen.dashboard_cell_gap_y);
-        mNumColumns = res.getInteger(R.integer.dashboard_num_columns);
+        
+        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
+        int dashboardColumns = isPrimary ? getDashboardNumColumns() : 1;
+
+        if (dashboardColumns == 1) {
+            mNumColumns = 1;
+        }
+        if (dashboardColumns == 2) {
+            mNumColumns = 2;
+        }
+        if (dashboardColumns == 3) {
+            mNumColumns = 3;
+        }
+    }
+
+    private int getDashboardNumColumns() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_COLUMNS, 1); 
     }
 
     @Override
