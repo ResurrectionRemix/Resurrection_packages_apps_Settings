@@ -106,7 +106,7 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(MainSettings.class.getName()),
                         NO_DATA_RES_ID,
                         MainSettings.class.getName(),
-                        R.drawable.ic_ic_settings_about_rr));
+                        R.drawable.ic_rr_tools_tint));
         sResMap.put(SimSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(SimSettings.class.getName()),
@@ -329,14 +329,14 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(ButtonSettings.class.getName()),
                         NO_DATA_RES_ID,
                         ButtonSettings.class.getName(),
-                        R.drawable.ic_settings_buttons));
+                        R.drawable.rr_buttons_icon));
 
         sResMap.put(StatusBarSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(StatusBarSettings.class.getName()),
                         NO_DATA_RES_ID,
                         StatusBarSettings.class.getName(),
-                        R.drawable.ic_extdesk_hidestatusbar));
+                        R.drawable.rr_statusbar_icon));
 
         sResMap.put(LockScreenSettings.class.getName(),
                 new SearchIndexableResource(
