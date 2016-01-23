@@ -100,6 +100,34 @@
             settings:unitsRight=""
             android:persistent="false" />
 
+	<com.android.settings.rr.SeekBarPreferenceCham
+        android:key="qs_transparent_header"
+        android:title="@string/qs_transparent_header"
+        android:max="255"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight=""
+        android:persistent="false" />
+
+	<com.android.settings.rr.SeekBarPreferenceCham
+        android:key="transparent_volume_dialog"
+        android:title="@string/volume_dialog_transparency"
+        android:max="255"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight=""
+        android:persistent="false" />
+
+      <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="transparent_power_menu"
+        android:title="@string/power_menu_transparency"
+        android:max="100"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="%"
+        android:persistent="false" />
+
+
     </PreferenceCategory>
     
 
