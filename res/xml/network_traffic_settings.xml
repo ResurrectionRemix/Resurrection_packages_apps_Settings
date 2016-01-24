@@ -16,11 +16,13 @@
         android:title="@string/show_network_traffic_unit"
         android:entries="@array/show_network_traffic_unit_entries"
         android:entryValues="@array/show_network_traffic_unit_values"
+	android:dependency="network_traffic_state"
         android:persistent="false" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="network_traffic_color"
             android:title="@string/network_traffic_color_style"
+	    android:dependency="network_traffic_state"
             android:defaultValue="0xffffffff" />
 
     <ListPreference
@@ -28,12 +30,21 @@
         android:title="@string/show_network_traffic_frequency"
         android:entries="@array/show_network_traffic_frequency_entries"
         android:entryValues="@array/show_network_traffic_frequency_values"
+	android:dependency="network_traffic_state"
         android:persistent="false" />
 
     <SwitchPreference
         android:key="network_traffic_autohide"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
+	android:dependency="network_traffic_state"
+        android:defaultValue="false" />
+
+   <SwitchPreference
+        android:key="network_traffic_hidearrow"
+        android:title="@string/network_traffic_hidearrow"
+        android:summary="@string/network_traffic_hidearrow_summary"
+        android:dependency="network_traffic_state"
         android:defaultValue="false" />
 
     <com.android.settings.rr.SeekBarPreference
