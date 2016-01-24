@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2014 DarkKat
+ * Copyright (C) 2014 RR
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.android.settings.rr.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreferenceCham;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -64,6 +65,8 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
     private static final String PREF_TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
     private static final String PREF_TRANSPARENT_POWER_MENU = "transparent_power_menu";
+    private static final String PREF_TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
+
     private static final int RR_BLUE_GREY = 0xff1b1f23;
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
     private static final int WHITE = 0xffffffff;
@@ -86,7 +89,8 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private SeekBarPreference mQSShadeAlpha;
     private SeekBarPreferenceCham mQSHeaderAlpha;	
     private SeekBarPreferenceCham mVolumeDialogAlpha;	
-    private SeekBarPreferenceCham mPowerMenuAlpha;	
+    private SeekBarPreferenceCham mPowerMenuAlpha;
+    private SeekBarPreferenceCham mPowerDialogDim;	
   
     private ContentResolver mResolver;
 
@@ -120,20 +124,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mMediaBgMode.setSummary(mMediaBgMode.getEntry());
         mMediaBgMode.setOnPreferenceChangeListener(this);
 
-        /*mAppIconBgMode = (ListPreference) findPreference(PREF_APP_ICON_BG_MODE);
-        int appIconBgMode = Settings.System.getInt(mResolver,
-                Settings.System.NOTIFICATION_APP_ICON_BG_MODE, 0);
-        mAppIconBgMode.setValue(String.valueOf(appIconBgMode));
-        mAppIconBgMode.setSummary(mAppIconBgMode.getEntry());
-        mAppIconBgMode.setOnPreferenceChangeListener(this);
-
-        mAppIconColorMode = (ListPreference) findPreference(PREF_APP_ICON_COLOR_MODE);
-        int appIconColorMode = Settings.System.getInt(mResolver,
-                Settings.System.NOTIFICATION_APP_ICON_COLOR_MODE, 0);
-        mAppIconColorMode.setValue(String.valueOf(appIconColorMode));
-        mAppIconColorMode.setSummary(mAppIconColorMode.getEntry());
-        mAppIconColorMode.setOnPreferenceChangeListener(this);*/
-
         mBgColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
         intColor = Settings.System.getInt(mResolver,
@@ -156,19 +146,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
         PreferenceCategory colorCat =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
-        /*mAppIconBgColor =
-                (ColorPickerPreference) findPreference(PREF_APP_ICON_BG_COLOR);
-        if (appIconBgMode != 0) {
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.NOTIFICATION_APP_ICON_BG_COLOR, TRANSLUCENT_WHITE); 
-            mAppIconBgColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mAppIconBgColor.setSummary(hexColor);
-            mAppIconBgColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
-            mAppIconBgColor.setOnPreferenceChangeListener(this);
-        } else {     
-            colorCat.removePreference(mAppIconBgColor);
-        }*/
 
         mClearAllIconColor =
                 (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
@@ -180,16 +157,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         mClearAllIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mClearAllIconColor.setOnPreferenceChangeListener(this);
 
-        /*mIconColor =
-                (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                Settings.System.NOTIFICATION_ICON_COLOR, BLACK); 
-        mIconColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mIconColor.setSummary(hexColor);
-        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
-        mIconColor.setOnPreferenceChangeListener(this);*/
-
 	// QS shade alpha
         mQSShadeAlpha =
                 (SeekBarPreference) findPreference(PREF_QS_TRANSPARENT_SHADE);
@@ -200,7 +167,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
         setHasOptionsMenu(true);
 
- // QS header alpha
+ 	// QS header alpha
             mQSHeaderAlpha =
                     (SeekBarPreferenceCham) findPreference(PREF_QS_TRANSPARENT_HEADER);
             int qSHeaderAlpha = Settings.System.getInt(mResolver,
@@ -223,6 +190,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                     Settings.System.TRANSPARENT_POWER_MENU, 100);
             mPowerMenuAlpha.setValue(powerMenuAlpha / 1);
             mPowerMenuAlpha.setOnPreferenceChangeListener(this);
+
+       // Power/reboot dialog dim
+            mPowerDialogDim =
+                    (SeekBarPreferenceCham) findPreference(PREF_TRANSPARENT_POWER_DIALOG_DIM);
+            int powerDialogDim = Settings.System.getInt(mResolver,
+                    Settings.System.TRANSPARENT_POWER_DIALOG_DIM, 50);
+            mPowerDialogDim.setValue(powerDialogDim / 1);
+            mPowerDialogDim.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -329,6 +304,11 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 		int alpha = (Integer) newValue;
                 Settings.System.putInt(mResolver,
                         Settings.System.TRANSPARENT_POWER_MENU, alpha * 1);
+                return true;
+	}else if (preference == mPowerDialogDim) {
+		int alpha = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.TRANSPARENT_POWER_DIALOG_DIM, alpha * 1);
                 return true;
 	}
         return false;
