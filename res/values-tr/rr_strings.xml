@@ -92,7 +92,6 @@
     <string name="features_version">1.0</string>
 
     <!--Categories-->
-
     <string name="clock_category">Saat</string>
     <string name="clock_custom">Saati Özelleştir</string>
     <string name="battery_category">Pili Özelleştir</string>
@@ -103,7 +102,8 @@
     <string name="recents_panel_search_category">Son Uygulamalar Arama Çubuğu</string>
     <string name="recents_panel_memory_category">Bellek Çubuğu</string>
     <string name="recents_panel_clear_all_category">Tüm Düzenlemeleri Temizle</string>
-    <string name="multitasking">Çoklu Görev</string>
+    <string name="gestures_settings">Hareketler</string>
+	
 
     <string name="animations_cat">Sistem</string>
     <string name="toast_cat">Tost Ayarları</string>
@@ -113,6 +113,7 @@
 
     <string name="header_cat">Bildirim Başlığı</string>
     <string name="notifications_cat">Bildirimler</string>
+	<string name="notifications_colors_cat">Bildirim Renkleri</string>
 
     <string name="misc_1">Sistem Araçları</string>
     <string name="misc_2">İnce Ayarlar</string>
@@ -1028,7 +1029,13 @@
     <!-- Battery saver color -->
     <string name="battery_saver_color_title">Uyarı rengi</string>
     <string name="battery_saver_color_summary">Pil tasarrufu aktif olduğunda, turuncu durum ve gezinti çubuklarını etkinleştirin</string>
-
+	
+	<!-- Battery notifications -->
+    <string name="battery_saver_notif_title">Pil tasarrufu bildirimi</string>
+    <string name="battery_saver_notif_summary">Etkinleştirildiğinde pil tasarrufu bildirimi göster</string>
+    <string name="battery_low_notif_title">Düşük pil bildirimi</string>
+    <string name="battery_low_notif_summary">Etkinleştirildiğinde  düşük pil bildirimi göster</string>
+	
     <!-- Status bar temperature -->
     <string name="status_bar_temperature_title">Durum çubuğu hava durumu sıcaklığı</string>
     <string name="status_bar_temperature_hidden">Gizli</string>
@@ -1460,9 +1467,111 @@
     <string name="show_cpu_info_summary">Geçerli İşlemci bilgisini gösteren ekran paylaşımı</string>
 
     <string name="brightness_icon_title">Parlaklık Simgesi </string>
-    <string name="brightness_icon_summary">Enable Disable The Brightness Icon Existing Next To Brightness Slider</string>
+    <string name="brightness_icon_summary">Mevcut Olan Parlaklık Simgesi Yanında Parlaklık Kaydırıcısı Etkin/Devre Dışı</string>
 
     <!--Persist Add Tiles Button-->
     <string name="persist_add_title">Persist Add Tiles Icon </string>
     <string name="persist_add_summary">Enable/Disable This Switch make Add Tiles Icon Visible even With Brightness Slider Disabled</string>
+	
+	<!-- Quick settings disable on lockscreen -->
+    <string name="block_on_secure_keyguard_title">Kilit ekranında hızlı ayarlar devre dışı</string>
+    <string name="block_on_secure_keyguard_summary">Sadece güvenli kilit ekranında hızlı ayarlar devre dışı bırakır</string>
+
+
+
+    <!-- QS shade transparency -->
+    <string name="qs_transparent_shade">Hızlı Ayarlar Paneli Saydamlığı</string>
+
+    <!-- Safe headset volume restore checkbox -->
+    <string name="safe_headset_volume_title">Güvenli kulaklık sesi</string>
+    <string name="safe_headset_volume_summary">Kulaklık ilk takıldığında yüksek ses seviyesi önler</string>
+    <string name="safe_headset_volume_warning_dialog_text">Uzun süre yüksek seste dinlemek işitme bozukluğu yaşamanıza neden olabilir. Dikkatli devre dışı bırakın.</string>
+
+
+    <!-- Notification color settings -->
+	<string name="notification_color">Bildirim Renkleri</string>
+    <string name="notification_drawer_clear_all_icon_color_title">Tüm simgeleri temizle</string>
+
+    <string name="dlg_reset_rr">RR</string>
+    <string name="dlg_reset_values_message">Varsayılan değerleri sıfırla?</string>	
+    <string name="dlg_reset_android">Tamam</string>	
+    <string name="cat_colors_title">Bildirim Özelleştirmeleri</string>
+    <string name="background_title">Bildirim Arkaplanı</string>
+    <string name="icon_title">Simge</string>
+    <string name="colors_title">Renkler</string>
+    <string name="text_title">Yazı</string>
+
+    <string name="notification_color_settings_title">Bildirim renkleri</string>
+    <string name="notification_media_bg_mode_title">Medya arka planını renklendir</string>
+    <string name="notification_app_icon_bg_mode_title">Uygulama simgesi arka plan renklendir</string>
+    <string name="notification_app_icon_color_mode_title">Uygulama simgesini renklendir</string>
+    <string name="notification_bg_guts_color_title">Uzun basmada Bildirim Arkaplanı</string>
+    <string name="notification_app_icon_bg_color_title">Uygulama simgesi arkaplanı</string>
+    <string name="notification_color_mode_never_title">Asla</string>
+    <string name="notification_icon_color_mode_greyscale_title">Simge rengi gri tonlama ise</string>
+    <string name="notification_bg_color_mode_no_color_title">Bildirim kendine ait renk içermiyorsa</string>
+    <string name="notification_color_mode_always_title">Herzaman</string>
+    <string name="notification_drawer_clear_all_icon_color_title">Tüm simgeleri temizle</string>
+    <string name="notif_color_switch">Bildirim Renkleri</string>
+
+    <!-- Lockscreen Torch -->
+    <string name="keyguard_torch_title">Kilit ekranı el feneri</string>
+    <string name="keyguard_torch_summary">El fenerini açmak için ekran kapalıyken güç düğmesine uzun basın</string>
+
+    <!-- Immersive Recents -->
+    <string name="immersive_recents_title">Immersive Recents</string>
+    <string name="immersive_recents_summary">Son kullanılanlar ekranını görünümünü değiştirme</string>
+    <string name="immersive_recents_dialog_title">Son kullanılanlar görünümünü seçin</string>
+    <string name="immersive_recents_default">Varsayılan</string>
+    <string name="immersive_recents_fullscreen">Tam ekran</string>
+    <string name="immersive_recents_statusbar">Yalnızca durum çubuğu</string>
+    <string name="immersive_recents_navbar">Yalnızca gezinti çubuğu</string>
+
+    <!-- Annoying Notifications -->
+    <string name="notifications_category_title">Bildirimler</string>
+    <string name="less_notification_sounds_title">Daha az sıklıkta bildirim sesleri</string>
+    <string name="less_notification_sounds_summary">Her bir uygulamanın bildirim seslerini sınırlayarak sadece ayarlanan süre başına bir kez oynatır</string>
+    <string name="less_notification_sounds_default">Varsayılan Davranış</string>
+    <string name="less_notification_sounds_3s">3 saniye</string>
+    <string name="less_notification_sounds_5s">5 saniye</string>
+    <string name="less_notification_sounds_10s">10 saniye</string>
+    <string name="less_notification_sounds_15s">15 saniye</string>
+    <string name="less_notification_sounds_30s">30 saniye</string>
+    <string name="less_notification_sounds_45s">45 saniye</string>
+    <string name="less_notification_sounds_1m">1 dakika</string>
+    <string name="less_notification_sounds_2m">2 dakika</string>
+    <string name="less_notification_sounds_5m">5 dakika</string>
+
+    <!-- Dashboard columns -->
+    <string name="dashboard_columns_title">Ön panel Sütunları</string>
+    <string name="dashboard_columns_summary">Change the number of columns displayed in the dashboard</string>
+    <string name="dashboard_columns_dialog_title">Ön panel sütunları</string>
+    <string name="dashboard_columns_default">Bir (varsayılan)</string>
+    <string name="dashboard_columns_two">İki</string>
+    <string name="dashboard_columns_three">Üç</string>
+
+    <!-- Breathing Notifications -->
+    <string name="breathing_notifications_category">Nefes Efekti Bildirimleri</string>
+    <string name="breathing_notifications_title">Nefes efekti bildirimleri</string>
+    <string name="missed_call_breath_title">Cevapsız Çağrı Nefes Efekti</string>
+    <string name="missed_call_breath_summary">Cevapsız çağrı bildirimlerinde durum çubuğunda bir nefes efekti verecek</string>
+    <string name="voicemail_breath_title">Sesli Mesaj Nefes Efekti</string>
+    <string name="voicemail_breath_summary">Sesli mesaj bildirimlerinde durum çubuğunda bir nefes efekti verecek</string>
+
+    <!-- QS header transparency -->
+    <string name="qs_transparent_header">Hızlı ayarlar başlık şeffaflığı</string>
+
+    <!-- Volume dialog transparency -->
+    <string name="volume_dialog_transparency">Ses paneli şeffaflığı</string>
+
+
+    <!-- Power menu and dialogs transparency -->
+    <string name="power_menu_transparency">Güç/yeniden başlat menüsü şeffaflığı</string>
+
+    <!-- Dashboard tileview double lines -->
+    <string name="dashboard_category">Ön panel ayarları</string>
+    <string name="dashboard_tileview_double_lines_title">Ön panel karo görünümü başlığı</string>
+    <string name="dashboard_tileview_double_lines_summary_on">1. sıra ön panel karo başlıklarını göster</string>
+    <string name="dashboard_tileview_double_lines_summary_off">2. sıra ön panel karo başlıklarını göster</string>
+
 </resources>
