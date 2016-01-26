@@ -199,12 +199,18 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
 
         ListPreference ccodePref = (ListPreference) findPreference(KEY_COUNTRY_CODE);
         if (ccodePref != null) {
-            ccodePref.setOnPreferenceChangeListener(this);
-            String value = mWifiManager.getCountryCode();
-            if (value != null) {
-                ccodePref.setValue(value);
+            boolean hideWifiRegion = getResources()
+                    .getBoolean(R.bool.config_hideWifiRegionCode);
+            if (hideWifiRegion) {
+                removePreference(KEY_COUNTRY_CODE);
             } else {
-                Log.e(TAG, "Failed to fetch country code");
+                ccodePref.setOnPreferenceChangeListener(this);
+                String value = mWifiManager.getCountryCode();
+                if (value != null) {
+                    ccodePref.setValue(value);
+                } else {
+                    Log.e(TAG, "Failed to fetch country code");
+                }
             }
         }
 
