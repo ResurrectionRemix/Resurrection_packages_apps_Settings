@@ -70,7 +70,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String TAG = "StatusBar";
   
     private static final String SHOW_FOURG = "show_fourg";
+    private static final String SHOW_THREEG = "show_threeg";	
     private SwitchPreference mShowFourG;
+    private SwitchPreference mShowThreeG;	
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
     
@@ -124,6 +126,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         } else {
         mShowFourG.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_FOURG, 0) == 1));
+        }
+
+	mShowThreeG = (SwitchPreference) findPreference(SHOW_THREEG);
+        if (RRUtils.isWifiOnly(getActivity())) {
+            prefSet.removePreference(mShowThreeG);
+        } else {
+        mShowThreeG.setChecked((Settings.System.getInt(resolver,
+                Settings.System.SHOW_THREEG, 0) == 1));
         }
 
          mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
@@ -224,6 +234,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_FOURG, checked ? 1:0);
+            return true;
+        } else if  (preference == mShowThreeG) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_THREEG, checked ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
