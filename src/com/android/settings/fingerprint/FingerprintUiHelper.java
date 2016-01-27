@@ -42,6 +42,8 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
     private boolean mDark;
     private String mIdleText;
 
+    private boolean mCanceledBySelf;
+
     public FingerprintUiHelper(ImageView icon, TextView errorTextView, Callback callback) {
         mFingerprintManager = icon.getContext().getSystemService(FingerprintManager.class);
         mIcon = icon;
@@ -52,6 +54,7 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
 
     public void startListening() {
         if (mFingerprintManager.getEnrolledFingerprints().size() > 0) {
+            mCanceledBySelf = false;
             mCancellationSignal = new CancellationSignal();
             mFingerprintManager.authenticate(null, mCancellationSignal, 0 /* flags */, this, null);
             setFingerprintIconVisibility(true);
@@ -61,6 +64,7 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
     }
 
     public void stopListening() {
+        mCanceledBySelf = true;
         if (mCancellationSignal != null) {
             mCancellationSignal.cancel();
             mCancellationSignal = null;
@@ -86,8 +90,10 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
 
     @Override
     public void onAuthenticationError(int errMsgId, CharSequence errString) {
-        showError(errString);
-        setFingerprintIconVisibility(false);
+        if (!mCanceledBySelf) {
+            showError(errString);
+            setFingerprintIconVisibility(false);
+        }
     }
 
     @Override
