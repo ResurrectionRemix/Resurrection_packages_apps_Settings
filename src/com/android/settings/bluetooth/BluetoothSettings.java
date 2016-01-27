@@ -35,7 +35,6 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.text.Spannable;
 import android.text.style.TextAppearanceSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -143,7 +142,6 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
 
         mEmptyView = (TextView) getView().findViewById(android.R.id.empty);
         getListView().setEmptyView(mEmptyView);
-        mEmptyView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
 
         final SettingsActivity activity = (SettingsActivity) getActivity();
         mSwitchBar = activity.getSwitchBar();
@@ -477,10 +475,6 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
             });
         }
         getPreferenceScreen().removeAll();
-        Spannable boldSpan = (Spannable) mEmptyView.getText();
-        boldSpan.setSpan(
-                new TextAppearanceSpan(getActivity(), android.R.style.TextAppearance_Medium), 0,
-                briefText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
     @Override

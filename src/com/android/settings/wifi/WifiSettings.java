@@ -52,7 +52,6 @@ import android.os.UserManager;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.text.Spannable;
 import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -720,7 +719,6 @@ public class WifiSettings extends RestrictedSettingsFragment
 
     protected TextView initEmptyView() {
         TextView emptyView = (TextView) getActivity().findViewById(android.R.id.empty);
-        emptyView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
         getListView().setEmptyView(emptyView);
         return emptyView;
     }
@@ -759,11 +757,6 @@ public class WifiSettings extends RestrictedSettingsFragment
                 }
             });
         }
-        // Embolden and enlarge the brief description anyway.
-        Spannable boldSpan = (Spannable) mEmptyView.getText();
-        boldSpan.setSpan(
-                new TextAppearanceSpan(getActivity(), android.R.style.TextAppearance_Medium), 0,
-                briefText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         getPreferenceScreen().removeAll();
     }
 
