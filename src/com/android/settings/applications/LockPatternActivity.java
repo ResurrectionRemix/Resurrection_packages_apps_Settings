@@ -139,7 +139,7 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
         menu.clear();
         if (!mCreate) {
             menu.add(0, MENU_RESET, 0, R.string.lockpattern_reset_button)
-                    .setIcon(R.drawable.ic_lockscreen_ime)
+                    .setIcon(R.drawable.ic_lockscreen_ime_white)
                     .setAlphabeticShortcut('r')
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                             MenuItem.SHOW_AS_ACTION_WITH_TEXT);
@@ -158,6 +158,10 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
                     switchToAccount();
                 }
                 return true;
+            case android.R.id.home:
+                setResult(RESULT_CANCELED);
+                finish();
+                return true;
             default:
                 return false;
         }
@@ -175,7 +179,7 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
         mPatternLockHeader.setText(mFingerPrintSetUp ?
                 getResources().getString(R.string.pa_pattern_or_fingerprint_header)
                 : getResources().getString(R.string.lockpattern_settings_enable_summary));
-        mItem.setIcon(R.drawable.ic_lockscreen_ime);
+        mItem.setIcon(R.drawable.ic_lockscreen_ime_white);
         mAccountView.clearFocusOnInput();
         mAccountView.setVisibility(View.GONE);
         mLockPatternView.setVisibility(View.VISIBLE);
@@ -184,7 +188,7 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
     private void switchToAccount() {
         mPatternLockHeader.setText(getResources()
                 .getString(R.string.lockpattern_settings_reset_summary));
-        mItem.setIcon(R.drawable.ic_settings_lockscreen);
+        mItem.setIcon(R.drawable.ic_settings_lockscreen_white);
         mAccountView.setVisibility(View.VISIBLE);
         mLockPatternView.setVisibility(View.GONE);
     }
@@ -192,6 +196,8 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patternlock);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         mPatternLockHeader = (TextView) findViewById(R.id.pattern_lock_header);
         mCancel = (Button) findViewById(R.id.pattern_lock_btn_cancel);
