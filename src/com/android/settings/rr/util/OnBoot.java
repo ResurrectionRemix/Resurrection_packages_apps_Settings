@@ -29,6 +29,9 @@ public class OnBoot extends BroadcastReceiver {
             if(procInfos.get(i).processName.equals("com.google.android.setupwizard")) {
                 mSetupRunning = true;
             }
+  if(procInfos.get(i).processName.equals("com.cyanogenmod.setupwizard")) {
+                mSetupRunning = true;
+            }
         }
         if(!mSetupRunning) {
              SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(context);
