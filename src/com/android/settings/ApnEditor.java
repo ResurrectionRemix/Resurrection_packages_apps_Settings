@@ -306,6 +306,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
                     mCurMnc = mnc;
                     mCurMcc = mcc;
                 }
+                mApnType.setText(checkNull(getString(R.string.config_default_new_apn_type)));
             }
             int authVal = mCursor.getInt(AUTH_TYPE_INDEX);
             if (authVal != -1) {
