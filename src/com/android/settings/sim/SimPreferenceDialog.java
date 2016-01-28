@@ -169,7 +169,6 @@ public class SimPreferenceDialog extends Activity {
                 mSubInfoRecord.setIconTint(tint);
                 mSubscriptionManager.setIconTint(tint, subscriptionId);
                 dialog.dismiss();
-                finish();
             }
         });
 
@@ -177,6 +176,12 @@ public class SimPreferenceDialog extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int whichButton) {
                 dialog.dismiss();
+            }
+        });
+
+        mBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
                 finish();
             }
         });
