@@ -17,14 +17,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:duplicateParentState="true">
 
     <TextView
         android:id="@+id/widget_text1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_gravity="fill_horizontal|top"
         android:textAppearance="@android:style/TextAppearance.Material.Body1"
         android:textColor="?android:attr/textColorSecondary"
@@ -35,14 +34,12 @@
 
     <TextView
         android:id="@+id/widget_text2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginStart="8dip"
         android:layout_gravity="fill_horizontal|top"
         android:textAppearance="@android:style/TextAppearance.Material.Body1"
         android:textColor="?android:attr/textColorSecondary"
-        android:textAlignment="viewEnd"
+        android:textAlignment="viewStart"
         android:singleLine="true"
         android:ellipsize="marquee"
         android:duplicateParentState="true" />
