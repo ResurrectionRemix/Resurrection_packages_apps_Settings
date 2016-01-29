@@ -40,6 +40,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -64,6 +65,7 @@ public class TetherSettings extends SettingsPreferenceFragment
     private static final String ENABLE_WIFI_AP = "enable_wifi_ap";
     private static final String ENABLE_BLUETOOTH_TETHERING = "enable_bluetooth_tethering";
     private static final String TETHER_CHOICE = "TETHER_TYPE";
+    private static final String HOTSPOT_TIMEOUT = "hotstpot_inactivity_timeout";
 
     private static final int DIALOG_AP_SETTINGS = 1;
 
@@ -73,6 +75,8 @@ public class TetherSettings extends SettingsPreferenceFragment
     private SwitchPreference mEnableWifiAp;
 
     private SwitchPreference mBluetoothTether;
+
+    private ListPreference mHotspotInactivityTimeout;
 
     private BroadcastReceiver mTetherChangeReceiver;
 
@@ -143,6 +147,7 @@ public class TetherSettings extends SettingsPreferenceFragment
         Preference wifiApSettings = findPreference(WIFI_AP_SSID_AND_SECURITY);
         mUsbTether = (SwitchPreference) findPreference(USB_TETHER_SETTINGS);
         mBluetoothTether = (SwitchPreference) findPreference(ENABLE_BLUETOOTH_TETHERING);
+        mHotspotInactivityTimeout = (ListPreference) findPreference(HOTSPOT_TIMEOUT);
 
         ConnectivityManager cm =
                 (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -180,6 +185,7 @@ public class TetherSettings extends SettingsPreferenceFragment
 
         mProvisionApp = getResources().getStringArray(
                 com.android.internal.R.array.config_mobile_hotspot_provision_app);
+        mHotspotInactivityTimeout.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -206,6 +212,25 @@ public class TetherSettings extends SettingsPreferenceFragment
             mCreateNetwork.setSummary(String.format(activity.getString(CONFIG_SUBTEXT),
                     mWifiConfig.SSID,
                     mSecurityType[index]));
+        }
+        updateHotspotTimeoutSummary(mWifiConfig);
+    }
+
+    private void updateHotspotTimeoutSummary(WifiConfiguration wifiConfig) {
+        if (wifiConfig == null) {
+            mHotspotInactivityTimeout.setValue("0");
+            mHotspotInactivityTimeout.setSummary(
+                    getString(R.string.hotstpot_inactivity_timeout_never_summary_text));
+        } else {
+            mHotspotInactivityTimeout.setValue(Long.toString(wifiConfig.wifiApInactivityTimeout));
+            if (wifiConfig.wifiApInactivityTimeout > 0) {
+                mHotspotInactivityTimeout.setSummary(String.format(
+                        getString(R.string.hotstpot_inactivity_timeout_summary_text,
+                                mHotspotInactivityTimeout.getEntry())));
+            } else {
+                mHotspotInactivityTimeout.setSummary(
+                        getString(R.string.hotstpot_inactivity_timeout_never_summary_text));
+            }
         }
     }
 
@@ -458,15 +483,30 @@ public class TetherSettings extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object value) {
-        boolean enable = (Boolean) value;
+        if (preference == mEnableWifiAp) {
+            boolean enable = (Boolean) value;
 
-        if (enable) {
-            startProvisioningIfNecessary(TETHERING_WIFI);
-        } else {
-            if (TetherUtil.isProvisioningNeeded(getActivity())) {
-                TetherService.cancelRecheckAlarmIfNecessary(getActivity(), TETHERING_WIFI);
+            if (enable) {
+                startProvisioningIfNecessary(TETHERING_WIFI);
+            } else {
+                if (TetherUtil.isProvisioningNeeded(getActivity())) {
+                    TetherService.cancelRecheckAlarmIfNecessary(getActivity(), TETHERING_WIFI);
+                }
+                mWifiApEnabler.setSoftapEnabled(false);
             }
-            mWifiApEnabler.setSoftapEnabled(false);
+            return false;
+        } else if (preference == mHotspotInactivityTimeout) {
+            if (mWifiConfig != null) {
+                mWifiConfig.wifiApInactivityTimeout = Long.parseLong((String) value);
+                updateHotspotTimeoutSummary(mWifiConfig);
+                if (mWifiManager.getWifiApState() == WifiManager.WIFI_AP_STATE_ENABLED) {
+                    mWifiManager.setWifiApEnabled(null, false);
+                    mWifiManager.setWifiApEnabled(mWifiConfig, true);
+                } else {
+                    mWifiManager.setWifiApConfiguration(mWifiConfig);
+                }
+                return true;
+            }
         }
         return false;
     }
