@@ -187,6 +187,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         for (int i = 0; i < mNumSlots; ++i) {
             final SubscriptionInfo sir = mSubscriptionManager
                     .getActiveSubscriptionInfoForSimSlotIndex(i);
+            int subscriptionId = sir != null ?
+                sir.getSubscriptionId() :
+                SubscriptionManager.INVALID_SUBSCRIPTION_ID;
             SimPreference simPreference = new SimEnablerPreference(mContext, sir, i);
             simPreference.setOrder(i-mNumSlots);
             mSimCards.addPreference(simPreference);
@@ -194,16 +197,16 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             if (sir != null && (isSubProvisioned(i))) {
                 mSelectableSubInfos.add(sir);
             }
-
             Intent mobileNetworkIntent = new Intent();
             mobileNetworkIntent.setComponent(new ComponentName(
                         "com.android.phone", "com.android.phone.MobileNetworkSettings"));
-            SubscriptionManager.putPhoneIdAndSubIdExtra(mobileNetworkIntent,
-                    i, sir != null ? sir.getSubscriptionId() : -1);
+            SubscriptionManager.putPhoneIdAndSubIdExtra(mobileNetworkIntent, i, subscriptionId);
             Preference mobileNetworkPref = new Preference(getActivity());
             mobileNetworkPref.setTitle(
                     getString(R.string.sim_mobile_network_settings_title, (i + 1)));
             mobileNetworkPref.setIntent(mobileNetworkIntent);
+            mobileNetworkPref.setEnabled(
+                    subscriptionId != SubscriptionManager.INVALID_SUBSCRIPTION_ID);
             mMobileNetwork.addPreference(mobileNetworkPref);
         }
         updateAllOptions();
