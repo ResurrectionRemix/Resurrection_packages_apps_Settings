@@ -36,7 +36,7 @@ import android.util.Log;
 import android.text.TextUtils;
 
 import com.android.settings.rr.SeekBarPreferenceCham;
-import com.android.internal.util.benzo.AwesomeAnimationHelper;
+import com.android.internal.util.rr.AwesomeAnimationHelper;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 

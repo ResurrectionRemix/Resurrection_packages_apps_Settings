@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.paranoid;
+package com.android.settings.rr.Pie;
 
 import android.app.Activity;
 import android.content.ContentResolver;

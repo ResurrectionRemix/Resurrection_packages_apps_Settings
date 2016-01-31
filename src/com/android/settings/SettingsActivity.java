@@ -133,7 +133,7 @@ import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.fragments.AppCircleBar;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
 import com.android.settings.rr.AppSidebar;
-import com.android.settings.paranoid.PieControl;
+import com.android.settings.rr.Pie.PieControl;
 import com.android.settings.vpn2.VpnSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.widget.SwitchBar;
