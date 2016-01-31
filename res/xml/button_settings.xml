@@ -17,18 +17,23 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="hw_keys"
+        android:title="@string/hw_keys_title">
 
     <SwitchPreference
-        android:key="disable_nav_keys"
-        android:title="@string/disable_hwkeys_title"
-        android:summary="@string/disable_hwkeys_summary"
-        android:defaultValue="false" />
+            android:key="enable_hw_keys"
+            android:title="@string/hw_keys_title"
+            android:summary="@string/hw_keys_summary"
+            android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
+
+  </PreferenceCategory>
 
     <PreferenceCategory
         android:key="navigation_bar_category"
