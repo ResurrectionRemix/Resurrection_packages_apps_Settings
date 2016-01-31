@@ -29,11 +29,6 @@
             settings:keywords="@string/keywords_lockscreen"
             android:persistent="false"/>
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="general_category"
-        android:title="@string/title_general">
 
 
         <SwitchPreference
@@ -63,10 +58,18 @@
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
 
-        <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:defaultValue="true"/>
+        <Preference
+            android:key="manage_trust_agents"
+            android:title="@string/manage_trust_agents"
+            android:summary="@string/manage_trust_agents_summary"
+            android:persistent="false"
+            android:fragment="com.android.settings.TrustAgentSettings"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/title_general">
 
         <com.android.settings.SingleLineSummaryPreference
             android:key="owner_info_settings"
@@ -81,11 +84,10 @@
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
         </PreferenceScreen>
 
-        <Preference android:key="manage_trust_agents"
-                    android:title="@string/manage_trust_agents"
-                    android:summary="@string/manage_trust_agents_summary"
-                    android:persistent="false"
-                    android:fragment="com.android.settings.TrustAgentSettings"/>
+        <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
+            android:key="lockscreen_visualizer"
+            android:title="@string/lockscreen_visualizer_title"
+            android:defaultValue="true"/>
 
     </PreferenceCategory>
 
