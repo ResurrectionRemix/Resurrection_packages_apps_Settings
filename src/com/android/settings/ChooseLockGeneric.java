@@ -32,6 +32,7 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.security.KeyStore;
 import android.hardware.fingerprint.Fingerprint;
 import android.hardware.fingerprint.FingerprintManager;
@@ -46,6 +47,7 @@ import android.widget.Toast;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.notification.RedactionInterstitial;
 
 public class ChooseLockGeneric extends SettingsActivity {
     public static final String CONFIRM_CREDENTIALS = "confirm_credentials";
@@ -470,7 +472,6 @@ public class ChooseLockGeneric extends SettingsActivity {
             if (!mPasswordConfirmed) {
                 throw new IllegalStateException("Tried to update password without confirming it");
             }
-
             quality = upgradeQuality(quality);
 
             final Context context = getActivity();
@@ -503,6 +504,7 @@ public class ChooseLockGeneric extends SettingsActivity {
                 mChooseLockSettingsHelper.utils().clearLock(UserHandle.myUserId());
                 mChooseLockSettingsHelper.utils().setLockScreenDisabled(disabled,
                         UserHandle.myUserId());
+                maybeShowRedactionInterstitial();
                 removeAllFingerprintTemplatesAndFinish();
                 getActivity().setResult(Activity.RESULT_OK);
             } else {
@@ -516,6 +518,22 @@ public class ChooseLockGeneric extends SettingsActivity {
                 mFingerprintManager.remove(new Fingerprint(null, 0, 0, 0), mRemovalCallback);
             } else {
                 finish();
+            }
+        }
+
+        private void maybeShowRedactionInterstitial() {
+            // do nothing if lock screen disabled
+            if (mLockPatternUtils.isLockScreenDisabled(UserHandle.myUserId())) return;
+
+            final boolean enabled = Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_SCREEN_SHOW_NOTIFICATIONS, 0) != 0;
+            final boolean show = Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, 1) != 0;
+            if (!(enabled && show)) {
+                Intent intent = RedactionInterstitial.createStartIntent(getContext());
+                if (intent != null) {
+                    startActivity(intent);
+                }
             }
         }
 
