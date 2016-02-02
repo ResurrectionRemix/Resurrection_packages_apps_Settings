@@ -639,12 +639,16 @@
   <string name="lockpattern_settings_enable_error_path_title">間違えたパターンを表示</string>
   <string name="lockpattern_settings_enable_dots_title">パターンのドットを表示</string>
   <string name="lockscreen_visualizer_title">音楽ビジュアライザを表示</string>
+  <string name="lockscreen_disabled_by_qs_tile_title">クイック設定タイルによって無効になっています</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">タップしてロック画面を有効にします</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">ロック画面が有効になりました</string>
   <string name="battery_saver_threshold">バッテリーセーバーの開始値</string>
   <string name="battery_saver_summary">パフォーマンスとバックグランドデータを制限する</string>
   <string name="battery_saver_summary_unavailable">充電中は利用できません</string>
   <string name="autoperf_title">アプリごとのプロファイルを有効化</string>
   <string name="autoperf_summary">様々なアプリに対して適切なバッテリーモードを自動的に選択する</string>
   <string name="perf_profile_title">バッテリーモード</string>
+  <string name="memory_startup_apps_title">ブート時に開始するアプリ</string>
   <string name="notification_ringtone_title_cm">通知音</string>
   <string name="advanced_reboot_title">高度な再起動</string>
   <string name="advanced_reboot_summary">ロック解除時に、電源メニューにリカバリーやブートローダで再起動したり、ソフトリブートを行うオプションを含める</string>
@@ -667,6 +671,7 @@
   <string name="voice_wakeup_retrain_title">声を再登録</string>
   <string name="voice_wakeup_activity_title">起動するアクティビティ</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">音声起動は連絡先への直接電話を選択する通話権限を必要とします。</string>
   <string name="picker_activities">アクティビティ</string>
   <string name="select_custom_app_title">カスタムのアプリを選択</string>
   <string name="select_custom_activity_title">カスタムのアクティビティを選択</string>
@@ -677,24 +682,24 @@
   <string name="blacklist_empty_text">着信拒否した番号がありません。追加（+）ボタンをタップしてエントリーを追加します。</string>
   <string name="blacklist_disabled_empty_text">特定の電話番号からの通話やメッセージを拒否するには、着信拒否リストを有効にしてください。</string>
   <string name="blacklist_summary_disabled">無効</string>
-  <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようになります</string>
+  <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようにします</string>
   <string name="blacklist_notify">通知を表示</string>
   <string name="blacklist_private_numbers_title">非通知番号</string>
-  <string name="blacklist_private_numbers_summary_disabled">非通知番号からの着信をブロックしない</string>
-  <string name="blacklist_private_numbers_summary">非通知番号からの<xliff:g id="type">%s</xliff:g>をブロックする</string>
+  <string name="blacklist_private_numbers_summary_disabled">非通知番号からの着信を拒否しない</string>
+  <string name="blacklist_private_numbers_summary">非通知番号からの<xliff:g id="type">%s</xliff:g>を拒否する</string>
   <string name="blacklist_unknown_numbers_title">不明な番号</string>
-  <string name="blacklist_unknown_numbers_summary_disabled">連絡帳に登録されていない番号からの着信やメッセージをブロックしない</string>
-  <string name="blacklist_unknown_numbers_summary">連絡帳に登録されていない番号からの<xliff:g id="type">%s</xliff:g>をブロックする</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">連絡帳に登録されていない番号からの着信やメッセージを拒否しない</string>
+  <string name="blacklist_unknown_numbers_summary">連絡帳に登録されていない番号からの<xliff:g id="type">%s</xliff:g>を拒否する</string>
   <string name="blacklist_summary_type_calls_only">着信</string>
   <string name="blacklist_summary_type_messages_only">メッセージ</string>
   <string name="blacklist_summary_type_calls_and_messages">着信とメッセージ</string>
   <string name="blacklist_regex_title">ワイルドカードを使用</string>
   <string name="blacklist_regex_summary">「.」をワイルドカードとして使用し、「*」を繰り返しとして使用します。例えば「123.*」なら123から始まる番号をブロックし、｢.*123.*｣なら123を含む番号をブロックします。</string>
-  <string name="blacklist_policy_block_calls">着信をブロックする</string>
-  <string name="blacklist_policy_block_messages">メッセージをブロックする</string>
+  <string name="blacklist_policy_block_calls">着信拒否する</string>
+  <string name="blacklist_policy_block_messages">メッセージを受信拒否する</string>
   <string name="blacklist_bad_number_add">無効な電話番号は着信拒否リストに追加できません</string>
   <string name="remove_blacklist_number_title">番号を削除</string>
-  <string name="remove_blacklist_entry">この拒否している電話番号を削除しますか？</string>
+  <string name="remove_blacklist_entry">この着信拒否している電話番号を削除しますか？</string>
   <string name="select_contact">連絡先を選択</string>
   <string name="app_security_title">アプリのセキュリティ</string>
   <string name="sms_security_check_limit_title">SMSメッセージの制限</string>
@@ -726,12 +731,14 @@
   <string name="menu_hidden_apps_delete">リセット</string>
   <string name="menu_hidden_apps_reset_lock">パターンロックをリセット</string>
   <string name="protected_apps">アプリの保護</string>
+  <string name="protected_apps_summary">パスワードでロックしている時に非表示にするアプリケーションを管理する</string>
   <string name="saving_protected_components">コンポーネントの状態を保存中\u2026</string>
   <string name="pa_login_username_hint">ユーザー名（メール）</string>
   <string name="pa_login_password_hint">パスワード</string>
   <string name="pa_login_submit_button">サインイン</string>
   <string name="pa_login_checking_password">アカウントを確認中\u2026</string>
   <string name="pa_login_incorrect_login">ログインできませんでした</string>
+  <string name="pa_pattern_or_fingerprint_header">ロック解除用にパターンか指紋を使用してください</string>
   <string name="contributors_cloud_fragment_title">貢献者</string>
   <string name="contributors_cloud_loading_message">貢献者のデータを読み込み中\u2026</string>
   <string name="contributors_cloud_failed_message">貢献者の情報を読み込めません</string>
@@ -762,6 +769,7 @@
   <string name="sim_missing">挿入されていないか、問題があります</string>
   <string name="sim_enabler_need_disable_sim">SIMカードはアクティベート解除されます。続けますか？</string>
   <string name="sim_enabler_will_disable_sim_title">注意</string>
+  <string name="sim_enabler_need_switch_data_service">このSIMは無効になり、SIM <xliff:g id="slotid">%1$s</xliff:g>がデータサービスに使用されます。続けてもよろしいですか？</string>
   <string name="sim_enabler_airplane_on">機内モードがONになっている間はこの操作を実行することはできません。</string>
   <string name="sim_enabler_in_call">通話中はこの操作を実行することはできません。</string>
   <string name="sim_enabler_both_inactive">すべてのSIMカードを無効にはできません</string>
@@ -787,4 +795,19 @@
   <string name="ic_code_model">モデル: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM %dの着信音</string>
+  <string name="app_name_label_cm">アプリ:</string>
+  <string name="last_time_used_label_cm">最終使用:</string>
+  <string name="usage_time_label_cm">使用時間:</string>
+  <string name="master_clear_desc_cm" product="tablet">お使いのタブレットの<b>内部ストレージ</b>から以下を含めたすべてのデータを消去します:\n\n<li>端末のアカウント</li>\n<li>システムとアプリのデータや設定</li>\n<li>ダウンロードしたアプリ</li></string>
+  <string name="master_clear_desc_cm" product="default">お使いの携帯電話の<b>内部ストレージ</b>から以下を含めたすべてのデータを消去します:\n\n<li>端末のアカウント</li>\n<li>システムとアプリのデータや設定</li>\n<li>ダウンロードしたアプリ</li></string>
+  <string name="factory_reset_instructions_title">個人データとアプリ</string>
+  <string name="factory_reset_instructions_summary">この端末のすべてのアカウント、アプリ、アプリのデータ、システム設定を消去する</string>
+  <string name="factory_reset_personal_content">個人コンテンツ</string>
+  <string name="factory_reset_erase_stored_content">保存されているコンテンツを消去</string>
+  <string name="factory_reset_erase_stored_content_summary">この端末に保存されている音楽、写真、ビデオ、その他のユーザーデータを消去する</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">この端末に保存されている音楽、写真、ビデオ、その他のユーザーデータを消去します。\n\n<b>端末の暗号化によってコンテンツは保存されません。</b></string>
+  <string name="factory_reset_erase_sd_card">SDカードをフォーマット</string>
+  <string name="factory_reset_erase_sd_card_summary">音楽や写真を含むSDカードのすべてのデータを消去する</string>
+  <string name="factory_reset_warning_text_reset_now">今すぐリセット</string>
+  <string name="factory_reset_warning_text_message">この端末からすべてのアカウント、アプリ、アプリのデータ、システム設定が消去されます。この操作は元に戻せません。</string>
 </resources>

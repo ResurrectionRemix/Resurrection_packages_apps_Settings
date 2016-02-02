@@ -51,7 +51,7 @@
   <string name="ring_mode_normal">Normalno</string>
   <string name="ring_mode_vibrate">Vibriraj</string>
   <string name="ring_mode_mute">Isključi zvuk</string>
-  <string name="settings_reset_button">Vrati izvorno</string>
+  <string name="settings_reset_button">Resetiraj</string>
   <string name="profiles_settings_title">Profili sustava</string>
   <string name="profiles_add">Dodaj</string>
   <string name="profile_menu_delete">Obriši</string>
@@ -97,7 +97,7 @@
   <string name="profile_volume_override_checkbox_label">Prekorači jačinu</string>
   <string name="profile_profiles_manage">Profili</string>
   <string name="profile_profile_manage">Upravljanje profilima</string>
-  <string name="profile_appgroups_manage">Grupe aplikacija</string>
+  <string name="profile_appgroups_manage">Aplikacijske grupe</string>
   <string name="profile_appgroup_manage">Upravljaj grupom aplikacija</string>
   <string name="profile_settings">Postavke profila</string>
   <string name="profile_trigger_connect">Prilikom povezivanja</string>
@@ -149,10 +149,10 @@
   <string name="profile_tabs_nfc">NFC</string>
   <string name="profile_triggers_header">Okidači koji će aktivirati ovaj profil</string>
   <string name="profile_setup_setup_triggers_title">Korak 1: Dodaj okidače</string>
-  <string name="profile_setup_setup_triggers_title_config">Izmijeni okidače: %1$s</string>
+  <string name="profile_setup_setup_triggers_title_config">Izmijeni okidače: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Korak 2: Postavi akcije</string>
-  <string name="profile_setup_actions_title_config">Konfigurirajte akcije</string>
-  <string name="profile_appgroups_manage">Grupe aplikacija</string>
+  <string name="profile_setup_actions_title_config">Konfiguriraj akcije</string>
+  <string name="profile_appgroups_manage">Aplikacijske grupe</string>
   <string name="profile_appgroup_manage">Upravljaj grupom aplikacija</string>
   <string name="profile_appgroups_title">Aplikacijske grupe</string>
   <string name="profile_new_appgroup">Nova grupa aplikacija</string>
@@ -178,11 +178,7 @@
   <string name="navigation_bar_left_title">Način rada za ljevake</string>
   <string name="navigation_bar_left_summary">Stavi navigacijsku traku na lijevu stranu zaslona u pejzažnom načinu rada</string>
   <string name="navigation_bar_title">Tipke i izgled</string>
-  <string name="navigation_bar_help_text">\"To get started tap the edit icon to unlock the navigation bar for editing.
-
-You can tap an icon to change its shortcut, or long press an icon to re-arrange the layout.
-
-Tap save to commit your changes, or restore to reset the layout to default settings.\"</string>
+  <string name="navigation_bar_help_text">Za početak dodirnite ikonu izmjene da bi otključali navigacijsku traku za uređivanje.\n\nMožete dodirnuti ikonu za promijenu prečaca ili dugim pritiskom preurediti raspored ikone.\n\nDodirnite \'Spremi\' za spremanje promjena, ili \'Vrati zadano\' za vraćanje izgleda na zadane postavke.</string>
   <string name="navigation_restore_button_text">Vrati zadano</string>
   <string name="navigation_edit_button_text">Uredi</string>
   <string name="navigation_save_button_text">Spremi</string>
@@ -191,7 +187,7 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="navigation_bar_arrow_keys_summary">Prikaz lijeve i desne kursorske tipke tijekom unosa teksta. Zamjenjuje IME switcher.</string>
   <string name="navigation_bar_recents_title">Nedavne akcije dugog dodira</string>
   <string name="edit_light_settings">Uređivanje postavki svjetla</string>
-  <string name="pulse_speed_title">Pulsiraj duljinu i brzinu</string>
+  <string name="pulse_speed_title">Dužina i brzina pulsiranja</string>
   <string name="default_time">Normalno</string>
   <string name="custom_time">Prilagođeno</string>
   <string name="dialog_delete_title">Obriši</string>
@@ -212,14 +208,14 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="battery_light_list_title">Boje</string>
   <string name="battery_light_low_color_title">Baterija slaba</string>
   <string name="battery_light_medium_color_title">Punjenje</string>
-  <string name="battery_light_full_color_title">Baterija puna</string>
+  <string name="battery_light_full_color_title">Napunjeno</string>
   <string name="notification_light_title">Svjetlo obavijesti</string>
   <string name="notification_light_general_title">Općenito</string>
   <string name="notification_light_applist_title">Aplikacije</string>
   <string name="notification_light_phonelist_title">Telefon</string>
-  <string name="notification_light_use_custom">Rabi prilagođene vrijednosti</string>
+  <string name="notification_light_use_custom">Koristi prilagođene vrijednosti</string>
   <string name="notification_light_default_value">Zadano</string>
-  <string name="notification_light_missed_call_title">Propušten poziv</string>
+  <string name="notification_light_missed_call_title">Propušteni poziv</string>
   <string name="notification_light_voicemail_title">Glasovna pošta</string>
   <string name="notification_light_screen_on">Svjetla s uključenim zaslonom</string>
   <string name="notification_light_use_multiple_leds">Više LED svjetla</string>
@@ -236,17 +232,17 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_categories_location">Lokacija</string>
   <string name="app_ops_categories_personal">Osobno</string>
   <string name="app_ops_categories_messaging">Poruke</string>
-  <string name="app_ops_categories_media">Medji</string>
+  <string name="app_ops_categories_media">Mediji</string>
   <string name="app_ops_categories_device">Uređaj</string>
   <string name="app_ops_categories_bootup">Pokretanje</string>
   <string name="app_ops_categories_su">Root pristup</string>
-  <string name="app_ops_summaries_coarse_location">grube lokacije</string>
+  <string name="app_ops_summaries_coarse_location">gruba lokacija</string>
   <string name="app_ops_summaries_fine_location">dobra lokacija</string>
   <string name="app_ops_summaries_gps">GPS</string>
   <string name="app_ops_summaries_vibrate">vibriranje</string>
-  <string name="app_ops_summaries_read_contacts">Pročitajte kontakte</string>
-  <string name="app_ops_summaries_modify_contacts">izmjena kontakata</string>
-  <string name="app_ops_summaries_read_call_log">pročitajte popis poziva</string>
+  <string name="app_ops_summaries_read_contacts">pročitaj kontakte</string>
+  <string name="app_ops_summaries_modify_contacts">izmjeni kontakte</string>
+  <string name="app_ops_summaries_read_call_log">pročitaj popis poziva</string>
   <string name="app_ops_summaries_modify_call_log">izmjeni popis poziva</string>
   <string name="app_ops_summaries_read_calendar">čitanje kalendara</string>
   <string name="app_ops_summaries_modify_calendar">izmjena kalendara</string>
@@ -256,18 +252,18 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_summaries_call_phone">poziv na telefon</string>
   <string name="app_ops_summaries_read_sms">čitaj SMS</string>
   <string name="app_ops_summaries_write_sms">pisanje SMS-a</string>
-  <string name="app_ops_summaries_receive_sms">primiti SMS</string>
+  <string name="app_ops_summaries_receive_sms">primi SMS</string>
   <string name="app_ops_summaries_receive_emergency_sms">primanje SMS-a za hitne slučajeve</string>
-  <string name="app_ops_summaries_receive_mms">primiti MMS</string>
+  <string name="app_ops_summaries_receive_mms">primi MMS</string>
   <string name="app_ops_summaries_receive_wap_push">primiti WAP push</string>
-  <string name="app_ops_summaries_send_sms">slanje SMS-a</string>
+  <string name="app_ops_summaries_send_sms">pošalji SMS</string>
   <string name="app_ops_summaries_read_icc_sms">čitaj ICC SMS</string>
   <string name="app_ops_summaries_write_icc_sms">napiši ICC SMS</string>
   <string name="app_ops_summaries_modify_settings">izmjeni postavke</string>
   <string name="app_ops_summaries_draw_on_top">izvući na vrh</string>
   <string name="app_ops_summaries_access_notifications">pristup obavijestima</string>
   <string name="app_ops_summaries_camera">kamera</string>
-  <string name="app_ops_summaries_record_audio">snimiti zvuk</string>
+  <string name="app_ops_summaries_record_audio">snimi zvuk</string>
   <string name="app_ops_summaries_play_audio">producirati zvuk</string>
   <string name="app_ops_summaries_read_clipboard">Čitaj međuspremnik</string>
   <string name="app_ops_summaries_modify_clipboard">promijeni međuspremnik</string>
@@ -280,14 +276,14 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_summaries_alarm_volume">glasnoća alarma</string>
   <string name="app_ops_summaries_notification_volume">glasnoća obavijesti</string>
   <string name="app_ops_summaries_bluetooth_volume">glasnoća Bluetootha</string>
-  <string name="app_ops_summaries_keep_awake">držati budnim</string>
+  <string name="app_ops_summaries_keep_awake">održi budnim</string>
   <string name="app_ops_summaries_monitor_location">nadziranje lokacije</string>
   <string name="app_ops_summaries_monitor_high_power_location">nadziranje lokacije visokog napajanja</string>
   <string name="app_ops_summaries_get_usage_stats">pribavi statistiku korištenja</string>
-  <string name="app_ops_summaries_mute_unmute_microphone">Isključi/uključi zvuk mikrofona</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">isključi/uključi zvuk mikrofona</string>
   <string name="app_ops_summaries_toast_window">prikaži primanje skočne poruke</string>
   <string name="app_ops_summaries_project_media">projicitati multimediju</string>
-  <string name="app_ops_summaries_activate_vpn">Aktiviraj VPN</string>
+  <string name="app_ops_summaries_activate_vpn">aktiviraj VPN</string>
   <string name="app_ops_summaries_write_wallpaper">zapiši pozadinu</string>
   <string name="app_ops_summaries_assist_structure">pomoć strukturi</string>
   <string name="app_ops_summaries_assist_screenshot">pomoć snimci zaslona</string>
@@ -307,15 +303,15 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_summaries_toggle_bluetooth">upravljati Bluetooth-om</string>
   <string name="app_ops_summaries_start_at_boot">pokreni pri pokretanju</string>
   <string name="app_ops_summaries_toggle_nfc">uključi/isključi NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">upravljati mobilnim podacima</string>
-  <string name="app_ops_summaries_superuser">Root pristup</string>
+  <string name="app_ops_summaries_toggle_mobile_data">upravljanje mobilnim podacima</string>
+  <string name="app_ops_summaries_superuser">root pristup</string>
   <string name="app_ops_labels_coarse_location">Gruba lokacija</string>
   <string name="app_ops_labels_fine_location">Dobra lokacija</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibracija</string>
-  <string name="app_ops_labels_read_contacts">Pročitajte kontakte</string>
-  <string name="app_ops_labels_modify_contacts">Izmjena kontakata</string>
-  <string name="app_ops_labels_read_call_log">pročitajte popis poziva</string>
+  <string name="app_ops_labels_read_contacts">Čitaj kontakte</string>
+  <string name="app_ops_labels_modify_contacts">Izmjeni kontakte</string>
+  <string name="app_ops_labels_read_call_log">Čitaj popis poziva</string>
   <string name="app_ops_labels_modify_call_log">Izmjeni popis poziva</string>
   <string name="app_ops_labels_read_calendar">Čitaj kalendar</string>
   <string name="app_ops_labels_modify_calendar">Izmjeni kalendar</string>
@@ -329,15 +325,15 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_labels_receive_emergency_sms">Primanje SMS-a za hitne slučajeve</string>
   <string name="app_ops_labels_receive_mms">Primi MMS</string>
   <string name="app_ops_labels_receive_wap_push">Primiti WAP push</string>
-  <string name="app_ops_labels_send_sms">Slanje SMS-a</string>
+  <string name="app_ops_labels_send_sms">Pošalji SMS</string>
   <string name="app_ops_labels_read_icc_sms">Čitaj ICC SMS</string>
   <string name="app_ops_labels_write_icc_sms">Napiši ICC SMS</string>
-  <string name="app_ops_labels_modify_settings">Izmjena postavki</string>
-  <string name="app_ops_labels_draw_on_top">Izvući na vrh</string>
+  <string name="app_ops_labels_modify_settings">Izmjeni postavke</string>
+  <string name="app_ops_labels_draw_on_top">Nacrtaj na vrhu</string>
   <string name="app_ops_labels_access_notifications">Pristup obavijestima</string>
   <string name="app_ops_labels_camera">Kamera</string>
-  <string name="app_ops_labels_record_audio">snimiti zvuk</string>
-  <string name="app_ops_labels_play_audio">producirati zvuk</string>
+  <string name="app_ops_labels_record_audio">Snimi zvuk</string>
+  <string name="app_ops_labels_play_audio">Produciraj zvuk</string>
   <string name="app_ops_labels_read_clipboard">Čitaj privremenu memoriju</string>
   <string name="app_ops_labels_modify_clipboard">Izmijeni privremenu memoriju</string>
   <string name="app_ops_labels_media_buttons">Tipke za medije</string>
@@ -349,13 +345,13 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_labels_alarm_volume">Glasnoća alarma</string>
   <string name="app_ops_labels_notification_volume">Glasnoća obavijesti</string>
   <string name="app_ops_labels_bluetooth_volume">Glasnoća Bluetootha</string>
-  <string name="app_ops_labels_keep_awake">Održati budnim</string>
+  <string name="app_ops_labels_keep_awake">Održi budnim</string>
   <string name="app_ops_labels_monitor_location">Nadziranje lokacije</string>
   <string name="app_ops_labels_monitor_high_power_location">Nadziranje lokacije visokog napajanja</string>
   <string name="app_ops_labels_get_usage_stats">Pribavi statistiku korištenja</string>
   <string name="app_ops_labels_mute_unmute_microphone">Isključi/uključi zvuk mikrofona</string>
   <string name="app_ops_labels_toast_window">Prikaži primanje skočne poruke</string>
-  <string name="app_ops_labels_project_media">Pokrenuti multimediju</string>
+  <string name="app_ops_labels_project_media">Pokreni multimediju</string>
   <string name="app_ops_labels_activate_vpn">Aktiviraj VPN</string>
   <string name="app_ops_labels_write_wallpaper">Zapiši pozadinu</string>
   <string name="app_ops_labels_assist_structure">Pomoć strukturi</string>
@@ -381,11 +377,11 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_ops_permissions_allowed">Dopušteno</string>
   <string name="app_ops_permissions_ignored">Zanemareno</string>
   <string name="app_ops_permissions_always_ask">Uvijek pitaj</string>
-  <string name="app_ops_entry_summary">%1$s (korišteno %2$s)</string>
-  <string name="app_ops_allowed_count">Dozvoljena <xliff:g id="count" example="2 times">%s </xliff:g></string>
-  <string name="app_ops_ignored_count">Odbijen <xliff:g id="count" example="2 times">%s </xliff:g></string>
-  <string name="app_ops_both_count">Dopuštenih <xliff:g id="count">%1$s </xliff:g>, odbija <xliff:g id="count">%2$s </xliff:g></string>
-  <string name="app_ops_show_user_apps">Prikaz korisničkih aplikacija</string>
+  <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (korišteno <xliff:g id="count">%2$s</xliff:g>)</string>
+  <string name="app_ops_allowed_count">Dozvoljeno <xliff:g id="count" example="2 times">%s </xliff:g></string>
+  <string name="app_ops_ignored_count">Odbijeno <xliff:g id="count" example="2 times">%s </xliff:g></string>
+  <string name="app_ops_both_count">Dopušteno <xliff:g id="count">%1$s</xliff:g>, odbijeno <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_show_user_apps">Pokaži korisničke aplikacije</string>
   <string name="app_ops_show_system_apps">Pokaži ugrađene aplikacije</string>
   <string name="app_ops_reset_counters">Resetiraj dozvoli/odbij brojače</string>
   <string name="app_ops_reset_confirm_title">Potvrdi reset brojača</string>
@@ -481,11 +477,11 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="color_blue_title">Plava</string>
   <string name="gamma_tuning_title_head">Gama kalibracije</string>
   <string name="gamma_tuning_summary_head">Podesi gama vrijednosti</string>
-  <string name="gamma_tuning_control_set_header">Grupa %d</string>
+  <string name="gamma_tuning_control_set_header">Grupa <xliff:g id="index">%d</xliff:g></string>
   <string name="gamma_tuning_contrast">Kontrast</string>
   <string name="gamma_tuning_brightness">Svjetlina</string>
-  <string name="gamma_tuning_saturation">Saturacija</string>
-  <string name="headset_connect_player_title">Pokretanje aplikacije glazba</string>
+  <string name="gamma_tuning_saturation">Zasićenje</string>
+  <string name="headset_connect_player_title">Pokretanje aplikacije za glazbu</string>
   <string name="headset_connect_player_summary">Pokreni zadanu aplikaciju za glazbu kada su priključene slušalice</string>
   <string name="wifi_auto_config_priorities">Automatski prioritet</string>
   <string name="auto_brightness_reset_button">Ponovno postavi</string>
@@ -502,20 +498,20 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="screencolor_summary">Podešavanje nijansi zaslona, zasićenje, kontrasta ili intenziteta</string>
   <string name="custom_screencolor">Prilagođena boja zaslona</string>
   <string name="screencolor_save">Spremi</string>
-  <string name="screencolor_cancel">Odbaci</string>
+  <string name="screencolor_cancel">Poništi</string>
   <string name="restore_preview">Vidi zadanu sliku</string>
   <string name="selectnewfile_menu">Pogledaj novu sliku iz galerije</string>
   <string name="selectfile_menu">Prikaz slike iz galerije</string>
-  <string name="restore_default_str">Ponovno postavi</string>
-  <string name="hue_str">Nijanse: <xliff:g id="hue_value">%1$s </xliff:g></string>
+  <string name="restore_default_str">Resetiraj</string>
+  <string name="hue_str">Nijansa: <xliff:g id="hue_value">%1$s</xliff:g></string>
   <string name="saturation_str">Zasićenost: <xliff:g id="saturation_value">%1$s </xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s </xliff:g></string>
-  <string name="intensity_str">Intenzitet: <xliff:g id="intensity_str_value">%1$s </xliff:g></string>
+  <string name="intensity_str">Intenzitet: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <string name="live_display_summary">Prilagodi zaslon prema dobu dana i okolini za poboljšanje čitljivosti i smanjenju naprezanja očiju</string>
   <string name="live_display_mode">Način prikaza</string>
   <string name="live_display_color_temperature_title">Temperatura boje</string>
   <string name="live_display_color_temperature_summary">Dan: <xliff:g id="day_temperature">%1$d</xliff:g>K Noć: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
-  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d </xliff:g> K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
   <string name="live_display_day">Dan</string>
   <string name="live_display_night">Noć</string>
   <string name="live_display_outdoor_mode_title">Automatski vanjski način</string>
@@ -542,12 +538,12 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="ime_switcher_notify">Selektor obavijesti</string>
   <string name="ime_switcher_notify_summary">Prikaz načina unosa za odabir ikona</string>
   <string name="heads_up_notifications">Heads up</string>
-  <string name="summary_heads_up_enabled">Omogućene su skočne obavijesti</string>
+  <string name="summary_heads_up_enabled">Skočne obavijest su uključene</string>
   <string name="summary_heads_up_disabled">Skočne obavijest su isključene</string>
   <string name="high_touch_sensitivity_title">Visoka osjetljivost na dodir</string>
   <string name="high_touch_sensitivity_summary">Povećaj osjetljivost na dodir tako da se mogu koristiti rukavice</string>
-  <string name="lcd_density">Gustoća LCD-a</string>
-  <string name="dialog_title_lcd_density">Gustoća LCD-a</string>
+  <string name="lcd_density">LCD gustoća</string>
+  <string name="dialog_title_lcd_density">LCD gustoća</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (zadano)</string>
   <string name="restarting_ui">Ponovno pokretanje UI\u2026</string>
@@ -565,9 +561,9 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="gestures_down_spen_title_head">Potez prema dolje</string>
   <string name="gestures_long_spen_title_head">Dugi pritisak</string>
   <string name="gestures_double_spen_title_head">Dvostruki dodir</string>
-  <string name="gestures_action_empty">Nema akcije</string>
-  <string name="gestures_action_home">Kuća</string>
-  <string name="gestures_action_back">Nazad</string>
+  <string name="gestures_action_empty">Bez akcije</string>
+  <string name="gestures_action_home">Doma</string>
+  <string name="gestures_action_back">Natrag</string>
   <string name="gestures_action_menu">Izbornik</string>
   <string name="gestures_action_search">Prizovi pretragu</string>
   <string name="gestures_action_recent">Nedavno korištene aplikacije</string>
@@ -614,8 +610,8 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="status_bar_am_pm_small">Malen</string>
   <string name="status_bar_am_pm_hidden">Skriveno</string>
   <string name="status_bar_battery_style_title">Stil baterije</string>
-  <string name="status_bar_battery_style_icon_portrait">Ikona portret</string>
-  <string name="status_bar_battery_style_icon_landscape">Ikona krajolik</string>
+  <string name="status_bar_battery_style_icon_portrait">Okomita ikona</string>
+  <string name="status_bar_battery_style_icon_landscape">Položena ikona</string>
   <string name="status_bar_battery_style_circle">Krug</string>
   <string name="status_bar_battery_style_text">Tekst</string>
   <string name="status_bar_battery_style_hidden">Skriveno</string>
@@ -655,6 +651,7 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="autoperf_title">Omogući profile za pos. apl.</string>
   <string name="autoperf_summary">Automatski odaberi način rada baterije za razne aplikacije</string>
   <string name="perf_profile_title">Način rada baterije</string>
+  <string name="memory_startup_apps_title">Aplikacije pokrenute pri startu</string>
   <string name="notification_ringtone_title_cm">Ton obavijesti</string>
   <string name="advanced_reboot_title">Napredno ponovno pokretanje</string>
   <string name="advanced_reboot_summary">Kada je uređaj otključan, obuhvati opcije u izborniku napajanja za ponovno pokretanje u oporavak, download ili brzo pokretanje</string>
@@ -664,12 +661,12 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="expanded_hide_status">Sakrij traku stanja</string>
   <string name="expanded_hide_navigation">Sakrij navigacijsku traku</string>
   <string name="expanded_hide_both">Sakrij oboje</string>
-  <string name="expanded_nothing_to_show">To add a custom per-app configuration for expanded state, set Enabled for all to the off position</string>
+  <string name="expanded_nothing_to_show">Za dodavanje posebne konfiguracije za aplikaciju za prošireno stanje, postavi \'Omogućeno za sve\' na poziciju isključeno</string>
   <string name="expanded_enabled_for_all">Omogućeno za sve</string>
   <string name="expanded_desktop_style">Stil proširene radne površine</string>
   <string name="expanded_desktop_style_description">Odaberite zadani stil proširene radne površine</string>
   <string name="expanded_desktop_title">Opcije proširene radne površine</string>
-  <string name="kill_app_longpress_back">Zatvoriti app  tipkom natrag</string>
+  <string name="kill_app_longpress_back">Zatvori aplikaciju tipkom natrag</string>
   <string name="kill_app_longpress_back_summary">Zatvori pozadinske aplikacije dugim pritiskom tipke natrag</string>
   <string name="recents_show_searchbar">Prikaži prozor za pretraživanje u nedavnim </string>
   <string name="keywords_recents_show_searchbar">nedavne nedavni onemogući omogući prikaži sakrij traka za pretraživanje</string>
@@ -731,7 +728,7 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="preview_country_title">Zemlja</string>
   <string name="preview_carrier_title">Operater</string>
   <string name="stats_collection_title">Prikupljene statistike</string>
-  <string name="stats_collection_summary">When enabled, allows metrics collection.</string>
+  <string name="stats_collection_summary">Kada je omogućeno dozvoljava metričku kolekciju</string>
   <string name="lockpattern_reset_button">Ponovno postavi uzorak</string>
   <string name="lockpattern_settings_reset_summary">Unesite primarni e-mail račun i pridruženu lozinku da biste vratili uzorak</string>
   <string name="menu_hidden_apps_delete">Resetiraj</string>
@@ -746,12 +743,15 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="pa_login_incorrect_login">Prijava je netočna</string>
   <string name="pa_pattern_or_fingerprint_header">Morate nacrtati uzorak ili koristiti otisak prsta za otključavanje</string>
   <string name="contributors_cloud_fragment_title">Suradnici</string>
-  <string name="contributors_cloud_loading_message">Učitavanje podataka suradnika…</string>
+  <string name="contributors_cloud_loading_message">Učitavanje podataka suradnika\u2026</string>
   <string name="contributors_cloud_failed_message">Nije moguće učitati podatke suradnika</string>
   <string name="contributor_info_menu">Informacije suradnika</string>
   <string name="contributor_info_msg">&lt;b&gt;Ime:&lt;/b&gt; &lt;xliff:g id=name&gt;%1$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt; &lt;b&gt;Nick:&lt;/b&gt; &lt;xliff:g id=nick&gt;%2$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt; &lt;b&gt;Commits:&lt;/b&gt; &lt;xliff:g id=commits&gt;%3$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt; &lt;b&gt;Rank:&lt;/b&gt; &lt;xliff:g id=rank&gt;%4$s&lt;/xliff:g&gt;</string>
   <string name="contributions_info_menu">Informacije suradnika</string>
-  <string name="contributions_info_msg">&lt;b&gt;Total contributors:&lt;/b&gt; &lt;xliff:g id=total_contributors&gt;%1$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt; &lt;b&gt;Total commits:&lt;/b&gt; &lt;xliff:g id=total_commits&gt;%2$s&lt;/xliff:g&gt;&lt;br/&gt;&lt;br/&gt; &lt;b&gt;Last update:&lt;/b&gt; &lt;xliff:g id=date&gt;%3$s&lt;/xliff:g&gt;</string>
+  <string name="contributions_info_msg">
+<![CDATA[<b>Svi suradnici:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+<b>Svi commits:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+<b>Zadnje ažuriranje:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
   <string name="category_sounds">Zvukovi</string>
   <string name="notification_manager">Obavijesti</string>
   <string name="lockscreen_settings">Zaključani zaslon</string>
@@ -765,12 +765,13 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="lcd_density_prompt_message">Neke aplikacije možda neće funkcionirati u ne standardnom DPI.\n\nOvo će ponovno pokrenuti uređaj.</string>
   <string name="apn_ppp_number">APN PPP telefonski broj</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> je <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
-  <string name="sim_disabled">onemogućen</string>
-  <string name="sim_missing">nedostaje ili greška</string>
+  <string name="sim_disabled">onemogućeno</string>
+  <string name="sim_missing">nedostaje ili je neispravan</string>
   <string name="sim_enabler_need_disable_sim">SIM kartica će biti deaktivirana. Želite li nastaviti?</string>
   <string name="sim_enabler_will_disable_sim_title">Pozor</string>
+  <string name="sim_enabler_need_switch_data_service">Ovaj SIM će biti onemogućen a SIM <xliff:g id="slotid">%1$s</xliff:g> će biti korišten za usluge podataka. Jeste li sigurni da želite nastaviti?</string>
   <string name="sim_enabler_airplane_on">Nije moguće izvršiti operaciju dok je uključen način rada u zrakoplovu.</string>
-  <string name="sim_enabler_in_call">GREŠKA, u pozivu!</string>
+  <string name="sim_enabler_in_call">Nije moguće izvršiti operaciju tijekom poziva.</string>
   <string name="sim_enabler_both_inactive">Ne možete onemogućiti sve SIM kartice</string>
   <string name="sim_enabler_enabling">Aktiviranje\u2026</string>
   <string name="sim_enabler_disabling">Deaktiviranje\u2026</string>
@@ -778,12 +779,12 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="sub_activate_failed">Aktivacija nije uspjela.</string>
   <string name="sub_deactivate_success">SIM deaktiviran.</string>
   <string name="sub_deactivate_failed">Deaktivacija nije uspjela.</string>
-  <string name="primary_sub_select_title">Default 4G/3G Subscription</string>
+  <string name="primary_sub_select_title">Zadana 3G/LTE pretplata</string>
   <string name="select_sim_card">Odaberite SIM karticu</string>
   <string name="sim_card_status_title">SIM %d status</string>
   <string name="sim_card_lock_settings_title">SIM %d postavke zaključavanja</string>
   <string name="sim_card_summary_empty">SIM kartica nije umetnuta</string>
-  <string name="sim_mobile_network_settings_category_title">Postavke mobilnih podataka</string>
+  <string name="sim_mobile_network_settings_category_title">Postavke mobilnih mreža</string>
   <string name="sim_mobile_network_settings_title">SIM %d postavke</string>
   <string name="zen_mode_summary_reminders">podsjetnici</string>
   <string name="zen_mode_summary_events">događaji</string>
@@ -797,4 +798,16 @@ Tap save to commit your changes, or restore to reset the layout to default setti
   <string name="app_name_label_cm">Aplikacija:</string>
   <string name="last_time_used_label_cm">Zadnji put korišteno:</string>
   <string name="usage_time_label_cm">Vrijeme uporabe:</string>
+  <string name="master_clear_desc_cm" product="tablet">Ovo će izbrisati sve podatke s telefona <b>interne pohrane</b>, uključujući: \n\n <li>račune</li> \n <li>sustav i podatke aplikacija i postavke</li> \n <li>preuzete aplikacije</li></string>
+  <string name="master_clear_desc_cm" product="default">Ovo će izbrisati sve podatke s <b>interne pohrane</b>, uključujući:\n\n<li>Vaše račune</li>\n<li>Sustav i podatke aplikacija i postavki</li>\n<li>Preuzete aplikacije</li></string>
+  <string name="factory_reset_instructions_title">Osobni podaci i aplikacije</string>
+  <string name="factory_reset_instructions_summary">Ovo će izbrisati sve vaše račune, aplikacije, podatke aplikacija i postavke sustava na uređaju</string>
+  <string name="factory_reset_personal_content">Osobni sadržaj</string>
+  <string name="factory_reset_erase_stored_content">Izbriši pohranjeni sadržaj</string>
+  <string name="factory_reset_erase_stored_content_summary">Brisanje glazbe, fotografija, videozapisa i drugih korisničkih podataka pohranjenih na uređaju</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">Obriši glazbu, fotografije, video i druge podatke pohranjene na uređaju. \n\n<b>Sadržaj ne može biti spremljen zbog enkripcije uređaja.</b></string>
+  <string name="factory_reset_erase_sd_card">Formatiraj SD karticu</string>
+  <string name="factory_reset_erase_sd_card_summary">Izbriši sve podatke na SD kartici, uključujući glazbu i fotografije</string>
+  <string name="factory_reset_warning_text_reset_now">RESETIRAJ SADA</string>
+  <string name="factory_reset_warning_text_message">Svi vaše računi, aplikacije, podaci o aplikacijama i postavkama sustava uklanjaju se iz ovog uređaja. Ovo se ne može poništiti.</string>
 </resources>

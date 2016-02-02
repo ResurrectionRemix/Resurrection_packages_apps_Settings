@@ -215,7 +215,7 @@
   <string name="notification_light_screen_on">屏幕开启时点亮指示灯</string>
   <string name="notification_light_use_multiple_leds">多 LED</string>
   <string name="keywords_lights_brightness_level">降低 LED 亮度</string>
-  <string name="led_notification_title">灯光设定</string>
+  <string name="led_notification_title">指示灯设置</string>
   <string name="led_notification_text">LED 灯被“设置”启用</string>
   <string name="enable_adb_cm">Android 调试</string>
   <string name="enable_adb_summary_cm">开启 Android Debug Bridge (adb) 界面</string>
@@ -645,6 +645,7 @@
   <string name="autoperf_title">启用单应用配置</string>
   <string name="autoperf_summary">为不同应用自动选择合适的电池模式</string>
   <string name="perf_profile_title">电池模式</string>
+  <string name="memory_startup_apps_title">开机时启动的应用</string>
   <string name="notification_ringtone_title_cm">通知铃声</string>
   <string name="advanced_reboot_title">高级重启</string>
   <string name="advanced_reboot_summary">解锁情况下，在电源菜单加入选项以重启至恢复模式、引导模式或执行软重启。</string>
@@ -765,6 +766,7 @@
   <string name="sim_missing">丢失或缺损</string>
   <string name="sim_enabler_need_disable_sim">SIM 卡将被禁用。确定继续吗？</string>
   <string name="sim_enabler_will_disable_sim_title">注意</string>
+  <string name="sim_enabler_need_switch_data_service">此 SIM 卡将会被禁用，并且 SIM 卡 <xliff:g id="slotid">%1$s</xliff:g> 将会被用于数据服务。您确定想要继续吗？</string>
   <string name="sim_enabler_airplane_on">飞行模式开启时无法完成该操作。</string>
   <string name="sim_enabler_in_call">在通话状态下无法完成该操作。</string>
   <string name="sim_enabler_both_inactive">无法禁用全部 SIM 卡</string>
@@ -793,4 +795,17 @@
   <string name="app_name_label_cm">应用：</string>
   <string name="last_time_used_label_cm">最后一次使用：</string>
   <string name="usage_time_label_cm">使用时间：</string>
+  <string name="master_clear_desc_cm" product="tablet">这将会从您平板的<b>内部存储</b>中擦出所有数据，包括：\n\n<li>您的设备账号</li>\n<li>系统和应用数据设置</li>\n<li>已下载的应用</li></string>
+  <string name="master_clear_desc_cm" product="default">这将会从您手机的<b>内部存储</b>中擦出所有数据，包括：\n\n<li>您的设备账号</li>\n<li>系统和应用数据设置</li>\n<li>已下载的应用</li></string>
+  <string name="factory_reset_instructions_title">个人数据 &amp; 应用</string>
+  <string name="factory_reset_instructions_summary">这将删除此设备上所有的帐户、 应用、 应用数据和系统设置</string>
+  <string name="factory_reset_personal_content">个人内容</string>
+  <string name="factory_reset_erase_stored_content">擦除已存储的内容</string>
+  <string name="factory_reset_erase_stored_content_summary">擦除此设备上的音乐、照片、视频和其他用户数据。</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">擦除音乐、照片、视频，并且存储在此设备上的其他用户数据。
+\n\n<b>由于设备加密，将无法保存内容。</b></string>
+  <string name="factory_reset_erase_sd_card">格式化 SD 卡</string>
+  <string name="factory_reset_erase_sd_card_summary">擦除 SD 卡上的所有数据，包括音乐和照片</string>
+  <string name="factory_reset_warning_text_reset_now">立即重置</string>
+  <string name="factory_reset_warning_text_message">您的所有帐户、应用、应用数据和系统设置将会从该设备上删除。此操作不可撤销。</string>
 </resources>
