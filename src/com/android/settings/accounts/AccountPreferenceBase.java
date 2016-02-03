@@ -25,6 +25,7 @@ import android.content.SyncStatusObserver;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
+import android.content.res.ThemeConfig;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -151,8 +152,13 @@ abstract class AccountPreferenceBase extends SettingsPreferenceFragment
                     // correct text colors. Control colors will still be wrong,
                     // but there's not much we can do about it since we can't
                     // reference local color resources.
+                    final ThemeConfig themeConfig = getActivity().getResources()
+                            .getConfiguration().themeConfig;
+                    final String themePkgName = themeConfig != null
+                            ? themeConfig.getOverlayPkgNameForApp(getActivity().getPackageName())
+                            : null;
                     final Context targetCtx = getActivity().createPackageContextAsUser(
-                            desc.packageName, 0, mUserHandle);
+                            desc.packageName, themePkgName, 0, mUserHandle);
                     final Theme baseTheme = getResources().newTheme();
                     baseTheme.applyStyle(com.android.settings.R.style.Theme_SettingsBase, true);
                     final Context themedCtx = new ContextThemeWrapper(targetCtx, 0);
