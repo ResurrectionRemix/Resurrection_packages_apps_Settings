@@ -63,6 +63,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
     private static final String HIDE_CARRIER_MAX_NOTIFICATION = "hide_carrier_max_notification";
     private static final String STATUS_BAR_CARRIER_SPOT = "status_bar_carrier_spot";
+    private static final String STATUS_BAR_CARRIER_FONT_STYLE = "status_bar_carrier_font_style";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
@@ -74,6 +75,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private SeekBarPreference mStatusBarCarrierSize;
     private ListPreference mHideCarrierMaxNotification;	
     private ListPreference mStatusBarCarrierSpot;	
+    private ListPreference mStatusBarCarrierFontStyle;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,10 +103,16 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
+                Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mCarrierColorPicker.setSummary(hexColor);
         mCarrierColorPicker.setNewPreviewColor(intColor);
+
+	mStatusBarCarrierFontStyle = (ListPreference) findPreference(STATUS_BAR_CARRIER_FONT_STYLE);
+        mStatusBarCarrierFontStyle.setOnPreferenceChangeListener(this);
+        mStatusBarCarrierFontStyle.setValue(Integer.toString(Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 0)));
+         mStatusBarCarrierFontStyle.setSummary(mStatusBarCarrierFontStyle.getEntry());
 
 
         mStatusBarCarrierSize = (SeekBarPreference) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
@@ -120,14 +128,14 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mHideCarrierMaxNotification.setOnPreferenceChangeListener(this);
         
 	mStatusBarCarrierSpot = (ListPreference) findPreference(STATUS_BAR_CARRIER_SPOT);
-            int statusBarCarrierSpot = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_CARRIER_SPOT, 0, UserHandle.USER_CURRENT);
-            mStatusBarCarrierSpot.setValue(String.valueOf(statusBarCarrierSpot));
-            mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntry());
-            mStatusBarCarrierSpot.setOnPreferenceChangeListener(this);
+        int statusBarCarrierSpot = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_CARRIER_SPOT, 0, UserHandle.USER_CURRENT);
+        mStatusBarCarrierSpot.setValue(String.valueOf(statusBarCarrierSpot));
+        mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntry());
+        mStatusBarCarrierSpot.setOnPreferenceChangeListener(this);
 
 
-            updateCustomLabelTextSummary();
+        updateCustomLabelTextSummary();
 
 }
 
@@ -177,6 +185,13 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
                         STATUS_BAR_CARRIER_SPOT, statusBarCarrierSpot, UserHandle.USER_CURRENT);
                 mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntries()[index]);
                 return true;
+	} else if (preference == mStatusBarCarrierFontStyle) {
+                int val = Integer.parseInt((String) newValue);
+                int index = mStatusBarCarrierFontStyle.findIndexOfValue((String) newValue);
+                Settings.System.putInt(resolver,
+                        Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, val);
+                mStatusBarCarrierFontStyle.setSummary(mStatusBarCarrierFontStyle.getEntries()[index]);
+                return true; 
 	}
          return false;
     }
