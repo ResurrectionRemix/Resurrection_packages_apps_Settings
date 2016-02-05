@@ -30,5 +30,13 @@
             android:defaultValue="0xffffffff"
             android:dependency="status_bar_rr_logo" />
 
+    <ListPreference
+           android:key="status_bar_rr_logo_style"
+           android:title="@string/status_bar_rr_logo_position"
+           android:dialogTitle="@string/status_bar_rr_logo_position"
+           android:entries="@array/status_bar_logo_position_entries"
+           android:entryValues="@array/status_bar_logo_position_values"
+           android:dependency="status_bar_rr_logo" />
+
 </PreferenceScreen>
 

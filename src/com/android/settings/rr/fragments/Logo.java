@@ -21,6 +21,8 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
@@ -41,8 +43,10 @@ public class Logo extends SettingsPreferenceFragment implements OnPreferenceChan
     public static final String TAG = "Logo";
 
     private static final String KEY_RR_LOGO_COLOR = "status_bar_rr_logo_color";
+    private static final String KEY_RR_LOGO_STYLE = "status_bar_rr_logo_style";
 
     private ColorPickerPreference mRRLogoColor;
+    private ListPreference mRRLogoStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,15 @@ public class Logo extends SettingsPreferenceFragment implements OnPreferenceChan
             mRRLogoColor.setSummary(hexColor);
             mRRLogoColor.setNewPreviewColor(intColor);
 
+
+            mRRLogoStyle = (ListPreference) findPreference(KEY_RR_LOGO_STYLE);
+            int rrLogoStyle = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.STATUS_BAR_RR_LOGO_STYLE, 0,
+                    UserHandle.USER_CURRENT);
+            mRRLogoStyle.setValue(String.valueOf(rrLogoStyle));
+            mRRLogoStyle.setSummary(mRRLogoStyle.getEntry());
+            mRRLogoStyle.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -73,7 +86,17 @@ public class Logo extends SettingsPreferenceFragment implements OnPreferenceChan
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_RR_LOGO_COLOR, intHex);
             return true;
-        }
+        }  else if (preference == mRRLogoStyle) {
+                int rrLogoStyle = Integer.valueOf((String) newValue);
+                int index = mRRLogoStyle.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                       getContentResolver(), 
+		Settings.System.STATUS_BAR_RR_LOGO_STYLE, rrLogoStyle,
+                        UserHandle.USER_CURRENT);
+                mRRLogoStyle.setSummary(
+                        mRRLogoStyle.getEntries()[index]);
+                return true;
+	}
         return false;
     }
 
