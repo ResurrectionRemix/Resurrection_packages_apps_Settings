@@ -75,11 +75,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private SwitchPreference mShowThreeG;	
     private SwitchPreference mMissedCallBreath;
     private SwitchPreference mVoicemailBreath;
+    private SwitchPreference mSmsBreath;
     
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
     private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private static final String SMS_BREATH = "sms_breath";
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
@@ -138,6 +140,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
          mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
          mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
+         mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
 
          ConnectivityManager cm = (ConnectivityManager)
                    context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -151,9 +154,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
              mVoicemailBreath.setChecked(Settings.System.getInt(resolver,
                      Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
              mVoicemailBreath.setOnPreferenceChangeListener(this);
+
+             mSmsBreath.setChecked(Settings.Global.getInt(resolver,
+                    Settings.System.KEY_SMS_BREATH, 0) == 1);
+             mSmsBreath.setOnPreferenceChangeListener(this);
          } else {
              prefSet.removePreference(mMissedCallBreath);
              prefSet.removePreference(mVoicemailBreath);
+             prefSet.removePreference(mSmsBreath);
          }
 
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
@@ -215,6 +223,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
           boolean value = (Boolean) newValue;
           Settings.System.putInt(resolver, Settings.System.KEY_VOICEMAIL_BREATH, value ? 1 : 0);
           return true;
+        }
+        else if (preference == mSmsBreath) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver, Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
+            return true;
         }
         else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
