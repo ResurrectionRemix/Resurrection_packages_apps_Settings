@@ -126,14 +126,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
             mStatusBarCarrierSpot.setSummary(mStatusBarCarrierSpot.getEntry());
             mStatusBarCarrierSpot.setOnPreferenceChangeListener(this);
 
-
-
- 	if (TelephonyManager.getDefault().isMultiSimEnabled()) {
-            prefSet.removePreference(mShowCarrierLabel);
-            prefSet.removePreference(mCustomCarrierLabel);
-        } else {
             updateCustomLabelTextSummary();
-        }
 
 }
 
