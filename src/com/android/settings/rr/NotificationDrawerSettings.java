@@ -50,7 +50,7 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
  private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
  private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
-    private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
+    private static final String PREF_STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";
 
     private SwitchPreference mForceExpanded;
     private SwitchPreference mCustomHeader;	
