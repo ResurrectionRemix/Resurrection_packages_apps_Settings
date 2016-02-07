@@ -55,12 +55,14 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_WEATHER_COLOR = "status_bar_weather_color";
     private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
     private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
+     private static final String PREF_STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";	
 
     private ListPreference mStatusBarTemperature;
     private ListPreference mStatusBarTemperatureStyle;
     private ColorPickerPreference mStatusBarTemperatureColor;
     private SeekBarPreference mStatusBarTemperatureSize;
     private ListPreference mStatusBarTemperatureFontStyle;
+    private ListPreference mStatusBarHeaderFontStyle;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,14 @@ public class StatusBarWeather extends SettingsPreferenceFragment
         mStatusBarTemperatureFontStyle.setValue(Integer.toString(Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0)));
         mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntry());
+
+  // Status bar header font style
+            mStatusBarHeaderFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_HEADER_FONT_STYLE);
+            mStatusBarHeaderFontStyle.setOnPreferenceChangeListener(this);
+            mStatusBarHeaderFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_HEADER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
+            mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntry());
+
 
         updateWeatherOptions();
     }
@@ -150,7 +160,14 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                     Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, val);
             mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntries()[index]);
             return true;
-        }
+        } else if (preference == mStatusBarHeaderFontStyle) {
+                int val = Integer.parseInt((String) newValue);
+                int index = mStatusBarHeaderFontStyle.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(resolver,
+                        Settings.System.STATUS_BAR_HEADER_FONT_STYLE, val, UserHandle.USER_CURRENT);
+                mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntries()[index]);
+                return true;
+	}
         return false;
     }
 
