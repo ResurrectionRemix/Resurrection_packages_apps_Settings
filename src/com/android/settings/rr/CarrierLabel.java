@@ -108,14 +108,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
                 Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 10));
         mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
 
-
-
- 	if (TelephonyManager.getDefault().isMultiSimEnabled()) {
-            prefSet.removePreference(mShowCarrierLabel);
-            prefSet.removePreference(mCustomCarrierLabel);
-        } else {
             updateCustomLabelTextSummary();
-        }
 
 }
 
