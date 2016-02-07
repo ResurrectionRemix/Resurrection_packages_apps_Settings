@@ -35,7 +35,7 @@ import android.provider.Settings;
 import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.util.aicp.NamelessUtils;
+import com.android.internal.util.rr.NamelessUtils;
 import com.android.internal.util.cm.PowerMenuConstants;
 
 import cyanogenmod.providers.CMSettings;

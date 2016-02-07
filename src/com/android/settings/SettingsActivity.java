@@ -63,7 +63,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SearchView;
-
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
@@ -73,6 +72,8 @@ import com.android.settings.accounts.AccountSettings;
 import com.android.settings.accounts.AccountSyncSettings;
 import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.rr.Navbar;
+import com.android.settings.rr.FlingSettings;
+import com.android.settings.rr.SmartbarSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ManageAssist;
@@ -390,7 +391,9 @@ public class SettingsActivity extends Activity
             ContributorsCloudFragment.class.getName(),
             ProfilesSettings.class.getName(),
             NotificationManagerSettings.class.getName(),
-            Navbar.class.getName()
+            Navbar.class.getName(),
+            FlingSettings.class.getName(),
+            SmartbarSettings.class.getName()
     };
 
 
