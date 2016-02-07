@@ -50,6 +50,7 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
  private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
  private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+    private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
 
     private SwitchPreference mForceExpanded;
     private SwitchPreference mCustomHeader;	
@@ -57,6 +58,7 @@ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
     private SwitchPreference mEnableTaskManager;
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;	
+     private ListPreference mStatusBarHeaderFontStyle;		
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
     public void onCreate(Bundle icicle) {
@@ -116,6 +118,14 @@ int quickPulldown = CMSettings.System.getInt(resolver,
         mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
 
+  // Status bar header font style
+            mStatusBarHeaderFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_HEADER_FONT_STYLE);
+            mStatusBarHeaderFontStyle.setOnPreferenceChangeListener(this);
+            mStatusBarHeaderFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_HEADER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
+            mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntry());
+
+
     }
 
     @Override
@@ -169,6 +179,13 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                         res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
             }
             return true;
+	} else if (preference == mStatusBarHeaderFontStyle) {
+                int val = Integer.parseInt((String) newValue);
+                int index = mStatusBarHeaderFontStyle.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(resolver,
+                        Settings.System.STATUS_BAR_HEADER_FONT_STYLE, val, UserHandle.USER_CURRENT);
+                mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntries()[index]);
+                return true;
 	}
          return false;
 	}
