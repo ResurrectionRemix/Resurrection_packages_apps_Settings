@@ -40,7 +40,8 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
         TRIGGER_ITEM,
         APP_GROUP_ITEM,
         BRIGHTNESS_ITEM,
-        DOZEMODE_ITEM
+        DOZEMODE_ITEM,
+        NOTIFICATIONLIGHTMODE_ITEM
     }
 
     public ItemListAdapter(Context context, List<Item> items) {
