@@ -46,10 +46,19 @@ import java.util.ArrayList;
 public class NotificationPanel extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener, Indexable{
  private static final String PREF_STATUS_BAR_CLOCK_FONT_STYLE = "header_clock_font_style";
  private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "header_weather_font_style";	
+ private static final String PREF_STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";
+ private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
+ private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
+ private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
+	
 
 
     private ListPreference mStatusBarClockFontStyle;	
     private ListPreference mStatusBarWeatherFontStyle;
+    private SwitchPreference mCustomHeader;	
+    private ListPreference mCustomHeaderDefault;
+    private SwitchPreference mEnableTaskManager;
+    private ListPreference mStatusBarHeaderFontStyle;		
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -58,6 +67,19 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
         PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
 
+ 
+        // Status bar custom header
+        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
+        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
+        mCustomHeader.setOnPreferenceChangeListener(this);
+
+         // Status bar custom header hd
+        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
+           int customHeaderDefault = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
 
  	// Status bar header Clock font style
             mStatusBarClockFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_CLOCK_FONT_STYLE);
@@ -71,6 +93,18 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
             mStatusBarWeatherFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
                     Settings.System.HEADER_WEATHER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
             mStatusBarWeatherFontStyle .setSummary(mStatusBarWeatherFontStyle.getEntry());
+
+        // Task manager
+        mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
+        mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
+
+  // Status bar header font style
+            mStatusBarHeaderFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_HEADER_FONT_STYLE);
+            mStatusBarHeaderFontStyle.setOnPreferenceChangeListener(this);
+            mStatusBarHeaderFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_HEADER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
+            mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntry());
 
 }
 
@@ -104,8 +138,42 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
                         Settings.System.HEADER_WEATHER_FONT_STYLE, val, UserHandle.USER_CURRENT);
                 mStatusBarWeatherFontStyle.setSummary(mStatusBarWeatherFontStyle.getEntries()[index]);
                 return true;
-		}
+	} else  if (preference == mCustomHeader) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mCustomHeaderDefault) {
+           int customHeaderDefault = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), 
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
+                    customHeaderDefault, UserHandle.USER_CURRENT);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    0);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
+                    1);
+            return true;
+	} else if (preference == mStatusBarHeaderFontStyle) {
+                int val = Integer.parseInt((String) newValue);
+                int index = mStatusBarHeaderFontStyle.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(resolver,
+                        Settings.System.STATUS_BAR_HEADER_FONT_STYLE, val, UserHandle.USER_CURRENT);
+                mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntries()[index]);
+                return true;
+	}
 	return false;
 	}
+
+	@Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+	 if  (preference == mEnableTaskManager) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);  
+	}    
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
 
 }

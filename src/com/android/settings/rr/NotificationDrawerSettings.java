@@ -44,21 +44,15 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class NotificationDrawerSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener, Indexable{
-    private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
-private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
-    private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
- private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
+ private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
  private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
-    private static final String PREF_STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";
+
 
     private SwitchPreference mForceExpanded;
-    private SwitchPreference mCustomHeader;	
-    private ListPreference mCustomHeaderDefault;
-    private SwitchPreference mEnableTaskManager;
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;	
-     private ListPreference mStatusBarHeaderFontStyle;		
+    	
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
     public void onCreate(Bundle icicle) {
@@ -98,34 +92,6 @@ int quickPulldown = CMSettings.System.getInt(resolver,
 	mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
         mForceExpanded.setChecked((Settings.System.getInt(resolver, Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
 
- 
-        // Status bar custom header
-        mCustomHeader = (SwitchPreference) prefSet.findPreference(PREF_CUSTOM_HEADER);
-        mCustomHeader.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1));
-        mCustomHeader.setOnPreferenceChangeListener(this);
-
-         // Status bar custom header hd
-        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
-        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
-           int customHeaderDefault = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
-        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
-
-
-        // Task manager
-        mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
-        mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
-
-  // Status bar header font style
-            mStatusBarHeaderFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_HEADER_FONT_STYLE);
-            mStatusBarHeaderFontStyle.setOnPreferenceChangeListener(this);
-            mStatusBarHeaderFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_HEADER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
-            mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntry());
-
-
     }
 
     @Override
@@ -142,24 +108,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
 	Resources res = getResources();
-	 if (preference == mCustomHeader) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mCustomHeaderDefault) {
-           int customHeaderDefault = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(getContentResolver(), 
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT,
-                    customHeaderDefault, UserHandle.USER_CURRENT);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    0);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER,
-                    1);
-            return true;
-         }else if (preference == mBlockOnSecureKeyguard) {
+	if (preference == mBlockOnSecureKeyguard) {
                 Settings.Secure.putInt(resolver,
                         Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
                         (Boolean) newValue ? 1 : 0);
@@ -179,14 +128,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                         res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
             }
             return true;
-	} else if (preference == mStatusBarHeaderFontStyle) {
-                int val = Integer.parseInt((String) newValue);
-                int index = mStatusBarHeaderFontStyle.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(resolver,
-                        Settings.System.STATUS_BAR_HEADER_FONT_STYLE, val, UserHandle.USER_CURRENT);
-                mStatusBarHeaderFontStyle.setSummary(mStatusBarHeaderFontStyle.getEntries()[index]);
-                return true;
-	}
+	} 
          return false;
 	}
 
@@ -198,11 +140,7 @@ int quickPulldown = CMSettings.System.getInt(resolver,
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FORCE_EXPANDED_NOTIFICATIONS, checked ? 1:0);
             return true;
-        } else  if  (preference == mEnableTaskManager) {
-            boolean enabled = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);  
-	}    
+        }  
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

@@ -20,42 +20,83 @@
 
 
     <PreferenceCategory
+        android:title="@string/notifications_header" >
+
+
+     <SwitchPreference
+            android:key="status_bar_custom_header"
+            android:title="@string/status_bar_custom_header_title"
+            android:summary="@string/status_bar_custom_header_summary"
+            android:defaultValue="false"/>
+
+        <ListPreference
+            android:key="status_bar_custom_header_default"
+            android:title="@string/status_bar_custom_header_default_title"
+            android:summary="@string/status_bar_custom_header_default_summary"
+            android:dependency="status_bar_custom_header"
+            android:entries="@array/custom_header_entries"
+            android:entryValues="@array/custom_header_values"
+            android:persistent="false" />
+
+	   </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/notifications_items" >
+
+    <SwitchPreference
+           android:key="enable_task_manager"
+           android:title="@string/enable_task_manager_title"
+           android:summary="@string/enable_task_manager_summary" />
+
+
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_panel_clock"
         android:title="@string/hide_panel_clock_title" 
+	android:summary="@string/panel_clock_sum"
 	android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_panel_date"
-        android:title="@string/hide_panel_date_title"  
+        android:title="@string/hide_panel_date_title" 
+	android:summary="@string/panel_date_sum" 
 	android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_panel_clockvalue"
         android:title="@string/hide_panel_clockvalue" 
+	android:summary="@string/panel_ampm_sum"
 	android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_panel_battery"
         android:title="@string/hide_panel_battery" 
+	android:summary="@string/panel_battery_sum"
 	android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_panel_icons"
         android:title="@string/hide_panel_icons" 
+	android:summary="@string/panel_icons_sum"
 	android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_settings_icon"
         android:title="@string/hide_settings_icon" 
+	android:summary="@string/panel_settings_sum"
 	android:defaultValue="true"/>
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="hide_user_icon"
-        android:title="@string/hide_user_icon"  
+        android:title="@string/hide_user_icon" 
+	android:summary="@string/panel_user_sum" 
 	android:defaultValue="true"/>
+
+     <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+        android:key="status_bar_show_weather"
+        android:title="@string/status_bar_show_weather_title"
+        android:summary="@string/status_bar_show_weather_summary"
+        android:defaultValue="true" />
 
 	   </PreferenceCategory>
 
@@ -73,6 +114,12 @@
         android:entries="@array/status_bar_weather_font_style_entries"
         android:entryValues="@array/status_bar_weather_font_style_values"
         android:title="@string/status_bar_header_weather_font_style_title" />
+
+  	<ListPreference
+        android:key="status_bar_header_font_style"
+        android:entries="@array/status_bar_weather_font_style_entries"
+        android:entryValues="@array/status_bar_weather_font_style_values"
+        android:title="@string/status_bar_header_font_style_title" />
 
 	   </PreferenceCategory>
 
