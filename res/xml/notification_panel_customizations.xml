@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/notification_panel_title">
+
+
+    <PreferenceCategory
+        android:title="@string/notifications_items" >
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_panel_clock"
+        android:title="@string/hide_panel_clock_title" 
+	android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_panel_date"
+        android:title="@string/hide_panel_date_title"  
+	android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_panel_clockvalue"
+        android:title="@string/hide_panel_clockvalue" 
+	android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_panel_battery"
+        android:title="@string/hide_panel_battery" 
+	android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_panel_icons"
+        android:title="@string/hide_panel_icons" 
+	android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_settings_icon"
+        android:title="@string/hide_settings_icon" 
+	android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_user_icon"
+        android:title="@string/hide_user_icon"  
+	android:defaultValue="true"/>
+
+	   </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/notifications_fonts" >
+
+  	<ListPreference
+        android:key="header_clock_font_style"
+        android:entries="@array/status_bar_weather_font_style_entries"
+        android:entryValues="@array/status_bar_weather_font_style_values"
+        android:title="@string/status_bar_header_clock_font_style_title" />
+
+  	<ListPreference
+        android:key="header_weather_font_style"
+        android:entries="@array/status_bar_weather_font_style_entries"
+        android:entryValues="@array/status_bar_weather_font_style_values"
+        android:title="@string/status_bar_header_weather_font_style_title" />
+
+	   </PreferenceCategory>
+
+</PreferenceScreen>

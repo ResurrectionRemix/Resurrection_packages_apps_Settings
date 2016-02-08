@@ -84,6 +84,12 @@
         android:key="notification_2"
         android:title="@string/notifications_cat" >
 
+    <!-- Notification Panel -->
+    <PreferenceScreen
+            android:id="@+id/notification_customizations"
+            android:title="@string/notification_customizations"
+            android:fragment="com.android.settings.rr.NotificationPanel" />
+
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
