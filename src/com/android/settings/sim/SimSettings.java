@@ -16,6 +16,7 @@
 
 package com.android.settings.sim;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -168,7 +169,10 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         @Override
         public void onSubscriptionsChanged() {
             if (DBG) log("onSubscriptionsChanged:");
-            updateSubscriptions();
+            Activity activity = getActivity();
+            if (activity != null && !activity.isFinishing()) {
+                updateSubscriptions();
+            }
         }
     };
 
