@@ -31,10 +31,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.settings.R;
-import com.android.settings.benzo.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.PackageListAdapter;
 import com.android.settings.cyanogenmod.PackageListAdapter.PackageItem;
+import com.android.settings.rr.SeekBarPreference;
+import android.provider.Settings;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
