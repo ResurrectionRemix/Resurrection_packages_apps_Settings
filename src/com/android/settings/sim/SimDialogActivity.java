@@ -178,7 +178,8 @@ public class SimDialogActivity extends Activity {
                                 sir = subInfoList.get(value);
                                 SubscriptionInfo defaultSub = subscriptionManager
                                         .getDefaultDataSubscriptionInfo();
-                                if (defaultSub.getSubscriptionId() != sir.getSubscriptionId()) {
+                                if (defaultSub == null || defaultSub.getSubscriptionId()
+                                        != sir.getSubscriptionId()) {
                                     setDefaultDataSubId(context, sir.getSubscriptionId());
                                 }
                                 break;
