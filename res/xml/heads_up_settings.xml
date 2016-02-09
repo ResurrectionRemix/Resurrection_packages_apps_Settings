@@ -69,7 +69,7 @@
             android:key="heads_up_snooze"
             android:dependency="heads_up_notifications_enabled" >
 
-        <com.android.settings.benzo.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
                android:key="heads_up_snooze_length_ms"
                android:title="@string/heads_up_snooze"
                android:max="120"
@@ -79,7 +79,7 @@
                android:dependency="heads_up_notifications_enabled"
                android:persistent="false" />
 
-        <com.android.settings.benzo.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
                android:key="heads_up_timeout"
                android:title="@string/heads_up_timeout"
                android:defaultValue="5"
