@@ -15,9 +15,11 @@
 */
 package com.android.settings.rr;
 
-
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -33,12 +35,16 @@ import com.android.settings.Utils;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
 
 import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.providers.CMSettings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -53,9 +59,17 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
  private static final String PREF_CUSTOM_HEADER = "status_bar_custom_header";
  private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
  private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
+
+ private static final String HEADER_CLOCK_COLOR = "header_clock_color";
+ private static final String HEADER_DETAIL_COLOR = "header_detail_color";
+ private static final String HEADER_WEATHERONE_COLOR = "header_weatherone_color";
+ private static final String HEADER_WEATHERTWO_COLOR = "header_weathertwo_color";
+ private static final String HEADER_BATTERY_COLOR = "header_battery_text_color";
+ private static final String HEADER_ALARM_COLOR = "header_alarm_text_color";
+
+    static final int DEFAULT = 0xffffffff;
+    private static final int MENU_RESET = Menu.FIRST;
 	
-
-
     private ListPreference mStatusBarClockFontStyle;	
     private ListPreference mStatusBarWeatherFontStyle;
     private SwitchPreference mCustomHeader;	
@@ -64,7 +78,14 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
     private ListPreference mStatusBarHeaderFontStyle;	
     private ListPreference mStatusBarDateFontStyle;	
     private ListPreference mStatusBarDetailFontStyle;
-    private ListPreference mStatusBarAlarmFontStyle;			
+    private ListPreference mStatusBarAlarmFontStyle;	
+
+    private ColorPickerPreference mHeaderCLockColor;
+    private ColorPickerPreference mHeaderDetailColor;
+    private ColorPickerPreference mHeaderWeatheroneColor;
+    private ColorPickerPreference mHeaderWeathertwoColor;	
+    private ColorPickerPreference mBatteryColor;
+    private ColorPickerPreference mAlarmColor;		
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -72,6 +93,9 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
         addPreferencesFromResource(R.xml.notification_panel_customizations);
         PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
+
+   	int intColor;
+        String hexColor;
 
  
         // Status bar custom header
@@ -105,7 +129,7 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
         mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
 
-  // Status bar header font style
+ 	 // Status bar header font style
             mStatusBarHeaderFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_HEADER_FONT_STYLE);
             mStatusBarHeaderFontStyle.setOnPreferenceChangeListener(this);
             mStatusBarHeaderFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
@@ -132,6 +156,56 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
             mStatusBarAlarmFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
                     Settings.System.HEADER_ALARM_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
             mStatusBarAlarmFontStyle.setSummary(mStatusBarAlarmFontStyle.getEntry());
+
+        mHeaderCLockColor = (ColorPickerPreference) findPreference(HEADER_CLOCK_COLOR);
+        mHeaderCLockColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HEADER_CLOCK_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mHeaderCLockColor.setSummary(hexColor);
+        mHeaderCLockColor.setNewPreviewColor(intColor);
+
+        mHeaderDetailColor = (ColorPickerPreference) findPreference(HEADER_DETAIL_COLOR);
+        mHeaderDetailColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HEADER_DETAIL_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mHeaderDetailColor.setSummary(hexColor);
+        mHeaderDetailColor.setNewPreviewColor(intColor);
+
+        mHeaderWeatheroneColor = (ColorPickerPreference) findPreference(HEADER_WEATHERONE_COLOR);
+        mHeaderWeatheroneColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HEADER_WEATHERONE_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mHeaderWeatheroneColor.setSummary(hexColor);
+        mHeaderWeatheroneColor.setNewPreviewColor(intColor);
+
+        mHeaderWeathertwoColor = (ColorPickerPreference) findPreference(HEADER_WEATHERTWO_COLOR);
+        mHeaderWeathertwoColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HEADER_WEATHERTWO_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mHeaderWeathertwoColor.setSummary(hexColor);
+        mHeaderWeathertwoColor.setNewPreviewColor(intColor);
+
+       	mBatteryColor = (ColorPickerPreference) findPreference(HEADER_BATTERY_COLOR);
+        mBatteryColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HEADER_BATTERY_TEXT_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mBatteryColor.setSummary(hexColor);
+        mBatteryColor.setNewPreviewColor(intColor);
+
+        mAlarmColor = (ColorPickerPreference) findPreference(HEADER_ALARM_COLOR);
+        mAlarmColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HEADER_ALARM_TEXT_COLOR , DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mAlarmColor.setSummary(hexColor);
+        mAlarmColor.setNewPreviewColor(intColor);
+	
+	setHasOptionsMenu(true);
 
 }
 
@@ -210,9 +284,117 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
                         Settings.System.HEADER_ALARM_FONT_STYLE, val, UserHandle.USER_CURRENT);
                 mStatusBarAlarmFontStyle.setSummary(mStatusBarAlarmFontStyle.getEntries()[index]);
                 return true;
-	}
+	} else if (preference == mHeaderCLockColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HEADER_CLOCK_COLOR, intHex);
+            return true;
+         } else if (preference == mHeaderDetailColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HEADER_DETAIL_COLOR, intHex);
+            return true;
+         } else if (preference == mHeaderWeatheroneColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HEADER_WEATHERONE_COLOR, intHex);
+            return true;
+         } else if (preference == mHeaderWeathertwoColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HEADER_WEATHERTWO_COLOR, intHex);
+            return true;
+         }  else if (preference == mBatteryColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HEADER_BATTERY_TEXT_COLOR, intHex);
+            return true;
+         }  else if (preference == mAlarmColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.HEADER_ALARM_TEXT_COLOR, intHex);
+            return true;
+         }
 	return false;
 	}
+
+ @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_reset)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                resetToDefault();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    private void resetToDefault() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle(R.string.header_colors_reset_title);
+        alertDialog.setMessage(R.string.header_colors_reset_message);
+        alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                resetValues();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.cancel, null);
+        alertDialog.create().show();
+    }
+
+    private void resetValues() {
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.HEADER_CLOCK_COLOR, DEFAULT);
+        mHeaderCLockColor.setNewPreviewColor(DEFAULT);
+        mHeaderCLockColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.HEADER_DETAIL_COLOR, DEFAULT);
+        mHeaderDetailColor.setNewPreviewColor(DEFAULT);
+        mHeaderDetailColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.HEADER_WEATHERONE_COLOR, DEFAULT);
+        mHeaderWeatheroneColor.setNewPreviewColor(DEFAULT);
+        mHeaderWeatheroneColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.HEADER_WEATHERTWO_COLOR, DEFAULT);
+	mHeaderWeathertwoColor.setNewPreviewColor(DEFAULT);
+        mHeaderWeathertwoColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.HEADER_BATTERY_TEXT_COLOR, DEFAULT);
+        mBatteryColor.setNewPreviewColor(DEFAULT);
+        mBatteryColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.HEADER_ALARM_TEXT_COLOR, DEFAULT);
+	        mAlarmColor.setNewPreviewColor(DEFAULT);
+        mAlarmColor.setSummary(R.string.default_string);
+
+    }
+
 
 	@Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
