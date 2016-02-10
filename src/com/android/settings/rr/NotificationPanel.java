@@ -67,6 +67,8 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
  private static final String HEADER_BATTERY_COLOR = "header_battery_text_color";
  private static final String HEADER_ALARM_COLOR = "header_alarm_text_color";
 
+private static final String PREF_MASTER_SWITCH = "header_color_switch";
+
     static final int DEFAULT = 0xffffffff;
     private static final int MENU_RESET = Menu.FIRST;
 	
@@ -75,6 +77,7 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
     private SwitchPreference mCustomHeader;	
     private ListPreference mCustomHeaderDefault;
     private SwitchPreference mEnableTaskManager;
+    private SwitchPreference mEnableColors;
     private ListPreference mStatusBarHeaderFontStyle;	
     private ListPreference mStatusBarDateFontStyle;	
     private ListPreference mStatusBarDetailFontStyle;
@@ -85,7 +88,7 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
     private ColorPickerPreference mHeaderWeatheroneColor;
     private ColorPickerPreference mHeaderWeathertwoColor;	
     private ColorPickerPreference mBatteryColor;
-    private ColorPickerPreference mAlarmColor;		
+    private ColorPickerPreference mAlarmColor;			
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -123,6 +126,12 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
             mStatusBarWeatherFontStyle.setValue(Integer.toString(Settings.System.getIntForUser(resolver,
                     Settings.System.HEADER_WEATHER_FONT_STYLE, 0, UserHandle.USER_CURRENT)));
             mStatusBarWeatherFontStyle .setSummary(mStatusBarWeatherFontStyle.getEntry());
+
+        // Switch for Colors
+        mEnableColors = (SwitchPreference) prefSet.findPreference(PREF_MASTER_SWITCH);
+        mEnableColors.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HEADER_COLOR_SWITCH, 0) == 1));
+	mEnableColors.setOnPreferenceChangeListener(this);
 
         // Task manager
         mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
@@ -332,6 +341,11 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.HEADER_ALARM_TEXT_COLOR, intHex);
             return true;
+         }  else if (preference == mEnableColors) {
+             Settings.System.putInt(resolver,
+                        Settings.System.HEADER_COLOR_SWITCH,
+                        (Boolean) newValue ? 1 : 0);
+                return true;
          }
 	return false;
 	}

@@ -154,35 +154,49 @@
     <PreferenceCategory
         android:title="@string/header_color" >
 
+ 
+    <SwitchPreference
+        android:key="header_color_switch"
+        android:title="@string/header_colors_switch" 
+	android:summaryOn="@string/header_colors_switch_sum_on"
+        android:summaryOff="@string/header_colors_switch_sum_off"
+	android:defaultValue="false"/>	
+
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="header_clock_color"
         android:title="@string/header_clock_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff" 
+	android:dependency="header_color_switch"/>
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="header_detail_color"
         android:title="@string/header_detail_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff" 
+	android:dependency="header_color_switch"/>
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="header_weatherone_color"
         android:title="@string/header_weatherone_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff"  
+	android:dependency="header_color_switch"/>
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="header_weathertwo_color"
         android:title="@string/header_weathertwo_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff" 
+	android:dependency="header_color_switch"/>
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="header_battery_text_color"
         android:title="@string/header_battery_text_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff"  
+	android:dependency="header_color_switch"/>
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="header_alarm_text_color"
         android:title="@string/header_alarm_text_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff" 
+	android:dependency="header_color_switch"/>
 
   </PreferenceCategory>
 
