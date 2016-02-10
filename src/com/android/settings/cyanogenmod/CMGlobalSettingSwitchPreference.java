@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The CyanogenMod project
+ * Copyright (C) 2016 The CyanogenMod project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,16 @@ import android.util.AttributeSet;
 
 import cyanogenmod.providers.CMSettings;
 
-public class CMSecureSettingSwitchPreference extends SwitchPreference {
-    public CMSecureSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
+public class CMGlobalSettingSwitchPreference extends SwitchPreference {
+    public CMGlobalSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public CMSecureSettingSwitchPreference(Context context, AttributeSet attrs) {
+    public CMGlobalSettingSwitchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CMSecureSettingSwitchPreference(Context context) {
+    public CMGlobalSettingSwitchPreference(Context context) {
         super(context, null);
     }
 
@@ -42,7 +42,7 @@ public class CMSecureSettingSwitchPreference extends SwitchPreference {
                 // It's already there, so the same as persisting
                 return true;
             }
-            CMSettings.Secure.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
+            CMSettings.Global.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -53,7 +53,7 @@ public class CMSecureSettingSwitchPreference extends SwitchPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
-        return CMSettings.Secure.getInt(getContext().getContentResolver(),
+        return CMSettings.Global.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 
@@ -61,6 +61,6 @@ public class CMSecureSettingSwitchPreference extends SwitchPreference {
     protected boolean isPersisted() {
         // Using getString instead of getInt so we can simply check for null
         // instead of catching an exception. (All values are stored as strings.)
-        return CMSettings.Secure.getString(getContext().getContentResolver(), getKey()) != null;
+        return CMSettings.Global.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }
