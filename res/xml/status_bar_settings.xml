@@ -152,28 +152,14 @@
             android:defaultValue="false" />
 
      </PreferenceCategory>
-
      <PreferenceCategory
         android:key="breathing_notifications_category"
         android:title="@string/breathing_notifications_category" />
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="missed_call_breath"
-        android:title="@string/missed_call_breath_title"
-        android:summary="@string/missed_call_breath_summary"
-        android:persistent="false"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="voicemail_breath"
-        android:title="@string/voicemail_breath_title"
-        android:summary="@string/voicemail_breath_summary"
-        android:persistent="false"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="sms_breath"
-        android:title="@string/sms_breath_title"
-        android:summary="@string/sms_breath_summary"
-        android:persistent="false"/>
+     <PreferenceScreen
+        android:key="breathtaking_notif"
+	android:title="@string/breathing_category"
+        android:fragment="com.android.settings.rr.BreathTakingNotification" />
 
 </PreferenceScreen>
 
