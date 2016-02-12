@@ -47,11 +47,12 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment  impl
  private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
  private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
-
+ private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 
     private SwitchPreference mForceExpanded;
     private SwitchPreference mBlockOnSecureKeyguard;
-    private ListPreference mQuickPulldown;	
+    private ListPreference mQuickPulldown;
+    private ListPreference mSmartPulldown;		
     	
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
@@ -92,6 +93,13 @@ int quickPulldown = CMSettings.System.getInt(resolver,
 	mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
         mForceExpanded.setChecked((Settings.System.getInt(resolver, Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
 
+         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+        mSmartPulldown.setOnPreferenceChangeListener(this);
+        int smartPulldown = Settings.System.getInt(resolver,
+                Settings.System.QS_SMART_PULLDOWN, 0);
+        mSmartPulldown.setValue(String.valueOf(smartPulldown));
+        updateSmartPulldownSummary(smartPulldown);
+
     }
 
     @Override
@@ -128,9 +136,39 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                         res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
             }
             return true;
-	} 
+	} else if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
+            return true;
+	}
          return false;
 	}
+
+  private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+        } else {
+            String type = null;
+            switch (value) {
+                case 1:
+                    type = res.getString(R.string.smart_pulldown_dismissable);
+                    break;
+                case 2:
+                    type = res.getString(R.string.smart_pulldown_persistent);
+                    break;
+                default:
+                    type = res.getString(R.string.smart_pulldown_all);
+                    break;
+            }
+            // Remove title capitalized formatting
+            type = type.toLowerCase();
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
+    }
 
 
     @Override
