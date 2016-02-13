@@ -73,15 +73,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String SHOW_THREEG = "show_threeg";	
     private SwitchPreference mShowFourG;
     private SwitchPreference mShowThreeG;	
-    private SwitchPreference mMissedCallBreath;
-    private SwitchPreference mVoicemailBreath;
-    private SwitchPreference mSmsBreath;
+
     
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String MISSED_CALL_BREATH = "missed_call_breath";
-    private static final String VOICEMAIL_BREATH = "voicemail_breath";
-    private static final String SMS_BREATH = "sms_breath";
+
 
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
@@ -137,33 +133,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mShowThreeG.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_THREEG, 0) == 1));
         }
-
-         mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
-         mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
-         mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
-
-         ConnectivityManager cm = (ConnectivityManager)
-                   context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-         if (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
-
-             mMissedCallBreath.setChecked(Settings.System.getInt(resolver,
-                     Settings.System.KEY_MISSED_CALL_BREATH, 0) == 1);
-             mMissedCallBreath.setOnPreferenceChangeListener(this);
-
-             mVoicemailBreath.setChecked(Settings.System.getInt(resolver,
-                     Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
-             mVoicemailBreath.setOnPreferenceChangeListener(this);
-
-             mSmsBreath.setChecked(Settings.Global.getInt(resolver,
-                    Settings.System.KEY_SMS_BREATH, 0) == 1);
-             mSmsBreath.setOnPreferenceChangeListener(this);
-         } else {
-             prefSet.removePreference(mMissedCallBreath);
-             prefSet.removePreference(mVoicemailBreath);
-             prefSet.removePreference(mSmsBreath);
-         }
-
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBatteryShowPercent =
                 (ListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
@@ -213,23 +182,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
             enableStatusBarBatteryDependents(batteryStyle);
             return true;
-        }   
-        else if (preference == mMissedCallBreath) {
-             boolean value = (Boolean) newValue;
-             Settings.System.putInt(resolver, Settings.System.KEY_MISSED_CALL_BREATH, value ? 1 : 0);
-             return true;
-        }
-        else if (preference == mVoicemailBreath) {
-          boolean value = (Boolean) newValue;
-          Settings.System.putInt(resolver, Settings.System.KEY_VOICEMAIL_BREATH, value ? 1 : 0);
-          return true;
-        }
-        else if (preference == mSmsBreath) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
-            return true;
-        }
-        else if (preference == mStatusBarBatteryShowPercent) {
+        } else if (preference == mStatusBarBatteryShowPercent) {
             int batteryShowPercent = Integer.valueOf((String) newValue);
             int index = mStatusBarBatteryShowPercent.findIndexOfValue((String) newValue);
             CMSettings.System.putInt(

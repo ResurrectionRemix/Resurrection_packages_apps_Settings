@@ -30,7 +30,6 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.SwitchPreference;
 import android.provider.Telephony;
 import android.telephony.ServiceState;
@@ -43,7 +42,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.android.internal.logging.MetricsLogger;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class ApnEditor extends InstrumentedPreferenceActivity
@@ -66,6 +68,7 @@ public class ApnEditor extends InstrumentedPreferenceActivity
     private static final int MENU_SAVE = Menu.FIRST + 1;
     private static final int MENU_CANCEL = Menu.FIRST + 2;
     private static final int ERROR_DIALOG_ID = 0;
+    private static final int DUPLICATE_DIALOG_ID = 1;
 
     private static String sNotSet;
     private EditTextPreference mName;
@@ -714,9 +717,79 @@ public class ApnEditor extends InstrumentedPreferenceActivity
         values.put(Telephony.Carriers.MVNO_MATCH_DATA, checkNotSet(mMvnoMatchData.getText()));
 
         values.put(Telephony.Carriers.CARRIER_ENABLED, mCarrierEnabled.isChecked() ? 1 : 0);
+
+        if (isDuplicate(values)) {
+            showDialog(DUPLICATE_DIALOG_ID);
+            return false;
+        }
+
         getContentResolver().update(mUri, values, null, null);
 
         return true;
+    }
+
+    private boolean isDuplicate(ContentValues row) {
+        if (!getResources().getBoolean(R.bool.config_enable_duplicate_apn_checking)) {
+            return false;
+        }
+
+        final Set<String> keys = row.keySet();
+
+        StringBuilder queryBuilder = new StringBuilder();
+        List<String> selectionArgsList = new ArrayList<>();
+
+        final Iterator<String> iterator = keys.iterator();
+        while (iterator.hasNext()) {
+            final String key = iterator.next();
+
+            if (!keyForDuplicateCheck(key) || row.getAsString(key).isEmpty()) {
+                // Skip keys which don't interest us for the duplicate query.
+                // Or if the user hasn't yet filled a field in (empty value), skip it.
+                continue;
+            }
+
+            queryBuilder.append(key);
+            queryBuilder.append("=?");
+            queryBuilder.append(" AND ");
+
+            selectionArgsList.add(row.getAsString(key));
+        }
+        // remove extra AND at the end
+        queryBuilder.delete(queryBuilder.length() - " AND ".length(), queryBuilder.length());
+
+        String[] selectionArgs = new String[selectionArgsList.size()];
+        selectionArgsList.toArray(selectionArgs);
+
+        try (Cursor query = getContentResolver().query(Telephony.Carriers.CONTENT_URI,
+                sProjection, queryBuilder.toString(), selectionArgs, null)) {
+            return query.getCount() > (mNewApn ? 0 : 1);
+        } catch (Exception e) {
+            Log.e(TAG, "error querying for duplicates", e);
+            return false;
+        }
+    }
+
+    /**
+     * Helper method to decide what columns should be considered valid when checking for
+     * potential duplicate APNs before allowing the user to add a new one.
+     *
+     * @param key the column of the row we want to check
+     * @return whether to include this key-value pair in the duplicate query
+     */
+    private static boolean keyForDuplicateCheck(String key) {
+        switch (key) {
+            case Telephony.Carriers.APN:
+            case Telephony.Carriers.MMSPROXY:
+            case Telephony.Carriers.MMSPORT:
+            case Telephony.Carriers.MMSC:
+            case Telephony.Carriers.TYPE:
+            case Telephony.Carriers.MCC:
+            case Telephony.Carriers.MNC:
+            case Telephony.Carriers.NUMERIC:
+                return true;
+            default:
+                return false;
+        }
     }
 
     private String getErrorMsg() {
@@ -750,6 +823,12 @@ public class ApnEditor extends InstrumentedPreferenceActivity
                     .setTitle(R.string.error_title)
                     .setPositiveButton(android.R.string.ok, null)
                     .setMessage(msg)
+                    .create();
+        } else if (id == DUPLICATE_DIALOG_ID) {
+            return new AlertDialog.Builder(this)
+                    .setTitle(R.string.duplicate_apn_error_title)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .setMessage(getString(R.string.duplicate_apn_error_message))
                     .create();
         }
 

@@ -81,6 +81,7 @@ import com.android.settings.profiles.actions.item.DozeModeItem;
 import com.android.settings.profiles.actions.item.Header;
 import com.android.settings.profiles.actions.item.Item;
 import com.android.settings.profiles.actions.item.LockModeItem;
+import com.android.settings.profiles.actions.item.NotificationLightModeItem;
 import com.android.settings.profiles.actions.item.ProfileNameItem;
 import com.android.settings.profiles.actions.item.RingModeItem;
 import com.android.settings.profiles.actions.item.TriggerItem;
@@ -123,6 +124,8 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
     private static final String LAST_SELECTED_POSITION = "last_selected_position";
     private static final int DIALOG_REMOVE_PROFILE = 10;
 
+    private static final int DIALOG_NOTIFICATION_LIGHT_MODE = 11;
+
     private int mLastSelectedPosition = -1;
     private Item mSelectedItem;
 
@@ -145,6 +148,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             Profile.DozeMode.DEFAULT,
             Profile.DozeMode.ENABLE,
             Profile.DozeMode.DISABLE
+    };
+    private static final int[] NOTIFICATION_LIGHT_MAPPING = new int[] {
+            Profile.NotificationLightMode.DEFAULT,
+            Profile.NotificationLightMode.ENABLE,
+            Profile.NotificationLightMode.DISABLE
     };
     private List<Item> mItems = new ArrayList<Item>();
 
@@ -254,6 +262,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         final Activity activity = getActivity();
         if (Utils.isDozeAvailable(activity)) {
             mItems.add(new DozeModeItem(mProfile));
+        }
+
+        if (getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+            mItems.add(new NotificationLightModeItem(mProfile));
         }
 
         // app groups
@@ -522,6 +535,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             case DIALOG_DOZE_MODE:
                 return requestDozeModeDialog();
 
+            case DIALOG_NOTIFICATION_LIGHT_MODE:
+                return requestNotificationLightModeDialog();
+
             case DIALOG_RING_MODE:
                 return requestRingModeDialog(((RingModeItem) mSelectedItem).getSettings());
 
@@ -631,6 +647,35 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
                         mProfile.setDozeMode(DOZE_MAPPING[item]);
+                        updateProfile();
+                        mAdapter.notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                });
+
+        builder.setNegativeButton(android.R.string.cancel, null);
+        return builder.create();
+    }
+
+    private AlertDialog requestNotificationLightModeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final String[] notificationLightEntries =
+                getResources().getStringArray(R.array.profile_notification_light_entries);
+
+        int defaultIndex = 0; // no action
+        for (int i = 0; i < NOTIFICATION_LIGHT_MAPPING.length; i++) {
+            if (NOTIFICATION_LIGHT_MAPPING[i] == mProfile.getNotificationLightMode()) {
+                defaultIndex = i;
+                break;
+            }
+        }
+
+        builder.setTitle(R.string.notification_light_title);
+        builder.setSingleChoiceItems(notificationLightEntries, defaultIndex,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        mProfile.setNotificationLightMode(NOTIFICATION_LIGHT_MAPPING[item]);
                         updateProfile();
                         mAdapter.notifyDataSetChanged();
                         dialog.dismiss();
@@ -1083,6 +1128,8 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             showDialog(DIALOG_LOCK_MODE);
         } else if (itemAtPosition instanceof DozeModeItem) {
             showDialog(DIALOG_DOZE_MODE);
+        } else if (itemAtPosition instanceof NotificationLightModeItem) {
+            showDialog(DIALOG_NOTIFICATION_LIGHT_MODE);
         } else if (itemAtPosition instanceof RingModeItem) {
             showDialog(DIALOG_RING_MODE);
         } else if (itemAtPosition instanceof ConnectionOverrideItem) {

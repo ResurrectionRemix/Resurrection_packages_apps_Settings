@@ -224,7 +224,11 @@
     <string name="heads_up_notifications">Heads up</string>
     <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
     <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
-
+    <string name="headsup_options_header">Heads Up Options</string>
+    <string name="heads_up_snooze_title">Snooze</string>
+   <string name="heads_up_snooze">Snooze</string>
+   <string name="heads_up_timeout">Timeout</string>
+ 
    <!-- Navigation Bar -->
     <string name="navigation_bar_dimensions_reset_message">Reset all dimensions entries to default?</string>
     <string name="navigation_bar_dimensions_title">Nav bar dimensions</string>
@@ -988,12 +992,7 @@
     <string name="status_bar_carrier_size">Carrier label text size</string>	
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="status_bar_carrier_color">Carrier label color</string>
-    <string name="status_bar_carrier_position">Status bar location</string>
-    <string name="status_bar_carrier_position_left">Left</string>
-    <string name="status_bar_carrier_position_center">Center</string>	
-    <string name="status_bar_carrier_position_right">Right</string>
-    <string name="status_bar_carrier_position_before">Before StatusBar Icons</string>	
-	 
+
     <!-- Statusbar RR logo -->
     <string name="status_bar_logo">Resurrection logo</string>
     <string name="status_bar_rr_logo_title">Enable logo</string>
@@ -1031,7 +1030,6 @@
     <string name="show_carrier_keyguard">Keyguard carrier</string>
     <string name="show_carrier_statusbar">Status bar carrier</string>
     <string name="show_carrier_enabled">Enabled</string>
-    <string name="status_bar_carrier_font_style_title">Font style</string>
 
 
     <!-- Disabling FC notifications -->
@@ -1464,6 +1462,13 @@
     <string name="lock_clock_font_black_italic">Roboto Black Italic</string>
     <string name="lock_clock_font_condensed_light_normal">Roboto Condensed Light</string>
     <string name="lock_clock_font_condensed_light_italic">Roboto Condensed Light Italic</string>
+    <string name="lock_clock_font_dancingscript">DancingScript</string>
+    <string name="lock_clock_font_dancingscript_bold">DancingScript Bold</string>
+    <string name="lock_clock_font_comingsoon">ComingSoon</string>
+    <string name="lock_clock_font_notoserif">NotoSerif Normal</string>
+    <string name="lock_clock_font_notoserif_italic">NotoSerif Italic</string>
+    <string name="lock_clock_font_notoserif_bold">NotoSerif Bold</string>
+    <string name="lock_clock_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
 
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot sound</string>
@@ -1584,7 +1589,10 @@
     <string name="dashboard_columns_three">Three</string>
 
     <!-- Breathing Notifications -->
-    <string name="breathing_notifications_category">Breathing Notifications</string>
+    <string name="breathing_notifications_category">Notifications</string>
+    <string name="breathing_notifications_sms">Messaging</string>
+    <string name="breathing_voice_category">Voice</string>
+    <string name="breathing_category">BreathTaking Notifications</string>	
     <string name="breathing_notifications_title">Breathing notifications</string>
     <string name="missed_call_breath_title">Breathing Missed Call</string>
     <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
@@ -1615,4 +1623,98 @@
     <!-- Ability to disable hardware keys via nav bar settings -->	
    <string name="hw_keys_title">Hardware keys</string>
    <string name="hw_keys_summary">Enable hardware keys</string>
+
+    <!-- Hide Lockscreen clock & date -->
+    <string name="hide_lockscreen_items_title">Lockscreen items</string>
+    <string name="hide_lockscreen_clock_title">Show lockscreen clock</string>
+    <string name="hide_lockscreen_date_title">Show lockscreen date</string>
+
+
+    <!-- Status bar header font style -->
+    <string name="status_bar_header_font_style_title">Other Text Font styles</string>
+
+    <!-- Notification Header Customizations -->
+    <string name="notification_customizations">Notification Header </string>	
+    <string name="notification_panel_title">Notification Header</string>
+    <string name="notifications_fonts">Fonts</string>	
+    <string name="notifications_header">Header Tweaks </string>	
+    <string name="notifications_items">Notification Header Items</string>
+    <string name="hide_panel_items_title">Notification Panel Icons </string>
+    <string name="hide_panel_clock_title">Show Notification Panel clock</string>
+    <string name="hide_panel_date_title">Show Notification Panel date</string>
+    <string name="hide_panel_clockvalue">Show Clock Detail</string>
+    <string name="hide_panel_battery">Show Notification Panel Battery Text</string>
+    <string name="hide_panel_icons">Show Notification Icons</string>
+    <string name="hide_panel_alarm_title">Hide Alarm</string>	
+    <string name="hide_settings_icon">Show Notification Panel Settings button</string>
+    <string name="hide_user_icon">Show Notification Panel UserSwitcher</string>	
+    <string name="status_bar_header_clock_font_style_title">Notification Panel Clock Font</string>
+    <string name="status_bar_header_weather_font_style">Notification Panel  Weather Font</string>
+    <string name="status_bar_header_weather_font_style_title">Notification Panel  Weather Font</string>
+    <string name="status_bar_header_date_font_style">Notification Panel Date Font</string>
+    <string name="status_bar_header_alarm_style_title">Notification Panel  Alarm Font</string>
+    <string name="status_bar_header_detail_font_style_title">Notification Panel Am/PM Font</string>
+    <string name="panel_clock_sum">Show / Hide Clock In Header In Header</string>
+    <string name="panel_date_sum">Show / Hide Date In Header In Header</string>
+    <string name="panel_ampm_sum">Show / Hide AM / PM Values In Header</string>
+    <string name="panel_battery_sum">Show / Hide Battery Percentange While Charging In Header</string>
+    <string name="panel_icons_sum">Show / Hide System Icons Like Battery In Header</string>	
+    <string name="panel_user_sum">Show / Hide Users Switch Icon In Header</string>
+    <string name="panel_settings_sum">Show / Hide Settings Icon In Header</string>	
+    <string name="hide_panel_alarm_sum">Show / Hide Next Alarm In Header</string>
+    <string name="notifications_misc">Misc</string>
+
+    <!--Summary on/off-->	
+    <string name="hide_clock_summary_on">Clock Shown</string>	
+    <string name="hide_clock_summary_off">Clock Hidden</string>
+    <string name="hide_panel_date_summary_on">Date Shown</string>	
+    <string name="hide_panel_date_summary_off">Date Hidden</string>
+
+    <string name="hide_ampm_summary_on">AM/PM Visible</string>	
+    <string name="hide_ampm_summary_off">AM/PM Hidden</string>
+  
+    <string name="hide_alarm_summary_on">Next Alarm Hidden</string>	
+    <string name="hide_alarm_summary_off">Next Alarm Visible</string>
+    <string name="hide_panel_ampm_summary_on">Am/Pm Visible</string>	
+    <string name="hide_panel_ampm_summary_off">Am/Pm Hidden</string>
+    
+    <string name="hide_battery_summary_on">Battery Visible</string>	
+    <string name="hide_battery_summary_off">Batteryu Hidden</string>
+    <string name="hide_icons_summary_on">System Icons Visible</string>	
+    <string name="hide_icons_summary_off">System Icons Hidden</string>
+   
+    <string name="hide_settings_summary_on">Settings Button Visible</string>	
+    <string name="hide_settings_summary_off">Settings Button hidden</string>
+    <string name="hide_user_summary_on">User Switch Visible</string>	
+    <string name="hide_user_summary_off">User Switch Hidden</string>
+    <string name="hide_weather_summary_on">Weather Shown</string>	
+    <string name="hide_weather_summary_off">Weather Hidden</string>          
+  
+    <string name="header_color">Colors</string>
+    <string name="header_clock_color">Header Clock Color</string>
+    <string name="header_detail_color">Header Date Color</string>
+    <string name="header_weatherone_color">Weather Text Color Line 1</string>
+    <string name="header_weathertwo_color">Weather Text Color Line 2</string>
+    <string name="header_battery_text_color">Battery Text Color While Charging</string>
+    <string name="header_alarm_text_color">Next Alarm Text Color</string>	
+    <string name="header_colors_reset_title">Reset Header Color</string>
+    <string name="header_colors_reset_message">Reset Header Color Back to Default</string>
+
+    <!-- Navbar buttons rotating icons -->
+    <string name="nav_buttons_rotation_title">Rotation animation for icons</string>
+    <string name="nav_buttons_rotation_summary">Enable for icons to rotate when screen is rotated or navbar recreated.</string>
+
+    <!--Smart PullDown-->	
+    <string name="smart_pulldown_title">Smart pulldown</string>
+    <string name="smart_pulldown_summary">Open Quick Settings when there are %1$s notifications present</string>
+    <string name="smart_pulldown_off">Off</string>
+    <string name="smart_pulldown_dismissable">No dismissable</string>
+    <string name="smart_pulldown_persistent">No persistent</string>
+    <string name="smart_pulldown_all">No dismissable or persistent</string>
+
+     <!-- Date position -->
+    <string name="clock_date_position">Date position</string>
+    <string name="clock_date_right">Right of time</string>
+    <string name="clock_date_left">Left of time</string>
+
 </resources>

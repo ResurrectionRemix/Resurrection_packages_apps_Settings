@@ -230,17 +230,6 @@
     <string name="duplicate_appgroup_name">Duplicate app group name!</string>
     <string name="profile_app_delete_confirm">Remove this app?</string>
 
-    <!-- Profile Settings sound modes labels -->
-    <string name="sound_mode">Notification mode</string>
-    <string name="ringer_mode">Ring mode</string>
-    <string name="lights_mode">Lights mode</string>
-    <string name="vibrate_mode">Vibrate mode</string>
-    <string name="choose_soundtone">Choose notification tone</string>
-    <string name="choose_ringtone">Choose ringtone</string>
-    <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
-    <string name="soundtone_title">Notification tone</string>
-    <string name="soundtone_summary" translatable="false">""</string>
-
     <string name="no_bluetooth_triggers">No Bluetooth devices paired.\nTap to pair Bluetooth device before configuring triggers.</string>
     <string name="no_wifi_triggers">No Wi\u2011Fi access points configured.\nTap to connect Wi\u2011Fi before configuring triggers.</string>
     <string name="no_triggers_configured">No triggers configured. Tap to add more.</string>
@@ -305,6 +294,7 @@
     <string name="notification_light_screen_on">Lights with screen on</string>
     <string name="notification_light_use_multiple_leds">Multiple LEDs</string>
     <string name="keywords_lights_brightness_level">dim leds brightness</string>
+    <string name="notification_light_automagic">Choose colors automatically</string>
 
     <!-- Lights settings, LED notification -->
     <string name="led_notification_title">Light settings</string>
@@ -575,7 +565,6 @@
     <string name="power_menu_reboot_title">Reboot menu</string>
     <string name="power_menu_screenshot_title">Screenshot</string>
     <string name="power_menu_screenrecord_title">Screenrecord</string>
-    <string name="power_menu_profiles_title">Profile switcher</string>
     <string name="power_menu_airplane_title">Airplane mode</string>
     <string name="power_menu_users_title">User switcher</string>
     <string name="power_menu_settings_title">Settings shortcut</string>
@@ -583,7 +572,6 @@
     <string name="power_menu_bug_report_title">Bug report</string>
     <string name="power_menu_sound_title">Sound panel</string>
     <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>
-    <string name="power_menu_profiles_disabled">System profiles are disabled</string>
     <string name="powermenu_screenshot_delay_title">Set screenshot delay</string>
 
     <!-- Buttons - Enable navbar -->
@@ -1037,6 +1025,10 @@
     <string name="apn_ppp_number">APN PPP phone number</string>
     <string name="ppp_number" translatable="false">ppp_number</string>
 
+    <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+    <string name="duplicate_apn_error_title">Duplicate APN</string>
+    <string name="duplicate_apn_error_message">This APN already exists. Discard or change parameters.</string>
+
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">disabled</string>
     <string name="sim_missing">missing or faulty</string>
@@ -1130,8 +1122,8 @@
     <string name="hotstpot_inactivity_timeout_1_minute">1 minute</string>
     <string name="hotstpot_inactivity_timeout_5_minutes">5 minutes</string>
     <string name="hotstpot_inactivity_timeout_10_minutes">10 minutes</string>
-    <string name="hotstpot_inactivity_timeout_never_summary_text">Portable Wi\u2011Fi hotspot timeout never</string>
-    <string name="hotstpot_inactivity_timeout_summary_text">Portable Wi\u2011Fi hotspot timeout after <xliff:g id="timeout">%1$s</xliff:g></string>
+    <string name="hotstpot_inactivity_timeout_never_summary_text">Portable Wi\u2011Fi hotspot will never timeout</string>
+    <string name="hotstpot_inactivity_timeout_summary_text">Portable Wi\u2011Fi hotspot will timeout after <xliff:g id="timeout">%1$s</xliff:g></string>
 
     <!-- Live lock screen -->
     <!-- Live lock screen title -->

@@ -56,6 +56,7 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
     private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
 
+
     private ListPreference mStatusBarTemperature;
     private ListPreference mStatusBarTemperatureStyle;
     private ColorPickerPreference mStatusBarTemperatureColor;
@@ -105,6 +106,9 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0)));
         mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntry());
 
+
+
+
         updateWeatherOptions();
     }
 
@@ -150,7 +154,7 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                     Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, val);
             mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntries()[index]);
             return true;
-        }
+        } 
         return false;
     }
 

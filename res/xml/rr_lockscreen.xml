@@ -90,7 +90,7 @@
             android:title="@string/lockscreen_colors"
             android:fragment="com.android.settings.rr.LockscreenColors" />
 
-<ListPreference
+    <ListPreference
         android:key="lock_clock_fonts"
         android:title="@string/lock_clock_font_title"
         android:dialogTitle="@string/lock_clock_font_dialog_title"
@@ -98,6 +98,19 @@
         android:entryValues="@array/lock_clock_fonts_values"
         android:summary="@string/lock_clock_font_summary"
         android:persistent="false" />
+
+
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_clock"
+        android:title="@string/hide_lockscreen_clock_title"
+        android:defaultValue="true" />
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_date"
+        android:title="@string/hide_lockscreen_date_title"
+        android:defaultValue="true" />
+
 
 
     </PreferenceCategory>
