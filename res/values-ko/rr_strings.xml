@@ -224,6 +224,10 @@
     <string name="heads_up_notifications">헤드업</string>
     <string name="summary_heads_up_enabled">팝업 알림이 활성화됨</string>
     <string name="summary_heads_up_disabled">팝업 알림이 비활성화됨</string>
+    <string name="headsup_options_header">헤드업 알림 옵션</string>
+    <string name="heads_up_snooze_title">알림 일시 정지</string>
+    <string name="heads_up_snooze">알림을 잠시동안 표시하지 않음</string>
+    <string name="heads_up_timeout">알림 지속 시간</string>
 
     <!-- Navigation Bar -->
     <string name="navigation_bar_dimensions_reset_message">모든 변경사항을 초기화 할까요?</string>
@@ -988,11 +992,6 @@
     <string name="status_bar_carrier_size">통신사 문구 글자 크기</string>	
     <string name="custom_carrier_label_notset">사용자가 설정한 통신사 문구 없음</string>
     <string name="status_bar_carrier_color">통신사 문구 색</string>
-    <string name="status_bar_carrier_position">상태 표시줄 내 위치</string>
-    <string name="status_bar_carrier_position_left">좌측</string>
-    <string name="status_bar_carrier_position_center">우측</string>	
-    <string name="status_bar_carrier_position_right">중앙</string>
-    <string name="status_bar_carrier_position_before">상태 아이콘 앞에</string>
 	
     <!-- Statusbar RR logo -->
     <string name="status_bar_logo">Resurrection 로고</string>
@@ -1031,7 +1030,6 @@
     <string name="show_carrier_keyguard">잠금화면에 표시</string>
     <string name="show_carrier_statusbar">상태 표시줄에 표시</string>
     <string name="show_carrier_enabled">활성화</string>
-
 
     <!-- Disabling FC notifications -->
     <string name="disable_fc_notifications_title">작동 중지 알림 비활성화</string>
@@ -1463,6 +1461,13 @@
     <string name="lock_clock_font_black_italic">이탤릭 Black Roboto</string>
     <string name="lock_clock_font_condensed_light_normal">얇고 좁은 Roboto</string>
     <string name="lock_clock_font_condensed_light_italic">얇고 좁은 이탤릭 Roboto</string>
+    <string name="lock_clock_font_dancingscript">DancingScript</string>
+    <string name="lock_clock_font_dancingscript_bold">굵은 DancingScript</string>
+    <string name="lock_clock_font_comingsoon">ComingSoon</string>
+    <string name="lock_clock_font_notoserif">일반 NotoSerif</string>
+    <string name="lock_clock_font_notoserif_italic">이탤릭 NotoSerif</string>
+    <string name="lock_clock_font_notoserif_bold">굵은 NotoSerif</string>
+    <string name="lock_clock_font_notoserif_bold_italic">굵은 이탤릭 NotoSerif</string>
 
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">스크린샷 소리</string>
@@ -1583,7 +1588,10 @@
     <string name="dashboard_columns_three">3개</string>
 
     <!-- Breathing Notifications -->
-    <string name="breathing_notifications_category">알림 깜빡임</string>
+    <string name="breathing_notifications_category">알림</string>
+    <string name="breathing_notifications_sms">메시지</string>
+    <string name="breathing_voice_category">음성 메일</string>
+    <string name="breathing_category">알림 깜빡임</string>
     <string name="breathing_notifications_title">알림 깜빡임 설정</string>
     <string name="missed_call_breath_title">부재중 전화 알림 깜빡임</string>
     <string name="missed_call_breath_summary">상태 표시줄의 부재중 전화 알림에 깜빡임 효과를 줍니다</string>
@@ -1614,4 +1622,96 @@
     <!-- Ability to disable hardware keys via nav bar settings -->	
     <string name="hw_keys_title">하드웨어 키</string>
     <string name="hw_keys_summary">하드웨어 키를 활성화 합니다</string>
+
+    <!-- Hide Lockscreen clock & date -->
+    <string name="hide_lockscreen_items_title">잠금 화면 항목</string>
+    <string name="hide_lockscreen_clock_title">시계 표시</string>
+    <string name="hide_lockscreen_date_title">날짜 표시</string>
+
+    <!-- Status bar header font style -->
+    <string name="status_bar_header_font_style_title">기타 항목 폰트 스타일</string>
+
+    <!-- Notification Header Customizations -->
+    <string name="notification_customizations">알림 패널 헤더 수정</string>	
+    <string name="notification_panel_title">알림 패널 헤더</string>
+    <string name="notifications_fonts">폰트</string>	
+    <string name="notifications_items">알림 패널 헤더 항목</string>
+    <string name="hide_panel_items_title">알림 패널 아이콘</string>
+    <string name="hide_panel_clock_title">알림 패널에 시계 표시</string>
+    <string name="hide_panel_date_title">알림 패널에 날짜 표시</string>
+	<string name="hide_panel_clockvalue">시계 세부 정보 표시</string>
+    <string name="hide_panel_battery">알림 패널에 배터리 정보 표시</string>
+    <string name="hide_panel_icons">알림 패널 아이콘 표시</string>
+    <string name="hide_panel_alarm_title">알람 숨기기</string>
+    <string name="hide_settings_icon">알림 패널에 설정 버튼 표시</string>
+    <string name="hide_user_icon">알림 패널에 사용자 전환 버튼 표시</string>
+    <string name="status_bar_header_clock_font_style_title">알림 패널 시계 폰트</string>
+	<string name="status_bar_header_weather_font_style">알림 패널 날씨 폰트</string>
+    <string name="status_bar_header_weather_font_style_title">알림 패널 날씨 폰트</string>
+    <string name="status_bar_header_date_font_style">알림 패널 날짜 폰트</string>
+    <string name="status_bar_header_alarm_style_title">알림 패널 알람 폰트</string>
+    <string name="status_bar_header_detail_font_style_title">알림 패널 오전/오후 폰트</string>
+    <string name="panel_clock_sum">헤더에 시계 표시/숨기기</string>
+    <string name="panel_date_sum">헤더에 날짜 표시/숨기기</string>
+    <string name="panel_ampm_sum">헤더에 오전/오후 표시/숨기기</string>
+    <string name="panel_battery_sum">충전 중일 때 헤더에 배터리 퍼센트 표시/숨기기</string>
+    <string name="panel_icons_sum">헤더에 시스템 아이콘 표시/숨기기</string>	
+    <string name="panel_user_sum">헤더에 사용자 전환 아이콘 표시/숨기기</string>
+    <string name="panel_settings_sum">헤더에 설정 아이콘 표시/숨기기</string>	
+    <string name="hide_panel_alarm_sum">헤더에 다음 알람 표시/숨기기</string>
+    <string name="notifications_misc">기타</string>
+
+    <!--Summary on/off-->	
+    <string name="hide_clock_summary_on">시계 표시</string>	
+    <string name="hide_clock_summary_off">시계 표시안함</string>
+    <string name="hide_panel_date_summary_on">날짜 표시</string>	
+    <string name="hide_panel_date_summary_off">날짜 표시안함</string>
+
+    <string name="hide_ampm_summary_on">오전/오후 표시</string>	
+    <string name="hide_ampm_summary_off">오전/오후 표시안함</string>
+  
+    <string name="hide_alarm_summary_on">다음 알람 표시</string>	
+    <string name="hide_alarm_summary_off">다음 알람 표시안함</string>
+    <string name="hide_panel_ampm_summary_on">오전/오후 표시</string>	
+    <string name="hide_panel_ampm_summary_off">오전/오후 표시안함</string>
+    
+    <string name="hide_battery_summary_on">배터리 표시</string>	
+    <string name="hide_battery_summary_off">배터리 표시안함</string>
+    <string name="hide_icons_summary_on">시스템 아이콘 표시</string>	
+    <string name="hide_icons_summary_off">시스템 아이콘 표시안함</string>
+   
+    <string name="hide_settings_summary_on">설정 버튼 표시</string>	
+    <string name="hide_settings_summary_off">설정 버튼 표시안함</string>
+    <string name="hide_user_summary_on">사용자 전환 아이콘 표시</string>	
+    <string name="hide_user_summary_off">사용자 전환 아이콘 표시안함</string>
+    <string name="hide_weather_summary_on">날씨 표시</string>	
+    <string name="hide_weather_summary_off">날씨 표시안함</string>          
+
+    <string name="header_color">색 설정</string>
+    <string name="header_clock_color">헤더 시계 색</string>
+    <string name="header_detail_color">헤더 날짜 색</string>
+    <string name="header_weatherone_color">날씨 첫째 줄 색</string>
+    <string name="header_weathertwo_color">날씨 둘째 줄 색</string>
+    <string name="header_battery_text_color">충전 중일 때 배터리 정보 색</string>
+    <string name="header_alarm_text_color">다음 알람 색</string>	
+    <string name="header_colors_reset_title">헤더 색 설정 초기화</string>
+    <string name="header_colors_reset_message">헤더 색 설정을 기본으로 되돌립니다</string>
+    
+    <!-- Navbar buttons rotating icons -->
+    <string name="nav_buttons_rotation_title">아이콘 회전 애니메이션</string>
+    <string name="nav_buttons_rotation_summary">화면이 회전되거나 네비게이션 바가 다시 생겼을 때 아이콘이 회전합니다.</string>
+
+    <!--Smart PullDown-->
+    <string name="smart_pulldown_title">스마트 내리기</string>
+    <string name="smart_pulldown_summary">%1$s 빠른 설정을 표시합니다</string>
+    <string name="smart_pulldown_off">끄기</string>
+    <string name="smart_pulldown_dismissable">지울 수 있는 알림이 없을 때</string>
+    <string name="smart_pulldown_persistent">고정된 알림이 없을 때</string>
+    <string name="smart_pulldown_all">모든 알림이 없을 때</string> 
+
+	<!-- Date position -->
+    <string name="clock_date_position">날짜 위치</string>
+    <string name="clock_date_right">시계 우측</string>
+    <string name="clock_date_left">시계 좌측</string>
+
 </resources>
