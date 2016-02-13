@@ -43,11 +43,11 @@
             android:title="@string/touch_sounds_title"
             android:persistent="false" />
 
-    <!-- Vibrate on touch -->
-    <SwitchPreference
-            android:key="volume_adjust_sounds"
+    <!-- Volume adjust sound -->
+    <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
+            android:key="volume_adjust_sounds_enabled"
             android:title="@string/volume_adjust_sounds_title"
-            android:persistent="false" />
+            android:defaultValue="true" />
 
     <!-- Dock speaker plays -->
     <com.android.settings.DropDownPreference
