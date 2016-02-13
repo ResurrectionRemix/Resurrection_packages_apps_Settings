@@ -132,7 +132,6 @@ import com.android.settings.ButtonSettings;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.fragments.AppCircleBar;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
-import com.android.settings.rr.AppSidebar;
 import com.android.settings.rr.Pie.PieControl;
 import com.android.settings.vpn2.VpnSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
@@ -301,7 +300,6 @@ public class SettingsActivity extends Activity
             R.id.main_settings,
 	    R.id.button_settings,
 	    R.id.app_circle_bar,
-	    R.id.app_sidebar,
 	    R.id.gesture_anywhere,
 	    R.id.pie_control,
             R.id.dashboard,
@@ -326,11 +324,10 @@ public class SettingsActivity extends Activity
             UserDictionarySettings.class.getName(),
             HomeSettings.class.getName(),
             MainSettings.class.getName(),
-	    AppCircleBar.class.getName(),
-	    AppSidebar.class.getName(),
-	    GestureAnywhereSettings.class.getName(),	
-	    PieControl.class.getName(),	
-	    ButtonSettings.class.getName(),
+            AppCircleBar.class.getName(),
+	        GestureAnywhereSettings.class.getName(),	
+            PieControl.class.getName(),	
+            ButtonSettings.class.getName(),
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),
