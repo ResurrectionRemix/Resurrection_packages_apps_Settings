@@ -224,6 +224,10 @@
     <string name="heads_up_notifications">Heads up</string>
     <string name="summary_heads_up_enabled">Açılır Pencere bildirimleri etkin</string>
     <string name="summary_heads_up_disabled">Açılır Pencere bildirimleri devre dışı</string>
+	<string name="headsup_options_header">Heads Up Seçenekleri</string>
+    <string name="heads_up_snooze_title">Erteleme</string>
+    <string name="heads_up_snooze">Erteleme</string>
+    <string name="heads_up_timeout">Zaman aşımı</string>
 
     <!-- Navigation Bar -->
     <string name="navigation_bar_dimensions_reset_message">Varsayılan tüm boyutların girdileri sıfırlansın mı?</string>
@@ -274,7 +278,7 @@
     <string name="clock_font_black_italic">Siyah İtalik</string>
     <string name="clock_font_dancingscript">DancingScript</string>
     <string name="clock_font_dancingscript_bold">DancingScript Kalın</string>
-    <string name="clock_font_comingsoon">Çok Yakıda</string>
+    <string name="clock_font_comingsoon">Çok Yakında</string>
     <string name="clock_font_notoserif">NotoSerif Normal</string>
     <string name="clock_font_notoserif_italic">NotoSerif İtalik</string>
     <string name="clock_font_notoserif_bold">NotoSerif Kalın</string>
@@ -938,12 +942,12 @@
     <string name="trigger_bottom_summary">Tetikleme alanın yüksekliğini ayarlayın</string>
 
     <string name="rr_misc_title">Diğerleri</string>
-    <string name="rr_systemuituner">Sistem Arayüzü Ayarlayıcısı</string>
+    <string name="rr_systemuituner">Sistem Kullanıcı Arayüzü Ayarlayıcısı</string>
     <string name="enable_multi_window_summary">Ekranda aynı anda birden fazla etkinlik.</string>
     <string name="warning_multi_window_text">UYARI: Bu Son uygulamalar kullanıcı arayüzü aracılığı ile ekranda aynı anda birden fazla etkinliğe izin veren ileri düzeyde deneysel bir özelliktir. Bazı uygulamalar bu özellikle birlikte kullanıldığında kilitlenebilir veya düzgün çalışmayabilir.</string>
 
     <!-- Restart SystemUI -->
-    <string name="restart_systemui">SistemUI Yeniden Başlat</string>
+    <string name="restart_systemui">Sistem Kullanıcı Arayüzü</string>
 
     <!-- SuperSU -->
     <string name="supersu_title">SuperSU</string>
@@ -994,7 +998,14 @@
     <string name="status_bar_rr_logo_title">Logo etkin</string>
     <string name="status_bar_rr_logo_summary">Durum çubuğunun sol tarafında logo göstermek için etkinleştirin</string>
     <string name="status_bar_rr_logo_color">Logo rengi</string>
-
+	<string name="status_bar_rr_logo_position">Logo konumu</string>
+    <string name="status_bar_rr_logo_position_summary">Ekranın üst kısmındaki logonun konumunu seçin, sol yada sağ</string>
+    <string name="status_bar_logo_position_right">Sağ</string>
+    <string name="status_bar_logo_position_left">Sol</string>
+    <string name="status_bar_logo_position_center">Orta</string>
+    <string name="status_bar_logo_position_before">Önce Durum Çubuğu Simgeleri</string>
+	
+	
 
     <!-- Selinux Switch -->
     <string name="selinux_switch_title">Selinux Anahtarı seçenekleri</string>
@@ -1451,6 +1462,13 @@
     <string name="lock_clock_font_black_italic">Roboto Siyah Italik</string>
     <string name="lock_clock_font_condensed_light_normal">Roboto Yoğun Hafif</string>
     <string name="lock_clock_font_condensed_light_italic">Roboto Yoğun Hafif Italik</string>
+	<string name="lock_clock_font_dancingscript">DancingScript</string>
+    <string name="lock_clock_font_dancingscript_bold">DancingScript Kalın</string>
+    <string name="lock_clock_font_comingsoon">Çok Yakında</string>
+    <string name="lock_clock_font_notoserif">NotoSerif Normal</string>
+    <string name="lock_clock_font_notoserif_italic">NotoSerif İtalik</string>
+    <string name="lock_clock_font_notoserif_bold">NotoSerif Kalın</string>
+    <string name="lock_clock_font_notoserif_bold_italic">NotoSerif Kalın İtalik</string>
 
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Ekran görüntüsü sesi</string>
@@ -1571,13 +1589,18 @@
     <string name="dashboard_columns_three">Üç</string>
 
     <!-- Breathing Notifications -->
-    <string name="breathing_notifications_category">Nefes Efekti Bildirimleri</string>
+    <string name="breathing_notifications_category">Bildirimler</string>
+	<string name="breathing_notifications_sms">Mesajlaşma</string>
+	<string name="breathing_voice_category">Sesli Mesaj</string>
+	<string name="breathing_category">Nefes Efekti Bildirimleri</string>
     <string name="breathing_notifications_title">Nefes efekti bildirimleri</string>
     <string name="missed_call_breath_title">Cevapsız Çağrı Nefes Efekti</string>
     <string name="missed_call_breath_summary">Cevapsız çağrı bildirimlerinde durum çubuğunda bir nefes efekti verecek</string>
     <string name="voicemail_breath_title">Sesli Mesaj Nefes Efekti</string>
     <string name="voicemail_breath_summary">Sesli mesaj bildirimlerinde durum çubuğunda bir nefes efekti verecek</string>
-
+    <string name="sms_breath_title">SMS Nefes Efekti</string>
+    <string name="sms_breath_summary">SMS bildirimlerinde durum çubuğunda bir nefes efekti verecek</string>
+	
     <!-- QS header transparency -->
     <string name="qs_transparent_header">Hızlı ayarlar başlığı şeffaflığı</string>
 
@@ -1600,4 +1623,88 @@
     <!-- Ability to disable hardware keys via nav bar settings -->	
    <string name="hw_keys_title">Donanım tuşları</string>
    <string name="hw_keys_summary">Donanım tuşlarını etkinleştir</string>
+   
+   <!-- Hide Lockscreen clock & date -->
+    <string name="hide_lockscreen_items_title">Kilit ekranı öğeleri</string>
+    <string name="hide_lockscreen_clock_title">Kilit ekranında saati göster</string>
+    <string name="hide_lockscreen_date_title">Kilit ekranında tarihi göster</string>
+
+
+    <!-- Status bar header font style -->
+    <string name="status_bar_header_font_style_title">Diğer Yazı tipi stilleri</string>
+
+    <!-- Notification Header Customizations -->
+    <string name="notification_customizations">Bildirim Başlığı </string>	
+    <string name="notification_panel_title">Bildirim Başlığı</string>
+    <string name="notifications_fonts">Yazı tipleri</string>	
+    <string name="notifications_header">Başlığı Düzenle </string>	
+    <string name="notifications_items">Bildirim Başlığı Öğeleri</string>
+    <string name="hide_panel_items_title">Bildirim Paneli Simgeleri </string>
+    <string name="hide_panel_clock_title">Bildirim Panelinde Saati göster</string>
+    <string name="hide_panel_date_title">Bildirim Panelinde Tarihi göster</string>
+    <string name="hide_panel_clockvalue">Saat Detayını Göster</string>
+    <string name="hide_panel_battery">Bildirim Panelinde Pil Metin Göster</string>
+    <string name="hide_panel_icons">Bildirim Simgelerini Göster</string>
+    <string name="hide_panel_alarm_title">Alarmı Gizle</string>	
+    <string name="hide_settings_icon">Bildirim Panelinde Ayarlar Tuşunu Göster</string>
+    <string name="hide_user_icon">Bildirim Panelinde Kullanıcı Değiştiriciyi Göster</string>	
+    <string name="status_bar_header_clock_font_style_title">Bildirim Paneli Saat Yazı Tipi</string>
+    <string name="status_bar_header_weather_font_style">Bildirim Paneli Hava Durumu Yazı Tipi</string>
+    <string name="status_bar_header_weather_font_style_title">Bildirim Paneli Hava Durumu Yazı Tipi</string>
+    <string name="status_bar_header_date_font_style">Bildirim Paneli Tarih Yazı Tipi</string>
+    <string name="status_bar_header_alarm_style_title">Bildirim Paneli Alarm Yazı Tipi</string>
+    <string name="status_bar_header_detail_font_style_title">Bildirim Paneli ÖÖ/ÖS Yazı Tipi</string>
+    <string name="panel_clock_sum">Başlıkta Saati Göster / Gizle</string>
+    <string name="panel_date_sum">Başlıkta Tarihi Göster / Gizle</string>
+    <string name="panel_ampm_sum">Başlıkta ÖÖ / ÖS Değerlerini Göster / Gizle</string>
+    <string name="panel_battery_sum">Başlıkta Şarj Oluyorken Pil Yüzesini Göster / Gizle</string>
+    <string name="panel_icons_sum">Başlıkta Pil gibi Sistem Simgelerini Göster / Gizle</string>	
+    <string name="panel_user_sum">Başlıkta Kullanıcı Değiştirici Simgesini Göster / Gizle</string>
+    <string name="panel_settings_sum">Başlıkta Ayarlar Simgesini Göster / Gizle</string>	
+    <string name="hide_panel_alarm_sum">Başlıkta Sonraki Alarmı Göster / Gizle</string>
+    <string name="notifications_misc">Çeşitli</string>
+
+    <!--Summary on/off-->	
+    <string name="hide_clock_summary_on">Saat Gösterildi</string>	
+    <string name="hide_clock_summary_off">Saat Gizlendi</string>
+    <string name="hide_panel_date_summary_on">Tarih Gösterildi</string>	
+    <string name="hide_panel_date_summary_off">Tarih Gizlendi</string>
+
+    <string name="hide_ampm_summary_on">ÖÖ/ÖS Gösterildi</string>	
+    <string name="hide_ampm_summary_off">ÖÖ/ÖS Gizlendi</string>
+  
+    <string name="hide_alarm_summary_on">Sonraki Alarm Gösterildi</string>	
+    <string name="hide_alarm_summary_off">Sonraki Alarm Gizlendi</string>
+    <string name="hide_panel_ampm_summary_on">ÖÖ/ÖS Gösterildi</string>	
+    <string name="hide_panel_ampm_summary_off">ÖÖ/ÖS Gizlendi</string>
+    
+    <string name="hide_battery_summary_on">Pil Gösterildi</string>	
+    <string name="hide_battery_summary_off">Pil Gizlendi</string>
+    <string name="hide_icons_summary_on">Sistem Simgesi Gösterildi</string>	
+    <string name="hide_icons_summary_off">Sistem Simgesi Gizlendi</string>
+   
+    <string name="hide_settings_summary_on">Ayarlar Tuşu Gösterildi</string>	
+    <string name="hide_settings_summary_off">Ayarlar Tuşu Gizlendi</string>
+    <string name="hide_user_summary_on">Kullanıcı Değiştirici Gösterildi</string>	
+    <string name="hide_user_summary_off">Kullanıcı Değiştirici Gizlendi</string>
+    <string name="hide_weather_summary_on">Hava Durumu Gösterildi</string>	
+    <string name="hide_weather_summary_off">Hava Durumu Gizlendi</string>          
+  
+    <string name="header_color">Renkler</string>
+    <string name="header_clock_color">Başlık Saati Rengi</string>
+    <string name="header_detail_color">Başlık Tarihi Rengi</string>
+    <string name="header_weatherone_color">Hava Durumu Yazı Rengi Satır 1</string>
+    <string name="header_weathertwo_color">Hava Durumu Yazı Rengi Satır 2</string>
+    <string name="header_battery_text_color">Şarj Edilirken Pil Yazısı Rengi</string>
+    <string name="header_alarm_text_color">Sonraki Alarm Yazı Rengi</string>	
+    <string name="header_colors_reset_title">Başlık Rneklerini Sıfırla</string>
+    <string name="header_colors_reset_message">Varsayılan Başlık Renklerini Geri Yükle</string>
+    <string name="header_colors_switch">Header Renk Anahtarı</string>	
+    <string name="header_colors_switch_sum_on">Özel Renkler Açık. Tema Renklerini Geçersiz Kılar</string>	
+    <string name="header_colors_switch_sum_off">Özel Renkler Kapalı. Yeniden Başlatma Gerekli veya Sistem Kullanıcı Arayüzünü Yeniden Başlatın</string>	
+
+    <!-- Navbar buttons rotating icons -->
+    <string name="nav_buttons_rotation_title">Simgeler için Döndürme Animasyonu</string>
+    <string name="nav_buttons_rotation_summary">Ekran döndürülmüş veya gezinti çubuğu yeniden oluşturulduğunda simgeleri döndürmek için etkinleştir</string>
+
 </resources>
