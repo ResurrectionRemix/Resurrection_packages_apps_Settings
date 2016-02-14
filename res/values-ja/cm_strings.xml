@@ -159,13 +159,6 @@
   <string name="profile_appgroup_name_title">名前</string>
   <string name="duplicate_appgroup_name">アプリグループの名前が重複しています</string>
   <string name="profile_app_delete_confirm">このアプリを削除しますか？</string>
-  <string name="sound_mode">通知モード</string>
-  <string name="ringer_mode">着信モード</string>
-  <string name="lights_mode">ライトモード</string>
-  <string name="vibrate_mode">バイブレーションモード</string>
-  <string name="choose_soundtone">通知音を選択</string>
-  <string name="choose_ringtone">着信音を選択</string>
-  <string name="soundtone_title">通知音</string>
   <string name="no_bluetooth_triggers">ペアリングしているBluetoothデバイスがありません。\nタップするとトリガーを設定する前にBluetoothデバイスとペアリングします。</string>
   <string name="no_wifi_triggers">設定されているWi\u2011Fiアクセスポイントがありません。\nタップするとトリガーを設定する前にWi\u2011Fiに接続します。</string>
   <string name="no_triggers_configured">設定されているトリガーがありません。タップして追加します。</string>
@@ -218,6 +211,7 @@
   <string name="notification_light_screen_on">画面点灯時も点灯</string>
   <string name="notification_light_use_multiple_leds">マルチLED</string>
   <string name="keywords_lights_brightness_level">暗く led 明るさ</string>
+  <string name="notification_light_automagic">色を自動的に選択</string>
   <string name="led_notification_title">ライトの設定</string>
   <string name="led_notification_text">設定によってLEDライトが有効になっています</string>
   <string name="enable_adb_cm">Androidデバッグ</string>
@@ -446,7 +440,6 @@
   <string name="power_menu_title">電源メニュー</string>
   <string name="power_menu_reboot_title">再起動メニュー</string>
   <string name="power_menu_screenshot_title">スクリーンショット</string>
-  <string name="power_menu_profiles_title">プロファイルの切り替え</string>
   <string name="power_menu_airplane_title">機内モード</string>
   <string name="power_menu_users_title">ユーザーの切り替え</string>
   <string name="power_menu_settings_title">設定のショートカット</string>
@@ -454,7 +447,6 @@
   <string name="power_menu_bug_report_title">バグレポート</string>
   <string name="power_menu_sound_title">サウンドパネル</string>
   <string name="power_menu_bug_report_disabled">バグレポートは開発者向けオプションで無効になっています</string>
-  <string name="power_menu_profiles_disabled">システムプロファイルは無効になっています</string>
   <string name="disable_navkeys_title">スクリーンナビゲーションバーを有効化</string>
   <string name="disable_navkeys_summary">スクリーンナビゲーションバーを有効にしてハードウェアボタンを無効にする</string>
   <string name="double_tap_to_sleep_title">ダブルタップしてスリープ</string>
@@ -537,6 +529,7 @@
   <string name="heads_up_notifications">ヘッドアップ</string>
   <string name="summary_heads_up_enabled">ポップアップ通知は有効です</string>
   <string name="summary_heads_up_disabled">ポップアップ通知は無効です</string>
+  <string name="bluetooth_accept_all_files">すべてのファイル形式を許可</string>
   <string name="high_touch_sensitivity_title">高感度タッチ</string>
   <string name="high_touch_sensitivity_summary">手袋を着けたまま使用できるようにタッチ画面の感度を向上させる</string>
   <string name="lcd_density">画素密度</string>
@@ -638,6 +631,9 @@
   <string name="privacy_guard_notification_title">通知を表示</string>
   <string name="lockpattern_settings_enable_error_path_title">間違えたパターンを表示</string>
   <string name="lockpattern_settings_enable_dots_title">パターンのドットを表示</string>
+  <string name="lock_directly_show_password">パスワードの入力欄を直接表示</string>
+  <string name="lock_directly_show_pattern">パターンの入力画面を直接表示</string>
+  <string name="lock_directly_show_pin">PINの入力欄を直接表示</string>
   <string name="lockscreen_visualizer_title">音楽ビジュアライザを表示</string>
   <string name="lockscreen_disabled_by_qs_tile_title">クイック設定タイルによって無効になっています</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">タップしてロック画面を有効にします</string>
@@ -764,6 +760,8 @@
   <string name="link_volume_option_title">着信と通知の音量をリンク</string>
   <string name="lcd_density_prompt_message">アプリによっては標準のDPI以外では動作しない可能性があります。\n\n設定を変更すると携帯電話は再起動します。</string>
   <string name="apn_ppp_number">APN PPPの電話番号</string>
+  <string name="duplicate_apn_error_title">重複するAPN</string>
+  <string name="duplicate_apn_error_message">このAPNは既に存在しています。破棄するかパラメータを変更してください。</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g>は<xliff:g id="status" example="disabled">%2$s</xliff:g>です</string>
   <string name="sim_disabled">無効です</string>
   <string name="sim_missing">挿入されていないか、問題があります</string>
@@ -810,4 +808,16 @@
   <string name="factory_reset_erase_sd_card_summary">音楽や写真を含むSDカードのすべてのデータを消去する</string>
   <string name="factory_reset_warning_text_reset_now">今すぐリセット</string>
   <string name="factory_reset_warning_text_message">この端末からすべてのアカウント、アプリ、アプリのデータ、システム設定が消去されます。この操作は元に戻せません。</string>
+  <string name="tethering_other_category_text">その他</string>
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fiアクセスポイントのタイムアウト</string>
+  <string name="hotstpot_inactivity_timeout_never">使用しない</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1分</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5分</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10分</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">ポータブルWi\u2011Fiアクセスポイントはタイムアウトしません</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">ポータブルWi\u2011Fiアクセスポイントは<xliff:g id="timeout">%1$s</xliff:g>後にタイムアウトします</string>
+  <string name="live_lock_screen_title">ライブロック画面</string>
+  <string name="live_lock_screen_summary">ライブロック画面を有効にして設定する</string>
+  <string name="live_lock_screen_settings_button">設定</string>
+  <string name="live_lock_screen_settings_disabled_prompt">利用可能なライブロック画面を表示するには、ライブロック画面をONにしてください。</string>
 </resources>

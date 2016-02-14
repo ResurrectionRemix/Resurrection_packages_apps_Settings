@@ -156,13 +156,6 @@
   <string name="profile_appgroup_name_title">Nazwa</string>
   <string name="duplicate_appgroup_name">Nazwa grupy aplikacji już istnieje!</string>
   <string name="profile_app_delete_confirm">Usunąć aplikację?</string>
-  <string name="sound_mode">Opcje powiadomień</string>
-  <string name="ringer_mode">Opcje dzwonka</string>
-  <string name="lights_mode">Opcje diody powiadomień</string>
-  <string name="vibrate_mode">Opcje wibracji</string>
-  <string name="choose_soundtone">Wybierz dźwięk powiadomień</string>
-  <string name="choose_ringtone">Wybierz dźwięk dzwonka</string>
-  <string name="soundtone_title">Dźwięk powiadomień</string>
   <string name="no_bluetooth_triggers">Brak sparowanych urządzeń Bluetooth.\nDotknij, by sparować urządzenie Bluetooth przed skonfigurowaniem wyzwalaczy.</string>
   <string name="no_wifi_triggers">Brak skonfigurowanych punktów dostępu Wi\u2011Fi.\nDotknij, by połączyć z Wi\u2011Fi przed skonfigurowaniem wyzwalaczy.</string>
   <string name="no_triggers_configured">Nie skonfigurowano wyzwalaczy. Dotknij, by dodać więcej.</string>
@@ -215,6 +208,7 @@
   <string name="notification_light_screen_on">Wzbudzenie ekranu</string>
   <string name="notification_light_use_multiple_leds">Kilka LED\'ów</string>
   <string name="keywords_lights_brightness_level">zmniejszenie jasności diody LED</string>
+  <string name="notification_light_automagic">Wybierz kolory automatycznie</string>
   <string name="led_notification_title">Ustawienia LED</string>
   <string name="led_notification_text">Diody LED włączone przez ustawienia</string>
   <string name="enable_adb_cm">Debugowanie</string>
@@ -298,7 +292,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">przełączanie Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">uruchom na starcie</string>
   <string name="app_ops_summaries_toggle_nfc">przełączanie NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">przełączanie przesyłu danych</string>
+  <string name="app_ops_summaries_toggle_mobile_data">przełączanie transmisji danych</string>
   <string name="app_ops_summaries_superuser">dostęp do roota</string>
   <string name="app_ops_labels_coarse_location">Przybliżona lokalizacja</string>
   <string name="app_ops_labels_fine_location">Dokładna lokalizacja</string>
@@ -443,7 +437,6 @@
   <string name="power_menu_title">Menu zasilania</string>
   <string name="power_menu_reboot_title">Ponowne uruchamianie</string>
   <string name="power_menu_screenshot_title">Zrzut ekranu</string>
-  <string name="power_menu_profiles_title">Przełączanie profilu</string>
   <string name="power_menu_airplane_title">Tryb samolotowy</string>
   <string name="power_menu_users_title">Przełącznik użytkowników</string>
   <string name="power_menu_settings_title">Skrót do ustawień</string>
@@ -451,7 +444,6 @@
   <string name="power_menu_bug_report_title">Zgłaszanie błędów</string>
   <string name="power_menu_sound_title">Panel dźwięku</string>
   <string name="power_menu_bug_report_disabled">Raportowanie błędów jest wyłączone w opcjach programistycznych</string>
-  <string name="power_menu_profiles_disabled">Profile systemowe są wyłączone</string>
   <string name="disable_navkeys_title">Włącz ekranowy pasek nawigacji</string>
   <string name="disable_navkeys_summary">Włącz ekranowy pasek nawigacji i wyłącz przyciski sprzętowe</string>
   <string name="double_tap_to_sleep_title">Dwukrotnie dotknij, aby uśpić</string>
@@ -534,6 +526,7 @@
   <string name="heads_up_notifications">Wyskakujące powiadomienia</string>
   <string name="summary_heads_up_enabled">Wyskakujące powiadomienia są włączone</string>
   <string name="summary_heads_up_disabled">Wyskakujące powiadomienia są wyłączone</string>
+  <string name="bluetooth_accept_all_files">Akceptuj wszystkie typy plików</string>
   <string name="high_touch_sensitivity_title">Wysoka czułość dotyku</string>
   <string name="high_touch_sensitivity_summary">Zwiększa czułość ekranu dotykowego, więc możesz go używać podczas noszenia rękawiczek</string>
   <string name="lcd_density">Gęstość LCD</string>
@@ -635,6 +628,9 @@
   <string name="privacy_guard_notification_title">Pokaż powiadomienie</string>
   <string name="lockpattern_settings_enable_error_path_title">Pokazuj błędny wzór</string>
   <string name="lockpattern_settings_enable_dots_title">Pokazuj punkty wzoru</string>
+  <string name="lock_directly_show_password">Pokazuj bezpośrednio wpisane hasło</string>
+  <string name="lock_directly_show_pattern">Pokazuj bezpośrednio wzór</string>
+  <string name="lock_directly_show_pin">Pokazuj bezpośrednio wpisany PIN</string>
   <string name="lockscreen_visualizer_title">Wyświetlaj wizualizację muzyki</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Wyłączone przez kafelek szybkich ustawień</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Dotknij by włączyć ekran blokady</string>
@@ -645,6 +641,7 @@
   <string name="autoperf_title">Włącz profile dla aplikacji</string>
   <string name="autoperf_summary">Automatycznie wybierz odpowiedni tryb baterii dla różnych aplikacji</string>
   <string name="perf_profile_title">Tryb baterii</string>
+  <string name="memory_startup_apps_title">Aplikacje uruchomione podczas rozruchu</string>
   <string name="notification_ringtone_title_cm">Dźwięk powiadomień</string>
   <string name="advanced_reboot_title">Zaawansowany restart</string>
   <string name="advanced_reboot_summary">Gdy odblokowane, dodaje opcje w menu zasilania do restartu w tryb recovery, bootloadera lub wykonanie miękkiego restartu</string>
@@ -762,11 +759,13 @@
   <string name="link_volume_option_title">Połącz głośność dzwonka &amp; powiadomień</string>
   <string name="lcd_density_prompt_message">Niektóre aplikacje mogą nie działać poprawnie przy niestandardowym dpi.\n\nTwój telefon zostanie uruchomiony ponownie.</string>
   <string name="apn_ppp_number">Numer telefonu APN PPP</string>
+  <string name="duplicate_apn_error_title">Zduplikowany APN</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> jest <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
   <string name="sim_disabled">wyłączona</string>
   <string name="sim_missing">brakująca lub uszkodzona</string>
   <string name="sim_enabler_need_disable_sim">Karta SIM zostanie wyłączona. Kontynuować?</string>
   <string name="sim_enabler_will_disable_sim_title">Uwaga</string>
+  <string name="sim_enabler_need_switch_data_service">Ta karta SIM zostanie wyłączona i SIM <xliff:g id="slotid">%1$s </xliff:g> będzie używana do transmisji danych, kontynuować?</string>
   <string name="sim_enabler_airplane_on">Nie można wykonać operacji, gdy włączony jest tryb samolotowy.</string>
   <string name="sim_enabler_in_call">Nie można wykonać operacji w czasie rozmowy.</string>
   <string name="sim_enabler_both_inactive">Nie można wyłączyć wszystkich kart SIM</string>
@@ -807,4 +806,13 @@
   <string name="factory_reset_erase_sd_card_summary">Kasuje wszystkie dane z karty SD, łącznie z muzyką i zdjęciami</string>
   <string name="factory_reset_warning_text_reset_now">RESETUJ TERAZ</string>
   <string name="factory_reset_warning_text_message">Wszystkie konta, aplikacje, dane aplikacji i ustawienia systemowe zostaną usunięte z tego urządzenia. Ta czynność jest nieodwracalna.</string>
+  <string name="tethering_other_category_text">Inny</string>
+  <string name="hotstpot_inactivity_timeout_text">Bezczynność hotspota Wi-Fi</string>
+  <string name="hotstpot_inactivity_timeout_never">Nigdy</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 min</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 min</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 min</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Przenośny hotspot Wi\u2011Fi nie przejdzie w stan bezczynności</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Przenośny hotspot Wi\u2011Fi przejdzie w stan bezczynności po <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_settings_button">Ustawienia</string>
 </resources>

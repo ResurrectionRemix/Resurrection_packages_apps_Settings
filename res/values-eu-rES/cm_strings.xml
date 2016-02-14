@@ -160,13 +160,6 @@
   <string name="profile_appgroup_name_title">Izena</string>
   <string name="duplicate_appgroup_name">Aplikazio talde izena birritan dago!</string>
   <string name="profile_app_delete_confirm">Ezabatu aplikazio hau?</string>
-  <string name="sound_mode">Jakinarazpen modua</string>
-  <string name="ringer_mode">Doinu modua</string>
-  <string name="lights_mode">Argi modua</string>
-  <string name="vibrate_mode">Bibrazio modua</string>
-  <string name="choose_soundtone">Hautatu jakinarazpen doinua</string>
-  <string name="choose_ringtone">Hautatu dei doinua</string>
-  <string name="soundtone_title">Jakinarazpen doinua</string>
   <string name="no_bluetooth_triggers">Ez da Bluetooth gailurik elkartu.\n Sakatu Bluetooth gailua elkartzeko eragileak konfiguratu aurretik.</string>
   <string name="no_wifi_triggers">Ez da Wi\u2011Fi sarbide punturik konfiguratu.\n Sakatu Wi\u2011Fi sarera konektatzeko eragileak konfiguratu aurretik.</string>
   <string name="no_triggers_configured">Ez da eragilerik konfiguratu. Sakatu gehitzeko.</string>
@@ -219,6 +212,7 @@
   <string name="notification_light_screen_on">Argitu pantaila piztean</string>
   <string name="notification_light_use_multiple_leds">Hainbat LED</string>
   <string name="keywords_lights_brightness_level">ilundu LEDaren argitasuna</string>
+  <string name="notification_light_automagic">Hautatu koloreak automatikoki</string>
   <string name="led_notification_title">Argi ezarpenak</string>
   <string name="led_notification_text">LED argia ezarpenetan gaituta</string>
   <string name="enable_adb_cm">Android arazketa</string>
@@ -302,7 +296,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth txandakatu</string>
   <string name="app_ops_summaries_start_at_boot">abioan hasi</string>
   <string name="app_ops_summaries_toggle_nfc">NFC txandakatu</string>
-  <string name="app_ops_summaries_toggle_mobile_data">datu mugikorrak txandakatu</string>
+  <string name="app_ops_summaries_toggle_mobile_data">txandakatu datu mugikorrak</string>
   <string name="app_ops_summaries_superuser">root sarbidea</string>
   <string name="app_ops_labels_coarse_location">Gutxi gora beherako kokalekua</string>
   <string name="app_ops_labels_fine_location">Kokaleku zehatza</string>
@@ -371,7 +365,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth txandakatu</string>
   <string name="app_ops_labels_start_at_boot">Abioan hasi</string>
   <string name="app_ops_labels_toggle_nfc">NFC txandakatu</string>
-  <string name="app_ops_labels_toggle_mobile_data">Datu mugikorrak txandakatu</string>
+  <string name="app_ops_labels_toggle_mobile_data">Txandakatu datu mugikorrak</string>
   <string name="app_ops_labels_superuser">Root sarbidea</string>
   <string name="app_ops_permissions_allowed">Baimenduta</string>
   <string name="app_ops_permissions_ignored">Ezikusia</string>
@@ -447,7 +441,6 @@
   <string name="power_menu_title">Itzaltze menua</string>
   <string name="power_menu_reboot_title">Berrabiarazi menua</string>
   <string name="power_menu_screenshot_title">Pantaila-argazkia</string>
-  <string name="power_menu_profiles_title">Profilak</string>
   <string name="power_menu_airplane_title">Hegaldi modua</string>
   <string name="power_menu_users_title">Erabiltzaile aldaketa</string>
   <string name="power_menu_settings_title">Ezarpenera lasterbidea</string>
@@ -455,7 +448,6 @@
   <string name="power_menu_bug_report_title">Errore-txostena</string>
   <string name="power_menu_sound_title">Soinu panela</string>
   <string name="power_menu_bug_report_disabled">Erroreen berri ematea ezgaituta dago garapen ezarpenetan</string>
-  <string name="power_menu_profiles_disabled">Sistema profilak ezgaituta daude</string>
   <string name="disable_navkeys_title">Gaitu pantailako nabigazio barra</string>
   <string name="disable_navkeys_summary">Gaitu pantailako nabigazio-barra eta ezgaitu botoi fisikoak</string>
   <string name="double_tap_to_sleep_title">Birritan sakatu lokartzeko</string>
@@ -538,6 +530,7 @@
   <string name="heads_up_notifications">Jakinarazpen flotatzaileak</string>
   <string name="summary_heads_up_enabled">Laster-leiho jakinarazpenak gaituta daude</string>
   <string name="summary_heads_up_disabled">Laster-leiho jakinarazpenak ezgaituta daude</string>
+  <string name="bluetooth_accept_all_files">Edozein fitxategi mota onartu</string>
   <string name="high_touch_sensitivity_title">Ukipen sentsibilitate altua</string>
   <string name="high_touch_sensitivity_summary">Areagotu pantailaren sentsibilitatea, eskularruekin erabilgarria izan dadin</string>
   <string name="lcd_density">LCD dentsitatea</string>
@@ -639,6 +632,9 @@
   <string name="privacy_guard_notification_title">Bistaratu jakinarazpena</string>
   <string name="lockpattern_settings_enable_error_path_title">Erakutsi eredu errorea</string>
   <string name="lockpattern_settings_enable_dots_title">Erakutsi ereduaren puntuak</string>
+  <string name="lock_directly_show_password">Zuzenean bistaratu pasahitzaren sarrera</string>
+  <string name="lock_directly_show_pattern">Zuzenean bistaratu eredu ikuspegia</string>
+  <string name="lock_directly_show_pin">Zuzenean bistaratu PIN sarrera</string>
   <string name="lockscreen_visualizer_title">Bistaratu musika irudikatzea</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Ezarpen azkarren lauzak desgaitua</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Ukitu blokeo pantaila gaitzeko</string>
@@ -765,6 +761,8 @@
   <string name="link_volume_option_title">Lotu dei doinuaren eta jakinarazpenen bolumenak</string>
   <string name="lcd_density_prompt_message">Aplikazio batzuk ez dira ibiliko ez estandarra den DPI batekin.\n\nHonek zure gailua berrabiaraziko du.</string>
   <string name="apn_ppp_number">APN PPP telefono zenbakia</string>
+  <string name="duplicate_apn_error_title">APN bikoiztua</string>
+  <string name="duplicate_apn_error_message">APN hau badago aurretik. Baztertu ala aldatu parametroak.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> <xliff:g id="status" example="disabled">%2$s</xliff:g> dago</string>
   <string name="sim_disabled">ezgaituta</string>
   <string name="sim_missing">ez dago edo hondatuta dago</string>
@@ -811,4 +809,16 @@
   <string name="factory_reset_erase_sd_card_summary">Ezabatu barne SD txarteleko datu guztiak, musika eta argazkiak barne</string>
   <string name="factory_reset_warning_text_reset_now">LEHENERATU ORAIN</string>
   <string name="factory_reset_warning_text_message">Zure kontu, aplikazio, aplikazioetako datuak eta sistema ezarpen guztiak gailu honetatik ezabatuko dira. Ez dago hau desegiterik.</string>
+  <string name="tethering_other_category_text">Beste bat</string>
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi gunearen denbora muga agortu da</string>
+  <string name="hotstpot_inactivity_timeout_never">Inoiz ez</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">minutu bat</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutu</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutu</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Wi\u2011Fi gune eramangarriak ez du denbora mugarik</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Wi\u2011Fi gune eramangarriaren denbora muga: <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Blokeo pantaila bizia</string>
+  <string name="live_lock_screen_summary">Gaitu eta konfiguratu blokeo pantailak</string>
+  <string name="live_lock_screen_settings_button">Ezarpenak</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Erabilgarri dauden blokeo pantaila biziak ikusteko, gaitu blokeo pantaila biziak.</string>
 </resources>

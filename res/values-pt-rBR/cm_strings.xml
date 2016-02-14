@@ -156,13 +156,6 @@
   <string name="profile_appgroup_name_title">Nome</string>
   <string name="duplicate_appgroup_name">Nome de grupo de apps duplicado!</string>
   <string name="profile_app_delete_confirm">Remover este app?</string>
-  <string name="sound_mode">Modo de notificação</string>
-  <string name="ringer_mode">Modo de toque</string>
-  <string name="lights_mode">Modo de luzes</string>
-  <string name="vibrate_mode">Modo de vibração</string>
-  <string name="choose_soundtone">Selecione o som de notificação</string>
-  <string name="choose_ringtone">Selecione o toque do telefone</string>
-  <string name="soundtone_title">Toque de notificação</string>
   <string name="no_bluetooth_triggers">Não há dispositivos Bluetooth pareados.\nToque para parear um dispositivo Bluetooth antes de configurar gatilhos.</string>
   <string name="no_wifi_triggers">Nenhum ponto de acesso Wi-Fi configurado.\nToque para conectar a um Wi-Fi antes de configurar gatilhos.</string>
   <string name="no_triggers_configured">Nenhum gatilho configurado. Toque para adicionar mais.</string>
@@ -215,6 +208,7 @@
   <string name="notification_light_screen_on">Luzes com a tela ligada</string>
   <string name="notification_light_use_multiple_leds">LEDs múltiplos</string>
   <string name="keywords_lights_brightness_level">escurecer o brilho do led</string>
+  <string name="notification_light_automagic">Escolha automática das cores</string>
   <string name="led_notification_title">Configurações de luz</string>
   <string name="led_notification_text">Luz de LED ativada nas configurações</string>
   <string name="enable_adb_cm">Depuração Android</string>
@@ -298,7 +292,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">alternar Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">começar na inicialização</string>
   <string name="app_ops_summaries_toggle_nfc">alternar NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">alternar dados móveis</string>
+  <string name="app_ops_summaries_toggle_mobile_data">alternar dados de celular</string>
   <string name="app_ops_summaries_superuser">acesso super usuário</string>
   <string name="app_ops_labels_coarse_location">Localização imprecisa</string>
   <string name="app_ops_labels_fine_location">Localização precisa</string>
@@ -367,7 +361,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Alternar bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Começar na inicialização</string>
   <string name="app_ops_labels_toggle_nfc">Alternar NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Alternar dados móveis</string>
+  <string name="app_ops_labels_toggle_mobile_data">Alternar dados de celular</string>
   <string name="app_ops_labels_superuser">Acesso root</string>
   <string name="app_ops_permissions_allowed">Permitido</string>
   <string name="app_ops_permissions_ignored">Ignorado</string>
@@ -443,7 +437,6 @@
   <string name="power_menu_title">Menu de energia</string>
   <string name="power_menu_reboot_title">Menu de reinicialização</string>
   <string name="power_menu_screenshot_title">Captura de tela</string>
-  <string name="power_menu_profiles_title">Alternador de perfil</string>
   <string name="power_menu_airplane_title">Modo avião</string>
   <string name="power_menu_users_title">Alternador de usuário</string>
   <string name="power_menu_settings_title">Atalho para as configurações</string>
@@ -451,7 +444,6 @@
   <string name="power_menu_bug_report_title">Relatório de erros</string>
   <string name="power_menu_sound_title">Painel de som</string>
   <string name="power_menu_bug_report_disabled">Relatório de erros está desativado nas configurações de desenvolvimento</string>
-  <string name="power_menu_profiles_disabled">Os perfis de sistema estão desativados</string>
   <string name="disable_navkeys_title">Ativar barra de navegação na tela</string>
   <string name="disable_navkeys_summary">Ativar barra de navegação na tela e desativar botões físicos</string>
   <string name="double_tap_to_sleep_title">Toque duplo para dormir</string>
@@ -534,6 +526,7 @@
   <string name="heads_up_notifications">Heads up</string>
   <string name="summary_heads_up_enabled">Notificações pop-up estão ativadas</string>
   <string name="summary_heads_up_disabled">As notificações pop-up estão desativadas</string>
+  <string name="bluetooth_accept_all_files">Aceitar todos os tipos de arquivo</string>
   <string name="high_touch_sensitivity_title">Toque de alta sensibilidade</string>
   <string name="high_touch_sensitivity_summary">Aumenta a sensibilidade da tela para poder ser usada enquanto usando luvas</string>
   <string name="lcd_density">Densidade do LCD</string>
@@ -635,6 +628,9 @@
   <string name="privacy_guard_notification_title">Mostrar notificação</string>
   <string name="lockpattern_settings_enable_error_path_title">Exibir erro no padrão</string>
   <string name="lockpattern_settings_enable_dots_title">Exibir pontos no padrão</string>
+  <string name="lock_directly_show_password">Exibir diretamente a entrada de senha</string>
+  <string name="lock_directly_show_pattern">Exibir diretamente o padrão</string>
+  <string name="lock_directly_show_pin">Exibir diretamente a entrada PIN</string>
   <string name="lockscreen_visualizer_title">Mostrar o visualizador de música</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Desativado pelo botão das configurações rápidas</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Toque para ativar a tela de bloqueio</string>
@@ -761,6 +757,8 @@
   <string name="link_volume_option_title">Unir volumes de toques e notificações</string>
   <string name="lcd_density_prompt_message">Alguns apps podem não funcionar com uma configuração fora do padrão de dpi.\n\nIsto irá reiniciar seu telefone.</string>
   <string name="apn_ppp_number">Número de telefone de APN PPP</string>
+  <string name="duplicate_apn_error_title">APN duplicada</string>
+  <string name="duplicate_apn_error_message">Este APN já existe. Apague-o ou altere os seus parâmetros.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> é <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">desativado</string>
   <string name="sim_missing">desconectado ou com defeito</string>
@@ -807,4 +805,16 @@
   <string name="factory_reset_erase_sd_card_summary">Apagar todos os dados do cartão SD, incluindo músicas e fotos</string>
   <string name="factory_reset_warning_text_reset_now">REDEFINIR AGORA</string>
   <string name="factory_reset_warning_text_message">Todas as suas contas, apps, dados de apps, e configurações do sistema serão removidas deste dispositivo. Isto não pode ser revertido.</string>
+  <string name="tethering_other_category_text">Outros</string>
+  <string name="hotstpot_inactivity_timeout_text">Tempo limite de hotspot Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_never">Nunca</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minuto</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutos</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutos</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">O ponto de acesso Wi\u2011Fi nunca desliga</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">O ponto de acesso Wi\u2011Fi irá desligar-se após <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Tela de bloqueio animada</string>
+  <string name="live_lock_screen_summary">Habilitar e configurar as telas de bloqueio animadas</string>
+  <string name="live_lock_screen_settings_button">Confirgurações</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Para visualizar as telas de bloqueio animadas disponíveis, ative as telas de bloqueio animadas.</string>
 </resources>

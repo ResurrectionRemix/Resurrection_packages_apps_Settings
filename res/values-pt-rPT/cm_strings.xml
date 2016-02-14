@@ -38,7 +38,7 @@
   <string name="build_date">Data de compilação</string>
   <string name="cmupdate_settings_title">Atualizações</string>
   <string name="update_recovery_title">Atualizar a recuperação Cyanogen</string>
-  <string name="update_recovery_summary">Atualizar a recuperação com as atualizações do sistema</string>
+  <string name="update_recovery_summary">Atualizar a recuperação juntamente com as atualizações do sistema</string>
   <string name="update_recovery_on_warning">Aviso: Quando este recurso estiver ativado, a sua recuperação instalada será substituída por uma incluída na versão atual do SO.\n\nA sua recuperação será atualizada juntamente com as atualizações do seu sistema, ajudando a garantir a compatibilidade com futuras versões.\n\nQuer ativar este recurso?</string>
   <string name="update_recovery_off_warning">Aviso: Quando este recurso está desativado, a sua recuperação instalada não será atualizada com o SO.\n\nFuturas atualizações do SO poderão não se instalar com uma versão da recuperação desatualizada ou personalizada.\n\nQuer desativar este recurso?</string>
   <string name="themes_settings_title">Temas</string>
@@ -156,13 +156,6 @@
   <string name="profile_appgroup_name_title">Nome</string>
   <string name="duplicate_appgroup_name">Este nome já existe!</string>
   <string name="profile_app_delete_confirm">Remover esta aplicação?</string>
-  <string name="sound_mode">Modo de notificação</string>
-  <string name="ringer_mode">Modo de toque</string>
-  <string name="lights_mode">Modo de luzes</string>
-  <string name="vibrate_mode">Modo de vibração</string>
-  <string name="choose_soundtone">Selecione o som de notificação</string>
-  <string name="choose_ringtone">Selecione o toque do telefone</string>
-  <string name="soundtone_title">Toque de notificação</string>
   <string name="no_bluetooth_triggers">Não há dispositivos bluetooth emparelhados.\nToque para emparelhar um dispositivo bluetooth antes de configurar os atuadores.</string>
   <string name="no_wifi_triggers">Não há pontos de acesso Wi\u2011Fi configurados.\nToque para conectar o Wi\u2011Fi antes de configurar os atuadores.</string>
   <string name="no_triggers_configured">Não há atuadores configurados. Toque para adicionar.</string>
@@ -171,7 +164,7 @@
   <string name="profile_setup_actions_description">Agora configure o que acontece quando o perfil é ativado</string>
   <string name="navigation_bar_category">Barra de navegação</string>
   <string name="navigation_bar_left_title">Modo de mão esquerda</string>
-  <string name="navigation_bar_left_summary">Coloca a barra de navegação no lado esquerdo do ecrã, no modo paisagem</string>
+  <string name="navigation_bar_left_summary">Coloca a barra de navegação no lado esquerdo do ecrã, quando estiver no modo paisagem</string>
   <string name="navigation_bar_title">Botões e sua disposição</string>
   <string name="navigation_bar_help_text">Para começar, toque no ícone de editar para desbloquear a barra de navegação para edição.\n\nPode tocar num ícone para alterar o seu atalho, ou usar um toque longo num ícone para reordenar.\n\nToque em \'Gravar\' para guardar as alterações, ou em \'Restaurar padrão\' para repor as definições padrão.</string>
   <string name="navigation_restore_button_text">Restaurar\npadrão</string>
@@ -215,6 +208,7 @@
   <string name="notification_light_screen_on">Luzes com o ecrã ligado</string>
   <string name="notification_light_use_multiple_leds">LEDs múltiplos</string>
   <string name="keywords_lights_brightness_level">escurecer o brilho do LED</string>
+  <string name="notification_light_automagic">Escolha automática das cores</string>
   <string name="led_notification_title">Definições de luz</string>
   <string name="led_notification_text">Luz do LED ativada pelas definições</string>
   <string name="enable_adb_cm">Depuração Android</string>
@@ -386,7 +380,7 @@
   <string name="unlock_scramble_pin_layout_title">Disposição aleatória</string>
   <string name="unlock_scramble_pin_layout_summary">Apresentar aleatoriamente a disposição do teclado numérico, quando desbloquear com PIN</string>
   <string name="button_pref_title">Botões</string>
-  <string name="hardware_keys_power_key_title">Botão de energia</string>
+  <string name="hardware_keys_power_key_title">Botão ligar/desligar</string>
   <string name="hardware_keys_home_key_title">Botão Home</string>
   <string name="hardware_keys_back_key_title">Botão voltar</string>
   <string name="hardware_keys_menu_key_title">Botão Menu</string>
@@ -412,12 +406,12 @@
   <string name="camera_launch_summary">Pressionar algum tempo e depois soltar iniciará a câmara</string>
   <string name="volbtn_music_controls_title">Controlo de reprodução</string>
   <string name="volbtn_music_controls_summary">Quando o ecrã estiver desligado, manter pressionados os botões de volume irá procurar as faixas de música</string>
-  <string name="volbtn_cursor_control_title">Controle do cursor de teclado</string>
+  <string name="volbtn_cursor_control_title">Controlo do cursor de teclado</string>
   <string name="volbtn_cursor_control_off">Desativado</string>
   <string name="volbtn_cursor_control_on">Volume para cima/baixo move o cursor para a esquerda/direita</string>
   <string name="volbtn_cursor_control_on_reverse">Volume para cima/baixo move o cursor para a direita/esquerda</string>
   <string name="power_end_call_title">Termina chamada</string>
-  <string name="power_end_call_summary">Pressionar o botão de energia terminará a chamada atual</string>
+  <string name="power_end_call_summary">Pressionar o botão ligar/desligar terminará a chamada atual</string>
   <string name="swap_volume_buttons_title">Reorientar</string>
   <string name="swap_volume_buttons_summary">Trocar os botões de volume quando o ecrã é rodado</string>
   <string name="button_wake_title">Acordar o dispositivo</string>
@@ -440,10 +434,9 @@
   <string name="backlight_summary_enabled_with_timeout">Ativado por <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Ativado</string>
   <string name="gesture_settings_title">Gestos</string>
-  <string name="power_menu_title">Menu de energia</string>
+  <string name="power_menu_title">Menu ligar/desligar</string>
   <string name="power_menu_reboot_title">Menu de reinicialização</string>
   <string name="power_menu_screenshot_title">Capturar ecrã</string>
-  <string name="power_menu_profiles_title">Mudar perfil</string>
   <string name="power_menu_airplane_title">Modo de avião</string>
   <string name="power_menu_users_title">Mudar utilizador</string>
   <string name="power_menu_settings_title">Atalho das definições</string>
@@ -451,7 +444,6 @@
   <string name="power_menu_bug_report_title">Relatório de erros</string>
   <string name="power_menu_sound_title">Painel de som</string>
   <string name="power_menu_bug_report_disabled">O relatório de erros está desativado nas opções de programador</string>
-  <string name="power_menu_profiles_disabled">Os perfis de sistema estão desativados</string>
   <string name="disable_navkeys_title">Ativar os botões virtuais</string>
   <string name="disable_navkeys_summary">Ativar os botões virtuais e desativar os botões físicos</string>
   <string name="double_tap_to_sleep_title">Toque duplo para desligar o ecrã</string>
@@ -534,6 +526,7 @@
   <string name="heads_up_notifications">Notificações pop-up</string>
   <string name="summary_heads_up_enabled">As notificações pop-up estão ativadas</string>
   <string name="summary_heads_up_disabled">As notificações pop-up estão desativadas</string>
+  <string name="bluetooth_accept_all_files">Aceitar todo o tipo de ficheiros</string>
   <string name="high_touch_sensitivity_title">Alta sensibilidade</string>
   <string name="high_touch_sensitivity_summary">Aumentar a sensibilidade do ecrã para ser manuseado quando estiver a usar luvas</string>
   <string name="lcd_density">Densidade do LCD</string>
@@ -629,12 +622,15 @@
   <string name="privacy_guard_help_title">Ajuda</string>
   <string name="privacy_guard_reset_title">Repor</string>
   <string name="privacy_guard_reset_text">Repor permissões?</string>
-  <string name="privacy_guard_help_text">Neste ecrã você pode escolher quais as aplicações que devem ter ativa a Proteção de Privacidade simplesmente tocando nelas. As aplicações selecionadas não serão capazes de aceder aos seus dados pessoais, como contactos, mensagens ou registos de chamadas. Pressionar continuamente uma aplicação abre o ecrã de detalhes para essa aplicação.\n\nAplicações de sistema não são exibidas por defeito, mas podem ser mostradas, ao selecionar a opção no respetivo menu.</string>
+  <string name="privacy_guard_help_text">Neste ecrã pode escolher que aplicações devem ter ativa a Proteção de Privacidade simplesmente tocando nelas. As aplicações selecionadas não serão capazes de aceder aos seus dados pessoais, como contactos, mensagens ou registos de chamadas. Pressionar continuamente numa aplicação abre o ecrã de detalhes para essa aplicação.\n\nAplicações de sistema não são exibidas por defeito, mas podem ser mostradas, ao selecionar a opção no respetivo menu.</string>
   <string name="privacy_guard_manager_show_system_apps">Mostrar aplicações de sistema</string>
   <string name="privacy_guard_advanced_settings_title">Avançado</string>
   <string name="privacy_guard_notification_title">Mostrar notificação</string>
   <string name="lockpattern_settings_enable_error_path_title">Mostrar erro no padrão</string>
   <string name="lockpattern_settings_enable_dots_title">Mostrar os pontos do padrão</string>
+  <string name="lock_directly_show_password">Ir diretamente para a introdução da palavra-passe</string>
+  <string name="lock_directly_show_pattern">Ir diretamente para a introdução do padrão</string>
+  <string name="lock_directly_show_pin">Ir diretamente para a introdução do código PIN</string>
   <string name="lockscreen_visualizer_title">Mostrar o visualizador de música</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Desativado pelo mosaico de definições rápidas</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Toque para ativar o ecrã de bloqueio</string>
@@ -648,7 +644,7 @@
   <string name="memory_startup_apps_title">Aplicações iniciadas no arranque</string>
   <string name="notification_ringtone_title_cm">Toque de notificação</string>
   <string name="advanced_reboot_title">Reinício avançado</string>
-  <string name="advanced_reboot_summary">Quando desbloqueado, inclui opções no menu de energia para reiniciar o dispositivo em modo de recuperação, bootloader ou executar uma reinicialização suave</string>
+  <string name="advanced_reboot_summary">Quando desbloqueado, inclui opções no menu ligar/desligar para reiniciar o dispositivo em modo de recuperação, bootloader ou executar uma reinicialização suave</string>
   <string name="category_interface">Interface</string>
   <string name="power_menu_expanded_desktop">Ecrã expandido</string>
   <string name="expanded_hide_nothing">Não ocultar nada</string>
@@ -661,7 +657,7 @@
   <string name="expanded_desktop_style_description">Escolha o estilo padrão da área de trabalho expandida</string>
   <string name="expanded_desktop_title">Opções da área de trabalho expandida</string>
   <string name="kill_app_longpress_back">Fechar aplicação no botão Voltar</string>
-  <string name="kill_app_longpress_back_summary">Mantendo pressionado o botão Voltar fecha a aplicação em primeiro plano</string>
+  <string name="kill_app_longpress_back_summary">Fechar a aplicação em primeiro plano com pressão longa no botão Voltar</string>
   <string name="recents_show_searchbar">Mostrar a barra de pesquisa no menu de aplicações recentes</string>
   <string name="keywords_recents_show_searchbar">recente recentes desativar ativar mostrar ocultar pesquisa barra barra de pesquisa</string>
   <string name="voice_wakeup_settings_title">Ativação por voz</string>
@@ -691,7 +687,7 @@
   <string name="blacklist_summary_type_messages_only">mensagens</string>
   <string name="blacklist_summary_type_calls_and_messages">chamadas e mensagens</string>
   <string name="blacklist_regex_title">Utilizar caracteres especiais</string>
-  <string name="blacklist_regex_summary">Use . como um joker e * para repetição. Por exemplo, 123.* bloqueia números que começam com 123 e .*123.* bloqueia números contendo 123</string>
+  <string name="blacklist_regex_summary">Use . como um joker e * para repetição. Por exemplo, 123.* bloqueia números que comecem com 123 e .*123.* bloqueia números que contenham 123</string>
   <string name="blacklist_policy_block_calls">Bloquear chamadas recebidas</string>
   <string name="blacklist_policy_block_messages">Bloquear mensagens recebidas</string>
   <string name="blacklist_bad_number_add">Não é possível adicionar o número de telefone à lista de números bloqueados</string>
@@ -761,6 +757,8 @@
   <string name="link_volume_option_title">Associar volumes de toque e notificação</string>
   <string name="lcd_density_prompt_message">Algumas aplicações podem não funcionar com valores não padrão para os ppp.\n\nO seu telefone irá reiniciar.</string>
   <string name="apn_ppp_number">Número de telefone APN PPP</string>
+  <string name="duplicate_apn_error_title">APN duplicado</string>
+  <string name="duplicate_apn_error_message">Este APN já existe. Descarte-o ou altere os seus parâmetros.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> está <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">desativado</string>
   <string name="sim_missing">em falta ou com defeito</string>
@@ -781,7 +779,7 @@
   <string name="sim_card_status_title">Estado do SIM %d</string>
   <string name="sim_card_lock_settings_title">Definições de bloqueio do SIM %d</string>
   <string name="sim_card_summary_empty">Cartão SIM não inserido</string>
-  <string name="sim_mobile_network_settings_category_title">Definições de rede móvel</string>
+  <string name="sim_mobile_network_settings_category_title">Definições de redes móveis</string>
   <string name="sim_mobile_network_settings_title">Definições do cartão SIM %d</string>
   <string name="zen_mode_summary_reminders">lembretes</string>
   <string name="zen_mode_summary_events">eventos</string>
@@ -801,10 +799,22 @@
   <string name="factory_reset_instructions_summary">Isto irá apagar todas as sua contas, aplicações, dados das aplicações e definições do sistema neste dispositivo</string>
   <string name="factory_reset_personal_content">Conteúdo pessoal</string>
   <string name="factory_reset_erase_stored_content">Apagar o conteúdo armazenado</string>
-  <string name="factory_reset_erase_stored_content_summary">Apagar a música, fotos, vídeos e outros dados do utilizador armazenados neste dispositivo</string>
-  <string name="factory_reset_erase_stored_content_summary_forced">Apagar música, fotos, vídeos e outros dados do utilizador armazenados neste dispositivo. \n\n <b>O conteúdo não pode ser guardado devido à encriptação do dispositivo.</b></string>
+  <string name="factory_reset_erase_stored_content_summary">Apagar músicas, fotos, vídeos e outros dados do utilizador armazenados neste dispositivo</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">Apagar músicas, fotos, vídeos e outros dados do utilizador armazenados neste dispositivo. \n\n <b>O conteúdo não pode ser guardado devido à encriptação do dispositivo.</b></string>
   <string name="factory_reset_erase_sd_card">Formatar cartão SD</string>
   <string name="factory_reset_erase_sd_card_summary">Apagar todos os dados no cartão SD, incluindo músicas e fotos</string>
   <string name="factory_reset_warning_text_reset_now">RESTAURAR AGORA</string>
   <string name="factory_reset_warning_text_message">Todas as suas contas, aplicações, dados das aplicações e definições do sistema serão removidas deste dispositivo. Isto não pode ser revertido.</string>
+  <string name="tethering_other_category_text">Outro</string>
+  <string name="hotstpot_inactivity_timeout_text">Tempo limite do ponto de acesso Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_never">Nunca</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minuto</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutos</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutos</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">O ponto de acesso Wi\u2011Fi não terá limite de tempo</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">O ponto de acesso Wi\u2011Fi irá desligar-se após <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Ecrã de bloqueio animado</string>
+  <string name="live_lock_screen_summary">Ativar e configurar ecrãs de bloqueio animados</string>
+  <string name="live_lock_screen_settings_button">Definições</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Para ver os ecrãs de bloqueio animados disponíveis, ative-os.</string>
 </resources>

@@ -29,9 +29,9 @@
   <string name="root_access_warning_title">לאפשר גישת שורש?</string>
   <string name="root_access_warning_message">מתן האפשרות ליישומים לבקש גישת שורש הנו מסוכן מאוד, ועלול לסכן את אבטחת המערכת שלך!</string>
   <string name="root_access_none">מושבת</string>
-  <string name="root_access_apps">יישומים בלבד</string>
+  <string name="root_access_apps">אפליקציות בלבד</string>
   <string name="root_access_adb">ADB בלבד</string>
-  <string name="root_access_all">יישומים ו-ADB</string>
+  <string name="root_access_all">אפליקציות ו-ADB</string>
   <string name="nfc_title_category">NFC</string>
   <string name="mod_version">גרסת CyanogenMod</string>
   <string name="mod_version_default">לא ידוע</string>
@@ -110,7 +110,7 @@
   <string name="choose_ringtone">בחר צלצול</string>
   <string name="soundtone_title">צליל התראה</string>
   <string name="profile_appgroups_title">קבוצות יישומים</string>
-  <string name="profile_applist_title">יישומים</string>
+  <string name="profile_applist_title">אפליקציות</string>
   <string name="profile_new_appgroup">קבוצת יישומים חדשה</string>
   <string name="profile_delete_appgroup">האם למחוק קבוצת יישומים זו?</string>
   <string name="profile_appgroup_name_prompt">הזן שם עבור קבוצת היישומים החדשה</string>
@@ -160,13 +160,6 @@
   <string name="profile_appgroup_name_title">שם</string>
   <string name="duplicate_appgroup_name">שם קבוצת יישומים כפול!</string>
   <string name="profile_app_delete_confirm">להסיר יישום זה?</string>
-  <string name="sound_mode">מצב התראות</string>
-  <string name="ringer_mode">מצב צלצול</string>
-  <string name="lights_mode">נוריות מצב</string>
-  <string name="vibrate_mode">מצב רטט</string>
-  <string name="choose_soundtone">בחר צליל התראה</string>
-  <string name="choose_ringtone">בחר צלצול</string>
-  <string name="soundtone_title">צליל התראה</string>
   <string name="no_bluetooth_triggers">אין התקני Bluetooth מחוברים.\nלחץ כדי לחבר התקן Bluetooth לפני הגדרת גורמים מפעילים.</string>
   <string name="no_wifi_triggers">לא הוגדרו נקודות Wi-Fi.\nלחץ כדי להתחבר ל-Wi-Fi לפני הגדרת גורמים מפעילים.</string>
   <string name="no_triggers_configured">לא הוגדרו גורמים מפעילים. לחץ כדי להגדיר עוד.</string>
@@ -274,6 +267,7 @@
   <string name="app_ops_summaries_media_volume">עוצמת קול של מדיה</string>
   <string name="app_ops_summaries_alarm_volume">עוצמת קול של שעון מעורר</string>
   <string name="app_ops_summaries_notification_volume">עוצמת קול של התראה</string>
+  <string name="app_ops_summaries_bluetooth_volume">עוצמת השמע של ה-Bluetooth</string>
   <string name="app_ops_summaries_keep_awake">השאר במצב פעיל</string>
   <string name="app_ops_summaries_monitor_location">עקוב אחר מיקום</string>
   <string name="app_ops_summaries_monitor_high_power_location">מעקב אחר מיקום עם צריכת סוללה גבוהה</string>
@@ -283,6 +277,8 @@
   <string name="app_ops_summaries_project_media">הקרן מדיה</string>
   <string name="app_ops_summaries_activate_vpn">הפעל VPN</string>
   <string name="app_ops_summaries_write_wallpaper">קבע טפט</string>
+  <string name="app_ops_summaries_assist_structure">תבנית המידע ליישום הסיוע</string>
+  <string name="app_ops_summaries_assist_screenshot">צילום מסך מסייע</string>
   <string name="app_ops_summaries_read_phone_state">קרא את מצב הטלפון</string>
   <string name="app_ops_summaries_add_voicemail">הוסף תא קולי</string>
   <string name="app_ops_summaries_use_sip">השתמש ב-SIP</string>
@@ -290,14 +286,16 @@
   <string name="app_ops_summaries_use_fingerprint">השתמש בטביעת אצבע</string>
   <string name="app_ops_summaries_use_body_sensors">השתמש בחיישני הגוף</string>
   <string name="app_ops_summaries_read_cell_broadcasts">קרא שידורים סלולריים</string>
+  <string name="app_ops_summaries_mock_location">מיקום מדומה</string>
   <string name="app_ops_summaries_read_external_storage">קרא אחסון חיצוני</string>
   <string name="app_ops_summaries_write_external_storage">כתוב לאחסון חיצוני</string>
   <string name="app_ops_summaries_turn_screen_on">הפעל מסך</string>
   <string name="app_ops_summaries_get_accounts">קבל חשבונות</string>
+  <string name="app_ops_summaries_toggle_wifi">שנה את מצב הרשת האלחוטית</string>
   <string name="app_ops_summaries_toggle_bluetooth">שנה מצב Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">הפעל בעת איתחול המכשיר</string>
   <string name="app_ops_summaries_toggle_nfc">שינוי מצב NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">שנה מצב נתונים ניידים</string>
+  <string name="app_ops_summaries_toggle_mobile_data">הפעל/כבה תקשורת נתונים סלולרית</string>
   <string name="app_ops_summaries_superuser">גישת שורש (Root)</string>
   <string name="app_ops_labels_coarse_location">מיקום משוער</string>
   <string name="app_ops_labels_fine_location">מיקום מדויק</string>
@@ -347,6 +345,8 @@
   <string name="app_ops_labels_project_media">הקרנת מדיה</string>
   <string name="app_ops_labels_activate_vpn">הפעלת VPN</string>
   <string name="app_ops_labels_write_wallpaper">קביעת טפט</string>
+  <string name="app_ops_labels_assist_structure">מבנה מסייע</string>
+  <string name="app_ops_labels_assist_screenshot">צילום מסך מסייע</string>
   <string name="app_ops_labels_read_phone_state">קריאת מצב הטלפון</string>
   <string name="app_ops_labels_add_voicemail">הוספת תא קולי</string>
   <string name="app_ops_labels_use_sip">שימוש ב-SIP</string>
@@ -363,7 +363,7 @@
   <string name="app_ops_labels_toggle_bluetooth">שינוי מצב Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">הפעלה בעת איתחול המכשיר</string>
   <string name="app_ops_labels_toggle_nfc">שינוי מצב NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">שינוי מצב נתונים ניידים</string>
+  <string name="app_ops_labels_toggle_mobile_data">הפעלת/כיבוי נתונים סלולריים</string>
   <string name="app_ops_labels_superuser">גישת שורש (Root)</string>
   <string name="app_ops_permissions_allowed">מורשה</string>
   <string name="app_ops_permissions_ignored">התעלם</string>
@@ -439,7 +439,6 @@
   <string name="power_menu_title">תפריט הפעלה</string>
   <string name="power_menu_reboot_title">תפריט אתחול</string>
   <string name="power_menu_screenshot_title">צילום מסך</string>
-  <string name="power_menu_profiles_title">מחליף פרופילים</string>
   <string name="power_menu_airplane_title">מצב טיסה</string>
   <string name="power_menu_users_title">מחליף משתמש</string>
   <string name="power_menu_settings_title">קיצור דרך של הגדרות</string>
@@ -447,7 +446,6 @@
   <string name="power_menu_bug_report_title">דיווח שגיאות</string>
   <string name="power_menu_sound_title">לוח צלילים</string>
   <string name="power_menu_bug_report_disabled">דיווח שגיאות אינו זמין בהגדרות מפתחים</string>
-  <string name="power_menu_profiles_disabled">פרופילי מערכת לא זמינים</string>
   <string name="disable_navkeys_title">אפשר לחצני ניווט על המסך</string>
   <string name="disable_navkeys_summary">אפשר לחצני ניווט על המסך ובטל לחצנים פיזיים</string>
   <string name="double_tap_to_sleep_title">הקשה כפולה לכיבוי מסך</string>
@@ -530,6 +528,7 @@
   <string name="heads_up_notifications">התראות קופצות</string>
   <string name="summary_heads_up_enabled">התראות קופצות פעילות</string>
   <string name="summary_heads_up_disabled">התראות קופצות כבויות</string>
+  <string name="bluetooth_accept_all_files">התר את כל סוגי הקבצים</string>
   <string name="high_touch_sensitivity_title">רגישות גבוהה למגע</string>
   <string name="high_touch_sensitivity_summary">הגבר את רגישות מסך המגע, כך שניתן יהיה להשתמש בו בעת לבישת כפפות</string>
   <string name="lcd_density">צפיפות LCD</string>
@@ -626,11 +625,14 @@
   <string name="privacy_guard_reset_title">איפוס</string>
   <string name="privacy_guard_reset_text">לאפס הרשאות?</string>
   <string name="privacy_guard_help_text">בחלון זה אתה יכול לבחור עבור אילו יישומים שומר הפרטיות יפעל. הייישומים הנבחרים לא יקבלו גישה למידע הפרטי שלך כמו אנשי קשר, הודעות ויומן שיחות. לחיצה ארוכה על יישום תפתח את פרטי ההרשאות שלו.\n\nיישומים מובנים לא מוצגים כברירת מחדל, אבל יכולים להיחשף על ידי בחירת ההגדרה המתאימה.</string>
-  <string name="privacy_guard_manager_show_system_apps">הצג יישומים מובנים</string>
+  <string name="privacy_guard_manager_show_system_apps">להראות אפליקציות מובנות</string>
   <string name="privacy_guard_advanced_settings_title">מתקדם</string>
   <string name="privacy_guard_notification_title">הצג התראה</string>
   <string name="lockpattern_settings_enable_error_path_title">הצג שגיאות דפוס</string>
   <string name="lockpattern_settings_enable_dots_title">הצג דפוס נקודות</string>
+  <string name="lock_directly_show_password">הצג ישירות את הזנת הסיסמה</string>
+  <string name="lock_directly_show_pattern">הצג ישירות את תצוגת הדפוס הנעילה</string>
+  <string name="lock_directly_show_pin">הצג ישירות את הכנסת קוד ה-PIN</string>
   <string name="lockscreen_visualizer_title">הצג אפקטים בעת השמעת מוזיקה</string>
   <string name="lockscreen_disabled_by_qs_tile_title">מושבת על ידי אריח הגדרות מהירות</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">הקש כדי להפעיל את מסך הנעילה</string>
@@ -664,6 +666,7 @@
   <string name="voice_wakeup_retrain_title">הכשר את קולך</string>
   <string name="voice_wakeup_activity_title">פעילות להפעלה</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">התעוררות קולית צריכה לקבל הרשאות שיחת טלפון כדי לבחור איש קשר בחיוג ישיר.</string>
   <string name="picker_activities">פעילויות</string>
   <string name="select_custom_app_title">בחר יישום אחר</string>
   <string name="select_custom_activity_title">בחר הפעילות המותאמת אישית</string>
@@ -722,13 +725,15 @@
   <string name="lockpattern_settings_reset_summary">הזן חשבון דוא\"ל ראשי וסיסמה משויכת כדי לאפס את דפוס הנעילה</string>
   <string name="menu_hidden_apps_delete">איפוס</string>
   <string name="menu_hidden_apps_reset_lock">אפס נעילת דפוס</string>
-  <string name="protected_apps">יישומים מוגנים</string>
+  <string name="protected_apps">אפליקציות מוגן</string>
+  <string name="protected_apps_summary">נהל אילו יישומים מוחבאים מאחורי נעילה מאובטחת</string>
   <string name="saving_protected_components">שמירת מצב רכיב\u2026</string>
   <string name="pa_login_username_hint">שם משתמש (דוא\"ל)</string>
   <string name="pa_login_password_hint">סיסמה</string>
   <string name="pa_login_submit_button">התחברות</string>
   <string name="pa_login_checking_password">בודק חשבון\u2026</string>
   <string name="pa_login_incorrect_login">התחברות נכשלה</string>
+  <string name="pa_pattern_or_fingerprint_header">עלייך לצייר דפוס או להשתמש בטביעת אצבע כדי לשחרר נעילה</string>
   <string name="contributors_cloud_fragment_title">תורמים</string>
   <string name="contributors_cloud_loading_message">טוען נתוני תורמים\u2026</string>
   <string name="contributors_cloud_failed_message">אין אפשרות לטעון נתוני תורמים</string>
@@ -759,6 +764,7 @@
   <string name="sim_missing">חסר או פגום</string>
   <string name="sim_enabler_need_disable_sim">כרטיס ה-SIM יפסיק לפעול. האם ברצונך להמשיך?</string>
   <string name="sim_enabler_will_disable_sim_title">שים לב</string>
+  <string name="sim_enabler_need_switch_data_service">SIM זה יהפוך ללא זמין ו-SIM <xliff:g id="slotid">%1$s</xliff:g> יופעל בשביל שירותי נתונים. האם אתה בטוח שברצונך להמשיך?</string>
   <string name="sim_enabler_airplane_on">אין אפשרות לבצע את הפעולה כאשר שמצב טיסה פעיל.</string>
   <string name="sim_enabler_in_call">אין אפשרות לבצע את הפעולה בזמן השיחה.</string>
   <string name="sim_enabler_both_inactive">אין אפשרות להשבית את כל כרטיסי ה-SIM</string>
@@ -785,6 +791,7 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">הצלצול של SIM %d</string>
   <string name="app_name_label_cm">יישום:</string>
+  <string name="last_time_used_label_cm">נעשה שימוש בפעם האחרונה:</string>
   <string name="usage_time_label_cm">זמן שימוש:</string>
   <string name="master_clear_desc_cm" product="tablet">פעולה זו תביא למחיקת כל התוכן מ<b>האחסון הפנימי</b> של הטאבלט שלך, כולל:\n\n<li>החשבונות המוגדרים במכשירך</li>\n<li>נתונים והגדרות של המערכת והיישומים הקיימים</li>\n<li>יישומים שהורדו</li></string>
   <string name="master_clear_desc_cm" product="default">פעולה זו תביא למחיקת כל התוכן מ<b>האחסון הפנימי</b> של המכשיר שלך, כולל:\n\n<li>החשבונות המוגדרים במכשירך</li>\n<li>נתונים והגדרות של המערכת והיישומים הקיימים</li>\n<li>יישומים שהורדו</li></string>
@@ -798,4 +805,16 @@
   <string name="factory_reset_erase_sd_card_summary">מחק את כל הנתונים על כרטיס הזיכרון, כולל מוזיקה ותמונות</string>
   <string name="factory_reset_warning_text_reset_now">אפס עכשיו</string>
   <string name="factory_reset_warning_text_message">כל החשבונות, היישומים (כולל נתוניהם) והגדרות המערכת שלך יוסרו ממכשיר זה. פעולה זו אינה הפיכה.</string>
+  <string name="tethering_other_category_text">אחר</string>
+  <string name="hotstpot_inactivity_timeout_text">זמן מקסימלי להפעלת נקודת Wi-Fi חמה</string>
+  <string name="hotstpot_inactivity_timeout_never">אף פעם</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">דקה אחת</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 דקות</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 דקות</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">נקודת Wi\u2011Fi חמה ניידת לעולם לא תיכבה מעצמה</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">נקודת Wi\u2011Fi חמה ניידת תיכבה לאחר <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">מסך נעילה חי</string>
+  <string name="live_lock_screen_summary">הפעל והגדר את מסך הנעילה החי</string>
+  <string name="live_lock_screen_settings_button">הגדרות</string>
+  <string name="live_lock_screen_settings_disabled_prompt">להצגת מסכי נעילה חיים זמינים, יש להפעיל את התכונה תחילה.</string>
 </resources>

@@ -160,13 +160,6 @@
   <string name="profile_appgroup_name_title">Nom</string>
   <string name="duplicate_appgroup_name">Duplica el nom del grup d\'aplicacions!</string>
   <string name="profile_app_delete_confirm">Vols treure aquesta aplicació?</string>
-  <string name="sound_mode">Mode de notificació</string>
-  <string name="ringer_mode">Mode de trucada</string>
-  <string name="lights_mode">Mode dels llums</string>
-  <string name="vibrate_mode">Mode de la vibració</string>
-  <string name="choose_soundtone">Escull el to de les notificacions</string>
-  <string name="choose_ringtone">Escull un to de trucada</string>
-  <string name="soundtone_title">To de les notificacions</string>
   <string name="no_bluetooth_triggers">No hi ha dispositius Bluetooth enllaçats. \nPica per enllaçar el dispositiu Bluetooth abans de configurar els activadors.</string>
   <string name="no_wifi_triggers">No hi ha punts d\'accés Wi\u2011Fi configurats. \nPica per connectar el Wi\u2011Fi abans de configurar els activadors.</string>
   <string name="no_triggers_configured">No hi ha activadors configurats. Pica per afegir-ne més.</string>
@@ -219,6 +212,7 @@
   <string name="notification_light_screen_on">Llums amb la pantalla encesa</string>
   <string name="notification_light_use_multiple_leds">LEDs múltiples</string>
   <string name="keywords_lights_brightness_level">atenua la brillantor dels leds</string>
+  <string name="notification_light_automagic">Escull els colors automàticament</string>
   <string name="led_notification_title">Ajustaments de llums</string>
   <string name="led_notification_text">Llum LED habilitat per ajustos</string>
   <string name="enable_adb_cm">Depuració Android</string>
@@ -302,7 +296,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">canviar el bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">iniciar a l\'arrancada</string>
   <string name="app_ops_summaries_toggle_nfc">canviar l\'NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">canviar les dades mòbils</string>
+  <string name="app_ops_summaries_toggle_mobile_data">commuta les dades mòbils</string>
   <string name="app_ops_summaries_superuser">accés de superusuari</string>
   <string name="app_ops_labels_coarse_location">Ubicació poc precisa</string>
   <string name="app_ops_labels_fine_location">Ubicació precisa</string>
@@ -371,7 +365,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Canviar el bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Inicia a l\'arrancada</string>
   <string name="app_ops_labels_toggle_nfc">Canviar l\'NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Canviar les dades mòbils</string>
+  <string name="app_ops_labels_toggle_mobile_data">Commuta les dades mòbils</string>
   <string name="app_ops_labels_superuser">Accés Root</string>
   <string name="app_ops_permissions_allowed">Permès</string>
   <string name="app_ops_permissions_ignored">Ignorat</string>
@@ -447,7 +441,6 @@
   <string name="power_menu_title">Menú d\'apagat</string>
   <string name="power_menu_reboot_title">Menú reinicia</string>
   <string name="power_menu_screenshot_title">Captura de pantalla</string>
-  <string name="power_menu_profiles_title">Intercanviador de perfils</string>
   <string name="power_menu_airplane_title">Mode avió</string>
   <string name="power_menu_users_title">Intercanviador d\'usuaris</string>
   <string name="power_menu_settings_title">Drecera a la configuració</string>
@@ -455,7 +448,6 @@
   <string name="power_menu_bug_report_title">Informe d\'error</string>
   <string name="power_menu_sound_title">Panell de so</string>
   <string name="power_menu_bug_report_disabled">Els informes d\'error estan deshabilitats a les opcions de desenvolupament</string>
-  <string name="power_menu_profiles_disabled">Els perfils del sistema estan deshabilitats</string>
   <string name="disable_navkeys_title">Habilita bar nav en pantalla</string>
   <string name="disable_navkeys_summary">Habilita la barra de navegació en pantalla y deshabilitar els botons físics</string>
   <string name="double_tap_to_sleep_title">Pica dues vegades per posar en repòs</string>
@@ -538,6 +530,7 @@
   <string name="heads_up_notifications">Notificacions emergents</string>
   <string name="summary_heads_up_enabled">Les notificacions emergents estan activades</string>
   <string name="summary_heads_up_disabled">Les notificacions emergents estan desactivades</string>
+  <string name="bluetooth_accept_all_files">Accepta tots els tipus d\'arxiu</string>
   <string name="high_touch_sensitivity_title">Sensibilitat al tacte alta</string>
   <string name="high_touch_sensitivity_summary">Incrementa la sensibilitat de la pantalla tàctil de manera que pugui utilitzar-se si es porten guants</string>
   <string name="lcd_density">Densitat de l\'LCD</string>
@@ -639,6 +632,9 @@
   <string name="privacy_guard_notification_title">Mostra una notificació</string>
   <string name="lockpattern_settings_enable_error_path_title">Mostra el patró erroni</string>
   <string name="lockpattern_settings_enable_dots_title">Mostra els punts del patró</string>
+  <string name="lock_directly_show_password">Mostra directament l\'entrada de contrasenya</string>
+  <string name="lock_directly_show_pattern">Mostra directament la vista del patró</string>
+  <string name="lock_directly_show_pin">Mostra directament l\'entrada del PIN</string>
   <string name="lockscreen_visualizer_title">Mostra la visualització de la música</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Desactivat per una cel·la de configuració ràpida</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Prem per habilitar la pantalla de bloqueig</string>
@@ -765,6 +761,8 @@
   <string name="link_volume_option_title">Vincula el to de trucada &amp; els volums de les notificacions</string>
   <string name="lcd_density_prompt_message">Algunes aplicacions poden no funcionar amb DPI no-estàndard.\n\nAixò reiniciarà el teu dispositiu.</string>
   <string name="apn_ppp_number">Número de telèfon APN PPP</string>
+  <string name="duplicate_apn_error_title">APN duplicada</string>
+  <string name="duplicate_apn_error_message">Aquesta APN ja existeix. Descarta o canvia els paràmetres.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> està <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">desactivada</string>
   <string name="sim_missing">defectuosa o no hi és</string>
@@ -785,7 +783,7 @@
   <string name="sim_card_status_title">Estat de la SIM %d</string>
   <string name="sim_card_lock_settings_title">Configuració de bloqueig de la SIM %d</string>
   <string name="sim_card_summary_empty">No hi ha SIM inserida</string>
-  <string name="sim_mobile_network_settings_category_title">Configuració de xarxes mòbils</string>
+  <string name="sim_mobile_network_settings_category_title">Configuració de xarxa mòbil</string>
   <string name="sim_mobile_network_settings_title">Configuració de la SIM %d</string>
   <string name="zen_mode_summary_reminders">recordatoris</string>
   <string name="zen_mode_summary_events">esdeveniments</string>
@@ -811,4 +809,16 @@
   <string name="factory_reset_erase_sd_card_summary">Esborra totes les dades a la targeta SD, incloent-hi la música i les fotos</string>
   <string name="factory_reset_warning_text_reset_now">RESTAURA ARA</string>
   <string name="factory_reset_warning_text_message">S\'eliminaran tots els teus comptes, aplicacions, dades d\'aplicacions i ajustaments del sistema d\'aquest dispositiu. Això no es pot revertir.</string>
+  <string name="tethering_other_category_text">Altres</string>
+  <string name="hotstpot_inactivity_timeout_text">Temps d\'espera del punt d\'accés Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_never">Mai</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minut</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minuts</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minuts</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">El punt d\'accés portàtil Wi\u2011Fi no s\'apagarà mai</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">El punt d\'accés portàtil Wi\u2011Fi s\'apagarà després de <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Pantalla de bloqueig animada</string>
+  <string name="live_lock_screen_summary">Habilita i configura pantalles de bloqueig animades</string>
+  <string name="live_lock_screen_settings_button">Configuració</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Per veure les pantalles de bloqueig animades disponibles, activa les pantalles de bloqueig animades.</string>
 </resources>

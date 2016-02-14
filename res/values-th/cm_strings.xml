@@ -159,13 +159,6 @@
   <string name="profile_appgroup_name_title">ชื่อ</string>
   <string name="duplicate_appgroup_name">ชื่อกลุ่มแอปซ้ำ!</string>
   <string name="profile_app_delete_confirm">ลบแอปนี้ออกหรือไม่</string>
-  <string name="sound_mode">รูปแบบการแจ้งเตือน</string>
-  <string name="ringer_mode">รูปแบบเสียงเรียกเข้า</string>
-  <string name="lights_mode">รูปแบบแสง</string>
-  <string name="vibrate_mode">รูปแบบสั่น</string>
-  <string name="choose_soundtone">เลือกเสียงแจ้งเตือน</string>
-  <string name="choose_ringtone">เลือกเสียงเรียกเข้า</string>
-  <string name="soundtone_title">เสียงแจ้งเตือน</string>
   <string name="no_bluetooth_triggers">ไม่มีอุปกรณ์บลูทูธที่จับคู่\nแตะเพื่อจับคู่อุปกรณ์บลูทูธก่อนการตั้งค่าตัวกระตุ้น</string>
   <string name="no_wifi_triggers">ไม่มีจุดเข้าถึง Wi\u2011Fi ที่ตั้งไว้\nแตะเพื่อเชื่อมต่อ Wi\u2011Fi ก่อนตั้งตัวกระตุ้น</string>
   <string name="no_triggers_configured">ไม่มีตัวกระตุ้นที่กำหนดไว้ แตะเพื่อเพิ่ม</string>
@@ -389,7 +382,6 @@
   <string name="power_menu_title">เมนูพาวเวอร์</string>
   <string name="power_menu_reboot_title">เมนูเริ่มระบบใหม่</string>
   <string name="power_menu_screenshot_title">ถ่ายภาพหน้าจอ</string>
-  <string name="power_menu_profiles_title">ตัวสลับโปรไฟล์</string>
   <string name="power_menu_airplane_title">รูปแบบบนเครื่องบิน</string>
   <string name="power_menu_users_title">สลับผู้ใช้</string>
   <string name="power_menu_settings_title">ทางลัดการตั้งค่า</string>
@@ -397,7 +389,6 @@
   <string name="power_menu_bug_report_title">รายงานข้อผิดพลาด</string>
   <string name="power_menu_sound_title">แผงเสียง</string>
   <string name="power_menu_bug_report_disabled">รายงานข้อผิดพลาดถูกปิดใช้งานในการตั้งค่าการพัฒนา</string>
-  <string name="power_menu_profiles_disabled">โปรไฟล์ระบบถูกปิดใช้งาน</string>
   <string name="disable_navkeys_title">เปิดใช้งานแถบนำทางบนหน้าจอ</string>
   <string name="disable_navkeys_summary">เปิดใช้งานแถบนำทางบนหน้าจอและปิดการใช้งานปุ่มฮาร์ดแวร์</string>
   <string name="double_tap_to_sleep_title">แตะสองครั้งเพื่อปิดจอ</string>
@@ -480,6 +471,7 @@
   <string name="heads_up_notifications">Heads up</string>
   <string name="summary_heads_up_enabled">เปิดใช้งานการแจ้งเตือนแบบป๊อปอัพ</string>
   <string name="summary_heads_up_disabled">ปิดใช้งานการแจ้งเตือนแบบป๊อปอัพ</string>
+  <string name="bluetooth_accept_all_files">ยอมรับไฟล์ทุกชนิด</string>
   <string name="high_touch_sensitivity_title">ความไวต่อสัมผัสสูง</string>
   <string name="high_touch_sensitivity_summary">เพิ่มความไวของหน้าจอสัมผัสเพื่อสามารถใช้ขณะสวมถุงมือ</string>
   <string name="lcd_density">ความหนาแน่นของจอ LCD</string>
@@ -579,6 +571,9 @@
   <string name="privacy_guard_notification_title">แสดงการแจ้งเตือน</string>
   <string name="lockpattern_settings_enable_error_path_title">แสดงลายเส้นที่ผิดพลาด</string>
   <string name="lockpattern_settings_enable_dots_title">แสดงจุดที่ลากผ่าน</string>
+  <string name="lock_directly_show_password">แสดงรหัสผ่านโดยตรง</string>
+  <string name="lock_directly_show_pattern">แสดงรูปแบบโดยตรง</string>
+  <string name="lock_directly_show_pin">แสดง PIN โดยตรง</string>
   <string name="lockscreen_visualizer_title">แสดงเส้นจังหวะเพลง</string>
   <string name="battery_saver_threshold">ขีดจำกัดการประหยัดแบตเตอรี่</string>
   <string name="battery_saver_summary">ลดประสิทธิภาพและจำกัดการใช้ข้อมูลเบื้องหลัง</string>
@@ -705,7 +700,6 @@
   <string name="sim_card_status_title">สถานะซิม %d</string>
   <string name="sim_card_lock_settings_title">ตั้งค่าการล็อคซิม %d</string>
   <string name="sim_card_summary_empty">ไม่ได้ใส่ซิม</string>
-  <string name="sim_mobile_network_settings_category_title">การตั้งค่าเครือข่ายโทรศัพท์</string>
   <string name="sim_mobile_network_settings_title">การตั้งค่าซิม %d</string>
   <string name="maximum_head_level">หัว: %1$s W/kg</string>
   <string name="maximum_body_level">ตัว: %1$s W/kg</string>
@@ -724,4 +718,6 @@
   <string name="factory_reset_erase_sd_card_summary">ลบข้อมูลทั้งหมดใน SD การ์ด รวมทั้งเพลงและรูปถ่าย</string>
   <string name="factory_reset_warning_text_reset_now">รีเซ็ตเดี๋ยวนี้</string>
   <string name="factory_reset_warning_text_message">บัญชี แอป ข้อมูลแอปและการตั้งค่าระบบทั้งหมดจะถูกลบจากอุปกรณ์นี้ การกระทำนี้ไม่สามารถย้อนกลับได้</string>
+  <string name="hotstpot_inactivity_timeout_never">ไม่ต้องเลย</string>
+  <string name="live_lock_screen_settings_button">การตั้งค่า</string>
 </resources>

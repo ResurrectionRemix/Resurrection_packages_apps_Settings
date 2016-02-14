@@ -156,13 +156,6 @@
   <string name="profile_appgroup_name_title">名称</string>
   <string name="duplicate_appgroup_name">此应用组名称已被使用！</string>
   <string name="profile_app_delete_confirm">您确定要移除此应用？</string>
-  <string name="sound_mode">通知模式</string>
-  <string name="ringer_mode">铃声模式</string>
-  <string name="lights_mode">灯光模式</string>
-  <string name="vibrate_mode">震动模式</string>
-  <string name="choose_soundtone">选择通知铃声</string>
-  <string name="choose_ringtone">选择铃声</string>
-  <string name="soundtone_title">通知铃声</string>
   <string name="no_bluetooth_triggers">没有已配对的蓝牙设备。\n配置触发器前轻按以配对蓝牙设备。</string>
   <string name="no_wifi_triggers">没有已配置的 Wi\u2011Fi 接入点。\n配置触发器前轻按以连接 Wi\u2011Fi。</string>
   <string name="no_triggers_configured">没有配置触发器。轻按以添加更多。</string>
@@ -215,6 +208,7 @@
   <string name="notification_light_screen_on">屏幕开启时点亮指示灯</string>
   <string name="notification_light_use_multiple_leds">多 LED</string>
   <string name="keywords_lights_brightness_level">降低 LED 亮度</string>
+  <string name="notification_light_automagic">自动选择颜色</string>
   <string name="led_notification_title">指示灯设置</string>
   <string name="led_notification_text">LED 灯被“设置”启用</string>
   <string name="enable_adb_cm">Android 调试</string>
@@ -443,7 +437,6 @@
   <string name="power_menu_title">电源菜单</string>
   <string name="power_menu_reboot_title">重启菜单</string>
   <string name="power_menu_screenshot_title">屏幕截图</string>
-  <string name="power_menu_profiles_title">情景模式切换器</string>
   <string name="power_menu_airplane_title">飞行模式</string>
   <string name="power_menu_users_title">用户切换器</string>
   <string name="power_menu_settings_title">设置快捷方式</string>
@@ -451,7 +444,6 @@
   <string name="power_menu_bug_report_title">错误报告</string>
   <string name="power_menu_sound_title">声音面板</string>
   <string name="power_menu_bug_report_disabled">开发者选项中已禁用错误报告</string>
-  <string name="power_menu_profiles_disabled">系统情景已禁用</string>
   <string name="disable_navkeys_title">启用屏幕上的导航栏</string>
   <string name="disable_navkeys_summary">启用屏幕上导航栏并禁用硬件按钮</string>
   <string name="double_tap_to_sleep_title">双击以睡眠</string>
@@ -534,6 +526,7 @@
   <string name="heads_up_notifications">浮动通知</string>
   <string name="summary_heads_up_enabled">弹出通知已启用</string>
   <string name="summary_heads_up_disabled">弹出通知已禁用</string>
+  <string name="bluetooth_accept_all_files">接受所有文件类型</string>
   <string name="high_touch_sensitivity_title">触摸屏高灵敏度</string>
   <string name="high_touch_sensitivity_summary">增加触摸屏的灵敏度，以便在戴手套时使用</string>
   <string name="lcd_density">LCD 密度</string>
@@ -635,6 +628,9 @@
   <string name="privacy_guard_notification_title">显示通知</string>
   <string name="lockpattern_settings_enable_error_path_title">显示图案错误</string>
   <string name="lockpattern_settings_enable_dots_title">显示图案圆点</string>
+  <string name="lock_directly_show_password">直接显示密码输入框</string>
+  <string name="lock_directly_show_pattern">直接显示图案视图</string>
+  <string name="lock_directly_show_pin">直接显示 PIN 输入框</string>
   <string name="lockscreen_visualizer_title">显示音乐可视化</string>
   <string name="lockscreen_disabled_by_qs_tile_title">经由快速设置磁贴禁用</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">点击以启用锁屏</string>
@@ -761,6 +757,8 @@
   <string name="link_volume_option_title">链接铃声和通知的音量</string>
   <string name="lcd_density_prompt_message">某些应用可能无法在非标准 DPI 下工作。\n\n该更改将重启您的手机。</string>
   <string name="apn_ppp_number">APN PPP 电话号码</string>
+  <string name="duplicate_apn_error_title">重复的 APN</string>
+  <string name="duplicate_apn_error_message">此 APN 已存在。放弃或改变参数。</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">已禁用</string>
   <string name="sim_missing">丢失或缺损</string>
@@ -808,4 +806,16 @@
   <string name="factory_reset_erase_sd_card_summary">擦除 SD 卡上的所有数据，包括音乐和照片</string>
   <string name="factory_reset_warning_text_reset_now">立即重置</string>
   <string name="factory_reset_warning_text_message">您的所有帐户、应用、应用数据和系统设置将会从该设备上删除。此操作不可撤销。</string>
+  <string name="tethering_other_category_text">其他</string>
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi 热点超时</string>
+  <string name="hotstpot_inactivity_timeout_never">永不</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 分钟</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 分钟</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 分钟</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">移动 Wi\u2011Fi 热点将永不超时</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">移动 Wi\u2011Fi 热点将于 <xliff:g id="timeout">%1$s</xliff:g> 后超时</string>
+  <string name="live_lock_screen_title">活动锁屏</string>
+  <string name="live_lock_screen_summary">启用与配置活动锁屏</string>
+  <string name="live_lock_screen_settings_button">设置</string>
+  <string name="live_lock_screen_settings_disabled_prompt">若要查看可用的活动锁屏，请先启用活动锁屏。</string>
 </resources>

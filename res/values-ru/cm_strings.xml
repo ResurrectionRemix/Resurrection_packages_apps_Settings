@@ -161,13 +161,6 @@
   <string name="profile_appgroup_name_title">Имя</string>
   <string name="duplicate_appgroup_name">Группа приложений с таким названием уже существует!</string>
   <string name="profile_app_delete_confirm">Удалить данное приложение?</string>
-  <string name="sound_mode">Режим уведомлений</string>
-  <string name="ringer_mode">Режим звонка</string>
-  <string name="lights_mode">Индикатор событий</string>
-  <string name="vibrate_mode">Вибросигнал</string>
-  <string name="choose_soundtone">Выбрать звук уведомлений</string>
-  <string name="choose_ringtone">Выбрать рингтон</string>
-  <string name="soundtone_title">Звук уведомления</string>
   <string name="no_bluetooth_triggers">Нет сопряженных устройств Bluetooth.\nНажмите, чтобы добавить устройство и создать условие переключения на его основе.</string>
   <string name="no_wifi_triggers">Нет сохраненных сетей Wi\u2011Fi.\nНажмите, чтобы добавить сеть Wi\u2011Fi и создать условие переключения на её основе.</string>
   <string name="no_triggers_configured">Условия переключения не настроены. Нажмите, чтобы добавить условие.</string>
@@ -220,6 +213,7 @@
   <string name="notification_light_screen_on">Использ. индикатор при вкл. экране</string>
   <string name="notification_light_use_multiple_leds">Несколько светодиодов</string>
   <string name="keywords_lights_brightness_level">светодиоды яркость приглушить уменьшить</string>
+  <string name="notification_light_automagic">Автоматический выбор цвета</string>
   <string name="led_notification_title">Индикатор событий</string>
   <string name="led_notification_text">Светодиод включен в настройках</string>
   <string name="enable_adb_cm">Режим отладки</string>
@@ -448,7 +442,6 @@
   <string name="power_menu_title">Меню при долгом нажатии</string>
   <string name="power_menu_reboot_title">Перезагрузка</string>
   <string name="power_menu_screenshot_title">Скриншот</string>
-  <string name="power_menu_profiles_title">Выбор профиля</string>
   <string name="power_menu_airplane_title">Режим полета</string>
   <string name="power_menu_users_title">Пользователи</string>
   <string name="power_menu_settings_title">Ярлык настроек</string>
@@ -456,7 +449,6 @@
   <string name="power_menu_bug_report_title">Отчет об ошибке</string>
   <string name="power_menu_sound_title">Звуковая панель</string>
   <string name="power_menu_bug_report_disabled">Отчет об ошибке отключен в настройках для разработчика</string>
-  <string name="power_menu_profiles_disabled">Профили системы отключены</string>
   <string name="disable_navkeys_title">Экранные кнопки</string>
   <string name="disable_navkeys_summary">Включить панель навигации и отключить аппаратные сенсорные кнопки</string>
   <string name="double_tap_to_sleep_title">Выключать экран при двойном нажатии</string>
@@ -539,6 +531,7 @@
   <string name="heads_up_notifications">Всплывающие уведомления</string>
   <string name="summary_heads_up_enabled">Включены</string>
   <string name="summary_heads_up_disabled">Выключены</string>
+  <string name="bluetooth_accept_all_files">Принимать все типы файлов</string>
   <string name="high_touch_sensitivity_title">Режим перчаток</string>
   <string name="high_touch_sensitivity_summary">Увеличивать чувствительность экрана для возможности работы в перчатках</string>
   <string name="lcd_density">Плотность экрана</string>
@@ -640,6 +633,9 @@
   <string name="privacy_guard_notification_title">Показывать уведомления</string>
   <string name="lockpattern_settings_enable_error_path_title">Показывать неверный ввод</string>
   <string name="lockpattern_settings_enable_dots_title">Показывать точки</string>
+  <string name="lock_directly_show_password">Сразу предлагать ввод пароля</string>
+  <string name="lock_directly_show_pattern">Сразу предлагать ввод граф.ключа</string>
+  <string name="lock_directly_show_pin">Сразу предлагать ввод PIN-кода</string>
   <string name="lockscreen_visualizer_title">Визуализация спектра музыки</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Отключено плиткой быстрых настроек</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Нажмите, чтобы включить экран блокировки</string>
@@ -766,6 +762,8 @@
   <string name="link_volume_option_title">Связать громкость рингтона и уведомлений</string>
   <string name="lcd_density_prompt_message">Использование нестандартной плотности экрана может привести к сбоям приложений.\n\nУстройство будет перезагружено для сохранения настроек.</string>
   <string name="apn_ppp_number">Номер телефона APN PPP</string>
+  <string name="duplicate_apn_error_title">APN уже существует</string>
+  <string name="duplicate_apn_error_message">Эта APN уже существует. Отмените её добавление, либо измените настройки.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> — <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">отключена</string>
   <string name="sim_missing">отсутствует или неисправна</string>
@@ -812,4 +810,16 @@
   <string name="factory_reset_erase_sd_card_summary">Удалить с SD-карты все данные, включая музыку и фотографии</string>
   <string name="factory_reset_warning_text_reset_now">УДАЛИТЬ ВСЁ</string>
   <string name="factory_reset_warning_text_message">Все добавленные аккаунты, приложения, их данные и настройки будут удалены с этого устройства. Отменить это действие будет невозможно.</string>
+  <string name="tethering_other_category_text">Прочее</string>
+  <string name="hotstpot_inactivity_timeout_text">Выключение неиспольз. точки доступа</string>
+  <string name="hotstpot_inactivity_timeout_never">Никогда</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 минуту</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 минут</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 минут</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Не отключать</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Отключать через <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Живой экран блокировки</string>
+  <string name="live_lock_screen_summary">Включение и настройка параметров экр. блокир.</string>
+  <string name="live_lock_screen_settings_button">Настройки</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Для просмотра доступных Живых экранов блокировки включите поддержку этой функции.</string>
 </resources>

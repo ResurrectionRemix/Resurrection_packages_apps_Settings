@@ -33,6 +33,7 @@
   <string name="root_access_apps">Тільки програми</string>
   <string name="root_access_adb">Тільки ADB</string>
   <string name="root_access_all">Програми та ADB</string>
+  <string name="nfc_title_category">NFC</string>
   <string name="mod_version">Версія CyanogenMod</string>
   <string name="mod_version_default">Невідомо</string>
   <string name="device_model">Модель пристрою</string>
@@ -160,13 +161,6 @@
   <string name="profile_appgroup_name_title">Ім’я</string>
   <string name="duplicate_appgroup_name">Таке Ім’я групи вже існує!</string>
   <string name="profile_app_delete_confirm">Ви впевнені, що хочете вилучити цю програму?</string>
-  <string name="sound_mode">Режим сповіщень</string>
-  <string name="ringer_mode">Режим дзвінка</string>
-  <string name="lights_mode">Режим індикаторів</string>
-  <string name="vibrate_mode">Режим вібрації</string>
-  <string name="choose_soundtone">Оберіть звук сповіщення</string>
-  <string name="choose_ringtone">Мелодія дзвінка</string>
-  <string name="soundtone_title">Звук сповіщення</string>
   <string name="no_bluetooth_triggers">Не створено жодної пари Bluetooth.\nТоркніться щоб створити пару Bluetooth перед налаштуванням тригерів.</string>
   <string name="no_wifi_triggers">Жодних Wi\u2011Fi точок доступу не налаштавано.\nНатисніть для підключення Wi\u2011Fi перед налаштуванням тригерів.</string>
   <string name="no_triggers_configured">Жодних тригерів не налаштавано. Натисніть щоб додати більше.</string>
@@ -217,6 +211,7 @@
   <string name="notification_light_missed_call_title">Пропущений виклик</string>
   <string name="notification_light_voicemail_title">Голосова пошта</string>
   <string name="notification_light_screen_on">Індикатор при увімкн. екрані</string>
+  <string name="notification_light_use_multiple_leds">Кілька світлодіодів</string>
   <string name="keywords_lights_brightness_level">Зменшити яскравість світлодіодів</string>
   <string name="led_notification_title">Індикатор подій</string>
   <string name="led_notification_text">Світлодіод увімкнено у параметрах</string>
@@ -299,7 +294,6 @@
   <string name="app_ops_summaries_toggle_bluetooth">переключити Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">запуск при завантаженні</string>
   <string name="app_ops_summaries_toggle_nfc">переключити NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">переключити мобільних даних</string>
   <string name="app_ops_summaries_superuser">root доступ</string>
   <string name="app_ops_labels_coarse_location">Приблизне розташування</string>
   <string name="app_ops_labels_fine_location">Точне розташування</string>
@@ -434,7 +428,6 @@
   <string name="power_menu_title">Меню кнопки живлення</string>
   <string name="power_menu_reboot_title">Перезавантаження</string>
   <string name="power_menu_screenshot_title">Скріншот</string>
-  <string name="power_menu_profiles_title">Вибір профілю</string>
   <string name="power_menu_airplane_title">Режим польоту</string>
   <string name="power_menu_users_title">Користувачі</string>
   <string name="power_menu_settings_title">Ярлик налаштувань</string>
@@ -442,7 +435,6 @@
   <string name="power_menu_bug_report_title">Звіт про помилку</string>
   <string name="power_menu_sound_title">Звукова панель</string>
   <string name="power_menu_bug_report_disabled">Надсилання звітів про помилки вимкнуто в налаштуваннях розробника</string>
-  <string name="power_menu_profiles_disabled">Системні профілі вимкнені</string>
   <string name="disable_navkeys_title">Екранні кнопки</string>
   <string name="disable_navkeys_summary">Увімкнути панель навігації і вимкнути апаратні сенсорні кнопки</string>
   <string name="double_tap_to_sleep_title">Вимикати екран при подвійному натисканні</string>
@@ -520,6 +512,7 @@
   <string name="heads_up_notifications">Спливаючі сповіщення</string>
   <string name="summary_heads_up_enabled">Виринаючі сповіщення дозволено</string>
   <string name="summary_heads_up_disabled">Виринаючі повідомлення заборонені</string>
+  <string name="bluetooth_accept_all_files">Приймати всі типи файлів</string>
   <string name="high_touch_sensitivity_title">Висока чутливість дотику</string>
   <string name="high_touch_sensitivity_summary">Підвищити чутливість сенсорного екрану для користуванням пристроєм у рукавичках</string>
   <string name="lcd_density">Роздільна здатність екрана</string>
@@ -556,6 +549,9 @@
   <string name="lto_download_data_wifi_only">Завантажувати допоміжні дані GPS</string>
   <string name="lto_download_data_wifi_only_on">Через будь-яку мережу</string>
   <string name="lto_download_data_wifi_only_off">Тільки через Wi\u2011Fi</string>
+  <string name="volume_keys_control_ring_stream_title">Регулювання гучності рингтону</string>
+  <string name="volume_keys_control_ring_stream_summary_on">Клавіші гучності змінюють гучність дзвінка</string>
+  <string name="volume_keys_control_ring_stream_summary_off">Клавіші гучності змінюють гучність медіа</string>
   <string name="category_calibration">Калібрування</string>
   <string name="display_and_lights">Екран та індикація</string>
   <string name="power_notifications_category_title">Звуки зарядження</string>
@@ -613,8 +609,12 @@
   <string name="privacy_guard_help_text">У цьому розділі ви можете вибрати програми, які працюватимуть в захищеному режимі, натиснувши на них. Такі програми не будуть мати доступу до персональних даних, таких як контакти, повідомлення або журнал дзвінків. Довге натиснення відкриє докладні відомості про дозволи даної програми.\n\nЗа замовчуванням системні програми приховані. Для їх відображення або для переходу до розширених налаштувань виберіть відповідний пункт у меню.</string>
   <string name="privacy_guard_manager_show_system_apps">Показати системні програми</string>
   <string name="privacy_guard_advanced_settings_title">Додатково</string>
+  <string name="privacy_guard_notification_title">Показувати сповіщення</string>
   <string name="lockpattern_settings_enable_error_path_title">Показувати неправильний ключ</string>
   <string name="lockpattern_settings_enable_dots_title">Показувати точки</string>
+  <string name="lock_directly_show_password">Відразу пропонувати введення паролю</string>
+  <string name="lock_directly_show_pattern">Відразу пропонувати введення графічного ключа</string>
+  <string name="lock_directly_show_pin">Відразу пропонувати введення PIN-коду</string>
   <string name="lockscreen_visualizer_title">Візуалізація під час програвання музики</string>
   <string name="battery_saver_threshold">Поріг збереження енергії</string>
   <string name="battery_saver_summary">Зниження продуктивності і обмеження передачі даних</string>
@@ -737,7 +737,6 @@
   <string name="sim_card_status_title">Статус SIM %d</string>
   <string name="sim_card_lock_settings_title">Налаштування блокування SIM %d</string>
   <string name="sim_card_summary_empty">SIM не вставлено</string>
-  <string name="sim_mobile_network_settings_category_title">Налаштування мобільної мережі</string>
   <string name="sim_mobile_network_settings_title">Налаштування SIM %d</string>
   <string name="maximum_head_level">Голова: %1$s Вт/кг</string>
   <string name="maximum_body_level">Тіло: %1$s Вт/кг</string>
@@ -756,4 +755,6 @@
   <string name="factory_reset_erase_sd_card_summary">Видалити всі дані на SD-карті, у тому числі музику і фотографії</string>
   <string name="factory_reset_warning_text_reset_now">СКИНУТИ ЗАРАЗ</string>
   <string name="factory_reset_warning_text_message">Всі ваші облікові записи, додатки, дані програми і налаштування системи будуть видалені з цього пристрою. Це не можливо буде скасувати.</string>
+  <string name="hotstpot_inactivity_timeout_never">Ніколи</string>
+  <string name="live_lock_screen_settings_button">Налаштування</string>
 </resources>

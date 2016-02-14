@@ -162,13 +162,6 @@
   <string name="profile_appgroup_name_title">Ime</string>
   <string name="duplicate_appgroup_name">Podvojeno ime skupine aplikacij!</string>
   <string name="profile_app_delete_confirm">Odstrani to aplikacijo?</string>
-  <string name="sound_mode">Način obvestil</string>
-  <string name="ringer_mode">Način zvonjenja</string>
-  <string name="lights_mode">Način lučk</string>
-  <string name="vibrate_mode">Način vibriranja</string>
-  <string name="choose_soundtone">Izberite ton obvestil</string>
-  <string name="choose_ringtone">Izberite melodijo zvonjenja</string>
-  <string name="soundtone_title">Ton obvestila</string>
   <string name="no_bluetooth_triggers">Ni seznanjenih naprav Bluetooth. \nTapnite, da seznanite napravo Bluetooth pred nastavitvijo sprožilcev.</string>
   <string name="no_wifi_triggers">Nobene dostopne točke Wi\u2011Fi ni nastavljene.\nTapnite, da povežete Wi\u2011Fi pred nastavitvijo sprožilcev.</string>
   <string name="no_triggers_configured">Ni nastavljenih sprožilcev. Tapnite, da jih dodate.</string>
@@ -221,6 +214,7 @@
   <string name="notification_light_screen_on">Lučke z vkl. zaslonom</string>
   <string name="notification_light_use_multiple_leds">Več LED-ov</string>
   <string name="keywords_lights_brightness_level">zatemni svetlost lučk</string>
+  <string name="notification_light_automagic">Samodejno izberi barve</string>
   <string name="led_notification_title">Nastavitve lučke</string>
   <string name="led_notification_text">Lučka LED omogočena v nastavitvah</string>
   <string name="enable_adb_cm">Razhroščevanje Android</string>
@@ -304,7 +298,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">vklop/izklop Bluetootha</string>
   <string name="app_ops_summaries_start_at_boot">zaganjanje pri zagonu</string>
   <string name="app_ops_summaries_toggle_nfc">vklop/izklop NFC-ja</string>
-  <string name="app_ops_summaries_toggle_mobile_data">vklop/izklop mob. podatkov</string>
+  <string name="app_ops_summaries_toggle_mobile_data">preklapljanje mobilnih podatkov</string>
   <string name="app_ops_summaries_superuser">skrbniški dostop</string>
   <string name="app_ops_labels_coarse_location">Groba lokacija</string>
   <string name="app_ops_labels_fine_location">Natančna lokacija</string>
@@ -373,7 +367,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Vklop/izklop Bluetootha</string>
   <string name="app_ops_labels_start_at_boot">Zaganjanje pri zagonu</string>
   <string name="app_ops_labels_toggle_nfc">Vklop/izklop NFC-ja</string>
-  <string name="app_ops_labels_toggle_mobile_data">Vklop/izklop mob. podatkov</string>
+  <string name="app_ops_labels_toggle_mobile_data">Preklapljanje mobilnih podatkov</string>
   <string name="app_ops_labels_superuser">Skrbniški dostop</string>
   <string name="app_ops_permissions_allowed">Dovoljeno</string>
   <string name="app_ops_permissions_ignored">Prezrto</string>
@@ -449,7 +443,6 @@
   <string name="power_menu_title">Meni gumba za vklop/izklop</string>
   <string name="power_menu_reboot_title">Meni ponovnega zagona</string>
   <string name="power_menu_screenshot_title">Zaslonska slika</string>
-  <string name="power_menu_profiles_title">Preklopnik profilov</string>
   <string name="power_menu_airplane_title">Način za letalo</string>
   <string name="power_menu_users_title">Preklopnik uporabnikov</string>
   <string name="power_menu_settings_title">Bližnjica nastavitev</string>
@@ -457,7 +450,6 @@
   <string name="power_menu_bug_report_title">Poročilo o hrošču</string>
   <string name="power_menu_sound_title">Zvočna plošča</string>
   <string name="power_menu_bug_report_disabled">V nastavitvah za razvijalce je poročanje o hrošču onemogočeno</string>
-  <string name="power_menu_profiles_disabled">Sistemski profili so onemogočeni</string>
   <string name="disable_navkeys_title">Omogoči vrstico za krmarjenje na zaslonu</string>
   <string name="disable_navkeys_summary">Omogoči vrstico za krmarjenje na zaslonu in onemogoči fizične gumbe</string>
   <string name="double_tap_to_sleep_title">Dvakrat tapnite za spanje</string>
@@ -540,6 +532,7 @@
   <string name="heads_up_notifications">Obvestila na zaslonu</string>
   <string name="summary_heads_up_enabled">Pojavna obvestila so omogočena</string>
   <string name="summary_heads_up_disabled">Pojavna obvestila so onemogočena</string>
+  <string name="bluetooth_accept_all_files">Sprejmi vse vrste datotek</string>
   <string name="high_touch_sensitivity_title">Visoka občutljivost dotika</string>
   <string name="high_touch_sensitivity_summary">Povečaj občutljivost dotika, tako da ga lahko uporabite, ko nosite rokavice</string>
   <string name="lcd_density">Gostota LCD</string>
@@ -641,6 +634,9 @@
   <string name="privacy_guard_notification_title">Prikaži obvestilo</string>
   <string name="lockpattern_settings_enable_error_path_title">Prikaži napako vzorca</string>
   <string name="lockpattern_settings_enable_dots_title">Prikaži pike vzorca</string>
+  <string name="lock_directly_show_password">Neposredno prikaži vnos gesla</string>
+  <string name="lock_directly_show_pattern">Neposredno prikaži pogled vzorca</string>
+  <string name="lock_directly_show_pin">Neposredno prikaži vnos PIN</string>
   <string name="lockscreen_visualizer_title">Prikaži predočilnik glasbe</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Onemogočeno s ploščico hitrih nastavitev</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Tapnite, da omogočite zaslon za zaklepanje</string>
@@ -769,6 +765,8 @@
   <string name="link_volume_option_title">Poveži glasnosti zvonj. in obv.</string>
   <string name="lcd_density_prompt_message">Nekatere aplikacije morda ne bodo delovale pri nestandardnih DPI-jih.\n\nTo bo ponovno zagnalo vašo napravo.</string>
   <string name="apn_ppp_number">Telefonska številka APN PPP</string>
+  <string name="duplicate_apn_error_title">Podvojeni APN</string>
+  <string name="duplicate_apn_error_message">Ta APN že obstaja. Zavrzite ali spremenite parametre.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> je <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">onemogočeno</string>
   <string name="sim_missing">manjka ali je poškodovana</string>
@@ -815,4 +813,16 @@
   <string name="factory_reset_erase_sd_card_summary">Izbriši vse podatke na kartici SD, vključno z glasbo in fotografijami</string>
   <string name="factory_reset_warning_text_reset_now">PONASTAVI ZDAJ</string>
   <string name="factory_reset_warning_text_message">Vsi vaši računi, aplikacije, njihovi podatki in sistemske nastavitve bodo odstranjeni iz te naprave. Tega ni mogoče povrniti.</string>
+  <string name="tethering_other_category_text">Drugo</string>
+  <string name="hotstpot_inactivity_timeout_text">Časovna omejitev dostopne točke Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_never">Nikoli</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minuta</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minut</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minut</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Prenosna dostopna točka Wi\u2011Fi nima časovne omejitve</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Časovna omejitev prenosne dostopne točke Wi\u2011Fi čez <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Živi zaslon za zaklepanje</string>
+  <string name="live_lock_screen_summary">Omogočite in nastavite živi zaslon za zaklepanje</string>
+  <string name="live_lock_screen_settings_button">Nastavitve</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Za ogled razpoložljivih živih zaslonov za zaklepanje omogočite žive zaslone za zaklepanje.</string>
 </resources>

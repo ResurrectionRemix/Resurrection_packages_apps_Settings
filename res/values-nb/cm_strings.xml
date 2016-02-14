@@ -159,13 +159,6 @@
   <string name="profile_appgroup_name_title">Navn</string>
   <string name="duplicate_appgroup_name">Navnet på appgruppen eksisterer allerede!</string>
   <string name="profile_app_delete_confirm">Fjerne denne appen?</string>
-  <string name="sound_mode">Notifikasjonsmodus</string>
-  <string name="ringer_mode">Ringemodus</string>
-  <string name="lights_mode">Lys-modus</string>
-  <string name="vibrate_mode">Vibrasjonsmodus</string>
-  <string name="choose_soundtone">Velg notifikasjonstone</string>
-  <string name="choose_ringtone">Velg ringetone</string>
-  <string name="soundtone_title">Notifikasjonstone</string>
   <string name="no_bluetooth_triggers">Ingen Bluetooth-enheter sammenkoblet. \nTrykk for å parre Bluetooth-enhet før du konfigurerer utløsere.</string>
   <string name="no_wifi_triggers">Ingen Wi\u2011Fi tilgangspunkter konfigurert. \nTrykk for å koble til Wi\u2011Fi før du konfigurerer utløsere.</string>
   <string name="no_triggers_configured">Ingen utløsere konfigurert. Trykk for å legge til flere.</string>
@@ -290,8 +283,8 @@
   <string name="app_ops_summaries_toggle_wifi">aktivere/deaktivere Wifi</string>
   <string name="app_ops_summaries_start_at_boot">start ved oppstart</string>
   <string name="app_ops_summaries_toggle_nfc">veksle NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">veksle mobildata</string>
   <string name="app_ops_summaries_superuser">Root-tilgang</string>
+  <string name="app_ops_labels_coarse_location">Grov plassering</string>
   <string name="app_ops_labels_fine_location">Fin plassering</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibrer</string>
@@ -344,7 +337,6 @@
   <string name="app_ops_labels_toggle_wifi">Aktivere/deaktivere Wifi</string>
   <string name="app_ops_labels_start_at_boot">Start ved oppstart</string>
   <string name="app_ops_labels_toggle_nfc">NFC av/på</string>
-  <string name="app_ops_labels_toggle_mobile_data">Aktivere/deaktivere mobildata</string>
   <string name="app_ops_labels_superuser">Root-tilgang</string>
   <string name="app_ops_permissions_allowed">Tillatt</string>
   <string name="app_ops_permissions_ignored">Ignorert</string>
@@ -420,7 +412,6 @@
   <string name="power_menu_title">Av/På meny</string>
   <string name="power_menu_reboot_title">Restart meny</string>
   <string name="power_menu_screenshot_title">Skjermbilde</string>
-  <string name="power_menu_profiles_title">Profilvelger</string>
   <string name="power_menu_airplane_title">Flymodus</string>
   <string name="power_menu_users_title">Brukerbytte</string>
   <string name="power_menu_settings_title">Innstillinger snarvei</string>
@@ -428,7 +419,6 @@
   <string name="power_menu_bug_report_title">Feilrapport</string>
   <string name="power_menu_sound_title">Lyd-panel</string>
   <string name="power_menu_bug_report_disabled">Feilrapportering er deaktivert i innstillingene for utvikling</string>
-  <string name="power_menu_profiles_disabled">System profiler er deaktivert</string>
   <string name="disable_navkeys_title">Aktiverer navigasjonsbar på skjermen</string>
   <string name="disable_navkeys_summary">Aktiverer navigasjonsbar på skjermen og deaktiver hardware knapper</string>
   <string name="double_tap_to_sleep_title">Dobbeltapp for å sove</string>
@@ -510,6 +500,7 @@
   <string name="heads_up_notifications">Flytende notifikasjoner</string>
   <string name="summary_heads_up_enabled">Popup varsler er aktivert</string>
   <string name="summary_heads_up_disabled">popupvarsler er deaktivert</string>
+  <string name="bluetooth_accept_all_files">Godta alle filtyper</string>
   <string name="high_touch_sensitivity_title">Høy touch sensitivitet</string>
   <string name="high_touch_sensitivity_summary">Øk touchscreen følsomhet slik at den kan brukes med hansker</string>
   <string name="lcd_density">LCD tetthet</string>
@@ -609,6 +600,9 @@
   <string name="privacy_guard_notification_title">Vis varsel</string>
   <string name="lockpattern_settings_enable_error_path_title">Vis feil</string>
   <string name="lockpattern_settings_enable_dots_title">Vis mønster prikker</string>
+  <string name="lock_directly_show_password">Vis direkte angivelse av passord</string>
+  <string name="lock_directly_show_pattern">Direkte vise mønster</string>
+  <string name="lock_directly_show_pin">Vis direkte PIN-kodeoppføringen</string>
   <string name="lockscreen_visualizer_title">Vis musikk visualizer</string>
   <string name="battery_saver_threshold">Batterisparingsterskel</string>
   <string name="battery_saver_summary">Reduser ytelsen og begrens bakgrunnsdata</string>
@@ -740,15 +734,17 @@
   <string name="sim_card_status_title">SIM %d-status</string>
   <string name="sim_card_lock_settings_title">SIM %d-låseinnstillinger</string>
   <string name="sim_card_summary_empty">SIM-kortet er ikke satt inn</string>
-  <string name="sim_mobile_network_settings_category_title">Innstillinger for mobilnettverk</string>
   <string name="sim_mobile_network_settings_title">SIM %d-innstillinger</string>
   <string name="zen_mode_summary_reminders">påminnelser</string>
   <string name="zen_mode_summary_events">hendelser</string>
+  <string name="zen_mode_summary_selected_messages">valgte meldinger</string>
   <string name="maximum_head_level">Hode: %1$s W/kg</string>
   <string name="maximum_body_level">Innhold: %1$s W/kg</string>
   <string name="ic_code_model">Modell: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM %d ringetone</string>
+  <string name="app_name_label_cm">App:</string>
+  <string name="usage_time_label_cm">Brukstid:</string>
   <string name="master_clear_desc_cm" product="tablet">Dette vil slette alle data fra tavle-PCen <b>intern lagring</b>, inkludert: \n\n <li>enhet kontoene</li> \n <li>System og app data og innstillinger</li> \n <li>nedlastede programmer</li></string>
   <string name="master_clear_desc_cm" product="default">Dette vil slette alle data fra telefonen <b>intern lagring</b>, inkludert: \n\n <li>enhet kontoene</li> \n <li>System og app data og innstillinger</li> \n <li>nedlastede programmer</li></string>
   <string name="factory_reset_instructions_title">Personlige data og apper</string>
@@ -761,4 +757,10 @@
   <string name="factory_reset_erase_sd_card_summary">Slett alle data på SD-kortet, inkludert musikk og bilder</string>
   <string name="factory_reset_warning_text_reset_now">TILBAKESTILL NÅ</string>
   <string name="factory_reset_warning_text_message">Alle kontoene, appene, appdataene og systeminnstillingene dine fjernes fra denne enheten. Dette kan ikke angres.</string>
+  <string name="tethering_other_category_text">Annet</string>
+  <string name="hotstpot_inactivity_timeout_never">Aldri</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minutt</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutter</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
+  <string name="live_lock_screen_settings_button">Innstillinger</string>
 </resources>

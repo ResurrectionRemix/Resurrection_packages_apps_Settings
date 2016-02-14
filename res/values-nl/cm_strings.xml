@@ -160,13 +160,6 @@
   <string name="profile_appgroup_name_title">Naam</string>
   <string name="duplicate_appgroup_name">Naam bestaat al!</string>
   <string name="profile_app_delete_confirm">Deze app verwijderen?</string>
-  <string name="sound_mode">Meldingsstand</string>
-  <string name="ringer_mode">Beltoonstand</string>
-  <string name="lights_mode">Meldingsled</string>
-  <string name="vibrate_mode">Trilstand</string>
-  <string name="choose_soundtone">Meldingstoon kiezen</string>
-  <string name="choose_ringtone">Beltoon kiezen</string>
-  <string name="soundtone_title">Meldingstoon</string>
   <string name="no_bluetooth_triggers">Geen Bluetooth-apparaten gekoppeld.\nTik om Bluetooth-apparaat te koppelen alvorens triggers in te stellen.</string>
   <string name="no_wifi_triggers">Geen draadloze toegangspunten ingesteld.\nTik om met wifi te verbinden alvorens triggers in te stellen.</string>
   <string name="no_triggers_configured">Geen triggers ingesteld. Tik om toe te voegen.</string>
@@ -219,6 +212,7 @@
   <string name="notification_light_screen_on">Verlichting met scherm aan</string>
   <string name="notification_light_use_multiple_leds">Meerdere LEDs</string>
   <string name="keywords_lights_brightness_level">dimmen led LED helderheid</string>
+  <string name="notification_light_automagic">Automatisch kleuren kiezen</string>
   <string name="led_notification_title">Verlichtingsinstellingen</string>
   <string name="led_notification_text">LED-verlichting ingeschakeld door instellingen</string>
   <string name="enable_adb_cm">Android-foutopsporing</string>
@@ -287,6 +281,9 @@
   <string name="app_ops_summaries_assist_structure">structuur voor ondersteuning</string>
   <string name="app_ops_summaries_assist_screenshot">screenshot voor ondersteuning</string>
   <string name="app_ops_summaries_read_phone_state">telefoonstatus lezen</string>
+  <string name="app_ops_summaries_add_voicemail">voicemail toevoegen</string>
+  <string name="app_ops_summaries_use_sip">SIP gebruiken</string>
+  <string name="app_ops_summaries_make_call">gesprek starten</string>
   <string name="app_ops_summaries_use_fingerprint">vingerafdruk gebruiken</string>
   <string name="app_ops_summaries_use_body_sensors">lichaamssensoren gebruiken</string>
   <string name="app_ops_summaries_read_cell_broadcasts">nooduitzendingen lezen</string>
@@ -313,6 +310,7 @@
   <string name="app_ops_labels_modify_calendar">Agenda aanpassen</string>
   <string name="app_ops_labels_wifi_scan">Wifi-scan</string>
   <string name="app_ops_labels_notification">Melding/toast</string>
+  <string name="app_ops_labels_cell_scan">Mobiele netwerken zoeken</string>
   <string name="app_ops_labels_call_phone">Nummer bellen</string>
   <string name="app_ops_labels_read_sms">Sms lezen</string>
   <string name="app_ops_labels_write_sms">Sms schrijven</string>
@@ -352,9 +350,14 @@
   <string name="app_ops_labels_assist_structure">Structuur voor ondersteuning</string>
   <string name="app_ops_labels_assist_screenshot">Screenshot voor ondersteuning</string>
   <string name="app_ops_labels_read_phone_state">Telefoonstatus lezen</string>
+  <string name="app_ops_labels_add_voicemail">Voicemail toevoegen</string>
+  <string name="app_ops_labels_use_sip">SIP gebruiken</string>
+  <string name="app_ops_labels_make_call">Gesprek starten</string>
   <string name="app_ops_labels_use_fingerprint">Vingerafdruk gebruiken</string>
   <string name="app_ops_labels_use_body_sensors">Lichaamssensoren gebruiken</string>
   <string name="app_ops_labels_read_cell_broadcasts">Nooduitzendingen lezen</string>
+  <string name="app_ops_labels_mock_location">Neplocatie gebruiken</string>
+  <string name="app_ops_labels_read_external_storage">Externe opslag lezen</string>
   <string name="app_ops_labels_write_external_storage">Naar externe opslag schrijven</string>
   <string name="app_ops_labels_turn_screen_on">Scherm inschakelen</string>
   <string name="app_ops_labels_get_accounts">Accounts opvragen</string>
@@ -438,7 +441,6 @@
   <string name="power_menu_title">Opties in afsluitmenu</string>
   <string name="power_menu_reboot_title">Herstarten</string>
   <string name="power_menu_screenshot_title">Screenshot</string>
-  <string name="power_menu_profiles_title">Profielen</string>
   <string name="power_menu_airplane_title">Vliegmodus</string>
   <string name="power_menu_users_title">Gebruiker wisselen</string>
   <string name="power_menu_settings_title">Snelkoppeling voor instellingen</string>
@@ -446,7 +448,6 @@
   <string name="power_menu_bug_report_title">Foutrapport</string>
   <string name="power_menu_sound_title">Geluidspaneel</string>
   <string name="power_menu_bug_report_disabled">Foutrapportage is uitgeschakeld in de opties voor ontwikkelaars</string>
-  <string name="power_menu_profiles_disabled">Systeemprofielen zijn uitgeschakeld</string>
   <string name="disable_navkeys_title">On-screen navigatiebalk inschakelen</string>
   <string name="disable_navkeys_summary">On-screen navigatiebalk inschakelen en hardware-knoppen uitschakelen</string>
   <string name="double_tap_to_sleep_title">Dubbeltikken voor slaapstand</string>
@@ -529,6 +530,7 @@
   <string name="heads_up_notifications">Heads-up</string>
   <string name="summary_heads_up_enabled">Zwevende meldingen ingeschakeld</string>
   <string name="summary_heads_up_disabled">Zwevende meldingen uitgeschakeld</string>
+  <string name="bluetooth_accept_all_files">Alle bestandstypen accepteren</string>
   <string name="high_touch_sensitivity_title">Hoge aanraakgevoeligheid</string>
   <string name="high_touch_sensitivity_summary">Gevoeligheid van het scherm verhogen, zodat het gebruikt kan worden tijdens het dragen van handschoenen</string>
   <string name="lcd_density">LCD-dichtheid</string>
@@ -628,6 +630,9 @@
   <string name="privacy_guard_notification_title">Melding weergeven</string>
   <string name="lockpattern_settings_enable_error_path_title">Patroonfout weergeven</string>
   <string name="lockpattern_settings_enable_dots_title">Patroonknoppen weergeven</string>
+  <string name="lock_directly_show_password">Direct wachtwoordscherm tonen</string>
+  <string name="lock_directly_show_pattern">Direct patroonscherm tonen</string>
+  <string name="lock_directly_show_pin">Direct pincodescherm tonen</string>
   <string name="lockscreen_visualizer_title">Muziekvisualisaties weergeven</string>
   <string name="battery_saver_threshold">Drempelwaarde energiebesparing</string>
   <string name="battery_saver_summary">Prestaties verminderen en achtergrondgegevens beperken</string>
@@ -746,6 +751,8 @@
   <string name="advanced">Geavanceerd</string>
   <string name="link_volume_option_title">Volumen koppelen</string>
   <string name="apn_ppp_number">APN PPP telefoonnummer</string>
+  <string name="duplicate_apn_error_title">Dubbele APN</string>
+  <string name="duplicate_apn_error_message">Deze APN bestaat al. Verwijder of wijzig parameters.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">uitgeschakeld</string>
   <string name="sim_missing">afwezig of defect</string>
@@ -765,7 +772,6 @@
   <string name="sim_card_status_title">Status SIM %d</string>
   <string name="sim_card_lock_settings_title">Vergrendelingsinstellingen SIM %d</string>
   <string name="sim_card_summary_empty">Simkaart niet geplaatst</string>
-  <string name="sim_mobile_network_settings_category_title">Instellingen mobiel netwerk</string>
   <string name="sim_mobile_network_settings_title">Instellingen SIM %d</string>
   <string name="zen_mode_summary_reminders">herinneringen</string>
   <string name="zen_mode_summary_events">gebeurtenissen</string>
@@ -776,6 +782,9 @@
   <string name="ic_code_model">Model: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">Beltoon voor SIM %d</string>
+  <string name="app_name_label_cm">App:</string>
+  <string name="last_time_used_label_cm">Laatst gebruikt:</string>
+  <string name="usage_time_label_cm">Gebruiksduur:</string>
   <string name="master_clear_desc_cm" product="tablet">Dit zal alle gegevens wissen van de <b>interne opslag</b> van uw tablet, inclusief:\n\n<li>Uw accounts</li>\n<li>Systeem- en app-gegevens en instellingen</li>\n<li>Gedownloade apps</li></string>
   <string name="master_clear_desc_cm" product="default">Dit zal alle gegevens wissen van de <b>interne opslag</b> van uw telefoon, inclusief:\n\n<li>Uw accounts</li>\n<li>Systeem- en app-gegevens en instellingen</li>\n<li>Gedownloade apps</li></string>
   <string name="factory_reset_instructions_title">Persoonlijke gegevens en apps</string>
@@ -788,4 +797,11 @@
   <string name="factory_reset_erase_sd_card_summary">Alle gegevens op de SD-kaart wissen, inclusief muziek en foto\'s</string>
   <string name="factory_reset_warning_text_reset_now">NU OPNIEUW INSTELLEN</string>
   <string name="factory_reset_warning_text_message">Al uw accounts, apps, app-gegevens en systeeminstellingen op dit apparaat worden gewist. Dit kan niet ongedaan worden gemaakt.</string>
+  <string name="tethering_other_category_text">Overige</string>
+  <string name="hotstpot_inactivity_timeout_text">Time-out wifi-hotspot</string>
+  <string name="hotstpot_inactivity_timeout_never">Nooit</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minuut</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minuten</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minuten</string>
+  <string name="live_lock_screen_settings_button">Instellingen</string>
 </resources>

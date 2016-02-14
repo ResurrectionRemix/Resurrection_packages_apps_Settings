@@ -161,13 +161,6 @@
   <string name="profile_appgroup_name_title">Име</string>
   <string name="duplicate_appgroup_name">Дупликат имена групе апликација!</string>
   <string name="profile_app_delete_confirm">Уклони ову апликацију?</string>
-  <string name="sound_mode">Режим обавештења</string>
-  <string name="ringer_mode">Режим звона</string>
-  <string name="lights_mode">Режим светла</string>
-  <string name="vibrate_mode">Режим вибрације</string>
-  <string name="choose_soundtone">Изабери тон обавештења</string>
-  <string name="choose_ringtone">Изабери тон звона</string>
-  <string name="soundtone_title">Тон обавештења</string>
   <string name="no_bluetooth_triggers">Нема Bluetooth уређаја упарених.\nДодирните да упарите Bluetooth уређаје пре конфигурисања активирања.</string>
   <string name="no_wifi_triggers">Нема Wi\u2011Fi приступних тачака конфигурисаних.\nДодирните да конектујете Wi\u2011Fi пре конфигурисања активирања.</string>
   <string name="no_triggers_configured">Нема конфигурисаних активатора. Додирните да додате још.</string>
@@ -220,6 +213,7 @@
   <string name="notification_light_screen_on">Светли када је екран укључен</string>
   <string name="notification_light_use_multiple_leds">Више Ле диода</string>
   <string name="keywords_lights_brightness_level">Затамљивање осветљења леда</string>
+  <string name="notification_light_automagic">Аутоматски избор боја</string>
   <string name="led_notification_title">Поставке светла</string>
   <string name="led_notification_text">LED светло омогућено помоћу поставки</string>
   <string name="enable_adb_cm">Android отклањање грешака</string>
@@ -303,7 +297,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">укључи bleutooth</string>
   <string name="app_ops_summaries_start_at_boot">старт при покретању</string>
   <string name="app_ops_summaries_toggle_nfc">укључи NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">укључи мобилне податке</string>
+  <string name="app_ops_summaries_toggle_mobile_data">укључи/искључи мобилне податке</string>
   <string name="app_ops_summaries_superuser">рoot приступ</string>
   <string name="app_ops_labels_coarse_location">Груба локација</string>
   <string name="app_ops_labels_fine_location">Фина локација</string>
@@ -372,7 +366,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Укључи bleutooth</string>
   <string name="app_ops_labels_start_at_boot">Старт при покретању</string>
   <string name="app_ops_labels_toggle_nfc">Укључи NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Укључи мобилне податке</string>
+  <string name="app_ops_labels_toggle_mobile_data">Укључи/искључи мобилне податке</string>
   <string name="app_ops_labels_superuser">Root приступ</string>
   <string name="app_ops_permissions_allowed">Дозвољено</string>
   <string name="app_ops_permissions_ignored">Игнорисано</string>
@@ -448,7 +442,6 @@
   <string name="power_menu_title">Опције напајања</string>
   <string name="power_menu_reboot_title">Рестартуј</string>
   <string name="power_menu_screenshot_title">Снимак екрана</string>
-  <string name="power_menu_profiles_title">Пребацивач профила</string>
   <string name="power_menu_airplane_title">Режим рада у авиону</string>
   <string name="power_menu_users_title">Пребацивач корисника</string>
   <string name="power_menu_settings_title">Пречица подешавања</string>
@@ -456,7 +449,6 @@
   <string name="power_menu_bug_report_title">Пријава грешке</string>
   <string name="power_menu_sound_title">Звучни панел</string>
   <string name="power_menu_bug_report_disabled">Пријављивање грешке је онемогућено у развојном подешавању</string>
-  <string name="power_menu_profiles_disabled">Системски профили су онемогућени</string>
   <string name="disable_navkeys_title">Омогући нав. траку на екрану</string>
   <string name="disable_navkeys_summary">Омогући навигациону траку на екрану и онемогући хардверске дугмиће</string>
   <string name="double_tap_to_sleep_title">Дупли-додир за спавање</string>
@@ -539,6 +531,7 @@
   <string name="heads_up_notifications">Искачуће поруке</string>
   <string name="summary_heads_up_enabled">Искачућа обавештења су омогућена</string>
   <string name="summary_heads_up_disabled">Искачућа обавештења су онемогућена</string>
+  <string name="bluetooth_accept_all_files">Прихвати све типове фајлова</string>
   <string name="high_touch_sensitivity_title">Висока додирна осетљивост</string>
   <string name="high_touch_sensitivity_summary">Повећај осетљивост екрана тако да се може користити док се носе рукавице</string>
   <string name="lcd_density">LCD густина</string>
@@ -640,6 +633,9 @@
   <string name="privacy_guard_notification_title">Прикажи обавештења</string>
   <string name="lockpattern_settings_enable_error_path_title">Прикажи грешку шаблона</string>
   <string name="lockpattern_settings_enable_dots_title">Прикажи тачкице шаблона</string>
+  <string name="lock_directly_show_password">Директно приказивање уноса лозинке</string>
+  <string name="lock_directly_show_pattern">Директно приказивање прегледа шаре</string>
+  <string name="lock_directly_show_pin">Директно приказивање PIN уноса</string>
   <string name="lockscreen_visualizer_title">Прикажи графички приказ музике</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Онемогућено плочицом брзог подешавања</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Додирни да омогућиш закључани екран</string>
@@ -766,6 +762,8 @@
   <string name="link_volume_option_title">Веза тона звона &amp; јачине обавештења</string>
   <string name="lcd_density_prompt_message">Неке апликације можда не функционишу на нестандардном DPI.\n\nОво ће рестартовати телефон.</string>
   <string name="apn_ppp_number">APN PPP број телефона</string>
+  <string name="duplicate_apn_error_title">Дупли APN</string>
+  <string name="duplicate_apn_error_message">Тај APN већ постоји. Одбаци или промени параметре.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> je <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
   <string name="sim_disabled">онемогућено</string>
   <string name="sim_missing">недостаје или је неисправан</string>
@@ -786,7 +784,7 @@
   <string name="sim_card_status_title">SIM %d статус</string>
   <string name="sim_card_lock_settings_title">SIM %d подешавање закључавања</string>
   <string name="sim_card_summary_empty">SIM није убачен</string>
-  <string name="sim_mobile_network_settings_category_title">Поставке мобилне мреже</string>
+  <string name="sim_mobile_network_settings_category_title">Подешавање мобилне мреже</string>
   <string name="sim_mobile_network_settings_title">SIM %d поставке</string>
   <string name="zen_mode_summary_reminders">подсетници</string>
   <string name="zen_mode_summary_events">догађаји</string>
@@ -812,4 +810,16 @@
   <string name="factory_reset_erase_sd_card_summary">Обриши све податке на SD картици, укључујући музику и фотографије</string>
   <string name="factory_reset_warning_text_reset_now">РЕСЕТУЈ САДА</string>
   <string name="factory_reset_warning_text_message">Сви твоји налози, апликације, подаци апликација и подешавања система ће бити уклоњени са овог уређаја. Ово не може бити преокренуто.</string>
+  <string name="tethering_other_category_text">Друго</string>
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi hotspot временско ограничење</string>
+  <string name="hotstpot_inactivity_timeout_never">Никад</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 минут</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 минута</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 минута</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Преносни Wi\u2011Fi hotspot нема временско ограничење</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Преносни Wi\u2011Fi hotspot ће истећи после <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="live_lock_screen_title">Активни закључани екран</string>
+  <string name="live_lock_screen_summary">Омогући и подеси активни закључани екран</string>
+  <string name="live_lock_screen_settings_button">Подешавања</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Да видиш доступне активне закључане екране укључи их.</string>
 </resources>

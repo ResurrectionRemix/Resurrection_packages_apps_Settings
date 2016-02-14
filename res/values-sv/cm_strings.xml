@@ -83,6 +83,7 @@
   <string name="duplicate_appgroup_name">Dublett av appgruppnamn!</string>
   <string name="rename_dialog_hint">Ange profilnamnet</string>
   <string name="profile_reset_title">Återställ</string>
+  <string name="profile_reset_message">Ta bort alla skapade profiler och appgrupper och återställ dem till standard?</string>
   <string name="profile_app_delete_confirm">Ta bort denna app?</string>
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
@@ -159,13 +160,6 @@
   <string name="profile_appgroup_name_title">Namn</string>
   <string name="duplicate_appgroup_name">Dublett av appgruppnamn!</string>
   <string name="profile_app_delete_confirm">Ta bort denna app?</string>
-  <string name="sound_mode">Aviseringsläge</string>
-  <string name="ringer_mode">Ringsignalsläge</string>
-  <string name="lights_mode">Ljusläge</string>
-  <string name="vibrate_mode">Vibrationsläge</string>
-  <string name="choose_soundtone">Välj aviseringssignal</string>
-  <string name="choose_ringtone">Välj ringsignal</string>
-  <string name="soundtone_title">Aviseringssignal</string>
   <string name="no_bluetooth_triggers">Inga Bluetooth-enheter är kopplade.\nTryck för att para till en Bluetooth-enhet innan du konfigurerar utlösare.</string>
   <string name="no_wifi_triggers">Ingen Wi\u2011Fi åtkomstpunkter har konfigurerats.\nTryck för att koppla till Wi\u2011Fi innan du konfigurerar utlösare.</string>
   <string name="no_triggers_configured">Inga utlösare har konfigurerats. Tryck för att lägga till fler.</string>
@@ -282,6 +276,7 @@
   <string name="app_ops_summaries_toast_window">visa toasts</string>
   <string name="app_ops_summaries_project_media">projektmedia</string>
   <string name="app_ops_summaries_activate_vpn">aktivera VPN</string>
+  <string name="app_ops_summaries_assist_structure">assistansstruktur</string>
   <string name="app_ops_summaries_assist_screenshot">assistera skärmdump</string>
   <string name="app_ops_summaries_read_phone_state">läs telefonstatus</string>
   <string name="app_ops_summaries_add_voicemail">lägg till röstbrevlåda</string>
@@ -319,6 +314,7 @@
   <string name="app_ops_labels_receive_sms">Ta emot SMS</string>
   <string name="app_ops_labels_receive_emergency_sms">Ta emot nöd-SMS</string>
   <string name="app_ops_labels_receive_mms">Ta emot MMS</string>
+  <string name="app_ops_labels_receive_wap_push">Ta emot WAP-push</string>
   <string name="app_ops_labels_send_sms">Skicka SMS</string>
   <string name="app_ops_labels_read_icc_sms">Läs ICC SMS</string>
   <string name="app_ops_labels_write_icc_sms">Skriv ICC SMS</string>
@@ -341,16 +337,24 @@
   <string name="app_ops_labels_bluetooth_volume">Bluetoothvolym</string>
   <string name="app_ops_labels_keep_awake">Håll vaken</string>
   <string name="app_ops_labels_monitor_location">Övervaka plats</string>
+  <string name="app_ops_labels_monitor_high_power_location">Övervaka högenergiplats</string>
+  <string name="app_ops_labels_get_usage_stats">Få användningsstatistik</string>
   <string name="app_ops_labels_mute_unmute_microphone">Slå på/av mikrofonen</string>
   <string name="app_ops_labels_toast_window">Visa toasts</string>
   <string name="app_ops_labels_project_media">Projektmedia</string>
   <string name="app_ops_labels_activate_vpn">Aktivera VPN</string>
+  <string name="app_ops_labels_assist_structure">Assistansstruktur</string>
+  <string name="app_ops_labels_assist_screenshot">Assistera skärmdump</string>
+  <string name="app_ops_labels_read_phone_state">Läs telefonstatus</string>
   <string name="app_ops_labels_add_voicemail">Lägg till röstbrevlåda</string>
   <string name="app_ops_labels_use_sip">Använd SIP</string>
   <string name="app_ops_labels_make_call">Ring</string>
-  <string name="app_ops_labels_use_fingerprint">Använda fingeravtryck</string>
+  <string name="app_ops_labels_use_fingerprint">Använd fingeravtryck</string>
   <string name="app_ops_labels_use_body_sensors">Använd kroppssensorer</string>
+  <string name="app_ops_labels_read_cell_broadcasts">Läs mobila sändningar</string>
   <string name="app_ops_labels_mock_location">Använd skenplats</string>
+  <string name="app_ops_labels_read_external_storage">Läs extern lagring</string>
+  <string name="app_ops_labels_write_external_storage">Skriv till extern lagring</string>
   <string name="app_ops_labels_turn_screen_on">Aktivera skärmen</string>
   <string name="app_ops_labels_get_accounts">Hämta konton</string>
   <string name="app_ops_labels_toggle_wifi">Växla Wi\u2011Fi</string>
@@ -433,7 +437,6 @@
   <string name="power_menu_title">Avstängningsmeny</string>
   <string name="power_menu_reboot_title">Omstartsmeny</string>
   <string name="power_menu_screenshot_title">Skärmdump</string>
-  <string name="power_menu_profiles_title">Profilväxlare</string>
   <string name="power_menu_airplane_title">Flygplansläge</string>
   <string name="power_menu_users_title">Användarväxlare</string>
   <string name="power_menu_settings_title">Inställningsgenväg</string>
@@ -441,7 +444,6 @@
   <string name="power_menu_bug_report_title">Felrapport</string>
   <string name="power_menu_sound_title">Ljudpanel</string>
   <string name="power_menu_bug_report_disabled">Buggrapportering har inaktiverats i utvecklarinställningarna</string>
-  <string name="power_menu_profiles_disabled">Systemprofiler är inaktiverade</string>
   <string name="disable_navkeys_title">Aktivera navigeringsfält på skärmen</string>
   <string name="disable_navkeys_summary">Aktivera navigeringsfält på skärmen och inaktivera hårdvaruknappar</string>
   <string name="double_tap_to_sleep_title">Dubbeltryck för att släcka</string>
@@ -508,10 +510,13 @@
   <string name="live_display_color_profile_standard_title">Standard</string>
   <string name="live_display_color_profile_standard_summary">Exakta färger och kritvitt</string>
   <string name="live_display_color_profile_natural_title">Naturlig</string>
+  <string name="live_display_color_profile_natural_summary">Realistiska färger och hudnära toner</string>
   <string name="live_display_color_profile_dynamic_title">Dynamisk</string>
+  <string name="live_display_color_profile_dynamic_summary">Förbättrade färger och kritvitt</string>
   <string name="live_display_color_profile_cinema_title">Biograf</string>
   <string name="live_display_color_profile_cinema_summary">Perfekt färgåtergivning för video</string>
   <string name="live_display_color_profile_astronomy_title">Astronomi</string>
+  <string name="live_display_color_profile_astronomy_summary">Djupt röd för att bevara mörkerseendet</string>
   <string name="live_display_color_profile_photography_title">Fotografering</string>
   <string name="live_display_color_profile_photography_summary">Perfekt färgåtergivning för bilder</string>
   <string name="live_display_color_profile_basic_title">Grundläggande</string>
@@ -521,6 +526,7 @@
   <string name="heads_up_notifications">Heads up</string>
   <string name="summary_heads_up_enabled">Pop-up-aviseringar är aktiverade</string>
   <string name="summary_heads_up_disabled">Pop-up-aviseringar är inaktiverade</string>
+  <string name="bluetooth_accept_all_files">Acceptera alla filtyper</string>
   <string name="high_touch_sensitivity_title">Hög fingerkänslighet</string>
   <string name="high_touch_sensitivity_summary">Öka tryckskärmens känslighet så att den kan användas samtidigt som du bär handskar</string>
   <string name="lcd_density">LCD-densitet</string>
@@ -558,6 +564,8 @@
   <string name="lto_download_data_wifi_only_on">Över alla nätverk</string>
   <string name="lto_download_data_wifi_only_off">Endast över Wi\u2011Fi nätverk</string>
   <string name="volume_keys_control_ring_stream_title">Kontrollera ringvolym</string>
+  <string name="volume_keys_control_ring_stream_summary_on">Volymknapparna kontrollerar ringsignalsvolym</string>
+  <string name="volume_keys_control_ring_stream_summary_off">Volymknapparna styr mediavolym</string>
   <string name="category_calibration">Kalibrering</string>
   <string name="display_and_lights">Skärm &amp; ljus</string>
   <string name="power_notifications_category_title">Laddningsljud</string>
@@ -599,6 +607,7 @@
   <string name="status_bar_battery_percentage_text_inside">Inuti ikonen</string>
   <string name="status_bar_battery_percentage_text_next">Bredvid ikonen</string>
   <string name="status_bar_icons_title">Statusfältsikoner</string>
+  <string name="status_bar_icons_summary">Kontrollera vilka statusfältsikoner som visas</string>
   <string name="edge_gesture_service_title">Blockera gesthändelser</string>
   <string name="edge_gesture_service_summary">Skicka inte beröringshändelser för navigerings- och statusfältsgester till appar</string>
   <string name="keep_screen_on_never">Aldrig</string>
@@ -619,7 +628,12 @@
   <string name="privacy_guard_notification_title">Visa avisering</string>
   <string name="lockpattern_settings_enable_error_path_title">Visa mönster vid fel</string>
   <string name="lockpattern_settings_enable_dots_title">Visa mönsterpunkter</string>
+  <string name="lock_directly_show_password">Visa lösenordsinmatningen direkt</string>
+  <string name="lock_directly_show_pattern">Visa mönsterinmatningen direkt</string>
+  <string name="lock_directly_show_pin">Visa PIN-inmatningen direkt</string>
   <string name="lockscreen_visualizer_title">Visa musikvisualisering</string>
+  <string name="lockscreen_disabled_by_qs_tile_title">Inaktiverad via snabbinställningsbrickan</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">Tryck för att aktivera skärmlåset</string>
   <string name="lockscreen_disabled_by_qs_tile_summary_enabled">Låsskärmen aktiverad!</string>
   <string name="battery_saver_threshold">Batterisparningströskel</string>
   <string name="battery_saver_summary">Minska prestanda och begränsa bakgrundsdata</string>
@@ -742,12 +756,14 @@ inkluderar en unik identifikation,
   <string name="title_general">Allmänt</string>
   <string name="advanced">Avancerade</string>
   <string name="link_volume_option_title">Länka ringsignals- och aviseringsvolym</string>
+  <string name="lcd_density_prompt_message">Vissa program kanske inte fungerar med icke-standardiserade DPI.\n\nEnheten kommer att startas om.</string>
   <string name="apn_ppp_number">APN PPP telefonnummer</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> är <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">inaktiverat</string>
   <string name="sim_missing">saknas eller felaktig</string>
   <string name="sim_enabler_need_disable_sim">SIM-kortet kommer att avaktiveras. Vill du fortsätta?</string>
   <string name="sim_enabler_will_disable_sim_title">Varning</string>
+  <string name="sim_enabler_need_switch_data_service">Detta SIM kommer att inaktiveras och SIM <xliff:g id="slotid">%1$s </xliff:g> kommer att användas för datatjänster. Är du säker på att du vill fortsätta?</string>
   <string name="sim_enabler_airplane_on">Kunde inte utföra åtgärden medan flygplansläge är på.</string>
   <string name="sim_enabler_in_call">Kunde inte utföra åtgärden under samtal.</string>
   <string name="sim_enabler_both_inactive">Kan inte inaktivera alla SIM-kort</string>
@@ -762,7 +778,7 @@ inkluderar en unik identifikation,
   <string name="sim_card_status_title">SIM %d status</string>
   <string name="sim_card_lock_settings_title">SIM-%d låsinställningar</string>
   <string name="sim_card_summary_empty">SIM inte isatt</string>
-  <string name="sim_mobile_network_settings_category_title">Inställningar för mobilt nätverk</string>
+  <string name="sim_mobile_network_settings_category_title">Inställningar för mobilnät</string>
   <string name="sim_mobile_network_settings_title">SIM %d inställningar</string>
   <string name="zen_mode_summary_reminders">påminnelser</string>
   <string name="zen_mode_summary_events">händelser</string>
@@ -788,4 +804,16 @@ inkluderar en unik identifikation,
   <string name="factory_reset_erase_sd_card_summary">Radera all data på SD-kortet, såsom musik och bilder</string>
   <string name="factory_reset_warning_text_reset_now">ÅTERSTÄLL NU</string>
   <string name="factory_reset_warning_text_message">Alla dina konton, appar, appdata och systeminställningar kommer tas bort från denna enhet. Detta kan inte ångras.</string>
+  <string name="tethering_other_category_text">Annan</string>
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi hotspot tidsgräns</string>
+  <string name="hotstpot_inactivity_timeout_never">Aldrig</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minut</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minuter</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minuter</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Ingen tidsgräns för Mobil Wi\u2011Fi hotspot</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Tidsgräns för Mobil Wi\u2011Fi hotspot: <xliff:g id="timeout">%1$s </xliff:g></string>
+  <string name="live_lock_screen_title">Levande låsskärm</string>
+  <string name="live_lock_screen_summary">Aktivera och konfigurera Levande låsskärmar</string>
+  <string name="live_lock_screen_settings_button">Inställningar</string>
+  <string name="live_lock_screen_settings_disabled_prompt">För att visa tillgängliga Levande låsskärmar, aktivera Levande låsskärmar.</string>
 </resources>
