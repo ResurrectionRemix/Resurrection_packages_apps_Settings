@@ -193,7 +193,7 @@ public class WifiCallingSettings extends SettingsPreferenceFragment
         if (!isWfcModeSupported()) {
             android.provider.Settings.Global.putInt(context.getContentResolver(),
                     android.provider.Settings.Global.WFC_IMS_MODE,
-                    ImsConfig.WfcModeFeatureValueConstants.WIFI_ONLY);
+                    ImsConfig.WfcModeFeatureValueConstants.WIFI_PREFERRED);
         }
 
         // NOTE: Buttons will be enabled/disabled in mPhoneStateListener
