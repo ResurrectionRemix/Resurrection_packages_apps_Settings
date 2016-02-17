@@ -237,9 +237,12 @@ public class PowerUsageSummary extends PowerUsageBase
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (newValue != null) {
             if (preference == mPerfProfilePref) {
-                mPerf.setPowerProfile(Integer.valueOf((String)(newValue)));
-                updatePerformanceSummary();
-                return true;
+                Integer value = Integer.valueOf((String) (newValue));
+                boolean powerProfileUpdated = mPerf.setPowerProfile(value);
+                if (powerProfileUpdated) {
+                    updatePerformanceSummary();
+                }
+                return powerProfileUpdated;
             }
         }
         return false;
