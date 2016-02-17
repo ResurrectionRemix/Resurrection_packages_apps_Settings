@@ -433,9 +433,9 @@ public class Status extends InstrumentedPreferenceActivity {
 
     public static String getSarValues(Resources res) {
         String headLevel = String.format(res.getString(R.string.maximum_head_level,
-                TextUtils.split(res.getString(R.string.sar_head_level), ",")));
+                res.getString(R.string.sar_head_level).split(",")));
         String bodyLevel = String.format(res.getString(R.string.maximum_body_level,
-                TextUtils.split(res.getString(R.string.sar_body_level), ",")));
+                res.getString(R.string.sar_body_level).split(",")));
         return headLevel + "\n" + bodyLevel;
     }
 
