@@ -20,7 +20,10 @@ import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.ListPreference;
@@ -64,6 +67,9 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
  private static final String HEADER_WEATHERTWO_COLOR = "header_weathertwo_color";
  private static final String HEADER_BATTERY_COLOR = "header_battery_text_color";
  private static final String HEADER_ALARM_COLOR = "header_alarm_text_color";
+ private static final String CUSTOM_HEADER_IMAGE = "status_bar_custom_header";
+ private static final String DAYLIGHT_HEADER_PACK = "daylight_header_pack";
+ private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
 
     static final int DEFAULT = 0xffffffff;
     private static final int MENU_RESET = Menu.FIRST;
@@ -81,7 +87,9 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
     private ColorPickerPreference mHeaderWeatheroneColor;
     private ColorPickerPreference mHeaderWeathertwoColor;	
     private ColorPickerPreference mBatteryColor;
-    private ColorPickerPreference mAlarmColor;		
+    private ColorPickerPreference mAlarmColor;	
+    private ListPreference mDaylightHeaderPack;
+   private SwitchPreference mCustomHeaderImage;	
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -188,6 +196,37 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAlarmColor.setSummary(hexColor);
         mAlarmColor.setNewPreviewColor(intColor);
+
+	// header image packs
+        final boolean customHeaderImage = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0) == 1;
+        mCustomHeaderImage = (SwitchPreference) findPreference(CUSTOM_HEADER_IMAGE);
+        mCustomHeaderImage.setChecked(customHeaderImage);
+
+         String imageHeaderPackage = Settings.System.getString(getContentResolver(),
+                 Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK);
+         if (imageHeaderPackage == null) {
+             imageHeaderPackage = DEFAULT_HEADER_PACKAGE;
+         }
+         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
+         List<String> entries = new ArrayList<String>();
+         List<String> values = new ArrayList<String>();
+         getAvailableHeaderPacks(entries, values);
+         mDaylightHeaderPack.setEntries(entries.toArray(new String[entries.size()]));
+         mDaylightHeaderPack.setEntryValues(values.toArray(new String[values.size()]));
+ 
+         int valueIndexHeader = mDaylightHeaderPack.findIndexOfValue(imageHeaderPackage);
+         if (valueIndexHeader == -1) {
+             // no longer found
+             imageHeaderPackage = DEFAULT_HEADER_PACKAGE;
+             Settings.System.putString(getContentResolver(),
+                     Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK, imageHeaderPackage);
+             valueIndexHeader = mDaylightHeaderPack.findIndexOfValue(imageHeaderPackage);
+         }
+         mDaylightHeaderPack.setValueIndex(valueIndexHeader >= 0 ? valueIndexHeader : 0);
+         mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntry());
+         mDaylightHeaderPack.setOnPreferenceChangeListener(this);
+         mDaylightHeaderPack.setEnabled(customHeaderImage);
 	
 	setHasOptionsMenu(true);
 
@@ -299,9 +338,49 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.HEADER_ALARM_TEXT_COLOR, intHex);
             return true;
+         } else if (preference == mDaylightHeaderPack) {
+             String value = (String) newValue;
+             Settings.System.putString(getContentResolver(),
+                     Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK, value);
+             int valueIndex = mDaylightHeaderPack.findIndexOfValue(value);
+             mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntries()[valueIndex]);
+             return true;
          }
 	return false;
 	}
+
+  private void getAvailableHeaderPacks(List<String> entries, List<String> values) {
+        Intent i = new Intent();
+        PackageManager packageManager = getPackageManager();
+        i.setAction("org.omnirom.DaylightHeaderPack");
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            if (packageName.equals(DEFAULT_HEADER_PACKAGE)) {
+                values.add(0, packageName);
+            } else {
+                values.add(packageName);
+            }
+            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            if (label == null) {
+                label = r.activityInfo.packageName;
+            }
+            if (packageName.equals(DEFAULT_HEADER_PACKAGE)) {
+                entries.add(0, label);
+            } else {
+                entries.add(label);
+            }
+        }
+        i.setAction("org.omnirom.DaylightHeaderPack1");
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            values.add(packageName  + "/" + r.activityInfo.name);
+            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            if (label == null) {
+                label = packageName;
+            }
+            entries.add(label);
+        }
+    }
 
  @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -369,7 +448,13 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);  
-	}    
+	} else  if (preference == mCustomHeaderImage) {
+                final boolean value = ((SwitchPreference)preference).isChecked();
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
+                mDaylightHeaderPack.setEnabled(value);
+                return true;
+            }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

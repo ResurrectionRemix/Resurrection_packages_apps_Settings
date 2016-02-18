@@ -21,14 +21,19 @@
 
 
     <PreferenceCategory
-        android:title="@string/notifications_header" >
+        android:key="category_header_options"
+        android:title="@string/contexual_header_title" >
 
+         <SwitchPreference
+           android:key="status_bar_custom_header"
+           android:title="@string/status_bar_custom_header_title"
+           android:summary="@string/status_bar_custom_header_summary"
+           android:defaultValue="false"/>
 
-     <SwitchPreference
-            android:key="status_bar_custom_header"
-            android:title="@string/status_bar_custom_header_title"
-            android:summary="@string/status_bar_custom_header_summary"
-            android:defaultValue="false"/>
+        <ListPreference
+           android:key="daylight_header_pack"
+           android:title="@string/daylight_header_pack_title"
+           android:persistent="false" />
 
 	   </PreferenceCategory>
 
