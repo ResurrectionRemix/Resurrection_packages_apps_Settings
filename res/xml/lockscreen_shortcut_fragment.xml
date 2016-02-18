@@ -16,9 +16,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <SwitchPreference
-        android:key="lockscreen_shortcuts_longpress"
-        android:title="@string/lockscreen_shorcuts_longpress_title"
-        android:summary="@string/lockscreen_shorcuts_longpress_summary" />
+    <ListPreference
+        android:key="lockscreen_shortcuts_launch_type"
+        android:title="@string/lockscreen_shortcuts_launch_type_title"
+        android:summary="%s"
+        android:defaultValue="1"
+        android:entries="@array/lockscreen_shortcuts_launch_type_entries"
+        android:entryValues="@array/lockscreen_shortcuts_launch_type_values" />
 
 </PreferenceScreen>
