@@ -30,6 +30,13 @@
             android:title="@string/notification_customizations"
             android:fragment="com.android.settings.rr.NotificationPanel" />
 
+    <ListPreference
+        android:key="sysui_qs_num_columns"
+        android:title="@string/qs_num_columns_title"
+        android:entries="@array/qs_num_columns_entries"
+        android:entryValues="@array/qs_num_columns_values"
+        android:persistent="false" />
+
 
        <ListPreference
             android:key="qs_quick_pulldown"
