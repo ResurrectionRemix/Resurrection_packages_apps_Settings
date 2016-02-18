@@ -172,8 +172,13 @@
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="dashboard_tileview_double_lines"
                 android:title="@string/dashboard_tileview_double_lines_title"
-                android:summaryOn="@string/dashboard_tileview_double_lines_summary_on"
-                android:summaryOff="@string/dashboard_tileview_double_lines_summary_off"
+ 		android:summary="@string/dashboard_tileview_double_lines_summary"
+                android:defaultValue="false" />
+	 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="dashboard_tileview_dividers"
+                android:title="@string/dashboard_tileview_dividers_title"
+                android:summary="@string/dashboard_tileview_dividers_summary"
                 android:defaultValue="false" />
  
         <!-- Dashboard Interface -->
