@@ -23,56 +23,24 @@
         android:key="notification_1"
         android:title="@string/header_cat" >
 
-
     <!-- Notification Panel -->
     <PreferenceScreen
             android:id="@+id/notification_customizations"
             android:title="@string/notification_customizations"
             android:fragment="com.android.settings.rr.NotificationPanel" />
 
-    <ListPreference
-        android:key="sysui_qs_num_columns"
-        android:title="@string/qs_num_columns_title"
-        android:entries="@array/qs_num_columns_entries"
-        android:entryValues="@array/qs_num_columns_values"
-        android:persistent="false" />
+</PreferenceCategory>
 
 
-       <ListPreference
-            android:key="qs_quick_pulldown"
-            android:title="@string/status_bar_quick_qs_pulldown_title"
-            android:entries="@array/status_bar_quick_qs_pulldown_entries"
-            android:entryValues="@array/status_bar_quick_qs_pulldown_values" />
+    <PreferenceCategory
+        android:title="@string/rr_qs" >
 
-   
-       <ListPreference
-            android:key="smart_pulldown"
-            android:title="@string/smart_pulldown_title"
-            android:entries="@array/smart_pulldown_entries"
-            android:entryValues="@array/smart_pulldown_values"
-            android:persistent="false" />
+    <!-- Notification Panel -->
+    <PreferenceScreen
+            android:id="@+id/Qs_customizations"
+            android:title="@string/rr_qs_title"
+            android:fragment="com.android.settings.rr.QsPanel" />
 
-
-    <SwitchPreference
-        android:key="block_on_secure_keyguard"
-        android:title="@string/block_on_secure_keyguard_title"
-        android:summary="@string/block_on_secure_keyguard_summary"
-        android:persistent="false"
-        android:defaultValue="true"/>
-
-
-       <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
-         android:key="qs_show_brightness_slider"
-         android:title="@string/qs_brightness_slider_title"
-         android:summary="@string/qs_brightness_slider_summary"
-         android:defaultValue="true"/>
-
-       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-         android:key="brightness_icon"
-         android:title="@string/brightness_icon_title"
-         android:summary="@string/brightness_icon_summary"
-         android:dependency="qs_show_brightness_slider"
-         android:defaultValue="true"/>
 
 </PreferenceCategory>
 
