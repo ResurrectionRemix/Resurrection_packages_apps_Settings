@@ -28,12 +28,26 @@
            android:key="status_bar_custom_header"
            android:title="@string/status_bar_custom_header_title"
            android:summary="@string/status_bar_custom_header_summary"
-           android:defaultValue="false"/>
+           android:defaultValue="false"
+	   android:persistent="false"/>
 
         <ListPreference
            android:key="daylight_header_pack"
            android:title="@string/daylight_header_pack_title"
-           android:persistent="false" />
+           android:persistent="false"
+	   android:dependency="status_bar_custom_header" /> 
+
+         <com.android.settings.rr.SeekBarPreference
+                android:key="status_bar_custom_header_shadow"
+                android:title="@string/status_bar_custom_header_shadow_title"
+                android:summary="@string/status_bar_custom_header_shadow_summary"
+                android:defaultValue="0"
+                android:max="100"
+                settings:min="0"
+                settings:unitsLeft=""
+                settings:unitsRight="@string/unit_percent"
+                android:persistent="false"
+                android:dependency="status_bar_custom_header" />
 
 	   </PreferenceCategory>
 

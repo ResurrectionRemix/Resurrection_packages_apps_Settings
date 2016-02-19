@@ -31,6 +31,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
+import com.android.settings.rr.SeekBarPreference;
 import android.provider.Settings;
 import com.android.settings.util.Helpers;
 import org.cyanogenmod.internal.util.CmLockPatternUtils;
@@ -41,6 +42,7 @@ import com.android.settings.search.Indexable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
+import android.util.Log;
 
 import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.providers.CMSettings;
@@ -70,6 +72,7 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
  private static final String CUSTOM_HEADER_IMAGE = "status_bar_custom_header";
  private static final String DAYLIGHT_HEADER_PACK = "daylight_header_pack";
  private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
+ private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
 
     static final int DEFAULT = 0xffffffff;
     private static final int MENU_RESET = Menu.FIRST;
@@ -89,7 +92,8 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
     private ColorPickerPreference mBatteryColor;
     private ColorPickerPreference mAlarmColor;	
     private ListPreference mDaylightHeaderPack;
-   private SwitchPreference mCustomHeaderImage;	
+    private SwitchPreference mCustomHeaderImage;	
+    private SeekBarPreference mHeaderShadow; 
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -226,7 +230,12 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
          mDaylightHeaderPack.setValueIndex(valueIndexHeader >= 0 ? valueIndexHeader : 0);
          mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntry());
          mDaylightHeaderPack.setOnPreferenceChangeListener(this);
-         mDaylightHeaderPack.setEnabled(customHeaderImage);
+
+        mHeaderShadow = (SeekBarPreference) findPreference(CUSTOM_HEADER_IMAGE_SHADOW);
+        final int headerShadow = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, 0);
+        mHeaderShadow.setValue((int)((headerShadow / 255) * 100));
+        mHeaderShadow.setOnPreferenceChangeListener(this);
 	
 	setHasOptionsMenu(true);
 
@@ -345,7 +354,13 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
              int valueIndex = mDaylightHeaderPack.findIndexOfValue(value);
              mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntries()[valueIndex]);
              return true;
-         }
+         } else if (preference == mHeaderShadow) {
+            Integer headerShadow = (Integer) newValue;
+            int realHeaderValue = (int) (((double) headerShadow / 100) * 255);
+            Settings.System.putInt(getContentResolver(),
+              Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, realHeaderValue);
+	    return true;
+	 }
 	return false;
 	}
 
@@ -452,7 +467,6 @@ public class NotificationPanel extends SettingsPreferenceFragment  implements Pr
                 final boolean value = ((SwitchPreference)preference).isChecked();
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
-                mDaylightHeaderPack.setEnabled(value);
                 return true;
             }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
