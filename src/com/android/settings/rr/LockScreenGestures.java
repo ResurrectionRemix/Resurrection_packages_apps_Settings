@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2015 The OmniROM Project
+ *  Copyright (C) 2015 The RR Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,16 +45,18 @@ import java.util.ArrayList;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
+public class LockScreenGestures extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
 
-    private static final String TAG = "LockScreenSettings"; 	
+
+	
+	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_lockscreen);
+        addPreferencesFromResource(R.xml.rr_ls_gestures);
         ContentResolver resolver = getActivity().getContentResolver();
-}
+	}
 
     @Override
     protected int getMetricsCategory() {
@@ -67,25 +69,4 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
 	return false;
 	}
 
-     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                                                                            boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                   sir.xmlResId = R.xml.rr_lockscreen;
-                    result.add(sir);
-
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = new ArrayList<String>();
-                    return keys;
-                }
-        };
 }	

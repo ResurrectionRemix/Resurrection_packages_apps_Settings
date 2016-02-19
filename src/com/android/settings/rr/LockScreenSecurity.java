@@ -45,16 +45,27 @@ import java.util.ArrayList;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
+public class LockScreenSecurity extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
+	
+    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+    private static final String KEYGUARD_TOGGLE_TORCH = "keyguard_toggle_torch";
+	
 
-    private static final String TAG = "LockScreenSettings"; 	
+    private SeekBarPreference mMaxKeyguardNotifConfig;
+    private SwitchPreference mKeyguardTorch;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_lockscreen);
+        addPreferencesFromResource(R.xml.rr_ls_security);
         ContentResolver resolver = getActivity().getContentResolver();
-}
+
+ 	mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
+        int kgconf = Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5);
+        mMaxKeyguardNotifConfig.setValue(kgconf);
+        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+   }
 
     @Override
     protected int getMetricsCategory() {
@@ -62,30 +73,15 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue)
+	{
 	ContentResolver resolver = getActivity().getContentResolver();
+	if (preference == mMaxKeyguardNotifConfig) {
+            int kgconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+            return true;
+        	}
 	return false;
 	}
-
-     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                                                                            boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                   sir.xmlResId = R.xml.rr_lockscreen;
-                    result.add(sir);
-
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = new ArrayList<String>();
-                    return keys;
-                }
-        };
 }	

@@ -16,130 +16,30 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
 
-    <PreferenceCategory
-        android:title="@string/lockscreen_options_title" >
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="power_menu_lockscreen"
-            android:title="@string/powermenu_lockscreen_title"
-            android:summary="@string/powermenu_lockscreen_summary"
-            android:defaultValue="true" />
-
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="lockscreen_quick_unlock_control"
-            android:title="@string/unlock_quick_unlock_control_title"
-            android:summary="@string/unlock_quick_unlock_control_summary" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="double_tap_sleep_anywhere"
-            android:title="@string/double_tap_ls"
-            android:summary="@string/double_tap_ls_summary"
-            android:defaultValue="true" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="keyguard_toggle_torch"
-            android:title="@string/keyguard_torch_title"
-            android:summary="@string/keyguard_torch_summary"
-            android:defaultValue="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="lockscreen_media_metadata"
-            android:title="@string/media_art_title"
-            android:summary="@string/media_art_summary"
-            android:defaultValue="true" />
-
-        <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="lockscreen_see_through"
-        android:title="@string/lockscreen_see_through_title"
-        android:summary="@string/lockscreen_see_through_summary"
-        android:defaultValue="false" />
-
-      <com.android.settings.rr.SeekBarPreference
-        android:key="lockscreen_blur_radius"
-        android:title="@string/lockscreen_blur_radius"
-        android:max="25"
-        settings:min="0"
-        android:defaultValue="14"
-        android:dependency="lockscreen_see_through" />
-
-     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-               android:key="lock_screen_custom_notif"
-               android:title="@string/lockscreen_maxnotif_title"
-               android:summary="@string/lockscreen_maxnotif_sumary"
-               android:defaultValue="false" />
-
-     <com.android.settings.rr.SeekBarPreference
-               android:key="lockscreen_max_notif_cofig"
-               android:title="@string/lockscreen_maxnotif_config"
-               android:max="5"
-               settings:minimum="3"
-               settings:interval="1"
-               settings:unitsLeft=""
-               settings:unitsRight=""
-               android:persistent="false"
-               android:dependency="lock_screen_custom_notif" />
-
-   <PreferenceScreen
-            android:key="lockscreen_colors"
-            android:title="@string/lockscreen_colors"
-            android:fragment="com.android.settings.rr.LockscreenColors" />
-
-    <ListPreference
-        android:key="lock_clock_fonts"
-        android:title="@string/lock_clock_font_title"
-        android:dialogTitle="@string/lock_clock_font_dialog_title"
-        android:entries="@array/lock_clock_fonts_entries"
-        android:entryValues="@array/lock_clock_fonts_values"
-        android:summary="@string/lock_clock_font_summary"
-        android:persistent="false" />
-
-
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_lockscreen_clock"
-        android:title="@string/hide_lockscreen_clock_title"
-        android:defaultValue="true" />
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_lockscreen_date"
-        android:title="@string/hide_lockscreen_date_title"
-        android:defaultValue="true" />
-
-
-
-    </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="locksystem_category"
-        android:title="@string/lockscreen_shortcuts_category">
+        android:title="@string/rr_ls_settings">
 
         <PreferenceScreen
-            android:title="@string/lockscreen_targets_message" 
-            android:summary="@string/lockscreen_targets_summary" >
-            <intent
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
-        </PreferenceScreen>
+                android:title="@string/rr_ls_security"
+                android:fragment="com.android.settings.rr.LockScreenSecurity" />
+
 
         <PreferenceScreen
-                 android:key="lockscreen_shortcuts"
-                 android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
-                 android:summary="@string/lockscreen_shortcuts_summary"
-                 android:title="@string/lockscreen_shortcuts_title">
-             <extra android:name="actionMode" android:value="4" />
-             <extra android:name="maxAllowedActions" android:value="20" />
-             <extra android:name="disableLongpress" android:value="true" />
-             <extra android:name="useAppPickerOnly" android:value="true" />
-             <extra android:name="fragment" android:value="com.android.settings.slim.fragments.LockscreenShortcutFragment" />
-        </PreferenceScreen>
+                android:title="@string/rr_ls_media"
+                android:fragment="com.android.settings.rr.LockScreenMedia" />
 
-    </PreferenceCategory>
+        <PreferenceScreen
+                android:title="@string/rr_ls_ui"
+                android:fragment="com.android.settings.rr.LockscreenUI" />
+
+        <PreferenceScreen
+                android:title="@string/rr_ls_gesures"
+                android:fragment="com.android.settings.rr.LockScreenGestures" />
+
+</PreferenceCategory>
+
+
     <PreferenceCategory
         android:key="rr_wallpaper"
         android:title="@string/lockscreen_wallpaper_cat">

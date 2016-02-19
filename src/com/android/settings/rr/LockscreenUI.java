@@ -45,15 +45,34 @@ import java.util.ArrayList;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
+public class LockscreenUI extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
 
-    private static final String TAG = "LockScreenSettings"; 	
+
+    private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";	
+	
+    private SeekBarPreference mBlurRadius;
+    private ListPreference mLockClockFonts;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_lockscreen);
+        addPreferencesFromResource(R.xml.rr_ls_ui);
         ContentResolver resolver = getActivity().getContentResolver();
+
+
+	mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+            mBlurRadius.setValue(Settings.System.getInt(resolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
+            mBlurRadius.setOnPreferenceChangeListener(this);
+
+
+            mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+            mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
+                    resolver, Settings.System.LOCK_CLOCK_FONTS, 4)));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            mLockClockFonts.setOnPreferenceChangeListener(this);
+
 }
 
     @Override
@@ -62,30 +81,21 @@ public class LockScreenSettings extends SettingsPreferenceFragment  implements O
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue)
+	{
 	ContentResolver resolver = getActivity().getContentResolver();
+	 if (preference == mBlurRadius) {
+                int width = ((Integer)newValue).intValue();
+                Settings.System.putInt(resolver,
+                        Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
+                return true;
+	} else if (preference == mLockClockFonts) {
+                Settings.System.putInt(resolver, Settings.System.LOCK_CLOCK_FONTS,
+                        Integer.valueOf((String) newValue));
+                mLockClockFonts.setValue(String.valueOf(newValue));
+                mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+                return true;
+	} 
 	return false;
 	}
-
-     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                                                                            boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                   sir.xmlResId = R.xml.rr_lockscreen;
-                    result.add(sir);
-
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = new ArrayList<String>();
-                    return keys;
-                }
-        };
 }	
