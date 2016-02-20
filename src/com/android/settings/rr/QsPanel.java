@@ -48,11 +48,13 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
  private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
  private static final String PREF_NUM_COLUMNS = "sysui_qs_num_columns";
+ private static final String PREF_NUM_ROWS = "sysui_qs_num_rows";
 
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
-    private ListPreference mNumColumns;		
+    private ListPreference mNumColumns;
+    private ListPreference mNumRows;		
     	
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
@@ -106,6 +108,16 @@ int quickPulldown = CMSettings.System.getInt(resolver,
             updateNumColumnsSummary(numColumns);
             mNumColumns.setOnPreferenceChangeListener(this);
 
+
+            // Number of QS Rows 3,4
+            mNumRows = (ListPreference) findPreference(PREF_NUM_ROWS);
+            int numRows = Settings.System.getIntForUser(resolver,
+                    Settings.System.QS_NUM_TILE_ROWS, getDefaultNumRows(),
+                    UserHandle.USER_CURRENT);
+            mNumRows.setValue(String.valueOf(numRows));
+            updateNumRowsSummary(numRows);
+            mNumRows.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -153,6 +165,12 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                         numColumns, UserHandle.USER_CURRENT);
                 updateNumColumnsSummary(numColumns);
                 return true;
+	} else if (preference == mNumRows) {
+                int numRows = Integer.valueOf((String) newValue);
+                Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_ROWS,
+                        numRows, UserHandle.USER_CURRENT);
+                updateNumRowsSummary(numRows);
+                return true;
 	}
          return false;
 	}
@@ -188,12 +206,33 @@ int quickPulldown = CMSettings.System.getInt(resolver,
             mNumColumns.setSummary(getResources().getString(R.string.qs_num_columns_showing, prefix));
         }
 
+
+  private void updateNumRowsSummary(int numRows) {
+            String prefix = (String) mNumRows.getEntries()[mNumRows.findIndexOfValue(String
+                    .valueOf(numRows))];
+            mNumRows.setSummary(getResources().getString(R.string.qs_num_rows_showing, prefix));
+        }
+
+
         private int getDefaultNumColums() {
             try {
                 Resources res = getActivity().getPackageManager()
                         .getResourcesForApplication("com.android.systemui");
                 int val = res.getInteger(res.getIdentifier("quick_settings_num_columns", "integer",
                         "com.android.systemui")); // better not be larger than 5, that's as high as the
+                                                  // list goes atm
+                return Math.max(1, val);
+            } catch (Exception e) {
+                return 3;
+            }
+        }
+
+     private int getDefaultNumRows() {
+            try {
+                Resources res = getActivity().getPackageManager()
+                        .getResourcesForApplication("com.android.systemui");
+                int val = res.getInteger(res.getIdentifier("quick_settings_num_rows", "integer",
+                        "com.android.systemui")); // better not be larger than 4, that's as high as the
                                                   // list goes atm
                 return Math.max(1, val);
             } catch (Exception e) {

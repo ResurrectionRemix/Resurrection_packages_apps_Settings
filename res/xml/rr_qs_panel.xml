@@ -31,15 +31,22 @@
         android:entryValues="@array/qs_num_columns_values"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="sysui_qs_num_rows"
+        android:title="@string/qs_num_rows_title"
+        android:entries="@array/qs_num_rows_entries"
+        android:entryValues="@array/qs_num_rows_values"
+        android:persistent="false" />
 
-       <ListPreference
+
+    <ListPreference
             android:key="qs_quick_pulldown"
             android:title="@string/status_bar_quick_qs_pulldown_title"
             android:entries="@array/status_bar_quick_qs_pulldown_entries"
             android:entryValues="@array/status_bar_quick_qs_pulldown_values" />
 
    
-       <ListPreference
+    <ListPreference
             android:key="smart_pulldown"
             android:title="@string/smart_pulldown_title"
             android:entries="@array/smart_pulldown_entries"
@@ -47,7 +54,7 @@
             android:persistent="false" />
 
 
-       <SwitchPreference
+    <SwitchPreference
         android:key="block_on_secure_keyguard"
         android:title="@string/block_on_secure_keyguard_title"
         android:summary="@string/block_on_secure_keyguard_summary"
