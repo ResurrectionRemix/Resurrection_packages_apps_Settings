@@ -57,6 +57,12 @@
                 android:summary="@string/navigation_bar_arrow_keys_summary"
                 android:defaultValue="false" />
 
+          </PreferenceCategory>
+
+        <PreferenceCategory
+        android:key="customization"
+        android:title="@string/customization_category">
+
         <PreferenceScreen
             android:key="navigation_bar"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
@@ -67,13 +73,7 @@
             android:fragment="com.android.settings.rr.NavBarDimensions"
             android:summary="@string/navigation_bar_dimensions_title_summary"
             android:title="@string/navigation_bar_dimensions_title"
-            android:dependency="enable_nav_bar" />
-
-        <ListPreference
-            android:key="navigation_recents_long_press"
-            android:dialogTitle="@string/navigation_bar_recents_title"
-            android:title="@string/navigation_bar_recents_title"
-            android:persistent="false" />
+            android:dependency="enable_nav_bar" />        
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="navigation_bar_tint"
@@ -83,8 +83,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="navigation_bar"
-        android:title="@string/navigation_bar_category">
+        android:key="interface"
+        android:title="@string/interface_category">
+
+        <ListPreference
+            android:key="navigation_recents_long_press"
+            android:dialogTitle="@string/navigation_bar_recents_title"
+            android:title="@string/navigation_bar_recents_title"
+            android:persistent="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_navbar"
