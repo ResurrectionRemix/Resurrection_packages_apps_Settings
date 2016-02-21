@@ -19,194 +19,30 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"	
     android:title="@string/notification_panel_title">
 
+<PreferenceCategory
+        android:title="@string/header_ui" >
 
-    <PreferenceCategory
-        android:key="category_header_options"
-        android:title="@string/contexual_header_title" >
 
-         <SwitchPreference
-           android:key="status_bar_custom_header"
-           android:title="@string/status_bar_custom_header_title"
-           android:summary="@string/status_bar_custom_header_summary"
-           android:defaultValue="false"
-	   android:persistent="false"/>
+    <PreferenceScreen
+            android:key="rr_custom_header"
+            android:title="@string/rr_custom_header_options"
+            android:fragment="com.android.settings.rr.CustomHeader" />
 
-        <ListPreference
-           android:key="daylight_header_pack"
-           android:title="@string/daylight_header_pack_title"
-           android:persistent="false"
-	   android:dependency="status_bar_custom_header" /> 
+    <PreferenceScreen
+            android:key="rr_header"
+            android:title="@string/rr_header_options"
+            android:fragment="com.android.settings.rr.Header" />
 
-         <com.android.settings.rr.SeekBarPreference
-                android:key="status_bar_custom_header_shadow"
-                android:title="@string/status_bar_custom_header_shadow_title"
-                android:summary="@string/status_bar_custom_header_shadow_summary"
-                android:defaultValue="0"
-                android:max="100"
-                settings:min="0"
-                settings:unitsLeft=""
-                settings:unitsRight="@string/unit_percent"
-                android:persistent="false"
-                android:dependency="status_bar_custom_header" />
+    <PreferenceScreen
+            android:key="rr_header_fonts"
+            android:title="@string/rr_header_fonts"
+            android:fragment="com.android.settings.rr.HeaderFonts" />
+
+    <PreferenceScreen
+            android:key="rr_header_colors"
+            android:title="@string/rr_header_colors"
+            android:fragment="com.android.settings.rr.HeaderColors" />
 
 	   </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/notifications_items" >
-
-    <SwitchPreference
-           android:key="enable_task_manager"
-           android:title="@string/enable_task_manager_title"
-           android:summary="@string/enable_task_manager_summary" />
-
-
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_panel_clock"
-        android:title="@string/hide_panel_clock_title" 
-	android:summaryOn="@string/hide_clock_summary_on"
-        android:summaryOff="@string/hide_clock_summary_off"
-	android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_panel_date"
-        android:title="@string/hide_panel_date_title" 
-	android:summaryOn="@string/hide_panel_date_summary_on"
-        android:summaryOff="@string/hide_panel_date_summary_off"
-	android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_panel_clockvalue"
-        android:title="@string/hide_panel_clockvalue" 
-	android:summaryOn="@string/hide_ampm_summary_on"
-        android:summaryOff="@string/hide_ampm_summary_off"
-	android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_panel_battery"
-        android:title="@string/hide_panel_battery" 
-	android:summaryOn="@string/hide_battery_summary_on"
-        android:summaryOff="@string/hide_battery_summary_off"
-	android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_panel_icons"
-        android:title="@string/hide_panel_icons" 
-	android:summaryOn="@string/hide_icons_summary_on"
-        android:summaryOff="@string/hide_icons_summary_off"
-	android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_settings_icon"
-        android:title="@string/hide_settings_icon" 
- 	android:summaryOn="@string/hide_settings_summary_on"
-        android:summaryOff="@string/hide_settings_summary_off"
-	android:defaultValue="true"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_user_icon"
-        android:title="@string/hide_user_icon" 
- 	android:summaryOn="@string/hide_user_summary_on"
-        android:summaryOff="@string/hide_user_summary_off"
-	android:defaultValue="true"/>
-
-     <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
-        android:key="status_bar_show_weather"
-        android:title="@string/status_bar_show_weather_title"
- 	android:summaryOn="@string/hide_weather_summary_on"
-        android:summaryOff="@string/hide_weather_summary_off"
-        android:defaultValue="true" />
-
-	   </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/notifications_fonts" >
-
-  	<ListPreference
-        android:key="header_clock_font_style"
-        android:entries="@array/status_bar_weather_font_style_entries"
-        android:entryValues="@array/status_bar_weather_font_style_values"
-        android:title="@string/status_bar_header_clock_font_style_title" />
-
-  	<ListPreference
-        android:key="header_detail_font_style"
-        android:entries="@array/status_bar_weather_font_style_entries"
-        android:entryValues="@array/status_bar_weather_font_style_values"
-        android:title="@string/status_bar_header_detail_font_style_title" />
-
-  	<ListPreference
-        android:key="header_weather_font_style"
-        android:entries="@array/status_bar_weather_font_style_entries"
-        android:entryValues="@array/status_bar_weather_font_style_values"
-        android:title="@string/status_bar_header_weather_font_style" />
-
-  	<ListPreference
-        android:key="status_bar_header_font_style"
-        android:entries="@array/status_bar_weather_font_style_entries"
-        android:entryValues="@array/status_bar_weather_font_style_values"
-        android:title="@string/status_bar_header_font_style_title" />
-
-
-  	<ListPreference
-        android:key="header_date_font_style"
-        android:entries="@array/status_bar_weather_font_style_entries"
-        android:entryValues="@array/status_bar_weather_font_style_values"
-        android:title="@string/status_bar_header_date_font_style" />
-
-  	<ListPreference
-        android:key="header_alarm_font_style"
-        android:entries="@array/status_bar_weather_font_style_entries"
-        android:entryValues="@array/status_bar_weather_font_style_values"
-        android:title="@string/status_bar_header_alarm_style_title" />
-
-	   </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/header_color" >
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="header_clock_color"
-        android:title="@string/header_clock_color"
-        android:defaultValue="0xffffffff" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="header_detail_color"
-        android:title="@string/header_detail_color"
-        android:defaultValue="0xffffffff" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="header_weatherone_color"
-        android:title="@string/header_weatherone_color"
-        android:defaultValue="0xffffffff" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="header_weathertwo_color"
-        android:title="@string/header_weathertwo_color"
-        android:defaultValue="0xffffffff" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="header_battery_text_color"
-        android:title="@string/header_battery_text_color"
-        android:defaultValue="0xffffffff" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="header_alarm_text_color"
-        android:title="@string/header_alarm_text_color"
-        android:defaultValue="0xffffffff" />
-
-  </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/notifications_misc" >
-
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="hide_panel_alarm"
-        android:title="@string/hide_panel_alarm_title" 
-	android:summaryOn="@string/hide_alarm_summary_on"
-        android:summaryOff="@string/hide_alarm_summary_off"
-	android:defaultValue="false"/>
-
-       </PreferenceCategory>
 
 </PreferenceScreen>
