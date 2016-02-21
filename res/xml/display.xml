@@ -168,6 +168,20 @@
                 android:summary="@string/summary_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
+            </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="dashboard_category"
+            android:title="@string/dashboard_category">
+
+        <ListPreference
+                android:key="dashboard_columns"
+                android:title="@string/dashboard_columns_title"
+                android:dialogTitle="@string/dashboard_columns_dialog_title"
+                android:entries="@array/dashboard_columns_entries"
+                android:entryValues="@array/dashboard_columns_values"
+                android:summary="@string/dashboard_columns_summary"
+                android:persistent="false" />
 
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="dashboard_tileview_double_lines"
@@ -179,17 +193,7 @@
                 android:key="dashboard_tileview_dividers"
                 android:title="@string/dashboard_tileview_dividers_title"
                 android:summary="@string/dashboard_tileview_dividers_summary"
-                android:defaultValue="false" />
- 
-        <!-- Dashboard Interface -->
-        <ListPreference
-                android:key="dashboard_columns"
-                android:title="@string/dashboard_columns_title"
-                android:dialogTitle="@string/dashboard_columns_dialog_title"
-                android:entries="@array/dashboard_columns_entries"
-                android:entryValues="@array/dashboard_columns_values"
-                android:summary="@string/dashboard_columns_summary"
-                android:persistent="false" />
+                android:defaultValue="false" />        
 
      </PreferenceCategory>
 

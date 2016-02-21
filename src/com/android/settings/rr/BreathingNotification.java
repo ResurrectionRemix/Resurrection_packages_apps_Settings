@@ -64,7 +64,7 @@ import cyanogenmod.providers.CMSettings;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class BreathTakingNotification extends SettingsPreferenceFragment
+public class BreathingNotification extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
     private static final String MISSED_CALL_BREATH = "missed_call_breath";
@@ -79,7 +79,7 @@ public class BreathTakingNotification extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-	addPreferencesFromResource(R.xml.breathtaking_notif);
+	addPreferencesFromResource(R.xml.breathing_notif);
 	PreferenceScreen prefSet = getPreferenceScreen();
 	ContentResolver resolver = getActivity().getContentResolver(); 
         Context context = getActivity();
