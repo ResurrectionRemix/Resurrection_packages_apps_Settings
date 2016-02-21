@@ -17,21 +17,13 @@
     android:title="@string/recents_settings_title">
 
     <PreferenceCategory
-        android:key="recents_panel_0"
-        android:title="@string/recents_panel_search_category" >
+         android:key="recents_bars"
+         android:title="@string/recents_panel_recents_bars" >
 
-        <!-- Search in Recents -->
         <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="recents_show_search_bar"
                 android:title="@string/recents_show_searchbar"
                 android:defaultValue="true" />
-
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="recents_panel_1"
-        android:title="@string/recents_panel_memory_category" >
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
@@ -66,6 +58,12 @@
             android:defaultValue="3"
             android:dependency="show_clear_all_recents" />
 
+           </PreferenceCategory>
+
+        <PreferenceCategory
+         android:key="recents_view"
+         android:title="@string/recents_panel_recents_view" >
+
         <ListPreference
             android:key="immersive_recents"
             android:title="@string/immersive_recents_title"
@@ -90,22 +88,16 @@
             android:dependency="immersive_recents" />
 
     </PreferenceCategory>
-    <PreferenceCategory
-        android:key="rr_slim_recents_panel"
-        android:title="@string/rr_recent_slim_category" >
-
-        <!-- Slim Recents -->
+    
+      <PreferenceCategory
+         android:key="alternative recents"
+         android:title="@string/recents_panel_alternative_recents" >
+        
         <PreferenceScreen
             android:key="slim_recents"
             android:title="@string/slim_recents_panel"
 	    android:fragment="com.android.settings.rr.Slimrecents" />
 
- </PreferenceCategory>
-    <PreferenceCategory
-        android:key="omni_recents_panel"
-        android:title="@string/omniswitch_category" >
-
-        <!-- OmniSwitch -->
         <PreferenceScreen
             android:key="omniswitch"
             android:id="@+id/omniswitch"
