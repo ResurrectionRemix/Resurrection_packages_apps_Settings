@@ -79,7 +79,7 @@ public class BreathingNotification extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-	addPreferencesFromResource(R.xml.breathtaking_notif);
+	addPreferencesFromResource(R.xml.breathing_notif);
 	PreferenceScreen prefSet = getPreferenceScreen();
 	ContentResolver resolver = getActivity().getContentResolver(); 
         Context context = getActivity();
