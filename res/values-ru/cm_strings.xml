@@ -27,7 +27,7 @@
   <string name="development_shortcut_title">Дополнительные пункты меню</string>
   <string name="development_shortcut_summary">Включить ярлыки управления приложениями в списке недавних приложений</string>
   <string name="root_access">Режим суперпользователя</string>
-  <string name="root_access_warning_title">Разрешить использование Суперпользователя?</string>
+  <string name="root_access_warning_title">Разрешить использование cуперпользователя?</string>
   <string name="root_access_warning_message">Использование приложениями прав суперпользователя может быть крайне опасным и ставит под угрозу безопасность вашего устройства!</string>
   <string name="root_access_none">Выключен</string>
   <string name="root_access_apps">Только для приложений</string>
@@ -43,9 +43,9 @@
   <string name="build_date">Дата сборки</string>
   <string name="cmupdate_settings_title">Обновления системы</string>
   <string name="update_recovery_title">Обновлять режим восстановления</string>
-  <string name="update_recovery_summary">Перезаписывать раздел Recovery при установке обновлений</string>
-  <string name="update_recovery_on_warning">Когда эта функция включена, установленная прошивка режима восстановления будет перезаписана той, которая соответствует текущей версии ОС.\n\nРежим восстановления будет обновляться вместе с обновлениями системы, обеспечивая совместимость с будущими версиями.\n\nВключить использование этой функции?</string>
-  <string name="update_recovery_off_warning">Когда эта функция отключена, прошивка режима восстановления всегда будет оставаться неизменной.\n\nНекоторые обновления ОС могут не устанавливаться при использовании устаревших или пользовательских версий раздела Recovery.\n\nОтключить использование этой функции?</string>
+  <string name="update_recovery_summary">Перезаписывать прошивку режима восстановления при обновлении системы</string>
+  <string name="update_recovery_on_warning">ПРИМЕЧАНИЕ. При включении этой функции установленная прошивка режима восстановления перезапишется в соответствии с текущей версией ОС.\n\nРежим восстановления будет обновляться вместе с обновлениями системы, обеспечивая совместимость с будущими версиями.\n\nВключить использование этой функции?</string>
+  <string name="update_recovery_off_warning">ВНИМАНИЕ! При отключении этой функции прошивка режима восстановления будет оставаться неизменной.\n\nНекоторые обновления ОС могут не устанавливаться при использовании устаревших или пользовательских версий прошивки.\n\nОтключить использование этой функции?</string>
   <string name="themes_settings_title">Темы</string>
   <string name="ring_mode_title">Режим звонка</string>
   <string name="ring_mode_normal">Обычный</string>
@@ -60,16 +60,16 @@
   <string name="profile_trigger_configure">Настроить переключение</string>
   <string name="profile_write_nfc_tag">Привязать к NFC-метке</string>
   <string name="profile_write_touch_tag">Приложите метку для ее записи</string>
-  <string name="profile_write_success">Метка успешно записана</string>
+  <string name="profile_write_success">Метка записана</string>
   <string name="profile_write_failed">Ошибка записи данных на метку!</string>
   <string name="profile_selected">Выбран профиль: %1$s</string>
-  <string name="profile_nfc_text">Запись NFC-метки для профиля позволит прикосновением к метке выбрать нужный профиль. При повторном касании будет восстановлен ранее используемый профиль.</string>
+  <string name="profile_nfc_text">Запись NFC-метки для профиля позволит касанием метки выбрать нужный профиль. При повторном касании будет восстановлен ранее используемый профиль.</string>
   <string name="profile_unknown_nfc_tag">Неизвестный профиль</string>
   <string name="profile_add_nfc_text">Эта NFC-метка присвоена неизвестному профилю. Привязка NFC-метки к существующему профилю позволит использовать метку для его выбора.</string>
   <string name="profile_select">Выберите профиль</string>
   <string name="profile_remove_dialog_message">Удалить профиль «%1$s»?</string>
   <string name="profile_populate_profile_from_state">Создать профиль из текущих настроек устройства?</string>
-  <string name="profile_menu_fill_from_state">Использ. текущие настройки</string>
+  <string name="profile_menu_fill_from_state">Импорт. текущие настройки устройства</string>
   <string name="profile_remove_current_profile">Невозможно удалить текущий профиль!</string>
   <string name="profile_app_group_category_title">Уведомления</string>
   <string name="profile_app_group_item_instructions">Добавить или удалить группы</string>
@@ -85,7 +85,7 @@
   <string name="rename_dialog_hint">Введите название профиля</string>
   <string name="profile_reset_title">Сброс</string>
   <string name="profile_reset_message">Удалить все пользовательские профили и установить значения по умолчанию?</string>
-  <string name="profile_app_delete_confirm">Удалить данное приложение?</string>
+  <string name="profile_app_delete_confirm">Удалить это приложение?</string>
   <string name="profile_networkmode_2g">Только 2G</string>
   <string name="profile_networkmode_3g">Только 3G</string>
   <string name="profile_networkmode_4g">LTE</string>
@@ -115,7 +115,7 @@
   <string name="profile_new_appgroup">Новая группа приложений</string>
   <string name="profile_delete_appgroup">Удалить эту группу приложений?</string>
   <string name="profile_appgroup_name_prompt">Введите название для группы приложений</string>
-  <string name="profile_appgroup_name_title">Имя</string>
+  <string name="profile_appgroup_name_title">Название</string>
   <string name="profile_choose_app">Выбор приложения</string>
   <string name="profile_system_settings_title">Настройки системы</string>
   <string name="profile_lockmode_title">Блокировка экрана</string>
@@ -132,13 +132,13 @@
   <string name="toggleGPS">GPS</string>
   <string name="toggleData">Мобильные данные</string>
   <string name="toggleSync">Автосинхронизация</string>
-  <string name="toggle2g3g4g">Тип сети</string>
+  <string name="toggle2g3g4g">Предпочитаемый тип сети</string>
   <string name="toggleNfc">NFC</string>
   <string name="wifi_setting_countrycode_title">Код региона Wi-Fi</string>
   <string name="wifi_setting_countrycode_summary">Укажите код региона Wi-Fi</string>
-  <string name="wifi_setting_countrycode_error">При настройке кода региона Wi-Fi возникла неполадка.</string>
+  <string name="wifi_setting_countrycode_error">При настройке кода региона Wi-Fi возникли неполадки.</string>
   <string name="profile_menu_delete_title">Удалить</string>
-  <string name="profile_action_none">Оставить без изменения</string>
+  <string name="profile_action_none">Оставить без изменений</string>
   <string name="profile_action_system">По умолчанию (системн.)</string>
   <string name="profile_action_disable">Отключить</string>
   <string name="profile_action_enable">Включить</string>
@@ -158,9 +158,9 @@
   <string name="profile_new_appgroup">Новая группа приложений</string>
   <string name="profile_delete_appgroup">Удалить эту группу приложений?</string>
   <string name="profile_appgroup_name_prompt">Введите название для группы приложений</string>
-  <string name="profile_appgroup_name_title">Имя</string>
+  <string name="profile_appgroup_name_title">Название</string>
   <string name="duplicate_appgroup_name">Группа приложений с таким названием уже существует!</string>
-  <string name="profile_app_delete_confirm">Удалить данное приложение?</string>
+  <string name="profile_app_delete_confirm">Удалить это приложение?</string>
   <string name="no_bluetooth_triggers">Нет сопряженных устройств Bluetooth.\nНажмите, чтобы добавить устройство и создать условие переключения на его основе.</string>
   <string name="no_wifi_triggers">Нет сохраненных сетей Wi\u2011Fi.\nНажмите, чтобы добавить сеть Wi\u2011Fi и создать условие переключения на её основе.</string>
   <string name="no_triggers_configured">Условия переключения не настроены. Нажмите, чтобы добавить условие.</string>
@@ -211,6 +211,7 @@
   <string name="notification_light_missed_call_title">Пропущенный вызов</string>
   <string name="notification_light_voicemail_title">Голосовая почта</string>
   <string name="notification_light_screen_on">Использ. индикатор при вкл. экране</string>
+  <string name="notification_light_zen_mode">Вкл. индикатор в режиме «Не беспокоить»</string>
   <string name="notification_light_use_multiple_leds">Несколько светодиодов</string>
   <string name="keywords_lights_brightness_level">светодиоды яркость приглушить уменьшить</string>
   <string name="notification_light_automagic">Автоматический выбор цвета</string>
@@ -220,7 +221,7 @@
   <string name="enable_adb_summary_cm">Включить интерфейс Android Debug Bridge (ADB)</string>
   <string name="adb_over_network">Отладка по сети</string>
   <string name="adb_over_network_summary">Включить режим отладки через сетевые интерфейсы (Wi-Fi и USB-сети). Отладка отключается при перезагрузке устройства.</string>
-  <string name="adb_over_network_warning">ВНИМАНИЕ: когда включена отладка по сети, устройство открыто для неконтролируемого доступа из всех подключенных сетей!\n\nИспользуйте эту функцию только тогда, когда вы подключены к доверенным сетям.\n\nВы действительно хотите включить эту функцию?</string>
+  <string name="adb_over_network_warning">ВНИМАНИЕ: когда включена отладка по сети, устройство открыто для неконтролируемого доступа из всех подключенных сетей!\n\nИспользуйте эту функцию только при подключении к доверенным сетям.\n\nДействительно включить эту функцию?</string>
   <string name="adb_notify">Уведомление об отладке</string>
   <string name="adb_notify_summary">Показывать уведомление о включенном режиме отладки по USB или по сети</string>
   <string name="app_ops_categories_location">Местоположение</string>
@@ -236,8 +237,8 @@
   <string name="app_ops_summaries_vibrate">вибросигнал</string>
   <string name="app_ops_summaries_read_contacts">чтение данных контактов</string>
   <string name="app_ops_summaries_modify_contacts">изменение контактов</string>
-  <string name="app_ops_summaries_read_call_log">просмотр списка вызовов</string>
-  <string name="app_ops_summaries_modify_call_log">изменение списка вызовов</string>
+  <string name="app_ops_summaries_read_call_log">просмотр журнала вызовов</string>
+  <string name="app_ops_summaries_modify_call_log">изменение журнала вызовов</string>
   <string name="app_ops_summaries_read_calendar">чтение данных календаря</string>
   <string name="app_ops_summaries_modify_calendar">изменение календаря</string>
   <string name="app_ops_summaries_wifi_scan">Сканирование Wi-Fi</string>
@@ -305,8 +306,8 @@
   <string name="app_ops_labels_vibrate">Вибросигнал</string>
   <string name="app_ops_labels_read_contacts">Чтение данных контактов</string>
   <string name="app_ops_labels_modify_contacts">Изменение контактов</string>
-  <string name="app_ops_labels_read_call_log">Просмотр списка вызовов</string>
-  <string name="app_ops_labels_modify_call_log">Изменение списка вызовов</string>
+  <string name="app_ops_labels_read_call_log">Просмотр журнала вызовов</string>
+  <string name="app_ops_labels_modify_call_log">Изменение журнала вызовов</string>
   <string name="app_ops_labels_read_calendar">Чтение данных календаря</string>
   <string name="app_ops_labels_modify_calendar">Изменение календаря</string>
   <string name="app_ops_labels_wifi_scan">Сканирование Wi-Fi</string>
@@ -406,7 +407,7 @@
   <string name="hardware_keys_action_sleep">Выключить экран</string>
   <string name="hardware_keys_action_last_app">Последнее приложение</string>
   <string name="camera_sleep_on_release_title">Временное включение</string>
-  <string name="camera_sleep_on_release_summary">Держать экран включённым только при удерживании кнопки</string>
+  <string name="camera_sleep_on_release_summary">Держать экран включённым только при удержании кнопки</string>
   <string name="camera_launch_title">Запуск камеры</string>
   <string name="camera_launch_summary">Открывать приложение камеры при долгом нажатии кнопки</string>
   <string name="volbtn_music_controls_title">Управление плеером</string>
@@ -425,7 +426,7 @@
   <string name="adaptive_backlight_title">Адаптивная подсветка</string>
   <string name="adaptive_backlight_summary">Интеллектуальное изменение яркости подсветки экрана для сохранения заряда аккумулятора</string>
   <string name="sunlight_enhancement_title">Режим «На улице»</string>
-  <string name="sunlight_enhancement_summary">Повышение яркости и уровня читаемости экрана при ярком солнечном свете</string>
+  <string name="sunlight_enhancement_summary">Повышение яркости и удобочитаемости экрана при ярком солнечном свете</string>
   <string name="color_enhancement_title">Улучшение цвета</string>
   <string name="color_enhancement_summary">Динамическое улучшение цветопередачи экрана</string>
   <string name="button_backlight_title">Подсветка</string>
@@ -450,7 +451,7 @@
   <string name="power_menu_sound_title">Звуковая панель</string>
   <string name="power_menu_bug_report_disabled">Отчет об ошибке отключен в настройках для разработчика</string>
   <string name="disable_navkeys_title">Экранные кнопки</string>
-  <string name="disable_navkeys_summary">Включить панель навигации и отключить аппаратные сенсорные кнопки</string>
+  <string name="disable_navkeys_summary">Включить экранную панель навигации и отключить аппаратные кнопки</string>
   <string name="double_tap_to_sleep_title">Выключать экран при двойном нажатии</string>
   <string name="double_tap_to_sleep_summary">Дважды коснитесь строки состояния, чтобы перевести устройство в спящий режим</string>
   <string name="proximity_wake_title">Предотвращать случайное включение</string>
@@ -460,7 +461,7 @@
   <string name="font_size_sample">Пример текста</string>
   <string name="volume_adjust_sounds_title">Звук при регулировке громкости</string>
   <string name="vibrator_intensity_title">Мощность вибросигнала</string>
-  <string name="vibrator_warning">Установка значений от %1$d и выше не рекомендуется</string>
+  <string name="vibrator_warning">Не рекомендуется устанавливать значения свыше %1$d</string>
   <string name="color_calibration_title">Цвет</string>
   <string name="color_calibration_summary">Настройка цветопередачи экрана</string>
   <string name="color_red_title">Красный</string>
@@ -498,11 +499,11 @@
   <string name="saturation_str">Насыщенность: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Контрастность: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Интенсивность: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
-  <string name="live_display_summary">Подстраивать экран на основе времени суток и освещения, чтобы улучшить читаемость и снизить усталость глаз</string>
+  <string name="live_display_summary">Подстраивать экран на основе времени суток и освещения, чтобы повысить удобочитаемость и снизить нагрузку на глаза</string>
   <string name="live_display_mode">Режим экрана</string>
   <string name="live_display_color_temperature_title">Цветовая температура</string>
-  <string name="live_display_color_temperature_summary"><xliff:g id="day_temperature">%1$d</xliff:g>K днём и <xliff:g id="night_temperature">%2$d</xliff:g>K ночью</string>
-  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_summary"><xliff:g id="day_temperature">%1$d</xliff:g> K днём и <xliff:g id="night_temperature">%2$d</xliff:g> K ночью</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g> K</string>
   <string name="live_display_day">День</string>
   <string name="live_display_night">Ночь</string>
   <string name="live_display_outdoor_mode_title">Автоматический режим на улице</string>
@@ -533,7 +534,7 @@
   <string name="summary_heads_up_disabled">Выключены</string>
   <string name="bluetooth_accept_all_files">Принимать все типы файлов</string>
   <string name="high_touch_sensitivity_title">Режим перчаток</string>
-  <string name="high_touch_sensitivity_summary">Увеличивать чувствительность экрана для возможности работы в перчатках</string>
+  <string name="high_touch_sensitivity_summary">Увеличить чувствительность экрана для возможности работы в перчатках</string>
   <string name="lcd_density">Плотность экрана</string>
   <string name="dialog_title_lcd_density">Установка плотности</string>
   <string name="lcd_density_value_format">%d DPI</string>
@@ -569,7 +570,7 @@
   <string name="lto_download_data_wifi_only_on">Скачивать через любые сети</string>
   <string name="lto_download_data_wifi_only_off">Скачивать только через Wi-Fi</string>
   <string name="volume_keys_control_ring_stream_title">Регулировка громкости рингтона</string>
-  <string name="volume_keys_control_ring_stream_summary_on">Кнопки громкости регулируют громкость звонка</string>
+  <string name="volume_keys_control_ring_stream_summary_on">Кнопки громкости регулируют громкость рингтона</string>
   <string name="volume_keys_control_ring_stream_summary_off">Кнопки громкости регулируют громкость мультимедиа</string>
   <string name="category_calibration">Калибровка</string>
   <string name="display_and_lights">Дисплей</string>
@@ -627,14 +628,14 @@
   <string name="privacy_guard_help_title">Справка</string>
   <string name="privacy_guard_reset_title">Сброс</string>
   <string name="privacy_guard_reset_text">Сбросить разрешения?</string>
-  <string name="privacy_guard_help_text">В этом разделе вы можете выбрать приложения, которые будут работать в защищённом режиме, нажав на них. Такие приложения не будут иметь доступа к персональным данным, таким как контакты, сообщения или журнал вызовов. Долгое нажатие откроет подробные сведения о разрешениях данного приложения.\n\nПо умолчанию системные приложения скрыты. Для их отображения или для перехода к расширенным настройкам выберите соответствующий пункт в меню.</string>
+  <string name="privacy_guard_help_text">В этом разделе можно нажатием выбрать приложения, которые будут работать в защищённом режиме. Эти приложения не будут иметь доступ к персональным данным, таким как контакты, сообщения или журнал вызовов. Нажмите и удерживайте название приложения, чтобы открыть подробные сведения о нем.\n\nПо умолчанию системные приложения скрыты. Для их отображения или перехода к расширенным настройкам выберите соответствующий пункт в меню.</string>
   <string name="privacy_guard_manager_show_system_apps">Системные приложения</string>
   <string name="privacy_guard_advanced_settings_title">Дополнительные функции</string>
   <string name="privacy_guard_notification_title">Показывать уведомления</string>
   <string name="lockpattern_settings_enable_error_path_title">Показывать неверный ввод</string>
   <string name="lockpattern_settings_enable_dots_title">Показывать точки</string>
   <string name="lock_directly_show_password">Сразу предлагать ввод пароля</string>
-  <string name="lock_directly_show_pattern">Сразу предлагать ввод граф.ключа</string>
+  <string name="lock_directly_show_pattern">Сразу предлагать ввод граф. ключа</string>
   <string name="lock_directly_show_pin">Сразу предлагать ввод PIN-кода</string>
   <string name="lockscreen_visualizer_title">Визуализация спектра музыки</string>
   <string name="lockscreen_disabled_by_qs_tile_title">Отключено плиткой быстрых настроек</string>
@@ -649,14 +650,14 @@
   <string name="memory_startup_apps_title">Запущено при включении устройства</string>
   <string name="notification_ringtone_title_cm">Звук уведомления</string>
   <string name="advanced_reboot_title">Варианты перезагрузки</string>
-  <string name="advanced_reboot_summary">Показывать дополнительные опции перезагрузки устройства (в загрузчик, режим восстановления или перезапуска интерфейса) в меню кнопки питания</string>
+  <string name="advanced_reboot_summary">Показывать дополнительные опции перезагрузки устройства (в загрузчик, режим восстановления или перезапуска интерфейса) в меню при долгом нажатии</string>
   <string name="category_interface">Интерфейс</string>
   <string name="power_menu_expanded_desktop">Расширенный экран</string>
   <string name="expanded_hide_nothing">Ничего не скрывать</string>
   <string name="expanded_hide_status">Скрывать строку состояния</string>
   <string name="expanded_hide_navigation">Скрывать панель навигации</string>
   <string name="expanded_hide_both">Скрывать обе</string>
-  <string name="expanded_nothing_to_show">Для настройки параметров расширенного экрана для отдельных приложений, переведите переключатель «Включить для всех» в отключенное состояние.</string>
+  <string name="expanded_nothing_to_show">Чтобы настроить параметры расширенного экрана для отдельных приложений, переведите переключатель «Включить для всех» в положение «выкл.»</string>
   <string name="expanded_enabled_for_all">Включить для всех</string>
   <string name="expanded_desktop_style">Режим расширенного экрана</string>
   <string name="expanded_desktop_style_description">Выбрать режим расширенного экрана по умолчанию</string>
@@ -701,7 +702,7 @@
   <string name="select_contact">Выбор контакта</string>
   <string name="app_security_title">Безопасность приложений</string>
   <string name="sms_security_check_limit_title">Ограничение SMS-сообщений</string>
-  <string name="sms_security_check_limit_summary">Запрашивать подтверждение при отправке больше %d сообщений в минуту</string>
+  <string name="sms_security_check_limit_summary">Запрашивать подтверждение при отправке больше %d сообщ. в минуту</string>
   <string name="sms_security_check_limit_summary_none">Приложения могут отправлять неограниченное количество сообщений</string>
   <string name="sms_security_check_limit_none">Нет</string>
   <string name="spam_added_title">Добавлено %1$s</string>
@@ -712,10 +713,10 @@
   <string name="anonymous_statistics_title">Отправка статистики</string>
   <string name="anonymous_statistics_summary">Помогите сделать CyanogenMod лучше, разрешив сбор анонимной статистики</string>
   <string name="anonymous_statistics_warning_title">Сведения</string>
-  <string name="anonymous_statistics_warning">Анонимные отчёты позволяют разработчикам CyanogenMod отслеживать установки на различные устройства. Отсылаемая информацию включает в себя название устройства, версию прошивки и уникальный идентификатор, отправка которого никаким образом не вредит Вашей конфиденциальности. Отчёт отсылается при каждой загрузке устройства.</string>
+  <string name="anonymous_statistics_warning">Анонимные отчёты позволяют разработчикам CyanogenMod отслеживать работу ОС на различных устройствах. Отправляемая информация включает название устройства, версию прошивки и уникальный идентификатор, что никаким образом не затрагивает Вашу конфиденциальность. Данные отправляются при каждой загрузке устройства.\n\nЧтобы просмотреть пример, нажмите «Просмотр данных».</string>
   <string name="enable_reporting_title">Разрешить сбор статистики</string>
-  <string name="preview_data_title">Просмотр отправляемых данных</string>
-  <string name="view_stats_title">Просмотр статистики установок</string>
+  <string name="preview_data_title">Просмотр данных</string>
+  <string name="view_stats_title">Просмотр статистики</string>
   <string name="anonymous_learn_more">Подробнее</string>
   <string name="preview_id_title">Идентификатор</string>
   <string name="preview_device_title">Устройство</string>
@@ -723,7 +724,7 @@
   <string name="preview_country_title">Страна</string>
   <string name="preview_carrier_title">Оператор</string>
   <string name="stats_collection_title">Сбор статистики</string>
-  <string name="stats_collection_summary">Когда включено, разрешает сбор метрики</string>
+  <string name="stats_collection_summary">Когда включено, разрешается сбор показателей</string>
   <string name="lockpattern_reset_button">Сбросить граф. ключ</string>
   <string name="lockpattern_settings_reset_summary">Введите адрес эл. почты основного аккаунта и соответствующий пароль для сброса граф. ключа</string>
   <string name="menu_hidden_apps_delete">Сброс</string>
@@ -735,7 +736,7 @@
   <string name="pa_login_password_hint">Пароль</string>
   <string name="pa_login_submit_button">Войти</string>
   <string name="pa_login_checking_password">Проверка данных\u2026</string>
-  <string name="pa_login_incorrect_login">Вход не удался</string>
+  <string name="pa_login_incorrect_login">Не удалось войти</string>
   <string name="pa_pattern_or_fingerprint_header">Требуется граф. ключ или отпечаток пальца для разблокировки</string>
   <string name="contributors_cloud_fragment_title">Имена разработчиков</string>
   <string name="contributors_cloud_loading_message">Загрузка данных\u2026</string>
@@ -747,9 +748,9 @@
                  <b>Коммитов:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
   <string name="contributions_info_menu">Общая статистика</string>
   <string name="contributions_info_msg">
-        <![CDATA[<b>Всего участников проекта:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
-                 <b>Всего коммитов:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
-                 <b>Последнее обновление:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+ <![CDATA[<b>Всего участников:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+<b>Всего коммитов:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+<b>Последнее обновление:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
   <string name="category_sounds">Звуки</string>
   <string name="notification_manager">Уведомления</string>
   <string name="lockscreen_settings">Экран блокировки</string>
@@ -771,7 +772,7 @@
   <string name="sim_enabler_will_disable_sim_title">Внимание</string>
   <string name="sim_enabler_need_switch_data_service">Текущая SIM-карта будет отключена, а затем будет произведено переключение на SIM <xliff:g id="slotid">%1$s </xliff:g> для передачи данных. Продолжить выполнение операции?</string>
   <string name="sim_enabler_airplane_on">Выполнение операции невозможно при включенном режиме полета.</string>
-  <string name="sim_enabler_in_call">Выполнение операции невозможно во время звонка.</string>
+  <string name="sim_enabler_in_call">Выполнение операции невозможно во время вызова.</string>
   <string name="sim_enabler_both_inactive">Невозможно отключить все SIM-карты</string>
   <string name="sim_enabler_enabling">Включение\u2026</string>
   <string name="sim_enabler_disabling">Отключение\u2026</string>
@@ -783,7 +784,7 @@
   <string name="select_sim_card">Выберите SIM-карту</string>
   <string name="sim_card_status_title">Статус SIM %d</string>
   <string name="sim_card_lock_settings_title">Параметры блокировки SIM %d</string>
-  <string name="sim_card_summary_empty">SIM не вставлена</string>
+  <string name="sim_card_summary_empty">SIM-карта не вставлена</string>
   <string name="sim_mobile_network_settings_category_title">Настройки мобильной сети</string>
   <string name="sim_mobile_network_settings_title">Параметры SIM %d</string>
   <string name="zen_mode_summary_reminders">напоминания</string>
@@ -798,14 +799,14 @@
   <string name="app_name_label_cm">Приложение:</string>
   <string name="last_time_used_label_cm">Последнее использ.:</string>
   <string name="usage_time_label_cm">Время использ.:</string>
-  <string name="master_clear_desc_cm" product="tablet">Данное действие удалит все данные из <b>внутренней памяти</b> вашего планшета, включая: \n\n <li>аккаунты</li>\n<li>настройки системы и приложений</li> \n <li>все загруженные приложения</li></string>
-  <string name="master_clear_desc_cm" product="default">Данное действие удалит все данные из <b>внутренней памяти</b> вашего телефона, включая: \n\n <li>аккаунты</li>\n<li>настройки системы и приложений</li> \n <li>все загруженные приложения</li></string>
+  <string name="master_clear_desc_cm" product="tablet">При этом будут удалены все данные из <b>внутренней памяти</b> планшета, включая следующие: \n\n <li>аккаунты</li>;\n<li>настройки системы и приложений</li>;\n<li>все загруженные приложения</li></string>
+  <string name="master_clear_desc_cm" product="default">При этом будут удалены все данные из <b>внутренней памяти</b> телефона, включая следующие: \n\n <li>аккаунты</li>;\n<li>настройки системы и приложений</li>;\n<li>все загруженные приложения</li></string>
   <string name="factory_reset_instructions_title">Личные данные и приложения</string>
-  <string name="factory_reset_instructions_summary">Это действие удалит все добавленные аккаунты, приложения, их данные и настройки с этого устройства</string>
+  <string name="factory_reset_instructions_summary">При этом с данного устройства будут удалены все добавленные аккаунты, приложения, их данные и настройки</string>
   <string name="factory_reset_personal_content">Личные данные</string>
   <string name="factory_reset_erase_stored_content">Очистить сохранённые данные</string>
   <string name="factory_reset_erase_stored_content_summary">Удалить музыку, фотографии, видео и другие данные, хранящиеся на устройстве</string>
-  <string name="factory_reset_erase_stored_content_summary_forced">Удалить музыку, фотографии, видео и другие данные, хранящиеся на устройстве. \n\n<b>Сохранить данные невозможно, т.к. включено шифрование устройства.</b></string>
+  <string name="factory_reset_erase_stored_content_summary_forced">Удалить музыку, фотографии, видео и другие данные, хранящиеся на устройстве. \n\n<b>Сохранить данные невозможно, т. к. включено шифрование устройства.</b></string>
   <string name="factory_reset_erase_sd_card">Отформатировать SD-карту</string>
   <string name="factory_reset_erase_sd_card_summary">Удалить с SD-карты все данные, включая музыку и фотографии</string>
   <string name="factory_reset_warning_text_reset_now">УДАЛИТЬ ВСЁ</string>
@@ -822,4 +823,7 @@
   <string name="live_lock_screen_summary">Включение и настройка параметров экр. блокир.</string>
   <string name="live_lock_screen_settings_button">Настройки</string>
   <string name="live_lock_screen_settings_disabled_prompt">Для просмотра доступных Живых экранов блокировки включите поддержку этой функции.</string>
+  <string name="interruptions_ignore_while_media_title">Не приглушать звук</string>
+  <string name="interruptions_ignore_while_media_summary">Не снижать громкость воспроизведения мультимедиа при получении уведомлений</string>
+  <string name="cmlicense_title">Политика конфиденциальности CyanogenMod</string>
 </resources>

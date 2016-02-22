@@ -212,12 +212,13 @@
   <string name="notification_light_screen_on">Aviseringsljus med skärmen på</string>
   <string name="notification_light_use_multiple_leds">Flera lysdioder</string>
   <string name="keywords_lights_brightness_level">dimma lysdioder ljusstyrka</string>
+  <string name="notification_light_automagic">Välj färger automatiskt</string>
   <string name="led_notification_title">Ljusinställningar</string>
   <string name="led_notification_text">LED-ljus aktiverat av inställningar</string>
   <string name="enable_adb_cm">Felsökning av Android</string>
   <string name="enable_adb_summary_cm">Aktivera gränssnittet Android Debug Bridge (ADB)</string>
   <string name="adb_over_network">ADB över nätverk</string>
-  <string name="adb_over_network_summary">Aktivera TCP/IP-felsökning över nätverksgränssnitt (Wi-Fi, USB-nätverk). Denna inställning återställs vid omstart</string>
+  <string name="adb_over_network_summary">Aktivera TCP/IP-felsökning över nätverksgränssnitt (Wi\u2011Fi, USB-nätverk). Denna inställning återställs vid omstart</string>
   <string name="adb_over_network_warning">VARNING: När ADB över nätverk är aktiverat är din telefon öppen för intrång genom alla sorters anslutna nätverk!\n\nAnvänd endast denna funktion när du är ansluten till betrodda nätverk.\n\nVill du verkligen aktivera denna funktion?</string>
   <string name="adb_notify">Felsökningsavisering</string>
   <string name="adb_notify_summary">Avisera när USB- eller nätverksfelsökning är aktiverad</string>
@@ -276,6 +277,7 @@
   <string name="app_ops_summaries_toast_window">visa toasts</string>
   <string name="app_ops_summaries_project_media">projektmedia</string>
   <string name="app_ops_summaries_activate_vpn">aktivera VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">skriv bakgrund</string>
   <string name="app_ops_summaries_assist_structure">assistansstruktur</string>
   <string name="app_ops_summaries_assist_screenshot">assistera skärmdump</string>
   <string name="app_ops_summaries_read_phone_state">läs telefonstatus</string>
@@ -292,6 +294,7 @@
   <string name="app_ops_summaries_get_accounts">hämta konton</string>
   <string name="app_ops_summaries_toggle_wifi">växla Wi\u2011Fi</string>
   <string name="app_ops_summaries_toggle_bluetooth">växla Bluetooth</string>
+  <string name="app_ops_summaries_start_at_boot">starta vid uppstart</string>
   <string name="app_ops_summaries_toggle_nfc">växla NFC</string>
   <string name="app_ops_summaries_toggle_mobile_data">växla mobildata</string>
   <string name="app_ops_summaries_superuser">root-åtkomst</string>
@@ -343,6 +346,7 @@
   <string name="app_ops_labels_toast_window">Visa toasts</string>
   <string name="app_ops_labels_project_media">Projektmedia</string>
   <string name="app_ops_labels_activate_vpn">Aktivera VPN</string>
+  <string name="app_ops_labels_write_wallpaper">Skriv bakgrund</string>
   <string name="app_ops_labels_assist_structure">Assistansstruktur</string>
   <string name="app_ops_labels_assist_screenshot">Assistera skärmdump</string>
   <string name="app_ops_labels_read_phone_state">Läs telefonstatus</string>
@@ -428,7 +432,7 @@
   <string name="keyboard_backlight_enabled">Lys upp tangentbord</string>
   <string name="button_backlight_seekbar_title">Knappljusstyrka</string>
   <string name="keyboard_backlight_seekbar_title">Tangetbordsljusstyrka</string>
-  <string name="backlight_timeout_title">Tidsgräns för knappljus</string>
+  <string name="backlight_timeout_title">Timeout för belysning</string>
   <string name="backlight_timeout_unlimited">Stäng inte av</string>
   <string name="backlight_summary_disabled">Inaktiverat</string>
   <string name="backlight_summary_enabled_with_timeout">Aktiverat i <xliff:g id="timeout">%s</xliff:g></string>
@@ -641,6 +645,7 @@
   <string name="autoperf_title">Aktivera profiler per app</string>
   <string name="autoperf_summary">Välj automatiskt ett lämpligt batteriläge för olika appar</string>
   <string name="perf_profile_title">Batteriläge</string>
+  <string name="memory_startup_apps_title">Appar startade vid uppstart</string>
   <string name="notification_ringtone_title_cm">Aviseringssignal</string>
   <string name="advanced_reboot_title">Avancerad omstart</string>
   <string name="advanced_reboot_summary">När enheten är upplåst, inkludera alternativ i avstängningsmenyn för att starta om till recovery, bootloadern eller göra en mjuk omstart</string>
@@ -663,6 +668,7 @@
   <string name="voice_wakeup_retrain_title">Omskola din röst</string>
   <string name="voice_wakeup_activity_title">Aktivitet att öppna</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">Vakna på röst behöver behörighet för telefonsamtal för att välja en direktvalskontakt.</string>
   <string name="picker_activities">Aktiviteter</string>
   <string name="select_custom_app_title">Välj anpassad app</string>
   <string name="select_custom_activity_title">Välj anpassad aktivitet</string>
@@ -758,6 +764,8 @@ inkluderar en unik identifikation,
   <string name="link_volume_option_title">Länka ringsignals- och aviseringsvolym</string>
   <string name="lcd_density_prompt_message">Vissa program kanske inte fungerar med icke-standardiserade DPI.\n\nEnheten kommer att startas om.</string>
   <string name="apn_ppp_number">APN PPP telefonnummer</string>
+  <string name="duplicate_apn_error_title">Duplicera APN</string>
+  <string name="duplicate_apn_error_message">Denna APN finns redan. Ignorera eller ändra parametrar.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> är <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">inaktiverat</string>
   <string name="sim_missing">saknas eller felaktig</string>
@@ -816,4 +824,7 @@ inkluderar en unik identifikation,
   <string name="live_lock_screen_summary">Aktivera och konfigurera Levande låsskärmar</string>
   <string name="live_lock_screen_settings_button">Inställningar</string>
   <string name="live_lock_screen_settings_disabled_prompt">För att visa tillgängliga Levande låsskärmar, aktivera Levande låsskärmar.</string>
+  <string name="interruptions_ignore_while_media_title">Undvik ljuddämpning</string>
+  <string name="interruptions_ignore_while_media_summary">Minska inte ljudstyrkan för media när en avisering tas emot</string>
+  <string name="cmlicense_title">CyanogenMod Juridik</string>
 </resources>

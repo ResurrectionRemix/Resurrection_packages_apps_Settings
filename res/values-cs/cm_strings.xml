@@ -105,7 +105,7 @@
   <string name="profile_trigger_notrigger">Bez podmínky</string>
   <string name="sound_mode">Režim upozornění</string>
   <string name="ringer_mode">Režim vyzvánění</string>
-  <string name="lights_mode">Režim světelné indikace</string>
+  <string name="lights_mode">Režim světelné signalizace</string>
   <string name="vibrate_mode">Režim vibrací</string>
   <string name="choose_soundtone">Zvolte tón upozornění</string>
   <string name="choose_ringtone">Zvolte vyzváněcí melodii</string>
@@ -179,7 +179,7 @@
   <string name="navigation_bar_arrow_keys_title">Zobrazit navigační šipky při psaní</string>
   <string name="navigation_bar_arrow_keys_summary">Zobrazit levý a pravý kurzor při psaní. Potlačí IME přepínač.</string>
   <string name="navigation_bar_recents_title">Akce dlouhého stisku tlačítka „Nedávné“</string>
-  <string name="edit_light_settings">Upravit nastavení osvětlení</string>
+  <string name="edit_light_settings">Upravit světelnou signalizaci</string>
   <string name="pulse_speed_title">Délka impulsu a rychlost</string>
   <string name="default_time">Normální</string>
   <string name="custom_time">Vlastní</string>
@@ -211,9 +211,11 @@
   <string name="notification_light_missed_call_title">Zmeškané hovory</string>
   <string name="notification_light_voicemail_title">Hlasová schránka</string>
   <string name="notification_light_screen_on">Upozornění LED při zapnuté obrazovce</string>
+  <string name="notification_light_zen_mode">Světelná signalizace v režimu „Nerušit“</string>
   <string name="notification_light_use_multiple_leds">Více LED</string>
   <string name="keywords_lights_brightness_level">ztlumit jas LED diod</string>
-  <string name="led_notification_title">Nastavení jasu</string>
+  <string name="notification_light_automagic">Automaticky zvolit barvy</string>
+  <string name="led_notification_title">Nastavení světelné signalizace</string>
   <string name="led_notification_text">LED světlo povolené v nastavení</string>
   <string name="enable_adb_cm">Ladění systému Android</string>
   <string name="enable_adb_summary_cm">Povolit rozhraní Android Debug Bridge (adb)</string>
@@ -439,10 +441,10 @@
   <string name="backlight_summary_enabled">Zapnuto</string>
   <string name="gesture_settings_title">Gesta</string>
   <string name="power_menu_title">Nabídka tlačítka Vypnout</string>
-  <string name="power_menu_reboot_title">Nabídka restartu</string>
+  <string name="power_menu_reboot_title">Rozšířené možnosti restartování</string>
   <string name="power_menu_screenshot_title">Snímek obrazovky</string>
-  <string name="power_menu_airplane_title">Režim V letadle</string>
-  <string name="power_menu_users_title">Přepínač uživatele</string>
+  <string name="power_menu_airplane_title">Režim „Letadlo“</string>
+  <string name="power_menu_users_title">Přepnutí uživatele</string>
   <string name="power_menu_settings_title">Zástupce nastavení</string>
   <string name="power_menu_lockdown_title">Uzamčení zařízení</string>
   <string name="power_menu_bug_report_title">Hlášení chyb</string>
@@ -571,7 +573,7 @@
   <string name="volume_keys_control_ring_stream_summary_on">Tlačítka hlasitosti ovládají hlasitost vyzvánění</string>
   <string name="volume_keys_control_ring_stream_summary_off">Tlačítka hlasitosti ovládají hlasitost médií</string>
   <string name="category_calibration">Kalibrace</string>
-  <string name="display_and_lights">Zobrazení a světla</string>
+  <string name="display_and_lights">Zobrazení a signalizace</string>
   <string name="power_notifications_category_title">Zvuk nabíječky</string>
   <string name="power_notifications_enable_title">Povolit</string>
   <string name="power_notifications_enable_summary">Přehrát zvuk při připojení nebo odpojení nabíječky</string>
@@ -645,7 +647,7 @@
   <string name="autoperf_title">Povolit profily na aplikaci</string>
   <string name="autoperf_summary">Automatický výběr vhodného režimu úspory baterie pro různé aplikace</string>
   <string name="perf_profile_title">Úspora baterie</string>
-  <string name="memory_startup_apps_title">Aplikace spuštěna při startu</string>
+  <string name="memory_startup_apps_title">Aplikace spuštěné při startu</string>
   <string name="notification_ringtone_title_cm">Zvuk upozornění</string>
   <string name="advanced_reboot_title">Rozšířený restart</string>
   <string name="advanced_reboot_summary">V případě odemčení a při zmáčknutí tlačítka vypínání, zobrazit nabídku pro možnost restartovat zařízení do „recovery“, „bootloader“ nebo provést „soft reboot“</string>
@@ -662,7 +664,7 @@
   <string name="expanded_desktop_title">Možnosti rozšířené plochy</string>
   <string name="kill_app_longpress_back">Vynucené ukončení aplikace</string>
   <string name="kill_app_longpress_back_summary">Ukončení aplikace na popředí dlouhým podržením tlačítka zpět</string>
-  <string name="recents_show_searchbar">Zobrazit vyhledávací panel v „Nedávných“</string>
+  <string name="recents_show_searchbar">Zobrazit vyhledávání v „Nedávných“</string>
   <string name="keywords_recents_show_searchbar">poslední nedávné zakázat povolit zobrazit skrýt vyhledávací panel</string>
   <string name="voice_wakeup_settings_title">Hlasové probuzení</string>
   <string name="voice_wakeup_retrain_title">Naučit se rozpoznání hlasu</string>
@@ -760,6 +762,8 @@
   <string name="link_volume_option_title">Spojit hlasitost vyzvánění a oznámení</string>
   <string name="lcd_density_prompt_message">Některé aplikace nemusí s nestandardním nastavením DPI pracovat.\n\nDojde k restartu zařízení.</string>
   <string name="apn_ppp_number">Telefonní číslo APN PPP</string>
+  <string name="duplicate_apn_error_title">Duplicitní APN</string>
+  <string name="duplicate_apn_error_message">Toto APN již existuje. Zrušit nebo změnit parametry.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> je <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">zakázána</string>
   <string name="sim_missing">chybějící nebo vadná</string>
@@ -818,4 +822,7 @@
   <string name="live_lock_screen_summary">Povolit a nastavit „Živý zámek obrazovky“</string>
   <string name="live_lock_screen_settings_button">Nastavení</string>
   <string name="live_lock_screen_settings_disabled_prompt">Por zobrazení dostupných živých zámků obrazovky nejprve tuto funkci zapněte.</string>
+  <string name="interruptions_ignore_while_media_title">Zabránit potlačení hudby</string>
+  <string name="interruptions_ignore_while_media_summary">Nesnižovat hlasitost přehrávané hudby při oznámení</string>
+  <string name="cmlicense_title">Právní ujednání CyanogenMod</string>
 </resources>
