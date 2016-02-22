@@ -63,4 +63,14 @@ public class NotificationVolumePreferenceController extends
         return com.android.internal.R.drawable.ic_audio_ring_notif_mute;
     }
 
+    @Override
+    public void updatePreferenceIcon() {
+        if (mPreference != null) {
+            mPreference.showIcon(mSuppressor != null
+                ? com.android.internal.R.drawable.ic_audio_ring_notif_mute
+                : mRingerMode == AudioManager.RINGER_MODE_VIBRATE || wasRingerModeVibrate()
+                    ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
+                    : com.android.internal.R.drawable.ic_audio_ring_notif);
+        }
+    }
 }
