@@ -91,7 +91,7 @@ public final class SearchIndexableResources {
         sResMap.put(SavedAccessPointsWifiSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(SavedAccessPointsWifiSettings.class.getName()),
-                        R.xml.wifi_display_saved_access_points,
+                        NO_DATA_RES_ID,
                         SavedAccessPointsWifiSettings.class.getName(),
                         R.drawable.ic_settings_wireless));
 
