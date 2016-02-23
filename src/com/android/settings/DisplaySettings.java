@@ -864,6 +864,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isCameraGestureAvailable(context.getResources())) {
                         result.add(KEY_CAMERA_GESTURE);
+
+                    if (!context.getResources().getBoolean(
+                                 com.android.internal.R.bool.config_enableWifiDisplay) &&
+                            (SystemProperties.getInt(FORCE_WIFI_DISPLAY_ENABLE, -1) != 1)) {
+                        result.add(KEY_WIFI_DISPLAY);
                     }
                     return result;
                 }
