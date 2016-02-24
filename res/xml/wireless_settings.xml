@@ -95,6 +95,13 @@
             android:title="@string/nfc_payment_settings_title"
             android:fragment="com.android.settings.nfc.PaymentSettings" />
 
+        <ListPreference
+            android:key="nfc_polling_mode"
+            android:title="@string/nfc_polling_mode_title"
+            android:entries="@array/nfc_polling_mode_entries"
+            android:entryValues="@array/nfc_polling_mode_values"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
