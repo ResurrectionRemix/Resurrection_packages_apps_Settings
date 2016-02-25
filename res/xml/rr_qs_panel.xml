@@ -54,6 +54,13 @@
             android:persistent="false" />
 
 
+    <!-- Qs Vibrate Panel -->
+    <PreferenceScreen
+            android:id="@+id/qs_vib_customizations"
+            android:title="@string/quick_settings_vibrate"
+            android:fragment="com.android.settings.rr.QsVibrate" />
+
+
     <SwitchPreference
         android:key="block_on_secure_keyguard"
         android:title="@string/block_on_secure_keyguard_title"
@@ -82,4 +89,3 @@
          android:defaultValue="true"/>
 </PreferenceCategory>
 </PreferenceScreen>
-
