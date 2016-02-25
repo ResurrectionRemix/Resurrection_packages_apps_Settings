@@ -85,6 +85,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String FILTER_TYPE_EXTRA = "filter_type";
     private static final int TYPE_LOCKSCREEN_EXTRA = 0;
     private static final int TYPE_SECURITY_EXTRA = 1;
+    private static final int TYPE_EXTERNAL_RESOLUTION = 2;
 
     // Lock Settings
     private static final String KEY_UNLOCK_SET_OR_CHANGE = "unlock_set_or_change";
@@ -189,6 +190,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
+        Bundle extras = getActivity().getIntent().getExtras();
+        // Even uglier hack to make cts verifier expectations make sense.
+        if (extras.get(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS) != null) {
+            mFilterType = TYPE_EXTERNAL_RESOLUTION;
+        }
+
         mSubscriptionManager = SubscriptionManager.from(getActivity());
 
         mLockPatternUtils = new LockPatternUtils(getActivity());
@@ -261,7 +268,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             root.addPreference(mLockscreenDisabledPreference);
         }
 
-        if (mFilterType == TYPE_LOCKSCREEN_EXTRA) {
+        if (mFilterType == TYPE_LOCKSCREEN_EXTRA || mFilterType == TYPE_EXTERNAL_RESOLUTION) {
             // Add options for lock/unlock screen
             final int resid = getResIdForLockUnlockScreen(getActivity(), mLockPatternUtils);
             addPreferencesFromResource(resid);
@@ -278,7 +285,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
-        if (mIsPrimary && mFilterType == TYPE_SECURITY_EXTRA) {
+        if (mIsPrimary && mFilterType == TYPE_SECURITY_EXTRA
+                || mFilterType == TYPE_EXTERNAL_RESOLUTION) {
             if (LockPatternUtils.isDeviceEncryptionEnabled()) {
                 // The device is currently encrypted.
                 addPreferencesFromResource(R.xml.security_settings_encrypted);
@@ -288,7 +296,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
         }
 
-        if (mFilterType == TYPE_LOCKSCREEN_EXTRA) {
+        if (mFilterType == TYPE_LOCKSCREEN_EXTRA || mFilterType == TYPE_EXTERNAL_RESOLUTION) {
             // Fingerprint and trust agents
             PreferenceGroup securityCategory = (PreferenceGroup)
                     root.findPreference(KEY_SECURITY_CATEGORY);
