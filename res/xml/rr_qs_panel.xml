@@ -61,6 +61,14 @@
             android:fragment="com.android.settings.rr.QsVibrate" />
 
 
+    <!-- Qs Colors -->
+    <PreferenceScreen
+            android:id="@+id/qs_colors"
+            android:title="@string/quick_settings_colors"
+	    android:summary="@string/qs_colors_summary"	
+            android:fragment="com.android.settings.rr.QsColors" />
+
+
     <SwitchPreference
         android:key="block_on_secure_keyguard"
         android:title="@string/block_on_secure_keyguard_title"
