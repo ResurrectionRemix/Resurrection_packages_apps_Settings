@@ -51,6 +51,16 @@
         android:summary="@string/lock_clock_font_summary"
         android:persistent="false" />
 
+     <com.android.settings.rr.SeekBarPreference
+            android:key="lockscreen_alpha"
+            android:title="@string/lockscreen_alpha"
+            android:max="100"
+            settings:minimum="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
+            android:persistent="false" />
+
 
     </PreferenceCategory>
 

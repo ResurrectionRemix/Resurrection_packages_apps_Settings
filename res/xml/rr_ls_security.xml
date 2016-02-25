@@ -30,6 +30,13 @@
             android:title="@string/unlock_quick_unlock_control_title"
             android:summary="@string/unlock_quick_unlock_control_summary" />
 
+         <ListPreference
+            android:key="lockscreen_bouncer"
+            android:title="@string/ls_bouncer_title"
+            android:entries="@array/ls_bouncer_entries"
+            android:entryValues="@array/ls_bouncer_values"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -53,6 +60,16 @@
                android:persistent="false"
                android:dependency="lock_screen_custom_notif" />
 
+
+    <com.android.settings.rr.SeekBarPreference
+            android:key="lockscreen_security_alpha"
+            android:title="@string/lockscreen_security_alpha"
+            android:max="100"
+            settings:minimum="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
+            android:persistent="false" />
 
     </PreferenceCategory>
 

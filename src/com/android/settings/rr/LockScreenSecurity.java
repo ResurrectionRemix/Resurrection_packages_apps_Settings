@@ -22,6 +22,7 @@ import com.android.internal.logging.MetricsLogger;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.app.WallpaperManager;
 import android.content.Intent;
 import android.preference.ListPreference;
@@ -49,10 +50,14 @@ public class LockScreenSecurity extends SettingsPreferenceFragment  implements O
 	
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String KEYGUARD_TOGGLE_TORCH = "keyguard_toggle_torch";
+    private static final String PREF_LS_BOUNCER = "lockscreen_bouncer";
+    private static final String LOCKSCREEN_SECURITY_ALPHA = "lockscreen_security_alpha";	
 	
 
     private SeekBarPreference mMaxKeyguardNotifConfig;
     private SwitchPreference mKeyguardTorch;	
+    private ListPreference mLsBouncer;
+    private SeekBarPreference mLsSecurityAlpha;		
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +70,49 @@ public class LockScreenSecurity extends SettingsPreferenceFragment  implements O
                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5);
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
+	 mLsBouncer = (ListPreference) findPreference(PREF_LS_BOUNCER);
+        mLsBouncer.setOnPreferenceChangeListener(this);
+        int lockbouncer = Settings.Secure.getInt(resolver,
+                Settings.Secure.LOCKSCREEN_BOUNCER, 0);
+        mLsBouncer.setValue(String.valueOf(lockbouncer));
+        updateBouncerSummary(lockbouncer);
+	
+	  mLsSecurityAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
+        float alpha2 = Settings.System.getFloat(resolver,
+                Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
+        mLsSecurityAlpha.setValue((int)(100 * alpha2));
+        mLsSecurityAlpha.setOnPreferenceChangeListener(this);
    }
+
+  private void updateBouncerSummary(int value) {
+         Resources res = getResources();
+  
+         if (value == 0) {
+             // stock bouncer
+             mLsBouncer.setSummary(res.getString(R.string.ls_bouncer_on_summary));
+         } else if (value == 1) {
+             // bypass bouncer
+             mLsBouncer.setSummary(res.getString(R.string.ls_bouncer_off_summary));
+         } else {
+             String type = null;
+             switch (value) {
+                 case 2:
+                     type = res.getString(R.string.ls_bouncer_dismissable);
+                     break;
+                 case 3:
+                     type = res.getString(R.string.ls_bouncer_persistent);
+                     break;
+                 case 4:
+                     type = res.getString(R.string.ls_bouncer_all);
+                     break;
+             }
+             // Remove title capitalized formatting
+             type = type.toLowerCase();
+             mLsBouncer.setSummary(res.getString(R.string.ls_bouncer_summary, type));
+         }
+     }
+ 
 
     @Override
     protected int getMetricsCategory() {
@@ -81,7 +128,12 @@ public class LockScreenSecurity extends SettingsPreferenceFragment  implements O
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
             return true;
-        	}
+        } else if (preference == mLsSecurityAlpha) {
+            int alpha2 = (Integer) newValue;
+            Settings.System.putFloat(resolver,
+                    Settings.System.LOCKSCREEN_SECURITY_ALPHA, alpha2 / 100.0f);
+            return true;
+         }
 	return false;
 	}
 }	
