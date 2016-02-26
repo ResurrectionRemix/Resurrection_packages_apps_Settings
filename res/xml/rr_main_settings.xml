@@ -27,6 +27,22 @@
                 android:icon="@drawable/rr_statusbar_icon"
                 />
 
+     <!-- Notification drawer -->
+       <PreferenceScreen
+            android:id="@+id/notification_drawer_settings"
+            android:title="@string/notification_drawer_title"
+            android:fragment="com.android.settings.rr.NotificationDrawerSettings"
+            android:icon="@drawable/rr_notification_drawer_icon"
+                />
+
+    <!-- QS Panel -->
+    <PreferenceScreen
+            android:id="@+id/Qs_customizations"
+            android:title="@string/rr_qs_title"
+            android:fragment="com.android.settings.rr.QsPanel" 
+	    android:icon="@drawable/rr_quick_settings_icon" />
+
+
        <PreferenceScreen
                 android:id="@+id/button_settings"
                 android:title="@string/button_pref_title"
@@ -40,13 +56,6 @@
             android:title="@string/recents_settings_title"
             android:icon="@drawable/rr_recents_icon" />
 
-        <!-- Notification drawer -->
-        <PreferenceScreen
-            android:id="@+id/notification_drawer_settings"
-            android:title="@string/notification_drawer_title"
-            android:fragment="com.android.settings.rr.NotificationDrawerSettings"
-            android:icon="@drawable/rr_notification_drawer_icon"
-                />
 
        <PreferenceScreen
 	    android:title="@string/rr_lockscreen_title"	
