@@ -47,11 +47,14 @@ public class RecentsSettings extends SettingsPreferenceFragment
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private static final String IMMERSIVE_RECENTS = "immersive_recents";
+    private static final String RECENTS_STYLE = "clear_recents_style";
+	
 
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
     private SwitchPreference mUseSlimRecents;
     private ListPreference mImmersiveRecents;	
+    private ListPreference mClearStyle;	
 
     @Override
     protected int getMetricsCategory() {
@@ -92,6 +95,12 @@ public class RecentsSettings extends SettingsPreferenceFragment
             mRecentsClearAll.setEnabled(true);
             mRecentsClearAllLocation.setEnabled(true);
        }
+
+        mClearStyle = (ListPreference) prefSet.findPreference(RECENTS_STYLE);
+        mClearStyle.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.CLEAR_RECENTS_STYLE, 0)));
+        mClearStyle.setSummary(mClearStyle.getEntry());
+        mClearStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -120,6 +129,11 @@ public class RecentsSettings extends SettingsPreferenceFragment
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
             return true;
+        } else if (preference == mClearStyle) {
+            Settings.System.putInt(getContentResolver(), Settings.System.CLEAR_RECENTS_STYLE,
+                    Integer.valueOf((String) newValue));
+            mClearStyle.setValue(String.valueOf(newValue));
+            mClearStyle.setSummary(mClearStyle.getEntry());    
         }
         return false;
     }
