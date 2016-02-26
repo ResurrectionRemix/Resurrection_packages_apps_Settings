@@ -75,11 +75,20 @@
            </intent>
        </Preference>
 
+
+
+</PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="misc_4"
+        android:title="@string/misc_4" >
+
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="disable_fc_notifications"
-        android:title="@string/disable_fc_notifications_title"
-        android:summary="@string/disable_fc_notifications_summary"
-        android:defaultValue="false" />
+        android:key="fingerprint_success_vib"
+        android:title="@string/fprint_sucess_vib_title"
+        android:summary="@string/fprint_sucess_vib_summary"
+        android:defaultValue="true" />
 
 
 </PreferenceCategory>
@@ -97,6 +106,14 @@
                  android:targetPackage="org.adaway"
                  android:targetClass="org.adaway.ui.BaseActivity" />
         </Preference>
+
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="disable_fc_notifications"
+        android:title="@string/disable_fc_notifications_title"
+        android:summary="@string/disable_fc_notifications_summary"
+        android:defaultValue="false" />
+
 
         <!-- Wakelock blocker -->
         <PreferenceScreen

@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.Build;
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
@@ -66,12 +67,15 @@ private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.mu
 private static final String RESTART_SYSTEMUI = "restart_systemui";
 private static final String SELINUX = "selinux";
 private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
+private static final String CATEGORY_VIB = "misc_4";
 
 
 private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
 private SwitchPreference mSelinux;
 private ListPreference mMSOB;
+private FingerprintManager mFingerprintManager;
+private SwitchPreference mFingerprintVib;
 
 private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
@@ -81,6 +85,7 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
         addPreferencesFromResource(R.xml.rr_misc);
 	  final ContentResolver resolver = getActivity().getContentResolver();
+          final PreferenceScreen prefScreen = getPreferenceScreen();
         mEnableMultiWindow = (SwitchPreference) findPreference(ENABLE_MULTI_WINDOW_KEY);
 	mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
 
@@ -100,8 +105,16 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
         mAllPrefs.add(mMSOB);
         mMSOB.setOnPreferenceChangeListener(this);
         updateMSOBOptions();
-
-	}
+	
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+	PreferenceCategory mVibratepref = (PreferenceCategory)
+        getPreferenceScreen().findPreference(CATEGORY_VIB);         
+        mFingerprintVib = (SwitchPreference) prefScreen.findPreference("fingerprint_success_vib");
+        if (!mFingerprintManager.isHardwareDetected()){
+            getPreferenceScreen().removePreference(mVibratepref);
+        }
+     }
+        
   private static boolean showEnableMultiWindowPreference() {
         return !"user".equals(Build.TYPE);
     }
