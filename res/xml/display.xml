@@ -193,7 +193,16 @@
                 android:key="dashboard_tileview_dividers"
                 android:title="@string/dashboard_tileview_dividers_title"
                 android:summary="@string/dashboard_tileview_dividers_summary"
-                android:defaultValue="false" />        
+                android:defaultValue="false" />      
+
+ 	 <ListPreference
+                android:key="dashboard_switches"
+                android:title="@string/dashboard_switches_title"
+                android:dialogTitle="@string/dashboard_switches_dialog_title"
+                android:entries="@array/dashboard_switches_entries"
+                android:entryValues="@array/dashboard_switches_values"
+                android:summary="@string/dashboard_switches_summary"
+                android:persistent="false" />  
 
      </PreferenceCategory>
 
