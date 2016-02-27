@@ -77,6 +77,7 @@
 
     <!-- RR settings categories -->
     <string name="header_category_personalization">개인화</string>
+    <string name="rr_header_options">헤더 항목</string>
     <string name="interface_settings_title">인터페이스</string>
 
 
@@ -99,9 +100,12 @@
     <string name="icons_category">상태 표시줄 아이콘</string>
     <string name="misc_category">기타 상태 표시줄 설정</string>
 
-    <string name="recents_panel_search_category">최근 실행 목록 검색 바</string>
-    <string name="recents_panel_memory_category">메모리 바</string>
     <string name="recents_panel_clear_all_category">모두 지우기 트윅</string>
+    <string name="recents_panel_recents_view">최근 실행 목록 보기</string>
+    <string name="recents_panel_alternative_recents">최근 실행 목록 대체</string>
+    <string name="recents_panel_recents_bars">최근 실행 목록 바</string>
+    <string name="interface_category">인터페이스</string>
+    <string name="customization_category">사용자 지정 설정</string>
     <string name="gestures_settings">제스처</string>	
 
 
@@ -112,6 +116,11 @@
 
 
     <string name="header_cat">알림 헤더</string>
+    <string name="rr_header_fonts">알림 헤더 폰트</string>
+    <string name="rr_header_colors">알림 헤더 색</string>
+    <string name="rr_custom_header_options">사용자 지정 헤더 옵션</string>	
+    <string name="header_ui">헤더 인터페이스</string>	
+    <string name="rr_custom_header">사용자 지정 헤더</string>
     <string name="notifications_cat">알림</string>
     <string name="notifications_colors_cat">알림 색</string>
 
@@ -136,16 +145,16 @@
     <string name="brokenextrainfo_summary">CPU, 화면 등에 대한 추가 정보를 표시합니다</string>
 
     <!--Time Contexual Header -->
+    <string name="contexual_header_title">사용자 지정 알림 패널 헤더</string>
     <string name="status_bar_custom_header_title">시간에 따른 알림 패널 헤더</string>
     <string name="status_bar_custom_header_summary">알림 패널 헤더 이미지를 활성화합니다</string>
-    <string name="status_bar_custom_header_default_title">Poly HD 이미지 사용</string>
-    <string name="status_bar_custom_header_default_summary">활성화하면 Poly HD 이미지를, 비활성화하면 기본 이미지를 사용합니다.</string>
-    <string name="status_bar_custom_header_default_title">이미지 선택</string>
-    <string name="status_bar_custom_header_default_summary">기본, 모던, Poly HD</string>
+    <string name="daylight_header_pack_title">헤더 이미지 팩</string>
     <string name="custom_header_image_0">기본</string>
     <string name="custom_header_image_1">모던</string>
     <string name="custom_header_image_2">Poly HD</string>
- 
+    <string name="status_bar_custom_header_shadow_title">헤더 이미지 어둡게 표시</string>
+    <string name="status_bar_custom_header_shadow_summary">밝은 이미지에서의 시안성을 높여줍니다</string>
+    <string name="unit_percent">\u0025</string> 
 
     <!-- RR Extra Info -->
     <string name="rrextrainfo">추가 정보</string>
@@ -210,10 +219,16 @@
 
     <!--Notification Drawer-->
     <string name="notification_drawer_title">알림 서랍</string>
+    <string name="rr_qs_cat">빠른 설정 내리기</string>
+    <string name="rr_qs">빠른 설정</string>
+    <string name="rr_brightness_cat">밝기 슬라이더</string>
+    <string name="rr_qs_title">빠른 설정 패널</string>
 
     <!-- Quick settings quick pull down -->
     <string name="status_bar_quick_qs_pulldown_title">빠른 설정 바로가기</string>
     <string name="status_bar_quick_qs_pulldown_summary">상태 표시줄의 오른쪽 끝을 끌어내리면 빠른 설정을 보여줍니다</string>
+    <string name="quick_pulldown_summary_always">상태 표시줄을 내리면 항상 빠른 설정을 표시합니다</string>	
+    <string name="quick_pulldown_always">항상 사용</string>
 
     <!-- Quick settings brightness slider -->
     <string name="qs_brightness_slider_title">밝기 조절 슬라이더</string>
@@ -313,6 +328,17 @@
     <string name="display_lockscreen_rotation_title">잠금 화면</string>
 	<!-- Lock screen settings -->
     <string name="rr_lockscreen_title">잠금 화면</string>
+    <string name="rr_ls_ui">잠금 화면 UI</string>
+    <string name="rr_lockscreen_date">날짜와 시간</string>
+    <string name="rr_ls_security_main">잠금 화면 보안</string>
+    <string name="rr_lockscreen_notifications">잠금 화면 알림</string>
+    <string name="rr_ls_security">보안</string>
+    <string name="rr_ls_gestures">잠금 화면 제스처</string>
+    <string name="rr_ls_media">잠금화면 미디어</string>
+    <string name="rr_ls_gesures">잠금 화면 제스처</string>
+    <string name="rr_ls_settings">개인화 설정</string>
+    <string name="rr_lockscreen_blur">잠금 화면 흐리게</string>
+    <string name="rr_lockscreen_style">스타일</string>	
     <string name="double_tap_ls">잠금 화면에서 더블 탭하여 화면 끄기</string>
     <string name="double_tap_ls_summary">잠금 화면에서 더블 탭하면 화면을 끕니다</string>	
 
@@ -513,7 +539,6 @@
     <string name="pref_scrollingcache_force_disable">강제 비활성화</string>
 
     <!-- OmniSwitch -->
-    <string name="omniswitch_category">OmniSwitch</string>
     <string name="recents_use_omniswitch_title">최근 실행 목록으로 사용</string>
     <string name="recents_use_omniswitch_summary">기존 최근 실행 목록 대신 OmniSwitch을 사용합니다</string>
     <string name="omniswitch_start_settings_title">설정</string>
@@ -860,12 +885,13 @@
 
     <string name="lockscreen_shortcuts_category">단축버튼</string>
 
-
     <!-- Lockscreen shortcuts -->
     <string name="lockscreen_shortcuts_title">잠금 화면 단축키</string>
     <string name="lockscreen_shortcuts_summary">잠금화면의 단축키를 변경합니다</string>
-    <string name="lockscreen_shorcuts_longpress_title">더블 탭으로 실행</string>
-    <string name="lockscreen_shorcuts_longpress_summary">더블 탭하여 사용자 지정 잠금화면 단축키를 실행합니다</string>
+    <string name="lockscreen_shortcuts_launch_type_title">단축키 실행 방법</string>
+    <string name="lockscreen_shortcuts_single_tap">터치</string>
+    <string name="lockscreen_shortcuts_double_tap">더블 탭</string>
+    <string name="lockscreen_shortcuts_longpress">길게 누르기</string>
 
     <string name="shortcut_action_app">사용자 지정 앱</string>
     <string name="shortcut_action_home">홈</string>
@@ -910,36 +936,6 @@
     <string name="su_indicator">슈퍼유저 표시기</string>
     <string name="su_indicator_summary_on">세션이 활동 중일 때 슈퍼유저 표시기를 보여줍니다</string>
     <string name="su_indicator_summary_off">세션이 활동 중일 때 슈퍼유저 표시기를 보려면 설정하세요. CM 내장 루트 권한 관리자에서만 작동합니다.</string>
-
-    <!-- App sidebar -->
-    <string name="app_sidebar_title">앱 사이드바</string>
-    <string name="app_sidebar_enable_title">사이드바 활성화</string>
-    <string name="app_sidebar_enable_summaryOn">사이드바가 활성화됨</string>
-    <string name="app_sidebar_enable_summaryOff">사이드바가 비활성화됨</string>
-    <string name="app_sidebar_setup_items_title">사이드바 항목 설정</string>
-    <string name="app_sidebar_setup_items_summary">사이드바의 항목들을 추가, 위치조정 혹은 삭제합니다</string>
-    <string name="app_sidebar_transparency_title">사이드바 투명도</string>
-    <string name="app_sidebar_transparency_summary">사이드바의 투명도를 조절합니다</string>
-    <string name="app_sidebar_position_title">사이드바 위치</string>
-    <string name="app_sidebar_position_summary">사이드바를 화면의 어느 쪽에 표시할지 선택합니다</string>
-    <string name="app_sidebar_position_left">왼쪽</string>
-    <string name="app_sidebar_position_right">오른쪽</string>
-    <string name="app_sidebar_hide_labels_title">아이콘 이름 숨기기</string>
-    <string name="app_sidebar_hide_labels_summary">사이드바에서 아이콘의 이름을 표시하지 않습니다</string>
-    <string name="tab_category">탭 설정</string>
-    <string name="use_tab_title">탭 보이기</string>
-    <string name="use_tab_summary">누르면 사이드바를 실행하는 탭을 표시합니다.</string>
-    <string name="tab_position_title">탭 위치</string>
-    <string name="tab_position_summary">탭을 화면의 상단, 중앙 혹은 하단에 표시합니다.</string>
-    <string name="tab_size_title">탭 크기</string>
-    <string name="tab_size_summary">탭의 크기를 조절합니다.</string>
-    <string name="trigger_category">트리거 영역</string>
-    <string name="trigger_width_title">트리거 너비</string>
-    <string name="trigger_width_summary">트리거 구역의 너비를 조정합니다</string>
-    <string name="trigger_top_title">트리거 위치</string>
-    <string name="trigger_top_summary">트리거 구역의 수직 위치를 조정합니다</string>
-    <string name="trigger_bottom_title">트리거 높이</string>
-    <string name="trigger_bottom_summary">트리거 구역의 높이를 조정합니다</string>
 
     <string name="rr_misc_title">기타 설정</string>
     <string name="rr_systemuituner">시스템 UI 튜너</string>
@@ -1119,8 +1115,7 @@
     <string name="camera_sounds_summary">카메라 셔터 소리를 활성화합니다</string>
     <string name="camera_sound_warning_dialog_text">카메라 셔터 소리를 비활성화 하는 것은 몇몇 지역에서 불법입니다. 거주 국가의 준거법을 확인하시기 바랍니다</string>
 
-    <!-- Slim Recents -->
-    <string name="rr_recent_slim_category">Slim Recents</string>	
+    <!-- Slim Recents -->	
     <string name="slim_recents_panel">Slim Recents</string>
     <string name="use_slim_recents_title">Slim Recents</string>
     <string name="show_running_tasks_title">실행중인 앱만 표시</string>
@@ -1317,6 +1312,17 @@
     <string name="lockscreen_clock_date_color">잠금 화면 날짜</string>
     <string name="lockscreen_colors_reset_title">잠금 화면 색 초기화</string>
     <string name="lockscreen_colors_reset_message">수정한 색을 기본으로 되돌리겠습니까?</string>
+    <string name="lockscreen_colors_title">잠금 화면 색</string>
+    <string name="lockscreen_owner_info_color">소유자 정보</string>
+    <string name="lockscreen_alarm_color">알람</string>
+    <string name="icons_title">날씨 아이콘</string>
+    <string name="text_title">날씨 글자</string>
+    <string name="lock_screen_weather_temp_color">날씨 온도</string>
+    <string name="lock_screen_weather_con_color">날씨 상태</string>
+    <string name="lock_screen_weather_stamp_color">날씨 시간</string>
+    <string name="lock_screen_weather_hum_color">날씨 습도</string>
+    <string name="lock_screen_weather_city_color">날씨 도시</string>
+    <string name="lock_screen_weather_wind_color">날씨 풍속</string>	
     <string name="yes">네</string>
 
     <!-- On-The-Go -->
@@ -1579,13 +1585,18 @@
     <string name="less_notification_sounds_2m">2 분</string>
     <string name="less_notification_sounds_5m">5 분</string>
 
-    <!-- Dashboard columns -->
+    <!-- Dashboard settings -->
+    <string name="dashboard_category">대시보드 설정</string>
     <string name="dashboard_columns_title">대시보드 열 설정</string>
     <string name="dashboard_columns_summary">대시보드에 표시될 열의 개수를 변경합니다</string>
     <string name="dashboard_columns_dialog_title">대시보드 열 수 선택</string>
-    <string name="dashboard_columns_default">1개 (기본)</string>
+    <string name="dashboard_columns_one">1개</string>
     <string name="dashboard_columns_two">2개</string>
     <string name="dashboard_columns_three">3개</string>
+    <string name="dashboard_tileview_double_lines_title">대시보드 타일 보기</string>
+    <string name="dashboard_tileview_double_lines_summary">대시보드 타일 제목을 2줄에 표시</string>
+    <string name="dashboard_tileview_dividers_title">대시보드 구분선</string>
+    <string name="dashboard_tileview_dividers_summary">대시보드 타일 구분선 숨기기</string>
 
     <!-- Breathing Notifications -->
     <string name="breathing_notifications_category">알림</string>
@@ -1610,12 +1621,6 @@
     <!-- Power menu and dialogs transparency -->
     <string name="power_menu_transparency">전원 메뉴 불투명도</string>
 
-    <!-- Dashboard tileview double lines -->
-    <string name="dashboard_category">대시보드 설정</string>
-    <string name="dashboard_tileview_double_lines_title">대시보드 타일 제목 보기</string>
-    <string name="dashboard_tileview_double_lines_summary_on">대시보드 타일 제목을 1줄에 표시</string>
-    <string name="dashboard_tileview_double_lines_summary_off">대시보드 타일 제목을 2줄에 표시</string>
-
     <!-- Power/reboot dialogs dim amount -->
     <string name="power_menu_dialog_dim">전원 종료 알림이 배경을 어둡게하는 정도</string>
 
@@ -1624,9 +1629,12 @@
     <string name="hw_keys_summary">하드웨어 키를 활성화 합니다</string>
 
     <!-- Hide Lockscreen clock & date -->
-    <string name="hide_lockscreen_items_title">잠금 화면 항목</string>
-    <string name="hide_lockscreen_clock_title">시계 표시</string>
-    <string name="hide_lockscreen_date_title">날짜 표시</string>
+    <string name="hide_lockscreen_clock_title">시계</string>
+    <string name="hide_lockscreen_clock_summary">잠금 화면에 시계 표시</string>
+    <string name="hide_lockscreen_date_title">날짜</string>
+    <string name="hide_lockscreen_date_summary">잠금 화면에 날짜 표시</string>
+    <string name="hide_lockscreen_alarm_title">알람</string>
+    <string name="hide_lockscreen_alarm_summary">잠금 화면에 다음 알람 표시</string>
 
     <!-- Status bar header font style -->
     <string name="status_bar_header_font_style_title">기타 항목 폰트 스타일</string>
@@ -1713,5 +1721,13 @@
     <string name="clock_date_position">날짜 위치</string>
     <string name="clock_date_right">시계 우측</string>
     <string name="clock_date_left">시계 좌측</string>
+
+    <!-- QS Tiles Columns -->
+    <string name="qs_num_columns_title">한 열당 빠른 설정 타일 개수</string>
+    <string name="qs_num_columns_showing">한 열당 %1$s개 타일 표시 중</string>
+ 
+	<!-- QS Tiles Rows -->
+    <string name="qs_num_rows_title">빠른 설정 열 개수</string>
+    <string name="qs_num_rows_showing">%1$s개 열 표시 중</string>
 
 </resources>
