@@ -58,20 +58,13 @@
             android:defaultValue="3"
             android:dependency="show_clear_all_recents" />
 
-       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="clear_recents_style_enable"
-            android:title="@string/clear_recents_style_enable"
-            android:summary="@string/clear_recents_style_enable_summary"
-            android:defaultValue="false"
-	    android:dependency="show_clear_all_recents" />
+        
+        <PreferenceScreen
+            android:key="recent_styles"
+            android:title="@string/recent_styles"
+	    android:fragment="com.android.settings.rr.RecentsStyles"
+	    android:summary="@string/recent_styles_summary"/>
 
-        <ListPreference
-            android:key="clear_recents_style"
-            android:title="@string/clear_recents_style"
-            android:entries="@array/recents_button_style"
-            android:entryValues="@array/recents_button_style_values"
-            android:defaultValue="0"
-            android:dependency="clear_recents_style_enable" />
 
            </PreferenceCategory>
 
