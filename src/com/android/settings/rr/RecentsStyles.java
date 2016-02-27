@@ -63,6 +63,8 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
     private static final String MEMBAR_COLOR = "mem_bar_color";	
     private static final String MEM_TEXT_COLOR = "mem_text_color";
     private static final String CLEAR_BUTTON_COLOR = "clear_button_color";
+    private static final String RECENTS_DATE_COLOR = "recents_date_color";
+    private static final String RECENTS_CLOCK_COLOR = "recents_clock_color";
 
 
     static final int DEFAULT = 0xffffffff;
@@ -78,6 +80,8 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
     private ColorPickerPreference mClearButtonColor;
     private ListPreference mClearStyle;	
     private ColorPickerPreference mfabColor;
+    private ColorPickerPreference mClockColor;
+    private ColorPickerPreference mDateColor;
 
 
 
@@ -135,6 +139,22 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mClearButtonColor.setSummary(hexColor);
         mClearButtonColor.setNewPreviewColor(intColor);
 
+        mClockColor= (ColorPickerPreference) prefSet.findPreference(RECENTS_CLOCK_COLOR);
+        mClockColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.RECENTS_CLOCK_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mClockColor.setSummary(hexColor);
+        mClockColor.setNewPreviewColor(intColor);
+
+        mDateColor= (ColorPickerPreference) prefSet.findPreference(RECENTS_DATE_COLOR);
+        mDateColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.RECENTS_DATE_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mDateColor.setSummary(hexColor);
+        mDateColor.setNewPreviewColor(intColor);
+
 	setHasOptionsMenu(true);
 }
 
@@ -164,8 +184,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
                 Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                         Settings.System.MEM_TEXT_COLOR, intHex);
                 return true;
-        }
- 	else if (preference == mMemBarColor) {
+        } else if (preference == mMemBarColor) {
                 String hex = ColorPickerPreference.convertToARGB(
                         Integer.valueOf(String.valueOf(newValue)));
                 preference.setSummary(hex);
@@ -180,6 +199,22 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
                 int intHex = ColorPickerPreference.convertToColorInt(hex);
                 Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                         Settings.System.CLEAR_BUTTON_COLOR, intHex);
+                return true;
+        } else if (preference == mClockColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.RECENTS_CLOCK_COLOR, intHex);
+                return true;
+        }  else if (preference == mDateColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.RECENTS_DATE_COLOR, intHex);
                 return true;
         }
      return false;
@@ -237,6 +272,14 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mClearButtonColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.CLEAR_BUTTON_COLOR, DEFAULT); 
+        mClockColor.setNewPreviewColor(DEFAULT);
+        mClockColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.RECENTS_CLOCK_COLOR, DEFAULT);
+        mDateColor.setNewPreviewColor(DEFAULT);
+        mDateColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.RECENTS_DATE_COLOR, DEFAULT); 
     }
 
 

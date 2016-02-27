@@ -71,5 +71,18 @@
         android:defaultValue="0xffffffff"
 	android:dependency="clear_recents_style_enable" />
 
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="recents_date_color"
+        android:title="@string/recents_date_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="recents_clock_color"
+        android:title="@string/recents_clock_color"
+        android:defaultValue="0xffffffff"
+	android:dependency="clear_recents_style_enable" />
+
            </PreferenceCategory>
 </PreferenceScreen>
