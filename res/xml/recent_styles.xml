@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2015 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    android:title="@string/recents_colors"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+  <PreferenceCategory
+        android:key="recents_styles_1"
+        android:title="@string/recents_styles_1" >
+
+   
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="clear_recents_style_enable"
+            android:title="@string/clear_recents_style_enable"
+            android:summary="@string/clear_recents_style_enable_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="clear_recents_style"
+            android:title="@string/clear_recents_style"
+            android:entries="@array/recents_button_style"
+            android:entryValues="@array/recents_button_style_values"
+            android:defaultValue="0"
+            android:dependency="clear_recents_style_enable" />
+
+
+           </PreferenceCategory>
+
+  <PreferenceCategory
+        android:key="recents_style_2"
+        android:title="@string/recents_style_2" >
+
+
+
+      <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="fab_button_color"
+        android:title="@string/fab_button_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="mem_bar_color"
+        android:title="@string/mem_bar_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="mem_text_color"
+        android:title="@string/mem_text_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="clear_button_color"
+        android:title="@string/clear_button_color"
+        android:defaultValue="0xffffffff"
+	android:dependency="clear_recents_style_enable" />
+
+           </PreferenceCategory>
+</PreferenceScreen>
