@@ -56,7 +56,13 @@
     <string name="dev_categorie_title">개발자 &amp; 관리자</string>
 
     <string name="rr_mod_version">Resurrection 버전</string>
-    
+   
+    <!-- Nfc settings -->
+    <string name="nfc_polling_mode_title">NFC 폴링 모드</string>
+    <string name="nfc_polling_mode_screen_off">화면이 꺼졌을 때</string>
+    <string name="nfc_polling_mode_screen_locked">화면이 켜지고 잠겨있을 때</string>
+    <string name="nfc_polling_mode_screen_unlocked">화면이 켜지고 잠금 해제되었을 때 (기본)</string>
+
     <!-- Themes Settings -->
     <!-- Settings main menu entry -->
     <string name="themes_settings_title_rr">테마 바꾸기</string>
@@ -207,6 +213,47 @@
     <string name="recents_clear_all_dismiss_all_summary">현재 실행 중인 작업도 종료합니다</string>
     <string name="recents_show_membar_title">메모리 바</string>
     <string name="recents_show_membar_summary">사용가능한 메모리 용량을 나타내는 바를 표시합니다</string>	
+    <string name="clear_recents_style">버튼 스타일</string>
+    <string name="fab_button_color">버튼 배경</string>	
+    <string name="mem_bar_color">메모리 바</string>
+    <string name="recents_clock_color">최근 실행 목록 전체화면 시 시계 글자</string>	
+    <string name="recents_date_color">최근 실행 목록 전체화면 시 날짜 글자</string>
+    <string name="recents_styles_1">스타일 1</string>
+    <string name="recents_colors">색</string>
+    <string name="recents_style_2">스타일 2</string>
+    <string name="recent_styles">최근 스타일</string>
+    <string name="recent_styles_summary">최근 실행 목록의 다양한 요소를 수정합니다</string>
+    <string name="mem_text_color">메모리 바 글자</string>	
+    <string name="clear_button_color">모두 지우기</string>
+    <string name="clear_recents_style_enable">사용자 지정 모두 지우기 버튼</string>	
+    <string name="clear_recents_style_enable_summary">사용자 지정 모두 지우기 버튼을 활성화/비활성화 합니다</string>	
+    <string name="button1">기본 </string>	
+    <string name="button2">네모 체크박스</string>	
+    <string name="button3">그래프</string>	
+    <string name="button4">수직선 1</string>	
+    <string name="button5">수직선 2</string>	
+    <string name="button6">클립보드</string>	
+    <string name="button7">페인트</string>	
+    <string name="button8">수평선</string>	
+    <string name="button9">원형 체크박스</string>	
+    <string name="button10">Swiping Delete </string>
+    <string name="button11">Zzzzz</string>	
+    <string name="button12">Eye Close</string>	
+    <string name="button13">좋아요 버튼</string>	
+    <string name="button14">Swipe Cube</string>	
+    <string name="button15">종</string>	
+    <string name="button16">Arrow Lines Left</string>	
+    <string name="button17">Layers Off</string>	
+    <string name="button18">Arrow Lines Back</string>	
+    <string name="button19">Layers</string>	
+    <string name="button20">Archive</string>
+    <string name="button21">Database Plus</string>
+    <string name="button22">Contracting Arrows</string>	
+    <string name="button23">Google</string>	
+    <string name="button24">Database Minus</string>	
+    <string name="button25">Sequential Cube</string>	
+    <string name="button26">타이머</string>
+    <string name="button27">Resurrection</string>
 
     <!-- Recents Fullscreen -->
     <string name="recents_show_fullscreen">전체화면으로 최근 실행 목록 표시</string>
@@ -341,6 +388,18 @@
     <string name="rr_lockscreen_style">스타일</string>	
     <string name="double_tap_ls">잠금 화면에서 더블 탭하여 화면 끄기</string>
     <string name="double_tap_ls_summary">잠금 화면에서 더블 탭하면 화면을 끕니다</string>	
+
+    <string name="ls_bouncer_title">보안 잠금 화면 사용시 알림 표시</string>
+    <string name="ls_bouncer_summary">잠금 화면에 %1$s 바로 PIN/패턴/비밀번호 화면을 표시합니다</string>
+    <string name="ls_bouncer_on">켜기 (기본)</string>
+    <string name="ls_bouncer_on_summary">보안 잠금 화면에서 알림 표시</string>
+    <string name="ls_bouncer_off">끄기</string>
+    <string name="ls_bouncer_off_summary">화면을 켜면 바로 PIN/패턴/비밀번호 화면을 표시합니다</string>
+    <string name="ls_bouncer_dismissable">지울 수 있는 알림이 없을 때</string>
+    <string name="ls_bouncer_persistent">고정된 알림이 없을 때</string>
+    <string name="ls_bouncer_all">모든 알림이 없을 때</string>
+    <string name="lockscreen_alpha">잠금 화면 투명도</string>
+    <string name="lockscreen_security_alpha">보안 잠금 화면 투명도</string>
 
     <!-- Lockscreen wallpaper -->
     <string name="lockscreen_wallpaper_title">배경화면</string>
@@ -1520,7 +1579,22 @@
     <string name="block_on_secure_keyguard_title">잠금 화면에서 빠른 설정 비활성화</string>
     <string name="block_on_secure_keyguard_summary">화면 잠금이 설정되었을 때 잠금화면에서 빠른 설정을 비활성화 합니다</string>
 
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate">빠른 설정 진동</string>	
+    <string name="quick_settings_vibrate_title">터치 시 진동</string>
+    <string name="quick_settings_vibrate_summary">타일을 터치하면 진동합니다</string>
 
+	<!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_icon_vibrate_title">설정 아이콘 진동</string>
+    <string name="quick_settings_icon_vibrate_summary">설정 아이콘을 터치하면 진동합니다</string>
+    <string name="quick_settings_header_vibrate">한번 누르면 헤더 아이콘 진동</string>	
+    <string name="quick_settings_header_vibrate_summary">한번 누르면 헤더의 아이콘이 진동합니다</string>	
+    <string name="quick_settings_header_vibrate_lp">길게 누르면 헤더 아이콘 진동</string>	
+    <string name="quick_settings_header_vibrate_lp_summary">길게 누르면 헤더의 아이콘이 진동합니다</string>
+
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_sp_vibrate_title">한번 누르면 진동</string>
+    <string name="quick_settings_sp_vibrate_summary">타일을 한번 누르면 진동합니다</string>
 
     <!-- QS shade transparency -->
     <string name="qs_transparent_shade">빠른 설정 패널 투명도</string>
@@ -1575,15 +1649,15 @@
     <string name="less_notification_sounds_title">알림 소리 주기 변경</string>
     <string name="less_notification_sounds_summary">각 앱의 알림 소리를 정해진 시간에 한번만 울리게 제한합니다</string>
     <string name="less_notification_sounds_default">기본 설정</string>
-    <string name="less_notification_sounds_3s">3 초</string>
-    <string name="less_notification_sounds_5s">5 초</string>
-    <string name="less_notification_sounds_10s">10 초</string>
-    <string name="less_notification_sounds_15s">15 초</string>
-    <string name="less_notification_sounds_30s">30 초</string>
-    <string name="less_notification_sounds_45s">45 초</string>
-    <string name="less_notification_sounds_1m">1 분</string>
-    <string name="less_notification_sounds_2m">2 분</string>
-    <string name="less_notification_sounds_5m">5 분</string>
+    <string name="less_notification_sounds_3s">3초</string>
+    <string name="less_notification_sounds_5s">5초</string>
+    <string name="less_notification_sounds_10s">10초</string>
+    <string name="less_notification_sounds_15s">15초</string>
+    <string name="less_notification_sounds_30s">30초</string>
+    <string name="less_notification_sounds_45s">45초</string>
+    <string name="less_notification_sounds_1m">1분</string>
+    <string name="less_notification_sounds_2m">2분</string>
+    <string name="less_notification_sounds_5m">5분</string>
 
     <!-- Dashboard settings -->
     <string name="dashboard_category">대시보드 설정</string>
@@ -1597,6 +1671,13 @@
     <string name="dashboard_tileview_double_lines_summary">대시보드 타일 제목을 2줄에 표시</string>
     <string name="dashboard_tileview_dividers_title">대시보드 구분선</string>
     <string name="dashboard_tileview_dividers_summary">대시보드 타일 구분선 숨기기</string>
+
+    <!-- Optional Dashboard Switches -->
+    <string name="dashboard_switches_title">대시보드 스위치</string>
+    <string name="dashboard_switches_off">스위치 끄기</string>
+    <string name="dashboard_switches_on">스위치 켜기</string>
+    <string name="dashboard_switches_summary">대시보드 스위치의 위치를 변경합니다</string>
+    <string name="dashboard_switches_dialog_title">스위치 상태 선택</string>
 
     <!-- Breathing Notifications -->
     <string name="breathing_notifications_category">알림</string>
@@ -1729,5 +1810,24 @@
 	<!-- QS Tiles Rows -->
     <string name="qs_num_rows_title">빠른 설정 열 개수</string>
     <string name="qs_num_rows_showing">%1$s개 열 표시 중</string>
+ 
+	<!-- Fingerprint Authentication Vibration -->
+    <string name="fprint_sucess_vib_title">지문 인식 진동</string>
+    <string name="fprint_sucess_vib_summary">지문이 인식되면 진동을 울립니다</string>
+ 
+	<!-- QS Tiles Rows -->
+    <string name="qs_color_switch">사용자 지정 빠른 설정 색</string>
+    <string name="qs_color_switch_summary">테마의 색을 무시합니다.</string>
+    <string name="qs_header_text_color">헤더 글자 색</string>
+    <string name="qs_header_color">헤더 배경</string>
+    <string name="qs_text_color">글자 색</string>
+    <string name="qs_icon_color">아이콘</string>
+    <string name="qs_bg_color">빠른 설정 패널 배경</string>
+    <string name="qs_brightness_icon_color">밝기 아이콘</string>
+    <string name="qs_brightness_color">밝기 슬라이더</string>
+    <string name="quick_settings_colors">빠른 설정 색</string>
+    <string name="qs_colors_summary">빠른 설정 패널 색을 변경합니다</string>
+    <string name="apply_qs_colors">색 적용</string>
+    <string name="apply_qs_colors_summary">색을 변경하려면 여기를 탭하세요</string>
 
 </resources>
