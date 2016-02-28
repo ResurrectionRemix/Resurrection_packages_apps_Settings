@@ -39,6 +39,53 @@
             android:dependency="clear_recents_style_enable" />
 
 
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_rotate_fab"
+            android:title="@string/recents_rotate_fab"
+            android:summary="@string/recents_rotate_fab_summary"
+            android:defaultValue="false" 
+	    android:dependency="clear_recents_style_enable" />
+
+        <ListPreference
+            android:key="fab_animation_style"
+            android:title="@string/fab_animation_style"
+            android:entries="@array/fab_animation_style_entries"
+            android:entryValues="@array/fab_animation_style_values"
+            android:defaultValue="0"
+            android:dependency="recents_rotate_fab" />
+
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_rotate_clear_all"
+            android:title="@string/recents_rotate_clear_all"
+            android:summary="@string/recents_rotate_clear_all_summary"
+            android:defaultValue="false" 
+	    android:dependency="clear_recents_style_enable"/>
+
+        <ListPreference
+            android:key="clear_animation_style"
+            android:title="@string/clear_animation_style"
+            android:entries="@array/fab_animation_style_entries"
+            android:entryValues="@array/fab_animation_style_values"
+            android:defaultValue="0"
+            android:dependency="recents_rotate_clear_all" />
+
+
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_fab_lp"
+            android:title="@string/recents_fab_lp"
+            android:summary="@string/recents_fab_lp_summary"
+            android:defaultValue="false" 
+	    android:dependency="clear_recents_style_enable"/>
+
+        <ListPreference
+            android:key="recents_fab_lp_anim"
+            android:title="@string/recents_fab_lp_anim"
+            android:entries="@array/fab_animation_style_entries"
+            android:entryValues="@array/fab_animation_style_values"
+            android:defaultValue="0"
+            android:dependency="recents_fab_lp" />
+
+
            </PreferenceCategory>
 
   <PreferenceCategory
