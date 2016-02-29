@@ -27,6 +27,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
@@ -37,6 +38,7 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.util.Helpers;
 import com.android.internal.logging.MetricsLogger;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -57,6 +59,9 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
              "battery_icon_color";
      private static final String BATTERY_TEXT =
              "battery_text_color";
+
+     private static final String ENABLE_COLORS = "statusbar_color_switch";
+     private static final String ENABLE ="enable_status_colors";
  
  
      private static final int WHITE                  = 0xffffffff;
@@ -75,6 +80,8 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
      private ColorPickerPreference mStatus;
      private ColorPickerPreference mBatteryIcon;
      private ColorPickerPreference mBatteryText;
+     private SwitchPreference mColorSwitch;
+     private Preference mEnable;
  
      private ContentResolver mResolver;
 
@@ -171,7 +178,16 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mStatus.setSummary(hexColor);
          mStatus.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
          mStatus.setOnPreferenceChangeListener(this);
-       }
+
+			
+	 mColorSwitch = (SwitchPreference) findPreference(ENABLE_COLORS);
+         mColorSwitch.setChecked(Settings.System.getInt(mResolver,
+                     Settings.System.STATUSBAR_COLOR_SWITCH, 0) == 1);
+         mColorSwitch.setOnPreferenceChangeListener(this);
+
+	mEnable = findPreference(ENABLE);
+
+	} 
 
 	public boolean onOptionsItemSelected(MenuItem item) {
          switch (item.getItemId()) {
@@ -186,6 +202,8 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
      public boolean onPreferenceChange(Preference preference, Object newValue) {
          String hex;
          int intHex;
+	boolean enable = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_COLOR_SWITCH, 0) == 1;
          if (preference == mSignal) {
              hex = ColorPickerPreference.convertToARGB(
                      Integer.valueOf(String.valueOf(newValue)));
@@ -239,15 +257,29 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
            }  else if (preference == mBatteryText) {
              hex = ColorPickerPreference.convertToARGB(
                      Integer.valueOf(String.valueOf(newValue)));
-             intHex = ColorPickerPreference.convertToColorInt(hex);
+             intHex = ColorPickerPreference.convertToColorInt(hex);		
              Settings.System.putInt(mResolver,
                      Settings.System.BATTERY_TEXT_COLOR, intHex);
              preference.setSummary(hex);
+             return true;
+           } else if (preference == mColorSwitch) {
+		boolean value = (Boolean) newValue;
+          	Settings.System.putInt(mResolver, Settings.System.STATUSBAR_COLOR_SWITCH, value ? 1 : 0);
              return true;
            }
          return false;
      }
   
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+		if (preference == mEnable) {
+		Helpers.restartSystemUI(); 
+            }    else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        } 
+	return false;
+	}
     @Override
     protected int getMetricsCategory() {
         return MetricsLogger.APPLICATION;
