@@ -22,6 +22,21 @@
 
 
     <PreferenceCategory
+        android:key="statusbar_color_enable"
+        android:title="@string/status_bar_color_enable">
+
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="statusbar_color_switch"
+        android:title="@string/statusbar_color_switch"
+        android:summary="@string/statusbar_color_switch_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
         android:key="notification_icons_colors"
         android:title="@string/status_bar_notification_icons">
 
@@ -72,6 +87,22 @@
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="network_icons_airplane_mode_color"
             android:title="@string/color_title"
+            android:defaultValue="#ffffffff" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="battery_colors"
+        android:title="@string/battery_color">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="battery_icon_color"
+            android:title="@string/battery_icon_color"
+            android:defaultValue="#ffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="battery_text_color"
+            android:title="@string/battery_text_color"
             android:defaultValue="#ffffffff" />
 
 	</PreferenceCategory>

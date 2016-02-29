@@ -52,6 +52,12 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
              "notification_icons_color";
      private static final String PREF_STATUS =
              "network_status_icons_status_color";
+
+     private static final String BATTERY_ICON =
+             "battery_icon_color";
+     private static final String BATTERY_TEXT =
+             "battery_text_color";
+ 
  
      private static final int WHITE                  = 0xffffffff;
      private static final int HOLO_BLUE_LIGHT        = 0xff33b5e5;
@@ -67,6 +73,8 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
      private ColorPickerPreference mAirplaneMode;
      private ColorPickerPreference mColor;
      private ColorPickerPreference mStatus;
+     private ColorPickerPreference mBatteryIcon;
+     private ColorPickerPreference mBatteryText;
  
      private ContentResolver mResolver;
 
@@ -120,6 +128,28 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
          mAirplaneMode.setDefaultColors(WHITE, RED_500);
          mAirplaneMode.setOnPreferenceChangeListener(this);
  
+         mBatteryIcon =
+                 (ColorPickerPreference) findPreference(BATTERY_ICON);
+         intColor = Settings.System.getInt(mResolver,
+                 Settings.System.BATTERY_ICON_COLOR,
+                 WHITE); 
+         mBatteryIcon.setNewPreviewColor(intColor);
+         hexColor = String.format("#%08x", (0xffffffff & intColor));
+         mBatteryIcon.setSummary(hexColor);
+         mBatteryIcon.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mBatteryIcon.setOnPreferenceChangeListener(this);
+
+         mBatteryText =
+                 (ColorPickerPreference) findPreference(BATTERY_TEXT);
+         intColor = Settings.System.getInt(mResolver,
+                 Settings.System.BATTERY_TEXT_COLOR,
+                 WHITE); 
+         mBatteryText.setNewPreviewColor(intColor);
+         hexColor = String.format("#%08x", (0xffffffff & intColor));
+         mBatteryText.setSummary(hexColor);
+         mBatteryText.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+         mBatteryText.setOnPreferenceChangeListener(this);
+
          mColor =
                  (ColorPickerPreference) findPreference(PREF_COLOR);
          intColor = Settings.System.getInt(mResolver,
@@ -198,7 +228,23 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
                      intHex);
              preference.setSummary(hex);
              return true;
-         }
+         }  else if (preference == mBatteryIcon) {
+             hex = ColorPickerPreference.convertToARGB(
+                     Integer.valueOf(String.valueOf(newValue)));
+             intHex = ColorPickerPreference.convertToColorInt(hex);
+             Settings.System.putInt(mResolver,
+                     Settings.System.BATTERY_ICON_COLOR, intHex);
+             preference.setSummary(hex);
+             return true;
+           }  else if (preference == mBatteryText) {
+             hex = ColorPickerPreference.convertToARGB(
+                     Integer.valueOf(String.valueOf(newValue)));
+             intHex = ColorPickerPreference.convertToColorInt(hex);
+             Settings.System.putInt(mResolver,
+                     Settings.System.BATTERY_TEXT_COLOR, intHex);
+             preference.setSummary(hex);
+             return true;
+           }
          return false;
      }
   
@@ -254,6 +300,12 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
                              Settings.System.putInt(getOwner().mResolver,
                                      Settings.System.STATUS_BAR_STATUS_ICONS_COLOR,
                                      WHITE);
+                             Settings.System.putInt(getOwner().mResolver,
+                                     Settings.System.BATTERY_ICON_COLOR,
+                                     WHITE);
+                             Settings.System.putInt(getOwner().mResolver,
+                                     Settings.System.BATTERY_TEXT_COLOR,
+                                     WHITE);
                              getOwner().refreshSettings();
                          }
                      })
@@ -274,6 +326,12 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
                                      HOLO_BLUE_LIGHT);
                              Settings.System.putInt(getOwner().mResolver,
                                      Settings.System.STATUS_BAR_STATUS_ICONS_COLOR,
+                                     HOLO_BLUE_LIGHT);
+                             Settings.System.putInt(getOwner().mResolver,
+                                     Settings.System.BATTERY_ICON_COLOR,
+                                     HOLO_BLUE_LIGHT);
+                             Settings.System.putInt(getOwner().mResolver,
+                                     Settings.System.BATTERY_TEXT_COLOR,
                                      HOLO_BLUE_LIGHT);
                              getOwner().refreshSettings();
                          }
