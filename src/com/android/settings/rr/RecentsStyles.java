@@ -46,7 +46,6 @@ import android.util.Log;
 
 import com.android.internal.logging.MetricsLogger;
 import cyanogenmod.providers.CMSettings;
-
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.util.Helpers;
@@ -54,7 +53,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.List;
 import java.util.ArrayList;
-
 public class RecentsStyles extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener {
 
 
@@ -68,9 +66,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
 
     private static final String FAB_ANIM_STYLE = "fab_animation_style";
 
-
     static final int DEFAULT = 0xffffffff;
-    static final int DEFAULT_BG_CLEAR_ALL = 0xffffffff;	
     static final int DEFAULT_BG_MEM_TEXT = 0xffffffff;	
     static final int DEFAULT_BG_MEM_BAR = 0xff009688;	
     static final int DEFAULT_BG_FAB = 0xffDC4C3C;	
@@ -145,7 +141,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mClearButtonColor= (ColorPickerPreference) prefSet.findPreference(CLEAR_BUTTON_COLOR);
         mClearButtonColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.CLEAR_BUTTON_COLOR, DEFAULT);
+                    Settings.System.CLEAR_BUTTON_COLOR, getResources().getColor(R.color.floating_action_button_touch_tint));
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mClearButtonColor.setSummary(hexColor);
         mClearButtonColor.setNewPreviewColor(intColor);
