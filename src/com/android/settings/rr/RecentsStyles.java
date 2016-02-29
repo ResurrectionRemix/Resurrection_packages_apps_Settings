@@ -72,8 +72,8 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
     static final int DEFAULT = 0xffffffff;
     static final int DEFAULT_BG_CLEAR_ALL = 0xffffffff;	
     static final int DEFAULT_BG_MEM_TEXT = 0xffffffff;	
-    static final int DEFAULT_BG_MEM_BAR = 0xff00b389;	
-    static final int DEFAULT_BG_FAB = 0xff263238;	
+    static final int DEFAULT_BG_MEM_BAR = 0xff009688;	
+    static final int DEFAULT_BG_FAB = 0xffDC4C3C;	
     private static final int MENU_RESET = Menu.FIRST;
 	
 
@@ -107,8 +107,8 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mfabColor = (ColorPickerPreference) prefSet.findPreference(FAB_COLOR);
         mfabColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.FAB_BUTTON_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.FAB_BUTTON_COLOR, DEFAULT_BG_FAB);
+        hexColor = String.format("#%08x", (0xffDC4C3C & intColor));
         mfabColor.setSummary(hexColor);
         mfabColor.setNewPreviewColor(intColor);
 
@@ -137,8 +137,8 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mMemBarColor= (ColorPickerPreference) prefSet.findPreference(MEMBAR_COLOR);
         mMemBarColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.MEM_BAR_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.MEM_BAR_COLOR, DEFAULT_BG_MEM_BAR);
+        hexColor = String.format("#%08x", (0xff009688 & intColor));
         mMemBarColor.setSummary(hexColor);
         mMemBarColor.setNewPreviewColor(intColor);
 
