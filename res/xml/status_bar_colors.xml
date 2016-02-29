@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2015 Android Open Source Illusion Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/icon_category" >
+
+
+    <PreferenceCategory
+        android:key="notification_icons_colors"
+        android:title="@string/status_bar_notification_icons">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_icons_color"
+            android:title="@string/color_title"
+            android:defaultValue="#ffffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_status_icons_cat_status_colors"
+        android:title="@string/network_status_icons_cat_status_colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="network_status_icons_status_color"
+            android:title="@string/color_title"
+            android:defaultValue="#ffffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_icons_cat_signal_colors"
+        android:title="@string/network_icons_cat_signal_colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="network_icons_signal_color"
+            android:title="@string/color_title"
+            android:defaultValue="#ffffffff" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_icons_cat_no_sim_colors"
+        android:title="@string/network_icons_cat_no_sim_colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="network_icons_no_sim_color"
+            android:title="@string/color_title"
+            android:defaultValue="#ffffffff" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="network_icons_cat_airplane_mode_colors"
+        android:title="@string/network_icons_cat_airplane_mode_colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="network_icons_airplane_mode_color"
+            android:title="@string/color_title"
+            android:defaultValue="#ffffffff" />
+
+	</PreferenceCategory>
+</PreferenceScreen>
+

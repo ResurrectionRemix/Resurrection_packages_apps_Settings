@@ -73,6 +73,11 @@
                 android:targetClass="com.android.systemui.tuner.TunerActivity" />
        </PreferenceScreen>
 
+     <PreferenceScreen
+        android:key="status_bar_colors"
+	android:fragment="com.android.settings.rr.StatusColors"
+        android:title="@string/status_bar_colors_title" />
+
     <PreferenceScreen
            android:key="carrierlabel"
            android:title="@string/carrier_options"
