@@ -57,6 +57,12 @@
 
     <string name="rr_mod_version">Resurrection sürümü</string>
     
+    <!-- Nfc settings -->
+    <string name="nfc_polling_mode_title">NFC seçim modu</string>
+    <string name="nfc_polling_mode_screen_off">Ekran kapalı</string>
+    <string name="nfc_polling_mode_screen_locked">Ekran açık, kilitli</string>
+    <string name="nfc_polling_mode_screen_unlocked">Ekran açık, kilit açık (varsayılan)</string>
+    
     <!-- Themes Settings -->
     <!-- Settings main menu entry -->
     <string name="themes_settings_title_rr">Tema seçici</string>
@@ -116,7 +122,7 @@
 
 
     <string name="header_cat">Bildirim Başlığı</string>
-	<string name="rr_header_fonts">Bildirim Başlığı Yazı Tipi</string>
+    <string name="rr_header_fonts">Bildirim Başlığı Yazı Tipi</string>
     <string name="rr_header_colors">Bildirim Başlığı Renkleri</string>
     <string name="rr_custom_header_options">Özel başlıklar</string>	
     <string name="header_ui">Başlık Arayüzü</string>	
@@ -127,6 +133,7 @@
     <string name="misc_1">Sistem Araçları</string>
     <string name="misc_2">İnce Ayarlar</string>
     <string name="misc_3">Sistem</string>
+    <string name="misc_4">Parmak izi</string>
 
 
     <!-- Color picker -->
@@ -146,13 +153,13 @@
 
     <!--Time Contexual Header -->
     <string name="status_bar_custom_header_title">Özel başlık görüntüsü</string>
-	<string name="status_bar_custom_header_title">Time Contextual Header</string>
+    <string name="status_bar_custom_header_title">Zaman İçeriği Başlığı</string>
     <string name="status_bar_custom_header_summary">Bildirim paneli başlık görüntüsünü etkinleştir</string>
     <string name="daylight_header_pack_title">Başlık görüntü paketi</string>
     <string name="custom_header_image_0">Varsayılan</string>
     <string name="custom_header_image_1">Modern</string>
     <string name="custom_header_image_2">Çoklu HD</string>
-	<string name="status_bar_custom_header_shadow_title">Gölge başlık görüntüsü</string>
+    <string name="status_bar_custom_header_shadow_title">Gölge başlık görüntüsü</string>
     <string name="status_bar_custom_header_shadow_summary">Parlak görüntülerde daha iyi görüş için</string>
     <string name="unit_percent">\u0025</string>
  
@@ -207,7 +214,76 @@
     <string name="recents_clear_all_dismiss_all_title">Tüm görevleri temizle</string>
     <string name="recents_clear_all_dismiss_all_summary">Tümünü temizler, son kullanılan dahil</string>
     <string name="recents_show_membar_title">Bellek çubuğu</string>
-    <string name="recents_show_membar_summary">Cihaz\'ın kullanılabilir belleğini göster</string>	
+    <string name="recents_show_membar_summary">Cihaz\'ın kullanılabilir belleğini göster</string>
+    <string name="clear_recents_style">Tuş Stili</string>	
+    <string name="fab_button_color">Tuş BG</string>	
+    <string name="mem_bar_color">Hafıza Çubuğu</string>	
+    <string name="recents_clock_color">Tam Ekran Son Kullanılanlar Saat Yazısı</string>	
+    <string name="recents_date_color">Tam Ekran Son Kullanılanlar Tarih Yazısı</string>
+    <string name="recents_styles_1">Stiller</string>
+    <string name="recents_colors">Stiller</string>
+    <string name="recents_style_2">Renkler</string>
+    <string name="recent_styles">Son Kullanılanlar Stili</string>
+    <string name="recent_styles_summary">Son kullanılanlar çeşitli unsurları özelleştirme </string>
+    <string name="mem_text_color">Hafıza Çubuğu Metni</string>	
+    <string name="clear_button_color">Tümünü Temizle</string>	
+    <string name="clear_recents_style_enable">Tümünü Temizle Tuşunu Özelleştir</string>	
+    <string name="clear_recents_style_enable_summary">Tümünü Temizle Tuşunu Özelleştirme Etkin / Devre dışı</string>	
+    <string name="recents_rotate_fab">FAB Animasyon</string>	
+    <string name="recents_rotate_fab_summary">Tümünü Temizle Tuşunu Döndür Etkin / Devre dışı</string>	
+    <string name="recents_rotate_clear_all">Tümünü Temizle Tuşu Animasyon</string>	
+    <string name="recents_rotate_clear_all_summary">Tümünü Kapatma Tuşu Animasyonu Etkin / Devre dışı</string>
+    <string name="fab_animation_style">Yüzer Tuş Animasyonu</string>	
+    <string name="recents_fab_lp">FAB Uzun Basmayı Etkinleştir</string>	
+    <string name="recents_fab_lp_summary">Hafıaz Çubuğu Mevcut ise Uzun Basıldığında Güncelle</string>	
+    <string name="recents_fab_lp_anim">Uzun Basma FAB Animasyonları</string>
+    <string name="clear_animation_style">Tümünü Temizle Animasyonu</string>	
+    <string name="button1">Varsayılan </string>	
+    <string name="button2">Kare Onay Kutusu </string>	
+    <string name="button3">Grafik </string>	
+    <string name="button4">Dikey Çizgiler 1</string>	
+    <string name="button5">Dikey Çizgiler 2</string>	
+    <string name="button6">Pano </string>	
+    <string name="button7">Boya </string>	
+    <string name="button8">Yatay Çizgiler</string>	
+    <string name="button9">Dairesel Onay Kutusu </string>	
+    <string name="button10">Kaydırarak Sil </string>
+    <string name="button11">Zzzzz</string>	
+    <string name="button12">Göz Kırpma</string>	
+    <string name="button13">Beğeni Tuşu</string>	
+    <string name="button14">Küp Kayırma</string>	
+    <string name="button15">Çan </string>	
+    <string name="button16">Ok Çizgileri Sol</string>	
+    <string name="button17">Kapalı Katmanlar </string>	
+    <string name="button18">Ok Çizgileri Arka</string>	
+    <string name="button19">Katmanlar</string>	
+    <string name="button20">Arşiv </string>
+    <string name="button21">Veritabanı Artı</string>
+    <string name="button22">Contracting Arrows</string>	
+    <string name="button23">Google</string>	
+    <string name="button24">Veritabanı Eksi </string>	
+    <string name="button25">Sıralı Küp</string>	
+    <string name="button26">Zamanlayıcı</string>
+    <string name="button27">Resurrection</string>
+    <string name="button28">Android Stok</string>
+    <string name="button29">Resurrection Lollipop</string>
+
+    <string name="animation0">Döndür </string>	
+    <string name="animation1">Son Kullanılanlardan Çıkış</string>	
+    <string name="animation2">Yarı Saydam Çıkış </string>	
+    <string name="animation3">Yarı Saydam Şerit Çıkış</string>	
+    <string name="animation4">Tost Çıkış</string>	
+    <string name="animation5">Aşağı Dışarı Kaydır </string>	
+    <string name="animation6">Xylon Çıkış </string>	
+    <string name="animation7">Honami Tost Çıkış</string>	
+    <string name="animation8">Sağ Dışarı Kaydır </string>
+    <string name="animation9">Tost Çıkış</string>	
+    <string name="animation10">Dışarı Karart Yavaş </string>	
+    <string name="animation11">Sol Dışarı Kaydır</string>	
+    <string name="animation12">Dışarı Karart</string>	
+    <string name="animation13">Dışarı Karart Hızlı </string>
+    <string name="animation14">Yukarı Dışarı Kaydır </string>	
+    <string name="animation15">Hızlı Döndür</string>
 
     <!-- Recents Fullscreen -->
     <string name="recents_show_fullscreen">Tam ekran Son kullanılanlar</string>
@@ -220,16 +296,16 @@
 
     <!--Notification Drawer-->
     <string name="notification_drawer_title">Bildirim Çekmecesi</string>
-	<string name="rr_qs_cat">Hızlı Ayarlar Aşağı Çekme</string>
+    <string name="rr_qs_cat">Hızlı Ayarlar Aşağı Çekme</string>
     <string name="rr_qs">Hızlı Ayarlar</string>
-    <string name="rr_brightness_cat">Parlaklık KLaydırıcı</string>
+    <string name="rr_brightness_cat">Parlaklık Kaydırıcı</string>
     <string name="rr_qs_title">Hızlı Ayarlar Panelİ</string>
 	
 
     <!-- Quick settings quick pull down -->
     <string name="status_bar_quick_qs_pulldown_title">Hızlı Aşağı Çekme</string>
     <string name="status_bar_quick_qs_pulldown_summary">Durum çubuğunun Sağ kenarı Hızlı Ayarları aşağı çeker</string>
-	<string name="quick_pulldown_summary_always">Her zaman durum çubuğunu aşağı çekince Hızlı Ayarları göster</string>	
+    <string name="quick_pulldown_summary_always">Her zaman durum çubuğunu aşağı çekince Hızlı Ayarları göster</string>	
     <string name="quick_pulldown_always">Her zaman</string>
 
     <!-- Quick settings brightness slider -->
@@ -241,7 +317,7 @@
     <string name="heads_up_notifications">Heads up</string>
     <string name="summary_heads_up_enabled">Açılır Pencere bildirimleri etkin</string>
     <string name="summary_heads_up_disabled">Açılır Pencere bildirimleri devre dışı</string>
-	<string name="headsup_options_header">Heads Up Seçenekleri</string>
+    <string name="headsup_options_header">Heads Up Seçenekleri</string>
     <string name="heads_up_snooze_title">Erteleme</string>
     <string name="heads_up_snooze">Erteleme</string>
     <string name="heads_up_timeout">Zaman aşımı</string>
@@ -295,7 +371,7 @@
     <string name="clock_font_black_italic">Siyah İtalik</string>
     <string name="clock_font_dancingscript">DancingScript</string>
     <string name="clock_font_dancingscript_bold">DancingScript Kalın</string>
-    <string name="clock_font_comingsoon">Çok Yakında</string>
+    <string name="clock_font_comingsoon">ComingSoon</string>
     <string name="clock_font_notoserif">NotoSerif Normal</string>
     <string name="clock_font_notoserif_italic">NotoSerif İtalik</string>
     <string name="clock_font_notoserif_bold">NotoSerif Kalın</string>
@@ -330,7 +406,7 @@
     <string name="display_lockscreen_rotation_title">Kilit ekranı</string>
     <!-- Lock screen settings -->
     <string name="rr_lockscreen_title">Kilit Ekranı</string>
-	<string name="rr_ls_ui">Kilit Ekranı Kullanıcı Arayüzü</string>
+    <string name="rr_ls_ui">Kilit Ekranı Kullanıcı Arayüzü</string>
     <string name="rr_lockscreen_date">Tarih ve Saat</string>
     <string name="rr_ls_security_main">Kilit Ekranı Güvenliği</string>
     <string name="rr_lockscreen_notifications">Kilit Ekranı Bildirimleri</string>
@@ -343,6 +419,18 @@
     <string name="rr_lockscreen_style">Stiller</string>
     <string name="double_tap_ls">Uyutmak için Kilit Ekranına Çift Dokunun</string>
     <string name="double_tap_ls_summary">Kilit ekranında herhangi bir yere iki kez dokunarak cihazı uyku moduna alabilirsiniz</string>
+    
+    <string name="ls_bouncer_title">Secure lockscreen bouncer</string>
+    <string name="ls_bouncer_summary">Open lockscreen directly to pin/pattern/password when there are %1$s notifications present</string>
+    <string name="ls_bouncer_on">Açık (varsayılan)</string>
+    <string name="ls_bouncer_on_summary">Stock bouncer behavior</string>
+    <string name="ls_bouncer_off">Kapalı</string>
+    <string name="ls_bouncer_off_summary">Open Lockscreen directly to pin/pattern/password</string>
+    <string name="ls_bouncer_dismissable">Kapatılabilir bildirim yoksa</string>
+    <string name="ls_bouncer_persistent">Kalıcı bildirim yoksa</string>
+    <string name="ls_bouncer_all">Kapatılabilir yada kalıcı yoksa</string>
+    <string name="lockscreen_alpha">Kilit ekranı alfa</string>
+    <string name="lockscreen_security_alpha">Lockscreen bouncer alpha</string>
     
     <!-- Lockscreen wallpaper -->
     <string name="lockscreen_wallpaper_title">Duvar kağıdı</string>
@@ -593,7 +681,7 @@
     <string name="attention">Dikkat</string>
     <string name="reset">Sıfırla</string>
     <string name="add">Ekle</string>
-    <string name="enabled">Etin</string>
+    <string name="enabled">Etkin</string>
     <string name="choose_app">Uygulama seçin</string>
 	
     <!-- Lockscreen see through -->
@@ -627,7 +715,7 @@
     <!-- Gesture Anywhere -->
     <string name="gesture_anywhere_title">Her Yerde Hareket</string>
     <string name="gesture_anywhere_enabled_title">Her Yerde Hareket</string>
-    <string name="gesture_anywhere_enabled_summary">Her yerde Hareket özelliğini etkinleştir</string>
+    <string name="gesture_anywhere_enabled_summary">Her Yerde Hareket özelliğini etkinleştir</string>
     <string name="gesture_anywhere_position_title">Konum</string>
     <string name="gesture_anywhere_position_left">Sol kenar</string>
     <string name="gesture_anywhere_position_right">Sol kenar</string>
@@ -1315,11 +1403,11 @@
     <string name="lockscreen_clock_date_color">Kilit Ekranı Tarih</string>
     <string name="lockscreen_colors_reset_title">Kilit ekranı renklerini sıfırla</string>
     <string name="lockscreen_colors_reset_message">Varsayılan bu renkleri sıfırlamak istediğinizden emin misiniz?</string>
-	<string name="lockscreen_colors_title">Kilit ekranı renkleri</string>
+    <string name="lockscreen_colors_title">Kilit ekranı renkleri</string>
     <string name="lockscreen_owner_info_color">Cihaz sahibi bilgileri</string>
     <string name="lockscreen_alarm_color">Alarm</string>
     <string name="icons_title">Hava Durumu Simgeler</string>
-    <string name="text_title">Hava Durumu Yazı</string>
+    <string name="text_title">Hava Durumu Metni</string>
     <string name="lock_screen_weather_temp_color">Hava Durumu Sıcaklığı</string>
     <string name="lock_screen_weather_con_color">Hava Durumu</string>
     <string name="lock_screen_weather_stamp_color">Konum Zaman Damgası</string>
@@ -1522,8 +1610,23 @@
     <!-- Quick settings disable on lockscreen -->
     <string name="block_on_secure_keyguard_title">Kilit ekranında hızlı ayarlar devre dışı</string>
     <string name="block_on_secure_keyguard_summary">Sadece güvenli kilit ekranında hızlı ayarlar devre dışı bırakır</string>
+    
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate">Hızlı Ayarlar Titreşimleri</string>	
+    <string name="quick_settings_vibrate_title">Dokunulduğunda Titre</string>
+    <string name="quick_settings_vibrate_summary">Karelere dokununca titret</string>
 
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_icon_vibrate_title">Ayarlar Simgesi Titreşimi </string>
+    <string name="quick_settings_icon_vibrate_summary">Ayarlar simgesine dokunulduğunda Titre</string>
+    <string name="quick_settings_header_vibrate">Başlık Simgeleri </string>	
+    <string name="quick_settings_header_vibrate_summary">Başlık Simgelerine Bir Kez Dokunulduğunda Titre </string>	
+    <string name="quick_settings_header_vibrate_lp">Başlığa Uzun Basma </string>	
+    <string name="quick_settings_header_vibrate_lp_summary">Başlık Simgelerine Uzun Basıldığında Titre </string>		
 
+    <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_sp_vibrate_title">Bir Kez Dokunulduğunda Titre </string>
+    <string name="quick_settings_sp_vibrate_summary">Karelere Bir Kez Dokunulduğunda Titre</string>
 
     <!-- QS shade transparency -->
     <string name="qs_transparent_shade">Hızlı Ayarlar Paneli Saydamlığı</string>
@@ -1588,24 +1691,32 @@
     <string name="less_notification_sounds_2m">2 dakika</string>
     <string name="less_notification_sounds_5m">5 dakika</string>
 
-    <!-- Dashboard columns -->
-	<string name="dashboard_category">Kontrol paneli ayarları</string>
+    <!-- Dashboard settings -->
+    <string name="dashboard_category">Kontrol paneli ayarları</string>
     <string name="dashboard_columns_title">Ön panel Sütunları</string>
     <string name="dashboard_columns_summary">Kontrol panelinin görüntülenen sütunlarının sayısını değiştirme</string>
     <string name="dashboard_columns_dialog_title">Kontrol paneli sütunlarını seç</string>
     <string name="dashboard_columns_default">Bir (varsayılan)</string>
     <string name="dashboard_columns_two">İki</string>
     <string name="dashboard_columns_three">Üç</string>
-	<string name="dashboard_tileview_double_lines_title">Kontrol paneli başlığı görünümü</string>
+    <string name="dashboard_tileview_double_lines_title">Kontrol paneli başlığı görünümü</string>
     <string name="dashboard_tileview_double_lines_summary">Kontrol paneli kare başlıklarını 2 satır göster</string>
     <string name="dashboard_tileview_dividers_title">Kontrol paneli ayracı</string>
     <string name="dashboard_tileview_dividers_summary">Kontrol paneli kare ayraçlarını gizle</string>
 
+    
+    <!-- Optional Dashboard Switches -->
+    <string name="dashboard_switches_title">Kontrol Paneli Anahtarları</string>
+    <string name="dashboard_switches_off">Anahtarlar Kapalı</string>
+    <string name="dashboard_switches_on">Anahtarlar Açık</string>
+    <string name="dashboard_switches_summary">Kontrol paneli anahtarları konumunu değiştirme</string>
+    <string name="dashboard_switches_dialog_title">Anahtar konumunu seç</string>
+     
     <!-- Breathing Notifications -->
     <string name="breathing_notifications_category">Bildirimler</string>
-	<string name="breathing_notifications_sms">Mesajlaşma</string>
-	<string name="breathing_voice_category">Sesli Mesaj</string>
-	<string name="breathing_category">Nefes Efekti Bildirimleri</string>
+    <string name="breathing_notifications_sms">Mesajlaşma</string>
+    <string name="breathing_voice_category">Sesli Mesaj</string>
+    <string name="breathing_category">Nefes Efekti Bildirimleri</string>
     <string name="breathing_notifications_title">Nefes efekti bildirimleri</string>
     <string name="missed_call_breath_title">Cevapsız Çağrı Nefes Efekti</string>
     <string name="missed_call_breath_summary">Cevapsız çağrı bildirimlerinde durum çubuğunda bir nefes efekti verecek</string>
@@ -1653,7 +1764,7 @@
     <string name="hide_panel_clock_title">Bildirim Panelinde Saati göster</string>
     <string name="hide_panel_date_title">Bildirim Panelinde Tarihi göster</string>
     <string name="hide_panel_clockvalue">Saat Detayını Göster</string>
-    <string name="hide_panel_battery">Bildirim Panelinde Pil Metin Göster</string>
+    <string name="hide_panel_battery">Bildirim Panelinde Pil Metni Göster</string>
     <string name="hide_panel_icons">Bildirim Simgelerini Göster</string>
     <string name="hide_panel_alarm_title">Alarmı Gizle</string>	
     <string name="hide_settings_icon">Bildirim Panelinde Ayarlar Tuşunu Göster</string>
@@ -1727,12 +1838,50 @@
     <string name="clock_date_right">Saatin sağında</string>
     <string name="clock_date_left">Saatin solunda</string>
 	
-	<!-- QS Tiles Columns -->
+    <!-- QS Tiles Columns -->
     <string name="qs_num_columns_title">Hızlı Ayarlar satır başına kare sayısı</string>
     <string name="qs_num_columns_showing">Satır başına %1$s kare göster</string>
 
     <!-- QS Tiles Rows -->
     <string name="qs_num_rows_title">Hızlı Ayarlar satır sayısı</string>
     <string name="qs_num_rows_showing">%1$s satır gösterilir</string>
+    
+    <!-- QS Tiles Rows -->
+    <string name="qs_color_switch">Özel Hızlı Ayarlar Renkleri</string>
+    <string name="qs_color_switch_summary">Tema Renklerini Geçersiz Kılar.</string>
+    <string name="qs_header_text_color">Başlık Yazı Rengi</string>
+    <string name="qs_header_color">Başlık Arkaplanı</string>
+    <string name="qs_text_color">Yazı Rengi</string>
+    <string name="qs_icon_color">Simgeler</string>
+    <string name="qs_bg_color">Hızlı Ayarlar Paneli BG</string>
+    <string name="qs_brightness_icon_color">Parlaklık Simgesi</string>
+    <string name="qs_brightness_color">Parlaklık Kaydırıcı</string>
+    <string name="quick_settings_colors">Hızlı Ayarlar Renkleri</string>
+    <string name="qs_colors_summary">Hızlı Ayarlar Paneli Renkleri Özelleştirme</string>
+    <string name="apply_qs_colors">Renkleri Uygula</string>
+    <string name="apply_qs_colors_summary">Değişiklikleri Uygulamak İçin Buraya Dokunun</string>
+
+    <!-- Fingerprint Authentication Vibration -->
+    <string name="fprint_sucess_vib_title">Parmak izi kimlik doğrulama titreşimi</string>
+    <string name="fprint_sucess_vib_summary">Başarılı parmak izi kimlik doğrulanması üzerine titre</string>
+	
+	<string name="status_bar_colors_title">Durum Çubuğu Simgesi Renkleri</string>
+    <string name="status_bar_network_icons_settings_title">Ağ simgeleri</string>
+    <string name="status_bar_network_icons_settings_summary">Ağ simgelerini özelleştir</string>
+    <!-- Status bar network icons settings -->
+    <string name="icon_category">Simgeler</string>	
+    <string name="network_icons_cat_signal_colors_title">Sinyal renkleri</string>
+    <string name="network_icons_cat_no_sim_colors_title">Sim kart yok renkleri</string>
+    <string name="network_icons_cat_airplane_mode_colors_title">Uçak modu renkleri</string>
+    <string name="status_bar_notification_icons">Bildirim simgeleri renkleri</string>
+    <string name="network_status_icons_cat_status_colors_title">Durum çubuğu simgeleri rengi</string>
+
+    <string name="status_bar_color_enable">Durum Çubuğu Renkleri</string>
+    <string name="statusbar_color_switch">Özel Simge Renkleri</string>
+
+    <string name="battery_color">Pil</string>
+    <string name="battery_icon_color">Simge (Sadece Şarj Ederken)</string>
+    <string name="battery_text_color">Yazı</string>
+    <string name="statusbar_color_switch_summary">Özel Simge Renkleri Etkin/Devre dışı</string>
 
 </resources>
