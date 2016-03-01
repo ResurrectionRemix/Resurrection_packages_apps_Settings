@@ -68,6 +68,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 
     static final int DEFAULT = 0xffffffff;
     static final int DEFAULT_BG = 0xff263238;
+    static final int DEFAULT_HEADER_BG = 0xff384248;
+    static final int DEFAULT_SECONDARY_TEXT = 0xb3ffffff;
+    static final int DEFAULT_TEXT = 0xffffffff;
     
     private static final int MENU_RESET = Menu.FIRST;
 	
@@ -103,16 +106,16 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mHeaderColor = (ColorPickerPreference) findPreference(QS_HEADER_COLOR);
         mHeaderColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.QS_HEADER_COLOR, DEFAULT_BG);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.QS_HEADER_COLOR,DEFAULT_HEADER_BG);
+        hexColor = String.format("#%08x", (0xff384248 & intColor));
         mHeaderColor.setSummary(hexColor);
         mHeaderColor.setNewPreviewColor(intColor);
 
         mQsTextColor = (ColorPickerPreference) findPreference(QS_TEXT_COLOR);
         mQsTextColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.QS_TEXT_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.QS_TEXT_COLOR, DEFAULT_SECONDARY_TEXT);
+        hexColor = String.format("#%08x", (0xb3ffffff & intColor));
         mQsTextColor.setSummary(hexColor);
         mQsTextColor.setNewPreviewColor(intColor);
 
@@ -128,7 +131,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mQsBgColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
                     Settings.System.QS_BACKGROUND_COLOR, DEFAULT_BG);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        hexColor = String.format("#%08x", (0xff263238 & intColor));
         mQsBgColor.setSummary(hexColor);
         mQsBgColor.setNewPreviewColor(intColor);
 
@@ -212,7 +215,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
              boolean value = (Boolean) newValue;
              Settings.System.putInt(resolver, Settings.System.QS_COLOR_SWITCH, value ? 1 : 0);
              return true;
-	}  else if (preference == mSliderIconColor) {
+         }  else if (preference == mSliderIconColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
@@ -272,16 +275,16 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mHeaderTextColor.setNewPreviewColor(DEFAULT);
         mHeaderTextColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.QS_HEADER_COLOR, DEFAULT_BG);
-        mHeaderColor.setNewPreviewColor(DEFAULT);
+                Settings.System.QS_HEADER_COLOR, DEFAULT_HEADER_BG);
+        mHeaderColor.setNewPreviewColor(DEFAULT_HEADER_BG);
         mHeaderColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.QS_TEXT_COLOR, DEFAULT);
-        mQsTextColor.setNewPreviewColor(DEFAULT);
+                Settings.System.QS_TEXT_COLOR, DEFAULT_SECONDARY_TEXT);
+        mQsTextColor.setNewPreviewColor(DEFAULT_SECONDARY_TEXT);
         mQsTextColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.QS_ICON_COLOR, DEFAULT);
-	mQsIconColor.setNewPreviewColor(DEFAULT);
+        mQsIconColor.setNewPreviewColor(DEFAULT);
         mQsIconColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.QS_BACKGROUND_COLOR, DEFAULT_BG);
@@ -289,7 +292,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mQsBgColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.QS_BRIGHTNESS_ICON_COLOR, DEFAULT);
-        mSliderIconColor.setNewPreviewColor(DEFAULT_BG);
+        mSliderIconColor.setNewPreviewColor(DEFAULT);
         mSliderIconColor.setSummary(R.string.default_string);
 
     }
