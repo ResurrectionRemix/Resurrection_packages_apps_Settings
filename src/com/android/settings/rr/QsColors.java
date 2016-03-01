@@ -67,7 +67,8 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
  private static final String ENABLE ="enable";
 
     static final int DEFAULT = 0xffffffff;
-    static final int DEFAULT_BG = 0xff263238;	
+    static final int DEFAULT_BG = 0xff263238;
+    
     private static final int MENU_RESET = Menu.FIRST;
 	
 
@@ -102,7 +103,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mHeaderColor = (ColorPickerPreference) findPreference(QS_HEADER_COLOR);
         mHeaderColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.QS_HEADER_COLOR, DEFAULT);
+                    Settings.System.QS_HEADER_COLOR, DEFAULT_BG);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mHeaderColor.setSummary(hexColor);
         mHeaderColor.setNewPreviewColor(intColor);
@@ -126,7 +127,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
        	mQsBgColor = (ColorPickerPreference) findPreference(QS_BACKGROUND_COLOR);
         mQsBgColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.QS_BACKGROUND_COLOR, DEFAULT);
+                    Settings.System.QS_BACKGROUND_COLOR, DEFAULT_BG);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQsBgColor.setSummary(hexColor);
         mQsBgColor.setNewPreviewColor(intColor);
@@ -271,7 +272,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mHeaderTextColor.setNewPreviewColor(DEFAULT);
         mHeaderTextColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.QS_HEADER_COLOR, DEFAULT);
+                Settings.System.QS_HEADER_COLOR, DEFAULT_BG);
         mHeaderColor.setNewPreviewColor(DEFAULT);
         mHeaderColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
@@ -283,7 +284,7 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 	mQsIconColor.setNewPreviewColor(DEFAULT);
         mQsIconColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.QS_BACKGROUND_COLOR, DEFAULT);
+                Settings.System.QS_BACKGROUND_COLOR, DEFAULT_BG);
         mQsBgColor.setNewPreviewColor(DEFAULT_BG);
         mQsBgColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
