@@ -212,6 +212,16 @@ public class IccLockSettings extends InstrumentedPreferenceActivity
         updatePreferences();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return false;
+    }
+
+
     private void updatePreferences() {
         mPinDialog.setEnabled(mPhone != null);
         mPinToggle.setEnabled(mPhone != null);
@@ -452,18 +462,6 @@ public class IccLockSettings extends InstrumentedPreferenceActivity
         mPin = "";
         setDialogValues();
         mDialogState = OFF_MODE;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        switch (itemId) {
-            case android.R.id.home:
-                goUpToTopLevelSetting(this);
-                return true;
-            default:
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     /**
