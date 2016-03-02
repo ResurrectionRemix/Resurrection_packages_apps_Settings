@@ -62,6 +62,8 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     private static final int MONOCHROME_ICON = 0;
 
     static final int DEFAULT = 0xffffffff;
+    static final int TRANSPARENT = 0x00000000;
+
     private static final int MENU_RESET = Menu.FIRST;
 
     private ColorPickerPreference mLockscreenPhoneColorPicker;
@@ -96,7 +98,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
         mLockscreenPhoneColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_PHONE_ICON_COLOR);
         mLockscreenPhoneColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, DEFAULT);
+                    Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, TRANSPARENT);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mLockscreenPhoneColorPicker.setSummary(hexColor);
         mLockscreenPhoneColorPicker.setNewPreviewColor(intColor);
@@ -112,7 +114,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
         mLockscreenCameraColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_CAMERA_ICON_COLOR);
         mLockscreenCameraColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, DEFAULT);
+                    Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, TRANSPARENT);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mLockscreenCameraColorPicker.setSummary(hexColor);
         mLockscreenCameraColorPicker.setNewPreviewColor(intColor);
@@ -405,16 +407,16 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     private void resetValues() {
 	ContentResolver resolver = getActivity().getContentResolver();
         Settings.System.putInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, DEFAULT);
-        mLockscreenPhoneColorPicker.setNewPreviewColor(DEFAULT);
+                Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, TRANSPARENT);
+        mLockscreenPhoneColorPicker.setNewPreviewColor(TRANSPARENT);
         mLockscreenPhoneColorPicker.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_LOCK_ICON_COLOR, DEFAULT);
         mLockscreenLockColorPicker.setNewPreviewColor(DEFAULT);
         mLockscreenLockColorPicker.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, DEFAULT);
-        mLockscreenCameraColorPicker.setNewPreviewColor(DEFAULT);
+                Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, TRANSPARENT);
+        mLockscreenCameraColorPicker.setNewPreviewColor(TRANSPARENT);
         mLockscreenCameraColorPicker.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_INDICATION_TEXT_COLOR, DEFAULT);
