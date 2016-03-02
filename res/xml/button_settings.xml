@@ -86,6 +86,13 @@
         android:key="interface"
         android:title="@string/interface_category">
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="navbar_recents_switch"
+            android:title="@string/navbar_recents_switch"
+            android:summary="@string/navbar_recents_switch_summary"
+            android:defaultValue="false" />
+
+
         <ListPreference
             android:key="navigation_recents_long_press"
             android:dialogTitle="@string/navigation_bar_recents_title"
