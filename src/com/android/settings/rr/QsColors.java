@@ -64,7 +64,6 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
  private static final String QS_BACKGROUND_COLOR = "qs_bg_color";
  private static final String QS_COLOR_SWITCH = "qs_color_switch";
  private static final String QS_ICON = "qs_brightness_icon_color";
- private static final String ENABLE ="enable";
 
     static final int DEFAULT = 0xffffffff;
     static final int DEFAULT_BG = 0xff263238;
@@ -82,7 +81,6 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
     private ColorPickerPreference mQsBgColor;	
     private ColorPickerPreference mSliderIconColor;
     private SwitchPreference mQsColorSwitch;
-    private Preference mEnable;		
    
 
  @Override
@@ -149,7 +147,6 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
                 Settings.System.QS_COLOR_SWITCH, 0) == 1));
 	mQsColorSwitch.setOnPreferenceChangeListener(this);
 
-	mEnable = findPreference(ENABLE);
 	
 	setHasOptionsMenu(true);
 
@@ -224,16 +221,6 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
                     Settings.System.QS_BRIGHTNESS_ICON_COLOR, intHex);	
             return true;
          }
-	return false;
-	}
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-		if (preference == mEnable) {
-		Helpers.restartSystemUI(); 
-            }    else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        } 
 	return false;
 	}
 
