@@ -280,7 +280,6 @@ public class SettingsActivity extends Activity
             R.id.device_section,
             R.id.sound_settings,
             R.id.display_and_lights_settings,
-            R.id.lockscreen_settings,
             R.id.notification_manager,
             R.id.storage_settings,
             R.id.application_settings,
