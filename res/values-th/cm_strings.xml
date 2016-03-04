@@ -16,14 +16,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="other">คุณเหลืออีก <xliff:g id="step_count">%1$d</xliff:g> ขั้นก่อนจะสามารถเปิดใช้งานการตั้งค่าการพัฒนา</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">คุณเปิดใช้งานการตั้งค่าการพัฒนาแล้ว!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">ไม่จำเป็น คุณได้เปิดใช้งานการตั้งค่าการพัฒนาแล้ว</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">เครื่องมือการพัฒนา</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">ทางลัดการพัฒนา</string>
   <string name="development_shortcut_summary">เปิดใช้งานทางลัดตัวจัดการแอปในรายการแอปล่าสุด</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">สิทธิผู้ดูแลระบบ</string>
   <string name="root_access_warning_title">ให้สิทธิผู้ดูแลระบบหรือไม่</string>
   <string name="root_access_warning_message">การอนุญาติให้แอปพลิเคชันเข้าถึงสิทธิผู้ดูแลระบบถือเป็นอันตรายอย่างมากและสามารถส่งผลต่อความปลอดภัยของระบบของคุณ!</string>
@@ -31,25 +37,37 @@
   <string name="root_access_apps">แอปเท่านั้น</string>
   <string name="root_access_adb">ADB เท่านั้น</string>
   <string name="root_access_all">แอปและ ADB</string>
+  <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">รุ่นของ CyanogenMod</string>
   <string name="mod_version_default">ไม่รู้จัก</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">รุ่นอุปกรณ์</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">ชื่ออุปกรณ์</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level">ระดับ API ของ CyanogenMod</string>
   <string name="mod_api_level_default">ไม่รู้จัก</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">วันที่สร้าง</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">การอัปเดตรุ่น CyanogenMod</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">อัปเดตรุ่น Cyanogen recovery</string>
   <string name="update_recovery_summary">อัปเดตรุ่น recovery ด้วยการอัปเดตระบบ</string>
   <string name="update_recovery_on_warning">คำเตือน: เมื่อเปิดใช้งานคุณสมบัตินี้ recovery ที่ติดตั้งจะถูกแทนที่ด้วย recovery รุ่นปัจจุบันของระบบที่ใช้งาน\n\n recovery ของคุณจะได้รับการอัปเดตไปพร้อมกับการอัพเกรดระบบ ซึ่งช่วยให้แน่ใจได้ว่าจะสามารถเข้าได้กับรุ่นต่าง ๆ ในอนาคต\n\nต้องการใช้คุณสมบัตินี้หรือไม่</string>
   <string name="update_recovery_off_warning">คำเตือน: เมื่อปิดการใช้งานคุณสมบัตินี้ recovery ที่ติดตั้งจะไม่ได้รับการอัปเดตไปกับการอัพเกรดระบบ\n\nการอัปเดตระบบในอนาคตอาจไม่ติดตั้งรุ่น recovery ที่ล้าสมัยหรือที่กำหนดเอง\n\nต้องการปิดใช้คุณสมบัตินี้แน่นอนหรือไม่</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">รูปแบบธีม</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">โหมดเสียงเรียกเข้า</string>
   <string name="ring_mode_normal">ปกติ</string>
   <string name="ring_mode_vibrate">สั่น</string>
   <string name="ring_mode_mute">เงียบ</string>
   <string name="settings_reset_button">รีเซ็ต</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">โปรไฟล์ระบบ</string>
   <string name="profiles_add">เพิ่ม</string>
   <string name="profile_menu_delete">ลบ</string>
@@ -72,49 +90,63 @@
   <string name="profile_app_group_category_title">แทนที่การแจ้งเตือน</string>
   <string name="profile_app_group_item_instructions">เพิ่มหรือลบกลุ่ม</string>
   <string name="profile_app_group_item_instructions_summary">เพิ่มหรือลบกลุ่มแอปแทนที่การแจ้งเตือนของโปรไฟล์นี้</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">เปิด</string>
   <string name="profile_entries_off">ปิด</string>
   <string name="profile_entries_no_override">ไม่มีการเขียนทับ</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">ชื่อ</string>
   <string name="new_profile_name">&lt;โปรไฟล์ใหม่&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">เปลี่ยนชื่อ</string>
   <string name="rename_dialog_message">กรอกชื่อใหม่</string>
   <string name="duplicate_appgroup_name">ชื่อกลุ่มแอปซ้ำ!</string>
   <string name="rename_dialog_hint">ป้อนชื่อโปรไฟล์</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">รีเซ็ต</string>
   <string name="profile_reset_message">ลบโปรไฟล์และกลุ่มแอปทั้งหมดพร้อมคืนค่าเดิมหรือไม่?</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">ลบแอปนี้ออกหรือไม่</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">การแทนที่ระดับเสียง</string>
   <string name="connection_state_enabled">เปิด</string>
   <string name="volume_override_summary">ตั้งเป็น %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">แทนที่ระดับเสียง</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">โปรไฟล์</string>
   <string name="profile_profile_manage">จัดการโปรไฟล์</string>
   <string name="profile_appgroups_manage">กลุ่มแอป</string>
   <string name="profile_appgroup_manage">จัดการกลุ่มแอป</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">การตั้งค่าโปรไฟล์</string>
   <string name="profile_trigger_connect">เมื่อเชื่อมต่อ</string>
   <string name="profile_trigger_disconnect">เมื่อตัดการเชื่อมต่อ</string>
   <string name="profile_trigger_notrigger">ไม่มีตัวกระตุ้น</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">รูปแบบการแจ้งเตือน</string>
   <string name="ringer_mode">รูปแบบเสียงเรียกเข้า</string>
   <string name="lights_mode">รูปแบบแสง</string>
   <string name="vibrate_mode">รูปแบบสั่น</string>
   <string name="choose_soundtone">เลือกเสียงแจ้งเตือน</string>
   <string name="choose_ringtone">เลือกเสียงเรียกเข้า</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">เสียงแจ้งเตือน</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">กลุ่มแอป</string>
   <string name="profile_applist_title">แอป</string>
   <string name="profile_new_appgroup">กลุ่มแอปใหม่</string>
   <string name="profile_delete_appgroup">ลบกลุ่มแอปนี้หรือไม่</string>
   <string name="profile_appgroup_name_prompt">กรอกชื่อกลุ่มแอปใหม่</string>
   <string name="profile_appgroup_name_title">ชื่อ</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">เลือกแอป</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">การตั้งค่าระบบ</string>
   <string name="profile_lockmode_title">รูปแบบหน้าจอล็อค</string>
   <string name="profile_lockmode_policy_disabled_summary">ตัวเลือกโปรไฟล์นี้ถูกปิดโดยนโยบายของผู้ควบคุมดูแลอุปกรณ์</string>
@@ -124,6 +156,7 @@
   <string name="profile_brightness_title">ความสว่างหน้าจอ</string>
   <string name="profile_brightness_override_summary">ตั้งเป็น %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">แทนที่ความสว่าง</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">ฮอตสปอต Wi\u2011Fi แบบพกพา</string>
   <string name="toggleBluetooth">บลูทูธ</string>
@@ -132,9 +165,13 @@
   <string name="toggleSync">ซิงค์ข้อมูลอัตโนมัติ</string>
   <string name="toggle2g3g4g">ประเภทเครือข่ายที่ต้องการ</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">รหัสภูมิภาค Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
   <string name="wifi_setting_countrycode_summary">ระบุรหัสภูมิภาคสำหรับ Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">มีปัญหาขณะตั้งรหัสภูมิภาค</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">ลบ</string>
   <string name="profile_action_none">ไม่บันทึกการเปลี่ยนแปลง</string>
   <string name="profile_action_system">ค่าเริ่มต้นระบบ</string>
@@ -152,6 +189,7 @@
   <string name="profile_setup_actions_title_config">ตั้งค่าการกระทำใหม่</string>
   <string name="profile_appgroups_manage">กลุ่มแอป</string>
   <string name="profile_appgroup_manage">จัดการกลุ่มแอป</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">กลุ่มแอป</string>
   <string name="profile_new_appgroup">กลุ่มแอปใหม่</string>
   <string name="profile_delete_appgroup">ลบกลุ่มแอปนี้หรือไม่</string>
@@ -165,6 +203,7 @@
   <string name="no_triggers_configured_nfc">แตะเพื่อตั้งค่าตัวกระตุ้น NFC ใหม่</string>
   <string name="profile_setup_setup_triggers_description">กรุณาเลือกตัวกระตุ้นที่จะใช้เปิดใช้งานโปรไฟล์นี้</string>
   <string name="profile_setup_actions_description">ตอนนี้ตั้งสิ่งที่จะเกิดขึ้นเมื่อใช้งานโปรไฟล์นี้</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">แถบนำทาง</string>
   <string name="navigation_bar_left_title">รูปแบบมือซ้าย</string>
   <string name="navigation_bar_left_summary">ให้แถบนำทางไปอยู่ด้านซ้ายจอเมื่ออยู่ในรูปแบบแนวนอน</string>
@@ -177,12 +216,14 @@
   <string name="navigation_bar_arrow_keys_title">แสดงปุ่มลูกศรขณะพิมพ์</string>
   <string name="navigation_bar_arrow_keys_summary">แสดงปุ่มเลื่อนเคอร์เซอร์ซ้ายขวาขณะพิมพ์ แทนที่ปุ่มสลับแป้นพิมพ์ IME</string>
   <string name="navigation_bar_recents_title">เมื่อกดปุ่มแอปล่าสุดค้าง</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">แก้ไขการตั้งค่าแสง</string>
   <string name="pulse_speed_title">ระยะเวลาและความเร็วการกระพริบ</string>
   <string name="default_time">ปกติ</string>
   <string name="custom_time">กำหนดเอง</string>
   <string name="dialog_delete_title">ลบ</string>
   <string name="dialog_delete_message">ลบรายการที่เลือกหรือไม่</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">เปิดตลอด</string>
   <string name="pulse_length_very_short">สั้นมาก</string>
   <string name="pulse_length_short">สั้น</string>
@@ -194,12 +235,14 @@
   <string name="pulse_speed_normal">ปกติ</string>
   <string name="pulse_speed_slow">ช้า</string>
   <string name="pulse_speed_very_slow">ช้ามาก</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">ไฟแบตเตอรี</string>
   <string name="battery_low_pulse_title">กระพริบเมื่อแบตเตอรีต่ำ</string>
   <string name="battery_light_list_title">สี</string>
   <string name="battery_light_low_color_title">แบตเตอรีต่ำ</string>
   <string name="battery_light_medium_color_title">การชาร์จ</string>
   <string name="battery_light_full_color_title">ชาร์จเต็มแล้ว</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">ไฟแจ้งเตือน</string>
   <string name="notification_light_general_title">ทั่วไป</string>
   <string name="notification_light_applist_title">แอป</string>
@@ -211,15 +254,22 @@
   <string name="notification_light_screen_on">แสงพร้อมเปิดจอ</string>
   <string name="notification_light_use_multiple_leds">LED หลายดวง</string>
   <string name="keywords_lights_brightness_level">ลดความสว่าง LED</string>
+  <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ตั้งค่าความสว่าง</string>
   <string name="led_notification_text">เปิดใช้งาน LED จากการตั้งค่า</string>
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">แก้ไขข้อบกพร่องแอนดรอยด์</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">เปิดใช้งานอินเตอร์เฟซแก้ไขข้อบกพร่องแอนดรอยด์ (adb)</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ADB บนเครือข่าย</string>
   <string name="adb_over_network_summary">เปิดแก้ไขข้อบกพร่องผ่าน TCP/IP โดยใช้อินเตอร์เฟซเครือข่าย (Wi-Fi เครือข่าย USB) การตั้งค่านี้จะมีการรีเซ็ตเมื่อเริ่มระบบ</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">คำเตือน: เมื่อเปิดใช้งาน ADB บนเครือข่าย โทรศัพท์ของคุณอาจโดนโจมตีจากทุกช่องทางที่เชื่อมต่ออยู่\n\nใช้คุณลักษณะนี้เมื่อคุณเชื่อมต่อกับเครือข่ายที่ไว้ใจได้เท่านั้น\n\nต้องการเปิดใช้งานฟังก์ชันนี้หรือไม่</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">แจ้งเตือนการแก้ไขข้อบกพร่อง</string>
   <string name="adb_notify_summary">แสดงการแจ้งเตือนเมื่อการแก้ไขข้อบกพร่องผ่าน USB หรือเครือข่ายเปิดอยู่</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">ตำแหน่งที่ตั้ง</string>
   <string name="app_ops_categories_personal">ส่วนบุคคล</string>
   <string name="app_ops_categories_messaging">ข้อความ</string>
@@ -227,6 +277,7 @@
   <string name="app_ops_categories_device">อุปกรณ์</string>
   <string name="app_ops_categories_bootup">เปิดเครื่อง</string>
   <string name="app_ops_categories_su">สิทธิผู้ดูแลระบบ</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">พิกัดที่ตั้งหยาบ</string>
   <string name="app_ops_summaries_fine_location">พิกัดที่ตั้งละเอียด</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -272,6 +323,7 @@
   <string name="app_ops_summaries_project_media">สื่อโครงการ</string>
   <string name="app_ops_summaries_activate_vpn">เปิดใช้งาน VPN</string>
   <string name="app_ops_summaries_superuser">สิทธิผู้ดูแลระบบ</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">สั่น</string>
   <string name="app_ops_labels_read_contacts">อ่านรายชื่อ</string>
@@ -308,19 +360,23 @@
   <string name="app_ops_labels_project_media">สื่อโครงการ</string>
   <string name="app_ops_labels_activate_vpn">เปิดใช้งาน VPN</string>
   <string name="app_ops_labels_superuser">สิทธิผู้ดูแลระบบ</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">อนุญาต</string>
   <string name="app_ops_permissions_ignored">ละเว้น</string>
   <string name="app_ops_permissions_always_ask">ถามเสมอ</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (ใช้แล้ว <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">ให้อนุญาต <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">ถูกปฏิเสธ <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">ให้อนุญาต <xliff:g id="count">%1$s</xliff:g> ถูกปฏิเสธ <xliff:g id="count">%2$s</xliff:g></string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">แสดงแอปของผู้ใช้</string>
   <string name="app_ops_show_system_apps">แสดงแอประบบ</string>
   <string name="app_ops_reset_counters">ล้างค่าการนับ อนุญาต/ปฏิเสธ</string>
   <string name="app_ops_reset_confirm_title">ยืนยันการรีเซ็ตการนับ</string>
   <string name="app_ops_reset_confirm_mesg">แน่ใจหรือไม่ว่าต้องการรีเซ็ตการนับ</string>
   <string name="ok">ตกลง</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">ชื่อโฮสต์ของอุปกรณ์</string>
   <string name="unlock_scramble_pin_layout_title">แบบสุ่มสลับ</string>
   <string name="unlock_scramble_pin_layout_summary">สุ่มสลับรหัสเมื่อปลดล็อคอุปกรณ์</string>
@@ -362,12 +418,16 @@
   <string name="button_wake_title">ปลุกอุปกรณ์</string>
   <string name="home_answer_call_title">รับสาย</string>
   <string name="home_answer_call_summary">การกดปุ่มหลักจะรับสายที่โทรเข้ามา</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">ไฟหน้าจอแบบปรับได้</string>
   <string name="adaptive_backlight_summary">ปรับความสว่างของแสงหน้าจอแบบไดนามิกเพื่อเพิ่มประสิทธิภาพแบตเตอรีโดยรักษาความสามารถในการใช้งานในเวลาเดียวกัน</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">เพิ่มประสิทธิภาพของแสงแดด</string>
   <string name="sunlight_enhancement_summary">เพิ่มความสว่างจอแสดงผลและความสามารถในการอ่านภายใต้แสงอาทิตย์</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">เพิ่มประสิทธิภาพของสี</string>
   <string name="color_enhancement_summary">เพิ่มสีบนจอแสดงผลแบบไดนามิก</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">แสงหน้าจอ</string>
   <string name="button_backlight_enabled">ปุ่มไฟ</string>
   <string name="keyboard_backlight_enabled">เปิดไฟแป้นพิมพ์</string>
@@ -378,7 +438,10 @@
   <string name="backlight_summary_disabled">ปิดแล้ว</string>
   <string name="backlight_summary_enabled_with_timeout">เปิดสำหรับ <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">เปิดอยู่</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">ท่าทาง</string>
+  <!-- Power menu -->
   <string name="power_menu_title">เมนูพาวเวอร์</string>
   <string name="power_menu_reboot_title">เมนูเริ่มระบบใหม่</string>
   <string name="power_menu_screenshot_title">ถ่ายภาพหน้าจอ</string>
@@ -389,33 +452,47 @@
   <string name="power_menu_bug_report_title">รายงานข้อผิดพลาด</string>
   <string name="power_menu_sound_title">แผงเสียง</string>
   <string name="power_menu_bug_report_disabled">รายงานข้อผิดพลาดถูกปิดใช้งานในการตั้งค่าการพัฒนา</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">เปิดใช้งานแถบนำทางบนหน้าจอ</string>
   <string name="disable_navkeys_summary">เปิดใช้งานแถบนำทางบนหน้าจอและปิดการใช้งานปุ่มฮาร์ดแวร์</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">แตะสองครั้งเพื่อปิดจอ</string>
   <string name="double_tap_to_sleep_summary">แตะสองครั้งที่แถบสถานะเพื่อปิดหน้าจอ</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">ป้องกันการเปิดหน้าจอโดยไม่เจตนา</string>
   <string name="proximity_wake_summary">ตรวจสอบเซนเซอร์แนบหน้าจอก่อนเปิดหน้าจอ</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">ตื่นเมื่อเสียบปลั๊ก</string>
   <string name="wake_when_plugged_or_unplugged_summary">เปิดหน้าจอเมื่อเชื่อมต่อหรือตัดการเชื่อมต่อกับแหล่งจ่ายไฟ</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">ตัวอย่าง</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">เสียงปรับความดัง</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">ความแรงการสั่น</string>
   <string name="vibrator_warning">ไม่แนะนำให้ใช้ค่ามากกว่า %1$d</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">การปรับเทียบสี</string>
   <string name="color_calibration_summary">ปรับเทียบสีบนจอ</string>
   <string name="color_red_title">แดง</string>
   <string name="color_green_title">เขียว</string>
   <string name="color_blue_title">น้ำเงิน</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">การปรับเทียบแกมม่า</string>
   <string name="gamma_tuning_summary_head">ปรับแต่งค่าแกมม่า</string>
   <string name="gamma_tuning_control_set_header">กลุ่ม <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">สีตัด</string>
   <string name="gamma_tuning_brightness">ความสว่าง</string>
   <string name="gamma_tuning_saturation">ความอิ่มตัว</string>
+  <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">เปิดแอปเล่นเพลง</string>
   <string name="headset_connect_player_summary">เปิดแอปเล่นเพลงค่าเริ่มต้นเมื่อมีการเชื่อมต่อจากช่องหูฟัง</string>
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">ระดับความสำคัญแบบอัตโนมัติ</string>
   <string name="auto_brightness_reset_button">รีเซ็ต</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">การหมุน</string>
   <string name="display_rotation_disabled">ปิดแล้ว</string>
   <string name="display_rotation_unit">องศา</string>
@@ -425,6 +502,7 @@
   <string name="display_rotation_90_title">90 องศา</string>
   <string name="display_rotation_180_title">180 องศา</string>
   <string name="display_rotation_270_title">270 องศา</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">สีหน้าจอ</string>
   <string name="screencolor_summary">ปรับแต่งสี ความอิ่มต้ว ความคมชัด หรือความเข้มของหน้าจอ</string>
   <string name="custom_screencolor">สีหน้าจอกำหนดเอง</string>
@@ -438,6 +516,7 @@
   <string name="saturation_str">ความอิ่มตัว: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">ความเข้มจาง: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">ความเข้มข้น: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">ปรับหน้าความสว่างหน้าจอตามเวลาและแสงโดยรอบเพื่อทำให้อ่านได้ง่ายขึ้นและลดอาการปวดตา</string>
   <string name="live_display_mode">รูปแบบการแสดงผล</string>
   <string name="live_display_color_temperature_title">อุณหภูมิสี</string>
@@ -466,21 +545,28 @@
   <string name="live_display_color_profile_photography_summary">แต่งสีสมบูรณ์แบบสำหรับการถ่ายภาพ</string>
   <string name="live_display_color_profile_basic_title">พื้นฐาน</string>
   <string name="live_display_color_profile_basic_summary">ใช้การแสดงผลที่ไม่ตั้งค่า</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">ไอคอนตัวเลือก</string>
   <string name="ime_switcher_notify_summary">แสดงไอคอนตัวเลือกวิธีป้อนข้อมูล</string>
+  <!-- Heads up -->
   <string name="heads_up_notifications">Heads up</string>
   <string name="summary_heads_up_enabled">เปิดใช้งานการแจ้งเตือนแบบป๊อปอัพ</string>
   <string name="summary_heads_up_disabled">ปิดใช้งานการแจ้งเตือนแบบป๊อปอัพ</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">ยอมรับไฟล์ทุกชนิด</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">ความไวต่อสัมผัสสูง</string>
   <string name="high_touch_sensitivity_summary">เพิ่มความไวของหน้าจอสัมผัสเพื่อสามารถใช้ขณะสวมถุงมือ</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">ความหนาแน่นของจอ LCD</string>
   <string name="dialog_title_lcd_density">ความหนาแน่นของจอ LCD</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (เริ่มต้น)</string>
   <string name="restarting_ui">กำลังเริ่มใช้อินเตอร์เฟซใหม่\u2026</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">แสดงไอคอนเมื่อใช้งานปากกาสไตลัส</string>
   <string name="stylus_icon_enabled_summary">แสดงไอคอนตัวชี้บนจอเมื่อตวัดหรือวาดด้วยปากกาสไตลัส</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">ท่าทางของปากกาสไตลัส</string>
   <string name="category_spen_title">ท่าทางของปากกาสไตลัส</string>
   <string name="enable_subcat_title">ปากกาสไตลัส</string>
@@ -493,18 +579,23 @@
   <string name="gestures_down_spen_title_head">ปัดลง</string>
   <string name="gestures_long_spen_title_head">กดค้าง</string>
   <string name="gestures_double_spen_title_head">แตะสองครั้ง</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">ไม่ทำอะไร</string>
   <string name="gestures_action_home">หน้าหลัก</string>
   <string name="gestures_action_back">กลับ</string>
   <string name="gestures_action_menu">เมนู</string>
   <string name="gestures_action_search">เรียกใช้การค้นหา</string>
   <string name="gestures_action_recent">แอปล่าสุด</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s ไม่ได้ติดตั้งไว้</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">วางนิ้วเหนือจอ</string>
   <string name="touchscreen_hovering_summary">อนุญาตให้คุณสามารถวางนิ้วเหนือจอเหมือนการวางเม้าส์เหนือปุ่มในคอมพิวเตอร์</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">การเพิ่มเสียงเรียกเข้า</string>
   <string name="increasing_ring_min_volume_title">ระดับเสียงเริ่มต้น</string>
   <string name="increasing_ring_ramp_up_time_title">ระยะเวลาที่ดังเพิ่มขึ้น</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="lto_download_data_wifi_only">การดาวน์โหลดข้อมูลที่ได้รับความช่วยเหลือจาก GPS</string>
   <string name="lto_download_data_wifi_only_on">ผ่านเครื่อข่ายใดก็ตาม</string>
   <string name="lto_download_data_wifi_only_off">เฉพาะที่ผ่านเครือข่าย Wi\u2011Fi</string>
@@ -513,12 +604,19 @@
   <string name="volume_keys_control_ring_stream_summary_off">ปุ่มปรับระดับเสียงควบคุมเสียงสื่อ</string>
   <string name="category_calibration">การปรับเทียบ</string>
   <string name="display_and_lights">การแสดงผล &amp; แสง</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">เสียงการชาร์จ</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">เปิด</string>
   <string name="power_notifications_enable_summary">เล่นเสียงเมื่อมีการชาร์จหรือถอดสายชาร์จ</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">สั่น</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">เสียงการแจ้งเตือน</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">เงียบ</string>
+  <!-- Status bar -->
   <string name="status_bar_title">แถบสถานะ</string>
   <string name="status_bar_toggle_brightness">ควบคุมความสว่าง</string>
   <string name="status_bar_toggle_brightness_summary">ปรับความสว่างหน้าจอโดยการเลื่อนแถบสถานะ</string>
@@ -531,6 +629,7 @@
   <string name="status_bar_quick_qs_pulldown_off">ปิด</string>
   <string name="status_bar_quick_qs_pulldown_left">ซ้าย</string>
   <string name="status_bar_quick_qs_pulldown_right">ขวา</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">รูปแบบนาฬิกา</string>
   <string name="status_bar_clock_style_right">ขวา</string>
   <string name="status_bar_clock_style_left">ซ้าย</string>
@@ -541,22 +640,29 @@
   <string name="status_bar_am_pm_normal">ปกติ</string>
   <string name="status_bar_am_pm_small">เล็ก</string>
   <string name="status_bar_am_pm_hidden">ซ่อน</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">รูปแบบสถานะแบตเตอรี่</string>
   <string name="status_bar_battery_style_icon_portrait">ไอคอนแนวตั้ง</string>
   <string name="status_bar_battery_style_icon_landscape">ไอคอนแนวนอน</string>
   <string name="status_bar_battery_style_circle">วงกลม</string>
   <string name="status_bar_battery_style_text">ข้อความ</string>
   <string name="status_bar_battery_style_hidden">ซ่อน</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">เปอร์เซ็นของแบตเตอรี่</string>
   <string name="status_bar_battery_percentage_default">ซ่อน</string>
   <string name="status_bar_battery_percentage_text_inside">ในไอคอน</string>
   <string name="status_bar_battery_percentage_text_next">ถัดจากไอคอน</string>
+  <!-- Status bar - icon blacklist -->
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">บล็อคการแตะเมื่อปัด</string>
   <string name="edge_gesture_service_summary">อย่าส่งกิจกรรมการแตะไปยังแอปสำหรับท่าทางการแตะแถบสถานะหรือแถบนำทาง</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">ไม่ต้องเลย</string>
   <string name="keep_screen_on_debugging">ในระหว่างการตรวจแก้จุดบกพร่อง USB</string>
   <string name="keep_screen_on_charging">ในระหว่างการชาร์จ</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">ความเป็นส่วนตัว</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">เปิดโดยค่าเริ่มต้น</string>
   <string name="privacy_guard_default_summary">เปิดโดยค่าเริ่มต้นสำหรับแอปที่ติดตั้งใหม่</string>
   <string name="privacy_guard_manager_title">ปกป้องความเป็นส่วนตัว</string>
@@ -569,22 +675,36 @@
   <string name="privacy_guard_manager_show_system_apps">แสดงแอปที่ติดตั้งในระบบ</string>
   <string name="privacy_guard_advanced_settings_title">ขั้นสูง</string>
   <string name="privacy_guard_notification_title">แสดงการแจ้งเตือน</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">แสดงลายเส้นที่ผิดพลาด</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">แสดงจุดที่ลากผ่าน</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
   <string name="lock_directly_show_password">แสดงรหัสผ่านโดยตรง</string>
+  <!-- Whether the keyguard will directly pass to pattern view -->
   <string name="lock_directly_show_pattern">แสดงรูปแบบโดยตรง</string>
+  <!-- Whether the keyguard will directly pass to PIN entry -->
   <string name="lock_directly_show_pin">แสดง PIN โดยตรง</string>
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">แสดงเส้นจังหวะเพลง</string>
+  <!-- lock screen disabled by QS tile warning -->
+  <!-- Battery saver -->
   <string name="battery_saver_threshold">ขีดจำกัดการประหยัดแบตเตอรี่</string>
   <string name="battery_saver_summary">ลดประสิทธิภาพและจำกัดการใช้ข้อมูลเบื้องหลัง</string>
   <string name="battery_saver_summary_unavailable">ไม่สามารถใช้งานได้ขณะชาร์จ</string>
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">เปิดใช้งานโปรไฟล์แต่ละแอป</string>
   <string name="autoperf_summary">เลือกรูปแบบแบตเตอรี่ที่เหมาะสมสำหรับแอปต่าง ๆ โดยอัตโนมัติ</string>
   <string name="perf_profile_title">รูปแบบแบตเตอรี่</string>
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">เสียงแจ้งเตือน</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">เริ่มระบบใหม่แบบขั้นสูง</string>
   <string name="advanced_reboot_summary">เมื่อปลดล็อค มีตัวเลือกในเมนูพาวเวอร์สำหรับการเริ่มระบบใหม่ในรูปแบบการกู้คืน bootloader หรือการเริ่มระบบใหม่แบบ soft reboot</string>
   <string name="category_interface">อินเตอร์เฟซ</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">เต็มจอ</string>
   <string name="expanded_hide_nothing">ไม่ซ่อน</string>
   <string name="expanded_hide_status">ซ่อนแถบสถานะ</string>
@@ -595,10 +715,13 @@
   <string name="expanded_desktop_style">รูปแบบหน้าจอขยาย</string>
   <string name="expanded_desktop_style_description">เลือกรูปแบบเริ่มต้นหน้าจอขยาย</string>
   <string name="expanded_desktop_title">ตัวเลือกหน้าจอขยาย</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">ปิดแอปด้วยปุ่มกลับ</string>
   <string name="kill_app_longpress_back_summary">ปิดแอปที่กำลังใช้งานโดยกดปุ่มกลับค้าง</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">แสดงแถบค้นหาในหน้าแอปที่ใช้ล่าสุด</string>
   <string name="keywords_recents_show_searchbar">ซ่อนหรือแสดงแถบการค้นหาในหน้าแอปล่าสุด</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">เสียงเปิดหน้าจอ</string>
   <string name="voice_wakeup_retrain_title">จดจำเสียงของคุณ</string>
   <string name="voice_wakeup_activity_title">กิจกรรมที่จะเปิดใช้</string>
@@ -606,6 +729,7 @@
   <string name="picker_activities">กิจกรรม</string>
   <string name="select_custom_app_title">เลือกแอปเอง</string>
   <string name="select_custom_activity_title">เลือกกิจกรรมเอง</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">รายชื่อผู้โทรที่ถูกบล็อค</string>
   <string name="blacklist_edit_dialog_title">แก้ไขเบอร์โทรศัพท์ที่ถูกบล็อค</string>
   <string name="blacklist_prefs">การตั้งค่า</string>
@@ -629,19 +753,24 @@
   <string name="blacklist_policy_block_calls">บล็อคสายเรียกเข้า</string>
   <string name="blacklist_policy_block_messages">บล็อคข้อความขาเข้า</string>
   <string name="blacklist_bad_number_add">ไม่สามารถเพิ่มหมายเลขโทรศัพท์ที่ไม่ถูกต้องไปยังรายชื่อที่ถูกบล็อคได้</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">ลบหมายเลขออก</string>
   <string name="remove_blacklist_entry">ต้องการลบหมายเลขโทรศัพท์ที่ถูกบล็อคนี้หรือไม่</string>
   <string name="select_contact">เลือกรายชื่อติดต่อ</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">ความปลอดภัยของแอป</string>
   <string name="sms_security_check_limit_title">ข้อความ SMS สูงสุด</string>
   <string name="sms_security_check_limit_summary">แอปสามารถส่ง %d ข้อความ ในเวลา 1 นาที ก่อนที่จะต้องการการยืนยัน</string>
   <string name="sms_security_check_limit_summary_none">แอปจะไม่สามารถส่งข้อความโดยไม่ได้รับการยืนยัน</string>
   <string name="sms_security_check_limit_none">ไม่มี</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">เพิ่ม %1$s แล้ว</string>
   <string name="spam_last_blocked_title">ล่าสุดบล็อค %1$s</string>
   <string name="block_notifications_title">การแจ้งเตือนตัวกรอง</string>
   <string name="block_notifications_summary">จัดการการแจ้งเตือนและตัวกรองที่ละเว้น</string>
   <string name="no_filters_title">ไม่มีการตั้งค่าตัวกรอง</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_statistics_title">สถิติของ CyanogenMod</string>
   <string name="anonymous_statistics_summary">ช่วยทำให้ CyanogenMod ดีขึ้นโดยการส่งรายงานสถิติแบบไม่ระบุตัวตน</string>
   <string name="anonymous_statistics_warning_title">เกี่ยวกับ</string>
@@ -650,6 +779,7 @@
   <string name="preview_data_title">แสดงตัวอย่างข้อมูล</string>
   <string name="view_stats_title">ดูสถิติ</string>
   <string name="anonymous_learn_more">เรียนรู้เพิ่มเติม</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">ตัวระบุที่ไม่ซ้ำกัน</string>
   <string name="preview_device_title">อุปกรณ์</string>
   <string name="preview_version_title">รุ่น</string>
@@ -657,8 +787,10 @@
   <string name="preview_carrier_title">ผู้ให้บริการ</string>
   <string name="stats_collection_title">การเก็บสถิติ</string>
   <string name="stats_collection_summary">เมื่อเปิดใช้งานจะอนุญาตให้เก็บสถิติ</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">รีเซ็ตรูปแบบ</string>
   <string name="lockpattern_settings_reset_summary">กรอกบัญชีอีเมลหลักและรหัสผ่านเพื่อรีเซ็ตการล็อครูปแบบ</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">รีเซ็ต</string>
   <string name="menu_hidden_apps_reset_lock">รีเซ็ตการล็อครูปแบบ</string>
   <string name="protected_apps">แอปที่ได้รับการปกป้อง</string>
@@ -668,6 +800,7 @@
   <string name="pa_login_submit_button">ลงชื่อเข้าใช้</string>
   <string name="pa_login_checking_password">กำลังตรวจสอบบัญชี\u2026</string>
   <string name="pa_login_incorrect_login">การเข้าสู่ระบบไม่ถูกต้อง</string>
+  <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">ผู้ร่วมพัฒนา</string>
   <string name="contributors_cloud_loading_message">การโหลดข้อมูลผู้ร่วมพัฒนา\u2026</string>
   <string name="contributors_cloud_failed_message">ไม่สามารถโหลดข้อมูลผู้ร่วมพัฒนา</string>
@@ -691,23 +824,40 @@
   <string name="title_general">ทั่วไป</string>
   <string name="advanced">ขั้นสูง</string>
   <string name="link_volume_option_title">เชื่อมต่อความดังเสียงเรียกเข้า&amp; เสียงแจ้งเตือน</string>
+  <!-- Edit access point labels: PPP number -->
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_disabled">ปิดใช้งานแล้ว</string>
   <string name="sim_missing">สูญหายหรือชำรุด</string>
   <string name="sim_enabler_airplane_on">ไม่สามารถดำเนินการนี้ได้ขณะอยู่ในรูปแบบเครื่องบิน</string>
   <string name="sim_enabler_in_call">ไม่สามารถดำเนินการนี้ได้ขณะใช้สายอยู่</string>
   <string name="sim_enabler_both_inactive">ไม่สามารถปิดการใช้งานทุกซิมการ์ดได้</string>
   <string name="primary_sub_select_title">สมัครข้อมูล 3G/LTE เริ่มต้น</string>
+  <!-- MSIM SIM status -->
   <string name="sim_card_status_title">สถานะซิม %d</string>
   <string name="sim_card_lock_settings_title">ตั้งค่าการล็อคซิม %d</string>
   <string name="sim_card_summary_empty">ไม่ได้ใส่ซิม</string>
   <string name="sim_mobile_network_settings_title">การตั้งค่าซิม %d</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">หัว: %1$s W/kg</string>
   <string name="maximum_body_level">ตัว: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">รุ่น: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">เสียงเรียกเข้าซิม %d</string>
+  <!-- label for application name -->
+  <!-- label for last time used -->
+  <!-- label for usage time -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">สิ่งนี้จะลบข้อมูลทั้งหมดจาก<b>ที่เก็บข้อมูลภายใน</b>ของแท็บเล็ต รวมถึง\n\n<li>บัญชีอุปกรณ์ของคุณ</li>\n<li>ข้อมูลระบบและข้อมูลแอปและการตั้งค่า</li>\n<li>แอปที่ดาวน์โหลด</li></string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="default">สิ่งนี้จะลบข้อมูลทั้งหมดจาก<b>ที่เก็บข้อมูลภายใน</b>ของโทรศัพท์ รวมถึง\n\n<li>บัญชีอุปกรณ์ของคุณ</li>\n<li>ข้อมูลระบบและข้อมูลแอปและการตั้งค่า</li>\n<li>แอปที่ดาวน์โหลด</li></string>
+  <!-- Factory reset strings -->
   <string name="factory_reset_instructions_title">ข้อมูลส่วนบุคคลและแอป</string>
   <string name="factory_reset_instructions_summary">สิ่งนี้จะลบบัญชี แอป ข้อมูลแอป และการตั้งค่าทั้งหมดบนอุปกรณ์ของคุณ</string>
   <string name="factory_reset_personal_content">เนื้อหาส่วนบุคคล</string>
@@ -718,9 +868,17 @@
   <string name="factory_reset_erase_sd_card_summary">ลบข้อมูลทั้งหมดใน SD การ์ด รวมทั้งเพลงและรูปถ่าย</string>
   <string name="factory_reset_warning_text_reset_now">รีเซ็ตเดี๋ยวนี้</string>
   <string name="factory_reset_warning_text_message">บัญชี แอป ข้อมูลแอปและการตั้งค่าระบบทั้งหมดจะถูกลบจากอุปกรณ์นี้ การกระทำนี้ไม่สามารถย้อนกลับได้</string>
+  <!-- Tethering & portable hotspot other category -->
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">ไม่ต้องเลย</string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">การตั้งค่า</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="interruptions_ignore_while_media_title">ป้องกันการลดเสียง</string>
   <string name="interruptions_ignore_while_media_summary">ไม่ลดเสียงเพลงเมื่อมีการแจ้งเตือนเข้า</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">เกี่ยวกับกฎหมาย CyanogenMod</string>
 </resources>

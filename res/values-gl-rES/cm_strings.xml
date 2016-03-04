@@ -16,13 +16,19 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Está a <xliff:g id="step_count">%1$d</xliff:g> paso de activar a configuración de desenvolvemento.</item>
     <item quantity="other">Está a <xliff:g id="step_count">%1$d</xliff:g> pasos de activar a configuración de desenvolvemento.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Activou a configuración de desenvolvemento!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">Non fai falla, a configuración de desenvolvemento xa están activa.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">Ferramentas de desenvolvemento</string>
+  <!-- Development shortcut -->
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">Acceso root</string>
   <string name="root_access_warning_title">Permitir acceso root?</string>
   <string name="root_access_warning_message">Permitir que as aplicacións seleccionen acceso como superusuario é moi perigoso e podería pór en perigo a seguranza do sistema!</string>
@@ -30,16 +36,28 @@
   <string name="root_access_apps">Só aplicacións</string>
   <string name="root_access_adb">Só ADB</string>
   <string name="root_access_all">Aplicacións e ADB</string>
+  <!-- NFC PreferenceCategory title -->
+  <!-- About phone screen, CyanogenMod version -->
+  <!-- About phone screen, Device model -->
+  <!-- About phone screen, Device name -->
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level">Nivel API CyanogenMod</string>
+  <!-- About phone screen, build date -->
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">Actualizacións de CyanogenMod</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">Recuperación da actualización de Cyanogen</string>
   <string name="update_recovery_summary">Actualizar a recuperación coas actualizacións do sistema</string>
   <string name="update_recovery_on_warning">AVISO: Se ten esta funcionalidade activada, a recuperación instalada substituirase por unha incluída na versión actual que se está a utilizar no sistema.\n\nA recuperación actualizarase xunta as actualizacións do sistema, para asegurar a compatibilidade coas versións futuras.\n\nQuere activar esta funcionalidade?</string>
   <string name="update_recovery_off_warning">AVISO: Con esta funcionalidade desactivada, a recuperación instalada non se actualizará coas actualizacións do sistema.\n\nAs futuras actualizacións do sistema poderían non instalarse con versións de recuperación non actualizadas ou personalizadas.\n\nConfirma a desactivación desta funcionalidade?</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">Modo de chamada</string>
   <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Vibrar</string>
   <string name="ring_mode_mute">Silenciar</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">Perfís do sistema</string>
   <string name="profiles_add">Engadir</string>
   <string name="profile_settings_title">Perfil</string>
@@ -61,32 +79,46 @@
   <string name="profile_app_group_category_title">Modificacións das notificacións</string>
   <string name="profile_app_group_item_instructions">Engadir ou eliminar grupos</string>
   <string name="profile_app_group_item_instructions_summary">Engadir ou eliminar grupos de modificacións de aplicacións neste perfil</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">Aceso</string>
   <string name="profile_entries_off">Apagado</string>
   <string name="profile_entries_no_override">Non modificar</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">Nome</string>
   <string name="new_profile_name">&lt;novo perfil&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">Renomear</string>
   <string name="rename_dialog_message">Escribir un novo nome</string>
   <string name="rename_dialog_hint">Escribir un nome de perfil</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">Restabelecer</string>
   <string name="profile_reset_message">Eliminar todos os perfís de usuario creados e os grupos de aplicacións e restaurar os predeterminados?</string>
+  <!-- Delete confimation messages -->
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">Modificacións do volume</string>
   <string name="volume_override_summary">Estabelecer como %1$s%2$s</string>
   <string name="profile_volume_override_checkbox_label">Modificar o volume</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">Perfís</string>
   <string name="profile_profile_manage">Xestionar o perfil</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">Configuración do perfil</string>
   <string name="profile_trigger_connect">Ao conectar</string>
   <string name="profile_trigger_disconnect">Ao desconectar</string>
   <string name="profile_trigger_notrigger">Sen activador</string>
+  <!-- Profile Settings sound modes labels -->
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
+  <!-- Title for application group setting screen -->
   <string name="profile_applist_title">Aplicacións</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">Escoller aplicación</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Configuración do sistema</string>
   <string name="profile_lockmode_title">Bloqueo de pantalla</string>
   <string name="profile_lockmode_policy_disabled_summary">Desactivouse esta opción de perfil debido á política do administrador do dispositivo</string>
@@ -96,6 +128,7 @@
   <string name="profile_brightness_title">Brillo da pantalla</string>
   <string name="profile_brightness_override_summary">Estabelecer en %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">Cambiar o comportamento do brillo</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi\u2011fi</string>
   <string name="toggleWifiAp">Punto de acceso wifi portátil</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -104,8 +137,26 @@
   <string name="toggleSync">Sincronización automática dos datos</string>
   <string name="toggle2g3g4g">Tipo de rede preferido</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <!-- Profiles -->
+  <!-- Title for application group setting screen -->
+  <!-- Navigation Bar -->
+  <!-- Notification light dialogs -->
+  <!-- Values for the notification light pulse spinners -->
+  <!-- Battery light settings -->
+  <!-- Lights settings screen, notification light settings -->
+  <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Configuración de luz</string>
   <string name="led_notification_text">Luz do LED activada pola configuración</string>
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
+  <!-- Android debugging over WiFi -->
+  <!-- Warning for Adb over Network -->
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_wifi_scan">Varrido wifi</string>
   <string name="app_ops_summaries_notification">notificación/emerxente</string>
   <string name="app_ops_summaries_bluetooth_volume">volume do Bluetooth</string>
@@ -129,6 +180,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">trocar bluetooh</string>
   <string name="app_ops_summaries_start_at_boot">iniciar co arranque</string>
   <string name="app_ops_summaries_toggle_nfc">trocar NFC</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Localización imprecisa</string>
   <string name="app_ops_labels_fine_location">Localización precisa</string>
   <string name="app_ops_labels_gps">GPS</string>
@@ -163,6 +215,10 @@
   <string name="app_ops_labels_start_at_boot">Iniciar co arranque</string>
   <string name="app_ops_labels_toggle_nfc">Trocar NFC</string>
   <string name="app_ops_labels_superuser">Acceso root</string>
+  <!-- App ops permissions -->
+  <!-- App ops detail -->
+  <!-- App ops menu options -->
+  <!-- Hostname setting -->
   <string name="button_pref_title">Botóns</string>
   <string name="hardware_keys_power_key_title">Botón de acendido</string>
   <string name="hardware_keys_home_key_title">Botón Inicio</string>
@@ -200,6 +256,10 @@
   <string name="button_wake_title">Espertador</string>
   <string name="home_answer_call_title">Coller chamada</string>
   <string name="home_answer_call_summary">Ao premer o botón de inicio, collerase a chamada entrante</string>
+  <!-- Backlight brightness settings screen -->
+  <!-- Sunlight readability enhancement screen -->
+  <!-- Color enhancement settings screen -->
+  <!-- Key backlight -->
   <string name="button_backlight_title">Contraluz</string>
   <string name="button_backlight_enabled">Iluminar os botóns</string>
   <string name="keyboard_backlight_enabled">Iluminar o teclado</string>
@@ -210,9 +270,26 @@
   <string name="backlight_summary_disabled">Desactivado</string>
   <string name="backlight_summary_enabled_with_timeout">Activo durante <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Activado</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
+  <!-- Power menu -->
   <string name="power_menu_title">Menú de apagado</string>
   <string name="power_menu_reboot_title">Menú de reinicio</string>
+  <!-- Buttons - Enable navbar -->
+  <!-- tap-to-sleep -->
+  <!-- Proximity wake -->
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
+  <!-- Volume settings - Volume adjustment sound -->
+  <!-- Hardware tunables - Vibrator intensity -->
+  <!-- Hardware tunables - Color calibration -->
+  <!-- Hardware tunables - Gamma calibration -->
+  <!-- used if no name provided by overlay -->
+  <!-- Launch music player when headset is connected -->
+  <!-- WiFi auto-configure priorities -->
   <string name="auto_brightness_reset_button">Restabelecer</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">Rotación</string>
   <string name="display_rotation_disabled">Desactivado</string>
   <string name="display_rotation_unit">graos</string>
@@ -222,41 +299,99 @@
   <string name="display_rotation_90_title">90 graos</string>
   <string name="display_rotation_180_title">180 graos</string>
   <string name="display_rotation_270_title">270 graos</string>
+  <!-- Display settings.  Screen color. -->
+  <!-- LiveDisplay -->
   <string name="live_display_color_profile_cinema_summary">Reprodución perfecta da cor para os vídeos</string>
   <string name="live_display_color_profile_photography_title">Fotografía</string>
   <string name="live_display_color_profile_photography_summary">Reprodución da cor perfecta para as fotos</string>
   <string name="live_display_color_profile_basic_title">Básico</string>
   <string name="live_display_color_profile_basic_summary">Empregar a pantalla sen calibrar</string>
+  <!-- Whether to display IME switcher notifcation -->
+  <!-- Heads up -->
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
+  <!-- High touch sensitivity -->
+  <!-- Display & Lights screen, setting options for LCD density -->
+  <!-- Stylus Icon -->
+  <!-- Stylus Gestures -->
+  <!-- Gestures Options -->
+  <!-- Stylus gestures -->
+  <!-- Touchscreen hovering -->
+  <!-- Increasing ring tone volume -->
+  <!-- LTO download data over wi-fi only -->
   <string name="volume_keys_control_ring_stream_title">Control do volume do ton</string>
   <string name="volume_keys_control_ring_stream_summary_on">As teclas de volume controlan o volume do ton de chamada</string>
   <string name="volume_keys_control_ring_stream_summary_off">As teclas de volume controlan o volume multimedia</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
+  <!-- Sound settings, charging sounds label for ringtone == none -->
+  <!-- Status bar -->
   <string name="status_bar_quick_qs_pulldown_off">Apagado</string>
+  <!-- Status bar - Clock -->
+  <!-- Status bar - Battery -->
+  <!-- Status bar - Battery percentage -->
+  <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Iconas da barra de estado</string>
   <string name="status_bar_icons_summary">Controlar que iconas se amosan na barra de estado</string>
+  <!-- EdgeGesture service -->
+  <!-- Keep screen on strings -->
+  <!-- Privacy Settings Header item -->
+  <!-- Privacy Guard -->
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
+  <!-- Whether the keyguard will directly pass to password entry -->
+  <!-- Whether the keyguard will directly pass to pattern view -->
+  <!-- Whether the keyguard will directly pass to PIN entry -->
+  <!-- lock screen visualizer -->
+  <!-- lock screen disabled by QS tile warning -->
   <string name="lockscreen_disabled_by_qs_tile_title">Desactivado pola tesela de configuración rápida</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Toque para activar a pantalla de bloqueo</string>
   <string name="lockscreen_disabled_by_qs_tile_summary_enabled">Activouse a pantalla de bloqueo!</string>
+  <!-- Battery saver -->
+  <!-- Battery : Automatic performance profiles -->
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
+  <!-- Advanced reboot options -->
+  <!-- Expanded desktop -->
+  <!-- Kill app long-press back -->
+  <!-- Show/Hide Search Bar -->
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_needs_dial_permission_warning">Espertar por voz necesita ter permiso sobre as chamadas de móbil para seleccionar un contacto de marcación directa.</string>
+  <!-- Blacklist preferences -->
+  <!-- Blacklist management -->
+  <!-- Sms security limit -->
   <string name="app_security_title">Seguranza das aplicacións</string>
   <string name="sms_security_check_limit_title">Límite de mensaxes SMS</string>
   <string name="sms_security_check_limit_summary">As aplicacións poden enviar %d mensaxes durante 1 minuto antes de pedir confirmación</string>
   <string name="sms_security_check_limit_summary_none">As aplicacións non teñen permiso para enviar ningunha mensaxe sen confirmación</string>
   <string name="sms_security_check_limit_none">Ningún</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">Engadido %1$s</string>
   <string name="spam_last_blocked_title">Último bloqueado %1$s</string>
   <string name="block_notifications_title">Filtrar notificacións</string>
   <string name="block_notifications_summary">Xestionar filtros e notificacións ignoradas</string>
   <string name="no_filters_title">Non se estabeleceron filtros</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+  <!-- Anonymous Statistics - Preview -->
+  <!-- Protected apps lockpattern reset button -->
+  <!-- Protected Apps -->
   <string name="pa_login_password_hint">Contrasinal</string>
   <string name="pa_login_submit_button">Acceder</string>
   <string name="pa_login_checking_password">Comprobando a conta\u2026</string>
   <string name="pa_login_incorrect_login">O inicio de sesión era incorrecto</string>
+  <!-- Contributors cloud activity -->
   <string name="contributor_info_msg">
         <![CDATA[<b>Nome:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
                  <b>Alcume:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
                  <b>Remisións:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
   <string name="lcd_density_prompt_message">Algunhas aplicacións poden non funcionar cunha DPI non estándar.\n\nIsto vai reiniciar o seu dispositivo.</string>
+  <!-- Edit access point labels: PPP number -->
   <string name="apn_ppp_number">Número telefónico APN PPP</string>
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> é <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
   <string name="sim_enabler_need_disable_sim">Desactivarase a tarxeta SIM. Quere continuar?</string>
   <string name="sim_enabler_will_disable_sim_title">Atención</string>
@@ -267,8 +402,31 @@
   <string name="sub_deactivate_success">SIM desactivada.</string>
   <string name="sub_deactivate_failed">Fallou a desactivación.</string>
   <string name="select_sim_card">Seleccionar tarxeta SIM</string>
+  <!-- MSIM SIM status -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
   <string name="zen_mode_summary_reminders">recordatorios</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">citas</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_callers">remitentes seleccionados</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_messages">mensaxes seleccionadas</string>
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
+  <!-- IC Codes -->
+  <!-- label for application name -->
+  <!-- label for last time used -->
+  <!-- label for usage time -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <!-- Factory reset strings -->
+  <!-- Tethering & portable hotspot other category -->
+  <!-- Wi-Fi tethering inactivity timeout -->
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <!-- CM Legal -->
 </resources>

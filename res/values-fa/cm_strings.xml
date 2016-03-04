@@ -16,14 +16,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="other">شما اکنون <xliff:g id="step_count">%1$d</xliff:g> ضربه با فعال‌سازی ابزارهای توسعه فاصله دارید.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">شما ابزارهای توسعه را فعال کرده‌اید!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">نیازی نیست، ابزارهای توسعه قبلا فعال شده‌اند.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">ابزارهای توسعه</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">میانبر توسعه</string>
   <string name="development_shortcut_summary">فعال‌کردن میانبرهای مدیریت برنامه در لیست برنامه‌های اخیر</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">دسترسی روت</string>
   <string name="root_access_warning_title">اجازه دسترسی روت را می‌دهید؟</string>
   <string name="root_access_warning_message">اجازه دادن به برنامه‌ها برای درخواست دسترسی روت بسیار خطرناک بوده و می‌تواند امنیت سیستم شما را تهدید کند!</string>
@@ -31,24 +37,36 @@
   <string name="root_access_apps">فقط برنامه‌ها</string>
   <string name="root_access_adb">فقط ای‌دی‌بی</string>
   <string name="root_access_all">برنامه‌ها و ای‌دی‌بی</string>
+  <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">ان‌اف‌سی</string>
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">نسخه سایانوژن‌مود</string>
   <string name="mod_version_default">ناشناخته</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">مدل دستگاه</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">نام دستگاه</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level_default">ناشناخته</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">تاریخ ساخت</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">بروزرسانی‌های سایانوژن‌مود</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">بروزرسانی ریکاوری سایانوژن‌مود</string>
   <string name="update_recovery_summary">بروزرسانی ریکاوری با بروزرسانی‌های سیستم</string>
   <string name="update_recovery_on_warning">توجه: وقتی این امکان فعال باشد، ریکاوری نصب‌شده شما با نسخه موجود فعلی سیستم‌عامل جایگزین خواهد شد.\n\n ریکاوری با بروزرسانی‌های سیستم شما بروز خواهد شد تا از سازگاری با نسخه‌های آینده اطمینان حاصل شود.\n\n آیا می‌خواهید این امکان را فعال کنید؟</string>
   <string name="update_recovery_off_warning">هشدار: وقتی این امکان غیرفعال باشد، ریکاوری نصب شده شما با بروزرسانی‌های سیستم‌عامل بروز نخواهد شد.\n\nبروزرسانی‌های آینده‌ی سیستم‌عامل ممکن است با نسخه‌های تاریخ گذشته یا شخصی ریکاوری نصب نشود.\n\nآیا واقعا می‌خواهید این قابلیت را غیرفعال کنید؟</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">تم‌ها</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">حالت زنگ خوردن</string>
   <string name="ring_mode_normal">عادی</string>
   <string name="ring_mode_vibrate">لرزش</string>
   <string name="ring_mode_mute">بی‌صدا</string>
   <string name="settings_reset_button">تنظیم مجدد</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">پروفایل‌ها</string>
   <string name="profiles_add">افزودن</string>
   <string name="profile_menu_delete">حذف</string>
@@ -71,48 +89,62 @@
   <string name="profile_app_group_category_title">جایگزین‌های اعلان</string>
   <string name="profile_app_group_item_instructions">افزودن یا حذف گروه</string>
   <string name="profile_app_group_item_instructions_summary">افزودن یا حذف گروه‌های حاوی برنامه جایگزین اعلان به این پروفایل</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">روشن</string>
   <string name="profile_entries_off">خاموش</string>
   <string name="profile_entries_no_override">بدون جایگزین</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">نام</string>
   <string name="new_profile_name">&lt;پروفایل جدید&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">تغییرنام</string>
   <string name="rename_dialog_message">نام جدیدی وارد کنید</string>
   <string name="duplicate_appgroup_name">نام گروه برنامه تکراری است!</string>
   <string name="rename_dialog_hint">نام پروفایل را وارد کنید</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">تنظیم مجدد</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">این برنامه را حذف می‌کنید؟</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G / 3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">جایگزینی میزان صدا</string>
   <string name="connection_state_enabled">فعال کردن</string>
   <string name="volume_override_summary">تنظیم به %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">جایگزینی میزان صدا</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">پروفایل‌ها</string>
   <string name="profile_profile_manage">مدیریت پروفایل</string>
   <string name="profile_appgroups_manage">گروه‌های برنامه</string>
   <string name="profile_appgroup_manage">مدیریت گروه برنامه</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">تنظیمات پروفایل</string>
   <string name="profile_trigger_connect">هنگام اتصال</string>
   <string name="profile_trigger_disconnect">هنگام قطع اتصال</string>
   <string name="profile_trigger_notrigger">بدون راه‌انداز</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">حالت اعلان</string>
   <string name="ringer_mode">حالت زنگ</string>
   <string name="lights_mode">حالت چراغ‌ها</string>
   <string name="vibrate_mode">حالت لرزش</string>
   <string name="choose_soundtone">انتخاب صدای اعلان</string>
   <string name="choose_ringtone">انتخاب صدای زنگ</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">صدای اعلان</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">گروه‌های برنامه</string>
   <string name="profile_applist_title">برنامه‌ها</string>
   <string name="profile_new_appgroup">گروه برنامه جدید</string>
   <string name="profile_delete_appgroup">این گروه برنامه حذف شود؟</string>
   <string name="profile_appgroup_name_prompt">وارد کردن نام برای گروه برنامه جدید</string>
   <string name="profile_appgroup_name_title">نام</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">انتخاب برنامه</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">تنظیمات سیستمی</string>
   <string name="profile_lockmode_title">حالت قفل صفحه</string>
   <string name="profile_lockmode_policy_disabled_summary">این گزینه مربوط به پروفایل توسط سیاست مدیر دستگاه غیرفعال شده است</string>
@@ -122,6 +154,7 @@
   <string name="profile_brightness_title">روشنایی صفحه</string>
   <string name="profile_brightness_override_summary">تنظیم به %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">جایگزینی روشنایی</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">وای‌فای</string>
   <string name="toggleWifiAp">نقطه اتصال قابل حمل وای‌فای</string>
   <string name="toggleBluetooth">بلوتوث</string>
@@ -130,9 +163,13 @@
   <string name="toggleSync">همگام‌سازی خودکار داده</string>
   <string name="toggle2g3g4g">نوع ترجیحی شبکه</string>
   <string name="toggleNfc">ان‌اف‌سی</string>
+  <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">کد منطقه‌ای وای‌فای</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
   <string name="wifi_setting_countrycode_summary">تعیین کد منطقه‌ای برای وای‌فای</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">مشکلی در تنظیم کد منطقه‌ای وجود داشت.</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">حذف</string>
   <string name="profile_action_none">تغییر ندادن</string>
   <string name="profile_action_system">پیش‌فرض سیستم</string>
@@ -150,6 +187,7 @@
   <string name="profile_setup_actions_title_config">عملیات پیکربندی مجدد</string>
   <string name="profile_appgroups_manage">گروه‌های برنامه</string>
   <string name="profile_appgroup_manage">مدیریت گروه برنامه</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">گروه‌های برنامه</string>
   <string name="profile_new_appgroup">گروه برنامه جدید</string>
   <string name="profile_delete_appgroup">این گروه برنامه حذف شود؟</string>
@@ -163,6 +201,7 @@
   <string name="no_triggers_configured_nfc">برای تنظیم راه‌انداز جدید ان‌اف‌سی ضربه بزنید.</string>
   <string name="profile_setup_setup_triggers_description">لطفاً راه‌اندازهایی که این پروفایل را فعال می‌کنند انتخاب کنید</string>
   <string name="profile_setup_actions_description">اکنون کارهایی که هنگام فعال بودن پروفایل اتفاق می‌افتد را پیکربندی کنید</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">نوار پیمایش</string>
   <string name="navigation_bar_left_title">حالت چپ دست</string>
   <string name="navigation_bar_left_summary">قراردادن نوار پیمایش در سمت چپ صفحه در حالت افقی</string>
@@ -175,12 +214,14 @@
   <string name="navigation_bar_arrow_keys_title">نمایش کلیدهای جهت‌دار هنگام تایپ</string>
   <string name="navigation_bar_arrow_keys_summary">نمایش دکمه‌های مکان‌نمای چپ و راست هنگام تایپ. جایگزینی با تغییر روش ورودی.</string>
   <string name="navigation_bar_recents_title">عمل هنگام لمس طولانی موارد اخیر</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">ویرایش تنظیمات چراغ</string>
   <string name="pulse_speed_title">طول و سرعت چشمک زدن</string>
   <string name="default_time">عادی</string>
   <string name="custom_time">شخصی</string>
   <string name="dialog_delete_title">حذف</string>
   <string name="dialog_delete_message">مورد انتخاب‌شده حذف شود؟</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">همیشه روشن</string>
   <string name="pulse_length_very_short">خیلی کوتاه</string>
   <string name="pulse_length_short">کوتاه</string>
@@ -192,12 +233,14 @@
   <string name="pulse_speed_normal">عادی</string>
   <string name="pulse_speed_slow">آهسته</string>
   <string name="pulse_speed_very_slow">خیلی آهسته</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">چراغ باتری</string>
   <string name="battery_low_pulse_title">چشمک زدن هنگامی که باتری کم است</string>
   <string name="battery_light_list_title">رنگ‌ها</string>
   <string name="battery_light_low_color_title">هنگام کم بودن باتری</string>
   <string name="battery_light_medium_color_title">هنگام شارژ</string>
   <string name="battery_light_full_color_title">هنگام شارژ کامل</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">چراغ اعلان</string>
   <string name="notification_light_general_title">عمومي</string>
   <string name="notification_light_applist_title">برنامه‌ها</string>
@@ -209,13 +252,20 @@
   <string name="notification_light_screen_on">چراغ‌ها هنگام روشن شدن صفحه</string>
   <string name="notification_light_use_multiple_leds">چند ال‌ای‌دی</string>
   <string name="keywords_lights_brightness_level">کم کردن نور ال‌ای‌دی‌ها</string>
+  <!-- Lights settings, LED notification -->
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">اشکال‌زدایی اندروید</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">فعال‌کردن رابط اشکال‌زدایی اندروید (adb)</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ای‌دی‌بی از طریق شبکه</string>
   <string name="adb_over_network_summary">فعال‌کردن اشکال‌زدایی TCP/IP از طریق رابط‌های شبکه (شبکه‌های وای‌فای، یواس‌بی). این تنظیمات در راه‌اندازی گوشی مجددا تنظیم خواهند شد</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">هشدار: هنگامی که ای‌دی‌بی از طریق شبکه فعال باشد، تلفن همراه شما در معرض تجاوز از طرف تمام شبکه‌های متصل قرار خواهد گرفت!\n\nتنها زمانی که به شبکه‌های مورد اعتماد متصل هستید از این قابلیت استفاده کنید.\n\nآیا واقعا می‌خواهید این قابلیت را فعال کنید؟</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">اعلان اشکال‌زدایی</string>
   <string name="adb_notify_summary">هنگام فعال بودن اشکال‌زدایی شبکه یا یواس‌بی یک اعلان نمایش داده شود</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">مکان</string>
   <string name="app_ops_categories_personal">شخصی</string>
   <string name="app_ops_categories_messaging">پیام رسانی</string>
@@ -223,6 +273,7 @@
   <string name="app_ops_categories_device">دستگاه</string>
   <string name="app_ops_categories_bootup">راه‌اندازی</string>
   <string name="app_ops_categories_su">دسترسی روت</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">مکان تقریبی</string>
   <string name="app_ops_summaries_fine_location">مکان دقیق</string>
   <string name="app_ops_summaries_gps">جی‌پی‌اس</string>
@@ -268,6 +319,7 @@
   <string name="app_ops_summaries_project_media">پخش رسانه</string>
   <string name="app_ops_summaries_activate_vpn">فعال کردن وی‌پی‌ان</string>
   <string name="app_ops_summaries_superuser">دسترسی روت</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_gps">جی‌پی‌اس</string>
   <string name="app_ops_labels_vibrate">لرزش</string>
   <string name="app_ops_labels_read_contacts">مشاهده مخاطبین</string>
@@ -304,19 +356,23 @@
   <string name="app_ops_labels_project_media">پخش رسانه</string>
   <string name="app_ops_labels_activate_vpn">فعال کردن وی‌پی‌ان</string>
   <string name="app_ops_labels_superuser">دسترسی روت</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">مجاز</string>
   <string name="app_ops_permissions_ignored">چشم پوشی شده</string>
   <string name="app_ops_permissions_always_ask">همیشه بپرس</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> استفاده شده)</string>
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> مجاز</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> رد شده</string>
   <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> مجاز، <xliff:g id="count">%2$s</xliff:g> رد شده</string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">نمایش برنامه‌های کاربر</string>
   <string name="app_ops_show_system_apps">نمایش برنامه‌های اصلی</string>
   <string name="app_ops_reset_counters">تنظیم مجدد شمارشگرهای مجاز/رد شده</string>
   <string name="app_ops_reset_confirm_title">تایید تنظیم مجدد شمارشگر</string>
   <string name="app_ops_reset_confirm_mesg">از تنظیم مجدد شمارشگرها اطمینان دارید؟</string>
   <string name="ok">بسیارخب</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">نام هاست دستگاه</string>
   <string name="unlock_scramble_pin_layout_title">چینش درهم</string>
   <string name="unlock_scramble_pin_layout_summary">چینش درهم پین هنگام باز کردن قفل دستگاه</string>
@@ -358,12 +414,16 @@
   <string name="button_wake_title">بیدار کردن دستگاه</string>
   <string name="home_answer_call_title">پاسخ دادن به تماس</string>
   <string name="home_answer_call_summary">با لمس دکمه صفحه اصلی تماس فعلی پاسخ داده می‌شود</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">روشنایی تطبیقی</string>
   <string name="adaptive_backlight_summary">تطبیق پویای روشنایی صفحه برای افزایش عمر باتری همراه با حفظ کارایی</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">بهبود زیر نور خورشید</string>
   <string name="sunlight_enhancement_summary">افزایش روشنایی و خوانایی صفحه زیر نور شدید خورشید</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">بهبود رنگ</string>
   <string name="color_enhancement_summary">بهبود پویای رنگ صفحه</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">نور زمینه</string>
   <string name="button_backlight_enabled">دکمه‌های نورانی</string>
   <string name="keyboard_backlight_enabled">صفحه‌کلید نورانی</string>
@@ -374,7 +434,10 @@
   <string name="backlight_summary_disabled">غیرفعال</string>
   <string name="backlight_summary_enabled_with_timeout">فعال برای <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">فعال</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">حرکات</string>
+  <!-- Power menu -->
   <string name="power_menu_title">منوی پاور</string>
   <string name="power_menu_reboot_title">منوی راه‌اندازی مجدد</string>
   <string name="power_menu_screenshot_title">گرفتن تصویر صفحه</string>
@@ -385,33 +448,47 @@
   <string name="power_menu_bug_report_title">گزارش اشکال</string>
   <string name="power_menu_sound_title">پنل صدا</string>
   <string name="power_menu_bug_report_disabled">گزارش اشکال در تنظیمات توسعه غیرفعال است</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">فعال کردن نوار پیمایش روی صفحه</string>
   <string name="disable_navkeys_summary">فعال کردن نوار پیمایش روی صفحه و غیرفعال کردن دکمه‌های سخت‌افزاری</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">دو بار ضربه برای به خواب رفتن</string>
   <string name="double_tap_to_sleep_summary">خاموش شدن صفحه با دوبار ضربه زدن روی نوار وضعیت</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">جلوگیری از بیدار شدن تصادفی</string>
   <string name="proximity_wake_summary">بررسی حسگر مجاورت قبل از روشن کردن صفحه</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">بیدار شدن هنگام اتصال به برق</string>
   <string name="wake_when_plugged_or_unplugged_summary">روشن شدن صفحه هنگام اتصال یا قطع اتصال منبع برق</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">نمونه</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">تن تنظیم بلندی صدا</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">شدت لرزش</string>
   <string name="vibrator_warning">مقادیر بالاتر از %1$d توصیه نمی‌شود</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">تنظیم رنگ</string>
   <string name="color_calibration_summary">تنظیم رنگ‌های خروجی صفحه</string>
   <string name="color_red_title">قرمز</string>
   <string name="color_green_title">سبز</string>
   <string name="color_blue_title">آبی</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">تنظیم گاما</string>
   <string name="gamma_tuning_summary_head">تغییر جزئی مقادیر گاما</string>
   <string name="gamma_tuning_control_set_header">گروه <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">کنتراست</string>
   <string name="gamma_tuning_brightness">روشنایی</string>
   <string name="gamma_tuning_saturation">اشباع</string>
+  <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">اجرای برنامه موسیقی</string>
   <string name="headset_connect_player_summary">هنگام اتصال هدست برنامه پیش‌فرض موسیقی اجرا شود</string>
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">اولویت خودکار</string>
   <string name="auto_brightness_reset_button">تنظیم مجدد</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">چرخش</string>
   <string name="display_rotation_disabled">غیرفعال</string>
   <string name="display_rotation_unit">درجه</string>
@@ -421,6 +498,7 @@
   <string name="display_rotation_90_title">۹۰ درجه</string>
   <string name="display_rotation_180_title">۱۸۰ درجه</string>
   <string name="display_rotation_270_title">۲۷۰ درجه</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">رنگ صفحه</string>
   <string name="screencolor_summary">تنظیم ته‌رنگ، اشباع، کنتراست یا شدت رنگ صفحه</string>
   <string name="custom_screencolor">رنگ سفارشی صفحه</string>
@@ -434,6 +512,7 @@
   <string name="saturation_str">اشباع: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">کنتراست: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">شدت رنگ: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">بهینه کردن صفحه بر اساس ساعات روز و شرایط محیطی برای افزایش خوانایی و کاهش خستگی چشم</string>
   <string name="live_display_mode">حالت نمایش</string>
   <string name="live_display_color_temperature_title">دمای رنگ</string>
@@ -457,21 +536,28 @@
   <string name="live_display_color_profile_cinema_title">سینما</string>
   <string name="live_display_color_profile_astronomy_title">نجوم</string>
   <string name="live_display_color_profile_astronomy_summary">قرمز پررنگ برای مراقبت از بینایی در شب</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">آیکون انتخابگر</string>
   <string name="ime_switcher_notify_summary">نمایش آیکون انتخابگر روش ورودی</string>
+  <!-- Heads up -->
   <string name="heads_up_notifications">اعلان فوری</string>
   <string name="summary_heads_up_enabled">اعلان‌های بالاپر فعال هستند</string>
   <string name="summary_heads_up_disabled">اعلان‌های بالاپر غیرفعال هستند</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">پذیرش هر نوع فایلی</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">حساسیت بالا به لمس</string>
   <string name="high_touch_sensitivity_summary">افزایش حساسیت صفحه به لمس تا هنگام پوشیدن دستکش نیز قابل استفاده باشد</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">تراکم ال‌سی‌دی</string>
   <string name="dialog_title_lcd_density">تراکم ال‌سی‌دی</string>
   <string name="lcd_density_value_format">%d نقطه در اینچ</string>
   <string name="lcd_density_default_value_format">%d نقطه در اینچ (پیش‌فرض)</string>
   <string name="restarting_ui">شروع مجدد رابط کاربری\u2026</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">نمایش آیکون هنگام استفاده از قلم لمسی</string>
   <string name="stylus_icon_enabled_summary">نمایش آیکون نشانگر هنگام لمس شناور یا رسم با قلم لمسی</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">حرکات قلم لمسی</string>
   <string name="category_spen_title">حرکات قلم لمسی</string>
   <string name="enable_subcat_title">قلم لمسی</string>
@@ -484,18 +570,23 @@
   <string name="gestures_down_spen_title_head">کشیدن به پایین</string>
   <string name="gestures_long_spen_title_head">لمس طولانی</string>
   <string name="gestures_double_spen_title_head">دوبار ضربه</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">هیچ عملی</string>
   <string name="gestures_action_home">صفحه اصلی</string>
   <string name="gestures_action_back">بازگشت</string>
   <string name="gestures_action_menu">منو</string>
   <string name="gestures_action_search">شروع جستجو</string>
   <string name="gestures_action_recent">برنامه‌های اخیر</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s نصب نشده است</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">لمس شناور صفحه</string>
   <string name="touchscreen_hovering_summary">به شما اجازه می‌دهد مانند عملکرد ماوس در مرورگرهای وب، ریموت دسکتاپ و غیره، صفحه نمایش را به صورت شناور کنترل کنید</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">صدای صعودی زنگ</string>
   <string name="increasing_ring_min_volume_title">میزان صدا هنگام شروع</string>
   <string name="increasing_ring_ramp_up_time_title">زمان افزایش صدا</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="lto_download_data_wifi_only">دانلود داده‌های کمکی جی‌پی‌اس</string>
   <string name="lto_download_data_wifi_only_on">با هر شبکه‌ای</string>
   <string name="lto_download_data_wifi_only_off">تنها با شبکه‌های وای‌فای</string>
@@ -504,12 +595,19 @@
   <string name="volume_keys_control_ring_stream_summary_off">کلیدهای صدا میزان صدای رسانه را کنترل می‌کنند</string>
   <string name="category_calibration">کالیبراسیون</string>
   <string name="display_and_lights">صفحه‌نمایش و چراغ‌ها</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">صداهای شارژ</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">فعال کردن</string>
   <string name="power_notifications_enable_summary">پخش صدا هنگام اتصال یا قطع اتصال منبع نیرو</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">لرزش</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">صدای اعلان</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">بی‌صدا</string>
+  <!-- Status bar -->
   <string name="status_bar_title">نوار وضعیت</string>
   <string name="status_bar_toggle_brightness">کنترل روشنایی</string>
   <string name="status_bar_toggle_brightness_summary">تنظیم روشنایی با کشیدن نوار وضعیت به دو طرف</string>
@@ -522,6 +620,7 @@
   <string name="status_bar_quick_qs_pulldown_off">خاموش</string>
   <string name="status_bar_quick_qs_pulldown_left">چپ</string>
   <string name="status_bar_quick_qs_pulldown_right">راست</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">سبک ساعت</string>
   <string name="status_bar_clock_style_right">راست</string>
   <string name="status_bar_clock_style_left">چپ</string>
@@ -532,22 +631,29 @@
   <string name="status_bar_am_pm_normal">عادی</string>
   <string name="status_bar_am_pm_small">کوچک</string>
   <string name="status_bar_am_pm_hidden">پنهان</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">سبک وضعیت باتری</string>
   <string name="status_bar_battery_style_icon_portrait">آیکون عمودی</string>
   <string name="status_bar_battery_style_icon_landscape">آیکون افقی</string>
   <string name="status_bar_battery_style_circle">دایره</string>
   <string name="status_bar_battery_style_text">متن</string>
   <string name="status_bar_battery_style_hidden">پنهان</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">درصد باتری</string>
   <string name="status_bar_battery_percentage_default">پنهان</string>
   <string name="status_bar_battery_percentage_text_inside">داخل آیکون</string>
   <string name="status_bar_battery_percentage_text_next">کنار آیکون</string>
+  <!-- Status bar - icon blacklist -->
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">مسدود کردن رویدادهای لمس حرکتی</string>
   <string name="edge_gesture_service_summary">موارد لمسی برای پیمایش و حرکات نوار وضعیت برای برنامه‌ها ارسال نشود</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">هرگز</string>
   <string name="keep_screen_on_debugging">هنگام اشکال‌زدایی یواس‌بی</string>
   <string name="keep_screen_on_charging">هنگام شارژ</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">حریم خصوصی</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">فعال به صورت پیش‌فرض</string>
   <string name="privacy_guard_default_summary">فعال بودن به صورت پیش‌فرض برای برنامه‌های جدید</string>
   <string name="privacy_guard_manager_title">محافظ حریم خصوصی</string>
@@ -560,22 +666,36 @@
   <string name="privacy_guard_manager_show_system_apps">نمایش برنامه‌های اصلی</string>
   <string name="privacy_guard_advanced_settings_title">پیشرفته</string>
   <string name="privacy_guard_notification_title">نمایش اعلان</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">نمایش الگوی نادرست</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">نمایش نقطه‌های الگو</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
   <string name="lock_directly_show_password">نمایش بی‌واسطه گذرواژه</string>
+  <!-- Whether the keyguard will directly pass to pattern view -->
   <string name="lock_directly_show_pattern">نمایش بی‌واسطه نمای الگو</string>
+  <!-- Whether the keyguard will directly pass to PIN entry -->
   <string name="lock_directly_show_pin">نمایش بی‌واسطه پین</string>
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">نمایش رقص نور موسیقی</string>
+  <!-- lock screen disabled by QS tile warning -->
+  <!-- Battery saver -->
   <string name="battery_saver_threshold">شروع صرفه‌جویی در باتری</string>
   <string name="battery_saver_summary">کاهش کارایی و محدود کردن اطلاعات پس‌زمینه</string>
   <string name="battery_saver_summary_unavailable">هنگام شارژ در دسترس نیست</string>
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">فعال کردن پروفایل درون‌برنامه‌ای</string>
   <string name="autoperf_summary">انتخاب خودکار حالت مناسب باتری برای برنامه‌های مختلف</string>
   <string name="perf_profile_title">حالت باتری</string>
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">صدای اعلان</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">راه‌اندازی مجدد پیشرفته</string>
   <string name="advanced_reboot_summary">منوی پاور هنگام باز بودن قفل، گزینه‌هایی برای راه‌اندازی مجدد به حالت معمولی، بوت لودر یا سافت خواهد داشت</string>
   <string name="category_interface">رابط کاربری</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">میز کار بسط یافته</string>
   <string name="expanded_hide_nothing">مخفی کردن هیچ چیز</string>
   <string name="expanded_hide_status">مخفی کردن نوار وضعیت</string>
@@ -586,10 +706,13 @@
   <string name="expanded_desktop_style">سبک میز کار بسط یافته</string>
   <string name="expanded_desktop_style_description">یک سبک پیش‌فرض میز کار بسط یافته را انتخاب کنید</string>
   <string name="expanded_desktop_title">گزینه‌های میز کار بسط یافته</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">بستن برنامه‌ها با دکمه بازگشت</string>
   <string name="kill_app_longpress_back_summary">بستن برنامه پیش‌زمینه با لمس طولانی دکمه بازگشت</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">نمایش نوار جستجو در منوی برنامه‌های اخیر</string>
   <string name="keywords_recents_show_searchbar">اخیر موارد اخیر غیرفعال کردن فعال کردن نمایش مخفی کردن نوار جستجو نوارجستجو</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">بیدار شدن با صدا</string>
   <string name="voice_wakeup_retrain_title">آموزش مجدد صدای خود</string>
   <string name="voice_wakeup_activity_title">فعالیت مورد نظر برای اجرا</string>
@@ -597,6 +720,7 @@
   <string name="picker_activities">فعالیت‌ها</string>
   <string name="select_custom_app_title">انتخاب برنامه سفارشی</string>
   <string name="select_custom_activity_title">انتخاب فعالیت سفارشی</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">لیست تماس‌گیرندگان مسدود</string>
   <string name="blacklist_edit_dialog_title">ویرایش شماره‌های مسدود شده</string>
   <string name="blacklist_prefs">تنظیمات</string>
@@ -620,19 +744,24 @@
   <string name="blacklist_policy_block_calls">مسدود کردن تماس‌های ورودی</string>
   <string name="blacklist_policy_block_messages">مسدود کردن پیام‌های ورودی</string>
   <string name="blacklist_bad_number_add">افزودن شماره تلفن نامعتبر به لیست تماس‌گیرنده‌های مسدود شده انجام نشد</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">حذف شماره</string>
   <string name="remove_blacklist_entry">آیا می‌خواهید این شماره تلفن مسدود شده را حذف کنید؟</string>
   <string name="select_contact">انتخاب مخاطب</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">امنیت برنامه</string>
   <string name="sms_security_check_limit_title">محدودیت ارسال پیامک</string>
   <string name="sms_security_check_limit_summary">قبل از کسب اجازه، برنامه‌ها می‌تواند ظرف ۱ دقیقه %d پیام ارسال کنند</string>
   <string name="sms_security_check_limit_summary_none">برنامه‌ها نمی‌توانند بدون اجازه هیچ پیامی ارسال کنند</string>
   <string name="sms_security_check_limit_none">هیچ‌کدام</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">%1$s اضافه شده</string>
   <string name="spam_last_blocked_title">%1$s آخرین مورد مسدود شد</string>
   <string name="block_notifications_title">فیلتر کردن اعلان‌ها</string>
   <string name="block_notifications_summary">مدیریت فیلترها و اعلان‌های چشم پوشی شده</string>
   <string name="no_filters_title">هیچ فیلتری تنظیم نشده است</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_statistics_title">آمار استفاده از سایانوژن‌مود</string>
   <string name="anonymous_statistics_summary">کمک به بهبود سایانوژن‌مود با مشارکت در ارسال گزارش آمار به صورت ناشناس</string>
   <string name="anonymous_statistics_warning_title">درباره</string>
@@ -643,6 +772,7 @@
   <string name="preview_data_title">پیش‌نمایش داده‌ها</string>
   <string name="view_stats_title">مشاهده آمار</string>
   <string name="anonymous_learn_more">بیشتر بدانید</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">شناسه یکتا</string>
   <string name="preview_device_title">دستگاه</string>
   <string name="preview_version_title">نسخه</string>
@@ -650,8 +780,10 @@
   <string name="preview_carrier_title">اپراتور</string>
   <string name="stats_collection_title">جمع‌آوری آمار</string>
   <string name="stats_collection_summary">هنگام فعال بودن اجازه می‌دهد متریک‌ها جمع‌آوری شوند</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">تنظیم مجدد الگو</string>
   <string name="lockpattern_settings_reset_summary">برای تنظیم مجدد الگو، ایمیل اصلی و گذرواژه آن را وارد کنید</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">تنظیم مجدد</string>
   <string name="menu_hidden_apps_reset_lock">تنظیم مجدد الگوی قفل</string>
   <string name="protected_apps">برنامه‌های محافظت شده</string>
@@ -661,6 +793,7 @@
   <string name="pa_login_submit_button">ورود</string>
   <string name="pa_login_checking_password">بررسی حساب\u2026</string>
   <string name="pa_login_incorrect_login">مشخصات ورودی نادرست بود</string>
+  <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">همکاران</string>
   <string name="contributors_cloud_loading_message">بارگذاری اطلاعات همکاران\u2026</string>
   <string name="contributors_cloud_failed_message">نمی‌توان اطلاعات همکاران را بارگذاری کرد</string>
@@ -680,23 +813,40 @@
   <string name="title_general">عمومی</string>
   <string name="advanced">پیشرفته</string>
   <string name="link_volume_option_title">یکی شدن میزان صدای زنگ و اعلان</string>
+  <!-- Edit access point labels: PPP number -->
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_disabled">غیرفعال</string>
   <string name="sim_missing">مفقود یا معیوب</string>
   <string name="sim_enabler_airplane_on">اجرای عملیات هنگام روشن بودن حالت هواپیما ممکن نیست.</string>
   <string name="sim_enabler_in_call">اجرای عملیات هنگام برقرار بودن تماس ممکن نیست.</string>
   <string name="sim_enabler_both_inactive">نمی‌توان تمام سیم کارت‌ها را غیرفعال کرد</string>
   <string name="primary_sub_select_title">اشتراک پیش‌فرض 3G/LTE</string>
+  <!-- MSIM SIM status -->
   <string name="sim_card_status_title">وضعیت سیم کارت %d</string>
   <string name="sim_card_lock_settings_title">تنظیمات قفل سیم کارت %d</string>
   <string name="sim_card_summary_empty">سیم کارت وارد نشده است</string>
   <string name="sim_mobile_network_settings_title">تنظیمات سیم کارت %d</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">سر: %1$s W/kg</string>
   <string name="maximum_body_level">بدن: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">مدل: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">صدای زنگ سیم کارت %d</string>
+  <!-- label for application name -->
+  <!-- label for last time used -->
+  <!-- label for usage time -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">این کار تمام اطلاعات <b>حافظه داخلی</b> تبلت شما را پاک می‌کند، از جمله:\n\n<li>حساب‌های دستگاه شما</li>\n<li>تنظیمات و داده‌های برنامه‌ها و سیستم</li>\n<li>برنامه‌های دانلود شده</li></string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="default">این کار تمام اطلاعات <b>حافظه داخلی</b> گوشی شما را پاک می‌کند، از جمله:\n\n<li>حساب‌های دستگاه شما</li>\n<li>تنظیمات و داده‌های برنامه‌ها و سیستم</li>\n<li>برنامه‌های دانلود شده</li></string>
+  <!-- Factory reset strings -->
   <string name="factory_reset_instructions_title">اطلاعات شخصی و برنامه‌ها</string>
   <string name="factory_reset_instructions_summary">این کار تمام حساب‌ها، برنامه‌ها، داده‌های برنامه‌ها و تنظیمات سیستمی موجود بر روی این دستگاه را پاک می‌کند</string>
   <string name="factory_reset_personal_content">محتوای شخصی</string>
@@ -707,9 +857,17 @@
   <string name="factory_reset_erase_sd_card_summary">پاک کردن تمام داده‌های کارت حافظه از جمله موسیقی و تصاویر</string>
   <string name="factory_reset_warning_text_reset_now">اکنون مجددا تنظیم شود</string>
   <string name="factory_reset_warning_text_message">تمام حساب‌ها، برنامه‌ها، داده‌های برنامه‌ها و تنظیمات سیستمی موجود بر روی این دستگاه پاک می‌شوند. این عمل برگشت‌ناپذیر است.</string>
+  <!-- Tethering & portable hotspot other category -->
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">هرگز</string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">تنظیمات</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="interruptions_ignore_while_media_title">جلوگیری از کم کردن صدای منبع ثانویه</string>
   <string name="interruptions_ignore_while_media_summary">میزان صدای رسانه هنگام دریافت اعلان کم نشود</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">موارد حقوقی سایانوژن‌مود</string>
 </resources>

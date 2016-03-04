@@ -19,15 +19,27 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Choices for timezone picker first level.
+         These values will be used as search terms for TimeZone displayName
+         strings. -->
+  <!-- The time zone picker screen has two levels.  The first level allows the user to choose a region. -->
   <string-array name="timezone_filters">
+    <!-- The next level of the time zoner picker should show time zones from the Americas. -->
     <item>ئامېرىكا</item>
+    <!-- The next level of the time zoner picker should show time zones from Europe. -->
     <item>ياۋروپا</item>
+    <!-- The next level of the time zoner picker should show time zones from Africa. -->
     <item>ئافرىقا</item>
+    <!-- The next level of the time zoner picker should show time zones from Asia. -->
     <item>ئاسىيا</item>
+    <!-- The next level of the time zoner picker should show time zones from Australia. -->
     <item>ئاۋسترالىيە</item>
+    <!-- The next level of the time zoner picker should show time zones from Pacific. -->
     <item>تىنچ ئوكيان</item>
+    <!-- The next level of the time zoner picker should show time zones from ALL regions. -->
     <item>ھەممىسى</item>
   </string-array>
+  <!-- Display settings.  The delay in inactivity before the screen is turned off. These are shown in a list dialog. -->
   <string-array name="screen_timeout_entries">
     <item>15 سېكۇنت</item>
     <item>30 سېكۇنت</item>
@@ -37,6 +49,8 @@
     <item>10 مىنۇت</item>
     <item>30 مىنۇت</item>
   </string-array>
+  <!-- Do not translate. -->
+  <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
   <string-array name="dream_timeout_entries">
     <item>ھەرگىز</item>
     <item>15 سېكۇنت</item>
@@ -47,6 +61,9 @@
     <item>10 مىنۇت</item>
     <item>30 مىنۇت</item>
   </string-array>
+  <!-- Do not translate. -->
+  <!-- Security settings.  The delay after screen is turned off until device locks.
+         These are shown in a list dialog. -->
   <string-array name="lock_after_timeout_entries">
     <item>دەرھال</item>
     <item>5 سېكۇنت</item>
@@ -58,12 +75,15 @@
     <item>10 مىنۇت</item>
     <item>30 مىنۇت</item>
   </string-array>
+  <!-- Do not translate. -->
   <string-array name="entries_font_size">
     <item msgid="6490061470416867723">كىچىك</item>
     <item msgid="3579015730662088893">ئادەتتىكى</item>
     <item msgid="1678068858001018666">چوڭ</item>
     <item msgid="490158884605093126">چوڭراق</item>
   </string-array>
+  <!-- TTS settings -->
+  <!-- Default speech rate choices -->
   <string-array name="tts_rate_entries">
     <item>ناھايىتى ئاستا</item>
     <item>ئاستا</item>
@@ -75,6 +95,7 @@
     <item>ناھايىتى ئاستا</item>
     <item>ئەڭ تېز</item>
   </string-array>
+  <!-- Do not translate. -->
   <string-array name="tts_rate_values">
     <item>60</item>
     <item>80</item>
@@ -86,6 +107,7 @@
     <item>350</item>
     <item>400</item>
   </string-array>
+  <!-- Default pitch choices -->
   <string-array name="tts_pitch_entries">
     <item>ناھايىتى تۆۋەن</item>
     <item>تۆۋەن</item>
@@ -93,54 +115,114 @@
     <item>يۇقىرى</item>
     <item>ناھايىتى يۇقىرى</item>
   </string-array>
+  <!-- Do not translate. -->
+  <!-- Do not translate. -->
+  <!-- Wi-Fi settings -->
+  <!-- Match this with the order of NetworkInfo.DetailedState. -->
+  <!-- Wi-Fi settings. The status messages when the network is unknown. -->
   <string-array name="wifi_status">
+    <!-- Status message of Wi-Fi when it is idle. -->
     <item/>
+    <!-- Status message of Wi-Fi when it is scanning. -->
     <item>تەكشۈرۈۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is connecting. -->
     <item>باغلىنىۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is authenticating. -->
     <item>دەلىللەۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
     <item>IP ئادرېسقا ئېرىشىۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is connected. -->
     <item>باغلاندى</item>
+    <!-- Status message of Wi-Fi when it is suspended. -->
     <item>ۋاقىتلىق توختىتىلدى</item>
+    <!-- Status message of Wi-Fi when it is disconnecting. -->
     <item>ئۈزۈۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is disconnected. -->
     <item>ئۈزۈلدى</item>
+    <!-- Status message of Wi-Fi when it is a failure. -->
     <item>مۇۋەپپەقىيەتسىز</item>
+    <!-- Status message of Wi-Fi when it is blocked. -->
     <item>توسۇلغان</item>
+    <!-- Status message of Wi-Fi when connectiong is being verified. -->
     <item>سىگنال ناچار باغلىنىشنى ۋاقىتلىق تاقايدۇ</item>
   </string-array>
+  <!-- Match this with the order of NetworkInfo.DetailedState. -->
+  <!-- Wi-Fi settings. The status messages when the network is known. -->
   <string-array name="wifi_status_with_ssid">
+    <!-- Status message of Wi-Fi when it is idle. -->
     <item/>
+    <!-- Status message of Wi-Fi when it is scanning. -->
     <item>تەكشۈرۈۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is connecting to a network. -->
     <item><xliff:g id="NETWORK_NAME">%1$s</xliff:g> غا باغلىنىۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is authenticating with a network. -->
     <item><xliff:g id="NETWORK_NAME">%1$s</xliff:g> ئارقىلىق سالاھىيەت دەلىللەۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
     <item><xliff:g id="NETWORK_NAME">%1$s</xliff:g> دىن IP ئادرېسقا ئېرىشىۋاتىدۇ…</item>
+    <!-- Status message of Wi-Fi when it is connected to a network. -->
     <item><xliff:g id="NETWORK_NAME">%1$s</xliff:g> غا باغلاندى</item>
+    <!-- Status message of Wi-Fi when it is suspended. -->
     <item>ۋاقىتلىق توختىتىلدى</item>
+    <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
     <item>\" دىن ئۈزۈلۈۋاتىدۇ…\"<xliff:g id="NETWORK_NAME">%1$s</xliff:g></item>
+    <!-- Status message of Wi-Fi when it is disconnected. -->
     <item>ئۈزۈلدى</item>
+    <!-- Status message of Wi-Fi when it is a failure. -->
     <item>مۇۋەپپەقىيەتسىز</item>
+    <!-- Status message of Wi-Fi when it is blocked. -->
     <item>توسۇلغان</item>
+    <!-- Status message of Wi-Fi when connectiong is being verified. -->
     <item>سىگنال ناچار باغلىنىشنى ۋاقىتلىق تاقايدۇ</item>
   </string-array>
+  <!-- Match this with the constants in AccessPoint. -->
+  <!-- Wi-Fi security choices used when manually added a Wi-Fi network -->
+  <!-- Match this with the constants in AccessPoint. -->
+  <!-- Wi-Fi security types for New User Dialog. EAP is not configurable. -->
+  <!-- Wi-Fi AP settings.  The type of security a Wi-Fi AP supports. -->
+  <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
+  <!-- Match this with the constants in WifiDialog. -->
+  <!-- Wi-Fi settings.  The type of EAP method a Wi-Fi network has. -->
   <string-array name="wifi_eap_method">
+    <!-- Do not translate. -->
     <item>PEAP</item>
+    <!-- Do not translate. -->
     <item>TLS</item>
+    <!-- Do not translate. -->
     <item>TTLS</item>
+    <!-- Do not translate. -->
     <item>PWD</item>
+    <!-- Do not translate. -->
     <item>SIM</item>
+    <!-- Do not translate. -->
     <item>AKA</item>
+    <!-- Do not translate. -->
     <item>AKA\'</item>
   </string-array>
+  <!-- Type of EAP method when EAP SIM, AKA, AKA' are not supported -->
   <string-array name="eap_method_without_sim_auth">
+    <!-- Do not translate. -->
     <item>PEAP</item>
+    <!-- Do not translate. -->
     <item>TLS</item>
+    <!-- Do not translate. -->
     <item>TTLS</item>
+    <!-- Do not translate. -->
     <item>PWD</item>
   </string-array>
+  <!-- Wi-Fi AP band settings.  Either 2.4GHz or 5GHz. -->
+  <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
+  <!-- Wi-Fi WPS setup for p2p connections.  -->
+  <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
   <string-array name="wifi_p2p_wps_setup">
+    <!-- Push button based configuration involves pushing a button on two connecting devices [CHAR LIMIT=30]-->
     <item>توپچا</item>
+    <!-- This involves entering a pin obtained from a peer device [CHAR LIMIT=30] -->
     <item>تەڭداش ئۈسكۈنىدىن PIN غا ئېرىش</item>
+    <!-- This involves generating a pin from this device [CHAR LIMIT=20] -->
     <item>بۇ ئۈسكۈنىدىن شەكىللەنگەن PIN</item>
   </string-array>
+  <!-- Match this with the order of WifiP2pDevice.Status -->
+  <!-- Wi-Fi p2p settings device status message -->
   <string-array name="wifi_p2p_status">
     <item>باغلاندى</item>
     <item>تەكلىپ قىلىندى</item>
@@ -148,53 +230,85 @@
     <item>ئىشلىتىلىشچان</item>
     <item>چېگرا ھالقىدى</item>
   </string-array>
+  <!-- Bluetooth Settings -->
+  <!-- Discoverable mode timeout options -->
   <string-array name="bluetooth_visibility_timeout_entries">
     <item>2 مىنۇت</item>
     <item>5 مىنۇت</item>
     <item>1 سائەت</item>
     <item>ھەرگىز ۋاقىت ھالقىمايدۇ</item>
   </string-array>
+  <!-- Match this with drawable.wifi_signal. -->
+  <!-- Wi-Fi settings. The signal strength a Wi-Fi network has. -->
   <string-array name="wifi_signal">
     <item>ناچار</item>
     <item>ياخشىراق</item>
     <item>ياخشى</item>
     <item>ناھايىتى ياخشى</item>
   </string-array>
+  <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi sleep policy. -->
   <string-array name="wifi_sleep_policy_entries">
+    <!-- Always keep Wi-Fi on when screen turns off. -->
     <item>ھەمىشە</item>
+    <!-- Keep Wi-Fi on when screen turns off and plugged in.  When on battery, go to sleep when screen turns off. -->
     <item>توكلانغاندىلا</item>
+    <!-- Do not keep Wi-Fi on when screen turns off.  [CHAR LIMIT=40] -->
     <item>Never</item>
   </string-array>
+  <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi sleep policy. Used when
+         the device is Wi-Fi-only. [CHAR LIMIT=30] -->
   <string-array name="wifi_sleep_policy_entries_wifi_only">
+    <!-- Always keep Wi-Fi on when screen turns off. -->
     <item>ھەمىشە</item>
+    <!-- Keep Wi-Fi on when screen turns off and plugged in.  When on battery, go to sleep when screen turns off. -->
     <item>توكلانغاندىلا</item>
+    <!-- Do not keep Wi-Fi on when screen turns off, for Wi-Fi-only devices, no other data connection -->
     <item>ھەرگىز</item>
   </string-array>
+  <!-- Match with wifi_sleep_policy_entries and the values of the settings in Settings class. -->
+  <!-- Do not translate. -->
   <string-array name="wifi_sleep_policy_values">
+    <!-- Do not translate. -->
     <item>2</item>
+    <!-- Do not translate. -->
     <item>1</item>
+    <!-- Do not translate. -->
     <item>0</item>
   </string-array>
+  <!-- Data Usage settings. Range of data usage. -->
+  <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi frequency band. -->
   <string-array name="wifi_frequency_band_entries">
+    <!-- Operation on both 2.4 GHz and 5 GHz [CHAR LIMIT=25]-->
     <item>Automatic</item>
+    <!-- Operation on 5 GHz alone [CHAR LIMIT=25]-->
     <item>5GHz لا</item>
+    <!-- Operation on 2.4 GHz alone [CHAR LIMIT=25]-->
     <item>2.4GHz لا</item>
   </string-array>
+  <!-- Match with wifi_frequency_band_entries and the values of the settings in WifiManager. -->
+  <!-- Do not translate. -->
   <string-array name="wifi_frequency_band_values">
+    <!-- Do not translate. -->
     <item>0</item>
+    <!-- Do not translate. -->
     <item>1</item>
+    <!-- Do not translate. -->
     <item>2</item>
   </string-array>
+  <!-- Display options for UsageStats class -->
   <string-array name="usage_stats_display_order_types">
     <item>ئىشلىتىش ۋاقتى</item>
     <item>Last time used</item>
     <item>ئەپ ئاتى</item>
   </string-array>
+  <!-- EAP method -->
+  <!-- Phase 2 options for PEAP -->
   <string-array name="wifi_peap_phase2_entries">
     <item>يوق</item>
     <item>MSCHAPV2</item>
     <item>GTC</item>
   </string-array>
+  <!-- Phase 2 options for rest of EAP methods -->
   <string-array name="wifi_phase2_entries">
     <item>يوق</item>
     <item>PAP</item>
@@ -202,26 +316,38 @@
     <item>MSCHAPV2</item>
     <item>GTC</item>
   </string-array>
+  <!-- Wi-Fi IP settings. -->
+  <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
   <string-array name="wifi_ip_settings">
+    <!-- Use DHCP (Dynamic Host Configuration Protocol) for obtaining IP settings [CHAR LIMIT=25] -->
     <item>DHCP</item>
+    <!-- Use statically defined IP settings [CHAR LIMIT=25]-->
     <item>تىنچ</item>
   </string-array>
+  <!-- Wi-Fi proxy settings. -->
+  <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
   <string-array name="wifi_proxy_settings">
+    <!-- No HTTP proxy is used for the current wifi network [CHAR LIMIT=25] -->
     <item>يوق</item>
+    <!-- Manual HTTP proxy settings are used for the current wifi network [CHAR LIMIT=25] -->
     <item>قولدا</item>
+    <!-- Proxy Auto-Config URL that is used for the current wifi network [CHAR LIMIT=25] -->
     <item>Proxy Auto-Config</item>
   </string-array>
+  <!-- Authentication Types used in APN editor -->
   <string-array name="apn_auth_entries">
     <item>يوق</item>
     <item>PAP</item>
     <item>CHAP</item>
     <item>PAP ياكى CHAP</item>
   </string-array>
+  <!-- Authentication Types used in APN editor -->
   <string-array name="apn_protocol_entries">
     <item>IPv4</item>
     <item>IPv6</item>
     <item>IPv4/IPv6</item>
   </string-array>
+  <!-- Bearer Info used in APN editor -->
   <string-array name="bearer_entries">
     <item>بەلگىلەنمىگەن</item>
     <item>LTE</item>
@@ -240,17 +366,24 @@
     <item>IS95B</item>
     <item>IS95A</item>
   </string-array>
+  <!-- MVNO Info used in APN editor -->
   <string-array name="mvno_type_entries">
     <item>يوق</item>
+    <!-- Do not translate. -->
     <item>SPN</item>
+    <!-- Do not translate. -->
     <item>IMSI</item>
+    <!-- Do not translate. -->
     <item>GID</item>
   </string-array>
+  <!-- Apps on SD installation location options in ApplicationSettings -->
   <string-array name="app_install_location_entries">
     <item>ئۈسكۈنە ئىچكى ساقلىغۇچ</item>
     <item>يۆتكىلىشچان SD كارتا</item>
     <item>سىستېما بەلگىلەيدۇ</item>
   </string-array>
+  <!-- Do not translate. -->
+  <!-- Names of categories of app ops tabs -->
   <string-array name="app_ops_categories">
     <item>ئورنى</item>
     <item>شەخسىي</item>
@@ -258,6 +391,7 @@
     <item>ۋاستە</item>
     <item>ئۈسكۈنە</item>
   </string-array>
+  <!-- User display names for app ops codes -->
   <string-array name="app_ops_summaries">
     <item>تەخمىنىي ئورنى</item>
     <item>دەل ئورنى</item>
@@ -310,6 +444,7 @@
     <item>assist structure</item>
     <item>assist screenshot</item>
   </string-array>
+  <!-- User display names for app ops codes -->
   <string-array name="app_ops_labels">
     <item>ئورنى</item>
     <item>ئورنى</item>
@@ -362,11 +497,17 @@
     <item>Assist structure</item>
     <item>Assist screenshot</item>
   </string-array>
+  <!-- Titles for the list of long press timeout options. -->
   <string-array name="long_press_timeout_selector_titles">
+    <!-- A title for the option for short long-press timeout [CHAR LIMIT=25] -->
     <item>قىسقا</item>
+    <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->
     <item>ئوتتۇرا</item>
+    <!-- A title for the option for long long-press timeout [CHAR LIMIT=25] -->
     <item>ئۇزۇن</item>
   </string-array>
+  <!-- Values for the list of long press timeout options. -->
+  <!-- Titles for captioning typeface preference. [CHAR LIMIT=35] -->
   <string-array name="captioning_typeface_selector_titles">
     <item>كۆڭۈلدىكى</item>
     <item>Sans-serif</item>
@@ -378,6 +519,8 @@
     <item>Cursive</item>
     <item>Small capitals</item>
   </string-array>
+  <!-- Values for captioning typeface preference. -->
+  <!-- Titles for captioning font size preference. [CHAR LIMIT=35] -->
   <string-array name="captioning_font_size_selector_titles">
     <item>بەك كىچىك</item>
     <item>كىچىك</item>
@@ -385,22 +528,39 @@
     <item>چوڭ</item>
     <item>بەك چوڭ</item>
   </string-array>
+  <!-- Values for captioning font size preference. -->
+  <!-- Titles for captioning character edge type preference. [CHAR LIMIT=35] -->
+  <!-- Values for captioning character edge type preference. -->
+  <!-- Titles for captioning color preference. -->
+  <!-- Values for captioning color preference. -->
+  <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
   <string-array name="captioning_opacity_selector_titles">
     <item>25%</item>
     <item>50%</item>
     <item>75%</item>
     <item>100%</item>
   </string-array>
+  <!-- Values for captioning opacity preference. -->
+  <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
+  <!-- Values for captioning text style preset preference. -->
+  <!-- Titles for logd limit size selection preference. [CHAR LIMIT=14] -->
+  <!-- Titles for logd limit size lowram selection preference. [CHAR LIMIT=14] -->
+  <!-- Values for logd limit size selection preference. -->
+  <!-- Summaries for logd limit size selection preference. [CHAR LIMIT=30]-->
+  <!-- Titles for HDCP checking preference. [CHAR LIMIT=35] -->
   <string-array name="hdcp_checking_titles">
     <item>ھەرگىز تەكشۈرمە</item>
     <item>DRM مەزمۇنىنىلا تەكشۈر</item>
     <item>ھەمىشە تەكشۈر</item>
   </string-array>
+  <!-- Values for HDCP checking preference. -->
+  <!-- Summaries for HDCP checking preference. [CHAR LIMIT=100]-->
   <string-array name="hdcp_checking_summaries">
     <item>HDCP تەكشۈرۈشنى ھەرگىز ئىشلەتمە</item>
     <item>HDCP ئىشلىتىپ DRM مەزمۇنىنىلا تەكشۈر</item>
     <item>ھەمىشە HDCP تەكشۈرۈشىنى ئىشلەت</item>
   </string-array>
+  <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
   <string-array name="window_animation_scale_entries">
     <item>جانلاندۇرۇمنى تاقا</item>
     <item>جانلاندۇرۇم ئۆلچىكى .5x</item>
@@ -410,6 +570,8 @@
     <item>جانلاندۇرۇم ئۆلچىكى 5x</item>
     <item>جانلاندۇرۇم ئۆلچىكى 10x</item>
   </string-array>
+  <!-- Values for window animation scale preference. -->
+  <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
   <string-array name="transition_animation_scale_entries">
     <item>جانلاندۇرۇمنى تاقا</item>
     <item>جانلاندۇرۇم ئۆلچىكى .5x</item>
@@ -419,6 +581,8 @@
     <item>جانلاندۇرۇم ئۆلچىكى 5x</item>
     <item>جانلاندۇرۇم ئۆلچىكى 10x</item>
   </string-array>
+  <!-- Values for transition animation scale preference. -->
+  <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
   <string-array name="animator_duration_scale_entries">
     <item>جانلاندۇرۇمنى تاقا</item>
     <item>جانلاندۇرۇم ئۆلچىكى .5x</item>
@@ -428,6 +592,8 @@
     <item>جانلاندۇرۇم ئۆلچىكى 5x</item>
     <item>جانلاندۇرۇم ئۆلچىكى 10x</item>
   </string-array>
+  <!-- Values for animator duration scale preference. -->
+  <!-- Titles for overlay display devices preference. [CHAR LIMIT=35] -->
   <string-array name="overlay_display_devices_entries">
     <item>يوق</item>
     <item>480p</item>
@@ -442,27 +608,37 @@
     <item>4K (upscaled, secure)</item>
     <item>720p, 1080p (dual screen)</item>
   </string-array>
+  <!-- Values for overlay display devices preference. -->
+  <!-- Titles for OpenGL traces preference. [CHAR LIMIT=35] -->
   <string-array name="enable_opengl_traces_entries">
     <item>يوق</item>
     <item>Logcat</item>
     <item>Systrace (گىرافىك)</item>
     <item>glGetError دا stack نى چاقىر</item>
   </string-array>
+  <!-- Values for OpenGL traces preference. -->
+  <!-- Titles for non-rectangular clipping preference. [CHAR LIMIT=35] -->
   <string-array name="show_non_rect_clip_entries">
     <item>تاقاق</item>
     <item>چاسا ئەمەس چاپلاش تاختىسى رايونىنى كۆك سىزىدۇ</item>
     <item>سىنايدىغان سىزىش بۇيرۇقىنى يېشىل يورۇتىدۇ</item>
   </string-array>
+  <!-- Values for non-rectangular clipping preference. -->
+  <!-- Titles for frame time tracking preference. [CHAR LIMIT=35] -->
   <string-array name="track_frame_time_entries">
     <item>تاقاق</item>
     <item>ئېكراندا بالداقتەك كۆرسىتىدۇ</item>
     <item>In adb shell dumpsys gfxinfo</item>
   </string-array>
+  <!-- Values for frame time tracking preference. -->
+  <!-- Titles for debug overdraw preference. [CHAR LIMIT=50] -->
   <string-array name="debug_hw_overdraw_entries">
     <item>تاقاق</item>
     <item>ئۆتە سىزىلغان دائىرىنى كۆرسەت</item>
     <item>يېشىل رەڭنى كۆرۈشى ئاجىزلار كۆرىدىغان دائىرىنى كۆرسەت</item>
   </string-array>
+  <!-- Values for debug overdraw preference. -->
+  <!-- Titles for app process limit preference. [CHAR LIMIT=35] -->
   <string-array name="app_process_limit_entries">
     <item>ئۆلچەملىك چەكلىمە</item>
     <item>ئارقا سۇپا جەريانى يوق</item>
@@ -471,6 +647,11 @@
     <item>ئەڭ كۆپ بولغاندا 3 جەريان</item>
     <item>ئەڭ كۆپ بولغاندا 4 جەريان</item>
   </string-array>
+  <!-- Values for app process limit preference. -->
+  <!-- Match this with the constants in VpnProfile. -->
+  <!-- Short names for each VPN type, not really translatable. [CHAR LIMIT=20] -->
+  <!-- Match this with the constants in VpnProfile. -->
+  <!-- Longer descriptions for each VPN type. [CHAR LIMIT=100] -->
   <string-array name="vpn_types_long">
     <item>PPTP VPN</item>
     <item>ئالدىن ھەمبەھىر ئاچقۇچلۇق L2TP/IPSec VPN</item>
@@ -479,24 +660,62 @@
     <item>گۇۋاھنامەلىك ھەمدە Xauth سالاھىيەت دەلىللەيدىغان IPSec VPN</item>
     <item>گۇۋاھنامەلىك ھەمدە ئارىلاش سالاھىيەت دەلىللەيدىغان IPSec VPN</item>
   </string-array>
+  <!-- Match this with the constants in LegacyVpnInfo. -->
+  <!-- Status for a VPN network. [CHAR LIMIT=100] -->
   <string-array name="vpn_states">
+    <!-- Status message when VPN is disconnected. -->
     <item>ئۈزۈلدى</item>
+    <!-- Status message when VPN is initializing. -->
     <item>دەسلەپلەشتۈرۈۋاتىدۇ…</item>
+    <!-- Status message when VPN is connecting. -->
     <item>باغلىنىۋاتىدۇ…</item>
+    <!-- Status message when VPN is connected. -->
     <item>باغلاندى</item>
+    <!-- Status message when VPN is timeout. -->
     <item>ۋاقىت ھالقىش</item>
+    <!-- Status message when VPN is failed. -->
     <item>مۇۋەپپەقىيەتسىز</item>
   </string-array>
+  <!-- User content ratings for restricted users [CHAR LIMIT=30] -->
+  <!-- Values for user content ratings for restricted users -->
+  <!-- Values for premium SMS permission selector [CHAR LIMIT=30] -->
   <string-array name="security_settings_premium_sms_values">
+    <!-- Ask user before sending to premium SMS short code. -->
     <item>سورا</item>
+    <!-- Never allow app to send to premium SMS short code. -->
     <item>ھەرگىز يول قويما</item>
+    <!-- Always allow app to send to premium SMS short code. -->
     <item>ھەمىشە يول قوي</item>
   </string-array>
+  <!-- [CHAR LIMIT=40] Labels for memory states -->
   <string-array name="ram_states">
+    <!-- Normal desired memory state. -->
     <item>ئادەتتىكى</item>
+    <!-- Moderate memory state, not as good as normal. -->
     <item>Moderate</item>
+    <!-- Memory is running low. -->
     <item>تۆۋەن</item>
+    <!-- Memory is critical. -->
     <item>Critical</item>
+    <!-- Unknown memory state -->
     <item>\?</item>
   </string-array>
+  <!-- Display color space adjustment modes for accessibility -->
+  <!-- Values for display color space adjustment modes for accessibility -->
+  <!-- Display color space adjustment modes for developers -->
+  <!-- Values for display color space adjustment modes for developers -->
+  <!-- Battery saver mode: allowable trigger threshold levels. -->
+  <!-- Process stats memory use details: labels for memory states -->
+  <!-- Process stats memory use details: labels for process -->
+  <!-- Array of titles for sim color for multi-sim -->
+  <!-- USB configuration names for Developer Settings.
+         This can be overridden by devices with additional USB configurations. -->
+  <!-- USB configuration values for Developer Settings.
+         These are lists of USB functions passed to the USB Manager to change USB configuraton.
+         This can be overridden by devices with additional USB configurations.
+         Do not translate. -->
+  <!-- Possible values for user theme in Display Settings.
+         Do not translate. -->
+  <!-- These values should match up with the MODE_NIGHT constants in UiModeManager.
+         Do not translate. -->
 </resources>

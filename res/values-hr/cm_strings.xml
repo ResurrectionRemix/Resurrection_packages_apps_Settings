@@ -16,16 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Sada ste <xliff:g id="step_count">%1$d </xliff:g> korak od omogućavanja razvojnih postavki.</item>
-    <item quantity="few">Sada ste <xliff:g id="step_count">%1$d </xliff:g> koraka od omogućavanja razvojnih postavki.</item>
-    <item quantity="other">Sada ste <xliff:g id="step_count">%1$d </xliff:g> koraka od omogućavanja razvojnih postavki.</item>
+    <item quantity="one">Sada ste <xliff:g id="step_count">%1$d</xliff:g> korak od omogućavanja razvojnih postavki.</item>
+    <item quantity="few">Sada ste <xliff:g id="step_count">%1$d</xliff:g> koraka od omogućavanja razvojnih postavki.</item>
+    <item quantity="other">Sada ste <xliff:g id="step_count">%1$d</xliff:g> koraka od omogućavanja razvojnih postavki.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Omogućili ste razvojne postavke!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">Nema potrebe, već ste omogućili postavke za razvoj.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">Razvojni alati</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">Prečac razvojnih postavki</string>
   <string name="development_shortcut_summary">Omogući prečac upravljanja aplikacijama u popisu nedavno korištenih aplikacija</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">Root pristup</string>
   <string name="root_access_warning_title">Dopustiti root pristup?</string>
   <string name="root_access_warning_message">Omogućavanje aplikacijama da traži root pristup je vrlo opasno i može ugroziti sigurnost sustava!</string>
@@ -33,25 +39,37 @@
   <string name="root_access_apps">Samo aplikacije</string>
   <string name="root_access_adb">Samo ADB</string>
   <string name="root_access_all">Aplikacije i ADB</string>
+  <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">CyanogenMod verzija</string>
   <string name="mod_version_default">Nepoznato</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">Model uređaja</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">Naziv uređaja</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level">CyanogenMod API razina</string>
   <string name="mod_api_level_default">Nepoznato</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">Datum izdavanja</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">CyanogenMod ažuriranja</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">Ažuriraj Cyanogen recovery</string>
   <string name="update_recovery_summary">Ažuriraj recovery sa sistemom</string>
   <string name="update_recovery_on_warning">Napomena: Kada je ova značajka omogućena, instalirani oporavak će biti zamijenjen onim koji se nalazi u trenutnoj verziji OS-a.\n\nVaš oporavak će se obnoviti uz nadogradnju sustava, čime se osigurava kompatibilnost s budućim verzijama.\n\nŽelite li omogućiti ovu značajku?</string>
   <string name="update_recovery_off_warning">Upozorenje: Kada je ova mogućnost onemogućena, instalirani se oporavak neće ažurirati sa OS nadogradnjama.\n\nBuduća OS ažuriranja možda se neće instalirati s zastarjelim ili prilagođenim verzijama oporavka.\n\nŽelite li isključiti ovu mogućnost?</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">Teme</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">Način zvonjenja</string>
   <string name="ring_mode_normal">Normalno</string>
   <string name="ring_mode_vibrate">Vibriraj</string>
   <string name="ring_mode_mute">Isključi zvuk</string>
   <string name="settings_reset_button">Resetiraj</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">Profili sustava</string>
   <string name="profiles_add">Dodaj</string>
   <string name="profile_menu_delete">Obriši</string>
@@ -74,49 +92,63 @@
   <string name="profile_app_group_category_title">Obavijest nadjačava</string>
   <string name="profile_app_group_item_instructions">Dodaj ili ukloni grupe</string>
   <string name="profile_app_group_item_instructions_summary">Dodaj ili ukloni aplikaciju za preuzimanje obavijesti za ovaj profil</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">Uključeno</string>
   <string name="profile_entries_off">Isključeno</string>
   <string name="profile_entries_no_override">Bez prekoračenja</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">Naziv</string>
   <string name="new_profile_name">&lt;novi profil&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">Preimenuj</string>
   <string name="rename_dialog_message">Unesite novi naziv</string>
   <string name="duplicate_appgroup_name">Dvostruki naziv grupe aplikacija!</string>
   <string name="rename_dialog_hint">Unesite naziv profila</string>
-  <string name="profile_reset_title">Ponovno postavi</string>
+  <!-- Reset Profiles -->
+  <string name="profile_reset_title">Resetiraj</string>
   <string name="profile_reset_message">Izbrisati sve korisničke profile i vratiti na zadano?</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Ukloniti ovu aplikaciju?</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">Promjenjiva glasnoća</string>
   <string name="connection_state_enabled">Omogući</string>
   <string name="volume_override_summary">Postavi na %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Prekorači jačinu</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">Profili</string>
   <string name="profile_profile_manage">Upravljanje profilima</string>
   <string name="profile_appgroups_manage">Aplikacijske grupe</string>
   <string name="profile_appgroup_manage">Upravljaj grupom aplikacija</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">Postavke profila</string>
   <string name="profile_trigger_connect">Prilikom povezivanja</string>
   <string name="profile_trigger_disconnect">Prilikom prekida veze</string>
   <string name="profile_trigger_notrigger">Nema okidača</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">Način obavijesti</string>
   <string name="ringer_mode">Način zvonjenja</string>
   <string name="lights_mode">Način svjetla</string>
   <string name="vibrate_mode">Način vibracije</string>
   <string name="choose_soundtone">Izaberite ton obavijesti</string>
   <string name="choose_ringtone">Odaberite melodiju zvona</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">Ton obavijesti</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">Aplikacijske grupe</string>
   <string name="profile_applist_title">Aplikacije</string>
   <string name="profile_new_appgroup">Nova grupa aplikacija</string>
   <string name="profile_delete_appgroup">Obrisati ovu grupu aplikacija?</string>
   <string name="profile_appgroup_name_prompt">Upišite ime nove grupe aplikacija</string>
   <string name="profile_appgroup_name_title">Naziv</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">Odaberite aplikaciju</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Postavke sustava</string>
   <string name="profile_lockmode_title">Zaključavanje zaslona</string>
   <string name="profile_lockmode_policy_disabled_summary">Ova opcija profila je onemogućena od strane administratora uređaja</string>
@@ -126,6 +158,7 @@
   <string name="profile_brightness_title">Svjetlina zaslona</string>
   <string name="profile_brightness_override_summary">Postavi na %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">Prekorači osvjetljenje</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi-Fi</string>
   <string name="toggleWifiAp">Wi-Fi Hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -134,9 +167,13 @@
   <string name="toggleSync">Automatska sinkronizacija podataka</string>
   <string name="toggle2g3g4g">Preferirana mreža</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Wi‑Fi regija</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
   <string name="wifi_setting_countrycode_summary">Navedite šifru regije za Wi‑Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Došlo je do problema prilikom postavljanja regionalnog koda.</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">Obriši</string>
   <string name="profile_action_none">Ostavi nepromijenjeno</string>
   <string name="profile_action_system">Zadana postavka sustava</string>
@@ -154,6 +191,7 @@
   <string name="profile_setup_actions_title_config">Konfiguriraj akcije</string>
   <string name="profile_appgroups_manage">Aplikacijske grupe</string>
   <string name="profile_appgroup_manage">Upravljaj grupom aplikacija</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">Aplikacijske grupe</string>
   <string name="profile_new_appgroup">Nova grupa aplikacija</string>
   <string name="profile_delete_appgroup">Obrisati ovu grupu aplikacija?</string>
@@ -167,6 +205,7 @@
   <string name="no_triggers_configured_nfc">Dodirnite za postavljanje novog NFC okidača.</string>
   <string name="profile_setup_setup_triggers_description">Molimo odaberite okidače koji će aktivirati profil</string>
   <string name="profile_setup_actions_description">Sada konfiguriraj što će se dogoditi kada je profil aktiviran</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">Navigacijska traka</string>
   <string name="navigation_bar_left_title">Način rada za ljevake</string>
   <string name="navigation_bar_left_summary">Stavi navigacijsku traku na lijevu stranu zaslona u pejzažnom načinu rada</string>
@@ -179,12 +218,14 @@
   <string name="navigation_bar_arrow_keys_title">Prikaži strelice tijekom upisivanja</string>
   <string name="navigation_bar_arrow_keys_summary">Prikaz lijeve i desne kursorske tipke tijekom unosa teksta. Zamjenjuje IME switcher.</string>
   <string name="navigation_bar_recents_title">Nedavne akcije dugog dodira</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">Uređivanje postavki svjetla</string>
   <string name="pulse_speed_title">Dužina i brzina pulsiranja</string>
   <string name="default_time">Normalno</string>
   <string name="custom_time">Prilagođeno</string>
   <string name="dialog_delete_title">Obriši</string>
   <string name="dialog_delete_message">Ukloniti odabranu stavku?</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">Uvijek uključeno</string>
   <string name="pulse_length_very_short">Vrlo kratko</string>
   <string name="pulse_length_short">Kratko</string>
@@ -196,12 +237,14 @@
   <string name="pulse_speed_normal">Normalno</string>
   <string name="pulse_speed_slow">Sporo</string>
   <string name="pulse_speed_very_slow">Vrlo sporo</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">Baterijsko svjetlo</string>
   <string name="battery_low_pulse_title">Pulsiraj ako je baterija slaba</string>
   <string name="battery_light_list_title">Boje</string>
   <string name="battery_light_low_color_title">Baterija slaba</string>
   <string name="battery_light_medium_color_title">Punjenje</string>
   <string name="battery_light_full_color_title">Napunjeno</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Svjetlo obavijesti</string>
   <string name="notification_light_general_title">Općenito</string>
   <string name="notification_light_applist_title">Aplikacije</string>
@@ -215,15 +258,22 @@
   <string name="notification_light_use_multiple_leds">Više LED svjetla</string>
   <string name="keywords_lights_brightness_level">zatamljivanje osvjetljenja Led-a</string>
   <string name="notification_light_automagic">Automatski odaberi boje</string>
+  <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Postavke svjetla</string>
   <string name="led_notification_text">LED svjetlo omogućeno postavkama</string>
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android ispravljanje grešaka</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">Omogući Android Debug Bridge (adb)</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ADB preko mreže</string>
   <string name="adb_over_network_summary">Omogući TCP/IP ispravljanje pogrešaka preko mrežnih sučelja (Wi-Fi, USB mreže). Ovo podešavanje se resetira pri restartu</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">UPOZORENJE: Kada je omogućen ADB preko mreže, vaš telefon je otvoren za upad na svim povezanim mrežama!\n\nKoristite ovu funkciju samo kada ste povezani s pouzdanim mrežama.\n\nDa li zaista želite omogućiti ovu značajku?</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">Obavijesti Ispravljana grešaka</string>
   <string name="adb_notify_summary">Prikaži obavijest kada je omogućen USB ili mrežno ispravljanje grešaka</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">Lokacija</string>
   <string name="app_ops_categories_personal">Osobno</string>
   <string name="app_ops_categories_messaging">Poruke</string>
@@ -231,6 +281,7 @@
   <string name="app_ops_categories_device">Uređaj</string>
   <string name="app_ops_categories_bootup">Pokretanje</string>
   <string name="app_ops_categories_su">Root pristup</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">gruba lokacija</string>
   <string name="app_ops_summaries_fine_location">dobra lokacija</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -300,6 +351,7 @@
   <string name="app_ops_summaries_toggle_nfc">uključi/isključi NFC</string>
   <string name="app_ops_summaries_toggle_mobile_data">uključi/isključi mobilne podatke</string>
   <string name="app_ops_summaries_superuser">root pristup</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Gruba lokacija</string>
   <string name="app_ops_labels_fine_location">Dobra lokacija</string>
   <string name="app_ops_labels_gps">GPS</string>
@@ -369,19 +421,23 @@
   <string name="app_ops_labels_toggle_nfc">Uključi/isključi NFC</string>
   <string name="app_ops_labels_toggle_mobile_data">Uključi/isključi mobilne podatke</string>
   <string name="app_ops_labels_superuser">Root pristup</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Dopušteno</string>
   <string name="app_ops_permissions_ignored">Zanemareno</string>
   <string name="app_ops_permissions_always_ask">Uvijek pitaj</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (korišteno <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Dozvoljeno <xliff:g id="count" example="2 times">%s </xliff:g></string>
   <string name="app_ops_ignored_count">Odbijeno <xliff:g id="count" example="2 times">%s </xliff:g></string>
   <string name="app_ops_both_count">Dopušteno <xliff:g id="count">%1$s</xliff:g>, odbijeno <xliff:g id="count">%2$s</xliff:g></string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Pokaži korisničke aplikacije</string>
   <string name="app_ops_show_system_apps">Pokaži ugrađene aplikacije</string>
   <string name="app_ops_reset_counters">Resetiraj dozvoli/odbij brojače</string>
   <string name="app_ops_reset_confirm_title">Potvrdi reset brojača</string>
   <string name="app_ops_reset_confirm_mesg">Jeste li sigurni da želite ponovo postaviti brojila?</string>
   <string name="ok">U redu</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">Naziv uređaja</string>
   <string name="unlock_scramble_pin_layout_title">Nasumičan raspored</string>
   <string name="unlock_scramble_pin_layout_summary">Nasumičan PIN raspored pri otključavanju uređaja</string>
@@ -423,12 +479,16 @@
   <string name="button_wake_title">Probudi uređaj</string>
   <string name="home_answer_call_title">Odgovori na poziv</string>
   <string name="home_answer_call_summary">Pritisak na Home tipku će odgovoriti na dolazni poziv</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">Prilagodljivo pozadinsko osvjetljenje</string>
   <string name="adaptive_backlight_summary">Dinamički podesi svjetlinu zaslona kako bi se produljio vijek baterije uz održavanje iskoristivosti</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">Poboljšanje na sunčevoj svjetlosti</string>
   <string name="sunlight_enhancement_summary">Poboljšanje svjetline zaslona i čitljivost na jakoj sunčevoj svjetlosti</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">Pojačavanje boje</string>
   <string name="color_enhancement_summary">Dinamičko pojačavanje boje zaslona</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">Pozadinsko osvjetljenje</string>
   <string name="button_backlight_enabled">Osvjetljenje tipki</string>
   <string name="keyboard_backlight_enabled">Osvjetljenje tipkovnice</string>
@@ -439,7 +499,10 @@
   <string name="backlight_summary_disabled">Onemogućeno</string>
   <string name="backlight_summary_enabled_with_timeout">Omogućeno za <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Omogućeno</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">Geste</string>
+  <!-- Power menu -->
   <string name="power_menu_title">Izbornik napajanja</string>
   <string name="power_menu_reboot_title">Izbornik ponovnog pokretanja</string>
   <string name="power_menu_screenshot_title">Snimak zaslona</string>
@@ -450,33 +513,47 @@
   <string name="power_menu_bug_report_title">Prijava greške</string>
   <string name="power_menu_sound_title">Zvučna ploča</string>
   <string name="power_menu_bug_report_disabled">Izvještavanje greški je onemogućeno u razvojnim postavkama</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Omogući zaslonsku navigacijsku traku</string>
   <string name="disable_navkeys_summary">Omogući zaslonsku navigacijsku traku i onemogući hardverske tipke</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Dvostruki dodir za spavanje</string>
   <string name="double_tap_to_sleep_summary">Dvaput dodirnite statusnu traku za isključivanje zaslona</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">Sprečavanje slučajnog buđenja</string>
   <string name="proximity_wake_summary">Provjeri udaljenost senzora prije buđenja zaslona</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">Probudite na priključivanje na napajanje</string>
   <string name="wake_when_plugged_or_unplugged_summary">Uključite zaslon prilikom spajanja ili odspajanja izvora napajanja</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">Uzorak</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Zvuk podešavanja glasnoće</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Intenzitet vibracije</string>
   <string name="vibrator_warning">Vrijednosti veće od %1$d se ne preporučuju</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Kalibracija boja</string>
   <string name="color_calibration_summary">Kalibriraj boje zaslona</string>
   <string name="color_red_title">Crvena</string>
   <string name="color_green_title">Zelena</string>
   <string name="color_blue_title">Plava</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">Gama kalibracije</string>
   <string name="gamma_tuning_summary_head">Podesi gama vrijednosti</string>
   <string name="gamma_tuning_control_set_header">Grupa <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">Kontrast</string>
   <string name="gamma_tuning_brightness">Svjetlina</string>
   <string name="gamma_tuning_saturation">Zasićenje</string>
+  <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Pokretanje aplikacije za glazbu</string>
   <string name="headset_connect_player_summary">Pokreni zadanu aplikaciju za glazbu kada su priključene slušalice</string>
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">Automatski prioritet</string>
-  <string name="auto_brightness_reset_button">Ponovno postavi</string>
+  <string name="auto_brightness_reset_button">Resetiraj</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">Rotacija</string>
   <string name="display_rotation_disabled">Onemogućeno</string>
   <string name="display_rotation_unit">stupnjeva</string>
@@ -486,6 +563,7 @@
   <string name="display_rotation_90_title">90 stupnjeva</string>
   <string name="display_rotation_180_title">180 stupnjeva</string>
   <string name="display_rotation_270_title">270 stupnjeva</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">Boja zaslona</string>
   <string name="screencolor_summary">Podešavanje nijansi zaslona, zasićenje, kontrasta ili intenziteta</string>
   <string name="custom_screencolor">Prilagođena boja zaslona</string>
@@ -499,6 +577,7 @@
   <string name="saturation_str">Zasićenost: <xliff:g id="saturation_value">%1$s </xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s </xliff:g></string>
   <string name="intensity_str">Intenzitet: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">Prilagodi zaslon prema dobu dana i okolini za poboljšanje čitljivosti i smanjenju naprezanja očiju</string>
   <string name="live_display_mode">Način prikaza</string>
   <string name="live_display_color_temperature_title">Temperatura boje</string>
@@ -527,21 +606,28 @@
   <string name="live_display_color_profile_photography_summary">Savršena boja reprodukcije za fotografije</string>
   <string name="live_display_color_profile_basic_title">Osnovno</string>
   <string name="live_display_color_profile_basic_summary">Koristite ne kalibriran zaslon</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Selektor obavijesti</string>
   <string name="ime_switcher_notify_summary">Prikaz načina unosa za odabir ikona</string>
+  <!-- Heads up -->
   <string name="heads_up_notifications">Heads up</string>
   <string name="summary_heads_up_enabled">Skočne obavijest su uključene</string>
   <string name="summary_heads_up_disabled">Skočne obavijest su isključene</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">Prihvati sve vrste datoteka</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Visoka osjetljivost na dodir</string>
   <string name="high_touch_sensitivity_summary">Povećaj osjetljivost na dodir tako da se mogu koristiti rukavice</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">LCD gustoća</string>
   <string name="dialog_title_lcd_density">LCD gustoća</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (zadano)</string>
   <string name="restarting_ui">Ponovno pokretanje UI\u2026</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Prikaži ikonu pri korištenju olovke</string>
   <string name="stylus_icon_enabled_summary">Prikaži ikonu pokazivača kada lebdim ili crtam pomoću olovke</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">Geste olovke</string>
   <string name="category_spen_title">Geste olovke</string>
   <string name="enable_subcat_title">Olovka</string>
@@ -554,18 +640,23 @@
   <string name="gestures_down_spen_title_head">Potez prema dolje</string>
   <string name="gestures_long_spen_title_head">Dugi pritisak</string>
   <string name="gestures_double_spen_title_head">Dvostruki dodir</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">Bez akcije</string>
   <string name="gestures_action_home">Doma</string>
   <string name="gestures_action_back">Natrag</string>
   <string name="gestures_action_menu">Izbornik</string>
   <string name="gestures_action_search">Prizovi pretragu</string>
   <string name="gestures_action_recent">Nedavno korištene aplikacije</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s nije instalirano</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">Lebdenje zaslonom</string>
   <string name="touchscreen_hovering_summary">Dopušta vam da lebdite zaslonom kao miš u web pretraživaču, udaljenom desktopu, itd</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Pojačavanje glasnoće zvona</string>
   <string name="increasing_ring_min_volume_title">Početna jačina zvuka</string>
   <string name="increasing_ring_ramp_up_time_title">Vrijeme podizanja</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="lto_download_data_wifi_only">Preuzimanje GPS podataka</string>
   <string name="lto_download_data_wifi_only_on">Preko bilo kojih mreža</string>
   <string name="lto_download_data_wifi_only_off">Samo preko Wi-Fi mreža</string>
@@ -574,12 +665,19 @@
   <string name="volume_keys_control_ring_stream_summary_off">Tipke za glasnoću upravljaju glasnoćom medijskog sadržaja</string>
   <string name="category_calibration">Kalibracija</string>
   <string name="display_and_lights">Zaslon i svjetla</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">Zvukovi punjenja</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">Omogući</string>
   <string name="power_notifications_enable_summary">Reproduciraj zvuk prilikom spajanja ili odspajanja izvora napajanja</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">Vibriraj</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">Zvuk obavijesti</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">Tiho</string>
+  <!-- Status bar -->
   <string name="status_bar_title">Statusna traka</string>
   <string name="status_bar_toggle_brightness">Kontrola svjetline</string>
   <string name="status_bar_toggle_brightness_summary">Prilagodite svjetlinu klizanjem po statusnoj traci</string>
@@ -592,6 +690,7 @@
   <string name="status_bar_quick_qs_pulldown_off">Isključeno</string>
   <string name="status_bar_quick_qs_pulldown_left">Lijevi</string>
   <string name="status_bar_quick_qs_pulldown_right">Desni</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Izgled sata</string>
   <string name="status_bar_clock_style_right">Desni</string>
   <string name="status_bar_clock_style_left">Lijevi</string>
@@ -602,24 +701,31 @@
   <string name="status_bar_am_pm_normal">Normalno</string>
   <string name="status_bar_am_pm_small">Malen</string>
   <string name="status_bar_am_pm_hidden">Skriveno</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">Stil baterije</string>
   <string name="status_bar_battery_style_icon_portrait">Okomita ikona</string>
   <string name="status_bar_battery_style_icon_landscape">Položena ikona</string>
   <string name="status_bar_battery_style_circle">Krug</string>
   <string name="status_bar_battery_style_text">Tekst</string>
   <string name="status_bar_battery_style_hidden">Skriveno</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Postotak baterije</string>
   <string name="status_bar_battery_percentage_default">Skriveno</string>
   <string name="status_bar_battery_percentage_text_inside">Unutar ikone</string>
   <string name="status_bar_battery_percentage_text_next">Pokraj ikone</string>
+  <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Ikone trake stanja</string>
   <string name="status_bar_icons_summary">Uredi prikazane ikone trake stanja</string>
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokiraj događaje gesti</string>
   <string name="edge_gesture_service_summary">Nemoj slati dodirne događaje za navigaciju i geste statusne trake aplikacijama</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">Nikad</string>
   <string name="keep_screen_on_debugging">Prilikom USB ispravljanja grešaka</string>
   <string name="keep_screen_on_charging">Prilikom punjenja</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">Privatnost</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">Omogućeno po zadanom</string>
   <string name="privacy_guard_default_summary">Omogućiti prema zadanim postavkama za nedavno Instalirane aplikacije</string>
   <string name="privacy_guard_manager_title">Nadzor privatnosti</string>
@@ -632,26 +738,40 @@
   <string name="privacy_guard_manager_show_system_apps">Prikaži ugrađene aplikacije</string>
   <string name="privacy_guard_advanced_settings_title">Napredno</string>
   <string name="privacy_guard_notification_title">Prikaži obavijest</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Pokaži grešku uzorka</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">Pokaži točke uzorka</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
   <string name="lock_directly_show_password">Izravno pokaži unos lozinke</string>
+  <!-- Whether the keyguard will directly pass to pattern view -->
   <string name="lock_directly_show_pattern">Izravno prikaži uzorak</string>
+  <!-- Whether the keyguard will directly pass to PIN entry -->
   <string name="lock_directly_show_pin">Izravno prikazivanje PIN unosa</string>
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Prikaži vizualizer glazbe</string>
+  <!-- lock screen disabled by QS tile warning -->
   <string name="lockscreen_disabled_by_qs_tile_title">Onemogućeno od strane pločice brzih postavki</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Dodirnite da biste omogućili zaključavanje zaslona</string>
   <string name="lockscreen_disabled_by_qs_tile_summary_enabled">Zaključani zaslon omogućen!</string>
+  <!-- Battery saver -->
   <string name="battery_saver_threshold">Prag štednje baterije</string>
   <string name="battery_saver_summary">Smanji performanse i ograniči pozadinske podatke</string>
   <string name="battery_saver_summary_unavailable">Nije dostupno tijekom punjenja</string>
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">Omogući profile za pos. apl.</string>
   <string name="autoperf_summary">Automatski odaberi način rada baterije za razne aplikacije</string>
   <string name="perf_profile_title">Način rada baterije</string>
+  <!-- Memory -->
   <string name="memory_startup_apps_title">Aplikacije pokrenute pri startu</string>
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Ton obavijesti</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">Napredno ponovno pokretanje</string>
   <string name="advanced_reboot_summary">Kada je uređaj otključan, obuhvati opcije u izborniku napajanja za ponovno pokretanje u oporavak, download ili brzo pokretanje</string>
   <string name="category_interface">Sučelje</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">Proširena radna površina</string>
   <string name="expanded_hide_nothing">Nemoj ništa skrivati</string>
   <string name="expanded_hide_status">Sakrij traku stanja</string>
@@ -662,10 +782,13 @@
   <string name="expanded_desktop_style">Stil proširene radne površine</string>
   <string name="expanded_desktop_style_description">Odaberite zadani stil proširene radne površine</string>
   <string name="expanded_desktop_title">Opcije proširene radne površine</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Zatvori aplikaciju tipkom natrag</string>
   <string name="kill_app_longpress_back_summary">Zatvori pozadinske aplikacije dugim pritiskom tipke natrag</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Prikaži prozor za pretraživanje u nedavnim </string>
   <string name="keywords_recents_show_searchbar">nedavne nedavni onemogući omogući prikaži sakrij traka za pretraživanje</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">Glasovno buđenje</string>
   <string name="voice_wakeup_retrain_title">Utreniraj svoj ​​glas</string>
   <string name="voice_wakeup_activity_title">Aktivnosti za pokretanje</string>
@@ -674,6 +797,7 @@
   <string name="picker_activities">Aktivnosti</string>
   <string name="select_custom_app_title">Odaberite aplikaciju</string>
   <string name="select_custom_activity_title">Odaberite prilagođenu aktivnost</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Popis blokiranih pozivatelja</string>
   <string name="blacklist_edit_dialog_title">Uređivanje blokiranog telefonskog broja</string>
   <string name="blacklist_prefs">Postavke</string>
@@ -697,19 +821,24 @@
   <string name="blacklist_policy_block_calls">Blokiraj dolazne pozive</string>
   <string name="blacklist_policy_block_messages">Blokiraj dolazne poruke</string>
   <string name="blacklist_bad_number_add">Nije moguće unijeti nepravilan broj u popis blokiranih sugovornika</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">Ukloni broj</string>
   <string name="remove_blacklist_entry">Želite li ukloniti ovaj blokirani telefonski broj?</string>
   <string name="select_contact">Odaberite kontakt</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">Sigurnost aplikacija</string>
   <string name="sms_security_check_limit_title">Ograničenje SMS poruke</string>
   <string name="sms_security_check_limit_summary">Aplikacije mogu poslati %d poruke u 1 minuti prije zahtijevanja potvrde</string>
   <string name="sms_security_check_limit_summary_none">Aplikacije ne smiju slati poruke bez potvrde</string>
   <string name="sms_security_check_limit_none">Nijedan</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">Dodano %1$s</string>
   <string name="spam_last_blocked_title">Posljednji blokirani %1$s</string>
   <string name="block_notifications_title">Filtriraj obavijesti</string>
   <string name="block_notifications_summary">Upravljaj zanemarenim obavijestima i filterima</string>
   <string name="no_filters_title">Nema postavljenih filtera</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_statistics_title">CyanogenMod statistika</string>
   <string name="anonymous_statistics_summary">Pomozite nam poboljšati CyanogenMod slanjem anonimnih statističkih izvješća</string>
   <string name="anonymous_statistics_warning_title">O</string>
@@ -718,6 +847,7 @@
   <string name="preview_data_title">Pretpregled podataka</string>
   <string name="view_stats_title">Prikaz statistika</string>
   <string name="anonymous_learn_more">Saznajte više</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">Jedinstveni ID</string>
   <string name="preview_device_title">Uređaj</string>
   <string name="preview_version_title">Verzija</string>
@@ -725,8 +855,10 @@
   <string name="preview_carrier_title">Operater</string>
   <string name="stats_collection_title">Prikupljene statistike</string>
   <string name="stats_collection_summary">Kada je omogućeno dozvoljava metričku kolekciju</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">Ponovno postavi uzorak</string>
   <string name="lockpattern_settings_reset_summary">Unesite primarni e-mail račun i pridruženu lozinku da biste vratili uzorak</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">Resetiraj</string>
   <string name="menu_hidden_apps_reset_lock">Ponovno postavi uzorak</string>
   <string name="protected_apps">Zaštićene aplikacije</string>
@@ -738,6 +870,7 @@
   <string name="pa_login_checking_password">Provjera računa\u2026</string>
   <string name="pa_login_incorrect_login">Prijava je netočna</string>
   <string name="pa_pattern_or_fingerprint_header">Morate nacrtati uzorak ili koristiti otisak prsta za otključavanje</string>
+  <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Suradnici</string>
   <string name="contributors_cloud_loading_message">Učitavanje podataka suradnika\u2026</string>
   <string name="contributors_cloud_failed_message">Nije moguće učitati podatke suradnika</string>
@@ -762,7 +895,9 @@
   <string name="advanced">Napredno</string>
   <string name="link_volume_option_title">Spoji glasnoće za ton zvona i obavijesti</string>
   <string name="lcd_density_prompt_message">Neke aplikacije možda neće funkcionirati u ne standardnom DPI.\n\nOvo će ponovno pokrenuti uređaj.</string>
+  <!-- Edit access point labels: PPP number -->
   <string name="apn_ppp_number">APN PPP telefonski broj</string>
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="duplicate_apn_error_title">Dupliciraj APN</string>
   <string name="duplicate_apn_error_message">Ovaj APN već postoji. Odbacite ili promijenite parametre.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> je <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
@@ -782,25 +917,40 @@
   <string name="sub_deactivate_failed">Deaktivacija nije uspjela.</string>
   <string name="primary_sub_select_title">Zadana 3G/LTE pretplata</string>
   <string name="select_sim_card">Odaberite SIM karticu</string>
+  <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d status</string>
   <string name="sim_card_lock_settings_title">SIM %d postavke zaključavanja</string>
   <string name="sim_card_summary_empty">SIM kartica nije umetnuta</string>
   <string name="sim_mobile_network_settings_category_title">Postavke mobilne mreže</string>
   <string name="sim_mobile_network_settings_title">SIM %d postavke</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
   <string name="zen_mode_summary_reminders">podsjetnici</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">događaji</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_callers">odabrani pozivatelji</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_messages">odabrane poruke</string>
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">Glava: %1$s W/kg</string>
   <string name="maximum_body_level">Tijelo: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">Model: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM %d melodija</string>
+  <!-- label for application name -->
   <string name="app_name_label_cm">Aplikacija:</string>
+  <!-- label for last time used -->
   <string name="last_time_used_label_cm">Zadnji put korišteno:</string>
+  <!-- label for usage time -->
   <string name="usage_time_label_cm">Vrijeme uporabe:</string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">Ovo će izbrisati sve podatke s telefona <b>interne pohrane</b>, uključujući: \n\n <li>račune</li> \n <li>sustav i podatke aplikacija i postavke</li> \n <li>preuzete aplikacije</li></string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="default">Ovo će izbrisati sve podatke s <b>interne pohrane</b>, uključujući:\n\n<li>Vaše račune</li>\n<li>Sustav i podatke aplikacija i postavki</li>\n<li>Preuzete aplikacije</li></string>
+  <!-- Factory reset strings -->
   <string name="factory_reset_instructions_title">Osobni podaci i aplikacije</string>
   <string name="factory_reset_instructions_summary">Ovo će izbrisati sve vaše račune, aplikacije, podatke aplikacija i postavke sustava na uređaju</string>
   <string name="factory_reset_personal_content">Osobni sadržaj</string>
@@ -811,7 +961,9 @@
   <string name="factory_reset_erase_sd_card_summary">Izbriši sve podatke na SD kartici, uključujući glazbu i fotografije</string>
   <string name="factory_reset_warning_text_reset_now">RESETIRAJ SADA</string>
   <string name="factory_reset_warning_text_message">Svi vaše računi, aplikacije, podaci o aplikacijama i postavkama sustava uklanjaju se iz ovog uređaja. Ovo se ne može poništiti.</string>
+  <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Ostalo</string>
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_text">Wi-Fi hotspot vremensko ograničenje</string>
   <string name="hotstpot_inactivity_timeout_never">Nikad</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 minuta</string>
@@ -819,11 +971,17 @@
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minuta</string>
   <string name="hotstpot_inactivity_timeout_never_summary_text">Prijenosni Wi-Fi hotspot bez vremenskog ograničenja</string>
   <string name="hotstpot_inactivity_timeout_summary_text">Prijenosni Wi-Fi hotspot s vremenskim ograničenjem od <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
   <string name="live_lock_screen_title">Aktivni zaključani zaslon</string>
+  <!-- Live lock screen summary -->
   <string name="live_lock_screen_summary">Omogućite i podesite Aktivne zaključane zaslone</string>
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Postavke</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="live_lock_screen_settings_disabled_prompt">Da bi vidjeli dostupne Aktivne zaključane zaslone, uključite ih.</string>
   <string name="interruptions_ignore_while_media_title">Onemogući stišavanje audia</string>
   <string name="interruptions_ignore_while_media_summary">Nemoj utišati glasnoću reprodukcije medija kada pristigne obavijest</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod licenca</string>
 </resources>

@@ -16,15 +16,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasu d\'habilitar los axustes de desendolcu.</item>
     <item quantity="other">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasos d\'habilitar los axustes de desendolcu.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">¡Agora tán activaes les opciones de desendolcu!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">Nun fai falta, yá tán activaes les opciones de desendolcu.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">Ferramientes de desendolcu</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">Opciones de desendolcador</string>
   <string name="development_shortcut_summary">Habilitar los métodos abreviaos de xestión d\'aplicación na llista d\'aplicaciones recientes</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">Accesu alministrativu</string>
   <string name="root_access_warning_title">¿Permitir accesu alministrativu?</string>
   <string name="root_access_warning_message">¡Permitir a les aplicaciones solicitar accesu alministrativu ye enforma peligroso y pue comprometer la seguridá del sistema!</string>
@@ -32,23 +38,35 @@
   <string name="root_access_apps">Namái aplicaciones</string>
   <string name="root_access_adb">Namái ADB</string>
   <string name="root_access_all">Aplicaciones y ADB</string>
+  <!-- NFC PreferenceCategory title -->
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">Versión CyanogenMod</string>
   <string name="mod_version_default">Desconocida</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">Modelu de preséu</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">Nome del preséu</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level_default">Desconocida</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">Data de compilación</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">Anovamientos CyanogenMod</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">Anovar col recovery de Cyanogen</string>
   <string name="update_recovery_summary">Anovar recovery colos anovamientos del sistema</string>
   <string name="update_recovery_on_warning">AVISU: Cuando esta función ta activada, el recovery instaláu va sustituyise por ún incluyíu cola versión actual del SO.\n\nEl recovery va anovase xunto con meyores del sistema, ayudando a garantizar la compatibilidá con futures versiones.\n\n¿Quies activar esta función?</string>
   <string name="update_recovery_off_warning">AVISU: Cuando esta función está desactivada, el recovery instaláu nun s\'anueva con anovamientos del SO.\n\nVersiones futures del SO podríen non instalase con recoverys non anovaos.\n\n¿Daveres quies deshabilitar esta función?</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">Temes</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">Mou de soníu</string>
   <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Vibración</string>
   <string name="ring_mode_mute">Silenciu</string>
   <string name="settings_reset_button">Restablecer</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">Perfiles del sistema</string>
   <string name="profiles_add">Amestar</string>
   <string name="profile_menu_delete">Desaniciar</string>
@@ -71,45 +89,60 @@
   <string name="profile_app_group_category_title">Anulaciones d\'avisos</string>
   <string name="profile_app_group_item_instructions">Amestar o desaniciar grupos</string>
   <string name="profile_app_group_item_instructions_summary">Amiesta o desanicia l\'anulación d\'avisos de grupos d\'apliaciones pa esti perfil</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_no_override">Nun anular</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">Nome</string>
   <string name="new_profile_name">&lt;perfil nuevu&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">Renomar</string>
   <string name="rename_dialog_message">Introducir un nome nuevu</string>
   <string name="duplicate_appgroup_name">¡Nome de grupu d\'aplicaciones duplicáu!</string>
   <string name="rename_dialog_hint">Introduz el nome del perfil</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">Restablecer</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">¿Desaniciar esta aplicación?</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">Volume</string>
   <string name="connection_state_enabled">Soníu</string>
   <string name="volume_override_summary">Afitar a %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Anular volume</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">Perfiles</string>
   <string name="profile_profile_manage">Alministrar perfil</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">Axustes de perfil</string>
   <string name="profile_trigger_connect">Al coneutar</string>
   <string name="profile_trigger_disconnect">Al desconeutar</string>
   <string name="profile_trigger_notrigger">Ensin eventu</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">Mou de notificación</string>
   <string name="lights_mode">Mou lluces</string>
   <string name="vibrate_mode">Mou vibración</string>
   <string name="choose_soundtone">Esbillar tonu d\'avisu</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">Tonu d\'avisos</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_applist_title">Aplicaciones</string>
   <string name="profile_delete_appgroup">¿Desaniciar esti grupu d\'aplicaciones?</string>
   <string name="profile_appgroup_name_prompt">Introduz un nome pal grupu d\'aplicaciones nuevu</string>
   <string name="profile_appgroup_name_title">Nome</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">Esbillar aplicación</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Axustes del Sistema</string>
   <string name="profile_lockmode_title">Mou Bloquéu de pantalla</string>
   <string name="profile_lockmode_insecure_summary">Nun pidir PIN o contraseña</string>
   <string name="profile_lockmode_disabled_summary">Desactivar el bloquéu de pantalla</string>
   <string name="profile_airplanemode_title">Mou avión</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Puntu d\'accesu Wi\u2011Fi</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -118,7 +151,11 @@
   <string name="toggleSync">Sincronización automática</string>
   <string name="toggle2g3g4g">Triba de rede preferida</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Hebo un fallu al afitar el códigu de rexón.</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">Desaniciar</string>
   <string name="profile_action_none">Dexar ensin cambeos</string>
   <string name="profile_action_disable">Apagar</string>
@@ -133,6 +170,7 @@
   <string name="profile_setup_setup_triggers_title_config">Modificar eventos: <xliff:g id="profile_name">%1$s</xliff:g></string>
   <string name="profile_setup_actions_title">Paso 2: Configurar aiciones</string>
   <string name="profile_setup_actions_title_config">Reconfigurar aiciones</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_delete_appgroup">¿Desaniciar esti grupu d\'aplicaciones?</string>
   <string name="profile_appgroup_name_prompt">Introduz un nome pal grupu d\'aplicaciones nuevu</string>
   <string name="profile_appgroup_name_title">Nome</string>
@@ -145,6 +183,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="no_triggers_configured_nfc">Calca p\'amestar un disparador NFC nuevu.</string>
   <string name="profile_setup_setup_triggers_description">Selecciona qué eventos van activar esti perfil</string>
   <string name="profile_setup_actions_description">Agora configura qué va asoceder cuando s\'active\'l perfil</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">Barra de navegación</string>
   <string name="navigation_bar_left_title">Mou pa maniegos</string>
   <string name="navigation_bar_left_summary">Allugar la barra de navegación a la esquierda de la pantalla nel mou apaisáu</string>
@@ -156,12 +195,14 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="navigation_bar_reset_message">¿Quies desaniciar los axustes actuales y restaurar la disposición por defeutu?</string>
   <string name="navigation_bar_arrow_keys_title">Amosar fleches al escribir</string>
   <string name="navigation_bar_arrow_keys_summary">Amosar los cursores esquierda y derecha mentanto la escritura. Troca al seleutor IME.</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">Editar axustes de lluz</string>
   <string name="pulse_speed_title">Duración y velocidá</string>
   <string name="default_time">Normal</string>
   <string name="custom_time">Por defeutu</string>
   <string name="dialog_delete_title">Desaniciar</string>
   <string name="dialog_delete_message">¿Desaniciar l\'elementu seleicionáu?</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">Siempre encesa</string>
   <string name="pulse_length_very_short">Mui curtia</string>
   <string name="pulse_length_short">Curtia</string>
@@ -173,12 +214,14 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="pulse_speed_normal">Normal</string>
   <string name="pulse_speed_slow">Lenta</string>
   <string name="pulse_speed_very_slow">Mui lenta</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">Indicador de batería</string>
   <string name="battery_low_pulse_title">Parpaguiar con batería baxa</string>
   <string name="battery_light_list_title">Colores</string>
   <string name="battery_light_low_color_title">Batería baxa</string>
   <string name="battery_light_medium_color_title">Cargando</string>
   <string name="battery_light_full_color_title">Cargada</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Lluz de notificación</string>
   <string name="notification_light_general_title">Xeneral</string>
   <string name="notification_light_applist_title">Aplicaciones</string>
@@ -187,13 +230,20 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="notification_light_default_value">Por defeutu</string>
   <string name="notification_light_missed_call_title">Llamada perdida</string>
   <string name="notification_light_voicemail_title">Buzón de voz</string>
+  <!-- Lights settings, LED notification -->
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Depuración Android</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">Habilitar la interface Android Debug Bridge (adb)</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ADB sobre rede</string>
   <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre les interfaces de rede (Wi\u2011Fi, redes USB). Esta configuración restablezse al reaniciar el preséu</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">AVISU: Cuando ta habilitáu ADB sobre rede, el teléfono ta abiertu pa intrusiones en toles redes coneutaes.\n\nUsa esta función namái coneutáu a redes de confianza.\n\n¿Daveres quies activar esta función?</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">Notificación de depuración</string>
   <string name="adb_notify_summary">Amosar una notificación cuando tea activada la depuración per USB o rede</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">Llocalización</string>
   <string name="app_ops_categories_personal">Personal</string>
   <string name="app_ops_categories_messaging">Mensaxería</string>
@@ -201,6 +251,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_categories_device">Preséu</string>
   <string name="app_ops_categories_bootup">Arranque</string>
   <string name="app_ops_categories_su">Accesu alministrativu</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">allugamientu pocu precisu</string>
   <string name="app_ops_summaries_fine_location">allugamientu precisu</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -246,6 +297,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_summaries_project_media">proyeutar conteníu multimedia</string>
   <string name="app_ops_summaries_activate_vpn">activar VPN</string>
   <string name="app_ops_summaries_superuser">accesu alministrativu</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibrar</string>
   <string name="app_ops_labels_read_contacts">Lleer contautos</string>
@@ -282,19 +334,23 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_labels_project_media">Proyeutu Media</string>
   <string name="app_ops_labels_activate_vpn">Activar VPN</string>
   <string name="app_ops_labels_superuser">Accesu alministrativu</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Permitíu</string>
   <string name="app_ops_permissions_ignored">inoráu</string>
   <string name="app_ops_permissions_always_ask">Entrugar siempre</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (used <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Permitíu <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Refugáu <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Permitíu <xliff:g id="count">%1$s</xliff:g>, refugáu <xliff:g id="count">%2$s</xliff:g></string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Aplicaciones d\'usuariu</string>
   <string name="app_ops_show_system_apps">Amuesa les app del sistema</string>
   <string name="app_ops_reset_counters">Restablecer contadores</string>
   <string name="app_ops_reset_confirm_title">Confirma\'l reaniciu de los contadores</string>
   <string name="app_ops_reset_confirm_mesg">¿Daveres que quies restablecer los contadores?</string>
   <string name="ok">Aceutar</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">Nome del preséu</string>
   <string name="unlock_scramble_pin_layout_title">Disposición al debalu</string>
   <string name="unlock_scramble_pin_layout_summary">Cambiar la disposición de los númberos del PIN pa desbloquiar el preséu</string>
@@ -331,12 +387,16 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="button_wake_title">Esconsoñar preséu</string>
   <string name="home_answer_call_title">Contestar la llamada</string>
   <string name="home_answer_call_summary">Calcando\'l botón d\'aniciu contéstase a la llamada entrante</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">Brillu adautativu</string>
   <string name="adaptive_backlight_summary">Variar intelixentemente\'l brillu de la pantalla ayudando d\'esti mou a la duración de la batería</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">Lluz del sol</string>
   <string name="sunlight_enhancement_summary">Meyorar el brillu y la llectura de la pantalla baxo la lluz del sol</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">Ameyoramientu de color</string>
   <string name="color_enhancement_summary">Ameyorar dinámicamente el color de la pantalla</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">Retroilluminación</string>
   <string name="button_backlight_enabled">Illuminar botones</string>
   <string name="keyboard_backlight_enabled">Illuminar tecláu</string>
@@ -347,7 +407,10 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="backlight_summary_disabled">Deshabilitáu</string>
   <string name="backlight_summary_enabled_with_timeout">Habilitáu mientres <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Habilitáu</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">Xestos</string>
+  <!-- Power menu -->
   <string name="power_menu_title">Menú d\'apagáu</string>
   <string name="power_menu_reboot_title">Reaniciar</string>
   <string name="power_menu_screenshot_title">Capturar pantalla</string>
@@ -358,30 +421,44 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="power_menu_bug_report_title">Informe de fallu</string>
   <string name="power_menu_sound_title">Panel de soníu</string>
   <string name="power_menu_bug_report_disabled">Los informes de fallu tán desactivaos nes opciones de desendolcu</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Habilitar barra de navegación</string>
   <string name="disable_navkeys_summary">Habilitar la barra de navegación en pantalla y deshabilitar los botones físicos</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Doble toque pa bloquiar</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">Prevenir encendíu accidental</string>
   <string name="proximity_wake_summary">Comprobar el sensor de proximidá enantes de prender la pantalla</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">Prender con cargador</string>
   <string name="wake_when_plugged_or_unplugged_summary">Prender la pantalla al coneutar o desconeutar el cargador</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">Amuesa</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Sonios d\'axuste de volume</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Intensidá de vibración</string>
   <string name="vibrator_warning">Nun son recomendables valores superiores a %1$d</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Calibración de color</string>
   <string name="color_calibration_summary">Calibrar los colores de la pantalla</string>
   <string name="color_red_title">Bermeyu</string>
   <string name="color_green_title">Verde</string>
   <string name="color_blue_title">Azul</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">Correición gamma</string>
   <string name="gamma_tuning_summary_head">Axustar la correición gamma de la pantalla</string>
   <string name="gamma_tuning_control_set_header">Grupu <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">Contraste</string>
   <string name="gamma_tuning_brightness">Brillu</string>
   <string name="gamma_tuning_saturation">Saturación</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">Prioridá automática</string>
   <string name="auto_brightness_reset_button">Restablecer</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">Rotación</string>
   <string name="display_rotation_disabled">Desactivada</string>
   <string name="display_rotation_unit">graos</string>
@@ -391,6 +468,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="display_rotation_90_title">90 graos</string>
   <string name="display_rotation_180_title">180 graos</string>
   <string name="display_rotation_270_title">270 graos</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">Color de la pantalla</string>
   <string name="screencolor_summary">Axustar el tonu de la pantalla, saturación, contraste o intensidá</string>
   <string name="custom_screencolor">Color personalizáu de la pantalla</string>
@@ -404,22 +482,30 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="saturation_str">Saturación: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contraste: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensidá: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiza la to pantalla basándose na hora\'l día y les condiciones ambientales p\'ameyorar la llexibilidá y amenorgar el cansanciu de güeyos</string>
   <string name="live_display_color_temperature_title">Temperatura de color</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Seleutor d\'iconu</string>
   <string name="ime_switcher_notify_summary">Amosar l\'iconu de seleición del métodu d\'entrada</string>
+  <!-- Heads up -->
   <string name="summary_heads_up_enabled">Tán habilitaos los avisos emerxentes</string>
   <string name="summary_heads_up_disabled">Tán deshabilitaos los avisos emerxentes</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">Aceutar tolos tipos de ficheros</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Sensibilidá alta al tactu</string>
   <string name="high_touch_sensitivity_summary">Incrementar la sensibilidá del panel táctil pa que pueda usase llevando guantes</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">Densidá LCD</string>
   <string name="dialog_title_lcd_density">Densidá LCD</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (por defeutu)</string>
   <string name="restarting_ui">Reaniciando UI\u2026</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Amosar l\'iconu cuando s\'usa un llápiz</string>
   <string name="stylus_icon_enabled_summary">Amosar el cursor cuando s\'arrastra o dibuxa con el llápiz</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">Xestos del llápiz</string>
   <string name="category_spen_title">Xestos del llápiz</string>
   <string name="enable_subcat_title">Llápiz</string>
@@ -432,26 +518,38 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="gestures_down_spen_title_head">Eslizar hacia abaxo</string>
   <string name="gestures_long_spen_title_head">Pulsación llarga</string>
   <string name="gestures_double_spen_title_head">Doble toque</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">Ensin aición</string>
   <string name="gestures_action_home">Aniciu</string>
   <string name="gestures_action_back">Atrás</string>
   <string name="gestures_action_menu">Menú</string>
   <string name="gestures_action_search">Aniciar gueta</string>
   <string name="gestures_action_recent">Aplicaciones recientes</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s nun ta instalada</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">Pantalla táctil eslizante</string>
   <string name="touchscreen_hovering_summary">Permite eslizase pela pantalla como un mur en navegadores, escritorios remotos, etc.</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Volume de timbre ascendente</string>
   <string name="increasing_ring_min_volume_title">Volume inicial</string>
   <string name="increasing_ring_ramp_up_time_title">Duración d\'incrementu</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="category_calibration">Calibración</string>
   <string name="display_and_lights">Pantalla y leds</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">Cargador</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">Soníu</string>
   <string name="power_notifications_enable_summary">Reproducir un soníu al coneutar o desconeutar el cargador</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">Vibración</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">Soníu de notificación</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">Nengún</string>
+  <!-- Status bar -->
   <string name="status_bar_title">Barra d\'estáu</string>
   <string name="status_bar_toggle_brightness">Axuste de brillu</string>
   <string name="status_bar_toggle_brightness_summary">Permitir axustar la lluminosidá de la pantalla eslizando\'l deu pela barra d\'estáu</string>
@@ -461,6 +559,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="status_bar_quick_qs_pulldown_summary_right">Derecha</string>
   <string name="status_bar_quick_qs_pulldown_left">Esquierda</string>
   <string name="status_bar_quick_qs_pulldown_right">Derecha</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Estilu de reló</string>
   <string name="status_bar_clock_style_right">Derecha</string>
   <string name="status_bar_clock_style_left">Esquierda</string>
@@ -471,20 +570,27 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Pequeñu</string>
   <string name="status_bar_am_pm_hidden">Anubríu</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">Estilu del estáu de la batería</string>
   <string name="status_bar_battery_style_icon_portrait">Iconu vertical</string>
   <string name="status_bar_battery_style_icon_landscape">Iconu horizontal</string>
   <string name="status_bar_battery_style_circle">Círculu</string>
   <string name="status_bar_battery_style_text">Testu</string>
   <string name="status_bar_battery_style_hidden">Anubríu</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Porcentaxe de batería</string>
   <string name="status_bar_battery_percentage_default">Anubríu</string>
   <string name="status_bar_battery_percentage_text_inside">Dientro l\'iconu</string>
   <string name="status_bar_battery_percentage_text_next">Al llau del iconu</string>
+  <!-- Status bar - icon blacklist -->
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Bloquiar eventos táctiles</string>
   <string name="edge_gesture_service_summary">Nun unviar a les aplicaciones eventos táctiles de la barra d\'estáu y de navegación</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">Enxamás</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">Privacidá</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">Privacidá</string>
   <string name="privacy_guard_default_summary">Habilitar la privacidá por defeutu pa nueves aplicaciones</string>
   <string name="privacy_guard_manager_title">Privacidá</string>
@@ -497,15 +603,29 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="privacy_guard_manager_show_system_apps">Aplicaciones del sistema</string>
   <string name="privacy_guard_advanced_settings_title">Avanzáu</string>
   <string name="privacy_guard_notification_title">Amosar avisu</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Amosar fallu de patrón</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">Amosar puntos del patrón</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
+  <!-- Whether the keyguard will directly pass to pattern view -->
+  <!-- Whether the keyguard will directly pass to PIN entry -->
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Amosar visualizador de música</string>
+  <!-- lock screen disabled by QS tile warning -->
+  <!-- Battery saver -->
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">Habilitar los perfiles por aplicación</string>
   <string name="perf_profile_title">Mou batería</string>
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Tonu de notificación</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">Reaniciu mou avanzáu</string>
   <string name="advanced_reboot_summary">Al desbloquiar, incluyir nel menú d\'apagáu opciones pa reaniciar en mou recovery, bootloader o facer un reaniciu suave</string>
   <string name="category_interface">Interfaz</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">Estender escritoriu</string>
   <string name="expanded_hide_nothing">Ensin anubrir nada</string>
   <string name="expanded_hide_status">Anubrir barra d\'estáu</string>
@@ -516,10 +636,13 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="expanded_desktop_style">Estilu del escritoriu estendíu</string>
   <string name="expanded_desktop_style_description">Esbilla un valor por defeutu pal estilu del escritoriu estendíu</string>
   <string name="expanded_desktop_title">Opciones del escritoriu estendíu</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Botón Volver</string>
   <string name="kill_app_longpress_back_summary">Matar l\'aplicación actual al caltener primíu\'l botón Volver</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Amosar barra de gueta nel menú de recientes</string>
   <string name="keywords_recents_show_searchbar">recién reciente deshabilitar habilitar amosar anubrir barra de gueta gueta</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">Activación por voz</string>
   <string name="voice_wakeup_retrain_title">Calibra la to voz</string>
   <string name="voice_wakeup_activity_title">Actividá a executar</string>
@@ -527,6 +650,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="picker_activities">Actividaes</string>
   <string name="select_custom_app_title">Seleicionar aplicación personalizada</string>
   <string name="select_custom_activity_title">Seleicionar actividá personalizada</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_prefs">Axustes</string>
   <string name="blacklist_button_delete">Desaniciar</string>
   <string name="blacklist_empty_text">Nun tienes númberos bloquiaos. Amiesta una entrada tocando\'l botón Amestar (+).</string>
@@ -545,26 +669,34 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="blacklist_regex_summary">Usar \u00AB.\u00BB como comodín y \u00AB*\u00BB pa repetición. Por exemplu \u00AB123.*\u00BB va bloquiar númberos qu\'entamen por 123 y \u00AB.*123.*\u00BB va bloquiar númberos que contengan 123</string>
   <string name="blacklist_policy_block_calls">Bloquiar llamaes entrantes</string>
   <string name="blacklist_policy_block_messages">Bloquiar mensaxes entrantes</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">Quitar númberu</string>
   <string name="select_contact">Seleicionar contautu</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">Seguridá n\'aplicaciones</string>
   <string name="sms_security_check_limit_title">Llende de mensaxes SMS</string>
   <string name="sms_security_check_limit_summary">Les aplicaciones puen unviar %d mensaxes enantes de riquir confirmación</string>
   <string name="sms_security_check_limit_summary_none">Nun se-yos permite a les aplicaciones unviar mensaxes ensin confirmación</string>
   <string name="sms_security_check_limit_none">Dengún</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">Amestáu %1$s</string>
   <string name="spam_last_blocked_title">Cabera bloquiada %1$s</string>
   <string name="block_notifications_title">Filtriar notificaciones</string>
   <string name="block_notifications_summary">Remanar filtros y notificaciones bloquiaes</string>
   <string name="no_filters_title">Nun hai filtros afitaos</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_learn_more">Deprendi más</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_device_title">Preséu</string>
   <string name="preview_version_title">Versión</string>
   <string name="preview_country_title">País</string>
   <string name="stats_collection_title">Colleición de datos</string>
   <string name="stats_collection_summary">Cuando ta activáu, permite la recoleición de métriques</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">Restaurar el patrón</string>
   <string name="lockpattern_settings_reset_summary">Introduz la cuenta de corréu principal y la contraseña asociada pa restablecer el patrón de bloquéu</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">Reaniciar</string>
   <string name="menu_hidden_apps_reset_lock">Reanicia\'l patrón de bloquéu</string>
   <string name="protected_apps">Apps protexíes</string>
@@ -574,6 +706,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="pa_login_submit_button">Aniciar sesión</string>
   <string name="pa_login_checking_password">Comprobando cuenta\u2026</string>
   <string name="pa_login_incorrect_login">Conexón incorreuta</string>
+  <!-- Contributors cloud activity -->
   <string name="category_sounds">Soníos</string>
   <string name="notification_manager">Avisos</string>
   <string name="lockscreen_settings">Pantalla de bloquéu</string>
@@ -584,18 +717,43 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="title_general">Xeneral</string>
   <string name="advanced">Avanzáu</string>
   <string name="link_volume_option_title">Enllazar volume de llamada y notificaciones</string>
+  <!-- Edit access point labels: PPP number -->
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_disabled">deshabilitada</string>
   <string name="sim_missing">ausente o defeutuosa</string>
   <string name="sim_enabler_airplane_on">Nun pue facese la operación entrín el mou avión tea activáu.</string>
   <string name="sim_enabler_in_call">Nun pue facese la operación entrín teas llamando.</string>
   <string name="sim_enabler_both_inactive">Nun puen deshabilitase toles tarxetes SIM</string>
   <string name="primary_sub_select_title">Soscripción 3G/LTE por defeutu</string>
+  <!-- MSIM SIM status -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">Cabeza: %1$s W/kg</string>
   <string name="maximum_body_level">Cuerpu: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">Modelu: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
+  <!-- label for application name -->
+  <!-- label for last time used -->
+  <!-- label for usage time -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <!-- Factory reset strings -->
+  <!-- Tethering & portable hotspot other category -->
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Enxamás</string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Axustes</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="interruptions_ignore_while_media_summary">Nun amenorga\'l volume de reproducción cuando aporten avisos</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">Llicencia CyanogenMod</string>
 </resources>

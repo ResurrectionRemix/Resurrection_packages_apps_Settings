@@ -16,16 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniu toliau įgalinant kūrėjo parinktys.</item>
     <item quantity="few">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniais toliau įgalinant kūrėjo parinktys.</item>
     <item quantity="other">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsnių toliau įgalinant kūrėjo parinktys.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Jūs įgalinote kūrėjo parinktys!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">Nereikia, jūs jau įgalinote kūrėjo parinktys.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">Kūrimo įrankiai</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">Kūrimo spartusis klavišas</string>
   <string name="development_shortcut_summary">Įgalinti programos tvarkymo sparčiuosius klavišus naujausių programų sąraše</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">Prieiga prie „Root“</string>
   <string name="root_access_warning_title">Leisti „Root“ prieigą?</string>
   <string name="root_access_warning_message">Leisti programoms prašyti „Root“ prieigos yra labai pavojinga, tai gali pakenkti jūsų sistemos saugumui!</string>
@@ -33,24 +39,36 @@
   <string name="root_access_apps">Tik programos</string>
   <string name="root_access_adb">Tik „Android“ derinimas</string>
   <string name="root_access_all">Programos ir „Android“ derinimas</string>
+  <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">„CyanogenMod“ versija</string>
   <string name="mod_version_default">Nežinoma</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">Įrenginio modelis</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">Įrenginio pavadinimas</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level_default">Nežinoma</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">Surinkimo data</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">„CyanogenMod“ atnaujinimai</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">Atnaujinti „Cyanogen“ atkūrimo programą</string>
   <string name="update_recovery_summary">Atnaujinti atkūrimo programą kartu su sistemos atnaujinimais</string>
   <string name="update_recovery_on_warning">PRANEŠIMAS: Kai ši funkcija yra įgalinta, jūsų įdiegta atkūrimo programa bus pakeista kartu su dabartinės versijos OS.\n\nJūsų atkūrimo programa bus atnaujinta kartu su sistemos atnaujinimais, padedant užtikrinti suderinamumą su būsimomis versijomis.\n\nAr norėtumėte įgalinti šią funkciją?</string>
   <string name="update_recovery_off_warning">ĮSPĖJIMAS: Kai ši funkcija yra neleidžiama,\n\nJūsų atkūrimo programa nebus atnaujinta kartu su OS atnaujinimais.\n\nAteityje OS atnaujinimai negalės būti įdiegti su pasenusia ar tinkinta atkūrimo programos versija.\n\nAr tikrai norite neleisti šios funkcijos?</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">Temos</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">Skambėjimo režimas</string>
   <string name="ring_mode_normal">Normalus</string>
   <string name="ring_mode_vibrate">Vibracija</string>
   <string name="ring_mode_mute">Begarsis</string>
   <string name="settings_reset_button">Atstatyti</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">Sistemos profiliai</string>
   <string name="profiles_add">Pridėti</string>
   <string name="profile_menu_delete">Ištrinti</string>
@@ -73,48 +91,62 @@
   <string name="profile_app_group_category_title">Pranešimo nepaisymas</string>
   <string name="profile_app_group_item_instructions">Pridėti arba pašalinti grupes</string>
   <string name="profile_app_group_item_instructions_summary">Pridėti arba pašalinti pranešimo nepaisymą programos grupėms į šį profilį</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">Įjungti</string>
   <string name="profile_entries_off">Išjungti</string>
   <string name="profile_entries_no_override">Nėra nepaisymo</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">Pavadinimas</string>
   <string name="new_profile_name">&lt;naujas profilis&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">Pervardyti</string>
   <string name="rename_dialog_message">Įveskite naują pavadinimą</string>
   <string name="duplicate_appgroup_name">Toks programos grupės pavadinimas jau yra!</string>
   <string name="rename_dialog_hint">Įveskite profilio pavadinimą</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">Atstatyti</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Pašalinti šią programą?</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G / 3G</string>
   <string name="profile_networkmode_2g3g4g">2G / 3G / LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">Garsumo nepaisymas</string>
   <string name="connection_state_enabled">Įgalinti</string>
   <string name="volume_override_summary">Nustatyti %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Nepaisyti garsumo</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">Profiliai</string>
   <string name="profile_profile_manage">Tvarkyti profilį</string>
   <string name="profile_appgroups_manage">Programos grupės</string>
   <string name="profile_appgroup_manage">Tvarkyti programos grupę</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">Profilio nustatymai</string>
   <string name="profile_trigger_connect">Kai prisijungiama</string>
   <string name="profile_trigger_disconnect">Kai atsijungiama</string>
   <string name="profile_trigger_notrigger">Nieko nedaryti</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">Pranešimo režimas</string>
   <string name="ringer_mode">Skambėjimo režimas</string>
   <string name="lights_mode">Šviesų režimas</string>
   <string name="vibrate_mode">Vibravimo režimas</string>
   <string name="choose_soundtone">Pasirinkite pranešimo toną</string>
   <string name="choose_ringtone">Pasirinkite skambėjimo toną</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">Pranešimo tonas</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">Programos grupės</string>
   <string name="profile_applist_title">Programos</string>
   <string name="profile_new_appgroup">Nauja programos grupė</string>
   <string name="profile_delete_appgroup">Ištrinti šią programos grupę?</string>
   <string name="profile_appgroup_name_prompt">Įveskite naują programos grupės pavadinimą</string>
   <string name="profile_appgroup_name_title">Pavadinimas</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">Pasirinkti programą</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Sistemos nustatymai</string>
   <string name="profile_lockmode_title">Ekrano užrakto režimas</string>
   <string name="profile_lockmode_policy_disabled_summary">Šio profilio parinktis yra neleidžiama pagal įrenginio administratoriaus politikos</string>
@@ -124,6 +156,7 @@
   <string name="profile_brightness_title">Ekrano šviesumas</string>
   <string name="profile_brightness_override_summary">Nustatyti %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">Nepaisyti šviesumo</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi-Fi</string>
   <string name="toggleWifiAp">Portatyvioji „Wi-Fi“ saitvietė</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -132,9 +165,13 @@
   <string name="toggleSync">Automatinis duomenų sinchronizavimas</string>
   <string name="toggle2g3g4g">Pageidaujamas tinklo tipas</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">„Wi-Fi“ regiono kodas</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
   <string name="wifi_setting_countrycode_summary">Nurodyti „Wi-Fi“ regiono kodą</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Iškilo problema nustatant regiono kodą.</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">Ištrinti</string>
   <string name="profile_action_none">Palikti nepakeistą</string>
   <string name="profile_action_system">Sistemos numatytasis</string>
@@ -152,6 +189,7 @@
   <string name="profile_setup_actions_title_config">Perkonfigūruoti veiksmus</string>
   <string name="profile_appgroups_manage">Programos grupės</string>
   <string name="profile_appgroup_manage">Tvarkyti programos grupę</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">Programos grupės</string>
   <string name="profile_new_appgroup">Nauja programos grupė</string>
   <string name="profile_delete_appgroup">Ištrinti šią programos grupę?</string>
@@ -165,6 +203,7 @@
   <string name="no_triggers_configured_nfc">Bakstelėkite, kad nustatytumėte naują NFC jungiklį.</string>
   <string name="profile_setup_setup_triggers_description">Prašome pasirinkti jungiklius, kurie suaktyvins šį profilį</string>
   <string name="profile_setup_actions_description">Dabar nustatykite kas nutinka, kai profilis yra aktyvuotas</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">Naršymo juosta</string>
   <string name="navigation_bar_left_title">Kairiarankis režimas</string>
   <string name="navigation_bar_left_summary">Gulsčiame režime patalpinti naršymo juostą kairėje ekrano pusėje</string>
@@ -177,12 +216,14 @@
   <string name="navigation_bar_arrow_keys_title">Rašant rodyti rodyklių klavišus</string>
   <string name="navigation_bar_arrow_keys_summary">Rašant rodyti kairį ir dešinį kursoriaus mygtukus. Nepaiso IME perjungiklio.</string>
   <string name="navigation_bar_recents_title">Naujausių ilgo paspaudimo veiksmas</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">Redaguoti šviesos nustatymus</string>
   <string name="pulse_speed_title">Pulsavimo trukmė ir greitis</string>
   <string name="default_time">Normalus</string>
   <string name="custom_time">Priskirtas</string>
   <string name="dialog_delete_title">Ištrinti</string>
   <string name="dialog_delete_message">Pašalinti pasirinktą elementą?</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">Visada įjungta</string>
   <string name="pulse_length_very_short">Labai trumpas</string>
   <string name="pulse_length_short">Trumpas</string>
@@ -194,12 +235,14 @@
   <string name="pulse_speed_normal">Normalus</string>
   <string name="pulse_speed_slow">Lėtas</string>
   <string name="pulse_speed_very_slow">Labai lėtas</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">Akumuliatoriaus šviesa</string>
   <string name="battery_low_pulse_title">Pulsuoti, jei akumuliatorius senka</string>
   <string name="battery_light_list_title">Spalvos</string>
   <string name="battery_light_low_color_title">Akumuliatorius senka</string>
   <string name="battery_light_medium_color_title">Įkraunama</string>
   <string name="battery_light_full_color_title">Pilnai įkrauta</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Pranešimo šviesa</string>
   <string name="notification_light_general_title">Bendra</string>
   <string name="notification_light_applist_title">Programos</string>
@@ -211,13 +254,20 @@
   <string name="notification_light_screen_on">Šviesos su įjungtu ekranu</string>
   <string name="notification_light_use_multiple_leds">Keli šviesos diodai</string>
   <string name="keywords_lights_brightness_level">pritemdyti šviesos diodus</string>
+  <!-- Lights settings, LED notification -->
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">„Android“ derinimas</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">Įgalinti „Android“ derinimo tiltą (adb) sąsaja</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">„Android“ derinimas per tinklą</string>
   <string name="adb_over_network_summary">Įgalinti TCP / IP derinimą per tinklą („Wi-Fi“, USB tinklai). Šis nustatymas nustatomas iš naujo, paleidimo iš naujo metu</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">ISPĖJIMAS: Kai „Android“ derinimas per tinklą yra įgalintas, jūsų telefonas yra atviras įsibrovimams iš visų prijungtų tinklų!\n\nNaudokite šią funkciją tik tada, kai esate prisijungę prie patikimų tinklų.\n\nAr tikrai norite įgalinti šią funkciją?</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">Derinimo pranešimas</string>
   <string name="adb_notify_summary">Rodyti pranešimą, kai USB arba tinklo derinimas yra įgalintas</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">Vieta</string>
   <string name="app_ops_categories_personal">Asmeninės</string>
   <string name="app_ops_categories_messaging">Susirašinėjimas žinutėmis</string>
@@ -225,6 +275,7 @@
   <string name="app_ops_categories_device">Įrenginys</string>
   <string name="app_ops_categories_bootup">Paleidimas</string>
   <string name="app_ops_categories_su">„Root“ prieiga</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">apytikslė vietovė</string>
   <string name="app_ops_summaries_fine_location">tiksli vietovė</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -270,6 +321,7 @@
   <string name="app_ops_summaries_project_media">medijos projektas</string>
   <string name="app_ops_summaries_activate_vpn">suaktyvinti VPN</string>
   <string name="app_ops_summaries_superuser">„root“ prieiga</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibruoti</string>
   <string name="app_ops_labels_read_contacts">Skaityti kontaktus</string>
@@ -306,19 +358,23 @@
   <string name="app_ops_labels_project_media">Medijos projektas</string>
   <string name="app_ops_labels_activate_vpn">Suaktyvinti VPN</string>
   <string name="app_ops_labels_superuser">Prieiga prie „Root“</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Leidžiama</string>
   <string name="app_ops_permissions_ignored">Ignoruojama</string>
   <string name="app_ops_permissions_always_ask">Visada klausti</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (naudota <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Leista <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Atmesta <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Leista <xliff:g id="count">%1$s</xliff:g>, atmesta <xliff:g id="count">%2$s</xliff:g></string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Rodyti vartotojo programas</string>
   <string name="app_ops_show_system_apps">Rodyti sistemos programas</string>
   <string name="app_ops_reset_counters">Nustatyti iš naujo leista / atmesa skaitiklius</string>
   <string name="app_ops_reset_confirm_title">Patvirtinkite skaitiklių atstatymą</string>
   <string name="app_ops_reset_confirm_mesg">Ar tikrai norite nustatyti iš naujo skaitiklius?</string>
   <string name="ok">Gerai</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">Įrenginio vardas tinkle</string>
   <string name="unlock_scramble_pin_layout_title">Sumaišyti išdėstymą</string>
   <string name="unlock_scramble_pin_layout_summary">Atrakinant įrenginį sumaišyti PIN išdėstymą</string>
@@ -360,12 +416,16 @@
   <string name="button_wake_title">Pažadinti įrenginį</string>
   <string name="home_answer_call_title">Atsiliepti į skambutį</string>
   <string name="home_answer_call_summary">Paspaudus pagrindinį mygtuką bus atsilieptą į įeinantį skambutį</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">Prisitaikantis apšvietimas</string>
   <string name="adaptive_backlight_summary">Dinamiškai reguliuoti ekrano apšvietimo šviesumą, siekiant padidinti akumuliatoriaus veikimo laiką</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">Saulės šviesos gerinimas</string>
   <string name="sunlight_enhancement_summary">Pagerinti ekrano šviesumą ir įskaitomumą ryškioje saulės šviesoje</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">Spalvų stiprinimas</string>
   <string name="color_enhancement_summary">Dinamiškai padidinti ekrano spalvą</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">Foninis apšvietimas</string>
   <string name="button_backlight_enabled">Apšviesti mygtukus</string>
   <string name="keyboard_backlight_enabled">Apšviesti klaviatūra</string>
@@ -376,7 +436,10 @@
   <string name="backlight_summary_disabled">Neleidžiamas</string>
   <string name="backlight_summary_enabled_with_timeout">Įgalinta <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Įgalintas</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">Gestai</string>
+  <!-- Power menu -->
   <string name="power_menu_title">Maitinimo meniu</string>
   <string name="power_menu_reboot_title">Paleidimo iš naujo meniu</string>
   <string name="power_menu_screenshot_title">Ekrano kopija</string>
@@ -387,33 +450,47 @@
   <string name="power_menu_bug_report_title">Pranešimas apie riktą</string>
   <string name="power_menu_sound_title">Garso skydelis</string>
   <string name="power_menu_bug_report_disabled">Pranešimai apie riktas neleidžiami kūrėjo parinktyse</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Įgalinti ekranine naršymo juostą</string>
   <string name="disable_navkeys_summary">Įgalinti ekranine naršymo juostą ir neleisti aparatūros mygtukų</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Dukart bakstelėti, kad užmigdyti</string>
   <string name="double_tap_to_sleep_summary">Dukart bakstelėti būsenos juostą, kad išjungti ekraną</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">Išvengti atsitiktinio pažadinimo</string>
   <string name="proximity_wake_summary">Patikrinti artumo jutiklio prioritetą, kad pažadinti ekraną</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">Pažadinti, kai prijungiama</string>
   <string name="wake_when_plugged_or_unplugged_summary">Įjungti ekraną, kai prijungiamas ar atjungiamas maitinimo šaltinis</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">Pavyzdys</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Garsumo reguliavimo garsai</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Vibravimo intensyvumas</string>
   <string name="vibrator_warning">Vertės didesnės nei %1$d yra nerekomenduojamos</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Spalvų kalibravimas</string>
   <string name="color_calibration_summary">Kalibruoti ekranines spalvas</string>
   <string name="color_red_title">Raudona</string>
   <string name="color_green_title">Žalia</string>
   <string name="color_blue_title">Mėlyna</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">Gama kalibravimas</string>
   <string name="gamma_tuning_summary_head">Reguliuoti gama reikšmes</string>
   <string name="gamma_tuning_control_set_header">Grupė <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">Kontrastas</string>
   <string name="gamma_tuning_brightness">Šviesumas</string>
   <string name="gamma_tuning_saturation">Saturacija</string>
+  <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Paleisti muzikos programą</string>
   <string name="headset_connect_player_summary">Paleisti numatytąją muzikos programą, kai prijungiama laisvų rankų įranga</string>
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">Automatinis prioritetas</string>
   <string name="auto_brightness_reset_button">Atstatyti</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">Sukimas</string>
   <string name="display_rotation_disabled">Neleidžiamas</string>
   <string name="display_rotation_unit">laipsnių</string>
@@ -423,6 +500,7 @@
   <string name="display_rotation_90_title">90 laipsnių</string>
   <string name="display_rotation_180_title">180 laipsnių</string>
   <string name="display_rotation_270_title">270 laipsnių</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">Ekrano spalva</string>
   <string name="screencolor_summary">Nustatyti ekrano atspalvį, saturaciją, kontrastą arba intensyvumą</string>
   <string name="custom_screencolor">Tinkinta ekrano spalva</string>
@@ -436,6 +514,7 @@
   <string name="saturation_str">Saturacija: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrastas: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensyvumas: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">Optimizuoti ekraną remiantis paros metu ir aplinkos sąlygomis, siekiant pagerinti įskaitomumą ir sumažinti akių įtampą</string>
   <string name="live_display_mode">Rodymo režimas</string>
   <string name="live_display_color_temperature_title">Spalvos temperatūra</string>
@@ -459,21 +538,28 @@
   <string name="live_display_color_profile_cinema_title">Kinas</string>
   <string name="live_display_color_profile_astronomy_title">Astronomija</string>
   <string name="live_display_color_profile_astronomy_summary">Tamsiai raudonos spalvos, saugoti naktinį matymą</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Pasirinkimo piktograma</string>
   <string name="ime_switcher_notify_summary">Rodyti įvesties metodo pasirinkimo piktogramą</string>
+  <!-- Heads up -->
   <string name="heads_up_notifications">Iššokantys pranešimai</string>
   <string name="summary_heads_up_enabled">Iššokantys pranešimai yra įgalinti</string>
   <string name="summary_heads_up_disabled">Iššokantys pranešimai yra neleidžiami</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">Priimti visus failų tipus</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Didelis lietimo jautrumas</string>
   <string name="high_touch_sensitivity_summary">Padidinti liečiamojo ekrano jautrumą tam, kad juo būtų galima naudotis dėvint pirštines</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">LCD tankis</string>
   <string name="dialog_title_lcd_density">LCD tankis</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (numatytasis)</string>
   <string name="restarting_ui">Paleidžiama iš naujo UI\u2026</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Rodyti piktogramą naudojant rašiklį</string>
   <string name="stylus_icon_enabled_summary">Rodyti žymeklio piktogramą, kai braukiama su rašikliu</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">Rašiklio gestai</string>
   <string name="category_spen_title">Rašiklio gestai</string>
   <string name="enable_subcat_title">Rašiklis</string>
@@ -486,18 +572,23 @@
   <string name="gestures_down_spen_title_head">Braukiant į apačią</string>
   <string name="gestures_long_spen_title_head">Ilgas paspaudimas</string>
   <string name="gestures_double_spen_title_head">Dvigubas bakstelėjimas</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">Nieko nedaryti</string>
   <string name="gestures_action_home">Pagrindinis</string>
   <string name="gestures_action_back">Atgal</string>
   <string name="gestures_action_menu">Meniu</string>
   <string name="gestures_action_search">Remtis paieška</string>
   <string name="gestures_action_recent">Naujausios programos</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s neįdiegta</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">Jutiklinio ekrano slankiojimas</string>
   <string name="touchscreen_hovering_summary">Leidžia slankioti ekraną kaip pelę internetinėse naršyklėse, nuotoliniuose staliniuose kompiuteriuose ir kt.</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Didėjantis skambėjimo garsumas</string>
   <string name="increasing_ring_min_volume_title">Pradinis garsumas</string>
   <string name="increasing_ring_ramp_up_time_title">Didėjimo laikas</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="lto_download_data_wifi_only">GPS pagalbinių duomenų atsisiuntimas</string>
   <string name="lto_download_data_wifi_only_on">Per visus tinklus</string>
   <string name="lto_download_data_wifi_only_off">Tik per „Wi-Fi“ tinklus</string>
@@ -506,12 +597,19 @@
   <string name="volume_keys_control_ring_stream_summary_off">Garsumo mygtukai kontroliuoja medijos garsumą</string>
   <string name="category_calibration">Kalibravimas</string>
   <string name="display_and_lights">Ekranas ir šviesos</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">Įkrovimo garsai</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">Įgalinti</string>
   <string name="power_notifications_enable_summary">Paleisti garsą, kai prijungiamas ar atjungiamas maitinimo šaltinis</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">Vibruoti</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">Pranešimo garsas</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">Tylus</string>
+  <!-- Status bar -->
   <string name="status_bar_title">Būsenos juosta</string>
   <string name="status_bar_toggle_brightness">Šviesumo valdymas</string>
   <string name="status_bar_toggle_brightness_summary">Nustatyti šviesumą braukiant per būsenos juostą</string>
@@ -524,6 +622,7 @@
   <string name="status_bar_quick_qs_pulldown_off">Išjungti</string>
   <string name="status_bar_quick_qs_pulldown_left">Kairė</string>
   <string name="status_bar_quick_qs_pulldown_right">Dešinė</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Laikrodžio stilius</string>
   <string name="status_bar_clock_style_right">Dešinė</string>
   <string name="status_bar_clock_style_left">Kairė</string>
@@ -534,22 +633,29 @@
   <string name="status_bar_am_pm_normal">Normalus</string>
   <string name="status_bar_am_pm_small">Mažas</string>
   <string name="status_bar_am_pm_hidden">Paslėptas</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">Akumuliatoriaus būsenos stilius</string>
   <string name="status_bar_battery_style_icon_portrait">Stačia piktograma</string>
   <string name="status_bar_battery_style_icon_landscape">Gulsčia piktograma</string>
   <string name="status_bar_battery_style_circle">Apvalus</string>
   <string name="status_bar_battery_style_text">Tekstas</string>
   <string name="status_bar_battery_style_hidden">Paslėptas</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Akumuliatoriaus procentai</string>
   <string name="status_bar_battery_percentage_default">Paslėpti</string>
   <string name="status_bar_battery_percentage_text_inside">Piktogramos viduje</string>
   <string name="status_bar_battery_percentage_text_next">Šalia piktogramos</string>
+  <!-- Status bar - icon blacklist -->
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokuoti gestų lietimo įvykius</string>
   <string name="edge_gesture_service_summary">Nesiųsti lietimo įvykių programoms dėl naršymo ir būsenos juostos gestų</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">Niekada</string>
   <string name="keep_screen_on_debugging">Kai USB derinimas</string>
   <string name="keep_screen_on_charging">Kai įkraunama</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">Privatumas</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">Įgalinta pagal numatytuosius nustatymus</string>
   <string name="privacy_guard_default_summary">Įgalinti pagal numatytuosius nustatymus naujiai įdiegtoms programoms</string>
   <string name="privacy_guard_manager_title">Privatumo sauga</string>
@@ -562,22 +668,36 @@
   <string name="privacy_guard_manager_show_system_apps">Rodyti įdiegtas programas</string>
   <string name="privacy_guard_advanced_settings_title">Išplėstinis</string>
   <string name="privacy_guard_notification_title">Rodyti pranešimą</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Rodyti modelio klaidą</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">Rodyti modelio taškus</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
   <string name="lock_directly_show_password">Iškart rodyti slaptažodžio laukelį</string>
+  <!-- Whether the keyguard will directly pass to pattern view -->
   <string name="lock_directly_show_pattern">Iškart rodyti modelio vaizdą</string>
+  <!-- Whether the keyguard will directly pass to PIN entry -->
   <string name="lock_directly_show_pin">Iškart rodyti PIN laukelį</string>
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Rodyti muzikos vizualizaciją</string>
+  <!-- lock screen disabled by QS tile warning -->
+  <!-- Battery saver -->
   <string name="battery_saver_threshold">Akumuliatoriaus tausojimo riba</string>
   <string name="battery_saver_summary">Sumažinti našumą ir apriboti foninius duomenis</string>
   <string name="battery_saver_summary_unavailable">Negalima, kai įkraunama</string>
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">Įgalinti individualius programų profilius</string>
   <string name="autoperf_summary">Automatiškai parinkti tinkamą akumuliatoriaus režimą įvairioms programoms</string>
   <string name="perf_profile_title">Akumuliatoriaus režimas</string>
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Pranešimo tonas</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">Išplėstinis paleidimas iš naujo</string>
   <string name="advanced_reboot_summary">Kai atrakinta, įtraukti parinktys į maitinimo meniu dėl paleidimo iš naujo į atkūrimo režimą, „Bootloader“ arba atlikti OS paleidimą iš naujo</string>
   <string name="category_interface">Sąsaja</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">Išplėstas darbastalis</string>
   <string name="expanded_hide_nothing">Neslėpti</string>
   <string name="expanded_hide_status">Slėpti būsenos juostą</string>
@@ -588,10 +708,13 @@
   <string name="expanded_desktop_style">Išplėsto darbastalio stilius</string>
   <string name="expanded_desktop_style_description">Pasirinkti numatytąjį Išplėsto darbastalio stilių</string>
   <string name="expanded_desktop_title">Išplėsto darbastalio parinktys</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Priverstinai uždaryti programą mygtuku atgal</string>
   <string name="kill_app_longpress_back_summary">Priverstinai uždaryti programą ilgai spaudžiant mygtuką atgal</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Rodyti paieškos juostą tarp naujausių menių</string>
   <string name="keywords_recents_show_searchbar">naujas naujausi neleisti įgalinti rodyti slėpti paieškos juosta</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">Pažadinimas balsu</string>
   <string name="voice_wakeup_retrain_title">Pakartokite savo balsą</string>
   <string name="voice_wakeup_activity_title">Paleisti veiklą</string>
@@ -599,6 +722,7 @@
   <string name="picker_activities">Veiklos</string>
   <string name="select_custom_app_title">Pasirinkite tinkintą programą</string>
   <string name="select_custom_activity_title">Pasirinkite tinkintą veiklą</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Užblokuotų skambintojų sąrašas</string>
   <string name="blacklist_edit_dialog_title">Redaguoti užblokuotą telefono numerį</string>
   <string name="blacklist_prefs">Nustatymai</string>
@@ -622,19 +746,24 @@
   <string name="blacklist_policy_block_calls">Blokuoti įeinančius skambučius</string>
   <string name="blacklist_policy_block_messages">Blokuoti įeinančius pranešimus</string>
   <string name="blacklist_bad_number_add">Negalima pridėti neteisingo telefono numerio prie užblokuotų skambintojų sąrašo</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">Pašalinti numerį</string>
   <string name="remove_blacklist_entry">Ar norite pašalinti šį užblokuotą telefono numerį?</string>
   <string name="select_contact">Pasirinkti kontaktą</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">Programos sauga</string>
   <string name="sms_security_check_limit_title">SMS pranešimų limitas</string>
   <string name="sms_security_check_limit_summary">Programos gali siųsti %d pranešimus (-ų) per 1 minutę prieš pareikalaujant patvirtinimo</string>
   <string name="sms_security_check_limit_summary_none">Programoms neleidžiama siųsti pranešimų be patvirtinimo</string>
   <string name="sms_security_check_limit_none">Joks</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">Pridėta %1$s</string>
   <string name="spam_last_blocked_title">Paskutinį kartą blokuota %1$s</string>
   <string name="block_notifications_title">Filtruoti pranešimus</string>
   <string name="block_notifications_summary">Tvarkyti ignoruojamus pranešimus ir filtrus</string>
   <string name="no_filters_title">Nenustatyti jokie filtrai</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_statistics_title">„CyanogenMod“ statistika</string>
   <string name="anonymous_statistics_summary">Padėti tobulinti „CyanogenMod“ pasirenkant anoniminę statistikos ataskaitą</string>
   <string name="anonymous_statistics_warning_title">Apie</string>
@@ -643,6 +772,7 @@
   <string name="preview_data_title">Peržiūrėti duomenis</string>
   <string name="view_stats_title">Žiūrėti statistiką</string>
   <string name="anonymous_learn_more">Sužinoti daugiau</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">Unikalus ID</string>
   <string name="preview_device_title">Įrenginys</string>
   <string name="preview_version_title">Versija</string>
@@ -650,8 +780,10 @@
   <string name="preview_carrier_title">Operatorius</string>
   <string name="stats_collection_title">Statistikos kolekcija</string>
   <string name="stats_collection_summary">Kai įgalinta, leidžia metrikos kolekciją</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">Nustatyti iš naujo modelį</string>
   <string name="lockpattern_settings_reset_summary">Įveskite pirminį el. paštą ir susijusį slaptažodį, kad nustatytumėte iš naujo modelio užraktą</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">Atstatyti</string>
   <string name="menu_hidden_apps_reset_lock">Nustatyti iš naujo modelio užraktą</string>
   <string name="protected_apps">Apsaugotos programos</string>
@@ -661,6 +793,7 @@
   <string name="pa_login_submit_button">Registruotis</string>
   <string name="pa_login_checking_password">Tikrinama paskyra\u2026</string>
   <string name="pa_login_incorrect_login">Prisijungimas neteisingas</string>
+  <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Pagalbininkai</string>
   <string name="contributors_cloud_loading_message">Įkeliami pagalbininkų duomenys\u2026</string>
   <string name="contributors_cloud_failed_message">Nepavyksta įkelti pagalbininkų duomenų</string>
@@ -680,23 +813,40 @@
   <string name="title_general">Bendra</string>
   <string name="advanced">Išplėstinis</string>
   <string name="link_volume_option_title">Sujungti skambėjimo ir pranešimo garsumus</string>
+  <!-- Edit access point labels: PPP number -->
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_disabled">neleidžiama</string>
   <string name="sim_missing">trūkstama arba klaidinga</string>
   <string name="sim_enabler_airplane_on">Nepavyksta atlikti šios operacijos, kai lėktuvo režimas yra įjungtas.</string>
   <string name="sim_enabler_in_call">Nepavyksta atlikti šios operacijos pokalbio metu.</string>
   <string name="sim_enabler_both_inactive">Negalima neleisti visų SIM kortelių</string>
   <string name="primary_sub_select_title">Numatytoji 3G / LTE prenumerata</string>
+  <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d būsena</string>
   <string name="sim_card_lock_settings_title">SIM %d užrakto nustatymai</string>
   <string name="sim_card_summary_empty">SIM neįdėta</string>
   <string name="sim_mobile_network_settings_title">SIM %d nustatymai</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">Galva: %1$s W/kg</string>
   <string name="maximum_body_level">Kūnas: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">Modelis: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM %d skambėjimo tonas</string>
+  <!-- label for application name -->
+  <!-- label for last time used -->
+  <!-- label for usage time -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">Tai ištrins visus duomenis iš jūsų planšetinio kompiuterio <b>vidinės saugyklos</b>, įskaitant:\n\n<li>Jūsų įrenginio paskyras</li>\n<li>Sistemos ir programų duomenis, nustatymus</li>\n<li>Atsisiųstas programas</li></string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="default">Tai ištrins visus duomenis iš jūsų telefono <b>vidinės saugyklos</b>, įskaitant:\n\n<li>Jūsų įrenginio paskyras</li>\n<li>Sistemos ir programų duomenis, nustatymus</li>\n<li>Atsisiųstas programas</li></string>
+  <!-- Factory reset strings -->
   <string name="factory_reset_instructions_title">Asmeniniai duomenys ir programos</string>
   <string name="factory_reset_instructions_summary">Tai ištrins visas jūsų paskyras, programas, programų duomenis ir sistemos nustatymus šiame įrenginyje</string>
   <string name="factory_reset_personal_content">Asmeninis turinys</string>
@@ -707,9 +857,17 @@
   <string name="factory_reset_erase_sd_card_summary">Ištrinti visus duomenis SD kortelėje įskaitant muziką ir nuotraukas</string>
   <string name="factory_reset_warning_text_reset_now">NUSTATYTI IŠ NAUJO DABAR</string>
   <string name="factory_reset_warning_text_message">Visos jūsų paskyros, programos, programų duomenys ir sistemos nustatymai bus pašalinti iš šio įrenginio. Tai negali būti atstatoma.</string>
+  <!-- Tethering & portable hotspot other category -->
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Niekada</string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Nustatymai</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="interruptions_ignore_while_media_title">Neleisti garso sumažinimo</string>
   <string name="interruptions_ignore_while_media_summary">Nesumažinti medijos atkūrimo garsumo, kai gaunamas pranešimas</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">Teisinė „CyanogenMod“ informacija</string>
 </resources>

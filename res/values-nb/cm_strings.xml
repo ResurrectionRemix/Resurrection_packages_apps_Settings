@@ -16,15 +16,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Du er nå <xliff:g id="step_count"> %1$d</xliff:g> skritt fra aktivering av utviklerinnstillinger.</item>
     <item quantity="other">Du er nå <xliff:g id="step_count"> %1$d</xliff:g> skritt fra aktivering av utviklerinnstillinger.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Du har aktivert innstillinger for utviklere!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">Ikke nødvendig, du allerede har aktivert utviklingsinnstillinger.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">Utviklingsverktøy</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">Snarvei til utviklingsmodus</string>
   <string name="development_shortcut_summary">Aktiver app management snarveier i listen over nylig brukte programmer</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">Root-tilgang</string>
   <string name="root_access_warning_title">Tillat root-tilgang?</string>
   <string name="root_access_warning_message">Tillate programmer å be om root-tilgang er svært farlig og kan gå ut over sikkerheten til systemet!</string>
@@ -32,25 +38,37 @@
   <string name="root_access_apps">Kun apper</string>
   <string name="root_access_adb">Kun ADB</string>
   <string name="root_access_all">Apps og ADB</string>
+  <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">CyanogenMod versjon</string>
   <string name="mod_version_default">Ukjent</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">Enhetsmodell</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">Enhetsnavn</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level">CyanogenMod API nivå</string>
   <string name="mod_api_level_default">Ukjent</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">Byggdato</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">CyanogenMod oppdateringer</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">Oppdater Cyanogen recovery</string>
   <string name="update_recovery_summary">Oppdater recovery med systemoppdateringer</string>
   <string name="update_recovery_on_warning">Merknad: Når denne funksjonen er oppdatert, vil din installerte recovery bli overskrivd av en som er inkludert i siste versjon av det kjørende OS.\n\nDin recvovery vil bli oppdatert sammen med systemoppdateringer, for å hjelpe deg med å beholde kompabiliteten med fremtidige versjoner.\n\nVil du aktivere denne funksjonen?</string>
   <string name="update_recovery_off_warning">Advarsel: Når denne funksjonen er deaktivert, vil ikke din nåværende recovery bli oppdatert med systemoppdateringer.\n\nFremtidige systemoppdateringer vil kanskje ikke installeres på en gammel eller egendefinert recovery.\n\nVil du deaktivere denne funksjonen?</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">Temaer</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">Ringemodus</string>
   <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Vibrer</string>
   <string name="ring_mode_mute">Dempet</string>
   <string name="settings_reset_button">Tilbakestille</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">Systemprofiler</string>
   <string name="profiles_add">Legg til</string>
   <string name="profile_menu_delete">Slett</string>
@@ -73,48 +91,62 @@
   <string name="profile_app_group_category_title">Overstyring av notifikasjoner</string>
   <string name="profile_app_group_item_instructions">Legg til eller fjern grupper</string>
   <string name="profile_app_group_item_instructions_summary">Legg til eller fjern apper som overstyrer notifikasjonsvarsler på denne profilen</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">På</string>
   <string name="profile_entries_off">Av</string>
   <string name="profile_entries_no_override">Ingen overstyring</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">Navn</string>
   <string name="new_profile_name">&lt;ny profil&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">Gi nytt navn</string>
   <string name="rename_dialog_message">Angi et nytt navn</string>
   <string name="duplicate_appgroup_name">Navnet på appgruppen eksisterer allerede!</string>
   <string name="rename_dialog_hint">Angi profilnavn</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">Tilbakestill</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Fjerne denne appen?</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G / 3G</string>
   <string name="profile_networkmode_2g3g4g">2G / 3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">Overstyr volum</string>
   <string name="connection_state_enabled">Aktiver</string>
   <string name="volume_override_summary">Sett til %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Overstyr volum</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">Profiler</string>
   <string name="profile_profile_manage">Behandle profil</string>
   <string name="profile_appgroups_manage">App grupper</string>
   <string name="profile_appgroup_manage">Behandle app grupper</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">Profilinnstillinger</string>
   <string name="profile_trigger_connect">Ved tilkobling</string>
   <string name="profile_trigger_disconnect">Ved frakobling</string>
   <string name="profile_trigger_notrigger">Ingen utløser</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">Notifikasjonsmodus</string>
   <string name="ringer_mode">Ringemodus</string>
   <string name="lights_mode">Lys-modus</string>
   <string name="vibrate_mode">Vibrasjonsmodus</string>
   <string name="choose_soundtone">Velg notifikasjonstone</string>
   <string name="choose_ringtone">Velg ringetone</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">Notifikasjonstone</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">App grupper</string>
   <string name="profile_applist_title">Apps</string>
   <string name="profile_new_appgroup">Ny app gruppe</string>
   <string name="profile_delete_appgroup">Slett denne app  gruppen?</string>
   <string name="profile_appgroup_name_prompt">Angi et navn for den nye app gruppen</string>
   <string name="profile_appgroup_name_title">Navn</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">Velg app</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Systeminnstillinger</string>
   <string name="profile_lockmode_title">Låseskjermmodus</string>
   <string name="profile_lockmode_policy_disabled_summary">Dette profilalternativet er deaktivert av en enhetsadministrator-regel</string>
@@ -124,6 +156,7 @@
   <string name="profile_brightness_title">Lysstyrke</string>
   <string name="profile_brightness_override_summary">Sett til %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">Overstyr lysstyrke</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">WiFi\u2011</string>
   <string name="toggleWifiAp">WiFi\u2011 hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -132,9 +165,13 @@
   <string name="toggleSync">Auto-synk data</string>
   <string name="toggle2g3g4g">Foretrukket nettverkstype</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Wi\u2011Fi-regionskode</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
   <string name="wifi_setting_countrycode_summary">Angi regionskoden for Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Det oppsto et problem med å stille inn regionskoden.</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">Slett</string>
   <string name="profile_action_none">La stå uendret</string>
   <string name="profile_action_system">Systemstandard</string>
@@ -152,6 +189,7 @@
   <string name="profile_setup_actions_title_config">Konfigurere handlinger</string>
   <string name="profile_appgroups_manage">App grupper</string>
   <string name="profile_appgroup_manage">Behandle app grupper</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">App grupper</string>
   <string name="profile_new_appgroup">Ny app gruppe</string>
   <string name="profile_delete_appgroup">Slett denne app  gruppen?</string>
@@ -165,6 +203,7 @@
   <string name="no_triggers_configured_nfc">Trykk for å setup en ny NFC utløser.</string>
   <string name="profile_setup_setup_triggers_description">Velg utløsere som aktiverer denne profilen</string>
   <string name="profile_setup_actions_description">Nå konfigurer hva som skjer når profilen er aktivert</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">Navigasjonsfelt</string>
   <string name="navigation_bar_left_title">Venstrehendt modus</string>
   <string name="navigation_bar_left_summary">Plass navigasjonsfeltet til venstre på skjermen i liggende modus</string>
@@ -177,12 +216,14 @@
   <string name="navigation_bar_arrow_keys_title">Vis piltastene mens du skriver</string>
   <string name="navigation_bar_arrow_keys_summary">Vise høyre og venstre markør mens du skriver. Overstyrer IME Skifter.</string>
   <string name="navigation_bar_recents_title">Siste langt trykk handling</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">Redigere lys innstillinger</string>
   <string name="pulse_speed_title">Puls lengde og hastighet</string>
   <string name="default_time">Normal</string>
   <string name="custom_time">Egendefinert</string>
   <string name="dialog_delete_title">Slett</string>
   <string name="dialog_delete_message">Fjerne merkede elementer?</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">Alltid på</string>
   <string name="pulse_length_very_short">veldig kort</string>
   <string name="pulse_length_short">Kort</string>
@@ -194,12 +235,14 @@
   <string name="pulse_speed_normal">Normal</string>
   <string name="pulse_speed_slow">Langsom</string>
   <string name="pulse_speed_very_slow">Veldig langsom</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">Batterilys</string>
   <string name="battery_low_pulse_title">Puls hvis lavt batterinivå</string>
   <string name="battery_light_list_title">Farger</string>
   <string name="battery_light_low_color_title">Batteri lavt</string>
   <string name="battery_light_medium_color_title">Lading</string>
   <string name="battery_light_full_color_title">Fulladet</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Notifikasjonslys</string>
   <string name="notification_light_general_title">Generelt</string>
   <string name="notification_light_applist_title">Apps</string>
@@ -211,15 +254,22 @@
   <string name="notification_light_screen_on">Lys med skjermen på</string>
   <string name="notification_light_use_multiple_leds">Flere lysdioder</string>
   <string name="keywords_lights_brightness_level">dim lysdioder lysstyrke</string>
+  <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Lys innstillinger</string>
   <string name="led_notification_text">LED lyset aktiveres av innstillingene</string>
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android feilsøking</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">Aktiver grensesnittet Android Debug Bridge (adb)</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ADB over nettverk</string>
   <string name="adb_over_network_summary">Aktiver TCP/IP feilsøking over nettverksgrensesnitt (Wi-Fi, USB nettverk). Denne innstillingen er tilbakestilt ved omstart</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">Advarsel: Når ADB over nettverk er aktivert, er telefonen åpen for angrep på alle tilkoblede nettverk! \n\nKun bruk denne funksjonen når du er koblet på klarerte nettverk.\n\nVil du aktivere denne funksjonen?</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">Feilsøkingsvarsel</string>
   <string name="adb_notify_summary">Vis en melding når USB eller nettverksfeilsøking er aktivert</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">Posisjon</string>
   <string name="app_ops_categories_personal">Personlig</string>
   <string name="app_ops_categories_messaging">Meldinger</string>
@@ -227,6 +277,7 @@
   <string name="app_ops_categories_device">Enhet</string>
   <string name="app_ops_categories_bootup">Oppstart</string>
   <string name="app_ops_categories_su">Root-tilgang</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">grov plassering</string>
   <string name="app_ops_summaries_fine_location">fin plassering</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -284,6 +335,7 @@
   <string name="app_ops_summaries_start_at_boot">start ved oppstart</string>
   <string name="app_ops_summaries_toggle_nfc">veksle NFC</string>
   <string name="app_ops_summaries_superuser">Root-tilgang</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Grov plassering</string>
   <string name="app_ops_labels_fine_location">Fin plassering</string>
   <string name="app_ops_labels_gps">GPS</string>
@@ -338,19 +390,23 @@
   <string name="app_ops_labels_start_at_boot">Start ved oppstart</string>
   <string name="app_ops_labels_toggle_nfc">NFC av/på</string>
   <string name="app_ops_labels_superuser">Root-tilgang</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Tillatt</string>
   <string name="app_ops_permissions_ignored">Ignorert</string>
   <string name="app_ops_permissions_always_ask">Spør alltid</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (brukt <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Tillat <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Avslåtte <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Tillatte <xliff:g id="count">%1$s</xliff:g>, avslåtte <xliff:g id="count">%2$s</xliff:g></string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Vis brukerinstallerte apps</string>
   <string name="app_ops_show_system_apps">Vis systemapper</string>
   <string name="app_ops_reset_counters">Tilbakestill tillate/avkrefte tellerne</string>
   <string name="app_ops_reset_confirm_title">Bekreft tilbakestilling av tellere</string>
   <string name="app_ops_reset_confirm_mesg">Er du sikker på at du vil tilbakestille tellerne?</string>
   <string name="ok">Ok</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">Enhetens vertsnavn</string>
   <string name="unlock_scramble_pin_layout_title">Endre layout</string>
   <string name="unlock_scramble_pin_layout_summary">Endre PIN layout når enheten låses opp</string>
@@ -392,12 +448,16 @@
   <string name="button_wake_title">Vekke enheten</string>
   <string name="home_answer_call_title">Besvar anrop</string>
   <string name="home_answer_call_summary">Trykk på Hjem-knappen vil svare innkommende anrop</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">Dynamisk bakgrunnsbelysning</string>
   <string name="adaptive_backlight_summary">Dynamisk juster lysstyrken på skjermens bakgrunnsbelysning for å maksimere batterilevetiden samtidig vedlikeholde brukervennlighet</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">Sollys forbedring</string>
   <string name="sunlight_enhancement_summary">Forbedre lysstyrken og lesbarhet under sterkt sollys</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">Fargeforbedring</string>
   <string name="color_enhancement_summary">Dynamisk forbedre fargene på skjermen</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">Bakgrunnsbelysning</string>
   <string name="button_backlight_enabled">Belyste knapper</string>
   <string name="keyboard_backlight_enabled">Belyst tastatur</string>
@@ -408,7 +468,10 @@
   <string name="backlight_summary_disabled">Deaktivert</string>
   <string name="backlight_summary_enabled_with_timeout">Aktivert for <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Aktivert</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">Bevegelser</string>
+  <!-- Power menu -->
   <string name="power_menu_title">Av/På meny</string>
   <string name="power_menu_reboot_title">Restart meny</string>
   <string name="power_menu_screenshot_title">Skjermbilde</string>
@@ -419,33 +482,47 @@
   <string name="power_menu_bug_report_title">Feilrapport</string>
   <string name="power_menu_sound_title">Lyd-panel</string>
   <string name="power_menu_bug_report_disabled">Feilrapportering er deaktivert i innstillingene for utvikling</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Aktiverer navigasjonsbar på skjermen</string>
   <string name="disable_navkeys_summary">Aktiverer navigasjonsbar på skjermen og deaktiver hardware knapper</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Dobbeltapp for å sove</string>
   <string name="double_tap_to_sleep_summary">Dobbelttapp på statuslinjen for å slå av skjermen</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">Hindre utilsiktet vekking</string>
   <string name="proximity_wake_summary">Sjekk nærhetssensoren før skjermen vekkes</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">Våkne ved tilkobling av strøm</string>
   <string name="wake_when_plugged_or_unplugged_summary">Slå skjermen på når du kobler til eller kobler fra en strømkilde</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">Eksempel</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Volum justeringslyd</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Vibrator intensitet</string>
   <string name="vibrator_warning">Verdier høyere enn %1$d er ikke anbefalt</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Fargekalibrering</string>
   <string name="color_calibration_summary">Kalibrere skjermens farger</string>
   <string name="color_red_title">Rød</string>
   <string name="color_green_title">Grønn</string>
   <string name="color_blue_title">Blå</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">Gamma kalibrering</string>
   <string name="gamma_tuning_summary_head">Justere gammaverdiene</string>
   <string name="gamma_tuning_control_set_header">Gruppe <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">Kontrast</string>
   <string name="gamma_tuning_brightness">Lysstyrke</string>
   <string name="gamma_tuning_saturation">Metning</string>
+  <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Start musikk app</string>
   <string name="headset_connect_player_summary">Start standard musikk app når hodesett er tilkoblet</string>
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">Automatisk prioritet</string>
   <string name="auto_brightness_reset_button">Tilbakestill</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">Rotasjon</string>
   <string name="display_rotation_disabled">Deaktivert</string>
   <string name="display_rotation_unit">grader</string>
@@ -455,6 +532,7 @@
   <string name="display_rotation_90_title">90 grader</string>
   <string name="display_rotation_180_title">180 grader</string>
   <string name="display_rotation_270_title">270 grader</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">Skjermfarge</string>
   <string name="screencolor_summary">Justere skjermens sorttype, metning, kontrast eller intensitet</string>
   <string name="custom_screencolor">Tilpasset skjermfarge</string>
@@ -468,6 +546,7 @@
   <string name="saturation_str">Metning: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensitet: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">Optimalisere skjermen basert på tidspunkt på dagen og omgivelsesforhold å forbedre lesbarhet og redusere belastningen på øynene</string>
   <string name="live_display_mode">Visningsmodus</string>
   <string name="live_display_color_temperature_title">Fargetemperatur</string>
@@ -495,21 +574,28 @@
   <string name="live_display_color_profile_photography_title">Fotografi</string>
   <string name="live_display_color_profile_photography_summary">Perfekt fargegjengivelse for bilder</string>
   <string name="live_display_color_profile_basic_title">Grunnleggende</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Valgikon</string>
   <string name="ime_switcher_notify_summary">Viser inndatametode snarvei</string>
+  <!-- Heads up -->
   <string name="heads_up_notifications">Flytende notifikasjoner</string>
   <string name="summary_heads_up_enabled">Popup varsler er aktivert</string>
   <string name="summary_heads_up_disabled">popupvarsler er deaktivert</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">Godta alle filtyper</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Høy touch sensitivitet</string>
   <string name="high_touch_sensitivity_summary">Øk touchscreen følsomhet slik at den kan brukes med hansker</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">LCD tetthet</string>
   <string name="dialog_title_lcd_density">LCD tetthet</string>
   <string name="lcd_density_value_format">%d PPT</string>
   <string name="lcd_density_default_value_format">%d PPT (standard)</string>
   <string name="restarting_ui">Restarter UI\u2026</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Viser ikon når du bruker penn</string>
   <string name="stylus_icon_enabled_summary">Viser pekeikonet når du hovrer eller tegner med en penn</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">Pennebevegelser</string>
   <string name="category_spen_title">Pennebevegelser</string>
   <string name="enable_subcat_title">Penn</string>
@@ -522,18 +608,23 @@
   <string name="gestures_down_spen_title_head">Swipe ned</string>
   <string name="gestures_long_spen_title_head">Langt trykk</string>
   <string name="gestures_double_spen_title_head">Dobbel trykk</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">Ingen handling</string>
   <string name="gestures_action_home">Hjem</string>
   <string name="gestures_action_back">Tilbake</string>
   <string name="gestures_action_menu">Meny</string>
   <string name="gestures_action_search">Aktivere søk</string>
   <string name="gestures_action_recent">Siste apper</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s er ikke installert</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">Touchskjerm hovring</string>
   <string name="touchscreen_hovering_summary">Lar deg hovre over skjermen som en mus på en nettleser, eksternt skrivebord osv</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Økende ringevolum</string>
   <string name="increasing_ring_min_volume_title">Start volum</string>
   <string name="increasing_ring_ramp_up_time_title">Ramp-up tid</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="lto_download_data_wifi_only">GPS assistert data nedlasting</string>
   <string name="lto_download_data_wifi_only_on">Over nettverk</string>
   <string name="lto_download_data_wifi_only_off">Bare over Wi\u2011Fi nettverk</string>
@@ -542,12 +633,19 @@
   <string name="volume_keys_control_ring_stream_summary_off">Volumtastene styre media volum</string>
   <string name="category_calibration">Kalibrering</string>
   <string name="display_and_lights">Skjerm &amp; lys</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">Ladelyder</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">Aktiver</string>
   <string name="power_notifications_enable_summary">Spill av en lyd når du kobler til eller kobler fra en strømkilde</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">Vibrer</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">Notifikasjonslyd</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">Stille</string>
+  <!-- Status bar -->
   <string name="status_bar_title">Statuslinjen</string>
   <string name="status_bar_toggle_brightness">Lysstyrkekontroll</string>
   <string name="status_bar_toggle_brightness_summary">Justere lysstyrken ved å skyve over på statuslinjen</string>
@@ -560,6 +658,7 @@
   <string name="status_bar_quick_qs_pulldown_off">Av</string>
   <string name="status_bar_quick_qs_pulldown_left">Venstre</string>
   <string name="status_bar_quick_qs_pulldown_right">Høyre</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Klokkestil</string>
   <string name="status_bar_clock_style_right">Høyre</string>
   <string name="status_bar_clock_style_left">Venstre</string>
@@ -570,22 +669,29 @@
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Liten</string>
   <string name="status_bar_am_pm_hidden">Skjult</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">Stil på batteriikon</string>
   <string name="status_bar_battery_style_icon_portrait">Ikon portrettmodus</string>
   <string name="status_bar_battery_style_icon_landscape">Ikon landskapsmodus</string>
   <string name="status_bar_battery_style_circle">Sirkel</string>
   <string name="status_bar_battery_style_text">Tekst</string>
   <string name="status_bar_battery_style_hidden">Skjult</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Batteri prosent</string>
   <string name="status_bar_battery_percentage_default">Skjult</string>
   <string name="status_bar_battery_percentage_text_inside">Inne i ikonet</string>
   <string name="status_bar_battery_percentage_text_next">Ved siden av ikonet</string>
+  <!-- Status bar - icon blacklist -->
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokker touchbevegelseshendelser</string>
   <string name="edge_gesture_service_summary">Ikke send touch hendelser for navigering og status bar bevegelser til apps</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">Aldri</string>
   <string name="keep_screen_on_debugging">Under USB feilsøking</string>
   <string name="keep_screen_on_charging">Under lading</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">Personvern</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">Aktivert som standard</string>
   <string name="privacy_guard_default_summary">Aktiver som standard for nylig installerte programmer</string>
   <string name="privacy_guard_manager_title">Personvernvakt</string>
@@ -598,22 +704,36 @@
   <string name="privacy_guard_manager_show_system_apps">Vis innebygde programmer</string>
   <string name="privacy_guard_advanced_settings_title">Avansert</string>
   <string name="privacy_guard_notification_title">Vis varsel</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Vis feil</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">Vis mønster prikker</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
   <string name="lock_directly_show_password">Vis direkte angivelse av passord</string>
+  <!-- Whether the keyguard will directly pass to pattern view -->
   <string name="lock_directly_show_pattern">Direkte vise mønster</string>
+  <!-- Whether the keyguard will directly pass to PIN entry -->
   <string name="lock_directly_show_pin">Vis direkte PIN-kodeoppføringen</string>
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Vis musikk visualizer</string>
+  <!-- lock screen disabled by QS tile warning -->
+  <!-- Battery saver -->
   <string name="battery_saver_threshold">Batterisparingsterskel</string>
   <string name="battery_saver_summary">Reduser ytelsen og begrens bakgrunnsdata</string>
   <string name="battery_saver_summary_unavailable">Ikke tilgjengelig under lading</string>
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">Aktiver per-app profiler</string>
   <string name="autoperf_summary">Velg automatisk en passende batterimodus for forskjellige apper</string>
   <string name="perf_profile_title">Batterimodus</string>
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Varslingstone</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">Avansert omstart</string>
   <string name="advanced_reboot_summary">Når ulåst, Inkluder alternativer i strøm-menyen for omstart i recovery, bootloader eller utføre en myk omstart</string>
   <string name="category_interface">Grensesnitt</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">Utvidet Skrivebord</string>
   <string name="expanded_hide_nothing">Skjul ingenting</string>
   <string name="expanded_hide_status">Skjul statuslinjen</string>
@@ -624,10 +744,13 @@
   <string name="expanded_desktop_style">Utvidet skrivebordsstil</string>
   <string name="expanded_desktop_style_description">Velg standard utvidet skrivebordsstil</string>
   <string name="expanded_desktop_title">Utvidet skrivebordsalternativer</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Stopp app-tilbake-knappen</string>
   <string name="kill_app_longpress_back_summary">Stopp aktivt program ved å trykke lenge på tilbake-knappen</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Vis søkelinjen i siste-menyen</string>
   <string name="keywords_recents_show_searchbar">siste siste-menyen deaktiver aktivert vis skjul søkebar søkefelt</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">Stemme aktivering</string>
   <string name="voice_wakeup_retrain_title">Tren stemme igjen</string>
   <string name="voice_wakeup_activity_title">Aktivitet som skal starte</string>
@@ -635,6 +758,7 @@
   <string name="picker_activities">Aktiviteter</string>
   <string name="select_custom_app_title">Velg egendefinert app</string>
   <string name="select_custom_activity_title">Velg egendefinert aktivitet</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokkert anropsliste</string>
   <string name="blacklist_edit_dialog_title">Rediger blokkert telefonnummer</string>
   <string name="blacklist_prefs">Innstillinger</string>
@@ -658,19 +782,24 @@
   <string name="blacklist_policy_block_calls">Blokker innkommende samtaler</string>
   <string name="blacklist_policy_block_messages">Blokker innkommende meldinger</string>
   <string name="blacklist_bad_number_add">Kan ikke legge til ugyldig telefonnummer til den blokkerte anropslisten</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">Fjern nummer</string>
   <string name="remove_blacklist_entry">Vil du fjerne dette blokkerte telefonnummeret?</string>
   <string name="select_contact">Velg kontakt</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">Program sikkerhet</string>
   <string name="sms_security_check_limit_title">SMS meldingslagerstørrese</string>
   <string name="sms_security_check_limit_summary">Apper kan sende %d meldinger i 1 minutt før det kreves bekreftelse</string>
   <string name="sms_security_check_limit_summary_none">Apper kan ikke sende meldinger uten bekreftelse</string>
   <string name="sms_security_check_limit_none">Ingen</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">Lagt til %1$s</string>
   <string name="spam_last_blocked_title">Sist blokkert %1$s</string>
   <string name="block_notifications_title">Filtrere varslinger</string>
   <string name="block_notifications_summary">Administrere ignorerte varslinger og filtre</string>
   <string name="no_filters_title">Ingen filtre valgt</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_statistics_title">CyanogenMod statistikk</string>
   <string name="anonymous_statistics_summary">Hjelp oss å gjøre CyanogenMod bedre ved å velge å sende inn anonym statistikkrapportering</string>
   <string name="anonymous_statistics_warning_title">Om</string>
@@ -679,6 +808,7 @@
   <string name="preview_data_title">Forhåndsvis data</string>
   <string name="view_stats_title">Vis statistikk</string>
   <string name="anonymous_learn_more">Lær mer</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">Unik ID</string>
   <string name="preview_device_title">Enhet</string>
   <string name="preview_version_title">Versjon</string>
@@ -686,8 +816,10 @@
   <string name="preview_carrier_title">Operatør</string>
   <string name="stats_collection_title">Statistikkinnsamling</string>
   <string name="stats_collection_summary">Når aktivert, tillater innsamling av statistikk</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">Tilbakestille mønster</string>
   <string name="lockpattern_settings_reset_summary">Angi primær epostkonto og tilhørende passord for å tilbakestille mønsterlås</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">Tilbakestille</string>
   <string name="menu_hidden_apps_reset_lock">Tilbakestille mønster lås</string>
   <string name="protected_apps">Beskyttede apps</string>
@@ -697,6 +829,7 @@
   <string name="pa_login_submit_button">logg inn</string>
   <string name="pa_login_checking_password">Sjekker konto\u2026</string>
   <string name="pa_login_incorrect_login">Innlogging var feil</string>
+  <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Bidragsytere</string>
   <string name="contributors_cloud_loading_message">Lasting bidragsytere data\u2026</string>
   <string name="contributors_cloud_failed_message">Kan ikke laste bidragsytere data</string>
@@ -720,6 +853,8 @@
   <string name="title_general">Generelt</string>
   <string name="advanced">Avansert</string>
   <string name="link_volume_option_title">Link ringetone &amp; varslings volumer</string>
+  <!-- Edit access point labels: PPP number -->
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_disabled">deaktivert</string>
   <string name="sim_missing">manglende eller feil</string>
   <string name="sim_enabler_will_disable_sim_title">Oppmerksomhet</string>
@@ -731,22 +866,37 @@
   <string name="sub_activate_failed">Aktivering mislyktes.</string>
   <string name="sub_deactivate_failed">Deaktivering mislyktes.</string>
   <string name="primary_sub_select_title">Standard 3G/LTE abonnement</string>
+  <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d-status</string>
   <string name="sim_card_lock_settings_title">SIM %d-låseinnstillinger</string>
   <string name="sim_card_summary_empty">SIM-kortet er ikke satt inn</string>
   <string name="sim_mobile_network_settings_title">SIM %d-innstillinger</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
   <string name="zen_mode_summary_reminders">påminnelser</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">hendelser</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_messages">valgte meldinger</string>
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">Hode: %1$s W/kg</string>
   <string name="maximum_body_level">Innhold: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">Modell: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM %d ringetone</string>
+  <!-- label for application name -->
   <string name="app_name_label_cm">App:</string>
+  <!-- label for last time used -->
+  <!-- label for usage time -->
   <string name="usage_time_label_cm">Brukstid:</string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">Dette vil slette alle data fra tavle-PCen <b>intern lagring</b>, inkludert: \n\n <li>enhet kontoene</li> \n <li>System og app data og innstillinger</li> \n <li>nedlastede programmer</li></string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="default">Dette vil slette alle data fra telefonen <b>intern lagring</b>, inkludert: \n\n <li>enhet kontoene</li> \n <li>System og app data og innstillinger</li> \n <li>nedlastede programmer</li></string>
+  <!-- Factory reset strings -->
   <string name="factory_reset_instructions_title">Personlige data og apper</string>
   <string name="factory_reset_instructions_summary">Dette sletter alle kontoene, appene, appdataene og systeminnstillingene dine på denne enheten</string>
   <string name="factory_reset_personal_content">Personlig innhold</string>
@@ -757,13 +907,21 @@
   <string name="factory_reset_erase_sd_card_summary">Slett alle data på SD-kortet, inkludert musikk og bilder</string>
   <string name="factory_reset_warning_text_reset_now">TILBAKESTILL NÅ</string>
   <string name="factory_reset_warning_text_message">Alle kontoene, appene, appdataene og systeminnstillingene dine fjernes fra denne enheten. Dette kan ikke angres.</string>
+  <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Annet</string>
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Aldri</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 minutt</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutter</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Innstillinger</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="interruptions_ignore_while_media_title">Hindre lyd ducking</string>
   <string name="interruptions_ignore_while_media_summary">Ikke Reduser media avspillingsvolumet når en melding ankommer</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod juridisk</string>
 </resources>

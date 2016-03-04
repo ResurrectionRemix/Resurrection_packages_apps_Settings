@@ -16,15 +16,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Olete <xliff:g id="step_count">%1$d</xliff:g> sammu kaugusel arendussätete lubamisest.</item>
     <item quantity="other">Olete <xliff:g id="step_count">%1$d</xliff:g> sammu kaugusel arendussätete lubamisest.</item>
   </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Arendussätted aktiveeritud!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
   <string name="show_dev_already_cm">Ei ole vaja, arendussätted juba aktiveeritud.</string>
+  <!-- Launch Dev Tools -->
   <string name="development_tools_title">Arendussätted</string>
+  <!-- Development shortcut -->
   <string name="development_shortcut_title">Arenduse otsetee</string>
   <string name="development_shortcut_summary">Luba rakenduste haldamise otsetee hiljuti kasutatud rakenduste nimekirjas</string>
+  <!-- Setting checkbox title for root access -->
   <string name="root_access">Root ligipääs</string>
   <string name="root_access_warning_title">Võimalda ROOT ligipääs?</string>
   <string name="root_access_warning_message">Rakendustel ROOT ligipääsu taotlemise võimaldamine on väga ohtlik ja võib ohustada süsteemi turvalisust!</string>
@@ -32,23 +38,35 @@
   <string name="root_access_apps">Ainult rakendused</string>
   <string name="root_access_adb">Ainult ADB</string>
   <string name="root_access_all">Rakendused ja ADB</string>
+  <!-- NFC PreferenceCategory title -->
+  <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">CyanogenMod versioon</string>
   <string name="mod_version_default">Teadmata</string>
+  <!-- About phone screen, Device model -->
   <string name="device_model">Seadme mudel</string>
+  <!-- About phone screen, Device name -->
   <string name="device_name">Seadme nimi</string>
+  <!-- About phone screen, CyanogenMod Api Level -->
   <string name="mod_api_level_default">Teadmata</string>
+  <!-- About phone screen, build date -->
   <string name="build_date">Kooste kuupäev</string>
+  <!-- CM Updater -->
   <string name="cmupdate_settings_title">CyanogenMod uuendused</string>
+  <!-- Settings switch for updating Cyanogen recovery -->
   <string name="update_recovery_title">Uuenda Cyanogeni taasterežiimi</string>
   <string name="update_recovery_summary">Uuenda recovery süsteemi uuendusega</string>
   <string name="update_recovery_on_warning">TEADE: Kui see funktsioon on lubatud, siis teie installitud Recovery asendatakse praeguses OS versioonis kaasas olevaga.\n\nSinu Recovery uuendatakse koos süsteemi uuendustega, et tagada ühilduvus tulevaste versioonidega.\n\nKas soovite funktsiooni aktiveerida?</string>
   <string name="update_recovery_off_warning">HOIATUS: Kui see funktsioon on keelatud, siis teie installitud Recovery ei ajakohastata OS uuendamisel.\n\nTulevased OS ajakohastamised ei pruugi paigalduda vananenud või kohandatud Recovery kasutamisel.\n\nKas soovite funktsiooni keelata?</string>
+  <!-- Themes Settings -->
+  <!-- Settings main menu entry -->
   <string name="themes_settings_title">Teemad</string>
+  <!-- Sound settings screen -->
   <string name="ring_mode_title">Helisemise režiim</string>
   <string name="ring_mode_normal">Tavaline</string>
   <string name="ring_mode_vibrate">Vibreeri</string>
   <string name="ring_mode_mute">Hääletu</string>
   <string name="settings_reset_button">Lähtesta</string>
+  <!-- Profiles settings  -->
   <string name="profiles_settings_title">Süsteemi profiilid</string>
   <string name="profiles_add">Lisa</string>
   <string name="profile_menu_delete">Kustuta</string>
@@ -71,48 +89,62 @@
   <string name="profile_app_group_category_title">Teavituste tühistusreeglid</string>
   <string name="profile_app_group_item_instructions">Lisa või eemalda gruppe</string>
   <string name="profile_app_group_item_instructions_summary">Lisa või eemalda teavituse tühistuste rakendustegrupp sellele profiilile</string>
+  <!-- Profile mode options. -->
   <string name="profile_entries_on">Sees</string>
   <string name="profile_entries_off">Väljas</string>
   <string name="profile_entries_no_override">Ei tühista</string>
+  <!-- Add Profile -->
   <string name="profile_name_title">Nimi</string>
   <string name="new_profile_name">&lt;uus profiil&gt;</string>
+  <!-- Rename Dialog  -->
   <string name="rename_dialog_title">Nimeta ümber</string>
   <string name="rename_dialog_message">Sisesta uus nimi</string>
   <string name="duplicate_appgroup_name">Rakenduste rühma nimi on topelt!</string>
   <string name="rename_dialog_hint">Sisesta profiili nimi</string>
+  <!-- Reset Profiles -->
   <string name="profile_reset_title">Lähtesta</string>
+  <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Kas eemaldada see rakendus?</string>
+  <!-- Profile network mode -->
   <string name="profile_networkmode_2g">2G</string>
   <string name="profile_networkmode_3g">3G</string>
   <string name="profile_networkmode_4g">LTE</string>
   <string name="profile_networkmode_2g3g">2G/3G</string>
   <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
+  <!-- Profile Config screen PreferenceGroup titles -->
   <string name="profile_volumeoverrides_title">Helivaljususte tühistamised</string>
   <string name="connection_state_enabled">Luba</string>
   <string name="volume_override_summary">Seadista tugevusele %1$s/%2$s</string>
   <string name="profile_volume_override_checkbox_label">Tühista helivaljusus</string>
+  <!-- Menu item for managing profiles -->
   <string name="profile_profiles_manage">Profiilid</string>
   <string name="profile_profile_manage">Halda profiili</string>
   <string name="profile_appgroups_manage">Rakenduste rühmad</string>
   <string name="profile_appgroup_manage">Halda rakenduste rühmi</string>
+  <!-- Profile settings screen, section header for settings related to notification profiles -->
   <string name="profile_settings">Profiili seaded</string>
   <string name="profile_trigger_connect">Ühendamisel</string>
   <string name="profile_trigger_disconnect">Ühenduse katkemisel</string>
   <string name="profile_trigger_notrigger">Päästikuta</string>
+  <!-- Profile Settings sound modes labels -->
   <string name="sound_mode">Tevituste režiim</string>
   <string name="ringer_mode">Helisemise režiim</string>
   <string name="lights_mode">Valgustuste režiim</string>
   <string name="vibrate_mode">Vibreerimise režiim</string>
   <string name="choose_soundtone">Vali teavituse toon</string>
   <string name="choose_ringtone">Vali helina toon</string>
+  <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">Teavituse toon</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">Rakenduste rühmad</string>
   <string name="profile_applist_title">Rakendused</string>
   <string name="profile_new_appgroup">Uus rakenduste rühm</string>
   <string name="profile_delete_appgroup">Kustuta see rakenduste rühm?</string>
   <string name="profile_appgroup_name_prompt">Sisestage uus rekenduste rühma nimi</string>
   <string name="profile_appgroup_name_title">Nimi</string>
+  <!-- Add application dialog box title -->
   <string name="profile_choose_app">Vali rakendus</string>
+  <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Süsteemi seaded</string>
   <string name="profile_lockmode_title">Lukustusekraani tüüp</string>
   <string name="profile_lockmode_policy_disabled_summary">See profiili valik on seadme administraatori poliitikaga keelatud</string>
@@ -122,6 +154,7 @@
   <string name="profile_brightness_title">Ekraani heledus</string>
   <string name="profile_brightness_override_summary">Määra %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">Tühista heledus</string>
+  <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi\u2011Fi</string>
   <string name="toggleWifiAp">Teisaldatav Wi\u2011Fi pääsupunkt</string>
   <string name="toggleBluetooth">Bluetooth</string>
@@ -130,9 +163,13 @@
   <string name="toggleSync">Auto sünkrooni andmeid</string>
   <string name="toggle2g3g4g">Eelistatud võrgu tüüp</string>
   <string name="toggleNfc">NFC</string>
+  <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Wi\u2011Fi regioonikood</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
   <string name="wifi_setting_countrycode_summary">Täpsusta  Wi\u2011Fi regioonikoodi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Ilmnes probleem piirkonna koodi salvestamisel.</string>
+  <!-- Profiles -->
   <string name="profile_menu_delete_title">Kustuta</string>
   <string name="profile_action_none">Jäta muutmata</string>
   <string name="profile_action_system">Süsteemi vaikesäte</string>
@@ -150,6 +187,7 @@
   <string name="profile_setup_actions_title_config">Tegevuste ümberkonfigureerimine</string>
   <string name="profile_appgroups_manage">Rakenduste rühmad</string>
   <string name="profile_appgroup_manage">Halda rakenduste rühmi</string>
+  <!-- Title for application group setting screen -->
   <string name="profile_appgroups_title">Rakenduste rühmad</string>
   <string name="profile_new_appgroup">Uus rakenduste rühm</string>
   <string name="profile_delete_appgroup">Kustuta see rakenduste rühm?</string>
@@ -163,6 +201,7 @@
   <string name="no_triggers_configured_nfc">Koputage uue NFC päästiku seadistamiseks.</string>
   <string name="profile_setup_setup_triggers_description">Vali päästikud, mis aktiveerivad selle profiili</string>
   <string name="profile_setup_actions_description">Nüüd konfigureeri, mis juhtub, kui profiil aktiveeritakse</string>
+  <!-- Navigation Bar -->
   <string name="navigation_bar_category">Navigeerimisriba</string>
   <string name="navigation_bar_left_title">Vasakukäeline režiim</string>
   <string name="navigation_bar_left_summary">Aseta navigeerimisriba vasakule, kui ekraan on rõhtasendis</string>
@@ -175,12 +214,14 @@
   <string name="navigation_bar_arrow_keys_title">Näita nooleklahve tippimise ajal</string>
   <string name="navigation_bar_arrow_keys_summary">Kuva tippimise ajal vasakule ja paremale kursor. Eira IME vahetajat.</string>
   <string name="navigation_bar_recents_title">Hiljutised nupu pika vajutuse toiming</string>
+  <!-- Notification light dialogs -->
   <string name="edit_light_settings">Valgustuse seadete redigeerimine</string>
   <string name="pulse_speed_title">Vilkumise pikkus ja kiirus</string>
   <string name="default_time">Tavaline</string>
   <string name="custom_time">Kohandatud</string>
   <string name="dialog_delete_title">Kustuta</string>
   <string name="dialog_delete_message">Eemaldada valitud üksus?</string>
+  <!-- Values for the notification light pulse spinners -->
   <string name="pulse_length_always_on">Alati sees</string>
   <string name="pulse_length_very_short">Väga lühike</string>
   <string name="pulse_length_short">Lühike</string>
@@ -192,12 +233,14 @@
   <string name="pulse_speed_normal">Tavaline</string>
   <string name="pulse_speed_slow">Aeglane</string>
   <string name="pulse_speed_very_slow">Väga aeglane</string>
+  <!-- Battery light settings -->
   <string name="battery_light_title">Aku märgutuli</string>
   <string name="battery_low_pulse_title">vilgu, kui aku tühjeneb</string>
   <string name="battery_light_list_title">Värvid</string>
   <string name="battery_light_low_color_title">Aku tühjeneb</string>
   <string name="battery_light_medium_color_title">Laadimine</string>
   <string name="battery_light_full_color_title">Täielikult laetud</string>
+  <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Märguandetuli</string>
   <string name="notification_light_general_title">Üldine</string>
   <string name="notification_light_applist_title">Rakendused</string>
@@ -208,13 +251,20 @@
   <string name="notification_light_voicemail_title">Kõnepost</string>
   <string name="notification_light_screen_on">Tuled koos ekraaniga</string>
   <string name="keywords_lights_brightness_level">hämarda ledide heledust</string>
+  <!-- Lights settings, LED notification -->
+  <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Androidi silumine</string>
+  <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
   <string name="enable_adb_summary_cm">Luba Android Debug Bridge (adb) liides</string>
+  <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ADB üle võrgu</string>
   <string name="adb_over_network_summary">Luba TCP/IP silumine üle võrguliideste (Wi\u2011Fi, USB võrgud). Säte lähtestatakse taaskäivitamisel</string>
+  <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">HOIATUS: Kui ADB üle võrgu on lubatud, on Teie telefon avatud sissetungimiseks kõikidest ühendatud võrkudest!\n\nKasuta seda võimalust ainult turvalistes võrkudes.\n\nKas sa soovid tõesti selle funktsiooni sisse lülitada?</string>
+  <!-- Setting checkbox summary for displaying USB debugging notification -->
   <string name="adb_notify">Silumise teavitus</string>
   <string name="adb_notify_summary">Kuva teavitus, kui USB või võrgu silumine on lubatud</string>
+  <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">Asukoht</string>
   <string name="app_ops_categories_personal">Isiklik</string>
   <string name="app_ops_categories_messaging">Sõnumiside</string>
@@ -222,6 +272,7 @@
   <string name="app_ops_categories_device">Seade</string>
   <string name="app_ops_categories_bootup">Alglaadimine</string>
   <string name="app_ops_categories_su">Root ligipääs</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">Umbmäärane asukoht</string>
   <string name="app_ops_summaries_fine_location">Hea asukoht</string>
   <string name="app_ops_summaries_gps">GPS</string>
@@ -267,6 +318,7 @@
   <string name="app_ops_summaries_project_media">projekteerida meediat</string>
   <string name="app_ops_summaries_activate_vpn">Aktiveeri VPN</string>
   <string name="app_ops_summaries_superuser">Root ligipääs</string>
+  <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibreeri</string>
   <string name="app_ops_labels_read_contacts">Loe kontakte</string>
@@ -303,19 +355,23 @@
   <string name="app_ops_labels_project_media">projekteerida meediat</string>
   <string name="app_ops_labels_activate_vpn">Aktiveeri VPN</string>
   <string name="app_ops_labels_superuser">Root ligipääs</string>
+  <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Lubatud</string>
   <string name="app_ops_permissions_ignored">Ingnoreeritud</string>
   <string name="app_ops_permissions_always_ask">Alati küsi</string>
+  <!-- App ops detail -->
   <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (kasutatud <xliff:g id="count">%2$s</xliff:g>)</string>
   <string name="app_ops_allowed_count">Lubatud <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Keelatud <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Lubatud <xliff:g id="count">%1$s</xliff:g>, keelatud<xliff:g id="count">%2$s</xliff:g></string>
+  <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Kuva kasutaja rakendusi</string>
   <string name="app_ops_show_system_apps">Kuva sisse-ehitatud rakendused</string>
   <string name="app_ops_reset_counters">Lähtesta luba/keela loendurid</string>
   <string name="app_ops_reset_confirm_title">Kinnita loendurite lähetstamine</string>
   <string name="app_ops_reset_confirm_mesg">Kas sa oled kindel, et soovid loendurid lähtestada?</string>
   <string name="ok">OK</string>
+  <!-- Hostname setting -->
   <string name="device_hostname">Seadme hostname</string>
   <string name="unlock_scramble_pin_layout_title">Segatud paigutus</string>
   <string name="unlock_scramble_pin_layout_summary">Sega PIN paigutust seadme lahtilukustamisel</string>
@@ -357,12 +413,16 @@
   <string name="button_wake_title">Ärata seade</string>
   <string name="home_answer_call_title">Vasta kõnele</string>
   <string name="home_answer_call_summary">Kodunupu vajutamine vastab sisenevale kõnele</string>
+  <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">Kohanduv heledus</string>
   <string name="adaptive_backlight_summary">Dünaamiline ekraani heleduse muutmine aitab maksimeerida aku sooritust ilma kasutusmugavuse kaotamiseta</string>
+  <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">Päikesevalguses parendamine</string>
   <string name="sunlight_enhancement_summary">Parendab ekraani heledust ja loetavust ereda päiksevalguse korral</string>
+  <!-- Color enhancement settings screen -->
   <string name="color_enhancement_title">Värvide parendamine</string>
   <string name="color_enhancement_summary">Dünaamiliselt parendab värve ekraanil</string>
+  <!-- Key backlight -->
   <string name="button_backlight_title">Taustvalgus</string>
   <string name="button_backlight_enabled">Valgusta nupud</string>
   <string name="keyboard_backlight_enabled">Valgusta klaviatuur</string>
@@ -373,7 +433,10 @@
   <string name="backlight_summary_disabled">Väljalülitatud</string>
   <string name="backlight_summary_enabled_with_timeout">Lubatud <xliff:g id="timeout">%s </xliff:g></string>
   <string name="backlight_summary_enabled">Lubatud</string>
+  <!-- Gesture Settings -->
+  <!-- Settings main menu entry -->
   <string name="gesture_settings_title">Žestid</string>
+  <!-- Power menu -->
   <string name="power_menu_title">Toitemenüü</string>
   <string name="power_menu_reboot_title">Taaskäivitusmenüü</string>
   <string name="power_menu_screenshot_title">Kuvatõmmis</string>
@@ -384,33 +447,47 @@
   <string name="power_menu_bug_report_title">Veaaruanne</string>
   <string name="power_menu_sound_title">Heli paneel</string>
   <string name="power_menu_bug_report_disabled">Veaaruanne on arendaja valikutes keelatud</string>
+  <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Luba ekraani navigeerimisriba</string>
   <string name="disable_navkeys_summary">Luba ekraani navigeerimisriba ja keela riistvaralised nupud</string>
+  <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Topelt koputus ekraani väljalülitamiseks</string>
   <string name="double_tap_to_sleep_summary">Topeltpuudutage olekuriba ekraani väljalülitamiseks</string>
+  <!-- Proximity wake -->
   <string name="proximity_wake_title">Väldi juhuslikku ärkamist</string>
   <string name="proximity_wake_summary">Kontrolli lähedusandurit enne ekraani sisselülitamist</string>
+  <!-- Turn on display when power connected; turn off display when power disconnected -->
   <string name="wake_when_plugged_or_unplugged_title">Ärka laadija ühendamisel</string>
   <string name="wake_when_plugged_or_unplugged_summary">Lülita ekraan sisse kui ühendatakse või eemaldatakse toite allikas</string>
+  <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
   <string name="font_size_sample">Proov</string>
+  <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Helitugevuse muutmise helid</string>
+  <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Vibreerimise intensiivsus</string>
   <string name="vibrator_warning">Väärtused suuremad kui %1$d ei ole soovitatud</string>
+  <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Värvide kalibreerimine</string>
   <string name="color_calibration_summary">Kalibreeri ekraani värvid</string>
   <string name="color_red_title">Punane</string>
   <string name="color_green_title">Roheline</string>
   <string name="color_blue_title">Sinine</string>
+  <!-- Hardware tunables - Gamma calibration -->
   <string name="gamma_tuning_title_head">Heleduse kalibreerimine</string>
   <string name="gamma_tuning_summary_head">Kohenda heleduse väärtuseid</string>
   <string name="gamma_tuning_control_set_header">Rühmita <xliff:g id="index">%d</xliff:g></string>
+  <!-- used if no name provided by overlay -->
   <string name="gamma_tuning_contrast">Kontrast</string>
   <string name="gamma_tuning_brightness">Heledus</string>
   <string name="gamma_tuning_saturation">Küllastus</string>
+  <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Käivita muusika rakendus</string>
   <string name="headset_connect_player_summary">Käivita vaikimisi muusika rakendus peakomplekti ühendamisel</string>
+  <!-- WiFi auto-configure priorities -->
   <string name="wifi_auto_config_priorities">Automaatne eelistus</string>
   <string name="auto_brightness_reset_button">Lähtesta</string>
+  <!-- Display : Rotation  -->
   <string name="display_rotation_title">Pööramine</string>
   <string name="display_rotation_disabled">Keelatud</string>
   <string name="display_rotation_unit">kraadid</string>
@@ -420,6 +497,7 @@
   <string name="display_rotation_90_title">90 kraadi</string>
   <string name="display_rotation_180_title">180 kraadi</string>
   <string name="display_rotation_270_title">270 kraadi</string>
+  <!-- Display settings.  Screen color. -->
   <string name="screencolor">Ekraani värv</string>
   <string name="screencolor_summary">Häälesta värvus, küllastus, kontrast ja intensiivsus</string>
   <string name="custom_screencolor">Kohandatud ekraani värv</string>
@@ -433,6 +511,7 @@
   <string name="saturation_str">Küllastus: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensiivsus: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiseeri oma ekraan vastavalt päeva ajale ja ümbritsevatele tingimustele, et parandada loetavust ning vähendada silmade pinget</string>
   <string name="live_display_mode">Ekraani režiim</string>
   <string name="live_display_color_temperature_title">Värvi soojus</string>
@@ -456,21 +535,28 @@
   <string name="live_display_color_profile_cinema_title">Kino</string>
   <string name="live_display_color_profile_astronomy_title">Astronoomia</string>
   <string name="live_display_color_profile_astronomy_summary">Sügav punane öise nägemise säilitamiseks</string>
+  <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Valiku ikoon</string>
   <string name="ime_switcher_notify_summary">Kuva sisestamismeetodi valiku ikoon</string>
+  <!-- Heads up -->
   <string name="heads_up_notifications">Etteteavitus</string>
   <string name="summary_heads_up_enabled">Hüpikteavitused lubatud</string>
   <string name="summary_heads_up_disabled">Hüpikteavitused keelatud</string>
+  <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
   <string name="bluetooth_accept_all_files">Aktsepteeri kõiki failitüüpe</string>
+  <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Kõrge puutetundlikus</string>
   <string name="high_touch_sensitivity_summary">Suurenda puuteekraani tundlikust, et saaksid seda kasutada kindaid kandes</string>
+  <!-- Display & Lights screen, setting options for LCD density -->
   <string name="lcd_density">LCD tihedus</string>
   <string name="dialog_title_lcd_density">LCD tihedus</string>
   <string name="lcd_density_value_format">%d DPI</string>
   <string name="lcd_density_default_value_format">%d DPI (vaikimisi)</string>
   <string name="restarting_ui">UI\u2026 taaskäivitamine</string>
+  <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Pliiatsi kasutamisel kuva ikoon</string>
   <string name="stylus_icon_enabled_summary">Kuva kursori ikoon kui hõljud või joonistad pliiatsiga</string>
+  <!-- Stylus Gestures -->
   <string name="gestures_settings_title">Pliiatsi žestid</string>
   <string name="category_spen_title">Pliiatsi žestid</string>
   <string name="enable_subcat_title">Pliiats</string>
@@ -483,29 +569,41 @@
   <string name="gestures_down_spen_title_head">Libista alla</string>
   <string name="gestures_long_spen_title_head">Pikk vajutus</string>
   <string name="gestures_double_spen_title_head">Topeltkoputus</string>
+  <!-- Gestures Options -->
   <string name="gestures_action_empty">Tegevus puudub</string>
   <string name="gestures_action_home">Kodu</string>
   <string name="gestures_action_back">Tagasi</string>
   <string name="gestures_action_menu">Menüü</string>
   <string name="gestures_action_search">Alusta otsingut</string>
   <string name="gestures_action_recent">Hiljutised rakendused</string>
+  <!-- Stylus gestures -->
   <string name="stylus_app_not_installed">%s ei ole installitud</string>
+  <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">Puuteekraani hõljumine</string>
   <string name="touchscreen_hovering_summary">Lubab hõljuda ekraani kohal nagu hiirega veebilehitsejas, kaugtöölaual jne</string>
+  <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Kasvav helisemistugevus</string>
   <string name="increasing_ring_min_volume_title">Lähtevaljusus</string>
   <string name="increasing_ring_ramp_up_time_title">Käivitamisetapi aeg</string>
+  <!-- LTO download data over wi-fi only -->
   <string name="lto_download_data_wifi_only">GPS assisteeritud andmete allalaadimine</string>
   <string name="lto_download_data_wifi_only_on">Üle kõigi võrkude</string>
   <string name="lto_download_data_wifi_only_off">Ainult üle Wi\u2011Fi võrkude</string>
   <string name="category_calibration">Kalibreerimine</string>
   <string name="display_and_lights">Ekraan &amp; valgustus</string>
+  <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
   <string name="power_notifications_category_title">Laadimise helid</string>
+  <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
   <string name="power_notifications_enable_title">Luba</string>
   <string name="power_notifications_enable_summary">Mängi heli vooluallika ühendamisel või lahtiühendamisel</string>
+  <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
   <string name="power_notifications_vibrate_title">Vibreeri</string>
+  <!-- Sound settings, Charging sounds ringtone selection, preference label -->
   <string name="power_notifications_ringtone_title">Teavituse heli</string>
+  <!-- Sound settings, charging sounds label for ringtone == none -->
   <string name="power_notifications_ringtone_silent">Vaikne</string>
+  <!-- Status bar -->
   <string name="status_bar_title">Olekuriba</string>
   <string name="status_bar_toggle_brightness">Heleduse reguleerimine</string>
   <string name="status_bar_toggle_brightness_summary">Reguleeri heledust libistades liugribal</string>
@@ -518,6 +616,7 @@
   <string name="status_bar_quick_qs_pulldown_off">Väljas</string>
   <string name="status_bar_quick_qs_pulldown_left">Vasakule</string>
   <string name="status_bar_quick_qs_pulldown_right">Paremale</string>
+  <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Kella stiil</string>
   <string name="status_bar_clock_style_right">Paremale</string>
   <string name="status_bar_clock_style_left">Vasakule</string>
@@ -528,22 +627,29 @@
   <string name="status_bar_am_pm_normal">Tavaline</string>
   <string name="status_bar_am_pm_small">Väike</string>
   <string name="status_bar_am_pm_hidden">Peidetud</string>
+  <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_title">Aku oleku stiil</string>
   <string name="status_bar_battery_style_icon_portrait">Ikooni püstasend</string>
   <string name="status_bar_battery_style_icon_landscape">Ikooni rõhtasend</string>
   <string name="status_bar_battery_style_circle">Ring</string>
   <string name="status_bar_battery_style_text">Tekst</string>
   <string name="status_bar_battery_style_hidden">Peidetud</string>
+  <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Aku protsent</string>
   <string name="status_bar_battery_percentage_default">Peidetud</string>
   <string name="status_bar_battery_percentage_text_inside">Ikooni sees</string>
   <string name="status_bar_battery_percentage_text_next">Ikooni kõrval</string>
+  <!-- Status bar - icon blacklist -->
+  <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokeeri žesti puudutuse sündmused</string>
   <string name="edge_gesture_service_summary">Ära saada navigatsiooni ja olekuriba puudutuste sündmusi rakendustele</string>
+  <!-- Keep screen on strings -->
   <string name="keep_screen_on_never">Mitte kunagi</string>
   <string name="keep_screen_on_debugging">USB silumise ajal</string>
   <string name="keep_screen_on_charging">Laadimise ajal</string>
+  <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">Privaatsus</string>
+  <!-- Privacy Guard -->
   <string name="privacy_guard_default_title">Vaikimisi lubatud</string>
   <string name="privacy_guard_default_summary">Luba vaikimisi uutele paigaldatavatele rakendustele</string>
   <string name="privacy_guard_manager_title">Privaatsuskaitse</string>
@@ -555,19 +661,33 @@
   <string name="privacy_guard_help_text">Sellel ekraanil saate puudutusega valida milliste rakenduste jaoks aktiveeritakse Privaatsuse Kaitse. Valitud rakendustele ei võimaldata ligipääsu isiklikele andmetele, nagu näiteks kontaktid, sõnumid või kõnelogi. Pikk vajutus rakendusel avab detailide kuva.\n\nSisseehitatud rakendused ei ole vaikimisi kuvatud, kuid on võimalik nähtavaks teha vastavas menüü valikus.</string>
   <string name="privacy_guard_manager_show_system_apps">Kuva sisse-ehitatud rakendused</string>
   <string name="privacy_guard_advanced_settings_title">Edasijõudnute valikud</string>
+  <!-- Sizes for pattern lockscreen -->
+  <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Näita mustrit tõrget</string>
+  <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">Näita mustri punkte</string>
+  <!-- Whether the keyguard will directly pass to password entry -->
+  <!-- Whether the keyguard will directly pass to pattern view -->
+  <!-- Whether the keyguard will directly pass to PIN entry -->
+  <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Näita muusika visualiseerijat</string>
+  <!-- lock screen disabled by QS tile warning -->
+  <!-- Battery saver -->
   <string name="battery_saver_threshold">Aku säästmise tase</string>
   <string name="battery_saver_summary">Vähenda jõudlust ja piira andmeside kasutust taustal</string>
   <string name="battery_saver_summary_unavailable">Ei ole kättesaadav laadimise ajal</string>
+  <!-- Battery : Automatic performance profiles -->
   <string name="autoperf_title">Luba rakenduste kohased profiilid</string>
   <string name="autoperf_summary">Vali automaatselt erinevatele rakendustele sobiv aku režiim</string>
   <string name="perf_profile_title">Aku režiim</string>
+  <!-- Memory -->
+  <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Teavituse toon</string>
+  <!-- Advanced reboot options -->
   <string name="advanced_reboot_title">Edasijõudnud alglaadimine</string>
   <string name="advanced_reboot_summary">Kui lukustamata, kaasa toite menüüsse võimalused taaskäivitada recoverisse, bootloaderisse ja teostada süsteemi taaskäivitamist</string>
   <string name="category_interface">Liides</string>
+  <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">Laiendatud ekraan</string>
   <string name="expanded_hide_nothing">Ära varja midagi</string>
   <string name="expanded_hide_status">Peida olekuriba</string>
@@ -578,10 +698,13 @@
   <string name="expanded_desktop_style">Laiendatud töölaua stiil</string>
   <string name="expanded_desktop_style_description">Vali vaikimisi laiendatud töölaua stiil</string>
   <string name="expanded_desktop_title">Laiendatud töölaua valikud</string>
+  <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Välju rakendusest tagasi nupuga</string>
   <string name="kill_app_longpress_back_summary">Sulge esiplaani rakendus pikalt vajutades tagasi nuppu</string>
+  <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Kuva otsinguriba hiljutiste menüüs</string>
   <string name="keywords_recents_show_searchbar">Hiljutine hiljutised keela luba kuva peida otsimise riba otsinguriba</string>
+  <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">Häälärkamine</string>
   <string name="voice_wakeup_retrain_title">Säilita oma hääl</string>
   <string name="voice_wakeup_activity_title">Tegevus käivitamiseks</string>
@@ -589,6 +712,7 @@
   <string name="picker_activities">Tegevused</string>
   <string name="select_custom_app_title">Vali kohandatud rakendus</string>
   <string name="select_custom_activity_title">Vali kohandatud tegevus</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokeeritud helistajate nimekiri</string>
   <string name="blacklist_edit_dialog_title">Blokeeritud telefoni numbri muutmine</string>
   <string name="blacklist_prefs">Seaded</string>
@@ -612,19 +736,24 @@
   <string name="blacklist_policy_block_calls">Blokeeri sisenevad kõned</string>
   <string name="blacklist_policy_block_messages">Blokeeri sisenevad sõnumid</string>
   <string name="blacklist_bad_number_add">Telefoninumber blokeeritud helistajate nimekirja lisamiseks sobimatu</string>
+  <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">Eemalda number</string>
   <string name="remove_blacklist_entry">Kas soovite eemaldada selle blokeeritud telefoninumbri?</string>
   <string name="select_contact">Vali kontakt</string>
+  <!-- Sms security limit -->
   <string name="app_security_title">Rakenduse turvalisus</string>
   <string name="sms_security_check_limit_title">SMS sõnumite limiit</string>
   <string name="sms_security_check_limit_summary">Rakendused saavad saata %d sõnumit 1 minuti jooksul enne kui vajavad kinnitust</string>
   <string name="sms_security_check_limit_summary_none">Rakendused ei tohi saata sõnumeid ilma täiendava kinnituseta</string>
   <string name="sms_security_check_limit_none">Puudub</string>
+  <!-- Notification spamfilter -->
   <string name="spam_added_title">Lisatud %1$s</string>
   <string name="spam_last_blocked_title">Viimati blokeeritud %1$s</string>
   <string name="block_notifications_title">Filtreeri teavitusi</string>
   <string name="block_notifications_summary">Halda ignoreeritud teavitusi ja filtreid</string>
   <string name="no_filters_title">Filtreid pole seatud</string>
+  <!-- Anonymous Statistics #CM -->
+  <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
   <string name="anonymous_statistics_title">CyanogenMod statistika</string>
   <string name="anonymous_statistics_summary">Aita muuta CyanogenMod paremaks, osaledes anonüümse statistika kogumises</string>
   <string name="anonymous_statistics_warning_title">Üldist</string>
@@ -635,6 +764,7 @@ mis ei ohusta sinu privaatsust ega isiklikku infot. Teave saadetakse peale igat 
   <string name="preview_data_title">Andmete eelvaade</string>
   <string name="view_stats_title">Vaata statistikat</string>
   <string name="anonymous_learn_more">Saa rohkem teada</string>
+  <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">Kordumatu ID</string>
   <string name="preview_device_title">Seade</string>
   <string name="preview_version_title">Versioon</string>
@@ -642,8 +772,10 @@ mis ei ohusta sinu privaatsust ega isiklikku infot. Teave saadetakse peale igat 
   <string name="preview_carrier_title">Operaator</string>
   <string name="stats_collection_title">Andmete kogumine</string>
   <string name="stats_collection_summary">Kui sisselülitatud, lubab andmete kogumist</string>
+  <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">Lähtesta muster</string>
   <string name="lockpattern_settings_reset_summary">Sisesta primaarne e-posti konto koos seotud salasõnaga mustriluku tühistamiseks</string>
+  <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">Lähtesta</string>
   <string name="menu_hidden_apps_reset_lock">Lähtesta mustri lukk</string>
   <string name="protected_apps">Kaitstud rakendused</string>
@@ -653,6 +785,7 @@ mis ei ohusta sinu privaatsust ega isiklikku infot. Teave saadetakse peale igat 
   <string name="pa_login_submit_button">Logi sisse</string>
   <string name="pa_login_checking_password">Kontrollin kontot\u2026</string>
   <string name="pa_login_incorrect_login">Kasutajanimi on vale</string>
+  <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Toetajad</string>
   <string name="contributors_cloud_loading_message">Laen toetajate infot\u2026</string>
   <string name="contributors_cloud_failed_message">Toetajate andmete laadimine ebaõnnestus</string>
@@ -672,23 +805,40 @@ mis ei ohusta sinu privaatsust ega isiklikku infot. Teave saadetakse peale igat 
   <string name="title_general">Üldine</string>
   <string name="advanced">Edasijõudnute valikud</string>
   <string name="link_volume_option_title">Ühenda helina toon &amp; teavituse toonid</string>
+  <!-- Edit access point labels: PPP number -->
+  <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="sim_disabled">keelatud</string>
   <string name="sim_missing">puuduv või vigane</string>
   <string name="sim_enabler_airplane_on">Toimingut ei saa sooritada, kui lennukirežiim on aktiveeritud.</string>
   <string name="sim_enabler_in_call">Toimingut ei saa kõne ajal sooritada.</string>
   <string name="sim_enabler_both_inactive">Ei saa keelata kõiki SIM-kaarte</string>
   <string name="primary_sub_select_title">Vaikimisi 3G/LTE tellimus</string>
+  <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d olek</string>
   <string name="sim_card_lock_settings_title">SIM %d luku seaded</string>
   <string name="sim_card_summary_empty">SIM-kaarti ei ole sisestatud</string>
   <string name="sim_mobile_network_settings_title">SIM-kaardi %d seaded</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+  <!-- SAR information -->
   <string name="maximum_head_level">Pea: %1$s W/kg</string>
   <string name="maximum_body_level">Keha: %1$s W/kg</string>
+  <!-- IC Codes -->
   <string name="ic_code_model">Mudel: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM %d helinatoon</string>
+  <!-- label for application name -->
+  <!-- label for last time used -->
+  <!-- label for usage time -->
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">See kustutab kõik andmed sinu tahvelarvuti <b>sisemisest mälust</b>, sealhulgas:\n\n<li>Sinu seadme kontod</li>\n<li>Süsteemi ja rakenduste info ning seadistused</li>\n<li>Allalaaditud rakendused</li></string>
+  <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="default">See kustutab kõik andmed sinu telefoni <b>sisemisest mälust</b>, sealhulgas:\n\n<li>Sinu seadme kontod</li>\n<li>Süsteemi ja rakenduste info ning seadistused</li>\n<li>Allalaaditud rakendused</li></string>
+  <!-- Factory reset strings -->
   <string name="factory_reset_instructions_title">Isiklikud andmed &amp; rakendused</string>
   <string name="factory_reset_instructions_summary">See kustutab teie seadmest kõik kontod, rakendused, rakenduste info ja süsteemi sätted</string>
   <string name="factory_reset_personal_content">Isiklik sisu</string>
@@ -699,9 +849,17 @@ mis ei ohusta sinu privaatsust ega isiklikku infot. Teave saadetakse peale igat 
   <string name="factory_reset_erase_sd_card_summary">Kustuta kõik andmed SD-kaardilt, sealhulgas muusika ja fotod</string>
   <string name="factory_reset_warning_text_reset_now">TAASKÄIVITA NÜÜD</string>
   <string name="factory_reset_warning_text_message">Kõik teie kontod, rakendused, rakenduste andmed ja süsteemi sätted eemaldatakse sellest seadmest. Seda ei ole võimalik tagasi pöörata.</string>
+  <!-- Tethering & portable hotspot other category -->
+  <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Mitte kunagi</string>
+  <!-- Live lock screen -->
+  <!-- Live lock screen title -->
+  <!-- Live lock screen summary -->
+  <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Seaded</string>
+  <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
   <string name="interruptions_ignore_while_media_title">Enneta heli sumbumist</string>
   <string name="interruptions_ignore_while_media_summary">Ära alanda meedia helitugevust teavituse saabumisel</string>
+  <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod juriidiline info</string>
 </resources>
