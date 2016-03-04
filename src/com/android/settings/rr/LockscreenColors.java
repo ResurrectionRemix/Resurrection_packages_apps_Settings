@@ -62,7 +62,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     private static final int MONOCHROME_ICON = 0;
 
     static final int DEFAULT = 0xffffffff;
-    static final int TRANSPARENT = 0x0DFFFFFF;
+    static final int TRANSPARENT = 0x99FFFFFF;
 
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -99,7 +99,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
         mLockscreenPhoneColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, TRANSPARENT);
-        hexColor = String.format("#%08x", (0x0DFFFFFF & intColor));
+        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
         mLockscreenPhoneColorPicker.setSummary(hexColor);
         mLockscreenPhoneColorPicker.setNewPreviewColor(intColor);
 
@@ -115,7 +115,7 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
         mLockscreenCameraColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, TRANSPARENT);
-        hexColor = String.format("#%08x", (0x0DFFFFFF & intColor));
+        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
         mLockscreenCameraColorPicker.setSummary(hexColor);
         mLockscreenCameraColorPicker.setNewPreviewColor(intColor);
 
