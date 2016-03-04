@@ -734,6 +734,13 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             mTabHost.addTab(buildTabSpec(TAB_ETHERNET, R.string.data_usage_tab_ethernet));
         }
 
+        if (getResources().getBoolean(R.bool.config_gcf_disable_default_tabtext_allcaps)) {
+            for (int i = 0; i < mTabWidget.getTabCount(); i++) {
+                TextView tv = (TextView) mTabWidget.getChildAt(i).findViewById(android.R.id.title);
+                tv.setAllCaps(false);
+            }
+        }
+
         final boolean noTabs = mTabWidget.getTabCount() == 0;
         final boolean multipleTabs = mTabWidget.getTabCount() > 1;
         mTabWidget.setVisibility(multipleTabs ? View.VISIBLE : View.GONE);
