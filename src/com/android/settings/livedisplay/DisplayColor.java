@@ -267,7 +267,7 @@ public class DisplayColor extends DialogPreference {
             IntervalSeekBar isb = (IntervalSeekBar)seekBar;
             float fp = isb.getProgressFloat();
             if (fromUser) {
-                mCurrentColors[mIndex] = fp;
+                mCurrentColors[mIndex] = fp > 1.0f ? 1.0f : fp;
                 updateColors(mCurrentColors);
             }
 
