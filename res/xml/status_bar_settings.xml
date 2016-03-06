@@ -63,15 +63,15 @@
         android:key="icons"
         android:title="@string/icons_category" >
 
-        <PreferenceScreen
-        android:key="systemuituner"
+    <PreferenceScreen
+        android:key="status_bar_icons"
         android:title="@string/status_bar_icons_title"
         android:summary="@string/status_bar_icons_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.TunerActivity" />
-       </PreferenceScreen>
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.tuner.TunerActivity$StatusBarIconActivity" />
+    </PreferenceScreen>
 
      <PreferenceScreen
         android:key="status_bar_colors"
