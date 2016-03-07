@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2015 The OmniROM Project
+      Copyright (C) 2015 The SlimROM Project
+      Copyright (C) 2016 The PureNexus Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/doze_title">
+
+    <SwitchPreference
+        android:key="doze"
+        android:title="@string/doze_title"
+        android:summary="@string/doze_summary"
+        android:persistent="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="ambient_display_show_battery"
+       	android:title="@string/ambient_display_show_battery_title"
+        android:summary="@string/ambient_display_show_battery_summary"
+        android:dependency="doze"
+        android:defaultValue="true" />
+
+    <com.android.settings.preference.SecureSettingSwitchPreference
+        android:key="doze_notification_invert_enabled"
+        android:title="@string/doze_notification_color_invert_title"
+        android:summaryOn="@string/doze_notification_color_invert_summary_on"
+        android:summaryOff="@string/doze_notification_color_invert_summary_off"
+        android:defaultValue="true"
+        android:dependency="doze" />
+
+    <com.android.settings.preference.SystemSettingSwitchPreference
+        android:key="doze_overwrite_value"
+        android:title="@string/doze_overwrite_value_title"
+        android:summary="@string/doze_overwrite_value_summary"
+        android:dependency="doze" />
+
+    <PreferenceCategory
+        android:key="doze_pulse_category"
+        android:title="@string/doze_pulse_title" >
+
+        <Preference
+            android:key="doze_brightness_level"
+            android:title="@string/doze_brightness_level_title"
+            android:persistent="false"
+            android:dependency="doze_overwrite_value" />
+
+        <ListPreference
+            android:entries="@array/doze_pulse_duration_in_entries"
+            android:entryValues="@array/doze_pulse_duration_in_values"
+            android:key="doze_pulse_in"
+            android:title="@string/doze_pulse_duration_in_title"
+            android:summary="@string/doze_pulse_duration_in_summary"
+            android:persistent="false"
+            android:dependency="doze_overwrite_value" />
+
+        <ListPreference
+            android:entries="@array/doze_pulse_duration_visible_entries"
+            android:entryValues="@array/doze_pulse_duration_visible_values"
+            android:key="doze_pulse_visible"
+            android:title="@string/doze_pulse_duration_visible_title"
+            android:summary="@string/doze_pulse_duration_visible_summary"
+            android:persistent="false"
+            android:dependency="doze_overwrite_value" />
+
+        <ListPreference
+            android:entries="@array/doze_pulse_duration_in_entries"
+            android:entryValues="@array/doze_pulse_duration_in_values"
+            android:key="doze_pulse_out"
+            android:title="@string/doze_pulse_duration_out_title"
+            android:summary="@string/doze_pulse_duration_out_summary"
+            android:persistent="false"
+            android:dependency="doze_overwrite_value" />
+
+    </PreferenceCategory>
+
+    <SwitchPreference
+        android:key="doze_pulse_on_pickup"
+        android:title="@string/doze_trigger_pickup_title"
+        android:dependency="doze_overwrite_value" />
+
+    <SwitchPreference
+        android:key="doze_pulse_on_notifications"
+        android:title="@string/doze_trigger_notification_title"
+        android:dependency="doze_overwrite_value" />
+
+</PreferenceScreen>
