@@ -15,6 +15,7 @@
  */
 package com.android.settings.privacyguard;
 
+import android.Manifest;
 import android.app.AppOpsManager;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
@@ -104,6 +105,8 @@ import java.util.List;
             app.uid = info.applicationInfo.uid;
             app.privacyGuardEnabled = mAppOps.getPrivacyGuardSettingForPackage(
                     app.uid, app.packageName);
+            app.hasInternetPermission = mPm.checkPermission(Manifest.permission.INTERNET,
+                    app.packageName) == PackageManager.PERMISSION_GRANTED;
             apps.add(app);
         }
 
