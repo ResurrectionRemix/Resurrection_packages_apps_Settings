@@ -238,7 +238,7 @@ public class SimDialogActivity extends Activity {
                 }
             };
 
-        int currentIndex = 0;
+        int currentIndex = -1;
         ArrayList<SubscriptionInfo> callsSubInfoList = new ArrayList<SubscriptionInfo>();
         if (id == CALLS_PICK) {
             final TelecomManager telecomManager = TelecomManager.from(context);
