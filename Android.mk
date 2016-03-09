@@ -1,7 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common ims-common
+LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common ims-common org.dirtyunicorns.utils
 LOCAL_STATIC_JAVA_LIBRARIES := \
 	android-support-v4 \
 	android-support-v13 \

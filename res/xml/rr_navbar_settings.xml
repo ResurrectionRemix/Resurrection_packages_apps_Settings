@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2015 Slimroms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <SwitchPreference
+        android:key="navbar_visibility"
+        android:title="@string/navbar_visibility" />
+
+    <PreferenceCategory
+        android:key="category_navbar_interface"
+        android:title="@string/navbar_interface_title" >
+
+        <ListPreference
+            android:entries="@array/systemui_navbar_mode_entries"
+            android:entryValues="@array/systemui_navbar_mode_values"
+            android:key="navbar_mode"
+            android:title="@string/navbar_mode" />
+
+        <PreferenceScreen
+            android:key="smartbar_settings"
+            android:title="@string/smartbar_settings_title"
+            android:fragment="com.android.settings.rr.SmartbarSettings" />
+
+        <PreferenceScreen
+            android:key="fling_settings"
+            android:title="@string/fling_settings"
+            android:fragment="com.android.settings.rr.FlingSettings" />
+
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="category_navbar_general"
+        android:title="@string/navbar_general_title" >
+
+	 <PreferenceScreen
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings"
+            android:fragment="com.android.settings.rr.PulseSettings" />   
+	    
+
+    <com.android.settings.rr.NavbarSizePreference
+            android:key="navigation_bar_size"
+            android:title="@string/navigation_bar_size_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

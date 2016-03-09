@@ -1968,8 +1968,51 @@
         </activity>
 
 
+
         <activity android:name=".rr.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".rr.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
+	<activity android:name=".cyanogenmod.SpamList" />
+	
+	<!-- Navigation settings activity. -->
+        <activity android:name="Settings$NavigationSettingsActivity"
+                android:label="@string/navigationbar_settings_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.Navbar" />
+        </activity>
+
+       <!-- System action picker -->
+        <activity android:name="com.android.settings.rr.ActionPickerDialogActivity"
+                android:theme="@style/Theme.SettingsDialog"
+                android:label="@string/choose_action_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+       <!-- Icon pack picker -->
+        <activity android:name="com.android.settings.rr.IconPickerActivity"
+                android:theme="@style/Theme.SettingsDialog"
+                android:label="@string/icon_pack_picker_dialog_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+       <!-- Icon pack grid -->
+        <activity android:name="com.android.settings.rr.IconPackGridActivity"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
         <!-- Development settings -->
 

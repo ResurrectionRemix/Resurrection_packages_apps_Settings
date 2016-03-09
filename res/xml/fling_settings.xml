@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2014 The TeamEos Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/fling_interface" >
+    
+    <Preference
+        style="?android:preferenceInformationStyle"
+        android:key="eos_fling_back_home_policy"
+        android:selectable="false"
+        android:summary="@string/fling_back_home_policy"
+        android:title="@string/info_pref_note_title" />
+
+     <PreferenceCategory
+        android:key="eos_actions_swipe_category"
+        android:title="@string/fling_swipe_actions" >
+
+        <com.android.settings.rr.ActionPreference
+            android:key="fling_short_right"
+            android:title="@string/fling_short_swipe_right"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="fling_short_left"
+            android:title="@string/fling_short_swipe_left"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="fling_long_right"
+            android:title="@string/fling_long_swipe_right"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="fling_long_left"
+            android:title="@string/fling_long_swipe_left"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+     </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="eos_actions_tap_category"
+        android:title="@string/fling_tap_actions" >
+
+        <Preference
+            style="?android:preferenceInformationStyle"
+            android:key="eos_fling_split_bar_policy"
+            android:selectable="false"
+            android:summary="@string/fling_split_bar_policy"
+            android:title="@string/info_pref_note_title" />
+
+        <com.android.settings.rr.ActionPreference
+            android:key="single_right_tap"
+            android:title="@string/fling_single_tap"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="single_left_tap"
+            android:title="@string/fling_single_left_tap"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="double_right_tap"
+            android:title="@string/fling_double_tap"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+        
+        <com.android.settings.rr.ActionPreference
+            android:key="double_left_tap"
+            android:title="@string/fling_double_left_tap"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="long_right_press"
+            android:title="@string/fling_long_press"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+
+        <com.android.settings.rr.ActionPreference
+            android:key="long_left_press"
+            android:title="@string/fling_long_left_press"
+            android:summary="@string/fling_def_summary" >
+        </com.android.settings.rr.ActionPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="eos_fling_appearance"
+        android:title="@string/fling_appearance" >
+
+        <SwitchPreference
+            android:key="eos_fling_show_logo"
+            android:title="@string/fling_show_logo_title" />
+
+         <SwitchPreference
+            android:key="eos_fling_animate_logo"
+            android:dependency="eos_fling_show_logo"
+            android:title="@string/fling_animate_logo_title"
+            android:summary="@string/fling_animate_logo_summary" />
+
+        <Preference
+            android:key="fling_custom_logo_pick"
+            android:title="@string/fling_logo_custom_logo_pick_title" />
+
+        <Preference
+            android:key="fling_custom_logo_reset"
+            android:title="@string/fling_logo_custom_logo_reset_title" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="eos_fling_logo_color"
+            android:title="@string/fling_logo_color"
+            android:defaultValue="0xffffff"
+            android:dependency="eos_fling_show_logo" />
+
+         <SwitchPreference
+            android:key="eos_fling_show_ripple"
+            android:title="@string/fling_show_ripple_title"
+            android:summary="@string/fling_show_ripple_summary" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="eos_fling_ripple_color"
+            android:title="@string/fling_ripple_color"
+            android:defaultValue="0xffffff"
+            android:dependency="eos_fling_show_ripple" />
+
+        <SwitchPreference
+            android:key="eos_fling_trails_enable"
+            android:title="@string/fling_trails_enable_title"
+            android:summary="@string/fling_trails_enable_summary" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="eos_fling_trails_color"
+            android:title="@string/fling_trails_color_title"
+            android:defaultValue="0xffffff"
+            android:dependency="eos_fling_trails_enable" />
+     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="eos_long_swipe_category"
+        android:title="@string/fling_advanced" >
+
+        <com.android.settings.rr.LongSwipePreference
+            android:key="eos_fling_long_swipe_pref"
+            android:summary="@string/fling_long_swipe_summary"
+            android:title="@string/fling_long_swipe_title" >
+        </com.android.settings.rr.LongSwipePreference>
+
+        <com.android.settings.rr.FlingLongpressPreference
+            android:key="eos_fling_longpress_pref"
+            android:summary="@string/fling_longpress_summary"
+            android:title="@string/fling_longpress_title" >
+        </com.android.settings.rr.FlingLongpressPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

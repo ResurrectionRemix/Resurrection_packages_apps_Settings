@@ -134,4 +134,5 @@ public class Settings extends SettingsActivity {
     public static class AppSidebarActivity extends SettingsActivity { /* empty */ }	
     public static class GestrueAnywhereActivity extends SettingsActivity { /* empty */ }			
     public static class NotificationManagerActivity extends SettingsActivity { /* empty */ }
+    public static class NavigationSettingsActivity extends SettingsActivity { /* empty */ }
 }

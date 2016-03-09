@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The DirtyUnicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+
+    <Preference
+        android:key="smartbar_editor_mode"
+        android:title="@string/smartbar_editor_title"
+        android:summary="@string/smartbar_editor_summary" />
+
+    <ListPreference
+        android:key="smartbar_context_menu_position"
+        android:title="@string/smartbar_context_menu_position_title"
+        android:entries="@array/smartbar_context_menu_side_entries"
+        android:entryValues="@array/smartbar_context_menu_side_values"
+        android:summary="@string/smartbar_context_menu_position_summary" />
+
+    <ListPreference
+        android:key="smartbar_ime_action"
+        android:title="@string/smartbar_ime_action_title"
+        android:entries="@array/smartbar_ime_action_entries"
+        android:entryValues="@array/smartbar_ime_action_values"
+        android:summary="@string/smartbar_ime_action_summary" />
+
+    <ListPreference
+        android:key="smartbar_button_animation"
+        android:title="@string/smartbar_button_animation_title"
+        android:entries="@array/smartbar_button_animation_entries"
+        android:entryValues="@array/smartbar_button_animation_values"
+        android:summary="@string/smartbar_button_animation_summary" />
+
+    <Preference
+        android:key="smartbar_factory_reset"
+        android:title="@string/smartbar_factory_reset_title"
+        android:summary="@string/smartbar_factory_reset_summary" />
+</PreferenceScreen>

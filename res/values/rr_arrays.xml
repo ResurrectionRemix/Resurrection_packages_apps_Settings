@@ -122,69 +122,6 @@
          <item>7</item>
      </string-array>
 
-    <!-- Navigation bar custom dimensions -->
-    <string-array name="navigation_bar_height_entries" translatable="false">
-        <item>@string/navigation_bar_size_48_dp_default</item>
-        <item>@string/navigation_bar_size_44_dp</item>
-        <item>@string/navigation_bar_size_42_dp</item>
-        <item>@string/navigation_bar_size_40_dp</item>
-        <item>@string/navigation_bar_size_36_dp</item>
-        <item>@string/navigation_bar_size_30_dp</item>
-        <item>@string/navigation_bar_size_24_dp</item>
-        <item>@string/navigation_bar_size_0_dp</item>
-    </string-array>
-
-    <string-array name="navigation_bar_height" translatable="false">
-        <item>48</item>
-        <item>44</item>
-        <item>42</item>
-        <item>40</item>
-        <item>36</item>
-        <item>30</item>
-        <item>24</item>
-        <item>0</item>
-    </string-array>
-
-   <string-array name="navigation_bar_height_entries_landscape" translatable="false">
-        <item>@string/navigation_bar_size_48_dp_default</item>
-        <item>@string/navigation_bar_size_44_dp</item>
-        <item>@string/navigation_bar_size_42_dp</item>
-        <item>@string/navigation_bar_size_40_dp</item>
-        <item>@string/navigation_bar_size_36_dp</item>
-        <item>@string/navigation_bar_size_30_dp</item>
-        <item>@string/navigation_bar_size_24_dp</item>
-        <item>@string/navigation_bar_size_0_dp</item>
-    </string-array>
-
-    <string-array name="navigation_bar_height_landscape" translatable="false">
-        <item>48</item>
-        <item>44</item>
-        <item>42</item>
-        <item>40</item>
-        <item>36</item>
-        <item>30</item>
-        <item>24</item>
-        <item>0</item>
-    </string-array>
-
-    <string-array name="navigation_bar_width_entries" translatable="false">
-        <item>@string/navigation_bar_size_42_dp_default</item>
-        <item>@string/navigation_bar_size_40_dp</item>
-        <item>@string/navigation_bar_size_36_dp</item>
-        <item>@string/navigation_bar_size_30_dp</item>
-        <item>@string/navigation_bar_size_24_dp</item>
-        <item>@string/navigation_bar_size_0_dp</item>
-    </string-array>
-
-    <string-array name="navigation_bar_width" translatable="false">
-        <item>42</item>
-        <item>40</item>
-        <item>36</item>
-        <item>30</item>
-        <item>24</item>
-        <item>0</item>
-    </string-array>
-
    <!-- Gesture Anywhere -->
     <string-array name="gesture_anywhere_position_entries" translatable="false">
         <item>@string/gesture_anywhere_position_left</item>
@@ -1585,4 +1522,81 @@
 		<item>39</item>
 		<item>40</item>
     </string-array>
+    
+    <!-- Fling -->
+    <string-array name="action_dialog_entries">
+        <item>@string/action_entry_default_action</item>
+        <item>@string/action_entry_custom_action</item>
+        <item>@string/action_entry_select_app</item>
+    </string-array>
+
+    <string-array name="action_dialog_values" translatable="false">
+        <item>@string/action_value_default_action</item>
+         <item>@string/action_value_custom_action</item>
+         <item>@string/action_value_select_app</item>
+     </string-array>
+ 
+     <string-array name="systemui_navbar_mode_entries">
+         <item>@string/aosp_navigation_bar</item>
+         <item>@string/fling_interface</item>
+     </string-array>
+ 
+     <string-array name="systemui_navbar_mode_values" translatable="false">
+         <item>0</item>
+         <item>1</item>
+     </string-array>
+ 
+     <string-array name="systemui_navbar_settings_fragments" translatable="false">
+         <item>com.android.settings.rr.SmartbarSettings</item>
+         <item>com.android.settings.rr.FlingSettings</item>
+     </string-array>
+ 
+     <string-array name="systemui_navbar_mode_settings">
+         <item>@string/aosp_navigation_bar_settings</item>
+         <item>@string/fling_settings</item>
+     </string-array>
+     
+     <string-array name="smartbar_button_animation_entries">
+        <item>@string/smartbar_button_animation_ripple</item>
+        <item>@string/smartbar_button_animation_spring</item>
+    </string-array>
+
+    <string-array name="smartbar_button_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    
+        <string-array name="smartbar_ime_action_entries">
+         <item>@string/smartbar_ime_action_none</item>
+         <item>@string/smartbar_ime_action_arrows</item>
+         <item>@string/smartbar_ime_action_switcher</item>
+     </string-array>
+ 
+     <string-array name="smartbar_ime_action_values" translatable="false">
+         <item>0</item>
+         <item>1</item>
+         <item>2</item>
+     </string-array>
+     
+       <!-- SmartBar context menu position  -->
+     <string-array name="smartbar_context_menu_side_entries">
+         <item>@string/smartbar_right</item>
+         <item>@string/smartbar_left</item>
+     </string-array>
+ 
+     <string-array name="smartbar_context_menu_side_values" translatable="false">
+         <item>0</item>
+         <item>1</item>
+     </string-array>
+     
+     <string-array name="action_dialog_no_default_entries">
+         <item>@string/action_entry_custom_action</item>
+         <item>@string/action_entry_select_app</item>
+     </string-array>
+ 
+     <string-array name="action_dialog_no_default_values" translatable="false">
+         <item>@string/action_value_custom_action</item>
+         <item>@string/action_value_select_app</item>
+     </string-array>
+    
 </resources>
