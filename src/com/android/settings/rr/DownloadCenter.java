@@ -41,16 +41,16 @@ import com.android.internal.logging.MetricsLogger;
 public class DownloadCenter extends SettingsPreferenceFragment  implements Indexable {
 
 private static final String TAG = "DownloadCenter";
-static final String BANKS_DOWNLOAD_URL = "http://download.dirtyunicorns.com/files/gapps/banks_gapps/BANKS_GAPPS_6.XX.zip";
+static final String DOWNLOAD_URL = "https://github-cloud.s3.amazonaws.com/releases/35777460/a3bfcd70-e66d-11e5-83e3-4b50f52d466c.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAISTNZFOVBIJMK3TQ%2F20160310%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20160310T161959Z&X-Amz-Expires=300&X-Amz-Signature=160211b69687604c473dd5a596078c543c15ba0189962dbc3f4182d5558a3b4c&X-Amz-SignedHeaders=host&actor_id=3596538&response-content-disposition=attachment%3B%20filename%3Dopen_gapps-arm-6.0-nano-20160310.zip&response-content-type=application%2Foctet-stream";
 
 @Override
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     addPreferencesFromResource(R.xml.rr_download_center);
-    Preference myPref = (Preference) findPreference("download_banks_gapps");
+    Preference myPref = (Preference) findPreference("download_gapps");
     myPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                  public boolean onPreferenceClick(Preference preference) {
-                     downloadBanks();
+                     download();
                      return true;
                  }
              });
@@ -61,11 +61,11 @@ protected int getMetricsCategory()
   return MetricsLogger.APPLICATION;
 }
 
-public void downloadBanks()
+public void download()
 {
   DownloadManager downloadmanager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                         Uri uri = Uri
-                                .parse(BANKS_DOWNLOAD_URL);
+                                .parse(DOWNLOAD_URL);
                         DownloadManager.Request request = new DownloadManager.Request(uri);
                         Long reference = downloadmanager.enqueue(request);
 }
