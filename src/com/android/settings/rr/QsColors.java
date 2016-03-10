@@ -266,10 +266,6 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mHeaderColor.setNewPreviewColor(DEFAULT_HEADER_BG);
         mHeaderColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.QS_TEXT_COLOR, DEFAULT_SECONDARY_TEXT);
-        mQsTextColor.setNewPreviewColor(DEFAULT_SECONDARY_TEXT);
-        mQsTextColor.setSummary(R.string.default_string);
-        Settings.System.putInt(getContentResolver(),
                 Settings.System.QS_ICON_COLOR, DEFAULT);
         mQsIconColor.setNewPreviewColor(DEFAULT);
         mQsIconColor.setSummary(R.string.default_string);
