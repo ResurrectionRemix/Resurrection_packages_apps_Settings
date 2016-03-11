@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 Resurrection Remix
+<!-- Copyright (C) 2014 The LiquidSmooth Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -19,7 +19,7 @@
     <!-- Status bar tweaks -->
     <PreferenceCategory
         android:title="@string/rr_cat_title">
-
+        
         <PreferenceScreen
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
@@ -39,7 +39,7 @@
     <PreferenceScreen
             android:id="@+id/Qs_customizations"
             android:title="@string/rr_qs_title"
-            android:fragment="com.android.settings.rr.QsPanel"
+            android:fragment="com.android.settings.rr.QsPanel" 
 	    android:icon="@drawable/rr_quick_settings_icon" />
     
           
@@ -65,9 +65,9 @@
 
 
        <PreferenceScreen
-	    android:title="@string/rr_lockscreen_title"
+	    android:title="@string/rr_lockscreen_title"	
             android:key="lock_screen_general_category"
-            android:fragment="com.android.settings.rr.LockScreenSettings"
+            android:fragment="com.android.settings.rr.LockScreenSettings"  
             android:icon="@drawable/rr_lock_icon"
             />
 
@@ -76,7 +76,7 @@
         <PreferenceScreen
             android:key="animation_settings"
             android:title="@string/animation_title"
-            android:fragment="com.android.settings.rr.animation.AnimationSettings"
+            android:fragment="com.android.settings.rr.animation.AnimationSettings" 
             android:icon="@drawable/rr_animations_icon"
             />
 
@@ -84,7 +84,7 @@
      <PreferenceScreen
            android:key="gestures"
            android:title="@string/gestures_settings"
-	     android:fragment="com.android.settings.rr.MultiTasking"
+	     android:fragment="com.android.settings.rr.MultiTasking" 
 	   android:icon="@drawable/rr_gestures_icon"/>
 
        <!-- Misc -->
@@ -92,19 +92,21 @@
             android:key="misc"
             android:fragment="com.android.settings.rr.MiscSettings"
             android:title="@string/rr_misc_title"
-            android:icon="@drawable/rr_misc_icon"
+            android:icon="@drawable/rr_misc_icon" 
             />
 
+       <!-- Updater -->
+        <PreferenceScreen
+                android:key="update_settings"
+                android:title="@string/updater_title"
+                android:icon="@drawable/rr_updates_icon">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.resurrection.ota"
+                    android:targetClass="com.resurrection.ota.MainActivity" />
+        </PreferenceScreen>   
 
-      <!-- Download Center -->
-      <PreferenceScreen
-        android:key="download_center"
-        android:title="@string/rr_download_center"
-        android:icon="@drawable/rr_updates_icon"
-        android:fragment="com.android.settings.rr.DownloadCenter" />
 
-
-
+                
 </PreferenceCategory>
 
 </PreferenceScreen>

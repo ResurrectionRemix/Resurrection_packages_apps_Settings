@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Resurrection Remix
+ * Copyright (C) 2014 The LiquidSmooth Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import com.android.internal.logging.MetricsLogger;
 
 public class MainSettings extends SettingsPreferenceFragment  implements Indexable {
 
-private static final String TAG = "MainSettings";
+private static final String TAG = "MainSettings";	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
