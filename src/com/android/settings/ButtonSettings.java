@@ -358,6 +358,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             int longPressAction = CMSettings.System.getInt(resolver,
                     CMSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION, ACTION_NOTHING);
             mAppSwitchLongPressAction = initActionList(KEY_APP_SWITCH_LONG_PRESS, longPressAction);
+            
+            if (!hasBackKey) {
+                appSwitchCategory.removePreference(findPreference(
+                        CMSettings.System.APP_SWITCH_SWAP_BUTTONS));
+            }
 
             hasAnyBindableKey = true;
         } else {
