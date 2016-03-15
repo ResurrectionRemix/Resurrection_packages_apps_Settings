@@ -22,13 +22,17 @@ package com.android.settings.rr;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 
 public class IconPickHelper {
+    private static final String TAG = "IconPickHelper";
     public static final int REQUEST_PICK_ICON_PACK = 100;
     public static final int REQUEST_PICK_ICON_GALLERY = 101;
     public static final String INTENT_ACTION_EDIT_CLASS = "com.android.settings";
     public static final String INTENT_ACTION_ICON_PICKER_COMPONENT = "com.android.settings.rr.IconPickerActivity";
-    private static final int REQUEST_CODE = 420;
+    private static final int REQUEST_CODE_ICON_PACK = 420;
+    private static final int REQUEST_CODE_GALLERY = 1337;
     private Activity mParent;
     private OnPickListener mListener;
     private int lastFragmentId;
@@ -36,6 +40,7 @@ public class IconPickHelper {
 
     public interface OnPickListener {
         void iconPicked(String iconType, String iconPackage, String iconName);
+        void imagePicked(Uri uri);
     }
 
     public IconPickHelper(Activity parent, OnPickListener listener) {
@@ -46,12 +51,16 @@ public class IconPickHelper {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
-                case REQUEST_CODE:
+                case REQUEST_CODE_ICON_PACK:
                     String iconType = data.getStringExtra("icon_data_type");
                     String iconPackage = data.getStringExtra("icon_data_package");
                     String iconName = data.getStringExtra("icon_data_name");
                     mListener.iconPicked(iconType, iconPackage, iconName);
                     break;
+                case REQUEST_CODE_GALLERY:
+                    Uri uri = data.getData();
+                    Log.d(TAG, uri.toString());
+                    mListener.imagePicked(uri);
             }
         }
     }
@@ -63,7 +72,13 @@ public class IconPickHelper {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_MAIN);
             intent.setClassName(INTENT_ACTION_EDIT_CLASS, INTENT_ACTION_ICON_PICKER_COMPONENT);
-            startFragmentOrActivity(intent, REQUEST_CODE);
+            startFragmentOrActivity(intent, REQUEST_CODE_ICON_PACK);
+        } else if (requestType == REQUEST_PICK_ICON_GALLERY) {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+            startFragmentOrActivity(intent, REQUEST_CODE_GALLERY);
         }
     }
 

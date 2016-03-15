@@ -31,6 +31,7 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.PreferenceScreen;
@@ -124,6 +125,15 @@ public class FlingSettings extends ActionFragment implements
     }
 
     @Override
+    public void imagePicked(Uri uri) {
+        if (uri != null) {
+            ButtonConfig logoConfig = ButtonConfig.getButton(mContext, FLING_LOGO_URI, true);
+            logoConfig.setCustomImageUri(uri);
+            ButtonConfig.setButton(mContext, logoConfig, FLING_LOGO_URI, true);
+        }
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         mIconPickHelper.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
@@ -139,7 +149,11 @@ public class FlingSettings extends ActionFragment implements
             logoConfig.clearCustomIconIconUri();
             ButtonConfig.setButton(mContext, logoConfig, FLING_LOGO_URI, true);
             return true;
+        } else if (preference == findPreference("fling_custom_logo_gallery_pick")) {
+            mIconPickHelper.pickIcon(getId(), IconPickHelper.REQUEST_PICK_ICON_GALLERY);
+            return true;
         }
+ 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
