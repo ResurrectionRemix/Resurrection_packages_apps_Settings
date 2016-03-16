@@ -16,8 +16,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-
-
     <!-- About RR -->
     <string name="about_rr_settings_title">Resurrection에 대해</string>
     <string name="about_rr">Resurrection에 대해</string>
@@ -221,12 +219,21 @@
     <string name="recents_styles_1">스타일 1</string>
     <string name="recents_colors">색</string>
     <string name="recents_style_2">스타일 2</string>
-    <string name="recent_styles">최근 스타일</string>
+    <string name="recent_styles">최근 실행 목록 스타일</string>
     <string name="recent_styles_summary">최근 실행 목록의 다양한 요소를 수정합니다</string>
     <string name="mem_text_color">메모리 바 글자</string>	
     <string name="clear_button_color">모두 지우기</string>
     <string name="clear_recents_style_enable">사용자 지정 모두 지우기 버튼</string>	
-    <string name="clear_recents_style_enable_summary">사용자 지정 모두 지우기 버튼을 활성화/비활성화 합니다</string>	
+    <string name="clear_recents_style_enable_summary">사용자 지정 모두 지우기 버튼을 활성화/비활성화 합니다</string>
+    <string name="recents_rotate_fab">모두 지우기 버튼 애니메이션화</string>	
+    <string name="recents_rotate_fab_summary">모두 지우기 버튼의 애니메이션을 활성화/비활성화 합니다</string>	
+    <string name="recents_fab_vibrate">모두 지우기 버튼을 누르면 진동</string>	
+    <string name="recents_fab_vibrate_summary">모두 지우기 버튼의 햅틱 반응을 활성화/비활성화 합니다</string>
+    <string name="fab_animation_style">플로팅 버튼 애니메이션</string>	
+    <string name="recents_fab_lp">모두 지우기 버튼의 길게 누르기 활성화</string>	
+    <string name="recents_fab_lp_summary">메모리 바가 활성화되어 있을 때 버튼을 길게 누르면 업데이트됩니다</string>	
+    <string name="recents_fab_lp_anim">모두 지우기 버튼 길게 누르기 애니메이션</string>
+    <string name="clear_animation_style">모두 지우기 애니메이션</string>	
     <string name="button1">기본 </string>	
     <string name="button2">네모 체크박스</string>	
     <string name="button3">그래프</string>	
@@ -254,6 +261,25 @@
     <string name="button25">Sequential Cube</string>	
     <string name="button26">타이머</string>
     <string name="button27">Resurrection</string>
+    <string name="button28">Android Stock</string>
+    <string name="button29">Resurrection Lollipop</string>
+ 
+	<string name="animation0">Rotation </string>	
+    <string name="animation1">Recents Exit</string>	
+    <string name="animation2">Transluscent Exit </string>	
+    <string name="animation3">Transluscent Exit Ribbon</string>	
+    <string name="animation4">Toast Exit</string>	
+    <string name="animation5">Slide Out Down </string>	
+    <string name="animation6">Xylon Exit </string>	
+    <string name="animation7">Honami Toast Exit</string>	
+    <string name="animation8">Slide Out Right </string>
+    <string name="animation9">Toast Exit</string>	
+    <string name="animation10">Fade Out Slow </string>	
+    <string name="animation11">Slide Out Left</string>	
+    <string name="animation12">Fade Out</string>	
+    <string name="animation13">Fast Fade Out </string>
+    <string name="animation14">Slide Out Up </string>	
+    <string name="animation15">Fast Rotation</string>
 
     <!-- Recents Fullscreen -->
     <string name="recents_show_fullscreen">전체화면으로 최근 실행 목록 표시</string>
@@ -286,10 +312,6 @@
     <string name="heads_up_notifications">헤드업</string>
     <string name="summary_heads_up_enabled">팝업 알림이 활성화됨</string>
     <string name="summary_heads_up_disabled">팝업 알림이 비활성화됨</string>
-    <string name="headsup_options_header">헤드업 알림 옵션</string>
-    <string name="heads_up_snooze_title">알림 일시 정지</string>
-    <string name="heads_up_snooze">알림을 잠시동안 표시하지 않음</string>
-    <string name="heads_up_timeout">알림 지속 시간</string>
 
     <!-- Navigation Bar -->
     <string name="navigation_bar_dimensions_reset_message">모든 변경사항을 초기화 할까요?</string>
@@ -313,9 +335,12 @@
     <string name="nav_bar_title">네비게이션 바</string>
     <string name="navbar_enable_bar_title">네비게이션 바</string>
     <string name="navbar_enable_bar_summary">네비게이션 바를 활성/비활성화 합니다</string>	
+    <string name="navbar_recents_switch">최근 실행 목록 버튼 변경</string>
+    <string name="navbar_recents_switch_summary">최근 실행 목록 화면에서 네비게이션 바의 최근 실행 목록 버튼을 변경합니다. 이 버튼을 길게 누르면 모든 작업을 종료합니다.</string>	
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_category">시계</string>
+    <string name="clock_color_switch">사용자 지정 시계 색 활성화/비활성화</string>
     <string name="clock_color_title">시계 색</string>
     <string name="status_bar_clock_style_reset">색 초기화</string>
     <string name="status_bar_clock_style_reset_message">시계 색을 원래대로 되돌리겠습니까?</string>
@@ -623,13 +648,9 @@
     <string name="dim_nav_buttons_animate_duration_title">애니메이션 길이</string>
     <string name="dim_nav_buttons_animate_duration_summary">버튼 색 전환 애니메이션의 길이를 밀리초 단위로 설정합니다</string>
 
-   <!-- HW keys Switch -->
+    <!-- HW keys Switch -->
     <string name="disable_hwkeys_title">하드웨어 키 비활성화</string>
     <string name="disable_hwkeys_summary">하드웨어 키를 활성화/비활성화 합니다</string>
-
-    <!-- Media art -->
-    <string name="media_art_title">미디어 커버 아트</string>
-    <string name="media_art_summary">잠금 화면에 미디어 커버 아트를 표시합니다</string>
 
     <!-- Battery Bar -->
     <string name="battery_icon">배터리 아이콘 스타일</string>
@@ -1047,11 +1068,17 @@
     <string name="status_bar_carrier_size">통신사 문구 글자 크기</string>	
     <string name="custom_carrier_label_notset">사용자가 설정한 통신사 문구 없음</string>
     <string name="status_bar_carrier_color">통신사 문구 색</string>
-	
+
+	<string name="show_carrier_title">통신사 문구 표시</string>
+    <string name="show_carrier_disabled">비활성화</string>
+    <string name="show_carrier_keyguard">잠금화면에 표시</string>
+    <string name="show_carrier_statusbar">상태 표시줄에 표시</string>
+    <string name="show_carrier_enabled">활성화</string>
+
     <!-- Statusbar RR logo -->
     <string name="status_bar_logo">Resurrection 로고</string>
     <string name="status_bar_rr_logo_title">로고 표시</string>
-    <string name="status_bar_rr_logo_summary">상태 표시줄 왼쪽에 로고를 표시합니다</string>
+    <string name="status_bar_rr_logo_summary">상태 표시줄에 로고를 표시합니다</string>
     <string name="status_bar_rr_logo_color">로고 색</string>
     <string name="status_bar_rr_logo_position">로고 위치</string>
     <string name="status_bar_rr_logo_position_summary">로고를 어느 쪽에 표시할지 선택합니다</string>
@@ -1059,8 +1086,6 @@
     <string name="status_bar_logo_position_left">좌측</string>
     <string name="status_bar_logo_position_center">중앙</string>
     <string name="status_bar_logo_position_before">상태 아이콘 앞에</string>	
-
-
 
     <!-- Selinux Switch -->
     <string name="selinux_switch_title">SELinux 전환 옵션</string>
@@ -1072,19 +1097,6 @@
     <!-- Headphones icon switch -->
     <string name="show_headset_icon_title">헤드셋 아이콘</string>
     <string name="show_headset_icon_summary">헤드셋이 연결되면 아이콘을 표시합니다.</string>
-
-
-    <!-- Carrier Label -->
-    <string name="carrier_options">통신사 문구</string>
-    <string name="custom_carrier_label_title">사용자 설정 통신사 문구</string>
-    <string name="custom_carrier_label_explain">새 문구를 입력해주세요. 기본 문구로 돌아가려면 아무것도 입력하지 마세요.</string> 
-    <string name="custom_carrier_label_notset">사용자가 설정한 통신사 문구 없음</string>
-    <string name="status_bar_carrier_color">통신사 문구 색</string>
-    <string name="show_carrier_title">통신사 문구 표시</string>
-    <string name="show_carrier_disabled">비활성화</string>
-    <string name="show_carrier_keyguard">잠금화면에 표시</string>
-    <string name="show_carrier_statusbar">상태 표시줄에 표시</string>
-    <string name="show_carrier_enabled">활성화</string>
 
     <!-- Disabling FC notifications -->
     <string name="disable_fc_notifications_title">작동 중지 알림 비활성화</string>
@@ -1165,15 +1177,6 @@
     <string name="status_bar_date_string_edittext_title">DateFormat으로 입력해야합니다. eg. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">문자열 입력</string>
 
-    <!-- Sound settings -->
-    <string name="advanced_sound_title">추가적인 소리</string>
-    <string name="sound_title">소리</string>
-
-    <!-- Camera sound switch -->
-    <string name="camera_sounds_title">카메라 셔터 소리</string>
-    <string name="camera_sounds_summary">카메라 셔터 소리를 활성화합니다</string>
-    <string name="camera_sound_warning_dialog_text">카메라 셔터 소리를 비활성화 하는 것은 몇몇 지역에서 불법입니다. 거주 국가의 준거법을 확인하시기 바랍니다</string>
-
     <!-- Slim Recents -->	
     <string name="slim_recents_panel">Slim Recents</string>
     <string name="use_slim_recents_title">Slim Recents</string>
@@ -1195,19 +1198,6 @@
     <string name="recent_panel_lefty_mode_summary">최근 실행 목록을 왼쪽 가장자리에 표시합니다</string>
 
     <string name="default_string">기본</string>
-
-    <!-- Circle app bar -->
-    <string name="category_app_circle_bar_title">앱 런처</string>
-    <string name="app_circle_bar_title">앱 서클 바</string>
-    <string name="app_circle_bar_summary">화면 오른쪽을 눌러 앱 서클 런처를 실행합니다</string>
-    <string name="app_circle_bar_included_apps_title">포함된 앱</string>
-    <string name="app_circle_bar_included_apps_summary">앱 서클 바에 나타날 앱을 설정합니다</string>
-    <string name="trigger_width_title">트리거 너비</string>
-    <string name="trigger_width_summary">트리거 구역의 너비를 조절합니다</string>
-    <string name="trigger_top_title">트리거 위치</string>
-    <string name="trigger_top_summary">트리거 구역의 수직 위치를 조절합니다</string>
-    <string name="trigger_bottom_title">트리거 높이</string>
-    <string name="trigger_bottom_summary">트리거 구역의 높이를 조절합니다</string>
 
     <string name="powermenu_lockscreen_title">잠금 화면 전원 메뉴</string>
     <string name="powermenu_lockscreen_summary">잠금 화면에서 전원 메뉴를 표시합니다</string>
@@ -1258,76 +1248,21 @@
     <string name="wakelock_blocker_warning_title">조심해서 사용하세요</string>
     <string name="wakelock_blocker_warning">Wakelock 차단은 기기 불안정이나 충돌, 데이터 손실을 가져올 수 있습니다</string>
 
+    <!-- Circle app bar -->
+    <string name="category_app_circle_bar_title">앱 런처</string>
+    <string name="app_circle_bar_title">앱 서클 바</string>
+    <string name="app_circle_bar_summary">화면 오른쪽을 눌러 앱 서클 런처를 실행합니다</string>
+    <string name="app_circle_bar_included_apps_title">포함된 앱</string>
+    <string name="app_circle_bar_included_apps_summary">앱 서클 바에 나타날 앱을 설정합니다</string>
+    <string name="trigger_width_title">트리거 너비</string>
+    <string name="trigger_width_summary">트리거 구역의 너비를 조절합니다</string>
+    <string name="trigger_top_title">트리거 위치</string>
+    <string name="trigger_top_summary">트리거 구역의 수직 위치를 조절합니다</string>
+    <string name="trigger_bottom_title">트리거 높이</string>
+    <string name="trigger_bottom_summary">트리거 구역의 높이를 조절합니다</string>
+
 	<!--Ad-Blocker-->
     <string name="adaway_settings_title">Ad Blocker</string>
-
-    <!-- PA Pie control -->
-    <string name="pa_piecontrol_settings_summary">PA Pie 2.0의 대상, 스타일, 크기와 색을 지정합니다</string>
-    <string name="pa_pie_control_title">Pie 컨트롤</string>
-    <string name="pa_pie_control_enable_title">Pie 컨트롤을 활성화합니다</string>
-    <string name="pa_pie_targets_title">Pie 대상</string>
-    <string name="pa_pie_style_title">Pie 스타일</string>
-    <string name="pa_pie_menu_title">항상 메뉴 버튼 표시</string>
-    <string name="pa_pie_menu_summary">필요하지 않을 때에도 항상 메뉴 버튼을 표시합니다</string>
-    <string name="pa_pie_size_title">Pie 크기</string>
-    <string name="pa_pie_size_summary">Pie 컨트롤 크기를 조정합니다</string>
-    <string name="pa_pie_size_small">작게</string>
-    <string name="pa_pie_size_default">@string/pa_pie_mode_default</string>
-    <string name="pa_pie_size_large">크게</string>
-    <string name="pa_pie_size_gigantic">더 크게</string>
-    <string name="pa_pie_size_monster">아주 크게</string>
-    <string name="pa_pie_size_enormous">거대하게</string>
-    <string name="pa_pie_mode_default">기본</string>
-    <string name="pa_pie_gravity_title">Pie 위치</string>
-    <string name="pa_pie_gravity_summary">Pie가 표시될 위치를 선택합니다</string>
-    <string name="pa_pie_gravity_bottom">하단</string>
-    <string name="pa_pie_gravity_right">우측</string>
-    <string name="pa_pie_gravity_left">좌측</string>
-    <string name="pa_pie_gap_title">항목 간 간격</string>
-    <string name="pa_pie_gap_summary">Pie의 항목 간 간격을 조정합니다</string>
-    <string name="pa_pie_angle_title">Pie 각도</string>
-    <string name="pa_pie_angle_summary">Pie 가장자리의 각을 조정합니다</string>
-    <string name="pa_pie_angle_none">없음 (이전 설정)</string>
-    <string name="pa_pie_angle_small">작게</string>
-    <string name="pa_pie_angle_big">보통 (기본)</string>
-    <string name="pa_pie_angle_huge">크게</string>
-    <string name="pa_pie_angle_super">아주 크게</string>
-    <string name="pa_pie_gap_none">없음</string>
-    <string name="pa_pie_gap_small">작게</string>
-    <string name="pa_pie_gap_big">크게 (기본)</string>
-    <string name="pa_pie_gap_huge">아주 크게</string>
-    <string name="pa_pie_mode_title">Pie 스타일</string>
-    <string name="pa_pie_mode_summary">애니메이션과 상태 표시 방법을 설정합니다</string>
-    <string name="pa_pie_mode_bare">없음</string>
-    <string name="pa_pie_mode_quick">빠르게</string>
-    <string name="pa_pie_mode_default">기본</string>
-    <string name="pa_pie_mode_slow">느리게</string>
-    <string name="pa_pie_lastapp_title">최근 앱</string>
-    <string name="pa_pie_lastapp_summary">최근 앱 버튼을 활성화합니다</string>
-    <string name="pa_pie_killtask_title">작업 종료</string>
-    <string name="pa_pie_killtask_summary">작업 종료 버튼을 활성화 합니다</string>
-    <string name="pa_pie_notifications_title">알림</string>
-    <string name="pa_pie_notifications_summary">알림 버튼을 활성화 합니다</string>
-    <string name="pa_pie_settings_panel_title">빠른 설정 패널</string>
-    <string name="pa_pie_settings_panel_summary">확장된 빠른 설정 패널 버튼을 활성화 합니다</string>
-    <string name="pa_pie_screenshot_title">스크린샷</string>
-    <string name="pa_pie_screenshot_summary">스크린샷 버튼을 활성화 합니다</string>
-    <string name="pa_pie_color_title">Pie 색 설정</string>
-    <string name="pa_pie_color_style_title">Pie 색 스타일</string>
-    <string name="pa_pie_background_title">배경 색</string>
-    <string name="pa_pie_select_title">선택 색</string>
-    <string name="pa_pie_outlines_title">외곽선 색</string>
-    <string name="pa_pie_status_clock_title">시계 색</string>
-    <string name="pa_pie_status_title">상태 색</string>
-    <string name="pa_pie_chevron_title">Chevron 색</string>
-    <string name="pa_pie_juice_title">Battery Juice 색</string>
-    <string name="pa_pie_button_color">버튼 색</string>
-    <string name="pa_pie_button_color_title">버튼 색 설정</string>
-    <string name="pa_pie_always_right_title">항상 Pie를 오른쪽에 표시</string>
-    <string name="pa_pie_always_right_summary">가로모드일 때 Pie를 항상 오른쪽에 표시합니다</string>
-
-    <string name="reset_paranoid">Paranoid</string>
-    <string name="reset_android">Android</string>
 
     <!-- Task Manager -->
     <string name="enable_task_manager_title">작업 관리자</string>
@@ -1489,7 +1424,9 @@
     <string name="ime_duration_title">IME 애니메이션 길이</string>
     <string name="animation_duration_summary">길이 설정</string>
 
-  
+    <!-- Power menu torch -->
+    <string name="power_menu_torch_title">손전등</string>
+
     <!-- Launch music player when headset is connected -->
     <string name="headset_connect_player_title">음악 애플리케이션 실행</string>
     <string name="headset_connect_player_summary">헤드셋이 연결되면 기본 음악 애플리케이션을 실행합니다</string>
@@ -1803,22 +1740,10 @@
     <string name="clock_date_right">시계 우측</string>
     <string name="clock_date_left">시계 좌측</string>
 
-    <!-- QS Tiles Columns -->
-    <string name="qs_num_columns_title">한 열당 빠른 설정 타일 개수</string>
-    <string name="qs_num_columns_showing">한 열당 %1$s개 타일 표시 중</string>
- 
-	<!-- QS Tiles Rows -->
-    <string name="qs_num_rows_title">빠른 설정 열 개수</string>
-    <string name="qs_num_rows_showing">%1$s개 열 표시 중</string>
- 
-	<!-- Fingerprint Authentication Vibration -->
-    <string name="fprint_sucess_vib_title">지문 인식 진동</string>
-    <string name="fprint_sucess_vib_summary">지문이 인식되면 진동을 울립니다</string>
- 
-	<!-- QS Tiles Rows -->
+    <!-- QS Tiles Rows -->
     <string name="qs_color_switch">사용자 지정 빠른 설정 색</string>
     <string name="qs_color_switch_summary">테마의 색을 무시합니다.</string>
-    <string name="qs_header_text_color">헤더 글자 색</string>
+    <string name="qs_header_text_color">빠른 설정 글자</string>
     <string name="qs_header_color">헤더 배경</string>
     <string name="qs_text_color">글자 색</string>
     <string name="qs_icon_color">아이콘</string>
@@ -1827,7 +1752,202 @@
     <string name="qs_brightness_color">밝기 슬라이더</string>
     <string name="quick_settings_colors">빠른 설정 색</string>
     <string name="qs_colors_summary">빠른 설정 패널 색을 변경합니다</string>
-    <string name="apply_qs_colors">색 적용</string>
-    <string name="apply_qs_colors_summary">색을 변경하려면 여기를 탭하세요</string>
+ 
+	<!-- Fingerprint Authentication Vibration -->
+    <string name="fprint_sucess_vib_title">지문 인식 진동</string>
+    <string name="fprint_sucess_vib_summary">지문이 인식되면 진동을 울립니다</string>
+
+    <string name="status_bar_colors_title">상태 표시줄 아이콘 색</string>
+    <string name="status_bar_network_icons_settings_title">네트워크 아이콘</string>
+    <string name="status_bar_network_icons_settings_summary">네트워크 아이콘을 변경합니다</string>
+ 
+	<!-- Status bar network icons settings -->
+    <string name="icon_category">아이콘</string>	
+    <string name="network_icons_cat_signal_colors_title">수신세기 색</string>
+    <string name="network_icons_cat_no_sim_colors_title">SIM 카드 없음 색</string>
+    <string name="network_icons_cat_airplane_mode_colors_title">비행기 모드 색</string>
+    <string name="status_bar_notification_icons">알림 아이콘 색</string>
+    <string name="network_status_icons_cat_status_colors_title">상태 표시줄 아이콘 색</string>
+
+    <string name="status_bar_color_enable">상태 표시줄 색</string>
+    <string name="statusbar_color_switch">사용자 지정 아이콘 색</string>
+    <string name="apply_status_colors_summary">색이 적용되지 않았을 때만 사용하세요. 탭하여 적용합니다</string>
+    <string name="apply_status_colors">색 적용</string>
+    <string name="battery_color">배터리</string>
+    <string name="battery_icon_color">아이콘 (충전 중일 때만)</string>
+    <string name="battery_text_color">글자</string>
+    <string name="statusbar_color_switch_summary">사용자 지정 아이콘 색 활성화/비활성화</string>
+
+	<!--Custom logos-->
+	<string name="sb_custom_logos">사용자 지정 로고</string>
+	<string name="custom_logo_style">로고</string>
+	<string name="custom_logos">선택하세요</string>
+	<string name="show_custom_logo_title">사용자 지정 로고 표시</string>
+	<string name="show_custom_logo_summary">상태 표시줄에 다양한 로고를 표시합니다</string>
+	<string name="custom_logo_color">색</string>
+	<string name="logo0">Resurrection Dark</string>
+	<string name="logo1">Resurrection Light</string>	
+	<string name="logo2">Tuner </string>	
+	<string name="logo3">BugDroid Minimal </string>	
+	<string name="logo4">Drupal</string>	
+	<string name="logo5">Cool Smile</string>	
+	<string name="logo6">Ghost</string>	
+	<string name="logo7">Reddit Snoo</string>	
+	<string name="logo8">Windows</string>	
+	<string name="logo9">Xbox</string>	
+	<string name="logo10">Emoji</string>
+	<string name="logo11">Happy Smile</string>	
+	<string name="logo12">FingerPrint</string>	
+	<string name="logo13">Pugmark</string>	
+	<string name="logo14">Owl</string>
+	<string name="logo15">Weather Off </string>	
+	<string name="logo16">Blender </string>	
+	<string name="logo17">Cake</string>	
+	<string name="logo18">Electric Guitar</string>	
+	<string name="logo19">Smiley Tag</string>	
+	<string name="logo20">Run</string>	
+	<string name="logo21">Toxic</string>	
+	<string name="logo22">Pro User</string>	
+	<string name="logo23">Pokeball</string>
+	<string name="logo24">Box Open</string>	
+	<string name="logo25">Box Closed</string>	
+	<string name="logo26">Weather On</string>
+	<string name="logo27">Cat</string>
+	<string name="logo28">Bug Droid</string>	
+	<string name="logo29">Biker</string>	
+	<string name="logo30">Candy cane</string>	
+	<string name="logo31">Shit smiley</string>	
+	<string name="logo32">Chart bubble</string>	
+	<string name="logo33">Google</string>	
+	<string name="logo34">Fish</string>	
+	<string name="logo35">Gender male</string>	
+	<string name="logo36">Gender female</string>	
+	<string name="logo37">PitchBlack</string>	
+	<string name="logo38">Resurrection Orginal</string>	
+	<string name="logo39">Resurrection Half</string>	
+	<string name="logo40">Resurrection No-ring</string>
+
+    <string name="rr_navbar_settings">네비게이션 바</string>
+
+    <!-- Navigation Bar -->
+    <string name="navbar_interface_title">인터페이스</string>
+    <string name="navbar_size">네비게이션 바 크기</string>
+    <string name="navbar_mode">네비게이션 모드</string>
+    <string name="navbar_visibility">네비게이션 바 활성화</string>
+    <string name="navigationbar_settings_title">네비게이션</string>
+    <string name="aosp_navigation_bar">네비게이션 바</string>
+    <string name="aosp_navigation_bar_settings">네비게이션 바 설정</string>
+    <string name="navigationbar_settings_summary">네비게이션 스타일과 작동 방식을 변경합니다</string>
+    <string name="navbar_general_title">추가 설정</string>
+    <string name="navigation_bar_left_title">왼손 모드</string>
+    <string name="navigation_bar_left_summary">가로 모드일 때 네비게이션 바를 화면의 왼쪽에 표시합니다</string>
+    <string name="info_pref_note_title">알림</string>
+    <string name="smartbar_interface">스마트바</string>
+    <string name="icon_pack_picker_dialog_title">아이콘 팩</string>
+
+    <!-- Actions dialog and default task values set in ActionPreference xml-->
+    <string name="choose_action_title">활동 선택</string>
+    <string name="action_entry_default_action">기본 설정</string>
+    <string name="action_entry_select_app">애플리케이션 선택</string>
+    <string name="action_entry_custom_action">사용자 지정 활동 선택</string>
+    <string name="action_value_default_action">action_default</string>
+    <string name="action_value_select_app">action_app</string>
+    <string name="action_value_custom_action">action_custom</string>
+
+    <string name="action_value_default_action">default</string>
+    <string name="action_value_select_app">app</string>
+    <string name="action_value_back">task_back</string>
+    <string name="action_value_home">task_home</string>
+    <string name="action_value_search_assist">task_assist</string>
+    <string name="action_value_recent_apps">task_recents</string>
+    <string name="action_value_voice_search">task_voice_search</string>
+    <string name="action_value_menu">task_menu</string>
+
+    <!-- Fling -->
+    <string name="fling_settings">Fling 설정</string>
+    <string name="fling_interface">Fling 제스처 인터페이스</string>
+    <string name="fling_enable_title">Fling 활성화</string>
+    <string name="fling_back_home_policy">뒤로가기와 홈 버튼은 항상 필수적으로 설정되어야 합니다. 뒤로가기와 홈 버튼 지정을 변경하려면, 원하는 활동을 먼저 설정하세요</string>
+    <string name="fling_split_bar_policy">오른쪽이나 왼쪽 활동만 지정되었을 때, 네비게이션 바 전체로 활동이 적용됩니다</string>
+    <string name="fling_def_summary">설정된 활동 없음</string>
+    <string name="fling_swipe_actions">밀기 제스처</string>
+    <string name="fling_tap_actions">탭 제스처</string>
+    <string name="fling_short_swipe_right">오른쪽으로 짧게 밀기</string>
+    <string name="fling_short_swipe_left">왼쪽으로 짧게 밀기</string>
+    <string name="fling_long_swipe_right">오른쪽으로 길게 밀기</string>
+    <string name="fling_long_swipe_left">왼쪽으로 길게 밀기</string>
+    <string name="fling_single_tap">오른쪽 한번 탭</string>
+    <string name="fling_double_tap">오른쪽 두번 탭</string>
+    <string name="fling_long_press">오른쪽 길게 누르기</string>
+    <string name="fling_single_left_tap">왼쪽 한번 탭</string>
+    <string name="fling_double_left_tap">왼쪽 두번 탭</string>
+    <string name="fling_long_left_press">왼쪽 길게 누르기</string>
+    <string name="long_swipe_portrait_title">세로 모드</string>
+    <string name="long_swipe_landscape_title">가로 모드</string>
+    <string name="right_swipe_title">오른쪽으로 밀기</string>
+    <string name="left_swipe_title">왼쪽으로 밀기</string>
+    <string name="up_swipe_title">위로 밀기</string>
+    <string name="down_swipe_title">아래로 밀기</string>
+    <string name="long_swipe_reset">초기화</string>
+    <string name="fling_advanced">추가 설정</string>
+    <string name="fling_long_swipe_title">길게 밀기 한계점</string>
+    <string name="fling_long_swipe_summary">Fling 인터페이스의 너비가 높이를 고려해서 길게 밀기 제스처의 한계점을 조절하세요</string>
+    <string name="fling_trails_enable_title">제스처 흔적 활성화</string>
+    <string name="fling_trails_enable_summary">밀기 제스처의 흔적을 표시합니다</string>
+    <string name="fling_trails_color_title">흔적 색</string>
+    <string name="fling_appearance">모습</string>
+    <string name="fling_show_logo_title">Fling 로고 표시</string>
+    <string name="fling_animate_logo_title">로고 애니메이션화</string>
+    <string name="fling_animate_logo_summary">터치 시 로고가 움직입니다</string>
+    <string name="fling_logo_color">로고 색</string>
+    <string name="fling_logo_custom_logo_pick_title">사용자 지정 로고 아이콘</string>
+    <string name="fling_logo_custom_logo_reset_title">로고 아이콘 초기화</string>
+    <string name="fling_show_ripple_title">물결 효과 표시</string>
+    <string name="fling_show_ripple_summary">터치 시 물결 효과가 나타납니다</string>
+    <string name="fling_ripple_color">물결 효과 색</string>
+    <string name="fling_longpress_timeout_label_left">지연시간 짧게</string>
+    <string name="fling_longpress_timeout_label_right">지연시간 길게</string>
+    <string name="fling_longpress_title">길게 누르기 지연시간</string>
+    <string name="fling_longpress_summary">길게 누르기에 지정된 활동을 실행할 시간을 조절하세요</string>
+    
+    <!-- Pulse navigation bar music visualizer -->
+    <string name="pulse_help_policy_notice_title">Pulse가 무엇인가요?</string>
+    <string name="pulse_help_policy_notice_summary">Pulse는 음악이 재생 중일 때 네비게이션 바에 표시되는 이퀄라이저 바 형식의 멋진 오디오 시각화 기능입니다. 모든 오디오 소스에 작동하지는 않습니다.</string>
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_summary">네비게이션 바에 오디오 시각화 표시</string>
+    <string name="fling_show_pulse_title">Pulse 표시</string>
+    <string name="fling_show_pulse_summary">네비게이션 바에 오디오 시각화 표시</string>
+    <string name="fling_pulse_color">Pulse 색</string>
+    <string name="eos_fling_lavalamp_title">라바 램프 활성화</string>
+    <string name="eos_fling_lavalamp_summary">라바 램프 스타일의 색 조합으로 Pulse의 색을 자동으로 변경합니다</string>
+ 
+    <!-- Navbar height -->
+    <string name="navigation_bar_size_title">네비게이션 바 크기</string>
+    <string name="portrait_title">세로 모드 시 높이</string>
+    <string name="land_vert_title">가로 모드 시 너비</string>
+    <string name="land_hor_title">가로 모드 시 높이</string>
+    <string name="positive_done">확인</string>
+      
+    <!-- SmartBar -->
+    <string name="smartbar_category">스마트바</string>
+    <string name="smartbar_settings_title">스마트바 설정</string>
+    <string name="smartbar_editor_title">버튼 편집기 활성화</string>
+    <string name="smartbar_editor_summary">버튼을 눌러 드래그하면 위치를 바꿀 수 있습니다. 길게 누르면 수정 메뉴를 표시합니다. 수정 메뉴를 표시하면서도 버튼의 위치를 변경할 수 있습니다.</string>
+    <string name="smartbar_context_menu_position_title">특수 버튼 레이아웃 위치</string>
+    <string name="smartbar_context_menu_position_summary">메뉴 버튼이나 IME 전환기 같이 상황에 따라 표시되는 특수 버튼의 위치를 설정합니다</string>
+    <string name="smartbar_right">오른쪽</string>
+    <string name="smartbar_left">왼쪽</string>
+    <string name="smartbar_button_animation_title">버튼 터치 시 애니메이션</string>
+    <string name="smartbar_button_animation_summary">주요 버튼을 누를 때의 애니메이션 스타일을 설정합니다</string>
+    <string name="smartbar_button_animation_ripple">물결</string>
+    <string name="smartbar_button_animation_spring">스프링</string>
+    <string name="smartbar_factory_reset_title">기본 설정으로 되돌리기</string>
+    <string name="smartbar_factory_reset_summary">스마트바 설정을 초기값으로 복원합니다</string>
+    <string name="smartbar_factory_reset_confirm">초기 설정으로 스마트바를 초기화 하겠습니까?</string>
+    <string name="smartbar_ime_action_title">입력 방법 활동</string>
+    <string name="smartbar_ime_action_summary">화면에 키보드가 표시될 때 어떤 버튼을 표시할지 설정합니다</string>
+    <string name="smartbar_ime_action_none">없음</string>
+    <string name="smartbar_ime_action_arrows">커서 이동 화살표</string>
+    <string name="smartbar_ime_action_switcher">키보드 전환기</string>
 
 </resources>
