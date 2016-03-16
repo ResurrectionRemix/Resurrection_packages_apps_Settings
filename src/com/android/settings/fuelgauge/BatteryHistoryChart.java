@@ -416,6 +416,22 @@ public class BatteryHistoryChart extends View {
         mCpuRunningPaint.setColor(0xFF009688);
         mChargingPaint.setColor(0xFF009688);
 
+        TypedValue barPrimaryColor = new TypedValue();
+        context.getResources().getValue(R.color.battery_history_chart_color,
+                barPrimaryColor, true);
+        if (barPrimaryColor.type == TypedValue.TYPE_ATTRIBUTE) {
+            context.getTheme().resolveAttribute(barPrimaryColor.data,
+                    barPrimaryColor, true);
+        }
+        mBatteryBackgroundPaint.setColor(barPrimaryColor.data);
+        mScreenOnPaint.setColor(barPrimaryColor.data);
+        mGpsOnPaint.setColor(barPrimaryColor.data);
+        mCameraOnPaint.setColor(barPrimaryColor.data);
+        mFlashlightOnPaint.setColor(barPrimaryColor.data);
+        mWifiRunningPaint.setColor(barPrimaryColor.data);
+        mCpuRunningPaint.setColor(barPrimaryColor.data);
+        mChargingPaint.setColor(barPrimaryColor.data);
+
         TypedArray a =
             context.obtainStyledAttributes(
                 attrs, R.styleable.BatteryHistoryChart, 0, 0);
@@ -469,17 +485,6 @@ public class BatteryHistoryChart extends View {
                     headTextAttrs.styleIndex = a.getInt(attr, headTextAttrs.styleIndex);
                     break;
 
-                case R.styleable.BatteryHistoryChart_barPrimaryColor:
-                    mBatteryBackgroundPaint.setColor(a.getInt(attr, 0));
-                    mScreenOnPaint.setColor(a.getInt(attr, 0));
-                    mGpsOnPaint.setColor(a.getInt(attr, 0));
-                    mCameraOnPaint.setColor(a.getInt(attr, 0));
-                    mFlashlightOnPaint.setColor(a.getInt(attr, 0));
-                    mWifiRunningPaint.setColor(a.getInt(attr, 0));
-                    mCpuRunningPaint.setColor(a.getInt(attr, 0));
-                    mChargingPaint.setColor(a.getInt(attr, 0));
-                    break;
-
                 case R.styleable.BatteryHistoryChart_barPredictionColor:
                     mTimeRemainPaint.setColor(a.getInt(attr, 0));
                     break;
@@ -489,9 +494,9 @@ public class BatteryHistoryChart extends View {
                     break;
             }
         }
-        
+
         a.recycle();
-        
+
         mainTextAttrs.apply(context, mTextPaint);
         headTextAttrs.apply(context, mHeaderTextPaint);
 
