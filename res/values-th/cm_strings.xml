@@ -252,8 +252,10 @@
   <string name="notification_light_missed_call_title">สายไม่ได้รับ</string>
   <string name="notification_light_voicemail_title">ข้อความเสียง</string>
   <string name="notification_light_screen_on">แสงพร้อมเปิดจอ</string>
+  <string name="notification_light_zen_mode">ไฟแจ้งเตือนในรูปแบบห้ามรบกวน</string>
   <string name="notification_light_use_multiple_leds">LED หลายดวง</string>
   <string name="keywords_lights_brightness_level">ลดความสว่าง LED</string>
+  <string name="notification_light_automagic">เลือกสีอัตโนมัติ</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ตั้งค่าความสว่าง</string>
   <string name="led_notification_text">เปิดใช้งาน LED จากการตั้งค่า</string>
@@ -288,6 +290,8 @@
   <string name="app_ops_summaries_modify_call_log">แก้ไขประวัติการโทร</string>
   <string name="app_ops_summaries_read_calendar">อ่านปฏิทิน</string>
   <string name="app_ops_summaries_modify_calendar">แก้ไขปฏิทิน</string>
+  <string name="app_ops_summaries_wifi_scan">ค้นหา Wi-Fi</string>
+  <string name="app_ops_summaries_notification">การแจ้งเตือน/กล่องข้อความ</string>
   <string name="app_ops_summaries_cell_scan">ค้นหาเครือข่าย</string>
   <string name="app_ops_summaries_call_phone">โทรออก</string>
   <string name="app_ops_summaries_read_sms">อ่าน SMS</string>
@@ -355,10 +359,31 @@
   <string name="app_ops_labels_notification_volume">ระดับเสียงแจ้งเตือน</string>
   <string name="app_ops_labels_bluetooth_volume">ระดับเสียงบลูทูธ</string>
   <string name="app_ops_labels_keep_awake">เปิดจอค้าง</string>
+  <string name="app_ops_labels_get_usage_stats">ดูสถิติการใช้งาน</string>
   <string name="app_ops_labels_mute_unmute_microphone">เปิด/ปิด ไมโครโฟน</string>
   <string name="app_ops_labels_toast_window">แสดงกล่องข้อความ</string>
   <string name="app_ops_labels_project_media">สื่อโครงการ</string>
   <string name="app_ops_labels_activate_vpn">เปิดใช้งาน VPN</string>
+  <string name="app_ops_labels_write_wallpaper">เปลี่ยนภาพพื้นหลัง</string>
+  <string name="app_ops_labels_assist_structure">แอปผู้ช่วย</string>
+  <string name="app_ops_labels_assist_screenshot">ช่วยจับหน้าจอ</string>
+  <string name="app_ops_labels_read_phone_state">อ่านสถานะโทรศัพท์</string>
+  <string name="app_ops_labels_add_voicemail">เพิ่มข้อความเสียง</string>
+  <string name="app_ops_labels_use_sip">ใช้ SIP</string>
+  <string name="app_ops_labels_make_call">ทำการโทร</string>
+  <string name="app_ops_labels_use_fingerprint">ใช้ลายนิ้วมือ</string>
+  <string name="app_ops_labels_use_body_sensors">ใช้เซนเซอร์ตรวจร่างกาย</string>
+  <string name="app_ops_labels_read_cell_broadcasts">อ่านการติดต่อเครือข่าย</string>
+  <string name="app_ops_labels_mock_location">จำลองสถานที่</string>
+  <string name="app_ops_labels_read_external_storage">อ่านที่เก็บข้อมูลภายนอก</string>
+  <string name="app_ops_labels_write_external_storage">เขียนที่เก็บข้อมูลภายนอก</string>
+  <string name="app_ops_labels_turn_screen_on">เปิดหน้าจอ</string>
+  <string name="app_ops_labels_get_accounts">เข้าถึงบัญชี</string>
+  <string name="app_ops_labels_toggle_wifi">สลับ Wi-Fi</string>
+  <string name="app_ops_labels_toggle_bluetooth">สลับบลูทูธ</string>
+  <string name="app_ops_labels_start_at_boot">เริ่มต้นเมื่อบูต</string>
+  <string name="app_ops_labels_toggle_nfc">สลับ NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">สลับข้อมูลโทรศัพท์มือถือ</string>
   <string name="app_ops_labels_superuser">สิทธิผู้ดูแลระบบ</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">อนุญาต</string>
@@ -653,6 +678,8 @@
   <string name="status_bar_battery_percentage_text_inside">ในไอคอน</string>
   <string name="status_bar_battery_percentage_text_next">ถัดจากไอคอน</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">ไอคอนในแถบสถานะ</string>
+  <string name="status_bar_icons_summary">ควบคุมไอคอนที่จะแสดงบนแถบสถานะ</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">บล็อคการแตะเมื่อปัด</string>
   <string name="edge_gesture_service_summary">อย่าส่งกิจกรรมการแตะไปยังแอปสำหรับท่าทางการแตะแถบสถานะหรือแถบนำทาง</string>
@@ -689,6 +716,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">แสดงเส้นจังหวะเพลง</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">ถูกปิดโดยไทล์การตั้งค่าด่วน</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">แตะเพื่อเปิดใช้งานหน้าจอล็อค</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">หน้าจอล็อคเปิดใช้งาน!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">ขีดจำกัดการประหยัดแบตเตอรี่</string>
   <string name="battery_saver_summary">ลดประสิทธิภาพและจำกัดการใช้ข้อมูลเบื้องหลัง</string>
@@ -698,6 +728,7 @@
   <string name="autoperf_summary">เลือกรูปแบบแบตเตอรี่ที่เหมาะสมสำหรับแอปต่าง ๆ โดยอัตโนมัติ</string>
   <string name="perf_profile_title">รูปแบบแบตเตอรี่</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">เริ่มแอปเมื่อบูต</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">เสียงแจ้งเตือน</string>
   <!-- Advanced reboot options -->
@@ -726,6 +757,7 @@
   <string name="voice_wakeup_retrain_title">จดจำเสียงของคุณ</string>
   <string name="voice_wakeup_activity_title">กิจกรรมที่จะเปิดใช้</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">การปลุกด้วยเสียงต้องได้รับอนุญาตในการโทรเพื่อเลือกผู้ติดต่อสำหรับการโทรออกโดยตรง</string>
   <string name="picker_activities">กิจกรรม</string>
   <string name="select_custom_app_title">เลือกแอปเอง</string>
   <string name="select_custom_activity_title">เลือกกิจกรรมเอง</string>
@@ -794,12 +826,14 @@
   <string name="menu_hidden_apps_delete">รีเซ็ต</string>
   <string name="menu_hidden_apps_reset_lock">รีเซ็ตการล็อครูปแบบ</string>
   <string name="protected_apps">แอปที่ได้รับการปกป้อง</string>
+  <string name="protected_apps_summary">จัดการว่าแอปพลิเคชั่นใดที่จะซ่อนไว้ด้านหลังล็อคที่ปลอดภัย</string>
   <string name="saving_protected_components">กำลังบันทึกองค์ประกอบ\u2026</string>
   <string name="pa_login_username_hint">ชื่อผู้ใช้ (อีเมล)</string>
   <string name="pa_login_password_hint">รหัสผ่าน</string>
   <string name="pa_login_submit_button">ลงชื่อเข้าใช้</string>
   <string name="pa_login_checking_password">กำลังตรวจสอบบัญชี\u2026</string>
   <string name="pa_login_incorrect_login">การเข้าสู่ระบบไม่ถูกต้อง</string>
+  <string name="pa_pattern_or_fingerprint_header">ต้องวาดรูปแบบหรือใช้ลายนิ้วมือเพื่อปลดล็อค</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">ผู้ร่วมพัฒนา</string>
   <string name="contributors_cloud_loading_message">การโหลดข้อมูลผู้ร่วมพัฒนา\u2026</string>
@@ -824,18 +858,34 @@
   <string name="title_general">ทั่วไป</string>
   <string name="advanced">ขั้นสูง</string>
   <string name="link_volume_option_title">เชื่อมต่อความดังเสียงเรียกเข้า&amp; เสียงแจ้งเตือน</string>
+  <string name="lcd_density_prompt_message">บางแอปจะไม่สามารถทำงานได้ที่ dpi ไม่มาตราฐาน\n\nโปรดรีสตาร์ทอุปกรณ์ของคุณ</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">หมายเลขโทรศัพท์ APN PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">APN ซ้ำกัน</string>
+  <string name="duplicate_apn_error_message">มี APN นี้อยู่แล้ว เลิกทำหรือแก้ไขค่าใหม่</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> ถูก <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">ปิดใช้งานแล้ว</string>
   <string name="sim_missing">สูญหายหรือชำรุด</string>
+  <string name="sim_enabler_need_disable_sim">ซิมการ์ดจะถูกปิดใช้งาน คุณต้องการทำต่อหรือไม่</string>
+  <string name="sim_enabler_will_disable_sim_title">โปรดทราบ</string>
+  <string name="sim_enabler_need_switch_data_service">ซิมการ์ดนี้จะถูกปิดใช้งานและซิม <xliff:g id="slotid">%1$s</xliff:g>จะถูกใช้สำหรับข้อมูลแทน คุณแน่ใจที่จะทำต่อหรือไม่</string>
   <string name="sim_enabler_airplane_on">ไม่สามารถดำเนินการนี้ได้ขณะอยู่ในรูปแบบเครื่องบิน</string>
   <string name="sim_enabler_in_call">ไม่สามารถดำเนินการนี้ได้ขณะใช้สายอยู่</string>
   <string name="sim_enabler_both_inactive">ไม่สามารถปิดการใช้งานทุกซิมการ์ดได้</string>
+  <string name="sim_enabler_enabling">กำลังเปิดใช้\u2026</string>
+  <string name="sim_enabler_disabling">กำลังปิด\u2026</string>
+  <string name="sub_activate_success">เปิดใช้งานซิมแล้ว</string>
+  <string name="sub_activate_failed">เปิดใช้งานล้มเหลว</string>
+  <string name="sub_deactivate_success">ซิมปิดการใช้งานแล้ว</string>
+  <string name="sub_deactivate_failed">การปิดใช้งานล้มเหลว</string>
   <string name="primary_sub_select_title">สมัครข้อมูล 3G/LTE เริ่มต้น</string>
+  <string name="select_sim_card">เลือกซิมการ์ด</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">สถานะซิม %d</string>
   <string name="sim_card_lock_settings_title">ตั้งค่าการล็อคซิม %d</string>
   <string name="sim_card_summary_empty">ไม่ได้ใส่ซิม</string>
+  <string name="sim_mobile_network_settings_category_title">การตั้งค่าเครือข่ายโทรศัพท์</string>
   <string name="sim_mobile_network_settings_title">การตั้งค่าซิม %d</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
@@ -871,6 +921,9 @@
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">ไม่ต้องเลย</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 นาที</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 นาที</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 นาที</string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
   <!-- Live lock screen summary -->
@@ -881,4 +934,14 @@
   <string name="interruptions_ignore_while_media_summary">ไม่ลดเสียงเพลงเมื่อมีการแจ้งเตือนเข้า</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">เกี่ยวกับกฎหมาย CyanogenMod</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">ตั้งค่าสถิติใหม่</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">จะมีการตั้งค่าสถิติประวัติแบตเตอร์รี่ใหม่</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">ไม่มีแท่นชาร์จแบตเตอร์รี่</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">การชาร์จบนแท่น AC</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">การชาร์จผ่านแท่น USB</string>
 </resources>

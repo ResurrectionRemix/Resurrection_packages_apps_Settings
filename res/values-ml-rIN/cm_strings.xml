@@ -17,161 +17,981 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങൾ പ്രാപ്തമാക്കുന്നതിന് നിങ്ങള്‍ %1$d ഘട്ടം അകലെയാണ്.</item>
+    <item quantity="other">ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങൾ പ്രാപ്തമാക്കുന്നതിന് നിങ്ങള്‍ <xliff:g id="step_count">%1$d</xliff:g> ഘട്ടങ്ങൾ അകലെയാണ്.</item>
+  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">നിങ്ങൾ ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങൾ പ്രാപ്തമാക്കി!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">ആവശ്യമില്ല, നിങ്ങൾ ഇതിനകം ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങൾ പ്രാപ്തമാക്കി.</string>
   <!-- Launch Dev Tools -->
+  <string name="development_tools_title">വികസന ഉപകരണങ്ങൾ</string>
   <!-- Development shortcut -->
+  <string name="development_shortcut_title">ഡെവലപ്പ്മെന്റ് ഷോര്‍ട്ട്കട്ട്</string>
+  <string name="development_shortcut_summary">സമീപകാല ആപ്ലിക്കേഷനുകളുടെ ലിസ്റ്റിൽ ആപ്ലിക്കേഷൻ മാനേജ്മെന്റ് ഷോര്‍ട്ട്കട്ടുകള്‍ പ്രാപ്തമാക്കുക</string>
   <!-- Setting checkbox title for root access -->
+  <string name="root_access">റൂട്ട് പ്രവേശനം</string>
+  <string name="root_access_warning_title">റൂട്ട് പ്രവേശനം അനുവദിക്കണോ?</string>
+  <string name="root_access_warning_message">റൂട്ട് പ്രവേശനം അഭ്യർത്ഥിക്കാൻ അപ്ലിക്കേഷനുകളെ അനുവദിക്കുന്നത് വളരെ അപകടകരവും നിങ്ങളുടെ സിസ്റ്റത്തിന്റെ സുരക്ഷയിൽ വിട്ടുവീഴ്ച ചെയ്യേണ്ടതായും വരുന്നതാണ്!</string>
+  <string name="root_access_none">പ്രവർത്തനരഹിതമാക്കി</string>
+  <string name="root_access_apps">ആപ്ലിക്കേഷനുകള്‍ മാത്രം</string>
+  <string name="root_access_adb">ADB മാത്രം</string>
+  <string name="root_access_all">അപ്ലിക്കേഷനുകളും ADB യും</string>
   <!-- NFC PreferenceCategory title -->
+  <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
+  <string name="mod_version">CyanogenMod പതിപ്പ്</string>
+  <string name="mod_version_default">അജ്ഞാതം</string>
   <!-- About phone screen, Device model -->
+  <string name="device_model">ഉപകരണ മോഡൽ</string>
   <!-- About phone screen, Device name -->
+  <string name="device_name">ഉപകരണത്തിന്റെ പേര്</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">CyanogenMod API ലെവൽ</string>
+  <string name="mod_api_level_default">അജ്ഞാതം</string>
   <!-- About phone screen, build date -->
+  <string name="build_date">ബിൽഡ് തീയതി</string>
   <!-- CM Updater -->
+  <string name="cmupdate_settings_title">CyanogenMod അപ്ഡേറ്റുകൾ</string>
   <!-- Settings switch for updating Cyanogen recovery -->
+  <string name="update_recovery_title">Cyanogen റിക്കവറി അപ്ഡേറ്റ് ചെയ്യുക</string>
+  <string name="update_recovery_summary">സിസ്റ്റം അപ്ഡേറ്റുകളിലൂടെ റിക്കവറി അപ്ഡേറ്റ് ചെയ്യുക</string>
+  <string name="update_recovery_on_warning">അറിയിപ്പ്: ഈ സവിശേഷത പ്രാപ്തമാക്കുമ്പോൾ, ഇന്‍സ്റ്റാള്‍ ചെയ്തിട്ടുള്ള നിങ്ങളുടെ റിക്കവറി ഇപ്പോള്‍ പ്രവര്‍ത്തിക്കുന്ന OS ന്‍റെ നിലവിലെ പതിപ്പ് ഉള്‍പ്പെടുന്ന മറ്റൊന്ന് ഉപയോഗിച്ച് മാറ്റിസ്ഥാപിക്കുന്നതാണ്.\n\nഭാവിയിലെ പതിപ്പുകളുമായി അനുയോജ്യത ഉറപ്പുവരുത്താൻ സഹായിക്കുന്നതിന്, നവീകരണങ്ങള്‍ക്കൊപ്പം നിങ്ങളുടെ റിക്കവറി അപ്ഡേറ്റ് ചെയ്യുന്നതാണ്.\n\nഈ സവിശേഷത നിങ്ങള്‍ക്ക് പ്രാപ്തമാക്കണോ?</string>
+  <string name="update_recovery_off_warning">മുന്നറിയിപ്പ്: ഈ സവിശേഷത അപ്രാപ്തമാക്കിയിരിക്കുമ്പോള്‍, ഇന്‍സ്റ്റാള്‍ ചെയ്തിട്ടുള്ള നിങ്ങളുടെ റിക്കവറി OS നവീകരണങ്ങള്‍ക്കൊപ്പം അപ്ഡേറ്റ് ചെയ്യുന്നതല്ല.\n\nകാലഹരണപ്പെട്ട അല്ലെങ്കില്‍ ഇഷ്ടാനുസൃത റിക്കവറി പതിപ്പുകളില്‍ ഭാവിയിലെ OS അപ്ഡേറ്റുകള്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യുകയില്ല.\n\nഈ സവിശേഷത നിങ്ങള്‍ക്ക് ശരിക്കും അപ്രാപ്തമാക്കണോ?</string>
   <!-- Themes Settings -->
   <!-- Settings main menu entry -->
+  <string name="themes_settings_title">തീമുകൾ</string>
   <!-- Sound settings screen -->
+  <string name="ring_mode_title">റിംഗ് മോഡ്</string>
+  <string name="ring_mode_normal">സാധാരണ</string>
+  <string name="ring_mode_vibrate">വൈബ്രേറ്റുചെയ്യുക</string>
+  <string name="ring_mode_mute">മ്യൂട്ടുചെയ്യുക</string>
+  <string name="settings_reset_button">പുനഃസജ്ജമാക്കുക</string>
   <!-- Profiles settings  -->
+  <string name="profiles_settings_title">സിസ്റ്റം പ്രൊഫൈലുകൾ</string>
+  <string name="profiles_add">ചേര്‍ക്കുക</string>
+  <string name="profile_menu_delete">ഇല്ലാതാക്കുക</string>
+  <string name="profile_settings_title">പ്രൊഫൈൽ</string>
+  <string name="profile_empty_list_profiles_off">കോണ്‍ഫിഗര്‍ ചെയ്യുന്നതിനും സിസ്റ്റം പ്രൊഫൈലുകൾ ഉപയോഗിക്കുന്നതിനും പ്രൊഫൈലുകൾ ഓണ്‍ ചെയ്യുക.</string>
+  <string name="profile_trigger_configure">ട്രിഗ്ഗർ കോണ്‍ഫിഗര്‍ ചെയ്യുക</string>
+  <string name="profile_write_nfc_tag">NFC ടാഗിലേക്ക് റൈറ്റുചെയ്യുക</string>
+  <string name="profile_write_touch_tag">റൈറ്റ് ചെയ്യാന്‍ ടാഗ് സ്പര്‍ശിക്കുക</string>
+  <string name="profile_write_success">ടാഗ് വിജയകരമായി റൈറ്റ് ചെയ്തു</string>
+  <string name="profile_write_failed">ടാഗ് റൈറ്റ് ചെയ്യുന്നത് പരാജയപ്പെട്ടു!</string>
+  <string name="profile_selected">തിരഞ്ഞെടുത്ത പ്രൊഫൈൽ: %1$s</string>
+  <string name="profile_nfc_text">ഒരു NFC ടാഗിലേക്ക് ഒരു പ്രൊഫൈൽ റൈറ്റ് ചെയ്യുന്നതിലൂടെ പ്രൊഫൈൽ തിരഞ്ഞെടുക്കുന്നതിന് ടാഗ് സ്പര്‍ശിക്കുവാന്‍ അനുവദിക്കുന്നു. രണ്ടാമതും സ്പര്‍ശിക്കുന്നത് മുമ്പ് തിരഞ്ഞെടുത്ത പ്രൊഫൈൽ തിരഞ്ഞെടുക്കുന്നതാണ്.</string>
+  <string name="profile_unknown_nfc_tag">അജ്ഞാത പ്രൊഫൈൽ</string>
+  <string name="profile_add_nfc_text">ഈ NFC ടാഗ് ഒരു അജ്ഞാത പ്രൊഫൈലിനെ സൂചിപ്പിക്കുന്നു. നിലവിലുള്ള ഒരു പ്രൊഫൈലിലേക്ക് ഈ NFC ടാഗ് അറ്റാച്ച് ചെയ്യുന്നത് ഭാവിയിൽ പ്രൊഫൈൽ തിരഞ്ഞെടുക്കുന്നതിന് അനുവദിക്കുന്നതാണ്.</string>
+  <string name="profile_select">പ്രൊഫൈൽ തിരഞ്ഞെടുക്കുക</string>
+  <string name="profile_remove_dialog_message">%1$s പ്രൊഫൈൽ നീക്കം ചെയ്യണോ?</string>
+  <string name="profile_populate_profile_from_state">നിലവിലെ ഉപകരണ ക്രമീകരണങ്ങള്‍ ഉപയോഗിച്ച് പ്രൊഫൈല്‍ കോണ്‍ഫിഗര്‍ ചെയ്യണോ?</string>
+  <string name="profile_menu_fill_from_state">നിലവിലെ ഉപകരണ ക്രമീകരണങ്ങൾ ഇംപോർട്ട് ചെയ്യുക</string>
+  <string name="profile_remove_current_profile">നിലവിലെ പ്രൊഫൈൽ ഇല്ലാതാക്കാൻ കഴിയില്ല!</string>
+  <string name="profile_app_group_category_title">അറിയിപ്പ് ഓവറൈഡ്സ്</string>
+  <string name="profile_app_group_item_instructions">ഗ്രൂപ്പുകൾ ചേർക്കുക അല്ലെങ്കിൽ നീക്കം ചെയ്യുക</string>
+  <string name="profile_app_group_item_instructions_summary">അറിയിപ്പ് ഓവറൈഡ്സ് ആപ്ലിക്കേഷൻ ഗ്രൂപ്പുകൾ ഈ പ്രൊഫൈലിലേക്ക് ചേർക്കുക അല്ലെങ്കിൽ നീക്കം ചെയ്യുക</string>
   <!-- Profile mode options. -->
+  <string name="profile_entries_on">ഓണാക്കുക</string>
+  <string name="profile_entries_off">ഓഫാണ്</string>
+  <string name="profile_entries_no_override">ഓവറൈഡ്സ് ഇല്ല</string>
   <!-- Add Profile -->
+  <string name="profile_name_title">പേര്</string>
+  <string name="new_profile_name">&lt;new profile&gt;</string>
   <!-- Rename Dialog  -->
+  <string name="rename_dialog_title">പേരുമാറ്റുക</string>
+  <string name="rename_dialog_message">ഒരു പുതിയ പേര് രേഖപ്പെടുത്തുക</string>
+  <string name="duplicate_appgroup_name">ആപ്ലിക്കേഷന്‍ ഗ്രൂപ്പിന്റെ പേര് ഡ്യൂപ്ലിക്കേറ്റ്</string>
+  <string name="rename_dialog_hint">പ്രൊഫൈൽ നാമം രേഖപ്പെടുത്തുക</string>
   <!-- Reset Profiles -->
+  <string name="profile_reset_title">പുനഃസജ്ജമാക്കുക</string>
+  <string name="profile_reset_message">ഉപയോക്താക്കള്‍ സൃഷിടിച്ച എല്ലാ പ്രൊഫൈലുകളും അപ്ലിക്കേഷൻ ഗ്രൂപ്പുകളും ഇല്ലാതാക്കി അവയെ ഡീഫോള്‍ട്ടിലേക്ക് പുനസ്ഥാപിക്കണോ?</string>
   <!-- Delete confimation messages -->
+  <string name="profile_app_delete_confirm">ഈ ആപ്ലിക്കേഷൻ നീക്കം ചെയ്യണോ?</string>
   <!-- Profile network mode -->
+  <string name="profile_networkmode_2g">2G</string>
+  <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE/4G</string>
+  <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <!-- Profile Config screen PreferenceGroup titles -->
+  <string name="profile_volumeoverrides_title">വോളിയം ഓവറൈഡ്സ്</string>
+  <string name="connection_state_enabled">പ്രവർത്തനക്ഷമമാക്കുക</string>
+  <string name="volume_override_summary">%1$s/%2$s ലേക്ക് സജ്ജമാക്കുക</string>
+  <string name="profile_volume_override_checkbox_label">വോളിയം ഓവറൈഡ് ചെയ്യുക</string>
   <!-- Menu item for managing profiles -->
+  <string name="profile_profiles_manage">പ്രൊഫൈലുകൾ</string>
+  <string name="profile_profile_manage">പ്രൊഫൈൽ കൈകാര്യം ചെയ്യുക</string>
+  <string name="profile_appgroups_manage">ആപ്ലിക്കേഷൻ ഗ്രൂപ്പുകൾ</string>
+  <string name="profile_appgroup_manage">ആപ്പ് ഗ്രൂപ്പ് കൈകാര്യം ചെയ്യുക</string>
   <!-- Profile settings screen, section header for settings related to notification profiles -->
+  <string name="profile_settings">പ്രൊഫൈൽ ക്രമീകരണങ്ങൾ</string>
+  <string name="profile_trigger_connect">ഓണ്‍ കണക്റ്റ്</string>
+  <string name="profile_trigger_disconnect">ഓണ്‍ ഡിസ്കണക്റ്റ്</string>
+  <string name="profile_trigger_notrigger">ട്രിഗ്ഗർ ഇല്ല</string>
   <!-- Profile Settings sound modes labels -->
+  <string name="sound_mode">അറിയിപ്പ് മോഡ്</string>
+  <string name="ringer_mode">റിംഗ് മോഡ്</string>
+  <string name="lights_mode">ലൈറ്റ്സ് മോഡ്</string>
+  <string name="vibrate_mode">വൈബ്രേറ്റ് മോഡ്</string>
+  <string name="choose_soundtone">അറിയിപ്പ് ടോൺ തിരഞ്ഞെടുക്കുക</string>
+  <string name="choose_ringtone">റിംഗ്‌ടോൺ തിരഞ്ഞെടുക്കുക</string>
   <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
+  <string name="soundtone_title">അറിയിപ്പ് ടോൺ</string>
   <!-- Title for application group setting screen -->
+  <string name="profile_appgroups_title">ആപ്ലിക്കേഷൻ ഗ്രൂപ്പുകൾ</string>
+  <string name="profile_applist_title">അപ്ലിക്കേഷനുകൾ</string>
+  <string name="profile_new_appgroup">പുതിയ ആപ്പ് ഗ്രൂപ്പ്</string>
+  <string name="profile_delete_appgroup">ഈ ആപ്ലിക്കേഷൻ ഗ്രൂപ്പ് ഇല്ലാതാക്കണോ?</string>
+  <string name="profile_appgroup_name_prompt">പുതിയ ആപ്ലിക്കേഷൻ ഗ്രൂപ്പിന് വേണ്ടി ഒരു പേര് രേഖപ്പെടുത്തുക</string>
+  <string name="profile_appgroup_name_title">പേര്</string>
   <!-- Add application dialog box title -->
+  <string name="profile_choose_app">അപ്ലിക്കേഷൻതിരഞ്ഞെടുക്കുക</string>
   <!-- Profiles - system settings -->
+  <string name="profile_system_settings_title">സിസ്റ്റം ക്രമീകരണങ്ങള്‍.</string>
+  <string name="profile_lockmode_title">ലോക്ക് സ്ക്രീൻ മോഡ്</string>
+  <string name="profile_lockmode_policy_disabled_summary">ഈ പ്രൊഫൈൽ ഐച്ഛികം ഉപകരണ അഡ്മിനിസ്ട്രേറ്റർ നയം പ്രകാരം അപ്രാപ്തമാക്കിയിരിക്കുന്നു</string>
+  <string name="profile_lockmode_insecure_summary">PIN അല്ലെങ്കിൽ പാസ്‌വേഡ് ചോദിക്കരുത്</string>
+  <string name="profile_lockmode_disabled_summary">ലോക്ക് സ്ക്രീൻ അപ്രാപ്തമാക്കുക</string>
+  <string name="profile_airplanemode_title">ഫ്ലൈറ്റ് മോഡ്</string>
+  <string name="profile_brightness_title">സ്ക്രീൻ തെളിച്ചം</string>
+  <string name="profile_brightness_override_summary">%1$d%% ലേക്ക് സജ്ജമാക്കി</string>
+  <string name="profile_brightness_override_checkbox_label">ഓവറൈഡ് തെളിച്ചം</string>
   <!-- Connection override toggles (not all are used at this time ) -->
+  <string name="toggleWifi">Wi‑Fi</string>
+  <string name="toggleWifiAp">പോർട്ടബിൾ Wi‑Fi ഹോട്ട്‌സ്പോട്ട്</string>
+  <string name="toggleBluetooth">ബ്ലൂടൂത്ത്</string>
+  <string name="toggleGPS">GPS</string>
+  <string name="toggleData">ഡാറ്റ കണക്ഷൻ</string>
+  <string name="toggleSync">ഡാറ്റ യാന്ത്രികമായി സമന്വയിപ്പിക്കുക</string>
+  <string name="toggle2g3g4g">തിരഞ്ഞെടുത്ത നെറ്റ്‌വർക്ക് തരം</string>
+  <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi മേഖലാ കോഡ്</string>
   <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Wi\u2011Fi മേഖലാ കോഡ് വ്യക്തമാക്കുക</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">മേഖല കോഡ് സജ്ജമാക്കുന്നതിൽ ഒരു പ്രശ്നമുണ്ടായി.</string>
   <!-- Profiles -->
+  <string name="profile_menu_delete_title">ഇല്ലാതാക്കുക</string>
+  <string name="profile_action_none">മാറ്റം വരുത്താതെ വിടുക</string>
+  <string name="profile_action_system">സിസ്റ്റം ഡിഫോൾട്ട്</string>
+  <string name="profile_action_disable">ഓഫ് ചെയ്യുന്നു</string>
+  <string name="profile_action_enable">ഓൺ ചെയ്യുക</string>
+  <string name="profile_trigger_a2dp_connect">A2DP കണക്റ്റ് ഓണ്‍</string>
+  <string name="profile_trigger_a2dp_disconnect">ഓണ്‍ A2DP ഡിസ്കണക്റ്റ്</string>
+  <string name="profile_tabs_wifi">Wi‑Fi</string>
+  <string name="profile_tabs_bluetooth">ബ്ലൂടൂത്ത്</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_triggers_header">ഈ പ്രൊഫൈലിനെ സജീവമാക്കുന്ന ട്രിഗറുകള്‍</string>
+  <string name="profile_setup_setup_triggers_title">ഘട്ടം 1: ട്രിഗറുകൾ ചേർക്കുക</string>
+  <string name="profile_setup_setup_triggers_title_config">ട്രിഗറുകൾ പരിഷ്ക്കരിക്കുക: <xliff:g id="profile_name">%1$s</xliff:g></string>
+  <string name="profile_setup_actions_title">ഘട്ടം 2: സജ്ജീകരണ പ്രവർത്തനങ്ങൾ</string>
+  <string name="profile_setup_actions_title_config">നടപടികള്‍ റീകോണ്‍ഫിഗര്‍ ചെയ്യുക</string>
+  <string name="profile_appgroups_manage">ആപ്ലിക്കേഷൻ ഗ്രൂപ്പുകൾ</string>
+  <string name="profile_appgroup_manage">ആപ്പ് ഗ്രൂപ്പ് കൈകാര്യം ചെയ്യുക</string>
   <!-- Title for application group setting screen -->
+  <string name="profile_appgroups_title">ആപ്ലിക്കേഷൻ ഗ്രൂപ്പുകൾ</string>
+  <string name="profile_new_appgroup">പുതിയ ആപ്പ് ഗ്രൂപ്പ്</string>
+  <string name="profile_delete_appgroup">ഈ ആപ്ലിക്കേഷൻ ഗ്രൂപ്പ് ഇല്ലാതാക്കണോ?</string>
+  <string name="profile_appgroup_name_prompt">പുതിയ ആപ്ലിക്കേഷൻ ഗ്രൂപ്പിന് വേണ്ടി ഒരു പേര് രേഖപ്പെടുത്തുക</string>
+  <string name="profile_appgroup_name_title">പേര്</string>
+  <string name="duplicate_appgroup_name">ആപ്ലിക്കേഷന്‍ ഗ്രൂപ്പിന്റെ പേര് ഡ്യൂപ്ലിക്കേറ്റ്</string>
+  <string name="profile_app_delete_confirm">ഈ ആപ്ലിക്കേഷൻ നീക്കം ചെയ്യണോ?</string>
+  <string name="no_bluetooth_triggers">Bluetooth ഉപകരണങ്ങൾ ജോഡിയാക്കിയിട്ടില്ല.\nട്രിഗറുകൾ കോണ്‍ഫിഗര്‍ ചെയ്യുന്നതിന് മുമ്പ് Bluetooth ഉപകരണം ജോടിയാക്കാൻ അമര്‍ത്തുക.</string>
+  <string name="no_wifi_triggers">Wi\u2011Fi ആക്സസ് പോയിന്റുകൾ കോണ്‍ഫിഗര്‍ ചെയ്തിട്ടില്ല.\nട്രിഗറുകൾ കോണ്‍ഫിഗര്‍ ചെയ്യുന്നതിന് മുമ്പ് Wi\u2011Fi കണക്റ്റ് ചെയ്യുന്നതിന് അമര്‍ത്തുക.</string>
+  <string name="no_triggers_configured">ട്രിഗറുകള്‍ കോൺഫിഗർ ചെയ്തിട്ടില്ല. കൂടുതൽ ചേർക്കുന്നതിന് അമര്‍ത്തുക</string>
+  <string name="no_triggers_configured_nfc">ഒരു പുതിയ NFC ട്രിഗർ സജ്ജമാക്കുന്നതിന് അമര്‍ത്തുക.</string>
+  <string name="profile_setup_setup_triggers_description">ഈ പ്രൊഫൈൽ സജീവമാക്കുന്ന ട്രിഗറുകൾ തിരഞ്ഞെടുക്കുക</string>
+  <string name="profile_setup_actions_description">പ്രൊഫൈൽ സജീവമായിരിക്കുമ്പോള്‍ എന്ത് സംഭവിക്കുന്നുവെന്ന് ഇപ്പോള്‍ കോണ്‍ഫിഗര്‍ ചെയ്യുക</string>
   <!-- Navigation Bar -->
+  <string name="navigation_bar_category">നാവിഗേഷന്‍ ബാർ</string>
+  <string name="navigation_bar_left_title">ഇടംകൈയ്യൻ മോഡ്</string>
+  <string name="navigation_bar_left_summary">ലാൻഡ്സ്കേപ്പ് മോഡിൽ സ്ക്രീനിന്റെ ഇടത് വശത്ത് നാവിഗേഷൻ ബാർ സ്ഥാപിക്കുക</string>
+  <string name="navigation_bar_title">ബട്ടണുകളും ലേയൌട്ടും</string>
+  <string name="navigation_bar_help_text">എഡിറ്റ്‌ ചെയ്യുന്നതിനായി നാവിഗേഷന്‍ ബാര്‍ അണ്‍ലോക്ക് ചെയ്യുന്നതിന് എഡിറ്റ്‌ ഐക്കണ്‍ അമര്‍ത്തുക.\n\nഷോര്‍ട്ട്കട്ട് മാറ്റുന്നതിനായി നിങ്ങള്‍ക്കൊരു ഐക്കണില്‍ അമര്‍ത്താവുന്നതാണ് അല്ലെങ്കില്‍ ലേ-ഔട്ട്‌ പുനക്രമീകരിക്കുന്നതിന് ഒരു ഐക്കണില്‍ നീണ്ട അമര്‍ത്തല്‍ ചെയ്യാനാവുന്നതാണ്.\n\nനിങ്ങളുടെ മാറ്റങ്ങള്‍ നടപ്പിലാക്കുന്നതിന് \'സേവ്\' അമര്‍ത്തുക, അല്ലെങ്കില്‍ ഡിഫോള്‍ട്ട് ക്രമീകരണങ്ങളിലേക്ക് പുനക്രമീകരിക്കുന്നതിന് \'ഡിഫോള്‍ട്ടുകള്‍ പുനസ്ഥാപിക്കുക\' അമര്‍ത്തുക.</string>
+  <string name="navigation_restore_button_text">ഡിഫോള്‍ട്ടുകള്‍\nപുനഃസ്ഥാപിക്കുക</string>
+  <string name="navigation_edit_button_text">എഡിറ്റുചെയ്യുക</string>
+  <string name="navigation_save_button_text">സംരക്ഷിക്കുക</string>
+  <string name="navigation_bar_reset_message">നിലവിലെ ക്രമീകരണങ്ങൾ ഇല്ലാതാക്കുകയും ഡിഫോള്‍ട്ട് ലേയൌട്ട് പുനഃസ്ഥാപിക്കുകയും ചെയ്യണോ?</string>
+  <string name="navigation_bar_arrow_keys_title">ടൈപ്പ് ചെയ്യുമ്പോൾ അമ്പടയാള കീകള്‍ ദൃശ്യമാക്കുക</string>
+  <string name="navigation_bar_arrow_keys_summary">ടൈപ്പ് ചെയ്യുമ്പോള്‍, വലത്, ഇടത് കഴ്സർ ബട്ടണുകൾ ദൃശ്യമാക്കുക IME സ്വിച്ചർ ഓവറൈഡ്സ് ചെയ്യുന്നു.</string>
+  <string name="navigation_bar_recents_title">സമീപത്തുള്ളവ നീണ്ട അമർത്തല്‍ നടപടി</string>
   <!-- Notification light dialogs -->
+  <string name="edit_light_settings">വെളിച്ചം ക്രമീകരണങ്ങൾ എഡിറ്റ് ചെയ്യുക</string>
+  <string name="pulse_speed_title">പള്‍സ് ദൈര്‍ഘ്യവും വേഗതയും</string>
+  <string name="default_time">സാധാരണ</string>
+  <string name="custom_time">ഇഷ്‌ടാനുസൃതം</string>
+  <string name="dialog_delete_title">ഇല്ലാതാക്കുക</string>
+  <string name="dialog_delete_message">തിരഞ്ഞെടുത്ത ഇനം നീക്കംചെയ്യണോ?</string>
   <!-- Values for the notification light pulse spinners -->
+  <string name="pulse_length_always_on">എപ്പോഴും ഓണാക്കുക</string>
+  <string name="pulse_length_very_short">വളരെ ചെറിയ</string>
+  <string name="pulse_length_short">ചെറുത്</string>
+  <string name="pulse_length_normal">സാധാരണ</string>
+  <string name="pulse_length_long">നീണ്ട</string>
+  <string name="pulse_length_very_long">വളരെ നീണ്ട</string>
+  <string name="pulse_speed_very_fast">വളരെ വേഗത്തില്‍</string>
+  <string name="pulse_speed_fast">വേഗത്തില്‍</string>
+  <string name="pulse_speed_normal">സാധാരണ</string>
+  <string name="pulse_speed_slow">പതുക്കെ</string>
+  <string name="pulse_speed_very_slow">വളരെ പതുക്കെ</string>
   <!-- Battery light settings -->
+  <string name="battery_light_title">ബാറ്ററി വെളിച്ചം</string>
+  <string name="battery_low_pulse_title">ബാറ്ററി കുറവാണെങ്കില്‍ പള്‍സ്</string>
+  <string name="battery_light_list_title">വർണ്ണങ്ങൾ</string>
+  <string name="battery_light_low_color_title">ബാറ്ററി കുറവ്</string>
+  <string name="battery_light_medium_color_title">ചാർജ്ജുചെയ്യുന്നു</string>
+  <string name="battery_light_full_color_title">പൂർണ്ണമായും ചാർജ് ചെയ്തു</string>
   <!-- Lights settings screen, notification light settings -->
+  <string name="notification_light_title">അറിയിപ്പ് വെളിച്ചം</string>
+  <string name="notification_light_general_title">പൊതുവായത്</string>
+  <string name="notification_light_applist_title">അപ്ലിക്കേഷനുകൾ</string>
+  <string name="notification_light_phonelist_title">ഫോണ്‍</string>
+  <string name="notification_light_use_custom">ഇഷ്ടാനുസൃത മൂല്യങ്ങൾ ഉപയോഗിക്കുക</string>
+  <string name="notification_light_default_value">സ്ഥിരമായത്</string>
+  <string name="notification_light_missed_call_title">മിസ്ഡ് കോൾ</string>
+  <string name="notification_light_voicemail_title">വോയ്സ് മെയില്‍</string>
+  <string name="notification_light_screen_on">സ്ക്രീൻ ഓണ്‍ ആയിരിക്കുമ്പോള്‍ പ്രകാശിക്കുക</string>
+  <string name="notification_light_zen_mode">ലൈറ്റ്സ് ശല്യപ്പെടുത്തരുത് മോഡിലാണ്</string>
+  <string name="notification_light_use_multiple_leds">ഒന്നിലധികം LEDകള്‍</string>
+  <string name="keywords_lights_brightness_level">ledകളുടെ മങ്ങിയ തെളിച്ചം</string>
+  <string name="notification_light_automagic">വർണ്ണങ്ങൾ യാന്ത്രികമായി തിരഞ്ഞെടുക്കുക</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">പ്രകാശ ക്രമീകരണങ്ങള്‍</string>
+  <string name="led_notification_text">ക്രമീകരണങ്ങളിലൂടെ LED വെളിച്ചം പ്രാപ്തമാക്കി</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
+  <string name="enable_adb_cm">ആൻഡ്രോയിഡ് ഡീബഗ്ഗിംഗ്</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
+  <string name="enable_adb_summary_cm">ആൻഡ്രോയിഡ് ഡീബഗ് ബ്രിഡ്ജ് (adb) ഇന്റർഫേസ് പ്രാപ്തമാക്കുക</string>
   <!-- Android debugging over WiFi -->
+  <string name="adb_over_network">നെറ്റ്‌വർക്കിൽ ADB</string>
+  <string name="adb_over_network_summary">നെറ്റ്‌വര്‍ക്ക് ഇന്‍റര്‍ഫേസില്‍ (Wi\u2011Fi, USB , നെറ്റ്‌വര്‍ക്കുകള്‍) TCP/IP ഡീബഗ്ഗിംഗ് പ്രാപ്തമാക്കുക. ഈ ക്രമീകരണം റീബൂട്ടിൽ പുനഃക്രമീകരിക്കുന്നതാണ്</string>
   <!-- Warning for Adb over Network -->
+  <string name="adb_over_network_warning">മുന്നറിയിപ്പ്: നെറ്റ്‌വർക്കിലൂടെയുള്ള ADB പ്രാപ്തമാക്കിയിരിക്കുമ്പോള്‍, ബന്ധിപ്പിച്ച എല്ലാ നെറ്റ്‌വർക്കുകളിൽ നിന്നും നുഴഞ്ഞുകയറുന്നതിനായി നിങ്ങളുടെ ഫോൺ തുറന്നിരിക്കുന്നതാണ്!\n\nഒരു വിശ്വസനീയ നെറ്റ്‌വര്‍ക്കില്‍ ബന്ധിപ്പിച്ചിരിക്കുമ്പോള്‍ മാത്രം നിങ്ങള്‍ ഈ സവിശേഷത ഉപയോഗിക്കുക.\n\nനിങ്ങള്‍ക്ക് ശരിക്കും ഈ സവിശേഷത പ്രാപ്തമാക്കണോ?</string>
   <!-- Setting checkbox summary for displaying USB debugging notification -->
+  <string name="adb_notify">ഡീബഗ്ഗിംഗ് അറിയിപ്പ്</string>
+  <string name="adb_notify_summary">USB അല്ലെങ്കിൽ നെറ്റ്‌വർക്ക് ഡീബഗ്ഗിംഗ് പ്രാപ്തമായിരിക്കുമ്പോള്‍ ഒരു അറിയിപ്പ് ദൃശ്യമാക്കുക</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
+  <string name="app_ops_categories_location">ലൊക്കേഷൻ</string>
+  <string name="app_ops_categories_personal">വ്യക്തിഗതം</string>
+  <string name="app_ops_categories_messaging">സന്ദേശമയയ്‌ക്കൽ</string>
+  <string name="app_ops_categories_media">മീഡിയ</string>
+  <string name="app_ops_categories_device">ഉപകരണം</string>
+  <string name="app_ops_categories_bootup">ബൂട്ടപ്പ്</string>
+  <string name="app_ops_categories_su">റൂട്ട് പ്രവേശനം</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_summaries_coarse_location">പരുപരുത്ത സ്ഥലം</string>
+  <string name="app_ops_summaries_fine_location">നല്ല സ്ഥാനം</string>
+  <string name="app_ops_summaries_gps">GPS</string>
+  <string name="app_ops_summaries_vibrate">വൈബ്രേറ്റ്‌</string>
+  <string name="app_ops_summaries_read_contacts">കോണ്‍ടാക്റ്റ് വായിക്കുക</string>
+  <string name="app_ops_summaries_modify_contacts">കോണ്‍ടാക്റ്റുകള്‍ പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_summaries_read_call_log">കോൾ ലോഗ് റീഡുചെയ്യുക</string>
+  <string name="app_ops_summaries_modify_call_log">കോൾ ലോഗ് പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_summaries_read_calendar">കലണ്ടർ വായിക്കുക</string>
+  <string name="app_ops_summaries_modify_calendar">കലണ്ടർ പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_summaries_wifi_scan">Wi-Fi സ്കാൻ</string>
+  <string name="app_ops_summaries_notification">അറിയിപ്പ് /ടോസ്റ്റ്</string>
+  <string name="app_ops_summaries_cell_scan">സെൽ സ്കാൻ</string>
+  <string name="app_ops_summaries_call_phone">കോൾ ഫോൺ</string>
+  <string name="app_ops_summaries_read_sms">SMS വായിക്കുക</string>
+  <string name="app_ops_summaries_write_sms">SMS റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_receive_sms">SMS സ്വീകരിക്കുക</string>
+  <string name="app_ops_summaries_receive_emergency_sms">അടിയന്തര SMS സ്വീകരിക്കുക</string>
+  <string name="app_ops_summaries_receive_mms">MMS സ്വീകരിക്കുക</string>
+  <string name="app_ops_summaries_receive_wap_push">WAP പുഷ് സ്വീകരിക്കുക</string>
+  <string name="app_ops_summaries_send_sms">SMS അയയ്ക്കുക</string>
+  <string name="app_ops_summaries_read_icc_sms">ICC SMS വായിക്കുക</string>
+  <string name="app_ops_summaries_write_icc_sms">ICC SMS റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_modify_settings">ക്രമീകരണങ്ങൾ പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_summaries_draw_on_top">മുകളിൽ വരയ്ക്കുക</string>
+  <string name="app_ops_summaries_access_notifications">അറിയിപ്പുകൾ ആക്‌സസ്സുചെയ്യുക</string>
+  <string name="app_ops_summaries_camera">ക്യാമറ</string>
+  <string name="app_ops_summaries_record_audio">ഓഡിയോ റെക്കോർഡ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_play_audio">ഓഡിയോ പ്ലേ ചെയ്യുക</string>
+  <string name="app_ops_summaries_read_clipboard">ക്ലിപ്ബോര്‍ഡ് റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_modify_clipboard">ക്ലിപ്ബോർഡ് പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_summaries_media_buttons">മീഡിയ ബട്ടണുകൾ</string>
+  <string name="app_ops_summaries_audio_focus">ഓഡിയോ ഫോക്കസ്</string>
+  <string name="app_ops_summaries_master_volume">മാസ്റ്റര്‍ വോളിയം</string>
+  <string name="app_ops_summaries_voice_volume">വോയ്സ് വോളിയം</string>
+  <string name="app_ops_summaries_ring_volume">റിംഗർ വോളിയം</string>
+  <string name="app_ops_summaries_media_volume">മീഡിയ വോളിയം</string>
+  <string name="app_ops_summaries_alarm_volume">അലാറം വോളിയം</string>
+  <string name="app_ops_summaries_notification_volume">അറിയിപ്പ് വോളിയം</string>
+  <string name="app_ops_summaries_bluetooth_volume">Bluetooth വോളിയം</string>
+  <string name="app_ops_summaries_keep_awake">സജീവമായി തുടരുക</string>
+  <string name="app_ops_summaries_monitor_location">മോണിറ്റർ സ്ഥാനം</string>
+  <string name="app_ops_summaries_monitor_high_power_location">ഉയർന്ന പവർ സ്ഥാനം നിരീക്ഷിക്കുക</string>
+  <string name="app_ops_summaries_get_usage_stats">ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ ലഭ്യമാക്കുക</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">മൈക്രോഫോൺ നിശ്ശബ്ദമാക്കുക / ശബ്ദമുള്ളതാക്കൂ ചെയ്യുക</string>
+  <string name="app_ops_summaries_toast_window">ടോസ്റ്റുകൾ പ്രദര്‍ശനം ചെയ്യുക</string>
+  <string name="app_ops_summaries_project_media">പ്രോജക്റ്റ് മീഡിയ</string>
+  <string name="app_ops_summaries_activate_vpn">VPN സജീവമാക്കുക</string>
+  <string name="app_ops_summaries_write_wallpaper">വാൾപേപ്പർ റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_assist_structure">അസിസ്റ്റ് ഘടന</string>
+  <string name="app_ops_summaries_assist_screenshot">അസിസ്റ്റ് സ്ക്രീൻഷോട്ട്</string>
+  <string name="app_ops_summaries_read_phone_state">ഫോൺ സ്ഥിതി റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_add_voicemail">വോയ്‌സ് മെയിൽ ചേർക്കുക</string>
+  <string name="app_ops_summaries_use_sip">SIP ഉപയോഗിക്കുക</string>
+  <string name="app_ops_summaries_make_call">കോൾ ചെയ്യുക</string>
+  <string name="app_ops_summaries_use_fingerprint">ഫിംഗര്‍പ്രിന്‍റ് ഉപയോഗിക്കുക</string>
+  <string name="app_ops_summaries_use_body_sensors">ശരീര സെൻസറുകൾ ഉപയോഗിക്കുക</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">സെൽ ബ്രോഡ്‌കാസ്റ്റുകള്‍ റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_mock_location">വ്യാജ സ്ഥാനം</string>
+  <string name="app_ops_summaries_read_external_storage">ബാഹ്യ സംഭരണം റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_write_external_storage">ബാഹ്യ സംഭരണത്തിലേക്ക് റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_summaries_turn_screen_on">സ്ക്രീൻ ഓൺ ചെയ്യുക</string>
+  <string name="app_ops_summaries_get_accounts">അക്കൗണ്ടുകൾ ലഭ്യമാക്കുക</string>
+  <string name="app_ops_summaries_toggle_wifi">ടോഗിൾ Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">ടോഗിൾ Bluetooth</string>
+  <string name="app_ops_summaries_start_at_boot">ബൂട്ടില്‍ അരംഭിക്കുക</string>
+  <string name="app_ops_summaries_toggle_nfc">NFC ടോഗിൾ</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ടോഗിൾ മൊബൈൽ ഡാറ്റ</string>
+  <string name="app_ops_summaries_superuser">റൂട്ട് പ്രവേശനം</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">പരുപരുത്ത സ്ഥലം</string>
+  <string name="app_ops_labels_fine_location">നല്ല സ്ഥലം</string>
+  <string name="app_ops_labels_gps">GPS</string>
+  <string name="app_ops_labels_vibrate">വൈബ്രേറ്റുചെയ്യുക</string>
+  <string name="app_ops_labels_read_contacts">കോണ്‍ടാക്റ്റ് വായിക്കുക</string>
+  <string name="app_ops_labels_modify_contacts">കോണ്‍ടാക്റ്റുകള്‍ പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_labels_read_call_log">കോൾ ലോഗ് റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_labels_modify_call_log">കോൾ ലോഗ് പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_labels_read_calendar">കലണ്ടർ വായിക്കുക</string>
+  <string name="app_ops_labels_modify_calendar">കലണ്ടർ പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_labels_wifi_scan">Wi-Fi സ്കാൻ</string>
+  <string name="app_ops_labels_notification">അറിയിപ്പ്/ടോസ്റ്റ്</string>
+  <string name="app_ops_labels_cell_scan">സെൽ സ്കാൻ</string>
+  <string name="app_ops_labels_call_phone">കോൾ ഫോൺ</string>
+  <string name="app_ops_labels_read_sms">SMS വായിക്കുക</string>
+  <string name="app_ops_labels_write_sms">SMS റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_labels_receive_sms">SMS സ്വീകരിക്കുക</string>
+  <string name="app_ops_labels_receive_emergency_sms">അടിയന്തര SMS സ്വീകരിക്കുക</string>
+  <string name="app_ops_labels_receive_mms">MMS സ്വീകരിക്കുക</string>
+  <string name="app_ops_labels_receive_wap_push">WAP പുഷ് സ്വീകരിക്കുക</string>
+  <string name="app_ops_labels_send_sms">SMS അയയ്ക്കുക</string>
+  <string name="app_ops_labels_read_icc_sms">ICC SMS വായിക്കുക</string>
+  <string name="app_ops_labels_write_icc_sms">ICC SMS റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_labels_modify_settings">ക്രമീകരണങ്ങൾ പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_labels_draw_on_top">മുകളിൽ വരയ്ക്കുക</string>
+  <string name="app_ops_labels_access_notifications">അറിയിപ്പുകൾ ആക്‌സസ്സുചെയ്യുക</string>
+  <string name="app_ops_labels_camera">ക്യാമറ</string>
+  <string name="app_ops_labels_record_audio">ഓഡിയോ റെക്കോർഡുചെയ്യുക</string>
+  <string name="app_ops_labels_play_audio">ഓഡിയോ പ്ലേ ചെയ്യുക</string>
+  <string name="app_ops_labels_read_clipboard">ക്ലിപ്ബോര്‍ഡ് റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_labels_modify_clipboard">ക്ലിപ്ബോർഡ് പരിഷ്ക്കരിക്കുക</string>
+  <string name="app_ops_labels_media_buttons">മീഡിയ ബട്ടണുകൾ</string>
+  <string name="app_ops_labels_audio_focus">ഓഡിയോ ഫോക്കസ്</string>
+  <string name="app_ops_labels_master_volume">മാസ്റ്റര്‍ വോളിയം</string>
+  <string name="app_ops_labels_voice_volume">വോയ്സ് വോളിയം</string>
+  <string name="app_ops_labels_ring_volume">റിംഗ് വോളിയം</string>
+  <string name="app_ops_labels_media_volume">മീഡിയ വോളിയം</string>
+  <string name="app_ops_labels_alarm_volume">അലാറം വോളിയം</string>
+  <string name="app_ops_labels_notification_volume">അറിയിപ്പ് വോളിയം</string>
+  <string name="app_ops_labels_bluetooth_volume">ബ്ലൂടൂത്ത് വോളിയം</string>
+  <string name="app_ops_labels_keep_awake">സജീവമായി തുടരുക</string>
+  <string name="app_ops_labels_monitor_location">മോണിറ്റർ സ്ഥലം</string>
+  <string name="app_ops_labels_monitor_high_power_location">ഉയർന്ന പവർ സ്ഥലം നിരീക്ഷിക്കുക</string>
+  <string name="app_ops_labels_get_usage_stats">ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ ലഭ്യമാക്കുക</string>
+  <string name="app_ops_labels_mute_unmute_microphone">മൈക്രോഫോൺ നിശ്ശബ്ദമാക്കുക / ശബ്ദമുള്ളതാക്കൂ ചെയ്യുക</string>
+  <string name="app_ops_labels_toast_window">ടോസ്റ്റുകൾ പ്രദര്‍ശനം ചെയ്യുക</string>
+  <string name="app_ops_labels_project_media">പ്രോജക്റ്റ് മീഡിയ</string>
+  <string name="app_ops_labels_activate_vpn">VPN സജീവമാക്കുക</string>
+  <string name="app_ops_labels_write_wallpaper">വാൾപേപ്പർ റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_labels_assist_structure">അസിസ്റ്റ് ഘടന</string>
+  <string name="app_ops_labels_assist_screenshot">അസിസ്റ്റ് സ്ക്രീൻഷോട്ട്</string>
+  <string name="app_ops_labels_read_phone_state">ഫോൺ സ്ഥിതി റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_labels_add_voicemail">വോയ്‌സ് മെയിൽ ചേർക്കുക</string>
+  <string name="app_ops_labels_use_sip">SIP ഉപയോഗിക്കുക</string>
+  <string name="app_ops_labels_make_call">കോൾ ചെയ്യുക</string>
+  <string name="app_ops_labels_use_fingerprint">ഫിംഗര്‍പ്രിന്‍റ് ഉപയോഗിക്കുക</string>
+  <string name="app_ops_labels_use_body_sensors">ശരീര സെൻസറുകൾ ഉപയോഗിക്കുക</string>
+  <string name="app_ops_labels_read_cell_broadcasts">സെൽ ബ്രോഡ്‌കാസ്റ്റുകള്‍ റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_labels_mock_location">വ്യാജ സ്ഥാനം</string>
+  <string name="app_ops_labels_read_external_storage">ബാഹ്യ സംഭരണം റീഡ് ചെയ്യുക</string>
+  <string name="app_ops_labels_write_external_storage">ബാഹ്യ സംഭരണത്തിലേക്ക് റൈറ്റ് ചെയ്യുക</string>
+  <string name="app_ops_labels_turn_screen_on">സ്ക്രീൻ ഓൺ ചെയ്യുക</string>
+  <string name="app_ops_labels_get_accounts">അക്കൗണ്ടുകൾ ലഭ്യമാക്കുക</string>
+  <string name="app_ops_labels_toggle_wifi">ടോഗിൾ Wi-Fi</string>
+  <string name="app_ops_labels_toggle_bluetooth">ടോഗിള് Bluetooth</string>
+  <string name="app_ops_labels_start_at_boot">ബൂട്ടില്‍ അരംഭിക്കുക</string>
+  <string name="app_ops_labels_toggle_nfc">NFC ടോഗിൾ</string>
+  <string name="app_ops_labels_toggle_mobile_data">മൊബൈൽ ഡാറ്റ ടോഗിൾ</string>
+  <string name="app_ops_labels_superuser">റൂട്ട് പ്രവേശനം</string>
   <!-- App ops permissions -->
+  <string name="app_ops_permissions_allowed">അനുവദനീയമായ</string>
+  <string name="app_ops_permissions_ignored">അവഗണിച്ചു</string>
+  <string name="app_ops_permissions_always_ask">എപ്പോഴും ചോദിക്കുക</string>
   <!-- App ops detail -->
+  <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> ഉപയോഗിച്ചു)</string>
+  <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> അനുവദിച്ചു</string>
+  <string name="app_ops_ignored_count">നിരസിച്ചു <xliff:g id="count" example="2 times">%s</xliff:g></string>
+  <string name="app_ops_both_count">അനുവദിച്ചത് <xliff:g id="count">%1$s</xliff:g>, നിരസിച്ചത് <xliff:g id="count">%2$s</xliff:g></string>
   <!-- App ops menu options -->
+  <string name="app_ops_show_user_apps">ഉപയോക്തൃ ആപ്ലിക്കേഷനുകള്‍ ദൃശ്യമാക്കുക</string>
+  <string name="app_ops_show_system_apps">ബിൽറ്റ്-ഇൻ അപ്ലിക്കേഷനുകൾ ദൃശ്യമാക്കുക</string>
+  <string name="app_ops_reset_counters">കൗണ്ടറുകൾ പുനക്രമീകരിക്കുന്നത് അനുവദിക്കുക/നിരാകരിക്കുക</string>
+  <string name="app_ops_reset_confirm_title">കൗണ്ടറുകൾ പുനഃക്രമീകരിക്കുന്നത് സ്ഥിരീകരിക്കുക</string>
+  <string name="app_ops_reset_confirm_mesg">കൗണ്ടറുകൾ പുനഃക്രമീകരിക്കണമെന്ന് നിങ്ങള്‍ക്ക് ഉറപ്പാണോ?</string>
+  <string name="ok">ശരി</string>
   <!-- Hostname setting -->
+  <string name="device_hostname">ഉപകരണ ഹോസ്റ്റ്നെയിം</string>
+  <string name="unlock_scramble_pin_layout_title">സ്ക്രാമ്പിള്‍ ചെയ്ത ലേഔട്ട്</string>
+  <string name="unlock_scramble_pin_layout_summary">ഉപകരണം അൺലോക്ക് ചെയ്യുമ്പോൾ PIN ലേയൌട്ട് സ്ക്രാമ്പിള്‍ ചെയ്യുക</string>
+  <string name="button_pref_title">ബട്ടണുകള്‍</string>
+  <string name="hardware_keys_power_key_title">പവർ ബട്ടൺ</string>
+  <string name="hardware_keys_home_key_title">ഹോം ബട്ടൺ</string>
+  <string name="hardware_keys_back_key_title">പിന്നിലേക്ക് ബട്ടൺ</string>
+  <string name="hardware_keys_menu_key_title">മെനു ബട്ടൺ</string>
+  <string name="hardware_keys_assist_key_title">തിരയൽ ബട്ടൺ</string>
+  <string name="hardware_keys_appswitch_key_title">സമീപകാലത്തുള്ളവ ബട്ടൺ</string>
+  <string name="hardware_keys_camera_key_title">ക്യാമറ ബട്ടൺ</string>
+  <string name="hardware_keys_volume_keys_title">വോളിയം ബട്ടണുകൾ</string>
+  <string name="hardware_keys_short_press_title">ഹ്രസ്വ അമർത്തല്‍ നടപടി</string>
+  <string name="hardware_keys_long_press_title">ദീര്‍ഘ അമർത്തല്‍ നടപടി</string>
+  <string name="hardware_keys_double_tap_title">ഇരട്ട അമർത്തല്‍ നടപടി</string>
+  <string name="hardware_keys_action_nothing">നടപടി ഇല്ല</string>
+  <string name="hardware_keys_action_menu">മെനു തുറക്കുക/അടയ്ക്കുക</string>
+  <string name="hardware_keys_action_app_switch">സമീപകാല അപ്ലിക്കേഷനുകൾ സ്വിച്ചർ</string>
+  <string name="hardware_keys_action_search">തിരയൽ അസിസ്റ്റന്റ്</string>
+  <string name="hardware_keys_action_voice_search">ശബ്ദ തിരയൽ</string>
+  <string name="hardware_keys_action_in_app_search">ഇൻ-ആപ് തിരയൽ</string>
+  <string name="hardware_keys_action_launch_camera">ക്യാമറ സമാരംഭിക്കുക</string>
+  <string name="hardware_keys_action_sleep">സ്ക്രീൻ ഓഫ് ചെയ്യുക</string>
+  <string name="hardware_keys_action_last_app">കഴിഞ്ഞ ആപ്ലിക്കേഷൻ</string>
+  <string name="camera_sleep_on_release_title">സ്ക്രീൻ പീക്ക്</string>
+  <string name="camera_sleep_on_release_summary">പകുതി അമര്‍ത്തുന്നത് ബട്ടണ്‍ അമര്‍ത്തിപ്പിടിക്കുമ്പോള്‍ മാത്രം സ്ക്രീന്‍ ഓണ്‍ ആയി നിലനിര്‍ത്തുന്നതാണ്</string>
+  <string name="camera_launch_title">ക്യാമറ സമാരംഭിക്കുക</string>
+  <string name="camera_launch_summary">നീണ്ട നേരം അമര്‍ത്തി സ്വതന്ത്രമാക്കുന്നതിലൂടെ ക്യാമറ ആരംഭിക്കുന്നതാണ്</string>
+  <string name="volbtn_music_controls_title">പ്ലേബാക്ക് നിയന്ത്രണം</string>
+  <string name="volbtn_music_controls_summary">സ്ക്രീന്‍ ഓഫ് ആയിരിക്കുമ്പോള്‍, വോളിയം കീകള്‍ ദീര്‍ഘനേരം അമര്‍ത്തുന്നത് സംഗീത ട്രാക്കുകള്‍ തേടുന്നതാണ്</string>
+  <string name="volbtn_cursor_control_title">കീബോർഡ് കഴ്സർ നിയന്ത്രണം</string>
+  <string name="volbtn_cursor_control_off">പ്രവർത്തനരഹിതമാക്കി</string>
+  <string name="volbtn_cursor_control_on">വോളിയം മുകളിലേക്ക്/താഴേക്ക് കഴ്സർ ഇടത്തേക്ക് / വലത്തേക്ക് നീക്കുന്നതാണ്</string>
+  <string name="volbtn_cursor_control_on_reverse">വോളിയം മുകളിലേക്ക്/താഴേക്ക് കഴ്സർ വലത്തേക്ക് / ഇടത്തേക്ക് നീക്കുന്നതാണ്</string>
+  <string name="power_end_call_title">കോൾ അവസാനിപ്പിക്കുക</string>
+  <string name="power_end_call_summary">പവർ ബട്ടൺ അമർത്തിയാൽ നിലവിലുള്ള കോൾ അവസാനിക്കുന്നതാണ്</string>
+  <string name="swap_volume_buttons_title">പുനര്‍വിന്യാസം</string>
+  <string name="swap_volume_buttons_summary">സ്ക്രീൻ തിരിക്കുമ്പോൾ വോളിയം ബട്ടണുകൾ സ്വാപ്പ് ചെയ്യുക</string>
+  <string name="button_wake_title">ഉപകരണം സജീവമാക്കുക</string>
+  <string name="home_answer_call_title">കോള്‍ മറുപടി</string>
+  <string name="home_answer_call_summary">ഹോം ബട്ടൺ അമർത്തിയാൽ ഇപ്പോഴുള്ള ഇൻകമിംഗ് കോളിന് മറുപടി നല്‍കുന്നതാണ്</string>
   <!-- Backlight brightness settings screen -->
+  <string name="adaptive_backlight_title">യോജിച്ച ബാക്ക്‌ലൈറ്റ്</string>
+  <string name="adaptive_backlight_summary">ഉപയോഗക്ഷമത പരിപാലിക്കുമ്പോള്‍ ബാറ്ററിയുടെ ആയുസ്സ് വര്‍ദ്ധിപ്പിക്കുന്നതിന് ഡിസ്പ്ലേയുടെ ബാക്ക്‌ലൈറ്റിന്‍റെ തെളിച്ചം ഡൈനാമിക്കായി ക്രമീകരിക്കുക</string>
   <!-- Sunlight readability enhancement screen -->
+  <string name="sunlight_enhancement_title">സൂര്യപ്രകാശം മെച്ചപ്പെടുത്തൽ</string>
+  <string name="sunlight_enhancement_summary">തെളിഞ്ഞ സൂര്യപ്രകാശത്തില്‍ ഡിസ്പ്ലേ തെളിച്ചവും വായനക്ഷമതയും മെച്ചപ്പെടുത്തുക</string>
   <!-- Color enhancement settings screen -->
+  <string name="color_enhancement_title">നിറം മെച്ചപ്പെടുത്തൽ</string>
+  <string name="color_enhancement_summary">ഡിസ്പ്ലേയുടെ നിറം ഡൈനമിക്കായി മെച്ചപ്പെടുത്തുക</string>
   <!-- Key backlight -->
+  <string name="button_backlight_title">ബാക്ക്‌ലൈറ്റ്</string>
+  <string name="button_backlight_enabled">ബട്ടണുകൾ പ്രകാശിപ്പിക്കുക</string>
+  <string name="keyboard_backlight_enabled">കീബോർഡ് പ്രകാശിപ്പിക്കുക</string>
+  <string name="button_backlight_seekbar_title">ബട്ടൺ തെളിച്ചം</string>
+  <string name="keyboard_backlight_seekbar_title">കീബോർഡ് തെളിച്ചം</string>
+  <string name="backlight_timeout_title">പ്രകാശിപ്പിക്കല്‍ സമയപരിധി</string>
+  <string name="backlight_timeout_unlimited">ഓഫ് ചെയ്യരുത്</string>
+  <string name="backlight_summary_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
+  <string name="backlight_summary_enabled_with_timeout"><xliff:g id="timeout">%s</xliff:g>ന് വേണ്ടി പ്രാപ്തമാക്കി</string>
+  <string name="backlight_summary_enabled">പ്രവർത്തനക്ഷമമാക്കി</string>
   <!-- Gesture Settings -->
   <!-- Settings main menu entry -->
+  <string name="gesture_settings_title">ഗസ്റ്ററുകൾ</string>
   <!-- Power menu -->
+  <string name="power_menu_title">പവർ മെനു</string>
+  <string name="power_menu_reboot_title">റീബൂട്ട് മെനു</string>
+  <string name="power_menu_screenshot_title">സ്ക്രീൻഷോട്ട്</string>
+  <string name="power_menu_airplane_title">ഫ്ലൈറ്റ് മോഡ്</string>
+  <string name="power_menu_users_title">ഉപയോക്തൃ സ്വിച്ചർ</string>
+  <string name="power_menu_settings_title">ക്രമീകരണങ്ങളിലേയ്ക്ക്</string>
+  <string name="power_menu_lockdown_title">ഉപകരണ ലോക്ക്ഡൗൺ</string>
+  <string name="power_menu_bug_report_title">ബഗ് റിപ്പോർട്ട്</string>
+  <string name="power_menu_sound_title">സൗണ്ട് പാനൽ</string>
+  <string name="power_menu_bug_report_disabled">ഡെവലപ്പ്മെന്റ് ക്രമീകരണങ്ങളില്‍ ബഗ് റിപ്പോര്‍ട്ടിംഗ് അപ്രാപ്തമാക്കിയിരിക്കുന്നു</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">ഓൺ-സ്ക്രീൻ നാവിഗേഷന്‍ ബാർ പ്രാപ്തമാക്കുക</string>
+  <string name="disable_navkeys_summary">ഓൺ-സ്ക്രീൻ നാവിഗേഷൻ ബാർ പ്രാപ്തമാക്കുകയും ഹാർഡ്‌വെയർ ബട്ടണുകൾ അപ്രാപ്തമാക്കുകയും ചെയ്യുക</string>
   <!-- tap-to-sleep -->
+  <string name="double_tap_to_sleep_title">നിഷ്ക്രിയമാക്കുന്നതിന് ഇരട്ട-അമര്‍ത്തല്‍ ചെയ്യുക</string>
+  <string name="double_tap_to_sleep_summary">ഡിസ്പ്ലേ ഓഫ് ചെയ്യുന്നതിന് സ്റ്റാറ്റസ് ബാറിൽ ഇരട്ട-അമര്‍ത്തല്‍ ചെയ്യുക</string>
   <!-- Proximity wake -->
+  <string name="proximity_wake_title">യാദൃച്ഛികമായി സജീവമാകുന്നത് തടയുക</string>
+  <string name="proximity_wake_summary">സ്ക്രീൻ സജീവമാകുന്നതിന് മുമ്പ് പ്രോക്സിമിറ്റി സെൻസർ പരിശോധിക്കുക</string>
   <!-- Turn on display when power connected; turn off display when power disconnected -->
+  <string name="wake_when_plugged_or_unplugged_title">വേക്ക് ഓൺ പ്ലഗ്</string>
+  <string name="wake_when_plugged_or_unplugged_summary">ഒരു ഊര്‍ജ്ജ സ്രോതസ്സില്‍ ബന്ധിപ്പിക്കുമ്പോള്‍ അല്ലെങ്കില്‍ വിച്ഛേദിക്കുമ്പോൾ സ്ക്രീന്‍ ഓണ്‍ ചെയ്യുക</string>
   <!-- Font size sample text. This needs to be a very short string, as it is shown in
     multiple font sizes in a limited amount of space. -->
+  <string name="font_size_sample">മാതൃക</string>
   <!-- Volume settings - Volume adjustment sound -->
+  <string name="volume_adjust_sounds_title">വോളിയം ക്രമീകരണ ശബ്ദങ്ങൾ</string>
   <!-- Hardware tunables - Vibrator intensity -->
+  <string name="vibrator_intensity_title">വൈബ്രേറ്റർ തീവ്രത</string>
+  <string name="vibrator_warning">%1$d ല്‍ കൂടുതൽ ഉള്ള മൂല്യങ്ങൾക്ക് ശുപാർശ ചെയ്യപ്പെടുന്നില്ല</string>
   <!-- Hardware tunables - Color calibration -->
+  <string name="color_calibration_title">നിറം കാലിബ്രേഷൻ</string>
+  <string name="color_calibration_summary">ഓൺ-സ്ക്രീൻ നിറങ്ങൾ കാലിബ്രേറ്റ് ചെയ്യുക</string>
+  <string name="color_red_title">ചുവപ്പ്</string>
+  <string name="color_green_title">പച്ച</string>
+  <string name="color_blue_title">നീല</string>
   <!-- Hardware tunables - Gamma calibration -->
+  <string name="gamma_tuning_title_head">ഗാമാ കാലിബ്രേഷൻ</string>
+  <string name="gamma_tuning_summary_head">ഗാമാ മൂല്യങ്ങൾ വലിക്കുക</string>
+  <string name="gamma_tuning_control_set_header">ഗ്രൂപ്പ് <xliff:g id="index">%d</xliff:g></string>
   <!-- used if no name provided by overlay -->
+  <string name="gamma_tuning_contrast">ദൃശ്യതീവ്രത</string>
+  <string name="gamma_tuning_brightness">തെളിച്ചം</string>
+  <string name="gamma_tuning_saturation">സാച്ചുറേഷൻ</string>
   <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">സംഗീത ആപ്ലിക്കേഷൻ ആരംഭിക്കുക</string>
+  <string name="headset_connect_player_summary">ഹെഡ്സെറ്റ് ഘടിപ്പിച്ചിരിക്കുമ്പോള്‍ ഡിഫോള്‍ട്ട് സംഗീത ആപ്ലിക്കേഷൻ ആരംഭിക്കുക</string>
   <!-- WiFi auto-configure priorities -->
+  <string name="wifi_auto_config_priorities">സ്വപ്രേരിത മുൻഗണന</string>
+  <string name="auto_brightness_reset_button">പുനഃസജ്ജമാക്കുക</string>
   <!-- Display : Rotation  -->
+  <string name="display_rotation_title">റൊട്ടേഷൻ</string>
+  <string name="display_rotation_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
+  <string name="display_rotation_unit">ഡിഗ്രി</string>
+  <string name="display_lockscreen_rotation_title">ലോക്ക് സ്ക്രീൻ തിരിക്കുക</string>
+  <string name="display_rotation_category_title">തിരിയല്‍ മോഡുകൾ</string>
+  <string name="display_rotation_0_title">0 ഡിഗ്രി</string>
+  <string name="display_rotation_90_title">90 ഡിഗ്രി</string>
+  <string name="display_rotation_180_title">180 ഡിഗ്രി</string>
+  <string name="display_rotation_270_title">270 ഡിഗ്രി</string>
   <!-- Display settings.  Screen color. -->
+  <string name="screencolor">സ്ക്രീൻ നിറം</string>
+  <string name="screencolor_summary">സ്ക്രീൻ ഹ്യൂ, സാച്ചുറേഷൻ, ദൃശ്യതീവ്രത അല്ലെങ്കിൽ തീവ്രത ട്യൂണ്‍ ചെയ്യുക</string>
+  <string name="custom_screencolor">ഇഷ്ടാനുസൃത സ്ക്രീൻ നിറം</string>
+  <string name="screencolor_save">സംരക്ഷിക്കുക</string>
+  <string name="screencolor_cancel">റദ്ദാക്കുക</string>
+  <string name="restore_preview">ഡിഫോള്‍ട്ട് ചിത്രം കാണുക</string>
+  <string name="selectnewfile_menu">ഗാലറിയിൽ നിന്നും പുതിയ ചിത്രം കാണുക</string>
+  <string name="selectfile_menu">ഗാലറിയിൽ നിന്നും ചിത്രം കാണുക</string>
+  <string name="restore_default_str">പുനഃസജ്ജമാക്കുക</string>
+  <string name="hue_str">ഹ്യൂ <xliff:g id="hue_value">%1$s</xliff:g></string>
+  <string name="saturation_str">സാച്ചുറേഷൻ: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+  <string name="contrast_str">ദൃശ്യതീവ്രത: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">തീവ്രത: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
+  <string name="live_display_summary">വായനാക്ഷമത മെച്ചപ്പെടുത്തുന്നതിനും കണ്ണുകളുടെ സമ്മര്‍ദ്ദം കുറയ്ക്കാനും സമയത്തിന്‍റെയും ചുറ്റുപാടിന്റെ സാഹചര്യത്തിന്റെയും അടിസ്ഥാനത്തില്‍ നിങ്ങളുടെ സ്ക്രീന്‍ ഒപ്റ്റിമൈസ് ചെയ്യുക.</string>
+  <string name="live_display_mode">ഡിസ്പ്ലേ മോഡ്</string>
+  <string name="live_display_color_temperature_title">നിറം താപനില</string>
+  <string name="live_display_color_temperature_summary">ദിവസം: <xliff:g id="day_temperature">%1$d</xliff:g>K രാത്രി: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">ദിവസം</string>
+  <string name="live_display_night">രാത്രി</string>
+  <string name="live_display_outdoor_mode_title">ഓട്ടോമാറ്റിക് ഔട്ട്‌ഡോര്‍ മോഡ്</string>
+  <string name="live_display_outdoor_mode_summary">തെളിഞ്ഞ സൂര്യപ്രകാശത്തില്‍ തെളിച്ചവും സാച്ചുറേഷനും സ്വപ്രേരിതമായി വർദ്ധിപ്പിക്കുക</string>
+  <string name="live_display_low_power_title">വൈദ്യുതി ഉപഭോഗം കുറയ്ക്കുക</string>
+  <string name="live_display_low_power_summary">കുറഞ്ഞ ഊര്‍ജ്ജ ഉപഭോഗത്തിനായി ഡീഗ്രഡേഷന്‍ ഇല്ലാതെ പ്രദര്‍ശനം ക്രമീകരിക്കുക</string>
+  <string name="live_display_enhance_color_title">മെച്ചപ്പെടുത്തിയ നിറങ്ങള്‍</string>
+  <string name="live_display_enhance_color_summary">തൊലിയുടെ നിറം, ദൃശ്യം, മറ്റ് ചിത്രങ്ങള്‍ എന്നിവയുടെ നിറങ്ങള്‍ മെച്ചപ്പെടുത്തുക</string>
+  <string name="live_display_color_profile_title">കളര്‍ പ്രൊഫൈൽ</string>
+  <string name="live_display_color_profile_standard_title">അടിസ്ഥാനം</string>
+  <string name="live_display_color_profile_standard_summary">കൃത്യമായ നിറങ്ങളും തെളിഞ്ഞ വെള്ളയും</string>
+  <string name="live_display_color_profile_natural_title">സ്വാഭാവികം</string>
+  <string name="live_display_color_profile_natural_summary">തന്മയത്തമുള്ള നിറങ്ങളും തൊലിയുടെ നിറവും</string>
+  <string name="live_display_color_profile_dynamic_title">ഡൈനാമിക്</string>
+  <string name="live_display_color_profile_dynamic_summary">മെച്ചപ്പെടുത്തിയ നിറങ്ങളും തെളിഞ്ഞ വെള്ളയും</string>
+  <string name="live_display_color_profile_cinema_title">സിനിമ</string>
+  <string name="live_display_color_profile_cinema_summary">വീഡിയോകള്‍ക്കായി സമ്പൂര്‍ണ്ണ കളര്‍ റീപ്രൊഡക്ഷന്‍</string>
+  <string name="live_display_color_profile_astronomy_title">ജ്യോതിശാസ്ത്രം</string>
+  <string name="live_display_color_profile_astronomy_summary">നൈറ്റ് വിഷന്‍ നിലനിർത്തുന്നതിനുള്ള കടുത്ത ചുവപ്പ്</string>
+  <string name="live_display_color_profile_photography_title">ഫോട്ടോഗ്രാഫി</string>
+  <string name="live_display_color_profile_photography_summary">ഫോട്ടോകൾക്കായി സമ്പൂര്‍ണ്ണ കളര്‍ റീപ്രൊഡക്ഷന്‍</string>
+  <string name="live_display_color_profile_basic_title">ബേസിക്</string>
+  <string name="live_display_color_profile_basic_summary">ഡിസ്പ്ലേ അണ്‍കാലിബറേറ്റഡ് ഉപയോഗിക്കുക</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ഐക്കൺ സെലക്ടർ</string>
+  <string name="ime_switcher_notify_summary">ഇൻപുട്ട് മെത്തേഡ് സെലക്ടർ ഐക്കൺ ദൃശ്യമാക്കുക</string>
   <!-- Heads up -->
+  <string name="heads_up_notifications">മുന്നറിയിപ്പ്</string>
+  <string name="summary_heads_up_enabled">പോപ്പ്-അപ്പ് അറിയിപ്പുകൾ പ്രാപ്തമാണ്</string>
+  <string name="summary_heads_up_disabled">പോപ്പ്-അപ്പ് അറിയിപ്പുകൾ അപ്രാപ്തമാണ്</string>
   <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
+  <string name="bluetooth_accept_all_files">എല്ലാ ഫയൽ തരങ്ങളും അംഗീകരിക്കുക</string>
   <!-- High touch sensitivity -->
+  <string name="high_touch_sensitivity_title">ഉയര്‍ന്ന സ്പര്‍ശന സംവേദനക്ഷമത</string>
+  <string name="high_touch_sensitivity_summary">കയ്യുറകൾ ധരിച്ചിരിക്കുമ്പോള്‍ ഉപയോഗിക്കുന്നതിനായി ടച്ച്സ്ക്രീൻ സെന്‍സിറ്റിവിറ്റി വര്‍ദ്ധിപ്പിക്കുക</string>
   <!-- Display & Lights screen, setting options for LCD density -->
+  <string name="lcd_density">LCD സാന്ദ്രത</string>
+  <string name="dialog_title_lcd_density">LCD സാന്ദ്രത</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (ഡിഫോൾട്ട്)</string>
+  <string name="restarting_ui">UI പുനരാരംഭിക്കുന്നു\u2026</string>
   <!-- Stylus Icon -->
+  <string name="stylus_icon_enabled_title">സ്റ്റൈലസ് ഉപയോഗിക്കുമ്പോൾ ഐക്കൺ ദൃശ്യമാക്കുക</string>
+  <string name="stylus_icon_enabled_summary">സ്റ്റൈലസ് ഉപയോഗിച്ച് ഹോവര്‍ അല്ലെങ്കില്‍ ഡ്രോയിംഗ് ചെയ്യുമ്പോള്‍ പോയിന്റർ ഐക്കണ്‍ ദൃശ്യമാക്കുക</string>
   <!-- Stylus Gestures -->
+  <string name="gestures_settings_title">സ്റ്റൈലസ് ഗസ്റ്ററുകൾ</string>
+  <string name="category_spen_title">സ്റ്റൈലസ് ഗസ്റ്ററുകൾ</string>
+  <string name="enable_subcat_title">സ്റ്റൈലസ്</string>
+  <string name="enable_spen_title_head">ഗസ്റ്ററുകൾ പ്രാപ്തമാക്കുക</string>
+  <string name="enable_spen_summary_head">സ്റ്റൈലസ് ബട്ടൺ അമര്‍ത്തിപ്പിടിച്ച് സ്വൈപ്പ് ഗസ്റ്ററുകൾ ഉപയോഗിക്കുക</string>
+  <string name="gestures_subcat_title">ഗസ്റ്ററുകൾ</string>
+  <string name="gestures_left_spen_title_head">ഇടത്തേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+  <string name="gestures_right_spen_title_head">വലത് സ്വൈപ്പ്</string>
+  <string name="gestures_up_spen_title_head">സ്വൈപ്പ് അപ്പ്</string>
+  <string name="gestures_down_spen_title_head">താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+  <string name="gestures_long_spen_title_head">ദീർഘനേരം അമർത്തുക</string>
+  <string name="gestures_double_spen_title_head">ഇരട്ട അമര്‍ത്തല്‍</string>
   <!-- Gestures Options -->
+  <string name="gestures_action_empty">നടപടി ഇല്ല</string>
+  <string name="gestures_action_home">ഹോം</string>
+  <string name="gestures_action_back">മടങ്ങുക</string>
+  <string name="gestures_action_menu">മെനു</string>
+  <string name="gestures_action_search">തിരയൽ അഭ്യര്‍ത്ഥിക്കുക</string>
+  <string name="gestures_action_recent">പുതിയ അപ്ലിക്കേഷനുകൾ</string>
   <!-- Stylus gestures -->
+  <string name="stylus_app_not_installed">%s ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
   <!-- Touchscreen hovering -->
+  <string name="touchscreen_hovering_title">ടച്ച്സ്ക്രീൻ ഹോവറിംഗ്</string>
+  <string name="touchscreen_hovering_summary">വെബ് ബ്രൌസറുകള്‍, റിമോട്ട് ഡെസ്ക്ടോപ്പുകള്‍ തുടങ്ങിയവയിലെ മൌസ് എന്നപോലെ സ്ക്രീന്‍ ഹോവര്‍ ചെയ്യാന്‍ നിങ്ങളെ അനുവദിക്കുന്നു.</string>
   <!-- Increasing ring tone volume -->
+  <string name="increasing_ring_volume_option_title">വര്‍ദ്ധിക്കുന്ന റിംഗ് വോളിയം</string>
+  <string name="increasing_ring_min_volume_title">വോളിയം ആരംഭിക്കുക</string>
+  <string name="increasing_ring_ramp_up_time_title">റാംപ്-അപ്പ് സമയം</string>
   <!-- LTO download data over wi-fi only -->
+  <string name="lto_download_data_wifi_only">GPS അസിസ്റ്റഡ് ഡാറ്റ ഡൗൺലോഡ്</string>
+  <string name="lto_download_data_wifi_only_on">ഏതെങ്കിലും നെറ്റ്‌വർക്കുകളിലൂടെ</string>
+  <string name="lto_download_data_wifi_only_off">Wi\u2011Fi നെറ്റ്‌വർക്കുകൾ വഴി മാത്രം</string>
+  <string name="volume_keys_control_ring_stream_title">റിംഗ്ടോൺ വോളിയം നിയന്ത്രിക്കുക</string>
+  <string name="volume_keys_control_ring_stream_summary_on">വോളിയം കീകൾ റിംഗ്ടോൺ വോളിയം നിയന്ത്രിക്കുന്നു</string>
+  <string name="volume_keys_control_ring_stream_summary_off">വോളിയം കീകൾ മീഡിയ വോളിയം നിയന്ത്രിക്കുന്നു</string>
+  <string name="category_calibration">കാലിബ്രേഷൻ</string>
+  <string name="display_and_lights">ഡിസ്പ്ലേ &amp; ലൈറ്റ്സ്</string>
   <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
+  <string name="power_notifications_category_title">ചാർജ്ജിംഗ് ശബ്‌ദം</string>
   <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
+  <string name="power_notifications_enable_title">പ്രവർത്തനക്ഷമമാക്കുക</string>
+  <string name="power_notifications_enable_summary">ഒരു ഊര്‍ജ്ജ സ്രോതസ്സില്‍ ബന്ധിപ്പിക്കുമ്പോള്‍ അല്ലെങ്കില്‍ വിച്ഛേദിക്കുമ്പോൾ ഒരു ശബ്ദം പ്ലേ ചെയ്യുക</string>
   <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
+  <string name="power_notifications_vibrate_title">വൈബ്രേറ്റുചെയ്യുക</string>
   <!-- Sound settings, Charging sounds ringtone selection, preference label -->
+  <string name="power_notifications_ringtone_title">അറിയിപ്പ് ശബ്ദം</string>
   <!-- Sound settings, charging sounds label for ringtone == none -->
+  <string name="power_notifications_ringtone_silent">നിശബ്‌ദം</string>
   <!-- Status bar -->
+  <string name="status_bar_title">സ്റ്റാറ്റസ് ബാർ</string>
+  <string name="status_bar_toggle_brightness">തെളിച്ച നിയന്ത്രണം</string>
+  <string name="status_bar_toggle_brightness_summary">സ്റ്റാറ്റസ് ബാറിന് കുറുകെ സ്ലൈഡ് ചെയ്യുന്നതിലൂടെ തെളിച്ചം ക്രമീകരിക്കുക</string>
+  <string name="status_bar_notif_count_title">അറിയിപ്പ് എണ്ണം ദൃശ്യമാക്കുക</string>
+  <string name="status_bar_notif_count_summary">അവശേഷിക്കുന്ന അറിയിപ്പുകളുടെ എണ്ണം ദൃശ്യമാക്കുക</string>
+  <string name="status_bar_quick_qs_pulldown_title">ദ്രുത പുൾഡൌൺ</string>
+  <string name="status_bar_quick_qs_pulldown_summary">സ്റ്റാറ്റസ് ബാറിന്റെ %1$s എഡ്ജ് ദ്രുത ക്രമീകരണങ്ങൾ താഴേക്ക് കൊണ്ടുവരുന്നതാണ്</string>
+  <string name="status_bar_quick_qs_pulldown_summary_left">ഇടത്</string>
+  <string name="status_bar_quick_qs_pulldown_summary_right">വലത്</string>
+  <string name="status_bar_quick_qs_pulldown_off">ഓഫാണ്</string>
+  <string name="status_bar_quick_qs_pulldown_left">ഇടത്</string>
+  <string name="status_bar_quick_qs_pulldown_right">വലത്</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_title">ഘടികാരം ശൈലി</string>
+  <string name="status_bar_clock_style_right">വലത്</string>
+  <string name="status_bar_clock_style_left">ഇടത്</string>
+  <string name="status_bar_clock_style_center">കേന്ദ്രം</string>
+  <string name="status_bar_clock_style_hidden">മറച്ചത്</string>
+  <string name="status_bar_am_pm_title">AM/PM ശൈലി</string>
+  <string name="status_bar_am_pm_info">24 മണിക്കൂർ ക്ലോക്ക് പ്രാപ്തമാക്കി</string>
+  <string name="status_bar_am_pm_normal">സാധാരണ</string>
+  <string name="status_bar_am_pm_small">ചെറുത്</string>
+  <string name="status_bar_am_pm_hidden">മറച്ചത്</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">ബാറ്ററി സ്റ്റാറ്റസ് ശൈലി</string>
+  <string name="status_bar_battery_style_icon_portrait">ഐക്കൺ പോർട്രെയ്റ്റ്</string>
+  <string name="status_bar_battery_style_icon_landscape">ഐക്കൺ ലാൻഡ്സ്കേപ്പ്</string>
+  <string name="status_bar_battery_style_circle">വലയം</string>
+  <string name="status_bar_battery_style_text">ടെക്സ്റ്റ്</string>
+  <string name="status_bar_battery_style_hidden">മറച്ചത്</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_title">ബാറ്ററി ശതമാനം</string>
+  <string name="status_bar_battery_percentage_default">മറച്ചത്</string>
+  <string name="status_bar_battery_percentage_text_inside">ഐക്കണിന്റെ ഉള്ളില്‍</string>
+  <string name="status_bar_battery_percentage_text_next">അടുത്തത് ഐക്കണിലേക്ക്</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">സ്റ്റാറ്റസ് ബാർ ഐക്കണുകൾ</string>
+  <string name="status_bar_icons_summary">ഏത് സ്റ്റാറ്റസ് ബാർ ഐക്കണുകളാണ് ദൃശ്യമാക്കേണ്ടതെന്ന് നിയന്ത്രിക്കുക</string>
   <!-- EdgeGesture service -->
+  <string name="edge_gesture_service_title">ഗെസ്ച്വര്‍ സ്പര്‍ശന ഇവന്റുകൾ തടയുക</string>
+  <string name="edge_gesture_service_summary">നാവിഗേഷൻ, സ്റ്റാറ്റസ് ബാർ ആംഗ്യങ്ങൾക്കായുള്ള ടച്ച് ഇവന്റുകൾ ആപ്ലിക്കേഷനുകളിലേക്ക് അയയ്ക്കരുത്</string>
   <!-- Keep screen on strings -->
+  <string name="keep_screen_on_never">ഒരിക്കലുമില്ല</string>
+  <string name="keep_screen_on_debugging">USB ഡീബഗ്ഗിംഗ് ചെയ്യുന്ന സമയത്ത്</string>
+  <string name="keep_screen_on_charging">ചാർജ്ജുചെയ്യുമ്പോൾ</string>
   <!-- Privacy Settings Header item -->
+  <string name="privacy_settings_cyanogenmod_title">സ്വകാര്യത</string>
   <!-- Privacy Guard -->
+  <string name="privacy_guard_default_title">ഡിഫോള്‍ട്ട് അയി പ്രാപ്തമാണ്</string>
+  <string name="privacy_guard_default_summary">പുതുതായി ഇൻസ്റ്റാൾ ചെയ്ത അപ്ലിക്കേഷനുകൾക്കായി ഡിഫോള്‍ട്ട് അയി പ്രാപ്തമാണ്</string>
+  <string name="privacy_guard_manager_title">സ്വകാര്യത ഗാർഡ്</string>
+  <string name="privacy_guard_manager_summary">നിങ്ങളുടെ സ്വകാര്യ ഡാറ്റ ആക്സസ് ചെയ്യുന്നത് ഏത് ആപ്ലിക്കേഷന്‍ ആണെന്ന് കൈകാര്യം ചെയ്യുക</string>
+  <string name="privacy_guard_no_user_apps">അപ്ലിക്കേഷനുകൾ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
+  <string name="privacy_guard_help_title">സഹായം</string>
+  <string name="privacy_guard_reset_title">പുനഃസജ്ജമാക്കുക</string>
+  <string name="privacy_guard_reset_text">അനുമതികൾ പുനക്രമീകരിക്കണോ?</string>
+  <string name="privacy_guard_help_text">ഈ സ്ക്രീനിൽ, എത് ആപ്ലിക്കേഷന്‍റെ പ്രൈവസി ഗാർഡ് ആണ് സജീവമാക്കേണ്ടത് എന്ന് ലളിതമായി അതില്‍ അമര്‍ത്തുന്നതിലൂടെ തിരഞ്ഞെടുക്കാന്‍ നിങ്ങള്‍ക്ക് സാധിക്കുന്നതാണ്. കോണ്‍ടാക്റ്റുകള്‍, സന്ദേശങ്ങള്‍ അല്ലെങ്കില്‍ കോള്‍ ലോഗുകള്‍ പോലുള്ള നിങ്ങളുടെ സ്വകാര്യ ഡാറ്റ ആക്സസ് ചെയ്യാൻ തിരഞ്ഞെടുത്ത ആപ്ലിക്കേഷനുകള്‍ക്ക് കഴിയില്ല. ഒരു ആപ്ലിക്കേഷൻ എൻട്രിയില്‍ നീണ്ട അമര്‍ത്തല്‍ നടത്തുന്നതിലൂടെ അതിന്റെ ആപ്ലിക്കേഷൻ വിശദാംശങ്ങൾ സ്ക്രീൻ തുറക്കുന്നു.\n\nബില്‍റ്റ്-ഇന്‍ ആപ്ലിക്കേഷനുകള്‍ ഡിഫോള്‍ട്ടായി ദൃശ്യമാകുന്നതല്ല, എന്നാല്‍ ബന്ധപ്പെട്ട മെനു ഐച്ഛികം തിരഞ്ഞെടുക്കുന്നതിലൂടെ ദൃശ്യമാക്കാന്‍ സാധിക്കുന്നതാണ്.</string>
+  <string name="privacy_guard_manager_show_system_apps">ബിൽറ്റ്-ഇൻ അപ്ലിക്കേഷനുകൾ ദൃശ്യമാക്കുക</string>
+  <string name="privacy_guard_advanced_settings_title">വിപുലം</string>
+  <string name="privacy_guard_notification_title">അറിയിപ്പുകൾ ദൃശ്യമാക്കുക</string>
   <!-- Sizes for pattern lockscreen -->
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
+  <string name="lockpattern_settings_enable_error_path_title">പാറ്റേൺ പിശക് ദൃശ്യമാക്കുക</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
+  <string name="lockpattern_settings_enable_dots_title">ഡോട്ടുകൾ പാറ്റേൺ ദൃശ്യമാക്കുക</string>
   <!-- Whether the keyguard will directly pass to password entry -->
+  <string name="lock_directly_show_password">പാസ്‌വേഡ് എന്‍ട്രി നേരിട്ട് ദൃശ്യമാക്കുക</string>
   <!-- Whether the keyguard will directly pass to pattern view -->
+  <string name="lock_directly_show_pattern">പാറ്റേൺ വ്യൂ നേരിട്ട് ദൃശ്യമാക്കുക</string>
   <!-- Whether the keyguard will directly pass to PIN entry -->
+  <string name="lock_directly_show_pin">PIN എന്‍ട്രി നേരിട്ട് ദൃശ്യമാക്കുക</string>
   <!-- lock screen visualizer -->
+  <string name="lockscreen_visualizer_title">സംഗീതം വിഷ്വലൈസർ പ്രദര്‍ശനം ചെയ്യുക</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">ദ്രുത ക്രമീകരണ ടൈലുകളിലൂടെ അപ്രാപ്തമാക്കി</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">ലോക്ക് സ്ക്രീൻ പ്രാപ്തമാക്കാന്‍ അമര്‍ത്തുക</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">ലോക്ക് സ്ക്രീൻ പ്രാപ്തമാക്കി!</string>
   <!-- Battery saver -->
+  <string name="battery_saver_threshold">ബാറ്ററി സേവർ ത്രെഷോൾഡ്</string>
+  <string name="battery_saver_summary">പ്രകടനം കുറയ്ക്കുകയും പശ്ചാത്തല ഡാറ്റ പരിമിതപ്പെടുത്തുകയും ചെയ്യുക</string>
+  <string name="battery_saver_summary_unavailable">ചാർജ്ജ് ചെയ്യുമ്പോൾ ലഭ്യമല്ല</string>
   <!-- Battery : Automatic performance profiles -->
+  <string name="autoperf_title">പെര്‍-ആപ് പ്രൊഫൈലുകൾ പ്രാപ്തമാക്കുക</string>
+  <string name="autoperf_summary">വിവിധ ആപ്ലിക്കേഷനുകൾക്ക് ഉചിതമായ ബാറ്ററി മോഡ് സ്വപ്രേരിതമായി തിരഞ്ഞെടുക്കുക</string>
+  <string name="perf_profile_title">ബാറ്ററി മോഡ്</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">ബൂട്ടില്‍ അപ്ലിക്കേഷനുകൾ ആരംഭിച്ചു</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
+  <string name="notification_ringtone_title_cm">അറിയിപ്പ് ടോൺ</string>
   <!-- Advanced reboot options -->
+  <string name="advanced_reboot_title">വിപുലമായ റീബൂട്ട്</string>
+  <string name="advanced_reboot_summary">അൺലോക്ക് ചെയ്തിരിക്കുമ്പോള്‍ റിക്കവറി, ബൂട്ട്ലോഡറിലേക്ക് റീബൂട്ട് ചെയ്യുന്നതിന് അല്ലെങ്കില്‍ ഒരു സോഫ്റ്റ്‌ റീബൂട്ട് ചെയ്യുന്നതിന് പവര്‍ മെനുവില്‍ ഐച്ഛികങ്ങള്‍ ഉള്‍പ്പെടുത്തുക</string>
+  <string name="category_interface">ഇന്റർഫേസ്</string>
   <!-- Expanded desktop -->
+  <string name="power_menu_expanded_desktop">വിപുലീകരിച്ച ഡെസ്ക്ടോപ്പ്</string>
+  <string name="expanded_hide_nothing">ഒന്നും മറയ്ക്കരുത്</string>
+  <string name="expanded_hide_status">സ്റ്റാറ്റസ് ബാർ മറയ്ക്കുക</string>
+  <string name="expanded_hide_navigation">നാവിഗേഷൻ ബാർ മറയ്ക്കുക</string>
+  <string name="expanded_hide_both">രണ്ടും മറയ്ക്കുക</string>
+  <string name="expanded_nothing_to_show">വിപുലീകരിച്ച സ്ഥിതിയ്ക്കായി ഒരു ഇഷ്ടാനുസൃത പെര്‍-ആപ് കോൺഫിഗറേഷൻ ചേര്‍ക്കുന്നതിന്, \'എല്ലാത്തിനുമായി പ്രാപ്തമാക്കുക\' എന്നത് ഓഫ് സ്ഥാനത്ത് സജ്ജമാക്കുക</string>
+  <string name="expanded_enabled_for_all">എല്ലാത്തിനുമായി പ്രാപ്തമാക്കി</string>
+  <string name="expanded_desktop_style">ഡെസ്ക്ടോപ്പ് ശൈലി വിപുലീകരിച്ചു</string>
+  <string name="expanded_desktop_style_description">ഒരു ഡിഫോള്‍ട്ട് വിപുലീകരിച്ചു ഡെസ്ക്ടോപ്പ് ശൈലി തിരഞ്ഞെടുക്കുക</string>
+  <string name="expanded_desktop_title">വിപുലീകരിച്ചു ഡെസ്ക്ടോപ്പ് ഐച്ഛികങ്ങള്‍</string>
   <!-- Kill app long-press back -->
+  <string name="kill_app_longpress_back">ആപ്ലിക്കേഷൻ പിന്നിലേക്ക് ബട്ടൺ നശിപ്പിക്കുക</string>
+  <string name="kill_app_longpress_back_summary">ബാക്ക് ബട്ടൺ ദീര്‍ഘ നേരം അമര്‍ത്തി ആപ്ലിക്കേഷൻ നശിപ്പിക്കുക</string>
   <!-- Show/Hide Search Bar -->
+  <string name="recents_show_searchbar">സമീപകാലത്തുള്ളവയുടെ മെനുവിൽ തിരയൽ ബാർ ദൃശ്യമാക്കുക</string>
+  <string name="keywords_recents_show_searchbar">സമീപകാല സമീപകാലത്തുള്ളവ പ്രാപ്തമാക്കുക അപ്രാപ്തമാക്കുക ദൃശ്യമാക്കുക മറയ്ക്കുക തിരയൽ ബാർ തിരയൽബാർ</string>
   <!-- Voice Wakeup -->
+  <string name="voice_wakeup_settings_title">വോയ്സ് വേക്ക്അപ്പ്</string>
+  <string name="voice_wakeup_retrain_title">നിങ്ങളുടെ ശബ്ദം പരിശീലിക്കുക</string>
+  <string name="voice_wakeup_activity_title">സമാരംഭ പ്രവർത്തനം</string>
+  <string name="voice_wakeup_default_activity">Google ഇപ്പോൾ</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">ഒരു ഡയറക്റ്റ് ഡയൽ കോൺടാക്റ്റ് തിരഞ്ഞെടുക്കുന്നതിനായി വോയ്സ് വേക്കപ്പിന് ഫോണ്‍ കോള്‍ അനുമതികള്‍ ആവശ്യമാണ്‌.</string>
+  <string name="picker_activities">പ്രവർത്തനങ്ങൾ</string>
+  <string name="select_custom_app_title">ഇഷ്ടാനുസൃത ആപ്ലിക്കേഷൻ തിരഞ്ഞെടുക്കുക</string>
+  <string name="select_custom_activity_title">ഇഷ്ടാനുസൃത പ്രവർത്തനം തിരഞ്ഞെടുക്കുക</string>
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">തടഞ്ഞ കോളർ ലിസ്റ്റ്</string>
+  <string name="blacklist_edit_dialog_title">തടഞ്ഞ ഫോൺ നമ്പർ എഡിറ്റ് ചെയ്യുക</string>
+  <string name="blacklist_prefs">ക്രമീകരണം</string>
+  <string name="blacklist_button_delete">ഇല്ലാതാക്കുക</string>
+  <string name="blacklist_empty_text">നിങ്ങൾക്ക് തടഞ്ഞ നമ്പറുകൾ ഇല്ല. ചേർക്കുക (+) ബട്ടൺ സ്പർശിച്ച് ഒരു എൻട്രി ചേർക്കുക.</string>
+  <string name="blacklist_disabled_empty_text">നിങ്ങളെ വിളിക്കുന്നതിന് അല്ലെങ്കില്‍ സന്ദേശം അയക്കുന്നതില്‍ നിന്നും ഫോൺ നമ്പറുകളെ തടയാൻ, തടഞ്ഞ കോളർ ലിസ്റ്റ് പ്രാപ്തമാക്കുക.</string>
+  <string name="blacklist_summary_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
+  <string name="blacklist_summary">തടഞ്ഞ കോളർ ലിസ്റ്റിലെ ഫോൺ നമ്പറുകളില്‍ നിന്ന് ഇൻകമിംഗ് കോളുകൾ അല്ലെങ്കിൽ സന്ദേശങ്ങൾ നിങ്ങള്‍ക്ക് ലഭിക്കില്ല</string>
+  <string name="blacklist_notify">അറിയിപ്പുകൾ ദൃശ്യമാക്കുക</string>
+  <string name="blacklist_private_numbers_title">സ്വകാര്യ നമ്പറുകള്‍</string>
+  <string name="blacklist_private_numbers_summary_disabled">സ്വകാര്യ നമ്പറുകളില്‍ നിന്നുള്ള കോളുകൾ തടയരുത്</string>
+  <string name="blacklist_private_numbers_summary">സ്വകാര്യ നമ്പറുകളില്‍ നിന്നുള്ള ഇന്‍കമിംഗ് <xliff:g id="type">%s</xliff:g> തടയുക</string>
+  <string name="blacklist_unknown_numbers_title">അജ്ഞാത നമ്പറുകള്‍</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">കോൺടാക്റ്റ് ലിസ്റ്റിൽ ഇല്ലാത്ത നമ്പറുകളില്‍ നിന്നുള്ള കോളുകള്‍ അല്ലെങ്കില്‍ സന്ദേശങ്ങള്‍ തടയരുത്</string>
+  <string name="blacklist_unknown_numbers_summary">കോൺടാക്റ്റ് ലിസ്റ്റിൽ ഇല്ലാത്ത നമ്പറുകളില്‍ നിന്നുള്ള ഇന്‍കമിംഗ് <xliff:g id="type">%s</xliff:g> തടയരുത്</string>
+  <string name="blacklist_summary_type_calls_only">കോളുകൾ</string>
+  <string name="blacklist_summary_type_messages_only">സന്ദേശങ്ങൾ</string>
+  <string name="blacklist_summary_type_calls_and_messages">കോളുകളും സന്ദേശങ്ങളും</string>
+  <string name="blacklist_regex_title">വൈല്‍ഡ്കാര്‍ഡുകള്‍ ഉപയോഗിക്കുക</string>
+  <string name="blacklist_regex_summary">വൈല്‍ഡ്കാര്‍ഡ് ആയി . ഉം ആവര്‍ത്തനങ്ങള്‍ക്കായി * ഉം ഉപയോഗിക്കുക ഉദാ 123.*, 123 യില്‍ ആരംഭിക്കുന്ന നമ്പറുകളെ തടയുകയും .*123.* 123 ഉള്‍പ്പെടുന്ന നമ്പറുകളെ തടയുകയും ചെയ്യുന്നു</string>
+  <string name="blacklist_policy_block_calls">ഇൻകമിംഗ് കോളുകൾ തടയുക</string>
+  <string name="blacklist_policy_block_messages">ഇൻകമിംഗ് സന്ദേശങ്ങൾ തടയുക</string>
+  <string name="blacklist_bad_number_add">തടഞ്ഞ കോളർ ലിസ്റ്റിലേക്ക് അസാധുവായ ഫോൺ നമ്പർ ചേർക്കാൻ കഴിയുന്നില്ല</string>
   <!-- Blacklist management -->
+  <string name="remove_blacklist_number_title">നമ്പർ നീക്കം ചെയ്യുക</string>
+  <string name="remove_blacklist_entry">നിങ്ങൾക്ക് തടഞ്ഞ ഈ ഫോൺ നമ്പർ നീക്കം ചെയ്യണോ?</string>
+  <string name="select_contact">കോൺടാക്റ്റ് തിരഞ്ഞെടുക്കുക</string>
   <!-- Sms security limit -->
+  <string name="app_security_title">ആപ്ലിക്കേഷൻ സുരക്ഷ</string>
+  <string name="sms_security_check_limit_title">SMS സന്ദേശ പരിധി</string>
+  <string name="sms_security_check_limit_summary">സ്ഥിരീകരണം ആവശ്യപ്പെടുന്നതിന് മുമ്പ് 1 മിനിറ്റില്‍ %d സന്ദേശങ്ങൾ അയയ്ക്കാൻ അപ്ലിക്കേഷനുകള്‍ക്ക് കഴിയുന്നതാണ്</string>
+  <string name="sms_security_check_limit_summary_none">സ്ഥിരീകരണം ഇല്ലാതെ ഏതെങ്കിലും സന്ദേശങ്ങൾ അയക്കാൻ അപ്ലിക്കേഷനുകളെ അനുവദിക്കില്ല</string>
+  <string name="sms_security_check_limit_none">ആരിൽ നിന്നും വേണ്ട</string>
   <!-- Notification spamfilter -->
+  <string name="spam_added_title">%1$s ചേർത്തു</string>
+  <string name="spam_last_blocked_title">അവസാനം തടഞ്ഞത് %1$s</string>
+  <string name="block_notifications_title">ഫിൽറ്റർ അറിയിപ്പുകൾ</string>
+  <string name="block_notifications_summary">അവഗണിച്ച അറിയിപ്പുകളും ഫിൽട്ടറുകളും കൈകാര്യം ചെയ്യുക</string>
+  <string name="no_filters_title">ഫിൽറ്ററുകള്‍ സജ്ജീകരിച്ചിട്ടില്ല</string>
   <!-- Anonymous Statistics #CM -->
   <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+  <string name="anonymous_statistics_title">CyanogenMod സ്ഥിതിവിവരക്കണക്കുകൾ</string>
+  <string name="anonymous_statistics_summary">അജ്ഞാത സ്ഥിതിവിവരക്കണക്കുകൾ റിപ്പോർട്ട് ചെയ്യുന്നത് തിരഞ്ഞെടുത്ത് CyanogenMod മികച്ചതാക്കാൻ സഹായിക്കുക</string>
+  <string name="anonymous_statistics_warning_title">ആമുഖം</string>
+  <string name="anonymous_statistics_warning">CyanogenMod സ്റ്റാറ്റിസ്റ്റിക്സ് തിരഞ്ഞെടുക്കുന്നതിലൂടെ ഉപകരണങ്ങളില്‍ വിശിഷ്ടമായ ഇൻസ്റ്റലേഷനുകൾ ട്രാക്കുചെയ്യുന്നതിന് സ്വകാര്യമല്ലാത്ത ഡാറ്റ CyanogenMod ഡെവലപ്പര്‍മാര്‍ക്ക് സമര്‍പ്പിക്കുന്നതാണ്. സമര്‍പ്പിക്കപ്പെടുന്ന വിവരങ്ങളില്‍ നിങ്ങളുടെ സ്വകാര്യതയെ അല്ലെങ്കിൽ സ്വകാര്യ ഡാറ്റയെ വിട്ടുവീഴ്ച ചെയ്യാത്ത ഒരു വിശിഷ്ട ഐഡന്റിഫയർ ഉൾപ്പെടുന്നു. ഓരോ ബൂട്ട് സമയത്തും ഡാറ്റ സമര്‍പ്പിക്കുന്നു.\n\nസമര്‍പ്പിച്ച ഡാറ്റയ്ക്ക് ഉദാഹരണത്തിനായി, പ്രിവ്യൂ ഡാറ്റ അമര്‍ത്തുക.</string>
+  <string name="enable_reporting_title">റിപ്പോർട്ടിംഗ് പ്രാപ്തമാക്കുക</string>
+  <string name="preview_data_title">പ്രിവ്യൂ ഡാറ്റ</string>
+  <string name="view_stats_title">സ്ഥിതിവിവരക്കണക്കുകൾ കാണുക</string>
+  <string name="anonymous_learn_more">കൂടുതലറിയുക</string>
   <!-- Anonymous Statistics - Preview -->
+  <string name="preview_id_title">വിശിഷ്ട ഐഡി</string>
+  <string name="preview_device_title">ഉപകരണം</string>
+  <string name="preview_version_title">പതിപ്പ്</string>
+  <string name="preview_country_title">രാജ്യം:</string>
+  <string name="preview_carrier_title">കാരിയര്‍</string>
+  <string name="stats_collection_title">സ്ഥിതിവിവരക്കണക്ക് ശേഖരം</string>
+  <string name="stats_collection_summary">പ്രാപ്തമാക്കിയിരിക്കുമ്പോൾ, മെട്രിക്സ് ശേഖരം അനുവദിക്കുന്നു</string>
   <!-- Protected apps lockpattern reset button -->
+  <string name="lockpattern_reset_button">പാറ്റേൺ പുനഃക്രമീകരിക്കുക</string>
+  <string name="lockpattern_settings_reset_summary">ബന്ധപ്പെട്ട ലോക്ക് പാറ്റേൺ പുനഃക്രമീകരിക്കാൻ പ്രാഥമിക ഇമെയിൽ അക്കൗണ്ടും പാസ്‌വേഡും രേഖപ്പെടുത്തുക</string>
   <!-- Protected Apps -->
+  <string name="menu_hidden_apps_delete">പുനഃസജ്ജമാക്കുക</string>
+  <string name="menu_hidden_apps_reset_lock">ലോക്ക് പാറ്റേൺ പുനഃക്രമീകരിക്കുക</string>
+  <string name="protected_apps">സംരക്ഷിത ആപ്ലിക്കേഷനുകൾ</string>
+  <string name="protected_apps_summary">ഒരു സുരക്ഷിത ലോക്കിന് പിന്നിൽ ഏതൊക്കെ ആപ്ലിക്കേഷനുകളാണ് മറയ്ക്കേണ്ടതെന്ന് നിയന്ത്രിക്കുക</string>
+  <string name="saving_protected_components">ഘടകഭാഗത്തിന്റെ സ്ഥിതി സേവ് ചെയ്യുന്നു\u2026</string>
+  <string name="pa_login_username_hint">ഉപയോക്തൃനാമം (ഇമെയിൽ)</string>
+  <string name="pa_login_password_hint">പാസ്‌വേഡ്</string>
+  <string name="pa_login_submit_button">സൈൻ ഇൻ ചെയ്യുക</string>
+  <string name="pa_login_checking_password">അക്കൗണ്ട് പരിശോധിക്കുന്നു…</string>
+  <string name="pa_login_incorrect_login">ലോഗിൻ തെറ്റായിരുന്നു</string>
+  <string name="pa_pattern_or_fingerprint_header">അൺലോക്ക് ചെയ്യുന്നതിന് പാറ്റേൺ വരയ്ക്കുകയോ അല്ലെങ്കില്‍ ഫിംഗര്‍പ്രിന്‍റ് ഉപയോഗിക്കുകയോ ചെയ്യേണ്ടതാണ്</string>
   <!-- Contributors cloud activity -->
+  <string name="contributors_cloud_fragment_title">സംഭാവകർ</string>
+  <string name="contributors_cloud_loading_message">സംഭാവകർമാരെ ഡാറ്റ ലോഡ് ചെയ്യുന്നു\u2026</string>
+  <string name="contributors_cloud_failed_message">സംഭാവകർമാരുടെ ഡാറ്റ ലോഡ് ചെയ്യാൻ കഴിയില്ല</string>
+  <string name="contributor_info_menu">സംഭാവകർമാരുടെ വിവരം</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>പേര്:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>വിളിപ്പേര്:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>നടപ്പാക്കലുകള്‍:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
+  <string name="contributions_info_menu">കോണ്‍ട്രിബ്യൂഷനുകളുടെ വിവരം</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>ആകെ സംഭാവകർ:</b> <xliff:g id="total_contributors"> %1$s</xliff:g><br/><br/>
+ <b>ആകെ നടപ്പാക്കലുകള്‍:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+ <b>അവസാനമായി അപ്ഡേറ്റ് ചെയ്തത്:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+  <string name="category_sounds">ശബ്ദങ്ങൾ</string>
+  <string name="notification_manager">അറിയിപ്പുകൾ</string>
+  <string name="lockscreen_settings">ലോക്ക് സ്‌ക്രീൻ</string>
+  <string name="category_lights">ലൈറ്റ്സ്</string>
+  <string name="category_volume">വോളിയം</string>
+  <string name="category_vibrate">വൈബ്രേറ്റുചെയ്യുക</string>
+  <string name="category_misc">പലവക</string>
+  <string name="title_general">പൊതുവായത്</string>
+  <string name="advanced">വിപുലം</string>
+  <string name="link_volume_option_title">ലിങ്ക് റിംഗ്ടോൺ &amp; അറിയിപ്പ് വോളിയം</string>
+  <string name="lcd_density_prompt_message">സ്റ്റാൻഡേർഡ് അല്ലാത്ത DPI ല്‍ ചില അപ്ലിക്കേഷനുകൾ പ്രവര്‍ത്തിച്ചെന്നുവരില്ല.\n\ഇത് നിങ്ങളുടെ ഉപകരണത്തെ പുനരാരംഭിക്കുന്നതാണ്.</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">APN PPP ഫോൺ നമ്പർ</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">ഡ്യൂപ്ലിക്കേറ്റ് APN</string>
+  <string name="duplicate_apn_error_message">ഈ APN ഇതിനകം നിലവിലുണ്ട്. നിരസിക്കുക അല്ലെങ്കിൽ പരാമീറ്ററുകളും മാറ്റുക.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">അപ്രാപ്തമാക്കി</string>
+  <string name="sim_missing">നഷ്ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കിൽ കേടുപറ്റി</string>
+  <string name="sim_enabler_need_disable_sim">SIM കാർഡ് നിര്‍ജീവമാക്കുന്നതാണ്. നിങ്ങൾക്ക് തുടരണോ?</string>
+  <string name="sim_enabler_will_disable_sim_title">ശ്രദ്ധിക്കുക</string>
+  <string name="sim_enabler_need_switch_data_service">ഈ SIM അപ്രാപ്തമാക്കുകയും ഡാറ്റ സേവനങ്ങൾക്കായി SIM <xliff:g id="slotid">%1$s</xliff:g> ഉപയോഗിക്കുന്നതുമാണ്. നിങ്ങൾ തുടരണമെന്ന് ഉറപ്പാണോ?</string>
+  <string name="sim_enabler_airplane_on">എയര്‍പ്ലെയിന്‍ മോഡ് ഓണ്‍ ആയിരിക്കുന്ന സമയത്ത് പ്രവർത്തനം നടത്താൻ കഴിയുന്നില്ല.</string>
+  <string name="sim_enabler_in_call">കോളില്‍ ആയിരിക്കുന്ന സമയത്ത് പ്രവർത്തനം നടത്താൻ കഴിയുന്നില്ല.</string>
+  <string name="sim_enabler_both_inactive">എല്ലാ SIM കാർഡുകളും അപ്രാപ്തമാക്കുവാന്‍ കഴിയില്ല</string>
+  <string name="sim_enabler_enabling">സജീവമാക്കുന്നു\u2026</string>
+  <string name="sim_enabler_disabling">നിർജീവമാക്കുന്നു\u2026</string>
+  <string name="sub_activate_success">SIM സജീവമാക്കി</string>
+  <string name="sub_activate_failed">സജീവമാക്കൽ പരാജയപ്പെട്ടു.</string>
+  <string name="sub_deactivate_success">SIM നിർജീവമാക്കി.</string>
+  <string name="sub_deactivate_failed">നിർജീവമാക്കല്‍ പരാജയപ്പെട്ടു.</string>
+  <string name="primary_sub_select_title">ഡിഫോള്‍ട്ട് 3G/LTE സബ്സ്ക്രിപ്ഷൻ</string>
+  <string name="select_sim_card">സിം കാർഡ് തിരഞ്ഞെടുക്കുക</string>
   <!-- MSIM SIM status -->
+  <string name="sim_card_status_title">SIM %d സ്റ്റാറ്റസ്</string>
+  <string name="sim_card_lock_settings_title">SIM %d ലോക്ക് ക്രമീകരണങ്ങൾ</string>
+  <string name="sim_card_summary_empty">SIM ഇട്ടിട്ടില്ല</string>
+  <string name="sim_mobile_network_settings_category_title">മൊബൈൽ നെറ്റ്‌വർക്ക് ക്രമീകരണങ്ങൾ</string>
+  <string name="sim_mobile_network_settings_title">SIM %d ക്രമീകരണങ്ങൾ</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">ഓർമ്മപ്പെടുത്തലുകൾ</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">ഇവന്റുകൾ</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">തിരഞ്ഞെടുത്ത കോളർമാർ</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">തിരഞ്ഞെടുത്ത സന്ദേശങ്ങൾ</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
+  <string name="maximum_head_level">ഹെഡ്: %1$s W/kg</string>
+  <string name="maximum_body_level">ബോഡി: %1$s W/kg</string>
   <!-- IC Codes -->
+  <string name="ic_code_model">മോഡൽ: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
+  <string name="sim_ringtone_title">SIM %d റിംഗ്ടോൺ</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">അപ്ലിക്കേഷൻ:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">അവസാനം ഉപയോഗിച്ചത്</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">ഉപയോഗ സമയം</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <string name="master_clear_desc_cm" product="tablet">ഇത് നിങ്ങളുടെ ഫോണിന്റെ <b>ആന്തരിക സംഭരണത്തില്‍</b> നിന്നുള്ള എല്ലാ ഡാറ്റയും മായ്ക്കുന്നതാണ്, അതില്‍ ഉള്‍പ്പെടുന്നവയാണ്:\n\n<li>നിങ്ങളുടെ ഉപകരണ അക്കൗണ്ടുകൾ</li>\n<li>സിസ്റ്റം, ആപ്ലിക്കേഷൻ ഡാറ്റയും ക്രമീകരണങ്ങളും</li>\n<li>ഡൗൺലോഡ് ചെയ്ത അപ്ലിക്കേഷനുകൾ</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <string name="master_clear_desc_cm" product="default">ഇത് നിങ്ങളുടെ ഫോണിന്റെ <b>ആന്തരിക സംഭരണത്തില്‍</b> നിന്നുള്ള എല്ലാ ഡാറ്റയും മായ്ക്കുന്നതാണ്, അതില്‍ ഉള്‍പ്പെടുന്നവയാണ്:\n\n<li>നിങ്ങളുടെ ഉപകരണ അക്കൗണ്ടുകൾ</li>\n<li>സിസ്റ്റം, ആപ്ലിക്കേഷൻ ഡാറ്റയും ക്രമീകരണങ്ങളും</li>\n<li>ഡൗൺലോഡ് ചെയ്ത അപ്ലിക്കേഷനുകൾ</li></string>
   <!-- Factory reset strings -->
+  <string name="factory_reset_instructions_title">വ്യക്തിഗത ഡാറ്റ &amp; അപ്ലിക്കേഷനുകൾ</string>
+  <string name="factory_reset_instructions_summary">ഈ ഉപകരണത്തിലെ നിങ്ങളുടെ എല്ലാ അക്കൗണ്ടുകള്‍, ആപ്ലിക്കേഷനുകൾ, ആപ്ലിക്കേഷൻ ഡാറ്റ, സിസ്റ്റം ക്രമീകരണങ്ങൾ എന്നിവ മായ്ക്കുന്നതാണ്</string>
+  <string name="factory_reset_personal_content">വ്യക്തിഗത ഉള്ളടക്കം</string>
+  <string name="factory_reset_erase_stored_content">സംഭരിച്ചിരിക്കുന്ന ഉള്ളടക്കം മായ്ക്കുക</string>
+  <string name="factory_reset_erase_stored_content_summary">ഈ ഉപകരണത്തിൽ സംഭരിച്ചിട്ടുള്ള സംഗീതം, ഫോട്ടോകൾ, വീഡിയോകൾ, മറ്റ് ഉപയോക്തൃ ഡാറ്റ എന്നിവ മായ്ക്കുക</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">ഈ ഉപകരണത്തിൽ സംഭരിച്ചിട്ടുള്ള സംഗീതം, ഫോട്ടോകൾ, വീഡിയോകൾ, മറ്റ് ഉപയോക്തൃ ഡാറ്റ എന്നിവ മായ്ക്കുക. \n\n<b>ഉപകരണ എൻക്രിപ്ഷൻ കാരണം ഉള്ളടക്കം സേവ് ചെയ്യാന്‍ കഴിയില്ല.</b></string>
+  <string name="factory_reset_erase_sd_card">SD കാർഡ് ഫോർമാറ്റ് ചെയ്യണോ?</string>
+  <string name="factory_reset_erase_sd_card_summary">സംഗീതവും ഫോട്ടോകളും ഉൾപ്പെടെ, SD കാർഡിലെ എല്ലാ ഡാറ്റയും മായ്ക്കുക</string>
+  <string name="factory_reset_warning_text_reset_now">ഇപ്പോൾ പുനക്രമീകരിക്കുക</string>
+  <string name="factory_reset_warning_text_message">നിങ്ങളുടെ എല്ലാ അക്കൗണ്ടുകൾ, ആപ്ലിക്കേഷനുകൾ, ആപ്ലിക്കേഷൻ ഡാറ്റ, സിസ്റ്റം ക്രമീകരണങ്ങൾ എന്നിവ ഈ ഉപകരണത്തിൽ നിന്ന് നീക്കം ചെയ്യുന്നതാണ്‌. ഇത് പൂർവാവസ്ഥയിലാക്കാൻ കഴിയില്ല.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">മറ്റുള്ളവ</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi ഹോട്ട്സ്പോട്ട് കാലഹരണപ്പെട്ടു</string>
+  <string name="hotstpot_inactivity_timeout_never">ഒരിക്കലുമില്ല</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 മിനിറ്റ്</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 മിനിറ്റ്</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 മിനിറ്റ്</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">പോർട്ടബിൾ Wi\u2011Fi ഒരിക്കലും കാലഹരണപ്പെടില്ല</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">പോർട്ടബിൾ Wi\u2011Fi ഹോട്ട്സ്പോട്ട് കാലഹരണപെടും ഇതിനു ശേഷം <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">ലോക്ക് സ്ക്രീൻ തത്സമയം</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">ലൈവ് ലോക്ക് സ്ക്രീനുകൾ പ്രാപ്തമാക്കുക ക്രമീകരിക്കുകയും ചെയ്യുക</string>
   <!-- Live lock screen settings content description -->
+  <string name="live_lock_screen_settings_button">ക്രമീകരണം</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">ലഭ്യമായ ലൈവ് ലോക്ക് സ്ക്രീനുകൾ കാണാൻ, ലൈവ് ലോക്ക് സ്ക്രീനുകൾ ഓണാക്കുക.
+ .</string>
+  <string name="interruptions_ignore_while_media_title">ഓഡിയോ ഡക്കിംഗ് തടയുക</string>
+  <string name="interruptions_ignore_while_media_summary">ഒരു അറിയിപ്പ് ലഭിക്കുമ്പോൾ മീഡിയ പ്ലേബാക്ക് വോളിയം കുറയ്ക്കരുത്</string>
   <!-- CM Legal -->
+  <string name="cmlicense_title">CyanogenMod ലീഗല്‍</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">സ്ഥിതിവിവരക്കണക്കുകൾ പുനഃക്രമീകരിക്കാൻ</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">ബാറ്ററി ഹിസ്റ്ററി നില പുനക്രമീകരിക്കാന്‍ പോകുന്നു</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">ഡോക്ക് ബാറ്ററി നിലവിലില്ല</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">ഡോക്ക് AC യില്‍ ചാര്‍ജ്ജ് ചെയ്യുന്നു</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">USB ഡോക്ക് മുഖേന ചാര്‍ജ് ചെയ്യുന്നു</string>
 </resources>

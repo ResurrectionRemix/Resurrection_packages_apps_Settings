@@ -48,6 +48,7 @@
   <!-- About phone screen, Device name -->
   <string name="device_name">ಸಾಧನ ಹೆಸರು</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">ಸೈನೋಜನ್ ಮೋಡ್ API ಮಟ್ಟ</string>
   <string name="mod_api_level_default">ಅಜ್ಞಾತ</string>
   <!-- About phone screen, build date -->
   <string name="build_date">ನಿರ್ಮಾಣ ದಿನಾಂಕ</string>
@@ -104,6 +105,7 @@
   <string name="rename_dialog_hint">ಪ್ರೊಫೈಲ್ ಹೆಸರನ್ನು ಬರೆಯಿರಿ</string>
   <!-- Reset Profiles -->
   <string name="profile_reset_title">ಮರುಹೊಂದಿಸು</string>
+  <string name="profile_reset_message">ಬಳಕೆದಾರ ಸೃಷ್ಟಿಸಿದ ಎಲ್ಲಾ ಪ್ರೊಫೈಲ್ ಗಳು ಮತ್ತು ಆಪ್ ಗುಂಪುಗಳನ್ನು ಅಳಿಸು ಮತ್ತು ಅವುಗಳನ್ನು ಡಿಫಾಲ್ಟ್ ಗೆ ಪುನಃಸ್ಥಾಪಿಸಲೇ?</string>
   <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">ಈ ಆಪನ್ನು ತೆಗೆ?</string>
   <!-- Profile network mode -->
@@ -251,9 +253,13 @@
   <string name="notification_light_missed_call_title">ತಪ್ಪಿಹೋದ ಕರೆ</string>
   <string name="notification_light_voicemail_title">ಧ್ವನಿಮೇಲ್</string>
   <string name="notification_light_screen_on">ಪರದೆ ಆನ್ ಜೊತೆ ಬೆಳಕು</string>
+  <string name="notification_light_zen_mode">ಲೈಟ್ಸ್ ಇನ್ ಡು ನಾಟ್ ಡಿಸ್ಟರ್ಬ್ ಮೋಡ್</string>
   <string name="notification_light_use_multiple_leds">ಬಹುವಿಧ ಎಲ್ಇಡಿಗಳು</string>
   <string name="keywords_lights_brightness_level">ಎಲ್ಇಡಿಗಳ ಪ್ರಖರತೆಯನ್ನು ಮಂದಗೊಳಿಸು</string>
+  <string name="notification_light_automagic">ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಬಣ್ಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">ಲೈಟ್ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
+  <string name="led_notification_text">LED ಲೈಟ್ ಶಕ್ತಗೊಂಡ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">ಆಂಡ್ರಾಯ್ಡ್ ಡೀಬಗ್ಗಿಂಗ್</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -285,6 +291,8 @@
   <string name="app_ops_summaries_modify_call_log">ಕರೆ ಲಾಗ್ ಮಾರ್ಪಡಿಸು</string>
   <string name="app_ops_summaries_read_calendar">ಕ್ಯಾಲೆಂಡರ್ ಓದು</string>
   <string name="app_ops_summaries_modify_calendar">ಕ್ಯಾಲೆಂಡರ್ ಮಾರ್ಪಡಿಸು</string>
+  <string name="app_ops_summaries_wifi_scan">Wi-Fi ಸ್ಕ್ಯಾನ್</string>
+  <string name="app_ops_summaries_notification">ಅಧಿಸೂಚನೆ/ಟೋಸ್ಟ್</string>
   <string name="app_ops_summaries_cell_scan">ಸೆಲ್ ಸ್ಕ್ಯಾನ್</string>
   <string name="app_ops_summaries_call_phone">ಸೆಲ್ ಫೋನ್</string>
   <string name="app_ops_summaries_read_sms">ಎಸ್ಎಂಎಸ್ ಓದು</string>
@@ -312,15 +320,39 @@
   <string name="app_ops_summaries_media_volume">ಮಾಧ್ಯಮ ವಾಲ್ಯೂಂ</string>
   <string name="app_ops_summaries_alarm_volume">ಅಲಾರಂ ವಾಲ್ಯೂಂ</string>
   <string name="app_ops_summaries_notification_volume">ಅಧಿಸೂಚನೆ ವಾಲ್ಯೂಂ</string>
+  <string name="app_ops_summaries_bluetooth_volume">Bluetooth ವಾಲ್ಯೂಮ್</string>
   <string name="app_ops_summaries_keep_awake">ಎಚ್ಚರವಾಗಿಡು</string>
   <string name="app_ops_summaries_monitor_location">ಸ್ಥಳವನ್ನು ಪರಿವೀಕ್ಷಿಸು</string>
   <string name="app_ops_summaries_monitor_high_power_location">ಅಧಿಕ ಪವರ್ ಸ್ಥಳವನ್ನು ಪರಿವೀಕ್ಷಿಸು</string>
+  <string name="app_ops_summaries_get_usage_stats">ಬಳಕೆಯ ಅಂಕಿಅಂಶ ಪಡೆ</string>
   <string name="app_ops_summaries_mute_unmute_microphone">ಧ್ವನಿಗ್ರಾಹಕವನ್ನು ಮೌನ/ಅಮೌನಿಸು</string>
   <string name="app_ops_summaries_toast_window">ಟೋಸ್ಟ್ ಗಳನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="app_ops_summaries_project_media">ಮಾಧ್ಯಮವನ್ನು ಪ್ರೊಜೆಕ್ಟ್ ಮಾಡು</string>
   <string name="app_ops_summaries_activate_vpn">ವಿಪಿಎನ್ ಸಕ್ರಿಯಗೊಳಿಸು</string>
+  <string name="app_ops_summaries_write_wallpaper">ವಾಲ್ ಪೇಪರ್ ಬರೆ</string>
+  <string name="app_ops_summaries_assist_structure">ರಚನೆ ಸಹಾಯ ಮಾಡು</string>
+  <string name="app_ops_summaries_assist_screenshot">ಸ್ಕ್ರೀನ್ ಶಾಟ್ ಗೆ ಸಹಾಯ ಮಾಡು</string>
+  <string name="app_ops_summaries_read_phone_state">ಫೋನ್ ಸ್ಟೇಟ್ ಓದು</string>
+  <string name="app_ops_summaries_add_voicemail">ಧ್ವನಿಮೇಲ್ ಸೇರಿಸಿ</string>
+  <string name="app_ops_summaries_use_sip">SIP ಉಪಯೋಗಿಸು</string>
+  <string name="app_ops_summaries_make_call">ಕರೆ ಮಾಡು</string>
+  <string name="app_ops_summaries_use_fingerprint">ಬೆರಳಚ್ಚು ಉಪಯೋಗಿಸು</string>
+  <string name="app_ops_summaries_use_body_sensors">ಬಾಡಿ ಸೆನ್ಸರ್ ಗಳನ್ನು ಉಪಯೋಗಿಸು</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">ಸೆಲ್ ಬ್ರಾಡ್ ಕ್ಯಾಸ್ಟ್ ಗಳನ್ನು ಓದು</string>
+  <string name="app_ops_summaries_mock_location">ಅಣಕು ಸ್ಥಳ</string>
+  <string name="app_ops_summaries_read_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹ ಓದು</string>
+  <string name="app_ops_summaries_write_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹಗೆ ಬರೆ</string>
+  <string name="app_ops_summaries_turn_screen_on">ಪರದೆ ಆನ್ ಮಾಡು</string>
+  <string name="app_ops_summaries_get_accounts">ಖಾತೆಗಳನ್ನು ಪಡೆ</string>
+  <string name="app_ops_summaries_toggle_wifi">Wi-Fi ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_summaries_toggle_bluetooth">ಬ್ಲೂಟೂತ್ ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_summaries_start_at_boot">ಬೂಟ್ ಆರಂಭಿಸು</string>
+  <string name="app_ops_summaries_toggle_nfc">NFC ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ಮೊಬೈಲ್ ಡಾಟಾ ಟಾಗಲ್ ಮಾಡು</string>
   <string name="app_ops_summaries_superuser">ರೂಟ್ ಪ್ರವೇಶ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">ಒರಟಾದ ಸ್ಥಳ</string>
+  <string name="app_ops_labels_fine_location">ಉತ್ತಮ ಸ್ಥಳ</string>
   <string name="app_ops_labels_gps">ಜಿಪಿಎಸ್</string>
   <string name="app_ops_labels_vibrate">ಕಂಪಿಸು</string>
   <string name="app_ops_labels_read_contacts">ಸಂಪರ್ಕಗಳನ್ನು ಓದು</string>
@@ -329,11 +361,19 @@
   <string name="app_ops_labels_modify_call_log">ಕರೆ ಲಾಗ್ ಮಾರ್ಪಡಿಸು</string>
   <string name="app_ops_labels_read_calendar">ಕ್ಯಾಲೆಂಡರ್ ಓದು</string>
   <string name="app_ops_labels_modify_calendar">ಕ್ಯಾಲೆಂಡರ್ ಮಾರ್ಪಡಿಸು</string>
+  <string name="app_ops_labels_wifi_scan">Wi-Fi ಸ್ಕ್ಯಾನ್</string>
   <string name="app_ops_labels_notification">ಅಧಿಸೂಚನೆ/ಟೋಸ್ಟ್</string>
+  <string name="app_ops_labels_cell_scan">ಸೆಲ್ ಸ್ಕ್ಯಾನ್</string>
   <string name="app_ops_labels_call_phone">ದೂರವಾಣಿ ಕರೆಮಾಡು</string>
+  <string name="app_ops_labels_read_sms">SMS ಓದು</string>
+  <string name="app_ops_labels_write_sms">SMS ಬರೆ</string>
   <string name="app_ops_labels_receive_sms">ಎಸ್ಎಂಎಸ್ ಸ್ವೀಕರಿಸು</string>
+  <string name="app_ops_labels_receive_emergency_sms">ತುರ್ತು SMS ಸ್ವೀಕರಿಸು</string>
   <string name="app_ops_labels_receive_mms">ಎಂಎಂಎಸ್ ಸ್ವೀಕರಿಸು</string>
+  <string name="app_ops_labels_receive_wap_push">WAP ಪುಶ್ ಸ್ವೀಕರಿಸು</string>
   <string name="app_ops_labels_send_sms">ಎಸ್ಎಂಎಸ್ ಕಳುಹಿಸು</string>
+  <string name="app_ops_labels_read_icc_sms">ICC SMS ಓದು</string>
+  <string name="app_ops_labels_write_icc_sms">ICC SMS ಬರೆ</string>
   <string name="app_ops_labels_modify_settings">ಸೆಟ್ಟಿಂಗ್ಸ್ ಮಾರ್ಪಡಿಸು</string>
   <string name="app_ops_labels_draw_on_top">ಮೇಲೆ ಡ್ರಾ ಮಾಡು</string>
   <string name="app_ops_labels_access_notifications">ಅಧಿಸೂಚನೆಗಳನ್ನು ಪ್ರವೇಶಿಸು</string>
@@ -352,10 +392,33 @@
   <string name="app_ops_labels_notification_volume">ಅಧಿಸೂಚನೆ ವಾಲ್ಯೂಂ</string>
   <string name="app_ops_labels_bluetooth_volume">ಬ್ಲೂಟೂತ್ ವಾಲ್ಯೂಂ</string>
   <string name="app_ops_labels_keep_awake">ಎಚ್ಚರವಾಗಿಡು</string>
+  <string name="app_ops_labels_monitor_location">ಸ್ಥಳ ಮಾನಿಟರ್ ಮಾಡು</string>
+  <string name="app_ops_labels_monitor_high_power_location">ಅಧಿಕ ಪವರ್ ಸ್ಥಳ ಮಾನಿಟರ್ ಮಾಡು</string>
+  <string name="app_ops_labels_get_usage_stats">ಬಳಕೆಯ ಅಂಕಿಅಂಶ ಪಡೆ</string>
   <string name="app_ops_labels_mute_unmute_microphone">ಧ್ವನಿಗ್ರಾಹಕವನ್ನು ಮೌನ/ಅಮೌನಿಸು</string>
   <string name="app_ops_labels_toast_window">ಟೋಸ್ಟ್ ಗಳನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="app_ops_labels_project_media">ಮಾಧ್ಯಮ ಪ್ರೊಜೆಕ್ಟ್ ಮಾಡು</string>
   <string name="app_ops_labels_activate_vpn">ವಿ‍ಪಿಎನ್ ಸಕ್ರಿಯಗೊಳಿಸು</string>
+  <string name="app_ops_labels_write_wallpaper">ವಾಲ್ ಪೇಪರ್ ಬರೆ</string>
+  <string name="app_ops_labels_assist_structure">ರಚನೆಕ್ಕೆ ಸಹಾಯ ಮಾಡು</string>
+  <string name="app_ops_labels_assist_screenshot">ಸ್ಕ್ರೀನ್ ಶಾಟ್ ಗೆ ಸಹಾಯ ಮಾಡು</string>
+  <string name="app_ops_labels_read_phone_state">ಫೋನ್ ಸ್ಟೇಟ್ ಓದು</string>
+  <string name="app_ops_labels_add_voicemail">ಧ್ವನಿಮೇಲ್ ಸೇರಿಸಿ</string>
+  <string name="app_ops_labels_use_sip">SIP ಉಪಯೋಗಿಸು</string>
+  <string name="app_ops_labels_make_call">ಕರೆ ಮಾಡು</string>
+  <string name="app_ops_labels_use_fingerprint">ಬೆರಳಚ್ಚು ಉಪಯೋಗಿಸು</string>
+  <string name="app_ops_labels_use_body_sensors">ಬಾಡಿ ಸೆನ್ಸರ್ ಗಳನ್ನು ಉಪಯೋಗಿಸು</string>
+  <string name="app_ops_labels_read_cell_broadcasts">ಸೆಲ್ ಬ್ರಾಡ್ ಕ್ಯಾಸ್ಟ್ ಗಳನ್ನು ಓದು</string>
+  <string name="app_ops_labels_mock_location">ಅಣಕು ಸ್ಥಳ</string>
+  <string name="app_ops_labels_read_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹ ಓದು</string>
+  <string name="app_ops_labels_write_external_storage">ಬಾಹ್ಯ ಸಂಗ್ರಹಗೆ ಬರೆ</string>
+  <string name="app_ops_labels_turn_screen_on">ಪರದೆ ಆನ್ ಮಾಡು</string>
+  <string name="app_ops_labels_get_accounts">ಖಾತೆಗಳನ್ನು ಪಡೆ</string>
+  <string name="app_ops_labels_toggle_wifi">Wi-Fi ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_labels_toggle_bluetooth">ಬ್ಲೂಟೂತ್ ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_labels_start_at_boot">ಬೂಟ್ ಆರಂಭಿಸು</string>
+  <string name="app_ops_labels_toggle_nfc">NFC ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_labels_toggle_mobile_data">ಮೊಬೈಲ್ ಡಾಟಾ ಟಾಗಲ್ ಮಾಡು</string>
   <string name="app_ops_labels_superuser">ರೂಟ್ ಪ್ರವೇಶ</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">ಅನುಮತಿಸಿದೆ</string>
@@ -535,8 +598,13 @@
   <string name="live_display_color_profile_dynamic_title">ಕ್ರಿಯಾತ್ಮಕ</string>
   <string name="live_display_color_profile_dynamic_summary">ವರ್ಧಿತ ಬಣ್ಣಗಳು ಮತ್ತು ಪ್ರಖರ ಬಿಳಿಗಳು</string>
   <string name="live_display_color_profile_cinema_title">ಸಿನಿಮಾ</string>
+  <string name="live_display_color_profile_cinema_summary">ವೀಡಿಯೋಕ್ಕೆ ಪರಿಪೂರ್ಣ ಬಣ್ಣದ ಪುನರುತ್ಪಾದನೆ</string>
   <string name="live_display_color_profile_astronomy_title">ಖಗೋಳವಿಜ್ಞಾನ</string>
   <string name="live_display_color_profile_astronomy_summary">ರಾತ್ರಿ ವೀಕ್ಷಣೆಯನ್ನು ಕಾಪಾಡಲು ಕಡುಗೆಂಪು</string>
+  <string name="live_display_color_profile_photography_title">ಛಾಯಾಗ್ರಹಣ</string>
+  <string name="live_display_color_profile_photography_summary">ಫೊಟೋಗಳಿಗೆ ಪರಿಪೂರ್ಣ ಬಣ್ಣದ ಪುನರುತ್ಪಾದನೆ</string>
+  <string name="live_display_color_profile_basic_title">ಮೂಲಭೂತ</string>
+  <string name="live_display_color_profile_basic_summary">ಪ್ರದರ್ಶನವು ಅನ್ ಕ್ಯಾಲಿಬರೇಟೆಡ್ ಅನ್ನು ಉಪಯೋಗಿಸಿ</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">ಆಯ್ಕೆಮಾಡುವ ಐಕಾನ್</string>
   <string name="ime_switcher_notify_summary">ಇನ್ಪುಟ್ ವಿಧಾನ ಆಯ್ಕೆಮಾಡುವ ಐಕಾನ್ ಪ್ರದರ್ಶಿಸು</string>
@@ -645,6 +713,8 @@
   <string name="status_bar_battery_percentage_text_inside">ಐಕಾನ್‍ನ ಒಳಗೆ</string>
   <string name="status_bar_battery_percentage_text_next">ಐಕಾನ್‍ನ ನಂತರ</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">ಸ್ಥಿತಿ ಪಟ್ಟಿ ಐಕಾನ್ ಗಳು</string>
+  <string name="status_bar_icons_summary">ಸ್ಥಿತಿ ಪಟ್ಟಿ ಐಕಾನ್ ಗಳನ್ನು ತೋರಿಸುವುದನ್ನು ನಿಯಂತ್ರಿಸು</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">ಸನ್ನೆ ಸ್ಪರ್ಶ ಘಟನೆಗಳನ್ನು ನಿರ್ಬಂಧಿಸು</string>
   <string name="edge_gesture_service_summary">ನಾವಿಗೇಶನ್ ಮತ್ತು ಸ್ಟೇಟಸ್ ಬಾರ್ ಸೆನ್ನೆಗಳಿಗಾಗಿ ಆಪ್‍ಗಳಿಗೆ ಸ್ಪರ್ಶ ಘಟನೆಗಳನ್ನು ಕಳುಹಿಸಬೇಡ</string>
@@ -681,6 +751,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">ಸಂಗೀತ ದೃಶ್ಯೀಕರಣವನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">ಕ್ಷಿಪ್ರ ಸೆಟ್ಟಿಂಗ್ ಗಳ ಟೈಲ್ ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">ಲಾಕ್ ಸ್ಕ್ರೀನ್ ಸಕ್ರಿಯಗೊಳಿಸಲು ತಟ್ಟು</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">ಲಾಕ್ ಸ್ಕ್ರೀನ್ ಸಕ್ರಿಯಗೊಂಡಿದೆ!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">ಬ್ಯಾಟರಿ ಉಳಿತಾಯ ಹೊಸ್ತಿಲು</string>
   <string name="battery_saver_summary">ಕಾರ್ಯನಿರ್ವಹಣೆ ಕಡಿಮೆಗೊಳಿಸು ಮತ್ತು ಹಿನ್ನೆಲೆ ಡೇಟಾವನ್ನು ಮಿತಿಗೊಳಿಸು</string>
@@ -690,6 +763,7 @@
   <string name="autoperf_summary">ವಿವಿಧ ಆಪ್‍ಗಳಿಗೆ ಸೂಕ್ತವಾದ ಬ್ಯಾಟರಿ ಮೋಡನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆರಿಸು</string>
   <string name="perf_profile_title">ಬ್ಯಾಟರಿ ಮೋಡ್</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">ಬೂಟ್ ಮೇಲೆ ಆಪ್ ಗಳು ಆರಂಭಗೊಂಡಿವೆ</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">ಅಧಿಸೂಚನೆ ಟೋನ್</string>
   <!-- Advanced reboot options -->
@@ -718,6 +792,7 @@
   <string name="voice_wakeup_retrain_title">ನಿಮ್ಮ ಧ್ವನಿಯನ್ನು ಪುನಃ ತರಬೇತಿಸಿ</string>
   <string name="voice_wakeup_activity_title">ಆರಂಭಿಸಲು ಚಟುವಟಿಕೆ</string>
   <string name="voice_wakeup_default_activity">ಗೂಗಲ್ ನೌ</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">ಧ್ವನಿ ಎಚ್ಚರಿಕೆಗೆ ನೇರ ಡಯಲ್ ಸಂಪರ್ಕಕ್ವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಫೋನ್ ಕರೆ ಅನುಮತಿಗಳು ಬೇಕಾಗುತ್ತವೆ.</string>
   <string name="picker_activities">ಚಟುವಟಿಕೆಗಳು</string>
   <string name="select_custom_app_title">ಕಸ್ಟಮ್ ಆಪ್ ಆಯ್ಕೆಮಾಡಿ</string>
   <string name="select_custom_activity_title">ಕಸ್ಟಮ್ ಚಟುವಟಿಕೆ ಆಯ್ಕೆಮಾಡಿ</string>
@@ -788,17 +863,23 @@
   <string name="menu_hidden_apps_delete">ಮರುಹೊಂದಿಸು</string>
   <string name="menu_hidden_apps_reset_lock">ನಮೂನೆ ಲಾಕ್ ಮರುಹೊಂದಿಸಿ</string>
   <string name="protected_apps">ಸಂರಕ್ಷಿತ ಆಪ್ಸ್</string>
+  <string name="protected_apps_summary">ಸುರಕ್ಷಿತ ಲಾಕ್ ಹಿಂದೆ ಅಡಗಿರುವ ಅಪ್ಲಿಕೇಶನ್ ನಿರ್ವಹಿಸು</string>
   <string name="saving_protected_components">ಘಟಕ ಸ್ಥಿತಿಯನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ\u2026</string>
   <string name="pa_login_username_hint">ಬಳಕೆದಾರಹೆಸರು (ಇಮೇಲ್)</string>
   <string name="pa_login_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="pa_login_submit_button">ಸೈನ್ ಇನ್</string>
   <string name="pa_login_checking_password">ಖಾತೆಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ\u2026</string>
   <string name="pa_login_incorrect_login">ಲಾಗಿನ್ ಸರಿಯಾಗಿಲ್ಲ</string>
+  <string name="pa_pattern_or_fingerprint_header">ಅನ್ ಲಾಕ್ ಮಾಡಲು ವಿಧವನ್ನು ಎಳೆ ಅಥವಾ ಬೆರಳಚ್ಚು ಉಪಯೋಗಿಸು</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">ಯೋಗದಾನೀತರು</string>
   <string name="contributors_cloud_loading_message">ಯೋಗದಾನೀತರ ಡೇಟಾ ಲೋಡಾಗುತ್ತಿದೆ\u2026</string>
   <string name="contributors_cloud_failed_message">ಯೋಗದಾನೀತರ ಡೇಟಾ ಲೋಡ್ ಮಾಡಲು ಆಗುತ್ತಿಲ್ಲ</string>
   <string name="contributor_info_menu">ಯೋಗದಾನೀತನ ಮಾಹಿತಿ</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>Name:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>Nick:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>"ಕಮಿಟ್ಸ್"</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
   <string name="contributions_info_menu">ಯೋಗದಾನಗಳ ಮಾಹಿತಿ</string>
   <string name="contributions_info_msg">
         <![CDATA[<b>ಒಟ್ಟು ಯೋಗದಾನೀತರು:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
@@ -814,24 +895,44 @@
   <string name="title_general">ಸಾಮಾನ್ಯ</string>
   <string name="advanced">ಸುಧಾರಿತ</string>
   <string name="link_volume_option_title">ರಿಂಗ್‍ಟೋನ್ &amp; ಅಧಿಸೂಚನೆ ವಾಲ್ಯೂಂ ಜೋಡಿಸು</string>
+  <string name="lcd_density_prompt_message">ಸ್ಟಾಂಡರ್ಡೇತರ DPIನಲ್ಲಿ ಕೆಲವು ಆಪ್ ಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು.\n\nಇದು ನಿಮ್ಮ ಸಾಧನ ಅನ್ನು ಮರುಆರಂಭಿಸಲಿವೆ.</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">APN PPP ಫಓನ್ ಸಂಖ್ಯೆ</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">ನಕಲು APN,</string>
+  <string name="duplicate_apn_error_message">ಈ ಅಪ್ಲಿಕೇಶನ್ ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ. ತಿರಸ್ಕರಿಸಬಹುದು ಅಥವಾ ನಿಯತಾಂಕಗಳನ್ನು ಬದಲಾಯಿಸಿ.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> ಆಗಿದೆ <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
   <string name="sim_missing">ಕಾಣೆಯಾಗಿದೆ ಅಥವ ದೋಷಯುಕ್ತವಾಗಿದೆ</string>
+  <string name="sim_enabler_need_disable_sim">SIM ಕಾರ್ಡ್ ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳಲಿದೆ. ನೀವು ಮುಂದುವರಿಯಲು ಬಯಸುತ್ತೀರಾ?</string>
+  <string name="sim_enabler_will_disable_sim_title">ಗಮನಿಸಿ</string>
+  <string name="sim_enabler_need_switch_data_service">ಈ SIM ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ ಮತ್ತು SIM <xliff:g id="slotid">%1$s</xliff:g> ಅನ್ನುಡಾಟಾ ಸೇವೆಗಳಿಗಾಗಿ ಉಪಯೋಗಿಸಲಾಗುತ್ತದೆ. ನೀವು ಮುಂದುವರಿಯಲು ಬಯಸುತ್ತೀರಾ?</string>
   <string name="sim_enabler_airplane_on">ಕಾರ್ಯಾಚರಣೆಯನ್ನು ಏರೋಪ್ಲೇನ್ ಮೋಡ್ ಆನ್ ಇರುವಾಗ ನಿರ್ವಹಿಸಲು ಆಗುವುದಿಲ್ಲ.</string>
   <string name="sim_enabler_in_call">ಕಾರ್ಯಾಚರಣೆಯನ್ನು ಕರೆಯಲ್ಲಿರುವಾಗ ನಿರ್ವಹಿಸಲು ಆಗುವುದಿಲ್ಲ.</string>
   <string name="sim_enabler_both_inactive">ಎಲ್ಲಾ ಸಿಮ್ ಕಾರ್ಡ್‍ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
+  <string name="sim_enabler_enabling">ಸಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತಿದೆ \u2026</string>
+  <string name="sim_enabler_disabling">ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳುತ್ತಿದೆ\u2026</string>
+  <string name="sub_activate_success">SIM ಸಕ್ರಿಯಗೊಂಡಿದೆ</string>
+  <string name="sub_activate_failed">ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ ವಿಫಲಗೊಂಡಿದೆ.</string>
+  <string name="sub_deactivate_success">SIM ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ.</string>
+  <string name="sub_deactivate_failed">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವಿಕೆ ವಿಫಲಗೊಂಡಿದೆ.</string>
   <string name="primary_sub_select_title">ಡೀಫಾಲ್ಟ್ 3G/LTE ಚಂದಾದಾರತ್ವ</string>
+  <string name="select_sim_card">ಸಿಮ್‌ ಕಾರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">ಸಿಮ್ %d ಸ್ಥಿತಿ</string>
   <string name="sim_card_lock_settings_title">ಸಿಮ್ %d ಲಾಕ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="sim_card_summary_empty">ಸಿಮ್ ಅಳವಡಿಸಲಾಗಿಲ್ಲ</string>
+  <string name="sim_mobile_network_settings_category_title">ಮೊಬೈಲ್ ನೆಟ್ ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ ಗಳು</string>
   <string name="sim_mobile_network_settings_title">ಸಿಮ್ %d ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">ರಿಮೈಂಡರ್</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">ಈವೆಂಟ್‌ಗಳು</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">ಆಯ್ಕೆಮಾಡಲಾದ ಕರೆದಾರರು</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">ಆಯ್ಕೆ ಮಾಡಿದ ಸಂದೇಶಗಳು</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
   <string name="maximum_head_level">Head: %1$s W/kg</string>
@@ -841,8 +942,11 @@
   <string name="ic_code_full">ಐಸಿ: %1$s</string>
   <string name="sim_ringtone_title">ಸಿಮ್ %d ರಿಂಗ್‍ಟೊನ್</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">ಅಪ್ಲಿಕೇಶನ್‌</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">ಕಳೆದ ಬಾರಿಯ ಬಳಕೆ</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">ಬಳಕೆ ಸಮಯ</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">ನಿದು ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‍ನ <b>ಆಂತರಿಕ ಸಂಗ್ರಹಣೆ</b>ಯಲ್ಲಿರುವ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸುತ್ತದೆ, ಇದು:\n\n<li>ನಿಮ್ಮ ಸಾಧನ ಖಾತೆಗಳು</li>\n<li>ಸಿಸ್ಟಂ ಮತ್ತು ಆಪ್ ಡೇಟಾ ಹಾಗು ಸೆಟ್ಟಿಂಗ್ಸ್</li>\n<li>ಡೌನ್‍ಲೋಡ್ ಮಾಡಲಾದ ಆಪ್‍ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -859,16 +963,36 @@
   <string name="factory_reset_warning_text_reset_now">ಈಗ ಮರುಹೊಂದಿಸು</string>
   <string name="factory_reset_warning_text_message">ಈ ಸಾಧನದಲ್ಲಿರುವ ನಿಮ್ಮ ಎಲ್ಲಾ ಖಾತೆಗಳನ್ನು, ಆಪ್ಸ್, ಆಪ್ ಡೇಟಾ, ಮತ್ತು ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್ಸನ್ನು ಅಳಿಸಿಹಾಕುತ್ತದೆ. ಇದನ್ನು ಹಿಂದಿರುಗಿಸಲಾಗುವುದಿಲ್ಲ.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">ಇತರೆ</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi hotspot timeout</string>
   <string name="hotstpot_inactivity_timeout_never">ಎಂದಿಗೂ ಬೇಡ</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 ನಿಮಿಷ</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 ನಿಮಿಷಗಳು</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutes</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Portable Wi\u2011Fi hotspot will never timeout</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Portable Wi\u2011Fi hotspot will timeout after <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">ಲೈವ್ ಲಾಕ್ ಸ್ಕ್ರೀನ್</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">ಸಕ್ರಿಯಗೊಳಿಸಿ ಮತ್ತು ಲೈವ್ ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ಗಳನ್ನು ಸಂರಚಿಸಿ</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">ಲಭ್ಯವಿರುವ ಲೈವ್ ಲಾಕ್ ಸ್ಕ್ರೀನ್ಗಳನ್ನು ವೀಕ್ಷಿಸಲು,‌ ಲೈವ್ ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನನ್ನು ಆನ್ ಮಾಡಿ.</string>
   <string name="interruptions_ignore_while_media_title">ಆಡಿಯೋ ಮುಳುಗುವಿಕೆ ತಡೆಗಟ್ಟು</string>
   <string name="interruptions_ignore_while_media_summary">ಅಧಿಸೂಚನೆ ಆಗಮಿಸಿದಾಗ ಮಾಧ್ಯಮ ಪ್ಲೇ ಬ್ಯಾಕ್ ವಾಲ್ಯೂಂನ್ನು ಕಡಿಮೆ ಮಾಡಬೇಡ</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod ಕಾನೂನು</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">ಅಂಕಿಅಂಶಗಳನ್ನು ಮರುಹೊಂದಿಸಿ</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">ಬ್ಯಾಟರಿ ಇತಿಹಾಸ ಅಂಕಿಅಂಶಗಳನ್ನು ಮರುಹೊಂದಿಸಲಾಗುತ್ತದೆ</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">ಡಾಕ್ ಬ್ಯಾಟರಿ ಉಪಸ್ಥಿತವಾಗಿಲ್ಲ</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">ಡಾಕ್ ಎಸಿಯ ಮೇಲೆ ಚಾರ್ಜ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">ಡಾಕ್ ಯು‍ಎಸ್‍ಬಿಯ ಮೂಲಕ ಚಾರ್ಜ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
 </resources>

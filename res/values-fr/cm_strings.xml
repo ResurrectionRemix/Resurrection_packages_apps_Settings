@@ -254,8 +254,10 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="notification_light_missed_call_title">Appel manqué</string>
   <string name="notification_light_voicemail_title">Messagerie vocale</string>
   <string name="notification_light_screen_on">Voyants avec écran allumé</string>
+  <string name="notification_light_zen_mode">S\'allume en mode « Ne pas déranger »</string>
   <string name="notification_light_use_multiple_leds">Plusieurs LED</string>
   <string name="keywords_lights_brightness_level">atténuer la luminosité des LED</string>
+  <string name="notification_light_automagic">Couleurs automatiques</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Paramètres du voyant</string>
   <string name="led_notification_text">LED activée par les paramètres</string>
@@ -289,6 +291,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_summaries_read_call_log">voir le journal d\'appel</string>
   <string name="app_ops_summaries_modify_call_log">modifier le journal des appels</string>
   <string name="app_ops_summaries_read_calendar">lire l\'agenda</string>
+  <string name="app_ops_summaries_modify_calendar">modifier l\'agenda</string>
   <string name="app_ops_summaries_wifi_scan">Recherche du Wi-Fi</string>
   <string name="app_ops_summaries_notification">notification/toast</string>
   <string name="app_ops_summaries_cell_scan">scanner le réseau cellulaire</string>
@@ -346,6 +349,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_summaries_toggle_bluetooth">activer/désactiver le Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">démarrer au lancement</string>
   <string name="app_ops_summaries_toggle_nfc">activer/désactiver le NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">activer/désactiver les données mobiles</string>
   <string name="app_ops_summaries_superuser">accès root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Position approximative</string>
@@ -356,6 +360,8 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_labels_modify_contacts">Modifier les contacts</string>
   <string name="app_ops_labels_read_call_log">Lire le journal d\'appels</string>
   <string name="app_ops_labels_modify_call_log">Modifier le journal d\'appels</string>
+  <string name="app_ops_labels_read_calendar">Lire l\'agenda</string>
+  <string name="app_ops_labels_modify_calendar">Modifier l\'agenda</string>
   <string name="app_ops_labels_wifi_scan">Recherche du Wi-Fi</string>
   <string name="app_ops_labels_notification">Notification/Toast</string>
   <string name="app_ops_labels_cell_scan">Recherche mobile</string>
@@ -413,6 +419,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_labels_toggle_bluetooth">Activer/désactiver le Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Démarrer au lancement</string>
   <string name="app_ops_labels_toggle_nfc">Activer/désactiver le NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Activer/désactiver les données mobiles</string>
   <string name="app_ops_labels_superuser">Accès root</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Autorisé</string>
@@ -757,6 +764,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="autoperf_summary">Choisir automatiquement le mode batterie le plus approprié pour les différentes applications</string>
   <string name="perf_profile_title">Mode batterie</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">Applications lancées au démarrage</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Son de notification</string>
   <!-- Advanced reboot options -->
@@ -854,12 +862,14 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="menu_hidden_apps_delete">Réinitialiser</string>
   <string name="menu_hidden_apps_reset_lock">Réinitialiser schéma de déverrouillage</string>
   <string name="protected_apps">Applications protégées</string>
+  <string name="protected_apps_summary">Gérer les applications sécurisées</string>
   <string name="saving_protected_components">Enregistrement de l\'état du composant\u2026</string>
   <string name="pa_login_username_hint">Nom d\'utilisateur (e-mail)</string>
   <string name="pa_login_password_hint">Mot de passe</string>
   <string name="pa_login_submit_button">Connexion</string>
   <string name="pa_login_checking_password">Vérification du compte\u2026</string>
   <string name="pa_login_incorrect_login">Le nom d\'utilisateur est incorrect</string>
+  <string name="pa_pattern_or_fingerprint_header">Dessiner le schéma ou utiliser les empreintes digitales pour déverrouiller</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Contributeurs</string>
   <string name="contributors_cloud_loading_message">Chargement des infos des contributeurs\u2026</string>
@@ -888,11 +898,14 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <!-- Edit access point labels: PPP number -->
   <string name="apn_ppp_number">Numéro de téléphone APN PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">APN dupliqué</string>
+  <string name="duplicate_apn_error_message">Cet APN existe déjà. Annuler ou modifier les paramètres.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> est <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">désactivée</string>
   <string name="sim_missing">manquante ou défectueuse</string>
   <string name="sim_enabler_need_disable_sim">La carte SIM va être désactivée. Voulez-vous continuer ?</string>
   <string name="sim_enabler_will_disable_sim_title">Attention</string>
+  <string name="sim_enabler_need_switch_data_service">Cette carte SIM sera désactivée et la SIM <xliff:g id="slotid">%1$s </xliff:g> sera utilisée pour les services de données. Êtes-vous sûr de vouloir continuer ?</string>
   <string name="sim_enabler_airplane_on">Impossible d\'effectuer l\'opération tant que le mode avion est activé.</string>
   <string name="sim_enabler_in_call">Impossible d\'effectuer l\'opération pendant un appel.</string>
   <string name="sim_enabler_both_inactive">Impossible de désactiver toutes les cartes SIM</string>
@@ -949,19 +962,36 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="factory_reset_warning_text_reset_now">RÉINITIALISER MAINTENANT</string>
   <string name="factory_reset_warning_text_message">Tous vos comptes, applications, données d\'applications ainsi que les paramètres système seront effacés de cet appareil. Cette action est irréversible.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">Autre</string>
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_text">Délai de réponse du point d\'accès Wi\u2011Fi dépassé</string>
   <string name="hotstpot_inactivity_timeout_never">Jamais</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minute</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutes</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutes</string>
   <string name="hotstpot_inactivity_timeout_never_summary_text">Délai de réponse du point d\'accès Wi\u2011Fi n\'expirera jamais</string>
   <string name="hotstpot_inactivity_timeout_summary_text">Le délai de réponse du point d\'accès Wi\u2011Fi portable expirera après <xliff:g id="timeout">%1$s </xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Écran de verrouillage animé</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">Activer et configurer les écrans de verrouillage animés</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Paramètres</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">Pour afficher les écrans de verrouillage animés disponibles, activez-les.</string>
   <string name="interruptions_ignore_while_media_title">Empêcher l\'atténuation audio</string>
   <string name="interruptions_ignore_while_media_summary">Ne pas réduire le volume de lecture de médias lors d\'une notification</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Infos légales CyanogenMod</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">Réinitialiser les statistiques</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">Les statistiques de la batterie vont être réinitialisées</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">Dock de batterie absent</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">Chargement sur secteur du dock</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">Chargement par l\'USB du dock</string>
 </resources>

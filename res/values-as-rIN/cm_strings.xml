@@ -17,161 +17,980 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">আপুনি এতিয়া ডেভেলপমেণ্ট ছেটিংচ সক্ষম কৰাৰ পৰা <xliff:g id="step_count">%1$d</xliff:g>টা পদক্ষেপ দূৰত আছে।</item>
+    <item quantity="other">আপুনি এতিয়া ডেভেলপমেণ্ট ছেটিংচ সক্ষম কৰাৰ পৰা <xliff:g id="step_count">%1$d</xliff:g>টা পদক্ষেপ দূৰত আছে।</item>
+  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">আপুনি ডেভেলপমেণ্ট ছেটিংচ সক্ষম কৰিলে!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">আৱশ্যক নাই, আপুনি ইতিমধ্যে ডেভেলপমেণ্ট ছেটিংচ সক্ষম কৰিলে।</string>
   <!-- Launch Dev Tools -->
+  <string name="development_tools_title">ডেভলপমেন্ট টুলচ</string>
   <!-- Development shortcut -->
+  <string name="development_shortcut_title">ডেভেলপমেণ্ট চমুপথ</string>
+  <string name="development_shortcut_summary">সাম্প্ৰতিক এপ্প্‌ সূচীত এপ্প্‌ প্ৰবন্ধন চমুপথবোৰ সক্ষম কৰক</string>
   <!-- Setting checkbox title for root access -->
+  <string name="root_access">ৰুট প্ৰৱেশ কৰক</string>
+  <string name="root_access_warning_title">ৰুট এক্সেছৰ অনুমতি দিব নে?</string>
+  <string name="root_access_warning_message">ৰুট এক্সেছ অনুৰোধ কৰিবলৈ এপ্প্‌বোৰক অনুমতি দিয়াটো খুব বিপদজনক আৰু আপোনাৰ ছিষ্টেমৰ নিৰাপত্তাৰ সৈতে আপোচ কৰা হ\'ব পাৰে।</string>
+  <string name="root_access_none">নিস্ক্ৰিয় কৰা হল</string>
+  <string name="root_access_apps">কেৱল এপ্প্‌চ</string>
+  <string name="root_access_adb">কেৱল ADB</string>
+  <string name="root_access_all">এপ্প্‌চ আৰু ADB</string>
   <!-- NFC PreferenceCategory title -->
+  <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
+  <string name="mod_version">CyanogenMod সংস্কৰণ</string>
+  <string name="mod_version_default">অজ্ঞাত</string>
   <!-- About phone screen, Device model -->
+  <string name="device_model">ডিভাইচৰ মডেল</string>
   <!-- About phone screen, Device name -->
+  <string name="device_name">ডিভাইচ নাম</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">CyanogenMod API স্তৰ</string>
+  <string name="mod_api_level_default">অজ্ঞাত</string>
   <!-- About phone screen, build date -->
+  <string name="build_date">নিৰ্মাণৰ তাৰিখ</string>
   <!-- CM Updater -->
+  <string name="cmupdate_settings_title">CyanogenMod আপডেটসমূহ</string>
   <!-- Settings switch for updating Cyanogen recovery -->
+  <string name="update_recovery_title">Cyanogen পুনৰুদ্ধাৰ আপডেট কৰক</string>
+  <string name="update_recovery_summary">আপডেট পুনৰুদ্ধাৰ তথা ছিষ্টেম আপডেট</string>
+  <string name="update_recovery_on_warning">জাননী: এই বৈশিষ্ট্যটো সক্ষম কৰিলে, আপোনাৰ ইনষ্টল থকা পুনৰুদ্ধাৰ এই চলি থকা OS-ৰ সাম্প্ৰতিক সংস্কৰণত অন্তৰ্ভুক্ত এটাৰ দ্বাৰা পৰিবৰ্তিত হ\'ব।\n\nআপোনাৰ পুনৰুদ্ধাৰ আপোনাৰ ছিষ্টেমৰ সৈতে আপগ্ৰেডৰ সৈতে আপডেট কৰা হ\'ব, যাতে ভৱিষ্যৎ সংস্কৰণসমূহৰ সৈতে সুসমতা নিশ্চিত কৰাত সহায় হয়।\n\nআপুনি এই বৈশিষ্ট্যটো সক্ষম কৰিব বিচাৰে নে?</string>
+  <string name="update_recovery_off_warning">সকীয়নি: যেতিয়া বৈশিষ্ট্যটো অক্ষম কৰা হয়, আপোনাৰ ইনষ্টল কৰা পুনৰুদ্ধাৰ OS আপগ্ৰেডৰ সৈতে আপডেট কৰা নহ\'ব।\n\nভৱিষ্যৎ OS আপডেটবোৰ পুৰণি বা কাষ্টম পুনৰুদ্ধাৰ সংস্কৰণৰ সৈতে ইনষ্টল নহ\'ব পাৰে।\n\nআপুনি সঁচাই এই বৈশিষ্ট্যটো অক্ষম কৰিব বিচাৰে নে?</string>
   <!-- Themes Settings -->
   <!-- Settings main menu entry -->
+  <string name="themes_settings_title">বিষয়বস্তুসমূহ</string>
   <!-- Sound settings screen -->
+  <string name="ring_mode_title">ৰিং মোড</string>
+  <string name="ring_mode_normal">সাধাৰণ</string>
+  <string name="ring_mode_vibrate">ভাইব্ৰেট</string>
+  <string name="ring_mode_mute">নিমাত</string>
+  <string name="settings_reset_button">ৰিছেট</string>
   <!-- Profiles settings  -->
+  <string name="profiles_settings_title">ছিষ্টেম প্ৰ\'ফাইল</string>
+  <string name="profiles_add">যোগ দিয়ক</string>
+  <string name="profile_menu_delete">মচি দিয়া</string>
+  <string name="profile_settings_title">প্ৰ\'ফাইল</string>
+  <string name="profile_empty_list_profiles_off">কনফিগাৰ কৰিবলৈ আৰু ছিষ্টেম প্ৰ\'ফাইল ব্যৱহাৰ কৰিবলৈ, প্ৰ\'ফাইল অন কৰক।</string>
+  <string name="profile_trigger_configure">ট্ৰিগাৰ কনফিগাৰ কৰক</string>
+  <string name="profile_write_nfc_tag">NFC টেগলৈ লিখক</string>
+  <string name="profile_write_touch_tag">লিখিবলৈ টেগ স্পৰ্শ কৰক</string>
+  <string name="profile_write_success">টেগ সফলতাৰে লিখা হ\'ল</string>
+  <string name="profile_write_failed">টেগ লিখাটো ব্যৰ্থ হ\'ল!</string>
+  <string name="profile_selected">প্ৰ\'ফাইল চয়ন কৰা হৈছে: %1$s</string>
+  <string name="profile_nfc_text">NFC টেগলৈ এটা প্ৰ\'ফাইল লিখাটোৱে প্ৰ\'ফাইলটো চয়ন কৰাৰ বাবে টেগটো টেপিং কৰাৰ অনুমতি দিয়ে। দ্বিতীয়বাৰ টেপিং কৰিলে পূৰ্বতে চয়ন কৰা প্ৰ\'ফাইল চয়ন কৰা হ\'ব।</string>
+  <string name="profile_unknown_nfc_tag">অজ্ঞাত প্ৰ\'ফাইল</string>
+  <string name="profile_add_nfc_text">এই NFC টেগে এটা অজ্ঞাত প্ৰ\'ফাইল সূচায়। এটা বিদ্যমান প্ৰ\'ফাইলৰ সৈতে এই NFC টেগটো সংলগ্ন কৰিলে প্ৰ\'ফাইলটো ভৱিষ্যতে চয়ন কৰাৰ অনুমতি দিব।</string>
+  <string name="profile_select">প্ৰ\'ফাইল চয়ন কৰক</string>
+  <string name="profile_remove_dialog_message">প্ৰ\'ফাইল %1$s টো আঁতৰাব?</string>
+  <string name="profile_populate_profile_from_state">চলিত ডিভাইচ ছেটিংচ ব্যৱহাৰ কৰি প্ৰ\'ফাইল কনফিগাৰ কৰিব?</string>
+  <string name="profile_menu_fill_from_state">চলিত ডিভাইচ ছেটিংচ আমদানি কৰক</string>
+  <string name="profile_remove_current_profile">চলিত প্ৰ\'ফাইল বিলোপ কৰিব নোৱাৰি!</string>
+  <string name="profile_app_group_category_title">অধিসূচনা অগ্ৰাহ্য কৰা</string>
+  <string name="profile_app_group_item_instructions">গ্ৰুপ যোগ কৰক বা আঁতৰাওক</string>
+  <string name="profile_app_group_item_instructions_summary">অধিসূচনা অগ্ৰাহ্য এপ্প গ্ৰুপবোৰ এই প্ৰ\'ফাইলত যোগ কৰক বা আঁতৰাওক</string>
   <!-- Profile mode options. -->
+  <string name="profile_entries_on">অন কৰক</string>
+  <string name="profile_entries_off">অফ</string>
+  <string name="profile_entries_no_override">অগ্ৰাহ্য নকৰিব</string>
   <!-- Add Profile -->
+  <string name="profile_name_title">নাম</string>
+  <string name="new_profile_name">&lt;নতুন প্ৰ\'ফাইল&gt;</string>
   <!-- Rename Dialog  -->
+  <string name="rename_dialog_title">পুনঃনামাকৰণ</string>
+  <string name="rename_dialog_message">এটা নতুন নাম প্ৰৱেশ কৰক</string>
+  <string name="duplicate_appgroup_name">এপ্প্‌ গ্ৰুপৰ নাম নকল কৰক!</string>
+  <string name="rename_dialog_hint">প্ৰ\'ফাইল নাম প্ৰৱেশ কৰক</string>
   <!-- Reset Profiles -->
+  <string name="profile_reset_title">ৰিছেট</string>
+  <string name="profile_reset_message">ব্যৱহাৰকৰ্তাৰদ্বাৰা সৃষ্টি কৰা সকলো প্ৰ\'ফাইল বিলোপ কৰিব আৰু সেইবোৰ ডিফ\'ল্টৰ পৰা পুনঃস্থাপন কৰিব?</string>
   <!-- Delete confimation messages -->
+  <string name="profile_app_delete_confirm">এই এপ্প্‌টো আঁতৰাব?</string>
   <!-- Profile network mode -->
+  <string name="profile_networkmode_2g">2G</string>
+  <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
+  <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <!-- Profile Config screen PreferenceGroup titles -->
+  <string name="profile_volumeoverrides_title">ভলিউম অগ্ৰাহ্য</string>
+  <string name="connection_state_enabled">সক্ৰিয় কৰা</string>
+  <string name="volume_override_summary">%1$s/%2$s লৈ ছেট কৰক</string>
+  <string name="profile_volume_override_checkbox_label">ভলিউম অগ্ৰাহ্য কৰক</string>
   <!-- Menu item for managing profiles -->
+  <string name="profile_profiles_manage">প্ৰ\'ফাইল্চ</string>
+  <string name="profile_profile_manage">প্ৰ\'ফাইল প্ৰবন্ধন কৰক</string>
+  <string name="profile_appgroups_manage">এপ্প্ গ্ৰুপ</string>
+  <string name="profile_appgroup_manage">এপ্প্ গ্ৰুপ প্ৰবন্ধন কৰক</string>
   <!-- Profile settings screen, section header for settings related to notification profiles -->
+  <string name="profile_settings">প্ৰ’ফাইল ছেটিংছ</string>
+  <string name="profile_trigger_connect">সংযোগ অন কৰক</string>
+  <string name="profile_trigger_disconnect">ডিচকানেক্ট অন কৰক</string>
+  <string name="profile_trigger_notrigger">ট্ৰিগাৰ নাই</string>
   <!-- Profile Settings sound modes labels -->
+  <string name="sound_mode">অধিসূচনা মোড</string>
+  <string name="ringer_mode">ৰিং মোড</string>
+  <string name="lights_mode">লাইট মোড</string>
+  <string name="vibrate_mode">ভাইব্ৰেট মোড</string>
+  <string name="choose_soundtone">অধিসূচনা টোন পচন্দ কৰক</string>
+  <string name="choose_ringtone">ৰিংটোন বাচনি কৰক</string>
   <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
+  <string name="soundtone_title">অধিসূচনা টোন</string>
   <!-- Title for application group setting screen -->
+  <string name="profile_appgroups_title">এপ্প্ গ্ৰুপ</string>
+  <string name="profile_applist_title">এপ্পসমূহ</string>
+  <string name="profile_new_appgroup">নতুন এপ্প্ গ্ৰুপ</string>
+  <string name="profile_delete_appgroup">এই এপ্প্‌ গ্ৰুপটো বিলোপ কৰিব?</string>
+  <string name="profile_appgroup_name_prompt">নতুন এপ্প্‌ গ্ৰুপটোৰ বাবে এটা নাম প্ৰৱেশ কৰক</string>
+  <string name="profile_appgroup_name_title">নাম</string>
   <!-- Add application dialog box title -->
+  <string name="profile_choose_app">এপ্প বাচনি কৰক</string>
   <!-- Profiles - system settings -->
+  <string name="profile_system_settings_title">ছিষ্টেম ছেটিংছ</string>
+  <string name="profile_lockmode_title">লক স্ক্ৰীণ মোড</string>
+  <string name="profile_lockmode_policy_disabled_summary">এই প্ৰ\'ফাইল বিকল্প এটা ডিভাইচ ব্যৱস্থাপক নীতিৰ দ্বাৰা অক্ষম কৰা হৈছে</string>
+  <string name="profile_lockmode_insecure_summary">অনুগ্ৰহ কৰি PIN বা পাছৱৰ্ড নুসুধিব</string>
+  <string name="profile_lockmode_disabled_summary">লক স্ক্ৰীণ অক্ষম কৰক</string>
+  <string name="profile_airplanemode_title">এয়াৰপ্লেন মোড</string>
+  <string name="profile_brightness_title">স্ক্ৰীণৰ উজ্জ্বলতা</string>
+  <string name="profile_brightness_override_summary">%1$d%% লৈ ছেট কৰক</string>
+  <string name="profile_brightness_override_checkbox_label">উজ্জ্বলতা অগ্ৰাহ্য</string>
   <!-- Connection override toggles (not all are used at this time ) -->
+  <string name="toggleWifi">ৱাই \u2011ফাই</string>
+  <string name="toggleWifiAp">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট</string>
+  <string name="toggleBluetooth">ব্লুটুথ</string>
+  <string name="toggleGPS">GPS</string>
+  <string name="toggleData">ডাটা সংযোগ</string>
+  <string name="toggleSync">স্বয়ং-ছিনক্ৰ’নাইজেশ্যন ডাটা</string>
+  <string name="toggle2g3g4g">অগ্ৰাধিকাৰযুক্ত  নেটৱৰ্কৰ ধৰণ</string>
+  <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">ৱাই\u2011ফাই অঞ্চল কোড</string>
   <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">ৱাই\u2011ফাই ৰ বাবে অঞ্চল কোড নিৰ্দিষ্ট কৰক</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">অঞ্চল কোড ছেটিং কৰাত এটা সমস্যা হৈছিল</string>
   <!-- Profiles -->
+  <string name="profile_menu_delete_title">মচি দিয়া</string>
+  <string name="profile_action_none">অপৰিবৰ্তিত ৰাখক</string>
+  <string name="profile_action_system">ছিষ্টেম ডিফল্ট</string>
+  <string name="profile_action_disable">অফ কৰক</string>
+  <string name="profile_action_enable">সক্ৰিয় কৰক</string>
+  <string name="profile_trigger_a2dp_connect">A2DPত সংযোগ কৰক</string>
+  <string name="profile_trigger_a2dp_disconnect">A2DPত সংযোগহীন কৰক</string>
+  <string name="profile_tabs_wifi">ৱাই \u2011ফাই</string>
+  <string name="profile_tabs_bluetooth">ব্লুটুথ</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_triggers_header">এই প্ৰ\'ফাইল সক্ৰিয় কৰা ট্ৰিগাৰ</string>
+  <string name="profile_setup_setup_triggers_title">পদক্ষেপ 1: ট্ৰিগাৰ যোগ কৰক</string>
+  <string name="profile_setup_setup_triggers_title_config">ট্ৰিগাৰ সংশোধন কৰক: <xliff:g id="profile_name">%1$s</xliff:g></string>
+  <string name="profile_setup_actions_title">পদক্ষেপ 2: ক্ৰিয়া ছেটআপ কৰক</string>
+  <string name="profile_setup_actions_title_config">ক্ৰিয়া ৰিকনফিগাৰ কৰক</string>
+  <string name="profile_appgroups_manage">এপ্প্ গ্ৰুপ</string>
+  <string name="profile_appgroup_manage">এপ্প্ গ্ৰুপ প্ৰবন্ধন কৰক</string>
   <!-- Title for application group setting screen -->
+  <string name="profile_appgroups_title">এপ্প্ গ্ৰুপ</string>
+  <string name="profile_new_appgroup">নতুন এপ্প্ গ্ৰুপ</string>
+  <string name="profile_delete_appgroup">এই এপ্প্‌ গ্ৰুপটো বিলোপ কৰিব?</string>
+  <string name="profile_appgroup_name_prompt">নতুন এপ্প্‌ গ্ৰুপটোৰ বাবে এটা নাম প্ৰৱেশ কৰক</string>
+  <string name="profile_appgroup_name_title">নাম</string>
+  <string name="duplicate_appgroup_name">এপ্প্‌ গ্ৰুপৰ নাম নকল কৰক!</string>
+  <string name="profile_app_delete_confirm">এই এপ্প্‌টো আঁতৰাব?</string>
+  <string name="no_bluetooth_triggers">কোনো Bluetooth ডিভাইচ যুগল কৰা নাই।\nট্ৰিগাৰ কনফিগাৰ কৰাৰ আগতে Bluetooth ডিভাইচ যুগল কৰিবলৈ টেপ কৰক।</string>
+  <string name="no_wifi_triggers">কোনো Wi\u2011Fi একছেচ পইণ্ট কনফিগাৰ কৰা নাই।\nট্ৰিগাৰ কনফিগাৰ কৰাৰ আগতে Wi\u2011Fi ডিভাইচ যোৰা কৰিবলৈ টেপ কৰক।</string>
+  <string name="no_triggers_configured">কোনো ট্ৰিগাৰ কনফিগাৰ কৰা নাই। অধিক যোগ কৰিবলৈ টেপ কৰক।</string>
+  <string name="no_triggers_configured_nfc">নতুন NFC ট্ৰিগাৰ ছেটআপ কৰিবলৈ টেপ কৰক।</string>
+  <string name="profile_setup_setup_triggers_description">অনুগ্ৰহ এই প্ৰ\'ফাইল সক্ৰিয় কৰা ট্ৰিগাৰ চয়ন কৰক</string>
+  <string name="profile_setup_actions_description">এতিয়া প্ৰ\'ফাইল সক্ৰিয় কৰিলে কি ঘটিব কনফিগাৰ কৰক</string>
   <!-- Navigation Bar -->
+  <string name="navigation_bar_category">নেভিগেশ্যন দণ্ডিকা</string>
+  <string name="navigation_bar_left_title">বাওঁ-হতীয়া মোড</string>
+  <string name="navigation_bar_left_summary">লেণ্ডস্কেপ মোডত স্ক্ৰীণৰ বাওঁফালে নেভিগেশ্যন দণ্ডিকা ৰাখক</string>
+  <string name="navigation_bar_title">বুটাম আৰু লেআউট</string>
+  <string name="navigation_bar_help_text">আৰম্ভ কৰিবলৈ সম্পাদনা কৰাৰ বাবে নেভিগেশ্যন দণ্ডিকা আনলক কৰিবলৈ সম্পাদনা আইকনটো টেপ কৰক\n\nআপুনি এই চমুপথটো পৰিৱৰ্তন কৰিবলৈ টেপ কৰিব পাৰে বা লেআউট পুনঃসজ্জিত কৰিবলৈ এটা আইকনত দীঘলকৈ টিপিব পাৰে।\n\nআপোনাৰ পৰিবৰ্তনবোৰ ন্যস্ত কৰিবলৈ \'Save\' বা লেআউট ডিফ\'ল্ট ছেটিঙলৈ ৰিছেট কৰিবলৈ টেপ কৰক।</string>
+  <string name="navigation_restore_button_text">পুনঃস্থাপন কৰক\nডিফ\'ল্ট</string>
+  <string name="navigation_edit_button_text">সম্পাদনা</string>
+  <string name="navigation_save_button_text">ছেভ কৰা</string>
+  <string name="navigation_bar_reset_message">চলিত ছেটিং বিলোপ কৰিব আৰু ডিফ\'ল্ট লেআউটলৈ পুনঃস্থাপন কৰিব?</string>
+  <string name="navigation_bar_arrow_keys_title">টাইপ কৰি থাকোতে কাড় কীবোৰ প্ৰদৰ্শন কৰক</string>
+  <string name="navigation_bar_arrow_keys_summary">টাইপ কৰি থাকোতে বাওঁ আৰু সোঁ কাৰ্ছৰ বুটামবোৰ প্ৰদৰ্শন কৰক। IME চুইচাৰ অগ্ৰাহ্য কৰক</string>
+  <string name="navigation_bar_recents_title">সাম্প্ৰতিক দীঘলকৈ টিপাৰ কাৰ্য</string>
   <!-- Notification light dialogs -->
+  <string name="edit_light_settings">লাইট ছেটিং সম্পাদনা কৰক</string>
+  <string name="pulse_speed_title">পালচ দৈৰ্ঘ আৰু গতি</string>
+  <string name="default_time">সাধাৰণ</string>
+  <string name="custom_time">কাষ্টম</string>
+  <string name="dialog_delete_title">মচি দিয়া</string>
+  <string name="dialog_delete_message">চয়নিত আইটেম আঁতৰাব নে?</string>
   <!-- Values for the notification light pulse spinners -->
+  <string name="pulse_length_always_on">সদায়েই অন</string>
+  <string name="pulse_length_very_short">খুব চুটি</string>
+  <string name="pulse_length_short">চুটি</string>
+  <string name="pulse_length_normal">সাধাৰণ</string>
+  <string name="pulse_length_long">দীঘল</string>
+  <string name="pulse_length_very_long">খুব দীঘল</string>
+  <string name="pulse_speed_very_fast">খুব তীব্ৰ</string>
+  <string name="pulse_speed_fast">ফাষ্ট</string>
+  <string name="pulse_speed_normal">সাধাৰণ</string>
+  <string name="pulse_speed_slow">ধীৰ</string>
+  <string name="pulse_speed_very_slow">খুব ধীৰ গতি</string>
   <!-- Battery light settings -->
+  <string name="battery_light_title">বেটাৰী লাইট</string>
+  <string name="battery_low_pulse_title">যদি বেটাৰী নিম্ন হয় পালচ কৰক</string>
+  <string name="battery_light_list_title">ৰংসমূহ</string>
+  <string name="battery_light_low_color_title">বেটাৰী নিম্ন</string>
+  <string name="battery_light_medium_color_title">চাৰ্জ হৈ আছে</string>
+  <string name="battery_light_full_color_title">সম্পূৰ্ণ চাৰ্জ হৈছে</string>
   <!-- Lights settings screen, notification light settings -->
+  <string name="notification_light_title">অধিসূচনা লাইট</string>
+  <string name="notification_light_general_title">সাধাৰণ</string>
+  <string name="notification_light_applist_title">এপ্পসমূহ</string>
+  <string name="notification_light_phonelist_title">ফোন</string>
+  <string name="notification_light_use_custom">কাষ্টম মান ব্যৱহাৰ কৰক</string>
+  <string name="notification_light_default_value">ডিফল্ট</string>
+  <string name="notification_light_missed_call_title">মিছড কল</string>
+  <string name="notification_light_voicemail_title">ভইচমেইল</string>
+  <string name="notification_light_screen_on">স্ক্ৰীণ অনৰ সৈতে লাইট</string>
+  <string name="notification_light_zen_mode">লাইট্স ইন ডু নট ডিস্টৰ্ব মোড</string>
+  <string name="notification_light_use_multiple_leds">একাধিক LED</string>
+  <string name="keywords_lights_brightness_level">অনুজ্জ্বল ledৰ উজ্জ্বলতা</string>
+  <string name="notification_light_automagic">স্বয়ংক্ৰিয়ভাৱে ৰংসমূহ বাচনি কৰক</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">লাইট ছেটিং</string>
+  <string name="led_notification_text">ছেটিংছৰ দ্বাৰা সক্ষমিত LED লাইট</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
+  <string name="enable_adb_cm">Android ডিবাগিং</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
+  <string name="enable_adb_summary_cm">Android ডিবাগ ব্ৰিজ (adb) ইণ্টাৰফেচ সক্ষম কৰক</string>
   <!-- Android debugging over WiFi -->
+  <string name="adb_over_network">ADB অভাৰ নেটৱৰ্ক</string>
+  <string name="adb_over_network_summary">নেটৱৰ্ক ইণ্টাৰফেচৰ ওপৰত TCP/IP ডিবাগিং সক্ষম কৰক (ৱাই\u2011ফাই, USB নেটৱৰ্ক) এই ছেটিংটো ৰিবুট কৰিলে ৰিছেট হয়</string>
   <!-- Warning for Adb over Network -->
+  <string name="adb_over_network_warning">সকীয়নি: যেতিয়া ADB অভাৰ নেটৱৰ্ক সক্ষম কৰা হয়, আপোনাৰ ফোনটো সকলো সংযোগিত নেটৱৰ্কৰ দ্বাৰা অনাধিকাৰ প্ৰৱেশৰ বাবে মুকলি হয়!\n\nকেৱল আপুনি বিশ্বাসী নেটৱৰ্কৰ সৈতে সংযোগিত হ\'লেহে এই বৈশিষ্ট্যটো ব্যৱহাৰ কৰক।\n\n আপুনি সঁচাকৈ এই ফাংচনটো সক্ষম কৰিব বিচাৰে নে?</string>
   <!-- Setting checkbox summary for displaying USB debugging notification -->
+  <string name="adb_notify">ডিবাগিং অধিসূচনা</string>
+  <string name="adb_notify_summary">যেতিয়া USB বা নেটৱৰ্ক ডিবাগিং সক্ষম কৰা হয় তেতিয়া এটা অধিসূচনা প্ৰদৰ্শন কৰক</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
+  <string name="app_ops_categories_location">স্থান</string>
+  <string name="app_ops_categories_personal">ব্যক্তিগত</string>
+  <string name="app_ops_categories_messaging">মেছেজিং</string>
+  <string name="app_ops_categories_media">মিডিয়া</string>
+  <string name="app_ops_categories_device">ডিভাইচ</string>
+  <string name="app_ops_categories_bootup">বুটআপ</string>
+  <string name="app_ops_categories_su">ৰুট প্ৰৱেশ কৰক</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_summaries_coarse_location">কোআৰ্চ অৱস্থান</string>
+  <string name="app_ops_summaries_fine_location">ফাইন অৱস্থান</string>
+  <string name="app_ops_summaries_gps">GPS</string>
+  <string name="app_ops_summaries_vibrate">কম্পন</string>
+  <string name="app_ops_summaries_read_contacts">যোগাযোগসমূহ পঢ়ক</string>
+  <string name="app_ops_summaries_modify_contacts">যোগাযোগসমূহ সংশোধন কৰক</string>
+  <string name="app_ops_summaries_read_call_log">কল লগ পঢ়ক</string>
+  <string name="app_ops_summaries_modify_call_log">কল লগ সংশোধন কৰক</string>
+  <string name="app_ops_summaries_read_calendar">কেলেণ্ডাৰ পঢ়ক</string>
+  <string name="app_ops_summaries_modify_calendar">কেলেণ্ডাৰ সংশোধন কৰক</string>
+  <string name="app_ops_summaries_wifi_scan">Wi-Fi স্কেন</string>
+  <string name="app_ops_summaries_notification">অধিসূচনা/টোষ্ট</string>
+  <string name="app_ops_summaries_cell_scan">চেল স্ক্ৰীণ</string>
+  <string name="app_ops_summaries_call_phone">ফোনলৈ কলক</string>
+  <string name="app_ops_summaries_read_sms">SMS পঢ়ক</string>
+  <string name="app_ops_summaries_write_sms">SMS লিখক</string>
+  <string name="app_ops_summaries_receive_sms">SMS গ্ৰহণ</string>
+  <string name="app_ops_summaries_receive_emergency_sms">জৰুৰীকালীন SMS লাভ</string>
+  <string name="app_ops_summaries_receive_mms">MMS গ্ৰহণ কৰা</string>
+  <string name="app_ops_summaries_receive_wap_push">WAP পুশ্ব গ্ৰহণ</string>
+  <string name="app_ops_summaries_send_sms">SMS প্ৰেৰণ কৰক</string>
+  <string name="app_ops_summaries_read_icc_sms">ICC SMS পঢ়ক</string>
+  <string name="app_ops_summaries_write_icc_sms">ICC SMS লিখক</string>
+  <string name="app_ops_summaries_modify_settings">ছেটিংছ সংশোধন কৰক</string>
+  <string name="app_ops_summaries_draw_on_top">শীৰ্ষত আঁকক</string>
+  <string name="app_ops_summaries_access_notifications">ন’টিফিকেশ্যনসমূহ আহৰণ কৰক</string>
+  <string name="app_ops_summaries_camera">কেমেৰা</string>
+  <string name="app_ops_summaries_record_audio">অডিঅ’ ৰেকৰ্ড</string>
+  <string name="app_ops_summaries_play_audio">অডিঅ’ প্লে কৰক</string>
+  <string name="app_ops_summaries_read_clipboard">ক্লিপব’ৰ্ড পঢ়ক</string>
+  <string name="app_ops_summaries_modify_clipboard">ক্লিপব’ৰ্ড সংশোধন কৰক</string>
+  <string name="app_ops_summaries_media_buttons">মিডিয়া বুটামসমূহ</string>
+  <string name="app_ops_summaries_audio_focus">অডিঅ ফ\'কাচ</string>
+  <string name="app_ops_summaries_master_volume">মাষ্টাৰ ভলিউম</string>
+  <string name="app_ops_summaries_voice_volume">ভইচ ভলিউম</string>
+  <string name="app_ops_summaries_ring_volume">ৰিং ভলিউম</string>
+  <string name="app_ops_summaries_media_volume">মিডিয়া ভলিউম</string>
+  <string name="app_ops_summaries_alarm_volume">এলাৰ্ম ভলিউম</string>
+  <string name="app_ops_summaries_notification_volume">অধিসূচনা ভলিউম</string>
+  <string name="app_ops_summaries_bluetooth_volume">Bluetooth ভলিউম</string>
+  <string name="app_ops_summaries_keep_awake">জাগ্ৰত ৰাখক</string>
+  <string name="app_ops_summaries_monitor_location">নিৰীক্ষণ স্থান</string>
+  <string name="app_ops_summaries_monitor_high_power_location">উচ্চ শক্তিৰ স্থান নিৰীক্ষণ কৰক</string>
+  <string name="app_ops_summaries_get_usage_stats">ইউজেজ অৱস্থা প্ৰাপ্ত কৰক</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">মাইক্ৰ\'ফোন মিউট/আনমিউট কৰক</string>
+  <string name="app_ops_summaries_toast_window">টোষ্ট প্ৰদৰ্শন কৰক</string>
+  <string name="app_ops_summaries_project_media">প্ৰজেক্ট মিডিয়া</string>
+  <string name="app_ops_summaries_activate_vpn">VPN সক্ৰিয় কৰক</string>
+  <string name="app_ops_summaries_write_wallpaper">ৱালপেপাৰ লিখক</string>
+  <string name="app_ops_summaries_assist_structure">গঠন সহায়তা কৰক</string>
+  <string name="app_ops_summaries_assist_screenshot">স্ক্ৰীণশ্বট সহায়তা কৰক</string>
+  <string name="app_ops_summaries_read_phone_state">ফোন অৱস্থা পঢ়ক</string>
+  <string name="app_ops_summaries_add_voicemail">ভইচমেইল যোগ দিয়ক</string>
+  <string name="app_ops_summaries_use_sip">SIP ব্যৱহাৰ কৰক</string>
+  <string name="app_ops_summaries_make_call">কল কৰক</string>
+  <string name="app_ops_summaries_use_fingerprint">আঙুলিৰছাপ ব্যৱহাৰ কৰক</string>
+  <string name="app_ops_summaries_use_body_sensors">দেহ চেনচৰ ব্যৱহাৰ কৰক</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">চেল ব্ৰডকাষ্ট পঢ়ক</string>
+  <string name="app_ops_summaries_mock_location">ম\'ক অৱস্থান</string>
+  <string name="app_ops_summaries_read_external_storage">বাহ্যিক ষ্ট\'ৰেজ পঢ়ক</string>
+  <string name="app_ops_summaries_write_external_storage">বাহ্যিক ষ্ট\'ৰেজলৈ লিখক</string>
+  <string name="app_ops_summaries_turn_screen_on">স্ক্ৰীণ অন কৰক</string>
+  <string name="app_ops_summaries_get_accounts">একাউণ্ট প্ৰাপ্ত কৰক</string>
+  <string name="app_ops_summaries_toggle_wifi">Wi-Fi টগল কৰক</string>
+  <string name="app_ops_summaries_toggle_bluetooth">Bluetooth টগল কৰক</string>
+  <string name="app_ops_summaries_start_at_boot">এটা বুট আৰম্ভ কৰক</string>
+  <string name="app_ops_summaries_toggle_nfc">NFC টগল কৰা</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ম\'বাইল ডাটা টগল কৰা</string>
+  <string name="app_ops_summaries_superuser">ৰুট প্ৰৱেশ কৰক</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">কোআৰ্চ অৱস্থান</string>
+  <string name="app_ops_labels_fine_location">ফাইন অৱস্থান</string>
+  <string name="app_ops_labels_gps">GPS</string>
+  <string name="app_ops_labels_vibrate">ভাইব্ৰেট</string>
+  <string name="app_ops_labels_read_contacts">কনটেক্ট পঢ়ক</string>
+  <string name="app_ops_labels_modify_contacts">কনটেক্টসমূহ উন্নীতকৰণ কৰক</string>
+  <string name="app_ops_labels_read_call_log">কল লগ পঢ়ক</string>
+  <string name="app_ops_labels_modify_call_log">কল লগ উন্নীতকৰণ কৰক</string>
+  <string name="app_ops_labels_read_calendar">কেলেণ্ডাৰ পঢ়ক</string>
+  <string name="app_ops_labels_modify_calendar">কেলেণ্ডাৰ উন্নীতকৰণ কৰক</string>
+  <string name="app_ops_labels_wifi_scan">Wi-Fi স্কেন</string>
+  <string name="app_ops_labels_notification">অধিসূচনা/টোষ্ট</string>
+  <string name="app_ops_labels_cell_scan">চেল স্কেন</string>
+  <string name="app_ops_labels_call_phone">ফোনলৈ কল কৰা</string>
+  <string name="app_ops_labels_read_sms">SMS পঢ়ক</string>
+  <string name="app_ops_labels_write_sms">SMS লিখক</string>
+  <string name="app_ops_labels_receive_sms">SMS প্ৰাপ্ত কৰক</string>
+  <string name="app_ops_labels_receive_emergency_sms">জৰুৰীকালীন SMS প্ৰাপ্ত কৰক</string>
+  <string name="app_ops_labels_receive_mms">MMS গ্ৰহণ কৰা</string>
+  <string name="app_ops_labels_receive_wap_push">WAP পুশ্ব প্ৰাপ্ত কৰক</string>
+  <string name="app_ops_labels_send_sms">SMS প্ৰেৰণ কৰক</string>
+  <string name="app_ops_labels_read_icc_sms">ICC SMS পঢ়ক</string>
+  <string name="app_ops_labels_write_icc_sms">ICC SMS লিখক</string>
+  <string name="app_ops_labels_modify_settings">ছেটিংছ উন্নীতকৰণ কৰক</string>
+  <string name="app_ops_labels_draw_on_top">ওপৰত আঁকক</string>
+  <string name="app_ops_labels_access_notifications">জাননীসমূহ আহৰণ কৰক</string>
+  <string name="app_ops_labels_camera">কেমেৰা</string>
+  <string name="app_ops_labels_record_audio">অডিঅ’ ৰেকৰ্ড</string>
+  <string name="app_ops_labels_play_audio">অডিঅ’ প্লে’ কৰক</string>
+  <string name="app_ops_labels_read_clipboard">ক্লিপব’ৰ্ড পঢ়ক</string>
+  <string name="app_ops_labels_modify_clipboard">ক্লিপব’ৰ্ড উন্নীতকৰণ কৰক</string>
+  <string name="app_ops_labels_media_buttons">মিডিয়া বুটামসমূহ</string>
+  <string name="app_ops_labels_audio_focus">অডিঅ ফকাচ</string>
+  <string name="app_ops_labels_master_volume">মাষ্টাৰ ভলিউম</string>
+  <string name="app_ops_labels_voice_volume">ভইট ভলিউম</string>
+  <string name="app_ops_labels_ring_volume">ৰিং ভলিউম</string>
+  <string name="app_ops_labels_media_volume">মিডিয়া ভলিউম</string>
+  <string name="app_ops_labels_alarm_volume">এলাৰ্ম ভলিউম</string>
+  <string name="app_ops_labels_notification_volume">ন’টিফিকেশ্যন ভলিউম</string>
+  <string name="app_ops_labels_bluetooth_volume">ব্লুটুথ ভলিউম</string>
+  <string name="app_ops_labels_keep_awake">জাগ্ৰত ৰাখক</string>
+  <string name="app_ops_labels_monitor_location">অৱস্থান নিৰীক্ষণ কৰক</string>
+  <string name="app_ops_labels_monitor_high_power_location">উচ্চ শক্তিৰ অৱস্থান নিৰীক্ষণ কৰক</string>
+  <string name="app_ops_labels_get_usage_stats">ইউজেজ ষ্টেট</string>
+  <string name="app_ops_labels_mute_unmute_microphone">শব্দহীন/অনা-শব্দহীন মাইক্ৰ’ফোন</string>
+  <string name="app_ops_labels_toast_window">টোষ্ট প্ৰদৰ্শন কৰক</string>
+  <string name="app_ops_labels_project_media">প্ৰজেক্ট মিডিয়া</string>
+  <string name="app_ops_labels_activate_vpn">VPN সক্ৰিয় কৰা</string>
+  <string name="app_ops_labels_write_wallpaper">ৱালপেপাৰ লিখক</string>
+  <string name="app_ops_labels_assist_structure">গঠন সহায়তা কৰক</string>
+  <string name="app_ops_labels_assist_screenshot">স্ক্ৰীণশ্বট সহায়তা কৰক</string>
+  <string name="app_ops_labels_read_phone_state">ফোন অৱস্থা পঢ়ক</string>
+  <string name="app_ops_labels_add_voicemail">ভইচমেইল যোগ দিয়ক</string>
+  <string name="app_ops_labels_use_sip">SIP ব্যৱহাৰ কৰক</string>
+  <string name="app_ops_labels_make_call">কল কৰক</string>
+  <string name="app_ops_labels_use_fingerprint">আঙুলিৰছাপ ব্যৱহাৰ কৰক</string>
+  <string name="app_ops_labels_use_body_sensors">দেহ চেনচৰ ব্যৱহাৰ কৰক</string>
+  <string name="app_ops_labels_read_cell_broadcasts">চেল ব্ৰডকাষ্ট পঢ়ক</string>
+  <string name="app_ops_labels_mock_location">ম\'ক অৱস্থান</string>
+  <string name="app_ops_labels_read_external_storage">বাহ্যিক ষ্ট\'ৰেজ পঢ়ক</string>
+  <string name="app_ops_labels_write_external_storage">বাহ্যিক ষ্ট\'ৰেজলৈ লিখক</string>
+  <string name="app_ops_labels_turn_screen_on">স্ক্ৰীণ অন কৰক</string>
+  <string name="app_ops_labels_get_accounts">একাউণ্ট প্ৰাপ্ত কৰক</string>
+  <string name="app_ops_labels_toggle_wifi">Wi-Fi টগল কৰক</string>
+  <string name="app_ops_labels_toggle_bluetooth">Bluetooth টগল কৰক</string>
+  <string name="app_ops_labels_start_at_boot">এটা বুট আৰম্ভ কৰক</string>
+  <string name="app_ops_labels_toggle_nfc">NFC টগল কৰক</string>
+  <string name="app_ops_labels_toggle_mobile_data">ম\'বাইল ডাটা টগল কৰক</string>
+  <string name="app_ops_labels_superuser">ৰুট প্ৰৱেশ কৰক</string>
   <!-- App ops permissions -->
+  <string name="app_ops_permissions_allowed">অনুমতি দিয়া হল।</string>
+  <string name="app_ops_permissions_ignored">প্ৰত্যাখ্যান কৰা হ\'ল</string>
+  <string name="app_ops_permissions_always_ask">সদায়েই সুধিব</string>
   <!-- App ops detail -->
+  <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (ব্যৱহৃত <xliff:g id="count">%2$s</xliff:g>)</string>
+  <string name="app_ops_allowed_count">অনুমতি দিয়া হৈছে <xliff:g id="count" example="2 times">%s</xliff:g></string>
+  <string name="app_ops_ignored_count">অস্বীকাৰ কৰা হৈছে <xliff:g id="count" example="2 times">%s</xliff:g></string>
+  <string name="app_ops_both_count">অনুমতি দিয়া হৈছে <xliff:g id="count">%1$s</xliff:g>, অস্বীকাৰ কৰা হৈছে <xliff:g id="count">%2$s</xliff:g></string>
   <!-- App ops menu options -->
+  <string name="app_ops_show_user_apps">ব্যৱহাৰকৰ্তা এপ্প্‌ প্ৰদৰ্শন কৰক</string>
+  <string name="app_ops_show_system_apps">পূৰ্ব-নিৰ্মিত এপ্প্‌ প্ৰদৰ্শন কৰক</string>
+  <string name="app_ops_reset_counters">অনুমতি/অস্বীকাৰ কাউণ্টাৰ ৰিছেট কৰক</string>
+  <string name="app_ops_reset_confirm_title">কাউণ্টাৰ ৰিছেট নিশ্চিত কৰক</string>
+  <string name="app_ops_reset_confirm_mesg">কাউণ্টাৰ ৰিছেট কৰিবলৈ আপুনি নিশ্চিত নে?</string>
+  <string name="ok">ঠিক</string>
   <!-- Hostname setting -->
+  <string name="device_hostname">ডিভাইচৰ হোষ্টনেম</string>
+  <string name="unlock_scramble_pin_layout_title">স্ক্ৰেম্বল লেআউট</string>
+  <string name="unlock_scramble_pin_layout_summary">ডিভাইচ আনলকিং কৰোতে PIN লেআউট স্ক্ৰেম্বল কৰক</string>
+  <string name="button_pref_title">বুটামসমূহ</string>
+  <string name="hardware_keys_power_key_title">পাৱাৰ বুটাম</string>
+  <string name="hardware_keys_home_key_title">হোম বুটাম</string>
+  <string name="hardware_keys_back_key_title">বেক বুটাম</string>
+  <string name="hardware_keys_menu_key_title">মেন্যু বুটাম</string>
+  <string name="hardware_keys_assist_key_title">অন্বেষণ বুটাম</string>
+  <string name="hardware_keys_appswitch_key_title">শেহতীয়া বুটাম</string>
+  <string name="hardware_keys_camera_key_title">কেমেৰা বুটাম</string>
+  <string name="hardware_keys_volume_keys_title">ভলিউম বুটাম</string>
+  <string name="hardware_keys_short_press_title">চমুকৈ টিপা কাৰ্য</string>
+  <string name="hardware_keys_long_press_title">দীঘলকৈ টিপা কাৰ্য</string>
+  <string name="hardware_keys_double_tap_title">দুবাৰ টেপ কাৰ্য</string>
+  <string name="hardware_keys_action_nothing">কোনো কাৰ্য নাই</string>
+  <string name="hardware_keys_action_menu">খোলা/বন্ধ মেনু</string>
+  <string name="hardware_keys_action_app_switch">সাম্প্ৰতিক এপ্প্‌ চুইচাৰ</string>
+  <string name="hardware_keys_action_search">সন্ধান সহায়ক</string>
+  <string name="hardware_keys_action_voice_search">ভইচ সন্ধান</string>
+  <string name="hardware_keys_action_in_app_search">ইন-এপ্প সন্ধান</string>
+  <string name="hardware_keys_action_launch_camera">কেমেৰা লান্চ্চ কৰক</string>
+  <string name="hardware_keys_action_sleep">স্ক্ৰীণ অফ কৰক</string>
+  <string name="hardware_keys_action_last_app">অন্তিম এপ্প্</string>
+  <string name="camera_sleep_on_release_title">স্ক্ৰীণ পিক</string>
+  <string name="camera_sleep_on_release_summary">এটা হাফ প্ৰেছে বুটামটো টিপি থকা সময়তহে স্ক্ৰীণ অন ৰাখিব</string>
+  <string name="camera_launch_title">কেমেৰা লান্চ্চ কৰক</string>
+  <string name="camera_launch_summary">এবাৰ দীঘলকৈ টিপিলে আৰু এৰি দিলে কেমেৰা লান্চ্চ হ\'ব</string>
+  <string name="volbtn_music_controls_title">প্লেবেক কন্ট্ৰোল</string>
+  <string name="volbtn_music_controls_summary">যেতিয়া স্ক্ৰীণ অফ থাকিব, ভলিউম কী দীঘলকৈ টিপিলে সংগীত ট্ৰেকসমূহ বিচাৰিব</string>
+  <string name="volbtn_cursor_control_title">কীবোৰ্ড কাৰ্ছৰ নিয়ন্ত্ৰণ</string>
+  <string name="volbtn_cursor_control_off">নিস্ক্ৰিয় কৰা হল</string>
+  <string name="volbtn_cursor_control_on">ভলিউম ওপৰলৈ/তললৈ নিলে কাৰ্ছৰ কাৰ্ছৰ বাওঁ/সোঁ ফালে নিব</string>
+  <string name="volbtn_cursor_control_on_reverse">ভলিউম ওপৰলৈ/তললৈ নিলে কাৰ্ছৰ সোঁ/বাওঁ ফালে নিব</string>
+  <string name="power_end_call_title">কল সমাপ্ত কৰক</string>
+  <string name="power_end_call_summary">পাৱাৰ বুটাম টিপিলে চলি থকা কলটো সমাপ্ত কৰিব</string>
+  <string name="swap_volume_buttons_title">ৰিঅ\'ৰিয়েণ্ট</string>
+  <string name="swap_volume_buttons_summary">স্ক্ৰীণখন ঘূৰোৱাৰ সময়ত ভলিউম বুটামবোৰ বিনিময় কৰক</string>
+  <string name="button_wake_title">ৱেক আপ ডিভাইচ</string>
+  <string name="home_answer_call_title">কলৰ উত্তৰ দিয়ক</string>
+  <string name="home_answer_call_summary">হোম বুটাম টিপিলে ইনকামিং কলটোৰ উত্তৰ দিব</string>
   <!-- Backlight brightness settings screen -->
+  <string name="adaptive_backlight_title">এডাপ্টিভ বেকলাইট</string>
+  <string name="adaptive_backlight_summary">ব্যৱহাৰযোগ্যতা বজাই ৰখাৰ লগতে বেটাৰীৰ জীৱন সৰ্বাধিক কৰিবলৈ প্রদর্শন বেকলাইটৰ উজ্জ্বলতা গতিশীলভাবে মিলাওক</string>
   <!-- Sunlight readability enhancement screen -->
+  <string name="sunlight_enhancement_title">সূৰ্যৰ পোহৰ উন্নীতকৰণ</string>
+  <string name="sunlight_enhancement_summary">উজ্জ্বল সূৰ্যৰ পোহৰৰ তলত প্রদর্শন উজ্জ্বলতা আৰু পঠনযোগ্যতা উন্নীত কৰক</string>
   <!-- Color enhancement settings screen -->
+  <string name="color_enhancement_title">ৰং উন্নীতকৰণ</string>
+  <string name="color_enhancement_summary">প্রদর্শনৰ ৰং গতিশীলভাবে উন্নত কৰক</string>
   <!-- Key backlight -->
+  <string name="button_backlight_title">বেকলাইট</string>
+  <string name="button_backlight_enabled">বুটামবোৰ উদ্ভাসিত কৰক</string>
+  <string name="keyboard_backlight_enabled">কীবোৰ্ড</string>
+  <string name="button_backlight_seekbar_title">বুটামৰ উজ্জ্বলতা</string>
+  <string name="keyboard_backlight_seekbar_title">কীবোৰ্ডৰ উজ্জ্বলতা</string>
+  <string name="backlight_timeout_title">উদ্ভাসিতৰ টাইম আউট</string>
+  <string name="backlight_timeout_unlimited">অফ নকৰিব</string>
+  <string name="backlight_summary_disabled">নিস্ক্ৰিয় কৰা হল</string>
+  <string name="backlight_summary_enabled_with_timeout"><xliff:g id="timeout">%s</xliff:g> ৰ বাবে সক্ষম কৰা হ\'ল</string>
+  <string name="backlight_summary_enabled">সক্ৰিয় কৰা হল</string>
   <!-- Gesture Settings -->
   <!-- Settings main menu entry -->
+  <string name="gesture_settings_title">ভঙ্গিমা</string>
   <!-- Power menu -->
+  <string name="power_menu_title">পাৱাৰ মেনু</string>
+  <string name="power_menu_reboot_title">ৰিবুট মেনু</string>
+  <string name="power_menu_screenshot_title">স্ক্ৰীণস্বট</string>
+  <string name="power_menu_airplane_title">এয়াৰপ্লেন মোড</string>
+  <string name="power_menu_users_title">ব্যৱহাৰকৰ্তা চুইচাৰ</string>
+  <string name="power_menu_settings_title">ছেটিংছ শ্বৰ্টকাট</string>
+  <string name="power_menu_lockdown_title">ডিভাইচ লকডাউন</string>
+  <string name="power_menu_bug_report_title">বাগ প্ৰতিবেদন</string>
+  <string name="power_menu_sound_title">ধ্বনি পেনেল</string>
+  <string name="power_menu_bug_report_disabled">ডেভেলপমেণ্ট ছেটিংচত বাগ ৰিপোৰ্টিং অক্ষম কৰা হৈছে</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">অন-স্ক্ৰীণ নেভ বাৰ সক্ষম কৰক</string>
+  <string name="disable_navkeys_summary">অন-স্ক্ৰীণ নেভিগেশ্যন বাৰ সক্ষম কৰক আৰু হাৰ্ডৱেৰ বুটামবোৰ অক্ষম কৰক</string>
   <!-- tap-to-sleep -->
+  <string name="double_tap_to_sleep_title">সুপ্ত কৰিবলৈ দুবাৰ টেপ কৰক</string>
+  <string name="double_tap_to_sleep_summary">প্রদর্শন অফ কৰিবলৈ ষ্টেটাছ বাৰত দুবাৰ ক্লিক কৰক</string>
   <!-- Proximity wake -->
+  <string name="proximity_wake_title">দুৰ্ঘটনাক্ৰমে ৱেক-আপ হোৱাটো প্ৰতিৰোধ কৰক</string>
+  <string name="proximity_wake_summary">স্ক্ৰীণ ৱেক আপ কৰাৰ আগতে প্ৰ\'ক্সিমিটী চেনচৰ পৰীক্ষা কৰক</string>
   <!-- Turn on display when power connected; turn off display when power disconnected -->
+  <string name="wake_when_plugged_or_unplugged_title">প্লাগ কৰিলে ৱেক কৰক</string>
+  <string name="wake_when_plugged_or_unplugged_summary">পাৱাৰ উৎসৰ সৈতে সংযোগ কৰিলে বা সংযোগহীন কৰিলে স্ক্ৰীণ অন কৰক</string>
   <!-- Font size sample text. This needs to be a very short string, as it is shown in
     multiple font sizes in a limited amount of space. -->
+  <string name="font_size_sample">নমুনা</string>
   <!-- Volume settings - Volume adjustment sound -->
+  <string name="volume_adjust_sounds_title">ভলিউম মিলোৱাৰ ধ্বনি</string>
   <!-- Hardware tunables - Vibrator intensity -->
+  <string name="vibrator_intensity_title">ভাইব্ৰেটৰৰ তীব্ৰতা</string>
+  <string name="vibrator_warning">%1$d তকৈ ডাঙৰ মান অনুমোদিত নহয়</string>
   <!-- Hardware tunables - Color calibration -->
+  <string name="color_calibration_title">ৰং কেলিব্ৰেচন</string>
+  <string name="color_calibration_summary">অন স্ক্ৰীণ ৰং কেলিব্ৰেট কৰক</string>
+  <string name="color_red_title">ৰঙা</string>
+  <string name="color_green_title">সেউজীয়া</string>
+  <string name="color_blue_title">নীলা</string>
   <!-- Hardware tunables - Gamma calibration -->
+  <string name="gamma_tuning_title_head">গামা কেলিব্ৰেচন</string>
+  <string name="gamma_tuning_summary_head">টুইক গামাৰ মানবোৰ</string>
+  <string name="gamma_tuning_control_set_header">গ্ৰুপ <xliff:g id="index">%d</xliff:g></string>
   <!-- used if no name provided by overlay -->
+  <string name="gamma_tuning_contrast">কনট্ৰাষ্ট</string>
+  <string name="gamma_tuning_brightness">উজ্বলতা</string>
+  <string name="gamma_tuning_saturation">পৰিপূৰ্ণ কৰা</string>
   <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">সংগীত এপ্প্ লান্চ্চ কৰক</string>
+  <string name="headset_connect_player_summary">হেডছেট সংযোগ কৰিলে ডিফ\'ল্ট সংগীত এপ্প লান্চ্চ কৰক</string>
   <!-- WiFi auto-configure priorities -->
+  <string name="wifi_auto_config_priorities">স্বয়ংক্ৰিয় অগ্ৰাধিকাৰ</string>
+  <string name="auto_brightness_reset_button">ৰিছেট</string>
   <!-- Display : Rotation  -->
+  <string name="display_rotation_title">ঘূৰণ</string>
+  <string name="display_rotation_disabled">নিস্ক্ৰিয় কৰা হল</string>
+  <string name="display_rotation_unit">ডিগ্ৰী</string>
+  <string name="display_lockscreen_rotation_title">লক স্ক্ৰীণ ঘূৰাওক</string>
+  <string name="display_rotation_category_title">মোডবোৰ ঘূৰাওক</string>
+  <string name="display_rotation_0_title">0 ডিগ্ৰী</string>
+  <string name="display_rotation_90_title">90 ডিগ্ৰী</string>
+  <string name="display_rotation_180_title">180 ডিগ্ৰী</string>
+  <string name="display_rotation_270_title">270 ডিগ্ৰী</string>
   <!-- Display settings.  Screen color. -->
+  <string name="screencolor">স্ক্ৰীণৰ ৰং</string>
+  <string name="screencolor_summary">স্ক্ৰীণৰ হিউ, সংপৃক্ততা, বিষমতা আৰু তীব্ৰতা টিউন কৰক</string>
+  <string name="custom_screencolor">কাষ্টম স্ক্ৰীণ ৰং</string>
+  <string name="screencolor_save">ছেভ কৰা</string>
+  <string name="screencolor_cancel">নাকচ</string>
+  <string name="restore_preview">ডিফ\'ল্ট ছবি চাওক</string>
+  <string name="selectnewfile_menu">গেলাৰীৰ পৰা নতুন ছবি চাওক</string>
+  <string name="selectfile_menu">গেলাৰীৰ পৰা ছবি চাওক</string>
+  <string name="restore_default_str">ৰিছেট</string>
+  <string name="hue_str">হিউ: <xliff:g id="hue_value">%1$s</xliff:g></string>
+  <string name="saturation_str">ৰঙৰ গাঢ়তা: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+  <string name="contrast_str">বিষমতা: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">তীব্ৰতা: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
+  <string name="live_display_summary">পঠনযোগ্যতা আৰু চকুৰ ওপৰত চাপ হ্ৰাস কৰিবলৈ দিনৰ সময়ৰ আধাৰত আপোনাৰ স্ক্ৰীণ আৰু পাৰিপাৰ্শ্বিক অৱস্থা অপ্টিমাইজ কৰক</string>
+  <string name="live_display_mode">প্রদর্শন মোড</string>
+  <string name="live_display_color_temperature_title">ৰং তাপমাত্ৰা</string>
+  <string name="live_display_color_temperature_summary">দিন: <xliff:g id="day_temperature">%1$d</xliff:g>K ৰাতি: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">দিন</string>
+  <string name="live_display_night">নাইট</string>
+  <string name="live_display_outdoor_mode_title">স্বয়ংক্ৰিয় আউটডোৰ মোড</string>
+  <string name="live_display_outdoor_mode_summary">উজ্জ্বল সূৰ্যৰ পোহৰৰ তলত উজ্জ্বলতা আৰু সংপৃক্ততা স্বয়ংক্ৰিয়ভাবে বৃদ্ধি কৰক</string>
+  <string name="live_display_low_power_title">শক্তি ব্যয় হ্ৰাস কৰক</string>
+  <string name="live_display_low_power_summary">অৱনতি নোহোৱাকৈ শক্তি ব্যয় সৰ্বনিম্ন কৰিবলৈ প্রদর্শন মিলাওক</string>
+  <string name="live_display_enhance_color_title">ৰং উন্নত কৰক</string>
+  <string name="live_display_enhance_color_summary">ফ্লেশ্ব টোন, দৃশ্যপট আৰু অন্যান্য প্ৰতিচ্ছবিৰ ৰঙৰ তীব্ৰতা উন্নত কৰক</string>
+  <string name="live_display_color_profile_title">ৰং প্ৰ\'ফাইল</string>
+  <string name="live_display_color_profile_standard_title">ষ্টেণ্ডাৰ্ড</string>
+  <string name="live_display_color_profile_standard_summary">নিঁখুত ৰং আৰু উজ্জ্বল বগা</string>
+  <string name="live_display_color_profile_natural_title">প্ৰাকৃতিক</string>
+  <string name="live_display_color_profile_natural_summary">প্ৰকৃত ৰং আৰু ফ্লেশ্ব টোন</string>
+  <string name="live_display_color_profile_dynamic_title">ডায়নামিক</string>
+  <string name="live_display_color_profile_dynamic_summary">উন্নত ৰং আৰু উজ্জ্বল বগা</string>
+  <string name="live_display_color_profile_cinema_title">চিনেমা</string>
+  <string name="live_display_color_profile_cinema_summary">ভিডিঅ\'ৰ বাবে নিৰ্ভুল ৰং উৎপাদন</string>
+  <string name="live_display_color_profile_astronomy_title">এষ্ট্ৰন\'মি</string>
+  <string name="live_display_color_profile_astronomy_summary">ৰাতিৰ ভিচন সংৰক্ষণ কৰাৰ বাবে গাঢ় ৰঙা</string>
+  <string name="live_display_color_profile_photography_title">ফটোগ্ৰাফী</string>
+  <string name="live_display_color_profile_photography_summary">ফটোৰ বাবে নিৰ্ভুল ৰং উৎপাদন</string>
+  <string name="live_display_color_profile_basic_title">প্ৰাথমিক</string>
+  <string name="live_display_color_profile_basic_summary">কেলিব্ৰেট নকৰাকৈ প্রদর্শন ব্যৱহাৰ কৰক</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">নিৰ্বাচক আইকন</string>
+  <string name="ime_switcher_notify_summary">নিৰ্বাচক আইকনৰ ইনপুট পদ্ধতি প্ৰদৰ্শন কৰক</string>
   <!-- Heads up -->
+  <string name="heads_up_notifications">হেডচ আপ</string>
+  <string name="summary_heads_up_enabled">পপ-আপ অধিসূচনাবোৰ সক্ষম কৰা হৈছে</string>
+  <string name="summary_heads_up_disabled">পপ-আপ অধিসূচনাবোৰ অক্ষম কৰা হৈছে</string>
   <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
+  <string name="bluetooth_accept_all_files">সকলো ধৰণৰ ফাইল গ্ৰহণ কৰক</string>
   <!-- High touch sensitivity -->
+  <string name="high_touch_sensitivity_title">উচ্চ স্পৰ্শ সংবেদনশীলতা</string>
+  <string name="high_touch_sensitivity_summary">টাচ্চস্ক্ৰীণৰ সংবেদনশীলতা বৃদ্ধি কৰক যাতে হাতমোজা পিন্ধি থাকিলেও ইয়াক ব্যৱহাৰ কৰিব পাৰি</string>
   <!-- Display & Lights screen, setting options for LCD density -->
+  <string name="lcd_density">LCD ঘনত্ব</string>
+  <string name="dialog_title_lcd_density">LCD ঘনত্ব</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (ডিফ\'ল্ট)</string>
+  <string name="restarting_ui">UI\u2026 পুনৰাৰম্ভ হৈ আছে</string>
   <!-- Stylus Icon -->
+  <string name="stylus_icon_enabled_title">ষ্টাইলাচ ব্যৱহাৰ কৰা সময়ত আইকন প্ৰদৰ্শন কৰক</string>
+  <string name="stylus_icon_enabled_summary">ভাসমান কৰোতে বা ষ্টাইলাছেৰে অঁকাৰ সময়ত পইণ্টাৰ আইকন প্ৰদৰ্শন কৰক</string>
   <!-- Stylus Gestures -->
+  <string name="gestures_settings_title">ষ্টাইলাছ ভঙ্গিমা</string>
+  <string name="category_spen_title">ষ্টাইলাছ ভঙ্গিমা</string>
+  <string name="enable_subcat_title">ষ্টাইলাছ</string>
+  <string name="enable_spen_title_head">ভঙ্গিমা সক্ষম কৰক</string>
+  <string name="enable_spen_summary_head">ষ্টাইলাছ বুটাম হেঁচি ধৰি ছোৱাইপ ভঙ্গিমা ব্যৱহাৰ কৰক</string>
+  <string name="gestures_subcat_title">ভঙ্গিমা</string>
+  <string name="gestures_left_spen_title_head">বাওঁ ছোৱাইপ</string>
+  <string name="gestures_right_spen_title_head">সোঁ ছোৱাইপ</string>
+  <string name="gestures_up_spen_title_head">ওপৰলৈ ছোৱাইপ</string>
+  <string name="gestures_down_spen_title_head">তললৈ ছোৱাইপ</string>
+  <string name="gestures_long_spen_title_head">দীঘলকৈ টিপা</string>
+  <string name="gestures_double_spen_title_head">দুবাৰ টেপ কৰক</string>
   <!-- Gestures Options -->
+  <string name="gestures_action_empty">কোনো কাৰ্য নাই</string>
+  <string name="gestures_action_home">হোম</string>
+  <string name="gestures_action_back">পিছ</string>
+  <string name="gestures_action_menu">মেন্যু</string>
+  <string name="gestures_action_search">সন্ধান ইনভ\'ক কৰক</string>
+  <string name="gestures_action_recent">শেহতীয়া এপ্পসমূহ</string>
   <!-- Stylus gestures -->
+  <string name="stylus_app_not_installed">%s ইনষ্টল কৰা নাই</string>
   <!-- Touchscreen hovering -->
+  <string name="touchscreen_hovering_title">টাচ্চস্ক্ৰীণ ভাসমান কৰাৰ</string>
+  <string name="touchscreen_hovering_summary">আপোনাক স্ক্ৰীণৰ ওপৰত ৱেব ব্ৰাউজাৰ, ৰিম\'ট ডেস্কটপ আদিৰ দৰে মাউচ ভাসমান কৰাৰ অনুমতি দিয়ে</string>
   <!-- Increasing ring tone volume -->
+  <string name="increasing_ring_volume_option_title">ৰিং ভলিউম বৃদ্ধি কৰক</string>
+  <string name="increasing_ring_min_volume_title">ৰিং ভলিউম</string>
+  <string name="increasing_ring_ramp_up_time_title">ৰেম্প-আপ সময়</string>
   <!-- LTO download data over wi-fi only -->
+  <string name="lto_download_data_wifi_only">GPS সমৰ্থিত ডাটা ডাউনলোড</string>
+  <string name="lto_download_data_wifi_only_on">যিকোনো নেটৱৰ্কৰ ওপৰত</string>
+  <string name="lto_download_data_wifi_only_off">কেৱল ৱাই\u2011ফাই নেটৱৰ্কৰ ওপৰত</string>
+  <string name="volume_keys_control_ring_stream_title">ৰিংটোন ভলিউম নিয়ন্ত্ৰণ কৰক</string>
+  <string name="volume_keys_control_ring_stream_summary_on">ভলিউম কীবোৰে ৰিংটোনৰ ভলিউম নিয়ন্ত্ৰণ কৰে</string>
+  <string name="volume_keys_control_ring_stream_summary_off">ভলিউম কীবোৰে মিডিয়াৰ ভলিউম নিয়ন্ত্ৰণ কৰে</string>
+  <string name="category_calibration">কেলিবাৰেচন</string>
+  <string name="display_and_lights">প্রদর্শন আৰু লাইটবোৰ</string>
   <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
+  <string name="power_notifications_category_title">চাৰ্জিং শব্দ</string>
   <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
+  <string name="power_notifications_enable_title">সক্ৰিয় কৰা</string>
+  <string name="power_notifications_enable_summary">পাৱাৰ উৎসৰ সৈতে সংযোগ কৰিলে বা সংযোগহীন কৰিলে এটা ধ্বনি বজাওক</string>
   <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
+  <string name="power_notifications_vibrate_title">ভাইব্ৰেট</string>
   <!-- Sound settings, Charging sounds ringtone selection, preference label -->
+  <string name="power_notifications_ringtone_title">অধিসূচনা ধ্বনি</string>
   <!-- Sound settings, charging sounds label for ringtone == none -->
+  <string name="power_notifications_ringtone_silent">ছাইলেণ্ট</string>
   <!-- Status bar -->
+  <string name="status_bar_title">স্থিতি দণ্ডিকা</string>
+  <string name="status_bar_toggle_brightness">উজ্জ্বলতা নিয়ন্ত্ৰণ</string>
+  <string name="status_bar_toggle_brightness_summary">ষ্টেটাছ বাৰৰ মাজেৰে স্লাইড কৰি উজ্জ্বলতা মিলাওক</string>
+  <string name="status_bar_notif_count_title">অধিসূচনা গণনা প্ৰদৰ্শন কৰক</string>
+  <string name="status_bar_notif_count_summary">অমীমাংসিত অধিসূচনাৰ সংখ্যা প্ৰদৰ্শন কৰক</string>
+  <string name="status_bar_quick_qs_pulldown_title">দ্ৰুত নমাই অনা</string>
+  <string name="status_bar_quick_qs_pulldown_summary">স্থিতি দণ্ডিকাৰ %1$s কাষে দ্ৰুত ছেটিংছ নমাই আনে</string>
+  <string name="status_bar_quick_qs_pulldown_summary_left">ৰৈ যোৱা</string>
+  <string name="status_bar_quick_qs_pulldown_summary_right">সোঁফাল</string>
+  <string name="status_bar_quick_qs_pulldown_off">অফ</string>
+  <string name="status_bar_quick_qs_pulldown_left">ৰৈ যোৱা</string>
+  <string name="status_bar_quick_qs_pulldown_right">সোঁফাল</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_title">ঘড়ীৰ ষ্টাইল</string>
+  <string name="status_bar_clock_style_right">সোঁফাল</string>
+  <string name="status_bar_clock_style_left">ৰৈ যোৱা</string>
+  <string name="status_bar_clock_style_center">কেন্দ্ৰ</string>
+  <string name="status_bar_clock_style_hidden">হিডেৱ</string>
+  <string name="status_bar_am_pm_title">AM/PM ষ্টাইল</string>
+  <string name="status_bar_am_pm_info">24-ঘণ্টীয়া ঘড়ি সক্ষম কৰা হৈছে</string>
+  <string name="status_bar_am_pm_normal">সাধাৰণ</string>
+  <string name="status_bar_am_pm_small">সৰু</string>
+  <string name="status_bar_am_pm_hidden">হিডেৱ</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">বেটাৰীৰ স্থিতিৰ ষ্টাইল</string>
+  <string name="status_bar_battery_style_icon_portrait">আইকন প’ৰ্ট্ৰেইট</string>
+  <string name="status_bar_battery_style_icon_landscape">আইকন লেণ্ডস্কেপ</string>
+  <string name="status_bar_battery_style_circle">বৃত্ত</string>
+  <string name="status_bar_battery_style_text">টেক্সট</string>
+  <string name="status_bar_battery_style_hidden">হিডেৱ</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_title">বেটাৰী শতাংশ</string>
+  <string name="status_bar_battery_percentage_default">হিডেৱ</string>
+  <string name="status_bar_battery_percentage_text_inside">আইকনৰ ভিতৰত</string>
+  <string name="status_bar_battery_percentage_text_next">আইকনৰ পৰৱৰ্তী</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">ষ্টেটাচ বাৰৰ আইকন</string>
+  <string name="status_bar_icons_summary">কোন ষ্টেটাচ বাৰৰ আইকন দেখুওৱা হ\'ব নিয়ন্ত্ৰণ কৰক</string>
   <!-- EdgeGesture service -->
+  <string name="edge_gesture_service_title">ভঙ্গিমা স্পৰ্শ ইভেণ্ট অৱৰুদ্ধ কৰক</string>
+  <string name="edge_gesture_service_summary">নেভিগেশ্যনৰ বাবে স্পৰ্শ ইভেণ্টবোৰ আৰু ষ্টেটাচ বাৰৰ ভঙ্গিমাবোৰ এ‌প্প্‌লৈ নপঠাব</string>
   <!-- Keep screen on strings -->
+  <string name="keep_screen_on_never">কেতিয়াও নকৰিব</string>
+  <string name="keep_screen_on_debugging">USB ডিবাগিং হৈ থাকোতে</string>
+  <string name="keep_screen_on_charging">চাৰ্জিং হৈ থাকোঁতে</string>
   <!-- Privacy Settings Header item -->
+  <string name="privacy_settings_cyanogenmod_title">গোপনীয়তা</string>
   <!-- Privacy Guard -->
+  <string name="privacy_guard_default_title">ডিফ\'ল্ট হিচাপে সক্ষম কৰক</string>
+  <string name="privacy_guard_default_summary">নতুনকৈ ইনষ্টল কৰা এপ্প্‌ৰ বাবে ডিফ\'ল্ট হিচাপে সক্ষম কৰক</string>
+  <string name="privacy_guard_manager_title">গোপনীয়তা ৰক্ষক</string>
+  <string name="privacy_guard_manager_summary">কোন এপ্প্‌এ আপোনাৰ ব্যক্তিগত তথ্যত প্ৰৱেশ কৰিব সেইটো প্ৰবন্ধন কৰক</string>
+  <string name="privacy_guard_no_user_apps">কোনো এপ্প্ ইনষ্টল কৰা নাই</string>
+  <string name="privacy_guard_help_title">হেল্প</string>
+  <string name="privacy_guard_reset_title">ৰিছেট</string>
+  <string name="privacy_guard_reset_text">অনুমতি ৰিছেট কৰিব?</string>
+  <string name="privacy_guard_help_text">এই স্ক্ৰীণত আপুনি কোন এপ্প্এ গোপনীয়তা ৰক্ষক সক্ৰিয় কৰা উচিত সেইটো সেইবোৰত টেপ কৰি পচন্দ কৰিব পাৰে। নিৰ্বাচিত এপ্প্‌বোৰে যোগাযোগ, বাৰ্তা বা কল লগৰ দৰে ব্যক্তিগত ডাটাবোৰ ব্যৱহাৰ কৰিবলৈ সক্ষম নহ\'ব। এটা এপ্প এণ্ট্ৰি দীঘলকৈ টিপিলে ইয়াৰ এপ্প বিৱৰণ স্ক্ৰীণ খোলা খায়।\n\nপূৰ্বনিৰ্মিত এপ্প্‌বোৰ ডিফ\'ল্ট হিচাপে নেদেখুৱায়, কিন্তু যথাযথ মেনু বিকল্প নিৰ্বাচন কৰি উন্মুক্ত কৰিব পাৰি।</string>
+  <string name="privacy_guard_manager_show_system_apps">পূৰ্ব-নিৰ্মিত এপ্প্‌ প্ৰদৰ্শন কৰক</string>
+  <string name="privacy_guard_advanced_settings_title">এডভান্সড</string>
+  <string name="privacy_guard_notification_title">অধিসূচনা প্ৰদৰ্শন কৰক</string>
   <!-- Sizes for pattern lockscreen -->
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
+  <string name="lockpattern_settings_enable_error_path_title">পেটাৰ্ণৰ ত্ৰুটি প্ৰদৰ্শন কৰক</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
+  <string name="lockpattern_settings_enable_dots_title">পেটাৰ্ণৰ ডটবোৰ প্ৰদৰ্শন কৰক</string>
   <!-- Whether the keyguard will directly pass to password entry -->
+  <string name="lock_directly_show_password">পাছৱৰ্ড প্ৰৱেশি প্ৰত্যক্ষভাবে প্ৰদৰ্শন কৰক</string>
   <!-- Whether the keyguard will directly pass to pattern view -->
+  <string name="lock_directly_show_pattern">পেটাৰ্ণ ভিউ প্ৰত্যক্ষভাবে প্ৰদৰ্শন কৰক</string>
   <!-- Whether the keyguard will directly pass to PIN entry -->
+  <string name="lock_directly_show_pin">PIN প্ৰৱেশি প্ৰত্যক্ষভাবে প্ৰদৰ্শন কৰক</string>
   <!-- lock screen visualizer -->
+  <string name="lockscreen_visualizer_title">সংগীত ভিজুৱেলাইজাৰ প্ৰদৰ্শন কৰক</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">দ্ৰুত ছেটিংচ টাইলৰ দ্বাৰা অক্ষমিত</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">লক স্ক্ৰীণ সক্ষম কৰিবলৈ টেপ কৰক</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">লক স্ক্ৰীণ সক্ষম কৰা হৈছে!</string>
   <!-- Battery saver -->
+  <string name="battery_saver_threshold">বেটাৰী চেভাৰ ট্ৰেচহোল্ড</string>
+  <string name="battery_saver_summary">কাৰ্যদক্ষতা হ্ৰাস কৰক আৰু পটভূমিৰ ডাটা সীমিত কৰক</string>
+  <string name="battery_saver_summary_unavailable">চাৰ্জিং কৰি থাকোতে উপলব্ধ নহয়</string>
   <!-- Battery : Automatic performance profiles -->
+  <string name="autoperf_title">পাৰ-এপ্প প্ৰ\'ফাইল সক্ষম কৰক</string>
+  <string name="autoperf_summary">বিভিন্ন এপ্পৰ বাবে স্বয়ংক্ৰিয়ভাবে যথাযথ বেটাৰী মোড চয়ন কৰক</string>
+  <string name="perf_profile_title">বেটাৰী মোড</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">এপ্প্ বুটৰ সময়ত আৰম্ভ হৈছিল</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
+  <string name="notification_ringtone_title_cm">অধিসূচনা টোন</string>
   <!-- Advanced reboot options -->
+  <string name="advanced_reboot_title">এডভান্সড ৰিবুট</string>
+  <string name="advanced_reboot_summary">যেতিয়া আনলক কৰা হয়, ৰিকোভাৰীলৈ ৰিবুট কৰা, বুটলোডাৰ বা চফ্ট ৰিবুট সম্পন্ন কৰাৰ বাবে পাৱাৰ মেনুত বিকল্প অন্তৰ্ভুক্ত কৰক</string>
+  <string name="category_interface">ইণ্টাৰফেচ</string>
   <!-- Expanded desktop -->
+  <string name="power_menu_expanded_desktop">সম্প্ৰসাৰিত ডেস্কটপ</string>
+  <string name="expanded_hide_nothing">একো নুলুকুৱাব</string>
+  <string name="expanded_hide_status">স্থিতি দণ্ডিকা লুকুৱাওক</string>
+  <string name="expanded_hide_navigation">নেভিগেশ্যন বাৰ লুকুৱাওক</string>
+  <string name="expanded_hide_both">দুয়োটাই লুকুৱাওক</string>
+  <string name="expanded_nothing_to_show">সম্প্ৰসাৰিত অৱস্থাৰ বাবে পাৰ-এপ্প্‌ কনফিগাৰেচন যোগ কৰিবলৈ, \'Enabled for all\' অফ অৱস্থানলৈ ছেট কৰক</string>
+  <string name="expanded_enabled_for_all">সকলোৰে বাবে সক্ষম কৰা হৈছে</string>
+  <string name="expanded_desktop_style">সম্প্ৰাসৰিত ডেস্কটপ ষ্টাইল</string>
+  <string name="expanded_desktop_style_description">এটা সম্প্ৰাসৰিত ডেস্কটপ ষ্টাইল পচন্দ কৰক</string>
+  <string name="expanded_desktop_title">সম্প্ৰাসৰিত ডেস্কটপ বিকল্পবোৰ</string>
   <!-- Kill app long-press back -->
+  <string name="kill_app_longpress_back">কিল এপ্প্ বেক বুটাম</string>
+  <string name="kill_app_longpress_back_summary">বেক বুটাম দীঘলকৈ টিপি সম্মুখত থকা এপ্প্ আঁতৰাওক</string>
   <!-- Show/Hide Search Bar -->
+  <string name="recents_show_searchbar">সাম্প্ৰতিক মেনুত সন্ধান বাৰ প্ৰদৰ্শন কৰক</string>
+  <string name="keywords_recents_show_searchbar">সাম্প্ৰতিক সাম্প্ৰতিকবোৰ অক্ষম সক্ষম প্ৰদৰ্শন কৰক লুকুৱাওক সন্ধান বাৰ সন্ধানবাৰ</string>
   <!-- Voice Wakeup -->
+  <string name="voice_wakeup_settings_title">ভইচ ৱেকআপ</string>
+  <string name="voice_wakeup_retrain_title">আপোনাৰ ভইচ ৰাখক</string>
+  <string name="voice_wakeup_activity_title">লান্চ্চ কৰিবলৈ কাৰ্যকলাপ</string>
+  <string name="voice_wakeup_default_activity">Google নাউ</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">এটা ডাইৰেক্ট ডায়েল যোগাযোগ চয়ন কৰিবলৈ ভইচ ৱেকআপৰ ফোন কলৰ অনুমতি থকা প্ৰয়োজন।</string>
+  <string name="picker_activities">কাৰ্যাৱলীসমূহ</string>
+  <string name="select_custom_app_title">কাষ্টম এপ্প চয়ন কৰক</string>
+  <string name="select_custom_activity_title">কাষ্টম কাৰ্যকলাপ চয়ন কৰক</string>
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">অৱৰুদ্ধ কৰা কলাৰ সূচী</string>
+  <string name="blacklist_edit_dialog_title">অৱৰুদ্ধ কৰা ফোন নম্বৰ সম্পাদনা কৰক</string>
+  <string name="blacklist_prefs">ছেটিংছ</string>
+  <string name="blacklist_button_delete">মচি দিয়া</string>
+  <string name="blacklist_empty_text">আপোনাৰ কোনো অৱৰুদ্ধ কৰা নম্বৰ নাই এড (+) বুটাম স্পৰ্শ কৰি এটা এণ্ট্ৰি যোগ কৰক</string>
+  <string name="blacklist_disabled_empty_text">আপোনাক কল কৰিবলৈ বা বাৰ্তািং কৰিবলৈ ফোন নম্বৰ প্ৰতিৰোধ কৰাৰ বাবে অৱৰুদ্ধিত কলাৰ সূচী সক্ষম কৰক।</string>
+  <string name="blacklist_summary_disabled">নিস্ক্ৰিয় কৰা হল</string>
+  <string name="blacklist_summary">আপুনি কলাৰ সূচীত থকা ফোন নম্বৰৰ পৰা ইনকামিং কল বা বাৰ্তা প্ৰাপ্ত নকৰিব</string>
+  <string name="blacklist_notify">অধিসূচনা প্ৰদৰ্শন কৰক</string>
+  <string name="blacklist_private_numbers_title">ব্যক্তিগত নম্বৰ</string>
+  <string name="blacklist_private_numbers_summary_disabled">ব্যক্তিগত নম্বৰৰ পৰা কল অৱৰুদ্ধ নকৰিব</string>
+  <string name="blacklist_private_numbers_summary">নিজস্ব নম্বৰৰ পৰা অহা <xliff:g id="type">%s</xliff:g> অৱৰুদ্ধ কৰক</string>
+  <string name="blacklist_unknown_numbers_title">অজ্ঞাত নম্বৰ</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">য়োগায়োগ সূচীত নথকা নম্বৰৰ পৰা অহা কল বা বাৰ্তা অৱৰুদ্ধ নকৰিব</string>
+  <string name="blacklist_unknown_numbers_summary">যোগাযোগ সূচীত নথকা নম্বৰৰ পৰা অহা <xliff:g id="type">%s</xliff:g> অৱৰুদ্ধ কৰক কৰক</string>
+  <string name="blacklist_summary_type_calls_only">কলবোৰ</string>
+  <string name="blacklist_summary_type_messages_only">বাৰ্তাবোৰ</string>
+  <string name="blacklist_summary_type_calls_and_messages">কল আৰু বাৰ্তাবোৰ</string>
+  <string name="blacklist_regex_title">ৱাইল্ডকাৰ্ড ব্যৱহাৰ কৰা</string>
+  <string name="blacklist_regex_summary">পুনৰাবৃত্তিৰ বাবে ৱাইল্ডকাৰ্ড হিচাপে . আৰু * ব্যৱহাৰ কৰক অৰ্থাৎ 123.* য়ে 123 ৰে আৰম্ভ হোৱা নম্বৰবোৰ অৱৰুদ্ধ কৰে আৰু .*123.* য়ে 123 থকা নম্বৰবোৰ অৱৰুদ্ধ কৰে</string>
+  <string name="blacklist_policy_block_calls">ইনকামিং কলসমূহ প্ৰতিবন্ধিত কৰা</string>
+  <string name="blacklist_policy_block_messages">ইনকামিং কলসমূহ অৱৰুদ্ধ কৰক</string>
+  <string name="blacklist_bad_number_add">অৱৰুদ্ধিত কলাৰ সূচীত অবৈধ ফোন নম্বৰ যোগ কৰিবলৈ অক্ষম</string>
   <!-- Blacklist management -->
+  <string name="remove_blacklist_number_title">নম্বৰ আঁতৰাওক</string>
+  <string name="remove_blacklist_entry">আপুনি এই অৱৰুদ্ধ কৰা ফোন নম্বৰটো আঁতৰাবলৈ বিচাৰে নে?</string>
+  <string name="select_contact">সম্পৰ্ক চয়ন কৰক</string>
   <!-- Sms security limit -->
+  <string name="app_security_title">এপ্প্ নিৰাপত্তা</string>
+  <string name="sms_security_check_limit_title">SMS বাৰ্তাৰ সীমাবদ্ধতা</string>
+  <string name="sms_security_check_limit_summary">নিশ্চিতিকৰণৰ আৱশ্যক হোৱাৰ আগতে এপ্প্‌বোৰে 1 মিনিটত %d বাৰ্তা পঠাব পাৰে।</string>
+  <string name="sms_security_check_limit_summary_none">নিশ্চিতিকৰণ নোহোৱাকৈ এপ্পক কোনো বাৰ্তা পঠাবলৈ অনুমতি দিয়া নহয়</string>
+  <string name="sms_security_check_limit_none">হাল্লা</string>
   <!-- Notification spamfilter -->
+  <string name="spam_added_title">%1$s যোগ কৰা হৈছে</string>
+  <string name="spam_last_blocked_title">অন্তিম অৱৰুদ্ধ কৰা হৈছে %1$s</string>
+  <string name="block_notifications_title">অধিসূচনাবোৰ ফিল্টাৰ কৰক</string>
+  <string name="block_notifications_summary">উপেক্ষা কৰা অধিসূচনাবোৰ আৰু ফিল্টাৰবোৰ প্ৰবন্ধন কৰক</string>
+  <string name="no_filters_title">কোনো ফিল্টাৰ ছেট কৰা নাই</string>
   <!-- Anonymous Statistics #CM -->
   <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+  <string name="anonymous_statistics_title">CyanogenMod পৰিসংখ্যা</string>
+  <string name="anonymous_statistics_summary">বেনামী পৰিসংখ্যা ৰিপোৰ্টিং চয়ন কৰাৰ দ্বাৰা CyanogenMod উন্নত কৰাত সহায় কৰক</string>
+  <string name="anonymous_statistics_warning_title">বিষয়ে</string>
+  <string name="anonymous_statistics_warning">CyanogenMod পৰিসংখ্যা চয়ন কৰিলে ডিভাইচবোৰৰ মাজত অনন্য স্থাপনকৰণ ট্ৰেক কৰিবলৈ অ-ব্যক্তিগত ডাটা CyanogenMod ডেভেলপাৰসকললৈ দাখিল কৰিবলৈ অনুমতি দিব। দাখিল কৰা তথ্যবোৰত এটা অনন্য চিনাক্তকাৰী অন্তৰ্ভুক্ত থাকে, যিটোৱে আপোনাৰ গোপনীয়তা বা ব্যক্তিগত ডাটাৰ সৈতে আপোচ নকৰে। প্ৰতিবাৰ বুট হোৱা সময়ত ডাটা দাখিল কৰা হয়।\n\nদাখিল কৰা ডাটাৰ উদাহৰণ হিচাপে, প্ৰিভিউ ডাটাত ডেপ কৰক।</string>
+  <string name="enable_reporting_title">ৰিপোৰ্টিং সক্ষম কৰক</string>
+  <string name="preview_data_title">ডাটা প্ৰিভিউ কৰক</string>
+  <string name="view_stats_title">পৰিসংখ্যা চাওক</string>
+  <string name="anonymous_learn_more">বেছিকৈ পঢ়া</string>
   <!-- Anonymous Statistics - Preview -->
+  <string name="preview_id_title">অনন্য ID</string>
+  <string name="preview_device_title">ডিভাইচ</string>
+  <string name="preview_version_title">সংস্কৰণ</string>
+  <string name="preview_country_title">ৰাষ্ট্ৰ</string>
+  <string name="preview_carrier_title">বাহক</string>
+  <string name="stats_collection_title">পৰিসংখ্যা সংগ্ৰহ</string>
+  <string name="stats_collection_summary">যেতিয়া সক্ষম কৰা হয়, মেট্ৰিক্স সংগ্ৰহৰ অনুমতি দিয়ে</string>
   <!-- Protected apps lockpattern reset button -->
+  <string name="lockpattern_reset_button">পেটাৰ্ণ ৰিছেট কৰক</string>
+  <string name="lockpattern_settings_reset_summary">পেটাৰ্ণ লক ৰিছেট কৰিবলৈ প্ৰাথমিক ই-মেইল একাউণ্ট আৰু সংযুক্ত পাছৱৰ্ড প্ৰৱেশ কৰক</string>
   <!-- Protected Apps -->
+  <string name="menu_hidden_apps_delete">ৰিছেট</string>
+  <string name="menu_hidden_apps_reset_lock">পেটাৰ্ণ লক ৰিছেট কৰক</string>
+  <string name="protected_apps">প্ৰতিৰোধী এপ্প্</string>
+  <string name="protected_apps_summary">সুৰক্ষিত লকৰ পাছফালে কোনবোৰ এপ্লিকেচন লুকুওৱা হ\'ব প্ৰবন্ধন কৰক</string>
+  <string name="saving_protected_components">কম্পোনেণ্টৰ অৱস্থা সংৰক্ষণ কৰা\u2026</string>
+  <string name="pa_login_username_hint">ৱ্যবহাৰকাৰীৰ নাম (ইমেইল)</string>
+  <string name="pa_login_password_hint">পাছৱৰ্ড</string>
+  <string name="pa_login_submit_button">চাইন ইন</string>
+  <string name="pa_login_checking_password">একাউণ্ট টেষ্ট কৰি আছে\u2026</string>
+  <string name="pa_login_incorrect_login">লগইন অশুদ্ধ আছিল</string>
+  <string name="pa_pattern_or_fingerprint_header">আনলক কৰিবলৈ পেটাৰ্ণ আঁকিবই লাগিব বা আঙুলিছাপ ব্যৱহাৰ কৰিবই লাগিব</string>
   <!-- Contributors cloud activity -->
+  <string name="contributors_cloud_fragment_title">অৰিহণা যোগাওঁতাসকল</string>
+  <string name="contributors_cloud_loading_message">অৰিহণা যোগাওঁতাসকলৰ ডাটা লোড কৰি আছে\u2026</string>
+  <string name="contributors_cloud_failed_message">অৰিহণা যোগাওঁতাসকলৰ ডাটা লোড কৰিব নোৱাৰি</string>
+  <string name="contributor_info_menu">অৰিহণা যোগাওঁতাসকলৰ তথ্য</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>নাম:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>উপনাম:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>সম্পন্ন কৰিছে:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
+  <string name="contributions_info_menu">অৰিহণা যোগাওঁতাসকলৰ তথ্য</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>মুঠ অৰিহণা যোগাওঁতা:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>মুঠ সম্পন্ন কৰিছে:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>অন্তিম আপডেট:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+  <string name="category_sounds">ধ্বনি</string>
+  <string name="notification_manager">ন’টিফিকেশ্যনসমূহ</string>
+  <string name="lockscreen_settings">লক স্ক্ৰীণ</string>
+  <string name="category_lights">লাইটসমূহ</string>
+  <string name="category_volume">ভলিউম</string>
+  <string name="category_vibrate">ভাইব্ৰেট</string>
+  <string name="category_misc">সানমিহলি</string>
+  <string name="title_general">সাধাৰণ</string>
+  <string name="advanced">এডভান্সড</string>
+  <string name="link_volume_option_title">ৰিংটোন আৰু অধিসূচনা ভলিউম লিংক কৰক</string>
+  <string name="lcd_density_prompt_message">কিছুমান এপ্পে্‌ নন-ষ্টেণ্ডাৰ্ড DPI ত কাম নকৰিব পাৰে।\n\nই আপোনাৰ ডিভাইচটো পুনৰাৰম্ভ কৰিব।</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">APN PPP ফোন নম্বৰ</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">নকল APN</string>
+  <string name="duplicate_apn_error_message">এই APN ইতিমধ্যে বিদ্যমান।পেৰামিটাৰবোৰ ৰ্আঁতৰাই দিয়ক বা পৰিবৰ্তন কৰক।</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> হ\'ল <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">অক্ষম</string>
+  <string name="sim_missing">হেৰাইছে বা ত্ৰুটিপূৰ্ণ</string>
+  <string name="sim_enabler_need_disable_sim">SIM কাৰ্ড নিষ্ক্ৰিয় কৰা হ\'ব। আপুনি অব্যাহত ৰাখিবলৈ বিচাৰে নেকি?</string>
+  <string name="sim_enabler_will_disable_sim_title">মনোযোগ</string>
+  <string name="sim_enabler_need_switch_data_service">এইখন SIM অক্ষম কৰা হ\'ব আৰু SIM <xliff:g id="slotid">%1$s</xliff:g> খন ডাটা সেৱাৰ বাবে ব্যৱহাৰ কৰা হ\'ব। আপুনি অব্যাহত ৰাখিব বিচাৰে বুলি নিশ্চিতনে?</string>
+  <string name="sim_enabler_airplane_on">এয়াৰপ্লেন মোড অন থাকিলে অপাৰেচনটো সম্পন্ন কৰিবলৈ অক্ষম</string>
+  <string name="sim_enabler_in_call">কল কৰি থাকিলে অপাৰেচনটো সম্পন্ন কৰিবলৈ অক্ষম</string>
+  <string name="sim_enabler_both_inactive">সকলোবোৰ SIM কাৰ্ড অক্ষম কৰিব নোৱাৰি</string>
+  <string name="sim_enabler_enabling">সক্ৰিয়কৰণ\u2026</string>
+  <string name="sim_enabler_disabling">সক্ৰিয়হীন\u2026</string>
+  <string name="sub_activate_success">SIM সক্ৰিয় কৰা হ\'ল।</string>
+  <string name="sub_activate_failed">সক্ৰিয়কৰণ ব্যৰ্থ হ\'ল।</string>
+  <string name="sub_deactivate_success">SIM নিষ্ক্ৰিয় কৰা হ\'ল।</string>
+  <string name="sub_deactivate_failed">নিষ্ক্ৰিয়কৰণ ব্যৰ্থ হ\'ল।</string>
+  <string name="primary_sub_select_title">ডিফ\'ল্ট 3G/LTE সদস্যভুক্তি</string>
+  <string name="select_sim_card">SIM কাৰ্ড বাচনি কৰক</string>
   <!-- MSIM SIM status -->
+  <string name="sim_card_status_title">SIM %d স্থিতি</string>
+  <string name="sim_card_lock_settings_title">SIM %d লক ছেটিংছ</string>
+  <string name="sim_card_summary_empty">SIM সন্নবিষ্ট কৰা নাই</string>
+  <string name="sim_mobile_network_settings_category_title">ম\'বাইল নেটৱৰ্ক ছেটিংছ</string>
+  <string name="sim_mobile_network_settings_title">SIM %d ছেটিংছ</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">স্মাৰকবোৰ</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">ইভেণ্টসমূহ</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">নিৰ্বাচিত কলাৰসকল</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">নিৰ্বাচিত বাৰ্তা</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
+  <string name="maximum_head_level">মূৰ: %1$s W/kg</string>
+  <string name="maximum_body_level">শৰীৰ: %1$s W/kg</string>
   <!-- IC Codes -->
+  <string name="ic_code_model">মডেল: %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
+  <string name="sim_ringtone_title">SIM %d ৰিংটোন</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">এপ্প:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">অন্তিমবাৰ ব্যৱহৃত:</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">ব্যৱহৃত সময়:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <string name="master_clear_desc_cm" product="tablet">এইটোৱে আপোনাৰ টেবলেটৰ <b>ইণ্টাৰ্ণেল ষ্টোৰেজ</b>, অন্তৰ্ভুক্ত কৰি  সকলো ডাটা মচি পেলাব:\n\n<li>আপোনাৰ ডিভাইচ একাউণ্ট </li>\n<li>ছিষ্টেম আৰু এপ্প্‌ ডাটা আৰু ছেটিংছ</li>\n<li>ডাউনলোড কৰা এপ্পসমূহ</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <string name="master_clear_desc_cm" product="default">এইটোৱে আপোনাৰ টেবলেটৰ <b>ইণ্টাৰ্ণেল ষ্টোৰেজ</b>, অন্তৰ্ভুক্ত কৰি  সকলো ডাটা মচি পেলাব:\n\n<li>আপোনাৰ ডিভাইচ একাউণ্ট</li>\n<li>ছিষ্টেম আৰু এপ্প্‌ ডাটা আৰু ছেটিংছ</li>\n<li>ডাউনলোড কৰা এপ্পসমূহ</li></string>
   <!-- Factory reset strings -->
+  <string name="factory_reset_instructions_title">ব্যক্তিগত ডাটা আৰু এপ্প্</string>
+  <string name="factory_reset_instructions_summary">ই আপোনাৰ এই ডিভাইচৰ সকলোবোৰ একাউণ্ট, এপ্প্, এপ্প্ ডাটা আৰু ছিষ্টেম ছেটিংছ মচিব</string>
+  <string name="factory_reset_personal_content">ব্যক্তিগত সামগ্ৰী</string>
+  <string name="factory_reset_erase_stored_content">সংৰক্ষণ কৰা সামগ্ৰী</string>
+  <string name="factory_reset_erase_stored_content_summary">এই ডিভাইচত ষ্টোৰ কৰা সংগীত, ফটো, ভিডিঅ\' আৰু অন্যান্য মুচক</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">এই ডিভাইচত ষ্টোৰ কৰা সংগীত, ফটো, ভিডিঅ\' আৰু অন্যান্য মুচক। \n\n<b>ডিভাইচ এনক্ৰিপশ্যনৰ বাবে সামগ্ৰী সংৰক্ষণ কৰিব নোৱাৰি</b></string>
+  <string name="factory_reset_erase_sd_card">SD কাৰ্ড ফৰমেট কৰক</string>
+  <string name="factory_reset_erase_sd_card_summary">সংগীত আৰু ফটোবোৰসহ SD কাৰ্ডৰ সকলোবোৰ ডাটা মচি পেলাওক</string>
+  <string name="factory_reset_warning_text_reset_now">এতিয়া ৰিছেট কৰক</string>
+  <string name="factory_reset_warning_text_message">এই ডিভাইচৰ পৰা আপোনাৰ সকলো একাউণ্ট, এপ্প, এপ্প ডাটা আৰু ছিষ্টেম ছেটিং আঁতৰোৱা হ\'ব। এইটো ওলোটাব নোৱাৰি।</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">অন্যান্য</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi হটস্পট টাইমআউট</string>
+  <string name="hotstpot_inactivity_timeout_never">কেতিয়াও নকৰিব</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 মিনিট</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 মিনিট</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 মিনিট</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট কেতিয়াও টাইমআউট নহয়</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট <xliff:g id="timeout">%1$s</xliff:g> পিছত টাইমআউট হ\'ব</string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">লাইভ লক স্ক্ৰীণ</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">লাইভ লক স্ক্ৰীণবোৰ সক্ৰিয় আৰু কনফিগাৰ কৰক</string>
   <!-- Live lock screen settings content description -->
+  <string name="live_lock_screen_settings_button">ছেটিংছ</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">উপলব্ধ লাইভ লক স্ক্ৰীণ চাবলৈ, লাইভ লক স্ক্ৰীণ অন কৰক।</string>
+  <string name="interruptions_ignore_while_media_title">অডিঅ\' ডাকিং ৰোধ কৰক</string>
+  <string name="interruptions_ignore_while_media_summary">অধিসূচনা আহিলে মিডিয়াৰ প্লেবেক ভলিউম হ্ৰাস নকৰিব</string>
   <!-- CM Legal -->
+  <string name="cmlicense_title">CyanogenMod আইনী</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">পৰিসংখ্যা ৰিছেট কৰক</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">বেটাৰী ইতিহাস পৰিসংখ্যা ৰিছেট কৰা হ\'ব</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">ডক বেটাৰী উপলব্ধ নহয়</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">ডক AC ত চাৰ্জিং কৰি আছে</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">ডক USB ত চাৰ্জিং কৰি আছে</string>
 </resources>

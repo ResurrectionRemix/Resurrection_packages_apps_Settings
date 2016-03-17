@@ -47,6 +47,7 @@
   <!-- About phone screen, Device name -->
   <string name="device_name">Tên thiết bị</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">Cấp độ API CyanogenMod</string>
   <string name="mod_api_level_default">Không rõ</string>
   <!-- About phone screen, build date -->
   <string name="build_date">Ngày dựng</string>
@@ -103,6 +104,7 @@
   <string name="rename_dialog_hint">Nhập tên cấu hình</string>
   <!-- Reset Profiles -->
   <string name="profile_reset_title">Đặt lại</string>
+  <string name="profile_reset_message">Xóa mọi cấu hình và nhóm ứng dụng do người dùng tạo và khôi phục về mặc định?</string>
   <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Xoá ứng dụng này?</string>
   <!-- Profile network mode -->
@@ -250,9 +252,13 @@
   <string name="notification_light_missed_call_title">Cuộc gọi nhỡ</string>
   <string name="notification_light_voicemail_title">Hộp thư thoại</string>
   <string name="notification_light_screen_on">Đèn màn hình bật</string>
+  <string name="notification_light_zen_mode">Chiếu sáng trong chế độ Không Làm Phiền</string>
   <string name="notification_light_use_multiple_leds">Đa LED</string>
   <string name="keywords_lights_brightness_level">độ sáng đèn led mờ</string>
+  <string name="notification_light_automagic">Tự chọn màu</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">Cài đặt đèn</string>
+  <string name="led_notification_text">Đèn LED được kích hoạt theo cài đặt</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Gỡ lỗi Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -284,6 +290,8 @@
   <string name="app_ops_summaries_modify_call_log">sửa nhật ký cuộc gọi</string>
   <string name="app_ops_summaries_read_calendar">đọc lịch</string>
   <string name="app_ops_summaries_modify_calendar">sửa đổi lịch</string>
+  <string name="app_ops_summaries_wifi_scan">Quét WiFi</string>
+  <string name="app_ops_summaries_notification">thông báo/thông báo nhanh</string>
   <string name="app_ops_summaries_cell_scan">quét sóng di động</string>
   <string name="app_ops_summaries_call_phone">gọi điện thoại</string>
   <string name="app_ops_summaries_read_sms">đọc tin nhắn SMS</string>
@@ -311,15 +319,39 @@
   <string name="app_ops_summaries_media_volume">âm lượng phương tiện</string>
   <string name="app_ops_summaries_alarm_volume">âm lượng báo thức</string>
   <string name="app_ops_summaries_notification_volume">âm lượng thông báo</string>
+  <string name="app_ops_summaries_bluetooth_volume">âm lượng bluetooth</string>
   <string name="app_ops_summaries_keep_awake">giữ màn hình sáng</string>
   <string name="app_ops_summaries_monitor_location">vị trí màn hình</string>
   <string name="app_ops_summaries_monitor_high_power_location">vị trí năng suất cao của màn hình</string>
+  <string name="app_ops_summaries_get_usage_stats">lấy thống kê sử dụng</string>
   <string name="app_ops_summaries_mute_unmute_microphone">tắt/bật tiếng micro</string>
   <string name="app_ops_summaries_toast_window">hiển thị thông báo nhanh</string>
   <string name="app_ops_summaries_project_media">chiếu đa phương tiện</string>
   <string name="app_ops_summaries_activate_vpn">kích hoạt VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">ghi hình nền</string>
+  <string name="app_ops_summaries_assist_structure">hỗ trợ cấu trúc</string>
+  <string name="app_ops_summaries_assist_screenshot">hỗ trợ chụp màn hình</string>
+  <string name="app_ops_summaries_read_phone_state">đọc tình trạng điện thoại</string>
+  <string name="app_ops_summaries_add_voicemail">thêm thư thoại</string>
+  <string name="app_ops_summaries_use_sip">dùng SIP</string>
+  <string name="app_ops_summaries_make_call">thực hiện cuộc gọi</string>
+  <string name="app_ops_summaries_use_fingerprint">dùng vân tay</string>
+  <string name="app_ops_summaries_use_body_sensors">dùng cảm biến cơ thể</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">đọc tin nhắn quảng bá</string>
+  <string name="app_ops_summaries_mock_location">giả vị trí</string>
+  <string name="app_ops_summaries_read_external_storage">đọc bộ nhớ ngoài</string>
+  <string name="app_ops_summaries_write_external_storage">ghi vào bộ nhớ ngoài</string>
+  <string name="app_ops_summaries_turn_screen_on">bật màn hình</string>
+  <string name="app_ops_summaries_get_accounts">lấy thông tin tài khoản</string>
+  <string name="app_ops_summaries_toggle_wifi">bật/tắt Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">bật/tắt bluetooth</string>
+  <string name="app_ops_summaries_start_at_boot">bắt đầu lúc khởi động</string>
+  <string name="app_ops_summaries_toggle_nfc">bật/tắt NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">bật/tắt dữ liệu di động</string>
   <string name="app_ops_summaries_superuser">truy cập root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">Vị trí tương đối</string>
+  <string name="app_ops_labels_fine_location">Vị trí chính xác</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Rung</string>
   <string name="app_ops_labels_read_contacts">Đọc số liên lạc</string>
@@ -328,11 +360,19 @@
   <string name="app_ops_labels_modify_call_log">Sửa đổi nhật ký cuộc gọi</string>
   <string name="app_ops_labels_read_calendar">Đọc lịch</string>
   <string name="app_ops_labels_modify_calendar">Sửa đổi lịch</string>
+  <string name="app_ops_labels_wifi_scan">Quét Wi-Fi</string>
   <string name="app_ops_labels_notification">Thông báo/Thông báo nhanh</string>
+  <string name="app_ops_labels_cell_scan">Quét sóng di động</string>
   <string name="app_ops_labels_call_phone">Gọi điện thoại</string>
+  <string name="app_ops_labels_read_sms">Đọc SMS</string>
+  <string name="app_ops_labels_write_sms">Viết SMS</string>
   <string name="app_ops_labels_receive_sms">Nhận tin nhắn SMS</string>
+  <string name="app_ops_labels_receive_emergency_sms">Nhận SMS khẩn cấp</string>
   <string name="app_ops_labels_receive_mms">Nhận tin nhắn MMS</string>
+  <string name="app_ops_labels_receive_wap_push">Nhận tin nhắn đẩy WAP</string>
   <string name="app_ops_labels_send_sms">Gửi tin nhắn SMS</string>
+  <string name="app_ops_labels_read_icc_sms">Đọc SMS ICC</string>
+  <string name="app_ops_labels_write_icc_sms">Viết SMS ICC</string>
   <string name="app_ops_labels_modify_settings">Sửa đổi cài đặt</string>
   <string name="app_ops_labels_draw_on_top">Vẽ trên cùng</string>
   <string name="app_ops_labels_access_notifications">Truy cập thông báo</string>
@@ -351,10 +391,33 @@
   <string name="app_ops_labels_notification_volume">Âm lượng thông báo</string>
   <string name="app_ops_labels_bluetooth_volume">Âm lượng bluetooth</string>
   <string name="app_ops_labels_keep_awake">Giữ màn hình sáng</string>
+  <string name="app_ops_labels_monitor_location">Giám sát vị trí</string>
+  <string name="app_ops_labels_monitor_high_power_location">Giám sát vị trí năng lượng cao</string>
+  <string name="app_ops_labels_get_usage_stats">Lấy thống kê sử dụng</string>
   <string name="app_ops_labels_mute_unmute_microphone">Tắt/bật tiếng micro</string>
   <string name="app_ops_labels_toast_window">Hiển thị thông báo nhanh</string>
   <string name="app_ops_labels_project_media">Chiếu đa phương tiện</string>
   <string name="app_ops_labels_activate_vpn">Kích hoạt VPN</string>
+  <string name="app_ops_labels_write_wallpaper">Ghi hình nền</string>
+  <string name="app_ops_labels_assist_structure">Hỗ trợ cấu trúc</string>
+  <string name="app_ops_labels_assist_screenshot">Hỗ trợ chụp màn hình</string>
+  <string name="app_ops_labels_read_phone_state">Đọc tình trạng điện thoại</string>
+  <string name="app_ops_labels_add_voicemail">Thêm thư thoại</string>
+  <string name="app_ops_labels_use_sip">Dùng SIP</string>
+  <string name="app_ops_labels_make_call">Thực hiện cuộc gọi</string>
+  <string name="app_ops_labels_use_fingerprint">Dùng vân tay</string>
+  <string name="app_ops_labels_use_body_sensors">Dùng cảm biến cơ thể</string>
+  <string name="app_ops_labels_read_cell_broadcasts">Đọc tin nhắn quảng bá</string>
+  <string name="app_ops_labels_mock_location">Giả vị trí</string>
+  <string name="app_ops_labels_read_external_storage">Đọc bộ nhớ ngoài</string>
+  <string name="app_ops_labels_write_external_storage">Ghi vào bộ nhớ ngoài</string>
+  <string name="app_ops_labels_turn_screen_on">Bật màn hình</string>
+  <string name="app_ops_labels_get_accounts">Lấy thông tin tài khoản</string>
+  <string name="app_ops_labels_toggle_wifi">Bật/tắt WiFi</string>
+  <string name="app_ops_labels_toggle_bluetooth">Bật/tắt bluetooth</string>
+  <string name="app_ops_labels_start_at_boot">Bắt đầu lúc khởi động</string>
+  <string name="app_ops_labels_toggle_nfc">Bật/tắt NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Bật/tắt dữ liệu di động</string>
   <string name="app_ops_labels_superuser">Quyền truy cập root</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Được cho phép</string>
@@ -534,8 +597,13 @@
   <string name="live_display_color_profile_dynamic_title">Động</string>
   <string name="live_display_color_profile_dynamic_summary">Màu sắc được tăng cường và trắng sáng</string>
   <string name="live_display_color_profile_cinema_title">Rạp chiếu phim</string>
+  <string name="live_display_color_profile_cinema_summary">Tái tạo màu sắc hoàn hảo cho video</string>
   <string name="live_display_color_profile_astronomy_title">Thiên văn học</string>
   <string name="live_display_color_profile_astronomy_summary">Đỏ sâu để duy trì tầm nhìn ban đêm</string>
+  <string name="live_display_color_profile_photography_title">Nhiếp ảnh</string>
+  <string name="live_display_color_profile_photography_summary">Tái tạo màu sắc hoàn hảo cho hình ảnh</string>
+  <string name="live_display_color_profile_basic_title">Cơ bản</string>
+  <string name="live_display_color_profile_basic_summary">Dùng màn hình không hiệu chỉnh</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Biểu tượng trình chọn</string>
   <string name="ime_switcher_notify_summary">Hiển thị biểu tượng trình chọn phương thức nhập liệu</string>
@@ -644,6 +712,8 @@
   <string name="status_bar_battery_percentage_text_inside">Nằm trong biểu tượng pin</string>
   <string name="status_bar_battery_percentage_text_next">Kế bên biểu tượng pin</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">Biểu tượng thanh trạng thái</string>
+  <string name="status_bar_icons_summary">Kiểm soát những biểu tượng thanh trang thái được hiển thị</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Chặn tín hiệu cử chỉ</string>
   <string name="edge_gesture_service_summary">Không gửi những tín hiệu cử chỉ từ thanh điều hướng và thanh thông báo đến ứng dụng</string>
@@ -680,6 +750,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Hiển thị trình trực quan âm nhạc</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">Đã bị vô hiệu hóa bởi ô cài đặt nhanh</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">Chạm để kích hoạt màn hình khoá</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">Đã kích hoạt màn hình khoá!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">Mức tiết kiệm pin</string>
   <string name="battery_saver_summary">Làm giảm hiệu năng và hạn chế dữ liệu nền</string>
@@ -689,6 +762,7 @@
   <string name="autoperf_summary">Tự động chọn chế độ pin thích hợp cho các ứng dụng khác nhau</string>
   <string name="perf_profile_title">Chế độ pin</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">Ứng dụng được khởi động cùng hệ thống</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Nhạc chuông thông báo</string>
   <!-- Advanced reboot options -->
@@ -717,6 +791,7 @@
   <string name="voice_wakeup_retrain_title">Thu âm lại giọng nói của bạn</string>
   <string name="voice_wakeup_activity_title">Luôn bật khi khởi động</string>
   <string name="voice_wakeup_default_activity">Google Ngay bây giờ</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">Đánh thức bằng giọng nói cần phải có quyền truy cập cuộc gọi để chọn số liên lạc Quay số trực tiếp.</string>
   <string name="picker_activities">Các hoạt động</string>
   <string name="select_custom_app_title">Chọn ứng dụng tùy chỉnh</string>
   <string name="select_custom_activity_title">Chọn hoạt động tùy chỉnh</string>
@@ -785,17 +860,23 @@
   <string name="menu_hidden_apps_delete">Đặt lại</string>
   <string name="menu_hidden_apps_reset_lock">Đặt lại mẫu hình mở khóa</string>
   <string name="protected_apps">Các ứng dụng được bảo vệ</string>
+  <string name="protected_apps_summary">Quản lý các ứng dụng được ẩn sau khoá an toàn</string>
   <string name="saving_protected_components">Đang lưu trạng thái thành phần\u2026</string>
   <string name="pa_login_username_hint">Tên người dùng (email)</string>
   <string name="pa_login_password_hint">Mật khẩu</string>
   <string name="pa_login_submit_button">Đăng nhập</string>
   <string name="pa_login_checking_password">Đang kiểm tra tài khoản\u2026</string>
   <string name="pa_login_incorrect_login">Thông tin đăng nhập không chính xác</string>
+  <string name="pa_pattern_or_fingerprint_header">Phải vẽ hình hoặc dùng vân tay để mở khoá</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Những người đóng góp</string>
   <string name="contributors_cloud_loading_message">Đang tải dữ liệu của người đóng góp\u2026</string>
   <string name="contributors_cloud_failed_message">Không thể tải dữ liệu của người đóng góp</string>
   <string name="contributor_info_menu">Thông tin người đóng góp</string>
+  <string name="contributor_info_msg">
+<![CDATA[<b>Tên:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+<b>Biệt danh:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+<b>Cam kết:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
   <string name="contributions_info_menu">Thông tin đóng góp</string>
   <string name="contributions_info_msg">
         <![CDATA[<b>Tổng số người đóng góp:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
@@ -811,24 +892,44 @@
   <string name="title_general">Tổng quát</string>
   <string name="advanced">Nâng cao</string>
   <string name="link_volume_option_title">Liên kết âm lượng nhạc chuông &amp; thông báo</string>
+  <string name="lcd_density_prompt_message">Một số ứng dụng có thể không hoạt động với DPI không đúng chuẩn.\n\nViệc này sẽ khởi động lại thiết bị của bạn.</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">Số điện thoại APN PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">Trùng tên APN</string>
+  <string name="duplicate_apn_error_message">APN này đã tồn tại. Huỷ bỏ hoặc thay đổi thông số.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> là <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">đã tắt</string>
   <string name="sim_missing">thiếu hoặc bị lỗi</string>
+  <string name="sim_enabler_need_disable_sim">Thẻ SIM sẽ bị huỷ kích hoạt. Bạn có muốn tiếp tục?</string>
+  <string name="sim_enabler_will_disable_sim_title">Chú ý</string>
+  <string name="sim_enabler_need_switch_data_service">SIM này sẽ bị vô hiệu và SIM <xliff:g id="slotid">%1$s</xliff:g> sẽ được dùng cho dịch vụ dữ liệu. Bạn có chắc muốn tiếp tục?</string>
   <string name="sim_enabler_airplane_on">Không thể thực hiện thao tác trong khi đang ở chế độ máy bay.</string>
   <string name="sim_enabler_in_call">Không thể thực hiện thao tác trong khi đang gọi.</string>
   <string name="sim_enabler_both_inactive">Không thể vô hiệu hóa tất cả các thẻ SIM</string>
+  <string name="sim_enabler_enabling">Đang kích hoạt\u2026</string>
+  <string name="sim_enabler_disabling">Đang huỷ kích hoạt\u2026</string>
+  <string name="sub_activate_success">Đã kích hoạt SIM.</string>
+  <string name="sub_activate_failed">Kích hoạt thất bại.</string>
+  <string name="sub_deactivate_success">Đã huỷ kích hoạt SIM.</string>
+  <string name="sub_deactivate_failed">Huỷ kích hoạt thất bại.</string>
   <string name="primary_sub_select_title">Đăng ký 3G/LTE mặc định</string>
+  <string name="select_sim_card">Chọn thẻ SIM</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">Trạng thái %d của SIM</string>
   <string name="sim_card_lock_settings_title">Cài đặt khóa %d của SIM</string>
   <string name="sim_card_summary_empty">SIM không được lắp</string>
+  <string name="sim_mobile_network_settings_category_title">Cài đặt mạng di động</string>
   <string name="sim_mobile_network_settings_title">Cài đặt %d SIM</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">lời nhắc</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">sự kiện</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">người gọi đã chọn</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">tin nhắn đã chọn</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
   <string name="maximum_head_level">Đầu: %1$s W/kg</string>
@@ -838,8 +939,11 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">Nhạc chuông SIM %d</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">Ứng dụng:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">Lần sử dụng gần nhất:</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">Thời gian sử dụng:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">Thao tác này sẽ xóa tất cả dữ liệu từ <b>bộ lưu trữ bên trong</b> của máy tính bảng của bạn, bao gồm:\n\n<li>Tài khoản thiết bị của bạn</li>\n<li>Dữ liệu của hệ thống và ứng dụng và cài đặt</li>\n<li>Các ứng dụng đã tải xuống</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -856,16 +960,36 @@
   <string name="factory_reset_warning_text_reset_now">THIẾT LẬP LẠI NGAY BÂY GIỜ</string>
   <string name="factory_reset_warning_text_message">Tất cả các tài khoản, ứng dụng, dữ liệu ứng dụng và cài đặt hệ thống của bạn sẽ bị xóa khỏi thiết bị này. Thao tác này không thể hoàn lại.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">Khác</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Thời gian chờ điểm truy cập Wi\u2011Fi</string>
   <string name="hotstpot_inactivity_timeout_never">Không bao giờ</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 phút</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 phút</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 phút</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Không hết thời gian chờ điểm truy cập Wi\u2011Fi di động</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Điểm truy cập Wi\u2011Fi di động sẽ hết thời gian chờ sau <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Màn hình khoá động</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">Kích hoạt và cấu hình Màn hình khoá động</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Cài đặt</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">Để xem Màn hình khoá động khả dụng hãy bật Màn hình khoá động.</string>
   <string name="interruptions_ignore_while_media_title">Ngăn chặn giảm âm thanh</string>
   <string name="interruptions_ignore_while_media_summary">Không làm giảm âm lượng phát lại media khi một thông báo đến</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Bộ phận pháp chế của CyanogenMod</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">Thiết lập lại thống kê</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">Thống kê lịch sử pin đang được thiết lập lại</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">Không có pin ở đế sạc</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">Đang sạc trên AC của đế</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">Đang sạc qua USB của đế</string>
 </resources>

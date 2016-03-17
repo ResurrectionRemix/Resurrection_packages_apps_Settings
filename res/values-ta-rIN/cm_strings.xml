@@ -17,161 +17,980 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">வளர்ச்சி அமைப்புகளை செயல்படுத்துவதற்கு <xliff:g id="step_count">%1$d</xliff:g>  படி தொலைவில் நீங்கள் இப்போது உள்ளீர்கள்.</item>
+    <item quantity="other">வளர்ச்சி அமைப்புகளை செயல்படுத்துவதற்கு <xliff:g id="step_count">%1$d</xliff:g>  படிகள் தொலைவில் நீங்கள் இப்போது உள்ளீர்கள்.</item>
+  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">நீங்கள் வளர்ச்சி அமைப்புகளை செயல்படுத்தினீர்கள்!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">தேவை இல்லை, நீங்கள் முன்பே வளர்ச்சி அமைப்புகளை செயல்படுத்துவிட்டீர்கள்.</string>
   <!-- Launch Dev Tools -->
+  <string name="development_tools_title">மேம்பாட்டு கருவிகள்</string>
   <!-- Development shortcut -->
+  <string name="development_shortcut_title">வளர்ச்சி குறுக்குவழி</string>
+  <string name="development_shortcut_summary">சமீபத்திய ஆப்ஸ் பட்டியலில் ஆப் நிர்வாக குறுக்குவழிகளை செயல்படுத்துக</string>
   <!-- Setting checkbox title for root access -->
+  <string name="root_access">மூல அணுகல்</string>
+  <string name="root_access_warning_title">மூல அணுகலை அனுமதிக்கவா?</string>
+  <string name="root_access_warning_message">பயன்பாடுகளுக்கு மூல அணுகலை அனுமதிப்பது மிகவும் ஆபத்தானது மற்றும் கணினியின் பாதுகாப்பை சமரசம் செய்யக்கூடும்!</string>
+  <string name="root_access_none">முடக்கப்பட்டது</string>
+  <string name="root_access_apps">பயன்பாடுகள் மட்டும்</string>
+  <string name="root_access_adb">ADB மட்டும்</string>
+  <string name="root_access_all">ஆப்கள் மற்றும் ADB</string>
   <!-- NFC PreferenceCategory title -->
+  <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
+  <string name="mod_version">CyanogenMod பதிப்பு</string>
+  <string name="mod_version_default">தெரியாதது</string>
   <!-- About phone screen, Device model -->
+  <string name="device_model">கருவி மாதிரி</string>
   <!-- About phone screen, Device name -->
+  <string name="device_name">சாதனத்தின் பெயர்</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">CyanogenMod API நிலை</string>
+  <string name="mod_api_level_default">தெரியாதது</string>
   <!-- About phone screen, build date -->
+  <string name="build_date">கட்டிய தேதி</string>
   <!-- CM Updater -->
+  <string name="cmupdate_settings_title">CyanogenMod புதுப்பித்தல்கள்</string>
   <!-- Settings switch for updating Cyanogen recovery -->
+  <string name="update_recovery_title">Cyanogen மீட்டலை புதுப்பி</string>
+  <string name="update_recovery_summary">சிஸ்டம் புதுப்பித்தல்களுடன் மீட்டலை புதுப்பி</string>
+  <string name="update_recovery_on_warning">அறிவிப்பு: இந்த அம்சம் செயல்படுத்தப்படும்போது, நீங்கள் நிருவிய மீட்டல் தற்போது இயங்கும் OS பதிப்பிலே உள்ளடங்கிய ஒன்றினால் பதிலீடு செய்யப்படும். \n\n உங்கள் மீட்டல் உங்கள் சிஸ்டத்திற்கு புதுப்பித்தல்களுடன் புதுப்பிக்கப்படும், பிற்கால பதிப்புகளின் இணக்கத்தை உறுதிசெய்ய உதவும். \n\n இந்த அம்சத்தை செயல்படுத்த விரும்புகிறீர்களா?</string>
+  <string name="update_recovery_off_warning">எச்சரிக்கை: இந்த அம்சம் முடக்கப்படும்போது, நீங்கள் நிருவிய மீட்டல் தற்போதுள்ள OS புதுப்பித்தல்களோடு புதுப்பிக்கப்படாது. \n\n நாள்பட்ட அல்லது தனிப்பயனாக்கப்பட்ட மீட்டல் பதிப்புகளோடு பிற்கால OS புத்துப்பித்தல்கள் நிருவப்படாது. \n\n நீங்கள் உண்மையாகவே இந்த அம்சத்தை முடக்க விரும்புகிறீர்களா?</string>
   <!-- Themes Settings -->
   <!-- Settings main menu entry -->
+  <string name="themes_settings_title">தீம்கள்</string>
   <!-- Sound settings screen -->
+  <string name="ring_mode_title">மணியோசை பயன்முறை</string>
+  <string name="ring_mode_normal">இயல்பு</string>
+  <string name="ring_mode_vibrate">அதிர்வு</string>
+  <string name="ring_mode_mute">ஒலிதடு</string>
+  <string name="settings_reset_button">மீட்டமை</string>
   <!-- Profiles settings  -->
+  <string name="profiles_settings_title">சிஸ்டம் சுயவிவரங்கள்</string>
+  <string name="profiles_add">சேர்</string>
+  <string name="profile_menu_delete">நீக்கு</string>
+  <string name="profile_settings_title">சுயவிவரம்</string>
+  <string name="profile_empty_list_profiles_off">சிஸ்டம் சுயவிவரங்களை கட்டமைக்கவும் பயன்படுத்தவும், சுயவிவரங்களை ஆன் செய்க.</string>
+  <string name="profile_trigger_configure">ட்ரிகரை கட்டமைக்கவும்</string>
+  <string name="profile_write_nfc_tag">NFC குறியில் எழுது</string>
+  <string name="profile_write_touch_tag">எழுதுவதற்கு டேக்கை தொடுக</string>
+  <string name="profile_write_success">டேக் வெற்றிகரமாக எழுதப்பட்டது</string>
+  <string name="profile_write_failed">டேக் எழுதுதல் தோல்வியுற்றது!</string>
+  <string name="profile_selected">சுயவிவரம் தேர்ந்தெடுக்கப்பட்டது: %1$s</string>
+  <string name="profile_nfc_text">ஒரு NFC டேகிற்கு ஒரு சுயவிவரத்தை எழுதுவது சுயவிவரத்தை டேக் செய்ய தட்டுவதற்கு அனுமதிக்கிறது இரண்டாம் முறை தட்டுதல் முன்னர் தேர்ந்தெடுத்த சுயவிவரத்தை தேர்ந்தெடுக்கும்.</string>
+  <string name="profile_unknown_nfc_tag">அறியாத சுயவிவரம்</string>
+  <string name="profile_add_nfc_text">இந்த NFC டேக் ஒரு அறியாத சுயவிவரத்தை குறீப்பிடுகின்றது இந்த NFC டேகை தற்போதுள்ள சுயவிவரம் ஒன்றோடு இணைத்தல் அந்த சுயவிவரத்தை எதிர்காலத்தில் தேர்ந்தெடுக்க அனுமதிக்கும்.</string>
+  <string name="profile_select">சுயவிவரத்தை தேர்ந்தெடுக்கவும்</string>
+  <string name="profile_remove_dialog_message">சுயவிவரம் %1$sஐ நீக்கவா?</string>
+  <string name="profile_populate_profile_from_state">சுயவிவரத்தை தற்போதைய கருவி அமைப்புகளை பயன்படுத்தி கட்டமைக்கவும்?</string>
+  <string name="profile_menu_fill_from_state">தற்போதைய கருவி அமைப்புகளை இறக்குமதிசெய்க</string>
+  <string name="profile_remove_current_profile">தற்போதைய சுயவிவரத்தை நீக்க முடியாது!</string>
+  <string name="profile_app_group_category_title">அறிவுறுத்தல் மீறுகின்றது</string>
+  <string name="profile_app_group_item_instructions">குழுக்களை சேர்க்கவும் அல்லது நீக்கவும்</string>
+  <string name="profile_app_group_item_instructions_summary">இந்த சுயவிவரத்திற்கு அறிவுறுத்தல் மீறுதல் ஆப் குழுக்களை சேர்க்கவும் அல்லது நீக்கவும்</string>
   <!-- Profile mode options. -->
+  <string name="profile_entries_on">துவக்கு</string>
+  <string name="profile_entries_off">அணை</string>
+  <string name="profile_entries_no_override">மீறுதல் இல்லை</string>
   <!-- Add Profile -->
+  <string name="profile_name_title">பெயர்</string>
+  <string name="new_profile_name">&lt;new profile&gt;</string>
   <!-- Rename Dialog  -->
+  <string name="rename_dialog_title">மறுபெயரிடு</string>
+  <string name="rename_dialog_message">ஒரு புதிய பெயரை உள்ளிடுக</string>
+  <string name="duplicate_appgroup_name">டூப்லிகேட் ஆப் குழு பெயர்!</string>
+  <string name="rename_dialog_hint">சுயவிவர பெயரை உள்ளிடுக</string>
   <!-- Reset Profiles -->
+  <string name="profile_reset_title">மீட்டமை</string>
+  <string name="profile_reset_message">அனைத்து பயனர் உருவாக்கிய சுயவிவரங்களையும் பயன்பாட்டு குழுக்களையும் நீக்கிவிட்டு அவற்றை இயல்புநிலைக்கு மீட்டமைக்கவா?</string>
   <!-- Delete confimation messages -->
+  <string name="profile_app_delete_confirm">இந்த ஆப்-ஐ நீக்கவா?</string>
   <!-- Profile network mode -->
+  <string name="profile_networkmode_2g">2G</string>
+  <string name="profile_networkmode_3g">3G</string>
+  <string name="profile_networkmode_4g">LTE</string>
+  <string name="profile_networkmode_2g3g">2G/3G</string>
+  <string name="profile_networkmode_2g3g4g">2G/3G/LTE</string>
   <!-- Profile Config screen PreferenceGroup titles -->
+  <string name="profile_volumeoverrides_title">அளவு மீறுதல்கள்</string>
+  <string name="connection_state_enabled">இயக்கு</string>
+  <string name="volume_override_summary">%1$s/%2$sக்கு அமை</string>
+  <string name="profile_volume_override_checkbox_label">மீறுதல் அளவு</string>
   <!-- Menu item for managing profiles -->
+  <string name="profile_profiles_manage">சுயவிவரங்கள்</string>
+  <string name="profile_profile_manage">சுயவிவரத்தை நிர்வகி</string>
+  <string name="profile_appgroups_manage">ஆப் குழுக்கள்</string>
+  <string name="profile_appgroup_manage">ஆப் குழுவை நிர்வகி</string>
   <!-- Profile settings screen, section header for settings related to notification profiles -->
+  <string name="profile_settings">சுயவிவர அமைப்பு</string>
+  <string name="profile_trigger_connect">இணைப்பில்</string>
+  <string name="profile_trigger_disconnect">துண்டிப்பில்</string>
+  <string name="profile_trigger_notrigger">ட்ரிகர் இல்லை</string>
   <!-- Profile Settings sound modes labels -->
+  <string name="sound_mode">அறிவுறுத்தல் முறை</string>
+  <string name="ringer_mode">ரிங் முறை</string>
+  <string name="lights_mode">விளக்குகள் முறை</string>
+  <string name="vibrate_mode">அதிர்வு முறை</string>
+  <string name="choose_soundtone">அறிவுறுத்தல் டோனை தேர்ந்தெடு</string>
+  <string name="choose_ringtone">வளையத்தைத் தேர்வுசெய்</string>
   <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
+  <string name="soundtone_title">அறிவுறுத்தல் டோன்</string>
   <!-- Title for application group setting screen -->
+  <string name="profile_appgroups_title">ஆப் குழுக்கள்</string>
+  <string name="profile_applist_title">பயன்பாடுகள்</string>
+  <string name="profile_new_appgroup">புதிய ஆப் குழு</string>
+  <string name="profile_delete_appgroup">இந்த ஆப் குழுவை நீக்கவா?</string>
+  <string name="profile_appgroup_name_prompt">புதிய ஆப் குழுவுக்கான பெயரை உள்ளிடு</string>
+  <string name="profile_appgroup_name_title">பெயர்</string>
   <!-- Add application dialog box title -->
+  <string name="profile_choose_app">பயன்பாட்டைத்தேர்வுசெய்யவும்</string>
   <!-- Profiles - system settings -->
+  <string name="profile_system_settings_title">சிஸ்டம் அமைப்புகள்</string>
+  <string name="profile_lockmode_title">திரை லாக் முறை</string>
+  <string name="profile_lockmode_policy_disabled_summary">கருவி நிர்வாகி கொள்கையினால் இந்த சுயவிவர தெரிவு முடக்கப்பட்டுள்ளது</string>
+  <string name="profile_lockmode_insecure_summary">PIN அல்லது கடவுச்சொல்லை கேட்கவேண்டாம்</string>
+  <string name="profile_lockmode_disabled_summary">திரை பூட்டலை முடக்குக</string>
+  <string name="profile_airplanemode_title">விமானப் பயன்முறை</string>
+  <string name="profile_brightness_title">திரை பிரகாசம்</string>
+  <string name="profile_brightness_override_summary">%1$d%%க்கு அமை</string>
+  <string name="profile_brightness_override_checkbox_label">பிரகாசத்தை மீறு</string>
   <!-- Connection override toggles (not all are used at this time ) -->
+  <string name="toggleWifi">வைஃபை</string>
+  <string name="toggleWifiAp">போர்ட்டபில் வைஃபை ஹாட்ஸ்பாட்</string>
+  <string name="toggleBluetooth">புளூடூத்</string>
+  <string name="toggleGPS">GPS</string>
+  <string name="toggleData">தரவு இணைப்பு</string>
+  <string name="toggleSync">தரவைத் தானாக ஒத்திசை</string>
+  <string name="toggle2g3g4g">தேர்ந்தெடுத்த நெட்வொர்க் வகை</string>
+  <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\i2011Fi பிராந்திய குறியீடு</string>
   <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Wi\u2011Fiக்கான பிராந்திய குறியீட்டை குறிப்பிடு</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">பிராந்திய குறியீட்டை அமைப்பதில் ஒரு பிரச்சனை உள்ளது.</string>
   <!-- Profiles -->
+  <string name="profile_menu_delete_title">நீக்கு</string>
+  <string name="profile_action_none">மாற்றாமல் விடு</string>
+  <string name="profile_action_system">முறைமை இயல்புநிலை</string>
+  <string name="profile_action_disable">ஆஃப் செய்</string>
+  <string name="profile_action_enable">இயக்கு</string>
+  <string name="profile_trigger_a2dp_connect">A2DP இணைப்பில்</string>
+  <string name="profile_trigger_a2dp_disconnect">A2DP துண்டிப்பில்</string>
+  <string name="profile_tabs_wifi">வைஃபை</string>
+  <string name="profile_tabs_bluetooth">புளூடூத்</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="profile_triggers_header">ட்ரிகர்கள் இந்த சுயவிவரத்தை செயல்படுத்தும்</string>
+  <string name="profile_setup_setup_triggers_title">படி 1: சேர் ட்ரிகர்கள்</string>
+  <string name="profile_setup_setup_triggers_title_config">மாற்றியமை ட்ரிகர்கள் <xliff:g id="profile_name">%1$s</xliff:g></string>
+  <string name="profile_setup_actions_title">படி 2: செயல்பாடுகளை அமை</string>
+  <string name="profile_setup_actions_title_config">செயல்பாடுகளை மறுகட்டமை</string>
+  <string name="profile_appgroups_manage">ஆப் குழுக்கள்</string>
+  <string name="profile_appgroup_manage">ஆப் குழுவை நிர்வகி</string>
   <!-- Title for application group setting screen -->
+  <string name="profile_appgroups_title">ஆப் குழுக்கள்</string>
+  <string name="profile_new_appgroup">புதிய ஆப் குழு</string>
+  <string name="profile_delete_appgroup">இந்த ஆப் குழுவை நீக்கவா?</string>
+  <string name="profile_appgroup_name_prompt">புதிய ஆப் குழுவுக்கான பெயரை உள்ளிடு</string>
+  <string name="profile_appgroup_name_title">பெயர்</string>
+  <string name="duplicate_appgroup_name">டூப்லிகேட் ஆப் குழு பெயர்!</string>
+  <string name="profile_app_delete_confirm">இந்த ஆப்-ஐ நீக்கவா?</string>
+  <string name="no_bluetooth_triggers">ப்ளூடூத் கருவி எதுவும் பிணைக்கப்படவில்லை.\n ட்ரிகர்களை கட்டமைக்கும் முன் ப்ளூடூத் கருவியை பிணைக்க தட்டு.</string>
+  <string name="no_wifi_triggers">Wi\u2011fi அணுகல் புள்ளிகள் எதுவும் கட்டமைக்கப்படவில்லை. \n  ட்ரிகர்களை கட்டமைக்கும் முன்பு Wi\u2011Fi இணைக்க தட்டவும்</string>
+  <string name="no_triggers_configured">எந்த ட்ரிகர்களும் கட்டமைக்கப்படவில்லை. மேலும் சேர்க்க தட்டவும்.</string>
+  <string name="no_triggers_configured_nfc">புதிய NFC ட்ரிகரை அமைக்க தட்டவும்.</string>
+  <string name="profile_setup_setup_triggers_description">இந்த சுயவிவரத்தை செயல்படுத்தும் ட்ரிகர்களை தயவுசெய்து தேர்ந்தெடுக்கவும்</string>
+  <string name="profile_setup_actions_description">இப்போது சுயவிவரம் செயல்படுத்தப்படும்போது எது நிகழும் என்பதை கட்டமை</string>
   <!-- Navigation Bar -->
+  <string name="navigation_bar_category">வழிசெல்லுதல் பட்டி</string>
+  <string name="navigation_bar_left_title">இடது கை முறை</string>
+  <string name="navigation_bar_left_summary">உலாவி பட்டையை திரைக்கு இடதுபுறம் லேண்ட்ஸ்கேப் முறையில் வைக்கவும்</string>
+  <string name="navigation_bar_title">பட்டன்களும் லேயவுட்டும்</string>
+  <string name="navigation_bar_help_text">திருத்துவதற்காக உலாவி பட்டையை திறக்க திருத்துக ஐகானை தட்டி தொடங்கவும். \n\n ஒரு ஐகானை தட்டி அதன் குறுக்குவழியை நீங்கள் மாற்றலாம், அல்லது ஒரு ஐகானை நீங்கள் நீண்ட அழுத்தம் கொடுத்து அதன் லேயவுட்டை மறுசீரமைக்கலாம். \n\n உங்கள் மாற்றங்களை செய்ய \’சேமி\’யை, அல்லது வரைபடத்தை இயல்நிலை அமைப்புகளுக்கு மாற்ற \’இயல்நிலை மீட்டல்\’ஐ தட்டவும்.</string>
+  <string name="navigation_restore_button_text">மீட்டமை\nஇயல்நிலைகள்</string>
+  <string name="navigation_edit_button_text">திருத்து</string>
+  <string name="navigation_save_button_text">சேமி</string>
+  <string name="navigation_bar_reset_message">தற்போதையை அமைப்புகளை நீக்கி இயல்நிலை லேயவுட்களை மீட்டமைக்கவா?</string>
+  <string name="navigation_bar_arrow_keys_title">டைப் செய்யும்போது அம்பு விசைகளை காட்டு</string>
+  <string name="navigation_bar_arrow_keys_summary">டைப் செய்யும்போது இடது மற்றும் வலது கர்சரை காட்டு IME ஸ்விட்சரை மீறுகிறது</string>
+  <string name="navigation_bar_recents_title">சமீபத்திய நீண்ட அழுத்த செயல்பாடு</string>
   <!-- Notification light dialogs -->
+  <string name="edit_light_settings">ஒளி அமைப்புகளை திருத்துக</string>
+  <string name="pulse_speed_title">துடிப்பு நீளம் மற்றும் வேகம்</string>
+  <string name="default_time">இயல்பு</string>
+  <string name="custom_time">தனிப்பயன்</string>
+  <string name="dialog_delete_title">நீக்கு</string>
+  <string name="dialog_delete_message">தேர்வுசெய்யப்பட்ட உருப்படியை நீக்கவா?</string>
   <!-- Values for the notification light pulse spinners -->
+  <string name="pulse_length_always_on">எப்போதும் ஆன்</string>
+  <string name="pulse_length_very_short">மிக சுருக்கம்</string>
+  <string name="pulse_length_short">சுருக்கம்</string>
+  <string name="pulse_length_normal">இயல்பு</string>
+  <string name="pulse_length_long">நீளம்</string>
+  <string name="pulse_length_very_long">மிக நீளம்</string>
+  <string name="pulse_speed_very_fast">மிக வேகம்</string>
+  <string name="pulse_speed_fast">வேகம்</string>
+  <string name="pulse_speed_normal">இயல்பு</string>
+  <string name="pulse_speed_slow">மெது</string>
+  <string name="pulse_speed_very_slow">மிக மெது</string>
   <!-- Battery light settings -->
+  <string name="battery_light_title">பேட்டரி ஒளி</string>
+  <string name="battery_low_pulse_title">பேட்டரி குறைவாக இருந்தால் துடிப்பு</string>
+  <string name="battery_light_list_title">நிறங்கள்</string>
+  <string name="battery_light_low_color_title">பேட்டரி குறைவு</string>
+  <string name="battery_light_medium_color_title">சார்ஜ் ஏறுகிறது</string>
+  <string name="battery_light_full_color_title">முழுவது சார்ஜ்டு</string>
   <!-- Lights settings screen, notification light settings -->
+  <string name="notification_light_title">அறிவுறுத்தல் ஒளி</string>
+  <string name="notification_light_general_title">பொது</string>
+  <string name="notification_light_applist_title">பயன்பாடுகள்</string>
+  <string name="notification_light_phonelist_title">ஃபோன்</string>
+  <string name="notification_light_use_custom">தனிப்பயனாக்கிய மதிப்புகளை பயன்படுத்தவும்</string>
+  <string name="notification_light_default_value">இயல்புநிலை</string>
+  <string name="notification_light_missed_call_title">தவறிய அழைப்பு</string>
+  <string name="notification_light_voicemail_title">குரலஞ்சல்</string>
+  <string name="notification_light_screen_on">திரை ஆனாக இருக்கும்போது விளக்குகள்</string>
+  <string name="notification_light_zen_mode">தொந்தரவு செய்ய வேண்டாம் என்ற பயன்முறையில் லைட்கள் உள்ளன</string>
+  <string name="notification_light_use_multiple_leds">பல LEDகள்</string>
+  <string name="keywords_lights_brightness_level">மங்கலான Ledகளின் பிரகாசம்</string>
+  <string name="notification_light_automagic">தானாகவே நிறங்கள் தேர்வுசெய்</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">ஒளி அமைப்புகள்</string>
+  <string name="led_notification_text">LED ஒளி அமைப்பினால் செயல்படுத்தப்படுதல்</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
+  <string name="enable_adb_cm">ஆண்ட்ராய்டு பிழைநீக்கல்</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
+  <string name="enable_adb_summary_cm">ஆண்ட்ராய்டு பிழைநீக்கல் பாள (adb) இடைமுகத்தை செயல்படுத்து</string>
   <!-- Android debugging over WiFi -->
+  <string name="adb_over_network">பிணையத்தின் மீது ADB</string>
+  <string name="adb_over_network_summary">பிணைய இடைமுகங்கள்  (Wi\u2011Fi, USB நெட்வொர்க்குகள்) மீது TCP/IP பிழைநீக்கலை செயல்படுத்து. இந்த அமைப்பு மறுயியக்கத்தில் மீட்டமைக்கப்பட்டது</string>
   <!-- Warning for Adb over Network -->
+  <string name="adb_over_network_warning">எச்சரிக்கை: நெட்வொர்க் மீது ADB செயல்படுத்தப்பட்டு இருக்கும்போது, அனைத்து இணைக்கப்பட்ட நெட்வொர்க்கள் மீதுமான தலையீட்டிற்கும் உங்கள் தொலைப்பேசி திறந்திருக்கும்! \nn நம்பகமான நெட்வொர்க்களுடன் இணைந்திருக்கும்போது மட்டும் இந்த அம்சத்தை நீங்கள் பயன்படுத்துங்கள். \n\n நீங்கள் உண்மையாகவே இந்த செயல்பாட்டை செயல்படுத்த விரும்புகிறீர்களா?</string>
   <!-- Setting checkbox summary for displaying USB debugging notification -->
+  <string name="adb_notify">பிழைநீக்கல் அறிவுறுத்தல்</string>
+  <string name="adb_notify_summary">USB அல்லது நெட்வொர்க் பிழைநீக்கல் செயல்படுத்தப்பட்டு இருகும்போது அறிவுறுத்தலை திரையிடவும்</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
+  <string name="app_ops_categories_location">இருப்பிடம்</string>
+  <string name="app_ops_categories_personal">தனிப்பட்டவை</string>
+  <string name="app_ops_categories_messaging">செய்தியிடல்</string>
+  <string name="app_ops_categories_media">மீடியா</string>
+  <string name="app_ops_categories_device">சாதனம்</string>
+  <string name="app_ops_categories_bootup">பூட்டப்</string>
+  <string name="app_ops_categories_su">மூல அணுகல்</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_summaries_coarse_location">கோர்ஸ் இடம்</string>
+  <string name="app_ops_summaries_fine_location">ஃபைன் இடம்</string>
+  <string name="app_ops_summaries_gps">GPS</string>
+  <string name="app_ops_summaries_vibrate">அதிர்</string>
+  <string name="app_ops_summaries_read_contacts">தொடர்புகளை வாசி</string>
+  <string name="app_ops_summaries_modify_contacts">தொடர்புகளை மாற்றியமை</string>
+  <string name="app_ops_summaries_read_call_log">அழைப்புப் பதிவைப் படித்தல்</string>
+  <string name="app_ops_summaries_modify_call_log">அழைப்பு பதிவை மாற்றியமை</string>
+  <string name="app_ops_summaries_read_calendar">நாள்காட்டியை வாசி</string>
+  <string name="app_ops_summaries_modify_calendar">நாள்காட்டியை மாற்றியமை</string>
+  <string name="app_ops_summaries_wifi_scan">Wi-Fi ஸ்கேன்</string>
+  <string name="app_ops_summaries_notification">அறிவிப்பு/டோஸ்ட்</string>
+  <string name="app_ops_summaries_cell_scan">செல் ஸ்கேன்</string>
+  <string name="app_ops_summaries_call_phone">செல்ஃபோன்</string>
+  <string name="app_ops_summaries_read_sms">SMS வாசி</string>
+  <string name="app_ops_summaries_write_sms">SMS எழுது</string>
+  <string name="app_ops_summaries_receive_sms">SMS பெறு</string>
+  <string name="app_ops_summaries_receive_emergency_sms">அவசர SMS பெறு</string>
+  <string name="app_ops_summaries_receive_mms">MMS பெறு</string>
+  <string name="app_ops_summaries_receive_wap_push">WAP புஷ் பெறு</string>
+  <string name="app_ops_summaries_send_sms">SMS அனுப்பு</string>
+  <string name="app_ops_summaries_read_icc_sms">ICC SMS வாசி</string>
+  <string name="app_ops_summaries_write_icc_sms">ICC SMS எழுது</string>
+  <string name="app_ops_summaries_modify_settings">அமைப்புகளை மாற்று</string>
+  <string name="app_ops_summaries_draw_on_top">மேலே வரை</string>
+  <string name="app_ops_summaries_access_notifications">அறிவிப்புகளின் அணுகல்</string>
+  <string name="app_ops_summaries_camera">கேமரா</string>
+  <string name="app_ops_summaries_record_audio">ஆடியோவைப் பதிவுசெய்தல்</string>
+  <string name="app_ops_summaries_play_audio">ப்ளே ஆடியோ</string>
+  <string name="app_ops_summaries_read_clipboard">க்ளிப்போர்ட் வாசி</string>
+  <string name="app_ops_summaries_modify_clipboard">க்ளிப்போர்ட் மாற்றியமை</string>
+  <string name="app_ops_summaries_media_buttons">ஊடக பட்டன்கள்</string>
+  <string name="app_ops_summaries_audio_focus">ஆடியோ ஃபோக்கஸ்</string>
+  <string name="app_ops_summaries_master_volume">மாஸ்டர் வால்யூம்</string>
+  <string name="app_ops_summaries_voice_volume">வாய்ஸ் வால்யூம்</string>
+  <string name="app_ops_summaries_ring_volume">ரிங் வால்யூம்</string>
+  <string name="app_ops_summaries_media_volume">ஊடக வால்யூம்</string>
+  <string name="app_ops_summaries_alarm_volume">அலாரம் வால்யூம்</string>
+  <string name="app_ops_summaries_notification_volume">அறிவுறுத்தல் வால்யூம்</string>
+  <string name="app_ops_summaries_bluetooth_volume">புளுடூத் ஒலியளவு</string>
+  <string name="app_ops_summaries_keep_awake">விழிப்பிலே வை</string>
+  <string name="app_ops_summaries_monitor_location">இடத்தை கண்காணி</string>
+  <string name="app_ops_summaries_monitor_high_power_location">உயர் பவர் இடத்தை கண்காணி</string>
+  <string name="app_ops_summaries_get_usage_stats">பயன்பாட்டு புள்ளிவிவரங்களை பெறு</string>
+  <string name="app_ops_summaries_mute_unmute_microphone">மைக்ரோஃபோனை மௌனமாக்கு/மௌனம்நீக்கு</string>
+  <string name="app_ops_summaries_toast_window">டோஸ்ட்களை காட்டு</string>
+  <string name="app_ops_summaries_project_media">ஊடகத்தை வெளிப்படுத்து</string>
+  <string name="app_ops_summaries_activate_vpn">VPN செயல்படுத்து</string>
+  <string name="app_ops_summaries_write_wallpaper">வால்பேப்பரை எழுது</string>
+  <string name="app_ops_summaries_assist_structure">உதவி கட்டமைப்பு</string>
+  <string name="app_ops_summaries_assist_screenshot">உதவி ஸ்க்ரீன்ஷாட்</string>
+  <string name="app_ops_summaries_read_phone_state">தொலைப்பேசி நிலையைப் படி</string>
+  <string name="app_ops_summaries_add_voicemail">குரலஞ்சலைச் சேர்த்தல்</string>
+  <string name="app_ops_summaries_use_sip">SIP பயன்படுத்து</string>
+  <string name="app_ops_summaries_make_call">அழைப்பை ஏற்படுத்து</string>
+  <string name="app_ops_summaries_use_fingerprint">கைரேகையைப் பயன்படுத்து</string>
+  <string name="app_ops_summaries_use_body_sensors">உடல் உணர்கருவிகளைப் பயன்படுத்து</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">கலம் ஒளிபரப்புகளை படி</string>
+  <string name="app_ops_summaries_mock_location">போலி இருப்பிடம்</string>
+  <string name="app_ops_summaries_read_external_storage">வெளிப்புற சேமிப்பகத்தைப் படி</string>
+  <string name="app_ops_summaries_write_external_storage">வெளிப்புற சேமிப்பகத்தில் எழுது</string>
+  <string name="app_ops_summaries_turn_screen_on">திரையை ஆன் செய்</string>
+  <string name="app_ops_summaries_get_accounts">கணக்குகளைப் பெறு</string>
+  <string name="app_ops_summaries_toggle_wifi">Wi-Fi நிலைமாற்று</string>
+  <string name="app_ops_summaries_toggle_bluetooth">புளுடூத் நிலைமாற்று</string>
+  <string name="app_ops_summaries_start_at_boot">இயக்கத்தில் தொடங்கு</string>
+  <string name="app_ops_summaries_toggle_nfc">NFC நிலைமாற்று</string>
+  <string name="app_ops_summaries_toggle_mobile_data">மொபைல் தரவு நிலைமாற்று</string>
+  <string name="app_ops_summaries_superuser">ரூட் அணுகள்</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">கோர்ஸ் இருப்பிடம்</string>
+  <string name="app_ops_labels_fine_location">நேர்த்தியான இடம்</string>
+  <string name="app_ops_labels_gps">GPS</string>
+  <string name="app_ops_labels_vibrate">அதிர்வு</string>
+  <string name="app_ops_labels_read_contacts">தொடர்புகளை வாசி</string>
+  <string name="app_ops_labels_modify_contacts">தொடர்புகளை மாற்றியமை</string>
+  <string name="app_ops_labels_read_call_log">அழைப்பு பதிவை வாசி</string>
+  <string name="app_ops_labels_modify_call_log">அழைப்பு பதிவை மாற்றியமை</string>
+  <string name="app_ops_labels_read_calendar">நாள்காட்டியை வாசி</string>
+  <string name="app_ops_labels_modify_calendar">நாள்காட்டியை மாற்றியமை</string>
+  <string name="app_ops_labels_wifi_scan">Wi-Fi ஸ்கேன்</string>
+  <string name="app_ops_labels_notification">அறிவுறுத்தல்/டோஸ்ட்</string>
+  <string name="app_ops_labels_cell_scan">செல் ஸ்கேன்</string>
+  <string name="app_ops_labels_call_phone">தொலைப்பேசியை அழை</string>
+  <string name="app_ops_labels_read_sms">SMS படி</string>
+  <string name="app_ops_labels_write_sms">SMS எழுது</string>
+  <string name="app_ops_labels_receive_sms">SMS பெறு</string>
+  <string name="app_ops_labels_receive_emergency_sms">அவசர SMS பெறு</string>
+  <string name="app_ops_labels_receive_mms">MMS பெறு</string>
+  <string name="app_ops_labels_receive_wap_push">WAP அழுத்தம் பெறு</string>
+  <string name="app_ops_labels_send_sms">SMS அனுப்பு</string>
+  <string name="app_ops_labels_read_icc_sms">ICC SMS படி</string>
+  <string name="app_ops_labels_write_icc_sms">ICC SMS எழுது</string>
+  <string name="app_ops_labels_modify_settings">அமைப்புகளை மாற்று</string>
+  <string name="app_ops_labels_draw_on_top">மேலே வரை</string>
+  <string name="app_ops_labels_access_notifications">அறிவுறுத்தல்களை அணுகு</string>
+  <string name="app_ops_labels_camera">கேமரா</string>
+  <string name="app_ops_labels_record_audio">ஆடியோவைப் பதிவுசெய்</string>
+  <string name="app_ops_labels_play_audio">ப்ளே ஆடியோ</string>
+  <string name="app_ops_labels_read_clipboard">க்ளிப்போர்டை வாசி</string>
+  <string name="app_ops_labels_modify_clipboard">க்ளிப்போர்ட்டை மாற்றியமை</string>
+  <string name="app_ops_labels_media_buttons">ஊடக பட்டன்கள்</string>
+  <string name="app_ops_labels_audio_focus">ஆடியோ ஃபோக்கஸ்</string>
+  <string name="app_ops_labels_master_volume">மாஸ்டர் வால்யூம்</string>
+  <string name="app_ops_labels_voice_volume">ஆடியோ வால்யூம்</string>
+  <string name="app_ops_labels_ring_volume">அழைப்பு - ஒலியளவு</string>
+  <string name="app_ops_labels_media_volume">மீடியா ஒலியளவு</string>
+  <string name="app_ops_labels_alarm_volume">அலார ஒலியளவு</string>
+  <string name="app_ops_labels_notification_volume">அறிவிப்பின் ஒலியளவு</string>
+  <string name="app_ops_labels_bluetooth_volume">புளூடூத் ஒலியளவு</string>
+  <string name="app_ops_labels_keep_awake">எப்போதும் விழிப்பில்</string>
+  <string name="app_ops_labels_monitor_location">இருப்பிடத்தை கண்காணி</string>
+  <string name="app_ops_labels_monitor_high_power_location">உயர் சக்தி இருப்பிடத்தை கண்காணி</string>
+  <string name="app_ops_labels_get_usage_stats">பயன்பாட்டு புள்ளிவிவரங்களை பெறு</string>
+  <string name="app_ops_labels_mute_unmute_microphone">மைக்ரோஃபோனை மௌனமாக்கு/மௌனம்நீக்கு</string>
+  <string name="app_ops_labels_toast_window">டோஸ்ட்களை காட்டு</string>
+  <string name="app_ops_labels_project_media">ஊடகத்தை வெளிப்படுத்து</string>
+  <string name="app_ops_labels_activate_vpn">VPN செயல்படுத்து</string>
+  <string name="app_ops_labels_write_wallpaper">வால்பேப்பரை எழுது</string>
+  <string name="app_ops_labels_assist_structure">உதவி கட்டமைப்பு</string>
+  <string name="app_ops_labels_assist_screenshot">உதவி ஸ்க்ரீன்ஷாட்</string>
+  <string name="app_ops_labels_read_phone_state">தொலைப்பேசி நிலையைப் படி</string>
+  <string name="app_ops_labels_add_voicemail">குரலஞ்சலை சேர்</string>
+  <string name="app_ops_labels_use_sip">SIP பயன்படுத்து</string>
+  <string name="app_ops_labels_make_call">அழைப்பை ஏற்படுத்து</string>
+  <string name="app_ops_labels_use_fingerprint">கைரேகையைப் பயன்படுத்து</string>
+  <string name="app_ops_labels_use_body_sensors">உடல் உணர்கருவிகளைப் பயன்படுத்து</string>
+  <string name="app_ops_labels_read_cell_broadcasts">கலம் ஒளிபரப்புகளை படி</string>
+  <string name="app_ops_labels_mock_location">போலி இருப்பிடம்</string>
+  <string name="app_ops_labels_read_external_storage">வெளிப்புற சேமிப்பகத்தைப் படி</string>
+  <string name="app_ops_labels_write_external_storage">வெளிப்புற சேமிப்பகத்தில் எழுது</string>
+  <string name="app_ops_labels_turn_screen_on">திரையை ஆன் செய்</string>
+  <string name="app_ops_labels_get_accounts">கணக்குகளைப் பெறு</string>
+  <string name="app_ops_labels_toggle_wifi">Wi-fi நிலைமாற்று</string>
+  <string name="app_ops_labels_toggle_bluetooth">புளுடூத்  நிலைமாற்று</string>
+  <string name="app_ops_labels_start_at_boot">இயக்கத்தில் தொடங்கு</string>
+  <string name="app_ops_labels_toggle_nfc">NFC நிலைமாற்று</string>
+  <string name="app_ops_labels_toggle_mobile_data">மொபைல் தரவு நிலைமாற்று</string>
+  <string name="app_ops_labels_superuser">மூல அணுகல்</string>
   <!-- App ops permissions -->
+  <string name="app_ops_permissions_allowed">அனுமதிக்கப்பட்டது</string>
+  <string name="app_ops_permissions_ignored">புறக்கணிக்கப்பட்டது</string>
+  <string name="app_ops_permissions_always_ask">எப்போதும் கேள்</string>
   <!-- App ops detail -->
+  <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> ( <xliff:g id="count">%2$s</xliff:g>பயன்படுத்தப்பட்டது)</string>
+  <string name="app_ops_allowed_count">அனுமதிக்கப்படுகிறது <xliff:g id="count" example="2 times">%s</xliff:g></string>
+  <string name="app_ops_ignored_count">மறுக்கப்படுகிறது <xliff:g id="count" example="2 times">%s</xliff:g></string>
+  <string name="app_ops_both_count">அனுமதிக்கப்படுகிறது <xliff:g id="count">%1$s</xliff:g>, மறுக்கப்படுகிறது <xliff:g id="count">%2$s</xliff:g></string>
   <!-- App ops menu options -->
+  <string name="app_ops_show_user_apps">பயனர் ஆப்களை காட்டு</string>
+  <string name="app_ops_show_system_apps">உள்ளமைந்த ஆப்களை காட்டு</string>
+  <string name="app_ops_reset_counters">கவுண்ட்டர்களை அனுமதி/மறு மறுவமை</string>
+  <string name="app_ops_reset_confirm_title">கவுண்ட்டர் மறுவமைப்பை உறுதிசெய்</string>
+  <string name="app_ops_reset_confirm_mesg">நீங்கள் கவுண்ட்டர்களை மறுவமைக்க நிச்சயம் விரும்புகிறீர்களா?</string>
+  <string name="ok">சரி</string>
   <!-- Hostname setting -->
+  <string name="device_hostname">கருவி ஹோஸ்ட்நேம்</string>
+  <string name="unlock_scramble_pin_layout_title">ஸ்க்ராம்பில் லேயவுட்</string>
+  <string name="unlock_scramble_pin_layout_summary">கருவியை திறக்கும்போது PIN லேயவுட்டை ஸ்க்ராம்பில் செய்</string>
+  <string name="button_pref_title">பட்டன்கள்</string>
+  <string name="hardware_keys_power_key_title">பவர் பட்டன்</string>
+  <string name="hardware_keys_home_key_title">முகப்பு பட்டன்</string>
+  <string name="hardware_keys_back_key_title">கறுப்பு பட்டன்</string>
+  <string name="hardware_keys_menu_key_title">மெனு பொத்தான்</string>
+  <string name="hardware_keys_assist_key_title">பட்டனை தேடுதல்</string>
+  <string name="hardware_keys_appswitch_key_title">சமீபத்திய பட்டன்</string>
+  <string name="hardware_keys_camera_key_title">கேமரா பட்டன்</string>
+  <string name="hardware_keys_volume_keys_title">ஒலியளவு பொத்தான்கள்</string>
+  <string name="hardware_keys_short_press_title">சுருக்க அழுத்த செயல்பாடு</string>
+  <string name="hardware_keys_long_press_title">நீண்ட அழுத்த செயல்பாடு</string>
+  <string name="hardware_keys_double_tap_title">இரட்டை தட்டுதல் செயல்பாடு</string>
+  <string name="hardware_keys_action_nothing">செயல்பாடு இல்லை</string>
+  <string name="hardware_keys_action_menu">பட்டியலை திற/மூடு</string>
+  <string name="hardware_keys_action_app_switch">சமீபத்திய ஆப்ஸ் ஸ்விட்சர்</string>
+  <string name="hardware_keys_action_search">தேடல் உதவியாளர்</string>
+  <string name="hardware_keys_action_voice_search">குரல் தேடல்</string>
+  <string name="hardware_keys_action_in_app_search">ஆப்-உள் தேடல்</string>
+  <string name="hardware_keys_action_launch_camera">கேமராவை தொடங்கு</string>
+  <string name="hardware_keys_action_sleep">திரையை ஆஃப் செய்க</string>
+  <string name="hardware_keys_action_last_app">கடைசி ஆப்</string>
+  <string name="camera_sleep_on_release_title">திரை பீக்</string>
+  <string name="camera_sleep_on_release_summary">அரை அழுத்தமானது அந்த விசை அழுத்தப்பட்டிருக்கும் போது மட்டும் திரையை இயக்கத்தில் வைத்திருக்கும்</string>
+  <string name="camera_launch_title">கேமராவை தொடங்கு</string>
+  <string name="camera_launch_summary">ஒரு நீண்ட அழுத்தம் மற்றும் விடுவிப்பு கேமராவை தொடங்கும்</string>
+  <string name="volbtn_music_controls_title">ப்ளேபேக் கட்டுப்பாடு</string>
+  <string name="volbtn_music_controls_summary">திரை ஆஃப் ஆக இருக்கும்போது, வால்யூம் விசைகளை நீண்ட அழுத்தம் செய்வது இசை ட்ராக்குகளை தேடும்</string>
+  <string name="volbtn_cursor_control_title">விசைப்பலகை கர்சர் கட்டுப்பாடு</string>
+  <string name="volbtn_cursor_control_off">முடக்கப்பட்டது</string>
+  <string name="volbtn_cursor_control_on">வால்யூம் மேல்/கீழ் கர்சரை இடது/வலது பக்கம் நகர்த்தும்</string>
+  <string name="volbtn_cursor_control_on_reverse">வால்யூம் மேல்/கீழ் கர்சரை வலது/இடது பக்கம் நகர்த்தும்</string>
+  <string name="power_end_call_title">அழைப்பை முடி</string>
+  <string name="power_end_call_summary">பவர் பட்டனை அழுத்துதல் தற்போதைய அழைப்பை முடிக்கும்</string>
+  <string name="swap_volume_buttons_title">மறுசீரமை</string>
+  <string name="swap_volume_buttons_summary">திரை சுழற்றப்படும்போது வால்யூம் பட்டன்களை இடமாற்றவும்</string>
+  <string name="button_wake_title">கருவியை எழுப்புக</string>
+  <string name="home_answer_call_title">அழைப்புக்கு பதிலளி</string>
+  <string name="home_answer_call_summary">முகப்பு பட்டனை அழுத்துதல் தற்போதையை உள்வரும் அழைப்புக்கு பதிலளிக்கும்</string>
   <!-- Backlight brightness settings screen -->
+  <string name="adaptive_backlight_title">அடாப்டிவ் பேக்லைட்</string>
+  <string name="adaptive_backlight_summary">திரையின் பேக்லைட் பிரகாசத்தை ஆற்றலுடன் சரிசெய்து பயன்பாட்டை பராமரிக்கையில் பேட்டரி ஆயுளை அதிகரிக்கிறது</string>
   <!-- Sunlight readability enhancement screen -->
+  <string name="sunlight_enhancement_title">சூரியவொளி மிகைப்படுத்தல்</string>
+  <string name="sunlight_enhancement_summary">பிரகாசமான சூரியவொளியின் கீழ் காட்சியின் பிரகாசத்தையும் வாசிக்கும் தன்மையையும் அதிகரிக்கிறது</string>
   <!-- Color enhancement settings screen -->
+  <string name="color_enhancement_title">நிற மிகைப்படுத்தல்</string>
+  <string name="color_enhancement_summary">காட்சியின் நிறத்தை ஆற்றலுடன் மிகைப்படுத்துகின்றது</string>
   <!-- Key backlight -->
+  <string name="button_backlight_title">பேக்லைட்</string>
+  <string name="button_backlight_enabled">பட்டன்களை ஒளிரச்செய்</string>
+  <string name="keyboard_backlight_enabled">விசைப்பலகையை ஒளிரச்செய்</string>
+  <string name="button_backlight_seekbar_title">பட்டன் பிரகாசம்</string>
+  <string name="keyboard_backlight_seekbar_title">விசைப்பலகை பிரகாசம்</string>
+  <string name="backlight_timeout_title">ஒளிரச்செய்தல் நேரம்முடிந்தது</string>
+  <string name="backlight_timeout_unlimited">அனைக்காதே</string>
+  <string name="backlight_summary_disabled">முடக்கப்பட்டது</string>
+  <string name="backlight_summary_enabled_with_timeout"><xliff:g id="timeout">%s</xliff:g>க்கு செயல்படுத்தப்பட்டது</string>
+  <string name="backlight_summary_enabled">இயக்கப்பட்டவை</string>
   <!-- Gesture Settings -->
   <!-- Settings main menu entry -->
+  <string name="gesture_settings_title">சைகைகள்</string>
   <!-- Power menu -->
+  <string name="power_menu_title">பவர் பட்டியல்</string>
+  <string name="power_menu_reboot_title">மறுதுவக்க பட்டியல்</string>
+  <string name="power_menu_screenshot_title">திரைப்பிடிப்பு</string>
+  <string name="power_menu_airplane_title">விமானப் பயன்முறை</string>
+  <string name="power_menu_users_title">பயனர் ஸ்விட்சர்</string>
+  <string name="power_menu_settings_title">அமைப்பு</string>
+  <string name="power_menu_lockdown_title">கருவி லாக்டவுன்</string>
+  <string name="power_menu_bug_report_title">பிழை அறிக்கை</string>
+  <string name="power_menu_sound_title">ஆடியோ பேனல்</string>
+  <string name="power_menu_bug_report_disabled">வளர்ச்சி அமைப்புகளில் பிழை தெரிவித்தல் முடக்கப்பட்டுள்ளது</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">திரை மீதான உலாவி பட்டையை செயல்படுத்துக</string>
+  <string name="disable_navkeys_summary">திரை மீதான உலாவி பட்டையை செயல்படுத்தி வன்பொருள் பட்டனை முடக்குக</string>
   <!-- tap-to-sleep -->
+  <string name="double_tap_to_sleep_title">உறங்குவதற்கு இருமுறை தட்டு</string>
+  <string name="double_tap_to_sleep_summary">காட்சியை ஆஃப் செய்ய நிலை பட்டை மீது இருமுறை தட்டு</string>
   <!-- Proximity wake -->
+  <string name="proximity_wake_title">தற்செயலான விழித்தலை தடு</string>
+  <string name="proximity_wake_summary">திரையை விழிப்லாக்வதற்கு முன்பாக அருகாமை சென்சரை சரிபார்க்கவும்</string>
   <!-- Turn on display when power connected; turn off display when power disconnected -->
+  <string name="wake_when_plugged_or_unplugged_title">பிளக் செய்தால் விழி</string>
+  <string name="wake_when_plugged_or_unplugged_summary">ஒரு மின் வளத்தை இணைத்தல் அல்லது துண்டித்தலின் போது திரையை ஆன் செய்க</string>
   <!-- Font size sample text. This needs to be a very short string, as it is shown in
     multiple font sizes in a limited amount of space. -->
+  <string name="font_size_sample">மாதிரி</string>
   <!-- Volume settings - Volume adjustment sound -->
+  <string name="volume_adjust_sounds_title">வால்யூம் சரிசெய்தல் ஆடியோகள்</string>
   <!-- Hardware tunables - Vibrator intensity -->
+  <string name="vibrator_intensity_title">அதிர்வான் அளவு</string>
+  <string name="vibrator_warning">%1$dஐவிட உயர்வான மதிப்புகள் பரிந்துரைக்கப்படுவதில்லை</string>
   <!-- Hardware tunables - Color calibration -->
+  <string name="color_calibration_title">நிற அளவிடுதல்</string>
+  <string name="color_calibration_summary">திரைமீதுள்ள நிறங்களை அளவிடு</string>
+  <string name="color_red_title">சிவப்பு</string>
+  <string name="color_green_title">பச்சை</string>
+  <string name="color_blue_title">நீலம்</string>
   <!-- Hardware tunables - Gamma calibration -->
+  <string name="gamma_tuning_title_head">காமா அளவிடுதல்</string>
+  <string name="gamma_tuning_summary_head">டிவீக் காமா மதிப்புகள்</string>
+  <string name="gamma_tuning_control_set_header">குழு <xliff:g id="index">%d</xliff:g></string>
   <!-- used if no name provided by overlay -->
+  <string name="gamma_tuning_contrast">மாறுபாடு</string>
+  <string name="gamma_tuning_brightness">ஒளிர்வு</string>
+  <string name="gamma_tuning_saturation">சாச்சுரேசன்</string>
   <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">இசை ஆப்-ஐ தொடங்குக</string>
+  <string name="headset_connect_player_summary">ஹெட்செட் இணைக்கப்பட்டு இருக்கும்போது இயல்நிலை இசை ஆப்-ஐ தொடங்குக</string>
   <!-- WiFi auto-configure priorities -->
+  <string name="wifi_auto_config_priorities">தானியக்க முன்னுரிமை</string>
+  <string name="auto_brightness_reset_button">மீட்டமை</string>
   <!-- Display : Rotation  -->
+  <string name="display_rotation_title">சுழற்சி</string>
+  <string name="display_rotation_disabled">முடக்கப்பட்டது</string>
+  <string name="display_rotation_unit">டிகிரிக்கள்</string>
+  <string name="display_lockscreen_rotation_title">திரை லாக்கை சுழற்று</string>
+  <string name="display_rotation_category_title">சுழற்சி முறைகள்</string>
+  <string name="display_rotation_0_title">0 டிகிரீ</string>
+  <string name="display_rotation_90_title">90 டிகிரீ</string>
+  <string name="display_rotation_180_title">180 டிகிரீ</string>
+  <string name="display_rotation_270_title">270 டிகிரீ</string>
   <!-- Display settings.  Screen color. -->
+  <string name="screencolor">திரை நிறம்</string>
+  <string name="screencolor_summary">திரை வண்ணக்கூறு, கான்டிராஸ்ட் அல்லது தீவிரத்தை டியூன் செய்</string>
+  <string name="custom_screencolor">தனிப்பயனாக்கப்பட்ட திரை நிறம்</string>
+  <string name="screencolor_save">சேமி</string>
+  <string name="screencolor_cancel">ரத்துசெய்</string>
+  <string name="restore_preview">இயல்நிலை படத்தை காண்</string>
+  <string name="selectnewfile_menu">கேலரியில் இருந்து புது படத்தைக் காண்</string>
+  <string name="selectfile_menu">கேலரியில் இருநந்து படத்தைக் காண்</string>
+  <string name="restore_default_str">மீட்டமை</string>
+  <string name="hue_str">வண்ணக்கூறு: <xliff:g id="hue_value">%1$s</xliff:g></string>
+  <string name="saturation_str">சாச்சுரேசன்: <xliff:g id="saturation_value">%1$s</xliff:g></string>
+  <string name="contrast_str">கான்டிராஸ்ட்: <xliff:g id="contrast_value">%1$s</xliff:g></string>
+  <string name="intensity_str">இன்டென்சிட்டி: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
+  <string name="live_display_summary">வாசிக்கும்தன்மையை மேம்படுத்தவும் கண்ணுக்கு சிரமத்தை குறைக்கவும் நாளின் நேரத்தையும் சுற்றுச்சூழல் நிலைமைகளையும் பொருத்து உங்கள் திரையை உகந்ததாக்குங்கள்</string>
+  <string name="live_display_mode">காட்சி முறை</string>
+  <string name="live_display_color_temperature_title">நிற தட்பவெப்பம்</string>
+  <string name="live_display_color_temperature_summary">நாள்: <xliff:g id="day_temperature">%1$d</xliff:g>K  இரவு: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+  <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+  <string name="live_display_day">பகல்</string>
+  <string name="live_display_night">இரவு</string>
+  <string name="live_display_outdoor_mode_title">தானியக்க வெளியிட முறை</string>
+  <string name="live_display_outdoor_mode_summary">பிரகாசமான சூரியவொளியின் கீழ் பிரகாசத்தையும் செறிவையும் தானாக அதிகரி</string>
+  <string name="live_display_low_power_title">மின் பயன்பாட்டை குறை</string>
+  <string name="live_display_low_power_summary">குறைபடுதல் இல்லாமல் குறைந்தபட்ச மின் பயன்பாட்டிற்காக காட்சியை சரிசெய்</string>
+  <string name="live_display_enhance_color_title">நிறங்களை மேம்படுத்து</string>
+  <string name="live_display_enhance_color_summary">சதை நிறங்கள், இயற்கை காட்சிகள் மற்றும் பிற படங்களுக்கு நிற பிரகாசத்தை மேம்படுத்து</string>
+  <string name="live_display_color_profile_title">நிற சுயவிவரம்</string>
+  <string name="live_display_color_profile_standard_title">நிலையான</string>
+  <string name="live_display_color_profile_standard_summary">துல்லியமான நிறங்களும் பிரகாசமான வெண்மையும்</string>
+  <string name="live_display_color_profile_natural_title">இயற்கை</string>
+  <string name="live_display_color_profile_natural_summary">உண்மைத்துவமான நிறங்கள் மற்றும் சதை நிறங்கள்</string>
+  <string name="live_display_color_profile_dynamic_title">ஆற்றல்மிக்க</string>
+  <string name="live_display_color_profile_dynamic_summary">மேம்பட்ட நிறங்களும் பிரகாசமான வெண்மையும்</string>
+  <string name="live_display_color_profile_cinema_title">சினிமா</string>
+  <string name="live_display_color_profile_cinema_summary">வீடியோவுக்கான கச்சிதமான வண்ன மறு உருவாக்கம்</string>
+  <string name="live_display_color_profile_astronomy_title">வான்வெளி</string>
+  <string name="live_display_color_profile_astronomy_summary">இரவு காட்சியை பாதுகாப்பதற்காக ஆழ்ந்த சிவப்பு</string>
+  <string name="live_display_color_profile_photography_title">புகைப்படம்</string>
+  <string name="live_display_color_profile_photography_summary">புகைப்படங்களுக்கான கச்சிதமான வண்ன மறு உருவாக்கம்</string>
+  <string name="live_display_color_profile_basic_title">அடிப்படை</string>
+  <string name="live_display_color_profile_basic_summary">காட்சியை அளவிடாமல் பயன்படுத்து</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">தேர்ந்தெடுக்கும் ஐகான்</string>
+  <string name="ime_switcher_notify_summary">உள்ளீட்டு முறை தேர்ந்தெடுத்தல் ஐகானை காட்டு</string>
   <!-- Heads up -->
+  <string name="heads_up_notifications">ஹெட்ஸ் அப்</string>
+  <string name="summary_heads_up_enabled">பாப்-அப் அறிவுறுத்தல்கள் செயல்படுத்தப்பட்டுள்ளன</string>
+  <string name="summary_heads_up_disabled">பாப்-அப் அறிவுறுத்தல்கள் முடக்கப்பட்டுள்ளன</string>
   <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
+  <string name="bluetooth_accept_all_files">அனைத்து கோப்பு வகைகளுக்காகவும் ஏற்றுக்கொள்</string>
   <!-- High touch sensitivity -->
+  <string name="high_touch_sensitivity_title">உயர்ந்த தொடல் உணர்திறன்</string>
+  <string name="high_touch_sensitivity_summary">கையுறை அணிந்தும் அதை பயன்படுத்தும்படி தொடல்திறை உணர்திறனை அதிகரிக்கவும்</string>
   <!-- Display & Lights screen, setting options for LCD density -->
+  <string name="lcd_density">LCD அடர்த்தி</string>
+  <string name="dialog_title_lcd_density">LCD அடர்த்தி</string>
+  <string name="lcd_density_value_format">%d DPI</string>
+  <string name="lcd_density_default_value_format">%d DPI (default)</string>
+  <string name="restarting_ui">மறுதொடக்கம் செய்கிறது UI\u2026</string>
   <!-- Stylus Icon -->
+  <string name="stylus_icon_enabled_title">ஸ்டைலசை பயன்படுத்தும்போது ஐகானை காட்டு</string>
+  <string name="stylus_icon_enabled_summary">ஸ்டைலசுடன் மேலே உலாவும்போது அல்லது வரையும்போது சுட்டி ஐகானை காட்டு</string>
   <!-- Stylus Gestures -->
+  <string name="gestures_settings_title">ஸ்டைலஸ் சைகைகள்</string>
+  <string name="category_spen_title">ஸ்டைலஸ் சைகைகள்</string>
+  <string name="enable_subcat_title">ஸ்டைலஸ்</string>
+  <string name="enable_spen_title_head">சைகைகளை செயல்படுத்து</string>
+  <string name="enable_spen_summary_head">ஸ்டைலஸ் பட்டனை அழுத்தி பிடிப்பதன் மூலம் சைகைகள் ஸ்வைப்பை பயன்படுத்தவும்</string>
+  <string name="gestures_subcat_title">சைகைகள்</string>
+  <string name="gestures_left_spen_title_head">இடது ஸ்வைப்</string>
+  <string name="gestures_right_spen_title_head">வலது ஸ்வைப்</string>
+  <string name="gestures_up_spen_title_head">மேல் ஸ்வைப்</string>
+  <string name="gestures_down_spen_title_head">கீழ் ஸ்வைப்</string>
+  <string name="gestures_long_spen_title_head">நீண்ட அழுத்தம்</string>
+  <string name="gestures_double_spen_title_head">இருமுறை தட்டுதல்</string>
   <!-- Gestures Options -->
+  <string name="gestures_action_empty">செயல்பாடு இல்லை</string>
+  <string name="gestures_action_home">முகப்பு</string>
+  <string name="gestures_action_back">பின் செல்</string>
+  <string name="gestures_action_menu">மெனு</string>
+  <string name="gestures_action_search">தேடலை தூண்டிவிடு</string>
+  <string name="gestures_action_recent">சமீபத்திய பயன்பாடுகள்</string>
   <!-- Stylus gestures -->
+  <string name="stylus_app_not_installed">%s நிறுவப்படவில்லை.</string>
   <!-- Touchscreen hovering -->
+  <string name="touchscreen_hovering_title">தொடல்திறைக்கு மேல் நகர்தல்</string>
+  <string name="touchscreen_hovering_summary">வலைதள உலாவிகள், ரிமோட்-டெஸ்க்டாப்புகள் உள்ளிட்டவற்றில் மவுஸ் போன்று நீங்கள் திரையின் மீது உலாவ உங்களை அனுமதிக்கிறது</string>
   <!-- Increasing ring tone volume -->
+  <string name="increasing_ring_volume_option_title">ரிங் வால்யூமை அதிகரித்தல்</string>
+  <string name="increasing_ring_min_volume_title">வால்யூமை தொடங்கு</string>
+  <string name="increasing_ring_ramp_up_time_title">ராம்ப்-அப் நேரம்</string>
   <!-- LTO download data over wi-fi only -->
+  <string name="lto_download_data_wifi_only">GPS உதவிசெய்யும் தரவு பதிவிறக்கம்</string>
+  <string name="lto_download_data_wifi_only_on">எந்த நெட்வொர்க் மீதும்</string>
+  <string name="lto_download_data_wifi_only_off">Wi\u2011Fi நெட்வொர்க்கள் மீது மட்டும்</string>
+  <string name="volume_keys_control_ring_stream_title">ரிங்டோன் வால்யூமை கட்டுப்படுத்து</string>
+  <string name="volume_keys_control_ring_stream_summary_on">வால்யூம் விசைகள் ரிங்டோன் வால்யூமை கட்டுப்படுத்துகின்றன</string>
+  <string name="volume_keys_control_ring_stream_summary_off">வால்யூம் விசைகள் ஊடக வால்யூமை கட்டுப்படுத்துகின்றன</string>
+  <string name="category_calibration">அளவிடுதல்</string>
+  <string name="display_and_lights">காட்சி &amp; ஒளிகள்</string>
   <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
+  <string name="power_notifications_category_title">சார்ஜிங்கின் போது</string>
   <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
+  <string name="power_notifications_enable_title">இயக்கு</string>
+  <string name="power_notifications_enable_summary">ஒரு பவர் வளத்தை இணைக்கும்போது அல்லது துண்டிக்கும்போது ஒரு ஆடியோயை ப்ளே செய்கிறது</string>
   <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
+  <string name="power_notifications_vibrate_title">அதிர்வு</string>
   <!-- Sound settings, Charging sounds ringtone selection, preference label -->
+  <string name="power_notifications_ringtone_title">அறிவுறுத்தல் ஆடியோ</string>
   <!-- Sound settings, charging sounds label for ringtone == none -->
+  <string name="power_notifications_ringtone_silent">நிசப்தம்</string>
   <!-- Status bar -->
+  <string name="status_bar_title">நிலை பட்டி</string>
+  <string name="status_bar_toggle_brightness">பிரகாச கட்டுப்பாடு</string>
+  <string name="status_bar_toggle_brightness_summary">நிலை பட்டை மீது வழுக்கிச் செல்வதன் மூலம் பிரகாசத்தை சரிசெய்</string>
+  <string name="status_bar_notif_count_title">அறிவுறுத்தல் எண்ணிக்கையை காட்டு</string>
+  <string name="status_bar_notif_count_summary">நிலுவையிலுள்ள அறிவுறுத்தல்களின் எண்ணிக்கையை காட்டு</string>
+  <string name="status_bar_quick_qs_pulldown_title">துரித புல்டவுன்</string>
+  <string name="status_bar_quick_qs_pulldown_summary">நிலை பட்டையின் %1$s முனை துரித அமைப்புகளை கீழே இழுக்கிறது</string>
+  <string name="status_bar_quick_qs_pulldown_summary_left">இடது</string>
+  <string name="status_bar_quick_qs_pulldown_summary_right">வலது</string>
+  <string name="status_bar_quick_qs_pulldown_off">அணை</string>
+  <string name="status_bar_quick_qs_pulldown_left">இடது</string>
+  <string name="status_bar_quick_qs_pulldown_right">வலது</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_title">கடிகார ஸ்டைல்</string>
+  <string name="status_bar_clock_style_right">வலது</string>
+  <string name="status_bar_clock_style_left">இடது</string>
+  <string name="status_bar_clock_style_center">மையம்</string>
+  <string name="status_bar_clock_style_hidden">மறைந்துள்ளது</string>
+  <string name="status_bar_am_pm_title">AM/PM ஸ்டைல்</string>
+  <string name="status_bar_am_pm_info">24-மணிநேர கடிகாரம் செயல்படுத்தப்பட்டுள்ளது</string>
+  <string name="status_bar_am_pm_normal">இயல்பு</string>
+  <string name="status_bar_am_pm_small">சிறிய</string>
+  <string name="status_bar_am_pm_hidden">மறைந்துள்ளது</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">பேட்டரி நிலை ஸ்டைல்</string>
+  <string name="status_bar_battery_style_icon_portrait">ஐகான் போர்ட்ரெய்ட்</string>
+  <string name="status_bar_battery_style_icon_landscape">ஐகான் லேண்ட்ஸ்கேப்</string>
+  <string name="status_bar_battery_style_circle">வட்டம்</string>
+  <string name="status_bar_battery_style_text">உரை</string>
+  <string name="status_bar_battery_style_hidden">மறைந்துள்ளது</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_title">பேட்டரி சதவிகிதம்</string>
+  <string name="status_bar_battery_percentage_default">மறைந்துள்ளது</string>
+  <string name="status_bar_battery_percentage_text_inside">ஐகானுக்குள்</string>
+  <string name="status_bar_battery_percentage_text_next">அடுத்த ஐகான்</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">நிலைப் பட்டி படவுருக்கள்</string>
+  <string name="status_bar_icons_summary">எந்த நிலை பட்டி படவுருக்கள் காட்டப்படுகின்றன என்பதைக் கட்டுப்படுத்து</string>
   <!-- EdgeGesture service -->
+  <string name="edge_gesture_service_title">சைகை தொடல் நிகழ்வுகளை தடைசெய்</string>
+  <string name="edge_gesture_service_summary">உலாவல் மற்றும் நிலை பட்டை சைகைகளுக்கான தொடல் நிகழ்வுகளை ஆப்களுக்கு அனுப்பாதே</string>
   <!-- Keep screen on strings -->
+  <string name="keep_screen_on_never">எப்போதும் வேண்டாம்</string>
+  <string name="keep_screen_on_debugging">USB பிழைநீக்கலின்போது</string>
+  <string name="keep_screen_on_charging">சார்ஜ் செய்யப்படும்போது</string>
   <!-- Privacy Settings Header item -->
+  <string name="privacy_settings_cyanogenmod_title">தனியுரிமை</string>
   <!-- Privacy Guard -->
+  <string name="privacy_guard_default_title">இயல்நிலையால் செயல்படுத்தப்பட்டது</string>
+  <string name="privacy_guard_default_summary">புதிதாக நிருவப்பட்ட ஆப்களுக்காக இயல்நிலையால் செயல்படுத்தப்பட்டது</string>
+  <string name="privacy_guard_manager_title">அந்தரங்கம் பாதுகாப்பான்</string>
+  <string name="privacy_guard_manager_summary">உங்கள் தனிப்பட்ட தரவுகளுக்கு எந்த ஆப்களுக்கு அணுகள் இருக்கும் என்பதை நிர்வகி</string>
+  <string name="privacy_guard_no_user_apps">எந்த ஆப்களும் நிருவப்படவில்லை</string>
+  <string name="privacy_guard_help_title">உதவி</string>
+  <string name="privacy_guard_reset_title">மீட்டமை</string>
+  <string name="privacy_guard_reset_text">அனுமதிகளை மறுவமைக்கவா?</string>
+  <string name="privacy_guard_help_text">இந்த திரையிலே எந்த ஆப்களின் அந்தரங்க பாதுகாப்பான் செயல்படுத்தப்பட வேண்டும் என்பதை எளிமையாக அவற்றை தட்டுவதன் மூலம் தேர்ந்தெடுக்கலாம். உள்ளடக்கங்கள், மெசேஜ்கள் அல்லது அழைப்பு பதிவுகள் போன்ற உங்கள் தனிப்பட்ட தரவுகளை தேர்ந்தெடுக்கப்பட்ட ஆப்களால் அணுக முடியாது. ஒரு ஆப்-இன் நுழைவாயிலை நீண்ட அழுத்தம் செய்தல் அதன் விவரங்கள் திரையை திறக்கும். \n\nஉள்ளமைந்த ஆப்கள் இயல்நிலையாக காட்டப்படுவதில்லை ஆனால் அதற்குரிய பட்டியல் தெரிவை தேர்ந்தெடுப்பதன் மூலம் வெளிப்படுத்தப்படுகின்றது.</string>
+  <string name="privacy_guard_manager_show_system_apps">உள்ளமைந்த ஆப்களை காட்டு</string>
+  <string name="privacy_guard_advanced_settings_title">மேம்பட்டது</string>
+  <string name="privacy_guard_notification_title">அறிவுறுத்தலை காட்டு</string>
   <!-- Sizes for pattern lockscreen -->
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
+  <string name="lockpattern_settings_enable_error_path_title">பேட்டர்ன் பிழையை காட்டு</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
+  <string name="lockpattern_settings_enable_dots_title">பேட்டர்ன் புள்ளிகளை காட்டு</string>
   <!-- Whether the keyguard will directly pass to password entry -->
+  <string name="lock_directly_show_password">நேரடியாக கடவுச்சொல் உள்ளீடு காட்டு</string>
   <!-- Whether the keyguard will directly pass to pattern view -->
+  <string name="lock_directly_show_pattern">நேரடியாக களவடிவம் காட்சியை காட்டு</string>
   <!-- Whether the keyguard will directly pass to PIN entry -->
+  <string name="lock_directly_show_pin">நேரடியாக PIN உள்ளீடு காட்டு</string>
   <!-- lock screen visualizer -->
+  <string name="lockscreen_visualizer_title">காட்சி இசை விஷூவலைஸர்</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">விரைவு அமைப்புகள் ஓட்டினால் முடக்கப்பட்டது</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">பூட்டுத் திரையை செயல்படுத்த தட்டு</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">பூட்டுத் திரை செயல்படுத்தப்பட்டது!</string>
   <!-- Battery saver -->
+  <string name="battery_saver_threshold">பேட்டரி பாதுகாப்பான் வரையளவு</string>
+  <string name="battery_saver_summary">செயல்திறனை குறைத்து பின்னணி தரவுகளை கட்டுப்படுத்து</string>
+  <string name="battery_saver_summary_unavailable">சார்ஜ் செய்யும்போது கிடைக்கப்பெறுவதில்லை</string>
   <!-- Battery : Automatic performance profiles -->
+  <string name="autoperf_title">ஒரு ஆப் சுயவிவரத்திற்கான செயல்படுத்துதல்</string>
+  <string name="autoperf_summary">பல்வேறு ஆப்களுக்கு பொருத்தமான பேட்டரி முறையை தானாக தேர்தெடுக்கவும்</string>
+  <string name="perf_profile_title">பேட்டரி முறை</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">பயன்பாடுகள் இயக்கத்திலே தொடங்கின</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
+  <string name="notification_ringtone_title_cm">அறிவுறுத்தல் டோன்</string>
   <!-- Advanced reboot options -->
+  <string name="advanced_reboot_title">மேம்பட்ட மறுதுவக்கம்</string>
+  <string name="advanced_reboot_summary">திறக்கப்படும்போது,  மீட்டல், பூட்லோடர் அல்லது மென் மறுதுவக்கத்திற்குள் மறுதுவங்குவதற்கான பவர் பட்டியலில் தெரிவுகளை சேர்க்கவும்</string>
+  <string name="category_interface">இடைமுகம்</string>
   <!-- Expanded desktop -->
+  <string name="power_menu_expanded_desktop">விரிவுபடுத்தப்பட்ட டெஸ்க்டாப்</string>
+  <string name="expanded_hide_nothing">எதையும் மறைக்காதே</string>
+  <string name="expanded_hide_status">நிலை பட்டையை மறை</string>
+  <string name="expanded_hide_navigation">உலாவி பட்டையை மறை</string>
+  <string name="expanded_hide_both">இரண்டையும் மறை</string>
+  <string name="expanded_nothing_to_show">விரிவுபடுத்தப்பட்ட நிலைக்கான ஒரு ஆப் கட்டமைப்புக்கான தனிப்பயனாக்கத்தை சேர்க்க, \’அனைத்திற்கும் செயல்படுத்து\’ என்பதை ஆஃப் நிலைக்கு அமை</string>
+  <string name="expanded_enabled_for_all">அனைத்திற்கும் செயல்படுத்து</string>
+  <string name="expanded_desktop_style">விரிவுபடுத்தப்பட்ட டெஸ்க்டாப் ஸ்டைல்</string>
+  <string name="expanded_desktop_style_description">இயல்நிலை விரிவுபடுத்தப்பட்ட டெஸ்க்டாப் ஸ்டைலை தேர்ந்தெடு</string>
+  <string name="expanded_desktop_title">விரிவுபடுத்தப்பட்ட டெஸ்க்டாப் தெரிவுகள்</string>
   <!-- Kill app long-press back -->
+  <string name="kill_app_longpress_back">ஆப் பின்புற பட்டனை கொல்க</string>
+  <string name="kill_app_longpress_back_summary">பின்புற பட்டனை நீண்ட அழுத்தம் செய்வதன் மூலம் முன்புற ஆப்-ஐ கொல்க</string>
   <!-- Show/Hide Search Bar -->
+  <string name="recents_show_searchbar">சமீபத்திய பட்டியலில் தேடல் பட்டையை காட்டு</string>
+  <string name="keywords_recents_show_searchbar">சமீபத்திய சமீபத்தியவைகள் முடக்கு செயல்படுத்து காட்டு மறை தேடல் பட்டை தேடல்பட்டை</string>
   <!-- Voice Wakeup -->
+  <string name="voice_wakeup_settings_title">குரல் விழிப்பு</string>
+  <string name="voice_wakeup_retrain_title">உங்கள் குரலை மறுபயிற்சி செய்யவும்</string>
+  <string name="voice_wakeup_activity_title">தொடங்குவதற்கான செயல்</string>
+  <string name="voice_wakeup_default_activity">இப்போது கூகுள் செய்</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">குரல் விழித்தல் ஒரு நேரடி டயல் தொடர்பை தேர்வுசெய்ய தொலைப்பேசி அழைப்பு அனுமதிகளைப் பெற்றிருக்க வேண்டும்.</string>
+  <string name="picker_activities">செயல்பாடுகள்</string>
+  <string name="select_custom_app_title">தனிப்பயனாக்கப்பட்ட ஆப்-ஐ தேர்ந்தெடு</string>
+  <string name="select_custom_activity_title">தனிப்பயனாக்கப்பட்ட செயல்பாட்டை தேர்ந்தெடு</string>
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">தடைசெய்யப்பட்ட அழைப்பாளர் பட்டியல்</string>
+  <string name="blacklist_edit_dialog_title">தடைசெய்யப்பட்ட தொலைப்பேசி எண்களை திருத்து</string>
+  <string name="blacklist_prefs">அமைப்புகள்</string>
+  <string name="blacklist_button_delete">நீக்கு</string>
+  <string name="blacklist_empty_text">உங்களிடம் தடைசெய்யப்பட்ட எண்கள் எதுவும் இல்லை சேர்(+) பட்டனை தொடுவதன் மூலம் ஒரு உள்ளீட்டை சேர்</string>
+  <string name="blacklist_disabled_empty_text">தொலைப்பேசி எண்கள் உங்களை அழைத்தல் அல்லது மெசேஜ் செய்தலை தடுக்க, தடைசெய்யப்பட்ட அழைப்பாளர் பட்டியலை இயக்கவும்</string>
+  <string name="blacklist_summary_disabled">முடக்கப்பட்டது</string>
+  <string name="blacklist_summary">தடைசெய்யப்பட்ட அழைப்பாளர் பட்டியலில் இருந்து நீங்கள் அழைப்புகள் அல்லது மெசேஜ்களை பெற மாட்டீர்கள்</string>
+  <string name="blacklist_notify">அறிவுறுத்தலை காட்டு</string>
+  <string name="blacklist_private_numbers_title">தனியார் எண்கள்</string>
+  <string name="blacklist_private_numbers_summary_disabled">தனியார் எண்களில் இருந்து வரும் அழைப்புகளை தடைசெய்ய வேண்டாம்</string>
+  <string name="blacklist_private_numbers_summary">தனியார் எண்களில் இருந்து உள்வரும் <xliff:g id="type">%s</xliff:g>களை தடைசெய்</string>
+  <string name="blacklist_unknown_numbers_title">அறியாத எண்கள்</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">தொடர்பு பட்டியலில் இல்லாத எண்களில் இருந்து வரும் அழைப்புகள் அல்லது மெசேஜ்களை தடைசெய்யாதே</string>
+  <string name="blacklist_unknown_numbers_summary">தொடர்பு பட்டியலில் இல்லாத எண்களில் இருந்து உள்வரும் <xliff:g id="type">%s</xliff:g>களை தடைசெய்</string>
+  <string name="blacklist_summary_type_calls_only">அழைப்புகள்</string>
+  <string name="blacklist_summary_type_messages_only">மெசேஜ்கள்</string>
+  <string name="blacklist_summary_type_calls_and_messages">அழைப்புகள் மற்றும் மெசேஜ்கள்</string>
+  <string name="blacklist_regex_title">வைல்ட்கார்டுகளை பயன்படுத்து</string>
+  <string name="blacklist_regex_summary">.ஐ வைல்ட்கார்டாகவும் *ஐ மறுநிகவுக்காகவும் பயன்படுத்து எ.கா.123.* ’123’ என தொடங்கும் எண்களை தடைசெய்கிறது மற்றும் .*123.* ’123’ உடைய எண்களை தடைசெய்கிறது</string>
+  <string name="blacklist_policy_block_calls">உள்வரும் அழைப்புகளை தடைசெய்</string>
+  <string name="blacklist_policy_block_messages">உள்வரும் மெசேஜ்களை தடைசெய்</string>
+  <string name="blacklist_bad_number_add">தடைசெய்யப்பட்ட அழைப்பாளர் பட்டியலில் செல்லாத தொலைப்பேசி எண்னை சேர்க்க முடியவில்லை</string>
   <!-- Blacklist management -->
+  <string name="remove_blacklist_number_title">எண்னை நீக்கு</string>
+  <string name="remove_blacklist_entry">இந்த தடைசெய்யப்பட்ட தொலைப்பேசி எண்னை நீங்கள் நீக்க விரும்புகிறீர்களா?</string>
+  <string name="select_contact">தொடர்பை தேர்ந்தெடு</string>
   <!-- Sms security limit -->
+  <string name="app_security_title">ஆப் பாதுகாப்பு</string>
+  <string name="sms_security_check_limit_title">SMS மெசேஜ் எல்லை</string>
+  <string name="sms_security_check_limit_summary">உறுதிப்படுத்துதல் தேவைப்படுவதற்கு 1 நிமிடத்திற்குள் ஆப்ஸ் %d மெசேஜ்களை அனுப்ப முடியும்</string>
+  <string name="sms_security_check_limit_summary_none">உறுதிப்படுத்துதல் இல்லாமல் ஆப்ஸ் எந்த மெசேஜ்களையும் அனுப்ப அனுமதிக்கப்படுவதில்லை</string>
+  <string name="sms_security_check_limit_none">ஏதுமில்லை</string>
   <!-- Notification spamfilter -->
+  <string name="spam_added_title">%1$s சேர்க்கப்பட்டது</string>
+  <string name="spam_last_blocked_title">கடைசியாக தடைசெய்யப்பட்டது %1$s</string>
+  <string name="block_notifications_title">அறிவுறுத்தல்களை வடிகட்டு</string>
+  <string name="block_notifications_summary">புறக்கணித்த அறிவுறுத்தல்களையும் வடிகட்டிகளையும் நிர்வகி</string>
+  <string name="no_filters_title">வடிகட்டிகள் எதுவும் அமைக்கப்படவில்லை</string>
   <!-- Anonymous Statistics #CM -->
   <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+  <string name="anonymous_statistics_title">CyanogenMod புள்ளிவிவரங்கள்</string>
+  <string name="anonymous_statistics_summary">CyanogenMod மேம்பட்டு செயல்பட பெயரில்லா புள்ளிவிவர அறிவிப்பை தெரிந்துகொள்ளவும்</string>
+  <string name="anonymous_statistics_warning_title">இதுபற்றி</string>
+  <string name="anonymous_statistics_warning">CyanogenMod புள்ளிவிவரங்களை தேர்ந்தெடுத்தல் தனிப்பட்டது அல்லாத தரவுகளை CyanogenMod உருவாக்கியவர்களுக்கு சமர்பிக்க அனுமதித்து கருவிகளுக்கு இடையே தனித்துவமான நிறுவல்களை கண்காணிக்க உதவும் சமர்பிக்கப்பட்ட தகவல்களில் ஒரு தனித்துவமான அடையாளம் காண்பான் உள்ளது, அது உங்கள் அந்தரங்கத்தை அல்லது தனிப்பட்ட தரவை சமரசம் செய்யாது. இந்த தரவு ஒவ்வொரு பூட்டிலும் சமர்பிக்கபப்டுகின்றது. \n\n சமர்பிக்கப்பட்ட தரவுகளுக்கான உதாரணத்திற்கு தரவுகள் முன்னோட்டத்தை தட்டவும்</string>
+  <string name="enable_reporting_title">தெரிவித்தலை செயல்படுத்து</string>
+  <string name="preview_data_title">தரவுகளை முன்னோட்டம்பார்</string>
+  <string name="view_stats_title">புள்ளிவிவரங்களை காண்</string>
+  <string name="anonymous_learn_more">மேலும் அறிக</string>
   <!-- Anonymous Statistics - Preview -->
+  <string name="preview_id_title">தனித்துவமான ID</string>
+  <string name="preview_device_title">சாதனம்</string>
+  <string name="preview_version_title">பதிப்பு</string>
+  <string name="preview_country_title">நாடு</string>
+  <string name="preview_carrier_title">சேவை வழங்குநர்</string>
+  <string name="stats_collection_title">புள்ளிவிவர சேகரிப்பு</string>
+  <string name="stats_collection_summary">செயல்படுத்தப்படும்போது, மெர்ட்ரிக்ஸ் சேகரிப்பை அனுமதிக்கிறது</string>
   <!-- Protected apps lockpattern reset button -->
+  <string name="lockpattern_reset_button">பேட்டர்னை மறுவமை</string>
+  <string name="lockpattern_settings_reset_summary">பேட்டர்ன் லாக்கை மறுவமைக்க மின்னஞ்சல் கணக்கையும் தொடர்புடைய கடவுச்சொல்லையும் உள்ளிடு</string>
   <!-- Protected Apps -->
+  <string name="menu_hidden_apps_delete">மீட்டமை</string>
+  <string name="menu_hidden_apps_reset_lock">பேட்டர்ன் லாக்கை மறுவமை</string>
+  <string name="protected_apps">பாதுகாக்கப்பட்ட ஆப்ஸ்</string>
+  <string name="protected_apps_summary">எந்த பயன்பாடுகள் பாதுகாப்பான பூட்டிற்கு பின் மறைந்திருக்கின்றன என்பதை நிர்வகி</string>
+  <string name="saving_protected_components">காம்போனென்ட் நிலையை சேமிக்கிறது\u2026</string>
+  <string name="pa_login_username_hint">பயனர்பெயர் (மின்னஞ்சல்)</string>
+  <string name="pa_login_password_hint">கடவுச்சொல்</string>
+  <string name="pa_login_submit_button">உள்நுழைக</string>
+  <string name="pa_login_checking_password">கணக்கைச் சரிபார்க்கிறது…</string>
+  <string name="pa_login_incorrect_login">புகுபதிகை தவறு</string>
+  <string name="pa_pattern_or_fingerprint_header">களவடிவத்தை வரைய வேண்டும் அல்லது பூட்டுநீக்க கைரேகையை பயன்படுத்த வேண்டும்.</string>
   <!-- Contributors cloud activity -->
+  <string name="contributors_cloud_fragment_title">பங்களிப்பாளர்கள்</string>
+  <string name="contributors_cloud_loading_message">பங்களிப்போர் தரவுகள்\u2026 லோடிங்</string>
+  <string name="contributors_cloud_failed_message">பங்களிப்போர் தரவுகள் லோட் செய்ய முடியவில்லை</string>
+  <string name="contributor_info_menu">பங்களிப்போர் விவரம்</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>பெயர்:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>Nick:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>Commits:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
+  <string name="contributions_info_menu">பங்களிப்போர் விவரம்</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>மொத்த பங்களிப்பாளர்கள்:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>மொத்த கம்மிட்ஸ்:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>கடைசி புதுப்பிப்பு:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
+  <string name="category_sounds">ஒலிகள்</string>
+  <string name="notification_manager">அறிவிப்புகள்</string>
+  <string name="lockscreen_settings">பூட்டுத் திரை</string>
+  <string name="category_lights">ஒளிகள்</string>
+  <string name="category_volume">ஒலியளவு</string>
+  <string name="category_vibrate">அதிர்வு</string>
+  <string name="category_misc">இதர அமைப்பு</string>
+  <string name="title_general">பொது</string>
+  <string name="advanced">மேம்பட்டது</string>
+  <string name="link_volume_option_title">ரிங்டோன் &amp; அறிவுறுத்தல் சத்தங்களை இணை</string>
+  <string name="lcd_density_prompt_message">சில பயன்பாடுகள் தரநிலை இல்லாத DPIஇல் இயங்காமல் இருக்கலாம்.\n\n இது உங்கள் சாதனத்தை மறுதுவக்கம் செய்யும்</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">APN PPP தொலைப்பேசி எண்</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">டுபிலிகேட் APN</string>
+  <string name="duplicate_apn_error_message">இந்த APN ஏற்கனவே உள்ளது. நிராகரி அல்லது மதிப்புகளை மாற்றவும்.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> என்பது <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">முடக்கப்பட்டது</string>
+  <string name="sim_missing">காணவில்லை அல்லது கோளாறு</string>
+  <string name="sim_enabler_need_disable_sim">SIM கார்டு முடக்கப்படும். நீங்கள் தொடர விரும்புகிறீர்களா?</string>
+  <string name="sim_enabler_will_disable_sim_title">கவனத்திற்கு</string>
+  <string name="sim_enabler_need_switch_data_service">இந்த SIM முடக்கப்படும் மற்றும் SIM <xliff:g id="slotid">%1$s</xliff:g> தரவு சேவைகளுக்காக பயன்படுத்தப்படும். நீங்கள் உறுதியாக தொடர விரும்புகிறீர்களா?</string>
+  <string name="sim_enabler_airplane_on">ஏர்ப்ளேன் முறை ஆன் ஆக இருக்கும்போது செயல்பாட்டை செய்ய முடியவில்லை</string>
+  <string name="sim_enabler_in_call">அழைப்பின் போது செயல்பாட்டை செய்ய முடியவில்லை</string>
+  <string name="sim_enabler_both_inactive">அனைத்து SIM கார்டுகளையும் முடக்க முடியவில்லை</string>
+  <string name="sim_enabler_enabling">செயல்படுத்துகிறது\u2026</string>
+  <string name="sim_enabler_disabling">முடக்குகிறது\u2026</string>
+  <string name="sub_activate_success">SIM செயல்படுத்துகிறது.</string>
+  <string name="sub_activate_failed">செயல்படுத்துதல் தோல்வியடைந்தது.</string>
+  <string name="sub_deactivate_success">SIM முடக்கப்பட்டது.</string>
+  <string name="sub_deactivate_failed">முடக்குதல் தோல்வியடைந்தது.</string>
+  <string name="primary_sub_select_title">இயல்நிலை 3G/LTE சந்தா</string>
+  <string name="select_sim_card">சிம் கார்டைத் தேர்ந்தெடுக்கவும்</string>
   <!-- MSIM SIM status -->
+  <string name="sim_card_status_title">SIM %d நிலை</string>
+  <string name="sim_card_lock_settings_title">SIM %d லாக் அமைப்புகள்</string>
+  <string name="sim_card_summary_empty">SIM சொருகப்படவில்லை</string>
+  <string name="sim_mobile_network_settings_category_title">மொபைல் நெட்வொர்க் அமைப்புகள்</string>
+  <string name="sim_mobile_network_settings_title">SIM %d அமைப்புகள்</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">நினைவூட்டல்கள்</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">நிகழ்வுகள்</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">தேர்வுசெய்யப்பட்ட அழைப்பாளர்கள்</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">தேர்வுசெய்யப்பட்ட செய்திகள்</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
+  <string name="maximum_head_level">தலை: %1$s W/கிலோ</string>
+  <string name="maximum_body_level">உடல்: %1$s W/கிலோ</string>
   <!-- IC Codes -->
+  <string name="ic_code_model">மாதிரி %1$s</string>
+  <string name="ic_code_full">IC: %1$s</string>
+  <string name="sim_ringtone_title">SIM %d ரிங்டோன்</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">பயன்பாடு:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">கடந்த முறை பயன்படுத்தப்பட்டது:</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">பயன்பாட்டு நேரம்:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <string name="master_clear_desc_cm" product="tablet">இது உங்கள் டேப்லெட்டின் <b>உள்ளார்ந்த சேமிப்பகத்தின்</b> அனைத்து தரவுகளையும் அழித்துவிடும், அதில் உள்ளடங்குபவை: \n\n<li>உங்கள் கருவி கணக்குகள்</li>\n<li>சிஸ்டம் மற்றும் ஆப் தரவுகள் மற்றும் அமைப்புகள்</li>\n<li>தரவிறக்கம்செய்த ஆப்கள்</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
+  <string name="master_clear_desc_cm" product="default">இது உங்கள் தொலைப்பேசியின் <b>உள்ளார்ந்த சேமிப்பகத்தின்</b> அனைத்து தரவுகளையும் அழித்துவிடும், அதில் உள்ளடங்குபவை: \n\n<li>உங்கள் கருவி கணக்குகள்</li>\n<li>சிஸ்டம் மற்றும் ஆப் தரவுகள் மற்றும் அமைப்புகள்</li>\n<li>தரவிறக்கம்செய்த ஆப்கள்</li></string>
   <!-- Factory reset strings -->
+  <string name="factory_reset_instructions_title">தனிப்பட்ட தரவுகள் &amp; ஆப்கள்</string>
+  <string name="factory_reset_instructions_summary">இது இந்த கருவியில் உள்ள உங்கள் கணக்குகள், ஆப்கள், ஆப் தரவுகள், மற்றும் சிஸ்டம் அமைப்புகள் அனைத்தையும் அழித்துவிடும்.</string>
+  <string name="factory_reset_personal_content">தனிப்பட்ட உள்ளடக்கம்</string>
+  <string name="factory_reset_erase_stored_content">சேமிக்கப்பட்ட உள்ளடக்கத்தை அழி</string>
+  <string name="factory_reset_erase_stored_content_summary">இந்த கருவியில் உள்ள இசை, புகைப்படங்கள், வீடியோக்கள் மற்றும் பிற சேமிக்கப்பட்ட பயனர் தரவுகளை அழி</string>
+  <string name="factory_reset_erase_stored_content_summary_forced">இந்த கருவியில் உள்ள இசை, புகைப்படங்கள், வீடியோக்கள் மற்றும் பிற சேமிக்கப்பட்ட பயனர் தரவுகளை அழி \n\n <b>கருவி என்கிரிப்ஷன் காரணமாக உள்ளடக்கம் சேமிக்கப்பட முடியாது.</b></string>
+  <string name="factory_reset_erase_sd_card">SD கார்டை ஃபார்மாட் செய்</string>
+  <string name="factory_reset_erase_sd_card_summary">SD கார்டில் உள்ள இசை மற்றும் புகைப்படம் உள்ளிட்ட அனைத்து தரவுகளையும் அழி</string>
+  <string name="factory_reset_warning_text_reset_now">இப்போது மறுவமை</string>
+  <string name="factory_reset_warning_text_message">இந்த கருவியில் இருந்து உங்கள் கணக்குகள், ஆப்கள், ஆப் தரவுகள் மற்றும் சிஸ்டம் அமைப்புகள் அனைத்தும் நீக்கப்படும் இது திரும்பப்பெற முடியாதது</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">பிற</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi ஹாட்ஸ்பாட் டைம்அவுட்</string>
+  <string name="hotstpot_inactivity_timeout_never">எப்போதும் வேண்டாம்</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 நிமிடம்</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 நிமிடங்கள்</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 நிமிடங்கள்</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">போர்டபல் Wi\u2011Fi ஹாட்ஸ்பாட் காலமுடிவு ஆகாது</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">போர்டபல் Wi\u2011Fi ஹாட்ஸ்பாட் <xliff:g id="timeout">%1$s</xliff:g>பிறகு காலமுடிவடைந்தது</string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">நேரலை பூட்டுத் திரை	</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">நேரலை பூட்டுத் திரையை இயக்கவும் மற்றும் கட்டமைக்கவும்	</string>
   <!-- Live lock screen settings content description -->
+  <string name="live_lock_screen_settings_button">அமைப்புகள்</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">கிடைக்கின்ற நேரலை பூட்டுத் திரைகளைப் பார்க்க, நேரலை பூட்டுத் திரையை ஆன் செய்யவும்.	</string>
+  <string name="interruptions_ignore_while_media_title">ஆடியோ டக்கிங்கை தடு</string>
+  <string name="interruptions_ignore_while_media_summary">ஒரு அறிவுறுத்தல் வரும்போது ஊடக மறுஇயக்கம் வால்யூமை குறைக்காதே</string>
   <!-- CM Legal -->
+  <string name="cmlicense_title">CyanogenMod சட்டம்</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">புள்ளிவிவரங்களை மீட்டமை</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">மின்கலம் வரலாற்று புள்ளிவிவரங்கள் மீட்டமைக்கப்பட இருக்கின்றன</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">டாக் மின்கலம் இல்லை</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">டாக் ACயில் சார்ஜ் செய்கிறது</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">டாக் USB மீது சார்ஜ் செய்கிறது</string>
 </resources>

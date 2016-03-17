@@ -254,6 +254,8 @@
   <string name="notification_light_use_multiple_leds">Flere LED\'er</string>
   <string name="keywords_lights_brightness_level">dæmp led lysstyrke</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">Lysindstillinger</string>
+  <string name="led_notification_text">LED-lys aktiveret via indstillinger</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android-fejlfinding</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -285,6 +287,8 @@
   <string name="app_ops_summaries_modify_call_log">ændre opkaldslog</string>
   <string name="app_ops_summaries_read_calendar">læs kalender</string>
   <string name="app_ops_summaries_modify_calendar">ændre kalender</string>
+  <string name="app_ops_summaries_wifi_scan">Wi-Fi skanning</string>
+  <string name="app_ops_summaries_notification">underretning</string>
   <string name="app_ops_summaries_cell_scan">scan mobil</string>
   <string name="app_ops_summaries_call_phone">opkald til telefon</string>
   <string name="app_ops_summaries_read_sms">læs SMS</string>
@@ -312,15 +316,29 @@
   <string name="app_ops_summaries_media_volume">lydstyrke for medier</string>
   <string name="app_ops_summaries_alarm_volume">lydstyrke for alarm</string>
   <string name="app_ops_summaries_notification_volume">lydstyrke for underretninger</string>
+  <string name="app_ops_summaries_bluetooth_volume">lydstyrke for bluetooth</string>
   <string name="app_ops_summaries_keep_awake">hold vågen</string>
   <string name="app_ops_summaries_monitor_location">overvåg placering</string>
   <string name="app_ops_summaries_monitor_high_power_location">overvåg placering højt strømforbrug</string>
+  <string name="app_ops_summaries_get_usage_stats">få brugsstatistik</string>
   <string name="app_ops_summaries_mute_unmute_microphone">Mikrofon til/fra</string>
   <string name="app_ops_summaries_toast_window">Vis toastbeskeder</string>
   <string name="app_ops_summaries_project_media">projekt medie</string>
   <string name="app_ops_summaries_activate_vpn">aktiver VPN</string>
+  <string name="app_ops_summaries_make_call">foretag opkald</string>
+  <string name="app_ops_summaries_use_fingerprint">brug fingeraftryk</string>
+  <string name="app_ops_summaries_use_body_sensors">brug krops sensor</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">læs celle beskeder</string>
+  <string name="app_ops_summaries_mock_location">immitér placering</string>
+  <string name="app_ops_summaries_read_external_storage">læs eksternt lager</string>
+  <string name="app_ops_summaries_write_external_storage">skriv til eksternt lager</string>
+  <string name="app_ops_summaries_turn_screen_on">tænd skærmen</string>
+  <string name="app_ops_summaries_toggle_wifi">Wi-Fi til/fra</string>
+  <string name="app_ops_summaries_toggle_bluetooth">bluetooth til/fra</string>
+  <string name="app_ops_summaries_toggle_nfc">NFC til/fra</string>
   <string name="app_ops_summaries_superuser">root-adgang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">Grov placering</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibrér</string>
   <string name="app_ops_labels_read_contacts">Læs kontaktpersoner</string>
@@ -819,15 +837,25 @@
   <string name="sim_enabler_airplane_on">Kan ikke udføre operationen, mens flytilstand er slået til.</string>
   <string name="sim_enabler_in_call">Kan ikke udføre handlingen under igangværende opkald.</string>
   <string name="sim_enabler_both_inactive">Kan ikke deaktivere alle SIM-kort</string>
+  <string name="sim_enabler_enabling">Aktiverer\u2026</string>
+  <string name="sim_enabler_disabling">Deaktiverer\u2026</string>
+  <string name="sub_activate_success">SIM-kort aktiveret.</string>
+  <string name="sub_activate_failed">Aktivering mislykkedes.</string>
+  <string name="sub_deactivate_success">SIM-kort deaktiveret.</string>
+  <string name="sub_deactivate_failed">Deaktivering mislykkedes.</string>
   <string name="primary_sub_select_title">Standard 3G/LTE abonnement</string>
+  <string name="select_sim_card">Vælg SIM-kort</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d status</string>
   <string name="sim_card_lock_settings_title">SIM %d låseindstillinger</string>
   <string name="sim_card_summary_empty">SIM ikke indsat</string>
+  <string name="sim_mobile_network_settings_category_title">Indstillinger for mobilt netværk</string>
   <string name="sim_mobile_network_settings_title">SIM %d indstillinger</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">påmindelser</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">begivenheder</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
@@ -839,6 +867,7 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">SIM-kort %d ringetone</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">App:</string>
   <!-- label for last time used -->
   <!-- label for usage time -->
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -869,4 +898,14 @@
   <string name="interruptions_ignore_while_media_summary">Reducér ikke lydstyrken, når en meddelelse modtages</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Juridisk information for CyanogenMod</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">Nulstil statistikker</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">Batterihistoriestatistik vil blive nulstillet</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">Dockbatteri findes ikke</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">Oplader på dock AC</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">Oplader via dock USB</string>
 </resources>

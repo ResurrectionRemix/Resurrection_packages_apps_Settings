@@ -167,9 +167,9 @@
   <string name="toggle2g3g4g">Tipo de red preferido</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
-  <string name="wifi_setting_countrycode_title">Código de región Wiu2011Fi</string>
+  <string name="wifi_setting_countrycode_title">Código de región Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
-  <string name="wifi_setting_countrycode_summary">Especificar el código de región Wiu2011Fi</string>
+  <string name="wifi_setting_countrycode_summary">Especificar el código de región Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Ocurrió un error al establecer el código de región.</string>
   <!-- Profiles -->
@@ -253,8 +253,10 @@
   <string name="notification_light_missed_call_title">Llamada perdida</string>
   <string name="notification_light_voicemail_title">Buzón de voz</string>
   <string name="notification_light_screen_on">Luces con la pantalla encendida</string>
+  <string name="notification_light_zen_mode">Luces en el modo no molestar</string>
   <string name="notification_light_use_multiple_leds">Múltiples LEDs</string>
   <string name="keywords_lights_brightness_level">atenuar el brillo de los leds</string>
+  <string name="notification_light_automagic">Elegir colores automáticamente</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Ajustes de luz</string>
   <string name="led_notification_text">Luz LED activada por ajustes</string>
@@ -289,6 +291,8 @@
   <string name="app_ops_summaries_modify_call_log">modificar registro de llamadas</string>
   <string name="app_ops_summaries_read_calendar">leer el calendario</string>
   <string name="app_ops_summaries_modify_calendar">modificar el calendario</string>
+  <string name="app_ops_summaries_wifi_scan">Escanear Wi-Fi</string>
+  <string name="app_ops_summaries_notification">notificación</string>
   <string name="app_ops_summaries_cell_scan">escanear red celular</string>
   <string name="app_ops_summaries_call_phone">llamar al teléfono</string>
   <string name="app_ops_summaries_read_sms">leer tus mensajes SMS</string>
@@ -316,15 +320,39 @@
   <string name="app_ops_summaries_media_volume">volumen multimedia</string>
   <string name="app_ops_summaries_alarm_volume">volumen de alarma</string>
   <string name="app_ops_summaries_notification_volume">volumen de notificación</string>
+  <string name="app_ops_summaries_bluetooth_volume">volumen de Bluetooth</string>
   <string name="app_ops_summaries_keep_awake">mantener encendido</string>
   <string name="app_ops_summaries_monitor_location">consultar ubicación aproximada</string>
   <string name="app_ops_summaries_monitor_high_power_location">consultar ubicación precisa</string>
+  <string name="app_ops_summaries_get_usage_stats">obtener estadísticas de uso</string>
   <string name="app_ops_summaries_mute_unmute_microphone">activar/desactivar el micrófono</string>
   <string name="app_ops_summaries_toast_window">mostrar notificaciones emergentes</string>
   <string name="app_ops_summaries_project_media">proyectar medios</string>
   <string name="app_ops_summaries_activate_vpn">activar VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">escribir fondo de pantalla</string>
+  <string name="app_ops_summaries_assist_structure">asistente de estructura</string>
+  <string name="app_ops_summaries_assist_screenshot">asistente para captura de pantalla</string>
+  <string name="app_ops_summaries_read_phone_state">leer estado del teléfono</string>
+  <string name="app_ops_summaries_add_voicemail">agregar buzón de voz</string>
+  <string name="app_ops_summaries_use_sip">usar SIP</string>
+  <string name="app_ops_summaries_make_call">hacer llamada</string>
+  <string name="app_ops_summaries_use_fingerprint">usar huella digital</string>
+  <string name="app_ops_summaries_use_body_sensors">utilizar sensores corporales</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">leer transmisiones celulares</string>
+  <string name="app_ops_summaries_mock_location">ubicación falsa</string>
+  <string name="app_ops_summaries_read_external_storage">leer almacenamiento externo</string>
+  <string name="app_ops_summaries_write_external_storage">escribir al almacenamiento externo</string>
+  <string name="app_ops_summaries_turn_screen_on">encender pantalla</string>
+  <string name="app_ops_summaries_get_accounts">obtener cuentas</string>
+  <string name="app_ops_summaries_toggle_wifi">alternar Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">alternar Bluetooth</string>
+  <string name="app_ops_summaries_start_at_boot">iniciar en el arranque</string>
+  <string name="app_ops_summaries_toggle_nfc">alternar NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">conmutar datos móviles</string>
   <string name="app_ops_summaries_superuser">acceso administrativo</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">Ubicación aproximada</string>
+  <string name="app_ops_labels_fine_location">Ubicación precisa</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibrar</string>
   <string name="app_ops_labels_read_contacts">Leer contactos</string>
@@ -333,11 +361,19 @@
   <string name="app_ops_labels_modify_call_log">Modificar registro de llamadas</string>
   <string name="app_ops_labels_read_calendar">Leer calendario</string>
   <string name="app_ops_labels_modify_calendar">Modificar calendario</string>
+  <string name="app_ops_labels_wifi_scan">Escanear Wi-Fi</string>
   <string name="app_ops_labels_notification">Notificación/Mensaje</string>
+  <string name="app_ops_labels_cell_scan">Escaneo de red móvil</string>
   <string name="app_ops_labels_call_phone">Llamar</string>
+  <string name="app_ops_labels_read_sms">Leer SMS</string>
+  <string name="app_ops_labels_write_sms">Escribir SMS</string>
   <string name="app_ops_labels_receive_sms">Recibir SMS</string>
+  <string name="app_ops_labels_receive_emergency_sms">Recibir mensajes de emergencia SMS</string>
   <string name="app_ops_labels_receive_mms">Recibir MMS</string>
+  <string name="app_ops_labels_receive_wap_push">Recibir mensajes WAP</string>
   <string name="app_ops_labels_send_sms">Enviar SMS</string>
+  <string name="app_ops_labels_read_icc_sms">Leer mensajes ICC</string>
+  <string name="app_ops_labels_write_icc_sms">Escribir mensajes ICC</string>
   <string name="app_ops_labels_modify_settings">Modificar ajustes</string>
   <string name="app_ops_labels_draw_on_top">Mostrar encima</string>
   <string name="app_ops_labels_access_notifications">Acceso a notificaciones</string>
@@ -356,10 +392,33 @@
   <string name="app_ops_labels_notification_volume">Volumen de notificación</string>
   <string name="app_ops_labels_bluetooth_volume">Volumen de Bluetooth</string>
   <string name="app_ops_labels_keep_awake">Mantener encendido</string>
+  <string name="app_ops_labels_monitor_location">Monitorear ubicación</string>
+  <string name="app_ops_labels_monitor_high_power_location">Monitorear ubicación precisa</string>
+  <string name="app_ops_labels_get_usage_stats">Obtener estadísticas de uso</string>
   <string name="app_ops_labels_mute_unmute_microphone">Activar/desactivar micrófono</string>
   <string name="app_ops_labels_toast_window">Mostrar notificaciones emergentes</string>
   <string name="app_ops_labels_project_media">Proyectar medios</string>
   <string name="app_ops_labels_activate_vpn">Activar VPN</string>
+  <string name="app_ops_labels_write_wallpaper">Escribir fondo de pantalla</string>
+  <string name="app_ops_labels_assist_structure">Asistente de estructura</string>
+  <string name="app_ops_labels_assist_screenshot">Asistente para captura de pantalla</string>
+  <string name="app_ops_labels_read_phone_state">Leer estado del teléfono</string>
+  <string name="app_ops_labels_add_voicemail">Añadir buzón de voz</string>
+  <string name="app_ops_labels_use_sip">Usar SIP</string>
+  <string name="app_ops_labels_make_call">Hacer llamada</string>
+  <string name="app_ops_labels_use_fingerprint">Usar huella digital</string>
+  <string name="app_ops_labels_use_body_sensors">Utilizar sensores corporales</string>
+  <string name="app_ops_labels_read_cell_broadcasts">Leer transmisiones celulares</string>
+  <string name="app_ops_labels_mock_location">Ubicación falsa</string>
+  <string name="app_ops_labels_read_external_storage">Leer almacenamiento externo</string>
+  <string name="app_ops_labels_write_external_storage">Escribir al almacenamiento externo</string>
+  <string name="app_ops_labels_turn_screen_on">Encender pantalla</string>
+  <string name="app_ops_labels_get_accounts">Obtener cuentas</string>
+  <string name="app_ops_labels_toggle_wifi">Alternar Wi-Fi</string>
+  <string name="app_ops_labels_toggle_bluetooth">Alternar Bluetooth</string>
+  <string name="app_ops_labels_start_at_boot">Iniciar en el arranque</string>
+  <string name="app_ops_labels_toggle_nfc">Alternar NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Conmutar datos móviles</string>
   <string name="app_ops_labels_superuser">Acceso administrativo</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Permitido</string>
@@ -654,6 +713,8 @@
   <string name="status_bar_battery_percentage_text_inside">Dentro del icono</string>
   <string name="status_bar_battery_percentage_text_next">Junto al icono</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">Iconos de la barra de estado</string>
+  <string name="status_bar_icons_summary">Controlar qué iconos de la barra de estado se muestran</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Bloquear eventos táctiles</string>
   <string name="edge_gesture_service_summary">No enviar a las aplicaciones los eventos táctiles de la barra de estado y de navegación</string>
@@ -690,6 +751,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Mostrar visualizador musical</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">Desactivado por la configuración rápida de los controles</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">Toca para activar la pantalla de bloqueo</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">¡Pantalla de bloqueo activada!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">Ahorro de batería</string>
   <string name="battery_saver_summary">Reduce el rendimiento y limita los datos en segundo plano</string>
@@ -699,6 +763,7 @@
   <string name="autoperf_summary">Elige automáticamente un modo de batería adecuado para diversas aplicaciones</string>
   <string name="perf_profile_title">Modo de batería</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">Aplicaciones iniciadas en el arranque</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Tono de notificación</string>
   <!-- Advanced reboot options -->
@@ -727,6 +792,7 @@
   <string name="voice_wakeup_retrain_title">Entrenar tu voz</string>
   <string name="voice_wakeup_activity_title">Actividad para iniciar</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">La activación por voz debe tener permisos de llamada para seleccionar un contacto directo.</string>
   <string name="picker_activities">Actividades</string>
   <string name="select_custom_app_title">Seleccionar aplicación personalizada</string>
   <string name="select_custom_activity_title">Seleccionar actividad personalizada</string>
@@ -795,12 +861,14 @@
   <string name="menu_hidden_apps_delete">Restablecer</string>
   <string name="menu_hidden_apps_reset_lock">Restablecer patrón de bloqueo</string>
   <string name="protected_apps">Aplicaciones protegidas</string>
+  <string name="protected_apps_summary">Administrar cuáles aplicaciones se ocultan detrás del bloqueo seguro</string>
   <string name="saving_protected_components">Guardar el estado del componente\u2026</string>
   <string name="pa_login_username_hint">Usuario (correo electrónico)</string>
   <string name="pa_login_password_hint">Contraseña</string>
   <string name="pa_login_submit_button">Iniciar sesión</string>
   <string name="pa_login_checking_password">Comprobando cuenta\u2026</string>
   <string name="pa_login_incorrect_login">El inicio de sesión fue incorrecto</string>
+  <string name="pa_pattern_or_fingerprint_header">Debes dibujar el patrón o utilizar huellas digitales para desbloquear</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Colaboradores</string>
   <string name="contributors_cloud_loading_message">Cargando datos de colaboradores\u2026</string>
@@ -811,6 +879,10 @@
                  <b>Apodo:</b><xliff:g id="nick">%2$s</xliff:g><br/><br/>
                  <b>Contribuciones:</b><xliff:g id="commits">%3$s</xliff:g>]]></string>
   <string name="contributions_info_menu">Información de las contribuciones</string>
+  <string name="contributions_info_msg">
+        <![CDATA[<b>Contribuyentes totales:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
+                 <b>Contribuciones totales:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
+                 <b>Última actualización:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
   <string name="category_sounds">Sonidos</string>
   <string name="notification_manager">Notificaciones</string>
   <string name="lockscreen_settings">Pantalla de bloqueo</string>
@@ -821,24 +893,44 @@
   <string name="title_general">General</string>
   <string name="advanced">Avanzado</string>
   <string name="link_volume_option_title">Enlazar volumen del tono de llamada y notificaciones</string>
+  <string name="lcd_density_prompt_message">Algunas aplicaciones pueden no funcionar con un DPI no estándar.\n\nEsto reiniciará tu teléfono.</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">Número de teléfono de APN PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">APN Duplicado</string>
+  <string name="duplicate_apn_error_message">Ya existe este APN. Deséchalo o cambia los parámetros.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> es <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
   <string name="sim_disabled">desactivada</string>
   <string name="sim_missing">ausente o defectuosa</string>
+  <string name="sim_enabler_need_disable_sim">La tarjeta SIM se desactivará. ¿Quieres continuar?</string>
+  <string name="sim_enabler_will_disable_sim_title">Atención</string>
+  <string name="sim_enabler_need_switch_data_service">Esta tarjeta SIM será desactivada y <xliff:g id="slotid">%1$s </xliff:g> y se utilizará para servicios de datos. ¿Estás seguro que deseas continuar?</string>
   <string name="sim_enabler_airplane_on">No se puede realizar la operación mientras esté activado el modo avión.</string>
   <string name="sim_enabler_in_call">No se puede realizar la operación mientras haya una llamada en curso.</string>
   <string name="sim_enabler_both_inactive">No es posible desactivar todas las tarjetas SIM</string>
+  <string name="sim_enabler_enabling">Activando\u2026</string>
+  <string name="sim_enabler_disabling">Desactivando\u2026</string>
+  <string name="sub_activate_success">SIM activada.</string>
+  <string name="sub_activate_failed">Error de activación.</string>
+  <string name="sub_deactivate_success">SIM desactivada.</string>
+  <string name="sub_deactivate_failed">Error de desactivación.</string>
   <string name="primary_sub_select_title">Suscripción 3G/LTE por defecto</string>
+  <string name="select_sim_card">Seleccionar tarjeta SIM</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">Estado de SIM %d</string>
   <string name="sim_card_lock_settings_title">Ajustes de bloqueo de SIM %d</string>
   <string name="sim_card_summary_empty">Tarjeta SIM no insertada</string>
+  <string name="sim_mobile_network_settings_category_title">Ajustes de red móvil</string>
   <string name="sim_mobile_network_settings_title">Ajustes de la tarjeta SIM %d</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">recordatorios</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">eventos</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">personas que llaman</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">mensajes seleccionados</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
   <string name="maximum_head_level">Cabeza: %1$s W/kg</string>
@@ -848,8 +940,11 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">Timbre de llamada para SIM %d</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">Aplicación:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">Última vez utilizado:</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">Tiempo de uso:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">Esto borrará todos los datos del <b>almacenamiento interno</b> del tablet, incluyendo:\n\n<li>Tus cuentas de dispositivo</li>\n<li>Ajustes del sistema y datos de las aplicaciones</li>\n<li>Aplicaciones descargadas</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -866,16 +961,36 @@
   <string name="factory_reset_warning_text_reset_now">RESTABLECER AHORA</string>
   <string name="factory_reset_warning_text_message">Todas tus cuentas, aplicaciones, datos de aplicaciones y ajustes del sistema se eliminarán del dispositivo. Esto no se puede revertir.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">Otros</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Tiempo de espera del punto de acceso Wi\u2011Fi</string>
   <string name="hotstpot_inactivity_timeout_never">Nunca</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minuto</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutos</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutos</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">El punto de acceso portable Wi\u2011Fi no se apagará nunca</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">El punto de acceso portable Wi\u2011Fi se apagará después de <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Pantalla de bloqueo animada</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">Activar y configurar pantallas de bloqueo animadas</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Ajustes</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">Para ver las pantallas de bloqueo animadas disponibles, activa la opción de pantallas de bloqueo.</string>
   <string name="interruptions_ignore_while_media_title">Prevenir reducción de audio</string>
   <string name="interruptions_ignore_while_media_summary">No reducir el volumen de reproducción cuando llegue una notificación</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Licencia de CyanogenMod</string>
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">Restablecer estadísticas</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">Las estadísticas de la batería serán restablecidas</string>
+  <!-- Dock battery not present message -->
+  <string name="dock_battery_not_present">Batería de la base no encontrada</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
+  <string name="battery_info_status_charging_dock_ac">Cargando en base de CA</string>
+  <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="battery_info_status_charging_dock_usb">Cargando en base de USB</string>
 </resources>
