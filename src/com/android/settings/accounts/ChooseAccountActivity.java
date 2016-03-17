@@ -137,6 +137,11 @@ public class ChooseAccountActivity extends SettingsPreferenceFragment {
         // Create list of providers to show on preference screen
         for (int i = 0; i < mAuthDescs.length; i++) {
             String accountType = mAuthDescs[i].type;
+            if (!Utils.showAccount(getPreferenceScreen().getContext(), accountType)) {
+                // If needn't to show the account, skip this account.
+                continue;
+            }
+
             CharSequence providerName = getLabelForType(accountType);
 
             // Skip preferences for authorities not specified. If no authorities specified,

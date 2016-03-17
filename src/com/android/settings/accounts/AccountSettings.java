@@ -431,6 +431,10 @@ public class AccountSettings extends SettingsPreferenceFragment
 
         for (int i = 0; i < accountTypes.length; i++) {
             final String accountType = accountTypes[i];
+            if (!Utils.showAccount(getActivity(), accountType)) {
+                // If needn't to show the account, skip this account.
+                continue;
+            }
             // Skip showing any account that does not have any of the requested authorities
             if (!accountTypeHasAnyRequestedAuthorities(helper, accountType)) {
                 continue;
