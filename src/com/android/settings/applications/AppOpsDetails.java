@@ -31,6 +31,10 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.NetworkPolicyManager;
 import android.os.Bundle;
+import android.os.IDeviceIdleController;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +53,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
@@ -143,6 +149,20 @@ public class AppOpsDetails extends InstrumentedFragment {
 
         Resources res = getActivity().getResources();
 
+        final IDeviceIdleController iDeviceIdleController = IDeviceIdleController.Stub.asInterface(
+                ServiceManager.getService(Context.DEVICE_IDLE_CONTROLLER));
+        List<String> allowInPowerSave;
+        if (iDeviceIdleController != null) {
+            try {
+                allowInPowerSave = Arrays.asList(iDeviceIdleController.getSystemPowerWhitelist());
+            } catch (RemoteException e) {
+                Log.e(TAG, "couldn't get system power white list", e);
+                allowInPowerSave = new ArrayList<>();
+            }
+        } else {
+            allowInPowerSave = new ArrayList<>();
+        }
+
         mOperationsSection.removeAllViews();
         String lastPermGroup = "";
         boolean isPlatformSigned = isPlatformSigned();
@@ -176,12 +196,6 @@ public class AppOpsDetails extends InstrumentedFragment {
                     } catch (NameNotFoundException e) {
                     }
                 }
-                ((TextView)view.findViewById(R.id.op_name)).setText(
-                        entry.getSwitchText(mState));
-                ((TextView)view.findViewById(R.id.op_counts)).setText(
-                        entry.getCountsText(res));
-                ((TextView)view.findViewById(R.id.op_time)).setText(
-                        entry.getTimeText(res, true));
 
                 Spinner sp = (Spinner) view.findViewById(R.id.spinnerWidget);
                 sp.setVisibility(View.GONE);
@@ -191,6 +205,31 @@ public class AppOpsDetails extends InstrumentedFragment {
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
                 int mode = mAppOps.checkOp(switchOp, entry.getPackageOps().getUid(),
                         entry.getPackageOps().getPackageName());
+
+                final TextView opNameText = (TextView) view.findViewById(R.id.op_name);
+                final TextView opCountText = (TextView) view.findViewById(R.id.op_counts);
+                final TextView opTimeText = (TextView) view.findViewById(R.id.op_time);
+
+                opNameText.setText(entry.getSwitchText(mState));
+
+                if (switchOp == AppOpsManager.OP_WAKE_LOCK
+                        && allowInPowerSave.contains(entry.getPackageOps().getPackageName())) {
+                    // sooper special case; app is marked to be allowed in power save; it is
+                    // probably critical to functionality, don't allow user to change it, because
+                    // we'll ignore it either way
+                    sw.setVisibility(View.VISIBLE);
+                    sw.setChecked(true);
+                    sw.setEnabled(false);
+
+                    opCountText.setVisibility(View.GONE);
+                    opTimeText.setText(R.string.app_ops_disabled_by_optimization);
+
+                    continue;
+                }
+
+                opCountText.setText(entry.getCountsText(res));
+                opTimeText.setText(entry.getTimeText(res, true));
+
                 sp.setSelection(modeToPosition(mode));
                 sp.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
                     boolean firstMode = true;
