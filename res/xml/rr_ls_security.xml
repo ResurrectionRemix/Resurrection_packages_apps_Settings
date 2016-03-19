@@ -24,19 +24,6 @@
             android:summary="@string/powermenu_lockscreen_summary"
             android:defaultValue="true" />
 
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="lockscreen_quick_unlock_control"
-            android:title="@string/unlock_quick_unlock_control_title"
-            android:summary="@string/unlock_quick_unlock_control_summary" />
-
-         <ListPreference
-            android:key="lockscreen_bouncer"
-            android:title="@string/ls_bouncer_title"
-            android:entries="@array/ls_bouncer_entries"
-            android:entryValues="@array/ls_bouncer_values"
-            android:persistent="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -59,17 +46,6 @@
                settings:unitsRight=""
                android:persistent="false"
                android:dependency="lock_screen_custom_notif" />
-
-
-    <com.android.settings.rr.SeekBarPreference
-            android:key="lockscreen_security_alpha"
-            android:title="@string/lockscreen_security_alpha"
-            android:max="100"
-            settings:minimum="0"
-            settings:interval="1"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
-            android:persistent="false" />
 
     </PreferenceCategory>
 

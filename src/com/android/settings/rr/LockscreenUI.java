@@ -50,11 +50,9 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
 
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";	
-    private static final String LOCKSCREEN_ALPHA = "lockscreen_alpha";	
 	
     private SeekBarPreference mBlurRadius;
     private ListPreference mLockClockFonts;	
-    private SeekBarPreference mLsAlpha;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,12 +72,6 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
                     resolver, Settings.System.LOCK_CLOCK_FONTS, 4)));
             mLockClockFonts.setSummary(mLockClockFonts.getEntry());
             mLockClockFonts.setOnPreferenceChangeListener(this);
-	
-	    mLsAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
-            float alpha = Settings.System.getFloat(resolver,
-                   Settings.System.LOCKSCREEN_ALPHA, 0.45f);
-            mLsAlpha.setValue((int)(100 * alpha));
-            mLsAlpha.setOnPreferenceChangeListener(this);
 
 }
 
@@ -103,11 +95,6 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
                 mLockClockFonts.setValue(String.valueOf(newValue));
                 mLockClockFonts.setSummary(mLockClockFonts.getEntry());
                 return true;
-	}  else if (preference == mLsAlpha) {
-             int alpha = (Integer) newValue;
-             Settings.System.putFloat(resolver,
-                     Settings.System.LOCKSCREEN_ALPHA, alpha / 100.0f);
-             return true;
 	}
 	return false;
 	}
