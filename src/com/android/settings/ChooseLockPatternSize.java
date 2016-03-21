@@ -92,8 +92,13 @@ public class ChooseLockPatternSize extends PreferenceActivity {
                         originatingIntent.getLongExtra(
                                 ChooseLockSettingsHelper.EXTRA_KEY_CHALLENGE, 0));
             }
+            // Forward the Encryption interstitial required password selection
+            if (originatingIntent.hasExtra(EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD)) {
+                intent.putExtra(EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, originatingIntent
+                        .getBooleanExtra(EncryptionInterstitial.EXTRA_REQUIRE_PASSWORD, true));
+            }
             intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                    startActivity(intent);
+            startActivity(intent);
 
             finish();
             return true;
