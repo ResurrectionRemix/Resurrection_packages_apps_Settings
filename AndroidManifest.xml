@@ -3070,6 +3070,17 @@
 
         <activity android:name=".headsup.HeadsUpSettings" />
 
+        <!-- Weather Service Providers settings -->
+        <activity android:name="Settings$WeatherProviderServicesActivity"
+                  android:taskAffinity=""
+                  android:label="@string/weather_settings_title">
+            <intent-filter>
+                <action android:name="cyanogenmod.intent.action.MANAGE_WEATHER_PROVIDER_SERVICES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.cyanogenmod.WeatherServiceSettings" />
+        </activity>
     </application>
 </manifest>
 
