@@ -317,7 +317,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if (displayPrefs != null && mProximityCheckOnWakePreference != null) {
                 displayPrefs.removePreference(mProximityCheckOnWakePreference);
             }
-            CMSettings.System.putInt(getContentResolver(), CMSettings.System.PROXIMITY_ON_WAKE, 1);
+            CMSettings.System.putInt(getContentResolver(), CMSettings.System.PROXIMITY_ON_WAKE, 0);
+        } else {
+            boolean proximityCheckOnWakeDefault = getResources().getBoolean(
+                    org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
+            mProximityCheckOnWakePreference.setChecked(CMSettings.System.getInt(getContentResolver(),
+                    CMSettings.System.PROXIMITY_ON_WAKE,
+                    (proximityCheckOnWakeDefault ? 1 : 0)) == 1);
         }
 
         mWakeWhenPluggedOrUnplugged =
