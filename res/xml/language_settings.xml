@@ -51,6 +51,11 @@
         <!-- Enabled input method list will be populated programmatically here. -->
     </PreferenceCategory>
 
+    <PreferenceScreen
+        android:key="keyboard_input_settings"
+        android:fragment="com.android.settings.rr.InputMethodsSettings"
+        android:title="@string/title_keyboard_input" />
+
     <PreferenceCategory
             android:key="hard_keyboard"
             android:title="@string/builtin_keyboard_settings_title"
