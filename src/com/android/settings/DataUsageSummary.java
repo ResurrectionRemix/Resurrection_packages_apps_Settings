@@ -1199,14 +1199,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
     private void setMobileDataEnabled(int subId, boolean enabled) {
         if (LOGD) Log.d(TAG, "setMobileDataEnabled: subId = " + subId + " enabled = " + enabled);
         int dataSubId = mSubscriptionManager.getDefaultDataSubId();
-        if (subId == dataSubId || TelephonyManager.getDefault().getSimCount() == 1) {
-            mTelephonyManager.setDataEnabled(subId, enabled);
-        } else {
-            // Update mobile data status of a non DDS sub in provider
-            final Context context = getActivity();
-            android.provider.Settings.Global.putInt(context.getContentResolver(),
-                    android.provider.Settings.Global.MOBILE_DATA + subId, enabled ? 1 : 0);
-        }
+        mTelephonyManager.setDataEnabled(subId, enabled);
         mMobileDataEnabled.put(String.valueOf(subId), enabled);
         updatePolicy(false);
     }
