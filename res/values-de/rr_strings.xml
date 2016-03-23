@@ -344,7 +344,6 @@
     <string name="navbar_recents_switch_summary">(De)aktiviert die benutzerdefinierte Recents-Taste in der Recents-Ansicht. Beim Gedrückthalten der Taste werden alle Apps beendet.</string>
 
     <!-- Status bar - Clock -->
-    <string name="status_bar_clock_category">Uhr</string>
     <string name="clock_color_switch">Benutzerdefinierte Farbe der Uhrzeit-Anzeige (de)aktivieren</string>
     <string name="clock_color_title">Farbe</string>
     <string name="status_bar_clock_style_reset">Farbe zurücksetzen</string>
@@ -445,8 +444,8 @@
     <string name="lockscreen_maxnotif_config">Max. Sperrbildschirm-Benachrichtigungen</string>
 
     <!-- Lockscreen see through -->
-    <string name="lockscreen_see_through_title">Sperrbildschirm: Unschärfe</string>
-    <string name="lockscreen_see_through_summary">Verschwommene Anzeige des Inhalts hinter dem Sperrbildschirm</string>
+    <string name="lockscreen_see_through_title">Unschärfe-Effekt (Sperrbildschirm)</string>
+    <string name="lockscreen_see_through_summary">Zeigt den Inhalt hinter dem Sperrbildschirm mit Unschärfe an</string>
     <string name="lockscreen_blur_radius">Intensität des Unschärfe-Effekts</string>
 
     <!-- CM Lockscreen shortcuts -->
@@ -683,11 +682,6 @@
     <string name="enabled">Aktivieren</string>
     <string name="choose_app">Anwendung wählen</string>
 
-    <!-- Lockscreen see through -->
-    <string name="lockscreen_see_through_title">Unschärfe-Effekt (Sperrbildschirm)</string>
-    <string name="lockscreen_see_through_summary">Zeigt den Inhalt hinter dem Sperrbildschirm mit Unschärfe an.</string>
-    <string name="lockscreen_blur_radius">Stärke des Unschärfe-Effektes</string>
-
     <!-- Sound settings -->
     <string name="advanced_sound_title">Erweiterte Optionen</string>
     <string name="sound_title">Sound</string>
@@ -707,85 +701,14 @@
     <string name="lock_clock_calendar_section_title">Kalender-Ereignisse</string>
     <string name="lock_clock_calendar_section_summary">Ansehen oder bearbeiten, wie der Kalender des \'cLock\' Home  Widget aussehen wird</string>
 
-    <!-- Gesture Anywhere -->
-    <string name="gesture_anywhere_title">Gesten Überall</string>
-    <string name="gesture_anywhere_enabled_title">Gesten Überall</string>
-    <string name="gesture_anywhere_enabled_summary">Die Gesten Überall Funktion aktivieren</string>
-    <string name="gesture_anywhere_position_title">Position</string>
-    <string name="gesture_anywhere_position_left">Linke Ecke</string>
-    <string name="gesture_anywhere_position_right">Rechte Ecke</string>
-    <string name="gesture_anywhere_gestures_title">Geste</string>
-    <string name="gesture_anywhere_gestures_summary">Gesten hinzufügen, entfernen und bearbeiten</string>
-    <!-- Label, button used to add a gesture -->
-    <string name="ga_button_add">Geste hinzufügen</string>
-    <!-- Label, button used to reload all gestures -->
-    <string name="ga_button_reload">Neu laden</string>
-    <!-- Label, button used to cancel the operation of adding a gesture -->
-    <string name="ga_button_discard">Verwerfen</string>
-    <!-- Label, button used to save a gesture newly created -->
-    <string name="ga_button_done">Fertig</string>
-    <!-- Label, prompt asking the user to enter the name of the gesture -->
-    <string name="ga_prompt_gesture_name">Name</string>
-    <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
-    <string name="ga_error_missing_name">Sie müssen einen Namen angeben</string>
-    <!-- success message, tells the user where the gesture was saved -->
-    <string name="ga_save_success">Geste gespeichert in %s</string>
-    <!-- Buttons in Rename gesture dialog box -->
-    <string name="ga_rename_action">OK</string>
-    <!-- Buttons in Rename gesture dialog box -->
-    <string name="ga_cancel_action">Abbrechen</string>
-    <!-- Message displayed when the user opens the gestures settings screen -->
-    <string name="ga_gestures_loading">Lade Gesten...</string>
-    <!-- Message displayed when the user has no gestures -->
-    <string name="ga_gestures_empty">Keine Gesten</string>
-    <!-- Title of the screen used to view/manage gestures -->
-    <string name="ga_gestures_activity">Gesten</string>
-    <!-- Noun, menu item used to edit a gesture -->
-    <string name="ga_gestures_edit">Bearbeiten</string>
-    <!-- Noun, menu item used to remove a gesture -->
-    <string name="ga_gestures_delete">Löschen</string>
-    <!-- Message displayed when a gesture is successfully deleted -->
-    <string name="ga_gestures_delete_success">Geste gelöscht</string>
-    <!-- Title of dialog box -->
-    <string name="ga_gestures_rename_title">Geste umbenennen</string>
-    <!-- Label of gesture name field in Rename gesture dialog box -->
-    <string name="ga_gestures_rename_label">Gesten-Name</string>
-    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
-    <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
-    <string name="trigger_category">Trigger-Bereich</string>
-    <string name="trigger_width_title">Trigger-Breite</string>
-    <string name="trigger_width_summary">Breite des Trigger-Bereichs einstellen</string>
-    <string name="trigger_top_title">Trigger Position</string>
-    <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
-    <string name="trigger_bottom_title">Trigger height</string>
-    <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
-    <string name="picker_activities">Activities</string>
-    <string name="select_custom_app_title">Select custom app</string>
-    <string name="select_custom_activity_title">Select custom activity</string>
-    <string name="profile_applist_title">Applications</string>
-
-    <!-- Text for forcing expanded notifications -->
-    <string name="disable_fc_notifications_title">Disable FC Notifications</string>
-    <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
-
     <!-- Headphones icon switch -->
-    <string name="show_headset_icon_title">Headset-Symbol</string>
-    <string name="show_headset_icon_summary">Symbol anzeigen, wenn ein Headset verbunden ist.</string>
-
-    <!-- Quick unlock -->
-    <string name="unlock_quick_unlock_control_title">Schnelles Entsperren</string>
-    <string name="unlock_quick_unlock_control_summary">Automatisch enstperren, wenn PIN/Passwort richtig eingegeben wurde</string>
+    <string name="show_headset_icon_title">Kopfhörer-Symbol</string>
+    <string name="show_headset_icon_summary">Zeigt ein Symbol an, wenn Kopfhörer mit dem Gerät verbunden sind</string>
 
     <!--Power menu -->
     <string name="power_category">Power Menü</string>
     <string name="lockscreen_enable_power_menu_title">Power Menü auf dem Sperrbildschirm</string>
     <string name="lockscreen_enable_power_menu_summary">Diese Option entfernt das Power Menü auf einem gesicherten Sperrbildschirm</string>
-
-    <!-- MediaScanner behavior on boot -->
-    <string name="media_scanner_on_boot_title">Mediendateienscanner beim Systemstart</string>
-    <string name="media_scanner_on_boot_enabled">Mediendateien durchsuchen</string>
-    <string name="media_scanner_on_boot_ask">Scannen abfragen (Benachrichtigung)</string>
-    <string name="media_scanner_on_boot_disabled">Mediendateien nicht durchsuchen</string>
 
     <!-- Slim DSLV -->
     <string name="shortcut_action_none">Ohne</string>
@@ -996,27 +919,6 @@
     <string name="shortcut_action_media_previous">Musik - voriger Titel</string>
     <string name="shortcut_action_wake_device">Gerät aufwecken</string>
 
-    <string name="shortcut_action_longpress">Longpress:</string>
-    <string name="shortcut_action_select_action_longpress">Choose longpress action:</string>
-    <string name="shortcut_action_select_action">Choose action:</string>
-    <string name="shortcut_action_select_action_newaction">Choose new action:</string>
-    <string name="shortcut_action_reset">Reset</string>
-    <string name="shortcut_action_add">Add</string>
-    <string name="shortcut_action_reset_message">Reset all entries to default?</string>
-    <string name="shortcut_action_max">Maximum entries size has been reached</string>
-    <string name="shortcut_action_warning">Warning</string>
-    <string name="shortcut_action_warning_message">It is not possible to delete last entry</string>
-    <string name="shortcut_action_disable_message">Disabled\nAdd an entry to enable this feature</string>
-    <string name="shortcut_image_not_valid">The chosen app did not return a valid icon or does not support image cropping. Use another app.</string>
-    <string name="shortcut_duplicate_entry">The chosen action cannot be added twice</string>
-    <string name="shortcut_action_help_shortcut">shortcut</string>
-    <string name="shortcut_action_help_button">button</string>
-    <string name="shortcut_action_help_app">app</string>
-    <string name="shortcut_action_help_icon">, while selecting the icon will bring up customization options</string>
-    <string name="shortcut_action_help_main">To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the reset option.</string>
-    <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
-    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
-
     <!-- Superuser indicator on status bar -->
     <string name="su_indicator">SuperUser-Anzeige</string>
     <string name="su_indicator_summary_on">SuperUser-Anzeige ist bei einer aktiven Sitzung sichtbar</string>
@@ -1101,10 +1003,6 @@
     <string name="selinux_permissive_title">Moderat</string>
     <string name="selinux_enforcing_title">Strikt</string>
 
-    <!-- Headphones icon switch -->
-    <string name="show_headset_icon_title">Kopfhörer-Symbol</string>
-    <string name="show_headset_icon_summary">Zeigt ein Symbol an, wenn Kopfhörer mit dem Gerät verbunden sind.</string>
-
     <!-- Disabling FC notifications -->
     <string name="disable_fc_notifications_title">Benachrichtigungen zu Zwangsschließungen deaktivieren</string>
     <string name="disable_fc_notifications_summary">Alle Pop-Up-Fenster zu den Zwangsschließungen werden versteckt.</string>
@@ -1184,26 +1082,6 @@
     <string name="status_bar_date_string_edittext_title">Muss im Datumsformat vorliegen, z.B. TT/MM/JJ</string>
     <string name="status_bar_date_string_edittext_summary">Format eintragen</string>
 
-    <!-- Slim Recents -->	
-    <string name="slim_recents_panel">Slim Recents</string>
-    <string name="use_slim_recents_title">Slim Recents</string>
-    <string name="show_running_tasks_title">Nur laufende Apps anzeigen</string>
-    <string name="recents_max_apps_title">Max. erlaubte Apps</string>
-    <string name="recent_panel_scale_title">Größe</string>
-    <string name="recent_panel_expanded_mode_title">Erweiterter Modus</string>
-    <string name="recent_panel_expanded_mode_summary">Geöffnete Apps im erweiterten Ansichtsmodus</string>
-    <string name="recent_panel_expanded_mode_auto">Automatisch (Standard)</string>
-    <string name="recent_panel_expanded_mode_always">Immer</string>
-    <string name="recent_panel_expanded_mode_never">Niemals</string>
-    <string name="recent_panel_show_topmost_title">Vordergrund-App anzeigen</string>
-    <string name="recent_panel_show_topmost_summary">Bei der Listenansicht die im Vordergrund geöffnete App nicht verstecken</string>
-    <string name="recent_panel_bg_color_title">Panel: Hintergrundfarbe</string>
-    <string name="recent_card_bg_color_title">App-Fenster: Hintergrundfarbe</string>
-    <string name="recent_card_text_color_title">App-Fenster: Textfarbe</string>
-    <!-- ATTENTION: RTL languages need to replace left with right -->
-    <string name="recent_panel_lefty_mode_title">Am linken Bildschirmrand anzeigen</string>
-    <string name="recent_panel_lefty_mode_summary">Zeigt die Listenansicht auf der linken Displayseite an</string>
-
     <string name="default_string">Standard</string>
 
     <string name="powermenu_lockscreen_title">Ausschalten-Menü im Sperrbildschirm</string>
@@ -1211,7 +1089,7 @@
 
     <!-- Qucik unlock -->
     <string name="unlock_quick_unlock_control_title">Schnelles Entsperren</string>
-    <string name="unlock_quick_unlock_control_summary">Automatisches Entsperren, sobald die PIN/Passwort-Anfrage korrekt beantwortet wurde</string>
+    <string name="unlock_quick_unlock_control_summary">Automatisch entsperren, sobald die PIN-/Passwort-Anfrage korrekt beantwortet wurde</string>
 
     <!-- MediaScanner behavior on boot -->
     <string name="options_settings_title">Optionen</string>
@@ -1232,6 +1110,19 @@
     <string name="link_volume_option_title">Gemeinsame Lautstärkeregelung für Anrufe und Benachrichtigungen</string>
     <string name="notification_volume_option_title">Benachrichtigungslautstärke</string>
     <string name="ring_notification_volume_option_title">Anruf- und Benachrichtigungslautstärke</string>
+    
+    
+    <!-- Keyboard and Input ASS methods  -->
+	<string name="title_keyboard_input">Advanced options</string>
+	<string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
+	<string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
+	<string name="keyboard_rotation_toggle_title">Auto keyboard rotation</string>
+	<string name="keyboard_rotation_toggle_summary">Force auto-rotate when keyboard is shown</string>
+	<string name="keyboard_rotation_timeout_title">Auto-rotate timeout</string>
+	<string name="keyboard_rotation_timeout_summary">Disables auto-rotate sensor <xliff:g id="rotate_timeout">%1$s</xliff:g> seconds after keyboard is hidden</string>
+	<string name="keyboard_rotation_dialog">This feature forces auto-rotate to turn on temporarily while the keyboard is shown.  It has no effect when auto-rotate is already enabled.</string>
+	<string name="show_enter_key_title">Show enter key</string>
+	<string name="show_enter_key_summary">Force keyboard to show enter instead of emoticon key</string>
 
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Wakelock-Blocker</string>
@@ -1432,11 +1323,11 @@
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">4G anstelle von LTE anzeigen</string>
     <string name="show_fourg_summary">Ersetzt die LTE-Anzeige in der Statusleiste durch 4G</string>
-    <string name="statusbar_tuner_category_title">Inhalte der Statusleiste verstecken</string>
 
     <!-- 3G / HSPA switch -->
     <string name="show_threeg_title">3G anstelle von HSPA anzeigen</string>
     <string name="show_threeg_summary">Ersetzt die H+-Anzeige in der Statusleiste durch 3G</string>
+    
     <string name="statusbar_tuner_category_title">Inhalte der Statusleiste verstecken</string>
 
     <!-- Lock Clock Fonts -->
@@ -1563,7 +1454,6 @@
     <string name="notification_icon_color_mode_greyscale_title">Wenn das Symbol Graustufen enthält</string>
     <string name="notification_bg_color_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe beinhaltet</string>
     <string name="notification_color_mode_always_title">Immer</string>
-    <string name="notification_drawer_clear_all_icon_color_title">Säuberungssymbol</string>
     <string name="notif_color_switch">Benachrichtigungsfarben</string>
 
     <!-- Lockscreen Torch -->
@@ -1902,6 +1792,7 @@
     <string name="fling_animate_logo_summary">Logo animates on touch events</string>
     <string name="fling_logo_color">Logo color</string>
     <string name="fling_logo_custom_logo_pick_title">Custom logo icon</string>
+    <string name="fling_logo_custom_logo_image_pick_title">Custom logo image</string>
     <string name="fling_logo_custom_logo_reset_title">Reset logo icon</string>
     <string name="fling_show_ripple_title">Show ripple</string>
     <string name="fling_show_ripple_summary">Ripple effect on touch events</string>
