@@ -56,14 +56,9 @@ public class AnimationSettings extends SettingsPreferenceFragment
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
     private static final String PREF_IME_ANIMATIONS = "ime_animations";	
 
-    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
-    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-    private static final String SCROLLINGCACHE_DEFAULT = "2";
-
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
-    private ListPreference mScrollingCachePref;
     private ListPreference mPowerMenuAnimations;
 
 
@@ -100,11 +95,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
         mListViewInterpolator.setEnabled(listviewanimation > 0);
-
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
 
         mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
         mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
@@ -147,11 +137,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
                     Integer.valueOf((String) newValue));
             mPowerMenuAnimations.setValue(String.valueOf(newValue));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
-            return true;
-        } else if (preference == mScrollingCachePref) {
-            if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
-            }
             return true;
         }
         return false;
