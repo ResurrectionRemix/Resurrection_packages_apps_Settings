@@ -100,6 +100,7 @@ public class ApnEditor extends SettingsPreferenceFragment
     private Cursor mCursor;
     private boolean mNewApn;
     private boolean mFirstTime;
+    private boolean mApnDisable = false;
     private int mSubId;
     private Resources mRes;
     private TelephonyManager mTelephonyManager;
@@ -206,10 +207,6 @@ public class ApnEditor extends SettingsPreferenceFragment
         mSubId = intent.getIntExtra(ApnSettings.SUB_ID,
                 SubscriptionManager.INVALID_SUBSCRIPTION_ID);
         mDisableEditor = intent.getBooleanExtra("DISABLE_EDITOR", false);
-        if (mDisableEditor) {
-            getPreferenceScreen().setEnabled(false);
-            Log.d(TAG, "ApnEditor form is disabled.");
-        }
 
         mFirstTime = icicle == null;
 
@@ -404,6 +401,24 @@ public class ApnEditor extends SettingsPreferenceFragment
         } else {
             mCarrierEnabled.setEnabled(false);
         }
+
+        String mccMnc = mMcc.getText() + mMnc.getText();
+        for (String plmn : getResources().getStringArray(R.array.plmn_list_for_apn_disable)) {
+            if (plmn.equals(mccMnc) && !mNewApn) {
+                mApnDisable = true;
+                Log.d(TAG, "APN is China Telecom's.");
+                break;
+            }
+        }
+        if (mDisableEditor) {
+            if (mApnDisable) {
+                mApn.setEnabled(false);
+                Log.d(TAG, "Apn Name can't be edited.");
+            } else {
+                getPreferenceScreen().setEnabled(false);
+                Log.d(TAG, "ApnEditor form is disabled.");
+            }
+        }
     }
 
     /**
@@ -550,12 +565,12 @@ public class ApnEditor extends SettingsPreferenceFragment
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        if (mDisableEditor) {
+        if (mDisableEditor && !mApnDisable) {
             Log.d(TAG, "Form is disabled. Do not create the options menu.");
             return;
         }
         // If it's a new APN, then cancel will delete the new entry in onPause
-        if (!mNewApn) {
+        if (!mNewApn && !mDisableEditor) {
             menu.add(0, MENU_DELETE, 0, R.string.menu_delete)
                 .setIcon(R.drawable.ic_menu_delete);
         }
