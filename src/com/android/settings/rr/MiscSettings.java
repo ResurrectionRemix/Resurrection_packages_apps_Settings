@@ -66,14 +66,12 @@ private static final String ENABLE_MULTI_WINDOW_KEY = "enable_multi_window";
 private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.multi_window";
 private static final String RESTART_SYSTEMUI = "restart_systemui";
 private static final String SELINUX = "selinux";
-private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 private static final String CATEGORY_VIB = "misc_4";
 
 
 private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
 private SwitchPreference mSelinux;
-private ListPreference mMSOB;
 private FingerprintManager mFingerprintManager;
 private SwitchPreference mFingerprintVib;
 
@@ -101,11 +99,6 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
             mSelinux.setSummary(R.string.selinux_permissive_title);
          }
 
-        mMSOB = (ListPreference) findPreference(MEDIA_SCANNER_ON_BOOT);
-        mAllPrefs.add(mMSOB);
-        mMSOB.setOnPreferenceChangeListener(this);
-        updateMSOBOptions();
-	
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 	PreferenceCategory mVibratepref = (PreferenceCategory)
         getPreferenceScreen().findPreference(CATEGORY_VIB);         
@@ -161,31 +154,10 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
                 mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
-         } else if (preference == mMSOB) {
-            writeMSOBOptions(newValue);
-            return true;
-	}
+         } 
         return false;
      } 
 
-   private void resetMSOBOptions() {
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.MEDIA_SCANNER_ON_BOOT, 0);
-    }
-
-    private void writeMSOBOptions(Object newValue) {
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.MEDIA_SCANNER_ON_BOOT,
-                Integer.valueOf((String) newValue));
-        updateMSOBOptions();
-    }
-
-    private void updateMSOBOptions() {
-        int value = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.MEDIA_SCANNER_ON_BOOT, 0);
-        mMSOB.setValue(String.valueOf(value));
-        mMSOB.setSummary(mMSOB.getEntry());
-     }
    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
