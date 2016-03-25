@@ -69,6 +69,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
+import static cyanogenmod.content.Intent.ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS;
 
 /**
  * Gesture lock pattern settings.
@@ -344,7 +345,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     root.findPreference(KEY_GENERAL_CATEGORY);
             if (pm.hasSystemFeature(LIVE_LOCK_SCREEN_FEATURE) && generalCategory != null) {
                 Preference liveLockPreference = new Preference(getContext(), null);
-                liveLockPreference.setFragment(LiveLockScreenSettings.class.getCanonicalName());
+                liveLockPreference.setIntent(new Intent(ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS));
                 liveLockPreference.setOrder(0);
                 liveLockPreference.setTitle(R.string.live_lock_screen_title);
                 liveLockPreference.setSummary(R.string.live_lock_screen_summary);

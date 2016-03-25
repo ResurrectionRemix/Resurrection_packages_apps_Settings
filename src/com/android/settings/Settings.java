@@ -133,6 +133,7 @@ public class Settings extends SettingsActivity {
     public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AppSidebarActivity extends SettingsActivity { /* empty */ }	
     public static class GestrueAnywhereActivity extends SettingsActivity { /* empty */ }			
+    public static class LiveLockScreenSettingsActivity extends SettingsActivity { /* empty */ }
     public static class NotificationManagerActivity extends SettingsActivity { /* empty */ }
     public static class NavigationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class FlingSettingsActivity extends SettingsActivity { /* empty */ }
