@@ -20,9 +20,10 @@ package net.margaritov.preference.colorpicker;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.preference.Preference;
@@ -115,7 +116,6 @@ public class ColorPickerPreference extends DialogPreference implements
         if (mView == null)
             return;
 
-        ImageView iView = new ImageView(getContext());
         LinearLayout widgetFrameView = ((LinearLayout) mView
                 .findViewById(android.R.id.widget_frame));
         if (widgetFrameView == null)
@@ -133,30 +133,26 @@ public class ColorPickerPreference extends DialogPreference implements
         if (count > 0) {
             widgetFrameView.removeViews(0, count);
         }
-        widgetFrameView.addView(iView);
+        widgetFrameView.addView(getPreview());
         widgetFrameView.setMinimumWidth(0);
-        iView.setBackgroundDrawable(new AlphaPatternDrawable((int) (5 * mDensity)));
-        iView.setImageBitmap(getPreviewBitmap());
+
     }
 
-    private Bitmap getPreviewBitmap() {
-        int d = (int) (mDensity * 31); // 30dip
-        int color = getValue();
-        Bitmap bm = Bitmap.createBitmap(d, d, Config.ARGB_8888);
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int c = color;
-        for (int i = 0; i < w; i++) {
-            for (int j = i; j < h; j++) {
-                c = (i <= 1 || j <= 1 || i >= w - 2 || j >= h - 2) ? Color.GRAY : color;
-                bm.setPixel(i, j, c);
-                if (i != j) {
-                    bm.setPixel(j, i, c);
-                }
-            }
-        }
+    private ImageView getPreview() {
+        final Resources res = getContext().getResources();
+        final int size = (int) res.getDimension(R.dimen.color_picker_preference_preview_width_height);
 
-        return bm;
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
+        LayerDrawable colorPreview = (LayerDrawable) res.getDrawable(
+                R.drawable.color_picker_preference_preview).mutate();
+        ImageView iv = new ImageView(getContext());
+
+        colorPreview.findDrawableByLayerId(R.id.color_fill).setColorFilter(getValue(), Mode.MULTIPLY);
+        iv.setLayoutParams(lp);
+        iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        iv.setImageDrawable(colorPreview);
+
+        return iv;
     }
 
     public int getValue() {
