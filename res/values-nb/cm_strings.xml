@@ -254,6 +254,7 @@
   <string name="notification_light_screen_on">Lys med skjermen på</string>
   <string name="notification_light_use_multiple_leds">Flere lysdioder</string>
   <string name="keywords_lights_brightness_level">dim lysdioder lysstyrke</string>
+  <string name="notification_light_automagic">Velg farger automatisk</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Lys innstillinger</string>
   <string name="led_notification_text">LED lyset aktiveres av innstillingene</string>
@@ -316,6 +317,7 @@
   <string name="app_ops_summaries_media_volume">Mediavolum</string>
   <string name="app_ops_summaries_alarm_volume">alarmvolum</string>
   <string name="app_ops_summaries_notification_volume">varslingsvolum</string>
+  <string name="app_ops_summaries_bluetooth_volume">bluetooth volum</string>
   <string name="app_ops_summaries_keep_awake">hold våken</string>
   <string name="app_ops_summaries_monitor_location">skjerm plassering</string>
   <string name="app_ops_summaries_monitor_high_power_location">overvåk kraftkrevende plassering</string>
@@ -332,8 +334,10 @@
   <string name="app_ops_summaries_turn_screen_on">slå skjermen på</string>
   <string name="app_ops_summaries_get_accounts">få kontoer</string>
   <string name="app_ops_summaries_toggle_wifi">aktivere/deaktivere Wifi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">veksle bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">start ved oppstart</string>
   <string name="app_ops_summaries_toggle_nfc">veksle NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">veksle mobildata</string>
   <string name="app_ops_summaries_superuser">Root-tilgang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Grov plassering</string>
@@ -375,6 +379,7 @@
   <string name="app_ops_labels_notification_volume">varslingsvolum</string>
   <string name="app_ops_labels_bluetooth_volume">Bluetoothvolum</string>
   <string name="app_ops_labels_keep_awake">hold våken</string>
+  <string name="app_ops_labels_monitor_location">Overvåk plassering</string>
   <string name="app_ops_labels_mute_unmute_microphone">Demp/fjern demping mikrofon</string>
   <string name="app_ops_labels_toast_window">vise toastmeldinger</string>
   <string name="app_ops_labels_project_media">Prosjekt media</string>
@@ -382,13 +387,16 @@
   <string name="app_ops_labels_add_voicemail">Legg til mobilsvar</string>
   <string name="app_ops_labels_use_sip">Bruk SIP</string>
   <string name="app_ops_labels_make_call">Foreta anrop</string>
+  <string name="app_ops_labels_use_fingerprint">Bruk fingeravtrykk</string>
   <string name="app_ops_labels_read_external_storage">Les fra ekstern lagring</string>
   <string name="app_ops_labels_write_external_storage">Skriv til ekstern lagring</string>
   <string name="app_ops_labels_turn_screen_on">Slå skjermen på</string>
   <string name="app_ops_labels_get_accounts">Få kontoer</string>
   <string name="app_ops_labels_toggle_wifi">Aktivere/deaktivere Wifi</string>
+  <string name="app_ops_labels_toggle_bluetooth">Veksle bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Start ved oppstart</string>
   <string name="app_ops_labels_toggle_nfc">NFC av/på</string>
+  <string name="app_ops_labels_toggle_mobile_data">Veksle mobildata</string>
   <string name="app_ops_labels_superuser">Root-tilgang</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Tillatt</string>
@@ -682,6 +690,7 @@
   <string name="status_bar_battery_percentage_text_inside">Inne i ikonet</string>
   <string name="status_bar_battery_percentage_text_next">Ved siden av ikonet</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">Statusbarikoner</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokker touchbevegelseshendelser</string>
   <string name="edge_gesture_service_summary">Ikke send touch hendelser for navigering og status bar bevegelser til apps</string>
@@ -718,6 +727,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Vis musikk visualizer</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">Deaktivert fra hurtiginnstillinger</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">Trykk for å aktivere låseskjermen</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">Låseskjerm aktivert!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">Batterisparingsterskel</string>
   <string name="battery_saver_summary">Reduser ytelsen og begrens bakgrunnsdata</string>
@@ -727,6 +739,7 @@
   <string name="autoperf_summary">Velg automatisk en passende batterimodus for forskjellige apper</string>
   <string name="perf_profile_title">Batterimodus</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">Apper startet ved oppstart</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Varslingstone</string>
   <!-- Advanced reboot options -->
@@ -855,21 +868,27 @@
   <string name="link_volume_option_title">Link ringetone &amp; varslings volumer</string>
   <!-- Edit access point labels: PPP number -->
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">Dupliserte APN</string>
   <string name="sim_disabled">deaktivert</string>
   <string name="sim_missing">manglende eller feil</string>
+  <string name="sim_enabler_need_disable_sim">SIM-kortet vil bli deaktivert. Vil du fortsette?</string>
   <string name="sim_enabler_will_disable_sim_title">Oppmerksomhet</string>
   <string name="sim_enabler_airplane_on">Kan ikke utføre operasjonen mens Flymodus er på.</string>
   <string name="sim_enabler_in_call">Kan ikke utføre operasjonen i samtalen.</string>
   <string name="sim_enabler_both_inactive">Kan ikke deaktivere alle SIM-kort</string>
+  <string name="sim_enabler_enabling">Aktiverer\u2026</string>
   <string name="sim_enabler_disabling">Deaktiverer\u2026</string>
   <string name="sub_activate_success">SIM aktivert.</string>
   <string name="sub_activate_failed">Aktivering mislyktes.</string>
+  <string name="sub_deactivate_success">SIM deaktivert.</string>
   <string name="sub_deactivate_failed">Deaktivering mislyktes.</string>
   <string name="primary_sub_select_title">Standard 3G/LTE abonnement</string>
+  <string name="select_sim_card">Velg SIM-kort</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d-status</string>
   <string name="sim_card_lock_settings_title">SIM %d-låseinnstillinger</string>
   <string name="sim_card_summary_empty">SIM-kortet er ikke satt inn</string>
+  <string name="sim_mobile_network_settings_category_title">Mobilnettverk innstillinger</string>
   <string name="sim_mobile_network_settings_title">SIM %d-innstillinger</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
@@ -877,6 +896,7 @@
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">hendelser</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">valgte oppringere</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_messages">valgte meldinger</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
@@ -890,6 +910,7 @@
   <!-- label for application name -->
   <string name="app_name_label_cm">App:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">Sist brukt:</string>
   <!-- label for usage time -->
   <string name="usage_time_label_cm">Brukstid:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
