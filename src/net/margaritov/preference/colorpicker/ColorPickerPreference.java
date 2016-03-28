@@ -21,16 +21,15 @@ package net.margaritov.preference.colorpicker;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.preference.DialogPreference;
-import android.preference.Preference;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -44,34 +43,78 @@ import com.android.settings.R;
 public class ColorPickerPreference extends DialogPreference implements
         ColorPickerDialog.OnColorChangedListener {
 
-    View mView;
-    LinearLayout widgetFrameView;
-    ColorPickerDialog mDialog;
+    private static final String sAndroidns = "http://schemas.android.com/apk/res/android";
 
-    int mDefaultValue = Color.BLACK;
-    int mAndroidColor = 0x00000000;
-    int mDarkKatColor = mAndroidColor;
-    private int mValue = Color.BLACK;
-    private float mDensity = 0;
-    private boolean mAlphaSliderEnabled = false;
+    private View mView;
+    private LinearLayout mWidgetFrameView;
 
-    private static final String androidns = "http://schemas.android.com/apk/res/android";
-
-    private EditText mEditText;
+    private final Resources mResources;
+    private final float mDensity;
+    private int mDefaultValue = Color.BLACK;
+    private int mResetColor1 = Color.TRANSPARENT;
+    private int mResetColor2 = Color.TRANSPARENT;
+    private String mResetColor1Title = null;
+    private String mResetColor2Title = null;
+    private int mValue;
+    private boolean mAlphaSliderVisible = false;
 
     public ColorPickerPreference(Context context) {
-        super(context);
-        init(context, null);
+        this(context, null);
     }
 
     public ColorPickerPreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
+        this(context, attrs, com.android.internal.R.attr.dialogPreferenceStyle);
     }
 
-    public ColorPickerPreference(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context, attrs);
+    public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+        this(context, attrs, defStyleAttr, 0);
+    }
+
+    public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr,
+            int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+
+        mResources = context.getResources();
+        mDensity = mResources.getDisplayMetrics().density;
+
+        if (attrs != null) {
+            TypedArray a = context.obtainStyledAttributes(
+                    attrs, R.styleable.ColorPickerPreference, defStyleAttr, defStyleRes);
+            mDefaultValue = a.getColor(R.styleable.ColorPickerPreference_defaultColor,
+                    Color.TRANSPARENT);
+            mResetColor1 = a.getColor(R.styleable.ColorPickerPreference_resetColor1,
+                    Color.TRANSPARENT);
+            mResetColor2 = a.getColor(R.styleable.ColorPickerPreference_resetColor2,
+                    Color.TRANSPARENT);
+            mResetColor1Title = a.getString(R.styleable.ColorPickerPreference_resetColor1Title);
+            mResetColor2Title = a.getString(R.styleable.ColorPickerPreference_resetColor2Title);
+            mAlphaSliderVisible = a.getBoolean(
+                    R.styleable.ColorPickerPreference_alphaSliderVisible, false);
+            a.recycle();
+
+            if (mDefaultValue == Color.TRANSPARENT) {
+                String defaultValue = attrs.getAttributeValue(sAndroidns, "defaultValue");
+                if (defaultValue != null) {
+                    if (defaultValue.startsWith("#")) {
+                        try {
+                            mDefaultValue = convertToColorInt(defaultValue);
+                        } catch (NumberFormatException e) {
+                            Log.e("ColorPickerPreference", "Wrong color: " + defaultValue);
+                        }
+                    } else {
+                        int resourceId = attrs.getAttributeResourceValue(sAndroidns, "defaultValue", 0);
+                        if (resourceId != 0) {
+                            mDefaultValue = mResources.getInteger(resourceId);
+                        }
+                    }
+                }
+            }
+            if (mDefaultValue == Color.TRANSPARENT) {
+                mDefaultValue = Color.BLACK;
+            }
+
+            mValue = mDefaultValue;
+        }
     }
 
     @Override
@@ -79,35 +122,10 @@ public class ColorPickerPreference extends DialogPreference implements
         onColorChanged(restoreValue ? getValue() : (Integer) defaultValue);
     }
 
-    private void init(Context context, AttributeSet attrs) {
-        mDensity = getContext().getResources().getDisplayMetrics().density;
-        if (attrs != null) {
-            String defaultValue = attrs.getAttributeValue(androidns, "defaultValue");
-            if (defaultValue.startsWith("#")) {
-                try {
-                    mDefaultValue = convertToColorInt(defaultValue);
-                } catch (NumberFormatException e) {
-                    Log.e("ColorPickerPreference", "Wrong color: " + defaultValue);
-                    mDefaultValue = convertToColorInt("#FF000000");
-                }
-            } else {
-                int resourceId = attrs.getAttributeResourceValue(androidns, "defaultValue", 0);
-                if (resourceId != 0) {
-                    mDefaultValue = context.getResources().getInteger(resourceId);
-                }
-            }
-            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
-        }
-        mValue = mDefaultValue;
-    }
-
     @Override
     protected void onBindView(View view) {
         mView = view;
         super.onBindView(view);
-
-        widgetFrameView = ((LinearLayout) view
-                .findViewById(android.R.id.widget_frame));
 
         setPreviewColor();
     }
@@ -116,34 +134,35 @@ public class ColorPickerPreference extends DialogPreference implements
         if (mView == null)
             return;
 
-        LinearLayout widgetFrameView = ((LinearLayout) mView
+        mWidgetFrameView = ((LinearLayout) mView
                 .findViewById(android.R.id.widget_frame));
-        if (widgetFrameView == null)
+        if (mWidgetFrameView == null) {
             return;
+        }
 
-        widgetFrameView.setVisibility(View.VISIBLE);
-        widgetFrameView.setPadding(
-                widgetFrameView.getPaddingLeft(),
-                widgetFrameView.getPaddingTop(),
+        mWidgetFrameView.setVisibility(View.VISIBLE);
+        mWidgetFrameView.setPadding(
+                mWidgetFrameView.getPaddingLeft(),
+                mWidgetFrameView.getPaddingTop(),
                 (int) (mDensity * 8),
-                widgetFrameView.getPaddingBottom()
+                mWidgetFrameView.getPaddingBottom()
                 );
         // remove already create preview image
-        int count = widgetFrameView.getChildCount();
+        int count = mWidgetFrameView.getChildCount();
         if (count > 0) {
-            widgetFrameView.removeViews(0, count);
+            mWidgetFrameView.removeViews(0, count);
         }
-        widgetFrameView.addView(getPreview());
-        widgetFrameView.setMinimumWidth(0);
+        mWidgetFrameView.addView(getPreview());
+        mWidgetFrameView.setMinimumWidth(0);
 
     }
 
     private ImageView getPreview() {
-        final Resources res = getContext().getResources();
-        final int size = (int) res.getDimension(R.dimen.color_picker_preference_preview_width_height);
+        final int size = (int) mResources.getDimension(
+                R.dimen.color_picker_preference_preview_width_height);
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
-        LayerDrawable colorPreview = (LayerDrawable) res.getDrawable(
+        LayerDrawable colorPreview = (LayerDrawable) mResources.getDrawable(
                 R.drawable.color_picker_preference_preview).mutate();
         ImageView iv = new ImageView(getContext());
 
@@ -155,7 +174,7 @@ public class ColorPickerPreference extends DialogPreference implements
         return iv;
     }
 
-    public int getValue() {
+    private int getValue() {
         try {
             if (isPersistent()) {
                 mValue = getPersistedInt(mDefaultValue);
@@ -178,10 +197,6 @@ public class ColorPickerPreference extends DialogPreference implements
             getOnPreferenceChangeListener().onPreferenceChange(this, color);
         } catch (NullPointerException e) {
         }
-        try {
-            mEditText.setText(Integer.toString(color, 16));
-        } catch (NullPointerException e) {
-        }
     }
 
     @Override
@@ -194,15 +209,43 @@ public class ColorPickerPreference extends DialogPreference implements
     @Override
     protected Dialog createDialog() {
         final ColorPickerDialog pickerDialog = new ColorPickerDialog(
-                getContext(), R.style.Theme_ColorPickerDialog,
-                getValue(), mAndroidColor, mDarkKatColor);
-
-        if (mAlphaSliderEnabled) {
-            pickerDialog.setAlphaSliderVisible(true);
-        }
+                getContext(), R.style.Theme_ColorPickerDialog);
+        pickerDialog.setUp(getValue(), mResetColor1, mResetColor2, mResetColor1Title,
+                mResetColor2Title, mAlphaSliderVisible);
         pickerDialog.setOnColorChangedListener(this);
 
         return pickerDialog;
+    }
+
+    public void setDefaultColors(int androidColor, int darkKatColor) {
+        setResetColors(androidColor, darkKatColor);
+    }
+
+    public void setResetColors(int resetColor1, int resetColor2) {
+        mResetColor1 = resetColor1;
+        mResetColor2 = resetColor2;
+    }
+
+    public void setResetColor(int color) {
+        mResetColor1 = color;
+    }
+
+    public void setResetColorsTitle(int title1ResId, int title2ResId) {
+        mResetColor1Title = mResources.getString(title1ResId);
+        mResetColor2Title = mResources.getString(title2ResId);
+    }
+
+    public void setResetColorsTitle(String title1, String title2) {
+        mResetColor1Title = title1;
+        mResetColor2Title = title2;
+    }
+
+    public void setResetColorTitle(int titleResId) {
+        mResetColor1Title = mResources.getString(titleResId);
+    }
+
+    public void setResetColorTitle(String title) {
+        mResetColor1Title = title;
     }
 
     /**
@@ -210,13 +253,17 @@ public class ColorPickerPreference extends DialogPreference implements
      * 
      * @param enable
      */
-    public void setAlphaSliderEnabled(boolean enable) {
-        mAlphaSliderEnabled = enable;
+    public void setAlphaSliderVisible(boolean visible) {
+        mAlphaSliderVisible = visible;
     }
 
-    public void setDefaultColors(int androidColor, int darkkatColor) {
-        mAndroidColor = androidColor;
-        mDarkKatColor = darkkatColor;
+    /**
+     * Toggle Alpha Slider visibility (by default it's disabled)
+     * 
+     * @param enable
+     */
+    public void setAlphaSliderEnabled(boolean enabled) {
+        setAlphaSliderVisible(enabled);
     }
 
     /**
@@ -291,4 +338,6 @@ public class ColorPickerPreference extends DialogPreference implements
         return Color.argb(alpha, red, green, blue);
     }
 }
+
+
 

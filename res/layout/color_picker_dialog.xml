@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+     Copyright (C) 2010 Daniel Nilsson
+     Copyright (C) 2013 Slimroms
+     Copyright (C) 2015 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License"); 
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@*android:color/darkkat_blue_grey">
+
+    <FrameLayout
+        android:id="@+id/action_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_picker_dialog_action_bar_height"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:id="@+id/action_bar_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/color_picker_dialog_action_bar_padding_left_right"
+            android:paddingRight="@dimen/color_picker_dialog_action_bar_padding_left_right"
+            android:gravity="center_vertical"
+            android:background="@color/theme_primary"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="@dimen/color_picker_dialog_button_size"
+                android:layout_height="@dimen/color_picker_dialog_button_size"
+                android:src="@drawable/ic_ab_back_material"
+                android:background="@drawable/ripple_drawable_oval"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/color_picker_dialog_action_bar_title_margin_left"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="@string/dialog_color_picker_title"
+                android:singleLine="true"
+                android:ellipsize="end" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <net.margaritov.preference.colorpicker.ColorPickerApplyColorButton
+                android:id="@+id/apply_color_button"
+                android:layout_width="@dimen/color_picker_dialog_apply_color_button_width"
+                android:layout_height="@dimen/color_picker_dialog_button_size"
+                android:gravity="center_vertical"
+                android:background="@drawable/ripple_drawable_rectangle">
+
+                <ImageView
+                    android:id="@+id/apply_color_button_color"
+                    android:layout_width="@dimen/color_picker_dialog_button_size"
+                    android:layout_height="@dimen/color_picker_dialog_button_size"
+                    android:layout_gravity="left"
+                    android:translationX="@dimen/color_picker_dialog_button_size"
+                    android:padding="@dimen/color_picker_dialog_button_padding"
+                    android:src="@drawable/color_picker_color_button_color"
+                    android:scaleType="centerInside" />
+
+                <ImageView
+                    android:id="@+id/apply_color_button_set"
+                    android:layout_width="@dimen/color_picker_dialog_button_size"
+                    android:layout_height="@dimen/color_picker_dialog_button_size"
+                    android:layout_gravity="right"
+                    android:padding="@dimen/color_picker_dialog_button_padding"
+                    android:src="@drawable/ic_action_set"
+                    android:scaleType="centerInside"
+                    android:visibility="invisible" />
+            </net.margaritov.preference.colorpicker.ColorPickerApplyColorButton>
+
+            <ImageButton
+                android:id="@+id/more"
+                android:layout_width="@dimen/color_picker_dialog_button_size"
+                android:layout_height="@dimen/color_picker_dialog_button_size"
+                android:src="@drawable/ic_action_more"
+                android:background="@drawable/ripple_drawable_oval"
+                android:scaleType="centerInside" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/action_bar_edit_hex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/color_picker_dialog_action_bar_padding_left_right"
+            android:paddingRight="@dimen/color_picker_dialog_action_bar_padding_left_right"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/action_bar_edit_hex_back"
+                android:layout_width="@dimen/color_picker_dialog_button_size"
+                android:layout_height="@dimen/color_picker_dialog_button_size"
+                android:src="@drawable/ic_ab_back_material"
+                android:background="@drawable/ripple_drawable_oval"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/color_picker_dialog_action_bar_hex_margin_left_right"
+                android:layout_marginRight="@dimen/color_picker_dialog_action_bar_hex_margin_left_right"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="@string/hex" />
+
+            <EditText
+                android:id="@+id/hex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:hint="@string/hex_hint" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/enter"
+                android:layout_width="@dimen/color_picker_dialog_button_size"
+                android:layout_height="@dimen/color_picker_dialog_button_size"
+                android:src="@drawable/ic_action_set"
+                android:background="@drawable/ripple_drawable_oval"
+                android:scaleType="centerInside" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/divider" />
+
+    </FrameLayout>
+
+    <net.margaritov.preference.colorpicker.ColorPickerView
+        android:id="@+id/color_picker_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/action_bar_layout"
+        android:layout_marginTop="@dimen/color_picker_dialog_color_picker_view_margin"
+        android:layout_marginLeft="@dimen/color_picker_dialog_color_picker_view_margin"
+        android:layout_marginRight="@dimen/color_picker_dialog_color_picker_view_margin"
+        android:tag="portrait" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/color_picker_view"
+        android:layout_marginTop="@dimen/color_picker_dialog_color_buttons_scroll_view_margin_top"
+        android:paddingBottom="@dimen/color_picker_dialog_padding_bottom"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="12dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarDefaultDelayBeforeFade="1500"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/color_picker_favorite_color_buttons_layout"
+                android:id="@+id/favorite_buttons" />
+
+            <include layout="@layout/color_picker_palette_color_buttons_layout"
+                android:id="@+id/color_buttons_dk" />
+
+            <include layout="@layout/color_picker_palette_color_buttons_layout"
+                android:id="@+id/color_buttons_material" />
+
+            <include layout="@layout/color_picker_palette_color_buttons_layout"
+                android:id="@+id/color_buttons_rgb"
+                android:layout_marginBottom="0dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/color_picker_dialog_help_screen"
+            android:id="@+id/color_picker_dialog_help_screen" />
+
+</RelativeLayout>
