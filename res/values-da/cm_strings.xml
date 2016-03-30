@@ -336,6 +336,7 @@
   <string name="app_ops_summaries_toggle_wifi">Wi-Fi til/fra</string>
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth til/fra</string>
   <string name="app_ops_summaries_toggle_nfc">NFC til/fra</string>
+  <string name="app_ops_summaries_toggle_mobile_data">slå mobildata til/fra</string>
   <string name="app_ops_summaries_superuser">root-adgang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Grov placering</string>
@@ -347,11 +348,17 @@
   <string name="app_ops_labels_modify_call_log">Ændre opkaldslog</string>
   <string name="app_ops_labels_read_calendar">Læs kalender</string>
   <string name="app_ops_labels_modify_calendar">Ændre kalender</string>
+  <string name="app_ops_labels_wifi_scan">Wi-Fi skanning</string>
   <string name="app_ops_labels_notification">Skriv notifikation</string>
   <string name="app_ops_labels_call_phone">Opkald til telefon</string>
+  <string name="app_ops_labels_read_sms">Læs SMS</string>
+  <string name="app_ops_labels_write_sms">Skriv SMS</string>
   <string name="app_ops_labels_receive_sms">Modtag SMS/MMS</string>
+  <string name="app_ops_labels_receive_emergency_sms">Modtag nød-SMS</string>
   <string name="app_ops_labels_receive_mms">Modtag SMS/MMS</string>
   <string name="app_ops_labels_send_sms">Send SMS/MMS</string>
+  <string name="app_ops_labels_read_icc_sms">Læs ICC SMS</string>
+  <string name="app_ops_labels_write_icc_sms">Skriv ICC SMS</string>
   <string name="app_ops_labels_modify_settings">Ændre indstillinger</string>
   <string name="app_ops_labels_draw_on_top">Træk fra toppen</string>
   <string name="app_ops_labels_access_notifications">Adgang til notifikationer</string>
@@ -374,6 +381,20 @@
   <string name="app_ops_labels_toast_window">Vis toastbeskeder</string>
   <string name="app_ops_labels_project_media">Projekt medie</string>
   <string name="app_ops_labels_activate_vpn">Aktiver VPN</string>
+  <string name="app_ops_labels_add_voicemail">Tilføj voicemail</string>
+  <string name="app_ops_labels_use_sip">Brug SIP</string>
+  <string name="app_ops_labels_make_call">Foretag opkald</string>
+  <string name="app_ops_labels_use_fingerprint">Brug fingeraftryk</string>
+  <string name="app_ops_labels_use_body_sensors">Brug kropssensorer</string>
+  <string name="app_ops_labels_mock_location">Immitér placering</string>
+  <string name="app_ops_labels_read_external_storage">Læs eksternt lager</string>
+  <string name="app_ops_labels_write_external_storage">Skriv til eksternt lager</string>
+  <string name="app_ops_labels_turn_screen_on">Tænd skærmen</string>
+  <string name="app_ops_labels_toggle_wifi">Wi-Fi til/fra</string>
+  <string name="app_ops_labels_toggle_bluetooth">Bluetooth til/fra</string>
+  <string name="app_ops_labels_start_at_boot">Start ved opstart</string>
+  <string name="app_ops_labels_toggle_nfc">NFC til/fra</string>
+  <string name="app_ops_labels_toggle_mobile_data">Slå mobildata til/fra</string>
   <string name="app_ops_labels_superuser">Root-adgang</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Tilladt</string>
@@ -553,8 +574,13 @@
   <string name="live_display_color_profile_dynamic_title">Dynamisk</string>
   <string name="live_display_color_profile_dynamic_summary">Forbedrede farver og lys hvid</string>
   <string name="live_display_color_profile_cinema_title">Biograf</string>
+  <string name="live_display_color_profile_cinema_summary">Perfekt farvegengivelse for video</string>
   <string name="live_display_color_profile_astronomy_title">Astronomi</string>
   <string name="live_display_color_profile_astronomy_summary">Dyb rød for at bevare nattesyn</string>
+  <string name="live_display_color_profile_photography_title">Fotografi</string>
+  <string name="live_display_color_profile_photography_summary">Perfekt farvegengivelse for fotos</string>
+  <string name="live_display_color_profile_basic_title">Grundlæggende</string>
+  <string name="live_display_color_profile_basic_summary">Brug skærmen ukalibreret</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Ikon for valg</string>
   <string name="ime_switcher_notify_summary">Vis ikon til valg af input-metode</string>
@@ -869,7 +895,9 @@
   <!-- label for application name -->
   <string name="app_name_label_cm">App:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">Sidst anvendt:</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">Brugstid:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">Dette vil slette alle data fra din tablet\'s <b>interne lager</b>, inklusiv:\n\n<li>Dine enheds-konti</li>\n<li>System og app-data samt indstillinger</li>\n<li>Hentede apps</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -886,10 +914,15 @@
   <string name="factory_reset_warning_text_reset_now">NULSTIL NU</string>
   <string name="factory_reset_warning_text_message">Alle dine konti, apps, app data og systemindstillinger vil blive fjernet fra denne enhed. Dette kan ikke fortrydes.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">Andet</string>
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Aldrig</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 minut</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 minutter</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Animeret låseskærm</string>
   <!-- Live lock screen summary -->
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Indstillinger</string>

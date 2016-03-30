@@ -37,6 +37,38 @@
             android:entries="@array/smart_pulldown_entries"
             android:entryValues="@array/smart_pulldown_values"
             android:persistent="false" />
+       
+       
+    <ListPreference
+        android:key="sysui_qs_num_columns"
+        android:title="@string/qs_num_columns_title"
+        android:entries="@array/qs_num_columns_entries"
+        android:entryValues="@array/qs_num_columns_values"
+        android:persistent="false" />
+    
+    
+       <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
+         android:key="qs_location_advanced"
+         android:title="@string/quick_settings_title_advanced_location"
+         android:defaultValue="true"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="qs_use_main_tiles"
+        android:title="@string/qs_main_tiles_title"
+        android:summaryOn="@string/qs_main_tiles_summary_on"
+        android:summaryOff="@string/qs_main_tiles_summary_off"
+        android:defaultValue="true" />
+       
+       <PreferenceScreen
+            android:key="systemui_tuner_qs"
+            android:title="@string/systemui_tuner_qs_title"
+	    android:summary="@string/rr_tuner_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.QsActivity" />
+         </PreferenceScreen>
+
 
 
     <!-- Qs Vibrate Panel -->

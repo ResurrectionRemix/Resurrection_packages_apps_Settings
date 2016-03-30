@@ -52,6 +52,7 @@
   <!-- About phone screen, Device name -->
   <string name="device_name">اسم الجهاز</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">مستوى CyanogenMod API</string>
   <string name="mod_api_level_default">مجهول</string>
   <!-- About phone screen, build date -->
   <string name="build_date">تاريخ إنشاء</string>
@@ -108,6 +109,7 @@
   <string name="rename_dialog_hint">أدخل اسم الوضع</string>
   <!-- Reset Profiles -->
   <string name="profile_reset_title">إعادة تعيين</string>
+  <string name="profile_reset_message">حذف كل ملفات التعريف المنشأة ومجموعات التطبيقات واستعادتها إلى الافتراضي؟</string>
   <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">أتريد إزالة هذا التطبيق؟</string>
   <!-- Profile network mode -->
@@ -167,6 +169,7 @@
   <string name="toggleData">اتصال بالبيانات</string>
   <string name="toggleSync">مزامنة تلقائية للبيانات</string>
   <string name="toggle2g3g4g">نوع الشبكة المفضل</string>
+  <string name="toggle2g3g4g_msim">نوع الشبكة المفضل (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">رمز الواي فاي للمنطقة</string>
@@ -255,9 +258,13 @@
   <string name="notification_light_missed_call_title">مكالمة فائتة</string>
   <string name="notification_light_voicemail_title">البريد الصوتي</string>
   <string name="notification_light_screen_on">الأضواء عند تشغيل الشاشة</string>
+  <string name="notification_light_zen_mode">الأضواء في وضع \"عدم الإزعاج\"</string>
   <string name="notification_light_use_multiple_leds">مصابيح دليلية متعددة</string>
   <string name="keywords_lights_brightness_level">تعتيم سطوع المصابيح الدليلية</string>
+  <string name="notification_light_automagic">اختر الألوان تلقائياً</string>
   <!-- Lights settings, LED notification -->
+  <string name="led_notification_title">إعدادات الإضاءة</string>
+  <string name="led_notification_text">إضاءة الـ LED ممكنة من الإعدادات</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">تصحيح أخطاء Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -289,6 +296,8 @@
   <string name="app_ops_summaries_modify_call_log">تعديل سجل المكالمات</string>
   <string name="app_ops_summaries_read_calendar">قراءة التقويم</string>
   <string name="app_ops_summaries_modify_calendar">تعديل التقويم</string>
+  <string name="app_ops_summaries_wifi_scan">مسح Wi-Fi</string>
+  <string name="app_ops_summaries_notification">إشعار/ إخطار في علبة النظام</string>
   <string name="app_ops_summaries_cell_scan">مسح الخلية</string>
   <string name="app_ops_summaries_call_phone">مكالمة هاتفية</string>
   <string name="app_ops_summaries_read_sms">قراءة الرسالة النصية القصيرة</string>
@@ -316,15 +325,39 @@
   <string name="app_ops_summaries_media_volume">حجم الوسائط</string>
   <string name="app_ops_summaries_alarm_volume">مستوى التنبيه</string>
   <string name="app_ops_summaries_notification_volume">مستوى الإشعار</string>
+  <string name="app_ops_summaries_bluetooth_volume">صوت بلوتوث</string>
   <string name="app_ops_summaries_keep_awake">البقاء بحالة انتباه</string>
   <string name="app_ops_summaries_monitor_location">مراقبة الموقع</string>
   <string name="app_ops_summaries_monitor_high_power_location">رصد موقع عالي الطاقة</string>
+  <string name="app_ops_summaries_get_usage_stats">الحصول على إحصائيات الاستخدام</string>
   <string name="app_ops_summaries_mute_unmute_microphone">كتم/إلغاء كتم الميكروفون</string>
   <string name="app_ops_summaries_toast_window">عرض الرسائل الإشعارية</string>
   <string name="app_ops_summaries_project_media">وسائط المشروع</string>
   <string name="app_ops_summaries_activate_vpn">تفعيل VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">خلفية بيضاء</string>
+  <string name="app_ops_summaries_assist_structure">هيكل مساعد</string>
+  <string name="app_ops_summaries_assist_screenshot">لقة شاشة مساعدة</string>
+  <string name="app_ops_summaries_read_phone_state">قراءة حالة الهاتف</string>
+  <string name="app_ops_summaries_add_voicemail">إضافة البريد الصوتي</string>
+  <string name="app_ops_summaries_use_sip">استخدام SIP</string>
+  <string name="app_ops_summaries_make_call">إجراء مكالمة</string>
+  <string name="app_ops_summaries_use_fingerprint">استخدام بصمة الإصبع</string>
+  <string name="app_ops_summaries_use_body_sensors">استخدام مستشعرات الجسم</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">قراءة البث الخلوي</string>
+  <string name="app_ops_summaries_mock_location">موقع زائف</string>
+  <string name="app_ops_summaries_read_external_storage">قراءة الذاكرة الخارجية</string>
+  <string name="app_ops_summaries_write_external_storage">الكتابة على الذاكرة الخارجية</string>
+  <string name="app_ops_summaries_turn_screen_on">تشغيل الشاشة</string>
+  <string name="app_ops_summaries_get_accounts">الحصول على الحسابات</string>
+  <string name="app_ops_summaries_toggle_wifi">تبديل Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">تبديل بلوتوث</string>
+  <string name="app_ops_summaries_start_at_boot">بدء تشغيل في التمهيد</string>
+  <string name="app_ops_summaries_toggle_nfc">تبديل NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">تبديل البيانات الخلوية</string>
   <string name="app_ops_summaries_superuser">الوصول إلى الجذر</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">موقع خشن</string>
+  <string name="app_ops_labels_fine_location">موقع جيد</string>
   <string name="app_ops_labels_gps">نظام تحديد المواقع</string>
   <string name="app_ops_labels_vibrate">اهتزاز</string>
   <string name="app_ops_labels_read_contacts">قراءة جهات الاتصال</string>
@@ -333,11 +366,19 @@
   <string name="app_ops_labels_modify_call_log">تعديل سجل المكالمات</string>
   <string name="app_ops_labels_read_calendar">قراءة التقويم</string>
   <string name="app_ops_labels_modify_calendar">تعديل التقويم</string>
+  <string name="app_ops_labels_wifi_scan">مسح Wi-Fi</string>
   <string name="app_ops_labels_notification">إشعار/ إخطار في علبة النظام</string>
+  <string name="app_ops_labels_cell_scan">مسح الخلية</string>
   <string name="app_ops_labels_call_phone">مكالمة هاتفية</string>
+  <string name="app_ops_labels_read_sms">قراءة الرسالة النصية القصيرة</string>
+  <string name="app_ops_labels_write_sms">كتابة الرسالة النصية القصيرة</string>
   <string name="app_ops_labels_receive_sms">تلقي الرسالة النصية القصيرة</string>
+  <string name="app_ops_labels_receive_emergency_sms">تلقي الرسالة النصية القصيرة الخاصة بالطوارئ</string>
   <string name="app_ops_labels_receive_mms">تلقي رسالة متعددة الوسائط</string>
+  <string name="app_ops_labels_receive_wap_push">استقبال دفع WAP</string>
   <string name="app_ops_labels_send_sms">إرسال الرسالة النصية القصيرة</string>
+  <string name="app_ops_labels_read_icc_sms">قراءة الرسالة النصية القصيرة ICC</string>
+  <string name="app_ops_labels_write_icc_sms">كتابة الرسالة النصية القصيرة ICC</string>
   <string name="app_ops_labels_modify_settings">تعديل الإعدادات</string>
   <string name="app_ops_labels_draw_on_top">رسم على أعلى</string>
   <string name="app_ops_labels_access_notifications">إشعارات الوصول</string>
@@ -356,10 +397,33 @@
   <string name="app_ops_labels_notification_volume">مستوى الإشعار</string>
   <string name="app_ops_labels_bluetooth_volume">مستوى بلوتوث</string>
   <string name="app_ops_labels_keep_awake">تبقى مستيقظ</string>
+  <string name="app_ops_labels_monitor_location">مراقبة الموقع</string>
+  <string name="app_ops_labels_monitor_high_power_location">مراقبة موقع الطاقة العالية</string>
+  <string name="app_ops_labels_get_usage_stats">الحصول على إحصائيات الاستخدام</string>
   <string name="app_ops_labels_mute_unmute_microphone">كتم/إلغاء كتم الميكروفون</string>
   <string name="app_ops_labels_toast_window">عرض الرسائل الإشعارية</string>
   <string name="app_ops_labels_project_media">وسائط المشروع</string>
   <string name="app_ops_labels_activate_vpn">تفعيل VPN</string>
+  <string name="app_ops_labels_write_wallpaper">خلفية بيضاء</string>
+  <string name="app_ops_labels_assist_structure">هيكل مساعد</string>
+  <string name="app_ops_labels_assist_screenshot">لقطة شاشة مساعدة</string>
+  <string name="app_ops_labels_read_phone_state">قراءة حالة الهاتف</string>
+  <string name="app_ops_labels_add_voicemail">إضافة البريد الصوتي</string>
+  <string name="app_ops_labels_use_sip">استخدام SIP</string>
+  <string name="app_ops_labels_make_call">إجراء مكالمة</string>
+  <string name="app_ops_labels_use_fingerprint">استخدام بصمة الإصبع</string>
+  <string name="app_ops_labels_use_body_sensors">استخدام مستشعرات الجسم</string>
+  <string name="app_ops_labels_read_cell_broadcasts">قراءة البث الخلوي</string>
+  <string name="app_ops_labels_mock_location">موقع زائف</string>
+  <string name="app_ops_labels_read_external_storage">قراءة الذاكرة الخارجية</string>
+  <string name="app_ops_labels_write_external_storage">الكتابة على الذاكرة الخارجية</string>
+  <string name="app_ops_labels_turn_screen_on">تشغيل الشاشة</string>
+  <string name="app_ops_labels_get_accounts">الحصول على الحسابات</string>
+  <string name="app_ops_labels_toggle_wifi">تبديل Wi-Fi</string>
+  <string name="app_ops_labels_toggle_bluetooth">تبديل بلوتوث</string>
+  <string name="app_ops_labels_start_at_boot">بدء تشغيل في التمهيد</string>
+  <string name="app_ops_labels_toggle_nfc">تبديل NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">تبديل البيانات الخلوية</string>
   <string name="app_ops_labels_superuser">صلاحيات الجذر</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">مسموح به</string>
@@ -539,8 +603,13 @@
   <string name="live_display_color_profile_dynamic_title">ديناميكي</string>
   <string name="live_display_color_profile_dynamic_summary">ألوان محسنة وبيضاء ساطعة</string>
   <string name="live_display_color_profile_cinema_title">سينما</string>
+  <string name="live_display_color_profile_cinema_summary">إعادة إنتاج لون متطابق للفيديو</string>
   <string name="live_display_color_profile_astronomy_title">علم الفلك</string>
   <string name="live_display_color_profile_astronomy_summary">أحمر عميق للحفاظ على الرؤية الليلية</string>
+  <string name="live_display_color_profile_photography_title">التصوير الفوتوغرافي</string>
+  <string name="live_display_color_profile_photography_summary">إعادة إنتاج لون متطابق للصور</string>
+  <string name="live_display_color_profile_basic_title">أساسي</string>
+  <string name="live_display_color_profile_basic_summary">استخدام العرض غير المعاير</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">رمز التحديد</string>
   <string name="ime_switcher_notify_summary">عرض رمز تحديد طريقة الإدخال </string>
@@ -649,6 +718,8 @@
   <string name="status_bar_battery_percentage_text_inside">داخل الرمز</string>
   <string name="status_bar_battery_percentage_text_next">بجوار الرمز</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">أيقونات شريط الحالة</string>
+  <string name="status_bar_icons_summary">التحكم في أيقونات شريط الحالة التي يتم عرضها</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">حظر أحداث لمس الإيماءة</string>
   <string name="edge_gesture_service_summary">عدم إرسال الأحداث الخاصة بإيماءات شريط التنقل والحالة للتطبيقات</string>
@@ -685,6 +756,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">عرض صورة الغلاف للموسيقى</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">معطل بواسطة شريط إعدادات سريعة</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">اضغط لتمكين شاشة التأمين</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">تم تمكين شاشة التأمين!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">عتبة توفير البطارية</string>
   <string name="battery_saver_summary">خفض الأداء والحد من البيانات الخلفية</string>
@@ -694,6 +768,7 @@
   <string name="autoperf_summary">اختيار وضع بطارية مناسب تلقائياً للتطبيقات المختلفة</string>
   <string name="perf_profile_title">وضع البطارية</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">التطبيقات بدأت في التمهيد</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">نغمة الإشعار</string>
   <!-- Advanced reboot options -->
@@ -722,6 +797,7 @@
   <string name="voice_wakeup_retrain_title">إعادة تدريب صوتك</string>
   <string name="voice_wakeup_activity_title">نشاط مراد إطلاقه</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">التنبيه الصوتي يحتاج إلى أذونات مكالمة هاتفية لتحديد جهة اتصال الاتصال المباشر.</string>
   <string name="picker_activities">الأنشطة</string>
   <string name="select_custom_app_title">حدد التطبيق المخصص</string>
   <string name="select_custom_activity_title">حدد نشاط مخصص</string>
@@ -791,17 +867,23 @@
   <string name="menu_hidden_apps_delete">إعادة تعيين</string>
   <string name="menu_hidden_apps_reset_lock">إعادة تعيين تأمين النمط</string>
   <string name="protected_apps">التطبيقات المحمية</string>
+  <string name="protected_apps_summary">إدارة التطبيقات التي تكون مخفية خلف التأمين الآمن</string>
   <string name="saving_protected_components">حفظ حالة المكون\u2026</string>
   <string name="pa_login_username_hint">اسم المستخدم (البريد الإلكتروني)</string>
   <string name="pa_login_password_hint">كلمة المرور</string>
   <string name="pa_login_submit_button">تسجيل الدخول</string>
   <string name="pa_login_checking_password">التحقق من الحساب\u2026</string>
   <string name="pa_login_incorrect_login">تسجيل دخول غير صحيح</string>
+  <string name="pa_pattern_or_fingerprint_header">يجب رسم نمط أو استخدام بصمة الأصابع لإلغاء التأمين</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">المُساهمون</string>
   <string name="contributors_cloud_loading_message">يُحمِّل بيانات المُساهمين\u2026</string>
   <string name="contributors_cloud_failed_message">تعذّر تحميل بيانات المُساهمين</string>
   <string name="contributor_info_menu">معلومات المُساهم</string>
+  <string name="contributor_info_msg">
+        <![CDATA[<b>الاسم:</b> <xliff:g id="name">%1$s</xliff:g><br/><br/>
+                 <b>Nick:</b> <xliff:g id="nick">%2$s</xliff:g><br/><br/>
+                 <b>التزامات:</b> <xliff:g id="commits">%3$s</xliff:g>]]></string>
   <string name="contributions_info_menu">معلومات المساهمون</string>
   <string name="contributions_info_msg">
 <![CDATA[<b>إجمالي المساهمين:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
@@ -817,24 +899,45 @@
   <string name="title_general">عام</string>
   <string name="advanced">متقدم</string>
   <string name="link_volume_option_title">ربط حجم صوت النغمة وصوت الإشعارات</string>
+  <string name="lcd_density_prompt_message">قد لا تعمل بعض التطبيقات على DPI غير قياسي.\n\nسيتم إعادة تشغيل الجهاز الخاص بك.</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">رقم الهاتف APN PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">APN مكرر</string>
+  <string name="duplicate_apn_error_message">هذا APN موجودة بالفعل. تجاهل ذلك أو قم بتغيير المعلمات.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">تعطيل</string>
   <string name="sim_missing">مفقود أو به خلل</string>
+  <string name="sim_enabler_need_disable_sim">سيتم إلغاء تنشيط بطاقة SIM. هل تريد الاستمرار؟</string>
+  <string name="sim_enabler_will_disable_sim_title">لحظة</string>
+  <string name="sim_enabler_need_switch_data_service">سيتم تعطيل SIM هذه وسيتم استخدام SIM هذه <xliff:g id="slotid">%1$s</xliff:g> لخدمات البيانات.
+هل أنت متأكد أنك تريد المتابعة؟</string>
   <string name="sim_enabler_airplane_on">تعذر القيام بالعملية في وضع الطيران.</string>
   <string name="sim_enabler_in_call">تعذر القيام بالعملية أثناء إجراء مكالمة.</string>
   <string name="sim_enabler_both_inactive">لا يمكن تعطيل جميع شرائح SIM</string>
+  <string name="sim_enabler_enabling">تنشيط\u2026</string>
+  <string name="sim_enabler_disabling">إلغاء تنشيط\u2026</string>
+  <string name="sub_activate_success">تم تنشيط SIM.</string>
+  <string name="sub_activate_failed">فشل التنشيط.</string>
+  <string name="sub_deactivate_success">تم إلغاء تنشيط SIM.</string>
+  <string name="sub_deactivate_failed">فشل إلغاء التنشيط.</string>
   <string name="primary_sub_select_title">اشتراك 3G/LTE المبدئي</string>
+  <string name="select_sim_card">تحديد بطاقة SIM</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">حالة شريحة SIM</string>
   <string name="sim_card_lock_settings_title">إعدادات قفل شريحة SIM/RUIM</string>
   <string name="sim_card_summary_empty">لم يتم إدخال شريحة SIM</string>
+  <string name="sim_mobile_network_settings_category_title">إعدادات الشبكة الخلوية</string>
   <string name="sim_mobile_network_settings_title">إعدادات شريحة SIM %d</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">التذكيرات</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">الأحداث</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">المتصلون المحددون</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">الرسائل المحددة</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
   <string name="maximum_head_level">الرأس: %1$s w/ كغ</string>
@@ -844,8 +947,11 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">نغمة %d شريحة SIM</string>
   <!-- label for application name -->
+  <string name="app_name_label_cm">التطبيق:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">آخر وقت استخدام:</string>
   <!-- label for usage time -->
+  <string name="usage_time_label_cm">وقت الاستخدام:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
   <string name="master_clear_desc_cm" product="tablet">سيؤدي هذا إلى مسح كافة البيانات من <b>التخزين الداخلي</b> في جهازك اللوحيّ، بما في ذلك: \n\n <li>حسابات جهازك</li>\n<li>بيانات وإعدادات النظام والتطبيقات</li>\n<li>التطبيقات التي تم تنزيلها</li></string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -862,14 +968,24 @@
   <string name="factory_reset_warning_text_reset_now">إعادة التعيين الآن</string>
   <string name="factory_reset_warning_text_message">سيتم إزالة كافة حساباتك وتطبيقاتك وبيانات تطبيقك وإعدادات النظام من هذا الجهاز. لا يمكن التراجع عن هذا الإجراء.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">أخرى</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi انتهاء مهلة الحث الساخن</string>
   <string name="hotstpot_inactivity_timeout_never">مطلقًا</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 دقيقة</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 دقائق</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 دقائق</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">لن تنتهي مهلة Wi\u2011Fi الحث الساخن المتنقل أبداً</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">سوف تنتهي مهلة الحث الساخن المتنقل Wi\u2011Fi بعد <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">شاشة التأمين المباشر</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">تمكين وتهيئة شاشات التأمين المباشر</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">إعدادات</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">لعرض شاشات التأمين المباشر المتوفرة، قم بتشغيل شاشات التأمين المباشر.</string>
   <string name="interruptions_ignore_while_media_title">منع تراكب الأصوات</string>
   <string name="interruptions_ignore_while_media_summary">لا يخفض صوت تشغيل الوسائط عند وصول إشعار</string>
   <!-- CM Legal -->
@@ -884,4 +1000,9 @@
   <string name="battery_info_status_charging_dock_ac">شحن على الإرساء بالتيار المتناوب</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">شحن على الإرساء عبر USB</string>
+  <string name="restrict_app_wlan_title">تعطيل استخدام Wi\u2011Fi للتطبيق</string>
+  <string name="restrict_app_wlan_summary">منع التطبيق من استخدام اتصال بيانات Wi\u2011Fi</string>
+  <string name="restrict_app_cellular_title">تعطيل الاستخدام الخلوي للتطبيق</string>
+  <string name="restrict_app_cellular_summary">منع التطبيق من استخدام اتصال البيانات الخلوي</string>
+  <string name="privacy_guard_internet_category">الإنترنت</string>
 </resources>
