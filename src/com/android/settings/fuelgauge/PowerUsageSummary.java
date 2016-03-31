@@ -305,10 +305,8 @@ public class PowerUsageSummary extends PowerUsageBase
             case MENU_BATTERY_SAVER:
                 Resources res = getResources();
 
-                final int defWarnLevel = res.getInteger(
-                        com.android.internal.R.integer.config_lowBatteryWarningLevel);
                 final int value = Settings.Global.getInt(getContentResolver(),
-                        Settings.Global.LOW_POWER_MODE_TRIGGER_LEVEL, defWarnLevel);
+                        Settings.Global.LOW_POWER_MODE_TRIGGER_LEVEL, 0);
 
                 int selectedIndex = -1;
                 final int[] intVals = res.getIntArray(R.array.battery_saver_trigger_values);
