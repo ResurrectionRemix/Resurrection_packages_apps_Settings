@@ -52,9 +52,9 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.widget.SwitchBar;
+import cyanogenmod.app.LiveLockScreenManager;
 import cyanogenmod.externalviews.KeyguardExternalViewProviderService;
 import cyanogenmod.providers.CMSettings;
-import org.cyanogenmod.internal.util.CmLockPatternUtils;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -316,12 +316,12 @@ public class LiveLockScreenSettings extends SettingsPreferenceFragment implement
 
         private final Context mContext;
         private final LiveLockScreenInfoComparator mComparator;
-        private CmLockPatternUtils mLockPatternUtils;
+        private LiveLockScreenManager mLLSM;
 
         public LiveLockScreenBackend(Context context) {
             mContext = context;
             mComparator = new LiveLockScreenInfoComparator(null);
-            mLockPatternUtils = new CmLockPatternUtils(context);
+            mLLSM = LiveLockScreenManager.getInstance(context);
         }
 
         public List<LiveLockScreenInfo> getLiveLockScreenInfos() {
@@ -381,26 +381,20 @@ public class LiveLockScreenSettings extends SettingsPreferenceFragment implement
         }
 
         private void setBoolean(String key, boolean value) {
-            CMSettings.Secure.putInt(mContext.getContentResolver(), key, value ? 1 : 0);
+            mLLSM.setLiveLockScreenEnabled(value);
         }
 
         public void setActiveLiveLockScreen(ComponentName liveLockScreen) {
             logd("setActiveLiveLockScreen(%s)", liveLockScreen);
-            if (mLockPatternUtils == null) {
-                return;
-            }
-            try {
-                mLockPatternUtils.setThirdPartyKeyguard(liveLockScreen);
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.w(TAG, "Failed to set active live lock screen to " + liveLockScreen, e);
-            }
+            cyanogenmod.app.LiveLockScreenInfo.Builder builder =
+                    new cyanogenmod.app.LiveLockScreenInfo.Builder();
+            builder.setComponent(liveLockScreen);
+            mLLSM.setDefaultLiveLockScreen(builder.build());
         }
 
         public ComponentName getActiveLiveLockScreen() {
-            if (mLockPatternUtils == null) {
-                return null;
-            }
-            return mLockPatternUtils.getThirdPartyKeyguardComponent();
+            cyanogenmod.app.LiveLockScreenInfo llsInfo = mLLSM.getDefaultLiveLockScreen();
+            return llsInfo != null ? llsInfo.component : null;
         }
 
         public void launchSettings(LiveLockScreenInfo liveLockScreenInfo) {

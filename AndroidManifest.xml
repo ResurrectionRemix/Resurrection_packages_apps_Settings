@@ -2948,6 +2948,23 @@
                        android:resource="@+id/security_settings" />
         </activity>
 
+        <activity android:name=".Settings$LiveLockScreenSettingsActivity"
+                  android:label="@string/live_lock_screen_title"
+                  android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.SHORTCUT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="cyanogenmod.intent.action.OPEN_LIVE_LOCKSCREEN_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.cyanogenmod.LiveLockScreenSettings" />
+        </activity>
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"
