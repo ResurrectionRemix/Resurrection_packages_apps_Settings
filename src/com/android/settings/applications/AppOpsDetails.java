@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.os.IDeviceIdleController;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -271,8 +272,9 @@ public class AppOpsDetails extends InstrumentedFragment {
             }
         }
 
-        if (mPm.checkPermission(Manifest.permission.INTERNET, mPackageInfo.packageName)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (UserHandle.isApp(mPackageInfo.applicationInfo.uid) &&
+                    mPm.checkPermission(Manifest.permission.INTERNET,
+                    mPackageInfo.packageName) == PackageManager.PERMISSION_GRANTED) {
             TextView internetCategory = (TextView) mInflater.inflate(
                     R.layout.preference_category_material, null);
             internetCategory.setText(R.string.privacy_guard_internet_category);
