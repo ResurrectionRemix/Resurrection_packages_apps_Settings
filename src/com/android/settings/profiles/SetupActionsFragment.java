@@ -230,7 +230,7 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
 
             final List<SubscriptionInfo> subs = SubscriptionManager.from(getContext())
                     .getActiveSubscriptionInfoList();
-            if (subs != null && subs.size() > 1) {
+            if (subs != null) {
                 for (SubscriptionInfo sub : subs) {
                     mItems.add(generatePreferredNetworkOverrideItem(sub.getSubscriptionId()));
                 }
