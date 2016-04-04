@@ -16,6 +16,7 @@
 
 package com.android.settings.rr;
 
+
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -28,6 +29,11 @@ import com.android.settings.util.AbstractAsyncSuCMDProcessor;
 import com.android.settings.util.CMDProcessor;
 import com.android.settings.util.Helpers;
 import android.preference.Preference;
+import android.os.AsyncTask;
+import android.os.IBinder;
+import android.os.Parcel;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.PreferenceScreen;
@@ -37,6 +43,7 @@ import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.provider.SearchIndexableResource;
+import android.util.Log;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import android.preference.SwitchPreference;
@@ -45,6 +52,7 @@ import dalvik.system.VMRuntime;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.DevelopmentSettings;
 
 import com.android.settings.Utils;
 
@@ -67,15 +75,19 @@ private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.mu
 private static final String RESTART_SYSTEMUI = "restart_systemui";
 private static final String SELINUX = "selinux";
 private static final String CATEGORY_VIB = "misc_4";
-
+private static final String DOZE_POWERSAVE_PROPERTY = "persist.sys.doze_powersave";
+private static final String DOZE_POWERSAVE_KEY = "doze_powersave";
+private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
+private final ArrayList<SwitchPreference> mResetSwitchPrefs  = new ArrayList<SwitchPreference>();
 
 private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
 private SwitchPreference mSelinux;
 private FingerprintManager mFingerprintManager;
 private SwitchPreference mFingerprintVib;
+private SwitchPreference mDozePowersave;
+private boolean mDontPokeProperties;
 
-private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,7 +99,7 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
         mEnableMultiWindow = (SwitchPreference) findPreference(ENABLE_MULTI_WINDOW_KEY);
 	mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
 
-  //SELinux
+        //SELinux
         mSelinux = (SwitchPreference) findPreference(SELINUX);
         mSelinux.setOnPreferenceChangeListener(this);
 
@@ -98,6 +110,9 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
             mSelinux.setChecked(false);
             mSelinux.setSummary(R.string.selinux_permissive_title);
          }
+         
+        mDozePowersave = findAndInitSwitchPref(DOZE_POWERSAVE_KEY);
+        updateDozePowersaveOptions();
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 	PreferenceCategory mVibratepref = (PreferenceCategory)
@@ -107,6 +122,17 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
             getPreferenceScreen().removePreference(mVibratepref);
         }
      }
+     
+     
+    private SwitchPreference findAndInitSwitchPref(String key) {
+        SwitchPreference pref = (SwitchPreference) findPreference(key);
+        if (pref == null) {
+            throw new IllegalArgumentException("Cannot find preference with key = " + key);
+        }
+        mAllPrefs.add(pref);
+        mResetSwitchPrefs.add(pref);
+        return pref;
+    }
         
   private static boolean showEnableMultiWindowPreference() {
         return !"user".equals(Build.TYPE);
@@ -125,7 +151,7 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
     public void onResume() {
         super.onResume();
     }
-
+    
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mEnableMultiWindow) {
@@ -137,9 +163,11 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
         }
  	else if (preference == mRestartSystemUI) {
            Helpers.restartSystemUI();  
-	}   else {
+	}  else if (preference == mDozePowersave) {
+            writeDozePowersaveOptions();
+	} else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
+        }  
         return false;
     }
 
@@ -157,6 +185,28 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
          } 
         return false;
      } 
+     
+             
+        
+    void pokeSystemProperties() {
+        if (!mDontPokeProperties) {
+            //noinspection unchecked
+            (new SystemPropPoker()).execute();
+        }
+    }
+     
+   private void updateDozePowersaveOptions() {
+        updateSwitchPreference(mDozePowersave, SystemProperties.getBoolean(DOZE_POWERSAVE_PROPERTY, false));
+    }
+    
+    void updateSwitchPreference(SwitchPreference switchPreference, boolean value) {
+        switchPreference.setChecked(value);
+    }
+
+    private void writeDozePowersaveOptions() {
+        SystemProperties.set(DOZE_POWERSAVE_PROPERTY, mDozePowersave.isChecked() ? "true" : "false");
+        pokeSystemProperties();
+    }
 
    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
@@ -179,5 +229,33 @@ private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
                     return keys;
                 }
         };
+        
+        
+    static class SystemPropPoker extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            String[] services;
+            try {
+                services = ServiceManager.listServices();
+            } catch (RemoteException e) {
+                return null;
+            }
+            for (String service : services) {
+                IBinder obj = ServiceManager.checkService(service);
+                if (obj != null) {
+                    Parcel data = Parcel.obtain();
+                    try {
+                        obj.transact(IBinder.SYSPROPS_TRANSACTION, data, null, 0);
+                    } catch (RemoteException e) {
+                    } catch (Exception e) {
+                        Log.i(TAG, "Someone wrote a bad service '" + service
+                                + "' that doesn't like to be poked: " + e);
+                    }
+                    data.recycle();
+                }
+            }
+            return null;
+        }
+    }
 }
 
