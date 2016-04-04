@@ -54,6 +54,7 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_SCHEDULE = "doze_schedule";
     private static final String KEY_DOZE_BRIGHTNESS = "doze_brightness";
     private static final String KEY_DOZE_NOTIFICATION_INVERT = "doze_notification_invert_enabled";
+    private static final String KEY_DOZE_WAKEUP_DOUBLETAP = "doze_wakeup_doubletap";
 
     private static final String SYSTEMUI_METADATA_NAME = "com.android.systemui";
 
@@ -64,6 +65,7 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
     private SwitchPreference mDozeSchedule;
     private SlimSeekBarPreference mDozeBrightness;
     private SwitchPreference mDozeNotifInvert;
+    private SwitchPreference mDozeWakeupDoubleTap;
 
     private float mBrightnessScale;
     private float mDefaultBrightnessScale;
@@ -125,6 +127,9 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
 
         mDozeNotifInvert = (SwitchPreference) findPreference(KEY_DOZE_NOTIFICATION_INVERT);
         mDozeNotifInvert.setOnPreferenceChangeListener(this);
+        
+        mDozeWakeupDoubleTap = (SwitchPreference) findPreference(KEY_DOZE_WAKEUP_DOUBLETAP);
+        mDozeWakeupDoubleTap.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(false);
     }
@@ -165,6 +170,11 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.DOZE_NOTIFICATION_INVERT_ENABLED, value ? 1 : 0);
+        } 
+        if (preference == mDozeWakeupDoubleTap) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_WAKEUP_DOUBLETAP, value ? 1 : 0);
         }
         return true;
     }
@@ -214,6 +224,11 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
             int value = Settings.Secure.getInt(getContentResolver(),
                     Settings.Secure.DOZE_NOTIFICATION_INVERT_ENABLED, 1);
             mDozeNotifInvert.setChecked(value != 0);
+        }
+        if (mDozeWakeupDoubleTap != null) {
+            int value = Settings.System.getInt(getContentResolver(),
+                    Settings.System.DOZE_WAKEUP_DOUBLETAP, 0);
+            mDozeWakeupDoubleTap.setChecked(value != 0);
         }
     }
 
