@@ -48,6 +48,7 @@
   <!-- About phone screen, Device name -->
   <string name="device_name">Enhedens navn</string>
   <!-- About phone screen, CyanogenMod Api Level -->
+  <string name="mod_api_level">CyanogenMod API niveau</string>
   <string name="mod_api_level_default">Ukendt</string>
   <!-- About phone screen, build date -->
   <string name="build_date">Kørselsdato</string>
@@ -104,6 +105,7 @@
   <string name="rename_dialog_hint">Indtast profilnavn</string>
   <!-- Reset Profiles -->
   <string name="profile_reset_title">Nulstil</string>
+  <string name="profile_reset_message">Slet egne profiler samt app-grupper og nulstil dem til standard?</string>
   <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Fjern denne app?</string>
   <!-- Profile network mode -->
@@ -163,6 +165,7 @@
   <string name="toggleData">Dataforbindelse</string>
   <string name="toggleSync">Auto-synk. data</string>
   <string name="toggle2g3g4g">Foretrukken netværkstype</string>
+  <string name="toggle2g3g4g_msim">Foretrukken netværkstype (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Wi\u2011Fi-regionskode</string>
@@ -251,8 +254,10 @@
   <string name="notification_light_missed_call_title">Ubesvaret opkald</string>
   <string name="notification_light_voicemail_title">Telefonsvarer</string>
   <string name="notification_light_screen_on">Lys med skærmen tændt</string>
+  <string name="notification_light_zen_mode">Lys i tilstanden Vil ikke forstyrres</string>
   <string name="notification_light_use_multiple_leds">Flere LED\'er</string>
   <string name="keywords_lights_brightness_level">dæmp led lysstyrke</string>
+  <string name="notification_light_automagic">Vælg farver automatisk</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Lysindstillinger</string>
   <string name="led_notification_text">LED-lys aktiveret via indstillinger</string>
@@ -325,6 +330,12 @@
   <string name="app_ops_summaries_toast_window">Vis toastbeskeder</string>
   <string name="app_ops_summaries_project_media">projekt medie</string>
   <string name="app_ops_summaries_activate_vpn">aktiver VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">skriv baggrund</string>
+  <string name="app_ops_summaries_assist_structure">assistance struktur</string>
+  <string name="app_ops_summaries_assist_screenshot">assistance skærmbillede</string>
+  <string name="app_ops_summaries_read_phone_state">læs telefon status</string>
+  <string name="app_ops_summaries_add_voicemail">tilføj voicemail</string>
+  <string name="app_ops_summaries_use_sip">brug SIP</string>
   <string name="app_ops_summaries_make_call">foretag opkald</string>
   <string name="app_ops_summaries_use_fingerprint">brug fingeraftryk</string>
   <string name="app_ops_summaries_use_body_sensors">brug krops sensor</string>
@@ -335,11 +346,13 @@
   <string name="app_ops_summaries_turn_screen_on">tænd skærmen</string>
   <string name="app_ops_summaries_toggle_wifi">Wi-Fi til/fra</string>
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth til/fra</string>
+  <string name="app_ops_summaries_start_at_boot">start ved opstart</string>
   <string name="app_ops_summaries_toggle_nfc">NFC til/fra</string>
   <string name="app_ops_summaries_toggle_mobile_data">slå mobildata til/fra</string>
   <string name="app_ops_summaries_superuser">root-adgang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Grov placering</string>
+  <string name="app_ops_labels_fine_location">Fin placering</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibrér</string>
   <string name="app_ops_labels_read_contacts">Læs kontaktpersoner</string>
@@ -377,15 +390,22 @@
   <string name="app_ops_labels_notification_volume">Systemlydstyrke</string>
   <string name="app_ops_labels_bluetooth_volume">Lydstyrke for Bluetooth</string>
   <string name="app_ops_labels_keep_awake">Hold vågen</string>
+  <string name="app_ops_labels_monitor_location">Overvåg placering</string>
+  <string name="app_ops_labels_get_usage_stats">Få brugsstatistik</string>
   <string name="app_ops_labels_mute_unmute_microphone">Mikrofon til/fra</string>
   <string name="app_ops_labels_toast_window">Vis toastbeskeder</string>
   <string name="app_ops_labels_project_media">Projekt medie</string>
   <string name="app_ops_labels_activate_vpn">Aktiver VPN</string>
+  <string name="app_ops_labels_write_wallpaper">Skriv baggrund</string>
+  <string name="app_ops_labels_assist_structure">Assistance struktur</string>
+  <string name="app_ops_labels_assist_screenshot">Assistance skærmbillede</string>
+  <string name="app_ops_labels_read_phone_state">Læs telefon status</string>
   <string name="app_ops_labels_add_voicemail">Tilføj voicemail</string>
   <string name="app_ops_labels_use_sip">Brug SIP</string>
   <string name="app_ops_labels_make_call">Foretag opkald</string>
   <string name="app_ops_labels_use_fingerprint">Brug fingeraftryk</string>
   <string name="app_ops_labels_use_body_sensors">Brug kropssensorer</string>
+  <string name="app_ops_labels_read_cell_broadcasts">Læs mobil-transmissioner</string>
   <string name="app_ops_labels_mock_location">Immitér placering</string>
   <string name="app_ops_labels_read_external_storage">Læs eksternt lager</string>
   <string name="app_ops_labels_write_external_storage">Skriv til eksternt lager</string>
@@ -405,6 +425,7 @@
   <string name="app_ops_allowed_count">Tilladt <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Afvist <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Tilladt <xliff:g id="count">%1$s</xliff:g>, afvist <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Deaktiveret via batterioptimering</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Vis bruger-apps</string>
   <string name="app_ops_show_system_apps">Vis indbyggede apps</string>
@@ -689,6 +710,8 @@
   <string name="status_bar_battery_percentage_text_inside">Inde i ikonet</string>
   <string name="status_bar_battery_percentage_text_next">Ved siden af ikonet</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">Statuslinje-ikoner</string>
+  <string name="status_bar_icons_summary">Kontroller hvilke statuslinje-ikoner der vises</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokér berøringsevents for bevægelser</string>
   <string name="edge_gesture_service_summary">Send ikke berøringsevents for navigations- og statuslinjebevægelser til apps</string>
@@ -725,6 +748,9 @@
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Vis musikvisualisator</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">Deaktiveret via hurtig-indstillinger</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary">Tryk for at aktivere skærmlåsen</string>
+  <string name="lockscreen_disabled_by_qs_tile_summary_enabled">Skærmlås aktiveret!</string>
   <!-- Battery saver -->
   <string name="battery_saver_threshold">Grænse for strømspare</string>
   <string name="battery_saver_summary">Reducere ydeevnen og begrænser baggrundsdata</string>
@@ -734,6 +760,7 @@
   <string name="autoperf_summary">Vælg automatisk en passende batteritilstand for forskellige apps</string>
   <string name="perf_profile_title">Batteri tilstand</string>
   <!-- Memory -->
+  <string name="memory_startup_apps_title">Apps startet under opstart</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Meddelelseslyd</string>
   <!-- Advanced reboot options -->
@@ -857,9 +884,16 @@
   <string name="advanced">Avanceret</string>
   <string name="link_volume_option_title">Forbind ringe- og meddelelseslydstyrke</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">APN PPP telefonnummer</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">Identisk APN</string>
+  <string name="duplicate_apn_error_message">APN\'en eksisterer allerede. Kassere eller ændre parametrene.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> er <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">deaktiveret</string>
   <string name="sim_missing">mangler eller defekt</string>
+  <string name="sim_enabler_need_disable_sim">SIM-kortet vil blive deaktiveret. Vil du fortsætte?</string>
+  <string name="sim_enabler_will_disable_sim_title">Advarsel</string>
+  <string name="sim_enabler_need_switch_data_service">Dette SIM-kort deaktiveres og SIM-<xliff:g id="slotid">%1$s</xliff:g> vil blive anvendt til data-tjenester. Vil du fortsætte?</string>
   <string name="sim_enabler_airplane_on">Kan ikke udføre operationen, mens flytilstand er slået til.</string>
   <string name="sim_enabler_in_call">Kan ikke udføre handlingen under igangværende opkald.</string>
   <string name="sim_enabler_both_inactive">Kan ikke deaktivere alle SIM-kort</string>
@@ -884,6 +918,7 @@
   <string name="zen_mode_summary_events">begivenheder</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">valgte beskeder</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
   <string name="maximum_head_level">Hoved: %1$s W/kg</string>
@@ -916,17 +951,22 @@
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Andet</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Tidsudløb for Wi\u2011Fi hotspot</string>
   <string name="hotstpot_inactivity_timeout_never">Aldrig</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 minut</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutter</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Ingen tidsgrænse for Mobil Wi\u2011Fi hotspot</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Tidsgrænse for Mobil Wi\u2011Fi hotspot udløber efter <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
-  <string name="live_lock_screen_title">Animeret låseskærm</string>
+  <string name="live_lock_screen_title">Levende skærmlås</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">Aktiverer og konfigurer Levende skærmlåse</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Indstillinger</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">For at se tilgængelige Levende skærmlåse, slå Levende skærmlåse til.</string>
   <string name="interruptions_ignore_while_media_title">Undgå lyddæmpning</string>
   <string name="interruptions_ignore_while_media_summary">Reducér ikke lydstyrken, når en meddelelse modtages</string>
   <!-- CM Legal -->
@@ -941,4 +981,17 @@
   <string name="battery_info_status_charging_dock_ac">Oplader på dock AC</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">Oplader via dock USB</string>
+  <string name="restrict_app_wlan_title">Deaktivér brugen af Wi\u2011Fi for appen</string>
+  <string name="restrict_app_wlan_summary">Forhindre, at appen bruger Wi\u2011Fi forbindelsen</string>
+  <string name="restrict_app_cellular_title">Deaktivér brugen af mobildata for appen</string>
+  <string name="restrict_app_cellular_summary">Forhindre, at appen bruger mobildataforbindelsen</string>
+  <string name="privacy_guard_internet_category">Internet</string>
+  <!-- Weather -->
+  <string name="weather_settings_title">Vejr</string>
+  <string name="weather_settings_button">Udbyderindstillinger</string>
+  <string name="allow_background_none">Ingen adgang</string>
+  <string name="mobile_data_alert">Mobildata alarm</string>
+  <string name="data_usage_menu_reset_stats">Nulstil datastatistik</string>
+  <string name="reset_stats_confirm">Bekræft</string>
+  <string name="restrict_cellular_access_summary">Deaktiver adgang til data på mobilnetværk</string>
 </resources>
