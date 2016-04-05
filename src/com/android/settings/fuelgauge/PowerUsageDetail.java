@@ -29,6 +29,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.BatteryStats;
 import android.os.Bundle;
@@ -479,7 +480,9 @@ public class PowerUsageDetail extends PowerUsageBase implements Button.OnClickLi
         if (appIcon == null) {
             appIcon = getActivity().getPackageManager().getDefaultActivityIcon();
         }
-
+        if (appIcon != null) {
+            appIcon.setTintMode(PorterDuff.Mode.SRC_ATOP);
+        }
         if (pkg == null && mPackages != null) {
             pkg = mPackages[0];
         }
