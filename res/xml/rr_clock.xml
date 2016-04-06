@@ -61,16 +61,11 @@
         android:entries="@array/status_bar_date_format_entries_values"
         android:entryValues="@array/status_bar_date_format_entries_values" />
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="statusbar_clockcolor_switch"
-        android:title="@string/clock_color_switch"
-        android:defaultValue="false" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="clock_color"
         android:title="@string/clock_color_title"
-        android:defaultValue="0xffffff" 
-	android:dependency="statusbar_clockcolor_switch" />
+        android:defaultValue="0xffffff" />
 
     <ListPreference
         android:key="font_style"
@@ -83,11 +78,6 @@
             android:entries="@array/clock_font_size_entries"
             android:entryValues="@array/clock_font_size_values"
             android:title="@string/clock_font_size_title" />
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="clock_use_second"
-        android:title="@string/status_bar_show_clock_second_title"
-        android:defaultValue="false" />
 
 
  </PreferenceCategory>
