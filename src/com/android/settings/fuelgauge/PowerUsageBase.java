@@ -46,6 +46,7 @@ public abstract class PowerUsageBase extends SettingsPreferenceFragment {
 
     private String mBatteryLevel;
     private String mBatteryStatus;
+    private boolean mHideRefresh = false;
 
     @Override
     public void onAttach(Activity activity) {
@@ -102,11 +103,13 @@ public abstract class PowerUsageBase extends SettingsPreferenceFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        MenuItem refresh = menu.add(0, MENU_STATS_REFRESH, 0, R.string.menu_stats_refresh)
-                .setIcon(com.android.internal.R.drawable.ic_menu_refresh)
-                .setAlphabeticShortcut('r');
-        refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        if (!mHideRefresh) {
+            MenuItem refresh = menu.add(0, MENU_STATS_REFRESH, 0, R.string.menu_stats_refresh)
+                    .setIcon(com.android.internal.R.drawable.ic_menu_refresh)
+                    .setAlphabeticShortcut('r');
+            refresh.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
+                    MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -140,6 +143,10 @@ public abstract class PowerUsageBase extends SettingsPreferenceFragment {
             }
         }
         return false;
+    }
+
+    void hideRefreshButton(boolean hide) {
+        mHideRefresh = hide;
     }
 
     static final int MSG_REFRESH_STATS = 100;
