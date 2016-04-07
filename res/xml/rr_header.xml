@@ -20,6 +20,11 @@
     android:title="@string/notification_panel_title">
     <PreferenceCategory
         android:title="@string/notifications_items" >
+      
+       <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="heads_up_show_status_button"
+            android:title="@string/enable_headsup_button_extended_statusbar_title"
+            android:summary="@string/enable_headsup_button_extended_statusbar_summary" />
 
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 	android:key="enable_task_manager"
