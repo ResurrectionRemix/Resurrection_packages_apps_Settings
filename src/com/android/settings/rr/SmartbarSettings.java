@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.utils.du.ActionConstants;
 import com.android.internal.utils.du.Config;
@@ -37,8 +42,11 @@ import com.android.internal.utils.du.Config.ButtonConfig;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SmartbarSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener , Indexable {
     private ListPreference mSmartBarContext;
     private ListPreference mImeActions;
     private ListPreference mButtonAnim;
@@ -125,4 +133,26 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     protected int getMetricsCategory() {
         return MetricsLogger.DONT_TRACK_ME_BRO;
     }
+    
+     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.smartbar_settings;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }

@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -36,13 +37,21 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.util.Helpers;
 import com.android.internal.logging.MetricsLogger;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarColors extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class StatusBarColors extends SettingsPreferenceFragment implements OnPreferenceChangeListener ,Indexable {
 
     private static final String PREF_SIGNAL =
             "network_icons_signal_color";
@@ -378,4 +387,26 @@ public class StatusBarColors extends SettingsPreferenceFragment implements OnPre
  
          }
      }
+     
+         	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.status_bar_colors;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }

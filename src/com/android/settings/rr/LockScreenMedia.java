@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenMedia extends SettingsPreferenceFragment  implements OnPreferenceChangeListener {
+public class LockScreenMedia extends SettingsPreferenceFragment  implements OnPreferenceChangeListener , Indexable  {
 
 
 	
@@ -68,5 +68,27 @@ public class LockScreenMedia extends SettingsPreferenceFragment  implements OnPr
 	ContentResolver resolver = getActivity().getContentResolver();
 	return false;
 	}
+	
+	     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_ls_media;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 
 }	

@@ -41,8 +41,15 @@ import android.preference.PreferenceCategory;
 import android.provider.Settings;
 import android.text.TextUtils;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class FlingSettings extends ActionFragment implements
-        Preference.OnPreferenceChangeListener, IconPickHelper.OnPickListener {
+        Preference.OnPreferenceChangeListener, IconPickHelper.OnPickListener  , Indexable {
     private static final String TAG = FlingSettings.class.getSimpleName();
     public static final String FLING_LOGO_URI = "fling_custom_icon_config";
 
@@ -227,4 +234,26 @@ public class FlingSettings extends ActionFragment implements
     protected int getMetricsCategory() {
         return MetricsLogger.DONT_TRACK_ME_BRO;
     }
+    
+         public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.fling_settings;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }

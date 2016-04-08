@@ -43,7 +43,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.List;
 import java.util.ArrayList;
 
-public class QsPanel extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener {
+public class QsPanel extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener ,Indexable {
  private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
  private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
@@ -200,5 +200,28 @@ int quickPulldown = CMSettings.System.getInt(resolver,
                 return 3;
             }
         }
+        
+            
+    	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_qs_panel;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }
 

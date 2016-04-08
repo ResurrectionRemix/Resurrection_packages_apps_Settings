@@ -54,7 +54,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.List;
 import java.util.ArrayList;
 
-public class CustomHeader extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener {
+public class CustomHeader extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener ,Indexable {
  private static final String CUSTOM_HEADER_IMAGE = "status_bar_custom_header";
  private static final String DAYLIGHT_HEADER_PACK = "daylight_header_pack";
  private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
@@ -177,8 +177,7 @@ public class CustomHeader extends SettingsPreferenceFragment  implements Prefere
     }
 
 
-
-	@Override
+    @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 	if (preference == mCustomHeaderImage) {
                 final boolean value = ((SwitchPreference)preference).isChecked();
@@ -188,5 +187,27 @@ public class CustomHeader extends SettingsPreferenceFragment  implements Prefere
             }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
+    
+    	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_custom_header;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 
 }

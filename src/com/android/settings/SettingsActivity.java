@@ -74,6 +74,7 @@ import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.rr.Navbar;
 import com.android.settings.rr.FlingSettings;
 import com.android.settings.rr.SmartbarSettings;
+import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ManageAssist;
@@ -303,6 +304,7 @@ public class SettingsActivity extends Activity
             R.id.main_settings,
 	    R.id.button_settings,
 	    R.id.app_circle_bar,
+	    R.id.rr_heads_up,
 	    R.id.gesture_anywhere,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod
@@ -328,6 +330,7 @@ public class SettingsActivity extends Activity
             MainSettings.class.getName(),
             AppCircleBar.class.getName(),
 	    GestureAnywhereSettings.class.getName(),	
+	    HeadsUpSettings.class.getName(),
             ButtonSettings.class.getName(),
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),

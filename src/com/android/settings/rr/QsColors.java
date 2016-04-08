@@ -55,7 +55,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.List;
 import java.util.ArrayList;
 
-public class QsColors extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener {
+public class QsColors extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener ,Indexable{
 
  private static final String QS_HEADER_TEXT_COLOR = "qs_header_text_color";
  private static final String QS_HEADER_COLOR = "qs_header_color";
@@ -279,5 +279,28 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
         mSliderIconColor.setSummary(R.string.default_string);
 
     }
+    
+    
+    	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_qs_colors;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 
 }

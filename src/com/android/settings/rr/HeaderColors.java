@@ -54,7 +54,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.List;
 import java.util.ArrayList;
 
-public class HeaderColors extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener {
+public class HeaderColors extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener ,Indexable {
 
  private static final String HEADER_CLOCK_COLOR = "header_clock_color";
  private static final String HEADER_DETAIL_COLOR = "header_detail_color";
@@ -264,5 +264,27 @@ public class HeaderColors extends SettingsPreferenceFragment  implements Prefere
         mAlarmColor.setSummary(R.string.default_string);
 
     }
+    
+            public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_header_colors;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 
 }

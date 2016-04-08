@@ -35,7 +35,11 @@ import java.util.ArrayList;
 
 import com.android.internal.logging.MetricsLogger;
 
-public class Header extends SettingsPreferenceFragment {
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
+public class Header extends SettingsPreferenceFragment implements Indexable {
 
 private static final String TAG = "MainSettings";	
 
@@ -50,4 +54,26 @@ private static final String TAG = "MainSettings";
     {
 	return MetricsLogger.APPLICATION;
     }
+    
+             public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_header;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }

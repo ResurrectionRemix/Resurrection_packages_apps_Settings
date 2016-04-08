@@ -63,6 +63,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.android.internal.logging.MetricsLogger;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -91,12 +95,12 @@ public class Navbar extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_navbar_settings);
 		
-		Activity activity = getActivity();
+	Activity activity = getActivity();
 		
-		ContentResolver resolver = getActivity().getContentResolver();
-		PreferenceScreen prefSet = getPreferenceScreen();
+	ContentResolver resolver = getActivity().getContentResolver();
+	PreferenceScreen prefSet = getPreferenceScreen();
 		
-		mNavInterface = (PreferenceCategory) findPreference(KEY_CATEGORY_NAVIGATION_INTERFACE);
+	mNavInterface = (PreferenceCategory) findPreference(KEY_CATEGORY_NAVIGATION_INTERFACE);
         mNavGeneral = (PreferenceCategory) findPreference(KEY_CATEGORY_NAVIGATION_GENERAL);
         mNavbarVisibility = (SwitchPreference) findPreference(NAVBAR_VISIBILITY);
         mNavbarMode = (ListPreference) findPreference(KEY_NAVBAR_MODE);
@@ -159,5 +163,27 @@ public class Navbar extends SettingsPreferenceFragment implements
 	protected int getMetricsCategory() {
         return MetricsLogger.APPLICATION;
     }
+    	
+	     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_navbar_settings;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 
 }

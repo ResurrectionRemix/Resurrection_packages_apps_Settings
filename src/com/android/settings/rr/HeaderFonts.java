@@ -54,7 +54,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.List;
 import java.util.ArrayList;
 
-public class HeaderFonts extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener {
+public class HeaderFonts extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener ,Indexable {
  private static final String PREF_STATUS_BAR_CLOCK_FONT_STYLE = "header_clock_font_style";
  private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "header_weather_font_style";	
  private static final String PREF_STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";
@@ -182,4 +182,26 @@ public class HeaderFonts extends SettingsPreferenceFragment  implements Preferen
 	 }
 	return false;
 	}
+	
+	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_header_fonts;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }

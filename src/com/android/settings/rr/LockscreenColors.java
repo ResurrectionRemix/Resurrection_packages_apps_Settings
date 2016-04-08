@@ -19,6 +19,7 @@ package com.android.settings.rr;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -33,12 +34,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LockscreenColors extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class LockscreenColors extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener , Indexable {
 
     private static final String TAG = "LockscreenColors";
 
@@ -354,4 +362,26 @@ public class LockscreenColors extends SettingsPreferenceFragment implements OnPr
     protected int getMetricsCategory() {
         return MetricsLogger.APPLICATION;
     }
+    
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+             new BaseSearchIndexProvider() {
+                 @Override
+                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                             boolean enabled) {
+                     ArrayList<SearchIndexableResource> result =
+                             new ArrayList<SearchIndexableResource>();
+ 
+                     SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.lockscreen_colors;
+                     result.add(sir);
+ 
+                     return result;
+                 }
+ 
+                 @Override
+                 public List<String> getNonIndexableKeys(Context context) {
+                     final List<String> keys = new ArrayList<String>();
+                     return keys;
+                 }
+         };
 }

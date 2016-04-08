@@ -56,6 +56,22 @@ import com.android.settings.rr.animation.AnimationSettings;
 import com.android.settings.rr.RecentsSettings;
 import com.android.settings.rr.ClockSettings;
 import com.android.settings.rr.NotificationDrawerSettings;
+import com.android.settings.rr.CustomHeader;
+import com.android.settings.rr.FlingSettings;
+import com.android.settings.rr.Header;
+import com.android.settings.rr.HeaderColors;
+import com.android.settings.rr.HeaderFonts;
+import com.android.settings.rr.LockScreenGestures;
+import com.android.settings.rr.LockScreenMedia;
+import com.android.settings.rr.LockscreenUI;
+import com.android.settings.rr.Navbar;
+import com.android.settings.rr.NotificationColorSettings;
+import com.android.settings.rr.PulseSettings;
+import com.android.settings.rr.QsColors;
+import com.android.settings.rr.QsPanel;
+import com.android.settings.rr.RecentsStyles;
+import com.android.settings.rr.SmartbarSettings;
+import com.android.settings.rr.StatusBarColors;
 import com.android.settings.sim.SimSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
@@ -100,6 +116,22 @@ public final class Ranking {
     public static final int RANK_RR_RECENTS = 29;
     public static final int RANK_RR_CLOCK = 30;
     public static final int RANK_RR_NF = 31;
+    public static final int RANK_RR_CUSTOM_HEADER = 32;
+    public static final int RANK_RR_FLING = 33;
+    public static final int RANK_RR_HEADER = 34;
+    public static final int RANK_RR_HEADERCOLORS = 35;
+    public static final int RANK_RR_HEADER_FONTS = 36;
+    public static final int RANK_RR_LSGESTURES = 37;
+    public static final int RANK_RR_LSMEDIA= 38;
+    public static final int RANK_RR_LSUI = 39;
+    public static final int RANK_RR_NAVBAR = 40;
+    public static final int RANK_RR_NCOLORS = 41;
+    public static final int RANK_RR_PULSE = 42;
+    public static final int RANK_RR_QSCOLORS= 43;
+    public static final int RANK_RR_RECENTSSTYLES = 44;
+    public static final int RANK_RR_SMARTBAR = 45;
+    public static final int RANK_RR_SBCOLOR = 46;
+    public static final int RANK_RR_QSPANEL= 47;
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
     public static final int BASE_RANK_DEFAULT = 2048;
@@ -216,8 +248,37 @@ public final class Ranking {
         sRankMap.put(ClockSettings.class.getName(), RANK_RR_CLOCK);
 
 	
-        // Clock settings
-        sRankMap.put(NotificationDrawerSettings.class.getName(), RANK_RR_NF);
+        sRankMap.put(CustomHeader.class.getName(), RANK_RR_CUSTOM_HEADER);
+        
+        sRankMap.put(FlingSettings.class.getName(), RANK_RR_FLING);
+        	       
+        sRankMap.put(Header.class.getName(), RANK_RR_HEADER);
+        	
+        sRankMap.put(HeaderColors.class.getName(), RANK_RR_HEADERCOLORS);
+        
+        sRankMap.put(HeaderFonts.class.getName(), RANK_RR_HEADER_FONTS);
+
+        sRankMap.put(LockScreenGestures.class.getName(), RANK_RR_LSGESTURES);
+
+        sRankMap.put(LockScreenMedia.class.getName(),  RANK_RR_LSMEDIA);
+
+        sRankMap.put(LockscreenUI.class.getName(), RANK_RR_LSUI);
+
+        sRankMap.put(Navbar.class.getName(), RANK_RR_NAVBAR);
+
+        sRankMap.put(NotificationColorSettings.class.getName(), RANK_RR_NCOLORS);
+  
+        sRankMap.put(PulseSettings.class.getName(), RANK_RR_PULSE);
+
+        sRankMap.put(QsColors.class.getName(), RANK_RR_QSCOLORS);
+
+        sRankMap.put(RecentsStyles.class.getName(), RANK_RR_RECENTSSTYLES);
+
+        sRankMap.put(SmartbarSettings.class.getName(), RANK_RR_SMARTBAR);
+
+        sRankMap.put(StatusBarColors.class.getName(), RANK_RR_SBCOLOR);   
+        
+        sRankMap.put(QsPanel.class.getName(), RANK_RR_QSPANEL);   
 	
         sBaseRankMap.put("com.android.settings", 0);
     }
