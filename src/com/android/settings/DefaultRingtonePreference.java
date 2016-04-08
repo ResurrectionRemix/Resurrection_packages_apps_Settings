@@ -55,7 +55,11 @@ public class DefaultRingtonePreference extends RingtonePreference {
 
     @Override
     protected Uri onRestoreRingtone() {
-        return RingtoneManager.getActualDefaultRingtoneUri(getContext(), getRingtoneType());
+        if (getRingtoneType() == RingtoneManager.TYPE_RINGTONE) {
+            return RingtoneManager.getActualRingtoneUriBySubId(getContext(), getSubId());
+        } else {
+            return RingtoneManager.getActualDefaultRingtoneUri(getContext(), getRingtoneType());
+        }
     }
-    
+
 }
