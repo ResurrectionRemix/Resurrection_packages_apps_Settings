@@ -98,7 +98,11 @@
     <string name="features_unknown">Bilinmeyen</string>
     <string name="features_version">1.0</string>
 
-    <!--Categories-->
+    <!-- Heads Up button -->
+    <string name="enable_headsup_button_extended_statusbar_title">Genişletilmiş durum çubuğu düğmesi</string>
+    <string name="enable_headsup_button_extended_statusbar_summary">Genişletilmiş durum çubuğu alanındaki heads up için eylem düğmesi</string>
+	
+	<!--Categories-->
     <string name="clock_category">Saat</string>
     <string name="clock_custom">Saati özelleştir</string>
     <string name="battery_category">Pili Özelleştir</string>
@@ -299,7 +303,7 @@
     <string name="rr_qs_cat">Hızlı Ayarlar Aşağı Çekme</string>
     <string name="rr_qs">Hızlı Ayarlar</string>
     <string name="rr_brightness_cat">Parlaklık Kaydırıcı</string>
-    <string name="rr_qs_title">Hızlı Ayarlar Panelİ</string>
+    <string name="rr_qs_title">Hızlı Ayarlar Paneli</string>
 	
 
     <!-- Quick settings quick pull down -->
@@ -320,7 +324,7 @@
     
     <!-- Navigation Bar -->
     <string name="navigation_bar_dimensions_reset_message">Varsayılan tüm boyutların girdileri sıfırlansın mı?</string>
-    <string name="navigation_bar_dimensions_title"><b>Gezinti çubuğu boyutları</b></string>
+    <string name="navigation_bar_dimensions_title">Gezinti çubuğu boyutları</string>
     <string name="navigation_bar_dimensions_title_summary">Gezinti çubuğunu yeniden boyutlandır</string>
     <string name="navigation_bar_height_title">Gezinti çubuğu yüksekliği</string>
     <string name="navigation_bar_height_summary">Gezinti çubuğu yüksekliği dikey ise</string>
@@ -918,6 +922,11 @@
     <string name="shortcut_action_media_play_pause">Müzik - oynat/durdur</string>
     <string name="shortcut_action_media_previous">Müzik - önceki parça</string>
     <string name="shortcut_action_wake_device">Cihazı uyandır</string>
+	
+	<!-- Setting Checkbox title whether to enable doze powersave -->
+    <string name="doze_powersave_title">Doze güç tasarrufu</string>
+    <!-- setting Checkbox summary whether to enable doze powersave  -->
+    <string name="doze_powersave_summary">Cihaz uyurken ultra-düşük güç durumuna geçmesine izin verir</string>
 
     <!-- Superuser indicator on status bar -->
     <string name="su_indicator">Superuser göstergesi</string>
@@ -1790,18 +1799,18 @@
     <string name="fling_longpress_summary">Uzun basmayı gerçekleştirmek için gereken süreyi arttırmak yada azaltmak</string>
     
     <!-- Pulse navigation bar music visualizer -->
-    <string name="pulse_help_policy_notice_title">About Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse is brilliant equalizer bar style audio visualization on the navigation bar when music plays. Pulse does not work with some audio sources when listening on device speaker</string>
+    <string name="pulse_help_policy_notice_title">Pulse Hakkına</string>
+    <string name="pulse_help_policy_notice_summary">Pulse gezinme çubuğunda parlak ekolayzır çubukları tarzı müzik çalar ses görselleştirmesidir. Cihazın hoparlörü üzerinde dinlerken Pulse bazı ses kaynakları ile çalışmıyor.</string>
     <string name="pulse_settings">Pulse</string>
     <string name="pulse_settings_summary">Gezinti çubuğu ses görselleştirme</string>
-    <string name="fling_show_pulse_title">Show Pulse</string>
+    <string name="fling_show_pulse_title">Pulse\'yi Göster</string>
     <string name="fling_show_pulse_summary">Gezinme çubuğunda ses görselleştirme</string>
-    <string name="fling_pulse_color">Pulse color</string>
+    <string name="fling_pulse_color">Pulse rengi</string>
     <string name="eos_fling_lavalamp_title">Lav Lambasını açın</string>
-    <string name="eos_fling_lavalamp_summary">Pürüzsüz bir lav lambası tarzı renk karışımı animasyonu göster</string>
+    <string name="eos_fling_lavalamp_summary">Pulse animasyonu pürüzsüz bir lav lambası tarzı renk karışımı animasyonu</string>
 	
     <!-- Navbar height -->
-    <string name="navigation_bar_size_title">Çubuk boyutu</string>
+    <string name="navigation_bar_size_title">Gezinti çubuğu boyutu</string>
     <string name="portrait_title">Dikey yükseklik</string>
     <string name="land_vert_title">Yatay genişlik</string>
     <string name="land_hor_title">Yatay yükseklik</string>
@@ -1844,5 +1853,30 @@
     
     <!-- QuickSettings main tiles -->
     <string name="quick_settings_title_advanced_location">Hızlı Ayarlarda Üç Tür Konumu Etkinleştir</string>
+	
+	<!-- Heads Up Timeout -->
+    <string name="heads_up_time_out_title">Zaman aşımı</string>
+    <string name="heads_up_time_out_summary">Bildirimler <xliff:g id="number">%d</xliff:g> saniye boyunca gösterilir</string>
+    <string name="heads_up_time_out_2sec">2 saniye</string>
+    <string name="heads_up_time_out_4sec">4 saniye</string>
+    <string name="heads_up_time_out_5sec">5 saniye</string>
+    <string name="heads_up_time_out_6sec">6 saniye</string>
+    <string name="heads_up_time_out_8sec">8 saniye</string>
+    <string name="heads_up_time_out_10sec">10 saniye</string>
+    
+    
+    <!-- Heads Up Snooze -->
+    <string name="heads_up_snooze">Erteleme</string>
+    <string name="heads_up_snooze_summary">Bildirimler <xliff:g id="number">%d</xliff:g> dakika için tekrar gösterilmeyecek</string>
+    <string name="heads_up_snooze_1min">1 dakika</string>
+    <string name="heads_up_snooze_5min">5 dakika</string>
+    <string name="heads_up_snooze_10min">10 dakika</string>
+    <string name="heads_up_snooze_15min">15 dakika</string>
+    <string name="heads_up_snooze_20min">20 dakika</string>
+    <string name="heads_up_snooze_30min">30 dakika</string>
+    <string name="heads_up_snooze_45min">45 dakika</string>
+    <string name="heads_up_snooze_60min">60 dakika</string>
+    <string name="force_headsup_title">Heads up\'ı zorla</string>
+    <string name="force_headsup_summary">Tüm uygulamalarda heads up\'ı zorla</string>
 
 </resources>
