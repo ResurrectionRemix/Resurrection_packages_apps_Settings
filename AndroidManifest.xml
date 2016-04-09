@@ -2791,6 +2791,20 @@
             </intent-filter>$
         </receiver>
 
+        <!-- Ambient Display settings activity. -->
+        <activity android:name="Settings$AmbientDisplaySettingsActivity"
+                android:label="@string/display_category_doze_options_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.slim.fragments.DozeSettingsFragment" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/ambient_display_rr" />
+        </activity>
+
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
         <receiver android:name=".users.ProfileUpdateReceiver">
             <intent-filter>
