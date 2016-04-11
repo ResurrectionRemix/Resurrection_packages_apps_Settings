@@ -16,17 +16,13 @@
 
 package com.android.settings.livedisplay;
 
-import static cyanogenmod.hardware.CMHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.UserHandle;
 import android.preference.DialogPreference;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -36,8 +32,7 @@ import android.widget.TextView;
 import com.android.settings.IntervalSeekBar;
 import com.android.settings.R;
 
-import cyanogenmod.hardware.CMHardwareManager;
-import cyanogenmod.providers.CMSettings;
+import cyanogenmod.hardware.LiveDisplayManager;
 
 /**
  * Special preference type that allows configuration of Color settings
@@ -46,11 +41,7 @@ public class DisplayColor extends DialogPreference {
     private static final String TAG = "ColorCalibration";
 
     private final Context mContext;
-
-    private final int minRGB;
-    private final int maxRGB;
-    private final float defaultRGB;
-    private final boolean useCMHW;
+    private final LiveDisplayManager mLiveDisplay;
 
     // These arrays must all match in length and order
     private static final int[] SEEKBAR_ID = new int[] {
@@ -74,19 +65,7 @@ public class DisplayColor extends DialogPreference {
         super(context, attrs);
 
         mContext = context;
-
-        final CMHardwareManager mHardware = CMHardwareManager.getInstance(context);
-        useCMHW = mHardware.isSupported(FEATURE_DISPLAY_COLOR_CALIBRATION);
-        if (useCMHW) {
-            minRGB = mHardware.getDisplayColorCalibrationMin();
-            maxRGB = mHardware.getDisplayColorCalibrationMax();
-            defaultRGB = (float) mHardware.getDisplayColorCalibrationDefault() / maxRGB;
-        } else {
-            // Initialize these just to avoid compiler errors.
-            minRGB = 20;
-            maxRGB = 100;
-            defaultRGB = 1.0f;
-        }
+        mLiveDisplay = LiveDisplayManager.getInstance(mContext);
 
         setDialogLayoutResource(R.layout.display_color_calibration);
     }
@@ -105,38 +84,16 @@ public class DisplayColor extends DialogPreference {
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        String colorAdjustmentTemp = CMSettings.System.getStringForUser(
-                mContext.getContentResolver(),
-                CMSettings.System.DISPLAY_COLOR_ADJUSTMENT,
-                UserHandle.USER_CURRENT);
-        String[] colorAdjustment = colorAdjustmentTemp == null ?
-                null : colorAdjustmentTemp.split(" ");
-        if (colorAdjustment == null || colorAdjustment.length != 3) {
-            colorAdjustment = new String[] { Float.toString(defaultRGB),
-                    Float.toString(defaultRGB), Float.toString(defaultRGB) };
-        }
-        try {
-            mOriginalColors[0] = Float.parseFloat(colorAdjustment[0]);
-            mOriginalColors[1] = Float.parseFloat(colorAdjustment[1]);
-            mOriginalColors[2] = Float.parseFloat(colorAdjustment[2]);
-        } catch (NumberFormatException e) {
-            mOriginalColors[0] = defaultRGB;
-            mOriginalColors[1] = defaultRGB;
-            mOriginalColors[2] = defaultRGB;
-        }
-
+        System.arraycopy(mLiveDisplay.getColorAdjustment(), 0, mOriginalColors, 0, 3);
         System.arraycopy(mOriginalColors, 0, mCurrentColors, 0, 3);
 
         for (int i = 0; i < SEEKBAR_ID.length; i++) {
             IntervalSeekBar seekBar = (IntervalSeekBar) view.findViewById(SEEKBAR_ID[i]);
             TextView value = (TextView) view.findViewById(SEEKBAR_VALUE_ID[i]);
             mSeekBars[i] = new ColorSeekBar(seekBar, value, i);
-            if (useCMHW) {
-                mSeekBars[i].mSeekBar.setMinimum((float) minRGB / maxRGB);
-                /* Maximum hasn't changed but it's relative to the minimum so it needs
-                   to be reset */
-                mSeekBars[i].mSeekBar.setMaximum(1.0f);
-            }
+            mSeekBars[i].mSeekBar.setMinimum(0.1f);
+            mSeekBars[i].mSeekBar.setMaximum(1.0f);
+
             mSeekBars[i].mSeekBar.setProgressFloat(mCurrentColors[i]);
             int percent = Math.round(100F * mCurrentColors[i]);
             value.setText(String.format("%d%%", percent));
@@ -155,8 +112,8 @@ public class DisplayColor extends DialogPreference {
             @Override
             public void onClick(View v) {
                 for (int i = 0; i < mSeekBars.length; i++) {
-                    mSeekBars[i].mSeekBar.setProgressFloat(defaultRGB);
-                    mCurrentColors[i] = defaultRGB;
+                    mSeekBars[i].mSeekBar.setProgressFloat(1.0f);
+                    mCurrentColors[i] = 1.0f;
                 }
                 updateColors(mCurrentColors);
             }
@@ -241,12 +198,7 @@ public class DisplayColor extends DialogPreference {
     }
 
     private void updateColors(float[] colors) {
-        CMSettings.System.putStringForUser(mContext.getContentResolver(),
-                CMSettings.System.DISPLAY_COLOR_ADJUSTMENT,
-                new StringBuilder().append(colors[0]).append(" ")
-                                   .append(colors[1]).append(" ")
-                                   .append(colors[2]).toString(),
-                UserHandle.USER_CURRENT);
+        mLiveDisplay.setColorAdjustment(colors);
     }
 
     private class ColorSeekBar implements SeekBar.OnSeekBarChangeListener {
