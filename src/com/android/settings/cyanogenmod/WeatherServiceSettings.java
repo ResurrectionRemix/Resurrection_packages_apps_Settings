@@ -268,7 +268,7 @@ public class WeatherServiceSettings extends SettingsPreferenceFragment {
 
             ((TextView) row.findViewById(android.R.id.title)).setText(info.caption);
 
-            RadioButton radioButton = (RadioButton) row.findViewById(android.R.id.button1);
+            RadioButton radioButton = (RadioButton) row.findViewById(R.id.radio);
             radioButton.setChecked(info.isActive);
             radioButton.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -281,7 +281,7 @@ public class WeatherServiceSettings extends SettingsPreferenceFragment {
             boolean showSettings = info.settingsComponentName != null;
             View settingsDivider = row.findViewById(R.id.divider);
             settingsDivider.setVisibility(showSettings ? View.VISIBLE : View.INVISIBLE);
-            ImageView settingsButton = (ImageView) row.findViewById(android.R.id.button2);
+            ImageView settingsButton = (ImageView) row.findViewById(R.id.settings);
             settingsButton.setVisibility(showSettings ? View.VISIBLE : View.INVISIBLE);
             settingsButton.setAlpha(info.isActive ? 1f : Utils.DISABLED_ALPHA);
             settingsButton.setEnabled(info.isActive);
@@ -320,8 +320,7 @@ public class WeatherServiceSettings extends SettingsPreferenceFragment {
         private View buildRow(ViewGroup parent) {
             final View row =  mInflater.inflate(R.layout.weather_service_provider_info_row,
                     parent, false);
-            final View header = row.findViewById(android.R.id.widget_frame);
-            header.setOnClickListener(new View.OnClickListener(){
+            row.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     v.setPressed(true);

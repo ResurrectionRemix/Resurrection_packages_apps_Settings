@@ -215,7 +215,7 @@ public class LiveLockScreenSettings extends SettingsPreferenceFragment implement
             ((TextView) row.findViewById(android.R.id.title)).setText(liveLockScreenInfo.caption);
 
             // bind radio button
-            RadioButton radioButton = (RadioButton) row.findViewById(android.R.id.button1);
+            RadioButton radioButton = (RadioButton) row.findViewById(R.id.radio);
             radioButton.setChecked(liveLockScreenInfo.isActive);
             radioButton.setOnTouchListener(new OnTouchListener() {
                 @Override
@@ -229,7 +229,7 @@ public class LiveLockScreenSettings extends SettingsPreferenceFragment implement
             View settingsDivider = row.findViewById(R.id.divider);
             settingsDivider.setVisibility(showSettings ? View.VISIBLE : View.INVISIBLE);
 
-            ImageView settingsButton = (ImageView) row.findViewById(android.R.id.button2);
+            ImageView settingsButton = (ImageView) row.findViewById(R.id.settings);
             settingsButton.setVisibility(showSettings ? View.VISIBLE : View.INVISIBLE);
             settingsButton.setAlpha(liveLockScreenInfo.isActive ? 1f : Utils.DISABLED_ALPHA);
             settingsButton.setEnabled(liveLockScreenInfo.isActive);
@@ -246,8 +246,7 @@ public class LiveLockScreenSettings extends SettingsPreferenceFragment implement
 
         private View createLiveLockScreenInfoRow(ViewGroup parent) {
             final View row =  mInflater.inflate(R.layout.live_lock_screen_info_row, parent, false);
-            final View header = row.findViewById(android.R.id.widget_frame);
-            header.setOnClickListener(new OnClickListener(){
+            row.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     v.setPressed(true);
