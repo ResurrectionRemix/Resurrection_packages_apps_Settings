@@ -146,7 +146,7 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
                     mLockPatternUtils.isTactileFeedbackEnabled());
             mLockPatternView.setInStealthMode(!mLockPatternUtils.isVisiblePatternEnabled(
                     mEffectiveUserId));
-            mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize());
+            mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize(mEffectiveUserId));
             mLockPatternView.setOnPatternListener(mConfirmExistingLockPatternListener);
             updateStage(Stage.NeedToUnlock);
 
@@ -459,7 +459,7 @@ public class ConfirmLockPattern extends ConfirmDeviceCredentialBaseActivity {
                                     intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_TYPE,
                                                     StorageManager.CRYPT_TYPE_PATTERN);
                                     intent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_PASSWORD,
-                                                    mLockPatternUtils.patternToString(pattern));
+                                                    mLockPatternUtils.patternToString(pattern, localEffectiveUserId));
                                 }
                                 mCredentialCheckResultTracker.setResult(matched, intent, timeoutMs,
                                         localEffectiveUserId);

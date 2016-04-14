@@ -703,7 +703,7 @@ public class ChooseLockPattern extends SettingsActivity {
         protected Intent saveAndVerifyInBackground() {
             Intent result = null;
             final int userId = UserHandle.myUserId();
-            mUtils.setLockPatternSize(mPatternSize);
+            mUtils.setLockPatternSize(mPatternSize, userId);
             mUtils.saveLockPattern(mChosenPattern, mCurrentPattern, userId);
 
             if (mHasChallenge) {
