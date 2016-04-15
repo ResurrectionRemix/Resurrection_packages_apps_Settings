@@ -17,6 +17,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -32,6 +33,7 @@ import android.os.UserHandle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -41,6 +43,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.android.internal.content.PackageMonitor;
 import com.android.internal.os.BackgroundThread;
 import com.android.settings.R;
@@ -295,7 +298,22 @@ public class WeatherServiceSettings extends SettingsPreferenceFragment {
 
         private void launchSettingsActivity(WeatherProviderServiceInfo info) {
             if (info != null && info.settingsComponentName != null) {
-                mContext.startActivity(new Intent().setComponent(info.settingsComponentName));
+                try {
+                    mContext.startActivity(new Intent().setComponent(info.settingsComponentName));
+                } catch (ActivityNotFoundException e) {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast t = Toast.makeText(mContext,
+                                    R.string.weather_settings_activity_not_found,
+                                        Toast.LENGTH_LONG);
+                            TextView v = (TextView) t.getView().findViewById(android.R.id.message);
+                            if (v != null) v.setGravity(Gravity.CENTER);
+                            t.show();
+                        }
+                    });
+                    Log.w(TAG, info.settingsComponentName + " not found");
+                }
             }
         }
 
@@ -324,9 +342,7 @@ public class WeatherServiceSettings extends SettingsPreferenceFragment {
             CMSettings.Secure.putString(mContext.getContentResolver(),
                     CMSettings.Secure.WEATHER_PROVIDER_SERVICE,
                         info.componentName.flattenToString());
-            if (info.settingsComponentName != null) {
-                mContext.startActivity(new Intent().setComponent(info.settingsComponentName));
-            }
+            launchSettingsActivity(info);
             notifyDataSetChanged();
         }
 
