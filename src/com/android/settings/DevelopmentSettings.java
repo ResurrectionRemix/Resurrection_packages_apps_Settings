@@ -844,10 +844,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         if (Integer.valueOf(newValue.toString()) < 2 && !oldValue.equals(newValue)
                 && "1".equals(SystemProperties.get("service.adb.root", "0"))) {
             SystemProperties.set("service.adb.root", "0");
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_ENABLED, 0);
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_ENABLED, 1);
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ENABLED, 0);
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ENABLED, 1);
         }
         updateRootAccessOptions();
     }
@@ -857,10 +857,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         SystemProperties.set(ROOT_ACCESS_PROPERTY, "0");
         if (!oldValue.equals("0") && "1".equals(SystemProperties.get("service.adb.root", "0"))) {
             SystemProperties.set("service.adb.root", "0");
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_ENABLED, 0);
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_ENABLED, 1);
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ENABLED, 0);
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ENABLED, 1);
         }
         updateRootAccessOptions();
     }
