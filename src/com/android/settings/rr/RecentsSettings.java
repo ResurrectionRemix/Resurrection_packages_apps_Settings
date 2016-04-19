@@ -19,6 +19,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -49,11 +50,20 @@ public class RecentsSettings extends SettingsPreferenceFragment
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private static final String IMMERSIVE_RECENTS = "immersive_recents";
-
+    private static final String PREF_HIDDEN_RECENTS_APPS_START = "hide_app_from_recents";
+    
+    // Package name of the hidden recetns apps activity
+    public static final String HIDDEN_RECENTS_PACKAGE_NAME = "com.android.settings";
+    // Intent for launching the hidden recents actvity
+    public static Intent INTENT_HIDDEN_RECENTS_SETTINGS = new Intent(Intent.ACTION_MAIN)
+    .setClassName(HIDDEN_RECENTS_PACKAGE_NAME,
+    HIDDEN_RECENTS_PACKAGE_NAME + ".rr.HAFRAppListActivity"); 
+    
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
     private SwitchPreference mUseSlimRecents;
     private ListPreference mImmersiveRecents;	
+    private Preference mHiddenRecentsApps;
 
 
     @Override
@@ -91,8 +101,8 @@ public class RecentsSettings extends SettingsPreferenceFragment
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
         boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.USE_SLIM_RECENTS, 0) == 1;
-
-
+                               
+        mHiddenRecentsApps = (Preference) prefSet.findPreference(PREF_HIDDEN_RECENTS_APPS_START);
 
         if (slimRecent) {
             mRecentsClearAll.setEnabled(false);
@@ -102,7 +112,7 @@ public class RecentsSettings extends SettingsPreferenceFragment
             mRecentsClearAllLocation.setEnabled(true);
        }
 
-
+    
     }
 
     @Override
@@ -134,6 +144,17 @@ public class RecentsSettings extends SettingsPreferenceFragment
         }
         return false;
     }
+    
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mHiddenRecentsApps) {
+            getActivity().startActivity(INTENT_HIDDEN_RECENTS_SETTINGS);
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+        return false;
+    }
+
    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
