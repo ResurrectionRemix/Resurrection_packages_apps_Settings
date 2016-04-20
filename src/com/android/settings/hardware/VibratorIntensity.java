@@ -122,8 +122,7 @@ public class VibratorIntensity extends DialogPreference implements
         int percent = prefs.getInt(PREF_NAME, defaultValue);
 
         mSeekBar.setOnSeekBarChangeListener(this);
-        mSeekBar.setMax(mMaxValue - mMinValue);
-        mSeekBar.setProgress(mOriginalValue - mMinValue);
+        mSeekBar.setProgress(percent);
     }
 
     @Override
@@ -137,7 +136,7 @@ public class VibratorIntensity extends DialogPreference implements
         defaultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSeekBar.setProgress(mDefaultValue - mMinValue);
+                mSeekBar.setProgress(intensityToPercent(mMinValue, mMaxValue, mDefaultValue));
             }
         });
     }
@@ -149,9 +148,7 @@ public class VibratorIntensity extends DialogPreference implements
         if (positiveResult) {
             // Store percent value in SharedPreferences object
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            int intensity = mSeekBar.getProgress() + mMinValue;
-            int percent = intensityToPercent(mMinValue, mMaxValue, intensity);
-            prefs.edit().putInt(PREF_NAME, percent).commit();
+            prefs.edit().putInt(PREF_NAME, mSeekBar.getProgress()).commit();
         } else {
             mHardware.setVibratorIntensity(mHardware.getVibratorIntensity());
         }
@@ -166,16 +163,18 @@ public class VibratorIntensity extends DialogPreference implements
         int vibrator = hardware.getVibratorIntensity();
         int min = hardware.getVibratorMinIntensity();
         int max = hardware.getVibratorMaxIntensity();
-        int defaultIntensity = hardware.getVibratorDefaultIntensity();
-        int percent = prefs.getInt(PREF_NAME, intensityToPercent(min, max, defaultIntensity));
+        int defaultValue = intensityToPercent(min, max,
+                hardware.getVibratorDefaultIntensity());
+        int percent = prefs.getInt(PREF_NAME, defaultValue);
 
         hardware.setVibratorIntensity(percentToIntensity(min, max, percent));
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        int intensity = progress + mMinValue;
-        boolean shouldWarn = mWarningValue > 0 && intensity >= mWarningValue;
+        boolean shouldWarn =
+                mWarningValue > 0 && progress >= intensityToPercent(mMinValue, mMaxValue,
+                        mWarningValue);
 
         if (mProgressDrawable != null) {
             mProgressDrawable.setColorFilter(shouldWarn ? mRedFilter : null);
@@ -184,10 +183,9 @@ public class VibratorIntensity extends DialogPreference implements
             mProgressThumb.setColorFilter(shouldWarn ? mRedFilter : null);
         }
 
-
-        CMSettings.Secure.putInt(getContext().getContentResolver(),
-                CMSettings.Secure.VIBRATOR_INTENSITY, intensity);
-        mValue.setText(String.format("%d%%", intensityToPercent(mMinValue, mMaxValue, intensity)));
+        mHardware.setVibratorIntensity(percentToIntensity(mMinValue, mMaxValue,
+                progress));
+        mValue.setText(String.format("%d%%", progress));
     }
 
     @Override
@@ -201,8 +199,8 @@ public class VibratorIntensity extends DialogPreference implements
         vib.vibrate(200);
     }
 
-    private static int intensityToPercent(int minValue, int maxValue, int value) {
-        int percent = Math.round((value - minValue) * (100.f / (maxValue - minValue)));
+    private static int intensityToPercent(double minValue, double maxValue, int value) {
+        double percent = (value - minValue) * (100 / (maxValue - minValue));
 
         if (percent > 100) {
             percent = 100;
@@ -210,11 +208,11 @@ public class VibratorIntensity extends DialogPreference implements
             percent = 0;
         }
 
-        return percent;
+        return (int) percent;
     }
 
     private static int percentToIntensity(int minValue, int maxValue, int percent) {
-        int value = Math.round((((maxValue - minValue) * percent) / 100.f) + minValue);
+        int value = Math.round((((maxValue - minValue) * percent) / 100) + minValue);
 
         if (value > maxValue) {
             value = maxValue;
