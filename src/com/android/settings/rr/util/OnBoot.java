@@ -38,7 +38,7 @@ public class OnBoot extends BroadcastReceiver {
              if(sharedpreferences.getBoolean("selinux", true)) {
                  CMDProcessor.runShellCommand("setenforce 1");
              } else if (!sharedpreferences.getBoolean("selinux", true)) {
-                 CMDProcessor.runShellCommand("setenforce 0");
+                 CMDProcessor.runSuCommand("setenforce 0");
              }
         }
     }
