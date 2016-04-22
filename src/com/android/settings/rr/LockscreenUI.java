@@ -50,9 +50,11 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
 
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";	
+    private static final String LOCK_DATE_FONTS = "lock_date_fonts";
 	
     private SeekBarPreference mBlurRadius;
-    private ListPreference mLockClockFonts;	
+    private ListPreference mLockClockFonts;
+    private ListPreference mDateFonts;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,12 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
                     resolver, Settings.System.LOCK_CLOCK_FONTS, 4)));
             mLockClockFonts.setSummary(mLockClockFonts.getEntry());
             mLockClockFonts.setOnPreferenceChangeListener(this);
+            
+            mDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
+            mDateFonts.setValue(String.valueOf(Settings.System.getInt(
+                    resolver, Settings.System.LOCK_DATE_FONTS, 4)));
+            mDateFonts.setSummary(mDateFonts.getEntry());
+            mDateFonts.setOnPreferenceChangeListener(this);
 
 }
 
@@ -94,6 +102,12 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
                         Integer.valueOf((String) newValue));
                 mLockClockFonts.setValue(String.valueOf(newValue));
                 mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+                return true;
+	} else if (preference == mDateFonts) {
+                Settings.System.putInt(resolver, Settings.System.LOCK_DATE_FONTS,
+                        Integer.valueOf((String) newValue));
+                mDateFonts.setValue(String.valueOf(newValue));
+                mDateFonts.setSummary(mDateFonts.getEntry());
                 return true;
 	}
 	return false;
