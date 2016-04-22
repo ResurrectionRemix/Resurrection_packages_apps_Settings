@@ -295,6 +295,7 @@ public class SimDialogActivity extends Activity {
                 }
             }
         } else {
+            currentIndex = -1;
             final int defaultDataSubId = SubscriptionManager.getDefaultDataSubId();
             for (int i = 0; i < selectableSubInfoLength; ++i) {
                 final SubscriptionInfo sir = subInfoList.get(i);
