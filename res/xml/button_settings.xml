@@ -235,7 +235,20 @@
             android:entries="@array/volbtn_cursor_control_entries"
             android:entryValues="@array/volbtn_cursor_control_values"
             android:persistent="false" />
+	
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="screen_shot_shortcut"
+            android:title="@string/screen_shot_shortcut"
+            android:summaryOn="@string/screen_shot_shortcut_on"
+            android:summaryOff="@string/screen_shot_shortcut_off"
+            android:defaultValue="true" />
 
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="screen_record_shortcut"
+            android:title="@string/screen_record_shortcut"
+            android:summaryOn="@string/screen_record_shortcut_on"
+            android:summaryOff="@string/screen_record_shortcut_off"
+            android:defaultValue="true" />
 
         <SwitchPreference
             android:key="swap_volume_buttons"
