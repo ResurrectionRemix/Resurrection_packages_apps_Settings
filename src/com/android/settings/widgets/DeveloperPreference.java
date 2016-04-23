@@ -41,14 +41,14 @@ public class DeveloperPreference extends Preference {
     private static final String TAG = "DeveloperPreference";
     public static final String GRAVATAR_API = "http://www.gravatar.com/avatar/";
     public static int mDefaultAvatarSize = 200;
-    private ImageView twitterButton;
+    private ImageView gplusButton;
     private ImageView donateButton;
     private ImageView photoView;
 
     private TextView devName;
 
     private String nameDev;
-    private String twitterName;
+    private String gplusName;
     private String donateLink;
     private String devEmail;
     private final Display mDisplay;
@@ -60,7 +60,7 @@ public class DeveloperPreference extends Preference {
         try {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.DeveloperPreference);
             nameDev = typedArray.getString(R.styleable.DeveloperPreference_nameDev);
-            twitterName = typedArray.getString(R.styleable.DeveloperPreference_twitterHandle);
+            gplusName = typedArray.getString(R.styleable.DeveloperPreference_gplusHandle);
             donateLink = typedArray.getString(R.styleable.DeveloperPreference_donateLink);
             devEmail = typedArray.getString(R.styleable.DeveloperPreference_emailDev);
         } finally {
@@ -78,7 +78,7 @@ public class DeveloperPreference extends Preference {
 
         View layout = View.inflate(getContext(), R.layout.dev_card, null);
 
-        twitterButton = (ImageView) layout.findViewById(R.id.twitter_button);
+        gplusButton = (ImageView) layout.findViewById(R.id.gplus_button);
         donateButton = (ImageView) layout.findViewById(R.id.donate_button);
         devName = (TextView) layout.findViewById(R.id.name);
         photoView = (ImageView) layout.findViewById(R.id.photo);
@@ -106,14 +106,14 @@ public class DeveloperPreference extends Preference {
         }
 
 
-            final OnPreferenceClickListener openTwitter = new OnPreferenceClickListener() {
+            final OnPreferenceClickListener opengplus = new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
 
-			if (twitterName != null) {
+			if (gplusName != null) {
 
-	                    Uri twitterURL = Uri.parse("http://twitter.com/#!/" + twitterName);
-        	            final Intent intent = new Intent(Intent.ACTION_VIEW, twitterURL);
+	                    Uri gplusURL = Uri.parse("https://plus.google.com/+" + gplusName);
+        	            final Intent intent = new Intent(Intent.ACTION_VIEW, gplusURL);
         	            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         	            getContext().startActivity(intent);
 
@@ -123,17 +123,17 @@ public class DeveloperPreference extends Preference {
                 }
             };
 
-            // changed to clicking the preference to open twitter
-            // it was a hit or miss to click the twitter bird
+            // changed to clicking the preference to open gplus
+            // it was a hit or miss to click the gplus icon
 
-            this.setOnPreferenceClickListener(openTwitter);
+            this.setOnPreferenceClickListener(opengplus);
             UrlImageViewHelper.setUrlDrawable(this.photoView,
                     getGravatarUrl(devEmail),
                     R.drawable.ic_null,
                     UrlImageViewHelper.CACHE_DURATION_ONE_WEEK);
 
-        if (twitterName == null)
-		twitterButton.setVisibility(View.INVISIBLE);
+        if (gplusName == null)
+		gplusButton.setVisibility(View.INVISIBLE);
 
 
         devName.setText(nameDev);
