@@ -43,6 +43,20 @@
         android:entries="@array/smartbar_button_animation_entries"
         android:entryValues="@array/smartbar_button_animation_values"
         android:summary="@string/smartbar_button_animation_summary" />
+    
+    
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="navbar_tint_switch"
+        android:title="@string/navbar_tint_switch"
+        android:defaultValue="false" />
+    
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="navbar_button_color"
+        android:title="@string/navbar_button_color"
+        android:defaultValue="0xffffffff"
+	android:dependency="navbar_tint_switch"/>
+	
+	
 
     <Preference
         android:key="smartbar_factory_reset"
