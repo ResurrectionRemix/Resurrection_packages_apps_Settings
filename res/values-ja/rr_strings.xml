@@ -86,7 +86,7 @@
 	<string name="rr_header_options">ヘッダーのアイテム</string>
 	<string name="interface_settings_title">インターフェース</string>
 
-
+	<string name="clock_settings_title">時計の設定</string>
 	<string name="rr_cat_title">カテゴリ</string>
 	<string name="rr_settings_title">高度な設定</string>
 
@@ -97,7 +97,11 @@
 	<string name="features_error">Unable to load list</string>
 	<string name="features_unknown">Unknown</string>
 	<string name="features_version">1.0</string>
-
+	
+	<!-- Heads Up button -->
+	<string name="enable_headsup_button_extended_statusbar_title">Extended statusbar button</string>
+	<string name="enable_headsup_button_extended_statusbar_summary">Enable/Disable action for the heads up button in the expanded statusbar area</string>
+	
 	<!--Categories-->
 	<string name="clock_category">時計</string>
 	<string name="clock_custom">Clock Customizations</string>
@@ -105,6 +109,7 @@
 	<string name="weather_category">Weather Settings</string>
 	<string name="icons_category">Status Bar Icons</string>
 	<string name="misc_category">Misc Statusbar Settings</string>
+	<string name="button_controller_title">ハードウェアボタンの設定</string>
 
 	<string name="recents_panel_clear_all_category">「全てを終了」の挙動</string>
 	<string name="recents_panel_recents_view"> Recents View</string>
@@ -1091,7 +1096,7 @@
 	<string name="lock_clock_font_bold">Roboto Bold</string>
 	<string name="lock_clock_font_italic">Roboto Italic</string>
 	<string name="lock_clock_font_bold_italic">Roboto Bold Italic</string>
-	<string name="lock_clock_font_light_normal">Roboto Light</string>
+	<string name="lock_clock_font_light_normal">Roboto Light (デフォルト)</string>
 	<string name="lock_clock_font_light_italic">Roboto Light Italic</string>
 	<string name="lock_clock_font_thin_normal">Roboto Thin</string>
 	<string name="lock_clock_font_thin_italic">Roboto Thin Italic</string>
@@ -1105,7 +1110,14 @@
 	<string name="lock_clock_font_black_italic">Roboto Black Italic</string>
 	<string name="lock_clock_font_condensed_light_normal">Roboto Condensed Light</string>
 	<string name="lock_clock_font_condensed_light_italic">Roboto Condensed Light Italic</string>
-
+	<string name="lock_clock_font_dancingscript">DancingScript</string>
+	<string name="lock_clock_font_dancingscript_bold">DancingScript Bold</string>
+	<string name="lock_clock_font_comingsoon">ComingSoon</string>
+	<string name="lock_clock_font_notoserif">NotoSerif Normal</string>
+	<string name="lock_clock_font_notoserif_italic">NotoSerif Italic</string>
+	<string name="lock_clock_font_notoserif_bold">NotoSerif Bold</string>
+	<string name="lock_clock_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
+	
 	<!-- Screenshot sound -->
 	<string name="screenshot_sound_title">スクリーンショットの音</string>
 	<string name="screenshot_sound_summary">スクリーンショットを取得した際に効果音を鳴らします</string>
@@ -1121,7 +1133,17 @@
 	<string name="volume_steps_system_title">Volume steps: System</string>
 	<string name="volume_steps_voice_call_title">Volume steps: Voice Call</string>
 	<string name="volume_steps_reset">リセット</string>
-
+	
+	<!-- ScreenRecord Shortcut -->
+	<string name="screen_record_shortcut">Screenrecord Shortcut</string>
+	<string name="screen_record_shortcut_on">Volume Up + Power triggers Screenrecord</string>
+	<string name="screen_record_shortcut_off">Volume Up + Power does nothing</string>
+	
+	<!-- ScreenShot Shortcut -->
+	<string name="screen_shot_shortcut">Screenshot Shortcut</string>
+	<string name="screen_shot_shortcut_on">Volume Down + Power triggers screenshot</string>
+	<string name="screen_shot_shortcut_off">Volume Down + Power does nothing</string>
+	
 	<!-- Battery stats reset -->
 	<string name="battery_stats_reset">使用状況のリセット</string>
 	<string name="battery_stats_message">バッテリの使用履歴はリセットされます</string>
@@ -1182,7 +1204,6 @@
 	<string name="notification_icon_color_mode_greyscale_title">If the icon is an greyscale icon</string>
 	<string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string>
 	<string name="notification_color_mode_always_title">Always</string>
-	<string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
 	<string name="notif_color_switch">Notification Colors</string>
 
 	<!-- Lockscreen Torch -->
@@ -1214,6 +1235,7 @@
 	<string name="less_notification_sounds_5m">5 minutes</string>
 
 	<!-- Dashboard columns -->
+	<string name="dashboard_category">Dashboard settings</string>
 	<string name="dashboard_columns_title">Dashboard Columns</string>
 	<string name="dashboard_columns_summary">Change the number of columns displayed in the dashboard</string>
 	<string name="dashboard_columns_dialog_title">Select dashboard columns</string>
@@ -1233,7 +1255,10 @@
 	<string name="dashboard_switches_dialog_title">Select switch state</string>
 
 	<!-- Breathing Notifications -->
-	<string name="breathing_notifications_category">Breathing Notifications</string>
+	<string name="breathing_notifications_category">Notifications</string>
+	<string name="breathing_notifications_sms">Messaging</string>
+	<string name="breathing_voice_category">Voice</string>
+	<string name="breathing_category">Breathing Notifications</string>	
 	<string name="breathing_notifications_title">Breathing notifications</string>
 	<string name="missed_call_breath_title">Breathing Missed Call</string>
 	<string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
@@ -1321,8 +1346,6 @@
 	<string name="hide_icons_summary_off">System Icons Hidden</string>
 
 	<string name="hide_settings_summary_on">Settings Button Visible</string>
-	<string name="hide_settings_summary_off">Settings Button hidden</string>
-	<string name="hide_user_summary_on">User Switch Visible</string>
 	<string name="hide_user_summary_off">User Switch Hidden</string>
 	<string name="hide_weather_summary_on">Weather Shown</string>
 	<string name="hide_weather_summary_off">Weather Hidden</string>
@@ -1353,14 +1376,6 @@
 	<string name="clock_date_position">Date position</string>
 	<string name="clock_date_right">Right of time</string>
 	<string name="clock_date_left">Left of time</string>
-
-	<!-- QS Tiles Columns -->
-	<string name="qs_num_columns_title">Number of QS tiles per row</string>
-	<string name="qs_num_columns_showing">%1$s tiles per row showing</string>
-
-	<!-- QS Tiles Rows -->
-	<string name="qs_num_rows_title">Number of QS rows</string>
-	<string name="qs_num_rows_showing">%1$s rows are shown</string>
 
 	<!-- QS Tiles Rows -->
 	<string name="qs_color_switch">Custom Qs Colors</string>
@@ -1455,6 +1470,8 @@
 	<string name="navbar_interface_title">インターフェース</string>
 	<string name="navbar_size">バーのサイズ</string>
 	<string name="navbar_mode">ナビゲーションモード</string>
+	<string name="navbar_tint_switch">Navigation Button Tint</string>
+	<string name="navbar_button_color">Navigation Bar Buttons</string>
 	<string name="navbar_visibility">ナビゲーションバーを有効化する</string>
 	<string name="navigationbar_settings_title">ナビゲーション</string>
 	<string name="aosp_navigation_bar">ナビゲーションバー</string>
@@ -1522,6 +1539,7 @@
 	<string name="fling_animate_logo_summary">タッチイベント時にロゴをアニメーションします</string>
 	<string name="fling_logo_color">ロゴの色</string>
 	<string name="fling_logo_custom_logo_pick_title">カスタムロゴアイコン</string>
+	<string name="fling_logo_custom_logo_image_pick_title">カスタムアイコンの画像</string>
 	<string name="fling_logo_custom_logo_reset_title">ロゴアイコンのリセット</string>
 	<string name="fling_show_ripple_title">Show ripple</string>
 	<string name="fling_show_ripple_summary">Ripple effect on touch events</string>
