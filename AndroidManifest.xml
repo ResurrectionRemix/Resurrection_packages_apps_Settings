@@ -2048,6 +2048,29 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.FlingSettings" />
         </activity>
+	
+	<!-- Navigation settings activity. -->
+        <activity android:name="Settings$PulseSettingsActivity"
+                android:label="@string/pulse_settings"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.PulseSettings" />
+        </activity>
+	
+	
+	<!-- Color Picker -->
+        <activity android:name="net.margaritov.preference.colorpicker.ColorPickerPreference"
+            android:theme="@style/Theme.SettingsDialog"
+            android:label="@string/color_picker_label"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
         <!-- Development settings -->
 

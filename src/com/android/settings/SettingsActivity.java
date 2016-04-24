@@ -74,6 +74,7 @@ import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.rr.Navbar;
 import com.android.settings.rr.FlingSettings;
 import com.android.settings.rr.SmartbarSettings;
+import com.android.settings.rr.PulseSettings;
 import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
@@ -401,6 +402,7 @@ public class SettingsActivity extends Activity
             DozeSettingsFragment.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
+            PulseSettings.class.getName(),
             WeatherServiceSettings.class.getName()
     };
 
