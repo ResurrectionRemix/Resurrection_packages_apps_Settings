@@ -109,6 +109,8 @@
     <string name="weather_category">Wetter-Einstellungen</string>
     <string name="icons_category">Statusleistensymbole</string>
     <string name="misc_category">Verschiedene Statusleisten-Einstellungen</string>
+    <string name="button_controller_title">Tasten-Controller</string>
+    
 
     <string name="recents_panel_clear_all_category">Alle Apps schließen</string>
     <string name="recents_panel_recents_view">Anwendungsverlauf</string>
@@ -443,7 +445,7 @@
     <string name="lockscreen_options_title">Optionen</string>
     <string name="lockscreen_wallpaper_cat">Hintergrund</string>
     <string name="lockscreen_maxnotif_title">Sperrbildschirm-Benachrichtigungsanzahl</string>
-    <string name="lockscreen_maxnotif_sumary">Aktiviert die Anpassung der maximal erlaubten Anzahl an Benachrichtigungen im Sperrbildschirm</string>
+    <string name="lockscreen_maxnotif_sumary">Aktiviert die Anpassung der maximal erlaubten Anzahl an Benachrichtigungen auf dem Sperrbildschirm</string>
     <string name="lockscreen_maxnotif_config">Max. Sperrbildschirm-Benachrichtigungen</string>
 
     <!-- Lockscreen see through -->
@@ -710,8 +712,8 @@
 
     <!--Power menu -->
     <string name="power_category">Power Menü</string>
-    <string name="lockscreen_enable_power_menu_title">Power Menü auf dem Sperrbildschirm</string>
-    <string name="lockscreen_enable_power_menu_summary">Diese Option entfernt das Power Menü auf einem gesicherten Sperrbildschirm</string>
+    <string name="lockscreen_enable_power_menu_title">Power-Menü auf dem Sperrbildschirm</string>
+    <string name="lockscreen_enable_power_menu_summary">Diese Option entfernt das Power-Menü auf einem gesicherten Sperrbildschirm</string>
 
     <!-- Slim DSLV -->
     <string name="shortcut_action_none">Ohne</string>
@@ -898,7 +900,7 @@
 
     <!-- Lockscreen shortcuts -->
     <string name="lockscreen_shortcuts_title">Direktverknüpfungen</string>
-    <string name="lockscreen_shortcuts_summary">Im Sperrbildschirm platzierte Verknüpfungen bearbeiten</string>
+    <string name="lockscreen_shortcuts_summary">Auf dem Sperrbildschirm platzierte Verknüpfungen bearbeiten</string>
     <string name="lockscreen_shortcuts_launch_type_title">Reaktionsmodus</string>
     <string name="lockscreen_shortcuts_single_tap">Einfaches Tippen</string>
     <string name="lockscreen_shortcuts_double_tap">Doppeltes Tippen</string>
@@ -1018,10 +1020,16 @@
     <!-- Disabling immersive mode messages -->
     <string name="disable_immersive_message_title">Immersive Mode-Nachrichten deaktivieren</string>
     <string name="disable_immersive_message_summary">Diese Einstellung wird alle Immersive Mode-Nachrichten verstecken.</string>
+
  
     <!-- Navigation bar button color -->
     <string name="navbar_button_tint_title">Tastenfarbe</string>
 
+
+	<!-- Battery saver color -->
+	<string name="battery_saver_color_title">Warnungsfarbe</string>
+	<string name="battery_saver_color_summary">Orangefarbene Status- und Navigationsleisten anzeigen, wenn der Energiesparmodus aktiviert ist</string>
+ 
     <!-- Battery notifications -->
     <string name="battery_saver_notif_title">Benachrichtigung über Energiesparmodus</string>
     <string name="battery_saver_notif_summary">Zeigt eine Benachrichtigung an, wenn der Modus akitv ist</string>
@@ -1087,9 +1095,12 @@
     <string name="default_string">Standard</string>
 
     <string name="powermenu_lockscreen_title">Power-Menü im Sperrbildschirm</string>
-    <string name="powermenu_lockscreen_summary">Zeigt das Menü zum Ausschalten des Gerätes im Sperrbildschirm an</string>
-
-    <!-- Qucik unlock -->
+    <string name="powermenu_lockscreen_summary">Zeigt das Menü zum Ausschalten des Gerätes auf dem Sperrbildschirm an</string>
+	
+	<string name="lock_screen_show_current">Aufladestatus</string>
+	<string name="lock_screen_show_current_summary">Informationen über die Ladegeschwindigkeit etc. auf dem Sperrbildschirm anzeigen</string>
+ 
+    <!-- Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Schnelles Entsperren</string>
     <string name="unlock_quick_unlock_control_summary">Automatisch entsperren, sobald die PIN-/Passwort-Anfrage korrekt beantwortet wurde</string>
 
@@ -1183,6 +1194,7 @@
     <string name="lockscreen_phone_icon_color">Verknüpfung links unten</string>
     <string name="lockscreen_lock_icon_color">Schlosssymbol</string>
     <string name="lockscreen_camera_icon_color">Verknüpfung rechts unten</string>
+    <string name="ls_shortcut_icon_color">Sperrbildschirm: Verknüpfungen</string>
     <string name="lockscreen_indication_text_color">Hinweistext</string>
     <string name="lockscreen_clock_color">Uhrzeit</string>
     <string name="lockscreen_clock_date_color">Datum</string>
@@ -1327,8 +1339,11 @@
 
     <!-- Lock Clock Fonts -->
     <string name="lock_clock_font_title">Schriftart der Lockscreen-Uhr</string>
-    <string name="lock_clock_font_summary">Änderung der Schriftart des Uhrzeit-Widgets im Sperrbildschirm</string>
+    <string name="lock_clock_font_summary">Änderung der Schriftart des Uhrzeit-Widgets auf dem Sperrbildschirm</string>
     <string name="lock_clock_font_dialog_title">Schriftart auswählen</string>
+    <string name="lock_date_font_title">Schriftart des Lockscreen-Datums</string>
+    <string name="lock_date_font_summary">Änderung der Schriftart der Datumsanzeige auf dem Sperrbildschirm</string>
+	<string name="lock_date_font_dialog_title">Schriftart auswählen</string>
     <string name="lock_clock_font_normal">Roboto</string>
     <string name="lock_clock_font_bold">Roboto Bold</string>
     <string name="lock_clock_font_italic">Roboto Italic</string>
@@ -1370,7 +1385,17 @@
     <string name="volume_steps_system_title">System</string>
     <string name="volume_steps_voice_call_title">Telefongespräch</string>
     <string name="volume_steps_reset">Zurücksetzen</string>
-
+	
+	<!-- ScreenRecord Shortcut -->
+	<string name="screen_record_shortcut">Bildschirmaufnahme (Verknüpfung)</string>
+	<string name="screen_record_shortcut_on">Lautstärkewippe (oben) + Power-Taste startet die Bildschirmaufnahme</string>
+	<string name="screen_record_shortcut_off">Tastenkombination ohne Funktion</string>
+	
+	<!-- ScreenShot Shortcut -->
+	<string name="screen_shot_shortcut">Screenshot-Verknüpfung</string>
+	<string name="screen_shot_shortcut_on">Lautstärkewippe (unten) + Power-Taste für die Screenshot-Erstellung aktiviert</string>
+	<string name="screen_shot_shortcut_off">Lautstärkewippe (unten) + Power-Taste ohne Funktion</string>
+ 
     <!-- Battery stats reset -->
     <string name="battery_stats_reset">Statistiken zurücksetzen</string>
     <string name="battery_stats_message">Akkustatistiken werden zurückgesetzt</string>
@@ -1397,7 +1422,7 @@
     <string name="persist_add_summary">Die (De-)Aktivierung der Schaltfläche macht das Symbol selbst mit deaktiviertem Helligkeitsregler sichtbar.</string>
 
     <!-- Quick settings disable on lockscreen -->
-    <string name="block_on_secure_keyguard_title">QS im Sperrbildschirm deaktivieren</string>
+    <string name="block_on_secure_keyguard_title">QS auf dem Sperrbildschirm deaktivieren</string>
     <string name="block_on_secure_keyguard_summary">Deaktiviert die Schnelleinstellungen beim gesperrten Bildschirm</string>
 
     <!-- QuickSettings haptic feedback -->
@@ -1716,6 +1741,8 @@
     <string name="navbar_interface_title">Oberfläche</string>
     <string name="navbar_size">Leistengröße</string>
     <string name="navbar_mode">Navigationsmodus</string>
+    <string name="navbar_tint_switch">Navigationstasten: Färbung</string>
+	<string name="navbar_button_color">Navigationsleiste: Tasten</string>
     <string name="navbar_visibility">Navigationsleiste aktivieren</string>
     <string name="navigationbar_settings_title">Navigation</string>
     <string name="aosp_navigation_bar">Navigationsleiste</string>
