@@ -138,6 +138,7 @@ import com.android.settings.ButtonSettings;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.fragments.AppCircleBar;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
+import com.android.settings.rr.Pie.PieControl;
 import com.android.settings.vpn2.VpnSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.widget.SwitchBar;
@@ -309,6 +310,7 @@ public class SettingsActivity extends Activity
 	    R.id.app_circle_bar,
 	    R.id.rr_heads_up,
 	    R.id.gesture_anywhere,
+	    R.id.pie_control,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod
     };
@@ -333,7 +335,8 @@ public class SettingsActivity extends Activity
             MainSettings.class.getName(),
             AppCircleBar.class.getName(),
 	    GestureAnywhereSettings.class.getName(),	
-	    HeadsUpSettings.class.getName(),
+	    HeadsUpSettings.class.getName(),	
+            PieControl.class.getName(),	
             ButtonSettings.class.getName(),
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),
