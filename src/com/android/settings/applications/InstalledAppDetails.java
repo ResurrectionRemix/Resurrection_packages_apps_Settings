@@ -709,6 +709,10 @@ public class InstalledAppDetails extends AppInfoBase
     }
 
     private void checkForceStop() {
+        if (getActivity() == null || getActivity().isFinishing()) {
+            return;
+        }
+
         if (mDpm.packageHasActiveAdmins(mPackageInfo.packageName)) {
             // User can't force stop device admin.
             updateForceStopButton(false);
@@ -990,6 +994,13 @@ public class InstalledAppDetails extends AppInfoBase
             mPm.setApplicationEnabledSetting(mInfo.packageName, mState, 0);
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            if (mActivity.get() !=  null) {
+                mActivity.get().refreshUi();
+            }
+        }
     }
 
     private final LoaderCallbacks<ChartData> mDataCallbacks = new LoaderCallbacks<ChartData>() {
@@ -1015,6 +1026,7 @@ public class InstalledAppDetails extends AppInfoBase
         @Override
         public void onReceive(Context context, Intent intent) {
             updateForceStopButton(getResultCode() != Activity.RESULT_CANCELED);
+            refreshUi();
         }
     };
 
