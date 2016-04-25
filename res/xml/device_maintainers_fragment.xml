@@ -525,7 +525,8 @@
         android:selectable="false" 
         android:title="@string/device_oneplus2" />         
         
-        android:id="@+id/device_oneplusx"
+   <Preference
+	android:id="@+id/device_oneplusx"
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_oneplusx_summary"
         android:selectable="false" 
@@ -610,6 +611,23 @@
         android:summary="@string/device_sprout8_summary"
         android:selectable="false"
         android:title="@string/device_sprout8" />
+	</PreferenceCategory>
+	
+  <PreferenceCategory
+	android:id="@+id/device_category_oppo"
+	android:title="@string/device_category_oppo_title">
+    <Preference
+        android:id="@+id/device_find7"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_find7_summary"
+        android:selectable="false"
+        android:title="@string/device_find7" />       
+    <Preference
+        android:id="@+id/device_find7a"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_find7a_summary"
+        android:selectable="false"
+        android:title="@string/device_find7a" />
 	</PreferenceCategory>
 
 <PreferenceCategory
