@@ -2906,6 +2906,18 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings" />
         </activity>
+	
+	       <!-- Floating Window -->
+        <activity android:name="Settings$FloatingWindowActivity"
+             android:label="@string/shortcut_action_floating_windows"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.FloatingWindows" />
+        </activity>
 
         <!-- App Sidebar -->
         <activity android:name="Settings$AppSidebarActivity"

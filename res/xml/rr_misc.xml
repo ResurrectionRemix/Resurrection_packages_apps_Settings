@@ -50,6 +50,11 @@
             android:key="enable_multi_window"
             android:title="@string/enable_multi_window"
             android:summary="@string/enable_multi_window_summary"/>
+	
+	<PreferenceScreen
+        android:key="floating_windows"
+        android:title="@string/floating_windows" 
+	android:fragment="com.android.settings.rr.FloatingWindows"/>
 
      <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="headset_connect_player"

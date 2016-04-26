@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 CyanideL
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aicpextras="http://schemas.android.com/apk/res/com.lordclockan"
+    android:title="@string/floating_windows" >
+
+    <PreferenceCategory
+        android:title="@string/floating_master_switch">
+
+        <!-- Floating Windows Master Switch -->
+	    <SwitchPreference
+            android:key="floating_window_mode"
+            android:title="@string/floating_windows"
+            android:summary="@string/floating_windows_switch"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+	<PreferenceCategory
+        android:title="@string/floating_additional_options">
+
+        <!-- Gesture Anywhere Switch -->
+        <SwitchPreference
+            android:key="gesture_anywhere_floating"
+            android:title="@string/gesture_anywhere_floating"
+            android:summary="@string/gesture_anywhere_floating_summary"
+            android:dependency="floating_window_mode"
+            android:defaultValue="false" />
+
+        <!-- Slim  and Pie Actions Floating Switch -->
+        <SwitchPreference
+            android:key="slim_action_floats"
+            android:title="@string/slim_action_floats"
+            android:summary="@string/slim_action_floats_summary"
+            android:dependency="floating_window_mode"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
