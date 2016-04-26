@@ -1003,6 +1003,15 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
+        if (fragmentName.equals(SimSettings.class.getName())){
+            Log.i(LOG_TAG, "switchToFragment, launch simSettings  ");
+            Intent provisioningIntent =
+                    new Intent("com.android.settings.sim.SIM_SUB_INFO_SETTINGS");
+            startActivity(provisioningIntent);
+            finish();
+            return null;
+        }
+
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
