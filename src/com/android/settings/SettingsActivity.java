@@ -41,6 +41,7 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.Preference;
@@ -670,7 +671,7 @@ public class SettingsActivity extends Activity
                     1 /* one home activity by default */);
         } else {
             if (!mIsShowingDashboard) {
-                mDisplaySearch = true;
+                mDisplaySearch = Process.myUid() == Process.SYSTEM_UID;
                 // UP will be shown only if it is a sub settings
                 if (mIsShortcut) {
                     mDisplayHomeAsUpEnabled = isSubSettings;
