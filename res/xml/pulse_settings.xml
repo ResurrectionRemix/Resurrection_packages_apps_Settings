@@ -42,5 +42,13 @@
             android:title="@string/eos_fling_lavalamp_title"
             android:summary="@string/eos_fling_lavalamp_summary"
             android:dependency="eos_fling_show_pulse" />
+	
+	 <ListPreference
+           android:key="pulse_custom_dimen"
+           android:title="@string/pulse_custom_dimen"
+           android:dialogTitle="@string/pulse_custom_dimen"
+           android:entries="@array/pulse_custom_dimen_entries"
+           android:entryValues="@array/pulse_custom_dimen_values"
+           android:dependency="eos_fling_show_pulse" />
 
 </PreferenceScreen>

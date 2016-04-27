@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
+import android.preference.ListPreference;
 import android.provider.Settings;
 
 import android.provider.SearchIndexableResource;
@@ -43,10 +44,12 @@ import java.util.List;
 public class PulseSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener , Indexable {
     private static final String TAG = PulseSettings.class.getSimpleName();
+    private static final String CUSTOM_DIMEN = "pulse_custom_dimen";
 
     SwitchPreference mShowPulse;
     SwitchPreference mLavaLampEnabled;
     ColorPickerPreference mPulseColor;
+    ListPreference mCustomDimen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,15 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mLavaLampEnabled.setChecked(Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, 1) == 1);
         mLavaLampEnabled.setOnPreferenceChangeListener(this);
+        
+        mCustomDimen = (ListPreference) findPreference(CUSTOM_DIMEN);
+        int customdimen = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.PULSE_CUSTOM_DIMEN, 0,
+                    UserHandle.USER_CURRENT);
+        mCustomDimen.setValue(String.valueOf(customdimen));
+        mCustomDimen.setSummary(mCustomDimen.getEntry());
+        mCustomDimen.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -92,7 +104,17 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, enabled ? 1 : 0);
             return true;
-        }
+        } else if (preference == mCustomDimen) {
+                int customdimen = Integer.valueOf((String) newValue);
+                int index = mCustomDimen.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                       getContentResolver(), 
+		Settings.System.PULSE_CUSTOM_DIMEN, customdimen,
+                        UserHandle.USER_CURRENT);
+                mCustomDimen.setSummary(
+                        mCustomDimen.getEntries()[index]);
+                return true;
+	}
         return false;
     }
 
