@@ -46,12 +46,16 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String TAG = PulseSettings.class.getSimpleName();
     private static final String CUSTOM_DIMEN = "pulse_custom_dimen";
     private static final String CUSTOM_DIV = "pulse_custom_div";
+    private static final String PULSE_BLOCK = "pulse_filled_block_size";
+    private static final String EMPTY_BLOCK = "pulse_empty_block_size";
 
     SwitchPreference mShowPulse;
     SwitchPreference mLavaLampEnabled;
     ColorPickerPreference mPulseColor;
     ListPreference mCustomDimen;
     ListPreference mCustomDiv;
+    ListPreference mFilled;
+    ListPreference mEmpty;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,6 +98,22 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mCustomDiv.setValue(String.valueOf(customdiv));
         mCustomDiv.setSummary(mCustomDiv.getEntry());
         mCustomDiv.setOnPreferenceChangeListener(this);
+        
+        mFilled = (ListPreference) findPreference(PULSE_BLOCK);
+        int filled = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.PULSE_FILLED_BLOCK_SIZE, 0,
+                    UserHandle.USER_CURRENT);
+        mFilled.setValue(String.valueOf(filled));
+        mFilled.setSummary(mFilled.getEntry());
+        mFilled.setOnPreferenceChangeListener(this);
+        
+        mEmpty = (ListPreference) findPreference(EMPTY_BLOCK);
+        int empty = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.PULSE_EMPTY_BLOCK_SIZE, 0,
+                    UserHandle.USER_CURRENT);
+        mEmpty.setValue(String.valueOf(empty));
+        mEmpty.setSummary(mEmpty.getEntry());
+        mEmpty.setOnPreferenceChangeListener(this);
 
     }
 
@@ -133,6 +153,26 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                         UserHandle.USER_CURRENT);
                 mCustomDiv.setSummary(
                         mCustomDiv.getEntries()[index]);
+                return true;
+	} else if (preference == mFilled) {
+                int filled = Integer.valueOf((String) newValue);
+                int index = mFilled.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                       getContentResolver(), 
+		Settings.System.PULSE_FILLED_BLOCK_SIZE, filled,
+                        UserHandle.USER_CURRENT);
+                mFilled.setSummary(
+                        mFilled.getEntries()[index]);
+                return true;
+	}  else if (preference == mEmpty) {
+                int empty = Integer.valueOf((String) newValue);
+                int index = mEmpty.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                       getContentResolver(), 
+		Settings.System.PULSE_EMPTY_BLOCK_SIZE, empty,
+                        UserHandle.USER_CURRENT);
+                mEmpty.setSummary(
+                        mEmpty.getEntries()[index]);
                 return true;
 	}
         return false;

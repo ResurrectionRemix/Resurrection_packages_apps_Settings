@@ -43,6 +43,11 @@
             android:summary="@string/eos_fling_lavalamp_summary"
             android:dependency="eos_fling_show_pulse" />
 	
+	
+	<PreferenceCategory
+	android:key="pulse_bar_style"
+        android:title="@string/pulse_bar_style">
+	
 	 <ListPreference
            android:key="pulse_custom_dimen"
            android:title="@string/pulse_custom_dimen"
@@ -59,5 +64,23 @@
            android:entries="@array/pulse_custom_div_entries"
            android:entryValues="@array/pulse_custom_div_values"
            android:dependency="eos_fling_show_pulse" />
+	 
+	 <ListPreference
+           android:key="pulse_filled_block_size"
+           android:title="@string/pulse_filled_block_size"
+           android:dialogTitle="@string/pulse_filled_block_size"
+           android:entries="@array/pulse_filled_block_size_entries"
+           android:entryValues="@array/pulse_filled_block_size_values"
+           android:dependency="eos_fling_show_pulse" />
+	 
+	<ListPreference
+           android:key="pulse_empty_block_size"
+           android:title="@string/pulse_empty_block_size"
+           android:dialogTitle="@string/pulse_empty_block_size"
+           android:entries="@array/pulse_empty_block_size_entries"
+           android:entryValues="@array/pulse_empty_block_size_values"
+           android:dependency="eos_fling_show_pulse" />
+	
+	</PreferenceCategory>
 
 </PreferenceScreen>
