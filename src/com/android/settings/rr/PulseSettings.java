@@ -48,6 +48,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String CUSTOM_DIV = "pulse_custom_div";
     private static final String PULSE_BLOCK = "pulse_filled_block_size";
     private static final String EMPTY_BLOCK = "pulse_empty_block_size";
+    private static final String FUDGE_FACOR = "pulse_custom_fudge_factor";
 
     SwitchPreference mShowPulse;
     SwitchPreference mLavaLampEnabled;
@@ -56,6 +57,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     ListPreference mCustomDiv;
     ListPreference mFilled;
     ListPreference mEmpty;
+    ListPreference mFudge;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,6 +116,14 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mEmpty.setValue(String.valueOf(empty));
         mEmpty.setSummary(mEmpty.getEntry());
         mEmpty.setOnPreferenceChangeListener(this);
+        
+        mFudge = (ListPreference) findPreference(FUDGE_FACOR);
+        int fudge = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, 0,
+                    UserHandle.USER_CURRENT);
+        mFudge.setValue(String.valueOf(fudge));
+        mFudge.setSummary(mFudge.getEntry());
+        mFudge.setOnPreferenceChangeListener(this);
 
     }
 
@@ -173,6 +183,16 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                         UserHandle.USER_CURRENT);
                 mEmpty.setSummary(
                         mEmpty.getEntries()[index]);
+                return true;
+	} else if (preference == mFudge) {
+                int fudge = Integer.valueOf((String) newValue);
+                int index = mFudge.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(
+                       getContentResolver(), 
+		Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, fudge,
+                        UserHandle.USER_CURRENT);
+                mFudge.setSummary(
+                        mFudge.getEntries()[index]);
                 return true;
 	}
         return false;

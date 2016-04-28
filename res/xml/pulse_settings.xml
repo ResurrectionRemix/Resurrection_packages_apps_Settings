@@ -81,6 +81,14 @@
            android:entryValues="@array/pulse_empty_block_size_values"
            android:dependency="eos_fling_show_pulse" />
 	
+	<ListPreference
+           android:key="pulse_custom_fudge_factor"
+           android:title="@string/pulse_custom_fudge_factor"
+           android:dialogTitle="@string/pulse_filled_block_size"
+           android:entries="@array/pulse_custom_fudge_factor_entries"
+           android:entryValues="@array/pulse_custom_fudge_factor_values"
+           android:dependency="eos_fling_show_pulse" />
+	
 	</PreferenceCategory>
 
 </PreferenceScreen>
