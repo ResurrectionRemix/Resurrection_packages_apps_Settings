@@ -19,6 +19,7 @@ package com.android.settings.dashboard;
 import android.app.Activity;
 import android.content.Context;
 import android.provider.Settings;
+import android.graphics.PorterDuff.Mode;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,10 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
     private View mDivider;
     private Switch mSwitch;
     private GenericSwitchToggle mSwitchToggle;
+    
+    private boolean mCustomColors;
+    private int mTextcolor;
+    private int mIconColor;
 
     private int mColSpan = DEFAULT_COL_SPAN;
 
@@ -60,7 +65,6 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 
         mImageView = (ImageView) view.findViewById(R.id.icon);
         mTitleTextView = (TextView) view.findViewById(R.id.title);
-
  	if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.DASHBOARD_TILEVIEW_DOUBLE_LINES, 0) == 1) {
         mTitleTextView.setSingleLine(false);
@@ -81,6 +85,7 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
         setOnClickListener(this);
         setBackgroundResource(R.drawable.dashboard_tile_background);
         setFocusable(true);
+        setcolors(view);
     }
 
     public TextView getTitleTextView() {
@@ -164,6 +169,24 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
     public Switch getSwitchView() {
         return mSwitch;
     }
-
+  
+  public void setcolors(View view) {
+        mImageView = (ImageView) view.findViewById(R.id.icon);
+        mTitleTextView = (TextView) view.findViewById(R.id.title);
+        mCustomColors = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_CUSTOM_COLORS, 0) == 1;
+        mIconColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DB_ICON_COLOR, 0xFFFFFFFF);         
+	mTextcolor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DB_TEXT_COLOR, 0xFFFFFFFF); 
+        if (mCustomColors) {
+		if (mTitleTextView !=null) {
+		mTitleTextView.setTextColor(mTextcolor);      
+		}		
+		if (mImageView != null) {
+		mImageView.setColorFilter(mIconColor, Mode.SRC_ATOP);		
+		}
+        }
+    }            
 
 }
