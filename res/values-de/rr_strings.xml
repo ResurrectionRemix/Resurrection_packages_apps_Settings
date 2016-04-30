@@ -100,7 +100,7 @@
     
     <!-- Heads Up button -->
     <string name="enable_headsup_button_extended_statusbar_title">Erweiterte Statusleistentaste</string>
-    <string name="enable_headsup_button_extended_statusbar_summary">Aktion für die Heads Up-Taste im erweiterten Statusleistenbereich (de-)aktivieren</string>
+    <string name="enable_headsup_button_extended_statusbar_summary">Aktion für die Heads Up-Taste im erweiterten Statusleistenbereich (de)aktivieren</string>
     
     <!--Categories-->
     <string name="clock_category">Uhrzeit</string>
@@ -109,7 +109,7 @@
     <string name="weather_category">Wetter-Einstellungen</string>
     <string name="icons_category">Statusleistensymbole</string>
     <string name="misc_category">Verschiedene Statusleisten-Einstellungen</string>
-    <string name="button_controller_title">Tasten-Controller</string>
+    <string name="button_controller_title">Tasten</string>
     
 
     <string name="recents_panel_clear_all_category">Alle Apps schließen</string>
@@ -240,9 +240,9 @@
     <string name="recents_fab_vibrate">Vibration der ClearAll-Taste</string>	
     <string name="recents_fab_vibrate_summary">Haptisches Feedback bei Betätigung der Taste (de)aktivieren</string>
     <string name="fab_animation_style">Schwebende Tasten-Animation</string>	
-    <string name="recents_fab_lp">Enable LongPress on FAB</string>	
-    <string name="recents_fab_lp_summary">Longpress Updates MemoryBar if Present</string>	
-    <string name="recents_fab_lp_anim">Long Press FAB animations</string>
+    <string name="recents_fab_lp">Langes Gedrückthalten bei FAB aktivieren</string>	
+    <string name="recents_fab_lp_summary">Langes Gedrückthalten aktualisiert die RAM-Leiste (falls vorhanden)</string>	
+    <string name="recents_fab_lp_anim">FAB-Animationen bei Gedrückthalten</string>
     <string name="clear_animation_style">ClearAll-Animation</string>	
     <string name="button1">Standard</string>	
     <string name="button2">Square Checkbox </string>	
@@ -347,7 +347,7 @@
     <string name="navbar_enable_bar_title">Tasten der Navigationsleiste</string>
     <string name="navbar_enable_bar_summary">Aktiviert die Navigationstasten auf dem Bildschirm</string>	
     <string name="navbar_recents_switch">Navbar Alternate Recents</string>
-    <string name="navbar_recents_switch_summary">(De)aktiviert die benutzerdefinierte Recents-Taste in der Recents-Ansicht. Beim Gedrückthalten der Taste werden alle Apps beendet.</string>
+    <string name="navbar_recents_switch_summary">(De-)Aktiviert die benutzerdefinierte Recents-Taste in der Recents-Ansicht. Beim Gedrückthalten der Taste werden alle Apps beendet.</string>
 
     <!-- Status bar - Clock -->
     <string name="clock_color_switch">Farbe der Uhrzeit-Anzeige anpassen</string>
@@ -1009,7 +1009,7 @@
     <!-- Selinux Switch -->
     <string name="selinux_switch_title">SELinux Wechsel-Optionen</string>
     <string name="selinux_switch_summary">SELinux ist eine Sammlung von Kernel-Modifikationstools und Sicherheitsrichtlinien. Das Ändern dieser Einstellung kann ungewünschte Ereignisse hervorrufen. Benutzung auf eigene Gefahr!</string>
-    <string name="selinux_title">Selinux-Modus</string>
+    <string name="selinux_title">SeLinux-Modus</string>
     <string name="selinux_permissive_title">Moderat</string>
     <string name="selinux_enforcing_title">Strikt</string>
 
@@ -1157,8 +1157,8 @@
     <string name="adaway_settings_title">Werbeblocker</string>
 
 	<!-- PA Pie control -->
-	<string name="pa_piecontrol_settings_summary">PA Pie 2.0: Anpassung der Schaltflächen und deren Stil, Größe and Farbe</string>
-	<string name="pa_pie_control_title">Pie Control</string>
+	<string name="pa_piecontrol_settings_summary">PA Pie 2.0: Anpassung des Panels und dessen Stil, Größe and Farbe</string>
+	<string name="pa_pie_control_title">Halbkreis-Panel</string>
 	<string name="pa_pie_control_enable_title">Halbkreis-Panel aktivieren</string>
 	<string name="pa_pie_targets_title">Schaltflächen</string>
 	<string name="pa_pie_style_title">Stil</string>
@@ -1173,48 +1173,48 @@
 	<string name="pa_pie_size_monster">Monster</string>
 	<string name="pa_pie_size_enormous">Enorm</string>
 	<string name="pa_pie_mode_default">Standard</string>
-	<string name="pa_pie_gravity_title">Pie Gravity</string>
+	<string name="pa_pie_gravity_title">Platzierung</string>
 	<string name="pa_pie_gravity_summary">Ort auswählen, an dem das Halbkreis-Panel platziert wird</string>
 	<string name="pa_pie_gravity_bottom">Unten</string>
 	<string name="pa_pie_gravity_right">Rechts</string>
 	<string name="pa_pie_gravity_left">Links</string>
-	<string name="pa_pie_gap_title">Lücke</string>
-	<string name="pa_pie_gap_summary">Verändert die Größe der Lücken, welche die Panel-Elemente unterteilen</string>
-	<string name="pa_pie_angle_title">Winkel</string>
-	<string name="pa_pie_angle_summary">Verändert die Größe der Eckenwinkel aus dem Anhang</string>
-	<string name="pa_pie_angle_none">Keine (alt)</string>
+	<string name="pa_pie_gap_title">Lücken</string>
+	<string name="pa_pie_gap_summary">Verändert die Lückengröße zwischen den Schaltflächen</string>
+	<string name="pa_pie_angle_title">Abstand zum Bildschirmrand</string>
+	<string name="pa_pie_angle_summary">Abstand der Bedienelemente zum Rand anpassen</string>
+	<string name="pa_pie_angle_none">Kein Abstand (alt)</string>
 	<string name="pa_pie_angle_small">Klein</string>
 	<string name="pa_pie_angle_big">Normal (Standard)</string>
 	<string name="pa_pie_angle_huge">Groß</string>
 	<string name="pa_pie_angle_super">Sehr groß</string>
-	<string name="pa_pie_gap_none">Keine</string>
+	<string name="pa_pie_gap_none">Keine Lücken</string>
 	<string name="pa_pie_gap_small">Klein</string>
 	<string name="pa_pie_gap_big">Groß (Standard)</string>
 	<string name="pa_pie_gap_huge">Sehr groß</string>
-	<string name="pa_pie_mode_title">Stil</string>
-	<string name="pa_pie_mode_summary">Anpassung der Animationen und Statusextras</string>
+	<string name="pa_pie_mode_title">Informationseinblendung</string>
+	<string name="pa_pie_mode_summary">Dauer bis zur Einblendung der Zusatzinformationen anpassen</string>
 	<string name="pa_pie_mode_bare">Sehr schnell</string>
 	<string name="pa_pie_mode_quick">Schnell</string>
 	<string name="pa_pie_mode_default">Standard</string>
 	<string name="pa_pie_mode_slow">Langsam</string>
 	<string name="pa_pie_lastapp_title">Zuletzt geöffnete App</string>
-	<string name="pa_pie_lastapp_summary">Taste aktivieren</string>
+	<string name="pa_pie_lastapp_summary">Taste (de)aktivieren</string>
 	<string name="pa_pie_killtask_title">App beenden</string>
-	<string name="pa_pie_killtask_summary">Taste aktivieren</string>
+	<string name="pa_pie_killtask_summary">Taste (de)aktivieren</string>
 	<string name="pa_pie_notifications_title">Benachrichtigungen</string>
-	<string name="pa_pie_notifications_summary">Taste aktivieren</string>
+	<string name="pa_pie_notifications_summary">Taste (de)aktivieren</string>
 	<string name="pa_pie_settings_panel_title">QS-Panel</string>
-	<string name="pa_pie_settings_panel_summary">Taste aktivieren</string>
+	<string name="pa_pie_settings_panel_summary">Taste (de)aktivieren</string>
 	<string name="pa_pie_screenshot_title">Screenshot</string>
-	<string name="pa_pie_screenshot_summary">Taste aktivieren</string>
+	<string name="pa_pie_screenshot_summary">Taste (de)aktivieren</string>
 	<string name="pa_pie_color_title">Farbeinstellungen</string>
-	<string name="pa_pie_color_style_title">Farbstil</string>
+	<string name="pa_pie_color_style_title">Farbanpassungen (de)aktivieren</string>
 	<string name="pa_pie_background_title">Hintergrundfarbe</string>
 	<string name="pa_pie_select_title">Auswahlfarbe</string>
-	<string name="pa_pie_outlines_title">Umrissfarbe</string>
+	<string name="pa_pie_outlines_title">Umrissfarbe der Schaltflächen</string>
 	<string name="pa_pie_status_clock_title">Uhrzeitfarbe</string>
 	<string name="pa_pie_status_title">Statusfarbe</string>
-	<string name="pa_pie_chevron_title">Chevron-Farbe</string>
+	<string name="pa_pie_chevron_title">Umrissfarbe des Außenrandes</string>
 	<string name="pa_pie_juice_title">Akkustandsfarbe</string>
 	<string name="pa_pie_button_color">Tastenfarbe</string>
 	<string name="pa_pie_button_color_title">Tastenfarbe</string>
@@ -1750,7 +1750,7 @@
     <string name="battery_color">Akku</string>
     <string name="battery_icon_color">Symbol</string>
     <string name="battery_text_color">Text</string>
-    <string name="statusbar_color_switch_summary">Benutzerdefinierte Symbolfarben (de-)aktivieren</string>
+    <string name="statusbar_color_switch_summary">Benutzerdefinierte Symbolfarben (de)aktivieren</string>
 
     <!--Custom logos-->
     <string name="sb_custom_logos">Benutzerdefinierte Logos</string>
@@ -1902,7 +1902,7 @@
     <string name="eos_fling_lavalamp_title">Lava-Lampe einschalten</string>
     <string name="eos_fling_lavalamp_summary">Pulse animiert einen seichten Lava-Lampeneffekt bei der Farbgebung</string>
 
-	<string name="pulse_custom_dimen">Pulse: Balkenbreite</string>
+	<string name="pulse_custom_dimen">Balkenbreite</string>
 	<string name="pulse_dimen0">Standard</string>
 	<string name="pulse_dimen1">7dp</string>
 	<string name="pulse_dimen2">8dp</string>
@@ -1924,7 +1924,7 @@
 	<string name="pulse_dimen18">25dp</string>
 	<string name="pulse_dimen19">26dp</string>
 	
-	<string name="pulse_custom_div">Pulse: Balkenabstände</string>
+	<string name="pulse_custom_div">Balkenabstände</string>
 	<string name="default_div">Standard</string>
 	<string name="div1">18</string>
 	<string name="div2">20</string>
@@ -1936,10 +1936,10 @@
 	<string name="div8">32</string>
  
 	<string name="default_fill">4dp (Standard)</string>
-	<string name="pulse_bar_style">Pulse: Leistenstil</string>
+	<string name="pulse_bar_style">Leistenstil</string>
 	<string name="default_pulse_empty">1dp (Standard)</string>	
 	<string name="pulse_filled_block_size">Blockgröße</string>
-	<string name="pulse_empty_block_size">Block-Abstände</string>
+	<string name="pulse_empty_block_size">Blockabstände</string>
 	<string name="pulse_fill1">5dp</string>
 	<string name="pulse_fill2">6dp</string>
 	<string name="pulse_fill3">7dp</string>
@@ -2037,18 +2037,18 @@
 	<!-- Floating Windows -->
     <string name="shortcut_action_floating_windows">Schwebende Fenster</string>
     <string name="floating_master_switch">Hauptwechsel</string>
-    <string name="floating_additional_options">Zusätzliche Schwebe-Optionen</string>
+    <string name="floating_additional_options">Zusätzliche Optionen</string>
     <string name="floating_windows">Schwebende Fenster</string>
-    <string name="floating_windows_switch">Selbst durch Erlauben der globalen Benutzung des Schwebe-Modus werden die unten aufgeführten Optionen nicht funktionieren, wenn dieser Modus ausgeschaltet ist.</string>
+    <string name="floating_windows_switch">Selbst durch das Erlauben der globalen Benutzung des Fenster-Modus werden die unten aufgeführten Optionen nicht funktionieren, wenn dieser Modus ausgeschaltet ist.</string>
     <string name="slim_action_floats">Slim Actions &amp; Pie</string>
     <string name="slim_action_floats_summary">Slim- &amp; Pie-Aktionen im Schwebe-Modus öffnen</string>
     <string name="gesture_anywhere_floating">Gesten überall</string>
     <string name="gesture_anywhere_floating_summary">Gesten-Verknüpfungen im Schwebe-Modus öffnen</string>
     
-    <string name="db_custom_colors">DashBoard: Benutzerdefinierte Farben</string>
+    <string name="db_custom_colors">Benutzerdefinierte Farben</string>
     <string name="db_custom_colors_summary">Verschiedene Elemente des Dashboards mit den unten aufgeführten Optionen färben</string>
-    <string name="db_colors">DashBoard: Farben</string>
-    <string name="db_icon_color">Dashboard: Symbole</string>
+    <string name="db_colors">DashBoard-Farben</string>
+    <string name="db_icon_color">Symbole</string>
     <string name="db_text_color">Titeltext</string>
     <string name="db_sub_text_color">Text</string>
     <string name="db_switch_color">Hervorhebung wechseln</string>
