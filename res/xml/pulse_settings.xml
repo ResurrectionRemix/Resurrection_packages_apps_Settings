@@ -41,38 +41,54 @@
             android:key="eos_fling_lavalamp"
             android:title="@string/eos_fling_lavalamp_title"
             android:summary="@string/eos_fling_lavalamp_summary"
-            android:dependency="eos_fling_show_pulse" />
-	
-	
+            android:dependency="eos_fling_show_pulse" />	
+      
 	<PreferenceCategory
-	android:key="pulse_bar_style"
-        android:title="@string/pulse_bar_style">
+            android:key="pulse_1"
+            android:title="@string/pulse_custom_dimen_category" >
+		
+	<Preference
+            android:key="pulse_custom_dimen_category"
+            android:summary="@string/pulse_custom_dimen_cat"
+	    android:selectable="false"/>
 	
-	 <ListPreference
-           android:key="pulse_custom_dimen"
-           android:title="@string/pulse_custom_dimen"
-           android:dialogTitle="@string/pulse_custom_dimen"
-           android:entries="@array/pulse_custom_dimen_entries"
-           android:entryValues="@array/pulse_custom_dimen_values"
-           android:dependency="eos_fling_show_pulse" />
-	 
-	 	
-	 <ListPreference
+	</PreferenceCategory>
+	
+        <ListPreference
+            android:key="pulse_custom_dimen"
+            android:title="@string/pulse_custom_dimen"
+            android:dialogTitle="@string/pulse_custom_dimen"
+            android:entries="@array/pulse_custom_dimen_entries"
+            android:entryValues="@array/pulse_custom_dimen_values"
+            android:dependency="eos_fling_show_pulse" />
+
+	<ListPreference
            android:key="pulse_custom_div"
            android:title="@string/pulse_custom_div"
            android:dialogTitle="@string/pulse_custom_div"
            android:entries="@array/pulse_custom_div_entries"
            android:entryValues="@array/pulse_custom_div_values"
            android:dependency="eos_fling_show_pulse" />
-	 
-	 <ListPreference
+	
+	<PreferenceCategory
+            android:key="pulse_2"
+            android:title="@string/pulse_block_category" >
+	  	  
+	<Preference
+            android:key="pulse_block_category"
+            android:summary="@string/pulse_block_category_summary" 
+	    android:selectable="false"/>
+	
+	</PreferenceCategory>
+
+	<ListPreference
            android:key="pulse_filled_block_size"
            android:title="@string/pulse_filled_block_size"
            android:dialogTitle="@string/pulse_filled_block_size"
            android:entries="@array/pulse_filled_block_size_entries"
            android:entryValues="@array/pulse_filled_block_size_values"
            android:dependency="eos_fling_show_pulse" />
-	 
+
 	<ListPreference
            android:key="pulse_empty_block_size"
            android:title="@string/pulse_empty_block_size"
@@ -81,6 +97,17 @@
            android:entryValues="@array/pulse_empty_block_size_values"
            android:dependency="eos_fling_show_pulse" />
 	
+	<PreferenceCategory
+            android:key="pulse_3"
+            android:title="@string/pulse_aggression" >
+
+	<Preference
+            android:key="pulse_aggression"
+            android:summary="@string/pulse_aggression_category" 
+	    android:selectable="false"/>
+	
+	</PreferenceCategory>
+
 	<ListPreference
            android:key="pulse_custom_fudge_factor"
            android:title="@string/pulse_custom_fudge_factor"
@@ -89,6 +116,4 @@
            android:entryValues="@array/pulse_custom_fudge_factor_values"
            android:dependency="eos_fling_show_pulse" />
 	
-	</PreferenceCategory>
-
 </PreferenceScreen>
