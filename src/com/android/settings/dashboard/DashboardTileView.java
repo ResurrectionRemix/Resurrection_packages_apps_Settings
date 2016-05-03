@@ -80,7 +80,7 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
         }
 
         mStatusTextView = (TextView) view.findViewById(R.id.status);
-        mDivider = (View) view.findViewById(R.id.tile_divider);
+        mDivider = view.findViewById(R.id.tile_divider);
 	 if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.DASHBOARD_TILEVIEW_DIVIDERS, 0) == 1) {
          mDivider.setVisibility(View.GONE);
@@ -91,7 +91,7 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 
         setOnClickListener(this);
         setBackgroundResource(R.drawable.dashboard_tile_background);
-        updatedashboard(context);
+        updatedashboard(context,view);
         setFocusable(true);
         setcolors(view);
     }
@@ -197,12 +197,13 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
         }
     } 
     
-    public void updatedashboard(Context context) {
+    public void updatedashboard(Context context ,View view) {
          mCustomColors = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.DASHBOARD_CUSTOM_COLORS, 0) == 1;
          if(mCustomColors) {       
          setBackgroundColor(Settings.System.getInt(context.getContentResolver(),
             Settings.System.SETTINGS_BG_COLOR, 0xff000000));
+        mDivider = (View) view.findViewById(R.id.tile_divider);
         mDivider.setBackgroundResource(R.drawable.dashboard_tile_background);
         mDivider.setBackgroundColor(Settings.System.getInt(context.getContentResolver(),
             Settings.System.SETTINGS_BG_COLOR, 0xff000000));
