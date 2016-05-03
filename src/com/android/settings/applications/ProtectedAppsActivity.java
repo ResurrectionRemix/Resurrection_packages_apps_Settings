@@ -56,6 +56,7 @@ public class ProtectedAppsActivity extends Activity {
     private static final int REQ_RESET_PATTERN = 2;
 
     private static final String NEEDS_UNLOCK = "needs_unlock";
+    private static final String TARGET_INTENT = "target_intent";
 
     private ListView mListView;
 
@@ -100,16 +101,17 @@ public class ProtectedAppsActivity extends Activity {
 
         if (savedInstanceState != null) {
             mUserIsAuth = savedInstanceState.getBoolean(NEEDS_UNLOCK);
-        }
-
-        if (!mUserIsAuth) {
-            // Require unlock
-            Intent lockPattern = new Intent(this, LockPatternActivity.class);
-            startActivityForResult(lockPattern, REQ_ENTER_PATTERN);
+            mTargetIntent = savedInstanceState.getParcelable(TARGET_INTENT);
         } else {
-            //LAUNCH
-            if (mTargetIntent != null) {
-                launchTargetActivityInfoAndFinish();
+            if (!mUserIsAuth) {
+                // Require unlock
+                Intent lockPattern = new Intent(this, LockPatternActivity.class);
+                startActivityForResult(lockPattern, REQ_ENTER_PATTERN);
+            } else {
+                //LAUNCH
+                if (mTargetIntent != null) {
+                    launchTargetActivityInfoAndFinish();
+                }
             }
         }
     }
@@ -118,6 +120,7 @@ public class ProtectedAppsActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(NEEDS_UNLOCK, mUserIsAuth);
+        outState.putParcelable(TARGET_INTENT, mTargetIntent);
     }
 
     @Override
