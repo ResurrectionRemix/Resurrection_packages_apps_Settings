@@ -38,7 +38,44 @@
         android:title="@string/db_text_color"
         android:defaultValue="0xffffffff" 
 	android:dependency="db_custom_colors"/>
+    
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="settings_category_text_color"
+        android:title="@string/text_cat_title"
+        android:defaultValue="0xff000000" />
+    
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
+       android:key="settings_bg_color"
+       android:title="@string/background_title"
+       android:defaultValue="0x80ffffff" 
+       android:dependency="db_custom_colors"/>
+     
+     <ListPreference
+       android:key="dashboard_font_style"
+       android:entries="@array/dashboard_font_style_entries"
+       android:entryValues="@array/dashboard_font_style_values"
+       android:title="@string/dashboard_font_style_title" />
+     
+     
+     <com.android.settings.rr.SeekBarPreferenceCham
+       android:key="settings_category_text_size"
+       android:title="@string/dash_category_text_size"
+       android:max="25"
+       settings:min="4"
+       settings:defaultValue="15"
+       settings:unitsLeft=""
+       settings:unitsRight="dp" 
+       android:dependency="db_custom_colors"/>
 
+      <com.android.settings.rr.SeekBarPreferenceCham
+       android:key="settings_title_text_size"
+       android:title="@string/dash_title_text_size"
+       android:max="25"
+       settings:min="4"
+       settings:defaultValue="14"
+       settings:unitsLeft=""
+       settings:unitsRight="dp" 
+       android:dependency="db_custom_colors"/>
 
   </PreferenceCategory>
 

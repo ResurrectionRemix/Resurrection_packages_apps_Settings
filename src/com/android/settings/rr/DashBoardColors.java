@@ -51,6 +51,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import com.android.settings.rr.SeekBarPreferenceCham;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -58,12 +60,28 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
 
  private static final String DASHBOARD_ICON_COLOR = "db_icon_color";
  private static final String DASHBOARD_TEXT_COLOR = "db_text_color";
+ private static final String PREF_BG_COLOR =
+            "settings_bg_color";
+ private static final String PREF_CAT_TEXT_COLOR =
+            "settings_category_text_color";
+ private static final String SETTINGS_TITLE_TEXT_SIZE  = "settings_title_text_size";
+ private static final String SETTINGS_CATEGORY_TEXT_SIZE  = "settings_category_text_size";         
+ private static final String DASHBOARD_FONT_STYLE = "dashboard_font_style";
  static final int DEFAULT = 0xffffffff;
  private static final int MENU_RESET = Menu.FIRST;
+ private static final int TRANSLUCENT_BLACK = 0x80000000;
+ private static final int CYANIDE_BLUE = 0xff1976D2;
+ private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
+ private static final int WHITE = 0xffffffff;
 	
 
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mTextColor;
+    private ColorPickerPreference mBgColor;
+    private ColorPickerPreference mCatTextColor;
+    private SeekBarPreferenceCham mDashTitleTextSize;
+    private SeekBarPreferenceCham mDashCategoryTextSize;
+    private ListPreference mDashFontStyle;
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -90,7 +108,46 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
         mTextColor.setNewPreviewColor(intColor);
+        
+        mBgColor =
+                (ColorPickerPreference) findPreference(PREF_BG_COLOR);
+        intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.SETTINGS_BG_COLOR, WHITE);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mBgColor.setNewPreviewColor(intColor);
+        mBgColor.setSummary(hexColor);
+        mBgColor.setOnPreferenceChangeListener(this);
 	
+	
+	mCatTextColor =
+                (ColorPickerPreference) findPreference(PREF_CAT_TEXT_COLOR);
+        intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, HOLO_BLUE_LIGHT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mCatTextColor.setNewPreviewColor(intColor);
+        mCatTextColor.setSummary(hexColor);
+        mCatTextColor.setOnPreferenceChangeListener(this);
+        
+        
+        mDashTitleTextSize =
+                (SeekBarPreferenceCham) findPreference(SETTINGS_TITLE_TEXT_SIZE);
+        mDashTitleTextSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_TITLE_TEXT_SIZE, 14));
+        mDashTitleTextSize.setOnPreferenceChangeListener(this);
+
+        mDashCategoryTextSize =
+                (SeekBarPreferenceCham) findPreference(SETTINGS_CATEGORY_TEXT_SIZE);
+        mDashCategoryTextSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, 15));
+        mDashCategoryTextSize.setOnPreferenceChangeListener(this);
+        
+        
+        mDashFontStyle = (ListPreference) findPreference(DASHBOARD_FONT_STYLE);
+        mDashFontStyle.setOnPreferenceChangeListener(this);
+        mDashFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.DASHBOARD_FONT_STYLE, 0)));
+        mDashFontStyle.setSummary(mDashFontStyle.getEntry());
+        
 	setHasOptionsMenu(true);
 
 }
@@ -127,7 +184,40 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.DB_TEXT_COLOR, intHex);
             return true;
-         } 
+         } else if (preference == mBgColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.SETTINGS_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+         } else if (preference == mCatTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mDashTitleTextSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SETTINGS_TITLE_TEXT_SIZE, width);
+            return true;
+        } else if (preference == mDashCategoryTextSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, width);
+            return true;
+         } else if (preference == mDashFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mDashFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DASHBOARD_FONT_STYLE, val);
+            mDashFontStyle.setSummary(mDashFontStyle.getEntries()[index]);
+            return true;
+        }  
 	return false;
 	}
 
@@ -172,6 +262,14 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
                 Settings.System.DB_TEXT_COLOR, DEFAULT);
         mTextColor.setNewPreviewColor(DEFAULT);
         mTextColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.SETTINGS_BG_COLOR, DEFAULT);
+        mBgColor.setNewPreviewColor(DEFAULT);
+        mBgColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, DEFAULT);
+        mCatTextColor.setNewPreviewColor(DEFAULT);
+        mCatTextColor.setSummary(R.string.default_string);
 
     }
     

@@ -19,7 +19,9 @@ package com.android.settings.dashboard;
 import android.app.Activity;
 import android.content.Context;
 import android.provider.Settings;
+import android.os.UserHandle;
 import android.graphics.PorterDuff.Mode;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +37,8 @@ import com.android.settings.Utils;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import com.android.internal.util.rr.FontHelper;
+
 public class DashboardTileView extends FrameLayout implements View.OnClickListener {
 
     private static final int DEFAULT_COL_SPAN = 1;
@@ -49,6 +53,7 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
     private boolean mCustomColors;
     private int mTextcolor;
     private int mIconColor;
+    private int mDashTextSize = 14;
 
     private int mColSpan = DEFAULT_COL_SPAN;
 
@@ -62,6 +67,8 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
         super(context, attrs);
 
         final View view = LayoutInflater.from(context).inflate(R.layout.dashboard_tile, this);
+        mCustomColors = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_CUSTOM_COLORS, 0) == 1;
 
         mImageView = (ImageView) view.findViewById(R.id.icon);
         mTitleTextView = (TextView) view.findViewById(R.id.title);
@@ -73,7 +80,7 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
         }
 
         mStatusTextView = (TextView) view.findViewById(R.id.status);
-        mDivider = view.findViewById(R.id.tile_divider);
+        mDivider = (View) view.findViewById(R.id.tile_divider);
 	 if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.DASHBOARD_TILEVIEW_DIVIDERS, 0) == 1) {
          mDivider.setVisibility(View.GONE);
@@ -84,15 +91,29 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 
         setOnClickListener(this);
         setBackgroundResource(R.drawable.dashboard_tile_background);
+        updatedashboard(context);
         setFocusable(true);
         setcolors(view);
+        if (mCustomColors) {
+         updateDashFont();
+        }
     }
 
     public TextView getTitleTextView() {
-        return mTitleTextView;
+        mCustomColors = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_CUSTOM_COLORS, 0) == 1;
+        if (mCustomColors) {
+         updateDashFont();
+         }   
+         return mTitleTextView;
     }
 
     public TextView getStatusTextView() {
+        mCustomColors = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_CUSTOM_COLORS, 0) == 1;
+        if (mCustomColors) {
+         updateDashFont();
+         }  
         return mStatusTextView;
     }
 
@@ -187,6 +208,110 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 		mImageView.setColorFilter(mIconColor, Mode.SRC_ATOP);		
 		}
         }
-    }            
+    } 
+    
+    public void updatedashboard(Context context) {
+         mCustomColors = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_CUSTOM_COLORS, 0) == 1;
+         if(mCustomColors) {       
+         setBackgroundColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.SETTINGS_BG_COLOR, 0xff000000));
+        mDivider.setBackgroundResource(R.drawable.dashboard_tile_background);
+        mDivider.setBackgroundColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.SETTINGS_BG_COLOR, 0xff000000));
+        mStatusTextView.setTextColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, 0xff1976D2));
+        mStatusTextView.setTextSize(Settings.System.getIntForUser(context.getContentResolver(),
+            Settings.System.SETTINGS_TITLE_TEXT_SIZE, 14,
+               UserHandle.USER_CURRENT));
+        mTitleTextView.setTextSize(Settings.System.getIntForUser(context.getContentResolver(),
+            Settings.System.SETTINGS_TITLE_TEXT_SIZE, 18,
+               UserHandle.USER_CURRENT));                 
+            }
+ 
+      }
+    private void updateDashFont() {
+        final int mDashFontStyle = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_FONT_STYLE, FontHelper.FONT_NORMAL);
 
+        getFontStyle(mDashFontStyle);
+    }
+
+    public void getFontStyle(int font) {
+        switch (font) {
+            case FontHelper.FONT_NORMAL:
+            default:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_BOLD:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                break;
+            case FontHelper.FONT_BOLD_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                break;
+            case FontHelper.FONT_LIGHT:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_LIGHT_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_THIN:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_THIN_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_CONDENSED:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_CONDENSED_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_CONDENSED_LIGHT:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_CONDENSED_LIGHT_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_CONDENSED_BOLD:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                break;
+            case FontHelper.FONT_CONDENSED_BOLD_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                break;
+            case FontHelper.FONT_MEDIUM:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_MEDIUM_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_BLACK:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_BLACK_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                break;
+        }
+    }
 }
