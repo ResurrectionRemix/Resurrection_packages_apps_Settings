@@ -66,7 +66,6 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
             "settings_category_text_color";
  private static final String SETTINGS_TITLE_TEXT_SIZE  = "settings_title_text_size";
  private static final String SETTINGS_CATEGORY_TEXT_SIZE  = "settings_category_text_size";         
- private static final String DASHBOARD_FONT_STYLE = "dashboard_font_style";
  static final int DEFAULT = 0xffffffff;
  private static final int MENU_RESET = Menu.FIRST;
  private static final int TRANSLUCENT_BLACK = 0x80000000;
@@ -81,7 +80,6 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
     private ColorPickerPreference mCatTextColor;
     private SeekBarPreferenceCham mDashTitleTextSize;
     private SeekBarPreferenceCham mDashCategoryTextSize;
-    private ListPreference mDashFontStyle;
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -140,13 +138,6 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
         mDashCategoryTextSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, 15));
         mDashCategoryTextSize.setOnPreferenceChangeListener(this);
-        
-        
-        mDashFontStyle = (ListPreference) findPreference(DASHBOARD_FONT_STYLE);
-        mDashFontStyle.setOnPreferenceChangeListener(this);
-        mDashFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.DASHBOARD_FONT_STYLE, 0)));
-        mDashFontStyle.setSummary(mDashFontStyle.getEntry());
         
 	setHasOptionsMenu(true);
 
@@ -210,14 +201,7 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, width);
             return true;
-         } else if (preference == mDashFontStyle) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mDashFontStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.DASHBOARD_FONT_STYLE, val);
-            mDashFontStyle.setSummary(mDashFontStyle.getEntries()[index]);
-            return true;
-        }  
+         }  
 	return false;
 	}
 
