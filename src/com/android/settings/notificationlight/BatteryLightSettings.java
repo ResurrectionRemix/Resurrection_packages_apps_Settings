@@ -73,7 +73,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
         mLightEnabledPref = (CMSystemSettingSwitchPreference) prefSet.findPreference(LIGHT_ENABLED_PREF);
         mPulseEnabledPref = (CMSystemSettingSwitchPreference) prefSet.findPreference(PULSE_ENABLED_PREF);
 
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_ledCanPulse)) {
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_ledCanPulse) ||
+                getResources().getBoolean(org.cyanogenmod.platform.internal.R.bool.config_useSegmentedBatteryLed)) {
             mGeneralPrefs.removePreference(mPulseEnabledPref);
         }
 
