@@ -61,6 +61,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
     private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
+    private static final String HIDE_CARRIER_MAX_NOTIFICATION = "hide_carrier_max_notification";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
@@ -69,7 +70,8 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private ListPreference mShowCarrierLabel;
     private String mCustomCarrierLabelText;
     private ColorPickerPreference mCarrierColorPicker;
-    private SeekBarPreference mStatusBarCarrierSize;	
+    private SeekBarPreference mStatusBarCarrierSize;
+    private ListPreference mHideCarrierMaxNotification;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,8 +86,8 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         int intColor;
         String hexColor;
 
-        mShowCarrierLabel =
-                (ListPreference) findPreference(SHOW_CARRIER_LABEL);
+        mShowCarrierLabel = (ListPreference) findPreference(SHOW_CARRIER_LABEL);
+                
         int showCarrierLabel = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
@@ -107,6 +109,13 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 10));
         mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
+
+        mHideCarrierMaxNotification = (ListPreference) findPreference(HIDE_CARRIER_MAX_NOTIFICATION);
+        int numberOfNotificationIcons = Settings.System.getInt(resolver,
+                Settings.System.HIDE_CARRIER_MAX_NOTIFICATION, 1);
+        mHideCarrierMaxNotification.setValue(String.valueOf(numberOfNotificationIcons));
+        mHideCarrierMaxNotification.setSummary(mHideCarrierMaxNotification.getEntry());
+        mHideCarrierMaxNotification.setOnPreferenceChangeListener(this);
 
             updateCustomLabelTextSummary();
 
@@ -144,6 +153,12 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
             int width = ((Integer)newValue).intValue();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, width);
+            return true;
+        } else if (preference == mHideCarrierMaxNotification) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mHideCarrierMaxNotification.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.HIDE_CARRIER_MAX_NOTIFICATION, intValue);
+            preference.setSummary(mHideCarrierMaxNotification.getEntries()[index]);
             return true;
 	}
          return false;
