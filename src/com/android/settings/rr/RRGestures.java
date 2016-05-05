@@ -30,13 +30,13 @@ import java.util.List;
 
 import com.android.internal.logging.MetricsLogger;
 
-public class MultiTasking extends SettingsPreferenceFragment {
+public class RRGestures extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.multitasking);
+        addPreferencesFromResource(R.xml.rr_gestures);
     }
 
     protected int getMetricsCategory()

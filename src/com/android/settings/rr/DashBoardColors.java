@@ -66,6 +66,8 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
             "settings_category_text_color";
  private static final String SETTINGS_TITLE_TEXT_SIZE  = "settings_title_text_size";
  private static final String SETTINGS_CATEGORY_TEXT_SIZE  = "settings_category_text_size";         
+ private static final String DASHBOARD_COLUMNS = "dashboard_columns";
+ private static final String DASHBOARD_SWITCHES = "dashboard_switches";
  static final int DEFAULT = 0xffffffff;
  private static final int MENU_RESET = Menu.FIRST;
  private static final int TRANSLUCENT_BLACK = 0x80000000;
@@ -80,6 +82,8 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
     private ColorPickerPreference mCatTextColor;
     private SeekBarPreferenceCham mDashTitleTextSize;
     private SeekBarPreferenceCham mDashCategoryTextSize;
+    private ListPreference mDashboardColumns;
+    private ListPreference mDashboardSwitches;	
 
  @Override
     public void onCreate(Bundle icicle) {
@@ -138,6 +142,19 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
         mDashCategoryTextSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, 15));
         mDashCategoryTextSize.setOnPreferenceChangeListener(this);
+        
+        
+        mDashboardColumns = (ListPreference) findPreference(DASHBOARD_COLUMNS);
+        mDashboardColumns.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.DASHBOARD_COLUMNS, 0)));
+        mDashboardColumns.setSummary(mDashboardColumns.getEntry());
+        mDashboardColumns.setOnPreferenceChangeListener(this);
+
+ 	mDashboardSwitches = (ListPreference) findPreference(DASHBOARD_SWITCHES);
+        mDashboardSwitches.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.DASHBOARD_SWITCHES, 0)));
+        mDashboardSwitches.setSummary(mDashboardSwitches.getEntry());
+        mDashboardSwitches.setOnPreferenceChangeListener(this);
         
 	setHasOptionsMenu(true);
 
@@ -201,7 +218,19 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, width);
             return true;
-         }  
+         }else   if (preference == mDashboardSwitches) {
+             Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_SWITCHES,
+                     Integer.valueOf((String) newValue));
+             mDashboardSwitches.setValue(String.valueOf(newValue));
+             mDashboardSwitches.setSummary(mDashboardSwitches.getEntry());
+             return true;
+         } else if (preference == mDashboardColumns) {
+             Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_COLUMNS,
+                     Integer.valueOf((String) newValue));
+             mDashboardColumns.setValue(String.valueOf(newValue));
+             mDashboardColumns.setSummary(mDashboardColumns.getEntry());
+             return true;
+         } 
 	return false;
 	}
 
