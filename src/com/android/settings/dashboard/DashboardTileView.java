@@ -216,6 +216,15 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
             Settings.System.SETTINGS_TITLE_TEXT_SIZE, 18,
                UserHandle.USER_CURRENT));                 
             }
- 
       }
+
+    public void setEnabledTile(boolean enabled) {
+        mImageView.setAlpha(enabled ? 1f : Utils.DISABLED_ALPHA);
+        mTitleTextView.setEnabled(enabled);
+        mStatusTextView.setEnabled(enabled);
+        mSwitch.setEnabled(enabled);
+        mSwitch.setClickable(enabled);
+        setFocusable(enabled);
+        setEnabled(enabled);
+    }
 }
