@@ -110,6 +110,7 @@
   <string name="weather_category">Paramètres météorologiques</string>
   <string name="icons_category">Icônes de la barre d\'état</string>
   <string name="misc_category">Divers paramètres de la barre d\'état</string>
+  <string name="button_controller_title">Contrôle des boutons</string>
   <string name="recents_panel_clear_all_category">Réglages du \"Effacer tout\"</string>
   <string name="recents_panel_recents_view">Vue panneau des récents</string>
   <string name="recents_panel_alternative_recents">Panneau des récents alternatifs</string>
@@ -954,6 +955,10 @@
   <string name="shortcut_action_help_main">Pour ajouter un %1$s, sélectionnez l\'icône d\'ajout. Une fois le %1$s ajouté, la sélection de sa ligne va changer la cible%2$s.\n\n Pour supprimer un %1$s, balayer horizontalement vers la droite ou vers la gauche. Réorganisez un %1$s dans la liste en déplaçant l\'ancre sur la gauche vers le haut ou vers le bas.\n\nPour revenir aux paramètres par défaut, choisissez rétablir paramètres par défaut.</string>
   <string name="shortcut_action_help_delete_last_entry">La suppression de tout les %1$s dans la liste va désactiver cette fonction totalement.</string>
   <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Supprimer tout %1$s dans la liste va désactiver la seconde couche du menu circulaire entièrement.</string>
+  <!-- Setting Checkbox title whether to enable doze powersave -->
+  <string name="doze_powersave_title">Mode économie d'énergie</string>
+  <!-- setting Checkbox summary whether to enable doze powersave  -->
+  <string name="doze_powersave_summary">Autoriser l\'appareil de rentrer dans un état très faible en énergie pendant la mise en veille</string>
   <!-- Superuser indicator on status bar -->
   <string name="su_indicator">Indicateur de super-utilisateur</string>
   <string name="su_indicator_summary_on">Indicateur de super-utilisateur visible lorsqu\'une session est active</string>
@@ -1120,6 +1125,8 @@
   <string name="default_string">Par défaut</string>
   <string name="powermenu_lockscreen_title">Menu d\'alimentation sur l\'écran de verrouillage</string>
   <string name="powermenu_lockscreen_summary">Afficher le menu d\'alimentation sur l\'écran de verrouillage</string>
+  <string name="lock_screen_show_current">Courant de charge</string>
+  <string name="lock_screen_show_current_summary">Afficher le courant de charge sur l\'écran de verrouillage</string>
   <!-- Qucik unlock -->
   <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
   <string name="unlock_quick_unlock_control_summary">Déverrouiller automatiquement lorsque le code PIN/mot de passe correct est entré</string>
@@ -1377,6 +1384,14 @@
   <string name="volume_steps_system_title">Niveau de volume : Système</string>
   <string name="volume_steps_voice_call_title">Niveau de volume : Appel vocal</string>
   <string name="volume_steps_reset">Réinitialiser</string>
+  <!-- ScreenRecord Shortcut -->
+  <string name="screen_record_shortcut">Raccourci de l\'enregistrement de l\'écran</string>
+  <string name="screen_record_shortcut_on">Volume haut + bouton d\'alimentation enclenche l\'enregistrement de l\'écran</string>
+  <string name="screen_record_shortcut_off">Volume haut + bouton d\'alimentation ne fait rien</string>
+  <!-- ScreenShot Shortcut -->
+  <string name="screen_shot_shortcut">Raccourci de la capture d\'écran</string>
+  <string name="screen_shot_shortcut_on">Volume du bas + bouton d\'alimentation enclenche la capture d\'écran</string>
+  <string name="screen_shot_shortcut_off">Volume du bas + bouton d\'alimentation ne fait rien</string>
   <!-- Battery stats reset -->
   <string name="battery_stats_reset">Réinitialiser les statistiques</string>
   <string name="battery_stats_message">Les statistiques de batterie vont être remises à zéro</string>
@@ -1677,6 +1692,8 @@
   <string name="navbar_interface_title">Interface</string>
   <string name="navbar_size">Taille de barre</string>
   <string name="navbar_mode">Mode de navigation</string>
+  <string name="navbar_tint_switch">Couleur des boutons de navigation</string>
+  <string name="navbar_button_color">Boutons de la barre de navigation</string>
   <string name="navbar_visibility">Activer la barre de navigation</string>
   <string name="navigationbar_settings_title">Navigation</string>
   <string name="aosp_navigation_bar">Barre de navigation</string>
@@ -1760,6 +1777,63 @@
   <string name="fling_pulse_color">Couleur de Pulse</string>
   <string name="eos_fling_lavalamp_title">Activer la lampe Lava</string>
   <string name="eos_fling_lavalamp_summary">Pulse anime la lampe Lava</string>
+  <string name="pulse_custom_dimen">Largeur de Pulese</string>
+  <string name="pulse_dimen0">Par défaut</string>
+  <string name="pulse_dimen1">7dp</string>
+  <string name="pulse_dimen2">8dp</string>
+  <string name="pulse_dimen3">9dp</string>
+  <string name="pulse_dimen4">10dp</string>
+  <string name="pulse_dimen5">11dp</string>
+  <string name="pulse_dimen6">12dp</string>
+  <string name="pulse_dimen7">13dp</string>
+  <string name="pulse_dimen8">15dp</string>
+  <string name="pulse_dimen9">16dp</string>
+  <string name="pulse_dimen10">17dp</string>
+  <string name="pulse_dimen11">18dp</string>
+  <string name="pulse_dimen12">19dp</string>
+  <string name="pulse_dimen13">20dp</string>
+  <string name="pulse_dimen14">21dp</string>
+  <string name="pulse_dimen15">22dp</string>
+  <string name="pulse_dimen16">23dp</string>
+  <string name="pulse_dimen17">24dp</string>
+  <string name="pulse_dimen18">25dp</string>
+  <string name="pulse_dimen19">26dp</string>
+  <string name="pulse_custom_div">Espacement de Pulse</string>
+  <string name="default_div">Par défaut</string>
+  <string name="pulse_custom_dimen_cat">Ajuster les dimensions du visualiseur de Pulse avec le changement de dimension personalisé. Vous pouvez aussi ajuster l\'espacement entre les barres</string>
+  <string name="pulse_block_category">Blocks de Pulse</string>
+  <string name="pulse_custom_dimen_category">Dimensions de Pulse</string>
+  <string name="pulse_block_category_title">Taille des blocks de Pulse</string>
+  <string name="pulse_block_category_summary">Ajuster la taille des blocks et l'espacement entre chaque blocks de Pulse</string>
+  <string name="pulse_aggression">Puissance</string>
+  <string name="pulse_aggression_category">Ajuster la puissance de Pulse. Relaxant est le plus faible et le Démentiel est le plus aggresif</string>
+  <string name="div1">18</string>
+  <string name="div2">20</string>
+  <string name="div3">22</string>
+  <string name="div4">24</string>
+  <string name="div5">26</string>
+  <string name="div6">28</string>
+  <string name="div7">30</string>
+  <string name="div8">32</string>
+  <string name="default_fill">4dp(Par défaut)</string>
+  <string name="pulse_bar_style">Style de Pulse Bar</string>
+  <string name="default_pulse_empty">1dp(Par défaut)</string>	
+  <string name="pulse_filled_block_size">Taille des blocks</string>
+  <string name="pulse_empty_block_size">Espacement des blocks</string>
+  <string name="pulse_fill1">5dp</string>
+  <string name="pulse_fill2">6dp</string>
+  <string name="pulse_fill3">7dp</string>
+  <string name="pulse_fill4">8dp</string>
+  <string name="pulse_empty1">2dp</string>
+  <string name="pulse_empty2">3dp</string>
+  <string name="pulse_empty3">4dp</string>
+  <string name="pulse_empty4">0(pas d\'espacement)</string>
+  <string name="factor0">Normal</string>
+  <string name="factor1">Relaxant</string>
+  <string name="factor2">Lent</string>
+  <string name="factor3">Hyper</string>
+  <string name="factor4">Démentiel</string>
+  <string name="pulse_custom_fudge_factor">Niveau du visualizer</string>
   <!-- Navbar height -->
   <string name="navigation_bar_size_title">Taille de barre</string>
   <string name="portrait_title">Hauteur (Portrait)</string>
@@ -1820,8 +1894,43 @@
   <string name="heads_up_snooze_60min">60 minutes</string>
   <string name="force_headsup_title">Forcer les notifications flottantes</string>
   <string name="force_headsup_summary">Forcer les notifications flottantes sur toutes les applications</string>
+  <!-- Hide apps from recents -->
+  <string name="hide_from_recents_add_app">Ajouter une application</string>
+  <string name="hide_apps_from_recents_title">Applications cachées</string>
+  <string name="hide_apps_from_recents_summary">Sélectionner chaque application à exclure des applications récentes</string>
   <!-- DoubleTap2Wake Doze -->
   <string name="doze_wakeup_doubletap_title">Appuyez deux fois pour activer</string>
   <string name="doze_wakeup_doubletap_summary_on">Nécessite d\'appuyer deux fois pour activer l\'appareil en mode veille (doze)</string>
   <string name="doze_wakeup_doubletap_summary_off">Nécessite d\'appuyer une seule fois pour activer l\'appareil en mode veille (doze) (default)</string>
+  <!-- Floating Windows -->
+  <string name="shortcut_action_floating_windows">Fenêtres flottantes</string>
+  <string name="floating_master_switch">Interrupteur principal</string>
+  <string name="floating_additional_options">Options supplémentaire des fenêtres flottantes</string>
+  <string name="floating_windows">Fenêtres flottantes</string>
+  <string name="slim_action_floats">Actions Slim &amp; Pie</string>
+  <string name="slim_action_floats_summary">Lancer Slim &amp; Pie actions en mode flottant</string>
+  <string name="gesture_anywhere_floating">Gesture Anywhere</string>
+  <string name="gesture_anywhere_floating_summary">Lancer les raccourcis de Gesture Anywhere en mode flottant</string>
+  <string name="db_custom_colors">Styles personnalisés du tableau de bord</string>
+  <string name="db_custom_colors_summary">Coloriser quelques élements du tableau de bord avec les options ci-dessous.</string>
+  <string name="db_colors">Styles du tableau de bord</string>
+  <string name="db_icon_color">Icônes du tableau de bord</string>
+  <string name="db_text_color">Texte des titres</string>
+  <string name="db_sub_text_color">Texte</string>
+  <string name="background_title">Arrière plan</string>
+  <string name="text_cat_title">Sous texte</string>
+  <!-- Dashboard Text Size -->
+  <string name="dash_title_text_size">Taille du texte du titre</string>
+  <string name="dash_category_text_size">Taille du texte des catégories</string>
+  <!-- Carrier Label - Hide based on notifications -->
+  <string name="text_title">Texte</string>
+  <string name="number_of_notifications_title">Nombres de notifications</string>
+  <string name="number_of_notifications_one_title">1</string>
+  <string name="number_of_notifications_two_title">2</string>
+  <string name="number_of_notifications_three_title">3</string>
+  <string name="number_of_notifications_four_title">4</string>
+  <string name="number_of_notifications_five_title">5</string>
+  <string name="number_of_notifications_six_title">6</string>
+  <string name="carrier_label_hide_label_title">Masquer les notifications</string>
+  <string name="carrier_label_number_of_notification_icons_title">Nombre maximum d\'icônes avant le masquage</string>
 </resources>
