@@ -351,8 +351,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 Preference liveLockPreference = new Preference(getContext(), null);
                 liveLockPreference.setIntent(new Intent(ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS));
                 liveLockPreference.setOrder(-1);
-                liveLockPreference.setTitle(R.string.live_lock_screen_title);
-                liveLockPreference.setSummary(R.string.live_lock_screen_summary);
+                setLiveLockScreenPreferenceTitleAndSummary(liveLockPreference);
                 groupToAddTo.addPreference(liveLockPreference);
             }
         }
@@ -887,6 +886,46 @@ public class SecuritySettings extends SettingsPreferenceFragment
     @Override
     protected int getHelpResource() {
         return R.string.help_url_security;
+    }
+
+    /**
+     * Loads the title and summary for live lock screen preference.  If an external package supports
+     * the {@link cyanogenmod.content.Intent#ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS} we attempt to
+     * load the title and summary from that package and use defaults if those cannot be loaded or
+     * no other package is found to support the action.
+     * @param pref
+     */
+    private void setLiveLockScreenPreferenceTitleAndSummary(Preference pref) {
+        String title = getString(R.string.live_lock_screen_title);
+        String summary = getString(R.string.live_lock_screen_summary);
+        PackageManager pm = getPackageManager();
+        List<ResolveInfo> infos = pm.queryIntentActivities(
+                new Intent(ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS), 0);
+        if (infos != null && infos.size() > 1) {
+            for (ResolveInfo info : infos) {
+                if (!getActivity().getPackageName().equals(info.activityInfo.packageName)) {
+                    try {
+                        final Context ctx = getActivity().createPackageContext(
+                                info.activityInfo.packageName, 0);
+                        final Resources res = ctx.getResources();
+                        int titleId = res.getIdentifier("live_lock_screen_title", "string",
+                                info.activityInfo.packageName);
+                        int summaryId = res.getIdentifier("live_lock_screen_summary", "string",
+                                info.activityInfo.packageName);
+                        if (titleId !=0 && summaryId != 0) {
+                            title = res.getString(titleId);
+                            summary = res.getString(summaryId);
+                        }
+                    } catch (PackageManager.NameNotFoundException e) {
+                        /* ignore and use defaults */
+                    }
+                    break;
+                }
+            }
+        }
+
+        pref.setTitle(title);
+        pref.setSummary(summary);
     }
 
     /**

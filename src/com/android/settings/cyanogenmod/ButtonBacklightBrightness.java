@@ -252,7 +252,7 @@ public class ButtonBacklightBrightness extends DialogPreference implements
             if (buttonBrightness == 0) {
                 setSummary(R.string.backlight_summary_disabled);
             } else if (timeout == 0) {
-                setSummary(R.string.backlight_summary_enabled);
+                setSummary(R.string.backlight_timeout_unlimited);
             } else {
                 setSummary(getContext().getString(R.string.backlight_summary_enabled_with_timeout,
                         getTimeoutString(timeout)));

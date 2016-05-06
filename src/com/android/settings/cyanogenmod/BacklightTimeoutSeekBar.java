@@ -60,27 +60,6 @@ public class BacklightTimeoutSeekBar extends SeekBar {
     }
 
     @Override
-    public void setProgress(int progress) {
-        if (progress == 0) {
-            progress = getMax();
-        } else {
-            progress--;
-        }
-        super.setProgress(progress);
-    }
-
-    @Override
-    public int getProgress() {
-        int progress = super.getProgress();
-        if (mUpdatingThumb) {
-            return progress;
-        } else if (progress == getMax()) {
-            return 0;
-        }
-        return progress + 1;
-    }
-
-    @Override
     protected int updateTouchProgress(int lastProgress, int newProgress) {
         if (newProgress < mMax) {
             return newProgress;

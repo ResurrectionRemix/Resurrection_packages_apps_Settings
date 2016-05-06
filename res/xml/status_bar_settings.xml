@@ -76,27 +76,32 @@
      <PreferenceScreen
         android:key="status_bar_colors"
 	android:fragment="com.android.settings.rr.StatusBarColors"
-        android:title="@string/status_bar_colors_title" />
+        android:title="@string/status_bar_colors_title" 
+        android:summary="@string/status_bar_colors_summary"/>
 
     <PreferenceScreen
            android:key="carrierlabel"
            android:title="@string/carrier_options"
+	   android:summary="@string/carrierlabel_summary"
 	   android:fragment="com.android.settings.rr.CarrierLabel"  />
 
     <PreferenceScreen
            android:key="network_traffic_settings"
            android:title="@string/network_traffic_title"
+	   android:summary="@string/network_traffic_settings_summary"
            android:fragment="com.android.settings.rr.NetworkTrafficSettings" />
 
      <PreferenceScreen
             android:key="rr_logo"
             android:fragment="com.android.settings.rr.fragments.Logo"
+            android:summary="@string/rr_logo_summary"
             android:title="@string/status_bar_logo" />
 
 
      <PreferenceScreen
             android:key="rr_custom_logo"
             android:fragment="com.android.settings.rr.fragments.CustomLogo"
+	    android:summary="@string/rr_custom_logo_summary"
             android:title="@string/sb_custom_logos" />
 
     <!-- Headset icon switch -->

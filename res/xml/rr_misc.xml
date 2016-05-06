@@ -40,23 +40,7 @@
         android:key="misc_2"
         android:title="@string/misc_2" >
 
-
-         <Preference
-            android:key="warning_multi_window"
-            android:summary="@string/warning_multi_window_text"
-            android:selectable="false"/>
-
-        <SwitchPreference
-            android:key="enable_multi_window"
-            android:title="@string/enable_multi_window"
-            android:summary="@string/enable_multi_window_summary"/>
-	
-	<PreferenceScreen
-        android:key="floating_windows"
-        android:title="@string/floating_windows" 
-	android:fragment="com.android.settings.rr.FloatingWindows"/>
-	
-	<PreferenceScreen
+    <PreferenceScreen
         android:key="dashboard_colors"
         android:title="@string/db_colors" 
 	android:fragment="com.android.settings.rr.DashBoardColors"/>

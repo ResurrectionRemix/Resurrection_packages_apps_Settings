@@ -46,6 +46,14 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
     public static final String PATTERN_LOCK_PROTECTED_APPS = "pattern_lock_protected_apps";
     public static final String RECREATE_PATTERN = "recreate_pattern_lock";
 
+    private static final String STATE_IS_ACCOUNT_VIEW = "isAccountView";
+    private static final String STATE_CONTINUE_ENABLED = "continueEnabled";
+    private static final String STATE_CONFIRMING = "confirming";
+    private static final String STATE_RETRY_PATTERN = "retrypattern";
+    private static final String STATE_RETRY = "retry";
+    private static final String STATE_PATTERN_HASH = "pattern_hash";
+    private static final String STATE_CREATE = "create";
+
     private static String TIMEOUT_PREF_KEY = "retry_timeout";
 
     private static final int MIN_PATTERN_SIZE = 4;
@@ -155,6 +163,35 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_IS_ACCOUNT_VIEW, mAccountView.getVisibility() == View.VISIBLE);
+        outState.putBoolean(STATE_CONTINUE_ENABLED, mContinue.isEnabled());
+        outState.putBoolean(STATE_CONFIRMING, mConfirming);
+        outState.putBoolean(STATE_RETRY_PATTERN, mRetryPattern);
+        outState.putInt(STATE_RETRY, mRetry);
+        outState.putByteArray(STATE_PATTERN_HASH, mPatternHash);
+        outState.putBoolean(STATE_CREATE, mCreate);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState.getBoolean(STATE_IS_ACCOUNT_VIEW)) {
+            switchToAccount();
+        } else {
+            switchToPattern(false);
+            mPatternHash = savedInstanceState.getByteArray(STATE_PATTERN_HASH);
+            mConfirming = savedInstanceState.getBoolean(STATE_CONFIRMING);
+            mRetryPattern = savedInstanceState.getBoolean(STATE_RETRY_PATTERN);
+            mRetry = savedInstanceState.getInt(STATE_RETRY);
+            mCreate = savedInstanceState.getBoolean(STATE_CREATE);
+            mContinue.setEnabled(savedInstanceState.getBoolean(STATE_CONTINUE_ENABLED,
+                    mContinue.isEnabled()));
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_RESET:
@@ -224,7 +261,6 @@ public class LockPatternActivity extends Activity implements OnNotifyAccountRese
         resetPatternState(false);
 
         //Setup Pattern Lock View
-        mLockPatternView.setSaveEnabled(false);
         mLockPatternView.setFocusable(false);
         mLockPatternView.setOnPatternListener(new UnlockPatternListener());
 

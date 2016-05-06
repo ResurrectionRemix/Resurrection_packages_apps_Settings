@@ -119,6 +119,9 @@
 	<string name="interface_category">Интерфейс</string>
 	<string name="customization_category">Персонализация</string>
 	<string name="gestures_settings">Жесты</string>
+	<string name="multitasking_settings">Многозадачность</string>
+	<string name="multitasking_1">Разное</string>
+	<string name="rr_multitasking">Многозадачность</string>
 
 
 	<string name="animations_cat">Системные</string>
@@ -543,8 +546,8 @@
 	<string name="force_expanded_notifications_summary">Доступно только для приложений, поддерживающих расширенные уведомления</string>
 
 	<!-- Gesture Anywhere -->
-	<string name="gesture_anywhere_title">Жест везде</string>
-	<string name="gesture_anywhere_enabled_title">Жест везде</string>
+	<string name="gesture_anywhere_title">Жесты на экране</string>
+	<string name="gesture_anywhere_enabled_title">Жесты на экране</string>
 	<string name="gesture_anywhere_enabled_summary">Включить функцию</string>
 	<string name="gesture_anywhere_position_title">Расположение</string>
 	<string name="gesture_anywhere_position_left">По левому краю</string>
@@ -1003,9 +1006,12 @@
 	<string name="status_bar_logo_position_left">Слева</string>
 	<string name="status_bar_logo_position_center">По центру</string>
 	<string name="status_bar_logo_position_before">Перед значками строки состояния</string>
-
-
-
+	<string name="status_bar_colors_summary">Раскрасить различные иконки в строке состояния. Заменит цвета темы</string>
+	<string name="carrierlabel_summary">Настроить текст оператора в строке состояния</string>
+	<string name="network_traffic_settings_summary">Настроить индикатор трафика в строке состояния</string>
+	<string name="rr_logo_summary">Выбрать различные логотипы RR</string>
+	<string name="rr_custom_logo_summary">Выбрать различные логотипы или изображения в строке состояния</string>
+	
 	<!-- Selinux Switch -->
 	<string name="selinux_switch_title">Переключатель SElinux</string>
 	<string name="selinux_switch_summary">SElinux - это набор модификаций ядра и инструментов пользовательского пространства. Смена режимов может привести к непредсказуемым последствиям. Используйте на свой риск</string>
@@ -1399,12 +1405,12 @@
 
 	<!-- 4G LTE switch -->
 	<string name="show_fourg_title">Показывать 4G вместо LTE</string>
-	<string name="show_fourg_summary">Заменить LTE в строке состояния на 4G. Требуется перезагрузка</string>
+	<string name="show_fourg_summary">Заменить LTE в строке состояния на 4G</string>
 	<string name="statusbar_tuner_category_title">Убрать из строки состояния</string>
 
 	<!-- 3G / HSPA switch -->
 	<string name="show_threeg_title">Показывать 3G вместо HSPA</string>
-	<string name="show_threeg_summary">Заменить H/H+ в строке состояния на 3G. Требуется перезагрузка</string>
+	<string name="show_threeg_summary">Заменить H/H+ в строке состояния на 3G</string>
 	<string name="statusbar_tuner_category_title">Убрать из строки состояния</string>
 
 	<!-- Lock Clock Fonts -->
@@ -1752,7 +1758,7 @@
 	<string name="apply_status_colors_summary">Используйте, если цвета не применены. Нажмите, чтобы применить</string>
 	<string name="apply_status_colors">Применить цвета</string>
 	<string name="battery_color">Цвет значка батареи</string>
-	<string name="battery_icon_color">Значок (только во время зарядки)</string>
+	<string name="battery_icon_color">Значок</string>
 	<string name="battery_text_color">Текст</string>
 	<string name="statusbar_color_switch_summary">Включить/отключить пользовательские цвета значков</string>
 
@@ -1930,6 +1936,13 @@
   	
   	<string name="pulse_custom_div">Интервал</string>
   	<string name="default_div">По умолчанию</string>
+  	<string name="pulse_custom_dimen_cat">Настроить размеры  блоков спектра. Также настроить расстояние между ними</string>
+  	<string name="pulse_block_category">Блоки панели Пульс</string>
+  	<string name="pulse_custom_dimen_category">Расстояние</string>
+  	<string name="pulse_block_category_title">Размер</string>
+  	<string name="pulse_block_category_summary">Настроить размеры блоков спектра и расстояние до каждого блока</string>
+  	<string name="pulse_aggression">Сила</string>
+  	<string name="pulse_aggression_category">Настроить силу спектра.</string>
   	<string name="div1">18</string>
   	<string name="div2">20</string>
   	<string name="div3">22</string>
@@ -2047,12 +2060,29 @@
       <string name="gesture_anywhere_floating">Жесты везде</string>
       <string name="gesture_anywhere_floating_summary">Запускать жесты везде в плавающем окне</string>
       
-      <string name="db_custom_colors">Пользовательские цвета меню <!-- Navbar height -->настроек</string>
+      <string name="db_custom_colors">Пользовательские стили меню настроек</string>
       <string name="db_custom_colors_summary">Изменить цвет различных элементов настроек с помощью опций ниже.</string>
-      <string name="db_colors">Цвета меню настроек</string>
+      <string name="db_colors">Стили меню настроек</string>
       <string name="db_icon_color">Иконки меню настроек</string>
       <string name="db_text_color">Текст пунктов меню</string>
       <string name="db_sub_text_color">Текст</string>
-      <string name="db_switch_color">Изменить акцент</string>
-
-    </resources>
+      <string name="background_title">Фон</string>
+      <string name="text_cat_title">Доп. текст</string>
+      
+      <!-- Dashboard Text Size -->
+      <string name="dash_title_text_size">Размер текста заголовков</string>
+      <string name="dash_category_text_size">Размер текста категорий</string>
+      
+      <!-- Carrier Label - Hide based on notifications -->
+      <string name="text_title">Текст</string>
+      <string name="number_of_notifications_title">Количество уведомлений</string>
+      <string name="number_of_notifications_one_title">1</string>
+      <string name="number_of_notifications_two_title">2</string>
+      <string name="number_of_notifications_three_title">3</string>
+      <string name="number_of_notifications_four_title">4</string>
+      <string name="number_of_notifications_five_title">5</string>
+      <string name="number_of_notifications_six_title">6</string>
+      <string name="carrier_label_hide_label_title">Скрывать на уведомлениях</string>
+      <string name="carrier_label_number_of_notification_icons_title">Максимальное количество иконок перед скрытием</string>
+      
+</resources>

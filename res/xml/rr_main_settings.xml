@@ -20,7 +20,7 @@
     <PreferenceCategory
         android:title="@string/rr_cat_title">
         
-        <PreferenceScreen
+     <PreferenceScreen
                 android:id="@+id/status_bar_settings"
                 android:title="@string/status_bar_title"
                 android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
@@ -28,7 +28,7 @@
                 />
 
      <!-- Notification drawer -->
-       <PreferenceScreen
+     <PreferenceScreen
             android:id="@+id/notification_drawer_settings"
             android:title="@string/notification_drawer_title"
             android:fragment="com.android.settings.rr.NotificationDrawerSettings"
@@ -43,28 +43,28 @@
 	    android:icon="@drawable/rr_quick_settings_icon" />
     
           
-     <PreferenceScreen
+    <PreferenceScreen
         android:key="navbar"
         android:fragment="com.android.settings.rr.Navbar"
         android:title="@string/rr_navbar_settings" 
         android:icon="@drawable/rr_navbar_icon"/>
 
 
-       <PreferenceScreen
+    <PreferenceScreen
                 android:id="@+id/button_settings"
                 android:title="@string/button_controller_title"
                 android:fragment="com.android.settings.ButtonSettings"
                 android:icon="@drawable/rr_buttons_icon"
 		/>
 
-       <PreferenceScreen
+    <PreferenceScreen
             android:id="@+id/recents_settings"
             android:fragment="com.android.settings.rr.RecentsSettings"
             android:title="@string/recents_settings_title"
             android:icon="@drawable/rr_recents_icon" />
 
 
-       <PreferenceScreen
+    <PreferenceScreen
 	    android:title="@string/rr_lockscreen_title"	
             android:key="lock_screen_general_category"
             android:fragment="com.android.settings.rr.LockScreenSettings"  
@@ -72,8 +72,8 @@
             />
 
 
-        <!-- Animation Settings -->
-        <PreferenceScreen
+    <!-- Animation Settings -->
+    <PreferenceScreen
             android:key="animation_settings"
             android:title="@string/animation_title"
             android:fragment="com.android.settings.rr.animation.AnimationSettings" 
@@ -84,26 +84,35 @@
      <PreferenceScreen
            android:key="gestures"
            android:title="@string/gestures_settings"
-	     android:fragment="com.android.settings.rr.MultiTasking" 
+	   android:fragment="com.android.settings.rr.RRGestures" 
 	   android:icon="@drawable/rr_gestures_icon"/>
+     
+     
+     <!-- MultiTasking -->
+     <PreferenceScreen
+           android:key="rr_multitasking"
+           android:title="@string/multitasking_settings"
+	   android:fragment="com.android.settings.rr.MultiFragment" 
+	   android:icon="@drawable/rr_multitasking_icon"/>
+          
 
-       <!-- Misc -->
-        <PreferenceScreen
+     <!-- Misc -->
+     <PreferenceScreen
             android:key="misc"
             android:fragment="com.android.settings.rr.MiscSettings"
             android:title="@string/rr_misc_title"
             android:icon="@drawable/rr_misc_icon" 
             />
 
-       <!-- Updater -->
-        <PreferenceScreen
+      <!-- Updater -->
+      <PreferenceScreen
                 android:key="update_settings"
                 android:title="@string/updater_title"
                 android:icon="@drawable/rr_updates_icon">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.resurrection.ota"
                     android:targetClass="com.resurrection.ota.MainActivity" />
-        </PreferenceScreen>   
+     </PreferenceScreen>   
 
 
                 

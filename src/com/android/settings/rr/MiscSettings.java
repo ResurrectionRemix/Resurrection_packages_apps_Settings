@@ -70,8 +70,6 @@ import com.android.internal.logging.MetricsLogger;
 public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
 
 private static final String TAG = "MiscSettings";
-private static final String ENABLE_MULTI_WINDOW_KEY = "enable_multi_window";
-private static final String MULTI_WINDOW_SYSTEM_PROPERTY = "persist.sys.debug.multi_window";
 private static final String RESTART_SYSTEMUI = "restart_systemui";
 private static final String SELINUX = "selinux";
 private static final String CATEGORY_VIB = "misc_4";
@@ -80,7 +78,6 @@ private static final String DOZE_POWERSAVE_KEY = "doze_powersave";
 private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 private final ArrayList<SwitchPreference> mResetSwitchPrefs  = new ArrayList<SwitchPreference>();
 
-private SwitchPreference mEnableMultiWindow;
 private Preference mRestartSystemUI;
 private SwitchPreference mSelinux;
 private FingerprintManager mFingerprintManager;
@@ -94,9 +91,8 @@ private boolean mDontPokeProperties;
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_misc);
-	  final ContentResolver resolver = getActivity().getContentResolver();
-          final PreferenceScreen prefScreen = getPreferenceScreen();
-        mEnableMultiWindow = (SwitchPreference) findPreference(ENABLE_MULTI_WINDOW_KEY);
+	final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 	mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
 
         //SELinux
@@ -134,13 +130,6 @@ private boolean mDontPokeProperties;
         return pref;
     }
         
-  private static boolean showEnableMultiWindowPreference() {
-        return !"user".equals(Build.TYPE);
-    }
-
-    private void setEnableMultiWindow(boolean value) {
-        SystemProperties.set(MULTI_WINDOW_SYSTEM_PROPERTY, String.valueOf(value));
-    }
 
     protected int getMetricsCategory()
     {
@@ -154,14 +143,7 @@ private boolean mDontPokeProperties;
     
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mEnableMultiWindow) {
-            if (mEnableMultiWindow.isChecked()) {
-                setEnableMultiWindow(true);
-            } else {
-                setEnableMultiWindow(false);
-            }
-        }
- 	else if (preference == mRestartSystemUI) {
+ 	if (preference == mRestartSystemUI) {
            Helpers.restartSystemUI();  
 	}  else if (preference == mDozePowersave) {
             writeDozePowersaveOptions();

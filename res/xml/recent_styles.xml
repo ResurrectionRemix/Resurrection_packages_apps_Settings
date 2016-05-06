@@ -101,4 +101,51 @@
 	android:dependency="clear_recents_style_enable" />
 
            </PreferenceCategory>
+	   
+	   
+	   
+   <PreferenceCategory
+        android:key="recents_style_3"
+        android:title="@string/recents_style_3" >
+
+
+
+      <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="pin_button_color"
+        android:title="@string/pin_button_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="mw_button_color"
+        android:title="@string/mw_button_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="float_button_color"
+        android:title="@string/float_button_color"
+        android:defaultValue="0xffffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="kill_app_button_color"
+        android:title="@string/kill_app_button_color"
+        android:defaultValue="0xffffffff"
+	android:dependency="clear_recents_style_enable" />
+
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="tv_app_color"
+        android:title="@string/tv_app_color"
+        android:defaultValue="0x00ffffff" 
+	android:dependency="clear_recents_style_enable"/>
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="tv_app_text_color"
+        android:title="@string/tv_app_text_color"
+        android:defaultValue="0xffffffff"
+	android:dependency="clear_recents_style_enable" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

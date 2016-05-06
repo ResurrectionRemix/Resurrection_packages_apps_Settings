@@ -62,12 +62,17 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
     private static final String MEM_TEXT_COLOR = "mem_text_color";
     private static final String CLEAR_BUTTON_COLOR = "clear_button_color";
     private static final String RECENTS_DATE_COLOR = "recents_date_color";
-    private static final String RECENTS_CLOCK_COLOR = "recents_clock_color";
-
+    private static final String RECENTS_CLOCK_COLOR = "recents_clock_color";   
+    private static final String PIN = "pin_button_color";	
+    private static final String MULTI_WINDOW = "mw_button_color";
+    private static final String FLOATING_BUTTON = "float_button_color";
+    private static final String CLOSE_APP = "kill_app_button_color";
+    private static final String APP_ICON = "tv_app_color";
+    private static final String APP_DESC = "tv_app_text_color";
     private static final String FAB_ANIM_STYLE = "fab_animation_style";
 
     static final int DEFAULT = 0xffffffff;
-    static final int DEFAULT_BG_MEM_TEXT = 0xffffffff;	
+    static final int DEFAULT_BG_ICON = 0x00ffffff;	
     static final int DEFAULT_BG_MEM_BAR = 0xff009688;	
     static final int DEFAULT_BG_FAB = 0xffDC4C3C;	
     private static final int MENU_RESET = Menu.FIRST;
@@ -79,6 +84,12 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
     private ColorPickerPreference mfabColor;
     private ColorPickerPreference mClockColor;
     private ColorPickerPreference mDateColor;
+    private ColorPickerPreference mPinColor;
+    private ColorPickerPreference mMwColor;
+    private ColorPickerPreference mFloatColor;
+    private ColorPickerPreference mCloseColor;
+    private ColorPickerPreference mAppColor;
+    private ColorPickerPreference mAppText;
     
     private ListPreference mClearStyle;
     private ListPreference mFabanimation;	
@@ -161,6 +172,59 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mDateColor.setSummary(hexColor);
         mDateColor.setNewPreviewColor(intColor);
+        
+        
+        mPinColor= (ColorPickerPreference) prefSet.findPreference(PIN);
+        mPinColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.PIN_BUTTON_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mPinColor.setSummary(hexColor);
+        mPinColor.setNewPreviewColor(intColor);
+        
+        mFloatColor= (ColorPickerPreference) prefSet.findPreference(FLOATING_BUTTON);
+        mFloatColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.FLOAT_BUTTON_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mFloatColor.setSummary(hexColor);
+        mFloatColor.setNewPreviewColor(intColor);        
+        
+        
+        mMwColor= (ColorPickerPreference) prefSet.findPreference(MULTI_WINDOW);
+        mMwColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.MW_BUTTON_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mMwColor.setSummary(hexColor);
+        mMwColor.setNewPreviewColor(intColor);        
+        
+        
+        mCloseColor= (ColorPickerPreference) prefSet.findPreference(CLOSE_APP);
+        mCloseColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.KILL_APP_BUTTON_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mCloseColor.setSummary(hexColor);
+        mCloseColor.setNewPreviewColor(intColor);        
+        
+        
+        mAppColor= (ColorPickerPreference) prefSet.findPreference(APP_ICON);
+        mAppColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.TV_APP_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mAppColor.setSummary(hexColor);
+        mAppColor.setNewPreviewColor(intColor);        
+        
+        
+        mAppText= (ColorPickerPreference) prefSet.findPreference(APP_DESC);
+        mAppText.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.TV_APP_TEXT_COLOR, DEFAULT);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mAppText.setSummary(hexColor);
+        mAppText.setNewPreviewColor(intColor);        
 
 	setHasOptionsMenu(true);
 }
@@ -223,7 +287,55 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
                 Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                         Settings.System.RECENTS_DATE_COLOR, intHex);
                 return true;
-        } else if (preference == mFabanimation) {
+        } else if (preference == mMwColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.MW_BUTTON_COLOR, intHex);
+                return true;
+        } else if (preference == mFloatColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.FLOAT_BUTTON_COLOR, intHex);
+                return true;
+        } else if (preference == mPinColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.PIN_BUTTON_COLOR, intHex);
+                return true;
+        } else if (preference == mCloseColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.KILL_APP_BUTTON_COLOR, intHex);
+                return true;
+        } else if (preference == mAppColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.TV_APP_COLOR, intHex);
+                return true;
+        } else if (preference == mAppText) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.TV_APP_TEXT_COLOR, intHex);
+                return true;
+        }  else if (preference == mFabanimation) {
             Settings.System.putInt(getContentResolver(), Settings.System.FAB_ANIMATION_STYLE,
                     Integer.valueOf((String) newValue));
             mFabanimation.setValue(String.valueOf(newValue));
@@ -272,10 +384,10 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mfabColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.FAB_BUTTON_COLOR, DEFAULT_BG_FAB);
-        mMemTextColor.setNewPreviewColor(DEFAULT_BG_MEM_TEXT);
+        mMemTextColor.setNewPreviewColor(DEFAULT);
         mMemTextColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.MEM_BAR_COLOR,DEFAULT_BG_MEM_TEXT);
+                Settings.System.MEM_BAR_COLOR,DEFAULT);
         mMemBarColor.setNewPreviewColor(DEFAULT_BG_MEM_BAR);
         mMemBarColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
@@ -291,7 +403,31 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mDateColor.setNewPreviewColor(DEFAULT);
         mDateColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.RECENTS_DATE_COLOR, DEFAULT); 
+                Settings.System.RECENTS_DATE_COLOR, DEFAULT);                
+        mMwColor.setNewPreviewColor(DEFAULT);
+        mMwColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.MW_BUTTON_COLOR, DEFAULT);                 
+        mFloatColor.setNewPreviewColor(DEFAULT);
+        mFloatColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.FLOAT_BUTTON_COLOR, DEFAULT);                 
+        mPinColor.setNewPreviewColor(DEFAULT);
+        mPinColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.PIN_BUTTON_COLOR, DEFAULT);               
+        mCloseColor.setNewPreviewColor(DEFAULT);
+        mCloseColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.KILL_APP_BUTTON_COLOR, DEFAULT);                
+        mAppColor.setNewPreviewColor(DEFAULT_BG_ICON);
+        mAppColor.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.TV_APP_COLOR, DEFAULT_BG_ICON);               
+        mAppText.setNewPreviewColor(DEFAULT);
+        mAppText.setSummary(R.string.default_string);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.TV_APP_TEXT_COLOR, DEFAULT);                 
     }
 
 

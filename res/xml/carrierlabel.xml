@@ -44,5 +44,17 @@
         settings:unitsLeft=""
         settings:unitsRight="dp" />
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="hide_carrier_max_switch"
+        android:title="@string/carrier_label_hide_label_title"
+        android:dependency="status_bar_show_carrier" />
+
+    <ListPreference
+        android:key="hide_carrier_max_notification"
+        android:title="@string/carrier_label_number_of_notification_icons_title"
+        android:entries="@array/number_of_notifications_entries"
+        android:entryValues="@array/number_of_notifications_values"
+        android:dependency="hide_carrier_max_switch" />
+
 </PreferenceScreen> 
 
