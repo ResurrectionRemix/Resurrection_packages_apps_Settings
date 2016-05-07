@@ -26,6 +26,7 @@ import android.os.storage.StorageManager;
 import android.os.storage.VolumeInfo;
 import android.preference.Preference;
 import android.text.format.Formatter;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.util.TypedValue;
@@ -64,7 +65,8 @@ public class StorageVolumePreference extends Preference {
         setLayoutResource(R.layout.storage_volume);
 
         setKey(volume.getId());
-        setTitle(mStorageManager.getBestVolumeDescription(volume));
+        final String fsType = volume.fsType;
+        setTitle(mStorageManager.getBestVolumeDescription(volume) + (TextUtils.isEmpty(fsType) ? "" : " / " + fsType));
 
         Drawable icon;
         if (VolumeInfo.ID_PRIVATE_INTERNAL.equals(volume.getId())) {
