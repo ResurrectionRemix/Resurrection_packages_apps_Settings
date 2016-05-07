@@ -32,6 +32,8 @@ abstract class SettingsContentObserver extends ContentObserver {
                 Settings.Secure.ACCESSIBILITY_ENABLED), false, this);
         contentResolver.registerContentObserver(Settings.Secure.getUriFor(
                 Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES), false, this);
+        contentResolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED), false, this);
     }
 
     public void unregister(ContentResolver contentResolver) {

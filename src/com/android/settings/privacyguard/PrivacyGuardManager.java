@@ -16,10 +16,7 @@
 
 package com.android.settings.privacyguard;
 
-import android.Manifest;
 import android.app.FragmentTransaction;
-import android.content.pm.PackageManager;
-import android.net.NetworkPolicyManager;
 import android.view.animation.AnimationUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -90,7 +87,6 @@ public class PrivacyGuardManager extends Fragment
 
     // Privacy Guard Fragment
     private final static String PRIVACY_GUARD_FRAGMENT_TAG = "privacy_guard_fragment";
-    private NetworkPolicyManager mPolicyManager;
 
     // holder for package data passed into the adapter
     public static final class AppInfo {
@@ -99,13 +95,6 @@ public class PrivacyGuardManager extends Fragment
         boolean enabled;
         boolean privacyGuardEnabled;
         int uid;
-        boolean hasInternetPermission;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPolicyManager = NetworkPolicyManager.from(getActivity());
     }
 
     @Override
@@ -291,15 +280,6 @@ public class PrivacyGuardManager extends Fragment
         app.privacyGuardEnabled = !app.privacyGuardEnabled;
         mAppOps.setPrivacyGuardSettingForPackage(app.uid, app.packageName, app.privacyGuardEnabled);
 
-        if (app.hasInternetPermission) {
-            if (app.privacyGuardEnabled) {
-                mPolicyManager.addUidPolicy(app.uid, NetworkPolicyManager.POLICY_REJECT_ON_DATA);
-                mPolicyManager.addUidPolicy(app.uid, NetworkPolicyManager.POLICY_REJECT_ON_WLAN);
-            } else {
-                mPolicyManager.removeUidPolicy(app.uid, NetworkPolicyManager.POLICY_REJECT_ON_DATA);
-                mPolicyManager.removeUidPolicy(app.uid, NetworkPolicyManager.POLICY_REJECT_ON_WLAN);
-            }
-        }
         mAdapter.notifyDataSetChanged();
     }
 

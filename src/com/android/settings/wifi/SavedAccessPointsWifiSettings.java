@@ -177,6 +177,8 @@ public class SavedAccessPointsWifiSettings extends RestrictedSettingsFragment
             if (savedInstanceState.containsKey(SAVE_DIALOG_ACCESS_POINT_STATE)) {
                 mAccessPointSavedState =
                     savedInstanceState.getBundle(SAVE_DIALOG_ACCESS_POINT_STATE);
+                mDlgAccessPoint = new AccessPoint(getActivity(), mAccessPointSavedState);
+                mSelectedAccessPoint = mDlgAccessPoint;
             }
             mPrioritiesOrderChanged = savedInstanceState.getBoolean(
                     PRIORITIES_ORDER_CHANGED_STATE, false);
@@ -270,8 +272,13 @@ public class SavedAccessPointsWifiSettings extends RestrictedSettingsFragment
 
         final int accessPointsSize = accessPoints.size();
         for (int i = 0; i < accessPointsSize; ++i){
-            AccessPointPreference preference = new AccessPointPreference(accessPoints.get(i),
+            AccessPoint accessPoint = accessPoints.get(i);
+            AccessPointPreference preference = new AccessPointPreference(accessPoint,
                     context, mUserBadgeCache, true, true);
+            if (mSelectedAccessPoint != null &&
+                    mSelectedAccessPoint.getNetworkId() == accessPoint.getNetworkId()) {
+                mSelectedAccessPoint = accessPoint;
+            }
             preference.setOrder(i);
             preferenceScreen.addPreference(preference);
         }
@@ -297,11 +304,6 @@ public class SavedAccessPointsWifiSettings extends RestrictedSettingsFragment
     public Dialog onCreateDialog(int dialogId) {
         switch (dialogId) {
             case WifiSettings.WIFI_DIALOG_ID:
-                if (mDlgAccessPoint == null) { // For re-launch from saved state
-                    mDlgAccessPoint = new AccessPoint(getActivity(), mAccessPointSavedState);
-                    // Reset the saved access point data
-                    mAccessPointSavedState = null;
-                }
                 mSelectedAccessPoint = mDlgAccessPoint;
 
                 // Hide forget button if config editing is locked down
