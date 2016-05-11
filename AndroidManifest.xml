@@ -2422,6 +2422,24 @@
                 android:value="com.android.settings.datausage.DataUsageSummary" />
         </activity>
 
+        <activity android:name="Settings$RoamingSettingsActivity"
+                android:label="@string/label_global_roaming_settings"
+                android:icon="@drawable/ic_settings_roaming"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.wireless" />
+            <meta-data android:name="com.android.settings.ACTIVITY_ACTION"
+                android:value="com.android.action.roamingsettings" />
+        </activity>
+
         <activity android:name="Settings$DreamSettingsActivity"
                 android:label="@string/screensaver_settings_title"
                 android:icon="@drawable/ic_settings_display"

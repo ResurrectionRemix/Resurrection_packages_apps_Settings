@@ -210,8 +210,13 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     public static final String EXTRA_HIDE_DRAWER = ":settings:hide_drawer";
 
+    public static final String EXTRA_LAUNCH_ACTIVITY_ACTION = ":settings:launch_activity_action";
+
     public static final String META_DATA_KEY_FRAGMENT_CLASS =
         "com.android.settings.FRAGMENT_CLASS";
+
+    public static final String META_DATA_KEY_LAUNCH_ACTIVITY_ACTION =
+        "com.android.settings.ACTIVITY_ACTION";
 
     private static final String EXTRA_UI_OPTIONS = "settings:ui_options";
 
@@ -220,6 +225,7 @@ public class SettingsActivity extends SettingsDrawerActivity
     private static final int REQUEST_SUGGESTION = 42;
 
     private String mFragmentClass;
+    private String mActivityAction;
 
     private CharSequence mInitialTitle;
     private int mInitialTitleResId;
@@ -521,6 +527,14 @@ public class SettingsActivity extends SettingsDrawerActivity
         getMetaData();
 
         final Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_LAUNCH_ACTIVITY_ACTION)) {
+            if (mActivityAction != null) {
+               startActivity(new Intent(mActivityAction));
+            }
+            finish();
+            return;
+        }
+
         if (intent.hasExtra(EXTRA_UI_OPTIONS)) {
             getWindow().setUiOptions(intent.getIntExtra(EXTRA_UI_OPTIONS, 0));
         }
@@ -833,10 +847,11 @@ public class SettingsActivity extends SettingsDrawerActivity
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        mDevelopmentPreferences.unregisterOnSharedPreferenceChangeListener(
-                mDevelopmentPreferencesListener);
-        mDevelopmentPreferencesListener = null;
+        if (mDevelopmentPreferencesListener != null) {
+            mDevelopmentPreferences.unregisterOnSharedPreferenceChangeListener(
+                    mDevelopmentPreferencesListener);
+            mDevelopmentPreferencesListener = null;
+        }
     }
 
     protected boolean isValidFragment(String fragmentName) {
@@ -866,6 +881,12 @@ public class SettingsActivity extends SettingsDrawerActivity
             args.putParcelable("intent", superIntent);
             modIntent.putExtra(EXTRA_SHOW_FRAGMENT_ARGUMENTS, args);
             return modIntent;
+        } else {
+            if (mActivityAction != null) {
+                Intent modIntent = new Intent(superIntent);
+                modIntent.putExtra(EXTRA_LAUNCH_ACTIVITY_ACTION, mActivityAction);
+                return modIntent;
+            }
         }
         return superIntent;
     }
@@ -1065,6 +1086,10 @@ public class SettingsActivity extends SettingsDrawerActivity
                 Utils.isBandwidthControlEnabled(), isAdmin, pm);
 
         setTileEnabled(new ComponentName(packageName,
+                Settings.RoamingSettingsActivity.class.getName()),
+                getResources().getBoolean(R.bool.config_roamingsettings_enabled), isAdmin, pm);
+
+        setTileEnabled(new ComponentName(packageName,
                 Settings.SimSettingsActivity.class.getName()),
                 Utils.showSimCardTile(this), isAdmin, pm);
 
@@ -1128,6 +1153,7 @@ public class SettingsActivity extends SettingsDrawerActivity
                     PackageManager.GET_META_DATA);
             if (ai == null || ai.metaData == null) return;
             mFragmentClass = ai.metaData.getString(META_DATA_KEY_FRAGMENT_CLASS);
+            mActivityAction = ai.metaData.getString(META_DATA_KEY_LAUNCH_ACTIVITY_ACTION);
         } catch (NameNotFoundException nnfe) {
             // No recovery
             Log.d(LOG_TAG, "Cannot get Metadata for: " + getComponentName().toString());
