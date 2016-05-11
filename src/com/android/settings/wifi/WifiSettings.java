@@ -101,6 +101,7 @@ public class WifiSettings extends RestrictedSettingsFragment
     private static final int MENU_ID_MODIFY = Menu.FIRST + 8;
     private static final int MENU_ID_WRITE_NFC = Menu.FIRST + 9;
     private static final int MENU_ID_CONFIGURE = Menu.FIRST + 10;
+    private static final int MENU_ID_DISCONNECT = Menu.FIRST + 11;
 
     public static final int WIFI_DIALOG_ID = 1;
     /* package */ static final int WPS_PBC_DIALOG_ID = 2;
@@ -458,6 +459,15 @@ public class WifiSettings extends RestrictedSettingsFragment
                     // be used again, ephemerally).
                     menu.add(Menu.NONE, MENU_ID_FORGET, 0, R.string.wifi_menu_forget);
                 }
+
+                // Wifi extension requirement
+                // current connected AP, add a disconnect option to it
+                if (getResources().getBoolean(R.bool.config_auto_connect_wifi_enabled)) {
+                    if (mSelectedAccessPoint.isActive()) {
+                        menu.add(Menu.NONE, MENU_ID_DISCONNECT, 0, R.string.wifi_menu_disconnect);
+                    }
+                }
+
                 if (mSelectedAccessPoint.isSaved()) {
                     menu.add(Menu.NONE, MENU_ID_MODIFY, 0, R.string.wifi_menu_modify);
                     NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(getActivity());
@@ -499,7 +509,11 @@ public class WifiSettings extends RestrictedSettingsFragment
             case MENU_ID_WRITE_NFC:
                 showDialog(WRITE_NFC_DIALOG_ID);
                 return true;
-
+            // Wifi extension requirement
+            case MENU_ID_DISCONNECT: {
+                mWifiManager.disconnect();
+                return true;
+            }
         }
         return super.onContextItemSelected(item);
     }
