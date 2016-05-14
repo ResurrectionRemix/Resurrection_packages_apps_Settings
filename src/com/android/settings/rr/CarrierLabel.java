@@ -62,6 +62,7 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
     private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
     private static final String HIDE_CARRIER_MAX_NOTIFICATION = "hide_carrier_max_notification";
+    private static final String STATUS_BAR_CARRIER_FONT_STYLE = "status_bar_carrier_font_style";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
@@ -71,7 +72,8 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
     private String mCustomCarrierLabelText;
     private ColorPickerPreference mCarrierColorPicker;
     private SeekBarPreference mStatusBarCarrierSize;
-    private ListPreference mHideCarrierMaxNotification;	
+    private ListPreference mHideCarrierMaxNotification;
+    private ListPreference mStatusBarCarrierFontStyle;	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,12 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mCarrierColorPicker.setSummary(hexColor);
         mCarrierColorPicker.setNewPreviewColor(intColor);
 
+        mStatusBarCarrierFontStyle = (ListPreference) findPreference(STATUS_BAR_CARRIER_FONT_STYLE);
+        mStatusBarCarrierFontStyle.setOnPreferenceChangeListener(this);
+        mStatusBarCarrierFontStyle.setValue(Integer.toString(Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 0)));
+        mStatusBarCarrierFontStyle.setSummary(mStatusBarCarrierFontStyle.getEntry());
+
 
         mStatusBarCarrierSize = (SeekBarPreference) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
         mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
@@ -117,9 +125,9 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
         mHideCarrierMaxNotification.setSummary(mHideCarrierMaxNotification.getEntry());
         mHideCarrierMaxNotification.setOnPreferenceChangeListener(this);
 
-            updateCustomLabelTextSummary();
+        updateCustomLabelTextSummary();
 
-}
+    }
 
     private void updateCustomLabelTextSummary() {
         mCustomCarrierLabelText = Settings.System.getString(
@@ -142,14 +150,14 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
-         } else if (preference == mShowCarrierLabel) {
+        } else if (preference == mShowCarrierLabel) {
             int showCarrierLabel = Integer.valueOf((String) newValue);
             int index = mShowCarrierLabel.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(resolver, Settings.System.
                 STATUS_BAR_SHOW_CARRIER, showCarrierLabel, UserHandle.USER_CURRENT);
             mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntries()[index]);
             return true;
-         } else if (preference == mStatusBarCarrierSize) {
+        } else if (preference == mStatusBarCarrierSize) {
             int width = ((Integer)newValue).intValue();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, width);
@@ -160,7 +168,14 @@ public class CarrierLabel  extends SettingsPreferenceFragment implements OnPrefe
             Settings.System.putInt(resolver, Settings.System.HIDE_CARRIER_MAX_NOTIFICATION, intValue);
             preference.setSummary(mHideCarrierMaxNotification.getEntries()[index]);
             return true;
-	}
+        } else if (preference == mStatusBarCarrierFontStyle) {
+                int val = Integer.parseInt((String) newValue);
+                int index = mStatusBarCarrierFontStyle.findIndexOfValue((String) newValue);
+                Settings.System.putInt(resolver,
+                        Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, val);
+                mStatusBarCarrierFontStyle.setSummary(mStatusBarCarrierFontStyle.getEntries()[index]);
+                return true;
+        }
          return false;
     }
 
