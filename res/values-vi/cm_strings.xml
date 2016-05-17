@@ -164,6 +164,7 @@
   <string name="toggleData">Kết nối dữ liệu</string>
   <string name="toggleSync">Tự động đồng bộ dữ liệu</string>
   <string name="toggle2g3g4g">Loại mạng ưa thích</string>
+  <string name="toggle2g3g4g_msim">Loại mạng ưu tiên (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Mã khu vực Wi\u2011Fi</string>
@@ -171,6 +172,18 @@
   <string name="wifi_setting_countrycode_summary">Chỉ định mã vùng cho Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Đã có vấn đề thiết lập mã vùng.</string>
+  <string name="wifi_countrycode_us">Hoa Kỳ</string>
+  <string name="wifi_countrycode_ca">Canada, Đài Loan</string>
+  <string name="wifi_countrycode_de">Đức</string>
+  <string name="wifi_countrycode_gb">Châu Âu</string>
+  <string name="wifi_countrycode_jp">Nhật Bản, Nga</string>
+  <string name="wifi_countrycode_au">Úc</string>
+  <string name="wifi_countrycode_cn">Trung Quốc</string>
+  <string name="wifi_countrycode_kr">Hàn Quốc</string>
+  <string name="wifi_countrycode_tr">Nam Phi, Thổ Nhĩ Kỳ</string>
+  <string name="wifi_countrycode_sg">Israel, Singapore</string>
+  <string name="wifi_countrycode_br">Brazil</string>
+  <string name="wifi_countrycode_in">Ấn Độ</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Xóa</string>
   <string name="profile_action_none">Giữ nguyên</string>
@@ -259,6 +272,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Cài đặt đèn</string>
   <string name="led_notification_text">Đèn LED được kích hoạt theo cài đặt</string>
+  <string name="notification_light_no_apps_summary">Để thêm cho mỗi quyền kiểm soát ứng dụng, kích hoạt \'%1$s\' và nhấn \'\u002b\' trên thanh menu</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Gỡ lỗi Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -428,6 +442,7 @@
   <string name="app_ops_allowed_count">Được phép <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Bị từ chối <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Được phép <xliff:g id="count">%1$s</xliff:g>, bị từ chối <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Bị vô hiệu hóa bởi tính năng tối ưu hóa pin</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Hiện ứng dụng người dùng</string>
   <string name="app_ops_show_system_apps">Hiện ứng dụng tích hợp sẵn</string>
@@ -514,6 +529,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Kích hoạt thanh điều hướng trên màn hình</string>
   <string name="disable_navkeys_summary">Kích hoạt thanh điều hướng trên màn hình và vô hiệu hóa các phím cứng</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Chạm hai lần để bật màn hình</string>
+  <string name="double_tap_to_wake_summary">Chạm hai lần trên màn hình để bật màn hình hiển thị</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Chạm hai lần để tắt màn hình</string>
   <string name="double_tap_to_sleep_summary">Chạm hai lần vào thanh trạng thái để tắt màn hình hiển thị</string>
@@ -537,7 +555,6 @@
   <string name="color_red_title">Đỏ</string>
   <string name="color_green_title">Xanh lá</string>
   <string name="color_blue_title">Xanh dương</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Khởi động ứng dụng nghe nhạc</string>
   <string name="headset_connect_player_summary">Khởi động ứng dụng nghe nhạc mặc định khi cắm tai nghe</string>
@@ -568,6 +585,9 @@
   <string name="saturation_str">Độ bão hòa: <xliff:g id="saturation_value">%1$s </xliff:g></string>
   <string name="contrast_str">Độ tương phản: <xliff:g id="contrast_value">%1$s </xliff:g></string>
   <string name="intensity_str">Cường độ: <xliff:g id="intensity_str_value">%1$s </xliff:g></string>
+  <string name="screen_color_standard">Chuẩn</string>
+  <string name="screen_color_vivid">Sống động</string>
+  <string name="screen_color_custom">Tùy chỉnh</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Tối ưu hóa màn hình dựa trên điều kiện môi trường và thời gian trong ngày để cải thiện khả năng đọc và giảm mỏi mắt</string>
   <string name="live_display_mode">Chế độ hiển thị</string>
@@ -853,6 +873,7 @@
   <string name="menu_hidden_apps_delete">Đặt lại</string>
   <string name="menu_hidden_apps_reset_lock">Đặt lại mẫu hình mở khóa</string>
   <string name="protected_apps">Các ứng dụng được bảo vệ</string>
+  <string name="protected_apps_summary">Quản lý các ứng dụng được ẩn sau khóa an toàn</string>
   <string name="saving_protected_components">Đang lưu trạng thái thành phần\u2026</string>
   <string name="pa_login_username_hint">Tên người dùng (email)</string>
   <string name="pa_login_password_hint">Mật khẩu</string>
@@ -984,5 +1005,38 @@
   <string name="battery_info_status_charging_dock_ac">Đang sạc trên AC của đế</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">Đang sạc qua USB của đế</string>
+  <string name="restrict_app_wlan_title">Vô hiệu hóa việc sử dụng Wi\u2011Fi ở ứng dụng</string>
+  <string name="restrict_app_wlan_summary">Ngăn không cho ứng dụng sử dụng kết nối dữ liệu Wi\u2011Fi</string>
+  <string name="restrict_app_cellular_title">Vô hiệu hóa việc sử dụng di động ở ứng dụng</string>
+  <string name="restrict_app_cellular_summary">Ngăn không cho ứng dụng sử dụng kết nối dữ liệu di động</string>
+  <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
+  <string name="weather_settings_title">Thời tiết</string>
+  <string name="weather_settings_no_services_prompt">Không có dịch vụ nhà cung cấp thời tiết nào được cài đặt</string>
+  <string name="weather_settings_button">Cài đặt nhà cung cấp</string>
+  <string name="weather_settings_activity_not_found">Không thể khởi động menu cài đặt của nhà cung cấp này</string>
+  <string name="weather_settings_add_weather_provider">Thêm nhà cung cấp thời tiết</string>
+  <string name="weather_settings_general_settings_title">Tổng quát</string>
+  <string name="weather_settings_providers_title">Nhà cung cấp</string>
+  <string name="weather_settings_temp_units_title">Đơn vị nhiệt độ</string>
+  <string name="weather_settings_temp_celsius">Độ C</string>
+  <string name="weather_settings_temp_fahrenheit">Độ F</string>
+  <string name="weather_settings_keyword">thời tiết</string>
+  <string name="background_data_access">Truy cập dữ liệu nền</string>
+  <string name="allow_background_both">Qua dữ liệu di động &amp; Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Chỉ qua Wi\u2011Fi</string>
+  <string name="allow_background_none">Không có quyền truy cập</string>
+  <string name="mobile_data_alert">Cảnh báo dữ liệu di động</string>
+  <string name="mobile_data_alert_summary">Thông báo khi ứng dụng sử dụng lượng dữ liệu đáng kể</string>
+  <string name="data_usage_menu_enable_data_alerts">Bật cảnh báo sử dụng dữ liệu</string>
+  <string name="data_usage_menu_disable_data_alerts">Tắt cảnh báo sử dụng dữ liệu</string>
+  <string name="data_usage_menu_reset_stats">Thiết lập lại thống kê dữ liệu</string>
+  <string name="reset_data_stats_msg">Thao tác này sẽ xóa tất cả thông tin theo dõi dữ liệu trong quá khứ và hiện tại</string>
+  <string name="reset_stats_confirm">Xác nhận</string>
+  <string name="restrict_cellular_access_title">Hạn chế truy cập dữ liệu di động</string>
+  <string name="restrict_cellular_access_summary">Vô hiệu hoá quyền truy cập dữ liệu trên mạng di động</string>
+  <string name="restrict_cellular_access_dialog_title">Hạn chế truy cập dữ liệu di động?</string>
+  <string name="restrict_cellular_access_dialog_summary">Tính năng này có thể khiến một ứng dụng phụ thuộc vào việc truy cập mạng ngừng hoạt động khi chỉ sẵn có mạng di động.\n\nBạn có thể tìm thấy các quyền kiểm soát sử dụng dữ liệu thích hợp hơn trong các cài đặt sẵn có trong ứng dụng.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Nhà điều hành mạng</string>
 </resources>

@@ -105,6 +105,7 @@
   <string name="rename_dialog_hint">Angi profilnavn</string>
   <!-- Reset Profiles -->
   <string name="profile_reset_title">Tilbakestill</string>
+  <string name="profile_reset_message">Slette alle brukeropprettede profiler og app grupper og gjenopprette dem til standard?</string>
   <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Fjerne denne appen?</string>
   <!-- Profile network mode -->
@@ -164,6 +165,7 @@
   <string name="toggleData">Datatilkobling</string>
   <string name="toggleSync">Auto-synk data</string>
   <string name="toggle2g3g4g">Foretrukket nettverkstype</string>
+  <string name="toggle2g3g4g_msim">Foretrukket nettverkstype (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Wi\u2011Fi-regionskode</string>
@@ -171,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">Angi regionskoden for Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Det oppsto et problem med å stille inn regionskoden.</string>
+  <string name="wifi_countrycode_us">USA</string>
+  <string name="wifi_countrycode_ca">Canada, Taiwan</string>
+  <string name="wifi_countrycode_de">Tyskland</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japan, Russland</string>
+  <string name="wifi_countrycode_au">Australia</string>
+  <string name="wifi_countrycode_cn">Kina</string>
+  <string name="wifi_countrycode_kr">Korea</string>
+  <string name="wifi_countrycode_tr">Sør-Afrika, Tyrkia</string>
+  <string name="wifi_countrycode_sg">Israel, Singapore</string>
+  <string name="wifi_countrycode_br">Brasil</string>
+  <string name="wifi_countrycode_in">India</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Slett</string>
   <string name="profile_action_none">La stå uendret</string>
@@ -252,12 +266,14 @@
   <string name="notification_light_missed_call_title">Tapt anrop</string>
   <string name="notification_light_voicemail_title">Talepostkasse</string>
   <string name="notification_light_screen_on">Lys med skjermen på</string>
+  <string name="notification_light_zen_mode">Lys i Ikke Forstyrr-modus</string>
   <string name="notification_light_use_multiple_leds">Flere lysdioder</string>
   <string name="keywords_lights_brightness_level">dim lysdioder lysstyrke</string>
   <string name="notification_light_automagic">Velg farger automatisk</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Lys innstillinger</string>
   <string name="led_notification_text">LED lyset aktiveres av innstillingene</string>
+  <string name="notification_light_no_apps_summary">For å legge til per-app kontroll, må du aktivere \'%1$s\' og trykke \'\u002b\' på meny-linjen</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android feilsøking</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -290,6 +306,7 @@
   <string name="app_ops_summaries_read_calendar">les kalender</string>
   <string name="app_ops_summaries_modify_calendar">endre kalender</string>
   <string name="app_ops_summaries_wifi_scan">Wi-Fi skanning</string>
+  <string name="app_ops_summaries_notification">varsling/toast</string>
   <string name="app_ops_summaries_cell_scan">Celle skann</string>
   <string name="app_ops_summaries_call_phone">ring telefon</string>
   <string name="app_ops_summaries_read_sms">les SMS</string>
@@ -321,14 +338,21 @@
   <string name="app_ops_summaries_keep_awake">hold våken</string>
   <string name="app_ops_summaries_monitor_location">skjerm plassering</string>
   <string name="app_ops_summaries_monitor_high_power_location">overvåk kraftkrevende plassering</string>
+  <string name="app_ops_summaries_get_usage_stats">få brukstatistikker</string>
   <string name="app_ops_summaries_mute_unmute_microphone">Demp/fjern demping mikrofon</string>
   <string name="app_ops_summaries_toast_window">vise toastmeldinger</string>
   <string name="app_ops_summaries_project_media">Prosjekt media</string>
   <string name="app_ops_summaries_activate_vpn">aktiver VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">skrive bakgrunn</string>
+  <string name="app_ops_summaries_assist_structure">hjelpestruktur</string>
+  <string name="app_ops_summaries_assist_screenshot">hjelpeskjermbilde</string>
+  <string name="app_ops_summaries_read_phone_state">lese telefontilstand</string>
   <string name="app_ops_summaries_add_voicemail">legg til mobilsvar</string>
   <string name="app_ops_summaries_use_sip">bruk SIP</string>
   <string name="app_ops_summaries_make_call">foreta anrop</string>
   <string name="app_ops_summaries_use_fingerprint">bruk fingeravtrykk</string>
+  <string name="app_ops_summaries_use_body_sensors">bruke enhetssensorer</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">lese cellekringkastinger</string>
   <string name="app_ops_summaries_read_external_storage">lese ekstern lagring</string>
   <string name="app_ops_summaries_write_external_storage">skriv til ekstern lagring</string>
   <string name="app_ops_summaries_turn_screen_on">slå skjermen på</string>
@@ -493,6 +517,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Aktiverer navigasjonsbar på skjermen</string>
   <string name="disable_navkeys_summary">Aktiverer navigasjonsbar på skjermen og deaktiver hardware knapper</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Dobbelttapp for å vekke</string>
+  <string name="double_tap_to_wake_summary">Dobbelttrykk på skjermen for å aktivere displayet</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Dobbeltapp for å sove</string>
   <string name="double_tap_to_sleep_summary">Dobbelttapp på statuslinjen for å slå av skjermen</string>
@@ -516,7 +543,6 @@
   <string name="color_red_title">Rød</string>
   <string name="color_green_title">Grønn</string>
   <string name="color_blue_title">Blå</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Start musikk app</string>
   <string name="headset_connect_player_summary">Start standard musikk app når hodesett er tilkoblet</string>
@@ -547,6 +573,9 @@
   <string name="saturation_str">Metning: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensitet: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Standard</string>
+  <string name="screen_color_vivid">Levende</string>
+  <string name="screen_color_custom">Egendefinert</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimalisere skjermen basert på tidspunkt på dagen og omgivelsesforhold å forbedre lesbarhet og redusere belastningen på øynene</string>
   <string name="live_display_mode">Visningsmodus</string>
@@ -930,6 +959,7 @@
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Levende skjermlås</string>
   <!-- Live lock screen summary -->
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Innstillinger</string>
@@ -948,5 +978,20 @@
   <string name="battery_info_status_charging_dock_ac">Lader på dokk AC</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">Lader via dokk-USB</string>
+  <string name="privacy_guard_internet_category">Internett</string>
   <!-- Weather -->
+  <string name="weather_settings_title">Vær</string>
+  <string name="weather_settings_general_settings_title">Generelt</string>
+  <string name="allow_background_wlan">Bare over Wi\u2011Fi</string>
+  <string name="allow_background_none">Ingen tilgang</string>
+  <string name="mobile_data_alert">Mobildata varsel</string>
+  <string name="data_usage_menu_reset_stats">Nullstill data statistikker</string>
+  <string name="reset_data_stats_msg">Dette vil fjerne alt av tidligere og nåværende datasporing innformasjon</string>
+  <string name="reset_stats_confirm">Bekreft</string>
+  <string name="restrict_cellular_access_title">Begrense mobildata tilgang</string>
+  <string name="restrict_cellular_access_summary">Deaktiver datatilgang på mobilnettverk</string>
+  <string name="restrict_cellular_access_dialog_title">Begrense mobildata tilgang?</string>
+  <string name="restrict_cellular_access_dialog_summary">Denne funksjonen kan forårsake at en app som avhenger av nettverkstilgang slutter å virke når bare mobilnettverk er tilgjengelig.\n\nDu finner mer hensiktsmessig databruk kontrolleringsinnstillinger tilgjengelig i appens innstillinger.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Nettverksoperatører</string>
 </resources>

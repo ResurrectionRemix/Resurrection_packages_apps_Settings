@@ -173,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">ציין קוד אזור עבור Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">אירעה שגיאה בהגדרת הקוד האזורי.</string>
+  <string name="wifi_countrycode_us">ארצות הברית</string>
+  <string name="wifi_countrycode_ca">קנדה, טאיוואן</string>
+  <string name="wifi_countrycode_de">גרמניה</string>
+  <string name="wifi_countrycode_gb">אירופה</string>
+  <string name="wifi_countrycode_jp">יפן, רוסיה</string>
+  <string name="wifi_countrycode_au">אוסטרליה</string>
+  <string name="wifi_countrycode_cn">סין</string>
+  <string name="wifi_countrycode_kr">קוריאה</string>
+  <string name="wifi_countrycode_tr">דרום אפריקה, טורקיה</string>
+  <string name="wifi_countrycode_sg">ישראל, סינגפור</string>
+  <string name="wifi_countrycode_br">ברזיל</string>
+  <string name="wifi_countrycode_in">הודו</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">מחק</string>
   <string name="profile_action_none">השאר ללא שינוי</string>
@@ -261,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">הגדרות נורית</string>
   <string name="led_notification_text">נורית LED מופעלת בהגדרות</string>
+  <string name="notification_light_no_apps_summary">כדי להוסיף בקרה ברמת יישום בודד, הפעל את \"%1$s\" ולחץ על \"\u002b\" בסרגל התפריטים</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">איתור באגים של אנדרואיד</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -517,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">הפעל לחצני ניווט על המסך</string>
   <string name="disable_navkeys_summary">אפשר לחצני ניווט על המסך והשבת לחצנים פיזיים</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">הקשה כפולה כדי להעיר</string>
+  <string name="double_tap_to_wake_summary">הקש פעמיים כדי להפעיל את התצוגה</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">הקשה כפולה לכיבוי מסך</string>
   <string name="double_tap_to_sleep_summary">הקש פעמיים בשורת המצב כדי לכבות את המסך</string>
@@ -540,7 +556,6 @@
   <string name="color_red_title">אדום</string>
   <string name="color_green_title">ירוק</string>
   <string name="color_blue_title">כחול</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">הפעל נגן מוזיקה</string>
   <string name="headset_connect_player_summary">הפעל את נגן המוזיקה המוגדר כברירת המחדל בעת חיבור אוזניות</string>
@@ -571,6 +586,9 @@
   <string name="saturation_str">רוויה: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">ניגודיות: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">עוצמה: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">רגיל</string>
+  <string name="screen_color_vivid">חי (Vivid)</string>
+  <string name="screen_color_custom">מותאם אישית</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">התאם את מסך מכשירך בהתאם לשעה ולתנאי הסביבה על מנת לשפר את נוחות הקריאה ולהפחית את עייפות העין</string>
   <string name="live_display_mode">מצב תצוגה</string>
@@ -856,7 +874,7 @@
   <string name="menu_hidden_apps_delete">איפוס</string>
   <string name="menu_hidden_apps_reset_lock">איפוס נעילת דפוס</string>
   <string name="protected_apps">יישומים מוגנים</string>
-  <string name="protected_apps_summary">נהל אילו יישומים מוחבאים מאחורי נעילה מאובטחת</string>
+  <string name="protected_apps_summary">נהל אילו יישומים מוסתרים מאחורי נעילה מאובטחת</string>
   <string name="saving_protected_components">שמירת מצב רכיב\u2026</string>
   <string name="pa_login_username_hint">שם משתמש (דוא\"ל)</string>
   <string name="pa_login_password_hint">סיסמה</string>
@@ -989,27 +1007,37 @@
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">מטעין דרך חיבור USB</string>
   <string name="restrict_app_wlan_title">השבת את שימוש היישום ב- Wi\u2011Fi</string>
-  <string name="restrict_app_wlan_summary">מונע מיישום מלהשתמש בחיבור נתוני Wi\u2011Fi</string>
+  <string name="restrict_app_wlan_summary">מונע שימוש של יישום בחיבור נתוני Wi\u2011Fi</string>
   <string name="restrict_app_cellular_title">השבת את שימוש היישום באינטרנט סלולרי</string>
-  <string name="restrict_app_cellular_summary">מונע מיישום מלהשתמש בחיבור נתונים סלולריים</string>
+  <string name="restrict_app_cellular_summary">מונע שימוש של יישום בחיבור נתונים סלולריים</string>
   <string name="privacy_guard_internet_category">אינטרנט</string>
   <!-- Weather -->
   <string name="weather_settings_title">מזג אוויר</string>
   <string name="weather_settings_no_services_prompt">לא מותקנים שירותי ספקי מזג אוויר</string>
   <string name="weather_settings_button">הגדרות ספק</string>
+  <string name="weather_settings_activity_not_found">לא ניתן להפעיל את תפריט ההגדרות של ספק זה</string>
+  <string name="weather_settings_add_weather_provider">הוסף ספק מזג אוויר</string>
+  <string name="weather_settings_general_settings_title">כללי</string>
+  <string name="weather_settings_providers_title">ספקים</string>
+  <string name="weather_settings_temp_units_title">יחידת טמפרטורה</string>
+  <string name="weather_settings_temp_celsius">צלזיוס</string>
+  <string name="weather_settings_temp_fahrenheit">פרנהייט</string>
+  <string name="weather_settings_keyword">מזג אוויר</string>
   <string name="background_data_access">גישה לנתוני רקע</string>
   <string name="allow_background_both">מעל נתונים סלולריים ו- Wi\u2011Fi</string>
   <string name="allow_background_wlan">רק מעל Wi\u2011Fi</string>
   <string name="allow_background_none">אין גישה</string>
   <string name="mobile_data_alert">התראת נתונים סלולריים</string>
   <string name="mobile_data_alert_summary">מתריע כאשר יישום משתמש בכמות נתונים משמעותית</string>
-  <string name="data_usage_menu_enable_data_alerts">הפעל התראות שימוש נתונים</string>
-  <string name="data_usage_menu_disable_data_alerts">השבתת התראות שימוש נתונים</string>
+  <string name="data_usage_menu_enable_data_alerts">הפעל התראות שימוש בנתונים</string>
+  <string name="data_usage_menu_disable_data_alerts">השבת התראות שימוש בנתונים</string>
   <string name="data_usage_menu_reset_stats">איפוס סטטיסטיקות נתונים</string>
   <string name="reset_data_stats_msg">פעולה זו תנקה את כל המידע שנאסף בהווה ובעבר על מעקב אחר נתונים</string>
   <string name="reset_stats_confirm">אישור</string>
   <string name="restrict_cellular_access_title">הגבל גישה לנתונים סלולריים</string>
-  <string name="restrict_cellular_access_summary">השבתת גישה לנתונים ברשתות סלולריות</string>
+  <string name="restrict_cellular_access_summary">השבת גישה לנתונים ברשתות סלולריות</string>
   <string name="restrict_cellular_access_dialog_title">להגביל גישה לנתונים סלולריים?</string>
   <string name="restrict_cellular_access_dialog_summary">תכונה זו עלולה לגרום להפסקת פעולתו של יישום התלוי בגישה לרשת כאשר קיימת זמינות לרשתות סלולריות בלבד.\n\nתוכל למצוא פקדים מתאימים יותר לשימוש בנתונים, בהגדרות הזמינות בתוך היישום.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">ספקי סלולר</string>
 </resources>

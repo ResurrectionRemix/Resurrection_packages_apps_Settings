@@ -166,6 +166,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="toggleData">Connexion aux données mobiles</string>
   <string name="toggleSync">Synchro automatique des données</string>
   <string name="toggle2g3g4g">Type de réseau préféré</string>
+  <string name="toggle2g3g4g_msim">Type de réseau préféré (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Code région Wi\u2011Fi</string>
@@ -173,6 +174,18 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="wifi_setting_countrycode_summary">Indiquer le code région pour le Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Problème lors du réglage du code région.</string>
+  <string name="wifi_countrycode_us">États-Unis</string>
+  <string name="wifi_countrycode_ca">Canada, Taïwan</string>
+  <string name="wifi_countrycode_de">Allemagne</string>
+  <string name="wifi_countrycode_gb">Europe</string>
+  <string name="wifi_countrycode_jp">Japon, Russie</string>
+  <string name="wifi_countrycode_au">Australie</string>
+  <string name="wifi_countrycode_cn">Chine</string>
+  <string name="wifi_countrycode_kr">Corée</string>
+  <string name="wifi_countrycode_tr">Afrique du Sud, Turquie</string>
+  <string name="wifi_countrycode_sg">Israël, Singapour</string>
+  <string name="wifi_countrycode_br">Brésil</string>
+  <string name="wifi_countrycode_in">Inde</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Supprimer</string>
   <string name="profile_action_none">Annuler les modifications</string>
@@ -261,6 +274,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Paramètres du voyant</string>
   <string name="led_notification_text">LED activée par les paramètres</string>
+  <string name="notification_light_no_apps_summary">Pour ajouter la gestion par application, activer \'%1$s\' et appuyer sur \'\u002b\' dans la barre de menu</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Débogage Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -430,6 +444,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_allowed_count">Autorisé <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Refusé <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Autorisé <xliff:g id="count">%1$s</xliff:g>, refusé <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Désactivé pour l\'optimisation de la batterie</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Voir l\'utilisateur des applications</string>
   <string name="app_ops_show_system_apps">Afficher les applications système</string>
@@ -516,6 +531,9 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Activer la barre de navigation à l\'écran</string>
   <string name="disable_navkeys_summary">Activer la barre de navigation à l\'écran et désactiver les touches physiques</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Appui double pour réveiller</string>
+  <string name="double_tap_to_wake_summary">Appui double sur l\'écran pour l\'allumer</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Appui double pour mettre en veille</string>
   <string name="double_tap_to_sleep_summary">Appui double sur la barre d\'état pour éteindre l\'écran</string>
@@ -539,7 +557,6 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="color_red_title">Rouge</string>
   <string name="color_green_title">Vert</string>
   <string name="color_blue_title">Bleu</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Lancer le lecteur de musique</string>
   <string name="headset_connect_player_summary">Lancer le lecteur de musique par défaut au branchement du casque</string>
@@ -570,6 +587,9 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="saturation_str">Saturation : <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contraste : <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensité : <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Standard</string>
+  <string name="screen_color_vivid">Vive</string>
+  <string name="screen_color_custom">Personnalisée</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiser votre écran en fonction de l\'heure et des conditions ambiantes pour améliorer la lisibilité et réduire la fatigue oculaire</string>
   <string name="live_display_mode">Mode d\'affichage</string>
@@ -855,6 +875,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="menu_hidden_apps_delete">Réinitialiser</string>
   <string name="menu_hidden_apps_reset_lock">Réinitialiser schéma de déverrouillage</string>
   <string name="protected_apps">Applications protégées</string>
+  <string name="protected_apps_summary">Gérer quelles applications sont protégées par un verrou de sécurité</string>
   <string name="saving_protected_components">Enregistrement de l\'état du composant\u2026</string>
   <string name="pa_login_username_hint">Nom d\'utilisateur (e-mail)</string>
   <string name="pa_login_password_hint">Mot de passe</string>
@@ -986,5 +1007,38 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="battery_info_status_charging_dock_ac">Chargement sur secteur du dock</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">Chargement par l\'USB du dock</string>
+  <string name="restrict_app_wlan_title">Désactiver l\'utilisation du Wi\u2011Fi par cette application</string>
+  <string name="restrict_app_wlan_summary">Empêcher l\'application d\'utiliser la Wi\u2011Fi</string>
+  <string name="restrict_app_cellular_title">Désactiver l\'utilisation des données mobiles par cette application</string>
+  <string name="restrict_app_cellular_summary">Empêcher l\'application d\'utiliser les données mobiles</string>
+  <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
+  <string name="weather_settings_title">Météo</string>
+  <string name="weather_settings_no_services_prompt">Aucun fournisseur de services météorologiques installé</string>
+  <string name="weather_settings_button">Paramètres du fournisseur</string>
+  <string name="weather_settings_activity_not_found">Impossible de lancer le menu de paramètres pour ce fournisseur</string>
+  <string name="weather_settings_add_weather_provider">Ajouter un fournisseur de météo</string>
+  <string name="weather_settings_general_settings_title">Général</string>
+  <string name="weather_settings_providers_title">Fournisseurs</string>
+  <string name="weather_settings_temp_units_title">Unité de température</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">météo</string>
+  <string name="background_data_access">Accès aux données en arrière-plan</string>
+  <string name="allow_background_both">Données mobiles et Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Seulement en Wi\u2011Fi</string>
+  <string name="allow_background_none">Pas d\'accès</string>
+  <string name="mobile_data_alert">Alerte de données mobiles</string>
+  <string name="mobile_data_alert_summary">Avertir lorsqu\'une appli utilise une quantité importante de données</string>
+  <string name="data_usage_menu_enable_data_alerts">Activer les alertes d\'utilisation de données</string>
+  <string name="data_usage_menu_disable_data_alerts">Désactiver les alertes d\'utilisation de données</string>
+  <string name="data_usage_menu_reset_stats">Réinitialiser les statistiques des données</string>
+  <string name="reset_data_stats_msg">Cela effacera toutes les informations, passées et présentes, de suivi des données</string>
+  <string name="reset_stats_confirm">Confirmer</string>
+  <string name="restrict_cellular_access_title">Restreindre l\'accès aux données mobiles</string>
+  <string name="restrict_cellular_access_summary">Désactiver l\'accès aux données sur les réseaux mobiles</string>
+  <string name="restrict_cellular_access_dialog_title">Restreindre l\'accès aux données mobiles ?</string>
+  <string name="restrict_cellular_access_dialog_summary">Cette fonctionnalité peut empêcher le fonctionnement d\'une appli dépendante d\'un accès au réseau lorsque seuls des réseaux mobiles sont disponibles.\n\nVous pouvez trouver des options plus appropriées de gestion de l\'utilisation des données dans les paramètres disponibles dans cette appli.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Opérateurs réseau</string>
 </resources>
