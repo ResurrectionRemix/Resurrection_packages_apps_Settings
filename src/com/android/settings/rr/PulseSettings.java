@@ -71,7 +71,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         mShowPulse = (SwitchPreference) findPreference("eos_fling_show_pulse");
         mShowPulse.setChecked(Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.FLING_PULSE_ENABLED, 1) == 1);
+                Settings.Secure.FLING_PULSE_ENABLED, 0) == 1);
         mShowPulse.setOnPreferenceChangeListener(this);
 
         int pulseColor = Settings.Secure.getIntForUser(getContentResolver(),
