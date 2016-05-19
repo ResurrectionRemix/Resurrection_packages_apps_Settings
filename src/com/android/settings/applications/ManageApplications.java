@@ -87,7 +87,8 @@ import java.util.Comparator;
  * intent.
  */
 public class ManageApplications extends InstrumentedFragment
-        implements OnItemClickListener, OnItemSelectedListener {
+        implements OnItemClickListener, OnItemSelectedListener,
+        ResetAppsHelper.ResetCompletedCallback {
 
     static final String TAG = "ManageApplications";
     static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
@@ -279,7 +280,7 @@ public class ManageApplications extends InstrumentedFragment
 
         mInvalidSizeStr = getActivity().getText(R.string.invalid_size_value);
 
-        mResetAppsHelper = new ResetAppsHelper(getActivity());
+        mResetAppsHelper = new ResetAppsHelper(getActivity(), this);
     }
 
 
@@ -621,6 +622,11 @@ public class ManageApplications extends InstrumentedFragment
         }
         mFilterAdapter.setFilterEnabled(FILTER_APPS_ENABLED, hasDisabledApps);
         mFilterAdapter.setFilterEnabled(FILTER_APPS_DISABLED, hasDisabledApps);
+    }
+
+    @Override
+    public void onResetCompleted() {
+        mApplications.mExtraInfoBridge.onPackageListChanged();
     }
 
     static class FilterSpinnerAdapter extends ArrayAdapter<CharSequence> {
