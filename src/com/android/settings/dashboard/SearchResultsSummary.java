@@ -236,7 +236,9 @@ public class SearchResultsSummary extends InstrumentedFragment {
 
                 mShowResults = true;
                 mQuery = cursor.getString(0);
-                mSearchView.setQuery(mQuery, false);
+                if (mSearchView != null) {
+                    mSearchView.setQuery(mQuery, false);
+                }
             }
         });
         mSuggestionsListView.addHeaderView(
