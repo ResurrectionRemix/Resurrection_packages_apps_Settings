@@ -94,6 +94,7 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     private String mCurMnc;
     private String mCurMcc;
+    private boolean mDisableEditor = false;
 
     private Uri mUri;
     private Cursor mCursor;
@@ -204,6 +205,11 @@ public class ApnEditor extends SettingsPreferenceFragment
         final String action = intent.getAction();
         mSubId = intent.getIntExtra(ApnSettings.SUB_ID,
                 SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+        mDisableEditor = intent.getBooleanExtra("DISABLE_EDITOR", false);
+        if (mDisableEditor) {
+            getPreferenceScreen().setEnabled(false);
+            Log.d(TAG, "ApnEditor form is disabled.");
+        }
 
         mFirstTime = icicle == null;
 
@@ -536,6 +542,10 @@ public class ApnEditor extends SettingsPreferenceFragment
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        if (mDisableEditor) {
+            Log.d(TAG, "Form is disabled. Do not create the options menu.");
+            return;
+        }
         // If it's a new APN, then cancel will delete the new entry in onPause
         if (!mNewApn) {
             menu.add(0, MENU_DELETE, 0, R.string.menu_delete)
@@ -602,6 +612,13 @@ public class ApnEditor extends SettingsPreferenceFragment
      * @return true if the data was saved
      */
     private boolean validateAndSave(boolean force) {
+
+        // If the form is not editable, do nothing and return.
+        if (mDisableEditor){
+            Log.d(TAG, "Form is disabled. Nothing to save.");
+            return true;
+        }
+
         String name = checkNotSet(mName.getText());
         String apn = checkNotSet(mApn.getText());
         String mcc = checkNotSet(mMcc.getText());
