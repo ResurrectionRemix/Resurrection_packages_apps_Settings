@@ -204,7 +204,7 @@
   <string name="recents_styles_1">Stílusok</string>
   <string name="recents_colors">Stílusok</string>
   <string name="recents_style_2">Színek</string>
-  <string name="recents_style_3">Taskview Header</string>
+  <string name="recents_style_3">Feladatnézet fejléc</string>
   <string name="pin_button_color">Képernyő rögzítés gomb</string>
   <string name="mw_button_color">Több ablak gomb</string>
   <string name="float_button_color">Lebegő gomb</string>
@@ -220,7 +220,7 @@
   <string name="recents_rotate_fab">FAB animálás</string>
   <string name="recents_rotate_fab_summary">A mindent töröl gomb forgatásának engedélyezése/tiltása</string>
   <string name="recents_fab_vibrate">Mindent töröl gomb érintésre rezeg</string>
-  <string name="recents_fab_vibrate_summary">Enable / Disable Haptic Feedback of Dismissall Button</string>
+  <string name="recents_fab_vibrate_summary">Mindet elvet gomb érintési visszajelzésének engedélyezése/tiltása</string>
   <string name="fab_animation_style">Lebegő gomb animáció</string>
   <string name="recents_fab_lp">FAB hosszan nyomás engedélyezése</string>
   <string name="recents_fab_lp_summary">Hosszan nyomva frissíti a memória sávot, ha látszik</string>
@@ -260,16 +260,16 @@
   <string name="animation2">Átlátszó kilépés</string>
   <string name="animation3">Átlátszó kilépési szalag</string>
   <string name="animation4">Buborékszöveg kilépés</string>
-  <string name="animation5">Slide Out Down </string>
+  <string name="animation5">Kiúsztatás lefelé</string>
   <string name="animation6">Xylon kilépés</string>
-  <string name="animation7">Honami Toast Exit</string>
-  <string name="animation8">Slide Out Right </string>
+  <string name="animation7">Honami buborékszöveg kilépés</string>
+  <string name="animation8">Kiúsztatás jobbra</string>
   <string name="animation9">Buborékszöveg kilépés</string>
-  <string name="animation10">Fade Out Slow </string>
-  <string name="animation11">Slide Out Left</string>
+  <string name="animation10">Lassú kiúsztatás</string>
+  <string name="animation11">Kiúsztatás balra</string>
   <string name="animation12">Kiúsztatás</string>
   <string name="animation13">Gyors kiúsztatás</string>
-  <string name="animation14">Slide Out Up </string>
+  <string name="animation14">Kiúsztatás felfelé</string>
   <string name="animation15">Gyors forgatás</string>
   <!-- Recents Fullscreen -->
   <string name="recents_show_fullscreen">Teljes képernyős előzmények</string>
@@ -288,7 +288,7 @@
   <!-- Quick settings quick pull down -->
   <string name="status_bar_quick_qs_pulldown_title">Gyors legördülő</string>
   <string name="status_bar_quick_qs_pulldown_summary">Gyors beállítások megjelenítése az értesítési sáv jobb oldalán történő legörgetéskor</string>
-  <string name="quick_pulldown_summary_always">Always show Quick Settings on status bar pulldown</string>
+  <string name="quick_pulldown_summary_always">Mindig jelenítse meg a gyors beállításokat az állapotsor lehúzásakor</string>
   <string name="quick_pulldown_always">Mindig</string>
   <!-- Quick settings brightness slider -->
   <string name="qs_brightness_slider_title">Fényerő csúszka</string>
@@ -936,8 +936,8 @@
   <string name="status_bar_colors_summary">Állapotsori ikonok színezése. Téma színeit felülbírálja</string>
   <string name="carrierlabel_summary">Állapotsori szolgáltatói címke szövegének testreszabása</string>
   <string name="network_traffic_settings_summary">Állapotsori hálózati forgalom jelzők testreszabása</string>
-  <string name="rr_logo_summary">Choose between a variety of RR logos in statusbar</string>
-  <string name="rr_custom_logo_summary">Choose between a variety of Custom logos/images in statusbar</string>
+  <string name="rr_logo_summary">Válasszon a különböző állapotsori RR logók közül</string>
+  <string name="rr_custom_logo_summary">Válasszon a különböző állapotsori egyéni logók/képek közül</string>
   <!-- Selinux Switch -->
   <string name="selinux_switch_title">Selinux váltási lehetőségek</string>
   <string name="selinux_switch_summary">SELinux egy sor kernel módosítás és felhasználói téri eszköz. Mód váltása nemkívánatos hatásokat okozhat. Saját felelősségre használd</string>
@@ -1253,8 +1253,8 @@
   <string name="power_menu_animation_turn">Fordulás</string>
   <string name="power_menu_animation_fly">Ragyogás</string>
   <string name="power_menu_animation_card">3D</string>
-  <string name="power_menu_animation_translucent_top">Translucent (top)</string>
-  <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
+  <string name="power_menu_animation_translucent_top">Áttetsző (fent)</string>
+  <string name="power_menu_animation_translucent_bottom">Áttetsző (lent)</string>
   <!-- IME animations -->
   <string name="ime_animation_title">IME animációk</string>
   <string name="ime_animation_summary">Rendszer billentyűzet egyéni animációk beállítása</string>
@@ -1361,10 +1361,10 @@
   <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
   <string name="show_cpu_info_summary">Jelenlegi CPU info mutatása képernyő átfedésben</string>
   <string name="brightness_icon_title">Fényerő ikon </string>
-  <string name="brightness_icon_summary">Enable Disable The Brightness Icon Existing Next To Brightness Slider</string>
+  <string name="brightness_icon_summary">A fényerő csúszka melletti fényerő ikon engedélyezése/tiltása</string>
   <!--Persist Add Tiles Button-->
-  <string name="persist_add_title">Persist Add Tiles Icon </string>
-  <string name="persist_add_summary">Enable/Disable This Switch make Add Tiles Icon Visible even With Brightness Slider Disabled</string>
+  <string name="persist_add_title">Állandó csempe hozzáadása ikon</string>
+  <string name="persist_add_summary">Ezzel a váltóval engedélyezve/tiltva teheti a csempe hozzáadása ikont láthatóvá, a fényerő csúszka tiltása mellett is</string>
   <!-- Quick settings disable on lockscreen -->
   <string name="block_on_secure_keyguard_title">Gyors beállítások letiltása a zárképernyőn</string>
   <string name="block_on_secure_keyguard_summary">Gyors beállítások tiltása a biztonságos zárképernyőn</string>
@@ -1376,12 +1376,12 @@
   <string name="quick_settings_icon_vibrate_title">Rezeg a Beállítások ikonra</string>
   <string name="quick_settings_icon_vibrate_summary">Rezeg a Beállítások ikon megérintésekor</string>
   <string name="quick_settings_header_vibrate">Fejléc ikonok</string>
-  <string name="quick_settings_header_vibrate_summary">Vibrate Icons In Header On SinglePress </string>
+  <string name="quick_settings_header_vibrate_summary">Fejléc ikonok egyszerű érintésre rezegnek</string>
   <string name="quick_settings_header_vibrate_lp">Fejléc hosszan nyomás</string>
-  <string name="quick_settings_header_vibrate_lp_summary">Vibrate Icons In Header On LongPress </string>
+  <string name="quick_settings_header_vibrate_lp_summary">Fejléc ikonok hosszan nyomásra rezegnek</string>
   <!-- QuickSettings haptic feedback -->
-  <string name="quick_settings_sp_vibrate_title">Vibrate on Single Press </string>
-  <string name="quick_settings_sp_vibrate_summary">Vibrate when SinglePressing Tiles</string>
+  <string name="quick_settings_sp_vibrate_title">Rezgés egyszerű érintésre</string>
+  <string name="quick_settings_sp_vibrate_summary">Csempék egyszerű érintésre rezegnek</string>
   <!-- QS shade transparency -->
   <string name="qs_transparent_shade">Gyors beállítások panel átlátszóság</string>
   <!-- Safe headset volume restore checkbox -->
@@ -1403,7 +1403,7 @@
   <string name="notification_media_bg_mode_title">Média háttér színezése</string>
   <string name="notification_app_icon_bg_mode_title">Alkalmazás ikon háttér színezése</string>
   <string name="notification_app_icon_color_mode_title">Alkalmazás ikon színezése</string>
-  <string name="notification_bg_guts_color_title">Notification Background on longpress</string>
+  <string name="notification_bg_guts_color_title">Értesítés háttere hosszan nyomásra</string>
   <string name="notification_app_icon_bg_color_title">Alkalmazás ikon háttere</string>
   <string name="notification_color_mode_never_title">Soha</string>
   <string name="notification_icon_color_mode_greyscale_title">Ha az ikon egy szürkeárnyalatos ikon</string>
@@ -1472,7 +1472,7 @@
   <!-- Power menu and dialogs transparency -->
   <string name="power_menu_transparency">Kikapcsoló menü átlátszóság</string>
   <!-- Power/reboot dialogs dim amount -->
-  <string name="power_menu_dialog_dim">Power dialog dim background amount</string>
+  <string name="power_menu_dialog_dim">Kikapcsoló menü párbeszédablak átlátszóságának mértéke</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Hardver gombok</string>
   <string name="hw_keys_summary">Hardveres gombok engedélyezése</string>
@@ -1544,7 +1544,7 @@
   <string name="header_colors_reset_message">Fejléc színek visszaállítása gyári értékre</string>
   <!-- Navbar buttons rotating icons -->
   <string name="nav_buttons_rotation_title">Ikonok forgatási animációja</string>
-  <string name="nav_buttons_rotation_summary">Enable for icons to rotate when screen is rotated or navbar recreated.</string>
+  <string name="nav_buttons_rotation_summary">A képernyő forgatásakor vagy a navigációs sáv újra létrehozásakor az ikonok forgatásának engedélyezése.</string>
   <!--Smart PullDown-->
   <string name="smart_pulldown_title">Intelligens legördítés</string>
   <string name="smart_pulldown_summary">Gyors beállítások megnyitása, ha %1$s értesítés van jelen</string>
@@ -1583,18 +1583,18 @@
   <string name="network_status_icons_cat_status_colors_title">Állapotsori ikonok színe</string>
   <string name="status_bar_color_enable">Állapotsori színek</string>
   <string name="statusbar_color_switch">Egyéni ikon színek</string>
-  <string name="apply_status_colors_summary">Use Only If Colors Are Not Applied. Tap To Apply</string>
+  <string name="apply_status_colors_summary">Csak akkor használja, ha a színek nem kerültek alkalmazásra. Érintse meg az alkalmazásért</string>
   <string name="apply_status_colors">Színek alkalmazása</string>
   <string name="battery_color">Akkumulátor</string>
   <string name="battery_icon_color">Ikon</string>
   <string name="battery_text_color">Szöveg</string>
-  <string name="statusbar_color_switch_summary">Enable/Disable Custom Icon Colors</string>
+  <string name="statusbar_color_switch_summary">Egyedi ikon színek engedélyezése/tiltása</string>
   <!--Custom logos-->
   <string name="sb_custom_logos">Egyéni logók</string>
   <string name="custom_logo_style"> Logók</string>
   <string name="custom_logos">Válassz</string>
   <string name="show_custom_logo_title">Egyéni logó megjelenítése</string>
-  <string name="show_custom_logo_summary">Show Logos in Statusbar from a wide range of icons available in System</string>
+  <string name="show_custom_logo_summary">Állapotsori logók megjelenítése a rendszerikonok széles választékából</string>
   <string name="custom_logo_color">Szín</string>
   <string name="logo0">Resurrection sötét</string>
   <string name="logo1">Resurrection világos</string>
@@ -1790,7 +1790,7 @@
   <string name="factor2">Lassú</string>
   <string name="factor3">Hyper</string>
   <string name="factor4">Őrült</string>
-  <string name="pulse_custom_fudge_factor">Visualizer Sanity Level</string>
+  <string name="pulse_custom_fudge_factor">Vizualizáló érzékenységi szint</string>
   <!-- Navbar height -->
   <string name="navigation_bar_size_title">Sáv mérete</string>
   <string name="portrait_title">Álló magasság</string>
