@@ -17,6 +17,7 @@
 package com.android.settings.privacyguard;
 
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.view.animation.AnimationUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -297,9 +298,9 @@ public class PrivacyGuardManager extends Fragment
         return true;
     }
 
-
     private boolean shouldShowSystemApps() {
-        return mPreferences.getBoolean("show_system_apps", false);
+        return mPreferences.getBoolean("show_system_apps", true) &&
+                mActivity.getResources().getBoolean(R.bool.config_showBuiltInAppsForPG);
     }
 
     public static class HelpDialogFragment extends DialogFragment {
@@ -372,7 +373,11 @@ public class PrivacyGuardManager extends Fragment
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.privacy_guard_manager, menu);
-        menu.findItem(R.id.show_system_apps).setChecked(shouldShowSystemApps());
+        if (!mActivity.getResources().getBoolean(R.bool.config_showBuiltInAppsForPG)) {
+            menu.removeItem(R.id.show_system_apps);
+        } else {
+            menu.findItem(R.id.show_system_apps).setChecked(shouldShowSystemApps());
+        }
     }
 
     @Override
