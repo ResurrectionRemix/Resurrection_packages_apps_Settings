@@ -353,6 +353,7 @@
   <string name="app_ops_summaries_use_fingerprint">bruk fingeravtrykk</string>
   <string name="app_ops_summaries_use_body_sensors">bruke enhetssensorer</string>
   <string name="app_ops_summaries_read_cell_broadcasts">lese cellekringkastinger</string>
+  <string name="app_ops_summaries_mock_location">feil posisjon</string>
   <string name="app_ops_summaries_read_external_storage">lese ekstern lagring</string>
   <string name="app_ops_summaries_write_external_storage">skriv til ekstern lagring</string>
   <string name="app_ops_summaries_turn_screen_on">slå skjermen på</string>
@@ -376,12 +377,14 @@
   <string name="app_ops_labels_modify_calendar">Endre kalender</string>
   <string name="app_ops_labels_wifi_scan">Wi-Fi skanning</string>
   <string name="app_ops_labels_notification">Varsling/Toast</string>
+  <string name="app_ops_labels_cell_scan">Celle scan</string>
   <string name="app_ops_labels_call_phone">Ringe</string>
   <string name="app_ops_labels_read_sms">Les SMS</string>
   <string name="app_ops_labels_write_sms">Skriv SMS</string>
   <string name="app_ops_labels_receive_sms">Motta SMS</string>
   <string name="app_ops_labels_receive_emergency_sms">Motta beredskap SMS</string>
   <string name="app_ops_labels_receive_mms">Motta MMS</string>
+  <string name="app_ops_labels_receive_wap_push">Motta WAP push</string>
   <string name="app_ops_labels_send_sms">Sende SMS</string>
   <string name="app_ops_labels_read_icc_sms">Les ICC SMS</string>
   <string name="app_ops_labels_write_icc_sms">Skriv ICC SMS</string>
@@ -404,14 +407,23 @@
   <string name="app_ops_labels_bluetooth_volume">Bluetoothvolum</string>
   <string name="app_ops_labels_keep_awake">hold våken</string>
   <string name="app_ops_labels_monitor_location">Overvåk plassering</string>
+  <string name="app_ops_labels_monitor_high_power_location">Overvåk kraftkrevende plassering</string>
+  <string name="app_ops_labels_get_usage_stats">Få brukstatistikker</string>
   <string name="app_ops_labels_mute_unmute_microphone">Demp/fjern demping mikrofon</string>
   <string name="app_ops_labels_toast_window">vise toastmeldinger</string>
   <string name="app_ops_labels_project_media">Prosjekt media</string>
   <string name="app_ops_labels_activate_vpn">Aktiver VPN</string>
+  <string name="app_ops_labels_write_wallpaper">Skrive bakgrunn</string>
+  <string name="app_ops_labels_assist_structure">Hjelpestruktur</string>
+  <string name="app_ops_labels_assist_screenshot">Hjelpeskjermbilde</string>
+  <string name="app_ops_labels_read_phone_state">Lese telefontilstand</string>
   <string name="app_ops_labels_add_voicemail">Legg til mobilsvar</string>
   <string name="app_ops_labels_use_sip">Bruk SIP</string>
   <string name="app_ops_labels_make_call">Foreta anrop</string>
   <string name="app_ops_labels_use_fingerprint">Bruk fingeravtrykk</string>
+  <string name="app_ops_labels_use_body_sensors">Bruk enhetssensorer</string>
+  <string name="app_ops_labels_read_cell_broadcasts">Les cellekringkastinger</string>
+  <string name="app_ops_labels_mock_location">Feil posisjon</string>
   <string name="app_ops_labels_read_external_storage">Les fra ekstern lagring</string>
   <string name="app_ops_labels_write_external_storage">Skriv til ekstern lagring</string>
   <string name="app_ops_labels_turn_screen_on">Slå skjermen på</string>
@@ -431,6 +443,7 @@
   <string name="app_ops_allowed_count">Tillat <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Avslåtte <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Tillatte <xliff:g id="count">%1$s</xliff:g>, avslåtte <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Deaktivert av batterioptimalisering</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Vis brukerinstallerte apps</string>
   <string name="app_ops_show_system_apps">Vis systemapper</string>
@@ -604,6 +617,7 @@
   <string name="live_display_color_profile_photography_title">Fotografi</string>
   <string name="live_display_color_profile_photography_summary">Perfekt fargegjengivelse for bilder</string>
   <string name="live_display_color_profile_basic_title">Grunnleggende</string>
+  <string name="live_display_color_profile_basic_summary">Bruk skjermen ukalibrert</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Valgikon</string>
   <string name="ime_switcher_notify_summary">Viser inndatametode snarvei</string>
@@ -713,6 +727,7 @@
   <string name="status_bar_battery_percentage_text_next">Ved siden av ikonet</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Statusbarikoner</string>
+  <string name="status_bar_icons_summary">Kontroller hvilke av status ikonene som skal vises</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokker touchbevegelseshendelser</string>
   <string name="edge_gesture_service_summary">Ikke send touch hendelser for navigering og status bar bevegelser til apps</string>
@@ -790,6 +805,7 @@
   <string name="voice_wakeup_retrain_title">Tren stemme igjen</string>
   <string name="voice_wakeup_activity_title">Aktivitet som skal starte</string>
   <string name="voice_wakeup_default_activity">Google nå</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">Stemmeoppvekking trenger telefon samtale tillatelser for å velge en Direkteoppringings kontakt.</string>
   <string name="picker_activities">Aktiviteter</string>
   <string name="select_custom_app_title">Velg egendefinert app</string>
   <string name="select_custom_activity_title">Velg egendefinert aktivitet</string>
@@ -858,12 +874,14 @@
   <string name="menu_hidden_apps_delete">Tilbakestille</string>
   <string name="menu_hidden_apps_reset_lock">Tilbakestille mønster lås</string>
   <string name="protected_apps">Beskyttede apps</string>
+  <string name="protected_apps_summary">Administrer hvilke apper som er skjult bak en sikkerhetslås</string>
   <string name="saving_protected_components">Lagre komponent status\u2026</string>
   <string name="pa_login_username_hint">Brukernavn (epost)</string>
   <string name="pa_login_password_hint">Passord</string>
   <string name="pa_login_submit_button">logg inn</string>
   <string name="pa_login_checking_password">Sjekker konto\u2026</string>
   <string name="pa_login_incorrect_login">Innlogging var feil</string>
+  <string name="pa_pattern_or_fingerprint_header">Må tegne mønster eller bruke fingeravtrykk for å låse opp</string>
   <!-- Contributors cloud activity -->
   <string name="contributors_cloud_fragment_title">Bidragsytere</string>
   <string name="contributors_cloud_loading_message">Lasting bidragsytere data\u2026</string>
@@ -888,13 +906,18 @@
   <string name="title_general">Generelt</string>
   <string name="advanced">Avansert</string>
   <string name="link_volume_option_title">Link ringetone &amp; varslings volumer</string>
+  <string name="lcd_density_prompt_message">Noen apper kan kanskje ikke fungere på en ikke-standard DPI.\n\nDette vil starte enheten din på nytt.</string>
   <!-- Edit access point labels: PPP number -->
+  <string name="apn_ppp_number">APN PPP telefonnummer</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
   <string name="duplicate_apn_error_title">Dupliserte APN</string>
+  <string name="duplicate_apn_error_message">Denne APNen eksisterer allerede. Forkast eller bytt parametere.</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> er <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">deaktivert</string>
   <string name="sim_missing">manglende eller feil</string>
   <string name="sim_enabler_need_disable_sim">SIM-kortet vil bli deaktivert. Vil du fortsette?</string>
   <string name="sim_enabler_will_disable_sim_title">Oppmerksomhet</string>
+  <string name="sim_enabler_need_switch_data_service">Dette SIM-kortet vil bli deaktivert og SIM-kort <xliff:g id="slotid">%1$s</xliff:g> vil bli brukt til data servicer. Er du sikker på at du vil fortsette?</string>
   <string name="sim_enabler_airplane_on">Kan ikke utføre operasjonen mens Flymodus er på.</string>
   <string name="sim_enabler_in_call">Kan ikke utføre operasjonen i samtalen.</string>
   <string name="sim_enabler_both_inactive">Kan ikke deaktivere alle SIM-kort</string>
@@ -953,17 +976,22 @@
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Annet</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi hotspot tidsavbrudd</string>
   <string name="hotstpot_inactivity_timeout_never">Aldri</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 minutt</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutter</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Portabel Wi\u2011Fi hotspot vil aldri ha tidsavbrudd</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Portabel Wi\u2011Fi hotspot vil ha tidsavbrudd etter <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
   <string name="live_lock_screen_title">Levende skjermlås</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">Aktiver og konfigurer Levende skjermlåser</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Innstillinger</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">For å se tilgjengelige Levende skjermlåser, må du slå Levende skjermlåser på.</string>
   <string name="interruptions_ignore_while_media_title">Hindre lyd ducking</string>
   <string name="interruptions_ignore_while_media_summary">Ikke Reduser media avspillingsvolumet når en melding ankommer</string>
   <!-- CM Legal -->
@@ -978,13 +1006,31 @@
   <string name="battery_info_status_charging_dock_ac">Lader på dokk AC</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">Lader via dokk-USB</string>
+  <string name="restrict_app_wlan_title">Deaktiver appens Wi\u2011Fi bruk</string>
+  <string name="restrict_app_wlan_summary">Hindre programmet i å bruke Wi\u2011Fi datatilkobling</string>
+  <string name="restrict_app_cellular_title">Deaktiver appens mobildatabruk</string>
+  <string name="restrict_app_cellular_summary">Hindre programmet i å bruke mobildata tilkobling</string>
   <string name="privacy_guard_internet_category">Internett</string>
   <!-- Weather -->
   <string name="weather_settings_title">Vær</string>
+  <string name="weather_settings_no_services_prompt">Ingen værleverandør tjeneste installert</string>
+  <string name="weather_settings_button">Leverandørinnstillinger</string>
+  <string name="weather_settings_activity_not_found">Kan ikke starte innstillingsmenyen for denne leverandøren</string>
+  <string name="weather_settings_add_weather_provider">Legg til vær leverandør</string>
   <string name="weather_settings_general_settings_title">Generelt</string>
+  <string name="weather_settings_providers_title">Leverandører</string>
+  <string name="weather_settings_temp_units_title">Temperatur enhet</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">vær</string>
+  <string name="background_data_access">Bakgrunnsdatatilgang</string>
+  <string name="allow_background_both">Via mobildata &amp; Wi\u2011Fi</string>
   <string name="allow_background_wlan">Bare over Wi\u2011Fi</string>
   <string name="allow_background_none">Ingen tilgang</string>
   <string name="mobile_data_alert">Mobildata varsel</string>
+  <string name="mobile_data_alert_summary">Varsle når appen bruker en betydelig mengde data</string>
+  <string name="data_usage_menu_enable_data_alerts">Aktiver databruk varsler</string>
+  <string name="data_usage_menu_disable_data_alerts">Deaktiver databruk varsler</string>
   <string name="data_usage_menu_reset_stats">Nullstill data statistikker</string>
   <string name="reset_data_stats_msg">Dette vil fjerne alt av tidligere og nåværende datasporing innformasjon</string>
   <string name="reset_stats_confirm">Bekreft</string>
