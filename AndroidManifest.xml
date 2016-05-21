@@ -2625,7 +2625,7 @@
                        android:resource="@id/sound_settings" />
         </activity>
 
-        <activity android:name="Settings$SoundSettingsActivity"
+        <activity android:name="Settings$CMSoundSettingsActivity"
                 android:label="@string/notification_settings"
                 android:exported="true"
                 android:taskAffinity="">
@@ -2650,7 +2650,7 @@
         <activity-alias android:name="Settings$SoundSettingsActivity"
                 android:label="@string/notification_settings"
                 android:taskAffinity=""
-                android:targetActivity="Settings$SoundSettingsActivity">
+                android:targetActivity="Settings$CMSoundSettingsActivity">
             <intent-filter android:priority="1">
                 <action android:name="com.android.settings.SOUND_SETTINGS" />
                 <action android:name="android.settings.SOUND_SETTINGS" />
