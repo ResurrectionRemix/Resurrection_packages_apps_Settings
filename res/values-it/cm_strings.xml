@@ -173,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">Specifica il codice regione per il Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Problema nell\'impostazione del codice regione.</string>
+  <string name="wifi_countrycode_us">Stati Uniti</string>
+  <string name="wifi_countrycode_ca">Canada, Taiwan</string>
+  <string name="wifi_countrycode_de">Germania</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Giappone, Russia</string>
+  <string name="wifi_countrycode_au">Australia</string>
+  <string name="wifi_countrycode_cn">Cina</string>
+  <string name="wifi_countrycode_kr">Corea</string>
+  <string name="wifi_countrycode_tr">Sud Africa, Turchia</string>
+  <string name="wifi_countrycode_sg">Israele, Singapore</string>
+  <string name="wifi_countrycode_br">Brasile</string>
+  <string name="wifi_countrycode_in">India</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Elimina</string>
   <string name="profile_action_none">Lascia invariato</string>
@@ -261,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Impostazioni luci</string>
   <string name="led_notification_text">LED attivato dalle impostazioni</string>
+  <string name="notification_light_no_apps_summary">Per modificare le impostazioni per le singole app, attiva \'%1$s\' e premi \'\u002b\' sulla barra in alto</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Debug Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -517,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Barra navigazione a schermo</string>
   <string name="disable_navkeys_summary">Attiva la barra di navigazione su schermo e disattiva i pulsanti fisici</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Risveglio con doppio tocco</string>
+  <string name="double_tap_to_wake_summary">Doppio tocco sullo schermo per accenderlo</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Doppio tocco per sospendere</string>
   <string name="double_tap_to_sleep_summary">Doppio tocco sulla barra di stato per spegnere il display</string>
@@ -540,7 +556,6 @@
   <string name="color_red_title">Rosso</string>
   <string name="color_green_title">Verde</string>
   <string name="color_blue_title">Blu</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Avvia lettore musicale</string>
   <string name="headset_connect_player_summary">Lancia il lettore musicale predefinito quando vengono connesse le cuffie</string>
@@ -571,6 +586,9 @@
   <string name="saturation_str">Saturazione: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contrasto: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensità: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Standard</string>
+  <string name="screen_color_vivid">Vivido</string>
+  <string name="screen_color_custom">Personalizzato</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Ottimizza lo schermo in base all\'ora del giorno e alle condizioni ambientali per migliorare la leggibilità e ridurre l\'affaticamento degli occhi</string>
   <string name="live_display_mode">Modalità display</string>
@@ -999,6 +1017,14 @@
   <string name="weather_settings_title">Meteo</string>
   <string name="weather_settings_no_services_prompt">Nessun provider meteo installato</string>
   <string name="weather_settings_button">Impostazioni provider</string>
+  <string name="weather_settings_activity_not_found">Impossibile aprire il menu d\'impostazioni di questo provider</string>
+  <string name="weather_settings_add_weather_provider">Aggiungi un provider meteo</string>
+  <string name="weather_settings_general_settings_title">Generale</string>
+  <string name="weather_settings_providers_title">Provider</string>
+  <string name="weather_settings_temp_units_title">Unità di temperatura</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">meteo</string>
   <string name="background_data_access">Accesso dati in background</string>
   <string name="allow_background_both">Con dati mobili &amp; Wi\u2011Fi</string>
   <string name="allow_background_wlan">Solo su Wi\u2011Fi</string>
@@ -1014,4 +1040,6 @@
   <string name="restrict_cellular_access_summary">Disattiva accesso su dati mobili</string>
   <string name="restrict_cellular_access_dialog_title">Applicare restrizione dati mobili?</string>
   <string name="restrict_cellular_access_dialog_summary">Questa funzione potrebbe impedire ad un\'app di funzionare correttamente quando sei connesso solo con dati mobili.\n\nPotresti trovare controlli per l\'utilizzo dati pià appropriati all\'interno delle impostazioni dell\'app stessa.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Operatori di rete</string>
 </resources>

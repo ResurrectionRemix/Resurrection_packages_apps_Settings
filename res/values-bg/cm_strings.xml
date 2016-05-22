@@ -173,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">Укажете кода на региона за Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Възникна проблем при настройката на кода на региона.</string>
+  <string name="wifi_countrycode_us">САЩ</string>
+  <string name="wifi_countrycode_ca">Канада, Тайван</string>
+  <string name="wifi_countrycode_de">Германия</string>
+  <string name="wifi_countrycode_gb">Европа</string>
+  <string name="wifi_countrycode_jp">Япония, Русия</string>
+  <string name="wifi_countrycode_au">Австралия</string>
+  <string name="wifi_countrycode_cn">Китай</string>
+  <string name="wifi_countrycode_kr">Корея</string>
+  <string name="wifi_countrycode_tr">Южна Африка, Турция</string>
+  <string name="wifi_countrycode_sg">Израел, Сингапур</string>
+  <string name="wifi_countrycode_br">Бразилия</string>
+  <string name="wifi_countrycode_in">Индия</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Изтриване</string>
   <string name="profile_action_none">Остави непроменен</string>
@@ -261,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Настройки на светлината</string>
   <string name="led_notification_text">Светлинните индикации са разрешени от настройките</string>
+  <string name="notification_light_no_apps_summary">За да добавите отделен контрол за приложение, активирайте \'%1$s\' и натиснете \'\u002b\' в лентата на менюто</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Режим за отстраняване на грешки</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -517,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Разреши екранната лента за навигация</string>
   <string name="disable_navkeys_summary">Разреши екранна навигационна лента и забрани хардуерните бутони</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Двукратно почукване за събуждане</string>
+  <string name="double_tap_to_wake_summary">Двукратно почукване върху екрана го включва</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Двукратно почукване за заспиване</string>
   <string name="double_tap_to_sleep_summary">Двукратно почукване върху лентата на състоянието изключва на дисплея</string>
@@ -540,7 +556,6 @@
   <string name="color_red_title">Червен</string>
   <string name="color_green_title">Зелен</string>
   <string name="color_blue_title">Син</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Стартиране на приложението за музика</string>
   <string name="headset_connect_player_summary">Стартира на приложението за музика, когато включите слушалките</string>
@@ -571,6 +586,9 @@
   <string name="saturation_str">Наситеност: <xliff:g id="saturation_value">%1$s </xliff:g></string>
   <string name="contrast_str">Контраст: <xliff:g id="contrast_value">%1$s </xliff:g></string>
   <string name="intensity_str">Интензитет: <xliff:g id="intensity_str_value">%1$s </xliff:g></string>
+  <string name="screen_color_standard">Стандартен</string>
+  <string name="screen_color_vivid">Ярък</string>
+  <string name="screen_color_custom">По избор</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Оптимизира настройките на екрана, въз основа на времето от деня и условията на околната среда за да се подобри четливостта и да намали умората на очите</string>
   <string name="live_display_mode">Режим на екрана</string>
@@ -675,7 +693,7 @@
   <string name="status_bar_title">Лента на състоянието</string>
   <string name="status_bar_toggle_brightness">Контрол на яркостта</string>
   <string name="status_bar_toggle_brightness_summary">Настройване на яркостта чрез плъзгане в лентата на състоянието</string>
-  <string name="status_bar_notif_count_title">Покажи броя на известията</string>
+  <string name="status_bar_notif_count_title">Показване броя на известията</string>
   <string name="status_bar_notif_count_summary">Показва броя на новите известия</string>
   <string name="status_bar_quick_qs_pulldown_title">Бързи настройки</string>
   <string name="status_bar_quick_qs_pulldown_summary">Дръпнете %1$s лентата на състоянието за бързи настройки</string>
@@ -701,7 +719,7 @@
   <string name="status_bar_battery_style_icon_landscape">Хоризонтална икона</string>
   <string name="status_bar_battery_style_circle">Кръг</string>
   <string name="status_bar_battery_style_text">Текст</string>
-  <string name="status_bar_battery_style_hidden">Скрит</string>
+  <string name="status_bar_battery_style_hidden">Скрита</string>
   <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Заряд на батерията в проценти</string>
   <string name="status_bar_battery_percentage_default">Скрит</string>
@@ -833,7 +851,7 @@
   <string name="no_filters_title">Няма зададени филтри</string>
   <!-- Anonymous Statistics #CM -->
   <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-  <string name="anonymous_statistics_title">CyanogenMod статистики</string>
+  <string name="anonymous_statistics_title">Статистики</string>
   <string name="anonymous_statistics_summary">Помогнете да направим CyanogenMod по-добър, като разрешите да събира анонимни статистически данни</string>
   <string name="anonymous_statistics_warning_title">Информация</string>
   <string name="anonymous_statistics_warning">Ще позволи на CyanogenMod Statistics да изпраща не лична информация  на разработчиците от CyanogenMod, за проследяване на инсталациите в устройството. Предоставената информация включва уникален идентификатор, който не застрашава вашата поверителност или лични данни. Данните се подават по време на всяко зареждане.\n\nПример за данните, които са подадени.</string>
@@ -977,7 +995,7 @@
   <string name="interruptions_ignore_while_media_title">Не намалявай силата на звука</string>
   <string name="interruptions_ignore_while_media_summary">Не намалявай силата на звука, когато пристига известие</string>
   <!-- CM Legal -->
-  <string name="cmlicense_title">CyanogenMod правни</string>
+  <string name="cmlicense_title">CyanogenMod правна информация</string>
   <!-- Menu label for reset the battery stats -->
   <string name="menu_stats_reset">Нулиране на статистиката</string>
   <!-- Reset stats confirmation dialog's message -->
@@ -997,6 +1015,14 @@
   <string name="weather_settings_title">Прогноза за времето</string>
   <string name="weather_settings_no_services_prompt">Няма инсталиран доставчик на време</string>
   <string name="weather_settings_button">Настройки на доставчика</string>
+  <string name="weather_settings_activity_not_found">Неуспешно стартиране на меню \"Настройки\" на този доставчик</string>
+  <string name="weather_settings_add_weather_provider">Добавяне на доставчик</string>
+  <string name="weather_settings_general_settings_title">Общи</string>
+  <string name="weather_settings_providers_title">Доставчици</string>
+  <string name="weather_settings_temp_units_title">Температурни единици</string>
+  <string name="weather_settings_temp_celsius">Целзий</string>
+  <string name="weather_settings_temp_fahrenheit">Фаренхайт</string>
+  <string name="weather_settings_keyword">Прогноза за времето</string>
   <string name="background_data_access">Достъп до данни на заден план</string>
   <string name="allow_background_both">Надвишени мобилни данни &amp; Wi\u2011Fi</string>
   <string name="allow_background_wlan">Само над Wi\u2011Fi</string>
@@ -1005,11 +1031,13 @@
   <string name="mobile_data_alert_summary">Уведоми, когато приложението използва значително количество данни</string>
   <string name="data_usage_menu_enable_data_alerts">Разреши предупреждения за използване на данни</string>
   <string name="data_usage_menu_disable_data_alerts">Забрани предупреждения за използване на данни</string>
-  <string name="data_usage_menu_reset_stats">Статистиката на батерията ще бъде нулирана</string>
-  <string name="reset_data_stats_msg">Това ще изчисти всички минали и настоящи данни за проследяване</string>
+  <string name="data_usage_menu_reset_stats">Нулиране на мобилните данни</string>
+  <string name="reset_data_stats_msg">Това ще изчисти всички събрани статистичиски данни</string>
   <string name="reset_stats_confirm">Потвърдете</string>
   <string name="restrict_cellular_access_title">Ограничи достъпа до мобилни данни</string>
   <string name="restrict_cellular_access_summary">Забрани достъпа до данни на клетъчни мрежи</string>
   <string name="restrict_cellular_access_dialog_title">Да бъде ли ограничен достъпа до мобилни данни?</string>
   <string name="restrict_cellular_access_dialog_summary">Тази функция може да спре работата на приложение което зависи от достъп до интернет когато са налични само мобилни данни\n\n Може да намерите по-подходящи настройки в настройките на приложението.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Мрежови оператори</string>
 </resources>

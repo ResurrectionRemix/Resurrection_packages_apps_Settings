@@ -551,6 +551,13 @@
                 android:value="true" />
         </activity>
 
+        <receiver android:name=".DateChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
         <activity android:name="DateTimeSettingsSetupWizard"
                   android:label="@string/date_and_time"
                   android:theme="@style/Theme.DateTimeSettingsSetupWizard"
@@ -2921,7 +2928,7 @@
 
         <!-- App Sidebar -->
         <activity android:name="Settings$AppSidebarActivity"
-             android:label="@string/app_sidebar_title"
+             android:label="@string/app_circle_bar_title"
              android:taskAffinity="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -134,8 +134,8 @@
   <string name="ringer_mode">Mode de trucada</string>
   <string name="lights_mode">Mode dels llums</string>
   <string name="vibrate_mode">Mode de la vibració</string>
-  <string name="choose_soundtone">Escull el to de les notificacions</string>
-  <string name="choose_ringtone">Escull un to de trucada</string>
+  <string name="choose_soundtone">Tria el to de les notificacions</string>
+  <string name="choose_ringtone">Tria un to de trucada</string>
   <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
   <string name="soundtone_title">To de les notificacions</string>
   <!-- Title for application group setting screen -->
@@ -146,7 +146,7 @@
   <string name="profile_appgroup_name_prompt">Introdueix el nom del grup d\'aplicacions</string>
   <string name="profile_appgroup_name_title">Nom</string>
   <!-- Add application dialog box title -->
-  <string name="profile_choose_app">Escull aplicació</string>
+  <string name="profile_choose_app">Tria una aplicació</string>
   <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Configuració del sistema</string>
   <string name="profile_lockmode_title">Mode del bloqueig de pantalla</string>
@@ -173,11 +173,23 @@
   <string name="wifi_setting_countrycode_summary">Especifica el codi de regió per al Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Hi ha un problema al establir el codi de regió.</string>
+  <string name="wifi_countrycode_us">Estats Units</string>
+  <string name="wifi_countrycode_ca">Canadà, Taiwan</string>
+  <string name="wifi_countrycode_de">Alemanya</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japan, Rússia</string>
+  <string name="wifi_countrycode_au">Austràlia</string>
+  <string name="wifi_countrycode_cn">Xina</string>
+  <string name="wifi_countrycode_kr">Corea</string>
+  <string name="wifi_countrycode_tr">Sud-àfrica, Turquia</string>
+  <string name="wifi_countrycode_sg">Israel, Singapur</string>
+  <string name="wifi_countrycode_br">Brasil</string>
+  <string name="wifi_countrycode_in">Índia</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Esborra</string>
   <string name="profile_action_none">Deixa sense canvis</string>
   <string name="profile_action_system">Per defecte del sistema</string>
-  <string name="profile_action_disable">Apagar</string>
+  <string name="profile_action_disable">Apaga</string>
   <string name="profile_action_enable">Encén</string>
   <string name="profile_trigger_a2dp_connect">En connectar l\'A2DP</string>
   <string name="profile_trigger_a2dp_disconnect">En desconnectar l\'A2DP</string>
@@ -257,10 +269,11 @@
   <string name="notification_light_zen_mode">Llums en el mode No molestis</string>
   <string name="notification_light_use_multiple_leds">LEDs múltiples</string>
   <string name="keywords_lights_brightness_level">atenua la lluminositat dels leds</string>
-  <string name="notification_light_automagic">Escull els colors automàticament</string>
+  <string name="notification_light_automagic">Tria els colors automàticament</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Ajustaments de llums</string>
   <string name="led_notification_text">Llum LED habilitat per ajustos</string>
+  <string name="notification_light_no_apps_summary">Per afegir control específic per aplicació, activa \'%1$s\' i prem \"\u002b\" a la barra de menú</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Depuració Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -517,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Habilita bar nav en pantalla</string>
   <string name="disable_navkeys_summary">Habilita la barra de navegació en pantalla y deshabilitar els botons físics</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Pica dues vegades per encendre</string>
+  <string name="double_tap_to_wake_summary">Pica dues vegades a la pantalla per encendre la pantalla</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Pica dues vegades per posar en repòs</string>
   <string name="double_tap_to_sleep_summary">Pica dues vegades a la barra d\'estat per apagar la pantalla</string>
@@ -540,7 +556,6 @@
   <string name="color_red_title">Vermell</string>
   <string name="color_green_title">Verd</string>
   <string name="color_blue_title">Blau</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Llança l\'aplicació de música</string>
   <string name="headset_connect_player_summary">Inicia l\'aplicació de música predeterminada quan es connectin els auriculars</string>
@@ -571,6 +586,9 @@
   <string name="saturation_str">Saturació: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensitat: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Estàndard</string>
+  <string name="screen_color_vivid">Viva</string>
+  <string name="screen_color_custom">Personalitzat</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimitza la teva pantalla basant-se en l\'hora del dia i les condicions ambientals per millorar la llegibilitat i reduir la fatiga ocular</string>
   <string name="live_display_mode">Mode de pantalla</string>
@@ -774,7 +792,7 @@
   <string name="expanded_nothing_to_show">Per afegir una configuració personalitzada per a cada aplicació en l\'estat extès, estableix com a deshabilitada l\'opció \"Habilitat per a tots\"</string>
   <string name="expanded_enabled_for_all">Habilitat per a tots</string>
   <string name="expanded_desktop_style">Estil d\'escriptori extès</string>
-  <string name="expanded_desktop_style_description">Escull un estil d\'escriptori extès per defecte</string>
+  <string name="expanded_desktop_style_description">Tria un estil d\'escriptori extès per defecte</string>
   <string name="expanded_desktop_title">Opcions d\'escriptori extès</string>
   <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Mata l\'aplicació amb la tecla enrera</string>
@@ -839,7 +857,7 @@
   <string name="anonymous_statistics_warning">Optant a les estadístiques de CyanogenMod permetràs que dades no-personals siguin transmeses als desenvolupadors de CyanogenMod per rastrejar les intal·lacions individuals a través dels dispositius. La informació transmesa inclou un identificador únic, que no compromet la privacitat o les dades personals. Les dades son transmeses durant cada arrancada.\n\nPer un exemple de les dades transmeses, pica a vista prèvia de Dades.</string>
   <string name="enable_reporting_title">Activa els informes</string>
   <string name="preview_data_title">Vista prèvia de Dades</string>
-  <string name="view_stats_title">Mostra estadístiques</string>
+  <string name="view_stats_title">Veure estadístiques</string>
   <string name="anonymous_learn_more">Aprèn més</string>
   <!-- Anonymous Statistics - Preview -->
   <string name="preview_id_title">ID únic</string>
@@ -997,6 +1015,14 @@
   <string name="weather_settings_title">El temps</string>
   <string name="weather_settings_no_services_prompt">No hi ha cap servei de proveïdor de temps instal·lat</string>
   <string name="weather_settings_button">Configuració del proveïdor</string>
+  <string name="weather_settings_activity_not_found">No s\'ha pogut iniciar el menú de configuració d\'aquest proveïdor</string>
+  <string name="weather_settings_add_weather_provider">Afegeix proveïdor meteorològic</string>
+  <string name="weather_settings_general_settings_title">General</string>
+  <string name="weather_settings_providers_title">Proveïdors</string>
+  <string name="weather_settings_temp_units_title">Unitat de temperatura</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">el temps</string>
   <string name="background_data_access">Accés a les dades en segon pla</string>
   <string name="allow_background_both">Sobre dades mòbils &amp; Wi\u2011Fi</string>
   <string name="allow_background_wlan">Només sobre Wi\u2011Fi</string>
@@ -1012,4 +1038,6 @@
   <string name="restrict_cellular_access_summary">Deshabilita l\'accés a les dades en xarxes mòbils</string>
   <string name="restrict_cellular_access_dialog_title">Vols restringir l\'accés a les dades mòbils?</string>
   <string name="restrict_cellular_access_dialog_summary">Aquesta característica podria provocar que una aplicació que depèn de l\'accés a la xarxa deixi de funcionar quan només les xarxes mòbils estiguin disponibles.\n\nPots trobar els controls d\'ús de dades més adequats a la configuració disponible dins de l\'aplicació.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Operadors de xarxa</string>
 </resources>

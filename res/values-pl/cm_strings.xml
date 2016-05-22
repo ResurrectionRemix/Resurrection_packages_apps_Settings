@@ -169,6 +169,18 @@
   <string name="wifi_setting_countrycode_summary">Określ kod regionu Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Wystąpił problem podczas ustawiania kodu regionu.</string>
+  <string name="wifi_countrycode_us">Stany Zjednoczone</string>
+  <string name="wifi_countrycode_ca">Kanada, Tajwan</string>
+  <string name="wifi_countrycode_de">Niemcy</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japonia, Rosja</string>
+  <string name="wifi_countrycode_au">Australia</string>
+  <string name="wifi_countrycode_cn">Chiny</string>
+  <string name="wifi_countrycode_kr">Korea</string>
+  <string name="wifi_countrycode_tr">Republika Południowej Afryki, Turcja</string>
+  <string name="wifi_countrycode_sg">Izrael, Singapur</string>
+  <string name="wifi_countrycode_br">Brazylia</string>
+  <string name="wifi_countrycode_in">Indie</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Usuń</string>
   <string name="profile_action_none">Pozostaw bez zmian</string>
@@ -426,6 +438,7 @@
   <string name="app_ops_allowed_count">Zezwolono <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Odrzucono <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Zezwolono <xliff:g id="count">%1$s</xliff:g>, odrzucono <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Wyłączone przez optymalizację baterii</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Pokaż aplikacje użytkownika</string>
   <string name="app_ops_show_system_apps">Pokaż wbudowane aplikacje</string>
@@ -512,6 +525,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Włącz ekranowy pasek nawigacji</string>
   <string name="disable_navkeys_summary">Włącz ekranowy pasek nawigacji i wyłącz przyciski sprzętowe</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Wybudzanie podwójnym dotknięciem</string>
+  <string name="double_tap_to_wake_summary">Dotknij dwukrotnie ekranu, aby włączyć podświetlenie</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Dwukrotnie dotknij, aby uśpić</string>
   <string name="double_tap_to_sleep_summary">Dotknij dwukrotnie pasek stanu, aby zablokować ekran</string>
@@ -535,7 +551,6 @@
   <string name="color_red_title">Czerwony</string>
   <string name="color_green_title">Zielony</string>
   <string name="color_blue_title">Niebieski</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Uruchom aplikację muzyki</string>
   <string name="headset_connect_player_summary">Uruchom domyślną aplikację muzyki po podłączeniu słuchawek</string>
@@ -566,6 +581,9 @@
   <string name="saturation_str">Nasycenie: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensywność: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Standardowo</string>
+  <string name="screen_color_vivid">Żywy</string>
+  <string name="screen_color_custom">Własna</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optymalizuj swój ekran bazując na porze dnia i warunkach panujących w otoczeniu, aby zwiększyć czytelność i zmniejszyć uczucie zmęczenia oczu</string>
   <string name="live_display_mode">Tryb wyświetlania</string>
@@ -991,4 +1009,26 @@
   <string name="restrict_app_cellular_summary">Uniemożliwia aplikacji na korzystanie z danych mobilnych</string>
   <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
+  <string name="weather_settings_title">Pogoda</string>
+  <string name="weather_settings_no_services_prompt">Nie zainstalowano usług dostawcy pogody</string>
+  <string name="weather_settings_button">Ustawienia dostawcy</string>
+  <string name="weather_settings_activity_not_found">Nie można uruchomić menu ustawień tego dostawcy</string>
+  <string name="weather_settings_add_weather_provider">Dodaj dostawcę pogody</string>
+  <string name="weather_settings_general_settings_title">Ogólne</string>
+  <string name="weather_settings_providers_title">Dostawcy</string>
+  <string name="weather_settings_temp_units_title">Jednostka temperatury</string>
+  <string name="weather_settings_temp_celsius">Stopnie Celsjusza</string>
+  <string name="weather_settings_temp_fahrenheit">Stopnie Fahrenheita</string>
+  <string name="weather_settings_keyword">pogoda</string>
+  <string name="background_data_access">Dostęp do danych w tle</string>
+  <string name="allow_background_both">Dane mobilne &amp; Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Tylko przez Wi\u2011Fi</string>
+  <string name="allow_background_none">Brak dostępu</string>
+  <string name="data_usage_menu_reset_stats">Resetuj statystyki danych</string>
+  <string name="reset_data_stats_msg">Spowoduje to skasowanie przeszłych i aktualnych informacji o użyciu danych</string>
+  <string name="reset_stats_confirm">Potwierdź</string>
+  <string name="restrict_cellular_access_title">Ogranicz dostęp do danych mobilnych</string>
+  <string name="restrict_cellular_access_dialog_title">Ograniczyć dostęp do danych mobilnych?</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Operatorzy sieci</string>
 </resources>

@@ -173,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">WLAN-Ländercode festlegen</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Beim Festlegen des WLAN-Ländercodes ist ein Problem aufgetreten.</string>
+  <string name="wifi_countrycode_us">USA</string>
+  <string name="wifi_countrycode_ca">Kanada, Taiwan</string>
+  <string name="wifi_countrycode_de">Deutschland</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japan, Russland</string>
+  <string name="wifi_countrycode_au">Australien</string>
+  <string name="wifi_countrycode_cn">China</string>
+  <string name="wifi_countrycode_kr">Korea</string>
+  <string name="wifi_countrycode_tr">Südafrika, Türkei</string>
+  <string name="wifi_countrycode_sg">Israel, Singapur</string>
+  <string name="wifi_countrycode_br">Brasilien</string>
+  <string name="wifi_countrycode_in">Indien</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Löschen</string>
   <string name="profile_action_none">Unverändert lassen</string>
@@ -261,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">LED-Einstellungen</string>
   <string name="led_notification_text">Benachrichtigungs-LED durch Einstellungen aktiviert</string>
+  <string name="notification_light_no_apps_summary">Um App-spezifische Einstellungen hinzuzufügen, \"%1$s\" aktivieren und \"\u002b\" in der Menüleiste berühren.</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android-Debugging</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -430,6 +443,7 @@
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> erlaubt</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> verweigert</string>
   <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> erlaubt, <xliff:g id="count">%2$s</xliff:g> verweigert</string>
+  <string name="app_ops_disabled_by_optimization">Durch Akkuoptimierung deaktiviert</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Benutzer-Apps anzeigen</string>
   <string name="app_ops_show_system_apps">System-Apps anzeigen</string>
@@ -516,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Navigationsleiste aktivieren</string>
   <string name="disable_navkeys_summary">Navigationstasten deaktivieren und stattdessen eine Navigationsleiste auf dem Bildschirm anzeigen</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Aufwecken durch doppeltes Tippen</string>
+  <string name="double_tap_to_wake_summary">Doppelt auf den Bildschirm tippen, um das Display einzuschalten</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Standby durch doppeltes Tippen</string>
   <string name="double_tap_to_sleep_summary">Doppelt auf die Statusleiste tippen, um das Display auszuschalten</string>
@@ -539,7 +556,6 @@
   <string name="color_red_title">Rot</string>
   <string name="color_green_title">Grün</string>
   <string name="color_blue_title">Blau</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Musik-App starten</string>
   <string name="headset_connect_player_summary">Beim Anschließen eines Kopfhörers die Standard-Musik-App starten</string>
@@ -570,6 +586,9 @@
   <string name="saturation_str">Sättigung: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensität: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Standard</string>
+  <string name="screen_color_vivid">Lebhaft</string>
+  <string name="screen_color_custom">Benutzerdefiniert</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiert Ihren Bildschirm basierend auf der Tageszeit und den Umgebungsbedingungen, um die Lesbarkeit zu verbessern und die Ermüdung der Augen zu mildern</string>
   <string name="live_display_mode">Bildschirmmodus</string>
@@ -989,13 +1008,36 @@
   <string name="battery_info_status_charging_dock_usb">Laden über USB-Dock</string>
   <string name="restrict_app_wlan_title">WLAN-Nutzung verhindern</string>
   <string name="restrict_app_wlan_summary">Verhindert die Nutzung von WLAN durch die App</string>
-  <string name="restrict_app_cellular_title">Mobile Daten-Nutzung verhindern</string>
+  <string name="restrict_app_cellular_title">Nutzung mobiler Daten verhindern</string>
   <string name="restrict_app_cellular_summary">Verhindert die Nutzung mobiler Daten durch die App</string>
   <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
   <string name="weather_settings_title">Wetter</string>
   <string name="weather_settings_no_services_prompt">Keine Wetteranbieterdienste installiert</string>
   <string name="weather_settings_button">Anbieter-Einstellungen</string>
+  <string name="weather_settings_activity_not_found">Das Einstellungsmenü dieses Anbieters konnte nicht gestartet werden</string>
+  <string name="weather_settings_add_weather_provider">Wetter-Anbieter hinzufügen</string>
+  <string name="weather_settings_general_settings_title">Allgemein</string>
+  <string name="weather_settings_providers_title">Anbieter</string>
+  <string name="weather_settings_temp_units_title">Temperatureinheit</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">Wetter</string>
+  <string name="background_data_access">Datenzugriff im Hintergrund</string>
+  <string name="allow_background_both">Über Mobilfunk &amp; WLAN</string>
   <string name="allow_background_wlan">Nur über WLAN</string>
+  <string name="allow_background_none">Kein Zugriff</string>
+  <string name="mobile_data_alert">Mobilfunkdaten-Warnung</string>
+  <string name="mobile_data_alert_summary">Benachrichtigen, wenn die Anwendung eine erhebliche Menge an Daten verbraucht</string>
+  <string name="data_usage_menu_enable_data_alerts">Datenverbrauchswarnungen aktivieren</string>
+  <string name="data_usage_menu_disable_data_alerts">Datenverbrauchswarnungen deaktivieren</string>
+  <string name="data_usage_menu_reset_stats">Zähler zurücksetzen</string>
+  <string name="reset_data_stats_msg">Diese Aktion löscht alle vergangenen und die aktuellen Datenverbrauchs-Statistiken.</string>
   <string name="reset_stats_confirm">Bestätigen</string>
+  <string name="restrict_cellular_access_title">Mobilfunk-Datenzugriff beschränken</string>
+  <string name="restrict_cellular_access_summary">Datenzugriff aus Mobilfunknetzen deaktivieren</string>
+  <string name="restrict_cellular_access_dialog_title">Mobilfunk-Datenzugriff beschränken?</string>
+  <string name="restrict_cellular_access_dialog_summary">Diese Funktion kann dazu führen, dass eine App, die Netzzugang benötigt, nicht mehr funktioniert, wenn nur das Mobilfunknetz zur Verfügung steht.\n\nPassendere Einstellungen können Sie in den App-eigenen Einstellungen finden.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Netzbetreiber</string>
 </resources>

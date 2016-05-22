@@ -15,6 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/button_pref_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
@@ -55,6 +56,11 @@
             android:title="@string/camera_double_tap_power_gesture_title"
             android:summary="@string/camera_double_tap_power_gesture_desc"
             android:persistent="false" />
+	
+	<SwitchPreference
+        android:key="advanced_reboot"
+        android:title="@string/advanced_reboot_title"
+        android:summary="@string/advanced_reboot_summary" />
 
     </PreferenceCategory>
 

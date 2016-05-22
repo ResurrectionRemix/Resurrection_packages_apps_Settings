@@ -175,6 +175,18 @@
   <string name="wifi_setting_countrycode_summary">Določite območno kodo za Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Pri nastavitvi območne kode je prišlo do težave.</string>
+  <string name="wifi_countrycode_us">Združene države</string>
+  <string name="wifi_countrycode_ca">Kanada, Tajvan</string>
+  <string name="wifi_countrycode_de">Nemčija</string>
+  <string name="wifi_countrycode_gb">Evropa</string>
+  <string name="wifi_countrycode_jp">Japonska, Rusija</string>
+  <string name="wifi_countrycode_au">Avstralija</string>
+  <string name="wifi_countrycode_cn">Kitajska</string>
+  <string name="wifi_countrycode_kr">Koreja</string>
+  <string name="wifi_countrycode_tr">Južna Afrika, Turčija</string>
+  <string name="wifi_countrycode_sg">Izrael, Singapur</string>
+  <string name="wifi_countrycode_br">Brazilija</string>
+  <string name="wifi_countrycode_in">Indija</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Izbriši</string>
   <string name="profile_action_none">Pusti nespremenjeno</string>
@@ -263,6 +275,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Nastavitve lučke</string>
   <string name="led_notification_text">Lučka LED omogočena v nastavitvah</string>
+  <string name="notification_light_no_apps_summary">Za dodajanje nadzora za posamezne aplikacije omogočite \'%1$s\' in pritisnite \'\u002b\' na menijski vrstici</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Razhroščevanje Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -519,6 +532,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Omogoči vrstico za krmarjenje na zaslonu</string>
   <string name="disable_navkeys_summary">Omogoči vrstico za krmarjenje na zaslonu in onemogoči fizične gumbe</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Dvakrat tapnite za bujenje</string>
+  <string name="double_tap_to_wake_summary">Dvakrat tapnite na zaslon, da ga vklopite</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Dvakrat tapnite za spanje</string>
   <string name="double_tap_to_sleep_summary">Dvakrat tapnite na vrstico stanja, da izklopite zaslon</string>
@@ -542,7 +558,6 @@
   <string name="color_red_title">Rdeča</string>
   <string name="color_green_title">Zelena</string>
   <string name="color_blue_title">Modra</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Zaženi aplikacijo za glasbo</string>
   <string name="headset_connect_player_summary">Zaženi privzeto aplikacijo za glasbo, ko so priključene slušalke</string>
@@ -573,6 +588,9 @@
   <string name="saturation_str">Nasičenost: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Jakost: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Običajno</string>
+  <string name="screen_color_vivid">Živahno</string>
+  <string name="screen_color_custom">Po meri</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiziraj zaslon glede na čas dneva in pogoje okolice, da se izboljša berljivost in zmanjša obremenitev oči</string>
   <string name="live_display_mode">Način prikaza</string>
@@ -1001,6 +1019,14 @@
   <string name="weather_settings_title">Vreme</string>
   <string name="weather_settings_no_services_prompt">Ni nameščene storitve ponudnika vremena</string>
   <string name="weather_settings_button">Nastavitve ponudnika</string>
+  <string name="weather_settings_activity_not_found">Menija nastavitev za tega ponudnika ni mogoče zagnati</string>
+  <string name="weather_settings_add_weather_provider">Dodaj ponudnika vremena</string>
+  <string name="weather_settings_general_settings_title">Splošno</string>
+  <string name="weather_settings_providers_title">Ponudniki</string>
+  <string name="weather_settings_temp_units_title">Enote za temperaturo</string>
+  <string name="weather_settings_temp_celsius">Celzij</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">vreme</string>
   <string name="background_data_access">Dostop do podatkov v ozadju</string>
   <string name="allow_background_both">Preko mobilnih podatkov in omr. Wi\u2011Fi</string>
   <string name="allow_background_wlan">Samo preko omr. Wi\u2011Fi</string>
@@ -1016,4 +1042,6 @@
   <string name="restrict_cellular_access_summary">Onemogoči dostop do podatkov na mobilnem omrežju</string>
   <string name="restrict_cellular_access_dialog_title">Omeji dostop do mobilnih podatkov?</string>
   <string name="restrict_cellular_access_dialog_summary">Ta značilnost lahko povzroči, da aplikacija, ki je odvisna od dostopa do omrežja, preneha delovati, ko so na voljo samo mob. omrežja.\n\nPrimernejše nastavitve nadzora porabe podatkov lahko najdete v aplikaciji.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Omrežni operaterji</string>
 </resources>

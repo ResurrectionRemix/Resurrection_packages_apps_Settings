@@ -28,6 +28,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -88,6 +89,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String KEY_VOLUME_CONTROL_RING_STREAM = "volume_keys_control_ring_stream";
+    private static final String ADVANCED_REBOOT_KEY = "advanced_reboot";
 
     private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
     private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
@@ -157,7 +159,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mCameraDoubleTapPowerGesture;
     private PreferenceCategory mNavigationPreferencesCat;
     private SwitchPreference mDisableNavigationKeys;
-    private SwitchPreference mEnableHwKeys;		
+    private SwitchPreference mEnableHwKeys;	
+    private SwitchPreference mAdvancedReboot;
 
     private Handler mHandler;
 
@@ -225,6 +228,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
 
         mHandler = new Handler();
+        
+        mAdvancedReboot = (SwitchPreference) findPreference(ADVANCED_REBOOT_KEY);
+        mAdvancedReboot.setChecked(CMSettings.Secure.getIntForUser(resolver,
+            CMSettings.Secure.ADVANCED_REBOOT, 1, UserHandle.USER_CURRENT) == 1);
+        mAdvancedReboot.setOnPreferenceChangeListener(this);
 
     
             // Enable/disable hw keys
@@ -537,6 +545,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
+            return true;
+        } else if (preference == mAdvancedReboot) {
+	    boolean show = (Boolean) newValue;
+            CMSettings.Secure.putIntForUser(getActivity().getContentResolver(),
+                    CMSettings.Secure.ADVANCED_REBOOT, show ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

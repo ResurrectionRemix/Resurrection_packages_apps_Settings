@@ -51,10 +51,14 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";	
     private static final String LOCK_DATE_FONTS = "lock_date_fonts";
+    private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
+    private static final String DATE_FONT_SIZE  = "lockdate_font_size";
 	
     private SeekBarPreference mBlurRadius;
     private ListPreference mLockClockFonts;
     private ListPreference mDateFonts;
+    private ListPreference mClockFontSize;
+    private ListPreference mDateFontSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,8 +66,8 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
         addPreferencesFromResource(R.xml.rr_ls_ui);
         ContentResolver resolver = getActivity().getContentResolver();
 
-
-	mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+  
+	    mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
             mBlurRadius.setValue(Settings.System.getInt(resolver,
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
             mBlurRadius.setOnPreferenceChangeListener(this);
@@ -80,6 +84,20 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
                     resolver, Settings.System.LOCK_DATE_FONTS, 4)));
             mDateFonts.setSummary(mDateFonts.getEntry());
             mDateFonts.setOnPreferenceChangeListener(this);
+            
+            mClockFontSize = (ListPreference) findPreference(CLOCK_FONT_SIZE);
+	    mClockFontSize.setOnPreferenceChangeListener(this);
+	    mClockFontSize.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.LOCKCLOCK_FONT_SIZE, 
+                14)));
+	    mClockFontSize.setSummary(mClockFontSize.getEntry());
+	    
+	    mDateFontSize = (ListPreference) findPreference(DATE_FONT_SIZE);
+            mDateFontSize.setOnPreferenceChangeListener(this);
+            mDateFontSize.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.LOCKDATE_FONT_SIZE, 
+                14)));
+	    mDateFontSize.setSummary(mDateFontSize.getEntry());
 
 }
 
@@ -109,7 +127,21 @@ public class LockscreenUI extends SettingsPreferenceFragment  implements OnPrefe
                 mDateFonts.setValue(String.valueOf(newValue));
                 mDateFonts.setSummary(mDateFonts.getEntry());
                 return true;
-	}
+	} else if (preference == mClockFontSize) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mClockFontSize.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKCLOCK_FONT_SIZE, val);
+            mClockFontSize.setSummary(mClockFontSize.getEntries()[index]);
+            return true;
+        } else if (preference == mDateFontSize) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mDateFontSize.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKDATE_FONT_SIZE, val);
+            mDateFontSize.setSummary(mDateFontSize.getEntries()[index]);
+            return true;
+        }
 	return false;
 	}
 	

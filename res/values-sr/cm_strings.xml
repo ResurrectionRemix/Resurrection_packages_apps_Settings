@@ -174,6 +174,18 @@
   <string name="wifi_setting_countrycode_summary">Одреди регионални код за Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Дошло је до проблема подешавања регионалног кода.</string>
+  <string name="wifi_countrycode_us">Сједињене Државе</string>
+  <string name="wifi_countrycode_ca">Канада, Тајван</string>
+  <string name="wifi_countrycode_de">Немачка</string>
+  <string name="wifi_countrycode_gb">Европа</string>
+  <string name="wifi_countrycode_jp">Јапан, Русија</string>
+  <string name="wifi_countrycode_au">Аустралија</string>
+  <string name="wifi_countrycode_cn">Кина</string>
+  <string name="wifi_countrycode_kr">Кореа</string>
+  <string name="wifi_countrycode_tr">Јужна Африка, Турска</string>
+  <string name="wifi_countrycode_sg">Израел, Сингапур</string>
+  <string name="wifi_countrycode_br">Бразил</string>
+  <string name="wifi_countrycode_in">Индија</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Избриши</string>
   <string name="profile_action_none">Остави непромењено</string>
@@ -262,6 +274,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Поставке светла</string>
   <string name="led_notification_text">LED светло омогућено помоћу поставки</string>
+  <string name="notification_light_no_apps_summary">Да додаш контролу по апликацији, активирај \'%1$s\' и притисни \'\u002b\' на траци са менијима</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android отклањање грешака</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -518,6 +531,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Омогући нав. траку на екрану</string>
   <string name="disable_navkeys_summary">Омогући навигациону траку на екрану и онемогући хардверске дугмиће</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Дупли-додир за буђење</string>
+  <string name="double_tap_to_wake_summary">Двапут додирни екран да укључиш дисплеј</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Дупли-додир за спавање</string>
   <string name="double_tap_to_sleep_summary">Двапут додирни статусну траку да искључиш дисплеј</string>
@@ -541,7 +557,6 @@
   <string name="color_red_title">Црвена</string>
   <string name="color_green_title">Зелена</string>
   <string name="color_blue_title">Плава</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Покрени музичку апликацију</string>
   <string name="headset_connect_player_summary">Покрени подразумевану музичку апликацију када су слушалице повезане</string>
@@ -572,6 +587,9 @@
   <string name="saturation_str">Засићење: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Контраст: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Интензитет: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Стандардно</string>
+  <string name="screen_color_vivid">Живописно</string>
+  <string name="screen_color_custom">Прилагођено</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Оптимизуј екран у складу са дневним и просторним приликама да побољшаш читљивост и умањиш замарање очију</string>
   <string name="live_display_mode">Режим екрана</string>
@@ -998,4 +1016,24 @@
   <string name="weather_settings_title">Време</string>
   <string name="weather_settings_no_services_prompt">Нема инсталираног добављача услуга временске прогнозе</string>
   <string name="weather_settings_button">Поставке добављача</string>
+  <string name="weather_settings_activity_not_found">Није могуће покренути подешавање менија овог добављача</string>
+  <string name="weather_settings_general_settings_title">Опште</string>
+  <string name="weather_settings_keyword">време</string>
+  <string name="background_data_access">Приступ подацима у позадини</string>
+  <string name="allow_background_both">Преко мрежних података &amp; Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Само преко Wi\u2011Fi</string>
+  <string name="allow_background_none">Нема приступа</string>
+  <string name="mobile_data_alert">Упозорење мрежних података</string>
+  <string name="mobile_data_alert_summary">Упозори када апликација користи значајну количину података</string>
+  <string name="data_usage_menu_enable_data_alerts">Омогући упозорење за коришћење података</string>
+  <string name="data_usage_menu_disable_data_alerts">Онемогући упозорење за податке</string>
+  <string name="data_usage_menu_reset_stats">Ресетуј статистику података</string>
+  <string name="reset_data_stats_msg">Ово ће обрисати све прошле и садашње информације о праћењу података</string>
+  <string name="reset_stats_confirm">Потврди</string>
+  <string name="restrict_cellular_access_title">Ограничи приступ мрежним подацима</string>
+  <string name="restrict_cellular_access_summary">Онемогући приступ подацима на мобилним мрежама</string>
+  <string name="restrict_cellular_access_dialog_title">Ограничи приступ мрежним подацима?</string>
+  <string name="restrict_cellular_access_dialog_summary">Ова функција може узроковати да апликација која зависи од мрежног приступа престане радити када су само мобилне мрежа доступне.\n\nМожеш наћи више одговарајућих контрола у подешавању апликације.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Оператор мреже</string>
 </resources>

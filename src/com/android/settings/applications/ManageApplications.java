@@ -882,7 +882,8 @@ public class ManageApplications extends InstrumentedFragment
                 Utils.handleLoadingContainer(mManageApplications.mLoadingContainer,
                         mManageApplications.mListContainer, true, true);
             }
-            if (mManageApplications.mListType == LIST_TYPE_USAGE_ACCESS) {
+            if (mManageApplications.mListType == LIST_TYPE_USAGE_ACCESS
+                    || mManageApplications.mListType == LIST_TYPE_STORAGE) {
                 // No enabled or disabled filters for usage access.
                 return;
             }

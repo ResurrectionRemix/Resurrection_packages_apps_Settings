@@ -174,6 +174,18 @@
   <string name="wifi_setting_countrycode_summary">Укажите код региона Wi-Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">При настройке кода региона Wi-Fi возникли неполадки.</string>
+  <string name="wifi_countrycode_us">США</string>
+  <string name="wifi_countrycode_ca">Канада, Тайвань</string>
+  <string name="wifi_countrycode_de">Германия</string>
+  <string name="wifi_countrycode_gb">Европа</string>
+  <string name="wifi_countrycode_jp">Япония, Россия</string>
+  <string name="wifi_countrycode_au">Австралия</string>
+  <string name="wifi_countrycode_cn">Китай</string>
+  <string name="wifi_countrycode_kr">Республика Корея</string>
+  <string name="wifi_countrycode_tr">Южная Африка, Турция</string>
+  <string name="wifi_countrycode_sg">Израиль, Сингапур</string>
+  <string name="wifi_countrycode_br">Бразилия</string>
+  <string name="wifi_countrycode_in">Индия</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Удалить</string>
   <string name="profile_action_none">Оставить без изменений</string>
@@ -262,6 +274,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Индикатор событий</string>
   <string name="led_notification_text">Светодиод включен в настройках</string>
+  <string name="notification_light_no_apps_summary">Чтобы разрешить управление приложениями, включите «%1$s» и нажмите «\u002b» в строке меню.</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Режим отладки</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -431,6 +444,7 @@
   <string name="app_ops_allowed_count">Разрешено <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Запрещено <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Разрешено <xliff:g id="count">%1$s</xliff:g>, запрещено <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Отключено при оптимизации батареи</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Загруженные приложения</string>
   <string name="app_ops_show_system_apps">Системные приложения</string>
@@ -505,10 +519,8 @@
   <string name="gesture_settings_title">Жесты</string>
   <!-- Power menu -->
   <string name="power_menu_title">Меню при долгом нажатии</string>
-  <string name="power_menu_power_title">Отключить питание</string>
   <string name="power_menu_reboot_title">Перезагрузка</string>
   <string name="power_menu_screenshot_title">Скриншот</string>
-  <string name="power_menu_screenrecord_title">Запись экрана</string>
   <string name="power_menu_airplane_title">Режим полёта</string>
   <string name="power_menu_users_title">Пользователи</string>
   <string name="power_menu_settings_title">Ярлык настроек</string>
@@ -516,10 +528,12 @@
   <string name="power_menu_bug_report_title">Отчёт об ошибке</string>
   <string name="power_menu_sound_title">Звуковая панель</string>
   <string name="power_menu_bug_report_disabled">Отчёт об ошибке отключен в настройках для разработчика</string>
-  <string name="powermenu_screenshot_delay_title">Задержка скриншота</string>
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Экранные кнопки</string>
   <string name="disable_navkeys_summary">Включить экранную панель навигации и отключить аппаратные кнопки</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Включение при двойном нажатии</string>
+  <string name="double_tap_to_wake_summary">Дважды коснитесь экрана, чтобы вывести устройство из спящего режима</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Выключать экран при двойном нажатии</string>
   <string name="double_tap_to_sleep_summary">Дважды коснитесь строки состояния, чтобы перевести устройство в спящий режим</string>
@@ -543,7 +557,6 @@
   <string name="color_red_title">Красный</string>
   <string name="color_green_title">Зеленый</string>
   <string name="color_blue_title">Синий</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Автозапуск плеера</string>
   <string name="headset_connect_player_summary">Запускать плеер при подключении наушников</string>
@@ -574,6 +587,9 @@
   <string name="saturation_str">Насыщенность: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Контрастность: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Интенсивность: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Стандартный</string>
+  <string name="screen_color_vivid">Яркий</string>
+  <string name="screen_color_custom">Не задано</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Подстраивать экран на основе времени суток и освещения, чтобы повысить удобочитаемость и снизить нагрузку на глаза</string>
   <string name="live_display_mode">Режим экрана</string>
@@ -703,7 +719,6 @@
   <string name="status_bar_battery_style_icon_portrait">Вертикальный значок</string>
   <string name="status_bar_battery_style_icon_landscape">Горизонтальный значок</string>
   <string name="status_bar_battery_style_circle">Круг</string>
-  <string name="status_bar_battery_style_dotted_circle">Пунктирный круг</string>
   <string name="status_bar_battery_style_text">Текст</string>
   <string name="status_bar_battery_style_hidden">Не показывать индикатор</string>
   <!-- Status bar - Battery percentage -->
@@ -783,9 +798,6 @@
   <!-- Kill app long-press back -->
   <string name="kill_app_longpress_back">Закрытие приложения</string>
   <string name="kill_app_longpress_back_summary">Завершать работу текущего приложения удерживанием кнопки «Назад»</string>
-  <!-- Weather in status bar -->
-  <string name="status_bar_show_weather_title">Показывать погоду</string>
-  <string name="status_bar_show_weather_summary">Показывать погоду в заголовке</string>
   <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Строка поиска в меню кн. «Обзор»</string>
   <string name="keywords_recents_show_searchbar">недавние недавний обзор запущенные включить выключить показать скрыть поисковая строка поиск</string>
@@ -1001,4 +1013,30 @@
   <string name="restrict_app_cellular_summary">Не разрешать приложению передачу данных по мобильным сетям</string>
   <string name="privacy_guard_internet_category">Интернет</string>
   <!-- Weather -->
+  <string name="weather_settings_title">Погода</string>
+  <string name="weather_settings_no_services_prompt">Нет установленных служб поставщиков погоды</string>
+  <string name="weather_settings_button">Настройки поставщика</string>
+  <string name="weather_settings_activity_not_found">Не удается запустить меню настройки этого поставщика</string>
+  <string name="weather_settings_add_weather_provider">Добавить провайдера погоды</string>
+  <string name="weather_settings_general_settings_title">Общие</string>
+  <string name="weather_settings_providers_title">Провайдеры</string>
+  <string name="weather_settings_temp_units_title">Единица температуры</string>
+  <string name="weather_settings_keyword">погода</string>
+  <string name="background_data_access">Доступ к фоновым данным</string>
+  <string name="allow_background_both">Использовать моб. данные и Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Только через Wi-Fi</string>
+  <string name="allow_background_none">Нет доступа</string>
+  <string name="mobile_data_alert">Предупреждение о передаче моб. данных</string>
+  <string name="mobile_data_alert_summary">Уведомлять, когда приложение использует значительный объём данных</string>
+  <string name="data_usage_menu_enable_data_alerts">Включить предупреждения об использовании данных</string>
+  <string name="data_usage_menu_disable_data_alerts">Выключить предупреждения об использовании данных</string>
+  <string name="data_usage_menu_reset_stats">Сброс статистики</string>
+  <string name="reset_data_stats_msg">Это приведет к очистке всей прошлой и нынешней информации об отслеживании данных</string>
+  <string name="reset_stats_confirm">Подтвердить</string>
+  <string name="restrict_cellular_access_title">Ограничение доступа к данным сотовой связи</string>
+  <string name="restrict_cellular_access_summary">Отключение доступа к данным в сотовых сетях</string>
+  <string name="restrict_cellular_access_dialog_title">Ограничить доступ к данным сотовой связи?</string>
+  <string name="restrict_cellular_access_dialog_summary">Данная функция может приостановить работу приложений, использующих доступ к сети, если будут доступны только мобильные сети.\n\nДополнительные параметры управления использованием данных можно найти в настройках приложения.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Операторы сети</string>
 </resources>

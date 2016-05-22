@@ -17,6 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Você agora está a <xliff:g id="step_count">%1$d </xliff:g> passo de ativar as configurações de desenvolvimento.</item>
+    <item quantity="other">Você agora está a <xliff:g id="step_count">%1$d </xliff:g> passos de ativar as configurações de desenvolvimento.</item>
+  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Você ativou as configurações de desenvolvedor!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
@@ -169,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">Especifique o código de região para Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Houve um problema ao definir o código de região.</string>
+  <string name="wifi_countrycode_us">Estados Unidos</string>
+  <string name="wifi_countrycode_ca">Canadá, Taiwan</string>
+  <string name="wifi_countrycode_de">Alemanha</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japão, Rússia</string>
+  <string name="wifi_countrycode_au">Austrália</string>
+  <string name="wifi_countrycode_cn">China</string>
+  <string name="wifi_countrycode_kr">Coréia</string>
+  <string name="wifi_countrycode_tr">África do Sul, Turquia</string>
+  <string name="wifi_countrycode_sg">Israel, Cingapura</string>
+  <string name="wifi_countrycode_br">Brasil</string>
+  <string name="wifi_countrycode_in">Índia</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Apagar</string>
   <string name="profile_action_none">Deixar inalterado</string>
@@ -257,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Configurações de luz</string>
   <string name="led_notification_text">Luz de LED ativada nas configurações</string>
+  <string name="notification_light_no_apps_summary">Para adicionar controle por app, ative o \'%1$s\' e pressione \'\u002b\' na barra de menu</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Depuração Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -336,7 +353,7 @@
   <string name="app_ops_summaries_use_fingerprint">usar impressão digital</string>
   <string name="app_ops_summaries_use_body_sensors">usar sensores corporais</string>
   <string name="app_ops_summaries_read_cell_broadcasts">ler transmissões da rede de celular</string>
-  <string name="app_ops_summaries_mock_location">localização fictícia</string>
+  <string name="app_ops_summaries_mock_location">simular a localização</string>
   <string name="app_ops_summaries_read_external_storage">ler o armazenamento externo</string>
   <string name="app_ops_summaries_write_external_storage">escrever no armazenamento externo</string>
   <string name="app_ops_summaries_turn_screen_on">ligar a tela</string>
@@ -406,9 +423,9 @@
   <string name="app_ops_labels_use_fingerprint">Usar a impressão digital</string>
   <string name="app_ops_labels_use_body_sensors">Usar sensores corporais</string>
   <string name="app_ops_labels_read_cell_broadcasts">Ler transmissões da rede de celular</string>
-  <string name="app_ops_labels_mock_location">Localização fictícia</string>
+  <string name="app_ops_labels_mock_location">Simular a localização</string>
   <string name="app_ops_labels_read_external_storage">Ler armazenamento externo</string>
-  <string name="app_ops_labels_write_external_storage">Escrever no armazenamento externo</string>
+  <string name="app_ops_labels_write_external_storage">Gravar no armazenamento externo</string>
   <string name="app_ops_labels_turn_screen_on">Ligar a tela</string>
   <string name="app_ops_labels_get_accounts">Obter as contas</string>
   <string name="app_ops_labels_toggle_wifi">Alternar Wi-Fi</string>
@@ -513,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Ativar barra de navegação na tela</string>
   <string name="disable_navkeys_summary">Ativar barra de navegação na tela e desativar botões físicos</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Toque duplo para acordar</string>
+  <string name="double_tap_to_wake_summary">Dê um duplo toque na tela para ligá-la</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Toque duplo para dormir</string>
   <string name="double_tap_to_sleep_summary">Toque duas vezes na barra de status para desligar a tela</string>
@@ -536,7 +556,6 @@
   <string name="color_red_title">Vermelho</string>
   <string name="color_green_title">Verde</string>
   <string name="color_blue_title">Azul</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Abrir aplicativo de música</string>
   <string name="headset_connect_player_summary">Abrir o aplicativo de música padrão quando os fones de ouvido forem conectados</string>
@@ -567,6 +586,9 @@
   <string name="saturation_str">Saturação: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contraste: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensidade: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Padrão</string>
+  <string name="screen_color_vivid">Vívido</string>
+  <string name="screen_color_custom">Personalizado</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Otimiza sua tela com base na hora do dia e condições do ambiente para melhorar a legibilidade e reduzir o cansaço visual</string>
   <string name="live_display_mode">Modo da tela</string>
@@ -919,7 +941,7 @@
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">eventos</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
-  <string name="zen_mode_summary_selected_callers">contatos selecionados</string>
+  <string name="zen_mode_summary_selected_callers">números selecionados</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_messages">mensagens selecionadas</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
@@ -931,7 +953,7 @@
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">Toque SIM %d</string>
   <!-- label for application name -->
-  <string name="app_name_label_cm">App:</string>
+  <string name="app_name_label_cm">Aplicativo:</string>
   <!-- label for last time used -->
   <string name="last_time_used_label_cm">Usado pela última vez:</string>
   <!-- label for usage time -->
@@ -986,11 +1008,36 @@
   <string name="battery_info_status_charging_dock_usb">Carregamento via dock USB</string>
   <string name="restrict_app_wlan_title">Impedir o uso de Wi\u2011Fi no app</string>
   <string name="restrict_app_wlan_summary">Impedir que o app use a conexão de dados de Wi\u2011Fi</string>
-  <string name="restrict_app_cellular_title">Impedir que o app o use a rede de celular</string>
-  <string name="restrict_app_cellular_summary">Impedir que este app usar a conexão de dados celular</string>
+  <string name="restrict_app_cellular_title">Impedir que o aplicativo use a rede de celular</string>
+  <string name="restrict_app_cellular_summary">Impedir que este aplicativo use a conexão de dados móveis</string>
   <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
-  <string name="weather_settings_title">Previsão do Tempo</string>
+  <string name="weather_settings_title">Clima</string>
   <string name="weather_settings_no_services_prompt">Não há provedor de previsão do tempo instalado</string>
   <string name="weather_settings_button">Configurações do provedor</string>
+  <string name="weather_settings_activity_not_found">Não foi possível iniciar o menu de configurações deste provedor</string>
+  <string name="weather_settings_add_weather_provider">Adicionar provedor de previsão do tempo</string>
+  <string name="weather_settings_general_settings_title">Geral</string>
+  <string name="weather_settings_providers_title">Provedores</string>
+  <string name="weather_settings_temp_units_title">Unidade de temperatura</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">tempo</string>
+  <string name="background_data_access">Acesso aos dados em segundo plano</string>
+  <string name="allow_background_both">Através dos dados móveis e Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Apenas através de Wi\u2011Fi</string>
+  <string name="allow_background_none">Sem acesso</string>
+  <string name="mobile_data_alert">Alerta de dados móveis</string>
+  <string name="mobile_data_alert_summary">Notificar quando o app usar uma quantidade significativa de dados</string>
+  <string name="data_usage_menu_enable_data_alerts">Ativar alertas de uso de dados</string>
+  <string name="data_usage_menu_disable_data_alerts">Desativar os alertas de uso de dados</string>
+  <string name="data_usage_menu_reset_stats">Redefinir as estatísticas de dados</string>
+  <string name="reset_data_stats_msg">Isto irá apagar todas as informações de rastreamento de dados</string>
+  <string name="reset_stats_confirm">Confirmar</string>
+  <string name="restrict_cellular_access_title">Restringir o acesso de dados móveis</string>
+  <string name="restrict_cellular_access_summary">Desativar o acesso de dados em redes móveis</string>
+  <string name="restrict_cellular_access_dialog_title">Restringir o acesso de dados móveis?</string>
+  <string name="restrict_cellular_access_dialog_summary">Este recurso pode fazer com que um app que dependa de acesso à rede deixe de responder quando só estiverem disponíveis redes móveis.\n\nVocê pode encontrar ferramentas mais apropriadas para o controle de dados nas configurações disponíveis no app.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Operadores de rede</string>
 </resources>

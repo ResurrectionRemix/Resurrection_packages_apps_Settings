@@ -30,20 +30,6 @@
         <item>3</item>
     </string-array>
 
-    <!-- Profile mode options. -->
-    <string-array name="profile_entries">
-        <item>On</item>
-        <item>Off</item>
-        <item>No override</item>
-    </string-array>
-
-    <!-- Values for vibrate_entries matching constants in SoundSettings. Do not translate. -->
-    <string-array name="profile_values" translatable="false">
-        <item>OVERRIDE</item>
-        <item>SUPPRESS</item>
-        <item>DEFAULT</item>
-    </string-array>
-
     <!-- Profile lock mode summaries. Do not translate. -->
     <string-array name="profile_lockmode_entries" translatable="false">
         <item>@string/profile_action_system</item>
@@ -98,16 +84,10 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="profile_action_generic_connection_entries">
+    <string-array name="profile_action_generic_connection_entries" translatable="false">
         <item>@string/profile_action_none</item>
         <item>@string/profile_action_disable</item>
         <item>@string/profile_action_enable</item>
-    </string-array>
-
-    <string-array name="profile_action_generic_connection_values">
-        <item>-1</item>
-        <item>0</item>
-        <item>1</item>
     </string-array>
 
     <string-array name="profile_doze_entries" translatable="false">
@@ -123,23 +103,17 @@
     </string-array>
 
     <!-- Profile mode options. -->
-     <string-array name="profile_entries" translatable="false">
-         <item>@string/profile_entries_on</item>
-         <item>@string/profile_entries_off</item>
-         <item>@string/profile_entries_no_override</item>
-     </string-array>
+    <string-array name="profile_entries" translatable="false">
+        <item>@string/profile_entries_on</item>
+        <item>@string/profile_entries_off</item>
+        <item>@string/profile_entries_no_override</item>
+    </string-array>
 
-     <!-- Values for vibrate_entries matching constants in SoundSettings. Do not translate. -->
-     <string-array name="profile_values" translatable="false">
-         <item>OVERRIDE</item>
-         <item>SUPPRESS</item>
-         <item>DEFAULT</item>
-     </string-array>
-
-    <string-array name="trigger_page_title">
-        <item>WiFi</item>
-        <item>Bluetooth</item>
-        <item>NFC</item>
+    <!-- Values for vibrate_entries matching constants in SoundSettings. Do not translate. -->
+    <string-array name="profile_values" translatable="false">
+        <item>OVERRIDE</item>
+        <item>SUPPRESS</item>
+        <item>DEFAULT</item>
     </string-array>
 
     <!-- Values for the notification light pulse spinners -->
@@ -348,7 +322,7 @@
     </string-array>
 
     <!-- App ops permissions -->
-    <string-array name="app_ops_permissions">
+    <string-array name="app_ops_permissions" translatable="false">
         <item>@string/app_ops_permissions_allowed</item>
         <item>@string/app_ops_permissions_ignored</item>
         <item>@string/app_ops_permissions_always_ask</item>
@@ -379,10 +353,10 @@
     </string-array>
 
     <!-- Values for screen color  -->
-    <string-array name="screen_color_setting">
-        <item>Standard</item>
-        <item>Vivid</item>
-        <item>Custom</item>
+    <string-array name="screen_color_setting" translatable="false">
+        <item>@string/screen_color_standard</item>
+        <item>@string/screen_color_vivid</item>
+        <item>@string/screen_color_custom</item>
     </string-array>
 
     <!-- Stylus Gestures -->
@@ -532,19 +506,19 @@
     </string-array>
 
     <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi region code. -->
-    <string-array name="wifi_countrycode_entries">
-        <item>United States</item>
-        <item>Canada, Taiwan</item>
-        <item>Germany</item>
-        <item>Europe</item>
-        <item>Japan, Russia</item>
-        <item>Australia</item>
-        <item>China</item>
-        <item>Korea</item>
-        <item>South Africa, Turkey</item>
-        <item>Israel, Singapore</item>
-        <item>Brazil</item>
-        <item>India</item>
+    <string-array name="wifi_countrycode_entries" translatable="false">
+        <item>@string/wifi_countrycode_us</item>
+        <item>@string/wifi_countrycode_ca</item>
+        <item>@string/wifi_countrycode_de</item>
+        <item>@string/wifi_countrycode_gb</item>
+        <item>@string/wifi_countrycode_jp</item>
+        <item>@string/wifi_countrycode_au</item>
+        <item>@string/wifi_countrycode_cn</item>
+        <item>@string/wifi_countrycode_kr</item>
+        <item>@string/wifi_countrycode_tr</item>
+        <item>@string/wifi_countrycode_sg</item>
+        <item>@string/wifi_countrycode_br</item>
+        <item>@string/wifi_countrycode_in</item>
     </string-array>
 
     <string-array name="wifi_countrycode_values" translatable="false">
@@ -592,10 +566,10 @@
         <item>600000</item>
     </string-array>
 
-    <string-array name="background_data_access_choices">
-        <item>Over mobile data &amp; WiFi</item>
-        <item>Only over WiFi</item>
-        <item>No access</item>
+    <string-array name="background_data_access_choices" translatable="false">
+        <item>@string/allow_background_both</item>
+        <item>@string/allow_background_wlan</item>
+        <item>@string/allow_background_none</item>
     </string-array>
 
     <!-- Weather temperature -->

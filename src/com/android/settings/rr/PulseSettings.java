@@ -71,7 +71,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         mShowPulse = (SwitchPreference) findPreference("eos_fling_show_pulse");
         mShowPulse.setChecked(Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.FLING_PULSE_ENABLED, 1) == 1);
+                Settings.Secure.FLING_PULSE_ENABLED, 0) == 1);
         mShowPulse.setOnPreferenceChangeListener(this);
 
         int pulseColor = Settings.Secure.getIntForUser(getContentResolver(),
@@ -86,40 +86,40 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mLavaLampEnabled.setOnPreferenceChangeListener(this);
         
         mCustomDimen = (ListPreference) findPreference(CUSTOM_DIMEN);
-        int customdimen = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.PULSE_CUSTOM_DIMEN, 0,
+        int customdimen = Settings.Secure.getIntForUser(getContentResolver(),
+                    Settings.Secure.PULSE_CUSTOM_DIMEN, 0,
                     UserHandle.USER_CURRENT);
         mCustomDimen.setValue(String.valueOf(customdimen));
         mCustomDimen.setSummary(mCustomDimen.getEntry());
         mCustomDimen.setOnPreferenceChangeListener(this);
         
         mCustomDiv = (ListPreference) findPreference(CUSTOM_DIV);
-        int customdiv = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.PULSE_CUSTOM_DIV, 0,
+        int customdiv = Settings.Secure.getIntForUser(getContentResolver(),
+                    Settings.Secure.PULSE_CUSTOM_DIV, 0,
                     UserHandle.USER_CURRENT);
         mCustomDiv.setValue(String.valueOf(customdiv));
         mCustomDiv.setSummary(mCustomDiv.getEntry());
         mCustomDiv.setOnPreferenceChangeListener(this);
         
         mFilled = (ListPreference) findPreference(PULSE_BLOCK);
-        int filled = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.PULSE_FILLED_BLOCK_SIZE, 0,
+        int filled = Settings.Secure.getIntForUser(getContentResolver(),
+                    Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 0,
                     UserHandle.USER_CURRENT);
         mFilled.setValue(String.valueOf(filled));
         mFilled.setSummary(mFilled.getEntry());
         mFilled.setOnPreferenceChangeListener(this);
         
         mEmpty = (ListPreference) findPreference(EMPTY_BLOCK);
-        int empty = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.PULSE_EMPTY_BLOCK_SIZE, 0,
+        int empty = Settings.Secure.getIntForUser(getContentResolver(),
+                    Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 0,
                     UserHandle.USER_CURRENT);
         mEmpty.setValue(String.valueOf(empty));
         mEmpty.setSummary(mEmpty.getEntry());
         mEmpty.setOnPreferenceChangeListener(this);
         
         mFudge = (ListPreference) findPreference(FUDGE_FACOR);
-        int fudge = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, 0,
+        int fudge = Settings.Secure.getIntForUser(getContentResolver(),
+                    Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 0,
                     UserHandle.USER_CURRENT);
         mFudge.setValue(String.valueOf(fudge));
         mFudge.setSummary(mFudge.getEntry());
@@ -147,9 +147,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         } else if (preference == mCustomDimen) {
                 int customdimen = Integer.valueOf((String) newValue);
                 int index = mCustomDimen.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(
+                Settings.Secure.putIntForUser(
                        getContentResolver(), 
-		Settings.System.PULSE_CUSTOM_DIMEN, customdimen,
+		Settings.Secure.PULSE_CUSTOM_DIMEN, customdimen,
                         UserHandle.USER_CURRENT);
                 mCustomDimen.setSummary(
                         mCustomDimen.getEntries()[index]);
@@ -157,9 +157,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 	}  else if (preference == mCustomDiv) {
                 int customdiv = Integer.valueOf((String) newValue);
                 int index = mCustomDiv.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(
+                Settings.Secure.putIntForUser(
                        getContentResolver(), 
-		Settings.System.PULSE_CUSTOM_DIV, customdiv,
+		Settings.Secure.PULSE_CUSTOM_DIV, customdiv,
                         UserHandle.USER_CURRENT);
                 mCustomDiv.setSummary(
                         mCustomDiv.getEntries()[index]);
@@ -167,9 +167,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 	} else if (preference == mFilled) {
                 int filled = Integer.valueOf((String) newValue);
                 int index = mFilled.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(
+                Settings.Secure.putIntForUser(
                        getContentResolver(), 
-		Settings.System.PULSE_FILLED_BLOCK_SIZE, filled,
+		Settings.Secure.PULSE_FILLED_BLOCK_SIZE, filled,
                         UserHandle.USER_CURRENT);
                 mFilled.setSummary(
                         mFilled.getEntries()[index]);
@@ -177,9 +177,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 	}  else if (preference == mEmpty) {
                 int empty = Integer.valueOf((String) newValue);
                 int index = mEmpty.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(
+                Settings.Secure.putIntForUser(
                        getContentResolver(), 
-		Settings.System.PULSE_EMPTY_BLOCK_SIZE, empty,
+		Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, empty,
                         UserHandle.USER_CURRENT);
                 mEmpty.setSummary(
                         mEmpty.getEntries()[index]);
@@ -187,9 +187,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 	} else if (preference == mFudge) {
                 int fudge = Integer.valueOf((String) newValue);
                 int index = mFudge.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(
+                Settings.Secure.putIntForUser(
                        getContentResolver(), 
-		Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, fudge,
+		Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, fudge,
                         UserHandle.USER_CURRENT);
                 mFudge.setSummary(
                         mFudge.getEntries()[index]);

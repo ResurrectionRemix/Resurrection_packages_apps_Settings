@@ -173,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">Zehaztu Wi\u2011Fi lurralde kodea</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Arazo bat egon da lurralde kodea ezartzean.</string>
+  <string name="wifi_countrycode_us">Estatu Batuak</string>
+  <string name="wifi_countrycode_ca">Kanada, Taiwan</string>
+  <string name="wifi_countrycode_de">Alemania</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japonia, Errusia</string>
+  <string name="wifi_countrycode_au">Australia</string>
+  <string name="wifi_countrycode_cn">Txina</string>
+  <string name="wifi_countrycode_kr">Korea</string>
+  <string name="wifi_countrycode_tr">Hego Afrika, Turkia</string>
+  <string name="wifi_countrycode_sg">Israel, Singapur</string>
+  <string name="wifi_countrycode_br">Brasil</string>
+  <string name="wifi_countrycode_in">India</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Ezabatu</string>
   <string name="profile_action_none">Laga aldatu gabe</string>
@@ -261,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Argi ezarpenak</string>
   <string name="led_notification_text">LED argia ezarpenetan gaituta</string>
+  <string name="notification_light_no_apps_summary">Aplikazioz aplikazioko kontrola gehitzeko, aktibatu \'%1$s\' eta sakatu\'\u002b\' menu-barran</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android arazketa</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -517,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Gaitu pantailako nabigazio barra</string>
   <string name="disable_navkeys_summary">Gaitu pantailako nabigazio-barra eta ezgaitu botoi fisikoak</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Esnatzeko birritan sakatu</string>
+  <string name="double_tap_to_wake_summary">Birritan sakatu pantailan berau pizteko</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Birritan sakatu lokartzeko</string>
   <string name="double_tap_to_sleep_summary">Birritan sakatu egoera barran pantaila itzaltzeko</string>
@@ -540,7 +556,6 @@
   <string name="color_red_title">Gorria</string>
   <string name="color_green_title">Berdea</string>
   <string name="color_blue_title">Urdina</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Abiatu musika erreproduzigailua</string>
   <string name="headset_connect_player_summary">Abiatu musika erreproduzigailu lehenetsia aurikularrak konektatzean</string>
@@ -571,6 +586,9 @@
   <string name="saturation_str">Saturazioa:<xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Kontrastea:<xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intentsitatea:<xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Estandarra</string>
+  <string name="screen_color_vivid">Bizia</string>
+  <string name="screen_color_custom">Lehenetsia</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimizatu zure pantaila eguneko orduaren eta inguruneko baldintzen arabera irakurgarritasuna hobetzeko eta begien nekea gutxiagotzeko</string>
   <string name="live_display_mode">Pantaila modua</string>
@@ -860,7 +878,7 @@
   <string name="saving_protected_components">Osagaiaren egoera gordetzen\u2026</string>
   <string name="pa_login_username_hint">Erabiltzaile izena (eposta)</string>
   <string name="pa_login_password_hint">Pasahitza</string>
-  <string name="pa_login_submit_button">Sartu</string>
+  <string name="pa_login_submit_button">Hasi saioa</string>
   <string name="pa_login_checking_password">Kontua berresten\u2026</string>
   <string name="pa_login_incorrect_login">Saio haste okerra</string>
   <string name="pa_pattern_or_fingerprint_header">Eredua marraztu edo hatz-marka erabili behar da desblokeatzeko</string>
@@ -997,4 +1015,29 @@
   <string name="weather_settings_title">Eguraldia</string>
   <string name="weather_settings_no_services_prompt">Ez da eguraldi hornitzailerik instalatu</string>
   <string name="weather_settings_button">Hornitzailearen ezarpenak</string>
+  <string name="weather_settings_activity_not_found">Ezin izan da hornitzaile honen ezarpen menua abiatu</string>
+  <string name="weather_settings_add_weather_provider">Gehitu eguraldi hornitzailea</string>
+  <string name="weather_settings_general_settings_title">Orokorra</string>
+  <string name="weather_settings_providers_title">Hornitzaileak</string>
+  <string name="weather_settings_temp_units_title">Tenperatura unitatea</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">eguraldia</string>
+  <string name="background_data_access">Bigarren planoko datuetara sarbidea</string>
+  <string name="allow_background_both">Datu mugikorrak eta Wi\u2011Fi bidez</string>
+  <string name="allow_background_wlan">Wi\u2011Fi bidez besterik ez</string>
+  <string name="allow_background_none">Sarbiderik ez</string>
+  <string name="mobile_data_alert">Datu mugikorren alerta</string>
+  <string name="mobile_data_alert_summary">Jakinarazi aplikazioak datu erabilera nabarmen bat egiten duenean</string>
+  <string name="data_usage_menu_enable_data_alerts">Gaitu datu erabileraren alertak</string>
+  <string name="data_usage_menu_disable_data_alerts">Desgaitu datu erabileraren alertak</string>
+  <string name="data_usage_menu_reset_stats">Ezabatu datu estatistikak</string>
+  <string name="reset_data_stats_msg">Honek iraganeko eta uneko jarraipen informazio guztia ezabatuko du</string>
+  <string name="reset_stats_confirm">Berretsi</string>
+  <string name="restrict_cellular_access_title">Murriztu datu mugikorretara sarbidea</string>
+  <string name="restrict_cellular_access_summary">Desgaitu datuak atzitzea sare mugikorretan</string>
+  <string name="restrict_cellular_access_dialog_title">Murriztu datu mugikorretara sarbidea?</string>
+  <string name="restrict_cellular_access_dialog_summary">Ezaugarri honek sareko datuak behar dituen aplikazio batek ez funtzionatzea eragin dezake sare mugikorrak besterik ez daudenean eskuragarri.\n\nAplikazioaren aukeretan datu erabileraren kontrol egokiagoak aurkitu ditzakezu.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Sare operadoreak</string>
 </resources>

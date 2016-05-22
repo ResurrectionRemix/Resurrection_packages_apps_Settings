@@ -194,7 +194,8 @@ public class SimDialogActivity extends Activity {
                             case SMS_PICK:
                                 boolean isSmsPrompt = false;
                                 if (value < 1) {
-                                    isSmsPrompt = true;
+                                    isSmsPrompt = false; // user knows best
+                                    setDefaultSmsSubId(context, SubscriptionManager.INVALID_SUBSCRIPTION_ID);
                                 } else {
                                     sir = smsSubInfoList.get(value);
                                     if ( sir != null) {

@@ -80,7 +80,7 @@
   <string name="profile_write_success">A etiqueta foi escrita com sucesso</string>
   <string name="profile_write_failed">Ocorreu um problema ao escrever na etiqueta!</string>
   <string name="profile_selected">Perfil selecionado: %1$s</string>
-  <string name="profile_nfc_text">Escrever um perfil numa etiqueta NFC permite que, com um toque na etiqueta, selecione esse perfil. Tocar uma segunda vez selecionará o perfil anteriormente ativado.</string>
+  <string name="profile_nfc_text">Escrever um perfil numa etiqueta NFC permite que, com um toque na etiqueta, selecione esse perfil. Tocar uma segunda vez selecionará o perfil anteriormente ativo.</string>
   <string name="profile_unknown_nfc_tag">Perfil desconhecido</string>
   <string name="profile_add_nfc_text">Esta etiqueta NFC refere-se a um perfil desconhecido. Anexar esta etiqueta NFC num perfil existente permitirá selecionar o perfil no futuro.</string>
   <string name="profile_select">Selecionar perfil</string>
@@ -173,6 +173,18 @@
   <string name="wifi_setting_countrycode_summary">Especificar o código de região do Wi\u2011Fi</string>
   <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
   <string name="wifi_setting_countrycode_error">Ocorreu um problema a definir o código de região.</string>
+  <string name="wifi_countrycode_us">Estados Unidos</string>
+  <string name="wifi_countrycode_ca">Canadá, Taiwan</string>
+  <string name="wifi_countrycode_de">Alemanha</string>
+  <string name="wifi_countrycode_gb">Europa</string>
+  <string name="wifi_countrycode_jp">Japão, Rússia</string>
+  <string name="wifi_countrycode_au">Austrália</string>
+  <string name="wifi_countrycode_cn">China</string>
+  <string name="wifi_countrycode_kr">Coreia</string>
+  <string name="wifi_countrycode_tr">África do Sul, Turquia</string>
+  <string name="wifi_countrycode_sg">Israel, Singapura</string>
+  <string name="wifi_countrycode_br">Brasil</string>
+  <string name="wifi_countrycode_in">Índia</string>
   <!-- Profiles -->
   <string name="profile_menu_delete_title">Eliminar</string>
   <string name="profile_action_none">Deixar inalterado</string>
@@ -261,6 +273,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Definições de luz</string>
   <string name="led_notification_text">Luz do LED ativada pelas definições</string>
+  <string name="notification_light_no_apps_summary">Para configurar as luzes de notificação para uma aplicação específica, ative \"%1$s\" e toque em \"\u002b\" na barra de menu</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Depuração Android</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -468,7 +481,7 @@
   <string name="camera_launch_title">Iniciar a câmara</string>
   <string name="camera_launch_summary">Pressionar algum tempo e depois soltar iniciará a câmara</string>
   <string name="volbtn_music_controls_title">Controlo de reprodução</string>
-  <string name="volbtn_music_controls_summary">Quando o ecrã estiver desligado, manter pressionados os botões de volume irá procurar as faixas de música</string>
+  <string name="volbtn_music_controls_summary">Alternar as faixas de música ao manter os botões de volume pressionados com o ecrã desligado</string>
   <string name="volbtn_cursor_control_title">Controlo do cursor de teclado</string>
   <string name="volbtn_cursor_control_off">Desativado</string>
   <string name="volbtn_cursor_control_on">Volume para cima/baixo move o cursor para a esquerda/direita</string>
@@ -517,6 +530,9 @@
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Ativar os botões virtuais</string>
   <string name="disable_navkeys_summary">Ativar os botões virtuais e desativar os botões físicos</string>
+  <!-- tap-to-wake -->
+  <string name="double_tap_to_wake_title">Toque duplo liga o ecrã</string>
+  <string name="double_tap_to_wake_summary">Dê um toque duplo no ecrã para ligar o dispositivo</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Toque duplo para desligar o ecrã</string>
   <string name="double_tap_to_sleep_summary">Dê um toque duplo na barra de estado para desligar o dispositivo</string>
@@ -540,7 +556,6 @@
   <string name="color_red_title">Vermelho</string>
   <string name="color_green_title">Verde</string>
   <string name="color_blue_title">Azul</string>
-  <!-- used if no name provided by overlay -->
   <!-- Launch music player when headset is connected -->
   <string name="headset_connect_player_title">Iniciar a aplicação de música</string>
   <string name="headset_connect_player_summary">Iniciar a aplicação de música predefinida quando ligar os auscultadores</string>
@@ -571,6 +586,9 @@
   <string name="saturation_str">Saturação: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contraste: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensidade: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">Padrão</string>
+  <string name="screen_color_vivid">Brilhante</string>
+  <string name="screen_color_custom">Personalizado</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Otimiza o ecrã com base na hora do dia e condições do ambiente para melhorar a legibilidade e reduzir a fadiga ocular</string>
   <string name="live_display_mode">Modo de exibição</string>
@@ -997,6 +1015,14 @@
   <string name="weather_settings_title">Meteorologia</string>
   <string name="weather_settings_no_services_prompt">Não há serviços de provedor de meteorologia instalados</string>
   <string name="weather_settings_button">Definições do provedor</string>
+  <string name="weather_settings_activity_not_found">Não é possível iniciar o menu de definições deste provedor</string>
+  <string name="weather_settings_add_weather_provider">Adicionar provedor de meteorologia</string>
+  <string name="weather_settings_general_settings_title">Geral</string>
+  <string name="weather_settings_providers_title">Provedores</string>
+  <string name="weather_settings_temp_units_title">Unidade de temperatura</string>
+  <string name="weather_settings_temp_celsius">Celsius</string>
+  <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">meteorologia</string>
   <string name="background_data_access">Acesso aos dados em 2º plano</string>
   <string name="allow_background_both">Através dos dados móveis e Wi\u2011Fi</string>
   <string name="allow_background_wlan">Apenas através de Wi\u2011Fi</string>
@@ -1006,10 +1032,12 @@
   <string name="data_usage_menu_enable_data_alerts">Ativar alertas de uso de dados</string>
   <string name="data_usage_menu_disable_data_alerts">Desativar alertas de uso de dados</string>
   <string name="data_usage_menu_reset_stats">Redefinir as estatísticas de dados</string>
-  <string name="reset_data_stats_msg">Isto irá limpar todas as informações de rastreamento de dados</string>
+  <string name="reset_data_stats_msg">Isto irá apagar todas as informações de rastreamento de dados</string>
   <string name="reset_stats_confirm">Confirmar</string>
   <string name="restrict_cellular_access_title">Restringir o acesso de dados móveis</string>
   <string name="restrict_cellular_access_summary">Desativar o acesso de dados em redes móveis</string>
   <string name="restrict_cellular_access_dialog_title">Restringir o acesso de dados móveis?</string>
   <string name="restrict_cellular_access_dialog_summary">Este recurso pode fazer com que uma aplicação que dependa de acesso à rede deixe de responder quando só estiverem disponíveis redes móveis.\n\nPoderá encontrar ferramentas mais apropriadas para o controlo de dados nas definições disponíveis na aplicação.</string>
+  <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Operadores de rede</string>
 </resources>
