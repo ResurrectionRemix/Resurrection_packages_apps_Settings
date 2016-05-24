@@ -1752,7 +1752,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void confirmEnableOemUnlock() {
-        DialogInterface.OnClickListener onConfirmListener = new DialogInterface.OnClickListener() {
+        DialogInterface.OnClickListener onEnableOemListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == DialogInterface.BUTTON_POSITIVE) {
@@ -1765,8 +1765,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.confirm_enable_oem_unlock_title)
                 .setMessage(R.string.confirm_enable_oem_unlock_text)
-                .setPositiveButton(R.string.enable_text, onConfirmListener)
-                .setNegativeButton(android.R.string.cancel, onConfirmListener)
+                .setPositiveButton(R.string.enable_text, onEnableOemListener)
+                .setNegativeButton(android.R.string.cancel, onEnableOemListener)
+                .setCancelable(false)
                 .create()
                 .show();
     }
