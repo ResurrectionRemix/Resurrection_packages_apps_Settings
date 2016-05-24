@@ -72,7 +72,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
     private static final String FAB_ANIM_STYLE = "fab_animation_style";
 
     static final int DEFAULT = 0xffffffff;
-    static final int DEFAULT_BG_ICON = 0x00ffffff;	
+    static final int DEFAULT_BG_ICON = 0x00000000;	
     static final int DEFAULT_BG_MEM_BAR = 0xff009688;	
     static final int DEFAULT_BG_FAB = 0xffDC4C3C;	
     private static final int MENU_RESET = Menu.FIRST;
@@ -213,7 +213,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mAppColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
                     Settings.System.TV_APP_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        hexColor = String.format("#%08x", (0x00000000 & intColor));
         mAppColor.setSummary(hexColor);
         mAppColor.setNewPreviewColor(intColor);        
         
