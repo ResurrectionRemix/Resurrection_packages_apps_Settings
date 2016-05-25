@@ -76,8 +76,34 @@
             android:id="@+id/qs_vib_customizations"
             android:title="@string/quick_settings_vibrate"
             android:fragment="com.android.settings.rr.QsVibrate" />
-
-
+            
+    <!-- Qs Tiles Animation Style -->
+            <string-array name="qs_tile_animation_style_entries" translatable="false">
+            	<item>@string/qs_tile_animation_style_off</item>
+            	<item>@string/qs_tile_animation_style_flip</item>
+            	<item>@string/qs_tile_animation_style_rotate</item>
+            </string-array>
+            
+            <string-array name="qs_tile_animation_style_values" translatable="fasle">
+            	<item>0</item>
+            	<item>1</item>
+            	<item>2</item>
+            </string-array>
+          
+     <!--Qs Tiles Animation Duration -->
+     	    <string-array name="qs_tiles_animation_duration_entries" translatable="false">
+     	    	<item>@string/qs_tile_animation_duration_low</item>
+     	    	<item>@string/qs_tile_animation_duration_normal</item>
+     	    	<item>@string/qs_tile_animation_duration_high</item>
+     	    </string-array>
+     	    
+            <string-array name="qs_tiles_animation_duration_values" translatable="false">
+            	<item>2500</item>
+            	<item>2000</item>
+            	<item>1500</item>
+            	<item>1000</item>
+            </string-array>
+            
     <!-- Qs Colors -->
     <PreferenceScreen
             android:id="@+id/qs_colors"
