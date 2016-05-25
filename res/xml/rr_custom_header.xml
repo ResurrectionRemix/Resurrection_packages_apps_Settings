@@ -36,7 +36,21 @@
            android:title="@string/daylight_header_pack_title"
            android:persistent="false"
 	   android:dependency="status_bar_custom_header" /> 
+	
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="header_image_accent_switch"
+            android:title="@string/header_image_accent_switch_title"
+            android:summary="@string/header_image_accent_switch_summary"
+	    android:dependency="status_bar_custom_header"
+	    android:defaultValue="false" />
 
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="header_accent_switch"
+            android:title="@string/header_accent_switch_title"
+            android:summary="@string/header_accent_switch_summary"
+	    android:dependency="status_bar_custom_header"
+	    android:defaultValue="false" />
+	
          <com.android.settings.rr.SeekBarPreference
                 android:key="status_bar_custom_header_shadow"
                 android:title="@string/status_bar_custom_header_shadow_title"
