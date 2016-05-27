@@ -175,6 +175,12 @@
     <PreferenceCategory
             android:key="lights"
             android:title="@string/category_lights">
+      
+        <!-- Battery fully charged notification -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="battery_fully_charged_notification"
+        android:title="@string/battery_fully_charged_notif_title"
+        android:summary="@string/battery_fully_charged_notif_summary" />
 
         <!-- Battery light -->
         <PreferenceScreen

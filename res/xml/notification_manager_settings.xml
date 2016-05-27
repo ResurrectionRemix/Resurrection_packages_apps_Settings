@@ -25,6 +25,12 @@
             android:title="@string/heads_up_notifications"
             android:fragment="com.android.settings.headsup.HeadsUpSettings" />
 
+    <!-- Battery fully charged notification -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="battery_fully_charged_notification"
+        android:title="@string/battery_fully_charged_notif_title"
+        android:summary="@string/battery_fully_charged_notif_summary" />
+
     <!-- Zen Mode -->
     <PreferenceScreen
             android:key="zen_mode"
