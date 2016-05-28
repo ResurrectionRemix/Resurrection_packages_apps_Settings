@@ -2106,6 +2106,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="CmRadioInfo" android:label="@string/cm_radio_info_label"
+            android:process="com.android.phone">
+            <intent-filter>
+                <action android:name="com.android.settings.OEM_RADIO_INFO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- Suspect activity alias: targetActivity is Settings itself, does not define a name. Remove? -->
         <activity-alias android:name="ProxySelector"
             android:label="@string/proxy_settings_label"
