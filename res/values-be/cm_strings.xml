@@ -266,8 +266,10 @@
   <string name="notification_light_missed_call_title">Прапушчаны выклік</string>
   <string name="notification_light_voicemail_title">Галасавая пошта</string>
   <string name="notification_light_screen_on">Выкарыстоўваць індыкатар пры ўключаным экране</string>
+  <string name="notification_light_zen_mode">Святло ў рэжыме \"Не турбаваць\"</string>
   <string name="notification_light_use_multiple_leds">Некалькі светадыёдаў</string>
   <string name="keywords_lights_brightness_level">бляклая яскравасць</string>
+  <string name="notification_light_automagic">Аўтаматычны выбар колеру</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Індыкатар падзей</string>
   <string name="led_notification_text">Светадыёд падлучаны ў параметрах</string>
@@ -359,6 +361,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">пераключыць bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">запуск падчас загрузкі</string>
   <string name="app_ops_summaries_toggle_nfc">пераключыць NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">пераключыць стан сотавай сеткі</string>
   <string name="app_ops_summaries_superuser">суперкарыстальнік</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Прыблізнае месцазнаходжанне</string>
@@ -428,6 +431,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Пераключыць bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Запуск падчас загрузкі</string>
   <string name="app_ops_labels_toggle_nfc">Пераключыць NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">пераключыць стан сотавай сеткі</string>
   <string name="app_ops_labels_superuser">Рэжым суперкарыстальніка</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Дазваляць</string>
@@ -903,6 +907,8 @@
   <!-- Edit access point labels: PPP number -->
   <string name="apn_ppp_number">Нумар тэлефону кропкі доступу PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">Дубляваць APN</string>
+  <string name="duplicate_apn_error_message">Такі APN ужо існуе. Скасаваць ці змяніць параметры.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> — <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">адключана</string>
   <string name="sim_missing">адсутнічае альбо няспраўная</string>
@@ -924,6 +930,7 @@
   <string name="sim_card_status_title">Статус SIM %d</string>
   <string name="sim_card_lock_settings_title">Параметры блакавання SIM %d</string>
   <string name="sim_card_summary_empty">SIM не ўстаўлена</string>
+  <string name="sim_mobile_network_settings_category_title">Налады сотавай сеткі</string>
   <string name="sim_mobile_network_settings_title">Параметры SIM %d</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
@@ -967,12 +974,20 @@
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Ніколі</string>
+  <string name="hotstpot_inactivity_timeout_1_minute">1 хвіліна</string>
+  <string name="hotstpot_inactivity_timeout_5_minutes">5 хвілін</string>
+  <string name="hotstpot_inactivity_timeout_10_minutes">10 хвілін</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Не адключаць ніколі Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Адключыць праз <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Жывы экран блакавання</string>
   <!-- Live lock screen summary -->
+  <string name="live_lock_screen_summary">Уключыць ды наладзіць жывы экран блакавання</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Налады</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">Каб бачыць даступныя жывыя экраны блакавання, ўключыце іх.</string>
   <string name="interruptions_ignore_while_media_title">Не прыглушаць гук</string>
   <string name="interruptions_ignore_while_media_summary">Не змяншаць гучнасць прайгравання мультымедыя пры атрыманні паведамленняў</string>
   <!-- CM Legal -->
@@ -991,4 +1006,5 @@
   <string name="weather_settings_general_settings_title">Агульныя</string>
   <!-- Label for settings shortcut: carrier selection -->
   <!-- title for lock screen blur preference -->
+  <!-- Per app controls for LP keyguard notifications -->
 </resources>
