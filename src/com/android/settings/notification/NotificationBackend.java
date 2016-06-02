@@ -47,7 +47,6 @@ public class NotificationBackend {
         row.priority = getHighPriority(row.pkg, row.uid);
         row.peekable = getPeekable(row.pkg, row.uid);
         row.sensitive = getSensitive(row.pkg, row.uid);
-        row.keyguard = getKeyguard(row.pkg, row.uid);
         return row;
     }
 
@@ -131,25 +130,6 @@ public class NotificationBackend {
         }
     }
 
-    public boolean getKeyguard(String pkg, int uid) {
-        try {
-            return sINM.getPackageKeyguard(pkg, uid);
-        } catch (Exception e) {
-            Log.w(TAG, "Error calling NoMan", e);
-            return false;
-        }
-    }
-
-    public boolean setKeyguard(String pkg, int uid, boolean keyguard) {
-        try {
-            sINM.setPackageKeyguard(pkg, uid, keyguard);
-            return true;
-        } catch (Exception e) {
-           Log.w(TAG, "Error calling NoMan", e);
-           return false;
-        }
-    }
-
     static class Row {
         public String section;
     }
@@ -164,7 +144,6 @@ public class NotificationBackend {
         public boolean priority;
         public boolean peekable;
         public boolean sensitive;
-        public boolean keyguard;
         public boolean first;  // first app in section
     }
 

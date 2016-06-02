@@ -131,7 +131,6 @@ public class ManageApplications extends InstrumentedFragment
     public static final int FILTER_APPS_USAGE_ACCESS            = 12;
     public static final int FILTER_APPS_WITH_OVERLAY            = 13;
     public static final int FILTER_APPS_WRITE_SETTINGS          = 14;
-    public static final int FILTER_APPS_NO_KEYGUARD             = 15;
 
     // This is the string labels for the filter modes above, the order must be kept in sync.
     public static final int[] FILTER_LABELS = new int[] {
@@ -150,7 +149,6 @@ public class ManageApplications extends InstrumentedFragment
         R.string.filter_all_apps,      // Usage access screen, never displayed
         R.string.filter_overlay_apps,   // Apps with overlay permission
         R.string.filter_write_settings_apps,   // Apps that can write system settings
-        R.string.filter_notif_no_keyguard,   // No keyguard Notifications
     };
     // This is the actual mapping to filters from FILTER_ constants above, the order must
     // be kept in sync.
@@ -172,7 +170,6 @@ public class ManageApplications extends InstrumentedFragment
         AppStateUsageBridge.FILTER_APP_USAGE, // Apps with Domain URLs
         AppStateOverlayBridge.FILTER_SYSTEM_ALERT_WINDOW,   // Apps that can draw overlays
         AppStateWriteSettingsBridge.FILTER_WRITE_SETTINGS,  // Apps that can write system settings
-        AppStateNotificationBridge.FILTER_APP_NOTIFICATION_NO_KEYGUARD,   // No keyguard Notifications
     };
 
     // sort order
@@ -354,7 +351,6 @@ public class ManageApplications extends InstrumentedFragment
             mFilterAdapter.enableFilter(FILTER_APPS_PRIORITY);
             mFilterAdapter.enableFilter(FILTER_APPS_SENSITIVE);
             mFilterAdapter.enableFilter(FILTER_APPS_NO_PEEKING);
-            mFilterAdapter.enableFilter(FILTER_APPS_NO_KEYGUARD);
         }
         if (mListType == LIST_TYPE_HIGH_POWER) {
             mFilterAdapter.enableFilter(FILTER_APPS_POWER_WHITELIST_ALL);
