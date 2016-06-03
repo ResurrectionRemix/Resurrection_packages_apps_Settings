@@ -272,6 +272,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">ライトの設定</string>
   <string name="led_notification_text">設定によってLEDライトが有効になっています</string>
+  <string name="notification_light_no_apps_summary">アプリごとのコントロールを追加するには、[%1$s]を有効にしてメニューバーの[\u002b]を押す</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Androidデバッグ</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -441,6 +442,7 @@
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g>許可しました</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g>拒否しました</string>
   <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g>許可、<xliff:g id="count">%2$s</xliff:g>拒否しました</string>
+  <string name="app_ops_disabled_by_optimization">電池の最適化によって無効化</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">ユーザーアプリを表示</string>
   <string name="app_ops_show_system_apps">内蔵アプリを表示</string>
@@ -871,6 +873,7 @@
   <string name="menu_hidden_apps_delete">リセット</string>
   <string name="menu_hidden_apps_reset_lock">パターンロックをリセット</string>
   <string name="protected_apps">アプリの保護</string>
+  <string name="protected_apps_summary">パスワードでロックしている時に非表示にするアプリを管理する</string>
   <string name="saving_protected_components">コンポーネントの状態を保存中\u2026</string>
   <string name="pa_login_username_hint">ユーザー名（メール）</string>
   <string name="pa_login_password_hint">パスワード</string>
@@ -1002,9 +1005,45 @@
   <string name="battery_info_status_charging_dock_ac">ACでホルダーを充電しています</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">USBでホルダーを充電しています</string>
+  <string name="restrict_app_wlan_title">アプリのWi\u2011Fiの使用を無効化</string>
+  <string name="restrict_app_wlan_summary">アプリのWi\u2011Fiデータ接続の使用を防止する</string>
+  <string name="restrict_app_cellular_title">アプリのモバイルデータの使用を無効化</string>
+  <string name="restrict_app_cellular_summary">アプリのモバイルデータ接続の使用を防止する</string>
+  <string name="privacy_guard_internet_category">インターネット</string>
   <!-- Weather -->
+  <string name="weather_settings_title">天気</string>
+  <string name="weather_settings_no_services_prompt">天気プロバイダサービスがインストールされていません</string>
+  <string name="weather_settings_button">プロバイダの設定</string>
+  <string name="weather_settings_activity_not_found">このプロバイダの設定メニューを起動できませんでした</string>
+  <string name="weather_settings_add_weather_provider">天気プロバイダを追加</string>
   <string name="weather_settings_general_settings_title">全般</string>
+  <string name="weather_settings_providers_title">プロバイダ</string>
+  <string name="weather_settings_temp_units_title">温度の単位</string>
+  <string name="weather_settings_temp_celsius">摂氏</string>
+  <string name="weather_settings_temp_fahrenheit">華氏</string>
+  <string name="weather_settings_keyword">天気</string>
+  <string name="background_data_access">バックグラウンドデータアクセス</string>
+  <string name="allow_background_both">モバイルデータとWi\u2011Fi経由</string>
+  <string name="allow_background_wlan">Wi\u2011Fi経由のみ</string>
+  <string name="allow_background_none">アクセスなし</string>
+  <string name="mobile_data_alert">モバイルデータ警告</string>
+  <string name="mobile_data_alert_summary">アプリが大量のデータを使用したときに通知する</string>
+  <string name="data_usage_menu_enable_data_alerts">データ使用量警告を有効化</string>
+  <string name="data_usage_menu_disable_data_alerts">データ使用量警告を無効化</string>
+  <string name="data_usage_menu_reset_stats">データ使用量の統計をリセット</string>
+  <string name="reset_data_stats_msg">この操作は過去から現在までのデータ使用量の追跡情報を消去します</string>
+  <string name="reset_stats_confirm">確認</string>
+  <string name="restrict_cellular_access_title">モバイルデータアクセスを制限</string>
+  <string name="restrict_cellular_access_summary">モバイルネットワークでのデータアクセスを無効にする</string>
+  <string name="restrict_cellular_access_dialog_title">モバイルデータアクセスを制限しますか？</string>
+  <string name="restrict_cellular_access_dialog_summary">この機能はモバイルネットワークのみが利用可能な場合にネットワークアクセスに依存するアプリが動作しなくなる可能性があります。\n\nこのアプリで利用可能なデータ使用量のより適切なコントロールは設定から行うことができます。</string>
   <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">通信事業者</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">ロック画面のぼかし</string>
   <!-- Per app controls for LP keyguard notifications -->
+  <string name="app_notification_show_on_keyguard_title">ロック画面に表示</string>
+  <string name="app_notification_show_on_keyguard_summary">このアプリからの通知をロック画面に表示する</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">常駐する通知をロック画面で無効化</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">このアプリからの常駐する通知をロック画面に表示しない</string>
 </resources>
