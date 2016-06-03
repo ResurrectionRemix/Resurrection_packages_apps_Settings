@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -73,6 +74,8 @@ public class EntryEditDialogFragment extends DialogFragment
     private static final String STATE_MESSAGE = "message";
     private static final String STATE_EDIT_ENABLED = "edit_enabled";
 
+    private static final String DELETE_CONFIRM_FRAGMENT_TAG = "delete_confirm";
+
     public static EntryEditDialogFragment newInstance(long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -114,9 +117,11 @@ public class EntryEditDialogFragment extends DialogFragment
         neutralButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EntryEditDialogFragment parent = EntryEditDialogFragment.this;
-                DialogFragment confirm = DeleteConfirmationFragment.newInstance(parent);
-                confirm.show(getFragmentManager(), "delete_confirm");
+                FragmentManager fragMan = getChildFragmentManager();
+                if (fragMan.findFragmentByTag(DELETE_CONFIRM_FRAGMENT_TAG) == null) {
+                    DeleteConfirmationFragment.newInstance()
+                            .show(fragMan, DELETE_CONFIRM_FRAGMENT_TAG);
+                }
             }
         });
 
@@ -297,10 +302,9 @@ public class EntryEditDialogFragment extends DialogFragment
             implements DialogInterface.OnClickListener {
         public DeleteConfirmationFragment() {
         }
-        public static DialogFragment newInstance(EntryEditDialogFragment parent) {
-            DialogFragment fragment = new DeleteConfirmationFragment();
-            fragment.setTargetFragment(parent, 0);
-            return fragment;
+
+        public static DialogFragment newInstance() {
+            return new DeleteConfirmationFragment();
         }
 
         @Override
@@ -317,7 +321,7 @@ public class EntryEditDialogFragment extends DialogFragment
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
-            EntryEditDialogFragment parent = (EntryEditDialogFragment) getTargetFragment();
+            EntryEditDialogFragment parent = (EntryEditDialogFragment) getParentFragment();
             parent.onDeleteConfirmResult(which == DialogInterface.BUTTON_POSITIVE);
         }
     }
