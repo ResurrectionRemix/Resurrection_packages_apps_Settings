@@ -50,6 +50,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
  private static final String PREF_NUM_COLUMNS = "sysui_qs_num_columns";
  private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
  private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
+ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
 
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
@@ -57,6 +58,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
     private ListPreference mNumColumns;	
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
+    private ListPreference mTileAnimationInterpolator;
     	
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
@@ -69,7 +71,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
 
         Resources res = getResources();
 	mQuickPulldown = (ListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
-       int quickPulldown = CMSettings.System.getInt(resolver,
+        int quickPulldown = CMSettings.System.getInt(resolver,
                 CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
         mQuickPulldown.setValue(String.valueOf(quickPulldown));
         if (quickPulldown == 0) {
@@ -84,31 +86,31 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
         }
         mQuickPulldown.setOnPreferenceChangeListener(this);
 
-            // Block QS on secure LockScreen
-            mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
-            if (lockPatternUtils.isSecure(MY_USER_ID)) {
+        // Block QS on secure LockScreen
+        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (lockPatternUtils.isSecure(MY_USER_ID)) {
                 mBlockOnSecureKeyguard.setChecked(Settings.Secure.getIntForUser(resolver,
                         Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1, UserHandle.USER_CURRENT) == 1);
                 mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
-           } else if (mBlockOnSecureKeyguard != null) {
+        } else if (mBlockOnSecureKeyguard != null) {
                 prefSet.removePreference(mBlockOnSecureKeyguard);
-            }
+        }
 
-          mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
-          mSmartPulldown.setOnPreferenceChangeListener(this);
-          int smartPulldown = Settings.System.getInt(resolver,
+         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+         mSmartPulldown.setOnPreferenceChangeListener(this);
+         int smartPulldown = Settings.System.getInt(resolver,
                  Settings.System.QS_SMART_PULLDOWN, 0);
          mSmartPulldown.setValue(String.valueOf(smartPulldown));
          updateSmartPulldownSummary(smartPulldown);
         
 	 // Number of QS Columns 3,4,5
-            mNumColumns = (ListPreference) findPreference(PREF_NUM_COLUMNS);
-            int numColumns = Settings.System.getIntForUser(resolver,
+         mNumColumns = (ListPreference) findPreference(PREF_NUM_COLUMNS);
+         int numColumns = Settings.System.getIntForUser(resolver,
                     Settings.System.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
                     UserHandle.USER_CURRENT);
-            mNumColumns.setValue(String.valueOf(numColumns));
-            updateNumColumnsSummary(numColumns);
-            mNumColumns.setOnPreferenceChangeListener(this);
+         mNumColumns.setValue(String.valueOf(numColumns));
+         updateNumColumnsSummary(numColumns);
+         mNumColumns.setOnPreferenceChangeListener(this);
             
          mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
          int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -116,7 +118,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
                  UserHandle.USER_CURRENT);
          mTileAnimationStyle.setValue(String.valueOf(tileAnimationStyle));
          updateTileAnimationStyleSummary(tileAnimationStyle);
-         updateAnimTileDuration(tileAnimationStyle);
+         updateAnimTileStyle(tileAnimationStyle);
          mTileAnimationStyle.setOnPreferenceChangeListener(this);
  
          mTileAnimationDuration = (ListPreference) findPreference(PREF_TILE_ANIM_DURATION);
@@ -126,6 +128,14 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
          mTileAnimationDuration.setValue(String.valueOf(tileAnimationDuration));
          updateTileAnimationDurationSummary(tileAnimationDuration);
          mTileAnimationDuration.setOnPreferenceChangeListener(this);
+         
+         mTileAnimationInterpolator = (ListPreference) findPreference(PREF_TILE_ANIM_INTERPOLATOR);
+        int tileAnimationInterpolator = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.ANIM_TILE_INTERPOLATOR, 0,
+                UserHandle.USER_CURRENT);
+        mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
+        updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+        mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
 
     }
 
@@ -179,7 +189,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
              Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_STYLE,
                      tileAnimationStyle, UserHandle.USER_CURRENT);
              updateTileAnimationStyleSummary(tileAnimationStyle);
-             updateAnimTileDuration(tileAnimationStyle);
+             updateAnimTileStyle(tileAnimationStyle);
              return true;
          } else if (preference == mTileAnimationDuration) {
              int tileAnimationDuration = Integer.valueOf((String) newValue);
@@ -187,11 +197,17 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
                      tileAnimationDuration, UserHandle.USER_CURRENT);
              updateTileAnimationDurationSummary(tileAnimationDuration);
              return true;
-         }
+         } else if (preference == mTileAnimationInterpolator) {
+            int tileAnimationInterpolator = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_INTERPOLATOR,
+                    tileAnimationInterpolator, UserHandle.USER_CURRENT);
+            updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+            return true;
+	  }
          return false;
 	}
 
-  private void updateSmartPulldownSummary(int value) {
+     private void updateSmartPulldownSummary(int value) {
         Resources res = getResources();
 
         if (value == 0) {
@@ -233,18 +249,26 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
                  .valueOf(tileAnimationDuration))];
          mTileAnimationDuration.setSummary(getResources().getString(R.string.qs_set_animation_duration, prefix));
      }
+     
+     private void updateTileAnimationInterpolatorSummary(int tileAnimationInterpolator) {
+        String prefix = (String) mTileAnimationInterpolator.getEntries()[mTileAnimationInterpolator.findIndexOfValue(String
+                .valueOf(tileAnimationInterpolator))];
+        mTileAnimationInterpolator.setSummary(getResources().getString(R.string.qs_set_animation_interpolator, prefix));
+    }
  
-     private void updateAnimTileDuration(int tileAnimationStyle) {
+     private void updateAnimTileStyle(int tileAnimationStyle) {
          if (mTileAnimationDuration != null) {
              if (tileAnimationStyle == 0) {
                  mTileAnimationDuration.setSelectable(false);
+                 mTileAnimationInterpolator.setSelectable(false);
              } else {
                  mTileAnimationDuration.setSelectable(true);
+                 mTileAnimationInterpolator.setSelectable(true);
              }
          }
      }
 
-        private int getDefaultNumColums() {
+     private int getDefaultNumColums() {
             try {
                 Resources res = getActivity().getPackageManager()
                         .getResourcesForApplication("com.android.systemui");
@@ -258,7 +282,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
         }
         
             
-    	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
