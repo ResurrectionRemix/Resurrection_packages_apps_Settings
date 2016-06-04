@@ -654,11 +654,11 @@
   <string name="lock_clock_weather_section_summary">Mostrar ou alterar como a meteorologia do widget \'cLock\' será exibido</string>
   <string name="lock_clock_calendar_section_title">Eventos do calendário</string>
   <string name="lock_clock_calendar_section_summary">Mostrar ou alterar como o calendário do widget \'cLock\' será exibido</string>
-  <string name="lock_clock_font_size_title">Clock Font Size</string>
-  <string name="lock_clock_font_size_summary">Adjust the sized of the text of lockscreen clock</string>
-  <string name="lockdate_font_size_title">Date Font size</string>
-  <string name="lockdate_font_size_summary">Adjust the sized of the text of lockscreen date view</string>
-  <string name="lock_clock_font_size_default">Default</string>
+  <string name="lock_clock_font_size_title">Tamanho da Fonte do Relógio</string>
+  <string name="lock_clock_font_size_summary">Ajustar o tamanho do texto do relógio no ecrã de bloqueio</string>
+  <string name="lockdate_font_size_title">Tamanho da fonte da Data</string>
+  <string name="lockdate_font_size_summary">Ajustar o tamanho do texto da data no ecrã de bloqueio</string>
+  <string name="lock_clock_font_size_default">Predefinido</string>
   <string name="lock_clock_font_size_1">35dp</string>
   <string name="lock_clock_font_size_2">40dp</string>
   <string name="lock_clock_font_size_3">45dp</string>
@@ -671,7 +671,7 @@
   <string name="lock_clock_font_size_10">80dp</string>
   <string name="lock_clock_font_size_11">85dp</string>
   <string name="lock_clock_font_size_12">90dp</string>
-  <string name="lock_clock_font_size_13">95ddp</string>
+  <string name="lock_clock_font_size_13">95dp</string>
   <string name="lock_clock_font_size_14">100dp</string>
   <string name="lock_clock_font_size_15">105dp</string>
   <string name="lock_clock_font_size_16">110dp</string>
@@ -699,7 +699,7 @@
   <string name="lockdate_font_size_18">44sp</string>
   <string name="lockdate_font_size_19">46sp</string>
   <string name="lockdate_font_size_20">48sp</string>
-  <string name="lockdate_font_size_default">Default</string>
+  <string name="lockdate_font_size_default">Predefinido</string>
   <!-- Headphones icon switch -->
   <string name="show_headset_icon_title">Ícone dos fones de ouvido</string>
   <string name="show_headset_icon_summary">Mostrar ícone quando os fones de ouvido estão conectados.</string>
@@ -1122,7 +1122,7 @@
   <string name="pa_pie_size_title">Tamanho Pie</string>
   <string name="pa_pie_size_summary">Definir tamanho de controlos Pie</string>
   <string name="pa_pie_size_small">Pequeno</string>
-  <string name="pa_pie_size_default">Default</string>
+  <string name="pa_pie_size_default">Predefinido</string>
   <string name="pa_pie_size_large">Grande</string>
   <string name="pa_pie_size_gigantic">Gigante</string>
   <string name="pa_pie_size_monster">Monstro</string>
@@ -1396,12 +1396,6 @@
   <string name="battery_stats_reset">Repor estatísticas</string>
   <string name="battery_stats_message">Estatísticas da história da bateria vai ser apagada</string>
   <string name="ok_string">Ok</string>
-  <!-- app notifications hide on lockscreen -->
-  <string name="app_notification_no_keyguard_title">Esconder quando bloqueado</string>
-  <string name="app_notification_no_keyguard_summary">Esconder as notificações desta app quando o dispositivo estiver bloqueado</string>
-  <string name="filter_notif_no_keyguard">Escondido quando bloqueado</string>
-  <string name="notifications_no_keyguard">Escondido quando bloqueado</string>
-  <string name="notifications_four_items"><xliff:g id="notif_state" exemplo="Priority">%1$s </xliff:g> / <xliff:g id="notif_state" exemplo="Priority">%2$s </xliff:g> / <xliff:g id="notif_state" exemplo="Priority">%3$s </xliff:g> / <xliff:g id="notif_state" exemplo="Priority">%4$s </xliff:g></string>
   <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
   <string name="show_cpu_info">Mostrar informação da CPU</string>
   <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
@@ -1415,7 +1409,7 @@
   <string name="block_on_secure_keyguard_title">Desativar as definições rápidas no ecrã de bloqueio</string>
   <string name="block_on_secure_keyguard_summary">Desativar definições rápidas na proteção de teclado para um fecho seguro</string>
   <!-- QuickSettings haptic feedback -->
-  <string name="quick_settings_vibrate">Vibrações QS</string>
+  <string name="quick_settings_vibrate">Vibrações DR</string>
   <string name="quick_settings_vibrate_title">Vibrar ao tocar</string>
   <string name="quick_settings_vibrate_summary">Vibrar ao tocar as telas</string>
   <!-- QuickSettings haptic feedback -->
@@ -1935,4 +1929,30 @@
   <string name="carrier_label_hide_label_title">Esconder Notificações</string>
   <string name="carrier_label_number_of_notification_icons_title">Numero máximo de ícones antes de esconder</string>
   <string name="status_bar_carrier_font_style_title">Fonte da etiqueta da operadora</string>
+  <!-- Tiles animation style  -->
+  <string name="quicksettings_tiles_category">Tile animation options</string>
+  <string name="qs_tile_animation_style_title">Tiles animation style</string>
+  <string name="qs_tile_animation_duration_title">Tiles animation duration</string>
+  <string name="qs_tile_animation_interpolator_title">Tiles animation interpolator</string>
+  <string name="qs_tile_animation_style_off">No animation</string>
+  <string name="qs_tile_animation_style_flip">Flip</string>
+  <string name="qs_tile_animation_style_rotate">Rotate</string>
+  <string name="qs_tile_animation_duration_low">Low</string>
+  <string name="qs_tile_animation_duration_default">Default</string>
+  <string name="qs_tile_animation_duration_fast">Fast</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Accelerate</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Decelerate</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Accelerate decelerate</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Bounce</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Overshoot</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipate</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipate overshoot</string>
+  <string name="qs_tile_animation_duration_superfast">Superfast</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
+  <!-- Battery fully charged notification -->
+  <string name="battery_fully_charged_notif_title">Battery fully charged notification</string>
+  <string name="battery_fully_charged_notif_summary">Show a notification when the battery is fully charged</string>
 </resources>
