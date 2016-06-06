@@ -212,7 +212,7 @@ public class RecentsStyles extends SettingsPreferenceFragment  implements Prefer
         mAppColor= (ColorPickerPreference) prefSet.findPreference(APP_ICON);
         mAppColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.TV_APP_COLOR, DEFAULT);
+                    Settings.System.TV_APP_COLOR, DEFAULT_BG_ICON);
         hexColor = String.format("#%08x", (0x00000000 & intColor));
         mAppColor.setSummary(hexColor);
         mAppColor.setNewPreviewColor(intColor);        
