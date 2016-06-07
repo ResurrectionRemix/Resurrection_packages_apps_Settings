@@ -236,6 +236,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             WifiSettingsActivity.class.getName(),
             Settings.BluetoothSettingsActivity.class.getName(),
             Settings.DataUsageSummaryActivity.class.getName(),
+            Settings.RoamingSettingsActivity.class.getName(),
             Settings.SimSettingsActivity.class.getName(),
             Settings.WirelessSettingsActivity.class.getName(),
             //device_section
