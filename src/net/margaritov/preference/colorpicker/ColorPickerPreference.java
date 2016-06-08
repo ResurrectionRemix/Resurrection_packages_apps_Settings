@@ -42,6 +42,7 @@ import com.android.settings.R;
  */
 public class ColorPickerPreference extends DialogPreference implements
         ColorPickerDialog.OnColorChangedListener {
+    public static final String TAG = "ColorPickerPreference";
 
     private static final String sAndroidns = "http://schemas.android.com/apk/res/android";
 
@@ -99,7 +100,7 @@ public class ColorPickerPreference extends DialogPreference implements
                         try {
                             mDefaultValue = convertToColorInt(defaultValue);
                         } catch (NumberFormatException e) {
-                            Log.e("ColorPickerPreference", "Wrong color: " + defaultValue);
+                            Log.e(TAG, "Wrong color: " + defaultValue);
                         }
                     } else {
                         int resourceId = attrs.getAttributeResourceValue(sAndroidns, "defaultValue", 0);
@@ -210,6 +211,31 @@ public class ColorPickerPreference extends DialogPreference implements
     protected Dialog createDialog() {
         final ColorPickerDialog pickerDialog = new ColorPickerDialog(
                 getContext(), R.style.Theme_ColorPickerDialog);
+
+        if (mResetColor1 == Color.TRANSPARENT) {
+            if (mResetColor2 != Color.TRANSPARENT) {
+                mResetColor2 = Color.TRANSPARENT;
+                Log.w(TAG + ".createDialog()",
+                        "Reset color 1 has not been set, ignore reset color 2 value");
+            }
+            if (mResetColor1Title != null) {
+                mResetColor1Title = null;
+                Log.w(TAG + ".createDialog()",
+                        "Reset color 1 has not been set, ignore reset color 1 title");
+            }
+            if (mResetColor2Title != null) {
+                mResetColor2Title = null;
+                Log.w(TAG + ".createDialog()",
+                        "Reset color 1 has not been set, ignore reset color 2 title");
+            }
+        } else if (mResetColor2 == Color.TRANSPARENT) {
+            if (mResetColor2Title != null) {
+                mResetColor2Title = null;
+                Log.w(TAG + ".createDialog()",
+                        "Reset color 2 has not been set, ignore reset color 2 title");
+            }
+        }
+
         pickerDialog.setUp(getValue(), mResetColor1, mResetColor2, mResetColor1Title,
                 mResetColor2Title, mAlphaSliderVisible);
         pickerDialog.setOnColorChangedListener(this);
@@ -308,7 +334,7 @@ public class ColorPickerPreference extends DialogPreference implements
     }
 
     /**
-     * For custom purposes. Not used by ColorPickerPreferrence
+     * Converts a aarrggbb- or rrggbb color string to a color int
      * 
      * @param argb
      * @throws NumberFormatException
