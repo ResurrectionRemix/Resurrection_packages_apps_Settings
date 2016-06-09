@@ -172,7 +172,7 @@ public class ColorViewCircleDrawable extends Drawable {
         canvas.drawCircle(mSize / 2, mSize / 2, (mSize - mBorderWidth) / 2, mBorderPaint);
     }
 
-	/**
+    /**
      * @author Daniel Nilsson
      * (AlphaPatternDrawable.generatePatternBitmap())
      */
