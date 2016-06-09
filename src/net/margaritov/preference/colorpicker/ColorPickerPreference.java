@@ -23,14 +23,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.android.settings.R;
@@ -47,7 +44,7 @@ public class ColorPickerPreference extends DialogPreference implements
     private static final String sAndroidns = "http://schemas.android.com/apk/res/android";
 
     private View mView;
-    private LinearLayout mWidgetFrameView;
+    private View mPreview;
 
     private final Resources mResources;
     private final float mDensity;
@@ -128,51 +125,39 @@ public class ColorPickerPreference extends DialogPreference implements
         mView = view;
         super.onBindView(view);
 
-        setPreviewColor();
+        setPreview();
     }
 
-    private void setPreviewColor() {
+    private void setPreview() {
         if (mView == null)
             return;
 
-        mWidgetFrameView = ((LinearLayout) mView
+        LinearLayout widgetFrameView = ((LinearLayout) mView
                 .findViewById(android.R.id.widget_frame));
-        if (mWidgetFrameView == null) {
+        if (widgetFrameView == null) {
             return;
         }
 
-        mWidgetFrameView.setVisibility(View.VISIBLE);
-        mWidgetFrameView.setPadding(
-                mWidgetFrameView.getPaddingLeft(),
-                mWidgetFrameView.getPaddingTop(),
+        widgetFrameView.setVisibility(View.VISIBLE);
+        widgetFrameView.setPadding(
+                widgetFrameView.getPaddingLeft(),
+                widgetFrameView.getPaddingTop(),
                 (int) (mDensity * 8),
-                mWidgetFrameView.getPaddingBottom()
+                widgetFrameView.getPaddingBottom()
                 );
-        // remove already create preview image
-        int count = mWidgetFrameView.getChildCount();
-        if (count > 0) {
-            mWidgetFrameView.removeViews(0, count);
-        }
-        mWidgetFrameView.addView(getPreview());
-        mWidgetFrameView.setMinimumWidth(0);
 
-    }
-
-    private ImageView getPreview() {
         final int size = (int) mResources.getDimension(
                 R.dimen.color_picker_preference_preview_width_height);
 
+        mPreview = new View(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
-        LayerDrawable colorPreview = (LayerDrawable) mResources.getDrawable(
-                R.drawable.color_picker_preference_preview).mutate();
-        ImageView iv = new ImageView(getContext());
+        mPreview.setLayoutParams(lp);
+        mPreview.setBackground(new ColorViewCircleDrawable(getContext(), size));
+        ((ColorViewCircleDrawable) mPreview.getBackground()).setColor(getValue());
 
-        colorPreview.findDrawableByLayerId(R.id.color_fill).setColorFilter(getValue(), Mode.MULTIPLY);
-        iv.setLayoutParams(lp);
-        iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        iv.setImageDrawable(colorPreview);
+        widgetFrameView.addView(mPreview);
+        widgetFrameView.setMinimumWidth(0);
 
-        return iv;
     }
 
     private int getValue() {
@@ -193,7 +178,9 @@ public class ColorPickerPreference extends DialogPreference implements
             persistInt(color);
         }
         mValue = color;
-        setPreviewColor();
+        if (mPreview != null) {
+            ((ColorViewCircleDrawable) mPreview.getBackground()).setColor(color);
+        }
         try {
             getOnPreferenceChangeListener().onPreferenceChange(this, color);
         } catch (NullPointerException e) {

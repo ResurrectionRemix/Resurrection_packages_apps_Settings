@@ -62,7 +62,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-            <net.margaritov.preference.colorpicker.ColorPickerApplyColorButton
+            <net.margaritov.preference.colorpicker.ApplyColorButton
                 android:id="@+id/apply_color_button"
                 android:layout_width="@dimen/color_picker_dialog_apply_color_button_width"
                 android:layout_height="@dimen/color_picker_dialog_button_size"
@@ -76,7 +76,6 @@
                     android:layout_gravity="left"
                     android:translationX="@dimen/color_picker_dialog_button_size"
                     android:padding="@dimen/color_picker_dialog_button_padding"
-                    android:src="@drawable/color_picker_color_button_color"
                     android:scaleType="centerInside" />
 
                 <ImageView
@@ -88,7 +87,7 @@
                     android:src="@drawable/ic_action_set"
                     android:scaleType="centerInside"
                     android:visibility="invisible" />
-            </net.margaritov.preference.colorpicker.ColorPickerApplyColorButton>
+            </net.margaritov.preference.colorpicker.ApplyColorButton>
 
             <ImageButton
                 android:id="@+id/more"
