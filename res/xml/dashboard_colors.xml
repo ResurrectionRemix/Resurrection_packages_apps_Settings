@@ -32,10 +32,10 @@
                 android:summary="@string/dashboard_columns_summary"
                 android:persistent="false" />
 
-	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="dashboard_tileview_double_lines"
                 android:title="@string/dashboard_tileview_double_lines_title"
- 		android:summary="@string/dashboard_tileview_double_lines_summary"
+                android:summary="@string/dashboard_tileview_double_lines_summary"
                 android:defaultValue="false" />
 	 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
@@ -68,22 +68,23 @@
         android:key="db_icon_color"
         android:title="@string/db_icon_color"
         android:defaultValue="0xffffffff"
-	android:dependency="db_custom_colors"/>
+        android:dependency="db_custom_colors"/>
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="db_text_color"
         android:title="@string/db_text_color"
         android:defaultValue="0xffffffff" 
-	android:dependency="db_custom_colors"/>
+        android:dependency="db_custom_colors"/>
     
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="settings_category_text_color"
         android:title="@string/text_cat_title"
-        android:defaultValue="0xff000000" />
+        android:defaultValue="0xff000000"
+        android:dependency="db_custom_colors"/>
     
      <net.margaritov.preference.colorpicker.ColorPickerPreference
        android:key="settings_bg_color"
-       android:title="@string/background_title"
+       android:title="@string/db_background_title"
        android:defaultValue="0x80ffffff" 
        android:dependency="db_custom_colors"/>
      

@@ -68,7 +68,10 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
  private static final String SETTINGS_CATEGORY_TEXT_SIZE  = "settings_category_text_size";         
  private static final String DASHBOARD_COLUMNS = "dashboard_columns";
  private static final String DASHBOARD_SWITCHES = "dashboard_switches";
- static final int DEFAULT = 0xffffffff;
+ static final int DEFAULT = 0xfff4f4f4;
+ static final int TEXT = 0xf13e3e3e;
+ static final int ICON = 0xff787878;
+ static final int BG = 0xfff4f4f4;
  private static final int MENU_RESET = Menu.FIRST;
  private static final int TRANSLUCENT_BLACK = 0x80000000;
  private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -98,24 +101,24 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
         mIconColor = (ColorPickerPreference) findPreference(DASHBOARD_ICON_COLOR);
         mIconColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DB_ICON_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.DB_ICON_COLOR, ICON);
+        hexColor = String.format("#%08x", (0xff787878 & intColor));
         mIconColor.setSummary(hexColor);
         mIconColor.setNewPreviewColor(intColor);
 
         mTextColor = (ColorPickerPreference) findPreference(DASHBOARD_TEXT_COLOR);
         mTextColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DB_TEXT_COLOR, DEFAULT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                    Settings.System.DB_TEXT_COLOR, TEXT);
+        hexColor = String.format("#%08x", (0xf13e3e3e & intColor));
         mTextColor.setSummary(hexColor);
         mTextColor.setNewPreviewColor(intColor);
         
         mBgColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
         intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.SETTINGS_BG_COLOR, WHITE);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                Settings.System.SETTINGS_BG_COLOR, BG);
+        hexColor = String.format("#%08x", (0xfff4f4f4 & intColor));
         mBgColor.setNewPreviewColor(intColor);
         mBgColor.setSummary(hexColor);
         mBgColor.setOnPreferenceChangeListener(this);
@@ -124,8 +127,8 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
 	mCatTextColor =
                 (ColorPickerPreference) findPreference(PREF_CAT_TEXT_COLOR);
         intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, HOLO_BLUE_LIGHT);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
+                Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, TEXT);
+        hexColor = String.format("#%08x", (0xf13e3e3e & intColor));
         mCatTextColor.setNewPreviewColor(intColor);
         mCatTextColor.setSummary(hexColor);
         mCatTextColor.setOnPreferenceChangeListener(this);
@@ -268,20 +271,20 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
 
     private void resetValues() {
         Settings.System.putInt(getContentResolver(),
-                Settings.System.DB_ICON_COLOR, DEFAULT);
-        mIconColor.setNewPreviewColor(DEFAULT);
+                Settings.System.DB_ICON_COLOR, ICON);
+        mIconColor.setNewPreviewColor(ICON);
         mIconColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.DB_TEXT_COLOR, DEFAULT);
-        mTextColor.setNewPreviewColor(DEFAULT);
+                Settings.System.DB_TEXT_COLOR, TEXT);
+        mTextColor.setNewPreviewColor(TEXT);
         mTextColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.SETTINGS_BG_COLOR, DEFAULT);
-        mBgColor.setNewPreviewColor(DEFAULT);
+                Settings.System.SETTINGS_BG_COLOR, BG);
+        mBgColor.setNewPreviewColor(BG);
         mBgColor.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, DEFAULT);
-        mCatTextColor.setNewPreviewColor(DEFAULT);
+                Settings.System.SETTINGS_CATEGORY_TEXT_COLOR, TEXT);
+        mCatTextColor.setNewPreviewColor(TEXT);
         mCatTextColor.setSummary(R.string.default_string);
 
     }
