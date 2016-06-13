@@ -73,9 +73,9 @@ public class DashBoardColors extends SettingsPreferenceFragment  implements Pref
  static final int ICON = 0xff787878;
  static final int BG = 0xfff4f4f4;
  private static final int MENU_RESET = Menu.FIRST;
- private static final int TRANSLUCENT_BLACK = 0x80000000;
- private static final int CYANIDE_BLUE = 0xff1976D2;
- private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
+ private static final int TRANSLUCENT_BLACK = 0xfff4f4f4;
+ private static final int CYANIDE_BLUE = 0xf13e3e3e;
+ private static final int HOLO_BLUE_LIGHT = 0xff787878;
  private static final int WHITE = 0xffffffff;
 	
 
