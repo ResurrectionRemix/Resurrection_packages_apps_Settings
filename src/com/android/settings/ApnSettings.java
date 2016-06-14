@@ -162,12 +162,12 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         final Activity activity = getActivity();
         final int subId = activity.getIntent().getIntExtra(SUB_ID,
                 SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+        TelephonyManager tm = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
 
         mImsi = activity.getIntent().getStringExtra(EXTRA_IMSI);
         if (mImsi == null) {
-            mImsi = "";
+            mImsi = tm.getSubscriberId();
         }
-
         mUm = (UserManager) getSystemService(Context.USER_SERVICE);
 
         mMobileStateFilter = new IntentFilter(
