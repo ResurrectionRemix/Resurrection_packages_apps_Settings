@@ -109,6 +109,24 @@
                             android:entries="@array/wifi_eap_method" />
                 </LinearLayout>
 
+                <LinearLayout android:id="@+id/l_sim_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            style="@style/wifi_item" >
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/wifi_item_label"
+                            android:text="@string/select_sim_card" />
+
+                    <Spinner android:id="@+id/sim_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/wifi_item_content"
+                            android:prompt="@string/select_sim_card" />
+                </LinearLayout>
+
                 <LinearLayout android:id="@+id/l_phase2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
