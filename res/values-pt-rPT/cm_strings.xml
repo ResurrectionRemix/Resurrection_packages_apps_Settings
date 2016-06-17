@@ -211,7 +211,7 @@
   <string name="profile_appgroup_name_title">Nome</string>
   <string name="duplicate_appgroup_name">Este nome já existe!</string>
   <string name="profile_app_delete_confirm">Remover esta aplicação?</string>
-  <string name="no_bluetooth_triggers">Não há dispositivos bluetooth emparelhados.\nToque para emparelhar um dispositivo bluetooth antes de configurar os atuadores.</string>
+  <string name="no_bluetooth_triggers">Não há dispositivos bluetooth emparelhados.\nToque para emparelhar um dispositivo Bluetooth antes de configurar os atuadores.</string>
   <string name="no_wifi_triggers">Não há pontos de acesso Wi\u2011Fi configurados.\nToque para conectar o Wi\u2011Fi antes de configurar os atuadores.</string>
   <string name="no_triggers_configured">Não há atuadores configurados. Toque para adicionar.</string>
   <string name="no_triggers_configured_nfc">Toque para establecer um novo atuador NFC.</string>
@@ -260,7 +260,7 @@
   <string name="notification_light_title">Luz de notificação</string>
   <string name="notification_light_general_title">Geral</string>
   <string name="notification_light_applist_title">Aplicações</string>
-  <string name="notification_light_phonelist_title">Telemóvel</string>
+  <string name="notification_light_phonelist_title">Telefone</string>
   <string name="notification_light_use_custom">Utilizar valores personalizados</string>
   <string name="notification_light_default_value">Padrão</string>
   <string name="notification_light_missed_call_title">Chamada perdida</string>
@@ -334,7 +334,7 @@
   <string name="app_ops_summaries_media_volume">volume de multimédia</string>
   <string name="app_ops_summaries_alarm_volume">volume do alarme</string>
   <string name="app_ops_summaries_notification_volume">volume de notificações</string>
-  <string name="app_ops_summaries_bluetooth_volume">volume bluetooth</string>
+  <string name="app_ops_summaries_bluetooth_volume">volume do bluetooth</string>
   <string name="app_ops_summaries_keep_awake">manter o ecrã ligado</string>
   <string name="app_ops_summaries_monitor_location">vigiar a localização</string>
   <string name="app_ops_summaries_monitor_high_power_location">vigiar a localização de potência alta</string>
@@ -359,7 +359,7 @@
   <string name="app_ops_summaries_turn_screen_on">ligar o ecrã</string>
   <string name="app_ops_summaries_get_accounts">obter contas</string>
   <string name="app_ops_summaries_toggle_wifi">alternar o estado do Wi-Fi</string>
-  <string name="app_ops_summaries_toggle_bluetooth">alternar o estado do bluetooth</string>
+  <string name="app_ops_summaries_toggle_bluetooth">ligar/desligar o bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">iniciar no arranque</string>
   <string name="app_ops_summaries_toggle_nfc">alternar o estado do NFC</string>
   <string name="app_ops_summaries_toggle_mobile_data">alternar o estado dos dados móveis</string>
@@ -429,7 +429,7 @@
   <string name="app_ops_labels_turn_screen_on">Ligar o ecrã</string>
   <string name="app_ops_labels_get_accounts">Obter contas</string>
   <string name="app_ops_labels_toggle_wifi">Alternar o estado do Wi-Fi</string>
-  <string name="app_ops_labels_toggle_bluetooth">Alternar o estado do bluetooth</string>
+  <string name="app_ops_labels_toggle_bluetooth">Ligar/Desligar o bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Iniciar no arranque</string>
   <string name="app_ops_labels_toggle_nfc">Alternar o estado do NFC</string>
   <string name="app_ops_labels_toggle_mobile_data">Alternar o estado dos dados móveis</string>
@@ -1013,12 +1013,12 @@
   <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
   <string name="weather_settings_title">Meteorologia</string>
-  <string name="weather_settings_no_services_prompt">Não há serviços de provedor de meteorologia instalados</string>
-  <string name="weather_settings_button">Definições do provedor</string>
-  <string name="weather_settings_activity_not_found">Não é possível iniciar o menu de definições deste provedor</string>
-  <string name="weather_settings_add_weather_provider">Adicionar provedor de meteorologia</string>
+  <string name="weather_settings_no_services_prompt">Não há serviços de fornecedor de meteorologia instalados</string>
+  <string name="weather_settings_button">Definições do fornecedor</string>
+  <string name="weather_settings_activity_not_found">Não é possível iniciar o menu de definições deste fornecedor</string>
+  <string name="weather_settings_add_weather_provider">Adicionar fornecedor de meteorologia</string>
   <string name="weather_settings_general_settings_title">Geral</string>
-  <string name="weather_settings_providers_title">Provedores</string>
+  <string name="weather_settings_providers_title">Fornecedores</string>
   <string name="weather_settings_temp_units_title">Unidade de temperatura</string>
   <string name="weather_settings_temp_celsius">Celsius</string>
   <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
@@ -1041,12 +1041,27 @@
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Operadores de rede</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Desfocagem do ecrã de bloqueio</string>
+  <string name="lockscreen_blur_enabled_title">Desfocar fundo</string>
+  <!-- title for lock screen weather preference -->
+  <string name="lockscreen_weather_enabled_title">Mostrar o tempo</string>
   <!-- Per app controls for LP keyguard notifications -->
   <string name="app_notification_show_on_keyguard_title">Mostrar no ecrã de bloqueio</string>
   <string name="app_notification_show_on_keyguard_summary">Mostrar notificações desta aplicação no ecrã de bloqueio</string>
   <string name="app_notification_no_ongoing_on_keyguard_title">Desativar as notificações persistentes no ecrã de bloqueio</string>
   <string name="app_notification_no_ongoing_on_keyguard_summary">Nunca mostrar as notificações persistentes desta aplicação no ecrã de bloqueio</string>
   <!-- CmRadioInfo -->
+  <string name="cm_radio_info_label">Controlo avançado de rádio</string>
   <!-- Radio Control (IMS/MBN etc.) -->
+  <string name="cm_radio_info_mbn_auto_load_on_label">Desativar o carregamento automático de MBN</string>
+  <string name="cm_radio_info_mbn_auto_load_off_label">Ativar o carregamento automático de MBN</string>
+  <string name="cm_radio_info_volte_avail_ovr_on_label">Desativar o depurador VoLTE</string>
+  <string name="cm_radio_info_volte_avail_ovr_off_label">Ativar o depurador VoLTE</string>
+  <string name="cm_radio_info_vt_avail_ovr_on_label">Desativar o depurador VT</string>
+  <string name="cm_radio_info_vt_avail_ovr_off_label">Ativar o depurador VT</string>
+  <string name="cm_radio_info_wfc_avail_ovr_on_label">Desativar o depurador WFC</string>
+  <string name="cm_radio_info_wfc_avail_ovr_off_label">Ativar o depurador WFC</string>
+  <string name="cm_radio_info_adb_log_on_label">Desativar os registos de rádio ADB</string>
+  <string name="cm_radio_info_adb_log_off_label">Ativar os registos de rádio ADB</string>
+  <string name="cm_radio_info_diag_log_on_label">Desativar os registos de Diag</string>
+  <string name="cm_radio_info_diag_log_off_label">Ativar os registos de Diag</string>
 </resources>

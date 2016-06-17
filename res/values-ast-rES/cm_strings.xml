@@ -161,6 +161,7 @@
   <string name="toggleData">Conexón de datos</string>
   <string name="toggleSync">Sincronización automática</string>
   <string name="toggle2g3g4g">Triba de rede preferida</string>
+  <string name="toggle2g3g4g_msim">Triba de rede preferida (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Códigu de rexón Wi\u2011Fi</string>
@@ -261,10 +262,13 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="notification_light_default_value">Por defeutu</string>
   <string name="notification_light_missed_call_title">Llamada perdida</string>
   <string name="notification_light_voicemail_title">Buzón de voz</string>
+  <string name="notification_light_zen_mode">Lluces nel Mou Nun molestar</string>
   <string name="notification_light_use_multiple_leds">Múltiples LEDs</string>
   <string name="keywords_lights_brightness_level">amatagar el rellumu de los leds</string>
+  <string name="notification_light_automagic">Escoyer colores automáticamente</string>
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Axustes de lluz</string>
+  <string name="led_notification_text">Luz LED activada por axustes</string>
   <string name="notification_light_no_apps_summary">P\'amestar control d\'aplicaciones, activa «%1$s» y primi «\u002b» na barra de menú</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Depuración Android</string>
@@ -298,6 +302,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_summaries_read_calendar">lleer calendariu</string>
   <string name="app_ops_summaries_modify_calendar">modificar calendariu</string>
   <string name="app_ops_summaries_wifi_scan">Escanéu Wi-Fi</string>
+  <string name="app_ops_summaries_notification">notific/not. emerxent</string>
   <string name="app_ops_summaries_cell_scan">guetar redes</string>
   <string name="app_ops_summaries_call_phone">Llamar per teléfonu</string>
   <string name="app_ops_summaries_read_sms">lleer SMS</string>
@@ -325,15 +330,39 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_summaries_media_volume">volume de multimedia</string>
   <string name="app_ops_summaries_alarm_volume">volume d\'alarma</string>
   <string name="app_ops_summaries_notification_volume">volume de notificación</string>
+  <string name="app_ops_summaries_bluetooth_volume">volume de bluetooth</string>
   <string name="app_ops_summaries_keep_awake">caltener encesu</string>
   <string name="app_ops_summaries_monitor_location">monitorizar llocalización</string>
   <string name="app_ops_summaries_monitor_high_power_location">monitorizar llocalización n\'alta precisión</string>
+  <string name="app_ops_summaries_get_usage_stats">consiguir estadístiques d\'usu</string>
   <string name="app_ops_summaries_mute_unmute_microphone">activar/desactivar el micrófonu</string>
   <string name="app_ops_summaries_toast_window">amosar notificaciones emerxentes</string>
   <string name="app_ops_summaries_project_media">proyeutar conteníu multimedia</string>
   <string name="app_ops_summaries_activate_vpn">activar VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">escribir fondu de pantalla</string>
+  <string name="app_ops_summaries_assist_structure">encontu a la estructura</string>
+  <string name="app_ops_summaries_assist_screenshot">encontu a captura pantalla</string>
+  <string name="app_ops_summaries_read_phone_state">lleer estáu del teléfonu</string>
+  <string name="app_ops_summaries_add_voicemail">amestar buzón de voz</string>
+  <string name="app_ops_summaries_use_sip">usar SIP</string>
+  <string name="app_ops_summaries_make_call">facer llamada</string>
+  <string name="app_ops_summaries_use_fingerprint">usar buelga</string>
+  <string name="app_ops_summaries_use_body_sensors">usar sensores corporales</string>
+  <string name="app_ops_summaries_read_cell_broadcasts">lleer tresmisiones celulares</string>
+  <string name="app_ops_summaries_mock_location">llocalización falsa</string>
+  <string name="app_ops_summaries_read_external_storage">lleer almacenamientu esternu</string>
+  <string name="app_ops_summaries_write_external_storage">escribir al almacenamientu esternu</string>
+  <string name="app_ops_summaries_turn_screen_on">prender pantalla</string>
+  <string name="app_ops_summaries_get_accounts">consiguir cuentes</string>
+  <string name="app_ops_summaries_toggle_wifi">alternar Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">alternar bluetooth</string>
+  <string name="app_ops_summaries_start_at_boot">aniciar nel arranque</string>
+  <string name="app_ops_summaries_toggle_nfc">alternar NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">alternar datos móviles</string>
   <string name="app_ops_summaries_superuser">accesu alministrativu</string>
   <!-- User display names for app ops codes - extension of AOSP -->
+  <string name="app_ops_labels_coarse_location">Llocalización aproximada</string>
+  <string name="app_ops_labels_fine_location">Llocalización fina</string>
   <string name="app_ops_labels_gps">GPS</string>
   <string name="app_ops_labels_vibrate">Vibrar</string>
   <string name="app_ops_labels_read_contacts">Lleer contautos</string>
@@ -342,11 +371,19 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_labels_modify_call_log">Modificar rexistru de llamaes</string>
   <string name="app_ops_labels_read_calendar">Lleer calendariu</string>
   <string name="app_ops_labels_modify_calendar">Modificar calendariu</string>
+  <string name="app_ops_labels_wifi_scan">Escanear Wi-Fi</string>
   <string name="app_ops_labels_notification">Notificación/Mensaxe</string>
+  <string name="app_ops_labels_cell_scan">Escanéu de rede móvil</string>
   <string name="app_ops_labels_call_phone">Llamar</string>
+  <string name="app_ops_labels_read_sms">Lleer SMS</string>
+  <string name="app_ops_labels_write_sms">Escribir SMS</string>
   <string name="app_ops_labels_receive_sms">Recibir SMS</string>
+  <string name="app_ops_labels_receive_emergency_sms">Recibir mensaxes d\'emerxencia SMS</string>
   <string name="app_ops_labels_receive_mms">Recibir MMS</string>
+  <string name="app_ops_labels_receive_wap_push">Recibir mensaxes WAP</string>
   <string name="app_ops_labels_send_sms">Unviar SMS</string>
+  <string name="app_ops_labels_read_icc_sms">Lleer mensaxes ICC</string>
+  <string name="app_ops_labels_write_icc_sms">Escribir mensaxes ICC</string>
   <string name="app_ops_labels_modify_settings">Modificar axustes</string>
   <string name="app_ops_labels_draw_on_top">Amosar encima</string>
   <string name="app_ops_labels_access_notifications">Accesu a notificaciones</string>
@@ -365,19 +402,33 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_labels_notification_volume">Volume de notificación</string>
   <string name="app_ops_labels_bluetooth_volume">Volume de Bluetooth</string>
   <string name="app_ops_labels_keep_awake">Caltener encesu</string>
+  <string name="app_ops_labels_monitor_location">Monitorear llocalización</string>
+  <string name="app_ops_labels_monitor_high_power_location">Monitorear llocalización fina</string>
+  <string name="app_ops_labels_get_usage_stats">Obtener estadístiques d\'usu</string>
   <string name="app_ops_labels_mute_unmute_microphone">Silenciar/nun silenciar micrófonu</string>
   <string name="app_ops_labels_toast_window">Amosar notificaciones emerxentes</string>
   <string name="app_ops_labels_project_media">Proyeutu Media</string>
   <string name="app_ops_labels_activate_vpn">Activar VPN</string>
+  <string name="app_ops_labels_write_wallpaper">Escribir fondu de pantalla</string>
+  <string name="app_ops_labels_assist_structure">Encontu d\'estructura</string>
+  <string name="app_ops_labels_assist_screenshot">encontu a captura pantalla</string>
+  <string name="app_ops_labels_read_phone_state">lleer estáu del teléfonu</string>
+  <string name="app_ops_labels_add_voicemail">amestar buzón de voz</string>
   <string name="app_ops_labels_use_sip">Usar SIP</string>
   <string name="app_ops_labels_make_call">Facer llamada</string>
   <string name="app_ops_labels_use_fingerprint">Usar buelga</string>
+  <string name="app_ops_labels_use_body_sensors">Usar sensores corporales</string>
+  <string name="app_ops_labels_read_cell_broadcasts">Lleer tresmisiones celulares</string>
+  <string name="app_ops_labels_mock_location">Llocalización falsa</string>
+  <string name="app_ops_labels_read_external_storage">Lleer almacenamientu esternu</string>
+  <string name="app_ops_labels_write_external_storage">Escribir al almacenamientu esternu</string>
   <string name="app_ops_labels_turn_screen_on">Prender pantalla</string>
   <string name="app_ops_labels_get_accounts">Consiguir cuentes</string>
   <string name="app_ops_labels_toggle_wifi">Alternar Wi-Fi</string>
   <string name="app_ops_labels_toggle_bluetooth">Alternar bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Aniciar nel arranque</string>
   <string name="app_ops_labels_toggle_nfc">Alternar NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Conmutar datos móviles</string>
   <string name="app_ops_labels_superuser">Accesu alministrativu</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Permitíu</string>
@@ -388,6 +439,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="app_ops_allowed_count">Permitíu <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Refugáu <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Permitíu <xliff:g id="count">%1$s</xliff:g>, refugáu <xliff:g id="count">%2$s</xliff:g></string>
+  <string name="app_ops_disabled_by_optimization">Desactiváu pol optimizador de batería</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Aplicaciones d\'usuariu</string>
   <string name="app_ops_show_system_apps">Amuesa les app del sistema</string>
@@ -549,6 +601,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="live_display_color_profile_astronomy_title">Astronomía</string>
   <string name="live_display_color_profile_photography_title">Fotografía</string>
   <string name="live_display_color_profile_photography_summary">Reproducción de color perfeuta pa semeyes</string>
+  <string name="live_display_color_profile_basic_title">Básicu</string>
   <string name="live_display_color_profile_basic_summary">Usa la pantalla ensin calibrar</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Seleutor d\'iconu</string>
@@ -689,6 +742,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Amosar visualizador de música</string>
   <!-- lock screen disabled by QS tile warning -->
+  <string name="lockscreen_disabled_by_qs_tile_title">Desactiváu pola configuración rápida de los controles</string>
   <string name="lockscreen_disabled_by_qs_tile_summary">Calca p\'habilitar la pantalla de bloquéu</string>
   <string name="lockscreen_disabled_by_qs_tile_summary_enabled">¡Habilitóse la pantalla de bloquéu!</string>
   <!-- Battery saver -->
@@ -726,6 +780,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="voice_wakeup_retrain_title">Calibra la to voz</string>
   <string name="voice_wakeup_activity_title">Actividá a executar</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">L\'activación por voz tien de tener permisos de llamada pa esbillar un contautu direutu.</string>
   <string name="picker_activities">Actividaes</string>
   <string name="select_custom_app_title">Seleicionar aplicación personalizada</string>
   <string name="select_custom_activity_title">Seleicionar actividá personalizada</string>
@@ -818,11 +873,14 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <!-- Edit access point labels: PPP number -->
   <string name="apn_ppp_number">Númberu teléfonu PPP d\'APN</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
+  <string name="duplicate_apn_error_title">APN Duplicáu</string>
+  <string name="duplicate_apn_error_message">Yá esiste esti APN. Descártalu o camuda los parámetros.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> ta <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
   <string name="sim_disabled">deshabilitada</string>
   <string name="sim_missing">ausente o defeutuosa</string>
   <string name="sim_enabler_need_disable_sim">Desactivaráse la tarxeta SIM. ¿Quies siguir?</string>
   <string name="sim_enabler_will_disable_sim_title">Atención</string>
+  <string name="sim_enabler_need_switch_data_service">Esta SIM va desactivase y la SIM <xliff:g id="slotid">%1$s </xliff:g> va usase pa servicios de datos. ¿De xuru que quies continuar?</string>
   <string name="sim_enabler_airplane_on">Nun pue facese la operación entrín el mou avión tea activáu.</string>
   <string name="sim_enabler_in_call">Nun pue facese la operación entrín teas llamando.</string>
   <string name="sim_enabler_both_inactive">Nun puen deshabilitase toles tarxetes SIM</string>
@@ -833,14 +891,18 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="sub_deactivate_success">Desactivóse la SIM.</string>
   <string name="sub_deactivate_failed">Falló la desactivación.</string>
   <string name="primary_sub_select_title">Soscripción 3G/LTE por defeutu</string>
+  <string name="select_sim_card">Seleicionar tarxeta SIM</string>
   <!-- MSIM SIM status -->
+  <string name="sim_mobile_network_settings_category_title">Axustes de rede móvil</string>
   <!-- Zen mode allowed event setting summary items -->
   <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
   <string name="zen_mode_summary_reminders">recordatorios</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">eventos</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">llamaes esbillaes</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">mensaxes esbillaos</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
   <!-- SAR information -->
   <string name="maximum_head_level">Cabeza: %1$s W/kg</string>
@@ -851,6 +913,7 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <!-- label for application name -->
   <string name="app_name_label_cm">Aplicación:</string>
   <!-- label for last time used -->
+  <string name="last_time_used_label_cm">Postrer vegada usáu:</string>
   <!-- label for usage time -->
   <string name="usage_time_label_cm">Tiempu d\'usu:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -860,18 +923,24 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="factory_reset_warning_text_reset_now">REAFITAR AGORA</string>
   <string name="factory_reset_warning_text_message">Desaniciaránse d\'esti preséu toles cuentes, aplicaciones, datos d\'aplicaciones y axustes del sistema. Esto nun pue desfacese.</string>
   <!-- Tethering & portable hotspot other category -->
+  <string name="tethering_other_category_text">Otros</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Tiempu d\'espera del puntu d\'accesu Wi\u2011Fi</string>
   <string name="hotstpot_inactivity_timeout_never">Enxamás</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 minutu</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutos</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutos</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">El puntu d\'accesu portable Wi\u2011Fi nun va apagase enxamás</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">El puntu d\'accesu portable Wi\u2011Fi va apagase dempués de <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
+  <string name="live_lock_screen_title">Pantalla de bloquéu animada</string>
   <!-- Live lock screen summary -->
   <string name="live_lock_screen_summary">Habilita y configura les pantalles de bloquéu animaes</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Axustes</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
+  <string name="live_lock_screen_settings_disabled_prompt">Pa ver les pantalles de bloquéu animaes disponibles, activa la opción de pantalles de bloquéu.</string>
   <string name="interruptions_ignore_while_media_summary">Nun amenorga\'l volume de reproducción cuando aporten avisos</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Llicencia CyanogenMod</string>
@@ -880,23 +949,62 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <!-- Dock battery not present message -->
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
+  <string name="restrict_app_wlan_title">Desactivar l\'usu de l\'aplicación Wi\u2011Fi</string>
   <string name="restrict_app_wlan_summary">Evita que l\'aplicación use la conexón de datos Wi\u2011Fi</string>
+  <string name="restrict_app_cellular_title">Desactivar l\'usu de la rede celular</string>
   <string name="restrict_app_cellular_summary">Evita que l\'aplicación use conexón de datos móviles</string>
   <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
+  <string name="weather_settings_title">Clima</string>
+  <string name="weather_settings_no_services_prompt">Nun hai fornidores de clima instalaos</string>
+  <string name="weather_settings_button">Axustes de fornidor</string>
+  <string name="weather_settings_activity_not_found">Nun pue llanzase\'l menú d\'axustes d\'esti fornidor</string>
+  <string name="weather_settings_add_weather_provider">Amestar fornidor climatolóxicu</string>
   <string name="weather_settings_general_settings_title">Xeneral</string>
+  <string name="weather_settings_providers_title">Fornidores</string>
+  <string name="weather_settings_temp_units_title">Unidá de temperatura</string>
   <string name="weather_settings_temp_celsius">Celsius</string>
   <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">clima</string>
+  <string name="background_data_access">Accesu a datos en segundu planu</string>
+  <string name="allow_background_both">Sobre datos celulares y Wi\u2011Fi</string>
+  <string name="allow_background_wlan">Namái per Wi-Fi</string>
+  <string name="allow_background_none">Ensin accesu</string>
+  <string name="mobile_data_alert">Alerta de datos móviles</string>
   <string name="mobile_data_alert_summary">Avisa cuando l\'aplicación use una cantidá grande de datos</string>
+  <string name="data_usage_menu_enable_data_alerts">Activar les alertes d\'usu de datos</string>
+  <string name="data_usage_menu_disable_data_alerts">Desactivar les alertes d\'usu de datos</string>
+  <string name="data_usage_menu_reset_stats">Reafitar los datos estadísticos</string>
+  <string name="reset_data_stats_msg">Esto va desaniciar tolos datos d\'información de rastrexu</string>
+  <string name="reset_stats_confirm">Confirmar</string>
+  <string name="restrict_cellular_access_title">Restrinxir accesu a datos móviles</string>
   <string name="restrict_cellular_access_summary">Deshabilita l\'accesu de datos en redes móviles</string>
+  <string name="restrict_cellular_access_dialog_title">¿Restrinxir accesu a datos móviles?</string>
+  <string name="restrict_cellular_access_dialog_summary">Esta carauterística pue facer qu\'una aplicación que depende del accesu a la rede dexe de trabayar cuando namái esistan redes móviles disponibles.\n\nPues atopar los controles d\'usu de datos más afayadizos nos axustes disponibles dientro de l\'aplicación.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Operadores de rede</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Desenfocar el fondu</string>
+  <!-- title for lock screen weather preference -->
+  <string name="lockscreen_weather_enabled_title">Amosar clima</string>
   <!-- Per app controls for LP keyguard notifications -->
   <string name="app_notification_show_on_keyguard_title">Amosar na pantalla de bloquéu</string>
   <string name="app_notification_show_on_keyguard_summary">Amosar notificaciones d\'esta aplicación na pantalla de bloquéu</string>
   <string name="app_notification_no_ongoing_on_keyguard_title">Desactivar notificaciones persistentes na pantalla de bloquéu</string>
   <string name="app_notification_no_ongoing_on_keyguard_summary">Nun amosar nunca notificaciones persistentes d\'esta aplicación na pantalla de bloquéu</string>
   <!-- CmRadioInfo -->
+  <string name="cm_radio_info_label">Control avanzáu de la radio</string>
   <!-- Radio Control (IMS/MBN etc.) -->
+  <string name="cm_radio_info_mbn_auto_load_on_label">Desactivar la carga automática del MBN</string>
+  <string name="cm_radio_info_mbn_auto_load_off_label">Activar la carga automática del MBN</string>
+  <string name="cm_radio_info_volte_avail_ovr_on_label">Desactivar el depurador VoLTE</string>
+  <string name="cm_radio_info_volte_avail_ovr_off_label">Activar el depurador VoLTE</string>
+  <string name="cm_radio_info_vt_avail_ovr_on_label">Desactivar el depurador VT</string>
+  <string name="cm_radio_info_vt_avail_ovr_off_label">Activar el depurador VT</string>
+  <string name="cm_radio_info_wfc_avail_ovr_on_label">Desactivar el depurador WFC</string>
+  <string name="cm_radio_info_wfc_avail_ovr_off_label">Activar el depurador WFC</string>
+  <string name="cm_radio_info_adb_log_on_label">Desactivar el rexistru en ADB de la radio</string>
+  <string name="cm_radio_info_adb_log_off_label">Activar el rexistru en ADB de la radio</string>
+  <string name="cm_radio_info_diag_log_on_label">Desactivar el rexistru Diag</string>
+  <string name="cm_radio_info_diag_log_off_label">Activar el rexistru Diag</string>
 </resources>

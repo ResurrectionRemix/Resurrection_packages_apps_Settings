@@ -211,6 +211,13 @@
   </string-array>
   <!-- Wi-Fi AP band settings.  Either 2.4GHz or 5GHz. -->
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
+  <string-array name="wifi_ap_band_config_full">
+    <item>@string/wifi_ap_choose_2G</item>
+    <item>@string/wifi_ap_choose_5G</item>
+  </string-array>
+  <string-array name="wifi_ap_band_config_2G_only">
+    <item>@string/wifi_ap_choose_2G</item>
+  </string-array>
   <!-- Wi-Fi WPS setup for p2p connections.  -->
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
   <string-array name="wifi_p2p_wps_setup">
@@ -452,9 +459,9 @@
     <item>Silenciar/dar volume micrófonu</item>
     <item>Proyeutu Media</item>
     <item>activar VPN</item>
-    <item>write wallpaper</item>
-    <item>assist structure</item>
-    <item>assist screenshot</item>
+    <item>escribir fondu de pantalla</item>
+    <item>encontu a la estructura</item>
+    <item>encontu a la captura de pantalla</item>
   </string-array>
   <!-- User display names for app ops codes -->
   <string-array name="app_ops_labels">
@@ -505,9 +512,9 @@
     <item>Silenciar/dar volume micrófonu</item>
     <item>Proyeutu Media</item>
     <item>Activar VPN</item>
-    <item>Write wallpaper</item>
-    <item>Assist structure</item>
-    <item>Assist screenshot</item>
+    <item>Escribir fondu de pantalla</item>
+    <item>Encontu a la estructura</item>
+    <item>Encontu a la captura de pantalla</item>
   </string-array>
   <!-- Titles for the list of long press timeout options. -->
   <string-array name="long_press_timeout_selector_titles">
@@ -644,16 +651,16 @@
   <string-array name="overlay_display_devices_entries">
     <item>Nenguna</item>
     <item>480p</item>
-    <item>480p (secure)</item>
+    <item>480p (seguru)</item>
     <item>720p</item>
-    <item>720p (secure)</item>
+    <item>720p (seguru)</item>
     <item>1080p</item>
-    <item>1080p (secure)</item>
+    <item>1080p (seguru)</item>
     <item>4K</item>
-    <item>4K (secure)</item>
-    <item>4K (upscaled)</item>
-    <item>4K (upscaled, secure)</item>
-    <item>720p, 1080p (dual screen)</item>
+    <item>4K (seguru)</item>
+    <item>4 K (ameyoráu)</item>
+    <item>4 K (ameyoráu, seguru)</item>
+    <item>720p, 1080p (pantalla doble)</item>
   </string-array>
   <!-- Values for overlay display devices preference. -->
   <!-- Titles for OpenGL traces preference. [CHAR LIMIT=35] -->
@@ -745,7 +752,7 @@
     <!-- Memory is critical. -->
     <item>Críticu</item>
     <!-- Unknown memory state -->
-    <item>\?</item>
+    <item>\¿?</item>
   </string-array>
   <!-- Display color space adjustment modes for accessibility -->
   <!-- Values for display color space adjustment modes for accessibility -->
@@ -779,6 +786,14 @@
   <!-- Array of titles for sim color for multi-sim -->
   <!-- USB configuration names for Developer Settings.
          This can be overridden by devices with additional USB configurations. -->
+  <string-array name="usb_configuration_titles">
+    <item>@string/usb_use_charging_only</item>
+    <item>MTP (Protocolu de tresferencia de medios)</item>
+    <item>PTP (Protocolu de tresferencia de semeyes)</item>
+    <item>RNDIS (Ethernet USB)</item>
+    <item>Fonte d\'audiu</item>
+    <item>MIDI</item>
+  </string-array>
   <!-- USB configuration values for Developer Settings.
          These are lists of USB functions passed to the USB Manager to change USB configuraton.
          This can be overridden by devices with additional USB configurations.
