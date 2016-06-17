@@ -140,6 +140,7 @@ public class Settings extends SettingsActivity {
     public static class ScreenLockSuggestionActivity extends ChooseLockGeneric { /* empty */ }
     public static class WallpaperSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ManagedProfileSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class TimerSwitchSettingsActivity extends SettingsActivity { /* empty */ }
 
     public static class ApnEditorActivity extends SettingsActivity { /* empty */ }
     public static class ChooseAccountActivity extends SettingsActivity { /* empty */ }

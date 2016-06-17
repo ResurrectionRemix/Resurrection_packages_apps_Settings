@@ -20,6 +20,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -258,6 +259,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.AccessibilitySettingsActivity.class.getName(),
             Settings.PrintSettingsActivity.class.getName(),
             Settings.PaymentSettingsActivity.class.getName(),
+            Settings.TimerSwitchSettingsActivity.class.getName(),
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -530,7 +532,11 @@ public class SettingsActivity extends SettingsDrawerActivity
         final Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_LAUNCH_ACTIVITY_ACTION)) {
             if (mActivityAction != null) {
-               startActivity(new Intent(mActivityAction));
+               try{
+                   startActivity(new Intent(mActivityAction));
+               }catch(ActivityNotFoundException e){
+                   Log.w(LOG_TAG, "Activity not found for action: " + mActivityAction);
+               }
             }
             finish();
             return;

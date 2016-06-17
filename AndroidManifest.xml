@@ -552,7 +552,7 @@
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter android:priority="5">
+            <intent-filter android:priority="6">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
@@ -561,6 +561,23 @@
                 android:value="com.android.settings.DateTimeSettings" />
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
+        </activity>
+
+        <activity android:name="Settings$TimerSwitchSettingsActivity"
+                android:label="@string/timer_switch_settings_title"
+                android:icon="@drawable/ic_settings_timerswitch"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter android:priority="5">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.system" />
+            <meta-data android:name="com.android.settings.ACTIVITY_ACTION"
+                android:value="qualcomm.intent.action.TIMER_SWITCH" />
         </activity>
 
         <activity android:name="DateTimeSettingsSetupWizard"
