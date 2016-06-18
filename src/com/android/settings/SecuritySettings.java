@@ -193,7 +193,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         Bundle extras = getActivity().getIntent().getExtras();
         // Even uglier hack to make cts verifier expectations make sense.
-        if (extras.get(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS) != null &&
+        if (extras != null && extras.get(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS) != null &&
                 extras.get(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SHORTCUT) == null) {
             mFilterType = TYPE_EXTERNAL_RESOLUTION;
         }
