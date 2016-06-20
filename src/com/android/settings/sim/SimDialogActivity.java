@@ -21,6 +21,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -45,6 +47,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.internal.telephony.IExtTelephony;
+import com.android.internal.telephony.SmsApplication;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import java.util.ArrayList;
@@ -62,6 +65,8 @@ public class SimDialogActivity extends Activity {
     public static final int SMS_PICK = 2;
     public static final int PREFERRED_PICK = 3;
 
+    private boolean mHideAlwaysAsk = false;
+
     private IExtTelephony mExtTelephony = IExtTelephony.Stub.
             asInterface(ServiceManager.getService("extphone"));
 
@@ -70,6 +75,7 @@ public class SimDialogActivity extends Activity {
         super.onCreate(savedInstanceState);
         final Bundle extras = getIntent().getExtras();
         final int dialogType = extras.getInt(DIALOG_TYPE_KEY, INVALID_PICK);
+        mHideAlwaysAsk = !SmsApplication.canSmsAppHandleAlwaysAsk(this) && dialogType == SMS_PICK;
 
         switch (dialogType) {
             case DATA_PICK:
@@ -295,6 +301,10 @@ public class SimDialogActivity extends Activity {
                     currentIndex = list.size() - 1;
                 }
             }
+            if (mHideAlwaysAsk && currentIndex == 0) {
+                // unselect always ask because user can't select it.
+                currentIndex = -1;
+            }
         } else {
             currentIndex = -1;
             final int defaultDataSubId = SubscriptionManager.getDefaultDataSubId();
@@ -345,6 +355,11 @@ public class SimDialogActivity extends Activity {
                 finish();
             }
         });
+        if (mHideAlwaysAsk) {
+            // make sure the user doesn't click out accidentally and we keep spamming them
+            // with dialogs
+            dialog.setCancelable(false);
+        }
 
         return dialog;
 
@@ -357,6 +372,16 @@ public class SimDialogActivity extends Activity {
         private final float OPACITY = 0.54f;
         private List<SubscriptionInfo> mSubInfoList;
         private final int mSelectionIndex;
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return !(mHideAlwaysAsk && mSubInfoList.get(position) == null);
+        }
 
         public SelectAccountListAdapter(List<SubscriptionInfo> subInfoList,
                 Context context, int resource, String[] arr, int dialogId, int selectionIndex) {
@@ -389,10 +414,14 @@ public class SimDialogActivity extends Activity {
                 holder = (ViewHolder) rowView.getTag();
             }
 
+            final boolean enabled = isEnabled(position);
             final SubscriptionInfo sir = mSubInfoList.get(position);
             if (sir == null) {
                 holder.title.setText(getItem(position));
-                holder.summary.setVisibility(View.GONE);
+                holder.summary.setText(mHideAlwaysAsk
+                        ? getString(R.string.not_available_with_app, getCurrentSmsAppName())
+                        : null);
+                holder.summary.setVisibility(View.VISIBLE);
                 holder.icon.setImageDrawable(getResources()
                         .getDrawable(R.drawable.ic_live_help));
                 holder.icon.setAlpha(OPACITY);
@@ -403,7 +432,22 @@ public class SimDialogActivity extends Activity {
                 holder.icon.setImageBitmap(sir.createIconBitmap(mContext));
             }
             holder.radio.setChecked(position == mSelectionIndex);
+            holder.radio.setEnabled(enabled);
+            holder.title.setEnabled(enabled);
+            holder.summary.setEnabled(enabled);
             return rowView;
+        }
+
+        private String getCurrentSmsAppName() {
+            try {
+                final ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(
+                        SmsApplication.getDefaultMmsApplication(getApplicationContext(), false)
+                                .getPackageName(), 0);
+                return getPackageManager().getApplicationLabel(applicationInfo).toString();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         private class ViewHolder {
