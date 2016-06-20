@@ -6,7 +6,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	android-support-v4 \
 	android-support-v13 \
 	jsr305 \
-	org.cyanogenmod.platform.internal
+	org.cyanogenmod.platform.internal \
+	libphonenumber
 
 LOCAL_MODULE_TAGS := optional
 

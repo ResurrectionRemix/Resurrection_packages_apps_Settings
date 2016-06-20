@@ -38,14 +38,26 @@ import android.text.method.DialerKeyListener;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.settings.R;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
 public class EntryEditDialogFragment extends DialogFragment
     implements TextWatcher, DialogInterface.OnClickListener {
@@ -55,6 +67,7 @@ public class EntryEditDialogFragment extends DialogFragment
     private CheckBox mBlockCalls;
     private CheckBox mBlockMessages;
     private Button mOkButton;
+    private Spinner mCountryCode;
 
     private static final String[] BLACKLIST_PROJECTION = {
         Blacklist.NUMBER, Blacklist.PHONE_MODE, Blacklist.MESSAGE_MODE
@@ -73,6 +86,7 @@ public class EntryEditDialogFragment extends DialogFragment
     private static final String STATE_PHONE = "phone";
     private static final String STATE_MESSAGE = "message";
     private static final String STATE_EDIT_ENABLED = "edit_enabled";
+    private static final String STATE_COUNTRY_CODE = "edit_country_code";
 
     private static final String DELETE_CONFIRM_FRAGMENT_TAG = "delete_confirm";
 
@@ -147,6 +161,55 @@ public class EntryEditDialogFragment extends DialogFragment
         return getArguments().getLong("id", -1);
     }
 
+    private static String getLocaleCountry() {
+        final String country = Locale.getDefault().getCountry();
+        if (TextUtils.isEmpty(country)) {
+            return null;
+        }
+        return country.toUpperCase();
+    }
+
+    private void populateCountryCodes(View view, Bundle savedState) {
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        // Get all supported country codes
+        Set<String> countryCodes = new HashSet<String>();
+        for (String region : phoneUtil.getSupportedRegions()) {
+            countryCodes.add(String.valueOf(phoneUtil.getCountryCodeForRegion(region)));
+        }
+        List<String> entries = new ArrayList<String>(countryCodes);
+        Collections.sort(entries, new Comparator<String>() {
+            @Override
+            public int compare(String lhs, String rhs) {
+                return Integer.parseInt(lhs) - Integer.parseInt(rhs);
+            }
+        });
+
+        // If regex is supported, insert regex character
+        if (BlacklistUtils.isBlacklistRegexEnabled(getContext())) {
+            entries.add(0, "*");
+        }
+
+        // Set current country code as selected position
+        int selectedIndex = 0;
+        if (savedState == null) {
+            String country = getLocaleCountry();
+            int currentCode = phoneUtil.getCountryCodeForRegion(country);
+            selectedIndex = entries.indexOf(String.valueOf(currentCode));
+        } else {
+            selectedIndex = savedState.getInt(STATE_COUNTRY_CODE);
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, entries);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mCountryCode.setAdapter(arrayAdapter);
+        mCountryCode.setSelection(selectedIndex);
+
+        // Ensure we make the layout visible
+        View parent = view.findViewById(R.id.country_code_layout);
+        parent.setVisibility(View.VISIBLE);
+    }
+
     private View createDialogView(long id, Bundle savedState) {
         final Activity activity = getActivity();
         final LayoutInflater inflater = (LayoutInflater)
@@ -157,6 +220,8 @@ public class EntryEditDialogFragment extends DialogFragment
         mEditText.setMovementMethod(ArrowKeyMovementMethod.getInstance());
         mEditText.setKeyListener(DialerKeyListener.getInstance());
         mEditText.addTextChangedListener(this);
+
+        mCountryCode = (Spinner) view.findViewById(R.id.number_country_code);
 
         mContactPickButton = (ImageButton) view.findViewById(R.id.select_contact);
         mContactPickButton.setOnClickListener(new View.OnClickListener() {
@@ -202,13 +267,20 @@ public class EntryEditDialogFragment extends DialogFragment
             mEditText.setEnabled(true);
         }
 
+        // Only populate country codes if new entry
+        if (id < 0 || savedState != null && mEditText.isEnabled()) {
+            populateCountryCodes(view, savedState);
+        }
+
         // Mirror contacts selector to state of editText
         mContactPickButton.setEnabled(mEditText.isEnabled());
         return view;
     }
 
     private void updateBlacklistEntry() {
-        String number = mEditText.getText().toString();
+        String plusSymbol = getString(R.string.blacklist_country_code_plus);
+        String number = plusSymbol + mCountryCode.getSelectedItem()
+                + mEditText.getText().toString();
         int flags = 0;
         int valid = BlacklistUtils.BLOCK_CALLS | BlacklistUtils.BLOCK_MESSAGES;
         if (mBlockCalls.isChecked()) {
@@ -263,6 +335,7 @@ public class EntryEditDialogFragment extends DialogFragment
         dialogState.putBoolean(STATE_PHONE, mBlockCalls.isChecked());
         dialogState.putBoolean(STATE_MESSAGE, mBlockMessages.isChecked());
         dialogState.putBoolean(STATE_EDIT_ENABLED, mEditText.isEnabled());
+        dialogState.putInt(STATE_COUNTRY_CODE, mCountryCode.getSelectedItemPosition());
         state.putBundle(DIALOG_STATE, dialogState);
     }
 
