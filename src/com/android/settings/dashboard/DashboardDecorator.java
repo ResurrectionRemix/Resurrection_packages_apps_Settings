@@ -45,7 +45,9 @@ public class DashboardDecorator extends RecyclerView.ItemDecoration {
             final ViewHolder holder = parent.getChildViewHolder(child);
             if (holder.getItemViewType() == R.layout.dashboard_category) {
                 if (parent.getChildViewHolder(parent.getChildAt(i - 1)).getItemViewType()
-                        != R.layout.dashboard_tile) {
+                        != R.layout.dashboard_tile ||
+                        parent.getChildViewHolder(parent.getChildAt(i - 1)).getItemViewType()
+                        != R.layout.dashboard_tile_switch) {
                     continue;
                 }
             } else if (holder.getItemViewType() != R.layout.condition_card) {
