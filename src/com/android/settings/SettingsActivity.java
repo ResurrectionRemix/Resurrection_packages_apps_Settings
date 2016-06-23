@@ -29,6 +29,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.nfc.NfcAdapter;
@@ -224,6 +225,8 @@ public class SettingsActivity extends SettingsDrawerActivity
     private static final String EMPTY_QUERY = "";
 
     private static final int REQUEST_SUGGESTION = 42;
+
+    private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
     private String mFragmentClass;
     private String mActivityAction;
@@ -1129,6 +1132,18 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
+
+        // Show scheduled power on and off if support
+        boolean showTimerSwitch = false;
+        Intent intent = new Intent(ACTION_TIMER_SWITCH);
+        List<ResolveInfo> infos = getBaseContext().getPackageManager()
+                .queryIntentActivities(intent, 0);
+        if (infos != null && !infos.isEmpty()) {
+            showTimerSwitch = true;
+        }
+        setTileEnabled(new ComponentName(packageName,
+                Settings.TimerSwitchSettingsActivity.class.getName()),
+                showTimerSwitch, isAdmin, pm);
 
         if (UserHandle.MU_ENABLED && !isAdmin) {
             // When on restricted users, disable all extra categories (but only the settings ones).
