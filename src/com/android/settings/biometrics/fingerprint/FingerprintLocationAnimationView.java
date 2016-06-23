@@ -28,6 +28,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
+import android.widget.ImageView;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -53,6 +54,7 @@ public class FingerprintLocationAnimationView extends View implements
     private float mPulseRadius;
     private ValueAnimator mRadiusAnimator;
     private ValueAnimator mAlphaAnimator;
+    private ImageView mOverlayImage;
 
     public FingerprintLocationAnimationView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -92,7 +94,11 @@ public class FingerprintLocationAnimationView extends View implements
     }
 
     private float getCenterY() {
-        return getHeight() * mFractionCenterY;
+        if (mOverlayImage == null) {
+            mOverlayImage = (ImageView) getRootView().findViewById(
+                    R.id.fingerprint_sensor_location);
+        }
+        return mOverlayImage.getHeight() * mFractionCenterY;
     }
 
     @Override

@@ -17,16 +17,26 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/fingerprint_find_sensor_graphic_size"
-    android:layout_height="@dimen/fingerprint_find_sensor_graphic_size">
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/fingerprint_find_sensor_padding_top">
 
     <ImageView
         android:id="@+id/fingerprint_sensor_location"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/security_settings_fingerprint_enroll_find_sensor_content_description"
         android:src="@drawable/fingerprint_sensor_location"
         android:scaleType="centerInside"/>
+
+    <ImageView
+        android:id="@+id/fingerprint_sensor_location_front_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/security_settings_fingerprint_enroll_find_sensor_content_description"
+        android:src="@drawable/fingerprint_sensor_location_front_overlay"
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
 
     <com.android.settings.biometrics.fingerprint.FingerprintLocationAnimationView
         android:id="@+id/fingerprint_sensor_location_animation"
