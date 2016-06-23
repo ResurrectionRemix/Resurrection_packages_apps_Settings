@@ -163,7 +163,7 @@ public class TetherSettings extends RestrictedSettingsFragment
             getPreferenceScreen().removePreference(mCreateNetwork);
             Intent intent = new Intent();
             intent.setAction("com.qti.ap.settings");
-            intent.setPackage("com.qti.extsettings");
+            intent.setPackage("com.qualcomm.qti.extsettings");
             mEnableWifiAp.setIntent(intent);
         } else {
             mEnableWifiAp =
