@@ -230,7 +230,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             mVolumeDialogStroke =
                     (ListPreference) findPreference(PREF_VOLUME_DIALOG_STROKE);
             int volumeDialogStroke = Settings.System.getIntForUser(mResolver,
-                            Settings.System.VOLUME_DIALOG_STROKE, 1,
+                            Settings.System.VOLUME_DIALOG_STROKE, 0,
                             UserHandle.USER_CURRENT);
             mVolumeDialogStroke.setValue(String.valueOf(volumeDialogStroke));
             mVolumeDialogStroke.setSummary(mVolumeDialogStroke.getEntry());
@@ -266,7 +266,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             mQSStroke =
                     (ListPreference) findPreference(PREF_QS_STROKE);
             int qSStroke = Settings.System.getIntForUser(mResolver,
-                            Settings.System.QS_STROKE, 1,
+                            Settings.System.QS_STROKE, 0,
                             UserHandle.USER_CURRENT);
             mQSStroke.setValue(String.valueOf(qSStroke));
             mQSStroke.setSummary(mQSStroke.getEntry());
