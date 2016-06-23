@@ -23,6 +23,7 @@ import android.os.UserHandle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -37,6 +38,10 @@ public class FingerprintEnrollFindSensor extends FingerprintEnrollBase {
 
     private static final int CONFIRM_REQUEST = 1;
     private static final int ENROLLING = 2;
+    private static final int SENSOR_LOCATION_BACK = 0;
+    private static final int SENSOR_LOCATION_FRONT = 1;
+    private static final int SENSOR_LOCATION_LEFT = 2;
+    private static final int SENSOR_LOCATION_RIGHT = 3;
     public static final String EXTRA_KEY_LAUNCHED_CONFIRM = "launched_confirm_lock";
 
     @Nullable
@@ -68,6 +73,21 @@ public class FingerprintEnrollFindSensor extends FingerprintEnrollBase {
             mAnimation = (FingerprintFindSensorAnimation) animationView;
         } else {
             mAnimation = null;
+        }
+
+        int sensorLocation = getResources().getInteger(R.integer.config_fingerprintSensorLocation);
+        if (sensorLocation < SENSOR_LOCATION_BACK || sensorLocation > SENSOR_LOCATION_RIGHT) {
+            sensorLocation = SENSOR_LOCATION_BACK;
+        }
+        final String location = getResources().getStringArray(
+                R.array.security_settings_fingerprint_sensor_locations)[sensorLocation];
+        TextView message = (TextView) findViewById(R.id.find_sensor_message);
+        message.setText(getString(
+                R.string.security_settings_fingerprint_enroll_find_sensor_message_cm,
+                location));
+        if (sensorLocation != SENSOR_LOCATION_BACK) {
+            findViewById(R.id.fingerprint_sensor_location_front_overlay)
+                    .setVisibility(View.VISIBLE);
         }
     }
 
