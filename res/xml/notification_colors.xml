@@ -22,7 +22,7 @@
             android:title="@string/notif_color_switch"
             android:defaultValue="false"/>
 
-        <ListPreference
+    <ListPreference
             android:key="notification_media_bg_mode"
             android:title="@string/notification_media_bg_mode_title"
             android:entries="@array/notification_bg_mode_entries"
@@ -32,65 +32,38 @@
 </PreferenceCategory>
 
 
-
-	
-
-    <!--PreferenceCategory
-        android:key="notification_cat_icon"
-        android:title="@string/icon_title">
-
-    <ListPreference
-        android:key="notification_app_icon_color_mode"
-        android:title="@string/notification_app_icon_color_mode_title"
-        android:entries="@array/notification_icons_color_mode_entries"
-        android:entryValues="@array/notification_color_mode_values" 
-	android:dependency="notif_color_switch"  />
-
-        <ListPreference
-            android:key="notification_app_icon_bg_mode"
-            android:title="@string/notification_app_icon_bg_mode_title"
-            android:entries="@array/notification_bg_mode_entries"
-            android:entryValues="@array/notification_color_mode_values" 
-	    android:dependency="notif_color_switch"/>
-
-	</PreferenceCategory-->
-
     <PreferenceCategory
         android:key="notification_cat_colors"
         android:title="@string/colors_title">
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notification_bg_color"
             android:title="@string/background_title"
             android:defaultValue="0xffffffff" 
 	    android:dependency="notif_color_switch"  />
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notification_bg_guts_color"
             android:title="@string/notification_bg_guts_color_title"
             android:defaultValue="0xff384248" 
 	    android:dependency="notif_color_switch"  />
 
-         <!--net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notification_app_icon_bg_color"
-            android:title="@string/notification_app_icon_bg_color_title"
-            android:defaultValue="0xffe5e5e5" 
-	    android:dependency="notif_color_switch"  />
 
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="notification_icon_color"
-            android:title="@string/icons_title"
-            android:defaultValue="0xff000000" 
-	    android:dependency="notif_color_switch"  /-->
-
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
            android:key="notification_drawer_clear_all_icon_color"
            android:title="@string/notification_drawer_clear_all_icon_color_title"
            android:defaultValue="0xffffffff" />
+	
+	
+</PreferenceCategory>
 
 
-        <com.android.settings.rr.SeekBarPreference
+    <PreferenceCategory
+        android:key="notification_cat_qs"
+        android:title="@string/qs_trans_title">
+
+
+    <com.android.settings.rr.SeekBarPreference
             android:key="qs_transparent_shade"
             android:title="@string/qs_transparent_shade"
             android:max="255"
@@ -99,7 +72,7 @@
             settings:unitsRight=""
             android:persistent="false" />
 
-	<com.android.settings.rr.SeekBarPreferenceCham
+    <com.android.settings.rr.SeekBarPreferenceCham
         android:key="qs_transparent_header"
         android:title="@string/qs_transparent_header"
         android:max="255"
@@ -107,17 +80,39 @@
         settings:unitsLeft=""
         settings:unitsRight=""
         android:persistent="false" />
+	
+    <ListPreference
+        android:key="qs_stroke"
+        android:title="@string/qs_stroke_title"
+        android:dialogTitle="@string/qs_stroke_title"
+        android:entries="@array/qs_stroke_entries"
+        android:entryValues="@array/qs_stroke_values"
+        android:defaultValue="1" />
 
-	<com.android.settings.rr.SeekBarPreferenceCham
-        android:key="transparent_volume_dialog"
-        android:title="@string/volume_dialog_transparency"
-        android:max="255"
-        settings:min="0"
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="qs_stroke_color"
+        android:title="@string/qs_stroke_color_title"
+        android:defaultValue="0xff80cbc4"/>
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="qs_stroke_thickness"
+        android:title="@string/qs_stroke_thickness_title"
+        android:max="25"
+        settings:min="1"
         settings:unitsLeft=""
-        settings:unitsRight=""
+        settings:unitsRight="px"
         android:persistent="false" />
 
-      <com.android.settings.rr.SeekBarPreferenceCham
+    <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="qs_corner_radius"
+        android:title="@string/qs_corner_radius_title"
+        android:max="50"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreferenceCham
         android:key="transparent_power_menu"
         android:title="@string/power_menu_transparency"
         android:max="100"
@@ -126,7 +121,7 @@
         settings:unitsRight="%"
         android:persistent="false" />
 
-      <com.android.settings.rr.SeekBarPreferenceCham
+    <com.android.settings.rr.SeekBarPreferenceCham
         android:key="transparent_power_dialog_dim"
         android:title="@string/power_menu_dialog_dim"
         android:max="100"
@@ -137,6 +132,53 @@
 
 
     </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="notification_cat_volume"
+        android:title="@string/notification_cat_volume">
+    
+    <ListPreference
+        android:key="volume_dialog_stroke"
+        android:title="@string/volume_dialog_stroke_title"
+        android:dialogTitle="@string/volume_dialog_stroke_title"
+        android:entries="@array/volume_dialog_stroke_entries"
+        android:entryValues="@array/volume_dialog_stroke_values"
+        android:defaultValue="1" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="volume_dialog_stroke_color"
+        android:title="@string/volume_dialog_stroke_color_title"
+        android:defaultValue="0xffffffff" />
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="volume_dialog_stroke_thickness"
+        android:title="@string/volume_dialog_stroke_thickness_title"
+        android:max="25"
+        settings:min="1"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="volume_dialog_corner_radius"
+        android:title="@string/volume_dialog_corner_radius_title"
+        android:max="50"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+    
+    
+   <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="transparent_volume_dialog"
+        android:title="@string/volume_dialog_transparency"
+        android:max="255"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight=""
+        android:persistent="false" />
+   
+      </PreferenceCategory>
     
 
 </PreferenceScreen>
