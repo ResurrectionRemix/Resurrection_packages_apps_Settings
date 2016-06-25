@@ -44,7 +44,7 @@
                 android:key="display_auto_outdoor_mode"
                 android:title="@string/live_display_outdoor_mode_title"
                 android:summary="@string/live_display_outdoor_mode_summary"
-                android:defaultValue="true" />
+                android:defaultValue="@*cyanogenmod.platform:bool/config_defaultAutoOutdoorMode" />
 
     </PreferenceCategory>
 
@@ -76,14 +76,14 @@
                 android:key="display_low_power"
                 android:title="@string/live_display_low_power_title"
                 android:summary="@string/live_display_low_power_summary"
-                android:defaultValue="true" />
+                android:defaultValue="@*cyanogenmod.platform:bool/config_defaultCABC" />
 
         <!-- Color enhancement -->
         <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="display_color_enhance"
                 android:title="@string/live_display_enhance_color_title"
                 android:summary="@string/live_display_enhance_color_summary"
-                android:defaultValue="true" />
+                android:defaultValue="@*cyanogenmod.platform:bool/config_defaultColorEnhancement" />
 
     </PreferenceCategory>
 
