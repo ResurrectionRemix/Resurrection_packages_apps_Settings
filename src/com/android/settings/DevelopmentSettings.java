@@ -89,6 +89,7 @@ import com.android.settings.util.Helpers;
 
 import dalvik.system.VMRuntime;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -212,6 +213,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static String DEFAULT_LOG_RING_BUFFER_SIZE_IN_BYTES = "262144"; // 256K
 
     private static final int[] MOCK_LOCATION_APP_OPS = new int[] {AppOpsManager.OP_MOCK_LOCATION};
+
+
+    private static final String SUPERUSER_BINARY_PATH = "/system/xbin/su";
 
     private IWindowManager mWindowManager;
     private IBackupManager mBackupManager;
@@ -471,6 +475,13 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mRootAccess = (ListPreference) findPreference(ROOT_ACCESS_KEY);
         mRootAccess.setOnPreferenceChangeListener(this);
         if (!removeRootOptionsIfRequired()) {
+            if (isRootForAppsAvailable()) {
+                mRootAccess.setEntries(R.array.root_access_entries);
+                mRootAccess.setEntryValues(R.array.root_access_values);
+            } else {
+                mRootAccess.setEntries(R.array.root_access_entries_adb);
+                mRootAccess.setEntryValues(R.array.root_access_values_adb);
+            }
             mAllPrefs.add(mRootAccess);
         }
 
@@ -812,6 +823,17 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mRootAccess.setValue(value);
         mRootAccess.setSummary(getResources()
                 .getStringArray(R.array.root_access_entries)[Integer.valueOf(value)]);
+    }
+
+    private boolean isRootForAppsAvailable() {
+        boolean exists = false;
+        try {
+            File f = new File(SUPERUSER_BINARY_PATH);
+            exists = f.exists();
+        } catch (SecurityException e) {
+            // Ignore
+        }
+        return exists;
     }
 
     public static boolean isRootForAppsEnabled() {
