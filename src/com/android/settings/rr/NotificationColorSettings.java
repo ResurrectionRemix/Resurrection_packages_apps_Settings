@@ -87,6 +87,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_VOLUME_DIALOG_STROKE_DASH_GAP = "volume_dialog_dash_gap";
     private static final String PREF_QS_STROKE_DASH_WIDTH = "qs_dash_width";
     private static final String PREF_QS_STROKE_DASH_GAP = "qs_dash_gap";
+    private static final String PREF_QS_PANEL_LOGO = "qs_panel_logo";
+    private static final String PREF_QS_PANEL_LOGO_COLOR = "qs_panel_logo_color";
+    private static final String PREF_QS_PANEL_LOGO_ALPHA = "qs_panel_logo_alpha";
+    private ListPreference mQSPanelLogo;
+    private ColorPickerPreference mQSPanelLogoColor;
+    private SeekBarPreferenceCham mQSPanelLogoAlpha;
+
+    static final int DEFAULT_QS_PANEL_LOGO_COLOR = 0xFF80CBC4;
 
     private static final int RR_BLUE_GREY = 0xff1b1f23;
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
@@ -350,6 +358,34 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 
             VolumeDialogSettingsDisabler(volumeDialogStroke);
             QSSettingsDisabler(qSStroke);
+            
+             // QS panel RR logo
+             mQSPanelLogo =
+                     (ListPreference) findPreference(PREF_QS_PANEL_LOGO);
+             int qSPanelLogo = Settings.System.getIntForUser(mResolver,
+                             Settings.System.QS_PANEL_LOGO, 0,
+                             UserHandle.USER_CURRENT);
+             mQSPanelLogo.setValue(String.valueOf(qSPanelLogo));
+             mQSPanelLogo.setSummary(mQSPanelLogo.getEntry());
+             mQSPanelLogo.setOnPreferenceChangeListener(this);
+ 
+             // QS panel RR logo color
+             mQSPanelLogoColor =
+                     (ColorPickerPreference) findPreference(PREF_QS_PANEL_LOGO_COLOR);
+             mQSPanelLogoColor.setOnPreferenceChangeListener(this);
+             int qSPanelLogoColor = Settings.System.getInt(mResolver,
+                     Settings.System.QS_PANEL_LOGO_COLOR, DEFAULT_QS_PANEL_LOGO_COLOR);
+             String qSHexLogoColor = String.format("#%08x", (0xFF80CBC4 & qSPanelLogoColor));
+             mQSPanelLogoColor.setSummary(qSHexLogoColor);
+             mQSPanelLogoColor.setNewPreviewColor(qSPanelLogoColor);
+ 
+             // QS panel RR logo alpha
+             mQSPanelLogoAlpha =
+                     (SeekBarPreferenceCham) findPreference(PREF_QS_PANEL_LOGO_ALPHA);
+             int qSPanelLogoAlpha = Settings.System.getInt(mResolver,
+                     Settings.System.QS_PANEL_LOGO_ALPHA, 51);
+             mQSPanelLogoAlpha.setValue(qSPanelLogoAlpha / 1);
+             mQSPanelLogoAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -519,22 +555,43 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                  Settings.System.putInt(mResolver,
                          Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, val * 1);
                  return true;
-             } else if (preference == mVolumeDialogDashGap) {
+        } else if (preference == mVolumeDialogDashGap) {
                  int val = (Integer) newValue;
                  Settings.System.putInt(mResolver,
                          Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, val * 1);
                  return true;
-             } else if (preference == mQSDashWidth) {
+        } else if (preference == mQSDashWidth) {
                  int val = (Integer) newValue;
                  Settings.System.putInt(mResolver,
                          Settings.System.QS_STROKE_DASH_WIDTH, val * 1);
                  return true;
-             } else if (preference == mQSDashGap) {
+        } else if (preference == mQSDashGap) {
                  int val = (Integer) newValue;
                  Settings.System.putInt(mResolver,
                          Settings.System.QS_STROKE_DASH_GAP, val * 1);
                  return true;    
-             }    
+        } else if (preference == mQSPanelLogo) {
+                 int qSPanelLogo = Integer.parseInt((String) newValue);
+                 int index = mQSPanelLogo.findIndexOfValue((String) newValue);
+                 Settings.System.putIntForUser(mResolver, Settings.System.
+                         QS_PANEL_LOGO, qSPanelLogo, UserHandle.USER_CURRENT);
+                 mQSPanelLogo.setSummary(mQSPanelLogo.getEntries()[index]);
+                 QSPanelLogoSettingsDisabler(qSPanelLogo);
+                 return true;
+        } else if (preference == mQSPanelLogoColor) {
+                 hex = ColorPickerPreference.convertToARGB(
+                         Integer.valueOf(String.valueOf(newValue)));
+                 preference.setSummary(hex);
+                 intHex = ColorPickerPreference.convertToColorInt(hex);
+                 Settings.System.putInt(mResolver,
+                         Settings.System.QS_PANEL_LOGO_COLOR, intHex);
+                 return true;
+        } else if (preference == mQSPanelLogoAlpha) {
+                 int val = (Integer) newValue;
+                 Settings.System.putInt(mResolver,
+                        Settings.System.QS_PANEL_LOGO_ALPHA, val * 1);
+                return true;
+        }
         return false;
     }
     
@@ -575,8 +632,21 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 mQSDashGap.setEnabled(true);
             }
         }
+        
+       private void QSPanelLogoSettingsDisabler(int qSPanelLogo) {
+             if (qSPanelLogo == 0) {
+                 mQSPanelLogoColor.setEnabled(false);
+                 mQSPanelLogoAlpha.setEnabled(false);
+             } else if (qSPanelLogo == 1) {
+                 mQSPanelLogoColor.setEnabled(false);
+                 mQSPanelLogoAlpha.setEnabled(true);
+             } else {
+                 mQSPanelLogoColor.setEnabled(true);
+                 mQSPanelLogoAlpha.setEnabled(true);
+             }
+         }
 
-    private void showDialogInner(int id) {
+       private void showDialogInner(int id) {
         DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
         newFragment.setTargetFragment(this, 0);
         newFragment.show(getFragmentManager(), "dialog " + id);
@@ -674,7 +744,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
         }
     }
     
-    	    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
@@ -696,4 +766,3 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                  }
          };
 }
-
