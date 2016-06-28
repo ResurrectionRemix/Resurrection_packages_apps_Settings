@@ -111,6 +111,60 @@
         settings:unitsLeft=""
         settings:unitsRight="px"
         android:persistent="false" />
+    
+    
+      <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="qs_dash_width"
+         android:title="@string/qs_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
+ 
+     <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="qs_dash_gap"
+         android:title="@string/qs_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+	 settings:unitsRight="px"
+	 android:persistent="false" />
+     
+     
+   </PreferenceCategory>
+   
+      <PreferenceCategory
+         android:key="qs_panel_logo_category"
+         android:title="@string/qs_panel_logo_category">
+ 
+         <ListPreference
+             android:key="qs_panel_logo"
+             android:title="@string/qs_panel_logo_title"
+             android:dialogTitle="@string/qs_panel_logo_title"
+             android:entries="@array/qs_panel_logo_entries"
+             android:entryValues="@array/qs_panel_logo_values"
+             android:defaultValue="0" />
+ 
+         <com.android.settings.rr.SeekBarPreferenceCham
+             android:key="qs_panel_logo_alpha"
+             android:title="@string/qs_panel_logo_alpha_title"
+             android:max="255"
+             settings:min="0"
+             settings:unitsLeft=""
+             settings:unitsRight="%"
+             android:persistent="false" />
+ 
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="qs_panel_logo_color"
+             android:title="@string/qs_panel_logo_color_title"
+	     android:defaultValue="0xffffffff"/>
+ 
+     </PreferenceCategory>
+     
+   <PreferenceCategory
+        android:key="notification_cat_power"
+        android:title="@string/notification_cat_power">
 
     <com.android.settings.rr.SeekBarPreferenceCham
         android:key="transparent_power_menu"
@@ -177,6 +231,24 @@
         settings:unitsLeft=""
         settings:unitsRight=""
         android:persistent="false" />
+   
+   <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="volume_dialog_dash_width"
+         android:title="@string/volume_dialog_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
+ 
+   <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="volume_dialog_dash_gap"
+         android:title="@string/volume_dialog_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
    
       </PreferenceCategory>
     
