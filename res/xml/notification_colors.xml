@@ -111,6 +111,32 @@
         settings:unitsLeft=""
         settings:unitsRight="px"
         android:persistent="false" />
+    
+    
+      <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="qs_dash_width"
+         android:title="@string/qs_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
+ 
+     <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="qs_dash_gap"
+         android:title="@string/qs_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+	 settings:unitsRight="px"
+	 android:persistent="false" />
+     
+     
+   </PreferenceCategory>
+     
+   <PreferenceCategory
+        android:key="notification_cat_power"
+        android:title="@string/notification_cat_power">
 
     <com.android.settings.rr.SeekBarPreferenceCham
         android:key="transparent_power_menu"
@@ -177,6 +203,24 @@
         settings:unitsLeft=""
         settings:unitsRight=""
         android:persistent="false" />
+   
+   <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="volume_dialog_dash_width"
+         android:title="@string/volume_dialog_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
+ 
+   <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="volume_dialog_dash_gap"
+         android:title="@string/volume_dialog_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
    
       </PreferenceCategory>
     

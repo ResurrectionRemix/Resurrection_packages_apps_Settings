@@ -83,6 +83,10 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
     private static final String PREF_QS_STROKE_THICKNESS = "qs_stroke_thickness";
     private static final String PREF_QS_CORNER_RADIUS = "qs_corner_radius";
+    private static final String PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH = "volume_dialog_dash_width";
+    private static final String PREF_VOLUME_DIALOG_STROKE_DASH_GAP = "volume_dialog_dash_gap";
+    private static final String PREF_QS_STROKE_DASH_WIDTH = "qs_dash_width";
+    private static final String PREF_QS_STROKE_DASH_GAP = "qs_dash_gap";
 
     private static final int RR_BLUE_GREY = 0xff1b1f23;
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
@@ -119,6 +123,10 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mQSStrokeColor;
     private SeekBarPreferenceCham mQSStrokeThickness;
     private SeekBarPreferenceCham mQSCornerRadius;
+    private SeekBarPreferenceCham mVolumeDialogDashWidth;
+    private SeekBarPreferenceCham mVolumeDialogDashGap;
+    private SeekBarPreferenceCham mQSDashWidth;
+    private SeekBarPreferenceCham mQSDashGap;
   
     private ContentResolver mResolver;
 
@@ -297,6 +305,48 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                     Settings.System.QS_CORNER_RADIUS, 0);
             mQSCornerRadius.setValue(qSCornerRadius / 1);
             mQSCornerRadius.setOnPreferenceChangeListener(this);
+            
+            
+             // Volume dialog dash width
+             mVolumeDialogDashWidth =
+                     (SeekBarPreferenceCham) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH);
+             int volumeDialogDashWidth = Settings.System.getInt(mResolver,
+                     Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, 0);
+             if (volumeDialogDashWidth != 0) {
+                 mVolumeDialogDashWidth.setValue(volumeDialogDashWidth / 1);
+             } else {
+                 mVolumeDialogDashWidth.setValue(0);
+             }
+             mVolumeDialogDashWidth.setOnPreferenceChangeListener(this);
+ 
+             // Volume dialog dash gap
+             mVolumeDialogDashGap =
+                     (SeekBarPreferenceCham) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_GAP);
+             int volumeDialogDashGap = Settings.System.getInt(mResolver,
+                     Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, 10);
+             mVolumeDialogDashGap.setValue(volumeDialogDashGap / 1);
+             mVolumeDialogDashGap.setOnPreferenceChangeListener(this);
+             
+             
+             // QS dash width
+             mQSDashWidth =
+                     (SeekBarPreferenceCham) findPreference(PREF_QS_STROKE_DASH_WIDTH);
+             int qSDialogDashWidth = Settings.System.getInt(mResolver,
+                     Settings.System.QS_STROKE_DASH_WIDTH, 0);
+             if (qSDialogDashWidth != 0) {
+                 mQSDashWidth.setValue(qSDialogDashWidth / 1);
+             } else {
+                 mQSDashWidth.setValue(0);
+             }
+             mQSDashWidth.setOnPreferenceChangeListener(this);
+ 
+             // QS dash gap
+             mQSDashGap =
+                     (SeekBarPreferenceCham) findPreference(PREF_QS_STROKE_DASH_GAP);
+             int qSDialogDashGap = Settings.System.getInt(mResolver,
+                     Settings.System.QS_STROKE_DASH_GAP, 10);
+             mQSDashGap.setValue(qSDialogDashGap / 1);
+             mQSDashGap.setOnPreferenceChangeListener(this);
 
             VolumeDialogSettingsDisabler(volumeDialogStroke);
             QSSettingsDisabler(qSStroke);
@@ -464,7 +514,27 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 Settings.System.putInt(mResolver,
                         Settings.System.QS_CORNER_RADIUS, val * 1);
                 return true;
-        }
+        } else if (preference == mVolumeDialogDashWidth) {
+                 int val = (Integer) newValue;
+                 Settings.System.putInt(mResolver,
+                         Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, val * 1);
+                 return true;
+             } else if (preference == mVolumeDialogDashGap) {
+                 int val = (Integer) newValue;
+                 Settings.System.putInt(mResolver,
+                         Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, val * 1);
+                 return true;
+             } else if (preference == mQSDashWidth) {
+                 int val = (Integer) newValue;
+                 Settings.System.putInt(mResolver,
+                         Settings.System.QS_STROKE_DASH_WIDTH, val * 1);
+                 return true;
+             } else if (preference == mQSDashGap) {
+                 int val = (Integer) newValue;
+                 Settings.System.putInt(mResolver,
+                         Settings.System.QS_STROKE_DASH_GAP, val * 1);
+                 return true;    
+             }    
         return false;
     }
     
@@ -472,12 +542,18 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             if (volumeDialogStroke == 0) {
                 mVolumeDialogStrokeColor.setEnabled(false);
                 mVolumeDialogStrokeThickness.setEnabled(false);
+                mVolumeDialogDashWidth.setEnabled(false);
+                mVolumeDialogDashGap.setEnabled(false);
             } else if (volumeDialogStroke == 1) {
                 mVolumeDialogStrokeColor.setEnabled(false);
                 mVolumeDialogStrokeThickness.setEnabled(true);
+                mVolumeDialogDashWidth.setEnabled(true);
+                mVolumeDialogDashGap.setEnabled(true);
             } else {
                 mVolumeDialogStrokeColor.setEnabled(true);
                 mVolumeDialogStrokeThickness.setEnabled(true);
+                mVolumeDialogDashWidth.setEnabled(true);
+                mVolumeDialogDashGap.setEnabled(true);
             }
         }
 
@@ -485,12 +561,18 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             if (qSStroke == 0) {
                 mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(false);
+                mQSDashWidth.setEnabled(false);
+                mQSDashGap.setEnabled(false);
             } else if (qSStroke == 1) {
                 mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(true);
+                mQSDashWidth.setEnabled(true);
+                mQSDashGap.setEnabled(true);
             } else {
                 mQSStrokeColor.setEnabled(true);
                 mQSStrokeThickness.setEnabled(true);
+                mQSDashWidth.setEnabled(true);
+                mQSDashGap.setEnabled(true);
             }
         }
 
