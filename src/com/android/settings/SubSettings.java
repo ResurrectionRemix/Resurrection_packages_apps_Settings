@@ -36,4 +36,5 @@ public class SubSettings extends SettingsActivity {
         return true;
     }
     public static class BluetoothSubSettings extends SubSettings { /* empty */ }
+    public static class SecuritySubSettings extends SubSettings { /* empty */ }
 }

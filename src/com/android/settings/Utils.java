@@ -873,6 +873,9 @@ public final class Utils {
         if (BluetoothSettings.class.getName().equals(fragmentName)) {
             intent.setClass(context, SubSettings.BluetoothSubSettings.class);
             intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+         } else if (SecuritySettings.class.getName().equals(fragmentName)) {
+            intent.setClass(context, SubSettings.SecuritySubSettings.class);
+            intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
          } else {
              intent.setClass(context, SubSettings.class);
          }
