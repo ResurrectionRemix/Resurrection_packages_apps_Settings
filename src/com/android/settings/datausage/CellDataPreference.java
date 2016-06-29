@@ -24,6 +24,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.telephony.SubscriptionInfo;
@@ -44,12 +45,15 @@ import java.util.List;
 public class CellDataPreference extends CustomDialogPreference implements TemplatePreference {
 
     private static final String TAG = "CellDataPreference";
+    private static final String CARRIER_MODE_CT_CLASS_A = "ct_class_a";
 
     public int mSubId = SubscriptionManager.INVALID_SUBSCRIPTION_ID;
     public boolean mChecked;
     public boolean mMultiSimDialog;
     private TelephonyManager mTelephonyManager;
     private SubscriptionManager mSubscriptionManager;
+    private String mCarrierMode = SystemProperties.get("persist.radio.carrier_mode", "default");
+    private boolean mIsCTClassA = mCarrierMode.equals(CARRIER_MODE_CT_CLASS_A);
 
     public CellDataPreference(Context context, AttributeSet attrs) {
         super(context, attrs, android.R.attr.switchPreferenceStyle);
@@ -122,7 +126,7 @@ public class CellDataPreference extends CustomDialogPreference implements Templa
                     (nextSir != null && currentSir != null &&
                             currentSir.getSubscriptionId() == nextSir.getSubscriptionId())) {
                 setMobileDataEnabled(false);
-                if (nextSir != null && currentSir != null &&
+                if (nextSir != null && currentSir != null && !mIsCTClassA &&
                         currentSir.getSubscriptionId() == nextSir.getSubscriptionId()) {
                     disableDataForOtherSubscriptions(mSubId);
                 }
@@ -167,7 +171,7 @@ public class CellDataPreference extends CustomDialogPreference implements Templa
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
             DialogInterface.OnClickListener listener) {
-        if (mMultiSimDialog) {
+        if (mMultiSimDialog && !mIsCTClassA) {
             showMultiSimDialog(builder, listener);
         } else {
             showDisableDialog(builder, listener);
@@ -217,9 +221,11 @@ public class CellDataPreference extends CustomDialogPreference implements Templa
             return;
         }
         if (mMultiSimDialog) {
-            mSubscriptionManager.setDefaultDataSubId(mSubId);
+            if (!mIsCTClassA) {
+                mSubscriptionManager.setDefaultDataSubId(mSubId);
+                disableDataForOtherSubscriptions(mSubId);
+            }
             setMobileDataEnabled(true);
-            disableDataForOtherSubscriptions(mSubId);
         } else {
             // TODO: extend to modify policy enabled flag.
             setMobileDataEnabled(false);
