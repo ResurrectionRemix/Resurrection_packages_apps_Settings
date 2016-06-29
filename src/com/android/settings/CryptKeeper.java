@@ -402,7 +402,9 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
 
         // If we are not encrypted or encrypting, get out quickly.
         final String state = SystemProperties.get("vold.decrypt");
-        if (!isDebugView() && ("".equals(state) || DECRYPT_STATE.equals(state))) {
+        final boolean isAlarmBoot = SystemProperties.getBoolean("ro.alarm_boot", false);
+        if ((!isDebugView() && ("".equals(state) || DECRYPT_STATE.equals(state)))
+                || isAlarmBoot) {
             disableCryptKeeperComponent(this);
             // Typically CryptKeeper is launched as the home app.  We didn't
             // want to be running, so need to finish this activity.  We can count
