@@ -17,6 +17,7 @@
 
 package com.android.settings.notification;
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -45,6 +46,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarVolumizer;
+import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.MediaStore;
@@ -72,7 +74,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class SoundSettings extends SettingsPreferenceFragment implements Indexable {
+public class SoundSettings extends SettingsPreferenceFragment implements Indexable,
+        OnPreferenceChangeListener {
     private static final String TAG = SoundSettings.class.getSimpleName();
 
     private static final String KEY_SOUND = "sounds";
@@ -94,6 +97,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private static final String KEY_VIBRATE_ON_TOUCH = "vibrate_on_touch";
     private static final String KEY_ZEN_MODE = "zen_mode";
     private static final String KEY_VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+    private static final String KEY_VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
 
     private static final String[] RESTRICTED_KEYS = {
         KEY_MEDIA_VOLUME,
@@ -140,6 +144,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private ComponentName mSuppressor;
     private int mRingerMode = -1;
     private SwitchPreference mVolumeLinkNotificationSwitch;
+    private SlimSeekBarPreference mVolumeDialogTimeout;
     private UserManager mUserManager;
 
     @Override
@@ -189,6 +194,14 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         initRingtones(sounds);
         initIncreasingRing(sounds);
         initVibrateWhenRinging(vibrate);
+        // Volume dialog timeout seekbar
+        mVolumeDialogTimeout = (SlimSeekBarPreference) findPreference(KEY_VOLUME_DIALOG_TIMEOUT);
+        mVolumeDialogTimeout.setDefault(3000);
+        mVolumeDialogTimeout.isMilliseconds(true);
+        mVolumeDialogTimeout.setInterval(1);
+        mVolumeDialogTimeout.minimumValue(100);
+        mVolumeDialogTimeout.multiplyValue(100);
+        mVolumeDialogTimeout.setOnPreferenceChangeListener(this);
 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
         refreshNotificationListeners();
@@ -219,6 +232,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 pref.setEnabled(!isRestricted);
             }
         }
+        updateState();
     }
 
     @Override
@@ -691,4 +705,25 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             return rt;
         }
     };
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mVolumeDialogTimeout) {
+            int volumeDialogTimeout = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_DIALOG_TIMEOUT, volumeDialogTimeout);
+        }
+        return true;
+    }
+
+    private void updateState() {
+        final Activity activity = getActivity();
+
+        if (mVolumeDialogTimeout != null) {
+            final int volumeDialogTimeout = Settings.System.getInt(getContentResolver(),
+                    Settings.System.VOLUME_DIALOG_TIMEOUT, 3000);
+            // minimum 100 is 1 interval of the 100 multiplier
+            mVolumeDialogTimeout.setInitValue((volumeDialogTimeout / 100) - 1);
+        }
+    }
 }
