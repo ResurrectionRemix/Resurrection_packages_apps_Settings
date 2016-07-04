@@ -88,6 +88,13 @@ public class ImeiInformation extends SettingsPreferenceFragment {
                     removePreferenceFromScreen(KEY_ICC_ID);
                 }
             } else {
+                boolean displayIccId = getResources().getBoolean(
+                        R.bool.config_regional_display_icc_id_enable);
+                if (displayIccId) {
+                    setSummaryText(KEY_ICC_ID, phone.getIccSerialNumber());
+                } else {
+                    removePreferenceFromScreen(KEY_ICC_ID);
+                }
                 setSummaryText(KEY_IMEI, phone.getImei());
                 setSummaryText(KEY_IMEI_SV, phone.getDeviceSvn());
                 // device is not CDMA, do not display CDMA features
@@ -95,7 +102,6 @@ public class ImeiInformation extends SettingsPreferenceFragment {
                 removePreferenceFromScreen(KEY_PRL_VERSION);
                 removePreferenceFromScreen(KEY_MEID_NUMBER);
                 removePreferenceFromScreen(KEY_MIN_NUMBER);
-                removePreferenceFromScreen(KEY_ICC_ID);
             }
         }
     }
