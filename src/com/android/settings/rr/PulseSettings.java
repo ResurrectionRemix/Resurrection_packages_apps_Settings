@@ -29,6 +29,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.preference.PreferenceCategory;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.ListPreference;
@@ -49,8 +50,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String PULSE_BLOCK = "pulse_filled_block_size";
     private static final String EMPTY_BLOCK = "pulse_empty_block_size";
     private static final String FUDGE_FACOR = "pulse_custom_fudge_factor";
+    private static final int RENDER_STYLE_FADING_BARS = 0;
+    private static final int RENDER_STYLE_SOLID_LINES = 1;
 
     SwitchPreference mShowPulse;
+    ListPreference mRenderMode;
     SwitchPreference mLavaLampEnabled;
     ColorPickerPreference mPulseColor;
     ListPreference mCustomDimen;
@@ -73,6 +77,15 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mShowPulse.setChecked(Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.FLING_PULSE_ENABLED, 0) == 1);
         mShowPulse.setOnPreferenceChangeListener(this);
+
+        int renderMode = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.PULSE_RENDER_STYLE_URI, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
+        mRenderMode = (ListPreference) findPreference("pulse_render_mode");
+        mRenderMode.setValue(String.valueOf(renderMode));
+        mRenderMode.setOnPreferenceChangeListener(this);
+
+        PreferenceCategory fadingBarsCat = (PreferenceCategory)findPreference("pulse_1");
+        fadingBarsCat.setEnabled(renderMode == RENDER_STYLE_FADING_BARS);
 
         int pulseColor = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_PULSE_COLOR, Color.WHITE, UserHandle.USER_CURRENT);
@@ -129,20 +142,28 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference.equals(mShowPulse)) {
+        if (preference.equals(mRenderMode)) {
+            int mode = Integer.valueOf((String) newValue);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.PULSE_RENDER_STYLE_URI, mode, UserHandle.USER_CURRENT);
+            PreferenceCategory fadingBarsCat = (PreferenceCategory)findPreference("pulse_1");
+            fadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
+            return true;
+        } else if (preference.equals(mShowPulse)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_ENABLED, enabled ? 1 : 0);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.FLING_PULSE_ENABLED, enabled ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mPulseColor)) {
             int color = ((Integer) newValue).intValue();
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_COLOR, color);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.FLING_PULSE_COLOR, color, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mLavaLampEnabled)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, enabled ? 1 : 0);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, enabled ? 1 : 0,
+                    UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mCustomDimen) {
                 int customdimen = Integer.valueOf((String) newValue);
