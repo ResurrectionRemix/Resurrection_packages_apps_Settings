@@ -297,6 +297,10 @@ public class ApnSettings extends RestrictedSettingsFragment implements
             }
         }
 
+        if(getResources().getBoolean(R.bool.config_regional_hide_ims_and_dun_apns)){
+            where.append(" AND type <>\"" + PhoneConstants.APN_TYPE_DUN + "\"");
+            where.append(" AND type <>\"" + PhoneConstants.APN_TYPE_IMS + "\"");
+        }
         if (mHideImsApn) {
             where.append(" AND NOT (type='ims')");
         }
