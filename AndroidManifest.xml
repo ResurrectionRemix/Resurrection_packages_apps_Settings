@@ -306,7 +306,11 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
-
+        <activity android:name=".SubSettings$SavedAccessPointsSubSettings"
+            android:taskAffinity="com.android.settings"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="Settings">
+        </activity>
         <activity android:name="Settings$SavedAccessPointsSettingsActivity"
                 android:taskAffinity="com.android.settings"
                 android:label="@string/wifi_saved_access_points_label"
