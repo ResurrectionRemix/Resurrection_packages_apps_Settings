@@ -19,6 +19,8 @@ package com.android.settings.rr;
 import java.util.ArrayList;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +32,9 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
 
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -64,6 +69,9 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
   
     static final int DEFAULT = 0xffffffff;
 
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DIALOG_RESET_CONFIRM = 1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +96,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         mButtonAnim = (ListPreference) findPreference("smartbar_button_animation");
         mButtonAnim.setValue(String.valueOf(buttonAnimVal));
         mButtonAnim.setOnPreferenceChangeListener(this);
+
         
         
         mNavbuttoncolor = (ColorPickerPreference) findPreference(NAVBAR_COLOR);
@@ -97,8 +106,28 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNavbuttoncolor.setSummary(hexColor);
         mNavbuttoncolor.setNewPreviewColor(intColor);
-        
+
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public Dialog onCreateDialog(int dialogId) {
+        Dialog dialog = null;
+        switch (dialogId) {
+            case DIALOG_RESET_CONFIRM:
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                alertDialog.setTitle(R.string.smartbar_factory_reset_title);
+                alertDialog.setMessage(R.string.smartbar_factory_reset_confirm);
+                alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        resetSmartbar();
+                    }
+                });
+                alertDialog.setNegativeButton(R.string.write_settings_off, null);
+                dialog = alertDialog.create();
+                break;
+        }
+        return dialog;
     }
 
     @Override
@@ -106,32 +135,53 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         if (preference == findPreference("smartbar_editor_mode")) {
             getActivity().sendBroadcastAsUser(new Intent("intent_navbar_edit"), UserHandle.CURRENT);
             return true;
-        } else if (preference == findPreference("smartbar_factory_reset")) {
-            new AlertDialog.Builder(getActivity())
-                    .setMessage(getString(R.string.smartbar_factory_reset_confirm))
-                    .setPositiveButton(android.R.string.ok, new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ArrayList<ButtonConfig> buttonConfigs = Config.getDefaultConfig(
-                                    mContext,
-                                    ActionConstants.getDefaults(ActionConstants.SMARTBAR));
-                            Config.setConfig(mContext,
-                                    ActionConstants.getDefaults(ActionConstants.SMARTBAR),
-                                    buttonConfigs);
-                            Intent intent = new Intent("intent_navbar_edit");
-                            intent.putExtra("extra_navbar_edit_reset_layout", "resetMePlox");
-                            getActivity().sendBroadcastAsUser(intent, UserHandle.CURRENT);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).create().show();
-            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(com.android.internal.R.drawable.ic_menu_refresh)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialog(DIALOG_RESET_CONFIRM);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    private void resetSmartbar() {
+        ArrayList<ButtonConfig> buttonConfigs = Config.getDefaultConfig(
+               mContext,
+        ActionConstants.getDefaults(ActionConstants.SMARTBAR));
+               Config.setConfig(mContext,
+        ActionConstants.getDefaults(ActionConstants.SMARTBAR),
+               buttonConfigs);
+        Intent intent = new Intent("intent_navbar_edit");
+        intent.putExtra("extra_navbar_edit_reset_layout", "resetMePlox");
+        getActivity().sendBroadcastAsUser(intent, UserHandle.CURRENT);
+
+        Settings.Secure.putInt(mContext.getContentResolver(),
+                "smartbar_context_menu_mode", 0);
+        mSmartBarContext.setValue(String.valueOf(0));
+        mSmartBarContext.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(mContext.getContentResolver(),
+                "smartbar_ime_hint_mode", 1);
+        mImeActions.setValue(String.valueOf(1));
+        mImeActions.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(mContext.getContentResolver(),
+                "smartbar_button_animation_style", 0);
+        mButtonAnim.setValue(String.valueOf(0));
+        mButtonAnim.setOnPreferenceChangeListener(this);
     }
 
     @Override
