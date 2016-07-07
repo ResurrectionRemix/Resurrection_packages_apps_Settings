@@ -19,24 +19,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/color_picker_dialog_color_buttons_container_margin_bottom"
+    android:layout_marginBottom="@dimen/color_picker_color_buttons_container_margin_bottom"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/favorite_color_buttons_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/color_picker_dialog_color_buttons_title_margin_left"
-        android:textSize="14sp"
+        android:layout_marginStart="@dimen/color_picker_color_buttons_title_margin_start"
+        android:textSize="@dimen/color_picker_color_button_title_name_text_size"
         android:textColor="@color/theme_accent"
         android:text="@string/favorites_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/color_picker_dialog_color_buttons_layout_margin_top"
-        android:layout_marginLeft="@dimen/color_picker_dialog_color_buttons_layout_margin_left"
-        android:layout_marginRight="@dimen/color_picker_dialog_color_buttons_layout_margin_right"
+        android:layout_marginTop="@dimen/color_picker_color_buttons_layout_margin_top"
+        android:layout_marginStart="@dimen/color_picker_color_buttons_layout_margin_start"
+        android:layout_marginEnd="@dimen/color_picker_color_buttons_layout_margin_end"
         android:orientation="horizontal">
 
         <include layout="@layout/color_picker_color_button"

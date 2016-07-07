@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+     Copyright (C) 2016 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License"); 
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<net.margaritov.preference.colorpicker.ApplyColorView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/color_picker_apply_color_action_layout"
+    android:layout_width="@dimen/color_picker_action_apply_color_width"
+    android:layout_height="@dimen/color_picker_button_size"
+    android:background="@drawable/ripple_drawable_rectangle">
+
+    <ImageView
+        android:id="@+id/apply_color_action_color"
+        android:layout_width="@dimen/color_picker_button_size"
+        android:layout_height="@dimen/color_picker_button_size"
+        android:layout_gravity="start"
+        android:paddingStart="@dimen/color_picker_button_padding"
+        android:paddingTop="@dimen/color_picker_button_padding"
+        android:paddingBottom="@dimen/color_picker_button_padding"
+        android:paddingEnd="@dimen/color_picker_action_apply_color_padding_end"
+        android:translationX="@dimen/color_picker_action_apply_color_translation_x"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/apply_color_action_set"
+        android:layout_width="@dimen/color_picker_action_apply_color_set_width"
+        android:layout_height="@dimen/color_picker_button_size"
+        android:layout_gravity="top|end"
+        android:paddingTop="@dimen/color_picker_button_padding"
+        android:paddingBottom="@dimen/color_picker_action_apply_color_set_padding_bottom"
+        android:paddingEnd="@dimen/color_picker_button_padding"
+        android:src="@drawable/ic_action_set"
+        android:scaleType="centerInside"
+        android:visibility="invisible" />
+
+</net.margaritov.preference.colorpicker.ApplyColorView>

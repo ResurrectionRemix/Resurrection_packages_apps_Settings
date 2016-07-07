@@ -20,23 +20,23 @@
     android:layout_width="0px"
     android:layout_height="wrap_content"
     android:layout_weight="0.5"
-    android:layout_marginLeft="@dimen/color_picker_dialog_color_button_margin_left_right"
-    android:layout_marginRight="@dimen/color_picker_dialog_color_button_margin_left_right"
+    android:layout_marginStart="@dimen/color_picker_color_button_margin_start_end"
+    android:layout_marginEnd="@dimen/color_picker_color_button_margin_start_end"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/color_button_color"
-        android:layout_width="@dimen/color_picker_dialog_button_size"
-        android:layout_height="@dimen/color_picker_dialog_button_size"
-        android:padding="@dimen/color_picker_dialog_button_padding"
+        android:layout_width="@dimen/color_picker_button_size"
+        android:layout_height="@dimen/color_picker_button_size"
+        android:padding="@dimen/color_picker_button_padding"
         android:background="@drawable/ripple_drawable_oval" />
 
     <TextView
         android:id="@+id/color_button_hex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
+        android:textSize="@dimen/color_picker_color_button_value_text_size"
         android:textColor="?android:attr/textColorSecondary" />
 
 </net.margaritov.preference.colorpicker.ColorViewButton>
