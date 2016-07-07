@@ -22,6 +22,7 @@ import static android.content.Intent.EXTRA_USER;
 
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -173,7 +174,7 @@ public class ChooseAccountActivity extends SettingsPreferenceFragment {
             if (admin != null) {
                 setResult(RESULT_CANCELED, RestrictedLockUtils.getShowAdminSupportDetailsIntent(
                         context, admin));
-                finish();
+                finishAccountActivity();
             } else {
                 finishWithAccountType(mProviderList.get(0).type);
             }
@@ -197,7 +198,7 @@ public class ChooseAccountActivity extends SettingsPreferenceFragment {
                 Log.v(TAG, "No providers found for authorities: " + auths);
             }
             setResult(RESULT_CANCELED);
-            finish();
+            finishAccountActivity();
         }
     }
 
@@ -291,5 +292,14 @@ public class ChooseAccountActivity extends SettingsPreferenceFragment {
         intent.putExtra(EXTRA_USER, mUserHandle);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    // SettingsPreferenceFragment finish() will cause "Recursive entry" IllegalStateException.
+    // Use Activity finish() directly in onCreate() call stack.
+    private void finishAccountActivity() {
+        Activity activity = getActivity();
+        if (activity != null) {
+            activity.finish();
+        }
     }
 }
