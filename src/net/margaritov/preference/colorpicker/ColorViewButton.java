@@ -52,7 +52,7 @@ public class ColorViewButton extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         final Resources res = getContext().getResources();
-        final int drawableSize = (int) res.getDimension(R.dimen.color_picker_dialog_button_drawable_size);
+        final int drawableSize = (int) res.getDimension(R.dimen.color_picker_button_drawable_size);
 
 	    mColorView = (ImageView) findViewById(R.id.color_button_color);
 	    mHexView = (TextView) findViewById(R.id.color_button_hex);

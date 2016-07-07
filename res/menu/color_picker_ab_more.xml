@@ -29,9 +29,16 @@
     <item android:id="@+id/reset_color"
         android:icon="@drawable/ic_action_reset"
         android:title="@string/reset_color_title" />
+    <item android:id="@+id/apply_color"
+        android:title="@string/apply_color_title"
+        android:icon="@drawable/ic_action_set"
+        android:actionLayout="@layout/color_picker_action_apply_color"
+        android:showAsAction="ifRoom" />
     <item android:id="@+id/edit_hex"
         android:title="@string/edit_hex_title"
-        android:icon="@drawable/ic_action_edit" />
+        android:icon="@drawable/ic_action_edit"
+        android:actionLayout="@layout/color_picker_action_edit_hex"
+        android:showAsAction="ifRoom|collapseActionView" />
     <item android:id="@+id/show_hide_favorites"
         android:title="@string/hide_favorites_title"
         android:icon="@drawable/ic_hide_favorites" />
