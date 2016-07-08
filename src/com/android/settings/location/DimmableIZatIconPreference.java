@@ -33,17 +33,73 @@ import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.util.Log;
 import com.android.settings.DimmableIconPreference;
-import com.qti.izat.XTProxy;
-import com.qti.izat.IXTSrvCb;
+import dalvik.system.DexClassLoader;
+import java.lang.ClassNotFoundException;
+import java.lang.ExceptionInInitializerError;
+import java.lang.IllegalAccessException;
+import java.lang.IllegalArgumentException;
+import java.lang.LinkageError;
+import java.lang.NoSuchFieldException;
+import java.lang.NoSuchMethodException;
+import java.lang.NullPointerException;
+import java.lang.SecurityException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 public class DimmableIZatIconPreference extends DimmableIconPreference {
     private static final String TAG = "DimmableIZatIconPreference";
     boolean mChecked;
-    private XTProxy mXT;
+    static private Class mXtProxyClz;
+    static private Class mNotifierClz;
+    static private Method mGetXtProxyMethod;
+    static private Method mGetConsentMethod;
+    static private Method mShowIzatMethod;
+    static private String mIzatPackage;
+    static private DexClassLoader mLoader;
+
+    private static void load(Context context) {
+        if (mLoader == null) {
+            try {
+                if (mXtProxyClz == null || mNotifierClz == null) {
+                    mLoader = new DexClassLoader("/system/framework/izat.xt.srv.jar",
+                                                 context.getFilesDir().getAbsolutePath(),
+                                                 null,
+                                                 ClassLoader.getSystemClassLoader());
+                    mXtProxyClz = Class.forName("com.qti.izat.XTProxy",
+                                                true,
+                                                mLoader);
+                    mNotifierClz = Class.forName("com.qti.izat.XTProxy$Notifier",
+                                                 true,
+                                                 mLoader);
+                    mIzatPackage = (String)mXtProxyClz.getField("IZAT_XT_PACKAGE").get(null);
+                    mGetXtProxyMethod = mXtProxyClz.getMethod("getXTProxy",
+                                                              Context.class,
+                                                              mNotifierClz);
+                    mGetConsentMethod = mXtProxyClz.getMethod("getUserConsent");
+                    mShowIzatMethod = mXtProxyClz.getMethod("showIzat",
+                                                            Context.class,
+                                                            String.class);
+                }
+            } catch (NoSuchMethodException | NullPointerException | SecurityException |
+                     NoSuchFieldException | LinkageError | IllegalAccessException |
+                     ClassNotFoundException e) {
+                mXtProxyClz = null;
+                mNotifierClz = null;
+                mIzatPackage = null;
+                mGetXtProxyMethod = null;
+                mGetConsentMethod = null;
+                mShowIzatMethod = null;
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static DimmableIconPreference newInstance(Context context,
             @Nullable CharSequence contentDescription, InjectedSetting info) {
-        if (XTProxy.IZAT_XT_PACKAGE.equals(info.packageName)) {
+        load(context);
+        if (mIzatPackage != null && mIzatPackage.equals(info.packageName)) {
             return new DimmableIZatIconPreference(context, null,
                            com.android.internal.R.attr.checkBoxPreferenceStyle);
         } else {
@@ -51,20 +107,51 @@ public class DimmableIZatIconPreference extends DimmableIconPreference {
         }
     }
 
-    public DimmableIZatIconPreference(Context context, AttributeSet attrs,
-                                          int defStyleAttr) {
+    static boolean showIzat(Context context, String packageName) {
+        load(context);
+        boolean show = true;
+        try {
+            if (mShowIzatMethod != null) {
+                show = (Boolean)mShowIzatMethod.invoke(null, context, packageName);
+            }
+        } catch (IllegalAccessException | IllegalArgumentException |
+                 InvocationTargetException | ExceptionInInitializerError e) {
+            e.printStackTrace();
+        }
+        return show;
+    }
+
+    private DimmableIZatIconPreference(Context context, AttributeSet attrs,
+                                      int defStyleAttr) {
         super(context, attrs, defStyleAttr, null);
 
-        mXT = XTProxy.getXTProxy(context, new IXTSrvCb.Stub() {
-            @Override
-            public void userConsentNotify(boolean consent) {
-                if (mChecked != mXT.getUserConsent()) {
-                    mChecked = !mChecked;
-                    dimIcon(!isEnabled() || !mChecked);
-                }
-            }
-        });
-        mChecked = mXT.getUserConsent();
+        Object notifier = Proxy.newProxyInstance(mLoader,
+                                                 new Class[] { mNotifierClz },
+                                                 new InvocationHandler() {
+               @Override   
+               public Object invoke(Object proxy, Method method, Object[] args)
+                   throws Throwable {
+                   if (method.getName().equals("userConsentNotify") &&
+                       args[0] != null && args[0] instanceof Boolean) {
+                       boolean consent = (Boolean)args[0];
+                       if (mChecked != consent) {
+                           mChecked = consent;
+                           dimIcon(!isEnabled() || !mChecked);
+                       }
+                   }
+                   return null;
+               }
+                                                 });
+
+        try {
+            Object xt = mGetXtProxyMethod.invoke(null,
+                                                 context,
+                                                 notifier);
+            mChecked = (Boolean)mGetConsentMethod.invoke(xt);
+        } catch (IllegalAccessException | IllegalArgumentException |
+                 InvocationTargetException | ExceptionInInitializerError e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

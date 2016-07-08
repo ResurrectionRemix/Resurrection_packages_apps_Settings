@@ -52,8 +52,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.qti.izat.XTProxy;
-
 /**
  * Adds the preferences specified by the {@link InjectedSetting} objects to a preference group.
  *
@@ -165,7 +163,7 @@ class SettingsInjector {
                         + service);
                 return null;
             }
-        } else if (!XTProxy.showIzat(mContext, si.packageName)) {
+        } else if (!DimmableIZatIconPreference.showIzat(mContext, si.packageName)) {
             return null;
         }
 
