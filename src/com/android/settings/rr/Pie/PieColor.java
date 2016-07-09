@@ -115,7 +115,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0x04000000 & intColor));
         mPieBg.setSummary(hexColor);
         mPieBg.setOnPreferenceChangeListener(this);
-        mPieBg.setAlphaSliderEnabled(true);
+        mPieBg.setAlphaSliderVisible(true);
 
         mSelect =
                 (ColorPickerPreference) findPreference(PA_PIE_SELECT);
@@ -126,7 +126,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mSelect.setSummary(hexColor);
         mSelect.setOnPreferenceChangeListener(this);
-        mSelect.setAlphaSliderEnabled(true);
+        mSelect.setAlphaSliderVisible(true);
 
         mOutlines =
                 (ColorPickerPreference) findPreference(PA_PIE_OUTLINES);
@@ -137,7 +137,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mOutlines.setSummary(hexColor);
         mOutlines.setOnPreferenceChangeListener(this);
-        mOutlines.setAlphaSliderEnabled(true);
+        mOutlines.setAlphaSliderVisible(true);
 
         mStatusClock =
                 (ColorPickerPreference) findPreference(PA_PIE_STATUS_CLOCK);
@@ -148,7 +148,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatusClock.setSummary(hexColor);
         mStatusClock.setOnPreferenceChangeListener(this);
-        mStatusClock.setAlphaSliderEnabled(true);
+        mStatusClock.setAlphaSliderVisible(true);
 
         mStatus =
                 (ColorPickerPreference) findPreference(PA_PIE_STATUS);
@@ -159,7 +159,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatus.setSummary(hexColor);
         mStatus.setOnPreferenceChangeListener(this);
-        mStatus.setAlphaSliderEnabled(true);
+        mStatus.setAlphaSliderVisible(true);
 
         mChevron =
                 (ColorPickerPreference) findPreference(PA_PIE_CHEVRON);
@@ -170,7 +170,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mChevron.setSummary(hexColor);
         mChevron.setOnPreferenceChangeListener(this);
-        mChevron.setAlphaSliderEnabled(true);
+        mChevron.setAlphaSliderVisible(true);
 
         mBtnColor =
                 (ColorPickerPreference) findPreference(PA_PIE_BUTTON_COLOR);
@@ -181,7 +181,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBtnColor.setSummary(hexColor);
         mBtnColor.setOnPreferenceChangeListener(this);
-        mBtnColor.setAlphaSliderEnabled(true);
+        mBtnColor.setAlphaSliderVisible(true);
 
         mJuice =
                 (ColorPickerPreference) findPreference(PA_PIE_JUICE);
@@ -192,7 +192,7 @@ public class PieColor extends SettingsPreferenceFragment implements OnPreference
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mJuice.setSummary(hexColor);
         mJuice.setOnPreferenceChangeListener(this);
-        mJuice.setAlphaSliderEnabled(true);
+        mJuice.setAlphaSliderVisible(true);
 
         setHasOptionsMenu(true);
     }
