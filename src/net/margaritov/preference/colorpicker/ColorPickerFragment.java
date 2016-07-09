@@ -27,6 +27,9 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextThemeWrapper;
@@ -35,8 +38,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.CheckedTextView;
@@ -46,7 +51,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.android.internal.util.darkkat.ColorHelper;
+import com.android.internal.util.rr.ColorHelper;
 
 import com.android.settings.R;
 
@@ -88,6 +93,7 @@ public class ColorPickerFragment extends Fragment implements
 
     private View mColorPickerView;
     private ColorPickerView mColorPicker;
+    private LinearLayout mColorButtonsLayout;
     private LinearLayout mFavoritesLayout;
 
     private View mHelpScreen;
@@ -106,7 +112,9 @@ public class ColorPickerFragment extends Fragment implements
     private boolean mHideResetColor2 = true;
     private boolean mShowSubMenu = false;
     private boolean mShowFavorites;
+    private int mFavoritesLayoutHeight = 0;
     private boolean mShowHelpScreen;
+    private int mHelpScreenHeight = 0;
     private boolean mHelpScreenVisible;
     private int mApplyColorIconAnimationType;
     private int mAnimationType;
@@ -171,6 +179,8 @@ public class ColorPickerFragment extends Fragment implements
 
         mColorPickerView = localInflater.inflate(R.layout.color_picker_fragment, container, false);
         mColorPicker = (ColorPickerView) mColorPickerView.findViewById(R.id.color_picker_view);
+        mColorButtonsLayout = (LinearLayout) mColorPickerView.findViewById(
+                R.id.color_picker_color_buttons_layout);
         mFavoritesLayout = (LinearLayout) mColorPickerView.findViewById(R.id.favorite_buttons);
         mHelpScreen = mColorPickerView.findViewById(R.id.color_picker_help_screen);
 
@@ -246,22 +256,32 @@ public class ColorPickerFragment extends Fragment implements
         setHexValueButton.setOnClickListener(this);
 
         MenuItem showHideFavorites = menu.findItem(R.id.show_hide_favorites);
-        int titleResId;
-        int iconResId;
+        int favoritesTitleResId;
+        int favoritesIconResId;
         if (mShowFavorites) {
-            titleResId = R.string.hide_favorites_title;
-            iconResId = R.drawable.ic_hide_favorites;
+            favoritesTitleResId = R.string.hide_favorites_title;
+            favoritesIconResId = R.drawable.ic_hide_favorites;
         } else {
-            titleResId = R.string.show_favorites_title;
-            iconResId = R.drawable.ic_show_favorites;
+            favoritesTitleResId = R.string.show_favorites_title;
+            favoritesIconResId = R.drawable.ic_show_favorites;
         }
-        showHideFavorites.setTitle(mResources.getString(titleResId));
-        showHideFavorites.setIcon(mResources.getDrawable(iconResId));
+        showHideFavorites.setTitle(mResources.getString(favoritesTitleResId));
+        showHideFavorites.setIcon(mResources.getDrawable(favoritesIconResId));
+
+        MenuItem showHideHelp = menu.findItem(R.id.show_hide_help);
+        int helpTitleResId;
+        int iconResId;
+        if (mHelpScreenVisible) {
+            helpTitleResId = R.string.hide_help_title;
+        } else {
+            helpTitleResId = R.string.show_help_title;
+        }
+        showHideHelp.setTitle(mResources.getString(helpTitleResId));
     }
 
     private ValueAnimator createAnimator() {
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
-        animator.setDuration(500);
+        animator.setDuration(300);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override public void onAnimationUpdate(ValueAnimator animation) {
                 float position = animation.getAnimatedFraction();
@@ -293,8 +313,19 @@ public class ColorPickerFragment extends Fragment implements
                         }
                     }
                 } else if (mAnimationType == FAVORITES_VISIBILITY) {
-                    mFavoritesLayout.setAlpha(mShowFavorites ? 1f - position : position);
+                    int childCount = mColorButtonsLayout.getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        if (i == 0) {
+                            mFavoritesLayout.setAlpha(mShowFavorites ? 1f - position : position);
+                        } else {
+                            View child = mColorButtonsLayout.getChildAt(i);
+                            child.setTranslationY(0 - mFavoritesLayoutHeight * (
+                                    mShowFavorites ? position : 1f - position));
+                        }
+                    }
                 } else {
+                    mHelpScreen.setTranslationY(
+                            mHelpScreenHeight * (mHelpScreenVisible ? position  : 1f - position));
                     mHelpScreen.setAlpha(mHelpScreenVisible ? 1f - position : position);
                 }
             }
@@ -303,9 +334,6 @@ public class ColorPickerFragment extends Fragment implements
             @Override
             public void onAnimationStart(Animator animation) {
                 if (mAnimationType == FAVORITES_VISIBILITY) {
-                    if (!mShowFavorites) {
-                        mFavoritesLayout.setVisibility(View.VISIBLE);
-                    }
                 } else if (mAnimationType != COLOR_TRANSITION) {
                     if (!mHelpScreenVisible) {
                         mHelpScreen.setVisibility(View.VISIBLE);
@@ -326,16 +354,16 @@ public class ColorPickerFragment extends Fragment implements
                     }
                     mOldColorValue = mNewColorValue;
                 } else if (mAnimationType == FAVORITES_VISIBILITY) {
-                    if (mShowFavorites) {
-                        mFavoritesLayout.setVisibility(View.GONE);
-                    }
+                    animation.setInterpolator(null);
                     mShowFavorites = !mShowFavorites;
                     writeShowFavorites(mShowFavorites);
                 } else {
+                    animation.setInterpolator(null);
                     if (mHelpScreenVisible) {
                         mHelpScreen.setVisibility(View.GONE);
                     }
                     mHelpScreenVisible = !mHelpScreenVisible;
+                    getActivity().invalidateOptionsMenu();
                 }
             }
         });
@@ -363,10 +391,27 @@ public class ColorPickerFragment extends Fragment implements
 
         ta.recycle();
 
-        if (!mShowFavorites) {
-            mFavoritesLayout.setVisibility(View.GONE);
-            mFavoritesLayout.setAlpha(0f);
-        }
+        mFavoritesLayout.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                mFavoritesLayoutHeight = mFavoritesLayout.getHeight()
+                        + mResources.getDimensionPixelSize(
+                                R.dimen.color_picker_color_buttons_container_margin_bottom);
+                mFavoritesLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                if (!mShowFavorites) {
+                    int childCount = mColorButtonsLayout.getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        if (i == 0) {
+                            mFavoritesLayout.setAlpha(0f);
+                        } else {
+                            View child = mColorButtonsLayout.getChildAt(i);
+                            child.setTranslationY(0 - mFavoritesLayoutHeight);
+                        }
+                    }
+                }
+            }
+        });
+
     }
 
     private void setUpPaletteColorButtons() {
@@ -412,10 +457,25 @@ public class ColorPickerFragment extends Fragment implements
         mCloseHelpScreen = (Button) mColorPickerView.findViewById(
                 R.id.color_picker_help_button_ok);
         mCloseHelpScreen.setOnClickListener(this);
-        if (!mHelpScreenVisible) {
-            mHelpScreen.setVisibility(View.GONE);
-            mHelpScreen.setAlpha(0f);
-        }
+
+        mHelpScreen.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                mHelpScreenHeight = mHelpScreen.getHeight();
+                mHelpScreen.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                if (!mHelpScreenVisible) {
+                    mHelpScreen.setTranslationY(mFavoritesLayoutHeight);
+                    mHelpScreen.setAlpha(0f);
+                    mHelpScreen.setVisibility(View.GONE);
+                }
+            }
+        });
+        mHelpScreen.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
     }
 
     public void setOnColorChangedListener(OnColorChangedListener listener) {
@@ -437,11 +497,14 @@ public class ColorPickerFragment extends Fragment implements
                 return true;
             case R.id.show_hide_favorites:
                 mAnimationType = FAVORITES_VISIBILITY;
+                mAnimator.setInterpolator(new FastOutSlowInInterpolator());
+                mAnimator.setDuration(300);
                 mAnimator.start();
                 return true;
-            case R.id.show_help:
+            case R.id.show_hide_help:
                 mAnimationType = HELP_SCREEN_VISIBILITY;
-                mHelpScreenVisible = false;
+                mAnimator.setInterpolator(new FastOutSlowInInterpolator());
+                mAnimator.setDuration(mShowFavorites ? 195 : 225);
                 mAnimator.start();
             default:
                 return super.onOptionsItemSelected(item);
@@ -484,7 +547,8 @@ public class ColorPickerFragment extends Fragment implements
             writeShowHelpScreen(!mCheckShowHelpScreen.isChecked());
         } else if (v.getId() == R.id.color_picker_help_button_ok) {
             mAnimationType = HELP_SCREEN_VISIBILITY;
-            mHelpScreenVisible = true;
+            mAnimator.setInterpolator(new FastOutSlowInInterpolator());
+            mAnimator.setDuration(195);
             mAnimator.start();
         } else if (v instanceof ColorViewButton) {
             try {
@@ -524,6 +588,7 @@ public class ColorPickerFragment extends Fragment implements
                 mApplyColorAction.showSetIcon(true);
             }
             mAnimationType = COLOR_TRANSITION;
+            mAnimator.setDuration(300);
             mAnimator.start();
 
             try {
