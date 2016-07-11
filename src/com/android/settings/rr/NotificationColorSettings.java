@@ -618,16 +618,19 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             if (qSStroke == 0) {
                 mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(false);
+		mQSCornerRadius.setEnabled(false);
                 mQSDashWidth.setEnabled(false);
                 mQSDashGap.setEnabled(false);
             } else if (qSStroke == 1) {
                 mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(true);
+                mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);
                 mQSDashGap.setEnabled(true);
             } else {
                 mQSStrokeColor.setEnabled(true);
                 mQSStrokeThickness.setEnabled(true);
+		mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);
                 mQSDashGap.setEnabled(true);
             }
