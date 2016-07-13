@@ -146,9 +146,17 @@ public class DataUsageSummary extends DataUsageBase implements Indexable {
         switch (item.getItemId()) {
             case R.id.data_usage_menu_cellular_networks: {
                 final Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setComponent(new ComponentName("com.android.phone",
-                        "com.android.phone.MobileNetworkSettings"));
-                startActivity(intent);
+                if (Utils.isNetworkSettingsApkAvailable(getContext())) {
+                    Log.d(TAG, "qti MobileNetworkSettings Enabled");
+                    // prepare intent to start qti MobileNetworkSettings activity
+                    intent.setComponent(new ComponentName("com.qualcomm.qti.networksetting",
+                            "com.qualcomm.qti.networksetting.MobileNetworkSettings"));
+                    startActivity(intent);
+                } else {
+                    intent.setComponent(new ComponentName("com.android.phone",
+                            "com.android.phone.MobileNetworkSettings"));
+                    startActivity(intent);
+                }
                 return true;
             }
             case R.id.data_usage_menu_app_network_access: {
