@@ -109,6 +109,39 @@
            android:entryValues="@array/pulse_custom_fudge_factor_values"
            android:dependency="eos_fling_show_pulse" />
 
+      <com.android.settings.rr.SeekBarPreference
+            android:key="fling_pulse_lavalamp_speed"
+            android:title="@string/lavamp_solid_speed_title"
+            android:max="30000"
+            settings:minimum="200"
+            settings:unitsLeft=""
+            settings:unitsRight="ms"
+            android:persistent="false" />
+
+	
+	</PreferenceCategory>
+
+	<PreferenceCategory
+            android:key="pulse_2"
+            android:title="@string/pulse_solid_dimen_category" >
+
+	<ListPreference
+           android:key="pulse_solid_fudge_factor"
+           android:title="@string/pulse_solid_fudge_factor"
+           android:dialogTitle="@string/pulse_solid_fudge_factor"
+           android:entries="@array/pulse_solid_fudge_factor_entries"
+           android:entryValues="@array/pulse_solid_fudge_factor_values"
+           android:dependency="eos_fling_show_pulse" />
+
+      <com.android.settings.rr.SeekBarPreference
+            android:key="lavamp_solid_speed"
+            android:title="@string/lavamp_solid_speed_title"
+            android:max="30000"
+            settings:minimum="200"
+            settings:unitsLeft=""
+            settings:unitsRight="ms"
+            android:persistent="false" />
+
 	
 	</PreferenceCategory>
 	
