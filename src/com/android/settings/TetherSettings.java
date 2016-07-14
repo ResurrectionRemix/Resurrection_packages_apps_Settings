@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothPan;
@@ -27,10 +28,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.hardware.usb.UsbManager;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
+import android.net.wifi.WifiConfiguration.AuthAlgorithm;
+import android.net.wifi.WifiConfiguration.KeyMgmt;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -38,6 +44,8 @@ import android.os.UserManager;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -66,7 +74,18 @@ public class TetherSettings extends RestrictedSettingsFragment
     private static final String ENABLE_WIFI_AP_EXT = "enable_wifi_ap_ext";
     private static final String ENABLE_BLUETOOTH_TETHERING = "enable_bluetooth_tethering";
     private static final String TETHER_CHOICE = "TETHER_TYPE";
+    private static final String TETHERING_HELP = "tethering_help";
     private static final String DATA_SAVER_FOOTER = "disabled_on_data_saver";
+    private static final String ACTION_EXTRA = "choice";
+    private static final String ACTION_EXTRA_VALUE = "value";
+    private static final String SHAREPREFERENCE_DEFAULT_WIFI = "def_wifiap_set";
+    private static final String SHAREPREFERENCE_FIFE_NAME = "MY_PERFS";
+    private static final String ACTION_HOTSPOT_CONFIGURE = "Hotspot_PreConfigure";
+    private static final String ACTION_HOTSPOT_POST_CONFIGURE = "Hotspot_PostConfigure";
+    private static final String CONFIGURE_RESULT = "PreConfigure_result";
+    private static final String ACTION_HOTSPOT_CONFIGURE_RRSPONSE =
+            "Hotspot_PreConfigure_Response";
+
 
     private static final int DIALOG_AP_SETTINGS = 1;
 
@@ -76,6 +95,7 @@ public class TetherSettings extends RestrictedSettingsFragment
 
     private WifiApEnabler mWifiApEnabler;
     private Preference mEnableWifiAp;
+    private PreferenceScreen mTetherHelp;
 
     private SwitchPreference mBluetoothTether;
 
@@ -109,12 +129,15 @@ public class TetherSettings extends RestrictedSettingsFragment
 
     private boolean mBluetoothEnableForTether;
 
+    /* One of INVALID, WIFI_TETHERING, USB_TETHERING or BLUETOOTH_TETHERING */
+    private int mTetherChoice = -1;
+
     /* Stores the package name and the class name of the provisioning app */
     private String[] mProvisionApp;
     private static final int PROVISION_REQUEST = 0;
 
     private boolean mUnavailable;
-
+    private BroadcastReceiver mConfigureReceiver;
     private DataSaverBackend mDataSaverBackend;
     private boolean mDataSaverEnabled;
     private Preference mDataSaverFooter;
@@ -132,6 +155,9 @@ public class TetherSettings extends RestrictedSettingsFragment
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        if(icicle != null) {
+            mTetherChoice = icicle.getInt(TETHER_CHOICE);
+        }
         addPreferencesFromResource(R.xml.tether_prefs);
 
         mDataSaverBackend = new DataSaverBackend(getContext());
@@ -156,6 +182,7 @@ public class TetherSettings extends RestrictedSettingsFragment
 
         boolean enableWifiApSettingsExt = getResources().getBoolean(R.bool.show_wifi_hotspot_settings);
         boolean isWifiApEnabled = getResources().getBoolean(R.bool.hide_wifi_hotspot);
+        checkDefaultValue(getActivity());
         if (enableWifiApSettingsExt) {
             mEnableWifiAp =
                     (HotspotPreference) findPreference(ENABLE_WIFI_AP_EXT);
@@ -173,6 +200,13 @@ public class TetherSettings extends RestrictedSettingsFragment
         if (isWifiApEnabled) {
             getPreferenceScreen().removePreference(mEnableWifiAp);
             getPreferenceScreen().removePreference(mCreateNetwork);
+        }
+
+        if (getResources().getBoolean(
+                R.bool.config_regional_hotspot_tether_help_enable)) {
+            mTetherHelp = (PreferenceScreen) findPreference(TETHERING_HELP);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(TETHERING_HELP));
         }
 
         mUsbTether = (SwitchPreference) findPreference(USB_TETHER_SETTINGS);
@@ -378,6 +412,7 @@ public class TetherSettings extends RestrictedSettingsFragment
         }
 
         updateState();
+        registerConfigureReceiver(getActivity());
     }
 
     @Override
@@ -394,6 +429,7 @@ public class TetherSettings extends RestrictedSettingsFragment
             mEnableWifiAp.setOnPreferenceChangeListener(null);
             mWifiApEnabler.pause();
         }
+        unRegisterConfigureReceiver();
     }
 
     private void updateState() {
@@ -574,6 +610,14 @@ public class TetherSettings extends RestrictedSettingsFragment
             }
         } else if (preference == mCreateNetwork) {
             showDialog(DIALOG_AP_SETTINGS);
+        } else if (getResources().getBoolean(
+                R.bool.config_regional_hotspot_tether_help_enable)
+                && preference == mTetherHelp) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+            alert.setTitle(R.string.tethering_help_dialog_title);
+            alert.setMessage(R.string.tethering_help_dialog_text);
+            alert.setPositiveButton(R.string.okay, null);
+            alert.show();
         }
 
         return super.onPreferenceTreeClick(preference);
@@ -608,6 +652,80 @@ public class TetherSettings extends RestrictedSettingsFragment
         return R.string.help_url_tether;
     }
 
+    private void checkDefaultValue(Context ctx) {
+        boolean def_ssid = ctx.getResources().getBoolean(
+                R.bool.hotspot_default_ssid_with_imei_enable);
+        boolean clear_pwd = ctx.getResources().getBoolean( R.bool.use_empty_password_default);
+        if (def_ssid || clear_pwd) {
+            SharedPreferences sharedPreferences = ctx.getSharedPreferences(
+                    SHAREPREFERENCE_FIFE_NAME,Activity.MODE_PRIVATE);
+            boolean hasSetDefaultValue = sharedPreferences.getBoolean(
+                    SHAREPREFERENCE_DEFAULT_WIFI, false);
+            if ((!hasSetDefaultValue) && (setDefaultValue(ctx , def_ssid , clear_pwd))) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(SHAREPREFERENCE_DEFAULT_WIFI,true);
+                editor.commit();
+            }
+        }
+    }
+
+    private boolean setDefaultValue(Context ctx, boolean default_ssid, boolean clear_password) {
+        WifiManager wifiManager = (WifiManager) ctx.getSystemService(Context.WIFI_SERVICE);
+        if (wifiManager == null) {
+            return false;
+        }
+        WifiConfiguration wifiAPConfig = wifiManager.getWifiApConfiguration();
+        if (wifiAPConfig == null) {
+            return false;
+        }
+        if (default_ssid) {
+            TelephonyManager tm = (TelephonyManager) ctx.getSystemService(
+                    Context.TELEPHONY_SERVICE);
+            String deviceId = tm.getDeviceId();
+            String lastFourDigits = "";
+            if ((deviceId != null) && (deviceId.length() > 3)) {
+                lastFourDigits =  deviceId.substring(deviceId.length()-4);
+            }
+            wifiAPConfig.SSID = Build.MODEL;
+            if ((!TextUtils.isEmpty(lastFourDigits)) && (wifiAPConfig.SSID != null)
+                    && (wifiAPConfig.SSID.indexOf(lastFourDigits) < 0)) {
+                 wifiAPConfig.SSID += " " + lastFourDigits;
+            }
+        }
+        if (clear_password) {
+            wifiAPConfig.preSharedKey = "";
+        }
+        wifiManager.setWifiApConfiguration(wifiAPConfig);
+        return true;
+    }
+
+    private void unRegisterConfigureReceiver() {
+        if (mConfigureReceiver != null) {
+            getActivity().unregisterReceiver(mConfigureReceiver);
+            mConfigureReceiver = null;
+        }
+    }
+
+    private void registerConfigureReceiver(Context ctx) {
+        IntentFilter filter = new IntentFilter(ACTION_HOTSPOT_CONFIGURE_RRSPONSE);
+        if (mConfigureReceiver == null) {
+            mConfigureReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    String action = intent.getAction();
+                    if (action.equals(ACTION_HOTSPOT_CONFIGURE_RRSPONSE)) {
+                        boolean result = intent.getBooleanExtra(CONFIGURE_RESULT,true);
+                        if (result) {
+                            startTethering(mTetherChoice);
+                        } else {
+                            mWifiApEnabler.setChecked(false);
+                        }
+                    }
+                }
+            };
+        }
+        ctx.registerReceiver(mConfigureReceiver, filter);
+    }
     private BluetoothProfile.ServiceListener mProfileServiceListener =
             new BluetoothProfile.ServiceListener() {
         public void onServiceConnected(int profile, BluetoothProfile proxy) {
