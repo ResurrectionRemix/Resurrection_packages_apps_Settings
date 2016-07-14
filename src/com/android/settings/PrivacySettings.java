@@ -63,6 +63,7 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
     private static final String BACKUP_INACTIVE = "backup_inactive";
     private static final String NETWORK_RESET = "network_reset";
     private static final String FACTORY_RESET = "factory_reset";
+    private static final String COLLECT_DIAGNOSTICS = "collect_diagnostics";
     private static final String TAG = "PrivacySettings";
     private IBackupManager mBackupManager;
     private PreferenceScreen mBackup;
@@ -335,5 +336,12 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
                 UserManager.DISALLOW_NETWORK_RESET, UserHandle.myUserId())) {
             nonVisibleKeys.add(NETWORK_RESET);
         }
+        if (!collectDiagnosticsEnabled(context)){
+            nonVisibleKeys.add(COLLECT_DIAGNOSTICS);
+        }
+    }
+
+    private static boolean collectDiagnosticsEnabled(Context context) {
+        return context.getResources().getBoolean(R.bool.config_collect_diagnostics_enabled);
     }
 }
