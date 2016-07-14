@@ -63,12 +63,12 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     ListPreference mRenderMode;
     SwitchPreference mLavaLampEnabled;
     ColorPickerPreference mPulseColor;
-    ListPreference mCustomDimen;
-    ListPreference mCustomDiv;
-    ListPreference mFilled;
-    ListPreference mEmpty;
-    ListPreference mFudge;
-    ListPreference mSolidFudge;
+    SeekBarPreference mCustomDimen;
+    SeekBarPreference mCustomDiv;
+    SeekBarPreference mFilled;
+    SeekBarPreference mEmpty;
+    SeekBarPreference mFudge;
+    SeekBarPreference mSolidFudge;
     SeekBarPreference mSolidSpeed;
     SeekBarPreference mFadingSpeed;
 
@@ -106,56 +106,51 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mLavaLampEnabled.setChecked(Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, 1) == 1);
         mLavaLampEnabled.setOnPreferenceChangeListener(this);
-        
-        mCustomDimen = (ListPreference) findPreference(CUSTOM_DIMEN);
+
+        mCustomDimen =
+                    (SeekBarPreference) findPreference(CUSTOM_DIMEN);
         int customdimen = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.PULSE_CUSTOM_DIMEN, 0,
                     UserHandle.USER_CURRENT);
-        mCustomDimen.setValue(String.valueOf(customdimen));
-        mCustomDimen.setSummary(mCustomDimen.getEntry());
+        mCustomDimen.setValue(customdimen / 1);
         mCustomDimen.setOnPreferenceChangeListener(this);
-        
-        mCustomDiv = (ListPreference) findPreference(CUSTOM_DIV);
+
+        mCustomDiv = (SeekBarPreference) findPreference(CUSTOM_DIV);
         int customdiv = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.PULSE_CUSTOM_DIV, 0,
                     UserHandle.USER_CURRENT);
-        mCustomDiv.setValue(String.valueOf(customdiv));
-        mCustomDiv.setSummary(mCustomDiv.getEntry());
+        mCustomDiv.setValue(customdiv / 1);
         mCustomDiv.setOnPreferenceChangeListener(this);
         
-        mFilled = (ListPreference) findPreference(PULSE_BLOCK);
+        mFilled = (SeekBarPreference)  findPreference(PULSE_BLOCK);
         int filled = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 0,
                     UserHandle.USER_CURRENT);
-        mFilled.setValue(String.valueOf(filled));
-        mFilled.setSummary(mFilled.getEntry());
+        mFilled.setValue(filled / 1);
         mFilled.setOnPreferenceChangeListener(this);
         
-        mEmpty = (ListPreference) findPreference(EMPTY_BLOCK);
+        mEmpty = (SeekBarPreference) findPreference(EMPTY_BLOCK);
         int empty = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 0,
                     UserHandle.USER_CURRENT);
-        mEmpty.setValue(String.valueOf(empty));
-        mEmpty.setSummary(mEmpty.getEntry());
+        mEmpty.setValue(empty / 1);
         mEmpty.setOnPreferenceChangeListener(this);
         
-        mFudge = (ListPreference) findPreference(FUDGE_FACOR);
+        mFudge = (SeekBarPreference) findPreference(FUDGE_FACOR);
         int fudge = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 0,
                     UserHandle.USER_CURRENT);
-        mFudge.setValue(String.valueOf(fudge));
-        mFudge.setSummary(mFudge.getEntry());
+        mFudge.setValue(fudge / 1);
         mFudge.setOnPreferenceChangeListener(this);
 
         PreferenceCategory solidBarsCat = (PreferenceCategory)findPreference("pulse_2");
         solidBarsCat.setEnabled(renderMode == RENDER_STYLE_SOLID_LINES);
 
-        mSolidFudge = (ListPreference) findPreference(SOLID_FUDGE);
+        mSolidFudge = (SeekBarPreference) findPreference(SOLID_FUDGE);
         int solidfudge = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, 0,
                     UserHandle.USER_CURRENT);
-        mSolidFudge.setValue(String.valueOf(solidfudge));
-        mSolidFudge.setSummary(mSolidFudge.getEntry());
+        mSolidFudge.setValue(solidfudge/ 1);
         mSolidFudge.setOnPreferenceChangeListener(this);
 
         mSolidSpeed =
@@ -176,6 +171,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+	ContentResolver mResolver = getActivity().getContentResolver();
         if (preference.equals(mRenderMode)) {
             int mode = Integer.valueOf((String) newValue);
             Settings.Secure.putIntForUser(getContentResolver(),
@@ -202,73 +198,41 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                     UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mCustomDimen) {
-                int customdimen = Integer.valueOf((String) newValue);
-                int index = mCustomDimen.findIndexOfValue((String) newValue);
-                Settings.Secure.putIntForUser(
-                       getContentResolver(), 
-		Settings.Secure.PULSE_CUSTOM_DIMEN, customdimen,
-                        UserHandle.USER_CURRENT);
-                mCustomDimen.setSummary(
-                        mCustomDimen.getEntries()[index]);
+                int val = (Integer) newValue;
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.PULSE_CUSTOM_DIMEN, val * 1);
                 return true;
 	}  else if (preference == mCustomDiv) {
-                int customdiv = Integer.valueOf((String) newValue);
-                int index = mCustomDiv.findIndexOfValue((String) newValue);
-                Settings.Secure.putIntForUser(
-                       getContentResolver(), 
-		Settings.Secure.PULSE_CUSTOM_DIV, customdiv,
-                        UserHandle.USER_CURRENT);
-                mCustomDiv.setSummary(
-                        mCustomDiv.getEntries()[index]);
+                int val = (Integer) newValue;
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.PULSE_CUSTOM_DIV, val * 1);
                 return true;
 	} else if (preference == mFilled) {
-                int filled = Integer.valueOf((String) newValue);
-                int index = mFilled.findIndexOfValue((String) newValue);
-                Settings.Secure.putIntForUser(
-                       getContentResolver(), 
-		Settings.Secure.PULSE_FILLED_BLOCK_SIZE, filled,
-                        UserHandle.USER_CURRENT);
-                mFilled.setSummary(
-                        mFilled.getEntries()[index]);
+                int val = (Integer) newValue;
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.PULSE_FILLED_BLOCK_SIZE, val * 1);
                 return true;
 	}  else if (preference == mEmpty) {
-                int empty = Integer.valueOf((String) newValue);
-                int index = mEmpty.findIndexOfValue((String) newValue);
-                Settings.Secure.putIntForUser(
-                       getContentResolver(), 
-		Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, empty,
-                        UserHandle.USER_CURRENT);
-                mEmpty.setSummary(
-                        mEmpty.getEntries()[index]);
+                int val = (Integer) newValue;
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, val * 1);
                 return true;
 	} else if (preference == mFudge) {
-                int fudge = Integer.valueOf((String) newValue);
-                int index = mFudge.findIndexOfValue((String) newValue);
-                Settings.Secure.putIntForUser(
-                       getContentResolver(), 
-		Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, fudge,
-                        UserHandle.USER_CURRENT);
-                mFudge.setSummary(
-                        mFudge.getEntries()[index]);
+                   int val = (Integer) newValue;
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, val * 1);
                 return true;
 	}  else if (preference == mSolidFudge) {
-                int fudge = Integer.valueOf((String) newValue);
-                int index = mSolidFudge.findIndexOfValue((String) newValue);
-                Settings.Secure.putIntForUser(
-                       getContentResolver(), 
-		Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, fudge,
-                        UserHandle.USER_CURRENT);
-                mSolidFudge.setSummary(
-                        mSolidFudge.getEntries()[index]);
+                   int val = (Integer) newValue;
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, val * 1);
                 return true;
 	} else if (preference == mSolidSpeed) {
-		ContentResolver mResolver = getActivity().getContentResolver();
                 int val = (Integer) newValue;
                 Settings.Secure.putInt(mResolver,
                         Settings.Secure.LAVAMP_SOLID_SPEED, val * 1);
                 return true;
         } else if (preference == mFadingSpeed) {
-		ContentResolver mResolver = getActivity().getContentResolver();
                 int val = (Integer) newValue;
                 Settings.Secure.putInt(mResolver,
                         Settings.Secure.FLING_PULSE_LAVALAMP_SPEED, val * 1);
