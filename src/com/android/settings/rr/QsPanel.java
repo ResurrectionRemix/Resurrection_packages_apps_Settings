@@ -51,6 +51,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
  private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
  private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
  private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
+ private static final String QS_TASK_ANIMATION = "qs_task_animation";
 
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
@@ -59,6 +60,7 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
     private ListPreference mTileAnimationInterpolator;
+    private ListPreference mAnimation;
     	
     private static final int MY_USER_ID = UserHandle.myUserId();
     @Override
@@ -137,6 +139,12 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
         updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
         mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
 
+        mAnimation = (ListPreference) findPreference(QS_TASK_ANIMATION);
+        mAnimation.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.QS_TASK_ANIMATION, 0)));
+        mAnimation.setSummary(mAnimation.getEntry());
+        mAnimation.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -202,6 +210,12 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_INTERPOLATOR,
                     tileAnimationInterpolator, UserHandle.USER_CURRENT);
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+            return true;
+	  } else if (preference == mAnimation) {
+            Settings.System.putInt(getContentResolver(), Settings.System.QS_TASK_ANIMATION,
+                    Integer.valueOf((String) newValue));
+            mAnimation.setValue(String.valueOf(newValue));
+            mAnimation.setSummary(mAnimation.getEntry());
             return true;
 	  }
          return false;
