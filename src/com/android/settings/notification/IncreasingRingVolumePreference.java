@@ -143,6 +143,8 @@ public class IncreasingRingVolumePreference extends Preference implements
         mStartVolumeSeekBar.setOnSeekBarChangeListener(this);
         mRampUpTimeSeekBar.setOnSeekBarChangeListener(this);
         mRampUpTimeSeekBar.setProgress((rampUpTime / 5) - 1);
+        mRampUpTimeValue.setText(
+                Formatter.formatShortElapsedTime(getContext(), rampUpTime * 1000));
     }
 
     @Override
