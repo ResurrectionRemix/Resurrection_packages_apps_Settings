@@ -325,6 +325,7 @@
   <!-- Status bar - Clock -->
   <string name="clock_color_switch">Özel Saat Renkleri Etkin / Devre dışı</string>
   <string name="clock_color_title">Renk</string>
+  <string name="clock_color_switch_title">Renk anahtarı</string>
   <string name="status_bar_clock_style_reset">Rengi sıfırla</string>
   <string name="status_bar_clock_style_reset_message">Saat rengi sıfırlansın mı?</string>
   <string name="clock_font_style_title">Yazı tipi</string>
@@ -1079,8 +1080,8 @@
   <string name="notification_volume_option_title">Bildirim sesi</string>
   <string name="ring_notification_volume_option_title">Çağrı ve bildirim sesi</string>
   <!-- Volume Dialog Expanded -->
-  <string name="volume_dialog_force_expanded_title">Volume Panel Expanded</string>
-  <string name="volume_dialog_force_expanded_summary">Force the volume panel to always appear in expanded mode. First time you need to press on expand button.</string>
+  <string name="volume_dialog_force_expanded_title">Genişletilmiş Ses Paneli</string>
+  <string name="volume_dialog_force_expanded_summary">Ses panelinin her zaman genişletilmiş modda görünmesini zorlayın. İlk kullanımda genişletme tuşuna basmanız gerekir.</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="title_keyboard_input">Gelişmiş seçenekler</string>
   <string name="disable_fullscreen_keyboard_title">Tam ekran klavye devre dışı</string>
@@ -1558,9 +1559,9 @@
   <string name="hide_panel_alarm_sum">Başlıkta Sonraki Alarmı Göster / Gizle</string>
   <string name="notifications_misc">Çeşitli</string>
   <!-- Header text shadow and color -->
-  <string name="status_bar_custom_header_text_shadow_title">Header text shadow</string>
-  <string name="status_bar_custom_header_text_shadow_summary">For better visibility on themed headers</string>
-  <string name="status_bar_custom_header_text_shadow_color_title">Header text shadow color</string>
+  <string name="status_bar_custom_header_text_shadow_title">Başlık yazı gölgesi</string>
+  <string name="status_bar_custom_header_text_shadow_summary">Tema başlıklarının daha iyi görünmesi için</string>
+  <string name="status_bar_custom_header_text_shadow_color_title">Başlık yazı gölge rengi</string>
   <string name="unit_percent">\u0025</string>
   <!--Summary on/off-->
   <string name="hide_clock_summary_on">Saat Gösterildi</string>
@@ -1774,35 +1775,20 @@
   <string name="fling_longpress_summary">Uzun basmayı gerçekleştirmek için gereken süreyi arttırmak yada azaltmak</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_title">Pulse Hakkına</string>
-  <string name="pulse_help_policy_notice_summary">Pulse gezinme çubuğunda parlak ekolayzır çubukları tarzı müzik çalar ses görselleştirmesidir. Pulse cihazın hoparlörü üzerinden dinlerken bazı ses kaynakları ile çalışmaz.</string>
+  <string name="pulse_help_policy_notice_summary">Pulse gezinme çubuğunda parlak ekolayzır çubukları tarzı müzik çalar ses görselleştirmesidir. Pulse cihazın hoparlörü üzerinden dinlerken bazı ses kaynakları ile çalışmaz</string>
   <string name="pulse_settings">Pulse</string>
-  <string name="pulse_settings_summary">Gezinti çubuğu ses görselleştirme</string>
+  <string name="pulse_settings_summary">Gezinti çubuğu ses grafiği ekolayzır</string>
   <string name="fling_show_pulse_title">Pulse\'yi Göster</string>
-  <string name="fling_show_pulse_summary">Gezinme çubuğunda ses görselleştirme</string>
+  <string name="fling_show_pulse_summary">Gezinti çubuğunda ses grafiği ekolayzırı</string>
+  <string name="pulse_render_mode_title">İşleme biçimi</string>
+  <string name="pulse_render_mode_fading_bars">Fading blocks</string>
+  <string name="pulse_render_mode_solid_lines">Solid lines</string>
   <string name="fling_pulse_color">Pulse rengi</string>
   <string name="eos_fling_lavalamp_title">Lav Lambasını açın</string>
   <string name="eos_fling_lavalamp_summary">Pulse animasyonu pürüzsüz bir lav lambası tarzı renk karışımı animasyonu</string>
+  <string name="pulse_advanced_category">Gelişmiş</string>
+  <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
   <string name="pulse_custom_dimen">Pulse Çubuk Genişliği</string>
-  <string name="pulse_dimen0">Varsayılan</string>
-  <string name="pulse_dimen1">7dp</string>
-  <string name="pulse_dimen2">8dp</string>
-  <string name="pulse_dimen3">9dp</string>
-  <string name="pulse_dimen4">10dp</string>
-  <string name="pulse_dimen5">11dp</string>
-  <string name="pulse_dimen6">12dp</string>
-  <string name="pulse_dimen7">13dp</string>
-  <string name="pulse_dimen8">15dp</string>
-  <string name="pulse_dimen9">16dp</string>
-  <string name="pulse_dimen10">17dp</string>
-  <string name="pulse_dimen11">18dp</string>
-  <string name="pulse_dimen12">19dp</string>
-  <string name="pulse_dimen13">20dp</string>
-  <string name="pulse_dimen14">21dp</string>
-  <string name="pulse_dimen15">22dp</string>
-  <string name="pulse_dimen16">23dp</string>
-  <string name="pulse_dimen17">24dp</string>
-  <string name="pulse_dimen18">25dp</string>
-  <string name="pulse_dimen19">26dp</string>
   <string name="pulse_custom_div">Pulse Çubuk Aralığı</string>
   <string name="default_div">Varsayılan</string>
   <string name="pulse_custom_dimen_cat">Özel Boyut Değiştiricisi ile Görselleştirici\'de Pulse Çubuklarının Boyutlarını Ayarlayın. Ayrıca Aralarındaki Aralığı Ayarlayın</string>
@@ -1812,33 +1798,10 @@
   <string name="pulse_block_category_summary">Pulse Görselleştirici Bloklarının Boyutunu Ayarlayın ve Her Blok Aralığını</string>
   <string name="pulse_aggression">Güç</string>
   <string name="pulse_aggression_category">Pulse Görselleştiricinin Şiddetini Ayarlayın. Hafif Olması için En Küçük ve Çılgın Olması için En Agresif</string>
-  <string name="div1">18</string>
-  <string name="div2">20</string>
-  <string name="div3">22</string>
-  <string name="div4">24</string>
-  <string name="div5">26</string>
-  <string name="div6">28</string>
-  <string name="div7">30</string>
-  <string name="div8">32</string>
-  <string name="default_fill">4dp(varsayılan)</string>
-  <string name="pulse_bar_style">Pulse Çubuğu Stili</string>
-  <string name="default_pulse_empty">1dp(Varsayılan)</string>
-  <string name="pulse_filled_block_size">Blok Boyutu</string>
-  <string name="pulse_empty_block_size">Blok Aralığı</string>
-  <string name="pulse_fill1">5dp</string>
-  <string name="pulse_fill2">6dp</string>
-  <string name="pulse_fill3">7dp</string>
-  <string name="pulse_fill4">8dp</string>
-  <string name="pulse_empty1">2dp</string>
-  <string name="pulse_empty2">3dp</string>
-  <string name="pulse_empty3">4dp</string>
-  <string name="pulse_empty4">0(aralık yok)</string>
-  <string name="factor0">Normal</string>
-  <string name="factor1">Ferah</string>
-  <string name="factor2">Yavaş</string>
-  <string name="factor3">Hiper</string>
-  <string name="factor4">Çılgın</string>
   <string name="pulse_custom_fudge_factor">Görselleştiricisi Tutarlılık Seviyesi</string>
+  <string name="pulse_solid_fudge_factor">Sanity Level</string>
+  <string name="lavamp_solid_speed_title">LavaLamp Animation Speed</string>
+  <string name="pulse_solid_dimen_category">Solid Lines Customizations</string>
   <!-- Navbar height -->
   <string name="navigation_bar_size_title">Gezinti çubuğu boyutu</string>
   <string name="portrait_title">Dikey yükseklik</string>
@@ -1858,22 +1821,22 @@
   <string name="smartbar_button_animation_summary">Basıldığında birincil tuş animasyon stilini ayarla</string>
   <string name="smartbar_button_animation_ripple">Dalgalanma</string>
   <string name="smartbar_button_animation_spring">Sıçrama</string>
-  <string name="smartbar_factory_reset_title">Reset to stock</string>
+  <string name="smartbar_factory_reset_title">Varsayılana sıfırla</string>
   <string name="smartbar_factory_reset_confirm">Akıllı çubuk ayarlarını stok ayarlara sıfırlamak istediğinizden emin misiniz?</string>
   <string name="smartbar_ime_action_title">Giriş yöntemi eylemleri</string>
   <string name="smartbar_ime_action_summary">Ekranda klavye açıkken gösterilecek düğmeleri ayarlayın</string>
   <string name="smartbar_ime_action_none">Hiçbiri</string>
   <string name="smartbar_ime_action_arrows">İmleç okları</string>
   <string name="smartbar_ime_action_switcher">Klavye değiştirici</string>
-  <string name="smartbar_backup_current_config_title">Save profile</string>
-  <string name="smartbar_restore_config_title">Restore profile</string>
-  <string name="smartbar_config_name_edit_dialog_title">Smartbar profile name</string>
-  <string name="smartbar_config_name_edit_dialog_message">Enter name or leave blank</string>
-  <string name="smartbar_config_dialog_title">Smartbar profiles</string>
-  <string name="smartbar_config_backup_success_toast">Smartbar profile successfully saved</string>
-  <string name="smartbar_config_restore_success_toast">Smartbar profile successfully restored</string>
-  <string name="smartbar_config_backup_error_toast">Error saving Smartbar profile</string>
-  <string name="smartbar_config_restore_error_toast">Error restoring Smartbar profile</string>
+  <string name="smartbar_backup_current_config_title">Profili kaydet</string>
+  <string name="smartbar_restore_config_title">Profili geri yükle</string>
+  <string name="smartbar_config_name_edit_dialog_title">Smartbar profil adı</string>
+  <string name="smartbar_config_name_edit_dialog_message">Adı girin veya boş bırakın</string>
+  <string name="smartbar_config_dialog_title">Smartbar profilleri</string>
+  <string name="smartbar_config_backup_success_toast">Smartbar profili başarıyla kaydedildi</string>
+  <string name="smartbar_config_restore_success_toast">Smartbar profil başarıyla geri yüklendi</string>
+  <string name="smartbar_config_backup_error_toast">Smartbar profili kaydedilirken hata oluştu</string>
+  <string name="smartbar_config_restore_error_toast">Smartbar profil geri yüklenirken hata oluştu</string>
   <!-- QS Tiles Columns -->
   <string name="qs_num_columns_title">Satır başına kare sayısı</string>
   <string name="qs_num_columns_showing">Satır başına gösterilen %1$s kare</string>
@@ -1984,7 +1947,7 @@
   <string name="volume_dialog_dash_width_title">Ses paneli indirme genişliği</string>
   <string name="volume_dialog_dash_gap_title">Ses paneli indirme boşluğu</string>
   <!-- Volume dialog timeout -->
-  <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
+  <string name="volume_dialog_timeout_title">Ses paneli zaman aşımı</string>
   <!-- QS stroke settings -->
   <string name="qs_stroke_title">Hızlı ayarlar kenar gölgesi</string>
   <string name="qs_stroke_disabled">Devre dışı</string>
@@ -2005,4 +1968,14 @@
   <string name="qs_panel_logo_color_title">Hızlı ayarlar paneli logo rengi</string>
   <string name="qs_panel_logo_alpha_title">Hızlı ayarlar paneli logo şeffaflığı</string>
   <string name="notification_cat_power">Güç menüsü</string>
+  <string name="expansion_view_animation_title">Task Manager Animation</string>
+  <string name="expansion_view_animation_summary">Change the enter/exit animation of the panel change</string>
+  <string name="expansion_view_animation_dialog_title">Select your animation</string>
+  <string name="expansion_view_animation_down">Down (Default)</string>
+  <string name="expansion_view_animation_enter">Enter</string>
+  <string name="expansion_view_animation_left">Sol</string>
+  <string name="expansion_view_animation_right">Sağ</string>
+  <string name="expansion_view_animation_rotate">Döndür</string>
+  <string name="expansion_view_animation_turn">Turn</string>
+  <string name="expansion_view_animation_up">Yukarı</string>
 </resources>
