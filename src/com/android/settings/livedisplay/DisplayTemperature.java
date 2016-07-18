@@ -24,12 +24,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.settings.R;
+
+import org.cyanogenmod.internal.util.MathUtils;
 
 import cyanogenmod.hardware.LiveDisplayConfig;
 import cyanogenmod.hardware.LiveDisplayManager;
@@ -50,6 +53,8 @@ public class DisplayTemperature extends DialogPreference {
 
     private final LiveDisplayManager mLiveDisplay;
     private final LiveDisplayConfig mConfig;
+
+    private static final int STEP = 100;
 
     public DisplayTemperature(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -85,8 +90,8 @@ public class DisplayTemperature extends DialogPreference {
         TextView nightText = (TextView) view.findViewById(R.id.night_temperature_value);
         mNightTemperature = new ColorTemperatureSeekBar(night, nightText);
 
-        mDayTemperature.setProgress(mOriginalDayTemperature);
-        mNightTemperature.setProgress(mOriginalNightTemperature);
+        mDayTemperature.setTemperature(mOriginalDayTemperature);
+        mNightTemperature.setTemperature(mOriginalNightTemperature);
     }
 
     @Override
@@ -100,8 +105,8 @@ public class DisplayTemperature extends DialogPreference {
         defaultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDayTemperature.setProgress(mConfig.getDefaultDayTemperature());
-                mNightTemperature.setProgress(mConfig.getDefaultNightTemperature());
+                mDayTemperature.setTemperature(mConfig.getDefaultDayTemperature());
+                mNightTemperature.setTemperature(mConfig.getDefaultNightTemperature());
                 updateTemperature(true);
             }
         });
@@ -124,8 +129,8 @@ public class DisplayTemperature extends DialogPreference {
         final SavedState myState = new SavedState(superState);
         myState.originalDayTemperature = mOriginalDayTemperature;
         myState.originalNightTemperature = mOriginalNightTemperature;
-        myState.currentDayTemperature = mDayTemperature.getProgress();
-        myState.currentNightTemperature = mNightTemperature.getProgress();
+        myState.currentDayTemperature = mDayTemperature.getTemperature();
+        myState.currentNightTemperature = mNightTemperature.getTemperature();
 
         // Restore the old state when the activity or dialog is being paused
         updateTemperature(false);
@@ -146,8 +151,8 @@ public class DisplayTemperature extends DialogPreference {
 
         mOriginalDayTemperature = myState.originalDayTemperature;
         mOriginalNightTemperature = myState.originalNightTemperature;
-        mDayTemperature.setProgress(myState.currentDayTemperature);
-        mNightTemperature.setProgress(myState.currentNightTemperature);;
+        mDayTemperature.setTemperature(myState.currentDayTemperature);
+        mNightTemperature.setTemperature(myState.currentNightTemperature);;
 
         updateTemperature(true);
     }
@@ -193,27 +198,51 @@ public class DisplayTemperature extends DialogPreference {
     }
 
     private void updateTemperature(boolean accept) {
-        int day = accept ? mDayTemperature.getProgress() : mOriginalDayTemperature;
-        int night = accept ? mNightTemperature.getProgress() : mOriginalNightTemperature;
+        int day = accept ? mDayTemperature.getTemperature() : mOriginalDayTemperature;
+        int night = accept ? mNightTemperature.getTemperature() : mOriginalNightTemperature;
         callChangeListener(new Integer[] { day, night });
 
         mLiveDisplay.setDayColorTemperature(day);
         mLiveDisplay.setNightColorTemperature(night);
     }
 
+    int roundUp(int value) {
+        return ((value + STEP / 2) / STEP) * STEP;
+    }
+
     private class ColorTemperatureSeekBar implements SeekBar.OnSeekBarChangeListener {
         private final SeekBar mSeekBar;
         private final TextView mValue;
 
-        private static final int MIN = 1000;
-        private static final int MAX = 10000;
-        private static final int STEP = 100;
+        private final int mMin;
+        private final int mMax;
+
+        private final int mBalanceMin;
+        private final int mBalanceMax;
+
+        private final int mBarMax;
+
+        private final boolean mUseBalance;
+        private final double[] mBalanceCurve;
 
         public ColorTemperatureSeekBar(SeekBar seekBar, TextView value) {
             mSeekBar = seekBar;
             mValue = value;
+            mMin = mConfig.getColorTemperatureRange().getLower();
+            mMax = mConfig.getColorTemperatureRange().getUpper();
+            mBalanceMin = mConfig.getColorBalanceRange().getLower();
+            mBalanceMax = mConfig.getColorBalanceRange().getUpper();
+            mUseBalance = mConfig.hasFeature(LiveDisplayManager.FEATURE_COLOR_BALANCE) &&
+                    ((mBalanceMin != 0) || (mBalanceMax != 0));
 
-            mSeekBar.setMax((MAX - MIN) / STEP);
+            if (mUseBalance) {
+                mBalanceCurve = MathUtils.powerCurve(mMin, mConfig.getDefaultDayTemperature(), mMax);
+                mBarMax = mBalanceMax - mBalanceMin;
+            } else {
+                mBalanceCurve = null;
+                mBarMax = (mMax - mMin) / STEP;
+            }
+            mSeekBar.setMax(mBarMax);
             mSeekBar.setOnSeekBarChangeListener(this);
         }
 
@@ -222,17 +251,36 @@ public class DisplayTemperature extends DialogPreference {
             if (fromUser) {
                 updateTemperature(true);
             }
+
+            int displayValue;
+            if (mUseBalance) {
+                displayValue = roundUp(Math.round((float)MathUtils.linearToPowerCurve(
+                        mBalanceCurve, (double)progress / (double)mBarMax)));
+            } else {
+                displayValue = progress * STEP + mMin;
+            }
+            Log.d(TAG, "onProgressChanged: progress=" + progress + " displayValue=" + displayValue);
+
             mValue.setText(mContext.getResources().getString(
-                    R.string.live_display_color_temperature_label, progress * STEP + MIN));
+                    R.string.live_display_color_temperature_label, displayValue));
         }
 
-        public void setProgress(int progress) {
-            int p = Math.max(progress, MIN) - MIN;
+        public void setTemperature(int temperature) {
+            if (mUseBalance) {
+                double z = MathUtils.powerCurveToLinear(mBalanceCurve, (double)temperature);
+                mSeekBar.setProgress(Math.round((float)(z * (double)mBarMax)));
+                return;
+            }
+            int p = Math.max(temperature, mMin) - mMin;
             mSeekBar.setProgress(Math.round((float) p / STEP));
         }
 
-        public int getProgress() {
-            return mSeekBar.getProgress() * STEP + MIN;
+        public int getTemperature() {
+            if (mUseBalance) {
+                return Math.round((float)MathUtils.linearToPowerCurve(
+                        mBalanceCurve, (double)mSeekBar.getProgress() / (double)mBarMax));
+            }
+            return mSeekBar.getProgress() * STEP + mMin;
         }
 
         @Override

@@ -313,7 +313,9 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
         int night = mLiveDisplayManager.getNightColorTemperature();
 
         mDisplayTemperature.setSummary(getResources().getString(
-                R.string.live_display_color_temperature_summary, day, night));
+                R.string.live_display_color_temperature_summary,
+                mDisplayTemperature.roundUp(day),
+                mDisplayTemperature.roundUp(night)));
     }
 
     @Override
