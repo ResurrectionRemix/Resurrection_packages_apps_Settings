@@ -76,6 +76,7 @@ public class Settings extends SettingsActivity {
     public static class AccessibilityDaltonizerSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SecuritySettingsActivity extends SettingsActivity { /* empty */ }
     public static class UsageAccessSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ProfileMgrMainActivity extends SettingsActivity { /* empty */ }
     public static class LocationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrivacySettingsActivity extends SettingsActivity { /* empty */ }
     public static class RunningServicesActivity extends SettingsActivity { /* empty */ }

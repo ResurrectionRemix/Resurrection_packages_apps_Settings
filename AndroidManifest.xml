@@ -1281,6 +1281,27 @@
                 android:value="com.android.settings.applications.BackgroundCheckSummary" />
         </activity>
 
+        <activity android:name="Settings$ProfileMgrMainActivity"
+                android:label="@string/profiles_settings_title"
+                android:icon="@drawable/ic_settings_profiles"
+                android:enabled="false"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.personal" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ProfileMgrMain" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+
         <activity android:name="Settings$LocationSettingsActivity"
                 android:label="@string/location_settings_title"
                 android:icon="@drawable/ic_settings_location"
