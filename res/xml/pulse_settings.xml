@@ -62,7 +62,8 @@
             settings:unitsLeft=""
             settings:unitsRight="px"
 	    settings:defaultVal="14"
-            android:persistent="false" />
+            android:persistent="false"
+	    android:dependency="pulse_1" />
 
       <com.android.settings.rr.SeekBarPreference
             android:key="pulse_custom_div"
@@ -72,7 +73,8 @@
             settings:unitsLeft=""
             settings:unitsRight=""
             settings:defaultVal="2"
-            android:persistent="false" />
+            android:persistent="false" 
+	    android:dependency="pulse_1"/>
 
       <com.android.settings.rr.SeekBarPreference
             android:key="pulse_filled_block_size"
@@ -82,7 +84,8 @@
             settings:unitsLeft=""
             settings:unitsRight="px"
             settings:defaultVal="2"
-            android:persistent="false" />
+            android:persistent="false"
+	    android:dependency="pulse_1" />
 
 
       <com.android.settings.rr.SeekBarPreference
@@ -93,7 +96,8 @@
             settings:unitsLeft=""
             settings:unitsRight="px"
 	    settings:defaultVal="1"
-            android:persistent="false" />
+            android:persistent="false" 
+	    android:dependency="pulse_1"/>
 
 
       <com.android.settings.rr.SeekBarPreference
@@ -104,7 +108,8 @@
             settings:unitsLeft=""
             settings:unitsRight=""
 	    settings:defaultVal="2"
-            android:persistent="false" />
+            android:persistent="false" 
+	    android:dependency="pulse_1"/>
 
       <com.android.settings.rr.SeekBarPreference
             android:key="fling_pulse_lavalamp_speed"
@@ -114,7 +119,8 @@
             settings:unitsLeft=""
             settings:unitsRight="ms"
 	    settings:defaultVal="1000"
-            android:persistent="false" />
+            android:persistent="false" 
+	    android:dependency="pulse_1"/>
 
 	</PreferenceCategory>
 
@@ -130,6 +136,7 @@
             settings:unitsLeft=""
             settings:unitsRight=""
 	    settings:defaultVal="0"
+            android:dependency="pulse_2"
             android:persistent="false" />
 
       <com.android.settings.rr.SeekBarPreference
@@ -140,6 +147,7 @@
             settings:unitsLeft=""
             settings:unitsRight="ms"
             settings:defaultVal="1000"
+            android:dependency="pulse_2"
             android:persistent="false" />
 
 	
