@@ -117,7 +117,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         mCustomDiv = (SeekBarPreference) findPreference(CUSTOM_DIV);
         int customdiv = Settings.Secure.getIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_CUSTOM_DIV, 2,
+                    Settings.Secure.PULSE_CUSTOM_DIV, 8,
                     UserHandle.USER_CURRENT);
         mCustomDiv.setValue(customdiv / 1);
         mCustomDiv.setOnPreferenceChangeListener(this);
