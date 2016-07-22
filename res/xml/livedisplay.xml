@@ -52,23 +52,20 @@
             android:key="advanced"
             android:title="@string/advanced">
 
-        <!-- screen color -->
-        <PreferenceScreen
-                android:persistent="false"
-                android:key="screencolor_settings"
-                android:title="@string/screencolor"
-                android:summary="@string/screencolor_summary">
-            <intent
-                    android:action="com.qualcomm.display.PPService"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.ScreenColorSettings" />
-        </PreferenceScreen>
-
+        <!-- RGB display color adjustments -->
         <com.android.settings.livedisplay.DisplayColor
                 android:key="color_calibration"
                 android:title="@string/color_calibration_title"
                 android:dialogTitle="@string/color_calibration_title"
                 android:summary="@string/color_calibration_summary"
+                android:persistent="false"/>
+
+        <!-- HSIC display color adjustments -->
+        <com.android.settings.livedisplay.PictureAdjustment
+                android:key="picture_adjustment"
+                android:title="@string/picture_adjustment_title"
+                android:dialogTitle="@string/picture_adjustment_title"
+                android:summary="@string/picture_adjustment_summary"
                 android:persistent="false"/>
 
         <!-- Adaptive backlight -->

@@ -16,8 +16,10 @@
 package com.android.settings.livedisplay;
 
 import static cyanogenmod.hardware.LiveDisplayManager.FEATURE_CABC;
+import static cyanogenmod.hardware.LiveDisplayManager.FEATURE_COLOR_ADJUSTMENT;
 import static cyanogenmod.hardware.LiveDisplayManager.FEATURE_COLOR_ENHANCEMENT;
 import static cyanogenmod.hardware.LiveDisplayManager.FEATURE_DISPLAY_MODES;
+import static cyanogenmod.hardware.LiveDisplayManager.FEATURE_PICTURE_ADJUSTMENT;
 import static cyanogenmod.hardware.LiveDisplayManager.MODE_OFF;
 import static cyanogenmod.hardware.LiveDisplayManager.MODE_OUTDOOR;
 
@@ -71,7 +73,7 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private static final String KEY_LIVE_DISPLAY_TEMPERATURE = "live_display_color_temperature";
 
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
-    private static final String KEY_SCREEN_COLOR_SETTINGS = "screencolor_settings";
+    private static final String KEY_PICTURE_ADJUSTMENT = "picture_adjustment";
 
     private static final String KEY_LIVE_DISPLAY_COLOR_PROFILE = "live_display_color_profile";
 
@@ -84,8 +86,9 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
     private SwitchPreference mLowPower;
     private SwitchPreference mOutdoorMode;
 
-    private PreferenceScreen mScreenColorSettings;
+    private PictureAdjustment mPictureAdjustment;
     private DisplayTemperature mDisplayTemperature;
+    private DisplayColor mDisplayColor;
 
     private ListPreference mColorProfile;
     private String[] mColorProfileSummaries;
@@ -186,12 +189,18 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
             mColorEnhancement = null;
         }
 
-        mScreenColorSettings = (PreferenceScreen) findPreference(KEY_SCREEN_COLOR_SETTINGS);
-        if (advancedPrefs != null) {
-            if (mScreenColorSettings != null &&
-                    (mHasDisplayModes ||!isPostProcessingSupported(getActivity()))) {
-                advancedPrefs.removePreference(mScreenColorSettings);
-            }
+        mPictureAdjustment = (PictureAdjustment) findPreference(KEY_PICTURE_ADJUSTMENT);
+        if (advancedPrefs != null && mPictureAdjustment != null &&
+                    !mConfig.hasFeature(LiveDisplayManager.FEATURE_PICTURE_ADJUSTMENT)) {
+            advancedPrefs.removePreference(mPictureAdjustment);
+            mPictureAdjustment = null;
+        }
+
+        mDisplayColor = (DisplayColor) findPreference(KEY_DISPLAY_COLOR);
+        if (advancedPrefs != null && mDisplayColor != null &&
+                !mConfig.hasFeature(LiveDisplayManager.FEATURE_COLOR_ADJUSTMENT)) {
+            advancedPrefs.removePreference(mDisplayColor);
+            mDisplayColor = null;
         }
     }
 
@@ -405,10 +414,11 @@ public class LiveDisplay extends SettingsPreferenceFragment implements
             if (!config.hasFeature(FEATURE_CABC)) {
                 result.add(KEY_LIVE_DISPLAY_LOW_POWER);
             }
-            if (!isPostProcessingSupported(context)) {
-                result.add(KEY_SCREEN_COLOR_SETTINGS);
-            } else {
+            if (!config.hasFeature(FEATURE_COLOR_ADJUSTMENT)) {
                 result.add(KEY_DISPLAY_COLOR);
+            }
+            if (!config.hasFeature(FEATURE_PICTURE_ADJUSTMENT)) {
+                result.add(KEY_PICTURE_ADJUSTMENT);
             }
             return result;
         }
