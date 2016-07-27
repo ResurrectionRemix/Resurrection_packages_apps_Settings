@@ -300,7 +300,8 @@ public class SimStatus extends InstrumentedPreferenceActivity {
 
         String dataDisplay = Utils.getServiceStateString(dataState, mRes);
 
-        setSummaryText(KEY_SERVICE_STATE, "Voice: " + voiceDisplay + " / Data: " + dataDisplay);
+        setSummaryText(KEY_SERVICE_STATE, getString(R.string.sim_status_format_string,
+                voiceDisplay, dataDisplay));
 
         if (serviceState.getRoaming()) {
             setSummaryText(KEY_ROAMING_STATE, mRes.getString(R.string.radioInfo_roaming_in));
