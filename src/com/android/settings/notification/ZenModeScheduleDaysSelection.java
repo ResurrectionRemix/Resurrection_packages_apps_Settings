@@ -61,8 +61,9 @@ public class ZenModeScheduleDaysSelection extends ScrollView {
         }
         mLayout.setOrientation(LinearLayout.VERTICAL);
         final Calendar c = Calendar.getInstance();
+        int i = c.getFirstDayOfWeek() - 1;
         final LayoutInflater inflater = LayoutInflater.from(context);
-        for (int i = 0; i < DAYS.length; i++) {
+        for (int d = 0; d < DAYS.length; d++) {
             final int day = DAYS[i];
             final CheckBox checkBox = (CheckBox) inflater.inflate(R.layout.zen_schedule_rule_day,
                     this, false);
@@ -77,6 +78,7 @@ public class ZenModeScheduleDaysSelection extends ScrollView {
                 }
             });
             mLayout.addView(checkBox);
+            i = ++i % DAYS.length;
         }
     }
 
