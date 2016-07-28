@@ -244,7 +244,6 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     }
 
     private void fillList() {
-        boolean isSelectedKeyMatch = false;
         final TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final String mccmnc = mSubscriptionInfo == null ? ""
                 : tm.getSimOperator(mSubscriptionInfo.getSubscriptionId());
@@ -343,8 +342,6 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                 if (selectable) {
                     if ((mSelectedKey != null) && mSelectedKey.equals(key)) {
                         pref.setChecked();
-                        isSelectedKeyMatch = true;
-                        Log.d(TAG, "find select key = " + mSelectedKey);
                     }
                     addApnToList(pref, mnoApnList, mvnoApnList, r, mvnoType, mvnoMatchData);
                 } else {
@@ -364,15 +361,6 @@ public class ApnSettings extends RestrictedSettingsFragment implements
             for (Preference preference : mnoApnList) {
                 apnList.addPreference(preference);
             }
-
-            //if find no selectedKey, set the first one as selected key
-            if (!isSelectedKeyMatch && apnList.getPreferenceCount() > 0) {
-                ApnPreference pref = (ApnPreference) apnList.getPreference(0);
-                pref.setChecked();
-                setSelectedApnKey(pref.getKey());
-                Log.d(TAG, "set key to  " +pref.getKey());
-            }
-
             for (Preference preference : mnoMmsApnList) {
                 apnList.addPreference(preference);
             }
