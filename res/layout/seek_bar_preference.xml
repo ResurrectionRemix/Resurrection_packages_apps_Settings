@@ -31,35 +31,54 @@
             android:layout_height="wrap_content"
             android:layout_below="@android:id/summary" >
 
-            <TextView android:id="@+id/seekBarPrefUnitsRight"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-                    android:textColor="?android:attr/textColorSecondary" />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageMinus"
+                android:src="@drawable/ic_minus"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true" />
 
-            <TextView android:id="@+id/seekBarPrefValue"
-                    android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/seekBarPrefUnitsRight"
-                    android:gravity="right"
-                    android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-                    android:textColor="?android:attr/textColorSecondary" />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imagePlus"
+                android:src="@drawable/ic_add"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true" />
 
-            <TextView android:id="@+id/seekBarPrefUnitsLeft"
-                    android:layout_centerInParent="true"
-                    android:layout_toLeftOf="@id/seekBarPrefValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceListItemSecondary"
-                    android:textColor="?android:attr/textColorSecondary" />
+        <TextView android:id="@+id/seekBarPrefUnitsRight"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_toLeftOf="@+id/imagePlus" />
 
-            <LinearLayout android:id="@+id/seekBarPrefBarContainer"
-                    android:layout_centerInParent="true"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/seekBarPrefUnitsLeft" />
+        <TextView android:id="@+id/seekBarPrefValue"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/seekBarPrefUnitsRight"
+                android:gravity="right"
+                android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+                android:textColor="?android:attr/textColorSecondary" />
+
+        <LinearLayout android:id="@+id/seekBarPrefBarContainer"
+                android:layout_centerInParent="true"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/seekBarPrefValue"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/imageMinus" />
+
+        <TextView android:id="@+id/seekBarPrefUnitsLeft"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@id/seekBarPrefValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+                android:textColor="?android:attr/textColorSecondary" />
+
     </RelativeLayout>
 </RelativeLayout>
