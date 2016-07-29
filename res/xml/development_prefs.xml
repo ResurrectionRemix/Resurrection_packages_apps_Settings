@@ -112,6 +112,12 @@
             android:dependency="enable_adb"/>
 
         <SwitchPreference
+            android:key="adb_always_notify"
+            android:title="@string/adb_always_notify"
+            android:summary="@string/adb_always_notify_summary"
+            android:dependency="adb_notify" />
+
+        <SwitchPreference
             android:key="adb_over_network"
             android:title="@string/adb_over_network"
             android:summary="@string/adb_over_network_summary"

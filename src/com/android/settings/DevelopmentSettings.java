@@ -116,6 +116,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static final String ENABLE_ADB = "enable_adb";
     private static final String ADB_NOTIFY = "adb_notify";
+    private static final String ADB_ALWAYS_NOTIFY = "adb_always_notify";
     private static final String ADB_TCPIP = "adb_over_network";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String ENABLE_TERMINAL = "enable_terminal";
@@ -230,6 +231,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mEnableAdb;
     private SwitchPreference mAdbNotify;
+    private SwitchPreference mAdbAlwaysNotify;
     private SwitchPreference mAdbOverNetwork;
     private Preference mClearAdbKeys;
     private SwitchPreference mEnableTerminal;
@@ -356,6 +358,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
         mAdbNotify = (SwitchPreference) findPreference(ADB_NOTIFY);
         mAllPrefs.add(mAdbNotify);
+        mAdbAlwaysNotify = findAndInitSwitchPref(ADB_ALWAYS_NOTIFY);
         mAdbOverNetwork = findAndInitSwitchPref(ADB_TCPIP);
 
         mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
@@ -682,6 +685,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
         mAdbNotify.setChecked(CMSettings.Secure.getInt(cr,
                 CMSettings.Secure.ADB_NOTIFY, 1) != 0);
+        updateSwitchPreference(mAdbAlwaysNotify, Settings.Global.getInt(cr,
+                Settings.Global.ADB_ALWAYS_NOTIFY, 0) != 0);
         updateAdbOverNetwork();
 
         if (mEnableTerminal != null) {
@@ -1920,6 +1925,10 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             CMSettings.Secure.putInt(getActivity().getContentResolver(),
                     CMSettings.Secure.ADB_NOTIFY,
                     mAdbNotify.isChecked() ? 1 : 0);
+        } else if (preference == mAdbAlwaysNotify) {
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.ADB_ALWAYS_NOTIFY,
+                    mAdbAlwaysNotify.isChecked() ? 1 : 0);
         } else if (preference == mAdbOverNetwork) {
             if (mAdbOverNetwork.isChecked()) {
                 if (mAdbTcpDialog != null) {
