@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.preference.Preference;
+import android.support.v7.preference.Preference;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -109,9 +109,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
             mImageMinus.setEnabled(!disableDependent);
     }
 
-    @Override
     protected View onCreateView(ViewGroup parent){
-	super.onCreateView(parent);
 
         RelativeLayout layout =  null;
         try {
@@ -155,9 +153,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
         return layout;
     }
 
-    @Override
     public void onBindView(View view) {
-        super.onBindView(view);
         try
         {
             // move our seekbar to the new view we've been given

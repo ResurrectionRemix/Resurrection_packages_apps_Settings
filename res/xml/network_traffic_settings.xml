@@ -31,14 +31,14 @@
         android:summary="@string/network_traffic_autohide_summary"
         android:defaultValue="false" />
 
-    <com.android.settings.rr.SeekBarPreference
+    <!--com.android.settings.rr.SeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold"
         android:max="100"
-        settings:min="0"
+        settings:minimum="0"
         settings:unitsLeft=""
         settings:unitsRight="kB/s"
         android:dependency="network_traffic_autohide"
-        android:persistent="false" />
+        android:persistent="false" /-->
 
 </PreferenceScreen>
