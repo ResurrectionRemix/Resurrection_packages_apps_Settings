@@ -38,6 +38,7 @@ import android.os.storage.VolumeInfo;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.text.format.Formatter;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.MutableInt;
 import android.view.View;
@@ -263,6 +264,22 @@ public class AppStorageSettings extends AppInfoWithHeader
         return Formatter.formatFileSize(getActivity(), size);
     }
 
+    private boolean isCacheClearableApp(){
+        String currentPkgName = this.mPackageInfo.packageName;
+        String [] appPackageName = getResources().getStringArray(
+                R.array.no_cache_clear_package_list);
+        if (TextUtils.isEmpty(currentPkgName)) {
+            return false;
+        }
+        int length = appPackageName.length;
+        for (int i = 0; i < length; i++) {
+            if (currentPkgName.equals(appPackageName[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private void refreshSizeInfo() {
         if (mAppEntry.size == ApplicationsState.SIZE_INVALID
                 || mAppEntry.size == ApplicationsState.SIZE_UNKNOWN) {
@@ -316,7 +333,7 @@ public class AppStorageSettings extends AppInfoWithHeader
                 mClearDataButton.setEnabled(true);
                 mClearDataButton.setOnClickListener(this);
             }
-            if (cacheSize <= 0) {
+            if (cacheSize <= 0 || !isCacheClearableApp()) {
                 mClearCacheButton.setEnabled(false);
             } else {
                 mClearCacheButton.setEnabled(true);
