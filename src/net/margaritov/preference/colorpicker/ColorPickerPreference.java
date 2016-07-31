@@ -93,7 +93,7 @@ public class ColorPickerPreference extends Preference implements
             mResetColor1Title = a.getString(R.styleable.ColorPickerPreference_resetColor1Title);
             mResetColor2Title = a.getString(R.styleable.ColorPickerPreference_resetColor2Title);
             mAlphaSliderVisible = a.getBoolean(
-                    R.styleable.ColorPickerPreference_alphaSliderVisible, false);
+                    R.styleable.ColorPickerPreference_alphaSliderVisible, true);
             a.recycle();
 
             if (mDefaultValue == Color.TRANSPARENT) {
