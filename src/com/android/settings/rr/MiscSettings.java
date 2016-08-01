@@ -65,6 +65,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+
 import com.android.internal.logging.MetricsLogger;
 
 public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener, Indexable {
@@ -75,6 +76,7 @@ private static final String SELINUX = "selinux";
 private static final String CATEGORY_VIB = "misc_4";
 private static final String DOZE_POWERSAVE_PROPERTY = "persist.sys.doze_powersave";
 private static final String DOZE_POWERSAVE_KEY = "doze_powersave";
+private static final String SCREENSHOT_CROP_AND_SHARE = "screenshot_crop_and_share";
 private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 private final ArrayList<SwitchPreference> mResetSwitchPrefs  = new ArrayList<SwitchPreference>();
 
@@ -83,6 +85,7 @@ private SwitchPreference mSelinux;
 private FingerprintManager mFingerprintManager;
 private SwitchPreference mFingerprintVib;
 private SwitchPreference mDozePowersave;
+private SwitchPreference mScreenShot;
 private boolean mDontPokeProperties;
 
 
@@ -109,6 +112,11 @@ private boolean mDontPokeProperties;
          
         mDozePowersave = findAndInitSwitchPref(DOZE_POWERSAVE_KEY);
         updateDozePowersaveOptions();
+
+        mScreenShot = (SwitchPreference) prefScreen.findPreference(SCREENSHOT_CROP_AND_SHARE);
+        mScreenShot.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.SCREENSHOT_CROP_AND_SHARE, 0) == 1);
+        mScreenShot.setOnPreferenceChangeListener(this);
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 	PreferenceCategory mVibratepref = (PreferenceCategory)
@@ -155,6 +163,13 @@ private boolean mDontPokeProperties;
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
      ContentResolver resolver = getActivity().getContentResolver();
+       if (preference == mScreenShot) {
+            boolean use = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SCREENSHOT_CROP_AND_SHARE, use ? 1 : 0);
+            Helpers.restartSystemUI();
+            return true;
+           }
             if (preference == mSelinux) {
             if (newValue.toString().equals("true")) {
                 CMDProcessor.runSuCommand("setenforce 1");
