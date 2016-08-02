@@ -536,10 +536,9 @@ public class ApnEditor extends SettingsPreferenceFragment
             }
             mMvnoType.setValue((String) newValue);
             mMvnoType.setSummary(mvno);
-        }
-        if (preference.equals(mPassword)) {
+        } else if (preference.equals(mPassword)) {
             preference.setSummary(starify(newValue != null ? String.valueOf(newValue) : ""));
-        } else if (preference.equals(mCarrierEnabled) || preference.equals(mBearerMulti)) {
+        } else if (preference.equals(mCarrierEnabled)) {
             // do nothing
         } else {
             preference.setSummary(checkNull(newValue != null ? String.valueOf(newValue) : null));
