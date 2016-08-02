@@ -16,6 +16,11 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <SwitchPreference
+            android:key="use_recent_app_sidebar"
+            android:title="@string/use_recent_app_sidebar"
+            android:defaultValue="true" />
+
     <PreferenceScreen
         android:fragment="com.android.settings.slim.RecentAppSidebar"
         android:key="recent_app_sidebar"

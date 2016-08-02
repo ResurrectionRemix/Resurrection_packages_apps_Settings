@@ -42,11 +42,14 @@ public class RecentAppSidebar extends SettingsPreferenceFragment implements Dial
     private static final String APP_SIDEBAR_LABEL_COLOR = "recent_app_sidebar_label_color";
     private static final String APP_SIDEBAR_BG_COLOR = "recent_app_sidebar_bg_color";
     private static final String APP_SIDEBAR_SCALE = "recent_app_sidebar_scale";
+    private static final String APP_SIDEBAR_OPEN_SIMULTANEOUSLY =
+            "recent_app_sidebar_open_simultaneously";
 
     private SlimSeekBarPreference mAppSidebarScale;
     private SwitchPreference mAppSidebarHideLabels;
     private ColorPickerPreference mAppSidebarLabelColor;
     private ColorPickerPreference mAppSidebarBgColor;
+    private SwitchPreference mAppSidebarOpenSimultaneously;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DEFAULT_COLOR = 0x00ffffff;
@@ -70,7 +73,8 @@ public class RecentAppSidebar extends SettingsPreferenceFragment implements Dial
                     Settings.System.RECENT_APP_SIDEBAR_SCALE_FACTOR, value);
             return true;
         } else if (preference == mAppSidebarHideLabels) {
-            Settings.System.putInt(getContentResolver(), Settings.System.RECENT_APP_SIDEBAR_DISABLE_LABELS,
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_APP_SIDEBAR_DISABLE_LABELS,
                     ((Boolean) newValue) ? 1 : 0);
             return true;
         } else if (preference == mAppSidebarLabelColor) {
@@ -98,6 +102,11 @@ public class RecentAppSidebar extends SettingsPreferenceFragment implements Dial
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_APP_SIDEBAR_BG_COLOR,
                     intHex);
+            return true;
+        } else if (preference == mAppSidebarOpenSimultaneously) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_APP_SIDEBAR_OPEN_SIMULTANEOUSLY,
+                    ((Boolean) newValue) ? 1 : 0);
             return true;
         }
         return false;
@@ -154,11 +163,16 @@ public class RecentAppSidebar extends SettingsPreferenceFragment implements Dial
         mAppSidebarScale.setInitValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_APP_SIDEBAR_SCALE_FACTOR, 100) - 60);
 
-        mAppSidebarHideLabels =  (SwitchPreference) findPreference(APP_SIDEBAR_HIDE_LABELS);
+        mAppSidebarHideLabels = (SwitchPreference) findPreference(APP_SIDEBAR_HIDE_LABELS);
         mAppSidebarHideLabels.setOnPreferenceChangeListener(this);
         mAppSidebarHideLabels.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_APP_SIDEBAR_DISABLE_LABELS, 0) == 1);
 
+        mAppSidebarOpenSimultaneously =
+                (SwitchPreference) findPreference(APP_SIDEBAR_OPEN_SIMULTANEOUSLY);
+        mAppSidebarOpenSimultaneously.setOnPreferenceChangeListener(this);
+        mAppSidebarOpenSimultaneously.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_APP_SIDEBAR_OPEN_SIMULTANEOUSLY, 1) == 1);
 
         mAppSidebarLabelColor = (ColorPickerPreference) findPreference(APP_SIDEBAR_LABEL_COLOR);
         mAppSidebarLabelColor.setOnPreferenceChangeListener(this);
