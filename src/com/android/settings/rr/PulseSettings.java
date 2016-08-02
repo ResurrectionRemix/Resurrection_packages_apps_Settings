@@ -25,16 +25,26 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.ListPreference;
 import android.provider.Settings;
+
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -59,6 +69,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String SOLID_LAVAMP_SPEED = "lavamp_solid_speed";
     private static final String FADING_LAVAMP_SPEED = "fling_pulse_lavalamp_speed";
 
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
+
     SwitchPreference mShowPulse;
     ListPreference mRenderMode;
     SwitchPreference mLavaLampEnabled;
@@ -75,8 +88,9 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.pulse_settings);
+	PreferenceScreen prefs = getPreferenceScreen();
 
+        addPreferencesFromResource(R.xml.pulse_settings);
         ActionBar bar = getActivity().getActionBar();
         if (bar != null) {
             bar.setTitle(R.string.pulse_settings);
@@ -124,21 +138,21 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         
         mFilled = (SeekBarPreference)  findPreference(PULSE_BLOCK);
         int filled = Settings.Secure.getIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 0,
+                    Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 2,
                     UserHandle.USER_CURRENT);
         mFilled.setValue(filled / 1);
         mFilled.setOnPreferenceChangeListener(this);
         
         mEmpty = (SeekBarPreference) findPreference(EMPTY_BLOCK);
         int empty = Settings.Secure.getIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 0,
+                    Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 1,
                     UserHandle.USER_CURRENT);
         mEmpty.setValue(empty / 1);
         mEmpty.setOnPreferenceChangeListener(this);
         
         mFudge = (SeekBarPreference) findPreference(FUDGE_FACOR);
         int fudge = Settings.Secure.getIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 0,
+                    Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 2,
                     UserHandle.USER_CURRENT);
         mFudge.setValue(fudge / 1);
         mFudge.setOnPreferenceChangeListener(this);
@@ -148,7 +162,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         mSolidFudge = (SeekBarPreference) findPreference(SOLID_FUDGE);
         int solidfudge = Settings.Secure.getIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, 0,
+                    Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, 2,
                     UserHandle.USER_CURRENT);
         mSolidFudge.setValue(solidfudge/ 1);
         mSolidFudge.setOnPreferenceChangeListener(this);
@@ -166,6 +180,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                     Settings.Secure.FLING_PULSE_LAVALAMP_SPEED, 10000);
         mFadingSpeed.setValue(fspeed / 1);
         mFadingSpeed.setOnPreferenceChangeListener(this);
+
+	setHasOptionsMenu(true);
 
     }
 
@@ -241,6 +257,89 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        return true;
+    }
+
+    @Override
+     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+         menu.add(0, MENU_RESET, 0, R.string.reset)
+                 .setIcon(R.drawable.ic_pulse_reset)
+                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+     }
+ 
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         switch (item.getItemId()) {
+             case MENU_RESET:
+                 resetToDefault();
+                 return true;
+             default:
+                 return super.onContextItemSelected(item);
+         }
+     }
+ 
+     private void resetToDefault() {
+         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+         alertDialog.setTitle(R.string.reset);
+         alertDialog.setMessage(R.string.dlg_reset_values_message);
+         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+             public void onClick(DialogInterface dialog, int id) {
+                 resetAllValues();
+                 resetAllSettings();
+             }
+         });
+         alertDialog.setNegativeButton(R.string.cancel, null);
+         alertDialog.create().show();
+     }
+ 
+     private void resetAllValues() {
+          mCustomDimen.setValue(14);
+	  mCustomDiv.setValue(8);
+	  mFilled.setValue(2);
+	  mEmpty.setValue(1);
+	  mFudge.setValue(2);
+	  mSolidFudge.setValue(2);
+	  mSolidSpeed.setValue(10*1000);
+	  mFadingSpeed.setValue(10*1000);
+     }
+ 
+     private void resetAllSettings() {
+         setProperVal(mCustomDimen, 14);
+         setProperVal(mCustomDiv, 8);
+         setProperVal(mFilled, 2);
+         setProperVal(mEmpty, 1);
+         setProperVal(mFudge, 2);
+         setProperVal(mSolidFudge, 2);
+         setProperVal(mSolidSpeed, 10*1000);
+         setProperVal(mFadingSpeed, 10*1000);
+	 mLavaLampEnabled.setChecked(true);
+     }
+
+
+   private void setProperVal(Preference preference, int val) {
+            String mString = "";
+            if (preference == mCustomDimen) {
+                mString = Settings.Secure.PULSE_CUSTOM_DIMEN;
+            } else if (preference == mCustomDiv) {
+                mString = Settings.Secure.PULSE_CUSTOM_DIV;
+            } else if (preference == mFilled) {
+                mString = Settings.Secure.PULSE_FILLED_BLOCK_SIZE;
+            } else if (preference == mEmpty) {
+                mString = Settings.Secure.PULSE_EMPTY_BLOCK_SIZE;
+            } else if (preference == mFudge) {
+                mString = Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR;
+            } else if (preference == mSolidFudge) {
+                mString = Settings.Secure.PULSE_SOLID_FUDGE_FACTOR;
+            } else if (preference == mSolidSpeed) {
+                mString = Settings.Secure.LAVAMP_SOLID_SPEED;
+            } else if (preference == mFadingSpeed) {
+                mString = Settings.Secure.FLING_PULSE_LAVALAMP_SPEED;
+            }
+    
+            Settings.Secure.putInt(getActivity().getContentResolver(), mString, val);
+        }
     @Override
     protected int getMetricsCategory() {
         return MetricsLogger.DONT_TRACK_ME_BRO;
