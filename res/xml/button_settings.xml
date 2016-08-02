@@ -62,6 +62,12 @@
         android:title="@string/advanced_reboot_title"
         android:summary="@string/advanced_reboot_summary" />
 
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="advanced_reboot_oneclick"
+        android:title="@string/advanced_reboot_oneclick"
+        android:summary="@string/advanced_reboot_oneclick_summary"
+        android:dependency="advanced_reboot" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
