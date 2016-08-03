@@ -43,8 +43,17 @@
         android:entries="@array/smartbar_button_animation_entries"
         android:entryValues="@array/smartbar_button_animation_values"
         android:summary="@string/smartbar_button_animation_summary" />
-    
-    
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="navbar_buttons_alpha"
+         android:title="@string/navbar_buttons_alpha_title"
+         android:max="255"
+         settings:minimum="0"
+         settings:unitsLeft=""
+         settings:unitsRight=""
+         settings:defaultVal="255"
+         android:persistent="false" />
+
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="navbar_tint_switch"
         android:title="@string/navbar_tint_switch"
