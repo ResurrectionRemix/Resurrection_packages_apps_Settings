@@ -40,6 +40,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
@@ -58,6 +59,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static android.content.Context.TELEPHONY_SERVICE;
 import static android.net.ConnectivityManager.TETHERING_BLUETOOTH;
 import static android.net.ConnectivityManager.TETHERING_USB;
 import static android.net.ConnectivityManager.TETHERING_WIFI;
@@ -80,7 +82,8 @@ public class TetherSettings extends RestrictedSettingsFragment
     private static final String ACTION_EXTRA_VALUE = "value";
     private static final String SHAREPREFERENCE_DEFAULT_WIFI = "def_wifiap_set";
     private static final String SHAREPREFERENCE_FIFE_NAME = "MY_PERFS";
-    private static final String ACTION_HOTSPOT_CONFIGURE = "Hotspot_PreConfigure";
+    private static final String KEY_FIRST_LAUNCH_HOTSPOT = "FirstLaunchHotspotTethering";
+    private static final String ACTION_HOTSPOT_PRE_CONFIGURE = "Hotspot_PreConfigure";
     private static final String ACTION_HOTSPOT_POST_CONFIGURE = "Hotspot_PostConfigure";
     private static final String CONFIGURE_RESULT = "PreConfigure_result";
     private static final String ACTION_HOTSPOT_CONFIGURE_RRSPONSE =
@@ -180,7 +183,8 @@ public class TetherSettings extends RestrictedSettingsFragment
 
         mCreateNetwork = findPreference(WIFI_AP_SSID_AND_SECURITY);
 
-        boolean enableWifiApSettingsExt = getResources().getBoolean(R.bool.show_wifi_hotspot_settings);
+        boolean enableWifiApSettingsExt = getResources().
+                         getBoolean(R.bool.show_wifi_hotspot_settings);
         boolean isWifiApEnabled = getResources().getBoolean(R.bool.hide_wifi_hotspot);
         checkDefaultValue(getActivity());
         if (enableWifiApSettingsExt) {
@@ -188,10 +192,19 @@ public class TetherSettings extends RestrictedSettingsFragment
                     (HotspotPreference) findPreference(ENABLE_WIFI_AP_EXT);
             getPreferenceScreen().removePreference(findPreference(ENABLE_WIFI_AP));
             getPreferenceScreen().removePreference(mCreateNetwork);
-            Intent intent = new Intent();
-            intent.setAction("com.qti.ap.settings");
-            intent.setPackage("com.qualcomm.qti.extsettings");
-            mEnableWifiAp.setIntent(intent);
+            mEnableWifiAp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent intent = new Intent();
+                    if(isNeedShowHelp(getActivity())) {
+                        intent.setAction(ACTION_HOTSPOT_PRE_CONFIGURE);
+                    } else {
+                        intent.setAction("com.qti.ap.settings");
+                    }
+                    intent.setPackage("com.qualcomm.qti.extsettings");
+                    mEnableWifiAp.setIntent(intent);
+                    return false;
+                }
+            });
         } else {
             mEnableWifiAp =
                     (SwitchPreference) findPreference(ENABLE_WIFI_AP);
@@ -547,12 +560,50 @@ public class TetherSettings extends RestrictedSettingsFragment
         }
     }
 
+    private boolean showNoSimCardDialog(Context ctx) {
+        TelephonyManager tm = (TelephonyManager) ctx.getSystemService(TELEPHONY_SERVICE);
+        if (!isSimCardReady(tm)) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
+            alert.setTitle(ctx.getResources().getString(R.string.tethering_no_sim_alert_title));
+            alert.setMessage(ctx.getResources().getString(R.string.tethering_no_sim_card_text));
+            alert.setPositiveButton(ctx.getResources().getString(R.string.okay),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alert.show();
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isSimCardReady(
+            TelephonyManager telephonyManager) {
+        return (telephonyManager.getSimState()
+                == TelephonyManager.SIM_STATE_READY);
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
         boolean enable = (Boolean) value;
-
+        boolean enableWifiApSettingsExt = getResources().
+                         getBoolean(R.bool.show_wifi_hotspot_settings);
         if (enable) {
-            startTethering(TETHERING_WIFI);
+            if(enableWifiApSettingsExt && showNoSimCardDialog(getPrefContext())) {
+                ((HotspotPreference)preference).setChecked(false);
+                return false;
+            } else if(enableWifiApSettingsExt && isNeedShowHelp(getPrefContext())) {
+                Intent intent = new Intent();
+                intent.setAction(ACTION_HOTSPOT_PRE_CONFIGURE);
+                intent.setPackage("com.qualcomm.qti.extsettings");
+                getPrefContext().startActivity(intent);
+                ((HotspotPreference)preference).setChecked(false);
+                return false;
+            } else {
+                startTethering(TETHERING_WIFI);
+            }
         } else {
             mCm.stopTethering(TETHERING_WIFI);
         }
@@ -650,6 +701,18 @@ public class TetherSettings extends RestrictedSettingsFragment
     @Override
     public int getHelpResource() {
         return R.string.help_url_tether;
+    }
+
+    private boolean isNeedShowHelp(final Context ctx) {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(
+                SHAREPREFERENCE_FIFE_NAME, Activity.MODE_PRIVATE);
+        Editor editor = sharedPreferences.edit();
+        boolean isFirstUse = sharedPreferences.getBoolean(KEY_FIRST_LAUNCH_HOTSPOT, true);
+        if (isFirstUse) {
+            editor.putBoolean(KEY_FIRST_LAUNCH_HOTSPOT, false);
+            editor.commit();
+        }
+        return isFirstUse;
     }
 
     private void checkDefaultValue(Context ctx) {
