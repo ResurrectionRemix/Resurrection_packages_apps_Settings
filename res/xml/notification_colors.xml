@@ -53,7 +53,15 @@
            android:key="notification_drawer_clear_all_icon_color"
            android:title="@string/notification_drawer_clear_all_icon_color_title"
            android:defaultValue="0xffffffff" />
-	
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+           android:key="notification_alpha"
+           android:title="@string/notifications_transparency"
+           android:max="255"
+           settings:min="0"
+           settings:unitsLeft=""
+           settings:unitsRight=""
+           android:persistent="false" />
 	
 </PreferenceCategory>
 

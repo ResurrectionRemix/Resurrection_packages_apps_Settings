@@ -90,6 +90,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_QS_PANEL_LOGO = "qs_panel_logo";
     private static final String PREF_QS_PANEL_LOGO_COLOR = "qs_panel_logo_color";
     private static final String PREF_QS_PANEL_LOGO_ALPHA = "qs_panel_logo_alpha";
+    private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
     private ListPreference mQSPanelLogo;
     private ColorPickerPreference mQSPanelLogoColor;
     private SeekBarPreferenceCham mQSPanelLogoAlpha;
@@ -123,6 +124,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private SeekBarPreferenceCham mVolumeDialogAlpha;	
     private SeekBarPreferenceCham mPowerMenuAlpha;
     private SeekBarPreferenceCham mPowerDialogDim;
+    private SeekBarPreferenceCham mNotificationsAlpha;
     private ListPreference mVolumeDialogStroke;
     private ColorPickerPreference mVolumeDialogStrokeColor;
     private SeekBarPreferenceCham mVolumeDialogStrokeThickness;
@@ -231,6 +233,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                     Settings.System.TRANSPARENT_POWER_MENU, 100);
             mPowerMenuAlpha.setValue(powerMenuAlpha / 1);
             mPowerMenuAlpha.setOnPreferenceChangeListener(this);
+
+            // Notifications alpha
+            mNotificationsAlpha =
+                    (SeekBarPreferenceCham) findPreference(PREF_NOTIFICATION_ALPHA);
+            int notificationsAlpha = Settings.System.getInt(mResolver,
+                    Settings.System.NOTIFICATION_ALPHA, 255);
+            mNotificationsAlpha.setValue(notificationsAlpha / 1);
+            mNotificationsAlpha.setOnPreferenceChangeListener(this);
 
 	    // Power/reboot dialog dim
             mPowerDialogDim =
@@ -492,6 +502,11 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
 		int alpha = (Integer) newValue;
                 Settings.System.putInt(mResolver,
                         Settings.System.TRANSPARENT_POWER_MENU, alpha * 1);
+                return true;
+        } else if (preference == mNotificationsAlpha) {
+                int alpha = (Integer) newValue;
+                Settings.System.putInt(mResolver,
+                        Settings.System.NOTIFICATION_ALPHA, alpha * 1);
                 return true;
 	}  else if (preference == mPowerDialogDim) {
 		int alpha = (Integer) newValue;
