@@ -18,6 +18,8 @@ import android.app.ActivityManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Loader;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -400,6 +402,14 @@ public class DataUsageList extends DataUsageBase {
         final List<UserHandle> profiles = userManager.getUserProfiles();
         final SparseArray<AppItem> knownItems = new SparseArray<AppItem>();
 
+        PackageManager pm = getContext().getPackageManager();
+        ApplicationInfo ai = null;
+        try{
+            ai = pm.getApplicationInfo("com.android.dialer", PackageManager.GET_ACTIVITIES);
+         } catch(Exception e) {
+           Log.d(TAG, "get dialer getApplicationInfo failed " + e);
+        }
+
         NetworkStats.Entry entry = null;
         final int size = stats != null ? stats.size() : 0;
         for (int i = 0; i < size; i++) {
@@ -435,6 +445,10 @@ public class DataUsageList extends DataUsageBase {
                     }
                 }
             } else if (uid == UID_REMOVED || uid == UID_TETHERING) {
+                collapseKey = uid;
+                category = AppItem.CATEGORY_APP;
+            } else if ((ai != null) && (uid == ai.uid) && getContext().getResources().getBoolean(
+                    R.bool.config_video_call_datausage_enable)){
                 collapseKey = uid;
                 category = AppItem.CATEGORY_APP;
             } else {
