@@ -32,6 +32,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WpsInfo;
 import android.nfc.NfcAdapter;
@@ -565,6 +566,15 @@ public class WifiSettings extends RestrictedSettingsFragment
         showDialog(WIFI_DIALOG_ID);
     }
 
+    private boolean isPasspointWifi(AccessPoint ap) {
+        if (ap != null && ap.getConfig() != null) {
+            WifiEnterpriseConfig entConfig = ap.getConfig().enterpriseConfig;
+            return (entConfig != null)
+                && (entConfig.getEapMethod() != WifiEnterpriseConfig.Eap.NONE);
+        }
+        return false;
+    }
+
     @Override
     public Dialog onCreateDialog(int dialogId) {
         switch (dialogId) {
@@ -581,8 +591,19 @@ public class WifiSettings extends RestrictedSettingsFragment
                 }
                 // If it's null, fine, it's for Add Network
                 mSelectedAccessPoint = ap;
-                mDialog = new WifiDialog(getActivity(), this, ap, mDialogMode,
-                        /* no hide submit/connect */ false);
+                if (getResources().getBoolean(
+                        com.android.internal.R.bool.config_passpoint_setting_on)) {
+                    //always hide the "forget" button for an passpoint hotspot
+                    boolean hideForget = (ap == null || isEditabilityLockedDown(getActivity(),
+                            ap.getConfig()));
+                    hideForget = hideForget || isPasspointWifi(ap);
+                    Log.d(TAG, "Passpoint hotspot ? " + (isPasspointWifi(ap) ? "yes":"no"));
+                    mDialog = new WifiDialog(getActivity(), this, (hideForget ? null : ap),
+                            mDialogMode,/* no hide submit/connect */ false);
+                } else {
+                    mDialog = new WifiDialog(getActivity(), this, ap, mDialogMode,
+                            /* no hide submit/connect */ false);
+                }
                 return mDialog;
             case WPS_PBC_DIALOG_ID:
                 return new WpsDialog(getActivity(), WpsInfo.PBC);

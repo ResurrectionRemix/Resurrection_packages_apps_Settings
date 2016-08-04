@@ -25,12 +25,14 @@ import android.os.Bundle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.security.Credentials;
+import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+
 import android.util.Log;
 import android.widget.Toast;
 
@@ -77,7 +79,7 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
 
     private static final String KEY_CONNECT_NOTIFY = "notify_ap_connected";
     private static final String NOTIFY_USER_CONNECT = "notify_user_when_connect_cmcc";
-
+    private static final String KEY_ENABLE_HS2 = "enable_hs2";
     private static final int NOTIFY_USER = 0;
     private static final int DO_NOT_NOTIFY_USER = -1;
 
@@ -132,7 +134,27 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
         intent.putExtra(Credentials.EXTRA_INSTALL_AS_UID, android.os.Process.WIFI_UID);
         Preference pref = findPreference(KEY_INSTALL_CREDENTIALS);
         pref.setIntent(intent);
+        SwitchPreference enableHs2 =
+                (SwitchPreference) findPreference(KEY_ENABLE_HS2);
+        if (enableHs2 != null && getResources().getBoolean(
+                com.android.internal.R.bool.config_passpoint_setting_on)) {
+            enableHs2.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    String key = preference.getKey();
+                    if (KEY_ENABLE_HS2.equals(key)) {
+                        Settings.Global.putInt(getContentResolver(),
+                                Settings.Global.WIFI_HOTSPOT2_ENABLED,
+                                ((SwitchPreference) preference).isChecked() ? 1 : 0);
+                    }
+                return true;
+                }
+            });
 
+            enableHs2.setChecked(Settings.Global.getInt(getContentResolver(),
+                    Settings.Global.WIFI_HOTSPOT2_ENABLED, WIFI_HS2_DISABLED) == WIFI_HS2_ENABLED);
+        } else {
+            getPreferenceScreen().removePreference(enableHs2);
+        }
 
         Intent wifiDirectIntent = new Intent(context,
                 com.android.settings.Settings.WifiP2pSettingsActivity.class);
