@@ -98,10 +98,10 @@ http://forum.resurrectionremix.com/</string>
   <string name="icons_category">狀態列圖示</string>
   <string name="misc_category">其他狀態列設定</string>
   <string name="button_controller_title">按鈕控制器</string>
-  <string name="recents_panel_clear_all_category"> 全部清除自訂項目</string>
-  <string name="recents_panel_recents_view"> 「最近的畫面」畫面</string>
-  <string name="recents_panel_alternative_recents">其他「最近使用的應用程式」頁面</string>
-  <string name="recents_panel_recents_bars">「最近使用的應用程式」列</string>
+  <string name="recents_panel_clear_all_category"> 全部清除調整項目</string>
+  <string name="recents_panel_recents_view"> 「總覽」畫面</string>
+  <string name="recents_panel_alternative_recents">其他「總覽」畫面</string>
+  <string name="recents_panel_recents_bars">總覽列</string>
   <string name="interface_category"> 介面</string>
   <string name="customization_category"> 自訂</string>
   <string name="gestures_settings">手勢</string>
@@ -111,7 +111,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="animations_cat">系統</string>
   <string name="toast_cat">彈出訊息設定</string>
   <string name="list_cat">清單顯示</string>
-  <string name="perf_cat">動畫和性能</string>
+  <string name="perf_cat">動畫和效能</string>
   <string name="header_cat">通知標題</string>
   <string name="rr_header_fonts">通知標題字型</string>
   <string name="rr_header_colors">通知標題顏色</string>
@@ -125,14 +125,49 @@ http://forum.resurrectionremix.com/</string>
   <string name="misc_3">系統</string>
   <string name="misc_4">指紋</string>
   <!-- Color picker -->
-  <string name="dialog_color_picker_title">調色盤</string>
-  <string name="press_color_to_apply">輕觸下方顏色以套用</string>
+  <string name="color_picker_fragment_title">Color Picker</string>
+  <string name="apply_color_title">Apply color</string>
+  <string name="edit_hex_title">HEX value</string>
   <string name="palette_darkkat_title">Resurrection</string>
   <string name="palette_material_title">材質</string>
   <string name="palette_rgb_title">RGB</string>
+  <string name="reset_color_title">Reset</string>
   <string name="reset_android_title">Android 預設</string>
   <string name="reset_darkkat_title">自訂調色盤</string>
   <string name="default_string">預設值</string>
+  <string name="favorites_title">Favorites</string>
+  <string name="hide_favorites_title">Hide favorites</string>
+  <string name="show_favorites_title">Show favorites</string>
+  <string name="hide_help_title">Hide help</string>
+  <string name="show_help_title">Show help</string>
+  <string name="empty_title">Empty</string>
+  <string name="color_picker_help_screen_title">Color Picker help</string>
+  <string name="color_picker_help_ab_title">Action bar:</string>
+  <string name="color_picker_help_ab_back_title">Back button:</string>
+  <string name="color_picker_help_ab_back_summary">Close the color picker without applying the new color, (cancel).\nThis has the same effect as clicking the back button on the navigation bar.</string>
+  <string name="color_picker_help_ab_name_title">Title:</string>
+  <string name="color_picker_help_ab_name_summary">Only shows the title, no additional functions</string>
+  <string name="color_picker_help_ab_color_apply_title">Color preview and apply color:</string>
+  <string name="color_picker_help_ab_color_apply_summary">The color preview is always visible.\nIf the new color doesn\'t equals the old color, the color preview will be expanded, to allow apply the new color.</string>
+  <string name="color_picker_help_ab_menu_title">Menu button:</string>
+  <string name="color_picker_help_ab_menu_reset_title">Reset:</string>
+  <string name="color_picker_help_ab_menu_reset_summary">Resets the new color to the default Android or Darkkat color without applying the new color.</string>
+  <string name="color_picker_help_ab_menu_hex_title">Hex value:</string>
+  <string name="color_picker_help_ab_menu_hex_summary">Shows the hex input field.\nHex values have to be in hex color format:\n\'#aarrggbb\', (\'alpha\' (transparency), \'red\', \'green\' and \'blue\').\nThe back button closes the hex input field without setting the hex value.\nThe apply button sets the hex value as new color without applying the new color.</string>
+  <string name="color_picker_help_ab_menu_favorites_title">Show/hide favorites:</string>
+  <string name="color_picker_help_ab_menu_favorites_summary">Shows/hides the favorites.\nHiding the favorites will not reset the favorite colors.</string>
+  <string name="color_picker_help_ab_menu_help_title">Show/hide help:</string>
+  <string name="color_picker_help_ab_menu_help_summary">Shows/hides this help screen.</string>
+  <string name="color_picker_help_colors_title">Colors:</string>
+  <string name="color_picker_help_picker_view_title">Color panel:</string>
+  <string name="color_picker_help_picker_view_summary">Pick a color to set a new color without applying the new color.\nThe color range can be changed using the slider on the right side</string>
+  <string name="color_picker_help_color_buttons_title">Color buttons:</string>
+  <string name="color_picker_help_favorites_title">Favorites:</string>
+  <string name="color_picker_help_favorites_summary">Favorites are empty by default.\nThe new color can be saved as a favorite at any time via long click, (a none empty favorite will be overwritten by the new color).\nA click sets the favorite color as new color, without applying the new color.</string>
+  <string name="color_picker_help_palette_title">Palette:\n(DarkKat, Material and RGB)</string>
+  <string name="color_picker_help_palette_summary">All palette colors have a fixed value.\nA click sets the favorite color as new color, without applying the new color.</string>
+  <string name="color_picker_help_do_not_show_title">Don\'t show again</string>
+  <string name="color_picker_help_button_ok_title">OK</string>
   <!-- RR Extra Info -->
   <string name="brokenextrainfo">額外資訊</string>
   <string name="brokenextrainfo_summary">顯示 cpu 、顯示等額外資訊</string>
@@ -182,8 +217,8 @@ http://forum.resurrectionremix.com/</string>
   <string name="pixels">像素</string>
   <string name="inches">英寸</string>
   <!--Recents-->
-  <string name="recents_settings_title">最近的畫面</string>
-  <string name="recents_panel_category">「最近的畫面」面板</string>
+  <string name="recents_settings_title">總覽</string>
+  <string name="recents_panel_category">「總覽」面板</string>
   <string name="show_clear_all_recents_button_title">全部清除按鈕</string>
   <string name="show_clear_all_recents_button_summary">顯示全部清除按鈕</string>
   <string name="recents_clear_all_location_title">全部清除按鈕位置</string>
@@ -200,8 +235,8 @@ http://forum.resurrectionremix.com/</string>
   <string name="clear_recents_style">按鈕樣式</string>
   <string name="fab_button_color">按鈕背景</string>
   <string name="mem_bar_color">記憶體用量列</string>
-  <string name="recents_clock_color">全屏顯示「最近使用的應用程式」頁面時時鐘的文字</string>
-  <string name="recents_date_color">全屏顯示「最近使用的應用程式」頁面時日期的文字</string>
+  <string name="recents_clock_color">全螢幕顯示「總覽」畫面時的時鐘顏色</string>
+  <string name="recents_date_color">全螢幕顯示「總覽」畫面時的日期顏色</string>
   <string name="recents_styles_1">樣式</string>
   <string name="recents_colors">樣式</string>
   <string name="recents_style_2">顏色</string>
@@ -210,29 +245,29 @@ http://forum.resurrectionremix.com/</string>
   <string name="mw_button_color">多重視窗按鈕</string>
   <string name="float_button_color">浮動按鈕</string>
   <string name="kill_app_button_color">關閉按鈕</string>
-  <string name="tv_app_color">應用程式圖示填充 （填充整個圖示）</string>
-  <string name="tv_app_text_color">描述應用程式的文字</string>
-  <string name="recent_styles">「最近使用的應用程式」頁面的風格 </string>
-  <string name="recent_styles_summary">自訂「最近使用的應用程式」頁面的各種元素 </string>
+  <string name="tv_app_color">應用程式圖示填充 (填滿整個圖示)</string>
+  <string name="tv_app_text_color">應用程式描述文字</string>
+  <string name="recent_styles">「總覽」樣式 </string>
+  <string name="recent_styles_summary">自訂「總覽」畫面的各種元素 </string>
   <string name="mem_text_color">記憶體用量列文字</string>
   <string name="clear_button_color">全部清除</string>
-  <string name="clear_recents_style_enable">自訂 「最近使用」 的風格</string>
-  <string name="clear_recents_style_enable_summary">啟用/停用自訂風格的「最近使用的應用程式」頁面視圖</string>
-  <string name="recents_rotate_fab">FAB動畫化</string>
+  <string name="clear_recents_style_enable">自訂「總覽」風格</string>
+  <string name="clear_recents_style_enable_summary">啟用/停用「總覽」畫面的自訂樣式</string>
+  <string name="recents_rotate_fab">FAB 動畫</string>
   <string name="recents_rotate_fab_summary">啟用/停用的全部清除按鈕旋轉</string>
-  <string name="recents_fab_vibrate">按全部清除時振動</string>
-  <string name="recents_fab_vibrate_summary">啟用/停用 關閉所有 按鈕的觸覺回饋</string>
+  <string name="recents_fab_vibrate">輕觸全部清除按鈕時振動</string>
+  <string name="recents_fab_vibrate_summary">啟用/停用全部清除按鈕的觸覺回饋</string>
   <string name="fab_animation_style">浮動按鈕動畫</string>
-  <string name="recents_fab_lp">在FAB啟用長按</string>
+  <string name="recents_fab_lp">啟用長按 FAB</string>
   <string name="recents_fab_lp_summary">長按以更新記憶體用量列</string>
   <string name="recents_fab_lp_anim">長按 FAB 動畫</string>
-  <string name="clear_animation_style">清除所有動畫</string>
-  <string name="button1">預設值 </string>
-  <string name="button2">方形的核取方塊 </string>
+  <string name="clear_animation_style">全部清除動畫</string>
+  <string name="button1">預設 </string>
+  <string name="button2">方形核取方塊 </string>
   <string name="button3">圖形 </string>
   <string name="button4">垂直線 1</string>
   <string name="button5">垂直線 2</string>
-  <string name="button6">剪貼板 </string>
+  <string name="button6">剪貼簿 </string>
   <string name="button7">繪圖 </string>
   <string name="button8">水平線</string>
   <string name="button9">圓形的核取方塊 </string>
@@ -240,61 +275,61 @@ http://forum.resurrectionremix.com/</string>
   <string name="button11">Zzzzz</string>
   <string name="button12">閉眼</string>
   <string name="button13">讚好按鈕</string>
-  <string name="button14">移動中的正方塊</string>
+  <string name="button14">滑動方塊</string>
   <string name="button15">鈴鐺 </string>
-  <string name="button16">向左的箭咀 </string>
+  <string name="button16">向左箭頭 </string>
   <string name="button17">關閉圖層 </string>
-  <string name="button18">返回的箭咀</string>
+  <string name="button18">返回箭頭</string>
   <string name="button19">圖層</string>
   <string name="button20">檔案 </string>
-  <string name="button21">蛋糕和加號</string>
-  <string name="button22">4個指中的箭頭</string>
+  <string name="button21">資料庫和加號</string>
+  <string name="button22">內縮箭頭</string>
   <string name="button23">Google</string>
-  <string name="button24"> 蛋糕和減號 </string>
-  <string name="button25">3個重疊的方塊</string>
+  <string name="button24"> 資料庫和減號 </string>
+  <string name="button25">重疊方塊</string>
   <string name="button26">計時器</string>
   <string name="button27">Resurrection</string>
-  <string name="button28">原版Android</string>
+  <string name="button28">原版 Android</string>
   <string name="button29">Resurrection Lollipop</string>
   <string name="button30">Android N</string>
   <string name="animation0">旋轉 </string>
   <string name="animation1">最近退出</string>
   <string name="animation2">向右飄出 </string>
-  <string name="animation3">向右飄出（慢）</string>
-  <string name="animation4">退出彈出訊息</string>
+  <string name="animation3">向右飄出 (慢)</string>
+  <string name="animation4">彈出訊息退出</string>
   <string name="animation5">向下滑出 </string>
-  <string name="animation6">退出 Xylon </string>
-  <string name="animation7">退出Honami彈出訊息</string>
+  <string name="animation6">Xylon 退出 </string>
+  <string name="animation7">Honami 彈出訊息退出</string>
   <string name="animation8">向右滑出 </string>
-  <string name="animation9">退出彈出訊息</string>
-  <string name="animation10">慢淡出 </string>
+  <string name="animation9">彈出訊息退出</string>
+  <string name="animation10">緩慢淡出 </string>
   <string name="animation11">向左滑出</string>
   <string name="animation12">淡出</string>
   <string name="animation13">快速淡出 </string>
   <string name="animation14">向上滑出 </string>
   <string name="animation15">快速旋轉</string>
   <!-- Recents Fullscreen -->
-  <string name="recents_show_fullscreen">「最近使用」全屏</string>
-  <string name="recents_fullscreen_summary_enabled">啟用「最近使用」全屏</string>
-  <string name="recents_fullscreen_summary_disabled">停用「最近使用」全屏</string>
+  <string name="recents_show_fullscreen">全螢幕顯示「總覽」畫面</string>
+  <string name="recents_fullscreen_summary_enabled">全螢幕顯示「總覽」畫面已啟用</string>
+  <string name="recents_fullscreen_summary_disabled">全螢幕顯示「總覽」畫面已停用</string>
   <string name="recents_full_screen_clock_title">顯示時鐘</string>
-  <string name="recents_full_screen_clock_summary">當全屏顯示時在頂部顯示時鐘</string>
+  <string name="recents_full_screen_clock_summary">全屏螢幕示時在頂部顯示時鐘</string>
   <string name="recents_full_screen_date_title">顯示日期</string>
-  <string name="recents_full_screen_date_summary">當全屏顯示時在頂部顯示日期</string>
+  <string name="recents_full_screen_date_summary">全屏螢幕示時在頂部顯示日期</string>
   <!--Notification Drawer-->
   <string name="notification_drawer_title">通知列表</string>
-  <string name="rr_qs_cat">快速設定面板下拉方式</string>
-  <string name="rr_qs">快速設置</string>
+  <string name="rr_qs_cat">快速設定面板下拉</string>
+  <string name="rr_qs">快速設定</string>
   <string name="rr_brightness_cat">亮度滑桿</string>
   <string name="rr_qs_title">快速設定面板 </string>
   <!-- Quick settings quick pull down -->
   <string name="status_bar_quick_qs_pulldown_title">快速下拉</string>
-  <string name="status_bar_quick_qs_pulldown_summary">右側位置下拉狀態列開啟快速設定</string>
-  <string name="quick_pulldown_summary_always">經常在下拉狀態列時顯示快速設置</string>
+  <string name="status_bar_quick_qs_pulldown_summary">在狀態列的右側下拉時直接進入快速設定</string>
+  <string name="quick_pulldown_summary_always">下拉狀態列時永遠開啟快速設定</string>
   <string name="quick_pulldown_always">總是</string>
   <!-- Quick settings brightness slider -->
   <string name="qs_brightness_slider_title">亮度滑桿</string>
-  <string name="qs_brightness_slider_summary">啟用/停用在快速設置中的亮度滑塊</string>
+  <string name="qs_brightness_slider_summary">啟用/停用快速設定中的亮度滑桿</string>
   <!-- Heads up -->
   <string name="headsup_section_header">浮動通知</string>
   <string name="heads_up_notifications">浮動通知</string>
@@ -303,16 +338,16 @@ http://forum.resurrectionremix.com/</string>
   <!-- Navigation Bar -->
   <string name="navigation_bar_dimensions_reset_message">確定重置所有尺寸設定至預設大小？</string>
   <string name="navigation_bar_dimensions_title">導覽列尺寸</string>
-  <string name="navigation_bar_dimensions_title_summary">調整導覽列的大小</string>
+  <string name="navigation_bar_dimensions_title_summary">調整導覽列大小</string>
   <string name="navigation_bar_height_title">導覽列高度</string>
   <string name="navigation_bar_height_summary">裝置直立時的導覽列高度</string>
   <string name="navigation_bar_height_landscape_title">橫向導覽列高度</string>
   <string name="navigation_bar_height_landscape_summary">裝置橫向時的導覽列高度</string>
   <string name="navigation_bar_width_title">導覽列寬度</string>
-  <string name="navigation_bar_width_summary">當螢幕水平時導覽列的高度</string>
+  <string name="navigation_bar_width_summary">導覽列位於螢幕側邊時的高度 (橫向)</string>
   <string name="navigation_bar_size_48_dp_default">48 dp (預設)</string>
   <string name="navigation_bar_size_44_dp">44 dp</string>
-  <string name="navigation_bar_size_42_dp_default">42 dp （預設值）</string>
+  <string name="navigation_bar_size_42_dp_default">42 dp (預設)</string>
   <string name="navigation_bar_size_42_dp">42 dp</string>
   <string name="navigation_bar_size_40_dp">40 dp</string>
   <string name="navigation_bar_size_36_dp">36 dp</string>
@@ -320,17 +355,17 @@ http://forum.resurrectionremix.com/</string>
   <string name="navigation_bar_size_24_dp">24 dp</string>
   <string name="navigation_bar_size_0_dp">0 dp (關閉)</string>
   <string name="nav_bar_title">導覽列</string>
-  <string name="navbar_enable_bar_title">導覽列按鍵</string>
-  <string name="navbar_enable_bar_summary">啟用螢幕上導覽列按鈕</string>
-  <string name="navbar_recents_switch">導覽列反轉按鈕</string>
-  <string name="navbar_recents_switch_summary">啟用/禁用自訂「最近使用的應用程式」的按鈕。此按鈕將在長按時清除所有任務</string>
+  <string name="navbar_enable_bar_title">導覽列按鈕</string>
+  <string name="navbar_enable_bar_summary">啟用導覽列</string>
+  <string name="navbar_recents_switch">導覽列特殊「總覽」按鈕</string>
+  <string name="navbar_recents_switch_summary">啟用/停用「總覽」畫面中的自訂「總覽」按鈕。長按此按鈕將關閉所有應用程式</string>
   <!-- Status bar - Clock -->
   <string name="clock_color_switch">啟用/停用自訂時鐘顏色</string>
   <string name="clock_color_title">顏色</string>
-  <string name="clock_color_switch_title">Color switch</string>
+  <string name="clock_color_switch_title">顏色開關</string>
   <string name="status_bar_clock_style_reset">重設顏色</string>
-  <string name="status_bar_clock_style_reset_message">確定重設時鐘顏色？</string>
-  <string name="clock_font_style_title">字體</string>
+  <string name="status_bar_clock_style_reset_message">重設時鐘顏色？</string>
+  <string name="clock_font_style_title">字型</string>
   <string name="clock_font_normal">一般</string>
   <string name="clock_font_italic">斜體</string>
   <string name="clock_font_bold">粗體</string>
@@ -352,7 +387,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="clock_font_dancingscript">DancingScript</string>
   <string name="clock_font_dancingscript_bold">DancingScript 粗體</string>
   <string name="clock_font_comingsoon">ComingSoon</string>
-  <string name="clock_font_notoserif">NotoSerif 正體</string>
+  <string name="clock_font_notoserif">NotoSerif 一般</string>
   <string name="clock_font_notoserif_italic">NotoSerif 斜體</string>
   <string name="clock_font_notoserif_bold">NotoSerif 粗體</string>
   <string name="clock_font_notoserif_bold_italic">NotoSerif 粗斜體</string>
@@ -386,28 +421,28 @@ http://forum.resurrectionremix.com/</string>
   <string name="rr_lockscreen_title">鎖定畫面</string>
   <string name="rr_ls_ui">鎖定畫面介面</string>
   <string name="rr_lockscreen_date">日期和時間</string>
-  <string name="rr_ls_security_main">鎖屏安全性</string>
-  <string name="rr_lockscreen_notifications">鎖屏通知</string>
+  <string name="rr_ls_security_main">鎖定畫面安全性</string>
+  <string name="rr_lockscreen_notifications">鎖定畫面通知</string>
   <string name="rr_ls_security">安全性</string>
-  <string name="rr_ls_gestures">鎖屏手勢</string>
-  <string name="rr_ls_media">鎖屏媒體</string>
-  <string name="rr_ls_gesures">鎖屏手勢</string>
+  <string name="rr_ls_gestures">鎖定畫面手勢</string>
+  <string name="rr_ls_media">鎖定畫面媒體</string>
+  <string name="rr_ls_gesures">鎖定畫面手勢</string>
   <string name="rr_ls_settings">自訂</string>
-  <string name="rr_lockscreen_blur">鎖屏背景模糊</string>
-  <string name="rr_lockscreen_style">風格</string>
+  <string name="rr_lockscreen_blur">鎖定畫面模糊</string>
+  <string name="rr_lockscreen_style">樣式</string>
   <string name="double_tap_ls">雙擊以關閉螢幕</string>
-  <string name="double_tap_ls_summary">雙擊令裝置睡眠</string>
+  <string name="double_tap_ls_summary">輕觸兩下鎖定畫面以使裝置進入休眠</string>
   <string name="ls_bouncer_title">直接進入安全性認證畫面</string>
-  <string name="ls_bouncer_summary">當有 %1$s 個通知時直接打開到 PIN/圖形/密碼版面</string>
-  <string name="ls_bouncer_on">開啟 (預設)</string>
-  <string name="ls_bouncer_on_summary">原版保護行為</string>
-  <string name="ls_bouncer_off">關閉</string>
-  <string name="ls_bouncer_off_summary">打開鎖屏直接顯示識別碼，模式，密碼</string>
+  <string name="ls_bouncer_summary">鎖定畫面%1$s時，直接進入安全性認証畫面</string>
+  <string name="ls_bouncer_on">關閉 (預設)</string>
+  <string name="ls_bouncer_on_summary">預設安全性畫面動作</string>
+  <string name="ls_bouncer_off">開啟</string>
+  <string name="ls_bouncer_off_summary">開啟鎖定畫面時直接進入安全性認證畫面 (PIN 碼/圖形/密碼)</string>
   <string name="ls_bouncer_dismissable">沒有可清除的通知時</string>
   <string name="ls_bouncer_persistent">沒有持久性的通知時</string>
   <string name="ls_bouncer_all">沒有可清除或持久性的通知時</string>
   <string name="lockscreen_alpha">鎖定畫面透明度</string>
-  <string name="lockscreen_security_alpha">鎖屏加密介面透明度</string>
+  <string name="lockscreen_security_alpha">安全性認證畫面透明度</string>
   <!-- Lockscreen wallpaper -->
   <string name="lockscreen_wallpaper_title">桌布</string>
   <string name="lockscreen_wallpaper_summary">設置鎖定螢幕桌布</string>
@@ -420,12 +455,12 @@ http://forum.resurrectionremix.com/</string>
   <string name="lockscreen_maxnotif_sumary">調整顯示於鎖定畫面的最大通知數</string>
   <string name="lockscreen_maxnotif_config">最大鎖定畫面通知數</string>
   <!-- Lockscreen see through -->
-  <string name="lockscreen_see_through_title">鎖定螢幕模糊效果</string>
-  <string name="lockscreen_see_through_summary">模糊並顯示鎖定螢幕後的內容</string>
+  <string name="lockscreen_see_through_title">鎖定畫面模糊</string>
+  <string name="lockscreen_see_through_summary">模糊並顯示鎖定畫面後的內容</string>
   <string name="lockscreen_blur_radius">模糊效果強度</string>
   <!-- CM Lockscreen shortcuts -->
   <string name="lockscreen_targets_message">底部捷徑</string>
-  <string name="lockscreen_targets_summary">更改底部角落捷徑</string>
+  <string name="lockscreen_targets_summary">變更底部角落捷徑</string>
   <string name="ok_string">好</string>
   <!-- AOKP custom system animations -->
   <string name="animation_title">動畫</string>
@@ -443,11 +478,11 @@ http://forum.resurrectionremix.com/</string>
   <string name="animation_duration_title">動畫長度</string>
   <string name="title_animation_no_override">防止應用程式覆寫</string>
   <string name="summary_animation_no_override">防止應用程式覆寫動畫設定</string>
-  <string name="animation_duration_default">預設值</string>
+  <string name="animation_duration_default">預設</string>
   <!-- Toast Animation -->
   <string name="toast_animation_title">彈出訊息動畫</string>
   <string name="toast_none_animation">無</string>
-  <string name="toast_default_animation">預設值</string>
+  <string name="toast_default_animation">預設</string>
   <string name="toast_fade_animation">淡出</string>
   <string name="toast_SlideRight_animation">向右滑動</string>
   <string name="toast_SlideLeft_animation">向左滑動</string>
@@ -460,15 +495,15 @@ http://forum.resurrectionremix.com/</string>
   <string name="toast_GrowFadeCenter_animation">於中央縮放淡化</string>
   <string name="toast_GrowFadeBottom_animation">於底部縮放淡化</string>
   <string name="toast_Translucent_animation">半透明</string>
-  <string name="toast_SlideLeftRight_animation">從左至右滑動</string>
+  <string name="toast_SlideLeftRight_animation">從左向右滑動</string>
   <string name="toast_SlideRightLeft_animation">從右向左滑動</string>
   <!-- ListView animation -->
-  <string name="listview_animation_title">動畫列表</string>
-  <string name="listview_off">預設值</string>
+  <string name="listview_animation_title">「清單顯示」動畫</string>
+  <string name="listview_off">預設</string>
   <string name="listview_wave_left">波浪 (左)</string>
   <string name="listview_wave_right">波浪 (右)</string>
   <string name="listview_alpha">透明</string>
-  <string name="listview_scale">調整大小</string>
+  <string name="listview_scale">縮放</string>
   <string name="listview_stack_top">堆疊 (頂部)</string>
   <string name="listview_stack_bottom">堆疊 (底部)</string>
   <string name="listview_unfold">展開</string>
@@ -476,31 +511,44 @@ http://forum.resurrectionremix.com/</string>
   <string name="listview_translate_left">飛入 (左)</string>
   <string name="listview_translate_right">飛入 (右)</string>
   <!-- ListView interpolator -->
-  <string name="listview_interpolator_title">列表變化</string>
+  <string name="listview_interpolator_title">「清單顯示」動畫加速器</string>
   <string name="listview_accelerate_interpolator">加速</string>
   <string name="listview_decelerate_interpolator">減速</string>
   <string name="listview_accelerate_decelerate_interpolator">先加速再減速</string>
   <string name="listview_anticipate_interpolator">預備</string>
   <string name="listview_overshoot_interpolator">過衝</string>
   <string name="listview_anticipate_overshoot_interpolator">預備和過衝</string>
-  <string name="listview_bounce_interpolator">反彈</string>
+  <string name="listview_bounce_interpolator">彈跳</string>
+  <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Scrolling modifiers</string>
+  <string name="scrolling_summary">View or change scrolling animations</string>
+  <string name="animation_fling_velocity_title">Fling velocity</string>
+  <string name="animation_scroll_friction_title">Scroll friction</string>
+  <string name="animation_overscroll_distance_title">Overscroll distance</string>
+  <string name="animation_overfling_distance_title">Overfling distance</string>
+  <string name="animation_duration_summary">設定持續時間</string>
+  <string name="animation_no_scroll_title">Customized scrolling modifiers</string>
+  <string name="animation_no_scroll_summary_on">Enabled</string>
+  <string name="animation_no_scroll_summary_off">Disabled</string>
+  <string name="scroll_disclaimer_summary">Note: Most apps need to be restarted for custom values to take effect</string>
+  <string name="animation_settings_reset_message">Reset all animation settings to default?</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">彈出訊息圖示</string>
   <string name="toast_icon_summary">顯示與彈出訊息相關的應用程式圖示</string>
   <!-- Color Picker -->
-  <string name="dialog_color_picker">色彩選擇器</string>
+  <string name="dialog_color_picker">調色盤</string>
   <string name="press_color_to_apply">輕觸下方顏色以套用</string>
   <string name="arrow_right">→</string>
   <string name="arrow_down">↓</string>
   <string name="hex">Hex:</string>
   <string name="hex_hint">#ff000000</string>
   <string name="set">儲存設定</string>
-  <string name="color_default">預設值</string>
+  <string name="color_default">預設</string>
   <!-- About device screen, CPU and RAM info. -->
   <string name="cpu_info">處理器</string>
   <string name="mem_info">記憶體</string>
   <!-- Force expanded notifications -->
-  <string name="force_expanded_notifications_title">強制展開</string>
+  <string name="force_expanded_notifications_title">強制擴展</string>
   <string name="force_expanded_notifications_summary">僅適用於支援擴展通知的應用程式</string>
   <!-- Gesture Anywhere -->
   <string name="gesture_anywhere_title">全域手勢</string>
@@ -509,14 +557,14 @@ http://forum.resurrectionremix.com/</string>
   <string name="gesture_anywhere_position_title">位置</string>
   <string name="gesture_anywhere_position_left">左側邊緣</string>
   <string name="gesture_anywhere_position_right">右側邊緣</string>
-  <string name="gesture_anywhere_gestures_title">手勢操作</string>
+  <string name="gesture_anywhere_gestures_title">手勢</string>
   <string name="gesture_anywhere_gestures_summary">新增，移除和編輯手勢</string>
   <!-- Label, button used to add a gesture -->
   <string name="ga_button_add">新增手勢</string>
   <!-- Label, button used to reload all gestures -->
-  <string name="ga_button_reload">重新讀取</string>
+  <string name="ga_button_reload">重新整理</string>
   <!-- Label, button used to cancel the operation of adding a gesture -->
-  <string name="ga_button_discard">丟棄</string>
+  <string name="ga_button_discard">捨棄</string>
   <!-- Label, button used to save a gesture newly created -->
   <string name="ga_button_done">完成</string>
   <!-- Label, prompt asking the user to enter the name of the gesture -->
@@ -524,7 +572,7 @@ http://forum.resurrectionremix.com/</string>
   <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
   <string name="ga_error_missing_name">您必須輸入一個名稱</string>
   <!-- success message, tells the user where the gesture was saved -->
-  <string name="ga_save_success">儲存手勢至 %s</string>
+  <string name="ga_save_success">手勢已儲存至%s</string>
   <!-- Buttons in Rename gesture dialog box -->
   <string name="ga_rename_action">確定</string>
   <!-- Buttons in Rename gesture dialog box -->
@@ -534,19 +582,19 @@ http://forum.resurrectionremix.com/</string>
   <!-- Message displayed when the user has no gestures -->
   <string name="ga_gestures_empty">沒有手勢</string>
   <!-- Title of the screen used to view/manage gestures -->
-  <string name="ga_gestures_activity">手勢操作</string>
+  <string name="ga_gestures_activity">手勢</string>
   <!-- Noun, menu item used to edit a gesture -->
   <string name="ga_gestures_edit">編輯</string>
   <!-- Noun, menu item used to remove a gesture -->
   <string name="ga_gestures_delete">刪除</string>
   <!-- Message displayed when a gesture is successfully deleted -->
-  <string name="ga_gestures_delete_success">已刪除手勢</string>
+  <string name="ga_gestures_delete_success">手勢已刪除</string>
   <!-- Title of dialog box -->
   <string name="ga_gestures_rename_title">重新命名手勢</string>
   <!-- Label of gesture name field in Rename gesture dialog box -->
   <string name="ga_gestures_rename_label">手勢名稱</string>
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
-  <string name="ga_gestures_error_loading">無法讀取 %s。請確認您擁有可用的儲存空間。</string>
+  <string name="ga_gestures_error_loading">無法讀取%s。請確認您擁有可用的儲存空間。</string>
   <string name="trigger_category">觸發區域</string>
   <string name="trigger_width_title">觸發寬度</string>
   <string name="trigger_width_summary">調整觸發區域的寬度</string>
@@ -562,7 +610,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="network_traffic_title">網路流量</string>
   <string name="show_network_traffic_state">狀態列流量監測器</string>
   <string name="show_network_traffic_unit">顯示單位</string>
-  <string name="show_network_traffic_frequency">更新間隔</string>
+  <string name="show_network_traffic_frequency">更新頻率</string>
   <string name="show_network_traffic_disable">已停用</string>
   <string name="show_network_traffic_up">傳出</string>
   <string name="show_network_traffic_down">傳入</string>
@@ -578,9 +626,9 @@ http://forum.resurrectionremix.com/</string>
   <string name="network_traffic_autohide">自動隱藏</string>
   <string name="network_traffic_autohide_summary">沒有活動時隱藏流量監測器</string>
   <string name="network_traffic_autohide_threshold">活動監測門檻</string>
-  <string name="network_traffic_color_style">顏色風格</string>
+  <string name="network_traffic_color_style">顏色樣式</string>
   <string name="network_traffic_color_reset">重設顏色</string>
-  <string name="network_traffic_color_reset_message">確定將流量監測器顏色重設為預設顏色？</string>
+  <string name="network_traffic_color_reset_message">將流量監測器顏色重設為預設顏色？</string>
   <!-- Option to enable/disable scrolling cache -->
   <string name="pref_scrollingcache_title">滑動快取</string>
   <string name="pref_scrollingcache_summary">滑動快取可提升滑動時的效能，但同時也會提高記憶體使用量</string>
@@ -589,20 +637,20 @@ http://forum.resurrectionremix.com/</string>
   <string name="pref_scrollingcache_default_disable">預設停用</string>
   <string name="pref_scrollingcache_force_disable">強制停用</string>
   <!-- OmniSwitch -->
-  <string name="recents_use_omniswitch_title">用於近期任務</string>
-  <string name="recents_use_omniswitch_summary">使用Omni切換代替默認近期任務視圖</string>
-  <string name="omniswitch_start_settings_title">設置</string>
+  <string name="recents_use_omniswitch_title">作為「總覽」</string>
+  <string name="recents_use_omniswitch_summary">使用 OmniSwitch 取代預設的「總覽」畫面</string>
+  <string name="omniswitch_start_settings_title">設定</string>
   <string name="omniswitch_start_settings_summary">開啟 OmniSwitch 設定</string>
   <string name="omniswitch_first_time_title">資訊</string>
   <string name="omniswitch_first_time_message">請確認您已啟用 OminSwitch。開啟「OmniSwitch 設定」中的主開關以啟用 OmniSwitch。</string>
   <string name="omniswitch_settings_title">OmniSwitch</string>
   <!-- Double Tap Navbar to Sleep -->
-  <string name="double_tap_sleep_nav_bar_title">輕按兩下即可休眠</string>
+  <string name="double_tap_sleep_nav_bar_title">輕觸兩下即可休眠</string>
   <string name="double_tap_sleep_nav_bar_summary">輕觸兩下導覽列以使裝置進入休眠</string>
   <!-- SlimDim -->
   <string name="dim_nav_buttons_category">SlimDim</string>
-  <string name="dim_nav_buttons_title">沒有活動時降低按鍵亮度</string>
-  <string name="dim_nav_buttons_summary">於特定時間內未與導覽列互動時，降低其亮度</string>
+  <string name="dim_nav_buttons_title">沒有活動時降低按鈕亮度</string>
+  <string name="dim_nav_buttons_summary">於特定時間內未與導覽列互動時，降低其按鈕亮度</string>
   <string name="dim_nav_buttons_timeout_title">降低亮度延遲時間</string>
   <string name="dim_nav_buttons_timeout_summary">降低按鍵亮度前的等待時間 (以毫秒為單位)</string>
   <string name="dim_nav_buttons_alpha_title">亮度降低 Alpha 值</string>
@@ -612,8 +660,8 @@ http://forum.resurrectionremix.com/</string>
   <string name="dim_nav_buttons_animate_duration_title">動畫長度</string>
   <string name="dim_nav_buttons_animate_duration_summary">Alpha 動畫時間長度 (以毫秒為單位)</string>
   <!-- HW keys Switch -->
-  <string name="disable_hwkeys_title">停用實體鍵</string>
-  <string name="disable_hwkeys_summary">啟用/停用實體鍵 </string>
+  <string name="disable_hwkeys_title">停用實體按鍵</string>
+  <string name="disable_hwkeys_summary">啟用/停用實體按鍵 </string>
   <!-- Media art -->
   <string name="media_art_title">媒體封面</string>
   <string name="media_art_summary">啟用鎖定畫面媒體封面</string>
@@ -901,7 +949,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="shortcut_action_menu">選單</string>
   <string name="shortcut_action_ime">開啟輸入法選擇器</string>
   <string name="shortcut_action_power_menu">電源功能表選項</string>
-  <string name="shortcut_action_recent">最近使用的應用程式</string>
+  <string name="shortcut_action_recent">總覽</string>
   <string name="shortcut_action_power">關閉螢幕</string>
   <string name="shortcut_action_search">應用程式内搜尋</string>
   <string name="shortcut_action_ring_vib">鈴響/振動</string>
@@ -1081,9 +1129,6 @@ http://forum.resurrectionremix.com/</string>
   <string name="link_volume_option_title">連結鈴聲與通知音量</string>
   <string name="notification_volume_option_title">通知音量</string>
   <string name="ring_notification_volume_option_title">鈴聲與通知音量</string>
-  <!-- Volume Dialog Expanded -->
-  <string name="volume_dialog_force_expanded_title">Volume Panel Expanded</string>
-  <string name="volume_dialog_force_expanded_summary">Force the volume panel to always appear in expanded mode. First time you need to press on expand button.</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="title_keyboard_input">進階選項</string>
   <string name="disable_fullscreen_keyboard_title">停用全螢幕鍵盤</string>
@@ -1225,7 +1270,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="lockscreen_colors_title">鎖定畫面色彩</string>
   <string name="lockscreen_owner_info_color">擁有者資訊</string>
   <string name="lockscreen_alarm_color">鬧鐘</string>
-  <string name="icons_title">圖標</string>
+  <string name="icons_title">天氣圖標</string>
   <string name="text_title">天氣文字</string>
   <string name="lock_screen_weather_temp_color">天氣溫度</string>
   <string name="lock_screen_weather_con_color">天氣狀態</string>
@@ -1252,23 +1297,26 @@ http://forum.resurrectionremix.com/</string>
   <string name="recent_panel_expanded_mode_always">總是</string>
   <string name="recent_panel_expanded_mode_never">永不</string>
   <string name="recent_panel_show_topmost_title">顯示最上層的應用程式</string>
-  <string name="recent_panel_show_topmost_summary">不要將最上層的應用程式排除在最近的畫面之外</string>
+  <string name="recent_panel_show_topmost_summary">不要將最上層的應用程式排除在「總覽」畫面之外</string>
   <string name="recent_panel_bg_color_title">面板背景顏色</string>
   <string name="recent_card_bg_color_title">卡片背景顏色</string>
   <string name="recent_card_text_color_title">卡片文字顏色</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">顯示在左側</string>
-  <string name="recent_panel_lefty_mode_summary">在螢幕左側顯示最近的應用程式面板</string>
+  <string name="recent_panel_lefty_mode_summary">在螢幕左側顯示「總覽」面板</string>
   <string name="default_string">預設值</string>
   <string name="recent_panel_category">小型總覽</string>
   <string name="recent_app_sidebar_title">應用側邊欄</string>
   <string name="recent_app_sidebar_summary">在另一側邊緣顯示應用捷徑</string>
+  <string name="use_recent_app_sidebar">Enable recent app sidebar</string>
   <string name="recent_app_sidebar_style_title">側邊欄風格</string>
   <string name="recent_app_sidebar_style_summary">更改最近應用側邊欄風格</string>
   <string name="recent_app_sidebar_hide_labels_title">隱藏圖示標籤</string>
   <string name="recent_app_sidebar_label_color_title">標籤顏色</string>
   <string name="recent_app_sidebar_bg_color_title">背景顔色</string>
   <string name="recent_app_sidebar_scale_title">大小</string>
+  <string name="recent_app_sidebar_open_simultaneously_title">Open simultaneously with recents</string>
+  <string name="recent_app_sidebar_open_simultaneously_summary">Reduce recents opening lag by disabling this</string>
   <!-- Doze options -->
   <string name="display_category_doze_options_title">環境顯示</string>
   <string name="doze_settings_title">Doze進階選項</string>
@@ -1401,7 +1449,7 @@ http://forum.resurrectionremix.com/</string>
   <!-- Battery stats reset -->
   <string name="battery_stats_reset">重設統計數據</string>
   <string name="battery_stats_message">電池統計數據將會重設</string>
-  <string name="ok_string">好</string>
+  <string name="ok_string">確定</string>
   <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
   <string name="show_cpu_info">顯示CPU資訊</string>
   <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
@@ -1430,6 +1478,8 @@ http://forum.resurrectionremix.com/</string>
   <string name="quick_settings_sp_vibrate_summary">按一下圖塊時振動</string>
   <!-- QS shade transparency -->
   <string name="qs_transparent_shade">快速設置面板透明度</string>
+  <!-- Notifications transparency -->
+  <string name="notifications_transparency">Notifications transparency</string>
   <!-- Safe headset volume restore checkbox -->
   <string name="safe_headset_volume_title">耳機安全音量</string>
   <string name="safe_headset_volume_summary">防止耳機插入時的音量過高</string>
@@ -1777,19 +1827,19 @@ http://forum.resurrectionremix.com/</string>
   <string name="fling_longpress_summary">增加或減少執行長按所需的時間</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_title">關於「律動」</string>
-  <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio graphic equalizer on the navigation bar when music plays. Pulse does not work with some audio sources when listening on device speaker</string>
+  <string name="pulse_help_policy_notice_summary">「律動」是一個會在音樂播放時顯示的欄型智慧音樂視覺效果。使用裝置喇叭時，「律動」在一些音訊來源下可能無法運作。</string>
   <string name="pulse_settings">律動</string>
-  <string name="pulse_settings_summary">Navigation bar audio graphic equalizer</string>
+  <string name="pulse_settings_summary">導覽列音樂視覺化效果</string>
   <string name="fling_show_pulse_title">顯示「律動」</string>
-  <string name="fling_show_pulse_summary">Audio graphic equalizer on the navigation bar</string>
-  <string name="pulse_render_mode_title">Render mode</string>
-  <string name="pulse_render_mode_fading_bars">Fading blocks</string>
-  <string name="pulse_render_mode_solid_lines">Solid lines</string>
+  <string name="fling_show_pulse_summary">顯示在導覽列上的音樂視覺化效果</string>
+  <string name="pulse_render_mode_title">渲染模式</string>
+  <string name="pulse_render_mode_fading_bars">漸層方塊</string>
+  <string name="pulse_render_mode_solid_lines">實心線條</string>
   <string name="fling_pulse_color">「律動」顏色</string>
   <string name="eos_fling_lavalamp_title">開啟熔岩燈模式</string>
   <string name="eos_fling_lavalamp_summary">「律動」會產生類似熔岩燈的色彩變換</string>
-  <string name="pulse_advanced_category">Advanced</string>
-  <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
+  <string name="pulse_advanced_category">進階</string>
+  <string name="pulse_legacy_mode_advanced_category">漸層方塊設定</string>
   <string name="pulse_custom_dimen">律動欄寬度</string>
   <string name="pulse_custom_div">律動欄的間距</string>
   <string name="default_div">預設值</string>
@@ -1800,12 +1850,12 @@ http://forum.resurrectionremix.com/</string>
   <string name="pulse_block_category_summary">調整律動分塊的大小和間距</string>
   <string name="pulse_aggression">強度</string>
   <string name="pulse_aggression_category">調整律動的強度。「放鬆」為最弱，「癲瘋」為最強</string>
-  <string name="pulse_filled_block_size">Block Size</string>
-  <string name="pulse_empty_block_size">Block Spacing</string>
+  <string name="pulse_filled_block_size">方塊大小</string>
+  <string name="pulse_empty_block_size">方塊間距</string>
   <string name="pulse_custom_fudge_factor">視覺化工具的情感水平</string>
   <string name="pulse_solid_fudge_factor">Sanity Level</string>
-  <string name="lavamp_solid_speed_title">LavaLamp Animation Speed</string>
-  <string name="pulse_solid_dimen_category">Solid Lines Customizations</string>
+  <string name="lavamp_solid_speed_title">「熔岩燈」動畫速度</string>
+  <string name="pulse_solid_dimen_category">實心線條設定</string>
   <!-- Navbar height -->
   <string name="navigation_bar_size_title">導覽列大小</string>
   <string name="portrait_title">縱向高度</string>
@@ -1825,22 +1875,24 @@ http://forum.resurrectionremix.com/</string>
   <string name="smartbar_button_animation_summary">設定主要按鈕被按下時的動畫樣式</string>
   <string name="smartbar_button_animation_ripple">波紋</string>
   <string name="smartbar_button_animation_spring">彈簧</string>
-  <string name="smartbar_factory_reset_title">Reset to stock</string>
+  <string name="smartbar_factory_reset_title">重設為預設值</string>
   <string name="smartbar_factory_reset_confirm">確定將智慧欄重設為預設值？</string>
   <string name="smartbar_ime_action_title">輸入法動作</string>
   <string name="smartbar_ime_action_summary">設定當鍵盤顯示時要顯示哪些按鈕</string>
   <string name="smartbar_ime_action_none">無</string>
   <string name="smartbar_ime_action_arrows">輸入箭頭</string>
   <string name="smartbar_ime_action_switcher">鍵盤切換器</string>
-  <string name="smartbar_backup_current_config_title">Save profile</string>
-  <string name="smartbar_restore_config_title">Restore profile</string>
-  <string name="smartbar_config_name_edit_dialog_title">Smartbar profile name</string>
-  <string name="smartbar_config_name_edit_dialog_message">Enter name or leave blank</string>
-  <string name="smartbar_config_dialog_title">Smartbar profiles</string>
-  <string name="smartbar_config_backup_success_toast">Smartbar profile successfully saved</string>
-  <string name="smartbar_config_restore_success_toast">Smartbar profile successfully restored</string>
-  <string name="smartbar_config_backup_error_toast">Error saving Smartbar profile</string>
-  <string name="smartbar_config_restore_error_toast">Error restoring Smartbar profile</string>
+  <string name="smartbar_backup_current_config_title">儲存設定檔</string>
+  <string name="smartbar_restore_config_title">還原設定檔</string>
+  <string name="smartbar_config_name_edit_dialog_title">「智慧列」設定檔名稱</string>
+  <string name="smartbar_config_name_edit_dialog_message">輸入名稱或留白</string>
+  <string name="smartbar_config_dialog_title">「智慧列」設定檔</string>
+  <string name="smartbar_config_backup_success_toast">「智慧列」設定檔儲存成功</string>
+  <string name="smartbar_config_restore_success_toast">「智慧列」設定檔還原成功</string>
+  <string name="smartbar_config_backup_error_toast">儲存「智慧列」設定檔時發生錯誤</string>
+  <string name="smartbar_config_restore_error_toast">還原「智慧列」設定檔時發生錯誤</string>
+  <!-- Navbar buttons transparency -->
+  <string name="navbar_buttons_alpha_title">Buttons transparency</string>
   <!-- QS Tiles Columns -->
   <string name="qs_num_columns_title">快速設置中每行圖塊的數量</string>
   <string name="qs_num_columns_showing">每列 %1$s 個圖塊</string>
@@ -1878,7 +1930,7 @@ http://forum.resurrectionremix.com/</string>
   <!-- Hide apps from recents -->
   <string name="hide_from_recents_add_app">添加應用程式</string>
   <string name="hide_apps_from_recents_title">隱藏的應用程式</string>
-  <string name="hide_apps_from_recents_summary">選取要從「最近使用的應用程式」面板排除的應用</string>
+  <string name="hide_apps_from_recents_summary">選擇要從「總覽」面板排除的應用程式</string>
   <!-- Floating Windows -->
   <string name="shortcut_action_floating_windows">浮動視窗</string>
   <string name="floating_master_switch">主控開關</string>
@@ -1901,7 +1953,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="dash_title_text_size">標題文本大小</string>
   <string name="dash_category_text_size">類別文字大小</string>
   <!-- Carrier Label - Hide based on notifications -->
-  <string name="text_title">天氣文字</string>
+  <string name="text_title">文字</string>
   <string name="number_of_notifications_title">通知數量</string>
   <string name="number_of_notifications_one_title">1</string>
   <string name="number_of_notifications_two_title">2</string>
@@ -1951,7 +2003,7 @@ http://forum.resurrectionremix.com/</string>
   <string name="volume_dialog_dash_width_title">音量調節表虛線描邊寬度</string>
   <string name="volume_dialog_dash_gap_title">音量調節表虛線描邊空隙</string>
   <!-- Volume dialog timeout -->
-  <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
+  <string name="volume_dialog_timeout_title">音量面板自動關閉時間</string>
   <!-- QS stroke settings -->
   <string name="qs_stroke_title">快速設定的陰影邊線</string>
   <string name="qs_stroke_disabled">已停用</string>
@@ -1972,14 +2024,30 @@ http://forum.resurrectionremix.com/</string>
   <string name="qs_panel_logo_color_title">快速設定面板的標誌顏色</string>
   <string name="qs_panel_logo_alpha_title">快速設定面板的標誌透明度</string>
   <string name="notification_cat_power">電源功能表</string>
-  <string name="expansion_view_animation_title">Task Manager Animation</string>
-  <string name="expansion_view_animation_summary">Change the enter/exit animation of the panel change</string>
-  <string name="expansion_view_animation_dialog_title">Select your animation</string>
-  <string name="expansion_view_animation_down">Down (Default)</string>
-  <string name="expansion_view_animation_enter">Enter</string>
-  <string name="expansion_view_animation_left">Left</string>
-  <string name="expansion_view_animation_right">Right</string>
-  <string name="expansion_view_animation_rotate">Rotate</string>
-  <string name="expansion_view_animation_turn">Turn</string>
-  <string name="expansion_view_animation_up">Up</string>
+  <string name="expansion_view_animation_title">工作管理員動畫</string>
+  <string name="expansion_view_animation_summary">變更工作管理員面板的進入/退出動畫</string>
+  <string name="expansion_view_animation_dialog_title">選擇您的動畫</string>
+  <string name="expansion_view_animation_down">下滑 (預設)</string>
+  <string name="expansion_view_animation_enter">進入</string>
+  <string name="expansion_view_animation_left">左滑</string>
+  <string name="expansion_view_animation_right">右滑</string>
+  <string name="expansion_view_animation_rotate">旋轉</string>
+  <string name="expansion_view_animation_turn">扭轉</string>
+  <string name="expansion_view_animation_up">上滑</string>
+  <string name="expansion_view_recents_enter">Recents Enter</string>
+  <string name="expansion_view_fade">Fade</string>
+  <string name="expansion_view_slide_out">Slide</string>
+  <string name="expansion_view_last_app">Last App</string>
+  <string name="expansion_view_rotate">Reverse Rotate</string>
+  <string name="expansion_view_task_open">Task Open</string>
+  <string name="expansion_view_xylon_toast">Toast</string>
+  <string name="expansion_view_search_bar">SearchBar Animation</string>
+  <string name="expansion_view_toko_toast">Toko Toast</string>
+  <!-- Development Settings -->
+  <!-- ADB always notify -->
+  <string name="adb_always_notify">Debugging always notify</string>
+  <string name="adb_always_notify_summary">Always display a notification when debugging is enabled, even if not connected</string>
+  <!-- Instant reboot -->
+  <string name="advanced_reboot_oneclick">One click reboot</string>
+  <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
 </resources>
