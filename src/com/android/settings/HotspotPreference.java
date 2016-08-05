@@ -77,6 +77,7 @@ public class HotspotPreference extends Preference implements OnCheckedChangeList
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         callChangeListener(isChecked);
+        mSwitchEnabled = isChecked;
     }
 
     public void setSummary(CharSequence summary) {
