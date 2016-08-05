@@ -1258,6 +1258,18 @@
                 android:resource="@id/button_settings" />
         </activity>
 
+ 	<!-- Halo -->
+        <activity android:name="Settings$HaloSettingsActivity"
+             android:label="@string/rr_halo_enable_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.Halo" />
+        </activity>
+
         <activity android:name="MonitoringCertInfoActivity"
                 android:label="@string/ssl_ca_cert_dialog_title"
                 android:theme="@style/Transparent"

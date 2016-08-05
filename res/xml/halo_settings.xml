@@ -17,6 +17,12 @@ limitations under the License.
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/halo_settings_title">
 
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="halo_enable"
+        android:title="@string/rr_halo_enable_title"
+	android:summary="@string/rr_halo_enable_summary"
+        android:defaultValue="false" />
+
     <ListPreference
         android:key="halo_size"
         android:dialogTitle="@string/halo_size_title"
