@@ -71,7 +71,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_CLEAR_ALL_ICON_COLOR =
             "notification_drawer_clear_all_icon_color";
     private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
-    private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
     private static final String PREF_TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
     private static final String PREF_TRANSPARENT_POWER_MENU = "transparent_power_menu";
     private static final String PREF_TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
@@ -119,8 +118,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mAppIconBgColor;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mClearAllIconColor;
-    private SeekBarPreference mQSShadeAlpha;
-    private SeekBarPreferenceCham mQSHeaderAlpha;	
+    private SeekBarPreference mQSShadeAlpha;	
     private SeekBarPreferenceCham mVolumeDialogAlpha;	
     private SeekBarPreferenceCham mPowerMenuAlpha;
     private SeekBarPreferenceCham mPowerDialogDim;
@@ -209,14 +207,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             Settings.System.QS_TRANSPARENT_SHADE, 255);
 	    mQSShadeAlpha.setValue(qSShadeAlpha / 1);
 	    mQSShadeAlpha.setOnPreferenceChangeListener(this);
-
-	    // QS header alpha
-            mQSHeaderAlpha =
-                    (SeekBarPreferenceCham) findPreference(PREF_QS_TRANSPARENT_HEADER);
-            int qSHeaderAlpha = Settings.System.getInt(mResolver,
-                    Settings.System.QS_TRANSPARENT_HEADER, 255);
-            mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
-            mQSHeaderAlpha.setOnPreferenceChangeListener(this);
 
 	    // Volume dialog alpha
             mVolumeDialogAlpha =
@@ -488,12 +478,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             Settings.System.putInt(mResolver,
                     Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
             return true;
-	}  else if (preference == mQSHeaderAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(mResolver,
-                        Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
-                return true;
-	}  else if (preference == mVolumeDialogAlpha) {
+	} else if (preference == mVolumeDialogAlpha) {
                 int alpha = (Integer) newValue;
                 Settings.System.putInt(mResolver,
                         Settings.System.TRANSPARENT_VOLUME_DIALOG, alpha * 1);
