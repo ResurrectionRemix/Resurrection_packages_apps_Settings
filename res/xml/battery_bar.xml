@@ -40,7 +40,7 @@
     <net.margaritov.preference.colorpicker.ColorPickerPreference
       android:key="battery_bar_color"
       android:title="@string/battery_bar_color"
-      android:defaultValue="#FFFFFF" />
+      android:defaultValue="0xffffffff" />
 
     <ListPreference
       android:key="battery_bar_thickness"
@@ -54,9 +54,24 @@
         android:defaultValue="0xffffffff" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="battery_bar_battery_low_color"
+        android:key="battery_bar_battery_low_color_warning"
         android:title="@string/battery_bar_battery_low_color"
         android:defaultValue="0xffffffff" />
+
+    <SwitchPreference
+        android:key="statusbar_battery_bar_use_gradient_color"
+        android:title="@string/battery_bar_use_gradient_color"
+        android:summary="@string/battery_bar_gradient_color_summary" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="statusbar_battery_bar_low_color"
+        android:title="@string/battery_bar_low_color"
+        android:defaultValue="0xffff4444" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="statusbar_battery_bar_high_color"
+        android:title="@string/battery_bar_high_color"
+        android:defaultValue="0xff99CC00" />
     
   </PreferenceCategory>
 
