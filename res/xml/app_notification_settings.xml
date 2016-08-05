@@ -42,12 +42,21 @@
             android:order="3"
             android:persistent="false" />
 
+    <!-- Halo -->
+    <SwitchPreference
+            android:key="halo"
+	    android:id="@+id/rr_halo"
+            android:title="@string/app_notification_halo_title"
+            android:summary="@string/app_notification_halo_summary"
+            android:order="4"
+            android:persistent="false" />
+
     <!-- Sensitive -->
     <SwitchPreference
             android:key="sensitive"
             android:title="@string/app_notification_sensitive_title"
             android:summary="@string/app_notification_sensitive_summary"
-            android:order="4"
+            android:order="5"
             android:persistent="false" />
 
     <!-- Keyguard options -->
@@ -55,14 +64,14 @@
             android:key="show_on_keyguard"
             android:title="@string/app_notification_show_on_keyguard_title"
             android:summary="@string/app_notification_show_on_keyguard_summary"
-            android:order="5"
+            android:order="6"
             android:persistent="false" />
 
     <SwitchPreference
             android:key="no_ongoing_on_keyguard"
             android:title="@string/app_notification_no_ongoing_on_keyguard_title"
             android:summary="@string/app_notification_no_ongoing_on_keyguard_summary"
-            android:order="6"
+            android:order="7"
             android:dependency="show_on_keyguard"
             android:persistent="false" />
 
@@ -70,7 +79,7 @@
     <Preference
             android:key="app_settings"
             android:title="@string/app_notification_preferences"
-            android:order="7"
+            android:order="8"
             android:persistent="false" />
 
 </PreferenceScreen>

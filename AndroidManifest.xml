@@ -919,6 +919,7 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity-alias>
 
+        <activity android:name =".rr.Halo" />
         <activity android:name="Settings$DeviceInfoSettingsActivity"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
                 android:label="@string/device_info_settings"
@@ -1255,6 +1256,18 @@
                 android:value="com.android.settings.rr.Pie.PieControl" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/button_settings" />
+        </activity>
+
+ 	<!-- Halo -->
+        <activity android:name="Settings$HaloSettingsActivity"
+             android:label="@string/rr_halo_enable_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.Halo" />
         </activity>
 
         <activity android:name="MonitoringCertInfoActivity"

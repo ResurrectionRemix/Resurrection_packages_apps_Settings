@@ -22,14 +22,21 @@
         android:title="@string/notifications_items" >
       
        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="heads_up_show_status_button"
-            android:title="@string/enable_headsup_button_extended_statusbar_title"
-            android:summary="@string/enable_headsup_button_extended_statusbar_summary" />
+        android:key="heads_up_show_status_button"
+        android:title="@string/enable_headsup_button_extended_statusbar_title"
+        android:summary="@string/enable_headsup_button_extended_statusbar_summary" />
 
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 	android:key="enable_task_manager"
 	android:title="@string/enable_task_manager_title"
 	android:summary="@string/enable_task_manager_summary" />
+
+       <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="halo_enable"
+        android:title="@string/rr_halo_enable_title"
+	android:summary="@string/rr_halo_enable_summary"
+        android:defaultValue="false" />
+
 	
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 	android:key="hide_panel_clock"

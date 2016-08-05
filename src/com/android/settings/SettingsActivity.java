@@ -77,6 +77,7 @@ import com.android.settings.rr.FlingSettings;
 import com.android.settings.rr.SmartbarSettings;
 import com.android.settings.rr.PulseSettings;
 import com.android.settings.rr.FloatingWindows;
+import com.android.settings.rr.Halo;
 import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
@@ -313,6 +314,7 @@ public class SettingsActivity extends Activity
 	    R.id.rr_heads_up,
 	    R.id.gesture_anywhere,
 	    R.id.pie_control,
+	    R.id.rr_halo,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod
     };
@@ -409,7 +411,8 @@ public class SettingsActivity extends Activity
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
             PulseSettings.class.getName(),
-            WeatherServiceSettings.class.getName()
+            WeatherServiceSettings.class.getName(),
+	    Halo.class.getName()
     };
 
 
