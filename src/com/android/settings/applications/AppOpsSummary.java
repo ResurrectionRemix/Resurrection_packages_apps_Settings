@@ -65,6 +65,7 @@ public class AppOpsSummary extends InstrumentedFragment {
     CharSequence[] mPageNames;
 
     int mCurPos;
+    int mPositionOffset;
 
     @Override
     protected int getMetricsCategory() {
@@ -81,12 +82,12 @@ public class AppOpsSummary extends InstrumentedFragment {
 
         @Override
         public Fragment getItem(int position) {
-            return new AppOpsCategory(mPageTemplates[position]);
+            return new AppOpsCategory(mPageTemplates[mPositionOffset + position]);
         }
 
         @Override
         public int getCount() {
-            return mPageTemplates.length;
+            return mPageNames.length;
         }
 
         @Override
@@ -135,19 +136,22 @@ public class AppOpsSummary extends InstrumentedFragment {
 
         mPageNames = getResources().getTextArray(R.array.app_ops_categories_cm);
 
-        int defaultTab = -1;
+        mPositionOffset = 0;
+
+        int specificTab = -1;
         Bundle bundle = getArguments();
         if (bundle != null) {
-            defaultTab = Arrays.asList(mPageNames).indexOf(bundle.getString("appops_tab", ""));
+            specificTab = Arrays.asList(mPageNames).indexOf(bundle.getString("appops_tab", ""));
+            if (specificTab >= 0) {
+                mPageNames = Arrays.copyOfRange(mPageNames, specificTab, specificTab + 1);
+                mPositionOffset = specificTab;
+            }
         }
 
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         mAdapter = new MyPagerAdapter(getChildFragmentManager(),
                 filterTemplates(AppOpsState.ALL_TEMPLATES));
         mViewPager.setAdapter(mAdapter);
-        if (defaultTab >= 0) {
-            mViewPager.setCurrentItem(defaultTab);
-        }
         mViewPager.setOnPageChangeListener(mAdapter);
         PagerTabStrip tabs = (PagerTabStrip) rootView.findViewById(R.id.tabs);
 
