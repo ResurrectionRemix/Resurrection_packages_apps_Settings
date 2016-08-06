@@ -431,6 +431,8 @@
   <string name="rr_lockscreen_style">Styles</string>
   <string name="double_tap_ls">Double Tap Sleep LockScreen</string>
   <string name="double_tap_ls_summary">Double tap lockscreen to put the device to sleep</string>
+  <string name="toggle_package_install_overlay_check_title">Disable permission overlay check</string>
+  <string name="toggle_package_install_overlay_check_summary">WARNING\u003A this disables a security check to prevent tapjacking! Use only if you understand the consequences.</string>
   <string name="ls_bouncer_title">Secure lockscreen bouncer</string>
   <string name="ls_bouncer_summary">Open lockscreen directly to pin/pattern/password when there are %1$s notifications present</string>
   <string name="ls_bouncer_on">On (default)</string>
@@ -457,6 +459,26 @@
   <string name="lockscreen_see_through_title">Lockscreen blur</string>
   <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
   <string name="lockscreen_blur_radius">Blur effect intensity</string>
+  <string name="rr_settings_blur_cat">Blur personalizations</string>
+  <string name="blurred_status_bar_expanded_enabled_pref">Blur Background </string>
+  <string name="blurred_status_bar_expanded_enabled_pref_summary">Blur the background when you pull down the status bar</string>
+  <string name="translucent_notifications_pref">Translucent Notifications</string>
+  <string name="translucent_notifications_pref_summary">Set the background of notifications translucent</string>
+  <string name="translucent_header_pref">Transparent Status Bar Header </string>
+  <string name="translucent_header_pref_summary">Adjust Header Transparency</string>
+  <string name="translucent_quick_settings_pref">Transparent Quick Settings Panel</string>
+  <string name="translucent_quick_settings_pref_summary">Adjust the background transparency of Qs Panel </string>
+  <string name="transluency_level_universal">Transparency level</string>
+  <string name="blur_expstatus_cat">Expanded StatusBar </string>
+  <string name="blur_notifications_cat">Notifications</string>
+  <string name="blur_header_cat">StatusBar Header</string>
+  <string name="blur_qs_cat">Quick Settings</string>
+  <string name="blurred_scale">Blur Scale</string>
+  <string name="blurred_scale_summary">Quailty of blur image</string>
+  <string name="blurred_radius">Blur Radius</string>
+  <string name="blurred_radius_summary">Amount of blur</string>
+  <string name="blur_cat_notice">Notice</string>
+  <string name="blur_cat_notice_summary">Blur personlizations are disabled during Keyguard view! Please Turn off Panel Transperancy to get best Results. Panel Transparency will not work with blur options</string>
   <!-- CM Lockscreen shortcuts -->
   <string name="lockscreen_targets_message">Bottom shortcuts</string>
   <string name="lockscreen_targets_summary">Change the bottom corner shortcuts</string>
@@ -534,6 +556,8 @@
   <!-- Toast Icons -->
   <string name="toast_icon_title">Toast icon</string>
   <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
+  <string name="toast_text_color">Toast Text Color</string>
+  <string name="toast_icon_color">Toast Icon Color</string>
   <!-- Color Picker -->
   <string name="dialog_color_picker">Color Picker</string>
   <string name="press_color_to_apply">Press on color below to apply</string>
@@ -681,6 +705,14 @@
   <string name="battery_bar_style_regular">Regular</string>
   <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
   <string name="battery_bar_style_reversed">Reversed</string>
+  <string name="battery_bar_use_gradient_color">Use gradient color</string>
+  <string name="battery_bar_gradient_color_summary">Use gradient color as a scale for the battery level</string>
+  <string name="battery_bar_high_color">High level color\"</string>
+  <string name="battery_bar_low_color">Low level color\"</string>
+  <string name="battery_bar_hide">Hide</string>
+  <string name="battery_bar_statusbar">Statusbar</string>
+  <string name="battery_bar_navbar_top">Top of navbar</string>
+  <string name="battery_bar_navbar_bottom">Bottom of navbar</string>
   <string name="help">Help</string>
   <string name="reset_message">Reset all entries to default?</string>
   <string name="attention">Attention</string>
@@ -1897,6 +1929,9 @@
   <string name="qs_num_columns_showing">%1$s tiles per row showing</string>
   <string name="systemui_tuner_qs_title">Quick Settings Tiles</string>
   <string name="rr_tuner_summary">This Can Also Be Accessed By Longpressing Settings Button in Notification Header</string>
+  <string name="qs_3_columns">Three</string>
+  <string name="qs_4_columns">Four</string>
+  <string name="qs_5_columns">Five</string>
   <!-- QuickSettings main tiles -->
   <string name="qs_main_tiles_title">Enlarge first row</string>
   <string name="qs_main_tiles_summary_on">Two main tiles on the first row</string>
@@ -2049,4 +2084,47 @@
   <!-- Instant reboot -->
   <string name="advanced_reboot_oneclick">One click reboot</string>
   <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
+  <!-- Halo -->
+  <string name="rr_halo_enable_title">Enable Halo</string>
+  <string name="rr_halo_enable_summary">Enable Halo Button in extended statusbar</string>
+  <string name="halo_settings_title">Halo</string>
+  <string name="halo_behavior_title">Halo Behavior</string>
+  <string name="halo_hide_title">Hide Halo after activity</string>
+  <string name="halo_hide_summary">Halo will appear for incoming tasks and scroll out of sight after a while</string>
+  <string name="halo_pause_title">Pause active app</string>
+  <string name="halo_pause_summary">When opening an app with Halo the underlying app will get paused</string>
+  <string name="halo_notification_msgbox_title">Enable message pop-up</string>
+  <string name="halo_notification_msgbox_summary">Show message box for incoming notifications</string>
+  <string name="halo_unlock_ping_title">Ping on unlock</string>
+  <string name="halo_unlock_ping_summary">Halo will ping when device is unlocked if new notifications were received</string>
+  <string name="halo_size_title">Halo size</string>
+  <string name="halo_size_summary">Defines how big Halo is going to be</string>
+  <string name="halo_size_miniscule">Miniscule</string>
+  <string name="halo_size_small">Small</string>
+  <string name="halo_size_default">Normal (default)</string>
+  <string name="halo_size_large">Large</string>
+  <string name="halo_size_gigantic">Gigantic</string>
+  <string name="halo_size_monster">Monster</string>
+  <string name="halo_notification_count_title">Notification count</string>
+  <string name="halo_notification_count_summary">Display notification counts on Halo</string>
+  <string name="halo_notification_count_none">None</string>
+  <string name="halo_notification_count_total">Total</string>
+  <string name="halo_notification_count_individual">Per app</string>
+  <string name="halo_notification_count_both">Both</string>
+  <string name="halo_msgbox_animation_title">Message box animation</string>
+  <string name="halo_msgbox_animation_summary">Halo message box animation for incoming notifications</string>
+  <string name="halo_msgbox_animation_none">None</string>
+  <string name="halo_msgbox_animation_flip">Flip</string>
+  <string name="halo_floating_windows">Floating Windows options</string>
+  <string name="halo_floating_windows_summary">Shortcut to Floating Windows options so you can use or not use with HALO</string>
+  <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
+  <string name="app_halo_label_black">Blacklist from HALO</string>
+  <string name="app_halo_label_white">Whitelist from HALO</string>
+  <!-- Halo blacklist -->
+  <string name="app_notification_halo_title">Show notification in HALO</string>
+  <string name="app_notification_halo_summary">Let this app show notifications in HALO</string>
+  <string name="filter_notif_no_halo">No notifications in HALO</string>
+  <string name="notifications_five_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%5$s</xliff:g></string>
+  <string name="halo_color_title">Halo color</string>
+  <string name="halo_color_summary">Defines what color the Halo bubble is</string>
 </resources>
