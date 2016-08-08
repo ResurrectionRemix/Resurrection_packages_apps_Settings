@@ -434,6 +434,10 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         case MENU_RESTORE:
             restoreDefaultApn();
             return true;
+
+        case android.R.id.home:
+            getActivity().onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
