@@ -524,6 +524,18 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
         mDialogFragment = null;
     }
 
+    protected void removeDialog(int dialogId, boolean stateLossAllowed) {
+        if (stateLossAllowed) {
+            if (mDialogFragment != null && mDialogFragment.getDialogId() == dialogId) {
+                getFragmentManager().beginTransaction().remove(mDialogFragment).
+                        commitAllowingStateLoss();
+            }
+            mDialogFragment = null;
+        } else {
+            removeDialog(dialogId);
+        }
+    }
+
     /**
      * Sets the OnCancelListener of the dialog shown. This method can only be
      * called after showDialog(int) and before removeDialog(int). The method
