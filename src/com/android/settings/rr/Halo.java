@@ -45,6 +45,7 @@ public class Halo extends SettingsPreferenceFragment
     private static final String KEY_HALO_MSGBOX_ANIMATION = "halo_msgbox_animation";
     private static final String KEY_HALO_NOTIFY_COUNT = "halo_notify_count";
     private static final String KEY_HALO_UNLOCK_PING = "halo_unlock_ping";
+    private static final String KEY_HALO_FLOAT_NOTIFICATIONS = "halo_float_notifications";
 
     private ListPreference mHaloSize;
     private ColorPickerPreference mHaloColor;
@@ -54,6 +55,7 @@ public class Halo extends SettingsPreferenceFragment
     private ListPreference mHaloMsgAnimate;
     private SwitchPreference mHaloMsgBox;
     private SwitchPreference mHaloUnlockPing;
+    private SwitchPreference mHaloFloat;
 
     private Context mContext;
 
@@ -69,6 +71,14 @@ public class Halo extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.halo_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
+
+
+       mHaloFloat = (SwitchPreference) prefSet.findPreference(KEY_HALO_FLOAT_NOTIFICATIONS);
+            if (Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.FLOATING_WINDOW_MODE, 0) == 0) {
+                mHaloFloat.setEnabled(false);
+                mHaloFloat.setSummary(R.string.halo_enable_float_summary);
+            }
 
         mHaloHide = (SwitchPreference) prefSet.findPreference(KEY_HALO_HIDE);
         mHaloHide.setChecked(Settings.Secure.getInt(mContext.getContentResolver(),
