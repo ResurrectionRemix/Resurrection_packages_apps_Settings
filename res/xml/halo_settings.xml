@@ -31,6 +31,13 @@ limitations under the License.
         android:entries="@array/entries_halo_size"
         android:entryValues="@array/values_halo_size" />
 
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="halo_float_notifications"
+        android:title="@string/halo_floating_notifications_title"
+        android:summary="@string/halo_floating_notifications_summary"
+        android:defaultValue="false"
+        android:dependency="halo_enable" />
+
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="halo_color"
         android:title="@string/halo_color_title"
