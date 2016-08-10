@@ -93,7 +93,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_USER_DICTIONARY_SETTINGS = "key_user_dictionary_settings";
     private static final String KEY_POINTER_SETTINGS_CATEGORY = "pointer_settings_category";
     private static final String KEY_PREVIOUSLY_ENABLED_SUBTYPES = "previously_enabled_subtypes";
-    private static final String KEY_HIGH_TOUCH_SENSITIVITY = "high_touch_sensitivity";
     private static final String KEY_TOUCHSCREEN_HOVERING = "touchscreen_hovering";
     private static final String KEY_TRACKPAD_SETTINGS = "gesture_pad_settings";
     private static final String KEY_STYLUS_GESTURES = "stylus_gestures";
@@ -115,7 +114,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private int mDefaultInputMethodSelectorVisibility = 0;
     private ListPreference mShowInputMethodSelectorPref;
     private SwitchPreference mStylusIconEnabled;
-    private SwitchPreference mHighTouchSensitivity;
     private SwitchPreference mTouchscreenHovering;
     private PreferenceCategory mKeyboardSettingsCategory;
     private PreferenceCategory mHardKeyboardCategory;
@@ -203,7 +201,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
 
         mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
         mStylusIconEnabled = (SwitchPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
-        mHighTouchSensitivity = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_SENSITIVITY);
 
         mTouchscreenHovering = (SwitchPreference) findPreference(KEY_TOUCHSCREEN_HOVERING);
 
@@ -211,15 +208,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
                 pointerSettingsCategory.removePreference(mStylusGestures);
                 pointerSettingsCategory.removePreference(mStylusIconEnabled);
-            }
-
-            if (!mHardware.isSupported(
-                    CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
-                pointerSettingsCategory.removePreference(mHighTouchSensitivity);
-                mHighTouchSensitivity = null;
-            } else {
-                mHighTouchSensitivity.setChecked(
-                        mHardware.get(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY));
             }
 
             if (!mHardware.isSupported(CMHardwareManager.FEATURE_TOUCH_HOVERING)) {
@@ -433,13 +421,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (preference == mStylusIconEnabled) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STYLUS_ICON_ENABLED, mStylusIconEnabled.isChecked() ? 1 : 0);
-        } else if (preference == mHighTouchSensitivity) {
-            boolean mHighTouchSensitivityEnable = mHighTouchSensitivity.isChecked();
-            CMSettings.System.putInt(getActivity().getContentResolver(),
-                    CMSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE,
-                    mHighTouchSensitivityEnable ? 1 : 0);
-            return mHardware.set(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY,
-                    mHighTouchSensitivityEnable);
         } else if (preference == mTouchscreenHovering) {
             return mHardware.set(CMHardwareManager.FEATURE_TOUCH_HOVERING,
                     mTouchscreenHovering.isChecked());
@@ -783,16 +764,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     public static void restore(Context context) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         final CMHardwareManager hardware = CMHardwareManager.getInstance(context);
-        if (hardware.isSupported(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
-            final boolean enabled = prefs.getBoolean(KEY_HIGH_TOUCH_SENSITIVITY,
-                    hardware.get(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY));
-            if (!hardware.set(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY,
-                    enabled)) {
-                Log.e(TAG, "Failed to restore high touch sensitivity settings.");
-            } else {
-                Log.d(TAG, "High touch sensitivity settings restored.");
-            }
-        }
         if (hardware.isSupported(CMHardwareManager.FEATURE_TOUCH_HOVERING)) {
             final boolean enabled = prefs.getBoolean(KEY_TOUCHSCREEN_HOVERING,
                     hardware.get(CMHardwareManager.FEATURE_TOUCH_HOVERING));
