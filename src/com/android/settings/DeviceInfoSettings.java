@@ -174,6 +174,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             removePreference(KEY_SYSTEM_UPDATE_SETTINGS);
         }
 
+        boolean isRJILlayout = getResources().getBoolean(R.bool.config_settings_rjil_layout);
+
+        if(isRJILlayout){
+            removePreference(KEY_SYSTEM_UPDATE_SETTINGS);
+        }
+
         // Read platform settings for additional system update setting
         removePreferenceIfBoolFalse(KEY_UPDATE_SETTING,
                 R.bool.config_additional_system_update_setting_enable);

@@ -342,11 +342,17 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
         final ConnectivityManager cm =
                 (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
 
+        boolean isRJILlayout = activity.getResources().
+                getBoolean(R.bool.config_settings_rjil_layout);
+        if (isRJILlayout) {
+            removePreference(KEY_MOBILE_NETWORK_SETTINGS);
+        }
         final boolean adminDisallowedTetherConfig = RestrictedLockUtils.checkIfRestrictionEnforced(
                 activity, UserManager.DISALLOW_CONFIG_TETHERING, UserHandle.myUserId()) != null;
         if ((!cm.isTetheringSupported() && !adminDisallowedTetherConfig) ||
                 RestrictedLockUtils.hasBaseUserRestriction(activity,
-                        UserManager.DISALLOW_CONFIG_TETHERING, UserHandle.myUserId())) {
+                        UserManager.DISALLOW_CONFIG_TETHERING, UserHandle.myUserId())
+                || isRJILlayout) {
             getPreferenceScreen().removePreference(findPreference(KEY_TETHER_SETTINGS));
         } else if (!adminDisallowedTetherConfig) {
             Preference p = findPreference(KEY_TETHER_SETTINGS);

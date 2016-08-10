@@ -33,6 +33,7 @@ public class Settings extends SettingsActivity {
     public static class SimSettingsActivity extends SettingsActivity { /* empty */ }
     public static class Lte4GEnableActivity extends SettingsActivity { /* empty */ }
     public static class TetherSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class MobileNetworkMainActivity extends SettingsActivity { /* empty */ }
     public static class VpnSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DateTimeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StorageSettingsActivity extends SettingsActivity { /* empty */ }
@@ -52,6 +53,8 @@ public class Settings extends SettingsActivity {
     public static class HomeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class OtherDeviceFunctionsSettingsActivity extends SettingsActivity { /* empty */}
+    public static class SystemUpdateActivity extends SettingsActivity { /* empty */}
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
