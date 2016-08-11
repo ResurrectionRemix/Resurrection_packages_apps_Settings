@@ -170,6 +170,7 @@ public class TetherSettings extends SettingsPreferenceFragment
         } else {
             getPreferenceScreen().removePreference(mEnableWifiAp);
             getPreferenceScreen().removePreference(wifiApSettings);
+            getPreferenceScreen().removePreference(mHotspotInactivityTimeout);
         }
 
         if (!bluetoothAvailable) {
