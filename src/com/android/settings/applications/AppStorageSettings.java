@@ -559,7 +559,9 @@ public class AppStorageSettings extends AppInfoWithHeader
 
     @Override
     public void onPackageSizeChanged(String packageName) {
-        if (packageName.equals(mAppEntry.info.packageName)) {
+        if (mAppEntry == null || mAppEntry.info == null) {
+            return;
+        } else if (packageName.equals(mAppEntry.info.packageName)) {
             refreshSizeInfo();
         }
     }
