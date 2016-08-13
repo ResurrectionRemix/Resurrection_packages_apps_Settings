@@ -38,6 +38,9 @@
   <string name="root_access_apps">Vain sovellukset</string>
   <string name="root_access_adb">Vain ADB</string>
   <string name="root_access_all">Sovellukset ja ADB</string>
+  <!-- Preference link for root appops -->
+  <string name="root_appops_title">Hallitse root-oikeuksia</string>
+  <string name="root_appops_summary">Tarkastele ja hallinnoi root-sääntöjä</string>
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
@@ -549,6 +552,7 @@
   <string name="volume_adjust_sounds_title">Äänenvoimakkuuden säädön merkkiääni</string>
   <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Värinän voimakkuus</string>
+  <string name="vibrator_warning">Korkeampia arvoja kuin %1$d%% ei suositella</string>
   <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Värien kalibrointi</string>
   <string name="color_calibration_summary">Kalibroi näytön värit</string>
@@ -571,15 +575,6 @@
   <string name="display_rotation_90_title">90 astetta</string>
   <string name="display_rotation_180_title">180 astetta</string>
   <string name="display_rotation_270_title">270 astetta</string>
-  <!-- Display settings.  Screen color. -->
-  <string name="restore_preview">Näytä oletuskuva</string>
-  <string name="selectnewfile_menu">Näytä uusi kuva Galleriasta</string>
-  <string name="selectfile_menu">Katso kuva Galleriasta</string>
-  <string name="restore_default_str">Palauta</string>
-  <string name="hue_str">Sävy: <xliff:g id="hue_value">%1$s</xliff:g></string>
-  <string name="saturation_str">Kylläisyys: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-  <string name="contrast_str">Kontrasti: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-  <string name="intensity_str">Intensiteetti: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimoi näyttösi kellonajan ja ympäristöolosuhteiden perusteella parantaaksesi luettavuutta ja vähentääksesi silmien rasitusta</string>
   <string name="live_display_mode">Näyttötila</string>
@@ -611,6 +606,13 @@
   <string name="live_display_color_profile_basic_summary">Käytä näyttöä kalibroimatta</string>
   <string name="live_display_color_profile_adaptive_title">Mukautuva</string>
   <string name="live_display_color_profile_adaptive_summary">Värit sopeutuu ympäristön mukaan</string>
+  <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">Kuvan säätö</string>
+  <string name="picture_adjustment_summary">Säädä värisävyä, kylläisyyttä, intensiteettiä ja kontrastia</string>
+  <string name="adj_hue_title">Värisävy</string>
+  <string name="adj_saturation_title">Kylläisyys</string>
+  <string name="adj_intensity_title">Intensiteetti</string>
+  <string name="adj_contrast_title">Kontrasti</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Syöttötavan valinnan kuvake</string>
   <string name="ime_switcher_notify_summary">Näytä syöttötavan valinnan kuvake</string>
@@ -1068,4 +1070,5 @@
   <string name="security_settings_fingerprint_sensor_location_left">vasemmasta reunasta</string>
   <string name="security_settings_fingerprint_sensor_location_right">oikeasta reunasta</string>
   <!-- SIM status format string -->
+  <string name="sim_status_format_string">Puhelut: <xliff:g id="voice_status">%1$s</xliff:g> / Data: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>

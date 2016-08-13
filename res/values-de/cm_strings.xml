@@ -38,6 +38,8 @@
   <string name="root_access_apps">Nur Apps</string>
   <string name="root_access_adb">Nur ADB</string>
   <string name="root_access_all">Apps und ADB</string>
+  <!-- Preference link for root appops -->
+  <string name="root_appops_title">Root-Zugriffe verwalten</string>
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
@@ -343,7 +345,7 @@
   <string name="app_ops_summaries_toast_window">Pop-ups anzeigen</string>
   <string name="app_ops_summaries_project_media">Medien projizieren</string>
   <string name="app_ops_summaries_activate_vpn">VPN aktivieren</string>
-  <string name="app_ops_summaries_write_wallpaper">Hintergrund schreiben</string>
+  <string name="app_ops_summaries_write_wallpaper">Hintergrundbild schreiben</string>
   <string name="app_ops_summaries_assist_structure">Strukturassistent</string>
   <string name="app_ops_summaries_assist_screenshot">Screenshotassistent</string>
   <string name="app_ops_summaries_read_phone_state">Telefonstatus lesen</string>
@@ -413,7 +415,7 @@
   <string name="app_ops_labels_toast_window">Pop-ups anzeigen</string>
   <string name="app_ops_labels_project_media">Medien projizieren</string>
   <string name="app_ops_labels_activate_vpn">VPN aktivieren</string>
-  <string name="app_ops_labels_write_wallpaper">Hintergrund schreiben</string>
+  <string name="app_ops_labels_write_wallpaper">Hintergrundbild schreiben</string>
   <string name="app_ops_labels_assist_structure">Strukturassistent</string>
   <string name="app_ops_labels_assist_screenshot">Screenshotassistent</string>
   <string name="app_ops_labels_read_phone_state">Telefonstatus lesen</string>
@@ -549,6 +551,7 @@
   <string name="volume_adjust_sounds_title">Ton bei Lautstärkeänderung</string>
   <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Vibrationsstärke</string>
+  <string name="vibrator_warning">Höhere Werte als %1$d%% werden nicht empfohlen</string>
   <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Farbkalibrierung</string>
   <string name="color_calibration_summary">Displayfarben kalibrieren</string>
@@ -571,15 +574,6 @@
   <string name="display_rotation_90_title">90 Grad</string>
   <string name="display_rotation_180_title">180 Grad</string>
   <string name="display_rotation_270_title">270 Grad</string>
-  <!-- Display settings.  Screen color. -->
-  <string name="restore_preview">Standardbild anzeigen</string>
-  <string name="selectnewfile_menu">Neues Bild aus Galerie anzeigen</string>
-  <string name="selectfile_menu">Bild aus Galerie anzeigen</string>
-  <string name="restore_default_str">Zurücksetzen</string>
-  <string name="hue_str">Farbton: <xliff:g id="hue_value">%1$s</xliff:g></string>
-  <string name="saturation_str">Sättigung: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-  <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-  <string name="intensity_str">Intensität: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiert Ihren Bildschirm basierend auf der Tageszeit und den Umgebungsbedingungen, um die Lesbarkeit zu verbessern und die Ermüdung der Augen zu mildern</string>
   <string name="live_display_mode">Bildschirmmodus</string>
@@ -611,6 +605,11 @@
   <string name="live_display_color_profile_basic_summary">Display unkalibriert verwenden</string>
   <string name="live_display_color_profile_adaptive_title">Adaptiv</string>
   <string name="live_display_color_profile_adaptive_summary">Farben an Umgebungsbedingungen anpassen</string>
+  <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">Bildanpassung</string>
+  <string name="adj_hue_title">Farbton</string>
+  <string name="adj_saturation_title">Sättigung</string>
+  <string name="adj_contrast_title">Kontrast</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Auswahlsymbol</string>
   <string name="ime_switcher_notify_summary">Symbol für Eingabemethodenauswahl anzeigen</string>
@@ -1058,7 +1057,7 @@
   <string name="cm_radio_info_diag_log_on_label">Diagnoseprotokoll ausschalten</string>
   <string name="cm_radio_info_diag_log_off_label">Diagnoseprotokoll einschalten</string>
   <!-- Lock screen wallpaper -->
-  <string name="lockscreen_wallpaper_title">Hintergrund</string>
+  <string name="lockscreen_wallpaper_title">Hintergrundbild</string>
   <string name="not_available_with_app">Nicht verfügbar für %1$s</string>
   <!-- Format string for fingerprint location message -->
   <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Suchen Sie den Fingerabdrucksensor auf der <xliff:g id="sensor_location">%1$s</xliff:g> des Gerätes.</string>
@@ -1068,4 +1067,5 @@
   <string name="security_settings_fingerprint_sensor_location_left">linken Seite</string>
   <string name="security_settings_fingerprint_sensor_location_right">rechten Seite</string>
   <!-- SIM status format string -->
+  <string name="sim_status_format_string">Anrufe: <xliff:g id="voice_state">%1$s</xliff:g> / Daten: <xliff:g id="data_state">%2$s</xliff:g></string>
 </resources>

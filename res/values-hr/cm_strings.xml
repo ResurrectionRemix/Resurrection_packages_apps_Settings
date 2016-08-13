@@ -39,6 +39,7 @@
   <string name="root_access_apps">Samo aplikacije</string>
   <string name="root_access_adb">Samo ADB</string>
   <string name="root_access_all">Aplikacije i ADB</string>
+  <!-- Preference link for root appops -->
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
@@ -550,6 +551,7 @@
   <string name="volume_adjust_sounds_title">Zvuk podešavanja glasnoće</string>
   <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Intenzitet vibracije</string>
+  <string name="vibrator_warning">Vrijednosti više od %1$d%% nisu preporučene</string>
   <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Kalibracija boja</string>
   <string name="color_calibration_summary">Kalibriraj boje zaslona</string>
@@ -572,15 +574,6 @@
   <string name="display_rotation_90_title">90 stupnjeva</string>
   <string name="display_rotation_180_title">180 stupnjeva</string>
   <string name="display_rotation_270_title">270 stupnjeva</string>
-  <!-- Display settings.  Screen color. -->
-  <string name="restore_preview">Vidi zadanu sliku</string>
-  <string name="selectnewfile_menu">Pogledaj novu sliku iz galerije</string>
-  <string name="selectfile_menu">Prikaz slike iz galerije</string>
-  <string name="restore_default_str">Ponovno postavi</string>
-  <string name="hue_str">Nijansa: <xliff:g id="hue_value">%1$s</xliff:g></string>
-  <string name="saturation_str">Zasićenost: <xliff:g id="saturation_value">%1$s </xliff:g></string>
-  <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s </xliff:g></string>
-  <string name="intensity_str">Intenzitet: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Prilagođuje zaslon prema vremenu dana i okolini za poboljšanje čitljivosti i smanjenje naprezanja očiju.</string>
   <string name="live_display_mode">Način prikaza</string>
@@ -612,6 +605,13 @@
   <string name="live_display_color_profile_basic_summary">Koristite ne kalibriran zaslon</string>
   <string name="live_display_color_profile_adaptive_title">Prilagodljiv</string>
   <string name="live_display_color_profile_adaptive_summary">Boje se prilagođavaju ambijentnim uslovima</string>
+  <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">Podešavanje slike</string>
+  <string name="picture_adjustment_summary">PrilagodI nijansu, zasićenost, intenzitet i kontrast</string>
+  <string name="adj_hue_title">Nijansa</string>
+  <string name="adj_saturation_title">Zasićenje</string>
+  <string name="adj_intensity_title">Intenzitet</string>
+  <string name="adj_contrast_title">Kontrast</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Selektor obavijesti</string>
   <string name="ime_switcher_notify_summary">Prikaz načina unosa za odabir ikona</string>
@@ -809,7 +809,7 @@
   <string name="blacklist_prefs">Postavke</string>
   <string name="blacklist_button_delete">Obriši</string>
   <string name="blacklist_empty_text">Nemate blokiranih brojeva. Dodajte unos dodirom na gumb Dodaj (+).</string>
-  <string name="blacklist_disabled_empty_text">Da biste spriječili telefonske brojeve da vas zove ili da vam šalju poruke, omogućite popis blokiranih pozivatelja.</string>
+  <string name="blacklist_disabled_empty_text">Da biste spriječili telefonske brojeve da vas zovu ili da vam šalju poruke, omogućite popis blokiranih pozivatelja.</string>
   <string name="blacklist_summary_disabled">Onemogućeno</string>
   <string name="blacklist_summary">Nećete primati dolazne pozive ili poruke od telefonskih brojeva na popisu blokiranih pozivatelja</string>
   <string name="blacklist_notify">Prikaži obavijest</string>
@@ -1069,4 +1069,5 @@
   <string name="security_settings_fingerprint_sensor_location_left">lijevoj strani</string>
   <string name="security_settings_fingerprint_sensor_location_right">desnoj strani</string>
   <!-- SIM status format string -->
+  <string name="sim_status_format_string">Glas: <xliff:g id="voice_status">%1$s</xliff:g> / Podaci: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>

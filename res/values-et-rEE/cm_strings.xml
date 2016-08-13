@@ -38,7 +38,9 @@
   <string name="root_access_apps">Ainult rakendused</string>
   <string name="root_access_adb">Ainult ADB</string>
   <string name="root_access_all">Rakendused ja ADB</string>
+  <!-- Preference link for root appops -->
   <!-- NFC PreferenceCategory title -->
+  <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">CyanogenMod versioon</string>
   <string name="mod_version_default">Teadmata</string>
@@ -262,6 +264,7 @@
   <string name="notification_light_missed_call_title">vastamata kõne</string>
   <string name="notification_light_voicemail_title">Kõnepost</string>
   <string name="notification_light_screen_on">Tuled koos ekraaniga</string>
+  <string name="notification_light_use_multiple_leds">Mitu LEDi</string>
   <string name="keywords_lights_brightness_level">hämarda ledide heledust</string>
   <!-- Lights settings, LED notification -->
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
@@ -503,15 +506,6 @@
   <string name="display_rotation_90_title">90 kraadi</string>
   <string name="display_rotation_180_title">180 kraadi</string>
   <string name="display_rotation_270_title">270 kraadi</string>
-  <!-- Display settings.  Screen color. -->
-  <string name="restore_preview">Kuva vaikepilt</string>
-  <string name="selectnewfile_menu">Kuva uus pilti Galeriist</string>
-  <string name="selectfile_menu">Kuva pilt Galeriist</string>
-  <string name="restore_default_str">Lähtesta</string>
-  <string name="hue_str">Värvus: <xliff:g id="hue_value">%1$s</xliff:g></string>
-  <string name="saturation_str">Küllastus: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-  <string name="contrast_str">Kontrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-  <string name="intensity_str">Intensiivsus: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimiseeri oma ekraan vastavalt päeva ajale ja ümbritsevatele tingimustele, et parandada loetavust ning vähendada silmade pinget</string>
   <string name="live_display_mode">Ekraani režiim</string>
@@ -536,6 +530,9 @@
   <string name="live_display_color_profile_cinema_title">Kino</string>
   <string name="live_display_color_profile_astronomy_title">Astronoomia</string>
   <string name="live_display_color_profile_astronomy_summary">Sügav punane öise nägemise säilitamiseks</string>
+  <!-- LiveDisplay : Picture Adjustment -->
+  <string name="adj_saturation_title">Küllastus</string>
+  <string name="adj_contrast_title">Kontrast</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Valiku ikoon</string>
   <string name="ime_switcher_notify_summary">Kuva sisestamismeetodi valiku ikoon</string>
@@ -590,6 +587,9 @@
   <string name="lto_download_data_wifi_only">GPS assisteeritud andmete allalaadimine</string>
   <string name="lto_download_data_wifi_only_on">Üle kõigi võrkude</string>
   <string name="lto_download_data_wifi_only_off">Ainult üle Wi\u2011Fi võrkude</string>
+  <string name="volume_keys_control_ring_stream_title">Muuda helina tooni tugevust</string>
+  <string name="volume_keys_control_ring_stream_summary_on">Helitugevusnupud reguleerivad helina tooni tugevust</string>
+  <string name="volume_keys_control_ring_stream_summary_off">Helitugevusnupud reguleerivad meedia helitugevust</string>
   <string name="category_calibration">Kalibreerimine</string>
   <string name="display_and_lights">Ekraan &amp; valgustus</string>
   <!-- Category title for Charging sounds (Power state change) specific Settings.
@@ -662,14 +662,18 @@
   <string name="privacy_guard_help_text">Sellel ekraanil saate puudutusega valida milliste rakenduste jaoks aktiveeritakse Privaatsuse Kaitse. Valitud rakendustele ei võimaldata ligipääsu isiklikele andmetele, nagu näiteks kontaktid, sõnumid või kõnelogi. Pikk vajutus rakendusel avab detailide kuva.\n\nSisseehitatud rakendused ei ole vaikimisi kuvatud, kuid on võimalik nähtavaks teha vastavas menüü valikus.</string>
   <string name="privacy_guard_manager_show_system_apps">Kuva sisse-ehitatud rakendused</string>
   <string name="privacy_guard_advanced_settings_title">Edasijõudnute valikud</string>
+  <string name="privacy_guard_notification_title">Kuva teavitus</string>
   <!-- Sizes for pattern lockscreen -->
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Näita mustrit tõrget</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">Näita mustri punkte</string>
   <!-- Whether the keyguard will directly pass to password entry -->
+  <string name="lock_directly_show_password">Näita otse paroolisisestust</string>
   <!-- Whether the keyguard will directly pass to pattern view -->
+  <string name="lock_directly_show_pattern">Näita otse mustrit</string>
   <!-- Whether the keyguard will directly pass to PIN entry -->
+  <string name="lock_directly_show_pin">Näita otse PIN koodi sisestust</string>
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">Näita muusika visualiseerijat</string>
   <!-- lock screen disabled by QS tile warning -->

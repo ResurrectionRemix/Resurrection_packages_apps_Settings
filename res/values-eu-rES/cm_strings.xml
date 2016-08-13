@@ -38,6 +38,9 @@
   <string name="root_access_apps">Aplikazioak bakarrik</string>
   <string name="root_access_adb">ADB bakarrik</string>
   <string name="root_access_all">ADB eta aplikazioak</string>
+  <!-- Preference link for root appops -->
+  <string name="root_appops_title">Kudeatu root sarbideak</string>
+  <string name="root_appops_summary">Ikusi eta kontrolatu root arauak</string>
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
@@ -261,12 +264,12 @@
   <string name="notification_light_general_title">Orokorra</string>
   <string name="notification_light_applist_title">Aplikazioak</string>
   <string name="notification_light_phonelist_title">Telefonoa</string>
-  <string name="notification_light_use_custom">Balio pertsonalizatuak erabili</string>
+  <string name="notification_light_use_custom">Erabili balio pertsonalizatuak</string>
   <string name="notification_light_default_value">Lehenetsia</string>
   <string name="notification_light_missed_call_title">Dei galdua</string>
   <string name="notification_light_voicemail_title">Ahots postontzia</string>
   <string name="notification_light_screen_on">Argitu pantaila piztean</string>
-  <string name="notification_light_zen_mode">Argiak ez eten moduan</string>
+  <string name="notification_light_zen_mode">Argiak ez molestatu moduan</string>
   <string name="notification_light_use_multiple_leds">Hainbat LED</string>
   <string name="keywords_lights_brightness_level">ilundu LEDaren argitasuna</string>
   <string name="notification_light_automagic">Hautatu koloreak automatikoki</string>
@@ -572,15 +575,6 @@
   <string name="display_rotation_90_title">90 gradu</string>
   <string name="display_rotation_180_title">180 gradu</string>
   <string name="display_rotation_270_title">270 gradu</string>
-  <!-- Display settings.  Screen color. -->
-  <string name="restore_preview">Ikusi lehenetsitako irudia</string>
-  <string name="selectnewfile_menu">Ikusi irudi berria galeriatik</string>
-  <string name="selectfile_menu">Ikusi irudia galeriatik</string>
-  <string name="restore_default_str">Leheneratu</string>
-  <string name="hue_str">Ñabardura:<xliff:g id="hue_value">%1$s</xliff:g></string>
-  <string name="saturation_str">Saturazioa:<xliff:g id="saturation_value">%1$s</xliff:g></string>
-  <string name="contrast_str">Kontrastea:<xliff:g id="contrast_value">%1$s</xliff:g></string>
-  <string name="intensity_str">Intentsitatea:<xliff:g id="intensity_str_value">%1$s</xliff:g></string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Optimizatu zure pantaila eguneko orduaren eta inguruneko baldintzen arabera irakurgarritasuna hobetzeko eta begien nekea gutxiagotzeko</string>
   <string name="live_display_mode">Pantaila modua</string>
@@ -612,6 +606,13 @@
   <string name="live_display_color_profile_basic_summary">Erabili pantaila kalibratu gabe</string>
   <string name="live_display_color_profile_adaptive_title">Moldakorra</string>
   <string name="live_display_color_profile_adaptive_summary">Koloreak inguruko baldintzetara moldatzen dira</string>
+  <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">Irudiaren doikuntza</string>
+  <string name="picture_adjustment_summary">Doitu ñabardura, saturazioa, intentsitatea eta kontrastea</string>
+  <string name="adj_hue_title">Ñabardura</string>
+  <string name="adj_saturation_title">Saturazioa</string>
+  <string name="adj_intensity_title">Intentsitatea</string>
+  <string name="adj_contrast_title">Kontrastea</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Hautaketa ikonoa</string>
   <string name="ime_switcher_notify_summary">Bistaratu sarrera metodoa hautatzeko ikonoa</string>
@@ -778,7 +779,7 @@
   <string name="advanced_reboot_summary">Desblokeatuta dagoenean, erakutsi itzaltze menuan berreskuratze-irudira edo abiarazlera berrabiatzeko edo berrabiatze leuna burutzeko aukerak</string>
   <string name="category_interface">Interfazea</string>
   <!-- Expanded desktop -->
-  <string name="power_menu_expanded_desktop">Mahaigaina hedatu</string>
+  <string name="power_menu_expanded_desktop">Mahaigain hedatua</string>
   <string name="expanded_hide_nothing">Ez ezkutatu ezer</string>
   <string name="expanded_hide_status">Ezkutatu egoera barra</string>
   <string name="expanded_hide_navigation">Ezkutatu nabigazio-barra</string>
@@ -793,7 +794,7 @@
   <string name="kill_app_longpress_back_summary">Hil aurrealdeko aplikazioa atzera botoia luze sakatuz</string>
   <!-- Show/Hide Search Bar -->
   <string name="recents_show_searchbar">Erakutsi bilaketa barra azkenak menuan</string>
-  <string name="keywords_recents_show_searchbar">oraintsukoa oraintsukoak ezgaitu gaitu erakutsi ezkutatu bilatu barra bilaketa-barra</string>
+  <string name="keywords_recents_show_searchbar">azkena azkenak desgaitu gaitu erakutsi ezkutatu bilatu barra bilaketa-barra</string>
   <!-- Voice Wakeup -->
   <string name="voice_wakeup_settings_title">Esnatu ahotsaren bidez</string>
   <string name="voice_wakeup_retrain_title">Ahotsa entrenatu</string>
@@ -970,7 +971,7 @@
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Beste bat</string>
   <!-- Wi-Fi tethering inactivity timeout -->
-  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi gunearen denbora muga agortu da</string>
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi gunearen denbora-muga</string>
   <string name="hotstpot_inactivity_timeout_never">Inoiz ez</string>
   <string name="hotstpot_inactivity_timeout_1_minute">minutu bat</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutu</string>
