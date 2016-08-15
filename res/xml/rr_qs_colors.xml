@@ -19,48 +19,253 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+        <Preference
+            android:key="qs_color_switch_summary"
+            android:title="@string/qs_color_switch_summary_title"
+            android:summary="@string/qs_color_switch_summary_main"
+            android:selectable="false"/>
 
-    <SwitchPreference
-        android:key="qs_color_switch"
-        android:title="@string/qs_color_switch"
-        android:summary="@string/qs_color_switch_summary"
-	android:defaultValue="false" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="qs_header_text_color"
-        android:title="@string/qs_header_text_color"
-        android:defaultValue="0xffffffff"
-	android:dependency="qs_color_switch" />
+    <ListPreference
+       android:key="qs_color_switch"
+       android:title="@string/qs_color_switch"
+       android:dialogTitle="@string/qs_color_switch"
+       android:entries="@array/qs_bg_color_entries"
+       android:entryValues="@array/qs_bg_color_values" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="qs_header_color"
-        android:title="@string/qs_header_color"
-        android:defaultValue="0xff263238" 
-	android:dependency="qs_color_switch" />
+    <PreferenceCategory
+        android:key="rr_qs_bg_colors_general"
+        android:title="@string/rr_bg_colors_general_title">
+
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="qs_text_color"
         android:title="@string/qs_text_color"
-        android:defaultValue="0xffffffff" 
-	android:dependency="qs_color_switch" />
+        android:defaultValue="0xffffffff" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="qs_icon_color"
         android:title="@string/qs_icon_color"
-        android:defaultValue="0xffffffff" 
-	android:dependency="qs_color_switch" />
+        android:defaultValue="0xffffffff" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="qs_bg_color"
-        android:title="@string/qs_bg_color"
-        android:defaultValue="0xff263238" 
-	android:dependency="qs_color_switch" />
+        android:key="qs_header_text_color"
+        android:title="@string/qs_header_text_color"
+        android:defaultValue="0xffffffff" />
+
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="qs_brightness_icon_color"
         android:title="@string/qs_brightness_icon_color"
-        android:defaultValue="0xff263238" 
-	android:dependency="qs_color_switch" />
+        android:defaultValue="0xff263238" />
+
+
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="rr_qs_bg_colors"
+        android:title="@string/rr_bg_colors_title">
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="qs_header_color"
+        android:title="@string/qs_header_color"
+        android:defaultValue="0xff263238"  />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="qs_bg_color"
+        android:title="@string/qs_bg_color"
+        android:defaultValue="0xff263238" />
+
+
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_bg_colors"
+        android:title="@string/gradient_bg_colors_title">
+
+        <SwitchPreference
+            android:key="qs_background_gradient_use_center_color"
+            android:title="@string/background_gradient_use_center_color_title"
+            android:summary="@string/background_gradient_use_center_color_summary" />
+
+        <ListPreference
+            android:key="qs_background_gradient_orientation"
+            android:title="@string/background_gradient_orientation_title"
+            android:dialogTitle="@string/background_gradient_orientation_dlg_title"
+            android:entries="@array/background_gradient_orientation_entries"
+            android:entryValues="@array/background_gradient_orientation_values" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_background_color_start"
+            android:title="@string/color_title"
+            android:defaultValue="0xff000000" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_background_color_center"
+            android:title="@string/background_center_color_title"
+            android:defaultValue="0xff000000"
+	    android:dependency="qs_background_gradient_use_center_color" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_background_color_end"
+            android:title="@string/background_end_color_title"
+            android:defaultValue="0xff000000" />
+
+         <SwitchPreference
+             android:key="header_background_gradient_use_center_color"
+             android:title="@string/background_header_gradient_use_center_color_title"
+             android:summary="@string/background_header_gradient_use_center_color_summary" />
+ 
+         <ListPreference
+             android:key="header_background_gradient_orientation"
+             android:title="@string/background_gradient_orientation_title"
+             android:dialogTitle="@string/background_gradient_orientation_dlg_title"
+             android:entries="@array/background_gradient_orientation_entries"
+             android:entryValues="@array/background_gradient_orientation_values" />
+ 
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="header_background_color_start"
+             android:title="@string/header_center_color_title"
+             android:defaultValue="0xff000000" />
+ 
+          <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="header_background_color_center"
+             android:title="@string/header_background_center_color_title"
+             android:defaultValue="0xff000000" 
+	     android:dependency="header_background_gradient_use_center_color"/>
+ 
+          <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="header_background_color_end"
+             android:title="@string/header_background_end_color_title"
+             android:defaultValue="0xff000000" />
+
+
+</PreferenceCategory>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="qs_custom_master_switch"
+            android:title="@string/qs_custom_master_switch_title"
+            android:summary="@string/qs_custom_master_switch_summary"/>
+
+    <PreferenceCategory
+        android:key="notification_cat_qs"
+        android:title="@string/qs_trans_title"
+	android:dependency="qs_custom_master_switch">
+	
+    <ListPreference
+        android:key="qs_stroke"
+        android:title="@string/qs_stroke_title"
+        android:dialogTitle="@string/qs_stroke_title"
+        android:entries="@array/qs_stroke_entries"
+        android:entryValues="@array/qs_stroke_values"
+        android:defaultValue="0" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="qs_stroke_color"
+        android:title="@string/qs_stroke_color_title"
+        android:defaultValue="0xff80cbc4"/>
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="qs_stroke_thickness"
+        android:title="@string/qs_stroke_thickness_title"
+        android:max="25"
+        settings:min="1"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreferenceCham
+        android:key="qs_corner_radius"
+        android:title="@string/qs_corner_radius_title"
+        android:max="50"
+        settings:min="0"
+        settings:unitsLeft=""
+        settings:unitsRight="px"
+        android:persistent="false" />
+    
+    
+      <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="qs_dash_width"
+         android:title="@string/qs_dash_width_title"
+         android:max="50"
+         settings:min="0"
+         settings:unitsLeft=""
+         settings:unitsRight="px"
+         android:persistent="false" />
+ 
+     <com.android.settings.rr.SeekBarPreferenceCham
+         android:key="qs_dash_gap"
+         android:title="@string/qs_dash_gap_title"
+         android:max="50"
+         settings:min="1"
+         settings:unitsLeft=""
+	 settings:unitsRight="px"
+	 android:persistent="false" />
+     
+     
+   </PreferenceCategory>
+   
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="qs_header_master_switch"
+            android:title="@string/qs_header_master_switch_title"
+            android:summary="@string/qs_header_master_switch_summary" />
+
+    <PreferenceCategory
+        android:key="stroke_settings"
+        android:title="@string/stroke_category_title"
+      	android:dependency="qs_header_master_switch">
+
+        <ListPreference
+            android:key="status_bar_expanded_header_stroke"
+            android:title="@string/stroke_title"
+            android:dialogTitle="@string/stroke_title"
+            android:entries="@array/stroke_entries"
+            android:entryValues="@array/stroke_values" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="status_bar_expanded_header_corner_radius"
+            android:title="@string/corner_radius_title"
+            android:max="50"
+            settings:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight="px"
+            android:persistent="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="status_bar_expanded_header_stroke_dash_gap"
+            android:title="@string/dash_gap_title"
+            android:max="50"
+            settings:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight="px"
+            android:persistent="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="status_bar_expanded_header_stroke_dash_width"
+            android:title="@string/dash_width_title"
+            android:max="50"
+            settings:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight="px"
+            android:persistent="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="status_bar_expanded_header_stroke_color"
+            android:title="@string/stroke_color_title"
+            android:defaultValue="0xff1976D2" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="status_bar_expanded_header_stroke_thickness"
+            android:title="@string/stroke_thickness_title"
+            android:max="25"
+            settings:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight="px"
+            android:persistent="false" />
+
+</PreferenceCategory>
+   
 
 </PreferenceScreen>
 

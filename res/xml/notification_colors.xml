@@ -65,64 +65,6 @@
 	
 </PreferenceCategory>
 
-
-    <PreferenceCategory
-        android:key="notification_cat_qs"
-        android:title="@string/qs_trans_title">
-	
-    <ListPreference
-        android:key="qs_stroke"
-        android:title="@string/qs_stroke_title"
-        android:dialogTitle="@string/qs_stroke_title"
-        android:entries="@array/qs_stroke_entries"
-        android:entryValues="@array/qs_stroke_values"
-        android:defaultValue="0" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="qs_stroke_color"
-        android:title="@string/qs_stroke_color_title"
-        android:defaultValue="0xff80cbc4"/>
-
-    <com.android.settings.rr.SeekBarPreferenceCham
-        android:key="qs_stroke_thickness"
-        android:title="@string/qs_stroke_thickness_title"
-        android:max="25"
-        settings:min="1"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
-        android:persistent="false" />
-
-    <com.android.settings.rr.SeekBarPreferenceCham
-        android:key="qs_corner_radius"
-        android:title="@string/qs_corner_radius_title"
-        android:max="50"
-        settings:min="0"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
-        android:persistent="false" />
-    
-    
-      <com.android.settings.rr.SeekBarPreferenceCham
-         android:key="qs_dash_width"
-         android:title="@string/qs_dash_width_title"
-         android:max="50"
-         settings:min="0"
-         settings:unitsLeft=""
-         settings:unitsRight="px"
-         android:persistent="false" />
- 
-     <com.android.settings.rr.SeekBarPreferenceCham
-         android:key="qs_dash_gap"
-         android:title="@string/qs_dash_gap_title"
-         android:max="50"
-         settings:min="1"
-         settings:unitsLeft=""
-	 settings:unitsRight="px"
-	 android:persistent="false" />
-     
-     
-   </PreferenceCategory>
-   
       <PreferenceCategory
          android:key="qs_panel_logo_category"
          android:title="@string/qs_panel_logo_category">
@@ -179,6 +121,47 @@
     <PreferenceCategory
         android:key="notification_cat_volume"
         android:title="@string/notification_cat_volume">
+
+     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="volume_dialog_color_switch"
+            android:title="@string/volume_dialog_color_switch_title"
+            android:defaultValue="false"/>
+
+        <SwitchPreference
+            android:key="volume_dialog_background_gradient_use_center_color"
+            android:title="@string/background_gradient_use_center_color_title"
+            android:summary="@string/background_gradient_use_center_color_summary"
+	    android:dependency="volume_dialog_color_switch" />
+
+        <ListPreference
+            android:key="volume_dialog_background_gradient_orientation"
+            android:title="@string/background_gradient_orientation_title"
+            android:dialogTitle="@string/background_gradient_orientation_dlg_title"
+            android:entries="@array/background_gradient_orientation_entries"
+            android:entryValues="@array/background_gradient_orientation_values" 
+	    android:dependency="volume_dialog_color_switch" />
+
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_background_color_start"
+            android:title="@string/color_title"
+            android:defaultValue="0xff000000"
+	    android:dependency="volume_dialog_color_switch"/>
+
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_background_color_center"
+            android:title="@string/background_center_color_title"
+            android:defaultValue="0xff000000"
+	    android:dependency="volume_dialog_background_gradient_use_center_color"/>
+
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_background_color_end"
+            android:title="@string/background_end_color_title"
+            android:defaultValue="0xff000000" 
+	    android:dependency="volume_dialog_color_switch" />
+
     
     <ListPreference
         android:key="volume_dialog_stroke"
