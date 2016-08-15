@@ -18,7 +18,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/fling_interface" >
-    
+
     <Preference
         style="?android:preferenceInformationStyle"
         android:key="eos_fling_back_home_policy"
@@ -95,7 +95,7 @@
             android:title="@string/fling_double_tap"
             android:summary="@string/fling_def_summary" >
         </com.android.settings.rr.ActionPreference>
-        
+
         <com.android.settings.rr.ActionPreference
             android:key="double_left_tap"
             android:title="@string/fling_double_left_tap"
@@ -168,6 +168,17 @@
             android:title="@string/fling_trails_color_title"
             android:defaultValue="0xffffff"
             android:dependency="eos_fling_trails_enable" />
+
+        <com.android.settings.rr.SeekBarPreferenceCham
+            android:key="du_fling_trails_width"
+            android:title="@string/fling_trails_width_title"
+            settings:defaultVal="15"
+            android:max="25"
+            settings:minimum="1"
+            settings:unitsLeft=""
+            settings:unitsRight="dp"
+            android:dependency="eos_fling_trails_enable"
+            android:persistent="false" />
      </PreferenceCategory>
 
     <PreferenceCategory
