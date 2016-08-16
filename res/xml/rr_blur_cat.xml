@@ -72,6 +72,20 @@
 	    android:dependency="blurred_status_bar_expanded_enabled_pref"
             android:defaultValue="10" />
     </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="blur_recents_cat"
+        android:title="@string/blur_recents_cat"
+	android:dependency="blurred_status_bar_expanded_enabled_pref" >
+
+      <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+         android:key="blurred_recent_app_enabled_pref"
+         android:title="@string/blurred_recent_app_enabled_pref"
+         android:summary="@string/blurred_recent_app_enabled_pref_summary"
+         android:defaultValue="false"
+         android:dependency="blurred_status_bar_expanded_enabled_pref" />
+    </PreferenceCategory>
     
 
     <PreferenceCategory
