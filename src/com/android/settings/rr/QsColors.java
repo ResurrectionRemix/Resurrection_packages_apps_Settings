@@ -63,6 +63,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
  private static final String QS_TEXT_COLOR = "qs_text_color";
  private static final String QS_ICON_COLOR = "qs_icon_color";
  private static final String QS_BACKGROUND_COLOR = "qs_bg_color";
+ private static final String QS_BRIGHTNESS_SLIDER_COLOR = "qs_brightness_slider_color";
+ private static final String QS_BRIGHTNESS_SLIDER_BG_COLOR = "qs_brightness_slider_bg_color";
+ private static final String PREF_QS_RIPPLE_COLOR = "qs_ripple_color";
  private static final String QS_COLOR_SWITCH = "qs_color_switch";
  private static final String QS_ICON = "qs_brightness_icon_color";
  private static final String PREF_GRADIENT_ORIENTATION = "qs_background_gradient_orientation";
@@ -99,6 +102,8 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
     static final int DEFAULT_SECONDARY_TEXT = 0xb3ffffff;
     static final int DEFAULT_TEXT = 0xffffffff;
     private static final int BLACK = 0xff000000;
+    private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
+    private static final int WHITE = 0xffffffff;
     
     private static final int DISABLED  = 0;
     private static final int ACCENT    = 1;
@@ -117,6 +122,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
     private ColorPickerPreference mQsIconColor;	
     private ColorPickerPreference mQsBgColor;	
     private ColorPickerPreference mSliderIconColor;
+    private ColorPickerPreference mQSBrightnessSliderColor;
+    private ColorPickerPreference mQSBrightnessSliderBgColor;
+    private ColorPickerPreference mQSRippleColor;
     private ListPreference mQsColorSwitch;
     private SwitchPreference mUseCenterColor;
     private ColorPickerPreference mStartColor;
@@ -160,6 +168,35 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 
    	int intColor;
         String hexColor;
+
+	mQSBrightnessSliderColor =
+                (ColorPickerPreference) findPreference(QS_BRIGHTNESS_SLIDER_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_COLOR,
+                DEFAULT_BACKGROUND_COLOR); 
+        mQSBrightnessSliderColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSBrightnessSliderColor.setSummary(hexColor);
+        mQSBrightnessSliderColor.setOnPreferenceChangeListener(this);
+
+        mQSBrightnessSliderBgColor =
+                (ColorPickerPreference) findPreference(QS_BRIGHTNESS_SLIDER_BG_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_BG_COLOR,
+                DEFAULT_BACKGROUND_COLOR); 
+        mQSBrightnessSliderBgColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSBrightnessSliderBgColor.setSummary(hexColor);
+	mQSBrightnessSliderBgColor.setOnPreferenceChangeListener(this);
+
+        mQSRippleColor =
+                (ColorPickerPreference) findPreference(PREF_QS_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_RIPPLE_COLOR, WHITE); 
+        mQSRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSRippleColor.setSummary(hexColor);
+	mQSRippleColor.setOnPreferenceChangeListener(this);
 
         mHeaderTextColor = (ColorPickerPreference) findPreference(QS_HEADER_TEXT_COLOR);
         mHeaderTextColor.setOnPreferenceChangeListener(this);
@@ -654,7 +691,31 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
                 Settings.System.putInt(mResolver,
                         Settings.System.QS_CORNER_RADIUS, val * 1);
                 return true;
-        }
+        }  else if (preference == mQSBrightnessSliderColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mQSBrightnessSliderBgColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+	} else if (preference == mQSRippleColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_RIPPLE_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+	}
 	return false;
 	}
 
@@ -732,6 +793,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 		 mHeaderColor.setEnabled(false);
 		 mQsBgColor.setEnabled(false);
 		 mQsTextColor.setEnabled(false);
+		 mQSBrightnessSliderColor.setEnabled(false);
+		 mQSBrightnessSliderBgColor.setEnabled(false);
+		 mQSRippleColor.setEnabled(false);
          } else if (qscolor == 1) {
 		 catrrColors.setEnabled(true);
 	 	 catBgColors.setEnabled(false);
@@ -740,6 +804,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 		 mHeaderColor.setEnabled(true);
 		 mQsBgColor.setEnabled(true);
 		 mQsTextColor.setEnabled(true);
+		 mQSBrightnessSliderColor.setEnabled(true);
+		 mQSBrightnessSliderBgColor.setEnabled(true);
+		 mQSRippleColor.setEnabled(true);
 	 } else if (qscolor == 2) {
 		 catrrColors.setEnabled(false);
 		 catBgColors.setEnabled(true);
@@ -748,6 +815,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 		 mHeaderColor.setEnabled(false);
 		 mQsBgColor.setEnabled(false);
 		 mQsTextColor.setEnabled(true);
+		 mQSBrightnessSliderColor.setEnabled(true);
+		 mQSBrightnessSliderBgColor.setEnabled(true);
+		 mQSRippleColor.setEnabled(true);
 	   } else if (qscolor == 3) {
 		 catrrColors.setEnabled(true);
 		 catBgColors.setEnabled(false);
@@ -756,6 +826,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 		 mHeaderColor.setEnabled(true);
 		 mQsBgColor.setEnabled(true);
 		 mQsTextColor.setEnabled(true);
+		 mQSBrightnessSliderColor.setEnabled(true);
+		 mQSBrightnessSliderBgColor.setEnabled(true);
+		 mQSRippleColor.setEnabled(true);
 	   } else if (qscolor == 4) {
 		 catrrColors.setEnabled(false);
 		 catBgColors.setEnabled(true);
@@ -764,6 +837,9 @@ public class QsColors extends SettingsPreferenceFragment  implements Preference.
 		 mHeaderColor.setEnabled(false);
 		 mQsBgColor.setEnabled(false);
 		 mQsTextColor.setEnabled(true);
+		 mQSBrightnessSliderColor.setEnabled(true);
+		 mQSBrightnessSliderBgColor.setEnabled(true);
+		 mQSRippleColor.setEnabled(true);
 	   }
 	}
 	

@@ -141,13 +141,11 @@
             android:entryValues="@array/background_gradient_orientation_values" 
 	    android:dependency="volume_dialog_color_switch" />
 
-
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="volume_dialog_background_color_start"
             android:title="@string/color_title"
             android:defaultValue="0xff000000"
 	    android:dependency="volume_dialog_color_switch"/>
-
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="volume_dialog_background_color_center"
@@ -155,12 +153,40 @@
             android:defaultValue="0xff000000"
 	    android:dependency="volume_dialog_background_gradient_use_center_color"/>
 
-
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="volume_dialog_background_color_end"
             android:title="@string/background_end_color_title"
             android:defaultValue="0xff000000" 
 	    android:dependency="volume_dialog_color_switch" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_slider_icon_color"
+            android:title="@string/volume_dialog_slider_icon_color_title"
+            android:defaultValue="0xffffffff"
+	    android:dependency="volume_dialog_color_switch"/>
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_slider_color"
+            android:title="@string/volume_dialog_slider_color_title"
+            android:defaultValue="0xffffffff" 
+	    android:dependency="volume_dialog_color_switch" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_slider_inactive_color"
+            android:title="@string/volume_dialog_slider_inactive_color_title"
+            android:defaultValue="0xff009688" 
+	    android:dependency="volume_dialog_color_switch" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_expand_button_color"
+            android:title="@string/volume_dialog_expand_button_color_title"
+            android:defaultValue="0xffffffff" 
+	    android:dependency="volume_dialog_color_switch" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="volume_dialog_icon_color"
+            android:title="@string/volume_dialog_icon_title"
+	    android:defaultValue="0xff009688" />
 
     
     <ListPreference

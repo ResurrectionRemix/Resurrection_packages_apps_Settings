@@ -92,9 +92,12 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_CENTER_COLOR = "volume_dialog_background_color_center";
     private static final String PREF_END_COLOR = "volume_dialog_background_color_end";
     private static final String BG_COLORS = "volume_bg_colors";
-    private ListPreference mQSPanelLogo;
-    private ColorPickerPreference mQSPanelLogoColor;
-    private SeekBarPreferenceCham mQSPanelLogoAlpha;
+
+    private static final String VOLUME_DIALOG_SLIDER_COLOR = "volume_dialog_slider_color";
+    private static final String VOLUME_DIALOG_SLIDER_INACTIVE_COLOR = "volume_dialog_slider_inactive_color";
+    private static final String VOLUME_DIALOG_SLIDER_ICON_COLOR = "volume_dialog_slider_icon_color";
+    private static final String VOLUME_DIALOG_EXPAND_BUTTON_COLOR = "volume_dialog_expand_button_color";
+    private static final String VOLUME_DIALOG_ICON_COLOR = "volume_dialog_icon_color";
 
     static final int DEFAULT_QS_PANEL_LOGO_COLOR = 0xFF80CBC4;
     private static final int BACKGROUND_ORIENTATION_T_B = 270;
@@ -106,6 +109,8 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
     private static final int TRANSLUCENT_HOLO_BLUE_LIGHT = 0x4d33b5e5;
     private static final int TRANSLUCENT_WHITE = 0x4dffffff;
+    private static final int MATERIAL_GREEN = 0xff009688;
+    private static final int MATERIAL_BLUE_GREY = 0xff37474f;
     
     static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
 
@@ -122,7 +127,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mBgColor;
     private ColorPickerPreference mBgGutsColor;
     private ColorPickerPreference mAppIconBgColor;
-    private ColorPickerPreference mIconColor;
     private ColorPickerPreference mClearAllIconColor;	
     private SeekBarPreferenceCham mVolumeDialogAlpha;	
     private SeekBarPreferenceCham mPowerMenuAlpha;
@@ -139,7 +143,14 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mCenterColor;
     private ColorPickerPreference mEndColor;
     private ListPreference mGradientOrientation;
-  
+    private ListPreference mQSPanelLogo;
+    private ColorPickerPreference mQSPanelLogoColor;
+    private SeekBarPreferenceCham mQSPanelLogoAlpha;
+    private ColorPickerPreference mSliderColor;
+    private ColorPickerPreference mSliderInactiveColor;
+    private ColorPickerPreference mSliderIconColor;
+    private ColorPickerPreference mExpandButtonColor;
+    private ColorPickerPreference mIconColor;
     private ContentResolver mResolver;
 
     @Override
@@ -359,15 +370,61 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mCenterColor.setSummary(hexColor);
                 mCenterColor.setOnPreferenceChangeListener(this);
-    
-            mEndColor =
-                    (ColorPickerPreference) findPreference(PREF_END_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_END, BLACK); 
-            mEndColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mEndColor.setSummary(hexColor);
-            mEndColor.setOnPreferenceChangeListener(this);
+
+    		mEndColor =
+                (ColorPickerPreference) findPreference(PREF_END_COLOR);
+        	intColor = Settings.System.getInt(mResolver,
+               		Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_END, BLACK); 
+        	mEndColor.setNewPreviewColor(intColor);
+       		hexColor = String.format("#%08x", (0xffffffff & intColor));
+        	mEndColor.setSummary(hexColor);
+		mEndColor.setOnPreferenceChangeListener(this);
+
+        	mIconColor =
+                (ColorPickerPreference) findPreference(VOLUME_DIALOG_ICON_COLOR);
+        	intColor = Settings.System.getInt(mResolver,
+              	  Settings.System.VOLUME_DIALOG_ICON_COLOR,
+                	MATERIAL_GREEN);
+        	mIconColor.setNewPreviewColor(intColor);
+      		hexColor = String.format("#%08x", (0xffffffff & intColor));
+       		mIconColor.setSummary(hexColor);
+mIconColor.setOnPreferenceChangeListener(this);
+
+     		mSliderColor =
+                (ColorPickerPreference) findPreference(VOLUME_DIALOG_SLIDER_COLOR);
+       		intColor = Settings.System.getInt(mResolver,
+               		 Settings.System.VOLUME_DIALOG_SLIDER_COLOR, MATERIAL_GREEN);
+       	        mSliderColor.setNewPreviewColor(intColor);
+        	hexColor = String.format("#%08x", (0xffffffff & intColor));
+       		mSliderColor.setSummary(hexColor);
+	        mSliderColor.setOnPreferenceChangeListener(this);
+
+                        mSliderInactiveColor =
+                (ColorPickerPreference) findPreference(VOLUME_DIALOG_SLIDER_INACTIVE_COLOR);
+        	 intColor = Settings.System.getInt(mResolver,
+                         Settings.System.VOLUME_DIALOG_SLIDER_INACTIVE_COLOR, WHITE); 
+                 mSliderInactiveColor.setNewPreviewColor(intColor);
+                 hexColor = String.format("#%08x", (0xffffffff & intColor));
+                 mSliderInactiveColor.setSummary(hexColor);
+                 mSliderInactiveColor.setOnPreferenceChangeListener(this);
+
+                 mSliderIconColor =
+                         (ColorPickerPreference) findPreference(VOLUME_DIALOG_SLIDER_ICON_COLOR);
+                 intColor = Settings.System.getInt(mResolver,
+                         Settings.System.VOLUME_DIALOG_SLIDER_ICON_COLOR, WHITE); 
+                 mSliderIconColor.setNewPreviewColor(intColor);
+                 hexColor = String.format("#%08x", (0xffffffff & intColor));
+                 mSliderIconColor.setSummary(hexColor);
+                 mSliderIconColor.setOnPreferenceChangeListener(this);
+
+                 mExpandButtonColor =
+                         (ColorPickerPreference) findPreference(VOLUME_DIALOG_EXPAND_BUTTON_COLOR);
+                 intColor = Settings.System.getInt(mResolver,
+                         Settings.System.VOLUME_DIALOG_EXPAND_BUTTON_COLOR, WHITE); 
+                 mExpandButtonColor.setNewPreviewColor(intColor);
+                 hexColor = String.format("#%08x", (0xffffffff & intColor));
+                 mExpandButtonColor.setSummary(hexColor);
+	         mExpandButtonColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -437,14 +494,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.NOTIFICATION_APP_ICON_BG_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mIconColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.NOTIFICATION_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mClearAllIconColor) {
@@ -571,7 +620,47 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                         intValue);
                 mGradientOrientation.setSummary(mGradientOrientation.getEntries()[index]);
                 return true;
-            }
+            } else if (preference == mSliderColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_SLIDER_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+           } else if (preference == mSliderInactiveColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_SLIDER_INACTIVE_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+          } else if (preference == mSliderIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_SLIDER_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+          } else if (preference == mExpandButtonColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_EXPAND_BUTTON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+	  } else if (preference == mIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+return true;
+	 }
         return false;
     }
     
