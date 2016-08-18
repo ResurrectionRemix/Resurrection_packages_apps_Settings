@@ -44,19 +44,6 @@
         android:entries="@array/qs_num_columns_entries"
         android:entryValues="@array/qs_num_columns_values"
         android:persistent="false" />
-    
-    
-       <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
-         android:key="qs_location_advanced"
-         android:title="@string/quick_settings_title_advanced_location"
-         android:defaultValue="false"/>
-
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="qs_use_main_tiles"
-        android:title="@string/qs_main_tiles_title"
-        android:summaryOn="@string/qs_main_tiles_summary_on"
-        android:summaryOff="@string/qs_main_tiles_summary_off"
-        android:defaultValue="true" />
        
        <PreferenceScreen
             android:key="systemui_tuner_qs"
@@ -91,6 +78,33 @@
         android:summary="@string/block_on_secure_keyguard_summary"
         android:persistent="false"
         android:defaultValue="true"/>
+
+</PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="advanced_tiles_category"
+        android:title="@string/qstile_advanced_category">
+
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+         android:key="qs_data_advanced"
+         android:title="@string/qs_data_tile_advanced_title"
+         android:summaryOn="@string/qs_data_tile_advanced_summary_on"
+	 android:summaryOff="@string/qs_data_tile_advanced_summary_off"
+         android:defaultValue="false"/>
+    
+    
+    <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
+         android:key="qs_location_advanced"
+         android:title="@string/quick_settings_title_advanced_location"
+         android:defaultValue="false"/>
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="qs_use_main_tiles"
+        android:title="@string/qs_main_tiles_title"
+        android:summaryOn="@string/qs_main_tiles_summary_on"
+        android:summaryOff="@string/qs_main_tiles_summary_off"
+        android:defaultValue="true" />
 
 </PreferenceCategory>
 
