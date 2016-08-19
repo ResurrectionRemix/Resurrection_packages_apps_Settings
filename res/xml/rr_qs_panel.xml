@@ -92,8 +92,16 @@
          android:summaryOn="@string/qs_data_tile_advanced_summary_on"
 	 android:summaryOff="@string/qs_data_tile_advanced_summary_off"
          android:defaultValue="false"/>
-    
-    
+
+    <MultiSelectListPreferenceFix
+        android:defaultValue="@array/themes_tile_default_values"
+        android:entries="@array/themes_tile_entries"
+        android:entryValues="@array/themes_tile_values"
+        android:key="themes_tile_components"
+        android:summary="@string/themes_tile_summary"
+        android:title="@string/themes_tile_title"
+        android:persistent="false" />
+
     <com.android.settings.cyanogenmod.CMSecureSettingSwitchPreference
          android:key="qs_location_advanced"
          android:title="@string/quick_settings_title_advanced_location"

@@ -22,6 +22,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.ListPreference;
+import android.preference.MultiSelectListPreferenceFix;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -40,10 +41,20 @@ import cyanogenmod.providers.CMSettings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 
+import java.util.Set;
+
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+
 public class QsPanel extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener ,Indexable {
+
+ private static final String TAG = QsPanel.class.getSimpleName();
  private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
  private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
  private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
@@ -52,6 +63,9 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
  private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
  private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
  private static final String QS_TASK_ANIMATION = "qs_task_animation";
+ private static final String PREF_THEMES_TILE = "themes_tile_components";
+ private MultiSelectListPreferenceFix mThemesTile;
+
 
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mQuickPulldown;
@@ -145,6 +159,10 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
         mAnimation.setSummary(mAnimation.getEntry());
         mAnimation.setOnPreferenceChangeListener(this);
 
+	mThemesTile = (MultiSelectListPreferenceFix) findPreference(PREF_THEMES_TILE);
+        mThemesTile.setValues(getThemesTileValues());
+        mThemesTile.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -217,9 +235,64 @@ public class QsPanel extends SettingsPreferenceFragment  implements Preference.O
             mAnimation.setValue(String.valueOf(newValue));
             mAnimation.setSummary(mAnimation.getEntry());
             return true;
-	  }
+	  }  else if (preference == mThemesTile) {
+            Set<String> vals = (Set<String>) newValue;
+//            Log.e(TAG, "mThemesTileChanged " + vals.toString());
+            setThemesTileValues(vals);
+            return true;
+        }
          return false;
 	}
+
+    private void setThemesTileValues(Set<String> vals) {
+        if (vals.isEmpty()) {
+            // if user unchecks everything, reset to default
+            vals.addAll(Arrays.asList(getResources().getStringArray(
+                    R.array.themes_tile_default_values)));
+//            Log.e(TAG, "setThemesTileValues called but is empty list = " + vals.toString());
+            mThemesTile.setValues(vals);
+        }
+//        Log.e(TAG, "setThemesTileValues called = " + vals.toString());
+        StringBuilder b = new StringBuilder();
+        for (String val : vals) {
+            b.append(val);
+            b.append("|");
+        }
+        String newVal = b.toString();
+        if (newVal.endsWith("|")) {
+            newVal = removeLastChar(newVal);
+        }
+//        Log.e(TAG, "Themes tile components writing to provider = " + newVal);
+        Settings.Secure.putStringForUser(getContentResolver(),
+                Settings.Secure.THEMES_TILE_COMPONENTS,
+                newVal, UserHandle.USER_CURRENT);
+    }
+
+    private Set<String> getThemesTileValues() {
+        Set<String> vals = new HashSet<>();
+        String components = Settings.Secure.getStringForUser(getContentResolver(),
+                Settings.Secure.THEMES_TILE_COMPONENTS,
+                UserHandle.USER_CURRENT);
+        if (components != null) {
+//            Log.e(TAG, "Themes tile components from provider raw = " + components);
+        }
+        if (TextUtils.isEmpty(components)) {
+            vals.addAll(Arrays.asList(getResources().getStringArray(
+                    R.array.themes_tile_default_values)));
+//            Log.e(TAG, "Themes tile components from provider is empty. get defaults = " + vals.toString());
+        } else {
+            vals.addAll(Arrays.asList(components.split("\\|")));
+//            Log.e(TAG, "Themes tile components from provider = " + vals.toString());
+        }
+        return vals;
+    }
+
+    static String removeLastChar(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        return s.substring(0, s.length() - 1);
+    }
 
      private void updateSmartPulldownSummary(int value) {
         Resources res = getResources();
