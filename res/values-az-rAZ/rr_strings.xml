@@ -16,10 +16,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- About RR -->
-  <string name="about_rr_settings">About Resurrection</string>
-  <string name="about_rr">About Resurrection</string>
+  <string name="about_rr_settings">Ressurrection Haqqında</string>
+  <string name="about_rr">Ressurrection Haqqında</string>
   <string name="about_rr_summary">\@null</string>
-  <string name="about_r0m_summary">Everything about the Rom</string>
+  <string name="about_r0m_summary">Rom haqqında hər şey</string>
   <string name="rr_donate">Donate to Development</string>
   <string name="rr_donate_summary">Show your support to Resurrection ROM</string>
   <string name="app_name">Resurrection</string>
@@ -61,7 +61,7 @@
   <!-- Settings main menu entry -->
   <string name="themes_settings_title_rr">Theme Chooser</string>
   <!-- RR Changelog-->
-  <string name="changelog_title">Changelog</string>
+  <string name="changelog_title">Yeniliklər</string>
   <string name="changelog_title_summary">View recent changes in ROM</string>
   <string name="changelog_loading">Loading changelog...</string>
   <string name="changelog_error">Unable to load changelog</string>
@@ -150,7 +150,7 @@
   <string name="color_picker_help_ab_color_apply_summary">The color preview is always visible.\nIf the new color doesn\'t equals the old color, the color preview will be expanded, to allow apply the new color.</string>
   <string name="color_picker_help_ab_menu_title">Menu button:</string>
   <string name="color_picker_help_ab_menu_reset_title">Reset:</string>
-  <string name="color_picker_help_ab_menu_reset_summary">Resets the new color to the default Android or Darkkat color without applying the new color.</string>
+  <string name="color_picker_help_ab_menu_reset_summary">Resets the new color to the default Android or RR color without applying the new color.</string>
   <string name="color_picker_help_ab_menu_hex_title">Hex value:</string>
   <string name="color_picker_help_ab_menu_hex_summary">Shows the hex input field.\nHex values have to be in hex color format:\n\'#aarrggbb\', (\'alpha\' (transparency), \'red\', \'green\' and \'blue\').\nThe back button closes the hex input field without setting the hex value.\nThe apply button sets the hex value as new color without applying the new color.</string>
   <string name="color_picker_help_ab_menu_favorites_title">Show/hide favorites:</string>
@@ -163,7 +163,7 @@
   <string name="color_picker_help_color_buttons_title">Color buttons:</string>
   <string name="color_picker_help_favorites_title">Favorites:</string>
   <string name="color_picker_help_favorites_summary">Favorites are empty by default.\nThe new color can be saved as a favorite at any time via long click, (a none empty favorite will be overwritten by the new color).\nA click sets the favorite color as new color, without applying the new color.</string>
-  <string name="color_picker_help_palette_title">Palette:\n(DarkKat, Material and RGB)</string>
+  <string name="color_picker_help_palette_title">Palette:\n(RR, Material and RGB)</string>
   <string name="color_picker_help_palette_summary">All palette colors have a fixed value.\nA click sets the favorite color as new color, without applying the new color.</string>
   <string name="color_picker_help_do_not_show_title">Don\'t show again</string>
   <string name="color_picker_help_button_ok_title">OK</string>
@@ -321,6 +321,7 @@
   <string name="rr_qs">Quick Settings</string>
   <string name="rr_brightness_cat">Brightness Slider</string>
   <string name="rr_qs_title">QuickSettings panel </string>
+  <string name="qstile_advanced_category">Advanced</string>
   <!-- Quick settings quick pull down -->
   <string name="status_bar_quick_qs_pulldown_title">Quick Pulldown</string>
   <string name="status_bar_quick_qs_pulldown_summary">Right edge of the status bar pulls down Quick Settings</string>
@@ -473,6 +474,9 @@
   <string name="blur_notifications_cat">Notifications</string>
   <string name="blur_header_cat">StatusBar Header</string>
   <string name="blur_qs_cat">Quick Settings</string>
+  <string name="blur_recents_cat">Recents</string>
+  <string name="blurred_recent_app_enabled_pref">Blurred Recents apps background </string>
+  <string name="blurred_recent_app_enabled_pref_summary">Blur the background of recents apps</string>
   <string name="blurred_scale">Blur Scale</string>
   <string name="blurred_scale_summary">Quailty of blur image</string>
   <string name="blurred_radius">Blur Radius</string>
@@ -1691,6 +1695,14 @@
   <!-- QS Tiles Rows -->
   <string name="qs_color_switch">Custom Qs Colors</string>
   <string name="qs_color_switch_summary">Overrides Theme Colors.</string>
+  <string name="qs_color_switch">Custom Qs Colors</string>
+  <string name="qs_custom_master_switch_summary">Customize Border of Quick Settings Panel.Use at your own risk .Might not be compatible with some themes.</string>
+  <string name="qs_custom_master_switch_title">Quick Settings Corner and Stroke</string>
+  <string name="qs_header_master_switch_summary">Customize Border of Header.Use at your own risk .Might not be compatible with some themes.</string>
+  <string name="qs_header_master_switch_title">Header Corner and Stroke</string>
+  <string name="qs_color_switch_summary">Overrides Theme Colors.</string>
+  <string name="qs_color_switch_summary_title">Quick Settings Panel Colors</string>
+  <string name="qs_color_switch_summary_main">Colorize various Elements on Qs Panel. NOTE: Settings icon colors might disable qs icon animation. Use at your own risk</string>
   <string name="qs_header_text_color">Qs Detail Text</string>
   <string name="qs_header_color">Header Background</string>
   <string name="qs_text_color">Text Color</string>
@@ -1700,6 +1712,41 @@
   <string name="qs_brightness_color">Brightness Slider</string>
   <string name="quick_settings_colors">QS Colors</string>
   <string name="qs_colors_summary">Customize Quick Panel Colors</string>
+  <string name="default_qs_colors">Default</string>
+  <string name="rr_qs_colors">Normal</string>
+  <string name="gradient_qs_colors">Gradient</string>
+  <string name="rr_qs_colors">Normal</string>
+  <string name="rr_qs_colors_no_icon">Normal Without Colorized Icon</string>
+  <string name="gradient_qs_colors_no_icon">Gradient Without Colorized Icons</string>
+  <string name="rr_bg_colors_title">Regular</string>
+  <string name="rr_bg_colors_general_title">General Colors</string>
+  <string name="volume_dialog_color_switch_title">Volume Dialog Colors</string>
+  <string name="ripple_title">Slider Ripple Color</string>
+  <string name="brightness_slider_color_title">Brightness Slider Color</string>
+  <string name="brightness_slider_bg_color_title">Brightness Slider Background Color</string>
+  <string name="header_center_color_title">Header Start Color</string>
+  <string name="header_background_center_color_title">Header Center Color</string>
+  <string name="header_background_end_color_title">Header End Color</string>
+  <string name="header_background_gradient_orientation_title">Header Orientation</string>
+  <!-- Gradient Backgrounds Settings -->
+  <string name="gradient_bg_colors_title">Gradient Background Color</string>
+  <string name="background_gradient_use_center_color_title">Use a center color</string>
+  <string name="background_gradient_use_center_color_summary">Enable to use a center color for the gradient</string>
+  <string name="background_header_gradient_use_center_color_title">Use a center color on Header</string>
+  <string name="background_header_gradient_use_center_color_summary">Enable to use a center color for the gradient on Header</string>
+  <string name="background_start_color_title">Start</string>
+  <string name="background_center_color_title">Center</string>
+  <string name="background_end_color_title">End</string>
+  <string name="background_gradient_orientation_title">Orientation</string>
+  <string name="background_gradient_orientation_dlg_title">Choose the gradient orientation</string>
+  <string name="background_gradient_orientation_l_r_title">from left to right</string>
+  <string name="background_gradient_orientation_bl_tr_title">from bottom left to top right</string>
+  <string name="background_gradient_orientation_b_t_title">from bottom to top</string>
+  <string name="background_gradient_orientation_br_tl_title">from bottom right to top left</string>
+  <string name="background_gradient_orientation_r_l_title">from right to left</string>
+  <string name="background_gradient_orientation_tr_bl_title">from top right to bottom left</string>
+  <string name="background_gradient_orientation_t_b_title">from top to bottom</string>
+  <string name="background_gradient_orientation_tl_br_title">from top left to bottom right</string>
   <!-- Fingerprint Authentication Vibration -->
   <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
   <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
@@ -1841,6 +1888,7 @@
   <string name="fling_trails_enable_title">Enable gesture trails</string>
   <string name="fling_trails_enable_summary">Show a trail on swipe gestures</string>
   <string name="fling_trails_color_title">Trail color</string>
+  <string name="fling_trails_width_title">Trail width</string>
   <string name="fling_appearance">Appearance</string>
   <string name="fling_show_logo_title">Show Fling logo</string>
   <string name="fling_animate_logo_title">Animate logo</string>
@@ -2036,6 +2084,11 @@
   <string name="volume_dialog_corner_radius_title">Volume dialog corner radius</string>
   <string name="volume_dialog_dash_width_title">Volume dialog stroke dash width</string>
   <string name="volume_dialog_dash_gap_title">Volume dialog stroke dash gap</string>
+  <string name="volume_dialog_slider_icon_color_title">Slider Icon</string>
+  <string name="volume_dialog_slider_color_title">Slider</string>
+  <string name="volume_dialog_slider_inactive_color_title">Inactive Slider</string>
+  <string name="volume_dialog_expand_button_color_title">Expand Button</string>
+  <string name="volume_dialog_icon_title">Icon</string>
   <!-- Volume dialog timeout -->
   <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
   <!-- QS stroke settings -->
@@ -2057,6 +2110,17 @@
   <string name="qs_panel_logo_custom">Custom color</string>
   <string name="qs_panel_logo_color_title">QS panel logo color</string>
   <string name="qs_panel_logo_alpha_title">QS panel logo transparency</string>
+  <!-- Stroke Settings -->
+  <string name="stroke_category_title">Header Stroke Settings</string>
+  <string name="stroke_title">Stroke</string>
+  <string name="stroke_disabled">Disabled</string>
+  <string name="stroke_accent">Accent color</string>
+  <string name="stroke_custom">Custom color</string>
+  <string name="stroke_color_title">Stroke Color</string>
+  <string name="stroke_thickness_title">Stroke Thickness</string>
+  <string name="corner_radius_title">Corner Radius</string>
+  <string name="dash_width_title">Stroke Dash Width</string>
+  <string name="dash_gap_title">Stroke Dash Gap</string>
   <string name="notification_cat_power">Power Menu</string>
   <string name="expansion_view_animation_title">Task Manager Animation</string>
   <string name="expansion_view_animation_summary">Change the enter/exit animation of the panel change</string>
@@ -2081,6 +2145,9 @@
   <!-- ADB always notify -->
   <string name="adb_always_notify">Debugging always notify</string>
   <string name="adb_always_notify_summary">Always display a notification when debugging is enabled, even if not connected</string>
+  <string name="qs_data_tile_advanced_title">Advanced Data Tile</string>
+  <string name="qs_data_tile_advanced_summary_on">Tapping data tile will enable /disable mobile data </string>
+  <string name="qs_data_tile_advanced_summary_off">Tapping data tile will open detail view </string>
   <!-- Instant reboot -->
   <string name="advanced_reboot_oneclick">One click reboot</string>
   <string name="advanced_reboot_oneclick_summary">Instantly trigger reboot action</string>
@@ -2117,6 +2184,9 @@
   <string name="halo_msgbox_animation_flip">Flip</string>
   <string name="halo_floating_windows">Floating Windows options</string>
   <string name="halo_floating_windows_summary">Shortcut to Floating Windows options so you can use or not use with HALO</string>
+  <string name="halo_floating_notifications_title">Use Floating Mode</string>
+  <string name="halo_floating_notifications_summary">Always launch activities from notifications in Float Mode.</string>
+  <string name="halo_enable_float_summary">Enable floating mode first.</string>
   <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
   <string name="app_halo_label_black">Blacklist from HALO</string>
   <string name="app_halo_label_white">Whitelist from HALO</string>
@@ -2127,4 +2197,20 @@
   <string name="notifications_five_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%5$s</xliff:g></string>
   <string name="halo_color_title">Halo color</string>
   <string name="halo_color_summary">Defines what color the Halo bubble is</string>
+  <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
+  <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if availible.</string>
+  <!-- Themes tile entries and values -->
+  <string name="themes_tile_title">Themes tile components</string>
+  <string name="themes_tile_summary">Theme elements to change when a new theme is selected</string>
+  <string name="themes_tile_mods_style_entry">Style</string>
+  <string name="themes_tile_mods_statusbar_entry">Status bar</string>
+  <string name="themes_tile_mods_navbar_entry">Navigation bar</string>
+  <string name="themes_tile_mods_launcher_entry">Wallpaper</string>
+  <string name="themes_tile_mods_lockscreen_entry">Lockscreen wallpaper</string>
+  <string name="themes_tile_mods_font_entry">Font</string>
+  <string name="themes_tile_mods_icons_entry">Icons</string>
+  <string name="themes_tile_mods_bootanim_entry">Boot animation</string>
+  <string name="themes_tile_mods_notification_entry">Notifications</string>
+  <string name="themes_tile_mods_alarm_entry">Alarms</string>
+  <string name="themes_tile_mods_ringtone_entry">Ringtones</string>
 </resources>
