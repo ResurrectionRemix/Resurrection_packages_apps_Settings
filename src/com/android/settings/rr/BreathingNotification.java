@@ -101,7 +101,7 @@ public class BreathingNotification extends SettingsPreferenceFragment
                      Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
              mVoicemailBreath.setOnPreferenceChangeListener(this);
 
-	    mSmsBreath.setChecked(Settings.Global.getInt(resolver,
+	    mSmsBreath.setChecked(Settings.System.getInt(resolver,
                     Settings.System.KEY_SMS_BREATH, 0) == 1);
             mSmsBreath.setOnPreferenceChangeListener(this);
 
@@ -133,7 +133,7 @@ public class BreathingNotification extends SettingsPreferenceFragment
           return true;
 	} else if (preference == mSmsBreath) {
             boolean value = (Boolean) newValue;
-            Settings.Global.putInt(resolver, Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
+            Settings.System.putInt(resolver, Settings.System.KEY_SMS_BREATH, value ? 1 : 0);
             return true;
 	}
 	return false;
