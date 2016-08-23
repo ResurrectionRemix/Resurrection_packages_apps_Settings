@@ -84,6 +84,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final String PREF_QS_PANEL_LOGO = "qs_panel_logo";
     private static final String PREF_QS_PANEL_LOGO_COLOR = "qs_panel_logo_color";
     private static final String PREF_QS_PANEL_LOGO_ALPHA = "qs_panel_logo_alpha";
+    private static final String PREF_QS_PANEL_LOGO_STYLE = "qs_panel_logo_style";
     private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
 
     private static final String PREF_GRADIENT_ORIENTATION = "volume_dialog_background_gradient_orientation";
@@ -144,6 +145,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private ColorPickerPreference mEndColor;
     private ListPreference mGradientOrientation;
     private ListPreference mQSPanelLogo;
+    private ListPreference mQSPanelLogoStyle;
     private ColorPickerPreference mQSPanelLogoColor;
     private SeekBarPreferenceCham mQSPanelLogoAlpha;
     private ColorPickerPreference mSliderColor;
@@ -327,6 +329,15 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
              String qSHexLogoColor = String.format("#%08x", (0xFF80CBC4 & qSPanelLogoColor));
              mQSPanelLogoColor.setSummary(qSHexLogoColor);
              mQSPanelLogoColor.setNewPreviewColor(qSPanelLogoColor);
+
+             mQSPanelLogoStyle =
+                     (ListPreference) findPreference(PREF_QS_PANEL_LOGO_STYLE);
+             int qSPanelLogostyle = Settings.System.getIntForUser(mResolver,
+                             Settings.System.QS_PANEL_LOGO_STYLE, 0,
+                             UserHandle.USER_CURRENT);
+             mQSPanelLogoStyle.setValue(String.valueOf(qSPanelLogostyle));
+             mQSPanelLogoStyle.setSummary(mQSPanelLogoStyle.getEntry());
+             mQSPanelLogoStyle.setOnPreferenceChangeListener(this);
  
              // QS panel RR logo alpha
              mQSPanelLogoAlpha =
@@ -568,6 +579,13 @@ mIconColor.setOnPreferenceChangeListener(this);
                  mQSPanelLogo.setSummary(mQSPanelLogo.getEntries()[index]);
                  QSPanelLogoSettingsDisabler(qSPanelLogo);
                  return true;
+        }  else if (preference == mQSPanelLogoStyle) {
+                 int qSPanelLogostyle = Integer.parseInt((String) newValue);
+                 int index = mQSPanelLogoStyle.findIndexOfValue((String) newValue);
+                 Settings.System.putIntForUser(mResolver, Settings.System.
+                         QS_PANEL_LOGO_STYLE, qSPanelLogostyle, UserHandle.USER_CURRENT);
+                 mQSPanelLogoStyle.setSummary(mQSPanelLogoStyle.getEntries()[index]);
+                 return true;
         } else if (preference == mQSPanelLogoColor) {
                  hex = ColorPickerPreference.convertToARGB(
                          Integer.valueOf(String.valueOf(newValue)));
@@ -687,12 +705,15 @@ return true;
              if (qSPanelLogo == 0) {
                  mQSPanelLogoColor.setEnabled(false);
                  mQSPanelLogoAlpha.setEnabled(false);
+	         mQSPanelLogoStyle.setEnabled(false);
              } else if (qSPanelLogo == 1) {
                  mQSPanelLogoColor.setEnabled(false);
                  mQSPanelLogoAlpha.setEnabled(true);
+	         mQSPanelLogoStyle.setEnabled(true);
              } else {
                  mQSPanelLogoColor.setEnabled(true);
                  mQSPanelLogoAlpha.setEnabled(true);
+		 mQSPanelLogoStyle.setEnabled(true);
              }
          }
 
