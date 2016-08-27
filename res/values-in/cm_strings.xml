@@ -18,26 +18,28 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
-    <item quantity="other">Anda sekarang <xliff:g id="step_count">%1$d</xliff:g> beberapa langkah dari mengaktifkan opsi pengembang.</item>
+    <item quantity="other"><xliff:g id="step_count">%1$d</xliff:g> langkah lagi untuk mengaktifkan opsi pengembang.</item>
   </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Anda telah mengaktifkan opsi pengembang!</string>
+  <string name="show_dev_on_cm">Anda adalah seorang pengembang!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Tidak perlu, Anda telah mengaktifkan mengaktifkan opsi pengembang.</string>
+  <string name="show_dev_already_cm">Tidak perlu, Anda telah mengaktifkan opsi pengembang.</string>
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">Alat pengembangan</string>
   <!-- Development shortcut -->
   <string name="development_shortcut_title">Pintasan pengembangan</string>
   <string name="development_shortcut_summary">Aktifkan pintasan manajemen aplikasi dalam daftar aplikasi terakhir</string>
   <!-- Setting checkbox title for root access -->
-  <string name="root_access">Akses punca (root)</string>
-  <string name="root_access_warning_title">Izinkan akses punca (root)?</string>
-  <string name="root_access_warning_message">Mengizinkan aplikasi untuk meminta akses punca (root) sangat berbahaya dan dapat membahayakan keamanan sistem Anda!</string>
-  <string name="root_access_none">Dinonaktifkan</string>
+  <string name="root_access">Akses root</string>
+  <string name="root_access_warning_title">Izinkan akses root?</string>
+  <string name="root_access_warning_message">Mengizinkan aplikasi untuk meminta akses root sangat berbahaya dan dapat membahayakan keamanan sistem Anda!</string>
+  <string name="root_access_none">Dimatikan</string>
   <string name="root_access_apps">Aplikasi saja</string>
   <string name="root_access_adb">ADB saja</string>
   <string name="root_access_all">Aplikasi dan ADB</string>
   <!-- Preference link for root appops -->
+  <string name="root_appops_title">Kelola akses root</string>
+  <string name="root_appops_summary">Lihat dan kontrol aturan root</string>
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">Komunikasi jarak dekat</string>
   <!-- About phone screen, CyanogenMod version -->
@@ -55,18 +57,18 @@
   <!-- CM Updater -->
   <string name="cmupdate_settings_title">Pembaruan CyanogenMod</string>
   <!-- Settings switch for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Perbarui pemulihan Cyanogen</string>
-  <string name="update_recovery_summary">Perbarui pemulihan dengan pembaruan sistem</string>
-  <string name="update_recovery_on_warning">PERHATIAN: Jika fitur ini diaktifkan, pemulihan yang terinstal akan digantikan oleh salah satu yang disertakan dengan versi terbaru dari OS yang berjalan.\n\nPemulihan akan diperbarui bersama dengan peningkatan sistem agar pemulihan tetap kompatibel dengan versi mendatang.\n\nApakah Anda ingin mengaktifkan fitur ini?</string>
+  <string name="update_recovery_title">Perbarui Cyanogen recovery</string>
+  <string name="update_recovery_summary">Perbarui recovery dengan pembaruan sistem</string>
+  <string name="update_recovery_on_warning">PERHATIAN: Jika fitur ini diaktifkan, recovery yang terpasang akan digantikan oleh salah satu yang disertakan dengan versi terbaru dari OS yang berjalan.\n\nRecovery akan diperbarui bersama dengan peningkatan sistem agar recovery tetap kompatibel dengan versi mendatang.\n\nApakah Anda ingin mengaktifkan fitur ini?</string>
   <string name="update_recovery_off_warning">PERINGATAN: Jika fitur ini dinonaktifkan, pemulihan yang terinstal tidak akan diperbarui dengan peningkatan OS.\n\nPembaruan OS mendatang mungkin tidak dapat diinstal dengan versi pemulihan khusus atau versi pemulihan yang sudah usang.\n\nApakah Anda benar-benar ingin menonaktifkan fitur ini?</string>
   <!-- Themes Settings -->
   <!-- Settings main menu entry -->
   <string name="themes_settings_title">Tema</string>
   <!-- Sound settings screen -->
-  <string name="ring_mode_title">Modus dering</string>
+  <string name="ring_mode_title">Mode dering</string>
   <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Getar</string>
-  <string name="ring_mode_mute">Bungkam</string>
+  <string name="ring_mode_mute">Diam</string>
   <string name="settings_reset_button">Atur kembali</string>
   <!-- Profiles settings  -->
   <string name="profiles_settings_title">Profil sistem</string>
@@ -80,7 +82,7 @@
   <string name="profile_write_success">Tag berhasil ditulis</string>
   <string name="profile_write_failed">Tag gagal ditulis!</string>
   <string name="profile_selected">Profil dipilih: %1$s</string>
-  <string name="profile_nfc_text">Menulis sebuah profil untuk NFC tag memungkinkan untuk men-tap tag untuk memilih profil. Ketuk kedua kalinya akan memilih profil yang dipilih sebelumnya.</string>
+  <string name="profile_nfc_text">Menulis sebuah profil untuk tag NFC memungkinkan untuk menyentuh tag untuk memilih profil. Sentuh kedua kalinya akan memilih profil yang dipilih sebelumnya.</string>
   <string name="profile_unknown_nfc_tag">Profil tidak diketahui</string>
   <string name="profile_add_nfc_text">Tag NFC ini mengacu pada profil yang tidak diketahui. Melampirkan tag NFC ini ke profil yang ada akan memungkinkan untuk memilih profil di masa depan.</string>
   <string name="profile_select">Pilih profil</string>
@@ -92,8 +94,8 @@
   <string name="profile_app_group_item_instructions">Tambah atau hapus grup</string>
   <string name="profile_app_group_item_instructions_summary">Tambah atau hapus penimpa pemberitahuan grup aplikasi ke profil ini</string>
   <!-- Profile mode options. -->
-  <string name="profile_entries_on">Aktif</string>
-  <string name="profile_entries_off">Nonaktif</string>
+  <string name="profile_entries_on">Hidup</string>
+  <string name="profile_entries_off">Mati</string>
   <string name="profile_entries_no_override">Tidak menimpa</string>
   <!-- Add Profile -->
   <string name="profile_name_title">Nama</string>
@@ -105,7 +107,7 @@
   <string name="rename_dialog_hint">Masukkan nama profil</string>
   <!-- Reset Profiles -->
   <string name="profile_reset_title">Set ulang</string>
-  <string name="profile_reset_message">Hapus semua profil yang dibuat oleh pengguna dan kelompok-kelompok aplikasi dan mengembalikan mereka ke standar?</string>
+  <string name="profile_reset_message">Hapus semua profil buatan pengguna dan kelompok aplikasi serta mengembalikan mereka ke standar?</string>
   <!-- Delete confimation messages -->
   <string name="profile_app_delete_confirm">Hapus aplikasi ini?</string>
   <!-- Profile network mode -->
@@ -149,23 +151,23 @@
   <string name="profile_choose_app">Pilih aplikasi</string>
   <!-- Profiles - system settings -->
   <string name="profile_system_settings_title">Pengaturan aplikasi</string>
-  <string name="profile_lockmode_title">Modus layar kunci</string>
+  <string name="profile_lockmode_title">Mode layar kunci</string>
   <string name="profile_lockmode_policy_disabled_summary">Opsi profil ini dinonaktifkan oleh kebijakan pengelola perangkat</string>
   <string name="profile_lockmode_insecure_summary">Jangan meminta PIN atau kata sandi</string>
   <string name="profile_lockmode_disabled_summary">Nonaktifkan layar kunci</string>
-  <string name="profile_airplanemode_title">Modus pesawat</string>
+  <string name="profile_airplanemode_title">Mode pesawat</string>
   <string name="profile_brightness_title">Kecerahan layar</string>
   <string name="profile_brightness_override_summary">Setel ke %1$d%%</string>
   <string name="profile_brightness_override_checkbox_label">Ganti kecerahan</string>
   <!-- Connection override toggles (not all are used at this time ) -->
   <string name="toggleWifi">Wi\u2011Fi</string>
-  <string name="toggleWifiAp">Area bersinyal Wi\u2011Fi portabel</string>
+  <string name="toggleWifiAp">Hotspot Wi\u2011Fi portabel</string>
   <string name="toggleBluetooth">Bluetooth</string>
   <string name="toggleGPS">GPS</string>
-  <string name="toggleData">Sambungan data</string>
+  <string name="toggleData">Koneksi data</string>
   <string name="toggleSync">Otomatis sinkronkan data</string>
   <string name="toggle2g3g4g">Jenis jaringan pilihan</string>
-  <string name="toggle2g3g4g_msim">Jenis jaringan pilihan (%1$s)</string>
+  <string name="toggle2g3g4g_msim">Jenis jaringan (%1$s)</string>
   <string name="toggleNfc">NFC</string>
   <!-- Wi-Fi region code -->
   <string name="wifi_setting_countrycode_title">Kode wilayah Wi\u2011Fi</string>
@@ -266,7 +268,7 @@
   <string name="notification_light_missed_call_title">Panggilan yang tidak terjawab</string>
   <string name="notification_light_voicemail_title">Pesan suara</string>
   <string name="notification_light_screen_on">Lampu dengan layar yang menyala</string>
-  <string name="notification_light_zen_mode">Lampu dalam modus Do Not Disturb</string>
+  <string name="notification_light_zen_mode">Lampu di mode Jangan Ganggu</string>
   <string name="notification_light_use_multiple_leds">Diode Pancaran Cahaya Ganda</string>
   <string name="keywords_lights_brightness_level">redupkan kecemerlangan diode pancaran cahaya</string>
   <string name="notification_light_automagic">Memilih warna secara otomatis</string>
@@ -280,7 +282,7 @@
   <string name="enable_adb_summary_cm">Aktifkan antarmuka Android Debug Bridge (adb)</string>
   <!-- Android debugging over WiFi -->
   <string name="adb_over_network">ADB melalui jaringan</string>
-  <string name="adb_over_network_summary">Aktifkan perbaikan galat fungsi TCP/IP melalui antarmuka jaringan (Wi\u2011Fi, jaringan USB). Pengaturan ini diatur ulang pada saat dibut kembali</string>
+  <string name="adb_over_network_summary">Aktifkan TCP/IP debug melalui antarmuka jaringan (Wi-Fi, jaringan USB). Pengaturan ini dikembalikan standar saat dihidupkan ulang</string>
   <!-- Warning for Adb over Network -->
   <string name="adb_over_network_warning">PERINGATAN: Ketika ADB melalui jaringan diaktifkan, ponsel Anda terbuka terhadap intrusi pada semua jaringan yang terhubung!\n\nHanya gunakan fitur ini ketika Anda terhubung pada jaringan tepercaya\n\nApakah Anda benar-benar ingin mengaktifkan fungsi ini?</string>
   <!-- Setting checkbox summary for displaying USB debugging notification -->
@@ -305,8 +307,8 @@
   <string name="app_ops_summaries_modify_call_log">ubah log panggilan</string>
   <string name="app_ops_summaries_read_calendar">membaca kalendar</string>
   <string name="app_ops_summaries_modify_calendar">ubah kalendar</string>
-  <string name="app_ops_summaries_wifi_scan">Tinjau Wi-Fi</string>
-  <string name="app_ops_summaries_notification">pemberitahuan</string>
+  <string name="app_ops_summaries_wifi_scan">Pindai Wi-Fi</string>
+  <string name="app_ops_summaries_notification">notifikasi/toast</string>
   <string name="app_ops_summaries_cell_scan">pindai sel</string>
   <string name="app_ops_summaries_call_phone">panggilan telepon</string>
   <string name="app_ops_summaries_read_sms">baca SMS</string>
@@ -338,16 +340,16 @@
   <string name="app_ops_summaries_keep_awake">tetap terjaga</string>
   <string name="app_ops_summaries_monitor_location">memantau lokasi</string>
   <string name="app_ops_summaries_monitor_high_power_location">memantau lokasi daya tinggi</string>
-  <string name="app_ops_summaries_get_usage_stats">dapakan statistik penguunaan</string>
+  <string name="app_ops_summaries_get_usage_stats">dapatkan statistik penggunaan</string>
   <string name="app_ops_summaries_mute_unmute_microphone">bungkam/bunyikan mikrofon</string>
   <string name="app_ops_summaries_toast_window">tampilkan toast</string>
   <string name="app_ops_summaries_project_media">proyek media</string>
   <string name="app_ops_summaries_activate_vpn">aktifkan VPN</string>
-  <string name="app_ops_summaries_write_wallpaper">menulis gambar latar</string>
+  <string name="app_ops_summaries_write_wallpaper">mengganti wallpaper</string>
   <string name="app_ops_summaries_assist_structure">bantu struktur</string>
-  <string name="app_ops_summaries_assist_screenshot">bantu cuplikan layar</string>
-  <string name="app_ops_summaries_read_phone_state">membaca kondisi ponsel</string>
-  <string name="app_ops_summaries_add_voicemail">menambahkan pesan suara</string>
+  <string name="app_ops_summaries_assist_screenshot">membantu tangkap layar</string>
+  <string name="app_ops_summaries_read_phone_state">membaca kondisi telepon</string>
+  <string name="app_ops_summaries_add_voicemail">tambah pesan suara</string>
   <string name="app_ops_summaries_use_sip">menggunakan SIP</string>
   <string name="app_ops_summaries_make_call">membuat panggilan</string>
   <string name="app_ops_summaries_use_fingerprint">gunakan sidik jari</string>
@@ -355,14 +357,14 @@
   <string name="app_ops_summaries_read_cell_broadcasts">membaca siaran seluler</string>
   <string name="app_ops_summaries_mock_location">memalsukan lokasi</string>
   <string name="app_ops_summaries_read_external_storage">membaca penyimpanan luar</string>
-  <string name="app_ops_summaries_write_external_storage">tulis untuk penyimpanan luar</string>
-  <string name="app_ops_summaries_turn_screen_on">menyalakan layar</string>
-  <string name="app_ops_summaries_get_accounts">mendapatkan laporan</string>
-  <string name="app_ops_summaries_toggle_wifi">beralih ke Wi-Fi</string>
-  <string name="app_ops_summaries_toggle_bluetooth">beralih ke bluetooth</string>
-  <string name="app_ops_summaries_start_at_boot">mulai saat but</string>
-  <string name="app_ops_summaries_toggle_nfc">beralih ke NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">mengalihkan data seluler</string>
+  <string name="app_ops_summaries_write_external_storage">menulis penyimpanan luar</string>
+  <string name="app_ops_summaries_turn_screen_on">menghidupkan layar</string>
+  <string name="app_ops_summaries_get_accounts">mendapatkan akun</string>
+  <string name="app_ops_summaries_toggle_wifi">hidup/matikan Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">hidup/matikan bluetooth</string>
+  <string name="app_ops_summaries_start_at_boot">mulai saat boot</string>
+  <string name="app_ops_summaries_toggle_nfc">hidup/matikan NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">hidup/matikan data selular</string>
   <string name="app_ops_summaries_superuser">akses punca (root)</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Lokasi gersang</string>
@@ -375,16 +377,16 @@
   <string name="app_ops_labels_modify_call_log">Ubah log panggilan</string>
   <string name="app_ops_labels_read_calendar">Baca kalendar</string>
   <string name="app_ops_labels_modify_calendar">Ubah kalendar</string>
-  <string name="app_ops_labels_wifi_scan">Tinjau Wi-Fi</string>
+  <string name="app_ops_labels_wifi_scan">Pindai Wi-Fi</string>
   <string name="app_ops_labels_notification">Pemberitahuan/Toast</string>
-  <string name="app_ops_labels_cell_scan">Tinjau jaringan</string>
+  <string name="app_ops_labels_cell_scan">Pindai jaringan</string>
   <string name="app_ops_labels_call_phone">Panggilan Telepon</string>
-  <string name="app_ops_labels_read_sms">Membaca SMS</string>
-  <string name="app_ops_labels_write_sms">Menulis SMS</string>
+  <string name="app_ops_labels_read_sms">Baca SMS</string>
+  <string name="app_ops_labels_write_sms">Tulis SMS</string>
   <string name="app_ops_labels_receive_sms">Menerima SMS</string>
-  <string name="app_ops_labels_receive_emergency_sms">Menerima SMS darurat</string>
+  <string name="app_ops_labels_receive_emergency_sms">Terima SMS darurat</string>
   <string name="app_ops_labels_receive_mms">Menerima MMS</string>
-  <string name="app_ops_labels_receive_wap_push">Menerima Wireless Application Protocol push</string>
+  <string name="app_ops_labels_receive_wap_push">Menerima WAP push</string>
   <string name="app_ops_labels_send_sms">Kirim SMS</string>
   <string name="app_ops_labels_read_icc_sms">Membaca ICC SMS</string>
   <string name="app_ops_labels_write_icc_sms">Menulis ICC SMS</string>
@@ -408,16 +410,16 @@
   <string name="app_ops_labels_keep_awake">Tetap terjaga</string>
   <string name="app_ops_labels_monitor_location">Memantau lokasi</string>
   <string name="app_ops_labels_monitor_high_power_location">Memantau lokasi daya tinggi</string>
-  <string name="app_ops_labels_get_usage_stats">Dapakan statistik penggunaan</string>
+  <string name="app_ops_labels_get_usage_stats">Dapatkan statistik penggunaan</string>
   <string name="app_ops_labels_mute_unmute_microphone">Bungkam/bunyikan mikrofon</string>
   <string name="app_ops_labels_toast_window">Tampilkan toast</string>
   <string name="app_ops_labels_project_media">Proyek media</string>
   <string name="app_ops_labels_activate_vpn">Aktifkan VPN</string>
-  <string name="app_ops_labels_write_wallpaper">Menulis gambar latar</string>
+  <string name="app_ops_labels_write_wallpaper">Menulis wallpaper</string>
   <string name="app_ops_labels_assist_structure">Membantu struktur</string>
-  <string name="app_ops_labels_assist_screenshot">Bantu cuplikan layar</string>
+  <string name="app_ops_labels_assist_screenshot">Membantu tangkapan layar</string>
   <string name="app_ops_labels_read_phone_state">Membaca kondisi ponsel</string>
-  <string name="app_ops_labels_add_voicemail">Menambahkan pesan suara</string>
+  <string name="app_ops_labels_add_voicemail">Tambah pesan suara</string>
   <string name="app_ops_labels_use_sip">Menggunakan SIP</string>
   <string name="app_ops_labels_make_call">Buat panggilan</string>
   <string name="app_ops_labels_use_fingerprint">Gunakan sidik jari</string>
@@ -425,15 +427,15 @@
   <string name="app_ops_labels_read_cell_broadcasts">Baca siaran seluler</string>
   <string name="app_ops_labels_mock_location">Palsukan lokasi</string>
   <string name="app_ops_labels_read_external_storage">Baca penyimpanan eksternal</string>
-  <string name="app_ops_labels_write_external_storage">Tulis untuk penyimpanan eksternal</string>
-  <string name="app_ops_labels_turn_screen_on">Aktifkan layar</string>
-  <string name="app_ops_labels_get_accounts">Dapatkan akun</string>
-  <string name="app_ops_labels_toggle_wifi">Beralih ke Wi-Fi</string>
-  <string name="app_ops_labels_toggle_bluetooth">Beralih ke bluetooth</string>
-  <string name="app_ops_labels_start_at_boot">Mulai saat but</string>
-  <string name="app_ops_labels_toggle_nfc">Beralih ke NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Mengalihkan data seluler</string>
-  <string name="app_ops_labels_superuser">Akses punca (root)</string>
+  <string name="app_ops_labels_write_external_storage">Menulis penyimpanan luar</string>
+  <string name="app_ops_labels_turn_screen_on">Menghidupkan layar</string>
+  <string name="app_ops_labels_get_accounts">Mendapatkan akun</string>
+  <string name="app_ops_labels_toggle_wifi">Hidup/matikan Wi-Fi</string>
+  <string name="app_ops_labels_toggle_bluetooth">Hidup/matikan bluetooth</string>
+  <string name="app_ops_labels_start_at_boot">Mulai saat boot</string>
+  <string name="app_ops_labels_toggle_nfc">Hidup/matikan NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Hidup/matikan data seluler</string>
+  <string name="app_ops_labels_superuser">Akses root</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Diperbolehkan</string>
   <string name="app_ops_permissions_ignored">Diabaikan</string>
@@ -443,7 +445,7 @@
   <string name="app_ops_allowed_count">Diizinkan: <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_ignored_count">Ditolak: <xliff:g id="count" example="2 times">%s</xliff:g></string>
   <string name="app_ops_both_count">Diizinkan: <xliff:g id="count">%1$s</xliff:g>; ditolak: <xliff:g id="count">%2$s</xliff:g></string>
-  <string name="app_ops_disabled_by_optimization">Dinonaktifkan oleh pengoptimuman baterai</string>
+  <string name="app_ops_disabled_by_optimization">Dinonaktifkan oleh optimasi baterai</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Tampilkan aplikasi pengguna</string>
   <string name="app_ops_show_system_apps">Tampilkan aplikasi bawaan</string>
@@ -458,10 +460,10 @@
   <string name="button_pref_title">Tombol</string>
   <string name="hardware_keys_power_key_title">Tombol power</string>
   <string name="hardware_keys_home_key_title">Tombol beranda</string>
-  <string name="hardware_keys_back_key_title">Tombol Back</string>
-  <string name="hardware_keys_menu_key_title">Tombol Menu</string>
-  <string name="hardware_keys_assist_key_title">Tombol penelusuran</string>
-  <string name="hardware_keys_appswitch_key_title">Tombol terbaru</string>
+  <string name="hardware_keys_back_key_title">Tombol kembali</string>
+  <string name="hardware_keys_menu_key_title">Tombol menu</string>
+  <string name="hardware_keys_assist_key_title">Tombol cari</string>
+  <string name="hardware_keys_appswitch_key_title">Tombol Recents</string>
   <string name="hardware_keys_camera_key_title">Tombol kamera</string>
   <string name="hardware_keys_volume_keys_title">Tombol Volume</string>
   <string name="hardware_keys_short_press_title">Tindakan tekan pendek tombol</string>
@@ -469,33 +471,33 @@
   <string name="hardware_keys_double_tap_title">Tindakan dua kali ketuk tombol</string>
   <string name="hardware_keys_action_nothing">Tidak ada tindakan</string>
   <string name="hardware_keys_action_menu">Buka/Tutup menu</string>
-  <string name="hardware_keys_action_app_switch">Pengalih aplikasi terbaru</string>
-  <string name="hardware_keys_action_search">Asisten penelusuran</string>
+  <string name="hardware_keys_action_app_switch">Recent apps switcher</string>
+  <string name="hardware_keys_action_search">Asisten pencarian</string>
   <string name="hardware_keys_action_voice_search">Penelusuran suara</string>
-  <string name="hardware_keys_action_in_app_search">Penelusuran di dalam aplikasi</string>
+  <string name="hardware_keys_action_in_app_search">Penelusuran di dalam app</string>
   <string name="hardware_keys_action_launch_camera">Luncurkan Kamera</string>
   <string name="hardware_keys_action_sleep">Matikan layar</string>
   <string name="hardware_keys_action_last_app">Aplikasi terakhir</string>
   <string name="camera_sleep_on_release_title">Intip layar</string>
-  <string name="camera_sleep_on_release_summary">Tekan setengah akan menyalakan layar hanya saat tombol tertekan</string>
+  <string name="camera_sleep_on_release_summary">Menekan setengah akan menyalakan layar hanya saat tombol tertekan</string>
   <string name="camera_launch_title">Luncurkan Kamera</string>
   <string name="camera_launch_summary">Tekan lama dan lepas akan meluncurkan kamera</string>
-  <string name="volbtn_music_controls_title">Kendalikan pemutaran</string>
+  <string name="volbtn_music_controls_title">Kontrol pemutaran</string>
   <string name="volbtn_music_controls_summary">Ketika layar dimatikan, menekan dan menahan tombol volume akan menelusuri trek musik</string>
-  <string name="volbtn_cursor_control_title">Kendali kursor papan ketik</string>
-  <string name="volbtn_cursor_control_off">Dinonaktifkan</string>
+  <string name="volbtn_cursor_control_title">Kendali kursor keyboard</string>
+  <string name="volbtn_cursor_control_off">Dimatikan</string>
   <string name="volbtn_cursor_control_on">Volume atas/bawah menggerakkan kursor kiri/kanan</string>
   <string name="volbtn_cursor_control_on_reverse">Volume atas/bawah menggerakkan kursor kanan/kiri</string>
-  <string name="power_end_call_title">Akhiri panggilan</string>
+  <string name="power_end_call_title">Akhir panggilan</string>
   <string name="power_end_call_summary">Menekan tombol power akan mengakhiri panggilan aktif</string>
   <string name="swap_volume_buttons_title">Reorientasi</string>
-  <string name="swap_volume_buttons_summary">Swap tombol volume ketika layar diputar</string>
+  <string name="swap_volume_buttons_summary">Tukar fungsi tombol volume ketika layar diputar</string>
   <string name="button_wake_title">Bangunkan perangkat</string>
   <string name="home_answer_call_title">Jawab panggilan</string>
   <string name="home_answer_call_summary">Menekan tombol beranda akan menjawab panggilan masuk saat ini</string>
   <!-- Backlight brightness settings screen -->
   <string name="adaptive_backlight_title">Lampu latar adaptif</string>
-  <string name="adaptive_backlight_summary">Sesuaikan dengan dinamis kecerahan lampu latar layar untuk memaksimalkan baterai sambil mempertahankan kegunaan</string>
+  <string name="adaptive_backlight_summary">Dinamis menyesuaikan kecerahan backlight display untuk memaksimalkan masa pakai baterai dan tetap menjaga kegunaan</string>
   <!-- Sunlight readability enhancement screen -->
   <string name="sunlight_enhancement_title">Peningkatan sinar matahari</string>
   <string name="sunlight_enhancement_summary">Tingkatkan kecerahan tampilan dan keterbacaan di bawah sinar matahari cerah</string>
@@ -505,9 +507,9 @@
   <!-- Key backlight -->
   <string name="button_backlight_title">Lampu latar</string>
   <string name="button_backlight_enabled">Cahaya tombol</string>
-  <string name="keyboard_backlight_enabled">Terangi papan ketik</string>
+  <string name="keyboard_backlight_enabled">Cahaya keyboard</string>
   <string name="button_backlight_seekbar_title">Tombol kecerahan</string>
-  <string name="keyboard_backlight_seekbar_title">Kecerahan papan ketik</string>
+  <string name="keyboard_backlight_seekbar_title">Kecerahan keyboard</string>
   <string name="backlight_timeout_title">Waktu habis iluminasi</string>
   <string name="backlight_timeout_unlimited">Jangan Matikan</string>
   <string name="backlight_summary_disabled">Dinonaktifkan</string>
@@ -518,21 +520,21 @@
   <string name="gesture_settings_title">Gerakan</string>
   <!-- Power menu -->
   <string name="power_menu_title">Menu power</string>
-  <string name="power_menu_reboot_title">Menu but ulang</string>
-  <string name="power_menu_screenshot_title">Cuplikan layar</string>
-  <string name="power_menu_airplane_title">Modus pesawat</string>
-  <string name="power_menu_users_title">Pengalih pengguna</string>
+  <string name="power_menu_reboot_title">Menu reboot</string>
+  <string name="power_menu_screenshot_title">Tangkap layar</string>
+  <string name="power_menu_airplane_title">Mode pesawat</string>
+  <string name="power_menu_users_title">Beralih pengguna</string>
   <string name="power_menu_settings_title">Pintasan pengaturan</string>
   <string name="power_menu_lockdown_title">Penguncian perangkat</string>
-  <string name="power_menu_bug_report_title">Laporan galat fungsi</string>
+  <string name="power_menu_bug_report_title">Laporan bug</string>
   <string name="power_menu_sound_title">Panel suara</string>
-  <string name="power_menu_bug_report_disabled">Pelaporan galat fungsi dinonaktifkan dalam opsi pengembang</string>
+  <string name="power_menu_bug_report_disabled">Pelaporan bug dinonaktifkan dalam opsi pengembang</string>
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">Aktifkan bilah navigasi pada layar</string>
   <string name="disable_navkeys_summary">Aktifkan layar navigasi bar dan menonaktifkan tombol pada perangkat keras</string>
   <!-- tap-to-wake -->
   <string name="double_tap_to_wake_title">Ketuk dua kali untuk bangun</string>
-  <string name="double_tap_to_wake_summary">Ketuk dua kali pada layar untuk menyalakan tampilan</string>
+  <string name="double_tap_to_wake_summary">Ketuk dua kali pada layar untuk menghidupkan layar</string>
   <!-- tap-to-sleep -->
   <string name="double_tap_to_sleep_title">Ketuk dua kali untuk tidur</string>
   <string name="double_tap_to_sleep_summary">Ketuk dua kali pada status bar untuk mematikan tampilan</string>
@@ -549,6 +551,7 @@
   <string name="volume_adjust_sounds_title">Penyesuaian volume suara</string>
   <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Intensitas penggetar</string>
+  <string name="vibrator_warning">Nilai lebih tinggi dari %1$d%% tidak direkomendasikan</string>
   <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Kalibrasi warna</string>
   <string name="color_calibration_summary">Menyesuaikan layar warna</string>
@@ -566,7 +569,7 @@
   <string name="display_rotation_disabled">Dinonaktifkan</string>
   <string name="display_rotation_unit">derajat</string>
   <string name="display_lockscreen_rotation_title">Putar layar kunci</string>
-  <string name="display_rotation_category_title">Modus rotasi</string>
+  <string name="display_rotation_category_title">Mode rotasi</string>
   <string name="display_rotation_0_title">0 derajat</string>
   <string name="display_rotation_90_title">90 derajat</string>
   <string name="display_rotation_180_title">180 derajat</string>
@@ -600,8 +603,14 @@
   <string name="live_display_color_profile_photography_summary">Reproduksi warna yang sempurna untuk foto</string>
   <string name="live_display_color_profile_basic_title">Dasar</string>
   <string name="live_display_color_profile_basic_summary">Gunakan tampilan yang belum disesuaikan</string>
+  <string name="live_display_color_profile_adaptive_title">Adaptif</string>
+  <string name="live_display_color_profile_adaptive_summary">Warna beradaptasi dengan kondisi sekitar</string>
   <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">Penyesuaian Gambar</string>
+  <string name="picture_adjustment_summary">Sesuaikan warna, saturasi, intensitas, dan kontras</string>
+  <string name="adj_hue_title">Hue</string>
   <string name="adj_saturation_title">Saturasi</string>
+  <string name="adj_intensity_title">Intensitas</string>
   <string name="adj_contrast_title">Kontras</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Ikon pemilih</string>
@@ -658,8 +667,8 @@
   <string name="lto_download_data_wifi_only_on">Melalui jaringan apa pun</string>
   <string name="lto_download_data_wifi_only_off">Hanya melalui jaringan Wi\u2011Fi</string>
   <string name="volume_keys_control_ring_stream_title">Kontrol volume nada dering</string>
-  <string name="volume_keys_control_ring_stream_summary_on">Tombol volume mengatur volume nada dering</string>
-  <string name="volume_keys_control_ring_stream_summary_off">Tombol volume mengatur volume media</string>
+  <string name="volume_keys_control_ring_stream_summary_on">Tombol volume mengontrol volume nada dering</string>
+  <string name="volume_keys_control_ring_stream_summary_off">Tombol volume mengontrol volume media</string>
   <string name="category_calibration">Kalibrasi</string>
   <string name="display_and_lights">Tampilan &amp; lampu</string>
   <!-- Category title for Charging sounds (Power state change) specific Settings.
@@ -684,7 +693,7 @@
   <string name="status_bar_quick_qs_pulldown_summary">%1$s tepi dari bar status dapat ditarik ke bawah untuk Pengaturan Cepat</string>
   <string name="status_bar_quick_qs_pulldown_summary_left">Kiri</string>
   <string name="status_bar_quick_qs_pulldown_summary_right">Kanan</string>
-  <string name="status_bar_quick_qs_pulldown_off">Nonaktif</string>
+  <string name="status_bar_quick_qs_pulldown_off">Mati</string>
   <string name="status_bar_quick_qs_pulldown_left">Kiri</string>
   <string name="status_bar_quick_qs_pulldown_right">Kanan</string>
   <!-- Status bar - Clock -->
@@ -711,7 +720,7 @@
   <string name="status_bar_battery_percentage_text_inside">Di dalam ikon</string>
   <string name="status_bar_battery_percentage_text_next">Di samping ikon</string>
   <!-- Status bar - icon blacklist -->
-  <string name="status_bar_icons_title">Baris Ikon status</string>
+  <string name="status_bar_icons_title">Ikon Status bar</string>
   <string name="status_bar_icons_summary">Atur baris Ikon yang ditampilkan</string>
   <!-- EdgeGesture service -->
   <string name="edge_gesture_service_title">Blokir isyarat sentuhan peristiwa</string>
@@ -723,15 +732,15 @@
   <!-- Privacy Settings Header item -->
   <string name="privacy_settings_cyanogenmod_title">Privasi</string>
   <!-- Privacy Guard -->
-  <string name="privacy_guard_default_title">Diaktifkan secara baku</string>
-  <string name="privacy_guard_default_summary">Mengaktifkan secara baku untuk aplikasi yang baru diinstal</string>
+  <string name="privacy_guard_default_title">Diaktifkan secara standar</string>
+  <string name="privacy_guard_default_summary">Mengaktifkan secara standar untuk aplikasi yang baru dipasang</string>
   <string name="privacy_guard_manager_title">Penjaga Privasi</string>
   <string name="privacy_guard_manager_summary">Kelola aplikasi yang memiliki akses ke data pribadi Anda</string>
-  <string name="privacy_guard_no_user_apps">Tidak ada aplikasi yang terinstal</string>
+  <string name="privacy_guard_no_user_apps">Tidak ada aplikasi yang terpasang</string>
   <string name="privacy_guard_help_title">Bantuan</string>
-  <string name="privacy_guard_reset_title">Atur kembali</string>
-  <string name="privacy_guard_reset_text">Atur ulang izin?</string>
-  <string name="privacy_guard_help_text">Di layar ini Anda dapat memilih aplikasi Privacy Guard yang harus aktif dengan mengetuk aplikasinya secara sederhana. Aplikasi yang terpilih tidak akan dapat mengakses ke data personal Anda seperti kontak, pesan, atau log telepon. Tekan dan tahan entri aplikasi dapat membuka detail app tersebut.\n\nAplikasi bawaan tidak ditampilkan secara baku tapi dapat di tampilkan dengan memilih pilihan respektif.</string>
+  <string name="privacy_guard_reset_title">Set ulang</string>
+  <string name="privacy_guard_reset_text">Setel ulang izin?</string>
+  <string name="privacy_guard_help_text">Di layar ini anda dapat memilih aplikasi Penjaga Privasi yang harus aktif dengan cara mengetuk aplikasinya. Aplikasi yang terpilih tidak akan dapat mengakses ke data pribadi anda seperti kontak, pesan, atau log telepon. Tekan dan tahan entri aplikasi dapat membuka detail app tersebut.\n\nAplikasi bawaan tidak ditampilkan secara standar tapi dapat di tampilkan dengan memilih pilihan respektif.</string>
   <string name="privacy_guard_manager_show_system_apps">Tampilkan aplikasi bawaan</string>
   <string name="privacy_guard_advanced_settings_title">Lanjutan</string>
   <string name="privacy_guard_notification_title">Tampilkan pemberitahuan</string>
@@ -761,12 +770,12 @@
   <string name="autoperf_summary">Secara otomatis pilih modus baterai yang sesuai untuk berbagai aplikasi</string>
   <string name="perf_profile_title">Modus baterai</string>
   <!-- Memory -->
-  <string name="memory_startup_apps_title">Aplikasi yang dimulai saat but</string>
+  <string name="memory_startup_apps_title">Aplikasi yang dimulai saat boot</string>
   <!-- Sound & notification > Sound section: Title for the option defining the default notification ringtone. [CHAR LIMIT=30] -->
   <string name="notification_ringtone_title_cm">Nada pemberitahuan</string>
   <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">But ulang lanjutan</string>
-  <string name="advanced_reboot_summary">Ketika tidak terkunci, sertakan opsi dalam menu Daya untuk but ulang ke pemulihan, bootloader, atau melakukan but ulang cepat</string>
+  <string name="advanced_reboot_title">Mulai ulang lanjutan</string>
+  <string name="advanced_reboot_summary">Ketika tidak terkunci, sertakan opsi dalam menu power untuk memulai ulang ke recovery, bootloader, atau mulai ulang cepat</string>
   <string name="category_interface">Antarmuka</string>
   <!-- Expanded desktop -->
   <string name="power_menu_expanded_desktop">Destop yang diperluas</string>
@@ -790,7 +799,7 @@
   <string name="voice_wakeup_retrain_title">Melatih suara Anda</string>
   <string name="voice_wakeup_activity_title">Kegiatan untuk memulai</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
-  <string name="voice_wakeup_needs_dial_permission_warning">Beker Bersuara perlu izin bertelepon untuk memilih kontak Sambung Langsung.</string>
+  <string name="voice_wakeup_needs_dial_permission_warning">Beker Bersuara perlu izin memanggil untuk memilih kontak Sambung Langsung.</string>
   <string name="picker_activities">Aktivitas</string>
   <string name="select_custom_app_title">Pilih aplikasi khusus</string>
   <string name="select_custom_activity_title">Pilih aktivitas khusus</string>
@@ -805,10 +814,10 @@
   <string name="blacklist_summary">Anda tidak akan menerima panggilan atau pesan dari nomor telepon yang ada di daftar penelepon yang diblokir</string>
   <string name="blacklist_notify">Tampilkan pemberitahuan</string>
   <string name="blacklist_private_numbers_title">Nomor pribadi</string>
-  <string name="blacklist_private_numbers_summary_disabled">Tidak memblokir panggilan dari nomor pribadi</string>
+  <string name="blacklist_private_numbers_summary_disabled">Jangan blokir panggilan dari nomor pribadi</string>
   <string name="blacklist_private_numbers_summary">Blokir panggilan masuk <xliff:g id="type">%s</xliff:g> dari nomor pribadi</string>
   <string name="blacklist_unknown_numbers_title">Nomor tidak diketahui</string>
-  <string name="blacklist_unknown_numbers_summary_disabled">Tidak memblokir panggilan atau pesan dari angka-angka yang tidak ada dalam daftar kontak</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">Jangan blokir panggilan atau pesan dari angka-angka yang tidak ada dalam daftar kontak</string>
   <string name="blacklist_unknown_numbers_summary">Blok panggilan masuk <xliff:g id="type">%s</xliff:g> dari nomor-nomor yang tidak ada dalam daftar kontak</string>
   <string name="blacklist_summary_type_calls_only">panggilan</string>
   <string name="blacklist_summary_type_messages_only">pesan</string>
@@ -817,7 +826,7 @@
   <string name="blacklist_regex_summary">Gunakan . sebagai wildcard dan * untuk pengulangan. Misalnya 123.* blok nomor dimulai dengan 123 dan .* 123.* blok angka yang mengandung 123</string>
   <string name="blacklist_policy_block_calls">Blokir panggilan masuk</string>
   <string name="blacklist_policy_block_messages">Blokir pesan masuk</string>
-  <string name="blacklist_bad_number_add">Tidak dapat menambahkan nomor telepon yang tidak sesuai untuk daftar penelepon yang diblokir</string>
+  <string name="blacklist_bad_number_add">Tidak dapat menambahkan nomor telepon yang tidak sesuai ke daftar penelepon yang diblokir</string>
   <!-- Blacklist management -->
   <string name="remove_blacklist_number_title">Hapus Nomor</string>
   <string name="remove_blacklist_entry">Apakah Anda ingin menghapus nomor telepon yang diblokir ini?</string>
@@ -826,13 +835,13 @@
   <string name="app_security_title">Keamanan aplikasi</string>
   <string name="sms_security_check_limit_title">Batas pesan SMS</string>
   <string name="sms_security_check_limit_summary">Aplikasi dapat mengirim %d pesan dalam 1 menit sebelum konfirmasi</string>
-  <string name="sms_security_check_limit_summary_none">Aplikasi tidak diizinkan untuk mengirim pesan tanpa konfirmasi</string>
+  <string name="sms_security_check_limit_summary_none">Aplikasi tidak diizinkan untuk mengirin pesan tanpa konfirmasi</string>
   <string name="sms_security_check_limit_none">Tidak ada</string>
   <!-- Notification spamfilter -->
   <string name="spam_added_title">Ditambahkan %1$s</string>
   <string name="spam_last_blocked_title">Terakhir diblokir %1$s</string>
   <string name="block_notifications_title">Pemberitahuan penyaringan</string>
-  <string name="block_notifications_summary">Kelola pemberitahuan yang diabaikan dan filter</string>
+  <string name="block_notifications_summary">Kelola pemberitahuan yang diabaikan dan saring</string>
   <string name="no_filters_title">Belum ada penyaring</string>
   <!-- Anonymous Statistics #CM -->
   <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
@@ -854,14 +863,14 @@
   <string name="stats_collection_summary">Ketika diaktifkan, izinkan pengumpulan metrik</string>
   <!-- Protected apps lockpattern reset button -->
   <string name="lockpattern_reset_button">Atur kembali pola</string>
-  <string name="lockpattern_settings_reset_summary">Masukkan akun surel utama dan sandi yang terkait untuk mengatur ulang kunci pola</string>
+  <string name="lockpattern_settings_reset_summary">Masukkan email akun utama dan kata sandi yang terkait untuk mengatur kembali kunci pola</string>
   <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">Atur kembali</string>
   <string name="menu_hidden_apps_reset_lock">Atur kembali pola kunci</string>
-  <string name="protected_apps">Aplikasi yang di lindungi</string>
+  <string name="protected_apps">Aplikasi dilindungi</string>
   <string name="protected_apps_summary">Kelola aplikasi yang tersembunyi dengan kunci aman</string>
   <string name="saving_protected_components">Menyimpan kondisi komponen\u2026</string>
-  <string name="pa_login_username_hint">Nama pengguna (surel)</string>
+  <string name="pa_login_username_hint">Nama pengguna (email)</string>
   <string name="pa_login_password_hint">Kata sandi</string>
   <string name="pa_login_submit_button">Masuk</string>
   <string name="pa_login_checking_password">Memeriksa akun\u2026</string>
@@ -891,18 +900,18 @@
   <string name="title_general">Umum</string>
   <string name="advanced">Lanjutan</string>
   <string name="link_volume_option_title">Hubungkan volume nada dering &amp; pemberitahuan</string>
-  <string name="lcd_density_prompt_message">Beberapa aplikasi mungkin tidak berfungsi pada DPI yang tidak standar.\n\n Ini akan menyalakan ulang ponsel Anda.</string>
+  <string name="lcd_density_prompt_message">Beberapa aplikasi mungkin tidak berfungsi pada DPI yang tidak standar.\n\n Ini akan memulai ulang perangkat anda.</string>
   <!-- Edit access point labels: PPP number -->
   <string name="apn_ppp_number">Nomor telepon APN PPP</string>
   <!-- APNs screen message indicating new APN user is adding is a duplicate -->
-  <string name="duplicate_apn_error_title">Gandakan APN</string>
-  <string name="duplicate_apn_error_message">APN ini sudah ada. Membuang atau mengubah parameter.</string>
+  <string name="duplicate_apn_error_title">Duplikat APN</string>
+  <string name="duplicate_apn_error_message">APN ini sudah ada. Membuang atau ubah parameter.</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> adalah <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
   <string name="sim_disabled">dinonaktifkan</string>
   <string name="sim_missing">hilang atau rusak</string>
   <string name="sim_enabler_need_disable_sim">Kartu SIM akan dinonaktifkan. Apakah Anda ingin melanjutkan?</string>
   <string name="sim_enabler_will_disable_sim_title">Perhatian</string>
-  <string name="sim_enabler_need_switch_data_service">SIM ini akan dinonaktifkan dan SIM <xliff:g id="slotid">%1$s </xliff:g> akan digunakan untuk layanan data. Apakah Anda yakin Anda ingin melanjutkan?</string>
+  <string name="sim_enabler_need_switch_data_service">SIM ini akan dinonaktifkan dan SIM <xliff:g id="slotid">%1$s </xliff:g> akan digunakan untuk layanan data. Apakah Anda yakin ingin melanjutkan?</string>
   <string name="sim_enabler_airplane_on">Tidak dapat melakukan operasi saat modus pesawat aktif.</string>
   <string name="sim_enabler_in_call">Tidak dapat melakukan operasi saat dalam panggilan.</string>
   <string name="sim_enabler_both_inactive">Tidak dapat menonaktifkan semua kartu SIM</string>
@@ -926,7 +935,7 @@
   <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_events">kegiatan</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_callers, but part of a list, so lower case if needed -->
-  <string name="zen_mode_summary_selected_callers">penelepon yang terpilih</string>
+  <string name="zen_mode_summary_selected_callers">penelepon terpilih</string>
   <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
   <string name="zen_mode_summary_selected_messages">pesan terpilih</string>
   <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
@@ -934,13 +943,13 @@
   <string name="maximum_head_level">Kepala: %1$s W/kg</string>
   <string name="maximum_body_level">Tubuh: %1$s W/kg</string>
   <!-- IC Codes -->
-  <string name="ic_code_model">Modusl: %1$s</string>
+  <string name="ic_code_model">Model: %1$s</string>
   <string name="ic_code_full">IC: %1$s</string>
   <string name="sim_ringtone_title">Nada dering SIM %d</string>
   <!-- label for application name -->
   <string name="app_name_label_cm">App:</string>
   <!-- label for last time used -->
-  <string name="last_time_used_label_cm">Terakhir kali digunakan:</string>
+  <string name="last_time_used_label_cm">Terakhir digunakan:</string>
   <!-- label for usage time -->
   <string name="usage_time_label_cm">Waktu penggunaan:</string>
   <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
@@ -961,22 +970,22 @@
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Lainnya</string>
   <!-- Wi-Fi tethering inactivity timeout -->
-  <string name="hotstpot_inactivity_timeout_text">Batas waktu area bersinyal Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_text">Batas akhir Wi\u2011Fi hostspot</string>
   <string name="hotstpot_inactivity_timeout_never">Tidak pernah</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 menit</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 menit</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 menit</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">Area bersinyal Wi\u2011Fi portabel tak akan habis berlaku</string>
-  <string name="hotstpot_inactivity_timeout_summary_text">Area bersinyal Wi\u2011Fi portabel akan habis berlaku sesudah <xliff:g id="timeout">%1$s</xliff:g></string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Portabel HosWi\u2011Fi hostspot tidak pernah berakhir</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Portabel Wi\u2011Fi hotspot akan berkahir setelah <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Live lock screen -->
   <!-- Live lock screen title -->
-  <string name="live_lock_screen_title">Layar kunci Hidup</string>
+  <string name="live_lock_screen_title">Layar Kunci Live</string>
   <!-- Live lock screen summary -->
-  <string name="live_lock_screen_summary">Mengaktifkan dan mengkonfigurasi layar kunci Hidup</string>
+  <string name="live_lock_screen_summary">Mengaktifkan dan mengkonfigurasi Layar Kunci Live</string>
   <!-- Live lock screen settings content description -->
   <string name="live_lock_screen_settings_button">Pengaturan</string>
   <!-- Live lock screen settings screen, caption for when live lock screens are disabled -->
-  <string name="live_lock_screen_settings_disabled_prompt">Untuk melihat layar kunci Hidup tersedia, Aktifkan layar kunci Hidup.</string>
+  <string name="live_lock_screen_settings_disabled_prompt">Untuk melihat Layar Kunci Live tersedia, Aktifkan Layar Kunci Live.</string>
   <string name="interruptions_ignore_while_media_title">Cegah penurunan suara</string>
   <string name="interruptions_ignore_while_media_summary">Jangan kurangi volume pemutaran media ketika ada pemberitahuan baru</string>
   <!-- CM Legal -->
@@ -1012,20 +1021,21 @@
   <string name="allow_background_both">Melalui data seluler &amp; Wi\u2011Fi</string>
   <string name="allow_background_wlan">Hanya melalui Wi\u2011Fi</string>
   <string name="allow_background_none">Tidak ada akses</string>
-  <string name="mobile_data_alert">Lansiran data seluler</string>
+  <string name="mobile_data_alert">Peringatan data selular</string>
   <string name="mobile_data_alert_summary">Beri tahu ketika aplikasi menggunakan data dalam jumlah besar</string>
-  <string name="data_usage_menu_enable_data_alerts">Aktifkan lansiran penggunaan data</string>
-  <string name="data_usage_menu_disable_data_alerts">Nonaktifkan lansiran penggunaan data</string>
+  <string name="data_usage_menu_enable_data_alerts">Aktifkan peringatan penggunaan data</string>
+  <string name="data_usage_menu_disable_data_alerts">Nonaktifkan peringatan penggunaan data</string>
   <string name="data_usage_menu_reset_stats">Atur ulang statistik data</string>
-  <string name="reset_data_stats_msg">Ini akan menghapus semua informasi pelacakan dari dahulu sampai sekarang</string>
+  <string name="reset_data_stats_msg">Ini akan menghapus semua informasi pelacakan data dari dulu sampai sekarang</string>
   <string name="reset_stats_confirm">Konfirmasi</string>
   <string name="restrict_cellular_access_title">Batasi akses data seluler</string>
   <string name="restrict_cellular_access_summary">Nonaktifkan akses data pada jaringan seluler</string>
   <string name="restrict_cellular_access_dialog_title">Batasi akses data seluler?</string>
-  <string name="restrict_cellular_access_dialog_summary">Fitur ini dapat menyebabkan sebuah aplikasi yang bergantung pada akses jaringan untuk berhenti bekerja apabila hanya jaringan seluler yang tersedia.\n\nAnda dapat menemukan kontrol penggunaan data yang lebih tepat dalam Pengaturan yang tersedia dalam aplikasi.</string>
+  <string name="restrict_cellular_access_dialog_summary">Fitur ini dapat menyebabkan sebuah aplikasi yang bergantung pada akses jaringan berhenti bekerja ketika hanya jaringan selular yang tersedia.\n\nAnda dapat menemukan kontrol penggunaan data yang tepat dalam setelan yang tersedia dalam aplikasi.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Operator jaringan</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Latar belakang kabur</string>
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Tampilkan cuaca</string>
   <!-- Per app controls for LP keyguard notifications -->
@@ -1034,9 +1044,30 @@
   <string name="app_notification_no_ongoing_on_keyguard_title">Tiadakan pemberitahuan tetap pada layar kunci</string>
   <string name="app_notification_no_ongoing_on_keyguard_summary">Tidak pernah menampilkan pemberitahuan tetap dari aplikasi ini pada layar kunci</string>
   <!-- CmRadioInfo -->
+  <string name="cm_radio_info_label">Tingkatkan kontrol radio</string>
   <!-- Radio Control (IMS/MBN etc.) -->
+  <string name="cm_radio_info_mbn_auto_load_on_label">Matikan otomatis beban MBN</string>
+  <string name="cm_radio_info_mbn_auto_load_off_label">Hidupkan otomatis beban MBN</string>
+  <string name="cm_radio_info_volte_avail_ovr_on_label">Matikan debug VoLTE</string>
+  <string name="cm_radio_info_volte_avail_ovr_off_label">Hidupkan debug VoLTE</string>
+  <string name="cm_radio_info_vt_avail_ovr_on_label">Matikan debug VT</string>
+  <string name="cm_radio_info_vt_avail_ovr_off_label">Hidupkan debug VT</string>
+  <string name="cm_radio_info_wfc_avail_ovr_on_label">Matikan debug WFC</string>
+  <string name="cm_radio_info_wfc_avail_ovr_off_label">Hidupkan debug WFC</string>
+  <string name="cm_radio_info_adb_log_on_label">Matikan log radio ADB</string>
+  <string name="cm_radio_info_adb_log_off_label">Hidupkan log radio ADB</string>
+  <string name="cm_radio_info_diag_log_on_label">Matikan log Diag</string>
+  <string name="cm_radio_info_diag_log_off_label">Hidupkan log Diag</string>
   <!-- Lock screen wallpaper -->
+  <string name="lockscreen_wallpaper_title">Wallpaper</string>
+  <string name="not_available_with_app">Tidak tersedia dengan %1$s</string>
   <!-- Format string for fingerprint location message -->
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Tempatkan sensor sidik jari pada <xliff:g id="sensor_location">%1$s</xliff:g> telepon anda.</string>
   <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_back">kembali</string>
+  <string name="security_settings_fingerprint_sensor_location_front">depan</string>
+  <string name="security_settings_fingerprint_sensor_location_left">sisi kiri</string>
+  <string name="security_settings_fingerprint_sensor_location_right">sisi kanan</string>
   <!-- SIM status format string -->
+  <string name="sim_status_format_string">Suara: <xliff:g id="voice_status">%1$s</xliff:g> / Data: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>

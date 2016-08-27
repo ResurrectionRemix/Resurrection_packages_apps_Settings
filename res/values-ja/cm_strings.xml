@@ -38,6 +38,8 @@
   <string name="root_access_adb">ADBのみ</string>
   <string name="root_access_all">アプリとADB</string>
   <!-- Preference link for root appops -->
+  <string name="root_appops_title">ルートアクセスを管理</string>
+  <string name="root_appops_summary">ルートの規則を表示またはコントロールする</string>
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
@@ -549,6 +551,7 @@
   <string name="volume_adjust_sounds_title">音量調整の音</string>
   <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">バイブレーションの強さ</string>
+  <string name="vibrator_warning">%1$d%%より大きい値は推奨されません</string>
   <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">色の調整</string>
   <string name="color_calibration_summary">画面の色を調整する</string>
@@ -600,8 +603,14 @@
   <string name="live_display_color_profile_photography_summary">写真の完全な色再現</string>
   <string name="live_display_color_profile_basic_title">基本</string>
   <string name="live_display_color_profile_basic_summary">無調整のディスプレイを使用する</string>
+  <string name="live_display_color_profile_adaptive_title">自動</string>
+  <string name="live_display_color_profile_adaptive_summary">色を周囲の状況に適応する</string>
   <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">画像調整</string>
+  <string name="picture_adjustment_summary">色彩、彩度、輝度、コントラストを調整する</string>
+  <string name="adj_hue_title">色彩</string>
   <string name="adj_saturation_title">彩度</string>
+  <string name="adj_intensity_title">輝度</string>
   <string name="adj_contrast_title">コントラスト</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">入力方法の選択のアイコン</string>
@@ -824,7 +833,7 @@
   <string name="select_contact">連絡先を選択</string>
   <!-- Sms security limit -->
   <string name="app_security_title">アプリのセキュリティ</string>
-  <string name="sms_security_check_limit_title">SMSメッセージの制限</string>
+  <string name="sms_security_check_limit_title">SMSメッセージの上限</string>
   <string name="sms_security_check_limit_summary">アプリは確認をする前に1分間に%d通のメッセージを送信することができます</string>
   <string name="sms_security_check_limit_summary_none">アプリは許可無くメッセージを送信することはできません</string>
   <string name="sms_security_check_limit_none">なし</string>
@@ -1053,11 +1062,12 @@
   <string name="lockscreen_wallpaper_title">壁紙</string>
   <string name="not_available_with_app">%1$sでは利用できません</string>
   <!-- Format string for fingerprint location message -->
-  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">携帯電話の<xliff:g id="sensor_location">%1$s</xliff:g>にある指紋センサーを探してください。</string>
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">端末の<xliff:g id="sensor_location">%1$s</xliff:g>にある指紋認証センサーを探します。</string>
   <!-- Fingerprint sensor locations -->
   <string name="security_settings_fingerprint_sensor_location_back">背面</string>
   <string name="security_settings_fingerprint_sensor_location_front">前面</string>
   <string name="security_settings_fingerprint_sensor_location_left">左側面</string>
   <string name="security_settings_fingerprint_sensor_location_right">右側面</string>
   <!-- SIM status format string -->
+  <string name="sim_status_format_string">音声: <xliff:g id="voice_status">%1$s</xliff:g> / データ: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>
