@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016, The Linux Foundation. All rights reserved.-->
+
 <!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,17 +36,12 @@
         settings:keywords="@string/keywords_wifi_calling"
         android:fragment="com.android.settings.WifiCallingSettings" />
 
-    <PreferenceScreen
+    <com.android.settings.WFCPreference
         android:key="wifi_calling_enhanced_settings"
-        android:title="@string/wifi_calling_settings_title"
         android:summaryOff="@null"
         android:summaryOn="@null"
-        android:persistent="false">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.qualcomm.qti.wfcservice"
-            android:targetClass="com.qualcomm.qti.wfcservice.WifiCallingEnhancedSettings" />
-    </PreferenceScreen>
+        android:persistent="false"
+        android:layout="@layout/wfc_checkbox" />
 
     <com.android.settingslib.RestrictedPreference
         android:fragment="com.android.settings.nfc.AndroidBeam"
