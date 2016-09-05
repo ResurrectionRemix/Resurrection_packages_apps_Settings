@@ -453,7 +453,10 @@ public class SimStatus extends SettingsPreferenceFragment {
         public void onTabChanged(String tabId) {
             final int slotId = Integer.parseInt(tabId);
             mSir = mSelectableSubInfos.get(slotId);
-
+            if (mPhoneStateListener != null) {
+                mTelephonyManager.listen(mPhoneStateListener,
+                        PhoneStateListener.LISTEN_NONE);
+            }
             // The User has changed tab; update the SIM information.
             updatePhoneInfos();
             mTelephonyManager.listen(mPhoneStateListener,

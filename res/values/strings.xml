@@ -25,6 +25,15 @@
     <!-- Strings for Dialog deny button -->
     <string name="deny">Deny</string>
 
+    <string name="wifiap_settings_desc">WLAN wifiap can share this phone\u2019s data Internet connection with other PC/mobile devices via WLAN.</string>
+    <string name="wifiap_settings_indication">After the WLAN wifiap is turned on, other PC/mobile devices can connect to it and start using the internet by following steps:</string>
+    <string name="wifiap_settings_indication_step1">1. Turn on WLAN on PC/Mobile device.</string>
+    <string name="wifiap_settings_indication_step2">2. Find \u201c<xliff:g id="ssid_name">%s</xliff:g>\u201d in the list of WLAN networks.</string>
+    <string name="wifiap_title">WLAN hotspot</string>
+    <string name="wifiap_configure_ap_text">Set up WLAN wifiap</string>
+    <string name="wifiap_configure_subtext"><xliff:g id="network_ssid">%1$s</xliff:g><xliff:g id="network_security">%2$s</xliff:g> portable WLAN wifiap</string>
+    <string name="wifiap_turn_on_hint">To use WLAN wifiap, turn it on.</string>
+
     <!-- Strings for Dialog close button [CHAR LIMIT=20] -->
     <string name="dlg_close">Close</string>
     <!-- Strings for Dialog switch button [CHAR LIMIT=20] -->
@@ -568,6 +577,8 @@
     <string name="cancel">Cancel</string>
     <!-- Button label for generic OK action [CHAR LIMIT=20] -->
     <string name="okay">OK</string>
+    <!-- Button label for generic later action [CHAR LIMIT=20] -->
+    <string name="later">LATER</string>
     <!-- Button label for generic forget action [CHAR LIMIT=20] -->
     <string name="forget">Forget</string>
     <!-- Button label for generic save action [CHAR LIMIT=20] -->
@@ -672,6 +683,10 @@
     <!-- Title string shown above TimePicker, letting a user select system time
          [CHAR LIMIT=20] -->
     <string name="time_picker_title">Time</string>
+
+    <!-- Timer Switch Settings --><skip />
+    <!-- Main Settings screen setting option name to go into the timer switch settings-->
+    <string name="timer_switch_settings_title">Scheduled power on and off</string>
 
     <!-- Security Settings --><skip />
 
@@ -1534,6 +1549,9 @@
     <string name="wifi_notify_open_networks">Network notification</string>
     <!-- Checkbox summary for option to notify user when open networks are nearby [CHAR LIMIT=60]-->
     <string name="wifi_notify_open_networks_summary">Notify whenever a public network is available</string>
+
+    <string name="wifi_enable_hs2_title">Passpoint On</string>
+
     <!-- Checkbox title for option to toggle poor network detection -->
     <string name="wifi_poor_network_detection">Avoid poor connections</string>
     <!-- Checkbox summary for option to toggle poor network detection -->
@@ -2715,6 +2733,18 @@
     <string name="apn_protocol">APN protocol</string>
     <!-- Edit access point labels: The protocol of the APN when roaming, e.g., "IPv4", "IPv6", or "IPv4/IPv6". -->
     <string name="apn_roaming_protocol">APN roaming protocol</string>
+    <!-- apn names for carriers -->
+    <string name="APN_NAME_CMNET">CMNET</string>
+    <string name="APN_NAME_CMWAP">CMWAP</string>
+    <string name="APN_NAME_CMMMS">CMMMS</string>
+    <string name="APN_NAME_CUWAP">China Unicom WAP</string>
+    <string name="APN_NAME_CUNET">China Unicom NET</string>
+    <string name="APN_NAME_CUMMS">China Unicom MMS</string>
+    <string name="APN_NAME_CUSUPL">China Unicom AGPS</string>
+    <string name="APN_NAME_CTNET">CTNET</string>
+    <string name="APN_NAME_CTWAP">CTWAP</string>
+    <string name="APN_NAME_CTLTE">ctlte</string>
+    <string name="APN_NAME_CTMMS">CTWAP</string>
     <!-- Edit enable/disable of APN -->
     <string name="carrier_enabled">APN enable/disable</string>
     <string name="carrier_enabled_summaryOn">APN enabled</string>
@@ -6854,6 +6884,8 @@
          for this device should be used for. Choices are usb_use_charging_only,
          usb_use_file_transfer, use_use_photo_transfer, and usb_use_MIDI -->
     <string name="usb_use">Use USB to</string>
+    <string name="usb_tethering_title">USB tethering</string>
+    <string name="usb_tethering_desc">Use device for USB tethering</string>
 
     <!-- Settings item title for background check prefs [CHAR LIMIT=35] -->
     <string name="background_check_pref">Background check</string>
@@ -7162,7 +7194,7 @@
     <!-- Content description used when collapsing a condition item to see less details -->
     <string name="condition_expand_hide">Hide</string>
 
-    <!-- Title of condition that hotspot is on [CHAR LIMIT=30] -->
+<!-- Title of condition that hotspot is on [CHAR LIMIT=30] -->
     <string name="condition_hotspot_title">Hotspot is on</string>
 
     <!-- Summary of condition that hotspot is on [CHAR LIMIT=NONE] -->
@@ -7499,4 +7531,57 @@
 
     <!-- Message for telling the user the kind of BT device being displayed in list. -->
     <string name="bluetooth_talkback_bluetooth">Bluetooth</string>
+
+    <!-- Wifi extension requirement -->
+    <string name="wifi_set_priority_settings_title">AP priority settings</string>
+    <string name="wifi_set_priority_settings_summary">Click to set priority of each access point</string>
+    <string name="cellular_to_wlan_title">Cellular->WLAN</string>
+    <string name="wifi_auto_connect_type_title">Auto connect type</string>
+    <string name="wifi_auto_connect_type_summary">Specify network connection type</string>
+    <string name="wifi_menu_disconnect">Disconnect from network</string>
+    <string name="cellular_to_wlan_hint_title">Cellular->WLAN hint</string>
+    <string name="cellular_to_wlan_hint_summary">Allow hint when choose manually or always ask in Cellular->WLAN</string>
+    <string name="cellular_to_wlan_hint_toast">Cellular->WLAN connection may be affected</string>
+    <string name="wlan_to_cellular_hint_title">WLAN->Cellular hint</string>
+    <string name="notify_connect">CMCC WLAN prompt</string>
+    <string name="notify_connect_summary">Prompt me when access to CMCC WLAN</string>
+    <string name="wifi_setting_connect_type_error">There was a problem setting the connect type.</string>
+    <string name="app_ops_permiss_name">App network access</string>
+
+    <!-- Roaming Data Settings -->
+    <string name="label_global_roaming_settings">Roaming Settings</string>
+    <string name="set_data_time_range">Show time range</string>
+    <string name="lte_4g_settings_title">Enable 4G</string>
+    <string name="lte_4g_switch_prompt">The phone will change from 3G/2G to 4G, some active task may be stopped</string>
+    <string name="lte_4g_settings_4genable_summary">4G Enabled</string>
+    <string name="lte_4g_settings_4gdisable_summary">4G Disabled</string>
+    <string name="lte_4g_settings_disable">Airplane mode or SIM card is not ready</string>
+
+    <!-- StorageCleaner Settings -->
+    <string name="storage_menu_cleanup">Storage Cleanup</string>
+    <string name="profiles_settings_title">System profiles</string>
+    <string name="select_sim_card">Select SIM card</string>
+
+    <string name="mbn_version">MBN version</string>
+    <!-- show security alert for open type end -->
+    <string name="voice_over_lte">Voice over LTE</string>
+
+    <string name="network_operator_display_title">Show Network Operator</string>
+    <string name="keywords_network_name_display">network name displayed</string>
+    <string name="network_name_displayed_summary">Show network name on status bar</string>
+    <string name="tethering_help_dialog_title">Help</string>
+    <string name="tethering_help_dialog_text"><b>USB tethering</b> \n You can tether your Android device to your computer with a USB cable, to share your device\'s Internet connection with your computer. \n\n1.USB tethering works with Windows Vista, Windows 7, Windows 8, Windows 8.1 and Linux. \n\n2.If your device has an SD card or USB storage, you can\'t mount it on your computer when USB tethered. \n\n <b>Portable Wi-Fi hotspot</b> \n You can turn your Android device into a portable Wi-Fi hotspot, to share your Android device\'s Internet connection with one or more computers or other devices. \n\n1.When your device is serving as a Wi-Fi hotspot, you can\'t use your device\'s applications to access the Internet via its Wi-Fi connection (but of course you remain connected to the Internet via your mobile data network). \n\n2.You configure the hotspot with the Wi-Fi hotspot settings.</string>
+
+    <string name="turn_on_wifi_dialog_title">Turn on wifi</string>
+    <string name="turn_on_wifi_dialog_text">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
+    <string name="dialog_not_show_again">Do not show again</string>
+    <string name="tethering_settings_summary">Share your device\'s mobile data connection via USB or a Mobile HotSpot</string>
+
+    <string name="collect_diagnostics_title">Collect Diagnostics</string>
+    <string name="collect_diagnostics_summary">Collect diagnostics data for troubleshooting</string>
+
+    <string name="tethering_no_sim_alert_title">No SIM Card</string>
+    <string name="tethering_no_sim_card_text">Please install SIM card in order to share your data connection with other devices using Mobile HotSpot or USB tethering for Internet access.</string>
+    <string name="tether_settings_launch_title">Mobile HotSpot</string>
+    <string name="wifi_tether_first_use_message">Set up Mobile HotSpot at the First Use</string>
 </resources>

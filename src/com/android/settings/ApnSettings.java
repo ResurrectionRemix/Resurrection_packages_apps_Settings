@@ -26,6 +26,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.os.PersistableBundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Telephony;
@@ -78,12 +80,15 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     public static final String MVNO_TYPE = "mvno_type";
     public static final String MVNO_MATCH_DATA = "mvno_match_data";
 
+    private static final String APN_NAME_DM = "CMCC DM";
+
     private static final int ID_INDEX = 0;
     private static final int NAME_INDEX = 1;
     private static final int APN_INDEX = 2;
     private static final int TYPES_INDEX = 3;
     private static final int MVNO_TYPE_INDEX = 4;
     private static final int MVNO_MATCH_DATA_INDEX = 5;
+    private static final int RO_INDEX = 6;
 
     private static final int MENU_NEW = Menu.FIRST;
     private static final int MENU_RESTORE = Menu.FIRST + 1;
@@ -115,6 +120,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
 
     private boolean mHideImsApn;
     private boolean mAllowAddingApns;
+    private boolean mApnSettingsHidden;
 
     public ApnSettings() {
         super(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS);
@@ -193,6 +199,12 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        mApnSettingsHidden = true;
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
@@ -205,6 +217,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         if (!mRestoreDefaultApnMode) {
             fillList();
         }
+        mApnSettingsHidden = false;
     }
 
     @Override
@@ -241,18 +254,62 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     private void fillList() {
         final TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final String mccmnc = mSubscriptionInfo == null ? ""
-            : tm.getSimOperator(mSubscriptionInfo.getSubscriptionId());
+                : tm.getSimOperator(mSubscriptionInfo.getSubscriptionId());
         Log.d(TAG, "mccmnc = " + mccmnc);
         StringBuilder where = new StringBuilder("numeric=\"" + mccmnc +
                 "\" AND NOT (type='ia' AND (apn=\"\" OR apn IS NULL)) AND user_visible!=0");
 
+        if (SystemProperties.getBoolean("persist.sys.hideapn", true)) {
+            Log.d(TAG, "hiden apn feature enable.");
+            // remove the filtered items, no need to show in UI
+
+            if(getResources().getBoolean(R.bool.config_hide_ims_apns)){
+                mHideImsApn = true;
+            }
+
+            // Filer fota and dm for specail carrier
+            if (getResources().getBoolean(R.bool.config_hide_dm_enabled)) {
+                for (String plmn : getResources().getStringArray(R.array.hidedm_plmn_list)) {
+                    if (plmn.equals(mccmnc)) {
+                        where.append(" and name <>\"" + APN_NAME_DM + "\"");
+                        break;
+                    }
+                }
+            }
+
+            if (getResources().getBoolean(R.bool.config_hidesupl_enable)) {
+                boolean needHideSupl = false;
+                for (String plmn : getResources().getStringArray(R.array.hidesupl_plmn_list)) {
+                    if (plmn.equals(mccmnc)) {
+                        needHideSupl = true;
+                        break;
+                    }
+                }
+
+                if (needHideSupl) {
+                    where.append(" and type <>\"" + PhoneConstants.APN_TYPE_SUPL + "\"");
+                }
+            }
+
+            // Hide mms if config is true
+            if (getResources().getBoolean(R.bool.config_hide_mms_enable)) {
+                  where.append( " and type <>\"" + PhoneConstants.APN_TYPE_MMS + "\"");
+            }
+        }
+
+        if(getResources().getBoolean(R.bool.config_regional_hide_ims_and_dun_apns)){
+            where.append(" AND type <>\"" + PhoneConstants.APN_TYPE_DUN + "\"");
+            where.append(" AND type <>\"" + PhoneConstants.APN_TYPE_IMS + "\"");
+        }
         if (mHideImsApn) {
             where.append(" AND NOT (type='ims')");
         }
 
+        Log.d(TAG, "where---" + where);
+
         Cursor cursor = getContentResolver().query(Telephony.Carriers.CONTENT_URI, new String[] {
-                "_id", "name", "apn", "type", "mvno_type", "mvno_match_data"}, where.toString(),
-                null, Telephony.Carriers.DEFAULT_SORT_ORDER);
+                "_id", "name", "apn", "type", "mvno_type", "mvno_match_data", "read_only"},
+                where.toString(), null, Telephony.Carriers.DEFAULT_SORT_ORDER);
 
         if (cursor != null) {
             IccRecords r = null;
@@ -277,9 +334,15 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                 String type = cursor.getString(TYPES_INDEX);
                 String mvnoType = cursor.getString(MVNO_TYPE_INDEX);
                 String mvnoMatchData = cursor.getString(MVNO_MATCH_DATA_INDEX);
+                boolean readOnly = (cursor.getInt(RO_INDEX) == 1);
+                String localizedName = getLocalizedName(getActivity(), cursor, NAME_INDEX);
+                if (!TextUtils.isEmpty(localizedName)) {
+                    name = localizedName;
+                }
 
                 ApnPreference pref = new ApnPreference(getPrefContext());
 
+                pref.setApnReadOnly(readOnly);
                 pref.setKey(key);
                 pref.setTitle(name);
                 pref.setSummary(apn);
@@ -314,6 +377,23 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                 apnList.addPreference(preference);
             }
         }
+    }
+
+    public static String getLocalizedName(Context context, Cursor cursor, int index) {
+        // If can find a localized name, replace the APN name with it
+        String resName = cursor.getString(index);
+        String localizedName = null;
+        if (resName != null && !resName.isEmpty()) {
+            int resId = context.getResources().getIdentifier(resName, "string",
+                    context.getPackageName());
+            try {
+                localizedName = context.getResources().getString(resId);
+                Log.d(TAG, "Replaced apn name with localized name");
+            } catch (NotFoundException e) {
+                Log.e(TAG, "Got execption while getting the localized apn name.", e);
+            }
+        }
+        return localizedName;
     }
 
     private void addApnToList(ApnPreference pref, ArrayList<ApnPreference> mnoList,
@@ -357,6 +437,10 @@ public class ApnSettings extends RestrictedSettingsFragment implements
 
         case MENU_RESTORE:
             restoreDefaultApn();
+            return true;
+
+        case android.R.id.home:
+            getActivity().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -450,7 +534,9 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                     fillList();
                     getPreferenceScreen().setEnabled(true);
                     mRestoreDefaultApnMode = false;
-                    removeDialog(DIALOG_RESTORE_DEFAULTAPN);
+                    // if current fragment is not visible, in background or Homekey is pressed,
+                    // dismiss the dialog with state loss.
+                    removeDialog(DIALOG_RESTORE_DEFAULTAPN, mApnSettingsHidden);
                     Toast.makeText(
                         activity,
                         getResources().getString(

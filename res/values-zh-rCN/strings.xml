@@ -1149,6 +1149,18 @@
     <string name="apn_type" msgid="469613123902220544">"APN 类型"</string>
     <string name="apn_protocol" msgid="3272222921649348640">"APN 协议"</string>
     <string name="apn_roaming_protocol" msgid="3386954381510788422">"APN 漫游协议"</string>
+    <!-- apn names for carriers -->
+    <string name="APN_NAME_CMNET">中国移动NET</string>
+    <string name="APN_NAME_CMWAP">中国移动WAP</string>
+    <string name="APN_NAME_CMMMS">中国移动彩信设置</string>
+    <string name="APN_NAME_CUWAP">沃宽带用户手机上网</string>
+    <string name="APN_NAME_CUNET">沃宽带用户连接互联网</string>
+    <string name="APN_NAME_CUMMS">联通彩信</string>
+    <string name="APN_NAME_CUSUPL">联通AGPS</string>
+    <string name="APN_NAME_CTNET">中国电信互联网设置 CTNET</string>
+    <string name="APN_NAME_CTWAP">中国电信WAP设置 CTWAP</string>
+    <string name="APN_NAME_CTLTE">中国电信互联网设置 ctlte</string>
+    <string name="APN_NAME_CTMMS">中国电信彩信设置 CTWAP</string>
     <string name="carrier_enabled" msgid="407655861175280806">"APN 启用/停用"</string>
     <string name="carrier_enabled_summaryOn" msgid="6338915271908057531">"APN 已启用"</string>
     <string name="carrier_enabled_summaryOff" msgid="4300790190221203756">"未启用 APN"</string>
@@ -3001,9 +3013,9 @@
     <string name="ethernet_data_usage" msgid="5108764537574354616">"以太网流量消耗"</string>
     <string name="wifi" msgid="1081550856200013637">"WLAN"</string>
     <string name="ethernet" msgid="6600095783781389720">"以太网"</string>
-    <string name="cell_data_template" msgid="3308709914705592281">"<xliff:g id="ID_1">%1$s</xliff:g> 移动数据网络流量"</string>
-    <string name="wifi_data_template" msgid="501654649753761778">"<xliff:g id="ID_1">%1$s</xliff:g> WLAN 网络流量"</string>
-    <string name="ethernet_data_template" msgid="5775729859383597507">"<xliff:g id="ID_1">%1$s</xliff:g> 以太网流量"</string>
+    <string name="cell_data_template" msgid="3308709914705592281">"<xliff:g name="units" example="GB">%1$s</xliff:g> 移动数据网络流量"</string>
+    <string name="wifi_data_template" msgid="501654649753761778">"<xliff:g name="units" example="GB">%1$s</xliff:g> WLAN 网络流量"</string>
+    <string name="ethernet_data_template" msgid="5775729859383597507">"<xliff:g name="units" example="GB">%1$s</xliff:g> 以太网流量"</string>
     <string name="cell_warning_only" msgid="763147658209027140">"流量警告：<xliff:g id="ID_1">%1$s</xliff:g>"</string>
     <string name="cell_warning_and_limit" msgid="2273413629267437470">"流量警告：<xliff:g id="ID_1">%1$s</xliff:g>/流量上限：<xliff:g id="ID_2">%2$s</xliff:g>"</string>
     <string name="billing_cycle" msgid="5169909190811133499">"结算周期"</string>
@@ -3099,4 +3111,36 @@
     <string name="bluetooth_talkback_headphone" msgid="26580326066627664">"耳机"</string>
     <string name="bluetooth_talkback_input_peripheral" msgid="5165842622743212268">"外围输入设备"</string>
     <string name="bluetooth_talkback_bluetooth" msgid="5615463912185280812">"蓝牙"</string>
+
+    <!-- Timer Switch Settings -->
+    <string name="timer_switch_settings_title">定时开关机</string>
+
+    <!-- Wifi extension requirement -->
+    <string name="wifi_set_priority_settings_title">接入点优先级设定</string>
+    <string name="wifi_set_priority_settings_summary">点击设定各接入点的优先级</string>
+    <string name="cellular_to_wlan_title">蜂窝网至 WLAN 重选</string>
+    <string name="wifi_auto_connect_type_title">自动连接类型</string>
+    <string name="wifi_auto_connect_type_summary">设置网络连接方式</string>
+    <string name="wifi_menu_disconnect">断开网络</string>
+    <string name="cellular_to_wlan_hint_title">蜂窝网至WLAN重选提示</string>
+    <string name="cellular_to_wlan_hint_summary">当数据至WLAN重选设置为手动或总是询问时, 允许弹出提示</string>
+    <string name="cellular_to_wlan_hint_toast">数据至WLAN重选功能将受影响</string>
+    <string name="wlan_to_cellular_hint_title">WLAN 至蜂窝网重选提示</string>
+    <string name="notify_connect">连接CMCC告警</string>
+    <string name="notify_connect_summary">连接到CMCC热点后提示</string>
+    <string name="wifi_setting_connect_type_error">设置自动连接类型时出现错误。</string>
+    <string name="label_global_roaming_settings">国际漫游设置</string>
+    <string name="set_data_time_range">显示时间区间</string>
+    <string name="app_ops_permiss_name">应用联网限制</string>
+    <string name="lte_4g_settings_title">启用4G</string>
+    <string name="lte_4g_switch_prompt">"手机将从3G/2G切换成4G网络，某些活动任务将被终止。"</string>
+    <string name="lte_4g_settings_4genable_summary">4G启用</string>
+    <string name="lte_4g_settings_4gdisable_summary">4G关闭</string>
+    <string name="lte_4g_settings_disable">飞行模式或SIM卡未就绪</string>
+
+    <!-- StorageCleaner Settings -->
+    <string name="storage_menu_cleanup">垃圾清理</string>
+    <string name="profiles_settings_title">情景模式</string>
+
+    <string name="mbn_version">MBN 版本</string>
 </resources>

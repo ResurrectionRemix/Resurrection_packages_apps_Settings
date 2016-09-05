@@ -31,7 +31,9 @@ public class Settings extends SettingsActivity {
     public static class BluetoothSettingsActivity extends SettingsActivity { /* empty */ }
     public static class WirelessSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SimSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class Lte4GEnableActivity extends SettingsActivity { /* empty */ }
     public static class TetherSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class MobileNetworkMainActivity extends SettingsActivity { /* empty */ }
     public static class VpnSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DateTimeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StorageSettingsActivity extends SettingsActivity { /* empty */ }
@@ -51,6 +53,8 @@ public class Settings extends SettingsActivity {
     public static class HomeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class OtherDeviceFunctionsSettingsActivity extends SettingsActivity { /* empty */}
+    public static class SystemUpdateActivity extends SettingsActivity { /* empty */}
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
@@ -75,6 +79,7 @@ public class Settings extends SettingsActivity {
     public static class AccessibilityDaltonizerSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SecuritySettingsActivity extends SettingsActivity { /* empty */ }
     public static class UsageAccessSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ProfileMgrMainActivity extends SettingsActivity { /* empty */ }
     public static class LocationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrivacySettingsActivity extends SettingsActivity { /* empty */ }
     public static class RunningServicesActivity extends SettingsActivity { /* empty */ }
@@ -87,6 +92,7 @@ public class Settings extends SettingsActivity {
     public static class CryptKeeperSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceAdminSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DataUsageSummaryActivity extends SettingsActivity { /* empty */ }
+    public static class RoamingSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AdvancedWifiSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SavedAccessPointsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class TextToSpeechSettingsActivity extends SettingsActivity { /* empty */ }
@@ -139,6 +145,7 @@ public class Settings extends SettingsActivity {
     public static class ScreenLockSuggestionActivity extends ChooseLockGeneric { /* empty */ }
     public static class WallpaperSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ManagedProfileSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class TimerSwitchSettingsActivity extends SettingsActivity { /* empty */ }
 
     public static class ApnEditorActivity extends SettingsActivity { /* empty */ }
     public static class ChooseAccountActivity extends SettingsActivity { /* empty */ }

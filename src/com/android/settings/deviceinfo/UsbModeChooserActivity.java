@@ -29,6 +29,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.view.LayoutInflater;
@@ -54,7 +55,8 @@ public class UsbModeChooserActivity extends Activity {
         UsbBackend.MODE_POWER_SOURCE | UsbBackend.MODE_DATA_NONE,
         UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MTP,
         UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_PTP,
-        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI
+        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI,
+        UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_TETHERING
     };
 
     private UsbBackend mBackend;
@@ -107,10 +109,14 @@ public class UsbModeChooserActivity extends Activity {
                 UserManager.DISALLOW_USB_FILE_TRANSFER, UserHandle.myUserId());
         mBackend = new UsbBackend(this);
         int current = mBackend.getCurrentMode();
+        int dataTetherMode = UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_TETHERING;
         for (int i = 0; i < DEFAULT_MODES.length; i++) {
             if (mBackend.isModeSupported(DEFAULT_MODES[i])
                     && !mBackend.isModeDisallowedBySystem(DEFAULT_MODES[i])) {
-                inflateOption(DEFAULT_MODES[i], current == DEFAULT_MODES[i], container,
+                if (getResources().getBoolean(
+                        R.bool.config_regional_usb_tethering_quick_start_enable)
+                        || (dataTetherMode != DEFAULT_MODES[i]))
+                    inflateOption(DEFAULT_MODES[i], current == DEFAULT_MODES[i], container,
                         mBackend.isModeDisallowed(DEFAULT_MODES[i]));
             }
         }
@@ -132,6 +138,11 @@ public class UsbModeChooserActivity extends Activity {
 
     private void inflateOption(final int mode, boolean selected, LinearLayout container,
             final boolean disallowedByAdmin) {
+        boolean isSimCardInserted = SystemProperties.getBoolean(
+            "persist.sys.sim.activate", false);
+        boolean isUsbSecurityEnable = SystemProperties.getBoolean(
+            "persist.sys.usb.security", false);
+
         View v = mLayoutInflater.inflate(R.layout.restricted_radio_with_summary, container, false);
 
         TextView titleView = (TextView) v.findViewById(android.R.id.title);
@@ -163,6 +174,10 @@ public class UsbModeChooserActivity extends Activity {
             }
         });
         ((Checkable) v).setChecked(selected);
+        if( !isSimCardInserted && isUsbSecurityEnable )
+        {
+            v.setEnabled(selected);
+        }
         container.addView(v);
     }
 
@@ -189,6 +204,8 @@ public class UsbModeChooserActivity extends Activity {
                 return R.string.usb_use_photo_transfers_desc;
             case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI:
                 return R.string.usb_use_MIDI_desc;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_TETHERING:
+                return R.string.usb_tethering_desc;
         }
         return 0;
     }
@@ -205,6 +222,8 @@ public class UsbModeChooserActivity extends Activity {
                 return R.string.usb_use_photo_transfers;
             case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_MIDI:
                 return R.string.usb_use_MIDI;
+            case UsbBackend.MODE_POWER_SINK | UsbBackend.MODE_DATA_TETHERING:
+                return R.string.usb_tethering_title;
         }
         return 0;
     }

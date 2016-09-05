@@ -369,6 +369,10 @@ public class ManageAccountsSettings extends AccountPreferenceBase
         addPreferencesFromResource(R.xml.manage_accounts_settings);
         for (int i = 0, n = accounts.length; i < n; i++) {
             final Account account = accounts[i];
+            if (!Utils.showAccount(getActivity(), account.type)) {
+                // If needn't to show the account, skip this account.
+                continue;
+            }
             // If an account type is specified for this screen, skip other types
             if (mAccountType != null && !account.type.equals(mAccountType)) continue;
             final ArrayList<String> auths = getAuthoritiesForAccountType(account.type);

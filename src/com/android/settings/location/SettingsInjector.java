@@ -151,7 +151,7 @@ class SettingsInjector {
      *
      * Duplicates some code from {@link android.content.pm.RegisteredServicesCache}.
      */
-    private static InjectedSetting parseServiceInfo(ResolveInfo service, UserHandle userHandle,
+    private InjectedSetting parseServiceInfo(ResolveInfo service, UserHandle userHandle,
             PackageManager pm) throws XmlPullParserException, IOException {
 
         ServiceInfo si = service.serviceInfo;
@@ -163,6 +163,8 @@ class SettingsInjector {
                         + service);
                 return null;
             }
+        } else if (!DimmableIZatIconPreference.showIzat(mContext, si.packageName)) {
+            return null;
         }
 
         XmlResourceParser parser = null;
@@ -275,7 +277,8 @@ class SettingsInjector {
             // a separate content description.
             badgedAppLabel = null;
         }
-        Preference pref = new DimmableIconPreference(mContext, badgedAppLabel);
+        Preference pref = DimmableIZatIconPreference.
+                                  newInstance(mContext, badgedAppLabel, info);
         pref.setTitle(info.title);
         pref.setSummary(null);
         pref.setIcon(icon);

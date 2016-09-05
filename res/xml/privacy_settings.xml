@@ -68,4 +68,15 @@
         settings:useAdminDisabledSummary="true"
         android:fragment="com.android.settings.MasterClear" />
 
+
+    <!-- Collect Diagnostics -->
+    <PreferenceScreen
+        android:key="collect_diagnostics"
+        android:title="@string/collect_diagnostics_title"
+        android:summary="@string/collect_diagnostics_summary">
+        <intent
+            android:action="com.metrics.tmobile.SUMMARY"
+            android:targetPackage="com.tmobile.pr.mytmobile"
+            android:targetClass="com.tmobile.pr.mytmobile.iqtoggle.ui.OptInSummary" />
+    </PreferenceScreen>
 </PreferenceScreen>

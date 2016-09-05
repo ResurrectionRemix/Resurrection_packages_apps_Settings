@@ -32,10 +32,58 @@
     <!-- Dashboard number of columns -->
     <integer name="dashboard_num_columns">1</integer>
 
+    <!-- Whether to hide IMS and DUN Apns -->
+    <bool name="config_regional_hide_ims_and_dun_apns">false</bool>
     <!-- Carrier_enabled editable -->
     <bool name="config_allow_edit_carrier_enabled" translatable="false">false</bool>
+
+    <bool name="config_regional_display_icc_id_enable">false</bool>
+
+    <!-- Config voice over lte in wireless settings begin -->
+    <bool name="config_voice_over_lte_enabled">false</bool>
+    <!-- Config voice over lte in wireless settings end -->
 
     <!-- When true enable color temperature setting. -->
     <bool name="config_enableColorTemperature">false</bool>
 
+    <bool name="config_video_call_datausage_enable">false</bool>
+
+    <!-- carrier tethering default ssid and password begin -->
+    <bool name="use_empty_password_default">false</bool>
+    <bool name="hotspot_default_ssid_with_imei_enable">false</bool>
+    <!-- carrier tethering default ssid and password end -->
+
+    <!-- show tethering help begin -->
+    <bool name="tethering_show_help_for_first_using">false</bool>
+    <bool name="tethering_show_help_menu">false</bool>
+    <!-- show tethering help end -->
+    <!-- Config voice over lte in wireless settings begin -->
+    <bool name="config_voice_over_lte_enabled">false</bool>
+    <!-- Config voice over lte in wireless settings end -->
+    <!-- carrier tethering account check begin -->
+    <bool name="edit_hotspot_timeout_enable">false</bool>
+    <bool name="hotspot_accout_check_enable">false</bool>
+    <string name="hotspot_accout_check_server_url"></string>
+    <string name="hotspot_accout_up_sell_url"></string>
+
+    <bool name="config_regional_usb_tethering_quick_start_enable">false</bool>
+    <bool name="config_regional_hotspot_tether_help_enable">false</bool>
+    <!-- Config to enable/disable the USB line-->
+    <bool name="config_usb_line_enable">false</bool>
+    <bool name="config_show_dialog_open_wifi_when_tethering_open">false</bool>
+    <bool name="config_regional_account_check_dialog_enable">false</bool>
+    <!-- Tethering & Mobile HotSpots display summary on Tmoblie -->
+    <bool name="config_tethering_settings_display_summary_Tmobile">false</bool>
+
+    <!-- Config to enable/disable wifi call notification -->
+    <bool name="config_regional_wifi_calling_notificaion_enable">false</bool>
+    <bool name="wifi_call_enhanced_setting">false</bool>
+
+    <!-- Config to show/hide Collect and diagnostics Preference UI option -->
+    <bool name="config_collect_diagnostics_enabled">false</bool>
+
+    <bool name="config_regional_hotspot_show_broadcast_ssid_checkbox">false</bool>
+    <bool name="config_regional_hotspot_show_maximum_connection_enable">false</bool>
+    <string-array translatable="false" name="carrier_operator_list">
+    </string-array>
 </resources>

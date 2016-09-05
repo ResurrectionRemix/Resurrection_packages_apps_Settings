@@ -65,6 +65,9 @@ public class ChartNetworkSeriesView extends View {
     private long mStart;
     private long mEnd;
 
+    private long mPrimaryLeft;
+    private long mPrimaryRight;
+
     /** Series will be extended to reach this end time. */
     private long mEndTime = Long.MIN_VALUE;
 
@@ -154,6 +157,16 @@ public class ChartNetworkSeriesView extends View {
 
     public void setSecondary(boolean secondary) {
         mSecondary = secondary;
+    }
+
+    /**
+     * Set the range to paint with {@link #mPaintFill}, leaving the remaining
+     * area to be painted with {@link #mPaintFillSecondary}.
+     */
+    public void setPrimaryRange(long left, long right) {
+        mPrimaryLeft = left;
+        mPrimaryRight = right;
+        invalidate();
     }
 
     public void invalidatePath() {
@@ -323,6 +336,9 @@ public class ChartNetworkSeriesView extends View {
             generatePath();
         }
 
+        final float primaryLeftPoint = mHoriz.convertToPoint(mPrimaryLeft);
+        final float primaryRightPoint = mHoriz.convertToPoint(mPrimaryRight);
+
         if (mEstimateVisible) {
             save = canvas.save();
             canvas.clipRect(0, 0, getWidth(), getHeight());
@@ -330,11 +346,23 @@ public class ChartNetworkSeriesView extends View {
             canvas.restoreToCount(save);
         }
 
+        save = canvas.save();
+        canvas.clipRect(0, 0, primaryLeftPoint, getHeight());
+        canvas.drawPath(mPathFill, mPaintFillSecondary);
+        canvas.restoreToCount(save);
+
         final Paint paintFill = mSecondary ? mPaintFillSecondary : mPaintFill;
 
         save = canvas.save();
         canvas.clipRect(mSafeRegion, 0, getWidth(), getHeight() - mSafeRegion);
         canvas.drawPath(mPathFill, paintFill);
         canvas.restoreToCount(save);
+
+        save = canvas.save();
+        canvas.clipRect(primaryLeftPoint, 0, primaryRightPoint, getHeight());
+        canvas.drawPath(mPathFill, mPaintFill);
+        canvas.drawPath(mPathStroke, mPaintStroke);
+        canvas.restoreToCount(save);
+
     }
 }

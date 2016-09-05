@@ -51,6 +51,7 @@ import com.android.settingslib.net.ChartDataLoader;
 import com.android.settingslib.net.UidDetailProvider;
 
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+import static android.net.TrafficStats.UID_TETHERING;
 
 public class AppDataUsage extends DataUsageBase implements Preference.OnPreferenceChangeListener,
         DataSaverBackend.Listener {
@@ -201,6 +202,20 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
                 mLabel = Utils.getUserLabel(getActivity(), info);
                 mPackageName = getActivity().getPackageName();
             }
+            int userId = 0;
+            //UID_TETHERING will return wrong userId from UidDetailProvider, user UserHandle instead
+            if (mAppItem.key == UID_TETHERING) {
+                userId = UserHandle.getUserId(mAppItem.key);
+            } else {
+                userId = UidDetailProvider.getUserIdForKey(mAppItem.key);
+            }
+
+            final UserManager um = UserManager.get(getActivity());
+            final UserInfo info = um.getUserInfo(userId);
+            final PackageManager pm = getPackageManager();
+            mIcon = Utils.getUserIcon(getActivity(), um, info);
+            mLabel = Utils.getUserLabel(getActivity(), info);
+            mPackageName = getActivity().getPackageName();
             removePreference(KEY_UNRESTRICTED_DATA);
             removePreference(KEY_APP_SETTINGS);
             removePreference(KEY_RESTRICT_BACKGROUND);

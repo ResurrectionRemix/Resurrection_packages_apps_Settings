@@ -59,6 +59,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
+import android.os.PersistableBundle;
 import android.preference.PreferenceFrameLayout;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.ContactsContract.Contacts;
@@ -71,6 +72,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
+import android.telephony.CarrierConfigManager;
 import android.telephony.TelephonyManager;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -92,6 +94,8 @@ import android.widget.TabWidget;
 import com.android.internal.app.UnlaunchableAppActivity;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.UserIcons;
+import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -582,7 +586,15 @@ public final class Utils extends com.android.settingslib.Utils {
             Bundle args, String titleResPackageName, int titleResId, CharSequence title,
             boolean isShortcut) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClass(context, SubSettings.class);
+        if (BluetoothSettings.class.getName().equals(fragmentName)) {
+            intent.setClass(context, SubSettings.BluetoothSubSettings.class);
+            intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+         } else if(SavedAccessPointsWifiSettings.class.getName().equals(fragmentName)) {
+            intent.setClass(context, SubSettings.SavedAccessPointsSubSettings.class);
+            intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, true);
+        }else {
+             intent.setClass(context, SubSettings.class);
+         }
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT, fragmentName);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, args);
         intent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_TITLE_RES_PACKAGE_NAME,
@@ -776,6 +788,19 @@ public final class Utils extends com.android.settingslib.Utils {
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
         return tm.getSimCount() > 1;
+    }
+
+    /**
+     * Returns if need show the account with the given account type.
+     */
+    public static boolean showAccount(Context context, String accountType) {
+        String[] hideAccounts = context.getResources().getStringArray(R.array.hide_account_list);
+        if (hideAccounts == null || hideAccounts.length == 0) return true;
+
+        for (String account : hideAccounts) {
+            if (account.equals(accountType)) return false;
+        }
+        return true;
     }
 
     /**
@@ -1145,6 +1170,48 @@ public final class Utils extends com.android.settingslib.Utils {
             // Thrown by PackageManager.getApplicationInfo if the package does not exist
         }
         return false;
+    }
+
+    /**
+     * check whether NetworkSetting apk exist in system, if yes, return true, else
+     * return false.
+     */
+    public static boolean isNetworkSettingsApkAvailable(Context context) {
+        // check whether the target handler exist in system
+        Intent intent = new Intent("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC");
+        PackageManager pm = context.getPackageManager();
+        List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
+        for (ResolveInfo resolveInfo : list){
+            // check is it installed in system.img, exclude the application
+            // installed by user
+            if ((resolveInfo.activityInfo.applicationInfo.flags &
+                    ApplicationInfo.FLAG_SYSTEM) != 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Trigger client initiated action (send intent) on system update
+     */
+    public static void ciActionOnSysUpdate(Context context, PersistableBundle b) {
+        String intentStr = b.getString(CarrierConfigManager.
+                KEY_CI_ACTION_ON_SYS_UPDATE_INTENT_STRING);
+        if (!TextUtils.isEmpty(intentStr)) {
+            String extra = b.getString(CarrierConfigManager.
+                    KEY_CI_ACTION_ON_SYS_UPDATE_EXTRA_STRING);
+            String extraVal = b.getString(CarrierConfigManager.
+                    KEY_CI_ACTION_ON_SYS_UPDATE_EXTRA_VAL_STRING);
+
+            Intent intent = new Intent(intentStr);
+            if (!TextUtils.isEmpty(extra)) {
+                intent.putExtra(extra, extraVal);
+            }
+            Log.d(TAG, "ciActionOnSysUpdate: broadcasting intent " + intentStr +
+                    " with extra " + extra + ", " + extraVal);
+            context.getApplicationContext().sendBroadcast(intent);
+        }
     }
 }
 

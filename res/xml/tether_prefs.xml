@@ -25,6 +25,12 @@
         android:key="enable_wifi_ap"
         android:title="@string/wifi_tether_checkbox_text" />
 
+    <com.android.settings.HotspotPreference
+        android:key="enable_wifi_ap_ext"
+        android:title="@string/wifi_tether_checkbox_text"
+        android:layout="@layout/hotspot_checkbox"
+        android:persistent="false" />
+
     <Preference
         android:key="wifi_ap_ssid_and_security"
         android:title="@string/wifi_tether_configure_ap_text"
@@ -39,4 +45,8 @@
             android:summary="@string/tether_settings_disabled_on_data_saver"
             android:selectable="false"
             settings:allowDividerAbove="true" />
+    <PreferenceScreen
+        android:key="tethering_help"
+        android:title="@string/tethering_help_button_text" >
+    </PreferenceScreen>
 </PreferenceScreen>
