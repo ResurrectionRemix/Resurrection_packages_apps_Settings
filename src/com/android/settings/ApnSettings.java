@@ -140,8 +140,6 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                 case CONNECTED:
                     if (!mRestoreDefaultApnMode) {
                         fillList();
-                    } else {
-                        showDialog(DIALOG_RESTORE_DEFAULTAPN);
                     }
                     break;
                 }
