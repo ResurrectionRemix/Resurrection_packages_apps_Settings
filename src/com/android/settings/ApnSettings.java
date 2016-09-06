@@ -64,6 +64,8 @@ import com.android.internal.telephony.uicc.UiccController;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class ApnSettings extends RestrictedSettingsFragment implements
         Preference.OnPreferenceChangeListener {
@@ -126,6 +128,8 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         super(UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS);
     }
 
+    private HashSet mIccidSet;
+
     private final BroadcastReceiver mMobileStateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -165,6 +169,7 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         final Activity activity = getActivity();
         final int subId = activity.getIntent().getIntExtra(SUB_ID,
                 SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+        fillOperatorIccidset();
 
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
@@ -251,6 +256,23 @@ public class ApnSettings extends RestrictedSettingsFragment implements
         return null;
     }
 
+    private void fillOperatorIccidset(){
+        mIccidSet = new HashSet<String>();
+        mIccidSet.add("8991840");
+        mIccidSet.add("8991854");
+        mIccidSet.add("8991855");
+        mIccidSet.add("8991856");
+        mIccidSet.add("8991857");
+        mIccidSet.add("8991858");
+        mIccidSet.add("8991859");
+        mIccidSet.add("899186");
+        mIccidSet.add("8991870");
+        mIccidSet.add("8991871");
+        mIccidSet.add("8991872");
+        mIccidSet.add("8991873");
+        mIccidSet.add("8991874");
+    }
+
     private void fillList() {
         final TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final String mccmnc = mSubscriptionInfo == null ? ""
@@ -305,6 +327,10 @@ public class ApnSettings extends RestrictedSettingsFragment implements
             where.append(" AND NOT (type='ims')");
         }
 
+        if (isOperatorIccId()) {
+            where.append(" AND type <>\"" + PhoneConstants.APN_TYPE_EMERGENCY + "\"");
+            where.append(" AND type <>\"" + PhoneConstants.APN_TYPE_IMS + "\"");
+        }
         Log.d(TAG, "where---" + where);
 
         Cursor cursor = getContentResolver().query(Telephony.Carriers.CONTENT_URI, new String[] {
@@ -377,6 +403,18 @@ public class ApnSettings extends RestrictedSettingsFragment implements
                 apnList.addPreference(preference);
             }
         }
+    }
+
+    private boolean isOperatorIccId(){
+        final String iccid = mSubscriptionInfo == null ? ""
+                : mSubscriptionInfo.getIccId();
+        Iterator<String> itr = mIccidSet.iterator();
+        while (itr.hasNext()) {
+            if (iccid.contains(itr.next())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static String getLocalizedName(Context context, Cursor cursor, int index) {
