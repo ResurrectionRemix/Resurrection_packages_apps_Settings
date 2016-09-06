@@ -134,6 +134,10 @@ public class DataUsageSummary extends DataUsageBase implements Indexable {
     public void onPrepareOptionsMenu(Menu menu) {
         final Context context = getActivity();
         final MenuItem networkaccess = menu.findItem(R.id.data_usage_menu_app_network_access);
+        if (networkaccess == null) {
+            return;
+        }
+
         if (context.getResources().getBoolean(R.bool.config_app_network_access_enabled)) {
             networkaccess.setVisible(true);
         } else {
