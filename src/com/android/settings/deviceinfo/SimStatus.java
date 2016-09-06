@@ -27,6 +27,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.support.v7.preference.Preference;
@@ -287,9 +288,9 @@ public class SimStatus extends SettingsPreferenceFragment {
             networktype = "4G";
         }
 
-        PersistableBundle carrierConfig = mCarrierConfigManager.getConfigForSubId(subId);
-        if (carrierConfig != null && carrierConfig.getBoolean(
-            "config_carrier_specific_network_type_display", false)) {
+        String property = SystemProperties.get("persist.radio.atel.carrier");
+        boolean isCarrierOneSupported = "405854".equals(property);
+        if (isCarrierOneSupported) {
             if (TelephonyManager.NETWORK_TYPE_LTE == actualDataNetworkType ||
                     TelephonyManager.NETWORK_TYPE_LTE == actualVoiceNetworkType) {
                 if (mTelephonyManager.isImsRegistered()) {
