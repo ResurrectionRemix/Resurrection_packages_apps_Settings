@@ -445,6 +445,7 @@
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> toegestaan</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> geweigerd</string>
   <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> toegestaan, <xliff:g id="count">%2$s</xliff:g> geweigerd</string>
+  <string name="app_ops_disabled_by_optimization">Uitgeschakeld door batterijoptimalisatie</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Gebruikersapps tonen</string>
   <string name="app_ops_show_system_apps">Ingebouwde apps tonen</string>
@@ -602,7 +603,10 @@
   <string name="live_display_color_profile_photography_summary">Perfecte kleurweergave voor foto\'s</string>
   <string name="live_display_color_profile_basic_title">Basis</string>
   <string name="live_display_color_profile_basic_summary">Scherm ongekalibreerd gebruiken</string>
+  <string name="live_display_color_profile_adaptive_title">Aanpasbaar</string>
+  <string name="live_display_color_profile_adaptive_summary">Kleuren passen zich aan aan de omgeving</string>
   <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">Beeldaanpassingen</string>
   <string name="picture_adjustment_summary">Tint, verzadiging, intensiteit en contrast aanpassen</string>
   <string name="adj_hue_title">Tint</string>
   <string name="adj_saturation_title">Verzadiging</string>
@@ -996,18 +1000,33 @@
   <string name="battery_info_status_charging_dock_ac">Opladen via dock (AC)</string>
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <string name="battery_info_status_charging_dock_usb">Opladen via dock (USB)</string>
+  <string name="restrict_app_wlan_title">Wifi-gebruik van deze app uitschakelen</string>
+  <string name="restrict_app_wlan_summary">Voorkomen dat de app gebruik maakt van de wifi-gegevensverbinding</string>
+  <string name="restrict_app_cellular_title">Mobiel gegevensgebruik van deze app uitschakelen</string>
+  <string name="restrict_app_cellular_summary">Voorkomen dat de app gebruik maakt van de mobiele gegevensverbinding</string>
   <string name="privacy_guard_internet_category">Internet</string>
   <!-- Weather -->
   <string name="weather_settings_title">Weer</string>
+  <string name="weather_settings_no_services_prompt">Geen weeraanbiederservices geïnstalleerd</string>
+  <string name="weather_settings_button">Instellingen aanbieder</string>
   <string name="weather_settings_activity_not_found">Kan instellingenmenu van deze aanbieder niet openen</string>
+  <string name="weather_settings_add_weather_provider">Weeraanbieder toevoegen</string>
   <string name="weather_settings_general_settings_title">Algemeen</string>
+  <string name="weather_settings_providers_title">Aanbieders</string>
+  <string name="weather_settings_temp_units_title">Eenheid temperatuur</string>
   <string name="weather_settings_temp_celsius">Celsius</string>
   <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+  <string name="weather_settings_keyword">weer</string>
   <string name="allow_background_wlan">Alleen via wifi</string>
   <string name="allow_background_none">Geen toegang</string>
   <string name="reset_stats_confirm">Bevestigen</string>
+  <string name="restrict_cellular_access_title">Toegang tot mobiele gegevens beperken</string>
+  <string name="restrict_cellular_access_summary">Gegevenstoegang op mobiele netwerken uitschakelen</string>
+  <string name="restrict_cellular_access_dialog_summary">Deze functie kan ervoor zorgen dat een app die internet nodig heeft stopt met werken als er alleen een mobiel netwerk beschikbaar is.\n\nU kunt meer relevante instellingen voor gegevensgebruik vinden in de instellingen van de app.</string>
   <!-- Label for settings shortcut: carrier selection -->
+  <string name="shortcut_carrier_title">Netwerkproviders</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Achtergrond vervagen</string>
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Weer weergeven</string>
   <!-- Per app controls for LP keyguard notifications -->
@@ -1016,11 +1035,30 @@
   <string name="app_notification_no_ongoing_on_keyguard_title">Permanente meldingen op vergrendelingsscherm uitschakelen</string>
   <string name="app_notification_no_ongoing_on_keyguard_summary">Permanente meldingen van deze app niet weergeven op het vergrendelingsscherm</string>
   <!-- CmRadioInfo -->
+  <string name="cm_radio_info_label">Geavanceerde modeminstellingen</string>
   <!-- Radio Control (IMS/MBN etc.) -->
+  <string name="cm_radio_info_mbn_auto_load_on_label">Automatisch laden MBN uitschakelen</string>
+  <string name="cm_radio_info_mbn_auto_load_off_label">Automatisch laden MBN inschakelen</string>
+  <string name="cm_radio_info_volte_avail_ovr_on_label">VoLTE foutopsporing uitschakelen</string>
+  <string name="cm_radio_info_volte_avail_ovr_off_label">VoLTE foutopsporing inschakelen</string>
+  <string name="cm_radio_info_vt_avail_ovr_on_label">VT foutopsporing uitschakelen</string>
+  <string name="cm_radio_info_vt_avail_ovr_off_label">VT foutopsporing inschakelen</string>
+  <string name="cm_radio_info_wfc_avail_ovr_on_label">WFC foutopsporing uitschakelen</string>
+  <string name="cm_radio_info_wfc_avail_ovr_off_label">WFC foutopsporing inschakelen</string>
+  <string name="cm_radio_info_adb_log_on_label">ADB radio logboek uitschakelen</string>
+  <string name="cm_radio_info_adb_log_off_label">ADB radio logboek inschakelen</string>
+  <string name="cm_radio_info_diag_log_on_label">Diag logboek uitschakelen</string>
+  <string name="cm_radio_info_diag_log_off_label">Diag logboek inschakelen</string>
   <!-- Lock screen wallpaper -->
   <string name="lockscreen_wallpaper_title">Achtergrond</string>
+  <string name="not_available_with_app">Niet beschikbaar met %1$s</string>
   <!-- Format string for fingerprint location message -->
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Vind de vingerafdruksensor op de <xliff:g id="sensor_location">%1$s</xliff:g> van uw telefoon.</string>
   <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_back">achterkant</string>
+  <string name="security_settings_fingerprint_sensor_location_front">voorkant</string>
+  <string name="security_settings_fingerprint_sensor_location_left">linkerkant</string>
+  <string name="security_settings_fingerprint_sensor_location_right">rechterkant</string>
   <!-- SIM status format string -->
   <string name="sim_status_format_string">Spraak: <xliff:g id="voice_status">%1$s</xliff:g> / Gegevens: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>
