@@ -36,6 +36,10 @@
                 settings:keywords="@string/keywords_display_auto_brightness"
                 android:summary="@string/auto_brightness_summary" />
 
+        <!-- LiveDisplay -->
+        <org.cyanogenmod.internal.cmparts.CMPartsPreference
+            android:key="livedisplay" />
+
         <!-- Hide night mode for now
         <ListPreference
             android:key="night_mode"
@@ -119,25 +123,15 @@
 
     <PreferenceCategory
             android:key="lights"
-            android:title="@*cyanogenmod.platform:string/lights_label">
+            android:title="@string/lights_label">
 
         <!-- Battery light -->
-        <PreferenceScreen
-                android:key="battery_light"
-                android:title="@*cyanogenmod.platform:string/battery_light_title">
-            <intent android:action="org.cyanogenmod.cmparts.PART">
-                <extra android:name="part" android:value="cmparts:battery_lights" />
-            </intent>
-        </PreferenceScreen>
+        <org.cyanogenmod.internal.cmparts.CMPartsPreference
+                android:key="battery_lights" />
 
         <!-- Notification lights -->
-        <PreferenceScreen
-                android:key="notification_light"
-                android:title="@*cyanogenmod.platform:string/notification_light_title">
-                <intent android:action="org.cyanogenmod.cmparts.PART">
-                    <extra android:name="part" android:value="cmparts:notification_lights" />
-                </intent>
-        </PreferenceScreen>
+        <org.cyanogenmod.internal.cmparts.CMPartsPreference
+                android:key="notification_lights" />
 
     </PreferenceCategory>
 
