@@ -15,7 +15,7 @@
     limitations under the License.
 -->
 
-<com.android.setupwizardlib.SetupWizardListLayout
+<com.android.setupwizardlib.SetupWizardLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -23,4 +23,20 @@
     settings:suwBackgroundTile="@drawable/setup_illustration_tile"
     settings:suwHeaderText="@string/wifi_setup_wizard_title"
     settings:suwIllustrationHorizontalTile="@drawable/setup_illustration_horizontal_tile"
-    settings:suwIllustrationImage="@drawable/setup_illustration_wifi" />
+    settings:suwIllustrationImage="@drawable/setup_illustration_wifi">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/setup_wifi_mac_address"
+            android:id="@+id/wifi_mac_address_layout"/>
+
+        <LinearLayout
+            android:id="@+id/wifi_networks_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.android.setupwizardlib.SetupWizardLayout>
