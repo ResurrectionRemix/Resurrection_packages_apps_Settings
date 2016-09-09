@@ -251,6 +251,9 @@ public class AppDataUsage extends DataUsageBase implements Preference.OnPreferen
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (com.android.settings.Utils.isMonkeyRunning()) {
+            return false;
+        }
         if (preference == mRestrictBackground) {
             mDataSaverBackend.setIsBlacklisted(mAppItem.key, mPackageName, !(Boolean) newValue);
             return true;
