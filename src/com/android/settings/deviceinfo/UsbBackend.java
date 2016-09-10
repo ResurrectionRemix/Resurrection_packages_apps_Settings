@@ -100,13 +100,7 @@ public class UsbBackend {
             return MODE_DATA_TETHERING;
         }
         if (!mIsUnlocked) {
-            if (mUsbManager.isFunctionEnabled(UsbManager.USB_FUNCTION_CHARGING)) {
-                //Take this as charging mode
-                return MODE_DATA_NONE;
-            } else {
-                // select none if no found
-                return -1;
-            }
+            return MODE_DATA_NONE;
         } else if (mUsbManager.isFunctionEnabled(UsbManager.USB_FUNCTION_MTP)) {
             return MODE_DATA_MTP;
         } else if (mUsbManager.isFunctionEnabled(UsbManager.USB_FUNCTION_PTP)) {
@@ -114,8 +108,7 @@ public class UsbBackend {
         } else if (mUsbManager.isFunctionEnabled(UsbManager.USB_FUNCTION_MIDI)) {
             return MODE_DATA_MIDI;
         }
-        // select none if no found
-        return -1; // ...
+        return MODE_DATA_NONE; // ...
     }
 
     private void setUsbFunction(int mode) {
@@ -138,8 +131,7 @@ public class UsbBackend {
                 mContext.startActivity(intent);
                 break;
             default:
-                //default mode is "charging"
-                mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_CHARGING);
+                mUsbManager.setCurrentFunction(null);
                 mUsbManager.setUsbDataUnlocked(false);
                 break;
         }
