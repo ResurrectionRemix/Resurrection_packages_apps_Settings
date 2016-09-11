@@ -16,6 +16,17 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to show Device Id -->
+  <plurals name="show_device_id_countdown_cm">
+    <item quantity="one">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачка от включването на идентификационният номер на устройството.</item>
+    <item quantity="other">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачки от включването на идентификационният номер на устройството.</item>
+  </plurals>
+  <!--  Device Info screen. Confirmation that Device ID is copied to clipboard -->
+  <string name="show_device_id_copied_cm">Идентификационният номер на устройството: [<xliff:g id="device_id">%1$s </xliff:g>] e копиран в клипборда</string>
+  <!--  Device Info screen. Confirmation that Device ID is not available -->
+  <string name="show_device_id_failed_cm">Идентификационният номер на устройството не е достъпно в тава изграждане</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Label for the deviceID text put to clipboard -->
+  <string name="show_device_id_clipboard_label">Идентификационният номер на устройството</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачка от включването на \"Опции на програмиста\".</item>
