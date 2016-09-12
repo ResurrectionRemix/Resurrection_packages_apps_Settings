@@ -32,6 +32,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.hardware.usb.UsbManager;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiConfiguration.AuthAlgorithm;
@@ -64,6 +65,10 @@ import static android.net.ConnectivityManager.TETHERING_BLUETOOTH;
 import static android.net.ConnectivityManager.TETHERING_USB;
 import static android.net.ConnectivityManager.TETHERING_WIFI;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
+
 /*
  * Displays preferences for Tethering.
  */
@@ -83,6 +88,7 @@ public class TetherSettings extends RestrictedSettingsFragment
     private static final String SHAREPREFERENCE_DEFAULT_WIFI = "def_wifiap_set";
     private static final String SHAREPREFERENCE_FIFE_NAME = "MY_PERFS";
     private static final String KEY_FIRST_LAUNCH_HOTSPOT = "FirstLaunchHotspotTethering";
+    private static final String KEY_TURN_OFF_WIFI_SHOW_AGAIN = "TurnOffWifiShowAgain";
     private static final String ACTION_HOTSPOT_PRE_CONFIGURE = "Hotspot_PreConfigure";
     private static final String ACTION_HOTSPOT_POST_CONFIGURE = "Hotspot_PostConfigure";
     private static final String CONFIGURE_RESULT = "PreConfigure_result";
@@ -601,6 +607,9 @@ public class TetherSettings extends RestrictedSettingsFragment
                 getPrefContext().startActivity(intent);
                 ((HotspotPreference)preference).setChecked(false);
                 return false;
+            } else if(checkWifiConnectivityState(getActivity())) {
+                showTurnOffWifiDialog(getActivity());
+                startTethering(TETHERING_WIFI);
             } else {
                 startTethering(TETHERING_WIFI);
             }
@@ -608,6 +617,45 @@ public class TetherSettings extends RestrictedSettingsFragment
             mCm.stopTethering(TETHERING_WIFI);
         }
         return false;
+    }
+
+    private boolean checkWifiConnectivityState(Context ctx) {
+        if(mCm == null) {
+            ConnectivityManager mCm = (ConnectivityManager) ctx.
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+        }
+        NetworkInfo info = mCm == null ? null : mCm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return (info != null && info.isConnected());
+    }
+
+    private void showTurnOffWifiDialog(final Context ctx) {
+        LayoutInflater inflater = (LayoutInflater)ctx.getSystemService(
+                Context.LAYOUT_INFLATER_SERVICE);
+        View showAgainView = inflater.inflate(R.layout.not_show_again, null);
+        CheckBox notShowAgainCheckbox = (CheckBox)showAgainView.findViewById(R.id.check);
+        final SharedPreferences sharedpreferences = ctx.getSharedPreferences(
+                SHAREPREFERENCE_FIFE_NAME, Context.MODE_PRIVATE);
+        boolean showAgain = sharedpreferences.getBoolean(KEY_TURN_OFF_WIFI_SHOW_AGAIN, true);
+        if (!showAgain) {
+            return;
+        } else {
+            AlertDialog.Builder alert = new AlertDialog.Builder(ctx)
+                    .setTitle(ctx.getResources().getString(R.string.turn_off_wifi_dialog_title))
+                    .setMessage(ctx.getResources().getString(R.string.turn_off_wifi_dialog_text))
+                    .setView(showAgainView)
+                    .setPositiveButton(ctx.getResources().
+                        getString(R.string.okay), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Editor editor = sharedpreferences.edit();
+                    editor.putBoolean(KEY_TURN_OFF_WIFI_SHOW_AGAIN,
+                            !notShowAgainCheckbox.isChecked());
+                    editor.commit();
+                }
+            });
+            alert.setCancelable(false);
+            alert.show();
+        }
     }
 
     public static boolean isProvisioningNeededButUnavailable(Context context) {

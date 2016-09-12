@@ -286,6 +286,20 @@ public class SimStatus extends SettingsPreferenceFragment {
         if (networktype != null && networktype.equals("LTE") && show4GForLTE) {
             networktype = "4G";
         }
+
+        PersistableBundle carrierConfig = mCarrierConfigManager.getConfigForSubId(subId);
+        if (carrierConfig != null && carrierConfig.getBoolean(
+            "config_carrier_specific_network_type_display", false)) {
+            if (TelephonyManager.NETWORK_TYPE_LTE == actualDataNetworkType ||
+                    TelephonyManager.NETWORK_TYPE_LTE == actualVoiceNetworkType) {
+                if (mTelephonyManager.isImsRegistered()) {
+                    networktype = getResources().
+                            getString(R.string.lte_data_and_voice_calling_enabled);
+                } else {
+                    networktype = getResources().getString(R.string.lte_data_service_enabled);
+                }
+            }
+         }
         setSummaryText(KEY_NETWORK_TYPE, networktype);
     }
 
