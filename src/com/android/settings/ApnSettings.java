@@ -561,7 +561,11 @@ public class ApnSettings extends RestrictedSettingsFragment implements
     public boolean onPreferenceTreeClick(Preference preference) {
         int pos = Integer.parseInt(preference.getKey());
         Uri url = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI, pos);
-        startActivity(new Intent(Intent.ACTION_EDIT, url));
+        Intent intent = new Intent(Intent.ACTION_EDIT, url);
+        if (preference instanceof ApnPreference) {
+            intent.putExtra("DISABLE_EDITOR", ((ApnPreference) preference).getApnReadOnly());
+        }
+        startActivity(intent);
         return true;
     }
 

@@ -135,4 +135,8 @@ public class ApnPreference extends Preference implements
     public void setApnReadOnly(boolean apnReadOnly) {
         mApnReadOnly = apnReadOnly;
     }
+
+    public boolean getApnReadOnly() {
+        return mApnReadOnly;
+    }
 }
