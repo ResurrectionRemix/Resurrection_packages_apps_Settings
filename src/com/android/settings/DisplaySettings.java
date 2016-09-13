@@ -77,7 +77,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
-    private static final String KEY_CATEGORY_LIGHTS = "lights";
     private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_FONT_SIZE = "font_size";
@@ -93,8 +92,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             = "camera_double_tap_power_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
-    private static final String KEY_NOTIFICATION_LIGHTS = "notification_lights";
-    private static final String KEY_BATTERY_LIGHTS = "battery_lights";
 
     private Preference mFontSizePref;
 
@@ -278,8 +275,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
-
-        initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -423,23 +418,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (mScreenSaverPreference != null) {
             mScreenSaverPreference.setSummary(
                     DreamSettings.getSummaryTextWithDreamName(getActivity()));
-        }
-    }
-
-    // === Pulse notification light ===
-
-    private void initPulse(PreferenceCategory parent) {
-        if (!getResources().getBoolean(
-                com.android.internal.R.bool.config_intrusiveNotificationLed)) {
-            parent.removePreference(parent.findPreference(KEY_NOTIFICATION_LIGHTS));
-        }
-        if (!getResources().getBoolean(
-                com.android.internal.R.bool.config_intrusiveBatteryLed)
-                || UserHandle.myUserId() != UserHandle.USER_OWNER) {
-            parent.removePreference(parent.findPreference(KEY_BATTERY_LIGHTS));
-        }
-        if (parent.getPreferenceCount() == 0) {
-            getPreferenceScreen().removePreference(parent);
         }
     }
 
