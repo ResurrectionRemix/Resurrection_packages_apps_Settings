@@ -71,7 +71,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
-    private static final String KEY_RR_VERSION = "mod_version";
+    private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String PROPERTY_MBN_VERSION = "persist.mbn.version";
 
@@ -120,6 +120,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
+		setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(DeviceInfoUtils.customizeFormatKernelVersion(
                 getResources().getBoolean(R.bool.def_hide_kernel_version_name)));
@@ -194,8 +195,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 getPreferenceScreen().removePreference(pref);
             }
         }
-	     setValueSummary(KEY_RR_VERSION, "ro.rr.version");
-         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.0_r6 - NRD90U");
     }
 
     @Override
