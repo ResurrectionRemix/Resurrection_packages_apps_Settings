@@ -81,7 +81,7 @@ public class FingerprintEnrollFindSensor extends FingerprintEnrollBase {
             @Override
             public void onEnrollmentProgressChange(int steps, int remaining) {
                 mNextClicked = true;
-                if (!mSidecar.cancelEnrollment()) {
+                if (mSidecar != null && !mSidecar.cancelEnrollment()) {
                     proceedToEnrolling();
                 }
             }
