@@ -71,6 +71,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
+	private static final String KEY_MBN_VERSION = "mbn_version";
     private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String PROPERTY_MBN_VERSION = "persist.mbn.version";
@@ -122,8 +123,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
 		setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
+		setValueSummary(KEY_MOD_VERSION, "ro.modversion");
+        findPreference(KEY_MOD_VERSION).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(DeviceInfoUtils.customizeFormatKernelVersion(
                 getResources().getBoolean(R.bool.def_hide_kernel_version_name)));
+        setValueSummary(KEY_MBN_VERSION, PROPERTY_MBN_VERSION);
+        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_MBN_VERSION,
+PROPERTY_MBN_VERSION);
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);

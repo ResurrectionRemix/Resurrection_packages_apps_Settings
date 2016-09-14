@@ -25,9 +25,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
+import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -73,7 +75,7 @@ public class VolumeSteps extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.volume_steps_settings);
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        final PreferenceScreen prefScreen = getPreferenceScreen();
+        PreferenceScreen prefScreen = getPreferenceScreen();
         mAvailableKeys = volume_map.keySet();
 
         // remove invalid audio stream prefs

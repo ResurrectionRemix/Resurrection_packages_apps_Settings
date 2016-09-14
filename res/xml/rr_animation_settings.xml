@@ -23,7 +23,7 @@
       <PreferenceCategory
          android:title="@string/system_animations">
  
-         <SwitchPreference
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
              android:key="animation_no_override"
              android:title="@string/title_animation_no_override"
              android:summary="@string/summary_animation_no_override" />
@@ -111,6 +111,14 @@
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
             android:defaultValue="0" />
+
+     <ListPreference
+        android:key="pref_scrollingcache"
+        android:dialogTitle="@string/pref_scrollingcache_title"
+        android:title="@string/pref_scrollingcache_title"
+        android:summary="@string/pref_scrollingcache_summary"
+        android:entries="@array/entries_scrollingcache"
+        android:entryValues="@array/values_scrollingcache" />
 
       </PreferenceCategory>
 

@@ -17,7 +17,7 @@
 package com.android.settings.rr.Preferences;
 
 import android.content.Context;
-import android.preference.SwitchPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.AttributeSet;
 
@@ -56,7 +56,6 @@ public class SystemSettingSwitchPreference extends SwitchPreference {
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 
-    @Override
     protected boolean isPersisted() {
         // Using getString instead of getInt so we can simply check for null
         // instead of catching an exception. (All values are stored as strings.)
