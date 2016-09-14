@@ -1,4 +1,4 @@
-package com.mrapocalypse.screwdshop.frags;
+package com.android.settings.rr.animation;
 
 import android.app.Activity;
 import android.content.Context;
