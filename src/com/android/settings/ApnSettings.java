@@ -431,7 +431,8 @@ public class ApnSettings extends SettingsPreferenceFragment implements
         String key = null;
 
         Uri uri;
-        if (TelephonyManager.getDefault().getPhoneCount() > 1 && mImsi != null)  {
+        if (TelephonyManager.getDefault().getPhoneCount() > 1 && mImsi != null
+                && mSubscriptionInfo != null)  {
             uri = Uri.withAppendedPath(PREFERRED_MSIM_APN_URI,
                     String.valueOf(mSubscriptionInfo.getSubscriptionId()));
             uri = Uri.withAppendedPath(uri, mImsi);
