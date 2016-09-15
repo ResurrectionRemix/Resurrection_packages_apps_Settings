@@ -20,6 +20,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/recents_settings_title">
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+    	   android:key="systemui_recents_mem_display"
+           android:title="@string/systemui_recents_mem_display_title"
+           android:summary="@string/systemui_recents_mem_display_summary"
+           android:defaultValue="false" />
+
     <PreferenceCategory 
          android:title="@string/general">
 
