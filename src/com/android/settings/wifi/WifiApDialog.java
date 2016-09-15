@@ -135,7 +135,8 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
 
         ArrayAdapter <CharSequence> channelAdapter;
         String countryCode = mWifiManager.getCountryCode();
-        if (!mWifiManager.isDualBandSupported() || countryCode == null) {
+        if (!mWifiManager.isDualBandSupported() || (countryCode == null)
+                                              || (countryCode.length() == 0)) {
             //If no country code, 5GHz AP is forbidden
             Log.i(TAG,(!mWifiManager.isDualBandSupported() ? "Device do not support 5GHz " :"") 
                     + (countryCode == null ? " NO country code" :"") +  " forbid 5GHz");
