@@ -14,14 +14,17 @@
 package com.android.settings.rr;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListene;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +63,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     }
 
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) 	  {
+    public boolean onPreferenceChange(Preference preference, Object newValue) 	  {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mImmersiveRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.IMMERSIVE_RECENTS,
