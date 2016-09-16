@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The ChameleonOS Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/gesture_anywhere_title" >
+
+    <SwitchPreference
+        android:key="gesture_anywhere_enabled"
+        android:title="@string/gesture_anywhere_enabled_title"
+        android:summary="@string/gesture_anywhere_enabled_summary"
+        android:defaultValue="false" />
+
+    <ListPreference
+        android:key="gesture_anywhere_position"
+        android:persistent="false"
+        android:dialogTitle="@string/gesture_anywhere_position_title"
+        android:title="@string/gesture_anywhere_position_title"
+        android:entries="@array/gesture_anywhere_position_entries"
+        android:entryValues="@array/gesture_anywhere_position_values"
+        android:dependency="gesture_anywhere_enabled"/>
+
+    <Preference
+        android:key="gesture_anywhere_gestures"
+        android:title="@string/gesture_anywhere_gestures_title"
+        android:summary="@string/gesture_anywhere_gestures_summary"/>
+
+    <PreferenceCategory
+        android:title="@string/trigger_category" />
+
+    <ListPreference
+        android:key="gesture_anywhere_trigger_width"
+        android:persistent="false"
+        android:dialogTitle="@string/trigger_width_title"
+        android:title="@string/trigger_width_title"
+        android:entries="@array/gesture_anywhere_trigger_width_entries"
+        android:entryValues="@array/gesture_anywhere_trigger_width_values"
+        android:dependency="gesture_anywhere_enabled"/>
+
+    <ListPreference
+        android:key="gesture_anywhere_trigger_top"
+        android:persistent="false"
+        android:dialogTitle="@string/trigger_top_title"
+        android:title="@string/trigger_top_title"
+        android:entries="@array/gesture_anywhere_trigger_top_entries"
+        android:entryValues="@array/gesture_anywhere_trigger_top_values"
+        android:dependency="gesture_anywhere_enabled"/>
+
+    <ListPreference
+        android:key="gesture_anywhere_trigger_bottom"
+        android:persistent="false"
+        android:dialogTitle="@string/trigger_bottom_title"
+        android:title="@string/trigger_bottom_title"
+        android:entries="@array/gesture_anywhere_trigger_bottom_entries"
+        android:entryValues="@array/gesture_anywhere_trigger_bottom_values"
+        android:dependency="gesture_anywhere_enabled"/>
+
+</PreferenceScreen>
