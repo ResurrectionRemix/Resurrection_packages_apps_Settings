@@ -108,11 +108,6 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
     private void updateNetworkTrafficState(int mIndex) {
         if (mIndex <= 0) {
             mNetTrafficUnit.setEnabled(false);
