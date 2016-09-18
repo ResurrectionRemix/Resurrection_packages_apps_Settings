@@ -286,7 +286,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             }
 
             /* Display a pref explaining how to add apps */
-            if (mPackages.size() == 0) {
+            if (mApplicationPrefList.getPreferenceCount() == 0) {
                 String summary = getResources().getString(
                         R.string.notification_light_no_apps_summary);
                 String useCustom = getResources().getString(
