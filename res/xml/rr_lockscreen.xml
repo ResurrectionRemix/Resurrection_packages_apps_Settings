@@ -16,11 +16,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_lockscreen_title" >
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+    	 <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="lockscreen_enable_power_menu"
             android:title="@string/lockscreen_enable_power_menu_title"
             android:summary="@string/lockscreen_enable_power_menu_summary"
             android:defaultValue="true" />
+
+         <PreferenceScreen
+            android:title="@string/lockscreen_targets_message" >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.rr.LockscreenShortcutsActivity" />
+        </PreferenceScreen>
 
 </PreferenceScreen>
 
