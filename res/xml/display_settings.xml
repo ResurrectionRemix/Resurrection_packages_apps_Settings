@@ -86,6 +86,13 @@
                 android:key="doze"
                 android:title="@string/doze_title"
                 android:summary="@string/doze_summary" />
+ 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        		android:key="ambient_display_show_battery"
+       			android:title="@string/ambient_display_show_battery_title"
+        		android:summary="@string/ambient_display_show_battery_summary"
+        		android:dependency="doze"
+        		android:defaultValue="true" />
 
         <SwitchPreference
                 android:key="tap_to_wake"
