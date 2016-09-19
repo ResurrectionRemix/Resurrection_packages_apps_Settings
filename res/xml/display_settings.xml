@@ -16,6 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+                  xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
         android:title="@string/display_settings"
         settings:keywords="@string/keywords_display">
 
@@ -126,11 +127,13 @@
 
         <!-- Battery light -->
         <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="battery_lights" />
+                android:key="battery_lights"
+                cm:requiresConfig="@*android:bool/config_intrusiveBatteryLed" />
 
         <!-- Notification lights -->
         <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="notification_lights" />
+                android:key="notification_lights"
+                cm:requiresConfig="@*android:bool/config_intrusiveNotificationLed" />
 
     </PreferenceCategory>
 
