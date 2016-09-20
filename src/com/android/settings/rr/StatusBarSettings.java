@@ -47,7 +47,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String PREF_BATT_BAR = "battery_bar_list";
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
     private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
-    private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
 
     private ListPreference mBatteryBar;
     private ListPreference mBatteryBarStyle;
@@ -73,10 +72,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         mBatteryBarStyle.setValue((Settings.System.getInt(resolver,
                 Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0)) + "");
 
-        mBatteryBarChargingAnimation = (SwitchPreference) findPreference(PREF_BATT_ANIMATE);
-        mBatteryBarChargingAnimation.setChecked(Settings.System.getInt(resolver,
-                Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, 0) == 1);
-
         mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
         mBatteryBarThickness.setValue((Settings.System.getInt(resolver,
@@ -101,19 +96,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 		}
         return true;
     }
-
-    public boolean onPreferenceTreeClick(Preference preference) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        boolean value;
-
-        if (preference == mBatteryBarChargingAnimation) {
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE,
-                    ((SwitchPreference) preference).isChecked() ? 1 : 0);
-            return true;
-        }
-        return false;
-	}
 
 
 
