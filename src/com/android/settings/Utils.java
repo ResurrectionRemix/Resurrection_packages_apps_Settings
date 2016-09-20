@@ -466,6 +466,11 @@ public final class Utils extends com.android.settingslib.Utils {
                 .getUsers().size() > 1;
     }
 
+    public static boolean isRestrictedProfile(Context context) {
+        UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        return um.getUserInfo(um.getUserHandle()).isRestricted();
+    }
+
     /**
      * Start a new instance of the activity, showing only the given fragment.
      * When launched in this mode, the given preference fragment will be instantiated and fill the
