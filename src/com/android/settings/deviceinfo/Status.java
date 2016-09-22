@@ -248,6 +248,9 @@ public class Status extends SettingsPreferenceFragment {
                 prefSet.removePreference(singleSimPref);
             }
         }
+        if (SystemProperties.getBoolean("ro.alarm_boot", false)) {
+            removePreferenceFromScreen(KEY_IMEI_INFO);
+        }
     }
 
     @Override
