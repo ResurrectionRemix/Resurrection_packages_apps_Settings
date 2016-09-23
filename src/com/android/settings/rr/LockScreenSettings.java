@@ -14,12 +14,16 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+
+import com.android.settings.SeekBarPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -28,6 +32,10 @@ import com.android.settings.Utils;
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "MainSettings";
+
+	private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+
+	private SeekBarPreference mMaxKeyguardNotifConfig;
 
     @Override
     protected int getMetricsCategory() {
@@ -39,10 +47,23 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_lockscreen);
+
+        mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
+        int kgconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5);
+        mMaxKeyguardNotifConfig.setProgress(kgconf);
+        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-
-        return true;
-    }
+ 	 @Override
+     public boolean onPreferenceChange(Preference preference, Object newValue) {
+	 ContentResolver resolver = getActivity().getContentResolver();
+ 	 if (preference == mMaxKeyguardNotifConfig) {
+            int kgconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+            return true;
+         }
+        return false;
+		}
 }
