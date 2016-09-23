@@ -171,7 +171,7 @@ public class ChooseAccountActivity extends SettingsPreferenceFragment {
         }
 
         final Context context = getPreferenceScreen().getContext();
-        if (mProviderList.size() == 1) {
+        if (mProviderList.size() == 1 && getResources().getBoolean(R.bool.config_show_email)) {
             // There's only one provider that matches. If it is disabled by admin show the
             // support dialog otherwise run it.
             EnforcedAdmin admin = RestrictedLockUtils.checkIfAccountManagementDisabled(
