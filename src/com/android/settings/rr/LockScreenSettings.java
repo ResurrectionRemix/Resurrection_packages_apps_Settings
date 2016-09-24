@@ -14,6 +14,7 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
@@ -24,6 +25,8 @@ import android.support.v14.preference.SwitchPreference;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.SeekBarPreference;
+
+import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;

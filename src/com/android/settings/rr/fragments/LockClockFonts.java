@@ -60,7 +60,7 @@ public class LockClockFonts extends SettingsPreferenceFragment implements OnPref
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.BENZO;
+        return MetricsEvent.APPLICATION;
     }
 
     @Override

@@ -43,17 +43,6 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-
-    private static final String PREF_BATT_BAR = "battery_bar_list";
-    private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
-    private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
-
-    private ListPreference mBatteryBar;
-    private ListPreference mBatteryBarStyle;
-    private ListPreference mBatteryBarThickness;
-	private SwitchPreference mBatteryBarChargingAnimation;
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,40 +50,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
-
-        mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
-        mBatteryBar.setOnPreferenceChangeListener(this);
-        mBatteryBar.setValue((Settings.System.getInt(resolver,
-                        Settings.System.STATUSBAR_BATTERY_BAR, 0)) + "");
-
-        mBatteryBarStyle = (ListPreference) findPreference(PREF_BATT_BAR_STYLE);
-        mBatteryBarStyle.setOnPreferenceChangeListener(this);
-        mBatteryBarStyle.setValue((Settings.System.getInt(resolver,
-                Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0)) + "");
-
-        mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
-        mBatteryBarThickness.setOnPreferenceChangeListener(this);
-        mBatteryBarThickness.setValue((Settings.System.getInt(resolver,
-				Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, 1)) + "");
     }
 
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-         if (preference == mBatteryBar) {
-            int val = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(resolver,
-                    Settings.System.STATUSBAR_BATTERY_BAR, val);
-        } else if (preference == mBatteryBarStyle) {
-            int val = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(resolver,
-                    Settings.System.STATUSBAR_BATTERY_BAR_STYLE, val);
-        } else if (preference == mBatteryBarThickness) {
-            int val = Integer.parseInt((String) newValue);
-            return Settings.System.putInt(resolver,
-                    Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, val);
-		}
-        return true;
+	return false;
     }
 
 

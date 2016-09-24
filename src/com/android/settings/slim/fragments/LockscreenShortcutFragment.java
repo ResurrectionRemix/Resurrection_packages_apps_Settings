@@ -41,7 +41,7 @@ public class LockscreenShortcutFragment extends SettingsPreferenceFragment imple
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.BENZO;
+        return MetricsEvent.APPLICATION;
     }
 
     @Override
