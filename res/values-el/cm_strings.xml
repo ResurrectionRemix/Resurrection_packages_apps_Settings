@@ -17,9 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to show Device Id -->
+  <plurals name="show_device_id_countdown_cm">
+    <item quantity="one">Απομένει <xliff:g id="step_count">%1$d</xliff:g> βήμα για να εμφανίσετε το αναγνωριστικό συσκευής.</item>
+    <item quantity="other">Απομένουν <xliff:g id="step_count">%1$d</xliff:g> βήματα για να εμφανίσετε το αναγνωριστικό συσκευής.</item>
+  </plurals>
   <!--  Device Info screen. Confirmation that Device ID is copied to clipboard -->
+  <string name="show_device_id_copied_cm">Το αναγνωριστικό συσκευής:[<xliff:g id="device_id">%1$s </xliff:g>] αντιγράφηκε στο πρόχειρο</string>
   <!--  Device Info screen. Confirmation that Device ID is not available -->
+  <string name="show_device_id_failed_cm">Το αναγνωριστικό συσκευής δεν είναι διαθέσιμο σε αυτό το build</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Label for the deviceID text put to clipboard -->
+  <string name="show_device_id_clipboard_label">Αναγνωριστικό συσκευής</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Απομένει <xliff:g id="step_count">%1$d</xliff:g> βήμα για να ενεργοποιήσετε τις ρυθμίσεις για προγραμματιστές.</item>

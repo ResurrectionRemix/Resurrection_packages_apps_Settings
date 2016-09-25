@@ -17,9 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to show Device Id -->
+  <plurals name="show_device_id_countdown_cm">
+    <item quantity="one">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stap verwijderd van het opvragen van het apparaat-ID.</item>
+    <item quantity="other">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stappen verwijderd van het opvragen van het apparaat-ID.</item>
+  </plurals>
   <!--  Device Info screen. Confirmation that Device ID is copied to clipboard -->
+  <string name="show_device_id_copied_cm">Apparaat-ID:[<xliff:g id="device_id">%1$s</xliff:g>] naar klembord gekopieerd</string>
   <!--  Device Info screen. Confirmation that Device ID is not available -->
+  <string name="show_device_id_failed_cm">Apparaat-ID is niet beschikbaar in deze versie</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Label for the deviceID text put to clipboard -->
+  <string name="show_device_id_clipboard_label">Apparaat-ID</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stap verwijderd van de opties voor ontwikkelaars.</item>
@@ -280,6 +287,7 @@
   <!-- Lights settings, LED notification -->
   <string name="led_notification_title">Verlichtingsinstellingen</string>
   <string name="led_notification_text">LED-verlichting ingeschakeld door instellingen</string>
+  <string name="notification_light_no_apps_summary">Om controle per app toe te voegen, activeer %1$s en klik \'\u002b\' op de menubalk</string>
   <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
   <string name="enable_adb_cm">Android-foutopsporing</string>
   <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
@@ -449,7 +457,7 @@
   <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> toegestaan</string>
   <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> geweigerd</string>
   <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> toegestaan, <xliff:g id="count">%2$s</xliff:g> geweigerd</string>
-  <string name="app_ops_disabled_by_optimization">Uitgeschakeld door batterijoptimalisatie</string>
+  <string name="app_ops_disabled_by_optimization">Uitgeschakeld door accuoptimalisatie</string>
   <!-- App ops menu options -->
   <string name="app_ops_show_user_apps">Gebruikersapps tonen</string>
   <string name="app_ops_show_system_apps">Ingebouwde apps tonen</string>
@@ -1021,11 +1029,20 @@
   <string name="weather_settings_temp_celsius">Celsius</string>
   <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
   <string name="weather_settings_keyword">weer</string>
+  <string name="background_data_access">Toegang tot achtergrondgegevens</string>
+  <string name="allow_background_both">Via mobiele gegevens &amp; wifi</string>
   <string name="allow_background_wlan">Alleen via wifi</string>
   <string name="allow_background_none">Geen toegang</string>
+  <string name="mobile_data_alert">Waarschuwing mobiele gegevens</string>
+  <string name="mobile_data_alert_summary">Waarschuwen als de app een grote hoeveelheid gegevens gebruikt</string>
+  <string name="data_usage_menu_enable_data_alerts">Waarschuwingen voor gegevensgebruik inschakelen</string>
+  <string name="data_usage_menu_disable_data_alerts">Waarschuwingen voor gegevensgebruik uitschakelen</string>
+  <string name="data_usage_menu_reset_stats">Gegevensstatistieken opnieuw instellen</string>
+  <string name="reset_data_stats_msg">Dit zal alle oude en huidige gegevensgeschiedenis verwijderen</string>
   <string name="reset_stats_confirm">Bevestigen</string>
   <string name="restrict_cellular_access_title">Toegang tot mobiele gegevens beperken</string>
   <string name="restrict_cellular_access_summary">Gegevenstoegang op mobiele netwerken uitschakelen</string>
+  <string name="restrict_cellular_access_dialog_title">Mobiele gegevenstoegang beperken?</string>
   <string name="restrict_cellular_access_dialog_summary">Deze functie kan ervoor zorgen dat een app die internet nodig heeft stopt met werken als er alleen een mobiel netwerk beschikbaar is.\n\nU kunt meer relevante instellingen voor gegevensgebruik vinden in de instellingen van de app.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Netwerkproviders</string>

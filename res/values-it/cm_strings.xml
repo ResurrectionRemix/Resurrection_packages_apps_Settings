@@ -17,9 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to show Device Id -->
+  <plurals name="show_device_id_countdown_cm">
+    <item quantity="one">Ora sei a <xliff:g id="step_count">%1$d</xliff:g> passo dalla visualizzazione del Device ID.</item>
+    <item quantity="other">Ora sei a <xliff:g id="step_count">%1$d</xliff:g> passi dalla visualizzazione del Device ID.</item>
+  </plurals>
   <!--  Device Info screen. Confirmation that Device ID is copied to clipboard -->
+  <string name="show_device_id_copied_cm">Device ID:[<xliff:g id="device_id">%1$s</xliff:g>] copiato negli appunti</string>
   <!--  Device Info screen. Confirmation that Device ID is not available -->
+  <string name="show_device_id_failed_cm">Il Device ID non è disponibile su questa build</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Label for the deviceID text put to clipboard -->
+  <string name="show_device_id_clipboard_label">Device ID</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Ora sei ad <xliff:g id="step_count">%1$d</xliff:g> passo dall\'attivare le impostazioni di sviluppo.</item>

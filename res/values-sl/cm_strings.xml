@@ -17,9 +17,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to show Device Id -->
+  <plurals name="show_device_id_countdown_cm">
+    <item quantity="one">Zdaj ste <xliff:g id="step_count">%1$d</xliff:g> korak pred poizvedovanjem za ID naprave.</item>
+    <item quantity="two">Zdaj ste <xliff:g id="step_count">%1$d</xliff:g> koraka pred poizvedovanjem za ID naprave.</item>
+    <item quantity="few">Zdaj ste <xliff:g id="step_count">%1$d</xliff:g> korake pred poizvedovanjem za ID naprave.</item>
+    <item quantity="other">Zdaj ste <xliff:g id="step_count">%1$d</xliff:g> korakov pred poizvedovanjem za ID naprave.</item>
+  </plurals>
   <!--  Device Info screen. Confirmation that Device ID is copied to clipboard -->
+  <string name="show_device_id_copied_cm">ID naprave: [<xliff:g id="device_id">%1$s</xliff:g>] kopiran na odložišče</string>
   <!--  Device Info screen. Confirmation that Device ID is not available -->
+  <string name="show_device_id_failed_cm">ID naprave v tej izgradnji ni na voljo</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Label for the deviceID text put to clipboard -->
+  <string name="show_device_id_clipboard_label">ID naprave</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">Zdaj ste <xliff:g id="step_count">%1$d</xliff:g> korak pred omogočanjem nastavitev za razvijalce.</item>

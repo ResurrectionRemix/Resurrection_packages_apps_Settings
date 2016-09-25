@@ -17,9 +17,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to show Device Id -->
+  <plurals name="show_device_id_countdown_cm">
+    <item quantity="one">אתה במרחק של צעד <xliff:g id="step_count">%1$d</xliff:g> מחשיפת מזהה ההתקן.</item>
+    <item quantity="two">אתה במרחק של <xliff:g id="step_count">%1$d</xliff:g> צעדים מחשיפת מזהה ההתקן.</item>
+    <item quantity="many">אתה במרחק של <xliff:g id="step_count">%1$d</xliff:g> צעדים מחשיפת מזהה ההתקן.</item>
+    <item quantity="other">אתה במרחק של <xliff:g id="step_count">%1$d</xliff:g> צעדים מחשיפת מזהה ההתקן.</item>
+  </plurals>
   <!--  Device Info screen. Confirmation that Device ID is copied to clipboard -->
+  <string name="show_device_id_copied_cm">מזהה התקן:[<xliff:g id="device_id">%1$s</xliff:g>] הועתק ללוח</string>
   <!--  Device Info screen. Confirmation that Device ID is not available -->
+  <string name="show_device_id_failed_cm">מזהה התקן אינו זמין בגרסה זאת</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Label for the deviceID text put to clipboard -->
+  <string name="show_device_id_clipboard_label">מזהה התקן</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
     <item quantity="one">רק עוד צעד <xliff:g id="step_count">%1$d</xliff:g> מהפעלת אפשרויות מפתח.</item>
@@ -610,6 +619,8 @@
   <string name="live_display_color_profile_basic_summary">השתמש בתצוגה ללא כיול</string>
   <string name="live_display_color_profile_adaptive_title">מסתגל</string>
   <!-- LiveDisplay : Picture Adjustment -->
+  <string name="picture_adjustment_title">התאמת תמונה</string>
+  <string name="adj_hue_title">גוון</string>
   <string name="adj_saturation_title">רוויה</string>
   <string name="adj_contrast_title">ניגודיות</string>
   <!-- Whether to display IME switcher notifcation -->
