@@ -84,6 +84,11 @@
         settings:keywords="@string/keywords_auto_rotate"
         settings:controller="com.android.settings.display.AutoRotatePreferenceController" />
 
+    <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="rotation"
+        lineage:replacesKey="auto_rotate"
+        lineage:requiresFeature="android.hardware.sensor.accelerometer" />
+
     <Preference
         android:key="color_mode"
         android:title="@string/color_mode_title"
