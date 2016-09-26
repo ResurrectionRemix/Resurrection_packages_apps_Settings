@@ -39,7 +39,13 @@
 
         <!-- LiveDisplay -->
         <org.cyanogenmod.internal.cmparts.CMPartsPreference
-            android:key="livedisplay" />
+            android:key="livedisplay"
+            cm:requiresFeature="org.cyanogenmod.livedisplay" />
+
+        <!-- Rotation -->
+        <org.cyanogenmod.internal.cmparts.CMPartsPreference
+            android:key="rotation"
+            cm:requiresFeature="android.hardware.sensor.accelerometer" />
 
         <!-- Hide night mode for now
         <ListPreference
@@ -104,10 +110,12 @@
                 android:title="@string/screen_zoom_title"
                 settings:keywords="@string/screen_zoom_keywords" />
 
+        <!-- Disable on CM
         <DropDownPreference
                 android:key="auto_rotate"
                 android:summary="%s"
                 android:title="@string/display_auto_rotate_title" />
+        -->
 
         <PreferenceScreen
                 android:key="wifi_display"
