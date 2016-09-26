@@ -66,8 +66,8 @@ public class NfcEnabler implements Preference.OnPreferenceChangeListener {
 
         if (mNfcAdapter == null) {
             // NFC is not supported
-            mSwitch.setEnabled(false);
-            mAndroidBeam.setEnabled(false);
+            //mSwitch.setEnabled(false);
+            //mAndroidBeam.setEnabled(false);
             mIntentFilter = null;
             return;
         }
