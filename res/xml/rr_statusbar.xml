@@ -20,6 +20,17 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_statusbar_title">
 
+    <PreferenceCategory
+        android:key="clock"
+        android:title="@string/clock_category" >
+
+    <PreferenceScreen
+        android:key="clock"
+        android:title="@string/clock_custom"
+	android:fragment="com.android.settings.rr.ClockSettings" />
+
+     </PreferenceCategory>
+
      <PreferenceCategory
         android:title="@string/icons">
 
