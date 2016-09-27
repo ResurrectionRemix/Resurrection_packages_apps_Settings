@@ -72,7 +72,7 @@ mDisableIM.setChecked(DisableIM != 0);
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.RESURRECTED;
     }
 
 }

@@ -44,7 +44,7 @@ private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.RESURRECTED;
     }
 
     @Override

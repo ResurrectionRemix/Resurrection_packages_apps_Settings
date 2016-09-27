@@ -79,7 +79,7 @@ private SwitchPreference mSelinux;
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.RESURRECTED;
     }
 
 	@Override

@@ -51,7 +51,7 @@ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_int
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.RESURRECTED;
     }
 
     @Override
