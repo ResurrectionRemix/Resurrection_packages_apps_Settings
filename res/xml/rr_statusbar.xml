@@ -91,6 +91,17 @@
 
      </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="weather"
+        android:title="@string/weather_category" >
+
+     <PreferenceScreen
+        android:key="statusbar_weather"
+		android:fragment="com.android.settings.rr.StatusBarWeather"
+        android:title="@string/status_bar_temperature_title" />
+
+     </PreferenceCategory>
+
     	 <PreferenceScreen
            android:key="network_traffic_settings"
            android:title="@string/battery_bar"
