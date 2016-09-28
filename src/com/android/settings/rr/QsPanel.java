@@ -16,6 +16,7 @@ package com.android.settings.rr;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -36,17 +37,23 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import cyanogenmod.providers.CMSettings;
+
 public class QsPanel extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "QsPanel";
 	private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
-private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
+	private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
+    private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 
 	private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
 	private ListPreference mTileAnimationInterpolator;
 	protected ContentResolver mContentRes;
+	private ListPreference mQuickPulldown;
+	private ListPreference mSmartPulldown;
 	protected Context mContext;
 
     @Override
@@ -63,8 +70,10 @@ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_int
 		mContext = getActivity().getApplicationContext();
 
         mContentRes = getActivity().getContentResolver();
+		final Resources res = getResources();
 
 		PreferenceScreen prefs = getPreferenceScreen();
+		ContentResolver resolver = getActivity().getContentResolver();
 
         mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
         int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -90,9 +99,35 @@ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_int
         mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
         updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
 		mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
+
+        mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+        mSmartPulldown.setOnPreferenceChangeListener(this);
+        int smartPulldown = Settings.System.getInt(resolver,
+                Settings.System.QS_SMART_PULLDOWN, 0);
+        mSmartPulldown.setValue(String.valueOf(smartPulldown));
+        updateSmartPulldownSummary(smartPulldown);
+
+	    mQuickPulldown = (ListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
+        int quickPulldown = CMSettings.System.getInt(resolver,
+                CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
+        mQuickPulldown.setValue(String.valueOf(quickPulldown));
+        if (quickPulldown == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_off));
+        } else {
+            String direction = res.getString(quickPulldown == 2
+                    ? R.string.status_bar_quick_qs_pulldown_left
+                    : R.string.status_bar_quick_qs_pulldown_right);
+            mQuickPulldown.setSummary(
+                    res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
+        }
+        mQuickPulldown.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {if (preference == mTileAnimationStyle) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+		ContentResolver resolver = getActivity().getContentResolver();
+		final Resources res = getResources();
+		if (preference == mTileAnimationStyle) {
             int tileAnimationStyle = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_STYLE,
                     tileAnimationStyle, UserHandle.USER_CURRENT);
@@ -111,7 +146,27 @@ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_int
                     tileAnimationInterpolator, UserHandle.USER_CURRENT);
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
             return true;
-        }
+        } else  if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
+            return true;
+		} else if (preference == mQuickPulldown) {
+            int quickPulldown = Integer.valueOf((String) newValue);
+            CMSettings.System.putInt(resolver, CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
+                    quickPulldown);
+            if (quickPulldown == 0) {
+                // quick pulldown deactivated
+                mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_off));
+            } else {
+                String direction = res.getString(quickPulldown == 2
+                        ? R.string.status_bar_quick_qs_pulldown_left
+                        : R.string.status_bar_quick_qs_pulldown_right);
+                mQuickPulldown.setSummary(
+                        res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
+            }
+            return true;
+		} 
 		return false;
     }
 
@@ -144,4 +199,21 @@ private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_int
             }
         }
 	}
+
+
+     private void updateSmartPulldownSummary(int value) {
+         Resources res = getResources();
+ 
+         if (value == 0) {
+             // Smart pulldown deactivated
+             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+         } else if (value == 3) {
+             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_none_summary));
+         } else {
+             String type = res.getString(value == 1
+                     ? R.string.smart_pulldown_dismissable
+                     : R.string.smart_pulldown_ongoing);
+             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+         }
+     }
 }

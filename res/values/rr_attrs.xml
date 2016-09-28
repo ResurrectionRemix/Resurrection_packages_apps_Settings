@@ -40,4 +40,42 @@
          <attr name="alphaSliderVisible" format="boolean" />
      </declare-styleable>
 
+    <declare-styleable name="IconPreferenceScreen">
+        <attr name="icon" />
+    </declare-styleable>
+
+    <!-- For Search -->
+    <declare-styleable name="Preference">
+        <attr name="keywords" format="string" />
+    </declare-styleable>
+
+    <!-- For DotsPageIndicator -->
+    <declare-styleable name="DotsPageIndicator">
+        <attr name="dotDiameter" format="dimension" />
+        <attr name="dotGap" format="dimension" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="pageIndicatorColor" format="color" />
+        <attr name="currentPageIndicatorColor" format="color" />
+    </declare-styleable>
+
+    <attr name="switchBarTheme" format="reference" />
+    <attr name="switchBarMarginStart" format="dimension" />
+    <attr name="switchBarMarginEnd" format="dimension" />
+    <attr name="switchBarBackgroundColor" format="color" />
+
+    <attr name="preferenceBackgroundColor" format="color" />
+
+    <declare-styleable name="DividerPreference">
+        <attr name="allowDividerAbove" format="boolean" />
+        <attr name="allowDividerBelow" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="IntervalSeekBar">
+        <attr name="min" format="float" />
+        <attr name="max" format="float" />
+        <attr name="defaultValue" />
+        <attr name="digits" format="integer" />
+    </declare-styleable>
+
 </resources>
