@@ -39,4 +39,17 @@
                 android:summary="@string/fprint_sucess_vib_summary"
                 android:defaultValue="true" />
 
+        <!-- Weather Settings -->
+       <Preference
+           android:id="@+id/weather_settings"
+           android:title="@string/weather_settings_title">
+           <intent
+               android:action="android.intent.action.MAIN"
+               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+               android:targetPackage="com.cyanogenmod.lockclock" >
+               <extra android:name=":android:show_fragment"
+                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
+           </intent>
+       </Preference>
+
 </PreferenceScreen>
