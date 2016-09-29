@@ -637,7 +637,7 @@ public class ApnEditor extends SettingsPreferenceFragment
     private boolean validateAndSave(boolean force) {
 
         // If the form is not editable, do nothing and return.
-        if (mDisableEditor){
+        if (mDisableEditor && !mApnDisable){
             Log.d(TAG, "Form is disabled. Nothing to save.");
             return true;
         }
