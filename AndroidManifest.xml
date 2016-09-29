@@ -2559,6 +2559,24 @@
                 android:value="com.android.settings.rr.MainSettings" />
         </activity>
 
+        <activity android:name="Settings$KActivity"
+                android:label="@string/ka_title"
+                android:icon="@drawable/rr_performance_icon"
+                android:taskAffinity="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="0">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.system" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ka" />
+        </activity>
+
        <activity android:name="com.android.settings.rr.recentshidden.HAFRAppListActivity" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
