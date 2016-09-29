@@ -155,6 +155,7 @@ public class CryptKeeperConfirm extends InstrumentedFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         mContentView = inflater.inflate(R.layout.crypt_keeper_confirm, null);
         establishFinalConfirmationState();
         return mContentView;

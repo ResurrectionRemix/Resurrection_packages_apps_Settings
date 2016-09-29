@@ -138,6 +138,7 @@ public class CryptKeeperSettings extends InstrumentedFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
         Activity activity = getActivity();
         Intent intent = activity.getIntent();
         if (DevicePolicyManager.ACTION_START_ENCRYPTION.equals(intent.getAction())) {
