@@ -270,7 +270,22 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             mRequestPreference.onPrepareRingtonePickerIntent(mRequestPreference.getIntent());
             startActivityForResult(preference.getIntent(), REQUEST_CODE);
             return true;
+        } else if (preference == findPreference(KEY_CELL_BROADCAST_SETTINGS)) {
+            final Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setComponent(new ComponentName(
+                 "com.android.cellbroadcastreceiver",
+                 "com.android.cellbroadcastreceiver.CellBroadcastSettings"));
+
+            if (mContext.getPackageManager()
+                        .queryIntentActivities(intent, 0).isEmpty())  {
+                Log.d(TAG, "Activity com.android.cellbroadcastreceiver" +
+                                ".CellBroadcastSettings does not exist");
+                return false;
+            }
+            startActivity(intent);
+            return true;
         }
+
         return super.onPreferenceTreeClick(preference);
     }
 
