@@ -1174,8 +1174,12 @@ public class ManageApplications extends InstrumentedFragment
             switch (mManageApplications.mListType) {
                 case LIST_TYPE_NOTIFICATION:
                     if (holder.entry.extraInfo != null) {
-                        holder.summary.setText(InstalledAppDetails.getNotificationSummary(
+                        if (!((holder.entry.extraInfo) instanceof AppRow)) {
+                            holder.updateSizeText(mManageApplications.mInvalidSizeStr, mWhichSize);
+                        } else {
+                            holder.summary.setText(InstalledAppDetails.getNotificationSummary(
                                 (AppRow) holder.entry.extraInfo, mContext));
+                        }
                     } else {
                         holder.summary.setText(null);
                     }
@@ -1187,9 +1191,13 @@ public class ManageApplications extends InstrumentedFragment
 
                 case LIST_TYPE_USAGE_ACCESS:
                     if (holder.entry.extraInfo != null) {
-                        holder.summary.setText((new UsageState((PermissionState) holder.entry
+                        if (!((holder.entry.extraInfo) instanceof PermissionState)) {
+                            holder.updateSizeText(mManageApplications.mInvalidSizeStr, mWhichSize);
+                        } else {
+                            holder.summary.setText((new UsageState((PermissionState) holder.entry
                                 .extraInfo)).isPermissible() ? R.string.switch_on_text :
                                 R.string.switch_off_text);
+                        }
                     } else {
                         holder.summary.setText(null);
                     }
