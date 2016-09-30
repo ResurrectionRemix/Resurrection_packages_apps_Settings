@@ -14,10 +14,11 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
+import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -42,7 +43,6 @@ public class MainSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
-
         return true;
     }
 }

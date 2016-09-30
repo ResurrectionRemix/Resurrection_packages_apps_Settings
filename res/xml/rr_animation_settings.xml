@@ -20,121 +20,26 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/animation_title">
 
-      <PreferenceCategory
-         android:title="@string/system_animations">
+        <PreferenceScreen
+            android:key="system_animations"
+            android:fragment="com.android.settings.rr.SystemAnimations"
+            android:title="@string/system_animations"
+			android:icon="@drawable/rr_animations_icon"
+            />
  
-         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-             android:key="animation_no_override"
-             android:title="@string/title_animation_no_override"
-             android:summary="@string/summary_animation_no_override" />
- 
-         <ListPreference
-             android:key="activity_open"
-             android:title="@string/activity_open_title" />
- 
-         <ListPreference
-             android:key="activity_close"
-             android:title="@string/activity_close_title" />
- 
-         <ListPreference
-             android:key="task_open"
-             android:title="@string/task_open_title" />
+        <PreferenceScreen
+            android:key="rr_toast"
+            android:fragment="com.android.settings.rr.ToastAnimations"
+            android:title="@string/rr_toast_title"
+			android:icon="@drawable/rr_toast_icon"
+            />
 
- 		<ListPreference
-            android:key="task_open_behind"
-            android:title="@string/task_open_behind_title" />
-
-         <ListPreference
-             android:key="task_close"
-             android:title="@string/task_close_title" />
- 
-         <ListPreference
-             android:key="task_move_to_front"
-             android:title="@string/task_move_to_front_title" />
- 
-         <ListPreference
-             android:key="task_move_to_back"
-             android:title="@string/task_move_to_back_title" />
- 
-         <ListPreference
-             android:key="wallpaper_open"
-             android:title="@string/wallpaper_open_title" />
- 
-         <ListPreference
-             android:key="wallpaper_close"
-             android:title="@string/wallpaper_close_title" />
- 
-         <ListPreference
-             android:key="wallpaper_intra_open"
-             android:title="@string/wallpaper_intra_open_title" />
- 
-         <ListPreference
-             android:key="wallpaper_intra_close"
-             android:title="@string/wallpaper_intra_close_title" />
- 
-       </PreferenceCategory>
-
- 
-      <PreferenceCategory
-        android:title="@string/toast">
-
-        <ListPreference
-            android:key="toast_animation"
-            android:title="@string/toast_animation_title"
-            android:entries="@array/toast_animation_entries"
-            android:entryValues="@array/toast_animation_values"
-            android:persistent="false" />
-
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="toast_icon"
-            android:title="@string/toast_icon_title"
-            android:summary="@string/toast_icon_summary"
-            android:defaultValue="false" />
-
-      </PreferenceCategory>
-
-       <PreferenceCategory
-        android:title="@string/listview">
-
-        <ListPreference
-            android:key="listview_animation"
-            android:dialogTitle="@string/listview_animation_title"
-            android:title="@string/listview_animation_title"
-            android:entries="@array/listview_animation_entries"
-            android:entryValues="@array/listview_animation_values"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="listview_interpolator"
-            android:dialogTitle="@string/listview_interpolator_title"
-            android:title="@string/listview_interpolator_title"
-            android:entries="@array/listview_interpolator_entries"
-            android:entryValues="@array/listview_interpolator_values"
-            android:defaultValue="0" />
-
-     <ListPreference
-        android:key="pref_scrollingcache"
-        android:dialogTitle="@string/pref_scrollingcache_title"
-        android:title="@string/pref_scrollingcache_title"
-        android:summary="@string/pref_scrollingcache_summary"
-        android:entries="@array/entries_scrollingcache"
-        android:entryValues="@array/values_scrollingcache" />
-
-      </PreferenceCategory>
-
-      <PreferenceCategory
-        android:title="@string/powermenu">
-
-        <ListPreference
-            android:key="power_menu_animations"
-            android:title="@string/power_menu_animation_title"
-            android:dialogTitle="@string/power_menu_animation_dialog_title"
-            android:entries="@array/power_menu_animations_entries"
-            android:entryValues="@array/power_menu_animations_values"
-            android:summary="@string/power_menu_animation_summary"
-            android:persistent="false" />
-   
-     </PreferenceCategory>
+        <PreferenceScreen
+            android:key="rr_power_anim"
+            android:fragment="com.android.settings.rr.PowerMenuAnimations"
+            android:title="@string/rr_pm_animations_title"
+			android:icon="@drawable/rr_power_anim_icon"
+            />
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="disable_transition_animations"

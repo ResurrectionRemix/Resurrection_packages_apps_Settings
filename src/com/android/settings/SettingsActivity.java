@@ -134,6 +134,7 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
 import com.android.settings.rr.MainSettings;
+import com.android.settings.rr.MainSettingsLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -375,7 +376,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             TestingSettings.class.getName(),
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
-			MainSettings.class.getName(),
+			MainSettingsLayout.class.getName(),
     };
 
 
@@ -585,7 +586,7 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         mIsShowingDashboard = className.equals(Settings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName())
-				|| className.equals(Settings.MainSettings.class.getName())
+				|| className.equals(MainSettingsLayout.class.getName())
                 || className.equals(Settings.DeviceSettings.class.getName())
                 || className.equals(Settings.PersonalSettings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName());

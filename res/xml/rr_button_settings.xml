@@ -33,60 +33,21 @@
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
 
-    <PreferenceCategory
-        android:key="navigation_bar_category"
-        android:title="@string/navigation_bar_category" >
-
-        <cyanogenmod.preference.CMSystemSettingSwitchPreference
-            android:key="navigation_bar_left"
-            android:title="@string/navigation_bar_left_title"
-            android:summary="@string/navigation_bar_left_summary"
-            android:defaultValue="false" />
-
-        <cyanogenmod.preference.CMSystemSettingSwitchPreference
-                android:key="navigation_bar_menu_arrow_keys"
-                android:title="@string/navigation_bar_arrow_keys_title"
-                android:summary="@string/navigation_bar_arrow_keys_summary"
-                android:defaultValue="false" />
-
-
-       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="kill_app_longpress_back"
-            android:title="@string/kill_app_longpress_back"
-            android:summary="@string/kill_app_longpress_back_summary"/>
-
-       <com.android.settings.SeekBarPreference
-            android:key="long_press_kill_delay"
-            android:title="@string/long_press_kill_delay"
-            android:max="3000"
-            settings:minimum="250"
-            settings:unitsLeft=""
-            settings:unitsRight="ms"
-            android:dependency="kill_app_longpress_back"
-			android:persistent="false" />
-
-        <PreferenceScreen
-            android:key="navigation_bar"
-            android:title="@string/navigation_bar_title">
-            <intent android:action="com.android.settings.action.NAV_BAR_TUNER" />
-        </PreferenceScreen>
-
-        <ListPreference
-            android:key="navigation_recents_long_press"
-            android:dialogTitle="@string/navigation_bar_recents_title"
-            android:title="@string/navigation_bar_recents_title"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="power_key"
-        android:title="@string/hardware_keys_power_key_title" >
+     <PreferenceScreen
+            android:key="rr_nav_bar"
+            android:fragment="com.android.settings.rr.NavBarFragment"
+			android:icon="@drawable/rr_navbar_icon"
+            android:title="@string/rr_navbar_title"/>
 
         <PreferenceScreen
             android:key="power_menu"
             android:title="@string/power_menu_title"
+			android:icon="@drawable/rr_power_menu_icon"
             android:fragment="com.android.settings.rr.input.PowerMenuActions" />
+
+    <PreferenceCategory
+        android:key="power_key"
+        android:title="@string/hardware_keys_power_key_title" >
 
         <SwitchPreference
             android:key="power_end_call"
@@ -100,7 +61,7 @@
             android:summary="@string/camera_double_tap_power_gesture_desc"
             android:persistent="false" />
 
-    <cyanogenmod.preference.CMSecureSettingSwitchPreference
+       <cyanogenmod.preference.CMSecureSettingSwitchPreference
             android:key="advanced_reboot"
             android:title="@string/advanced_reboot_title"
             android:summary="@string/advanced_reboot_summary" />

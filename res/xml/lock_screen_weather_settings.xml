@@ -17,6 +17,19 @@
     android:title="@string/lock_screen_weather_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
+        <!-- Weather Settings -->
+       <Preference
+           android:id="@+id/weather_settings"
+           android:title="@string/weather_settings_title">
+           <intent
+               android:action="android.intent.action.MAIN"
+               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+               android:targetPackage="com.cyanogenmod.lockclock" >
+               <extra android:name=":android:show_fragment"
+                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
+           </intent>
+       </Preference>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lock_screen_show_weather"
         android:title="@string/weather_show_weather_title"

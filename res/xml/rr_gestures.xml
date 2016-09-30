@@ -18,17 +18,19 @@
 
         <!-- Gesture anywhere -->
         <PreferenceScreen
-	    android:id="@+id/gesture_anywhere"	
+	    	android:id="@+id/gesture_anywhere"	
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings"
             android:title="@string/gesture_anywhere_title"
+			android:icon="@drawable/rr_gesture_anywhere_icon"
             />
 
         <!-- App sidebar -->
         <PreferenceScreen
             android:key="app_sidebar"
             android:fragment="com.android.settings.rr.AppSidebar"
-            android:title="@string/app_sidebar_title" 
+            android:title="@string/app_sidebar_title"
+			android:icon="@drawable/rr_app_sidebar_icon"
             />
 
 </PreferenceScreen>

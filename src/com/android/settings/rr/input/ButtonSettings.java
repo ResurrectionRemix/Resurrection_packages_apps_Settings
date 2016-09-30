@@ -75,8 +75,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String DISABLE_NAV_KEYS = "disable_nav_keys";
-    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
-    private static final String KEY_NAVIGATION_RECENTS_LONG_PRESS = "navigation_recents_long_press";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
@@ -93,7 +91,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_CAMERA = "camera_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
-    private static final String CATEGORY_NAVBAR = "navigation_bar_category";
+    private static final String CATEGORY_NAVBAR = "rr_nav_bar";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -134,15 +132,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mDisableNavigationKeys;
-    private SwitchPreference mNavigationBarLeftPref;
-    private ListPreference mNavigationRecentsLongPressAction;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mCameraDoubleTapPowerGesture;
-    private SwitchPreference mKillAppLongPressBack;
-	private SeekBarPreference mLongpressKillDelay;
 
-    private PreferenceCategory mNavigationPreferencesCat;
+    private PreferenceScreen mNavigationPreferencesCat;
 
     private Handler mHandler;
 
@@ -197,13 +191,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final PreferenceCategory cameraCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_CAMERA);
 
-        // kill-app long press back delay
-        mLongpressKillDelay = (SeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
-        int killconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LONG_PRESS_KILL_DELAY, 1000);
-        mLongpressKillDelay.setProgress(killconf);
-		mLongpressKillDelay.setOnPreferenceChangeListener(this);
-
         // Power button ends calls.
         mPowerEndCall = (SwitchPreference) findPreference(KEY_POWER_END_CALL);
 
@@ -219,14 +206,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Force Navigation bar related options
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
 
-        mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
+        mNavigationPreferencesCat = (PreferenceScreen) findPreference(CATEGORY_NAVBAR);
 
-        // Navigation bar left
-        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
-
-        // Navigation bar recents long press activity needs custom setup
-        mNavigationRecentsLongPressAction =
-                initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
 
         final CMHardwareManager hardware = CMHardwareManager.getInstance(getActivity());
 
@@ -422,10 +403,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar()
                     || forceNavbar;
 
-            if (!ScreenType.isPhone(getActivity())) {
-                mNavigationPreferencesCat.removePreference(mNavigationBarLeftPref);
-            }
-
             if (!hasNavBar && (needsNavigationBar ||
                     !hardware.isSupported(CMHardwareManager.FEATURE_KEY_DISABLE))) {
                     // Hide navigation bar category
@@ -609,31 +586,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleSystemActionListChange(mVolumeKeyCursorControl, newValue,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
-        } else if (preference == mNavigationRecentsLongPressAction) {
-            // RecentsLongPressAction is handled differently because it intentionally uses
-            // Settings.System
-            String putString = (String) newValue;
-            int index = mNavigationRecentsLongPressAction.findIndexOfValue(putString);
-            CharSequence summary = mNavigationRecentsLongPressAction.getEntries()[index];
-            // Update the summary
-            mNavigationRecentsLongPressAction.setSummary(summary);
-            if (putString.length() == 0) {
-                putString = null;
-            }
-            CMSettings.Secure.putString(getContentResolver(),
-                    CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
-            return true;
         } else if (preference == mCameraDoubleTapPowerGesture) {
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
             return true;
-        } else if (preference == mLongpressKillDelay) {
-            int killconf = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LONG_PRESS_KILL_DELAY, killconf);
-            return true;
-		}
+        }
         return false;
     }
 

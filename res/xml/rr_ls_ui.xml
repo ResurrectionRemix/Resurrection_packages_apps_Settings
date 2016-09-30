@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 The Resurrection Remix Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/rr_ls_ui" >
+
+    	 <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_enable_power_menu"
+            android:title="@string/lockscreen_enable_power_menu_title"
+            android:summary="@string/lockscreen_enable_power_menu_summary"
+            android:defaultValue="true" />
+
+     	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       		android:key="hide_lockscreen_clock"
+        	android:title="@string/hide_lockscreen_clock_title"
+       		android:defaultValue="true" />
+
+    	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        	android:key="hide_lockscreen_date"
+        	android:title="@string/hide_lockscreen_date_title"
+        	android:defaultValue="true" />
+
+    	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        	android:key="keyguard_show_clock"
+        	android:title="@string/keyguard_statusbar_clock_title"
+        	android:summary="@string/keyguard_statusbar_clock_summary" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="true" />
+
+        <cyanogenmod.preference.CMSecureSettingSwitchPreference
+            android:key="lockscreen_visualizer"
+            android:title="@string/lockscreen_visualizer_title"
+            android:defaultValue="true"/>
+
+   	    <PreferenceScreen
+       		android:key="lock_clock_fonts"
+        	android:title="@string/lock_clock_font_title"
+       	 	android:summary="@string/lock_clock_font_summary"
+        	android:fragment="com.android.settings.rr.fragments.LockClockFonts" />
+
+</PreferenceScreen>

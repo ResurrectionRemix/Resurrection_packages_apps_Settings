@@ -26,6 +26,7 @@
             android:key="selinux_switch"
             android:title="@string/selinux_switch_title"
             android:summary="@string/selinux_switch_summary"
+			android:icon="@drawable/rr_selinux_icon"
             android:selectable="false"/>
 
         <SwitchPreference
@@ -37,12 +38,14 @@
                 android:key="fingerprint_success_vib"
                 android:title="@string/fprint_sucess_vib_title"
                 android:summary="@string/fprint_sucess_vib_summary"
+				android:icon="@drawable/rr_fingerprint_icon"
                 android:defaultValue="true" />
 
         <!-- Weather Settings -->
        <Preference
            android:id="@+id/weather_settings"
-           android:title="@string/weather_settings_title">
+           android:title="@string/weather_settings_title"
+		   android:icon="@drawable/rr_weather_main_icon">
            <intent
                android:action="android.intent.action.MAIN"
                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
@@ -54,7 +57,8 @@
 
      <!-- Ad Blocker -->
         <Preference
-             android:title="@string/adaway_settings_title">
+             android:title="@string/adaway_settings_title"
+			 android:icon="@drawable/rr_adblock_icon">
              <intent
                  android:action="android.intent.action.MAIN"
                  android:targetPackage="org.adaway"

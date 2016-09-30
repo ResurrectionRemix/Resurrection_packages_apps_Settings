@@ -2545,8 +2545,8 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-	<!-- RR settings -->
-        <activity android:name="Settings$MainSettingsActivity"
+		<!-- RR settings -->
+        <!--activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/rr_title"
                 android:icon="@drawable/ic_rr_tools_tint">
             <intent-filter android:priority="1">
@@ -2557,7 +2557,27 @@
                 android:value="com.android.settings.category.rr" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.MainSettings" />
+        </activity-->
+
+        <activity android:name="Settings$MainSettingsLayoutActivity"
+                android:label="@string/rr_title"
+                android:icon="@drawable/ic_rr_tools_tint"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.rr" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.MainSettingsLayout" />
         </activity>
+        <activity
+             android:name="com.android.settings.MainSettingsLayout"
+             android:theme="@style/AppTheme" />
 
         <activity android:name="Settings$KActivity"
                 android:label="@string/ka_title"

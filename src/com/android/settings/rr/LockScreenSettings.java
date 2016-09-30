@@ -36,10 +36,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "MainSettings";
 
-	private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
-
-	private SeekBarPreference mMaxKeyguardNotifConfig;
-
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -50,23 +46,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_lockscreen);
-
-        mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
-        int kgconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5);
-        mMaxKeyguardNotifConfig.setProgress(kgconf);
-        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
     }
 
  	 @Override
      public boolean onPreferenceChange(Preference preference, Object newValue) {
-	 ContentResolver resolver = getActivity().getContentResolver();
- 	 if (preference == mMaxKeyguardNotifConfig) {
-            int kgconf = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
-            return true;
-         }
         return false;
 		}
 }

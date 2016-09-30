@@ -16,116 +16,52 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_lockscreen_title" >
 
-    	 <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_enable_power_menu"
-            android:title="@string/lockscreen_enable_power_menu_title"
-            android:summary="@string/lockscreen_enable_power_menu_summary"
-            android:defaultValue="true" />
+   		<PreferenceScreen
+       	 android:key="rr_ls_gesture"
+         android:title="@string/rr_ls_gestures"
+         android:fragment="com.android.settings.rr.LockScreenGesture"
+		 android:icon="@drawable/rr_ls_gestures_icon"/>
 
- 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="double_tap_sleep_anywhere"
-            android:title="@string/double_tap_sleep_anywhere_title"
-            android:summary="@string/double_tap_sleep_anywhere_summary"
-            android:defaultValue="false" />
+   		<PreferenceScreen
+       	 android:key="rr_ls_ui"
+         android:title="@string/rr_ls_ui"
+         android:fragment="com.android.settings.rr.LockScreenUI"
+		 android:icon="@drawable/rr_ls_ui_icon" />
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="keyguard_toggle_torch"
-            android:title="@string/keyguard_toggle_torch_title"
-            android:summary="@string/keyguard_toggle_torch_summary"
-            android:defaultValue="false" />
-
-     	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       		android:key="hide_lockscreen_clock"
-        	android:title="@string/hide_lockscreen_clock_title"
-       		android:defaultValue="true" />
-
-    	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        	android:key="hide_lockscreen_date"
-        	android:title="@string/hide_lockscreen_date_title"
-        	android:defaultValue="true" />
-
-    	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        	android:key="keyguard_show_clock"
-        	android:title="@string/keyguard_statusbar_clock_title"
-        	android:summary="@string/keyguard_statusbar_clock_summary" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_media_metadata"
-            android:title="@string/media_art_title"
-            android:summary="@string/media_art_summary"
-            android:defaultValue="true" />
-
-        <cyanogenmod.preference.CMSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:defaultValue="true"/>
-
-   	    <PreferenceScreen
-       		android:key="lock_clock_fonts"
-        	android:title="@string/lock_clock_font_title"
-       	 	android:summary="@string/lock_clock_font_summary"
-        	android:fragment="com.android.settings.rr.fragments.LockClockFonts" />
 
          <PreferenceScreen
-            android:title="@string/lockscreen_targets_message" >
+            android:title="@string/lockscreen_targets_message"
+			android:icon="@drawable/rr_bottom_shortcuts_icon" >
             <intent
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
         </PreferenceScreen>
 
-    	<PreferenceCategory
-        android:key="lockscreen_weather_cat"
-        android:title="@string/lockscreen_weather_title" >
-
-        <!-- Weather Settings -->
-       <Preference
-           android:id="@+id/weather_settings"
-           android:title="@string/weather_settings_title">
-           <intent
-               android:action="android.intent.action.MAIN"
-               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
-               android:targetPackage="com.cyanogenmod.lockclock" >
-               <extra android:name=":android:show_fragment"
-                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
-           </intent>
-       </Preference>
-
-        <PreferenceScreen
-                android:key="lockscreen_weather"
-                android:title="@string/lock_screen_weather_settings_title"
-                android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
-
-  		</PreferenceCategory>
 
         <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
                  android:summary="@string/lockscreen_shortcuts_summary"
+				 android:icon="@drawable/rr_ls_shortcuts_icon"
                  android:title="@string/lockscreen_shortcuts_title">
              <extra android:name="actionMode" android:value="4" />
              <extra android:name="maxAllowedActions" android:value="20" />
              <extra android:name="disableLongpress" android:value="true" />
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.android.settings.slim.fragments.LockscreenShortcutFragment" />
-        </PreferenceScreen>
+	  </PreferenceScreen>
 
- 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-               android:key="lock_screen_custom_notif"
-               android:title="@string/lockscreen_maxnotif_title"
-               android:summary="@string/lockscreen_maxnotif_sumary"
-               android:defaultValue="false" />
+   		<PreferenceScreen
+        android:key="lockscreen_weather"
+		android:icon="@drawable/rr_weather_main_icon"
+        android:title="@string/lock_screen_weather_settings_title"
+        android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
 
-        <com.android.settings.SeekBarPreference
-               android:key="lockscreen_max_notif_cofig"
-               android:title="@string/lockscreen_maxnotif_config"
-               android:max="8"
-               settings:minimum="3"
-               settings:unitsLeft=""
-               settings:unitsRight=""
-               android:persistent="false"
-               android:dependency="lock_screen_custom_notif" />
+   		<PreferenceScreen
+       	 android:key="rr_ls_security"
+		 android:icon="@drawable/rr_security_icon"
+         android:title="@string/rr_ls_ui"
+         android:fragment="com.android.settings.rr.LockScreenSecurity" />
 
 </PreferenceScreen>
 

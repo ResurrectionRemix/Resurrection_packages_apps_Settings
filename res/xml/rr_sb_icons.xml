@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 RR
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/rr_sb_icons">
+
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+    	   android:key="bluetooth_show_battery"
+           android:title="@string/bluetooth_battery_title"
+           android:summary="@string/bluetooth_battery_summary"
+           android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+           android:key="status_bar_rr_logo"
+           android:title="@string/status_bar_rr_logo_title"
+           android:summary="@string/status_bar_rr_logo_summary"
+           android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="show_fourg"
+            android:title="@string/show_4g_title"
+            android:summary="@string/show_4g_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="show_threeg"
+            android:title="@string/show_3g_title"
+            android:summary="@string/show_3g_summary"
+            android:defaultValue="false" />
+
+    <PreferenceScreen
+        android:key="status_bar_icons"
+        android:title="@string/status_bar_icons_title"
+        android:summary="@string/status_bar_icons_summary">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.tuner.TunerActivity">
+            <extra android:name="tuner" android:value="status_bar" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>
