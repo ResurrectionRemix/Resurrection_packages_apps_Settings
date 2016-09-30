@@ -38,6 +38,12 @@
             android:key="location_services"
             android:title="@string/location_category_location_services" />
 
+        <CheckBoxPreference
+            android:key="assisted_gps"
+            android:title="@string/assisted_gps"
+            android:summaryOn="@string/assisted_gps_enabled"
+            android:summaryOff="@string/assisted_gps_disabled"/>
+
         <com.android.settings.DividedCategory
             android:key="recent_location_requests"
             android:title="@string/location_category_recent_location_requests" />

@@ -153,7 +153,9 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
             enableHs2.setChecked(Settings.Global.getInt(getContentResolver(),
                     Settings.Global.WIFI_HOTSPOT2_ENABLED, WIFI_HS2_DISABLED) == WIFI_HS2_ENABLED);
         } else {
-            getPreferenceScreen().removePreference(enableHs2);
+            if(enableHs2 != null){
+                getPreferenceScreen().removePreference(enableHs2);
+            }
         }
 
         Intent wifiDirectIntent = new Intent(context,

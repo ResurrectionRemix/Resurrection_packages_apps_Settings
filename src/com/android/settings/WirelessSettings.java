@@ -1,3 +1,5 @@
+/* Copyright (c) 2016, The Linux Foundation. All rights reserved.*/
+
 /*
  * Copyright (C) 2009 The Android Open Source Project
  *
@@ -84,6 +86,10 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
     private static final String KEY_WFC_SETTINGS = "wifi_calling_settings";
     private static final String KEY_WFC_ENHANCED_SETTINGS = "wifi_calling_enhanced_settings";
 
+    private static final String ACTION_WIFI_CALL_ON = "com.android.wificall.TURNON";
+    private static final String ACTION_WIFI_CALL_OFF = "com.android.wificall.TURNOFF";
+    private static final String WIFI_CALLING_PREFERRED = "preference";
+
     public static final String EXIT_ECM_RESULT = "exit_ecm_result";
     public static final int REQUEST_CODE_EXIT_ECM = 1;
 
@@ -102,10 +108,11 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
     private static final int MANAGE_MOBILE_PLAN_DIALOG_ID = 1;
     private static final String SAVED_MANAGE_MOBILE_PLAN_MSG = "mManageMobilePlanMessage";
 
-    private PreferenceScreen mButtonWfc;
+    private Preference mButtonWfc;
     private boolean mEnhancedWFCSettingsEnabled = false;
 
     private IWFCService mWFCService;
+
     private ServiceConnection mConnection = new ServiceConnection() {
 
         public void onServiceConnected(ComponentName className, IBinder service) {
@@ -124,15 +131,25 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
     };
 
     private IWFCServiceCB mCallback = new IWFCServiceCB.Stub() {
-        public void updateWFCMessage(String s) {
-            if (!mEnhancedWFCSettingsEnabled || (s == null)) {
+        public void updateWFCMessage(String errorCode) {
+            if (!mEnhancedWFCSettingsEnabled || (errorCode == null)) {
                 if(DEBUG) Log.e(TAG, "updateWFCMessage fail.");
                 return ;
             }
             getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    if(DEBUG) Log.d (TAG, "new UI thread.");
-                    mButtonWfc.setSummary(s);
+                    if (DEBUG) Log.d(TAG, "new UI thread.");
+                    try {
+                        if (mWFCService.getWifiCallingStatus()) {
+                            if (mButtonWfc instanceof WFCPreference) {
+                                ((WFCPreference) mButtonWfc).setSummary(errorCode);
+                            } else {
+                                mButtonWfc.setSummary(errorCode);
+                            }
+                        }
+                    } catch (RemoteException r) {
+                        Log.e(TAG, "getWifiCallingStatus RemoteException");
+                    }
                 }
             });
 
@@ -303,6 +320,14 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
         return MetricsEvent.WIRELESS;
     }
 
+    private void broadcastWifiCallingStatus(Context ctx, boolean isTurnOn, int preference) {
+        if(DEBUG) Log.d(TAG, "broadcastWifiCallingStatus:");
+        Intent intent = new Intent(isTurnOn ? ACTION_WIFI_CALL_ON
+                    : ACTION_WIFI_CALL_OFF);
+        intent.putExtra(WIFI_CALLING_PREFERRED, preference);
+        ctx.sendBroadcast(intent);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -332,19 +357,50 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
         mEnhancedWFCSettingsEnabled = getActivity().getResources().getBoolean(
                     R.bool.wifi_call_enhanced_setting);
         if (mEnhancedWFCSettingsEnabled) {
-            mButtonWfc = (PreferenceScreen) findPreference(KEY_WFC_ENHANCED_SETTINGS);
+            mButtonWfc = (WFCPreference) findPreference(KEY_WFC_ENHANCED_SETTINGS);
             removePreference(KEY_WFC_SETTINGS);
+            mButtonWfc.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent intent = new Intent();
+                    intent.setAction("android.intent.action.MAIN");
+                    intent.setPackage("com.qualcomm.qti.wfcservice");
+                    intent.setClassName("com.qualcomm.qti.wfcservice",
+                            "com.qualcomm.qti.wfcservice.WifiCallingEnhancedSettings");
+                    mButtonWfc.setIntent(intent);
+                    return false;
+                }
+            });
+
+            mButtonWfc.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object value) {
+                    int wfcPreference = -1;
+                    try {
+                        wfcPreference = mWFCService.getWifiCallingPreference();
+                    } catch (RemoteException re) {
+                        Log.e(TAG, "getWifiCallingPreference RemoteException");
+                        return false;
+                    }
+
+                    boolean isChecked = (Boolean) value;
+
+                    try {
+                        mWFCService.setWifiCalling(isChecked, wfcPreference);
+                    } catch (RemoteException r) {
+                        Log.e(TAG, "setWifiCalling RemoteException");
+                    }
+
+                    if (!isChecked) {
+                        ((WFCPreference) preference).setSummary(R.string.disabled);
+                    }
+
+                    broadcastWifiCallingStatus(getActivity(), isChecked, wfcPreference);
+                    return false;
+                }
+            });
         } else {
             mButtonWfc = (PreferenceScreen) findPreference(KEY_WFC_SETTINGS);
             removePreference(KEY_WFC_ENHANCED_SETTINGS);
-        }
-
-        if (mEnhancedWFCSettingsEnabled) {
-            //bind WFC service
-            final Intent intentWfc = new Intent();
-            intentWfc.setAction("com.qualcomm.qti.wfcservice.IWFCService");
-            intentWfc.setPackage("com.qualcomm.qti.wfcservice");
-            activity.bindService(intentWfc, mConnection, Context.BIND_AUTO_CREATE);
         }
 
         String toggleable = Settings.Global.getString(activity.getContentResolver(),
@@ -475,6 +531,14 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
     public void onResume() {
         super.onResume();
 
+        if (mEnhancedWFCSettingsEnabled && mWFCService == null) {
+            //bind WFC service
+            final Intent intentWfc = new Intent();
+            intentWfc.setAction("com.qualcomm.qti.wfcservice.IWFCService");
+            intentWfc.setPackage("com.qualcomm.qti.wfcservice");
+            getActivity().bindService(intentWfc, mConnection, Context.BIND_AUTO_CREATE);
+        }
+
         mAirplaneModeEnabler.resume();
         if (mNfcEnabler != null) {
             mNfcEnabler.resume();
@@ -486,12 +550,15 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
             getPreferenceScreen().addPreference(mButtonWfc);
             if (!mEnhancedWFCSettingsEnabled) {
                 mButtonWfc.setSummary(WifiCallingSettings.getWfcModeSummary(
-                        context, ImsManager.getWfcMode(context)));
+                       context, ImsManager.getWfcMode(context)));
             } else {
                 if (!ImsManager.isWfcEnabledByUser(context)) {
-                    mButtonWfc.setSummary(R.string.disabled);
+                    ((WFCPreference) mButtonWfc).setChecked(false);
+                    ((WFCPreference) mButtonWfc).setSummary(R.string.disabled);
                 } else {
-                    mButtonWfc.setSummary(SystemProperties.get("sys.wificall.status.msg"));
+                    ((WFCPreference) mButtonWfc).setChecked(true);
+                    ((WFCPreference) mButtonWfc).setSummary(
+                            SystemProperties.get("sys.wificall.status.msg"));
                 }
             }
         } else {

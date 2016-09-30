@@ -35,5 +35,8 @@ import org.codeaurora.wfcservice.IWFCServiceCB;
 interface IWFCService {
     void registerCallback(IWFCServiceCB cb);
     void unregisterCallback(IWFCServiceCB cb);
+    void setWifiCalling(boolean state, int preference);
+    boolean getWifiCallingStatus();
+    int getWifiCallingPreference();
 }
 

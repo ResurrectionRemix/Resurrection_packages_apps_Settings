@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -32,6 +33,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.CheckBoxPreference;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,9 +52,13 @@ import com.android.settingslib.RestrictedSwitchPreference;
 import com.android.settingslib.location.RecentLocationApps;
 
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Properties;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
@@ -91,17 +97,28 @@ public class LocationSettings extends LocationSettingsBase
      * if there is a managed profile.
      */
     private static final String KEY_MANAGED_PROFILE_SWITCH = "managed_profile_location_switch";
+
+    // CMCC assisted gps SUPL(Secure User Plane Location) server address
+    private static final String ASSISTED_GPS_SUPL_HOST = "assisted_gps_supl_host";
+
+    // CMCC agps SUPL port address
+    private static final String ASSISTED_GPS_SUPL_PORT = "assisted_gps_supl_port";
+    private static final String KEY_ASSISTED_GPS = "assisted_gps";
+
     /** Key for preference screen "Mode" */
     private static final String KEY_LOCATION_MODE = "location_mode";
     /** Key for preference category "Recent location requests" */
     private static final String KEY_RECENT_LOCATION_REQUESTS = "recent_location_requests";
     /** Key for preference category "Location services" */
     private static final String KEY_LOCATION_SERVICES = "location_services";
+    private static final String PROPERTIES_FILE = "/etc/gps.conf";
 
     private static final int MENU_SCANNING = Menu.FIRST;
 
+    private CheckBoxPreference mAssistedGps;
     private SwitchBar mSwitchBar;
     private Switch mSwitch;
+    private boolean mAgpsEnabled;
     private boolean mValidListener = false;
     private UserHandle mManagedProfile;
     private RestrictedSwitchPreference mManagedProfileSwitch;
@@ -199,6 +216,18 @@ public class LocationSettings extends LocationSettingsBase
                     }
                 });
 
+        mAgpsEnabled = getActivity().getResources().getBoolean(
+                        R.bool.config_agps_enabled);
+        mAssistedGps = (CheckBoxPreference) root.findPreference(KEY_ASSISTED_GPS);
+        if (!mAgpsEnabled) {
+            root.removePreference(mAssistedGps);
+        }
+
+        if (mAssistedGps != null) {
+            mAssistedGps.setChecked(Settings.Global.getInt(
+                    getContentResolver(), Settings.Global.ASSISTED_GPS_ENABLED, 0) == 1);
+        }
+
         mCategoryRecentLocationRequests =
                 (PreferenceCategory) root.findPreference(KEY_RECENT_LOCATION_REQUESTS);
         RecentLocationApps recentApps = new RecentLocationApps(activity);
@@ -244,6 +273,47 @@ public class LocationSettings extends LocationSettingsBase
         return root;
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        final ContentResolver cr = getContentResolver();
+        if (preference == mAssistedGps) {
+            if (mAssistedGps.isChecked()) {
+                if (Settings.Global.getString(cr, ASSISTED_GPS_SUPL_HOST) == null
+                        || Settings.Global
+                                .getString(cr, ASSISTED_GPS_SUPL_PORT) == null) {
+                    FileInputStream stream = null;
+                    try {
+                        Properties properties = new Properties();
+                        File file = new File(PROPERTIES_FILE);
+                        stream = new FileInputStream(file);
+                        properties.load(stream);
+                        Settings.Global.putString(cr, ASSISTED_GPS_SUPL_HOST,
+                                properties.getProperty("SUPL_HOST", null));
+                        Settings.Global.putString(cr, ASSISTED_GPS_SUPL_PORT,
+                                properties.getProperty("SUPL_PORT", null));
+                    } catch (IOException e) {
+                        Log.e("LocationSettings",
+                                "Could not open GPS configuration file "
+                                        + PROPERTIES_FILE + ", e=" + e);
+                    } finally {
+                        if (stream != null) {
+                            try {
+                                stream.close();
+                            } catch (Exception e) {
+                            }
+                       }
+                   }
+               }
+            }
+            Settings.Global.putInt(cr, Settings.Global.ASSISTED_GPS_ENABLED,
+                    mAssistedGps.isChecked() ? 1 : 0);
+        } else {
+            // If we didn't handle it, let preferences handle it.
+            return super.onPreferenceTreeClick(preference);
+        }
+
+        return true;
+    }
     private void setupManagedProfileCategory(PreferenceScreen root) {
         // Looking for a managed profile. If there are no managed profiles then we are removing the
         // managed profile category.
