@@ -50,28 +50,11 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_recents);
-
-        final ContentResolver resolver = getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources res = getResources();
-
-        mImmersiveRecents = (ListPreference) findPreference(IMMERSIVE_RECENTS);
-        mImmersiveRecents.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.IMMERSIVE_RECENTS, 0)));
-        mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
-		mImmersiveRecents.setOnPreferenceChangeListener(this);
     }
 
 
     public boolean onPreferenceChange(Preference preference, Object newValue) 	  {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mImmersiveRecents) {
-            Settings.System.putInt(getContentResolver(), Settings.System.IMMERSIVE_RECENTS,
-                    Integer.valueOf((String) newValue));
-            mImmersiveRecents.setValue(String.valueOf(newValue));
-            mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
-            return true;
-        }
 		return false;
     }
 

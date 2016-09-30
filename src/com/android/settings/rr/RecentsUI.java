@@ -13,7 +13,13 @@
 */
 package com.android.settings.rr;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Resources;
+import android.provider.Settings;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
@@ -30,6 +36,12 @@ public class RecentsUI extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "RecentsUI";
 
+    private static final String IMMERSIVE_RECENTS = "immersive_recents";
+
+
+	private ListPreference mImmersiveRecents;
+
+
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -40,9 +52,26 @@ public class RecentsUI extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_recents_ui);
+     	final ContentResolver resolver = getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources res = getResources();
+
+        mImmersiveRecents = (ListPreference) findPreference(IMMERSIVE_RECENTS);
+        mImmersiveRecents.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.IMMERSIVE_RECENTS, 0)));
+        mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
+		mImmersiveRecents.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
-        return true;
+    public boolean onPreferenceChange(Preference preference, Object newValue){
+		ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mImmersiveRecents) {
+            Settings.System.putInt(getContentResolver(), Settings.System.IMMERSIVE_RECENTS,
+                    Integer.valueOf((String) newValue));
+            mImmersiveRecents.setValue(String.valueOf(newValue));
+            mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
+            return true;
+        }
+        return false;
     }
 }
