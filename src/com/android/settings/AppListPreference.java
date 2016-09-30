@@ -52,6 +52,8 @@ import java.util.List;
 public class AppListPreference extends CustomListPreference {
 
     public static final String ITEM_NONE_VALUE = "";
+    public static final int TYPE_PACKAGE = 0;
+    public static final int TYPE_COMPONENT = 1;
 
     protected final boolean mForWork;
     protected final int mUserId;
@@ -60,6 +62,7 @@ public class AppListPreference extends CustomListPreference {
     private boolean mShowItemNone = false;
     private CharSequence[] mSummaries;
     private int mSystemAppIndex = -1;
+    private int mType = TYPE_PACKAGE;
 
     public class AppArrayAdapter extends ArrayAdapter<CharSequence> {
         private Drawable[] mImageDrawables = null;
@@ -189,6 +192,8 @@ public class AppListPreference extends CustomListPreference {
     public void setComponentNames(ComponentName[] componentNames, ComponentName defaultCN,
             CharSequence[] summaries) {
         mSummaries = summaries;
+        mType = TYPE_COMPONENT;
+
         // Look up all package names in PackageManager. Skip ones we can't find.
         PackageManager pm = getContext().getPackageManager();
         final int entryCount = componentNames.length + (mShowItemNone ? 1 : 0);
@@ -257,7 +262,18 @@ public class AppListPreference extends CustomListPreference {
         if (state instanceof SavedState) {
             SavedState savedState = (SavedState) state;
             mShowItemNone = savedState.showItemNone;
-            setPackageNames(savedState.entryValues, savedState.value);
+            if (mType == TYPE_PACKAGE) {
+                setPackageNames(savedState.entryValues, savedState.value);
+            } else if (mType == TYPE_COMPONENT) {
+                int len = savedState.entryValues.length;
+                ComponentName[] entryValues = new ComponentName[len];
+                for(int i = 0; i < len; i++) {
+                    entryValues[i] = ComponentName.unflattenFromString(
+                        savedState.entryValues[i]+"");
+                }
+                setComponentNames(entryValues,
+                    ComponentName.unflattenFromString(savedState.value+""));
+            }
             mSummaries = savedState.summaries;
             super.onRestoreInstanceState(savedState.superState);
         } else {

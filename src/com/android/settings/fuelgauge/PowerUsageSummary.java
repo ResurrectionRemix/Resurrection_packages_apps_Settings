@@ -28,6 +28,8 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
+import android.support.v14.preference.SwitchPreference;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.util.TypedValue;
@@ -56,6 +58,7 @@ import java.util.List;
  */
 public class PowerUsageSummary extends PowerUsageBase {
 
+    public static final String SHOW_PERCENT_SETTING = "status_bar_show_battery_percent";
     private static final boolean DEBUG = false;
 
     private static final boolean USE_FAKE_DATA = false;
@@ -64,6 +67,7 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     private static final String KEY_APP_LIST = "app_list";
     private static final String KEY_BATTERY_HISTORY = "battery_history";
+    private static final String KEY_BATTERY_PCT = "battery_pct";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
@@ -71,8 +75,10 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
+    private SwitchPreference mBatteryPct;
 
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
+    private boolean isShowBatteryPct;
 
     private static final int MIN_POWER_THRESHOLD_MILLI_AMP = 5;
     private static final int MAX_ITEMS_TO_LIST = USE_FAKE_DATA ? 30 : 10;
@@ -87,6 +93,11 @@ public class PowerUsageSummary extends PowerUsageBase {
         addPreferencesFromResource(R.xml.power_usage_summary);
         mHistPref = (BatteryHistoryPreference) findPreference(KEY_BATTERY_HISTORY);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
+        mBatteryPct = (SwitchPreference) findPreference(KEY_BATTERY_PCT);
+        isShowBatteryPct = getResources().getBoolean(R.bool.config_show_battery_percentage);
+        if (!isShowBatteryPct) {
+            getPreferenceScreen().removePreference(mBatteryPct);
+        }
     }
 
     @Override
@@ -97,6 +108,9 @@ public class PowerUsageSummary extends PowerUsageBase {
     @Override
     public void onResume() {
         super.onResume();
+        if (isShowBatteryPct) {
+            updateBatteryPct();
+        }
         refreshStats();
     }
 
@@ -477,6 +491,26 @@ public class PowerUsageSummary extends PowerUsageBase {
         public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
                                                                    SummaryLoader summaryLoader) {
             return new SummaryProvider(activity, summaryLoader);
+        }
+    };
+
+    private void updateBatteryPct() {
+        if (mBatteryPct != null) {
+            mBatteryPct.setChecked(
+                Settings.System.getInt(getContext().getContentResolver(),
+                SHOW_PERCENT_SETTING, 0) != 0);
+            mBatteryPct.setOnPreferenceChangeListener(mBatteryPctChange);
+        }
+    }
+
+    private final Preference.OnPreferenceChangeListener mBatteryPctChange =
+            new Preference.OnPreferenceChangeListener() {
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            final boolean v = (Boolean) newValue;
+            Settings.System.putInt(getContext().getContentResolver(),
+                    SHOW_PERCENT_SETTING, v ? 1 : 0);
+            return true;
         }
     };
 }
