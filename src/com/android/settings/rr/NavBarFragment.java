@@ -57,6 +57,7 @@ public class NavBarFragment extends SettingsPreferenceFragment implements
     private static final String TAG = "NavBarFragment";
     private static final String KEY_NAVIGATION_RECENTS_LONG_PRESS = "navigation_recents_long_press";
 	private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
+    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
     private ListPreference mNavigationRecentsLongPressAction;
     private SwitchPreference mKillAppLongPressBack;
@@ -84,6 +85,13 @@ public class NavBarFragment extends SettingsPreferenceFragment implements
         mLongpressKillDelay.setProgress(killconf);
 		mLongpressKillDelay.setOnPreferenceChangeListener(this);
 
+  	// kill-app long press back
+        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
+        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
+        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
+                KILL_APP_LONGPRESS_BACK, 0);
+        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) 		{
@@ -106,7 +114,11 @@ public class NavBarFragment extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LONG_PRESS_KILL_DELAY, killconf);
             return true;
-		}
+		} else  if (preference == mKillAppLongPressBack) {
+            boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(getContentResolver(), KILL_APP_LONGPRESS_BACK,value ? 1 : 0);
+			return true;
+        }
         return false;
     }
 
