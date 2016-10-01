@@ -17,6 +17,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/power_usage_summary_title"
     settings:keywords="@string/keywords_battery">
 
@@ -53,6 +54,11 @@
             android:fragment="com.android.settings.fuelgauge.BatterySaverSettings"
             android:key="battery_saver_summary"
             android:title="@string/battery_saver"/>
+
+        <!-- Custom perf profiles settings -->
+        <org.lineageos.internal.lineageparts.LineagePartsPreference
+            android:key="perf_profile_settings"
+            lineage:replacesKey="battery_saver_summary" />
 
         <SwitchPreference
             android:key="battery_percentage"
