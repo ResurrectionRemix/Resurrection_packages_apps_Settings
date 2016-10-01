@@ -16,6 +16,7 @@ package com.android.settings.rr;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.design.widget.Snackbar;
@@ -57,13 +58,24 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
    		 mContainer = container;
+		 View mFab;
 
         View view = inflater.inflate(R.layout.rr_main, container, false);
+        mFab = view.findViewById(R.id.floating_action_button);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
+
+        mFab.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             Intent fabIntent = new Intent();
+             fabIntent.setClassName("com.rr.ota", "com.rr.center.OTACenter");
+             startActivity(fabIntent);
+             }
+        });
 
         setHasOptionsMenu(true);
 
