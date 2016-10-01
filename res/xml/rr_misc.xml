@@ -74,6 +74,12 @@
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.rr.ota"
                     android:targetClass="com.rr.center.OTACenter" />
-</PreferenceScreen> 
+	  </PreferenceScreen>
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="rr_ota_fab"
+                android:title="@string/rr_ota_fab_title"
+                android:summary="@string/rr_ota_fab_summary"
+                android:defaultValue="true" />
 
 </PreferenceScreen>

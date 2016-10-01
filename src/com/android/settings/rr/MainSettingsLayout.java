@@ -13,11 +13,15 @@
 */
 package com.android.settings.rr;
 
+import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.design.widget.Snackbar;
 
@@ -28,6 +32,9 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 
 import android.support.v4.view.ViewPager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.ViewAnimationUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -55,6 +62,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     ViewGroup mContainer;
     PagerSlidingTabStrip mTabs;
     SectionsPagerAdapter mSectionsPagerAdapter;
+    protected Context mContext;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
    		 mContainer = container;
@@ -67,19 +75,35 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
+		
+		refreshSettings(mFab);
+        setHasOptionsMenu(true);
+		return view;
 
+		}
+		
+		void refreshSettings(View mFab) {
+		 mContext = getActivity().getApplicationContext();
+		 ContentResolver resolver = getActivity().getContentResolver();
+
+        boolean isShowing =   Settings.System.getInt(resolver,
+		Settings.System.RR_OTA_FAB, 1) == 1;
+		Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.rotate_around_center);
+		Animation animation1 = AnimationUtils.loadAnimation(mContext, R.anim.recent_exit);
         mFab.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
+			 mFab.startAnimation(animation);
              Intent fabIntent = new Intent();
              fabIntent.setClassName("com.rr.ota", "com.rr.center.OTACenter");
              startActivity(fabIntent);
              }
         });
-
-        setHasOptionsMenu(true);
-
-		return view;
+		if (isShowing) {
+		mFab.setVisibility(View.VISIBLE);
+		} else {
+		mFab.setVisibility(View.GONE);
+		}
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
