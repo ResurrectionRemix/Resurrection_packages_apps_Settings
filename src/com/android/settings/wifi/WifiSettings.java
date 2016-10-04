@@ -43,6 +43,7 @@ import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.text.Spannable;
+import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -55,6 +56,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 import android.widget.Toast;
+
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.LinkifyUtils;
@@ -113,6 +115,8 @@ public class WifiSettings extends RestrictedSettingsFragment
     private static final String SAVE_DIALOG_MODE = "dialog_mode";
     private static final String SAVE_DIALOG_ACCESS_POINT_STATE = "wifi_ap_state";
     private static final String SAVED_WIFI_NFC_DIALOG_STATE = "wifi_nfc_dlg_state";
+
+    private static final String PREF_KEY_EMPTY_WIFI_LIST = "wifi_empty_list";
 
     protected WifiManager mWifiManager;
     private WifiManager.ActionListener mConnectListener;
@@ -647,7 +651,6 @@ public class WifiSettings extends RestrictedSettingsFragment
                 // AccessPoints are automatically sorted with TreeSet.
                 final Collection<AccessPoint> accessPoints =
                         mWifiTracker.getAccessPoints();
-                getPreferenceScreen().removeAll();
 
                 boolean hasAvailableAccessPoints = false;
                 int index = 0;
@@ -656,6 +659,9 @@ public class WifiSettings extends RestrictedSettingsFragment
                     // Ignore access points that are out of range.
                     if (accessPoint.getLevel() != -1) {
                         String key = accessPoint.getBssid();
+                        if (TextUtils.isEmpty(key)) {
+                            key = accessPoint.getSsidStr();
+                        }
                         hasAvailableAccessPoints = true;
                         LongPressAccessPointPreference pref = (LongPressAccessPointPreference)
                                 getCachedPreference(key);
@@ -693,6 +699,7 @@ public class WifiSettings extends RestrictedSettingsFragment
                     pref.setSelectable(false);
                     pref.setSummary(R.string.wifi_empty_list_wifi_on);
                     pref.setOrder(0);
+                    pref.setKey(PREF_KEY_EMPTY_WIFI_LIST);
                     getPreferenceScreen().addPreference(pref);
                     mAddPreference.setOrder(1);
                     getPreferenceScreen().addPreference(mAddPreference);
@@ -903,8 +910,19 @@ public class WifiSettings extends RestrictedSettingsFragment
     }
 
     @Override
-    public void onAccessPointChanged(AccessPoint accessPoint) {
-        ((LongPressAccessPointPreference) accessPoint.getTag()).refresh();
+    public void onAccessPointChanged(final AccessPoint accessPoint) {
+        View view = getView();
+        if (view != null) {
+            view.post(new Runnable() {
+                @Override
+                public void run() {
+                    Object tag = accessPoint.getTag();
+                    if (tag != null) {
+                        ((LongPressAccessPointPreference) tag).refresh();
+                    }
+                }
+            });
+        }
     }
 
     @Override

@@ -231,7 +231,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 getPreferenceScreen().removePreference(pref);
             }
         }
-        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.0_r6 - NRD90U");
+        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.0_r14 - NBD90Z");
     }
 
     @Override
