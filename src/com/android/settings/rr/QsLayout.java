@@ -79,7 +79,7 @@ public class QsLayout extends SettingsPreferenceFragment implements
           mColumnsPortrait =
                   (ListPreference) findPreference(PREF_COLUMNS_PORTRAIT);
           int columnsPortrait = Settings.System.getInt(resolver,
-                  Settings.System.QS_COLUMNS_PORTRAIT, 5);
+                  Settings.System.QS_COLUMNS_PORTRAIT, 3);
           mColumnsPortrait.setValue(String.valueOf(columnsPortrait));
           mColumnsPortrait.setSummary(mColumnsPortrait.getEntry());
           mColumnsPortrait.setOnPreferenceChangeListener(this);
