@@ -20,6 +20,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notification_drawer_title">
 
+
+      <PreferenceScreen
+        android:key="rr_trans"
+        android:fragment="com.android.settings.rr.TransparencySettings"
+        android:title="@string/rr_trans_title"
+		android:icon="@drawable/rr_transparency_icon"
+       />
+
       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
@@ -31,5 +39,6 @@
         android:title="@string/disable_immersive_message_title"
         android:summary="@string/disable_immersive_message_summary"
         android:persistent="false" />
+
 
 </PreferenceScreen>
