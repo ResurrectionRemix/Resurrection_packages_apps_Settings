@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 RR
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/qs_tile_layout">
+
+     <PreferenceCategory
+        android:title="@string/rr_qs_layout"
+        android:key="qs_layout">
+
+          <ListPreference
+              android:key="qs_rows_portrait"
+              android:title="@string/qs_port_rows_title"
+              android:entries="@array/qs_rows_portrait_entries"
+              android:entryValues="@array/qs_rows_portrait_values" />
+  
+          <ListPreference
+              android:key="qs_columns_portrait"
+              android:title="@string/qs_port_columns_title"
+              android:entries="@array/qs_columns_portrait_entries"
+              android:entryValues="@array/qs_columns_portrait_values" />
+  
+          <ListPreference
+              android:key="qs_rows_landscape"
+              android:title="@string/qs_land_rows_title"
+              android:entries="@array/qs_rows_landscape_entries"
+              android:entryValues="@array/qs_rows_landscape_values" />
+  
+          <ListPreference
+              android:key="qs_columns_landscape"
+              android:title="@string/qs_land_columns_title"
+              android:entries="@array/qs_columns_landscape_entries"
+              android:entryValues="@array/qs_columns_landscape_values" />
+
+</PreferenceCategory>
+
+</PreferenceScreen>

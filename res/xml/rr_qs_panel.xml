@@ -34,6 +34,13 @@
 			android:icon="@drawable/rr_qs_pulldown_icon"
             />
 
+        <PreferenceScreen
+            android:key="rr_qs_layout"
+            android:fragment="com.android.settings.rr.QsLayout"
+            android:title="@string/qs_tile_layout"
+			android:icon="@drawable/rr_qs_layout_icon"
+            />
+
         <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"

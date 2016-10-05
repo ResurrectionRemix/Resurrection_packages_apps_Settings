@@ -1,4 +1,4 @@
-package com.lordclockan.aicpextras;
+package com.android.settings.rr;
 
 import android.app.Activity;
 import android.content.ContentResolver;
