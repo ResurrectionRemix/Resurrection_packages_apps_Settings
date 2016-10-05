@@ -56,7 +56,7 @@ public class QsLayout extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-          addPreferencesFromResource(R.xml.rr_qs_animations);
+          addPreferencesFromResource(R.xml.rr_qs_layout);
 
 		  mContext = getActivity().getApplicationContext();
 
