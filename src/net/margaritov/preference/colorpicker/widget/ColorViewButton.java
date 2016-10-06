@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2016 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.margaritov.preference.colorpicker;
+package net.margaritov.preference.colorpicker.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -28,13 +28,15 @@ import android.util.AttributeSet;
 
 import com.android.settings.R;
 
+import net.margaritov.preference.colorpicker.drawable.ColorViewCircleDrawable;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class ColorViewButton extends LinearLayout {
 
 	private ImageView mColorView;
 	private TextView mHexView;
 
-	private int mBorderColor = 0xff6E6E6E;
-	private int mColor = Color.WHITE;
+	private ColorViewCircleDrawable mColorPreview;
 
 	public ColorViewButton(Context context) {
 		this(context, null);
@@ -56,39 +58,47 @@ public class ColorViewButton extends LinearLayout {
 
 	    mColorView = (ImageView) findViewById(R.id.color_button_color);
 	    mHexView = (TextView) findViewById(R.id.color_button_hex);
-        mColorView.setImageDrawable(new ColorViewCircleDrawable(getContext(), drawableSize));
+        mColorPreview = new ColorViewCircleDrawable(getContext(), drawableSize);
+
+        mColorView.setImageDrawable(mColorPreview);
     }
 
 	public void setColor(int color) {
-		mColor = color;
-        if (mColorView == null || mHexView == null) {
+        if (mColorView == null || mHexView == null || mColorPreview == null) {
             return;
         }
-        ((ColorViewCircleDrawable) mColorView.getDrawable()).setColor(mColor);
-        mHexView.setText(ColorPickerPreference.convertToARGB(mColor));
+        mColorPreview.setColor(color);
+        mHexView.setText(ColorPickerPreference.convertToARGB(color));
 	}
 
 	public int getColor() {
-		return mColor;
+        if (mColorPreview == null) {
+            return Color.BLACK;
+        } else {
+		    return mColorPreview.getColor();
+        }
 	}
 
 	public void setBorderColor(int color) {
-		mBorderColor = color;
-        if (mColorView == null) {
+        if (mColorPreview == null) {
             return;
         }
-        ((ColorViewCircleDrawable) mColorView.getDrawable()).setBorderColor(mBorderColor);
+        mColorPreview.setBorderColor(color);
 	}
 
 	public int getBorderColor() {
-		return mBorderColor;
+        if (mColorPreview == null) {
+            return 0xff6E6E6E;
+        } else {
+		    return mColorPreview.getBorderColor();
+        }
 	}
 
     public void setShowFavoriteIcon(boolean show) {
-        if (mColorView == null || mHexView == null) {
+        if (mColorView == null || mHexView == null || mColorPreview == null) {
             return;
         }
-        ((ColorViewCircleDrawable) mColorView.getDrawable()).setShowFavoriteIcon(show);
+        mColorPreview.setShowFavoriteIcon(show);
         if (show) {
             mHexView.setText(getContext().getResources().getString(R.string.empty_title));
         }

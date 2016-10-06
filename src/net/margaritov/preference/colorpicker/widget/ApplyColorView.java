@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2016 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.margaritov.preference.colorpicker;
+package net.margaritov.preference.colorpicker.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -26,13 +26,16 @@ import android.view.View;
 
 import com.android.settings.R;
 
+import net.margaritov.preference.colorpicker.drawable.ColorViewCircleDrawable;
+
 public class ApplyColorView extends FrameLayout {
 
 	private ImageView mColorView;
 	private ImageView mColorSet;
 
-	private int mBorderColor = 0xff6E6E6E;
-	private int mColor = Color.WHITE;
+	private ColorViewCircleDrawable mColorPreview;
+
+	private int mBorderColor;
 
 	public ApplyColorView(Context context) {
 		this(context, null);
@@ -51,30 +54,37 @@ public class ApplyColorView extends FrameLayout {
         super.onFinishInflate();
         final Resources res = getContext().getResources();
         final int drawableSize = (int) res.getDimension(R.dimen.color_picker_button_drawable_size);
+        mBorderColor = res.getColor(R.color.color_picker_color_view_drawable_border);
 
 	    mColorView = (ImageView) findViewById(R.id.apply_color_action_color);
 	    mColorSet = (ImageView) findViewById(R.id.apply_color_action_set);
-        mColorView.setImageDrawable(new ColorViewCircleDrawable(getContext(), drawableSize));
+        mColorPreview = new ColorViewCircleDrawable(getContext(), drawableSize);
+
+        mColorPreview.setBorderColor(mBorderColor);
+        mColorView.setImageDrawable(mColorPreview);
     }
 
 	public void setColor(int color) {
-		mColor = color;
-        if (mColorView == null) {
+        if (mColorPreview == null) {
             return;
         }
-        ((ColorViewCircleDrawable) mColorView.getDrawable()).setColor(mColor);
+        mColorPreview.setColor(color);
 	}
 
 	public int getColor() {
-		return mColor;
+        if (mColorPreview == null) {
+            return Color.BLACK;
+        } else {
+		    return mColorPreview.getColor();
+        }
 	}
 
 	public void setBorderColor(int color) {
-		mBorderColor = color;
-        if (mColorView == null) {
+        if (mColorPreview == null) {
             return;
         }
-        ((ColorViewCircleDrawable) mColorView.getDrawable()).setBorderColor(mBorderColor);
+		mBorderColor = color;
+        mColorPreview.setBorderColor(mBorderColor);
 	}
 
 	public int getBorderColor() {

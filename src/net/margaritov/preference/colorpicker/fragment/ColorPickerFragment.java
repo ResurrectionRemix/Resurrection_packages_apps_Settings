@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2016 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package net.margaritov.preference.colorpicker;
+package net.margaritov.preference.colorpicker.fragment;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -32,7 +31,7 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.ContextThemeWrapper;
+import android.util.TypedValue;
 import android.view.inputmethod.InputMethodManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,9 +50,13 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.android.internal.util.rr.ColorHelper;
-
 import com.android.settings.R;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import net.margaritov.preference.colorpicker.widget.ApplyColorView;
+import net.margaritov.preference.colorpicker.widget.ColorPickerView;
+import net.margaritov.preference.colorpicker.widget.ColorViewButton;
+import net.margaritov.preference.colorpicker.util.ColorPickerHelper;
 
 public class ColorPickerFragment extends Fragment implements
         ColorPickerView.OnColorChangedListener, TextWatcher, View.OnClickListener,
@@ -61,8 +64,6 @@ public class ColorPickerFragment extends Fragment implements
 
     private static final String PREFERENCE_NAME  =
             "color_picker_fragment";
-    private static final String PREFERENCE_FALLBACK_NAME  =
-            "color_picker_dialog";
     private static final String SHOW_FAVORITES =
             "show_favorites";
     private static final String SHOW_HELP_SCREEN  =
@@ -84,7 +85,6 @@ public class ColorPickerFragment extends Fragment implements
     private static final int HELP_SCREEN_VISIBILITY = 3;
 
     private SharedPreferences mPrefs;
-    private SharedPreferences mFallbackPrefs;
     private Resources mResources;
 
     private ApplyColorView mApplyColorAction;
@@ -118,6 +118,7 @@ public class ColorPickerFragment extends Fragment implements
     private boolean mHelpScreenVisible;
     private int mApplyColorIconAnimationType;
     private int mAnimationType;
+    private int mBorderColor;
 
     private Animator mAnimator;
 
@@ -149,8 +150,6 @@ public class ColorPickerFragment extends Fragment implements
             Bundle savedInstanceState) {
 
         mPrefs = getActivity().getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
-        mFallbackPrefs = getActivity().getSharedPreferences(
-                PREFERENCE_FALLBACK_NAME, Activity.MODE_PRIVATE);
         mResources = getActivity().getResources();
 
 		mFullTranslationX = mResources.getDimension(
@@ -173,11 +172,15 @@ public class ColorPickerFragment extends Fragment implements
             }
         }
 
-        final Context contextThemeWrapper = new ContextThemeWrapper(
-                getActivity(), R.style.Theme_ColorPickerFragment);
-        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+        TypedValue tv = new TypedValue();
+        getActivity().getTheme().resolveAttribute(android.R.attr.colorControlHighlight, tv, true);
+        if (tv.type >= TypedValue.TYPE_FIRST_COLOR_INT && tv.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            mBorderColor = tv.data;
+        } else {
+            mBorderColor = mResources.getColor(tv.resourceId);
+        }
 
-        mColorPickerView = localInflater.inflate(R.layout.color_picker_fragment, container, false);
+        mColorPickerView = inflater.inflate(R.layout.color_picker_fragment, container, false);
         mColorPicker = (ColorPickerView) mColorPickerView.findViewById(R.id.color_picker_view);
         mColorButtonsLayout = (LinearLayout) mColorPickerView.findViewById(
                 R.id.color_picker_color_buttons_layout);
@@ -186,6 +189,7 @@ public class ColorPickerFragment extends Fragment implements
 
         mColorPicker.setOnColorChangedListener(this);
         mColorPicker.setColor(mInitialColor);
+        mColorPicker.setBorderColor(mBorderColor);
 
         if (alphaSliderVisible) {
             mColorPicker.setAlphaSliderVisible(alphaSliderVisible);
@@ -257,20 +261,15 @@ public class ColorPickerFragment extends Fragment implements
 
         MenuItem showHideFavorites = menu.findItem(R.id.show_hide_favorites);
         int favoritesTitleResId;
-        int favoritesIconResId;
         if (mShowFavorites) {
             favoritesTitleResId = R.string.hide_favorites_title;
-            favoritesIconResId = R.drawable.ic_hide_favorites;
         } else {
             favoritesTitleResId = R.string.show_favorites_title;
-            favoritesIconResId = R.drawable.ic_show_favorites;
         }
         showHideFavorites.setTitle(mResources.getString(favoritesTitleResId));
-        showHideFavorites.setIcon(mResources.getDrawable(favoritesIconResId));
 
         MenuItem showHideHelp = menu.findItem(R.id.show_hide_help);
         int helpTitleResId;
-        int iconResId;
         if (mHelpScreenVisible) {
             helpTitleResId = R.string.hide_help_title;
         } else {
@@ -286,7 +285,7 @@ public class ColorPickerFragment extends Fragment implements
             @Override public void onAnimationUpdate(ValueAnimator animation) {
                 float position = animation.getAnimatedFraction();
                 if (mAnimationType == COLOR_TRANSITION) {
-                    int blended = ColorHelper.getBlendColor(mOldColorValue, mNewColorValue, position);
+                    int blended = ColorPickerHelper.getBlendColor(mOldColorValue, mNewColorValue, position);
                     mApplyColorAction.setColor(blended);
                     if (mApplyColorIconAnimationType != NONE) {
                         final boolean animateShow = mApplyColorIconAnimationType == SHOW;
@@ -380,6 +379,7 @@ public class ColorPickerFragment extends Fragment implements
             String tag = String.valueOf(buttonNumber);
             ColorViewButton button = (ColorViewButton) mColorPickerView.findViewById(resId);
             button.setTag(tag);
+            button.setBorderColor(mBorderColor);
             button.setOnLongClickListener(this);
             if (getFavoriteButtonValue(button) != 0) {
                 button.setColor(getFavoriteButtonValue(button));
@@ -438,6 +438,7 @@ public class ColorPickerFragment extends Fragment implements
                 int buttonResId = buttons.getResourceId(j, 0);
                 ColorViewButton button = (ColorViewButton) layout.findViewById(buttonResId);
                 button.setColor(mResources.getColor(colors.getResourceId(j, 0)));
+                button.setBorderColor(mBorderColor);
                 button.setOnClickListener(this);
             }
         }
@@ -638,8 +639,7 @@ public class ColorPickerFragment extends Fragment implements
     }
 
     private boolean getShowFavorites() {
-        boolean fallback = mFallbackPrefs.getBoolean("favorites_visible", true);
-        return mPrefs.getBoolean(SHOW_FAVORITES, fallback);
+        return mPrefs.getBoolean(SHOW_FAVORITES, true);
     }
 
     private void writeFavoriteButtonValue(ColorViewButton button) {
@@ -648,8 +648,7 @@ public class ColorPickerFragment extends Fragment implements
     }
 
     private int getFavoriteButtonValue(ColorViewButton button) {
-        int fallback = mFallbackPrefs.getInt(FAVORITE_COLOR_BUTTON + (String) button.getTag(), 0);
-        return mPrefs.getInt(FAVORITE_COLOR_BUTTON + (String) button.getTag(), fallback);
+        return mPrefs.getInt(FAVORITE_COLOR_BUTTON + (String) button.getTag(), 0);
     }
 
     private void writeShowHelpScreen(boolean show) {
@@ -657,8 +656,7 @@ public class ColorPickerFragment extends Fragment implements
     }
 
     private boolean getShowHelpScreen() {
-        boolean fallback = mFallbackPrefs.getBoolean(SHOW_HELP_SCREEN, true);
-        return mPrefs.getBoolean(SHOW_HELP_SCREEN, fallback);
+        return mPrefs.getBoolean(SHOW_HELP_SCREEN, true);
     }
 
     @Override

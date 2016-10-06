@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2013 The Android Open Source Project
  *
- * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2016 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package net.margaritov.preference.colorpicker;
+package net.margaritov.preference.colorpicker.drawable;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -36,9 +36,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
-import com.android.internal.util.rr.ImageHelper;
-
 import com.android.settings.R;
+
+import net.margaritov.preference.colorpicker.util.ColorPickerHelper;
 
 public class ColorViewCircleDrawable extends Drawable {
 	private static final int sNumRectangles = 6;
@@ -47,7 +47,7 @@ public class ColorViewCircleDrawable extends Drawable {
     private final float mBorderWidth;
 
     private int mColor;
-    private int mBorderColor;
+    private int mBorderColor = 0xff6E6E6E;
 
     private Paint mPaint;
 	private Paint mPaintWhite;
@@ -66,10 +66,9 @@ public class ColorViewCircleDrawable extends Drawable {
         Resources res = context.getResources();
 
         mSize = size;
-		mBorderWidth = res.getDimension(R.dimen.color_picker_color_view_drawable_boarder_width);
+		mBorderWidth = res.getDimension(R.dimen.color_picker_color_view_drawable_border_width);
 
         mColor = Color.BLACK;
-        mBorderColor = res.getColor(R.color.color_picker_color_view_drawable_boarder);
 
 		mPaintWhite = new Paint();
 		mPaintWhite.setAntiAlias(true);
@@ -92,7 +91,7 @@ public class ColorViewCircleDrawable extends Drawable {
 		mBorderPaint.setStrokeWidth(mBorderWidth);
 		mBorderPaint.setStyle(Paint.Style.STROKE);
 
-        mFavoriteBitmap = ImageHelper.drawableToBitmap(res.getDrawable(R.drawable.ic_favorite_emty));
+        mFavoriteBitmap = ColorPickerHelper.drawableToBitmap(res.getDrawable(R.drawable.ic_favorite_emty));
         mShowFavoriteIcon = false;
     }
 
@@ -133,10 +132,18 @@ public class ColorViewCircleDrawable extends Drawable {
         invalidateSelf();
     }
 
+    public int getColor() {
+        return mColor;
+    }
+
     public void setBorderColor(int color) {
         mBorderColor = color;
 		mBorderPaint.setColor(mBorderColor);
         invalidateSelf();
+    }
+
+    public int getBorderColor() {
+        return mBorderColor;
     }
 
     public void setShowFavoriteIcon(boolean show) {

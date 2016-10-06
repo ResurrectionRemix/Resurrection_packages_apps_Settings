@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package net.darkkatrom.colorpicker.preference;
+package net.margaritov.preference.colorpicker;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -40,8 +40,8 @@ import android.widget.LinearLayout;
 import com.android.settings.SettingsActivity;
 import com.android.settings.R;
 
-import net.darkkatrom.colorpicker.drawable.ColorViewCircleDrawable;
-import net.darkkatrom.colorpicker.fragment.ColorPickerFragment;
+import net.margaritov.preference.colorpicker.drawable.ColorViewCircleDrawable;
+import net.margaritov.preference.colorpicker.fragment.ColorPickerFragment;
 
 /**
  * A preference type that allows a user to choose a color
@@ -55,7 +55,6 @@ public class ColorPickerPreference extends Preference implements
     private static final String sAndroidns = "http://schemas.android.com/apk/res/android";
 
     private PreferenceViewHolder mViewHolder;
-    private View mPreview;
 
     private ColorPickerFragment mPickerFragment;
 
@@ -66,7 +65,7 @@ public class ColorPickerPreference extends Preference implements
     private String mResetColor1Title = null;
     private String mResetColor2Title = null;
     private int mValue;
-    private boolean mAlphaSliderVisible = false;
+    private boolean mAlphaSliderVisible = true;
 
     public ColorPickerPreference(Context context) {
         this(context, null);
@@ -99,7 +98,7 @@ public class ColorPickerPreference extends Preference implements
             mResetColor1Title = a.getString(R.styleable.ColorPickerPreference_resetColor1Title);
             mResetColor2Title = a.getString(R.styleable.ColorPickerPreference_resetColor2Title);
             mAlphaSliderVisible = a.getBoolean(
-                    R.styleable.ColorPickerPreference_alphaSliderVisible, false);
+                    R.styleable.ColorPickerPreference_alphaSliderVisible, true);
             a.recycle();
 
             if (mDefaultValue == Color.TRANSPARENT) {
@@ -150,6 +149,7 @@ public class ColorPickerPreference extends Preference implements
             return;
         }
 
+        widgetFrameView.removeAllViews();
         float density = mResources.getDisplayMetrics().density;
         final int size = (int) mResources.getDimension(
                 R.dimen.color_picker_preference_preview_width_height);
@@ -163,18 +163,18 @@ public class ColorPickerPreference extends Preference implements
             borderColor = mResources.getColor(tv.resourceId);
         }
 
-        mPreview = new View(getContext());
+        View preview = new View(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
         ColorViewCircleDrawable drawable = new ColorViewCircleDrawable(getContext(), size);
 
         widgetFrameView.setVisibility(View.VISIBLE);
         widgetFrameView.setPadding(widgetFrameView.getPaddingLeft(), widgetFrameView.getPaddingTop(),
                 (int) (density * 8), widgetFrameView.getPaddingBottom());
-        mPreview.setLayoutParams(lp);
-        drawable.setColor(getValue());
+        preview.setLayoutParams(lp);
+        drawable.setColor(mValue);
         drawable.setBorderColor(borderColor);
-        mPreview.setBackground(drawable);
-        widgetFrameView.addView(mPreview);
+        preview.setBackground(drawable);
+        widgetFrameView.addView(preview);
         widgetFrameView.setMinimumWidth(0);
     }
 
@@ -196,13 +196,11 @@ public class ColorPickerPreference extends Preference implements
             persistInt(color);
         }
         mValue = color;
-        if (mPreview != null) {
-            ((ColorViewCircleDrawable) mPreview.getBackground()).setColor(color);
-        }
         try {
             getOnPreferenceChangeListener().onPreferenceChange(this, color);
         } catch (NullPointerException e) {
         }
+        setPreview();
     }
 
     @Override
@@ -254,11 +252,11 @@ public class ColorPickerPreference extends Preference implements
             boolean showHelpScreen = prefs.getBoolean("show_help_screen", true);
             arguments = new Bundle();
 
-            arguments.putInt("new_color", getValue());
-            arguments.putInt("old_color", getValue());
+            arguments.putInt("new_color", mValue);
+            arguments.putInt("old_color", mValue);
             arguments.putBoolean("help_screen_visible", showHelpScreen);
         }
-        arguments.putInt("initial_color", getValue());
+        arguments.putInt("initial_color", mValue);
         arguments.putInt("reset_color_1", mResetColor1);
         arguments.putInt("reset_color_2", mResetColor2);
         arguments.putCharSequence("reset_color_1_title", mResetColor1Title);
@@ -446,4 +444,3 @@ public class ColorPickerPreference extends Preference implements
         };
     }
 }
-

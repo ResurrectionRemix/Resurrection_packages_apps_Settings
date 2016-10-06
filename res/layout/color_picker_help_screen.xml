@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/color_picker_help_screen_main_title_text_size"
-                android:textColor="@color/theme_accent"
+                android:textColor="?android:attr/colorAccent"
                 android:text="@string/color_picker_help_ab_title"
                 android:singleLine="true" />
 
@@ -122,6 +122,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/color_picker_help_screen_secondary_title_margin_top"
+                android:textSize="@dimen/color_picker_help_screen_title_text_size"
+                android:textColor="@color/white"
+                android:text="@string/color_picker_help_ab_hex_title"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/color_picker_help_screen_summary_margin_top"
+                android:textSize="@dimen/color_picker_help_screen_summary_text_size"
+                android:textColor="@color/color_picker_help_summary_text_color"
+                android:text="@string/color_picker_help_ab_hex_summary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/color_picker_help_screen_title_margin_top"
                 android:textSize="@dimen/color_picker_help_screen_title_text_size"
                 android:textColor="@color/white"
@@ -144,23 +161,6 @@
                 android:textSize="@dimen/color_picker_help_screen_summary_text_size"
                 android:textColor="@color/color_picker_help_summary_text_color"
                 android:text="@string/color_picker_help_ab_menu_reset_summary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/color_picker_help_screen_secondary_title_margin_top"
-                android:textSize="@dimen/color_picker_help_screen_secondary_title_text_size"
-                android:textColor="@color/white"
-                android:text="@string/color_picker_help_ab_menu_hex_title"
-                android:singleLine="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/color_picker_help_screen_summary_margin_top"
-                android:textSize="@dimen/color_picker_help_screen_summary_text_size"
-                android:textColor="@color/color_picker_help_summary_text_color"
-                android:text="@string/color_picker_help_ab_menu_hex_summary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/color_picker_help_screen_main_title_text_margin_top"
                 android:textSize="@dimen/color_picker_help_screen_main_title_text_size"
-                android:textColor="@color/theme_accent"
+                android:textColor="?android:attr/colorAccent"
                 android:text="@string/color_picker_help_colors_title"
                 android:singleLine="true" />
 
