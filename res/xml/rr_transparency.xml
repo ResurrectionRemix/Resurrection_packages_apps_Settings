@@ -49,6 +49,11 @@
         android:entryValues="@array/qs_stroke_values"
         android:defaultValue="0" />
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="qs_stroke_color"
+        android:title="@string/qs_stroke_color_title"
+        android:defaultValue="0xff80cbc4"/>
+
     <com.android.settings.SeekBarPreference
         android:key="qs_stroke_thickness"
         android:title="@string/qs_stroke_thickness_title"
@@ -111,6 +116,11 @@
         android:entries="@array/volume_dialog_stroke_entries"
         android:entryValues="@array/volume_dialog_stroke_values"
         android:defaultValue="0" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="volume_dialog_stroke_color"
+        android:title="@string/volume_dialog_stroke_color_title"
+        android:defaultValue="0xffffffff" />
 
     <com.android.settings.SeekBarPreference
         android:key="volume_dialog_stroke_thickness"
