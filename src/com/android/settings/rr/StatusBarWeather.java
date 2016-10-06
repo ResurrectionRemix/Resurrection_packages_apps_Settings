@@ -51,11 +51,13 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private static final String STATUS_BAR_TEMPERATURE = "status_bar_temperature";
     private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
     private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
+	private static final String PREF_STATUS_BAR_WEATHER_COLOR = "status_bar_weather_color";
 
 
     private ListPreference mStatusBarTemperature;
     private SeekBarPreference mStatusBarTemperatureSize;
     private ListPreference mStatusBarTemperatureFontStyle;
+    private ColorPickerPreference mStatusBarTemperatureColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,15 @@ public class StatusBarWeather extends SettingsPreferenceFragment
         mStatusBarTemperatureFontStyle.setValue(Integer.toString(Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0)));
         mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntry());
+
+        mStatusBarTemperatureColor =
+            (ColorPickerPreference) findPreference(PREF_STATUS_BAR_WEATHER_COLOR);
+        mStatusBarTemperatureColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_WEATHER_COLOR, 0xffffffff);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mStatusBarTemperatureColor.setSummary(hexColor);
+            mStatusBarTemperatureColor.setNewPreviewColor(intColor);
 
 
 
@@ -114,7 +125,15 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                     Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, val);
             mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntries()[index]);
             return true;
-        } 
+        } else if (preference == mStatusBarTemperatureColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_WEATHER_COLOR, intHex);
+            return true;
+        }
         return false;
     }
 
@@ -123,9 +142,11 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0) == 0) {
             mStatusBarTemperatureSize.setEnabled(false);
             mStatusBarTemperatureFontStyle.setEnabled(false);
+			mStatusBarTemperatureColor.setEnabled(false);
         } else {
             mStatusBarTemperatureSize.setEnabled(true);
             mStatusBarTemperatureFontStyle.setEnabled(true);
+			mStatusBarTemperatureColor.setEnabled(true);
         }
     }
 

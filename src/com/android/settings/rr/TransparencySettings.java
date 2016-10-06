@@ -26,18 +26,18 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
         private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
-        //private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
+        private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
         private static final String PREF_TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
         private static final String PREF_TRANSPARENT_POWER_MENU = "transparent_power_menu";
         private static final String PREF_TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
         private static final String PREF_VOLUME_DIALOG_STROKE = "volume_dialog_stroke";
-        //private static final String PREF_VOLUME_DIALOG_STROKE_COLOR = "volume_dialog_stroke_color";
+        private static final String PREF_VOLUME_DIALOG_STROKE_COLOR = "volume_dialog_stroke_color";
         private static final String PREF_VOLUME_DIALOG_STROKE_THICKNESS = "volume_dialog_stroke_thickness";
         private static final String PREF_VOLUME_DIALOG_CORNER_RADIUS = "volume_dialog_corner_radius";
         private static final String PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH = "volume_dialog_dash_width";
         private static final String PREF_VOLUME_DIALOG_STROKE_DASH_GAP = "volume_dialog_dash_gap";
         private static final String PREF_QS_STROKE = "qs_stroke";
-       // private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
+        private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
         private static final String PREF_QS_STROKE_THICKNESS = "qs_stroke_thickness";
         private static final String PREF_QS_CORNER_RADIUS = "qs_corner_radius";
         private static final String PREF_QS_STROKE_DASH_WIDTH = "qs_dash_width";
@@ -126,14 +126,14 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
             mVolumeDialogStroke.setOnPreferenceChangeListener(this);
 
             // Volume dialog stroke color
-            /*mVolumeDialogStrokeColor =
+            mVolumeDialogStrokeColor =
                     (ColorPickerPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_COLOR);
             mVolumeDialogStrokeColor.setOnPreferenceChangeListener(this);
             int intColor = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_COLOR, DEFAULT_VOLUME_DIALOG_STROKE_COLOR);
             String hexColor = String.format("#%08x", (0xFF80CBC4 & intColor));
             mVolumeDialogStrokeColor.setSummary(hexColor);
-            mVolumeDialogStrokeColor.setNewPreviewColor(intColor);*/
+            mVolumeDialogStrokeColor.setNewPreviewColor(intColor);
 
             // Volume dialog stroke thickness
             mVolumeDialogStrokeThickness =
@@ -181,15 +181,15 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
             mQSStroke.setSummary(mQSStroke.getEntry());
             mQSStroke.setOnPreferenceChangeListener(this);
 
-            // QS stroke color
-           /* mQSStrokeColor =
+           // QS stroke color
+            mQSStrokeColor =
                     (ColorPickerPreference) findPreference(PREF_QS_STROKE_COLOR);
             mQSStrokeColor.setOnPreferenceChangeListener(this);
             int qSIntColor = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_COLOR, DEFAULT_QS_STROKE_COLOR);
             String qSHexColor = String.format("#%08x", (0xFF80CBC4 & qSIntColor));
             mQSStrokeColor.setSummary(qSHexColor);
-            mQSStrokeColor.setNewPreviewColor(qSIntColor);*/
+            mQSStrokeColor.setNewPreviewColor(qSIntColor);
 
             // QS stroke thickness
             mQSStrokeThickness =
@@ -281,7 +281,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 mVolumeDialogStroke.setSummary(mVolumeDialogStroke.getEntries()[index]);
                 VolumeDialogSettingsDisabler(volumeDialogStroke);
                 return true;
-            } /*else if (preference == mVolumeDialogStrokeColor) {
+            } else if (preference == mVolumeDialogStrokeColor) {
                 String hex = ColorPickerPreference.convertToARGB(
                         Integer.valueOf(String.valueOf(newValue)));
                 preference.setSummary(hex);
@@ -289,7 +289,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 Settings.System.putInt(resolver,
                         Settings.System.VOLUME_DIALOG_STROKE_COLOR, intHex);
                 return true;
-            } */else if (preference == mVolumeDialogStrokeThickness) {
+            } else if (preference == mVolumeDialogStrokeThickness) {
                 int val = (Integer) newValue;
                 Settings.System.putInt(resolver,
                         Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, val * 1);
@@ -317,7 +317,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 mQSStroke.setSummary(mQSStroke.getEntries()[index]);
                 QSSettingsDisabler(qSStroke);
                 return true;
-            }/* else if (preference == mQSStrokeColor) {
+            } else if (preference == mQSStrokeColor) {
                 String hex = ColorPickerPreference.convertToARGB(
                         Integer.valueOf(String.valueOf(newValue)));
                 preference.setSummary(hex);
@@ -325,7 +325,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 Settings.System.putInt(resolver,
                         Settings.System.QS_STROKE_COLOR, intHex);
                 return true;
-            } */else if (preference == mQSStrokeThickness) {
+            } else if (preference == mQSStrokeThickness) {
                 int val = (Integer) newValue;
                 Settings.System.putInt(resolver,
                         Settings.System.QS_STROKE_THICKNESS, val * 1);
@@ -356,14 +356,17 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
         private void VolumeDialogSettingsDisabler(int volumeDialogStroke) {
             if (volumeDialogStroke == 0) {
+				mVolumeDialogStrokeColor.setEnabled(false);
                 mVolumeDialogStrokeThickness.setEnabled(false);
                 mVolumeDialogDashWidth.setEnabled(false);
                 mVolumeDialogDashGap.setEnabled(false);
             } else if (volumeDialogStroke == 1) {
+				mVolumeDialogStrokeColor.setEnabled(false);
                 mVolumeDialogStrokeThickness.setEnabled(true);
                 mVolumeDialogDashWidth.setEnabled(true);
                 mVolumeDialogDashGap.setEnabled(true);
             } else {
+				mVolumeDialogStrokeColor.setEnabled(true);
                 mVolumeDialogStrokeThickness.setEnabled(true);
                 mVolumeDialogDashWidth.setEnabled(true);
                 mVolumeDialogDashGap.setEnabled(true);
@@ -377,11 +380,13 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 mQSDashWidth.setEnabled(false);
                 mQSDashGap.setEnabled(false);
             } else if (qSStroke == 1) {
+				mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(true);
                 mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);
                 mQSDashGap.setEnabled(true);
             } else {
+				mQSStrokeColor.setEnabled(true);
                 mQSStrokeThickness.setEnabled(true);
                 mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);

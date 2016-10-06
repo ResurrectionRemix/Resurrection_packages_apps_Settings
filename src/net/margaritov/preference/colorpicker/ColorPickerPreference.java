@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2011 Sergey Margaritov
  * Copyright (C) 2013 Slimroms
- * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2016 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package net.margaritov.preference.colorpicker;
+package net.darkkatrom.colorpicker.preference;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -28,14 +28,20 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.preference.Preference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.android.settings.SettingsActivity;
 import com.android.settings.R;
+
+import net.darkkatrom.colorpicker.drawable.ColorViewCircleDrawable;
+import net.darkkatrom.colorpicker.fragment.ColorPickerFragment;
 
 /**
  * A preference type that allows a user to choose a color
@@ -48,7 +54,7 @@ public class ColorPickerPreference extends Preference implements
 
     private static final String sAndroidns = "http://schemas.android.com/apk/res/android";
 
-    private View mView;
+    private PreferenceViewHolder mViewHolder;
     private View mPreview;
 
     private ColorPickerFragment mPickerFragment;
@@ -60,14 +66,14 @@ public class ColorPickerPreference extends Preference implements
     private String mResetColor1Title = null;
     private String mResetColor2Title = null;
     private int mValue;
-    private boolean mAlphaSliderVisible = true;
+    private boolean mAlphaSliderVisible = false;
 
     public ColorPickerPreference(Context context) {
         this(context, null);
     }
 
     public ColorPickerPreference(Context context, AttributeSet attrs) {
-        this(context, attrs, com.android.internal.R.attr.preferenceStyle);
+        this(context, attrs, android.R.attr.preferenceStyle);
     }
 
     public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -93,7 +99,7 @@ public class ColorPickerPreference extends Preference implements
             mResetColor1Title = a.getString(R.styleable.ColorPickerPreference_resetColor1Title);
             mResetColor2Title = a.getString(R.styleable.ColorPickerPreference_resetColor2Title);
             mAlphaSliderVisible = a.getBoolean(
-                    R.styleable.ColorPickerPreference_alphaSliderVisible, true);
+                    R.styleable.ColorPickerPreference_alphaSliderVisible, false);
             a.recycle();
 
             if (mDefaultValue == Color.TRANSPARENT) {
@@ -127,45 +133,49 @@ public class ColorPickerPreference extends Preference implements
     }
 
     @Override
-    protected void onBindView(View view) {
-        mView = view;
-        super.onBindView(view);
+    public void onBindViewHolder(PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        mViewHolder = holder;
 
         setPreview();
     }
 
     private void setPreview() {
-        if (mView == null)
+        if (mViewHolder == null)
             return;
 
-        LinearLayout widgetFrameView = ((LinearLayout) mView
+        LinearLayout widgetFrameView = ((LinearLayout) mViewHolder
                 .findViewById(android.R.id.widget_frame));
         if (widgetFrameView == null) {
             return;
         }
 
         float density = mResources.getDisplayMetrics().density;
-
-        widgetFrameView.setVisibility(View.VISIBLE);
-        widgetFrameView.setPadding(
-                widgetFrameView.getPaddingLeft(),
-                widgetFrameView.getPaddingTop(),
-                (int) (density * 8),
-                widgetFrameView.getPaddingBottom()
-                );
-
         final int size = (int) mResources.getDimension(
                 R.dimen.color_picker_preference_preview_width_height);
+        TypedValue tv = new TypedValue();
+        int borderColor;
+
+        getContext().getTheme().resolveAttribute(android.R.attr.colorControlHighlight, tv, true);
+        if (tv.type >= TypedValue.TYPE_FIRST_COLOR_INT && tv.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            borderColor = tv.data;
+        } else {
+            borderColor = mResources.getColor(tv.resourceId);
+        }
 
         mPreview = new View(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
-        mPreview.setLayoutParams(lp);
-        mPreview.setBackground(new ColorViewCircleDrawable(getContext(), size));
-        ((ColorViewCircleDrawable) mPreview.getBackground()).setColor(getValue());
+        ColorViewCircleDrawable drawable = new ColorViewCircleDrawable(getContext(), size);
 
+        widgetFrameView.setVisibility(View.VISIBLE);
+        widgetFrameView.setPadding(widgetFrameView.getPaddingLeft(), widgetFrameView.getPaddingTop(),
+                (int) (density * 8), widgetFrameView.getPaddingBottom());
+        mPreview.setLayoutParams(lp);
+        drawable.setColor(getValue());
+        drawable.setBorderColor(borderColor);
+        mPreview.setBackground(drawable);
         widgetFrameView.addView(mPreview);
         widgetFrameView.setMinimumWidth(0);
-
     }
 
     private int getValue() {
@@ -225,18 +235,23 @@ public class ColorPickerPreference extends Preference implements
     }
 
     private void showFragment(Bundle state) {
-        SettingsActivity sa = (SettingsActivity) getContext();
+        SettingsActivity sa = null;
+        if (getContext() instanceof ContextThemeWrapper) {
+            if (((ContextThemeWrapper) getContext()).getBaseContext() instanceof SettingsActivity) {
+                sa = (SettingsActivity) ((ContextThemeWrapper) getContext()).getBaseContext();
+            }
+        }
+        if (sa == null) {
+            return;
+        }
 
         Bundle arguments;
         if (state != null) {
             arguments = new Bundle(state);
         } else {
-            SharedPreferences fallbackPrefs =
-                    sa.getSharedPreferences("color_picker_dialog", Activity.MODE_PRIVATE);
             SharedPreferences prefs =
                     sa.getSharedPreferences("color_picker_fragment", Activity.MODE_PRIVATE);
-            boolean fallbackShowHelpScreen = fallbackPrefs.getBoolean("show_help_screen", true);
-            boolean showHelpScreen = prefs.getBoolean("show_help_screen", fallbackShowHelpScreen);
+            boolean showHelpScreen = prefs.getBoolean("show_help_screen", true);
             arguments = new Bundle();
 
             arguments.putInt("new_color", getValue());
@@ -431,5 +446,4 @@ public class ColorPickerPreference extends Preference implements
         };
     }
 }
-
 

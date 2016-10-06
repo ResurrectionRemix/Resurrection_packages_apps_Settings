@@ -18,6 +18,12 @@
         android:entryValues="@array/show_network_traffic_unit_values"
         android:persistent="false" />
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+       android:key="network_traffic_color"
+       android:title="@string/network_traffic_color_style"
+	   android:dependency="network_traffic_state"
+       android:defaultValue="0xffffffff" />
+
     <ListPreference
         android:key="network_traffic_period"
         android:title="@string/show_network_traffic_frequency"
