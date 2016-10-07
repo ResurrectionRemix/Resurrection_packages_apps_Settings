@@ -1442,3 +1442,4 @@ public class SettingsActivity extends SettingsDrawerActivity
     }
 
 }
+

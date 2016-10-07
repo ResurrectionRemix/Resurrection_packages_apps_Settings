@@ -144,6 +144,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+		int which = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.RR_CONFIG_STYLE, 0);
+			if (which == 0) {
             frags[0] = new StatusBarSettings();
             frags[1] = new NotificationDrawerSettings();
             frags[2] = new RecentsSettings();
@@ -153,7 +156,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[6] = new ButtonSettings();
             frags[7] = new AnimationSettings();
             frags[8] = new MiscSettings();
-        }
+        	} else {
+		    frags[0] = new MainSettings();
+			}
+		}
 
         @Override
         public Fragment getItem(int position) {
@@ -173,6 +179,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     private String[] getTitles() {
         String titleString[];
+		int which = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.RR_CONFIG_STYLE, 0);
+		if (which == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.rr_notification_panel_title),
@@ -183,7 +192,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.button_pref_title),
                 getString(R.string.animation_title),
                 getString(R.string.rr_misc_title) };
-
+		} else {
+				titleString = new String[]{
+				getString(R.string.rr_title) };
+		}
         return titleString;
     }
 

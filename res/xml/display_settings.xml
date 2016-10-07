@@ -157,6 +157,12 @@
                 android:key="dashboard_category"
                 android:title="@string/dashboard_category">
 
+        <ListPreference
+            	android:key="rr_config_style"
+            	android:title="@string/rr_config_style_title"
+            	android:entries="@array/rr_config_style_entries"
+            	android:entryValues="@array/rr_config_style_values" />
+
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="disable_suggestions"
                 android:title="@string/disable_suggestions_title"

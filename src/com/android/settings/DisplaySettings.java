@@ -93,6 +93,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             = "camera_double_tap_power_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
+	private static final String RR_CONFIG = "rr_config_style";
 
     private Preference mFontSizePref;
 
@@ -105,6 +106,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
     private SwitchPreference mCameraDoubleTapPowerGesturePreference;
+	private ListPreference mConfig;
 
     @Override
     protected int getMetricsCategory() {
@@ -273,6 +275,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
+
+        mConfig= (ListPreference) findPreference(RR_CONFIG);
+        mConfig.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.RR_CONFIG_STYLE, 0)));
+        mConfig.setSummary(mConfig.getEntry());
+        mConfig.setOnPreferenceChangeListener(this);
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -475,6 +483,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist night mode setting", e);
             }
+        }  if (preference == mConfig) {
+			Settings.System.putInt(getContentResolver(), Settings.System.RR_CONFIG_STYLE,
+            Integer.valueOf((String) objValue));
+            mConfig.setValue(String.valueOf(objValue));
+            mConfig.setSummary(mConfig.getEntry());
+            return true;
         }
         return true;
     }
