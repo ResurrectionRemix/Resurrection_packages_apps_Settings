@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/about_rr_settings"
+	xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings">
+                
+ 	<PreferenceCategory
+		android:key="links"
+		android:title="@string/rr"> 
+        <!-- Change Log -->
+    <PreferenceScreen android:key="changelog"
+        android:title="@string/changelog_title"
+        android:summary="@string/changelog_title_summary"
+        android:fragment="com.android.settings.rr.ChangeLog" />		              		
+
+        <!-- Features -->
+    <PreferenceScreen android:key="features"
+        android:title="@string/features_title"
+        android:summary="@string/features_title_summary"
+        android:fragment="com.android.settings.rr.ResurrectionFeatures" />		
+
+        <!-- Share RR ROM -->
+         <Preference
+             android:key="share"
+             android:title="@string/share_rr"
+             android:summary="@string/share_rr_summary" />
+
+
+
+       <!-- Logcat or GTFO -->
+	<PreferenceScreen
+            android:key="drill"
+            android:fragment="com.android.settings.rr.rrdrill"
+            android:title="@string/rr_drill_title"
+            />
+             
+		<Preference
+			android:key="rr_website"
+			android:title="@string/rr_website_title"
+			android:summary="@string/rr_website_summary" />
+			
+		<Preference
+			android:key="rr_forum"
+			android:title="@string/rr_forum_title"
+			android:summary="@string/rr_forum_summary" />
+
+		<Preference
+			android:key="rr_source"
+			android:title="@string/rr_source_title"
+			android:summary="@string/rr_source_summary" />
+
+
+		<Preference
+			android:key="rr_facebook"
+			android:title="@string/rr_facebook_title"
+			android:summary="@string/rr_facebook_summary" />
+			
+		<Preference
+			android:key="rr_google_plus"
+			android:title="@string/rr_google_plus_title"
+			android:summary="@string/rr_google_plus_summary" />
+			
+		<Preference
+			android:key="rr_donate"
+			android:title="@string/rr_donate"
+			android:summary="@string/rr_donate_summary" />
+                			
+</PreferenceCategory>
+				
+	<PreferenceCategory
+		android:key="maintainer_categorie"
+		android:title="@string/maintainer_categorie_title">
+					
+ 	   <PreferenceScreen
+        android:key="maintainers"
+        android:fragment="com.android.settings.rr.DeviceMaintainersFragment"
+        android:summary="@string/device_maintainers_title_summary"
+        android:title="@string/device_maintainers_title" />
+                 	
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:key="devs"
+		android:title="@string/dev_categorie_title">
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="Altan KRK"
+            resurrection:nameDev="Altan KRK"
+            resurrection:gplusHandle="AltanKRK"
+            resurrection:donateLink="@string/github_westcrip"
+            resurrection:emailDev="korukaltan@gmail.com"/>
+
+</PreferenceCategory> 
+
+	<PreferenceCategory
+		android:key="dev_categorie_two"
+		android:title="@string/dev_categorie_title">
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="Varun Date"
+            resurrection:nameDev="Varun Date"
+            resurrection:gplusHandle="varund7726"
+            resurrection:donateLink="@string/github_varund7726"
+            resurrection:emailDev="date.varun123@gmail.com"/>
+
+</PreferenceCategory> 
+
+	<PreferenceCategory
+		android:key="dev_categorie_three"
+		android:title="@string/dev_categorie_title">
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="Akhil Narang"
+            resurrection:nameDev="Akhil Narang"
+            resurrection:gplusHandle="AkhilNarang"
+            resurrection:donateLink="@string/github_akhilnarang"
+            resurrection:emailDev="akhilnarang.1999@gmail.com"/>
+
+</PreferenceCategory> 
+
+	<PreferenceCategory
+		android:key="dev_categorie_four"
+		android:title="@string/dev_categorie_title">
+
+		<com.android.settings.widgets.DeveloperPreference
+            android:title="Brian Koluch"
+            resurrection:nameDev="Brian Koluch"
+            resurrection:gplusHandle="BrianKoluch"
+            resurrection:donateLink="@string/github_bdogg718k"
+            resurrection:emailDev="bdogg718k@gmail.com"/>
+
+
+</PreferenceCategory>             
+
+</PreferenceScreen>

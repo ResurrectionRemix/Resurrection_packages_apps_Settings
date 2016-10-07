@@ -23,6 +23,8 @@ LOCAL_SRC_FILES := \
 LOCAL_SRC_FILES += src/org/codeaurora/wfcservice/IWFCService.aidl \
                    src/org/codeaurora/wfcservice/IWFCServiceCB.aidl
 
+LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
+
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
     frameworks/support/v7/preference/res \
     frameworks/support/v14/preference/res \

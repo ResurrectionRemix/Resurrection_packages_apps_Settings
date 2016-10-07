@@ -4,6 +4,8 @@
         coreApp="true"
         android:sharedUserId="android.uid.system">
 
+ 	<uses-library android:name="org.apache.http.legacy" android:required="false" />
+
     <original-package android:name="com.android.settings" />
 
     <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
@@ -2571,6 +2573,8 @@
         <activity
              android:name="com.android.settings.MainSettingsLayout"
 			 android:theme="@style/AppTheme" />
+
+	    <activity android:name=".rr.About" />
 
         <activity android:name="Settings$KActivity"
                 android:label="@string/ka_title"
