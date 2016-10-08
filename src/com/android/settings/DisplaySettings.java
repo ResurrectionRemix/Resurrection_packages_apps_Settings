@@ -869,7 +869,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (!isCameraGestureAvailable(context.getResources())) {
                         result.add(KEY_CAMERA_GESTURE);
                     }
-                    if (hardware.isSupported(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+                    if (!hardware.isSupported(CMHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
                         result.add(KEY_HIGH_TOUCH_SENSITIVITY);
                     }
                     return result;
