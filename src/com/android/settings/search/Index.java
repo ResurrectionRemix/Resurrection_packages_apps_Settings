@@ -161,6 +161,7 @@ public class Index {
     private static final String NODE_NAME_PREFERENCE_SCREEN = "PreferenceScreen";
     private static final String NODE_NAME_CHECK_BOX_PREFERENCE = "CheckBoxPreference";
     private static final String NODE_NAME_LIST_PREFERENCE = "ListPreference";
+    private static final String NODE_NAME_SWITCH_PREFERENCE = "SwitchPreference";
 
     private static final List<String> EMPTY_LIST = Collections.<String>emptyList();
 
@@ -900,7 +901,8 @@ public class Index {
                 title = getDataTitle(context, attrs);
                 keywords = getDataKeywords(context, attrs);
 
-                if (!nodeName.equals(NODE_NAME_CHECK_BOX_PREFERENCE)) {
+                if (!nodeName.endsWith(NODE_NAME_CHECK_BOX_PREFERENCE) &&
+                        !nodeName.endsWith(NODE_NAME_SWITCH_PREFERENCE)) {
                     summary = getDataSummary(context, attrs);
 
                     String entries = null;
