@@ -30,5 +30,26 @@
             android:key="keyboard_shortcuts_helper"
             android:title="@string/keyboard_shortcuts_helper"
             android:summary="@string/keyboard_shortcuts_helper_summary" />
+
+        <cyanogenmod.preference.SystemSettingSwitchPreference
+                android:key="auto_replace"
+                android:title="@string/auto_replace"
+                android:summaryOn="@string/auto_replace_summary"
+                android:summaryOff="@string/auto_replace_summary"
+                android:persistent="false" />
+
+        <cyanogenmod.preference.SystemSettingSwitchPreference
+                android:key="auto_caps"
+                android:title="@string/auto_caps"
+                android:summaryOn="@string/auto_caps_summary"
+                android:summaryOff="@string/auto_caps_summary"
+                android:persistent="false" />
+
+        <cyanogenmod.preference.SystemSettingSwitchPreference
+                android:key="auto_punctuate"
+                android:title="@string/auto_punctuate"
+                android:summaryOn="@string/auto_punctuate_summary"
+                android:summaryOff="@string/auto_punctuate_summary"
+                android:persistent="false" />
     </PreferenceCategory>
 </PreferenceScreen>

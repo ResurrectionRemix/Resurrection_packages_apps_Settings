@@ -17,6 +17,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+                  xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
                   android:title="@string/settings_label">
 
         <com.android.settings.TimeoutListPreference
@@ -51,5 +52,12 @@
             android:key="lockscreen_visualizer"
             android:title="@string/lockscreen_visualizer_title"
             android:defaultValue="true"/>
+
+
+        <cyanogenmod.preference.CMSecureSettingSwitchPreference
+            android:key="lock_screen_blur_enabled"
+            android:title="@string/lockscreen_blur_enabled_title"
+            android:defaultValue="true"
+            cm:requiresConfig="@*android:bool/config_ui_blur_enabled" />
 
 </PreferenceScreen>

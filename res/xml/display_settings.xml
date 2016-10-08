@@ -90,6 +90,19 @@
                 android:title="@string/tap_to_wake"
                 android:summary="@string/tap_to_wake_summary" />
 
+        <!-- Prevent accidental wake-up -->
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+                android:key="proximity_on_wake"
+                android:title="@string/proximity_wake_title"
+                android:summary="@string/proximity_wake_summary"
+                cm:requiresConfig="@*cyanogenmod.platform:bool/config_proximityCheckOnWake" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+                android:key="high_touch_sensitivity_enable"
+                android:title="@string/high_touch_sensitivity_title"
+                android:summary="@string/high_touch_sensitivity_summary"
+                android:defaultValue="false"
+                cm:requiresFeature="cmhardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
 
         <!-- Disable on CM
         <DropDownPreference
