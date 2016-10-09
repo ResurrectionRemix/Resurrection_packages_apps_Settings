@@ -13,8 +13,12 @@
 */
 package com.android.settings.rr;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -39,9 +43,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
 import com.android.settings.util.CMDProcessor;
@@ -55,6 +61,9 @@ import com.android.settings.Utils;
 
 import com.android.settings.rr.animation.AnimationSettings;
 import com.android.settings.rr.input.ButtonSettings;
+import com.android.settings.rr.fab.FloatingActionsMenu;
+import com.android.settings.rr.fab.FloatingActionButton;
+
 
 public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String TAG = "MainSettingsLayout";
@@ -66,65 +75,83 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
    		 mContainer = container;
-		 View mFab;
 
         View view = inflater.inflate(R.layout.rr_main, container, false);
-        mFab = view.findViewById(R.id.floating_action_button);
+        FloatingActionsMenu mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
 		
-		refreshSettings(mFab);
-        setHasOptionsMenu(true);
+		refreshSettings(mFab,view);
 		return view;
 
 		}
 		
-		void refreshSettings(View mFab) {
-		 mContext = getActivity().getApplicationContext();
-		 ContentResolver resolver = getActivity().getContentResolver();
+		void refreshSettings(View mFab, View view) {
+		mContext = getActivity().getApplicationContext();
+		ContentResolver resolver = getActivity().getContentResolver();
+
+		FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
+		FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
+		FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
+		FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_info);
 
         boolean isShowing =   Settings.System.getInt(resolver,
 		Settings.System.RR_OTA_FAB, 1) == 1;
-		Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.rotate_around_center);
-		Animation animation1 = AnimationUtils.loadAnimation(mContext, R.anim.recent_exit);
-        mFab.setOnClickListener(new View.OnClickListener() {
+
+        mFab1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-			 mFab.startAnimation(animation);
              Intent fabIntent = new Intent();
              fabIntent.setClassName("com.rr.ota", "com.rr.center.OTACenter");
              startActivity(fabIntent);
              }
         });
+
+        mFab2.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             CMDProcessor.runSuCommand("pkill -f com.android.systemui");
+             }
+        });
+
+        mFab3.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle("Reset Settings");
+             alertDialog.setMessage("Reset All RR configurations to Default Values?");
+
+             alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
+               			 public void onClick(DialogInterface dialog, int which) {
+                		 stockitems();
+                		 }
+              		 });
+             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,"Cancel", new DialogInterface.OnClickListener() {
+                		 public void onClick(DialogInterface dialog, int which) {
+                		 return;
+                		}
+               		});
+             alertDialog.show();
+             }
+        });
+
+		mFab4.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             Intent fabIntent = new Intent();
+             fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$AboutSettingsActivity");
+             startActivity(fabIntent);
+             }
+        });
+
 		if (isShowing) {
 		mFab.setVisibility(View.VISIBLE);
 		} else {
 		mFab.setVisibility(View.GONE);
 		}
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
-
-        return true;
-    }
-
- @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.main_menu,menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.restart_ui:
-                CMDProcessor.runSuCommand("pkill -f com.android.systemui");
-                return true;
-            default:
-                return false;
-        }
     }
 
     @Override
@@ -207,4 +234,170 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
      }
+
+
+    public void stockitems() {
+                ContentResolver mResolver = getActivity().getContentResolver();
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_RR_LOGO, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.TOAST_ANIMATION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LISTVIEW_ANIMATION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LISTVIEW_INTERPOLATOR, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.SHOW_FOURG, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.SHOW_THREEG, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_RR_LOGO, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.TOAST_ICON, 1);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.BLUETOOTH_SHOW_BATTERY, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_TRAFFIC, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_TRAFFIC, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.NETWORK_TRAFFIC_HIDEARROW, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.NETWORK_TRAFFIC_COLOR, 0xffffffff);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.POWER_MENU_ANIMATIONS, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.POWER_MENU_LOCKSCREEN, 1);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.ANIM_TILE_STYLE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.ANIM_TILE_DURATION, 1500);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.ANIM_TILE_INTERPOLATOR, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.IMMERSIVE_RECENTS, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.GESTURE_ANYWHERE_ENABLED, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.GESTURE_ANYWHERE_POSITION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, 10);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, 100);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCKSCREEN_ENABLE_POWER_MENU, 1);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.APP_SIDEBAR_ENABLED, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.APP_SIDEBAR_POSITION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.APP_SIDEBAR_TRIGGER_WIDTH, 10);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.APP_SIDEBAR_TRIGGER_TOP, 100);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.APP_SIDEBAR_TRIGGER_HEIGHT, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_BATTERY_BAR, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_BATTERY_BAR_COLOR, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_CLOCK_DATE_POSITION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEYGUARD_TOGGLE_TORCH, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.HIDE_LOCKSCREEN_DATE, 1);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.HIDE_LOCKSCREEN_CLOCK, 1);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEYGUARD_SHOW_CLOCK, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.FINGERPRINT_SUCCESS_VIB, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCK_CLOCK_FONTS, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCKSCREEN_MEDIA_METADATA, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCK_SCREEN_CUSTOM_NOTIF, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_SIZE, 14);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_COLOR, 0xffffffff);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCK_SCREEN_SHOW_WEATHER, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCK_SCREEN_SHOW_WEATHER_LOCATION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.LOCK_SCREEN_WEATHER_HIDE_PANEL, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.SHOW_CLEAR_ALL_RECENTS, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_SHOW_BRIGHTNESS_ICON, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_SMART_PULLDOWN, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.RECENTS_FULL_SCREEN_CLOCK, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.RECENTS_FULL_SCREEN_DATE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_DATE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.RECENTS_FULL_SCREEN_DATE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_DATE_STYLE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.STATUS_BAR_DATE_FORMAT, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.VOLUME_DIALOG_STROKE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.TRANSPARENT_POWER_MENU,100);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.TRANSPARENT_POWER_DIALOG_DIM, 50);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_STROKE, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_ROWS_PORTRAIT, 3);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_COLUMNS_PORTRAIT, 3);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_ROWS_LANDSCAPE, 2);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_COLUMNS_LANDSCAPE, 4);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.QS_TRANSPARENT_SHADE, 255);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.TRANSPARENT_VOLUME_DIALOG, 255);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.QS_WIFI_EASY_TOGGLE, 0);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.QS_BT_EASY_TOGGLE, 0);
+    }
+
 }

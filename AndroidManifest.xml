@@ -2574,7 +2574,16 @@
              android:name="com.android.settings.MainSettingsLayout"
 			 android:theme="@style/AppTheme" />
 
-	    <activity android:name=".rr.About" />
+	    <activity android:name="Settings$AboutSettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>    
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.rr" />  
+		<meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.About" />
+		</activity>
 
         <activity android:name="Settings$KActivity"
                 android:label="@string/ka_title"
