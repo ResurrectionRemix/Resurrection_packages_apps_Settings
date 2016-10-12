@@ -321,23 +321,23 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
 
 
     private boolean isCellularToWlanHintEnable() {
-        return Settings.System.getInt(getActivity().getContentResolver(),
+        return Settings.Global.getInt(getActivity().getContentResolver(),
                 CELLULAR_TO_WLAN_HINT, NOTIFY_USER) == NOTIFY_USER;
     }
 
     private boolean isWlanToCellHintEnable() {
-        return Settings.System.getInt(getActivity().getContentResolver(),
+        return Settings.Global.getInt(getActivity().getContentResolver(),
                 WLAN_TO_CELLULAR_HINT, NOTIFY_USER) == NOTIFY_USER;
     }
 
     private void setWlanToCellularHintEnable(boolean enable) {
         final int defaultValue = enable ? NOTIFY_USER : DO_NOT_NOTIFY_USER;
-        Settings.System.putInt(getActivity().getContentResolver(),
+        Settings.Global.putInt(getActivity().getContentResolver(),
                 WLAN_TO_CELLULAR_HINT, defaultValue);
     }
 
     private boolean ifNotifyConnect() {
-        return Settings.System.getInt(getActivity().getContentResolver(),
+        return Settings.Global.getInt(getActivity().getContentResolver(),
                 NOTIFY_USER_CONNECT, NOTIFY_USER) == NOTIFY_USER;
     }
 
@@ -356,7 +356,7 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
         if (isAutoConnectEnabled()) {
             return CELLULAR_TO_WLAN_CONNECT_TYPE_AUTO;
         } else {
-            return Settings.System.getInt(getContentResolver(), CELLULAR_TO_WLAN_CONNECT_TYPE,
+            return Settings.Global.getInt(getContentResolver(), CELLULAR_TO_WLAN_CONNECT_TYPE,
                     CELLULAR_TO_WLAN_CONNECT_TYPE_AUTO);
         }
     }
@@ -373,19 +373,19 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
 
     private void setCellularToWlanHintEnable(boolean needNotify) {
         final int defaultValue = needNotify ? NOTIFY_USER : DO_NOT_NOTIFY_USER;
-        Settings.System.putInt(getActivity().getContentResolver(),
+        Settings.Global.putInt(getActivity().getContentResolver(),
                 CELLULAR_TO_WLAN_HINT, defaultValue);
     }
 
     private void setApConnectedNotify(boolean needNotify) {
         final int defaultValue = needNotify ? NOTIFY_USER : DO_NOT_NOTIFY_USER;
-        Settings.System.putInt(getActivity().getContentResolver(),
+        Settings.Global.putInt(getActivity().getContentResolver(),
                 NOTIFY_USER_CONNECT, defaultValue);
     }
 
     private void setCellToWlanType(int value) {
         try {
-            Settings.System.putInt(getContentResolver(), CELLULAR_TO_WLAN_CONNECT_TYPE,
+            Settings.Global.putInt(getContentResolver(), CELLULAR_TO_WLAN_CONNECT_TYPE,
                     value);
         } catch (NumberFormatException e) {
             Toast.makeText(getActivity(), R.string.wifi_setting_connect_type_error,
@@ -399,7 +399,7 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
         }
         int defaultValue = isAutoEnabled ? CELLULAR_TO_WLAN_CONNECT_TYPE_AUTO
                 : CELLULAR_TO_WLAN_CONNECT_TYPE_MANUAL;
-        Settings.System.putInt(getContentResolver(), CELLULAR_TO_WLAN_CONNECT_TYPE, defaultValue);
+        Settings.Global.putInt(getContentResolver(), CELLULAR_TO_WLAN_CONNECT_TYPE, defaultValue);
         mCellularToWlanPref.setValue(String.valueOf(defaultValue));
         updateCellToWlanSummary(mCellularToWlanPref, defaultValue);
     }
