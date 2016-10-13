@@ -136,8 +136,7 @@ public class AppStateNotificationBridge extends AppStateBaseBridge {
             if (info == null || info.extraInfo == null) {
                 return false;
             }
-            return ((AppRow) info.extraInfo).lockScreenSecure
-                    && ((AppRow) info.extraInfo).appVisOverride == Notification.VISIBILITY_SECRET;
+            return ((AppRow) info.extraInfo).appVisOverride == Notification.VISIBILITY_SECRET;
         }
     };
 }

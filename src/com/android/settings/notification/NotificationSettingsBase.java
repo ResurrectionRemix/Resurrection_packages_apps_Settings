@@ -16,6 +16,7 @@
 
 package com.android.settings.notification;
 
+import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.applications.AppInfoBase;
@@ -238,10 +239,14 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
 
         final String summaryHideEntry = getString(R.string.lock_screen_notifications_summary_hide);
         final String summaryHideEntryValue = Integer.toString(Notification.VISIBILITY_PRIVATE);
-        entries.add(summaryHideEntry);
-        values.add(summaryHideEntryValue);
-        setRestrictedIfNotificationFeaturesDisabled(summaryHideEntry, summaryHideEntryValue,
-                DevicePolicyManager.KEYGUARD_DISABLE_SECURE_NOTIFICATIONS);
+
+        // Hiding of sensitive summaries is only supported on secure lock screens
+        if ((new LockPatternUtils(getActivity())).isSecure(UserHandle.myUserId())) {
+            entries.add(summaryHideEntry);
+            values.add(summaryHideEntryValue);
+            setRestrictedIfNotificationFeaturesDisabled(summaryHideEntry, summaryHideEntryValue,
+                    DevicePolicyManager.KEYGUARD_DISABLE_SECURE_NOTIFICATIONS);
+        }
         entries.add(getString(R.string.lock_screen_notifications_summary_disable));
         values.add(Integer.toString(Notification.VISIBILITY_SECRET));
         mVisibilityOverride.setEntries(entries.toArray(new CharSequence[entries.size()]));

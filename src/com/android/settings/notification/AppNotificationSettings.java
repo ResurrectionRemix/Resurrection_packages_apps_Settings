@@ -115,7 +115,7 @@ public class AppNotificationSettings extends NotificationSettingsBase {
         setVisible(mPriority, checkCanBeVisible(Ranking.IMPORTANCE_DEFAULT, importance)
                 && !mDndVisualEffectsSuppressed);
         setVisible(mVisibilityOverride,
-                checkCanBeVisible(Ranking.IMPORTANCE_MIN, importance) && lockscreenSecure);
+                checkCanBeVisible(Ranking.IMPORTANCE_MIN, importance));
     }
 
     protected boolean checkCanBeVisible(int minImportanceVisible, int importance) {
