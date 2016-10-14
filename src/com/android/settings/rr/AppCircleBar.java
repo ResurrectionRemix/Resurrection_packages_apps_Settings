@@ -33,11 +33,10 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
-import android.preference.RingtonePreference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.TextUtils;
@@ -48,10 +47,9 @@ import java.util.ArrayList;
 
 import com.android.settings.R;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import com.android.settings.preference.AppMultiSelectListPreference;
+import com.android.settings.SeekBarPreference;
 
 import java.io.File;
 import java.lang.Thread;
@@ -85,18 +83,26 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.app_circlebar);
 
-        mIncludedAppCircleBar = (AppMultiSelectListPreference) findPreference(PREF_INCLUDE_APP_CIRCLE_BAR_KEY);
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        mIncludedAppCircleBar = (AppMultiSelectListPreference) prefSet.findPreference(PREF_INCLUDE_APP_CIRCLE_BAR_KEY);
         Set<String> includedApps = getIncludedApps();
         if (includedApps != null) mIncludedAppCircleBar.setValues(includedApps);
         mIncludedAppCircleBar.setOnPreferenceChangeListener(this);
 
         mTriggerWidthPref = (SeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
+        mTriggerWidthPref.setProgress(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, 40));
         mTriggerWidthPref.setOnPreferenceChangeListener(this);
 
         mTriggerTopPref = (SeekBarPreference) findPreference(KEY_TRIGGER_TOP);
+        mTriggerTopPref.setProgress(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_CIRCLE_BAR_TRIGGER_TOP, 0));
         mTriggerTopPref.setOnPreferenceChangeListener(this);
 
         mTriggerBottomPref = (SeekBarPreference) findPreference(KEY_TRIGGER_BOTTOM);
+        mTriggerBottomPref.setProgress(Settings.System.getInt(getContentResolver(),
+                Settings.System.APP_CIRCLE_BAR_TRIGGER_HEIGHT, 100));
         mTriggerBottomPref.setOnPreferenceChangeListener(this);
 
     }
@@ -105,29 +111,30 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
     protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
+
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         return super.onPreferenceTreeClick(preference);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         final String key = preference.getKey();
         if (preference == mIncludedAppCircleBar) {
-            storeIncludedApps((Set<String>) newValue);
+            storeIncludedApps((Set<String>) objValue);
         } else if (preference == mTriggerWidthPref) {
-            int width = ((Integer)newValue).intValue();
+            int width = ((Integer)objValue).intValue();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, width);
             return true;
         } else if (preference == mTriggerTopPref) {
-            int top = ((Integer)newValue).intValue();
+            int top = ((Integer)objValue).intValue();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_CIRCLE_BAR_TRIGGER_TOP, top);
             return true;
         } else if (preference == mTriggerBottomPref) {
-            int bottom = ((Integer)newValue).intValue();
+            int bottom = ((Integer)objValue).intValue();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.APP_CIRCLE_BAR_TRIGGER_HEIGHT, bottom);
             return true;
