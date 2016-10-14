@@ -13,7 +13,11 @@
 */
 package com.android.settings.rr;
 
-import android.os.Bundle;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -23,7 +27,9 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.preference.Preference;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,8 +54,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+
 public class RecentsUI extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener , DialogInterface.OnDismissListener {
     private static final String TAG = "RecentsUI";
 
 

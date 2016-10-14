@@ -54,7 +54,11 @@ import java.util.Set;
 public class AppMultiSelectListPreference extends CustomDialogPreference {
     private final List<MyApplicationInfo> mPackageInfoList = new ArrayList<MyApplicationInfo>();
     private AppListAdapter mAdapter;
+    private CharSequence[] mEntries;
+	private CharSequence[] mEntryValues;
     private Set<String> mValues = new HashSet<String>();
+	private Set<String> mNewValues = new HashSet<String>();
+    private boolean mPreferenceChanged;
 
     public AppMultiSelectListPreference(Context context) {
         this(context, null);
@@ -67,16 +71,32 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
 
         final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> installedAppsInfo = getContext().getPackageManager().queryIntentActivities(
-                mainIntent, 0);
+        List<ApplicationInfo> pkgs = context.getPackageManager()
+                .getInstalledApplications(PackageManager.PERMISSION_GRANTED);
+		for (int i=0; i<pkgs.size(); i++) {
+		ApplicationInfo ai = pkgs.get(i);
+            if(context.getPackageManager().getLaunchIntentForPackage(ai.packageName) == null) {
+                continue;
+		}
 
-        for (ResolveInfo info : installedAppsInfo) {
-            MyApplicationInfo myInfo = new MyApplicationInfo();
-            myInfo.resolveInfo = info;
-            myInfo.label = getResolveInfoTitle(info);
-            mPackageInfoList.add(myInfo);
-        }
+            MyApplicationInfo info = new MyApplicationInfo();
+            info.info = ai;
+            info.label = info.info.loadLabel(getContext().getPackageManager()).toString();
+			mPackageInfoList.add(info);
+
+		}
+        List<CharSequence> entries = new ArrayList<CharSequence>();
+		List<CharSequence> entryValues = new ArrayList<CharSequence>();
         Collections.sort(mPackageInfoList, sDisplayNameComparator);
+        for (MyApplicationInfo info : mPackageInfoList) {
+            entries.add(info.label);
+            entryValues.add(info.info.packageName);
+        }
+        MyApplicationInfo info = new MyApplicationInfo();
+        mEntries = new CharSequence[entries.size()];
+        mEntryValues = new CharSequence[entries.size()];
+        entries.toArray(mEntries);
+		entryValues.toArray(mEntryValues);
     }
 
     public void setValues(Collection<String> values) {
@@ -84,9 +104,32 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
         mValues.addAll(values);
     }
 
-    public Collection<String> getValues() {
+
+    public void setClearValues() {
+        mValues.clear();
+	}
+
+    public Set<String> getValues() {
         return mValues;
     }
+
+
+    /**
+     * Returns the index of the given value (in the entry values array).
+     *
+     * @param value The value whose index should be returned.
+     * @return The index of the value, or -1 if not found.
+     */
+    public int findIndexOfValue(String value) {
+        if (value != null && mEntryValues != null) {
+            for (int i = mEntryValues.length - 1; i >= 0; i--) {
+                if (mEntryValues[i].equals(value)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+	}
 
     @Override
     protected void onBindDialogView(View view) {
@@ -101,17 +144,10 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
                 final AppViewHolder holder = (AppViewHolder) view.getTag();
                 final boolean isChecked = !holder.checkBox.isChecked();
                 holder.checkBox.setChecked(isChecked);
-
-                MyApplicationInfo myInfo = mAdapter.getItem(position);
-                ResolveInfo info = myInfo.resolveInfo;
-                Intent intent = getIntentForResolveInfo(info, Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-                String value = intent.toUri(0).toString();
                 if (isChecked) {
-                    mValues.add(value);
+                    mPreferenceChanged |= mNewValues.add(mEntryValues[position].toString());
                 } else {
-                    mValues.remove(value);
+                    mPreferenceChanged |= mNewValues.remove(mEntryValues[position].toString());
                 }
             }
         });
@@ -120,10 +156,31 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
-        callChangeListener(null);
+        if (positiveResult && mPreferenceChanged) {
+            final Set<String> values = mNewValues;
+            if (callChangeListener(values)) {
+                setValues(values);
+            }
+        }
+		mPreferenceChanged = false;
     }
 
-    private String getResolveInfoTitle(ResolveInfo info) {
+
+    @Override
+    protected Object onGetDefaultValue(TypedArray a, int index) {
+        final CharSequence[] defaultValues = a.getTextArray(index);
+        final int valueCount = defaultValues.length;
+        final Set<String> result = new HashSet<String>();
+
+        for (int i = 0; i < valueCount; i++) {
+            result.add(defaultValues[i].toString());
+        }
+
+        return result;
+    }
+
+
+    /*private String getResolveInfoTitle(ResolveInfo info) {
         CharSequence label = info.loadLabel(getContext().getPackageManager());
         if (label == null) label = info.activityInfo.name;
         return label != null ? label.toString() : null;
@@ -134,12 +191,11 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
         ActivityInfo ai = info.activityInfo;
         intent.setClassName(ai.packageName, ai.name);
         return intent;
-    }
+    }*/
 
     class MyApplicationInfo {
         ApplicationInfo info;
         CharSequence label;
-        ResolveInfo resolveInfo;
     }
 
     public class AppListAdapter extends ArrayAdapter<MyApplicationInfo> {
@@ -159,18 +215,12 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
             convertView = holder.rootView;
             MyApplicationInfo info = getItem(position);
             holder.appName.setText(info.label);
-            Drawable icon = info.resolveInfo.loadIcon(getContext().getPackageManager());
-            if (icon != null) {
-                holder.appIcon.setImageDrawable(icon);
+            if (info.info != null) {
+                holder.appIcon.setImageDrawable(info.info.loadIcon(getContext().getPackageManager()));
             } else {
                 holder.appIcon.setImageDrawable(null);
             }
-
-            Intent intent = getIntentForResolveInfo(info.resolveInfo, Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            String value = intent.toUri(0).toString();
-
-            holder.checkBox.setChecked(mValues.contains(value));
+            holder.checkBox.setChecked(mNewValues.contains(mEntryValues[position].toString()));
             return convertView;
         }
 
@@ -217,4 +267,5 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
         }
     };
 }
+
 
