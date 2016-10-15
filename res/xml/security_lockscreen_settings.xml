@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="security_lockscreen_settings_screen"
     android:title="@string/lockscreen_settings_title"
@@ -95,6 +96,13 @@
             android:title="@string/doze_title"
             android:summary="@string/doze_summary"
             settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
+
+        <lineageos.preference.RemotePreference
+            android:key="doze_device_settings"
+            android:title="@string/ambient_display_screen_title"
+            lineage:replacesKey="ambient_display_notification">
+            <intent android:action="org.lineageos.settings.device.DOZE_SETTINGS" />
+        </lineageos.preference.RemotePreference>
 
     </PreferenceCategory>
 
