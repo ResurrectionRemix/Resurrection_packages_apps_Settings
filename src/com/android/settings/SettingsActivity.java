@@ -136,6 +136,10 @@ import com.android.settingslib.drawer.Tile;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.About;
+import com.android.settings.rr.navbar.FlingSettings;
+import com.android.settings.rr.navbar.NavbarSettings;
+import com.android.settings.rr.navbar.SmartbarSettings;
+import com.android.settings.rr.navbar.PulseSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -379,6 +383,10 @@ public class SettingsActivity extends SettingsDrawerActivity
             WifiInfo.class.getName(),
 			MainSettingsLayout.class.getName(),
 			About.class.getName(),
+            NavbarSettings.class.getName(),
+            FlingSettings.class.getName(),
+           SmartbarSettings.class.getName(),
+            PulseSettings.class.getName()
     };
 
 

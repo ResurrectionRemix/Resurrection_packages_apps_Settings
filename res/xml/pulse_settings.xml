@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2014 The TeamEos Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/pulse_settings" >
+
+        <Preference
+            style="?android:preferenceInformationStyle"
+            android:key="pulse_help_policy_notice"
+            android:selectable="false"
+            android:summary="@string/pulse_help_policy_notice_summary"
+            android:title="@string/pulse_help_policy_notice_title" />
+
+        <SwitchPreference
+            android:key="eos_fling_show_pulse"
+            android:title="@string/fling_show_pulse_title"
+            android:summary="@string/fling_show_pulse_summary" />
+
+        <ListPreference
+            android:key="pulse_render_mode"
+            android:title="@string/pulse_render_mode_title"
+            android:entries="@array/pulse_render_mode_entries"
+            android:entryValues="@array/pulse_render_mode_values"
+            android:dependency="eos_fling_show_pulse" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="eos_fling_pulse_color"
+            android:title="@string/fling_pulse_color"
+            android:defaultValue="0xffffff"
+            android:dependency="eos_fling_show_pulse" />
+
+        <SwitchPreference
+            android:key="eos_fling_lavalamp"
+            android:title="@string/eos_fling_lavalamp_title"
+            android:summary="@string/eos_fling_lavalamp_summary"
+            android:dependency="eos_fling_show_pulse" />
+
+        <PreferenceCategory
+            android:key="pulse_fading_bars_category"
+            android:title="@string/pulse_legacy_mode_advanced_category">
+
+           <com.android.settings.SeekBarPreference
+                android:key="pulse_custom_dimen"
+                android:title="@string/pulse_custom_dimen"
+                android:max="30"
+                settings:minimum="1"
+                settings:unitsLeft=""
+                settings:unitsRight="dp"
+                android:dependency="pulse_fading_bars_category"/>
+
+           <com.android.settings.SeekBarPreference
+                android:key="pulse_custom_div"
+                android:title="@string/pulse_custom_div"
+                android:max="44"
+                settings:minimum="2"
+                settings:interval="2"
+                settings:unitsLeft=""
+                settings:unitsRight="dp"
+                android:dependency="pulse_fading_bars_category"/>
+
+           <com.android.settings.SeekBarPreference
+                android:key="pulse_filled_block_size"
+                android:title="@string/pulse_filled_block_size"
+                android:max="8"
+                settings:minimum="4"
+                settings:unitsLeft=""
+                settings:unitsRight="dp"
+                android:dependency="pulse_fading_bars_category"/>
+
+           <com.android.settings.SeekBarPreference
+                android:key="pulse_empty_block_size"
+                android:title="@string/pulse_empty_block_size"
+                android:max="4"
+                settings:minimum="0"
+                settings:unitsLeft=""
+                settings:unitsRight="dp"
+                android:dependency="pulse_fading_bars_category"/>
+
+           <com.android.settings.SeekBarPreference
+                android:key="pulse_custom_fudge_factor"
+                android:title="@string/pulse_custom_fudge_factor"
+                android:max="6"
+                settings:minimum="2"
+                android:dependency="pulse_fading_bars_category"/>
+
+           <com.android.settings.SeekBarPreference
+                android:key="fling_pulse_lavalamp_speed"
+                android:title="@string/lavamp_solid_speed_title"
+                android:max="30000"
+                settings:minimum="200"
+                settings:interval="200"
+                settings:unitsLeft=""
+                settings:unitsRight="ms"
+                android:dependency="pulse_fading_bars_category"/>
+	</PreferenceCategory>
+
+	<PreferenceCategory
+        android:key="pulse_2"
+        android:title="@string/pulse_solid_dimen_category" >
+
+        <com.android.settings.SeekBarPreference
+            android:key="pulse_solid_fudge_factor"
+            android:title="@string/pulse_custom_fudge_factor"
+            android:max="7"
+            settings:minimum="2"
+            android:dependency="pulse_2"/>
+
+        <com.android.settings.SeekBarPreference
+            android:key="lavamp_solid_speed"
+            android:title="@string/lavamp_solid_speed_title"
+            android:max="30000"
+            settings:minimum="200"
+            settings:interval="200"
+            settings:unitsRight="ms"
+            android:dependency="pulse_2"/>
+	</PreferenceCategory>
+
+</PreferenceScreen>

@@ -20,17 +20,65 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_navbar_title">
 
-        <cyanogenmod.preference.CMSystemSettingSwitchPreference
-            android:key="navigation_bar_left"
-            android:title="@string/navigation_bar_left_title"
-            android:summary="@string/navigation_bar_left_summary"
-            android:defaultValue="false" />
+    <SwitchPreference
+        android:key="navbar_visibility"
+        android:title="@string/navbar_visibility" />
 
-        <cyanogenmod.preference.CMSystemSettingSwitchPreference
-                android:key="navigation_bar_menu_arrow_keys"
-                android:title="@string/navigation_bar_arrow_keys_title"
-                android:summary="@string/navigation_bar_arrow_keys_summary"
-                android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="category_navbar_interface"
+        android:title="@string/navbar_interface_title" >
+
+        <ListPreference
+            android:entries="@array/systemui_navbar_mode_entries"
+            android:entryValues="@array/systemui_navbar_mode_values"
+            android:key="navbar_mode"
+            android:title="@string/navbar_mode" />
+
+        <PreferenceScreen
+            android:key="smartbar_settings"
+            android:title="@string/smartbar_settings_title"
+            android:fragment="com.android.settings.rr.navbar.SmartbarSettings" />
+
+        <PreferenceScreen
+            android:key="fling_settings"
+            android:title="@string/fling_settings"
+            android:fragment="com.android.settings.rr.navbar.FlingSettings" />
+
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="category_navbar_general"
+        android:title="@string/navbar_general_title" >
+
+           <com.android.settings.SeekBarPreference
+                android:key="navbar_height_portrait"
+                android:title="@string/portrait_title"
+                android:max="135"
+                settings:minimum="65"
+                settings:unitsLeft=""
+                settings:unitsRight="%" />
+
+           <com.android.settings.SeekBarPreference
+                android:key="navbar_height_landscape"
+                android:title="@string/land_hor_title"
+                android:max="135"
+                settings:minimum="65"
+                settings:unitsLeft=""
+                settings:unitsRight="%" />
+
+           <com.android.settings.SeekBarPreference
+                android:key="navbar_width"
+                android:title="@string/land_vert_title"
+                android:max="135"
+                settings:minimum="65"
+                settings:unitsLeft=""
+                settings:unitsRight="%" />
+        <PreferenceScreen
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings"
+            android:fragment="com.android.settings.rr.navbar.PulseSettings" />
+
+    </PreferenceCategory>
 
 
        <SwitchPreference
@@ -47,17 +95,5 @@
             settings:unitsRight="ms"
             android:dependency="kill_app_longpress_back"
 			android:persistent="false" />
-
-        <PreferenceScreen
-            android:key="navigation_bar"
-            android:title="@string/navigation_bar_title">
-            <intent android:action="com.android.settings.action.NAV_BAR_TUNER" />
-        </PreferenceScreen>
-
-        <ListPreference
-            android:key="navigation_recents_long_press"
-            android:dialogTitle="@string/navigation_bar_recents_title"
-            android:title="@string/navigation_bar_recents_title"
-            android:persistent="false" />
 
 </PreferenceScreen>
