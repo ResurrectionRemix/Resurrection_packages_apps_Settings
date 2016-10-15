@@ -389,6 +389,22 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mWakeWhenPluggedOrUnplugged) {
+            CMSettings.Global.putInt(getContentResolver(),
+                    CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mProximityCheckOnWakePreference) {
+            CMSettings.System.putInt(getContentResolver(),
+                    CMSettings.System.PROXIMITY_ON_WAKE,
+                    mProximityCheckOnWakePreference.isChecked() ? 1 : 0);
+            return true;
+        }
+
+        return super.onPreferenceTreeClick(preference);
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {

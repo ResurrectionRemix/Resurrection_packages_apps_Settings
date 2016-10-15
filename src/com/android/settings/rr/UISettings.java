@@ -108,7 +108,7 @@ public class UISettings extends SettingsPreferenceFragment implements
         final float currentScale = Settings.System.getFloat(context.getContentResolver(),
                 Settings.System.FONT_SCALE, 1.0f);
         final Resources res = context.getResources();
-        final String[] entries = res.getStringArray(R.array.entries_font_size);
+        final String[] entries = res.getStringArray(R.array.entries_font_size_percent);
         final String[] strEntryValues = res.getStringArray(R.array.entryvalues_font_size);
         final int index = ToggleFontSizePreferenceFragment.fontSizeValueToIndex(currentScale,
                 strEntryValues);
