@@ -1,87 +1,64 @@
 package com.android.settings.cyanogenmod;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.UserHandle;
-import android.util.Log;
 
 import com.android.settings.dashboard.SummaryLoader;
 import com.android.settingslib.drawer.Tile;
 
-public class RemoteSummaryProvider implements SummaryLoader.SummaryProvider {
+import cyanogenmod.preference.RemotePreferenceManager;
+
+import static cyanogenmod.preference.RemotePreference.ACTION_UPDATE_PREFERENCE;
+import static cyanogenmod.preference.RemotePreference.EXTRA_KEY;
+import static cyanogenmod.preference.RemotePreference.EXTRA_SUMMARY;
+import static cyanogenmod.preference.RemotePreference.META_REMOTE_KEY;
+import static cyanogenmod.preference.RemotePreference.META_REMOTE_RECEIVER;
+
+public class RemoteSummaryProvider implements SummaryLoader.SummaryProvider,
+        RemotePreferenceManager.OnRemoteUpdateListener {
 
     private final Activity mActivity;
     private final SummaryLoader mLoader;
-    private final ComponentName mReceiverComponent;
+    private final Tile mTile;
     private final String mKey;
-
-    /* Manifest meta-data key with the receiver class name */
-    private static final String META_SUMMARY_RECEIVER =
-            "org.cyanogenmod.settings.summary.receiver";
-
-    /* Key which should be sent in the broadcast to identify the component */
-    private static final String META_SUMMARY_KEY =
-            "org.cyanogenmod.settings.summary.key";
-
-    /* Receiver will be sent an ordered broadcast, and should fill the result extras */
-    private static final String ACTION_REFRESH_SUMMARY =
-            "org.cyanogenmod.settings.REFRESH_SUMMARY";
-
-    /* Key sent in the broadcast */
-    private static final String EXTRA_KEY = "key";
-
-    /* Summary returned in the result */
-    private static final String EXTRA_SUMMARY = "summary";
 
     public static SummaryLoader.SummaryProvider createSummaryProvider(
             Activity activity, SummaryLoader summaryLoader, Tile tile) {
-
-        Bundle meta = tile.metaData;
-        if (meta == null) {
-            return null;
+        if (tile.metaData != null && tile.metaData.containsKey(META_REMOTE_RECEIVER)) {
+            return new RemoteSummaryProvider(activity, summaryLoader, tile);
         }
-
-        String receiverClass = meta.getString(META_SUMMARY_RECEIVER);
-        if (receiverClass == null) {
-            return null;
-        }
-
-        return new RemoteSummaryProvider(activity, summaryLoader, new ComponentName(
-                tile.intent.getComponent().getPackageName(), receiverClass),
-                meta.getString(META_SUMMARY_KEY));
+        return null;
     }
 
-    private RemoteSummaryProvider(Activity activity, SummaryLoader loader,
-                                  ComponentName receiverComponent, String key) {
+    private RemoteSummaryProvider(Activity activity, SummaryLoader loader, Tile tile) {
         mActivity = activity;
         mLoader = loader;
-        mReceiverComponent = receiverComponent;
-        mKey = key;
+        mTile = tile;
+        mKey = mTile.metaData.getString(META_REMOTE_KEY);
     }
 
     @Override
     public void setListening(boolean listening) {
         if (listening) {
-            Intent i = new Intent(ACTION_REFRESH_SUMMARY);
-            i.setComponent(mReceiverComponent);
-            i.putExtra(EXTRA_KEY, mKey);
-
-            mActivity.sendOrderedBroadcastAsUser(i, UserHandle.CURRENT,
-                    Manifest.permission.WRITE_SETTINGS, new BroadcastReceiver() {
-                        @Override
-                        public void onReceive(Context context, Intent intent) {
-                            final Bundle result = getResultExtras(true);
-                            final String summary = result.getString(EXTRA_SUMMARY);
-                            if (summary != null) {
-                                mLoader.setSummary(RemoteSummaryProvider.this, summary);
-                            }
-                        }
-                    }, null, Activity.RESULT_OK, null, null);
+            RemotePreferenceManager.get(mActivity).attach(mKey, this);
+        } else {
+            RemotePreferenceManager.get(mActivity).detach(mKey);
         }
+    }
+
+    @Override
+    public Intent getReceiverIntent() {
+        Intent i = new Intent(ACTION_UPDATE_PREFERENCE);
+        i.setComponent(new ComponentName(mTile.intent.getComponent().getPackageName(),
+                mTile.metaData.getString(META_REMOTE_RECEIVER)));
+        i.putExtra(EXTRA_KEY, mKey);
+        return i;
+    }
+
+    @Override
+    public void onRemoteUpdated(Bundle bundle) {
+        mLoader.setSummary(this, bundle.getString(EXTRA_SUMMARY));
     }
 }
