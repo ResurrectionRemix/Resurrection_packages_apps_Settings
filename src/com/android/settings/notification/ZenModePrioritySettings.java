@@ -28,6 +28,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.settings.DropDownPreference;
 import com.android.settings.R;
 import com.android.settings.search.Indexable;
+import cyanogenmod.providers.CMSettings;
 
 public class ZenModePrioritySettings extends ZenModeSettingsBase implements Indexable {
     private static final String KEY_REMINDERS = "reminders";
@@ -35,6 +36,7 @@ public class ZenModePrioritySettings extends ZenModeSettingsBase implements Inde
     private static final String KEY_MESSAGES = "messages";
     private static final String KEY_CALLS = "calls";
     private static final String KEY_REPEAT_CALLERS = "repeat_callers";
+    private static final String KEY_VIBRATION = "vibration";
     private static final String KEY_ALLOW_LIGHTS = "zen_priority_allow_lights";
 
     private static final int SOURCE_NONE = -1;
@@ -143,6 +145,21 @@ public class ZenModePrioritySettings extends ZenModeSettingsBase implements Inde
                 final ZenModeConfig newConfig = mConfig.copy();
                 newConfig.allowRepeatCallers = val;
                 return setZenModeConfig(newConfig);
+            }
+        });
+
+        DropDownPreference vibration = (DropDownPreference) root.findPreference(KEY_VIBRATION);
+        vibration.addItem(R.string.zen_mode_vibration_never, null);
+        vibration.addItem(R.string.zen_mode_vibration_calls_only, null);
+        vibration.addItem(R.string.zen_mode_vibration_calls_and_notifications, null);
+        vibration.setSelectedItem(CMSettings.System.getInt(getContentResolver(),
+                    CMSettings.System.ZEN_PRIORITY_VIBRATION_MODE, 0));
+        vibration.setCallback(new DropDownPreference.Callback() {
+            @Override
+            public boolean onItemSelected(int pos, Object newValue) {
+                CMSettings.System.putInt(getContentResolver(),
+                        CMSettings.System.ZEN_PRIORITY_VIBRATION_MODE, pos);
+                return true;
             }
         });
 
