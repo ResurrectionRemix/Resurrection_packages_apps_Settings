@@ -72,16 +72,16 @@
 	   	    android:fragment="com.android.settings.rr.LockScreenSettings" 
 	   		android:icon="@drawable/rr_lock_icon"/>
 
-    <PreferenceScreen
-           	android:key="rr_ui"
-           	android:title="@string/rr_ui_title"
-           	android:fragment="com.android.settings.rr.UISettings" 
-           	android:icon="@drawable/rr_ui_settings_icon"/>
-
      <PreferenceScreen
            	android:key="rr_misc"
        	   	android:title="@string/rr_misc_title"
 	   	    android:fragment="com.android.settings.rr.MiscSettings" 
 	   		android:icon="@drawable/rr_misc_icon"/>
+
+     <PreferenceScreen
+           	android:key="rr_about"
+       	   	android:title="@string/about_rr"
+	   	    android:fragment="com.android.settings.rr.About" 
+	   		android:icon="@drawable/rr_about_icon"/>
 
 </PreferenceScreen>
