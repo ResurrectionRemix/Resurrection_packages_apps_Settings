@@ -1450,6 +1450,5 @@ public class SettingsActivity extends SettingsDrawerActivity
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 }
 

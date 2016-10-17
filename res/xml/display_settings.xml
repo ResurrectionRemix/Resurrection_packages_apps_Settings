@@ -84,26 +84,12 @@
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title" />
 
-        <PreferenceScreen
-                android:key="doze_fragment"
-                android:title="@string/doze_title"
-                android:fragment="com.android.settings.rr.ambientdisplay.AmbientSettings" />
 
         <SwitchPreference
                 android:key="tap_to_wake"
                 android:title="@string/tap_to_wake"
                 android:summary="@string/tap_to_wake_summary" />
 
-        <PreferenceScreen
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
-                settings:keywords="@string/keywords_display_font_size" />
-
-        <com.android.settings.display.ScreenZoomPreference
-                android:key="screen_zoom"
-                android:title="@string/screen_zoom_title"
-                settings:keywords="@string/screen_zoom_keywords" />
 
         <!-- Disable on CM
         <DropDownPreference
@@ -146,29 +132,4 @@
                 cm:requiresConfig="@*android:bool/config_intrusiveNotificationLed" />
 
     </PreferenceCategory>
-
- 
-         <PreferenceCategory
-                android:key="dashboard_category"
-                android:title="@string/dashboard_category">
-
-        <ListPreference
-            	android:key="rr_config_style"
-            	android:title="@string/rr_config_style_title"
-            	android:entries="@array/rr_config_style_entries"
-            	android:entryValues="@array/rr_config_style_values" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="disable_suggestions"
-                android:title="@string/disable_suggestions_title"
-                android:summary="@string/disable_suggestions_summary"
-                android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="remove_tile_summary"
-                android:title="@string/remove_tile_summaries_title"
-                android:summary="@string/remove_tile_summaries_summary"
-                android:defaultValue="false" />
-
-        </PreferenceCategory>
 </PreferenceScreen>
