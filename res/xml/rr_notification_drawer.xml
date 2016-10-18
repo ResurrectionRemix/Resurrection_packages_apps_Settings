@@ -25,7 +25,21 @@
         android:key="rr_trans"
         android:fragment="com.android.settings.rr.TransparencySettings"
         android:title="@string/rr_trans_title"
-		android:icon="@drawable/rr_transparency_icon"
+        android:icon="@drawable/rr_transparency_icon"
+       />
+
+      <PreferenceScreen
+        android:key="rr_volume"
+        android:fragment="com.android.settings.rr.VolumePanelSettings"
+        android:title="@string/rr_volume_title"
+        android:icon="@drawable/rr_volume_icon"
+       />
+
+      <PreferenceScreen
+        android:key="rr_power"
+        android:fragment="com.android.settings.rr.PowerMenuSettings"
+        android:title="@string/rr_power_title"
+        android:icon="@drawable/rr_power_icon"
        />
 
       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference

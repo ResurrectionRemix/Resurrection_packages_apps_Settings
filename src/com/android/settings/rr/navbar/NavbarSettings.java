@@ -55,8 +55,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
     private static final String KEY_NAVIGATION_HEIGHT_PORT = "navbar_height_portrait";
     private static final String KEY_NAVIGATION_HEIGHT_LAND = "navbar_height_landscape";
     private static final String KEY_NAVIGATION_WIDTH = "navbar_width";
-	private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
-    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
     private SwitchPreference mNavbarVisibility;
     private ListPreference mNavbarMode;
@@ -67,8 +65,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
     private SeekBarPreference mBarHeightPort;
     private SeekBarPreference mBarHeightLand;
     private SeekBarPreference mBarWidth;
-    private SwitchPreference mKillAppLongPressBack;
-	private SeekBarPreference mLongpressKillDelay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,20 +112,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
             mBarHeightLand.setProgress(size);
             mBarHeightLand.setOnPreferenceChangeListener(this);
         }
-
-        // kill-app long press back delay
-        mLongpressKillDelay = (SeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
-        int killconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LONG_PRESS_KILL_DELAY, 1000);
-        mLongpressKillDelay.setProgress(killconf);
-		mLongpressKillDelay.setOnPreferenceChangeListener(this);
-
-  	    // kill-app long press back
-        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
-        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
-        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
-                KILL_APP_LONGPRESS_BACK, 0);
-        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
     }
 
     private void updateBarModeSettings(int mode) {
@@ -175,15 +157,6 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_WIDTH, val, UserHandle.USER_CURRENT);
             return true;
-        } else if (preference == mLongpressKillDelay) {
-            int killconf = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LONG_PRESS_KILL_DELAY, killconf);
-            return true;
-		} else  if (preference == mKillAppLongPressBack) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(), KILL_APP_LONGPRESS_BACK,value ? 1 : 0);
-			return true;
         }
         return false;
     }

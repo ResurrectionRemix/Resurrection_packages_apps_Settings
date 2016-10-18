@@ -27,15 +27,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
         private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
         private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
-        private static final String PREF_TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
-        private static final String PREF_TRANSPARENT_POWER_MENU = "transparent_power_menu";
-        private static final String PREF_TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
-        private static final String PREF_VOLUME_DIALOG_STROKE = "volume_dialog_stroke";
-        private static final String PREF_VOLUME_DIALOG_STROKE_COLOR = "volume_dialog_stroke_color";
-        private static final String PREF_VOLUME_DIALOG_STROKE_THICKNESS = "volume_dialog_stroke_thickness";
-        private static final String PREF_VOLUME_DIALOG_CORNER_RADIUS = "volume_dialog_corner_radius";
-        private static final String PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH = "volume_dialog_dash_width";
-        private static final String PREF_VOLUME_DIALOG_STROKE_DASH_GAP = "volume_dialog_dash_gap";
         private static final String PREF_QS_STROKE = "qs_stroke";
         private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
         private static final String PREF_QS_STROKE_THICKNESS = "qs_stroke_thickness";
@@ -46,15 +37,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
         private SeekBarPreference mQSShadeAlpha;
         //private SeekBarPreference mQSHeaderAlpha;
-        private SeekBarPreference mVolumeDialogAlpha;
-        private SeekBarPreference mPowerMenuAlpha;
-        private SeekBarPreference mPowerDialogDim;
-        private ListPreference mVolumeDialogStroke;
-        private ColorPickerPreference mVolumeDialogStrokeColor;
-        private SeekBarPreference mVolumeDialogStrokeThickness;
-        private SeekBarPreference mVolumeDialogCornerRadius;
-        private SeekBarPreference mVolumeDialogDashWidth;
-        private SeekBarPreference mVolumeDialogDashGap;
         private ListPreference mQSStroke;
         private ColorPickerPreference mQSStrokeColor;
         private SeekBarPreference mQSStrokeThickness;
@@ -62,8 +44,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
         private SeekBarPreference mQSDashWidth;
         private SeekBarPreference mQSDashGap;
         //private SeekBarPreference mNotificationsAlpha;
-
-        static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
         static final int DEFAULT_QS_STROKE_COLOR = 0xFF80CBC4;
 
     	@Override
@@ -90,86 +70,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                     Settings.System.QS_TRANSPARENT_HEADER, 255);
             mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
             mQSHeaderAlpha.setOnPreferenceChangeListener(this);*/
-
-            // Volume dialog alpha
-            mVolumeDialogAlpha =
-                    (SeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_VOLUME_DIALOG);
-            int volumeDialogAlpha = Settings.System.getInt(resolver,
-                    Settings.System.TRANSPARENT_VOLUME_DIALOG, 255);
-            mVolumeDialogAlpha.setProgress(volumeDialogAlpha / 1);
-            mVolumeDialogAlpha.setOnPreferenceChangeListener(this);
-
-            // Power menu alpha
-            mPowerMenuAlpha =
-                    (SeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_POWER_MENU);
-            int powerMenuAlpha = Settings.System.getInt(resolver,
-                    Settings.System.TRANSPARENT_POWER_MENU, 100);
-            mPowerMenuAlpha.setProgress(powerMenuAlpha / 1);
-            mPowerMenuAlpha.setOnPreferenceChangeListener(this);
-
-            // Power/reboot dialog dim
-            mPowerDialogDim =
-                    (SeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_POWER_DIALOG_DIM);
-            int powerDialogDim = Settings.System.getInt(resolver,
-                    Settings.System.TRANSPARENT_POWER_DIALOG_DIM, 50);
-            mPowerDialogDim.setProgress(powerDialogDim / 1);
-            mPowerDialogDim.setOnPreferenceChangeListener(this);
-
-            // Volume dialog stroke
-            mVolumeDialogStroke =
-                    (ListPreference) findPreference(PREF_VOLUME_DIALOG_STROKE);
-            int volumeDialogStroke = Settings.System.getIntForUser(resolver,
-                            Settings.System.VOLUME_DIALOG_STROKE, 0,
-                            UserHandle.USER_CURRENT);
-            mVolumeDialogStroke.setValue(String.valueOf(volumeDialogStroke));
-            mVolumeDialogStroke.setSummary(mVolumeDialogStroke.getEntry());
-            mVolumeDialogStroke.setOnPreferenceChangeListener(this);
-
-            // Volume dialog stroke color
-            mVolumeDialogStrokeColor =
-                    (ColorPickerPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_COLOR);
-            mVolumeDialogStrokeColor.setOnPreferenceChangeListener(this);
-            int intColor = Settings.System.getInt(resolver,
-                    Settings.System.VOLUME_DIALOG_STROKE_COLOR, DEFAULT_VOLUME_DIALOG_STROKE_COLOR);
-            String hexColor = String.format("#%08x", (0xFF80CBC4 & intColor));
-            mVolumeDialogStrokeColor.setSummary(hexColor);
-            mVolumeDialogStrokeColor.setNewPreviewColor(intColor);
-
-            // Volume dialog stroke thickness
-            mVolumeDialogStrokeThickness =
-                    (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_THICKNESS);
-            int volumeDialogStrokeThickness = Settings.System.getInt(resolver,
-                    Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, 4);
-            mVolumeDialogStrokeThickness.setProgress(volumeDialogStrokeThickness / 1);
-            mVolumeDialogStrokeThickness.setOnPreferenceChangeListener(this);
-
-            // Volume dialog corner radius
-            mVolumeDialogCornerRadius =
-                    (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_CORNER_RADIUS);
-            int volumeDialogCornerRadius = Settings.System.getInt(resolver,
-                    Settings.System.VOLUME_DIALOG_CORNER_RADIUS, 10);
-            mVolumeDialogCornerRadius.setProgress(volumeDialogCornerRadius / 1);
-            mVolumeDialogCornerRadius.setOnPreferenceChangeListener(this);
-
-            // Volume dialog dash width
-            mVolumeDialogDashWidth =
-                    (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH);
-            int volumeDialogDashWidth = Settings.System.getInt(resolver,
-                    Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, 0);
-            if (volumeDialogDashWidth != 0) {
-                mVolumeDialogDashWidth.setProgress(volumeDialogDashWidth / 1);
-            } else {
-                mVolumeDialogDashWidth.setProgress(0);
-            }
-            mVolumeDialogDashWidth.setOnPreferenceChangeListener(this);
-
-            // Volume dialog dash gap
-            mVolumeDialogDashGap =
-                    (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_GAP);
-            int volumeDialogDashGap = Settings.System.getInt(resolver,
-                    Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, 10);
-            mVolumeDialogDashGap.setProgress(volumeDialogDashGap / 1);
-            mVolumeDialogDashGap.setOnPreferenceChangeListener(this);
 
             // QS stroke
             mQSStroke =
@@ -235,7 +135,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
             mNotificationsAlpha.setValue(notificationsAlpha / 1);
             mNotificationsAlpha.setOnPreferenceChangeListener(this);*/
 
-            VolumeDialogSettingsDisabler(volumeDialogStroke);
             QSSettingsDisabler(qSStroke);
 
         }
@@ -258,57 +157,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 Settings.System.putInt(resolver,
                         Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
                 return true;*/
-            } else if (preference == mVolumeDialogAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.TRANSPARENT_VOLUME_DIALOG, alpha * 1);
-                return true;
-            } else if (preference == mPowerMenuAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.TRANSPARENT_POWER_MENU, alpha * 1);
-                return true;
-            } else if (preference == mPowerDialogDim) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.TRANSPARENT_POWER_DIALOG_DIM, alpha * 1);
-                return true;
-            } else if (preference == mVolumeDialogStroke) {
-                int volumeDialogStroke = Integer.parseInt((String) newValue);
-                int index = mVolumeDialogStroke.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(resolver, Settings.System.
-                        VOLUME_DIALOG_STROKE, volumeDialogStroke, UserHandle.USER_CURRENT);
-                mVolumeDialogStroke.setSummary(mVolumeDialogStroke.getEntries()[index]);
-                VolumeDialogSettingsDisabler(volumeDialogStroke);
-                return true;
-            } else if (preference == mVolumeDialogStrokeColor) {
-                String hex = ColorPickerPreference.convertToARGB(
-                        Integer.valueOf(String.valueOf(newValue)));
-                preference.setSummary(hex);
-                int intHex = ColorPickerPreference.convertToColorInt(hex);
-                Settings.System.putInt(resolver,
-                        Settings.System.VOLUME_DIALOG_STROKE_COLOR, intHex);
-                return true;
-            } else if (preference == mVolumeDialogStrokeThickness) {
-                int val = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, val * 1);
-                return true;
-            } else if (preference == mVolumeDialogCornerRadius) {
-                int val = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.VOLUME_DIALOG_CORNER_RADIUS, val * 1);
-                return true;
-            } else if (preference == mVolumeDialogDashWidth) {
-                int val = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, val * 1);
-                return true;
-            } else if (preference == mVolumeDialogDashGap) {
-                int val = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, val * 1);
-                return true;
             } else if (preference == mQSStroke) {
                 int qSStroke = Integer.parseInt((String) newValue);
                 int index = mQSStroke.findIndexOfValue((String) newValue);
@@ -352,25 +200,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 return true;*/
             }
             return false;
-        }
-
-        private void VolumeDialogSettingsDisabler(int volumeDialogStroke) {
-            if (volumeDialogStroke == 0) {
-				mVolumeDialogStrokeColor.setEnabled(false);
-                mVolumeDialogStrokeThickness.setEnabled(false);
-                mVolumeDialogDashWidth.setEnabled(false);
-                mVolumeDialogDashGap.setEnabled(false);
-            } else if (volumeDialogStroke == 1) {
-				mVolumeDialogStrokeColor.setEnabled(false);
-                mVolumeDialogStrokeThickness.setEnabled(true);
-                mVolumeDialogDashWidth.setEnabled(true);
-                mVolumeDialogDashGap.setEnabled(true);
-            } else {
-				mVolumeDialogStrokeColor.setEnabled(true);
-                mVolumeDialogStrokeThickness.setEnabled(true);
-                mVolumeDialogDashWidth.setEnabled(true);
-                mVolumeDialogDashGap.setEnabled(true);
-            }
         }
 
         private void QSSettingsDisabler(int qSStroke) {
