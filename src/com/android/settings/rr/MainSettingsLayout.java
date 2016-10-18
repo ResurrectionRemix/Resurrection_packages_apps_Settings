@@ -93,6 +93,11 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 		mContext = getActivity().getApplicationContext();
 		ContentResolver resolver = getActivity().getContentResolver();
 
+		int which = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.RR_CONFIG_STYLE, 0);
+		if (which == 1) {
+		mTabs.setVisibility(View.GONE);
+		}
 		FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
 		FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
 		FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
