@@ -182,8 +182,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[5] = new RRGestures();
             frags[6] = new ButtonSettings();
             frags[7] = new AnimationSettings();
-            frags[8] = new MiscSettings();
-			frags[9] = new About();
+            frags[8] = new UISettings();
+            frags[9] = new MiscSettings();
+            frags[10] = new About();
         	} else {
 		    frags[0] = new MainSettings();
 			}
@@ -212,18 +213,19 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 		if (which == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
-                getString(R.string.rr_np_title),
+                getString(R.string.rr_notification_panel_title),
                 getString(R.string.recents_settings_title),
-				getString(R.string.rr_qs_panel_title),
-				getString(R.string.rr_lockscreen_title),
+                getString(R.string.rr_qs_title),
+                getString(R.string.rr_lockscreen_title),
                 getString(R.string.gestures_settings),
                 getString(R.string.button_pref_title),
-                getString(R.string.rr_animation_title),
+                getString(R.string.animation_title),
+                getString(R.string.rr_ui_title),
                 getString(R.string.rr_misc_title),
                 getString(R.string.about_rr_settings)};
 		} else {
-				titleString = new String[]{
-				getString(R.string.rr_title)};
+                titleString = new String[]{
+                getString(R.string.rr_title)};
 		}
         return titleString;
     }
@@ -396,6 +398,22 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                                     Settings.Secure.QS_WIFI_EASY_TOGGLE, 0);
                             Settings.Secure.putInt(mResolver,
                                     Settings.Secure.QS_BT_EASY_TOGGLE, 0);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.NAVIGATION_BAR_VISIBLE, 1);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.NAVIGATION_BAR_MODE, 1);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.NAVBAR_BUTTONS_ALPHA, 250);
+                            Settings.Secure.putInt(mResolver,
+                                    Settings.Secure.FLING_PULSE_ENABLED, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.ENABLE_APP_CIRCLE_BAR, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEY_MISSED_CALL_BREATH, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEY_VOICEMAIL_BREATH ,0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.KEY_SMS_BREATH, 0);
     }
 
 }
