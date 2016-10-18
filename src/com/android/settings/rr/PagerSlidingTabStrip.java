@@ -81,9 +81,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private Paint mDividerPaint;
 
     private int mIndicatorColor;
-    private int mIndicatorHeight = 2;
+    private int mIndicatorHeight = 6;
 
-    private int mUnderlineHeight = 0;
+    private int mUnderlineHeight = 2;
     private int mUnderlineColor;
 
     private int mDividerWidth = 0;
@@ -277,7 +277,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             v.setPadding(mTabPadding, v.getPaddingTop(), mTabPadding, v.getPaddingBottom());
             TextView tab_title = (TextView) v.findViewById(R.id.psts_tab_title);
             if (tab_title != null) {
-                tab_title.setTextColor(mTabTextColor);
+                tab_title.setTextColor(getResources().getColor(R.color.rr_config_tab_text_color));
                 tab_title.setTypeface(mTabTextTypeface, mTabTextTypefaceStyle);
                 tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSize);
                 // setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
