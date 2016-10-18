@@ -140,6 +140,9 @@ import com.android.settings.rr.navbar.FlingSettings;
 import com.android.settings.rr.navbar.NavbarSettings;
 import com.android.settings.rr.navbar.SmartbarSettings;
 import com.android.settings.rr.navbar.PulseSettings;
+import com.android.settings.rr.AppCircleBar;
+import com.android.settings.rr.AppSidebar;
+import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -381,12 +384,15 @@ public class SettingsActivity extends SettingsDrawerActivity
             TestingSettings.class.getName(),
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
-			MainSettingsLayout.class.getName(),
-			About.class.getName(),
+            MainSettingsLayout.class.getName(),
+            About.class.getName(),
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
-           SmartbarSettings.class.getName(),
-            PulseSettings.class.getName()
+            SmartbarSettings.class.getName(),
+            PulseSettings.class.getName(),
+            AppSidebar.class.getName(),
+            AppCircleBar.class.getName(),
+            GestureAnywhereSettings.class.getName()
     };
 
 
@@ -596,7 +602,7 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         mIsShowingDashboard = className.equals(Settings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName())
-				|| className.equals(MainSettingsLayout.class.getName())
+            	|| className.equals(MainSettingsLayout.class.getName())
                 || className.equals(Settings.DeviceSettings.class.getName())
                 || className.equals(Settings.PersonalSettings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName());

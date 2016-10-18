@@ -2551,6 +2551,42 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+        <!-- Gesture Anywhere -->
+        <activity android:name="Settings$GestrueAnywhereActivity"
+             android:label="@string/gesture_anywhere_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings" />
+        </activity>
+
+        <!-- App Sidebar -->
+        <activity android:name="Settings$AppSidebarActivity"
+             android:label="@string/app_circle_bar_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.AppSidebar" />
+        </activity>
+
+     <!-- App Circle Bar -->
+        <activity android:name="Settings$AppCircleBarActivity"
+             android:label="@string/app_circle_bar_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.AppCircleBar" />
+        </activity>
+
         <activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/rr_title">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
