@@ -47,7 +47,6 @@ import com.android.settings.R;
 import com.android.settings.rr.utils.DeviceUtils;
 import com.android.settings.rr.utils.TelephonyUtils;
 import org.cyanogenmod.internal.util.ScreenType;
-
 import java.util.List;
 
 import cyanogenmod.hardware.CMHardwareManager;
@@ -92,6 +91,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
     private static final String CATEGORY_NAVBAR = "rr_nav_bar";
+    private static final String DT2L_CAMERA_VIBRATE_CONFIG = "dt2l_camera_vibrate_config";
 
     // Available custom actions to perform on a key press.
     // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
@@ -135,6 +135,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mCameraDoubleTapPowerGesture;
+    private SeekBarPreference mDt2lCameraVibrateConfig;
 
     private PreferenceScreen mNavigationPreferencesCat;
 
@@ -200,6 +201,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Home button answers calls.
         mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
+
 
         mHandler = new Handler();
 
@@ -427,6 +429,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+        mDt2lCameraVibrateConfig = (SeekBarPreference) findPreference(DT2L_CAMERA_VIBRATE_CONFIG);
+        mDt2lCameraVibrateConfig.setProgress(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1));
+        mDt2lCameraVibrateConfig.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -585,6 +591,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
             return true;
+        } else if (preference == mDt2lCameraVibrateConfig) {
+            int dt2lcameravib = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, dt2lcameravib * 10);
         }
         return false;
     }

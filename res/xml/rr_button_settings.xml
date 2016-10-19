@@ -63,6 +63,17 @@
             android:summary="@string/camera_double_tap_power_gesture_desc"
             android:persistent="false" />
 
+        <com.android.settings.SeekBarPreference
+                android:key="dt2l_camera_vibrate_config"
+                android:title="@string/dt2l_camera_vib_title"
+                android:max="1000"
+                settings:minimum="0"
+                settings:unitsLeft=""
+                settings:unitsRight="dp"
+                android:dependency="camera_double_tap_power_gesture"
+                android:persistent="false" />
+
+
        <cyanogenmod.preference.CMSecureSettingSwitchPreference
             android:key="advanced_reboot"
             android:title="@string/advanced_reboot_title"
