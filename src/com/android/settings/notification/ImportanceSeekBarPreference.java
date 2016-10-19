@@ -33,6 +33,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.android.settings.Utils;
 
+import static android.service.notification.NotificationListenerService.Ranking.importanceToLevel;
+import static android.service.notification.NotificationListenerService.Ranking.levelToImportance;
+
 /**
  * A slider preference that controls notification importance.
  **/
@@ -88,10 +91,9 @@ public class ImportanceSeekBarPreference extends SeekBarPreference implements
         notifyChanged();
     }
 
-    @Override
-    public void setProgress(int progress) {
-        mSummary = getProgressSummary(progress);
-        super.setProgress(progress);
+    public void setImportance(int importance) {
+        mSummary = getImportanceSummary(importance);
+        super.setProgress(importanceToLevel(importance));
     }
 
     public void setAutoOn(boolean autoOn) {
@@ -119,7 +121,7 @@ public class ImportanceSeekBarPreference extends SeekBarPreference implements
     private void applyAuto(ImageView autoButton) {
         mAutoOn = !mAutoOn;
         if (!mAutoOn) {
-            setProgress(NotificationListenerService.Ranking.IMPORTANCE_DEFAULT);
+            setImportance(NotificationListenerService.Ranking.IMPORTANCE_DEFAULT);
             mCallback.onImportanceChanged(
                     NotificationListenerService.Ranking.IMPORTANCE_DEFAULT, true);
         } else {
@@ -140,8 +142,8 @@ public class ImportanceSeekBarPreference extends SeekBarPreference implements
         mSeekBar.setAlpha(alpha);
 
         if (mAutoOn) {
-            setProgress(NotificationListenerService.Ranking.IMPORTANCE_DEFAULT);
-            mSummary = getProgressSummary(
+            setImportance(NotificationListenerService.Ranking.IMPORTANCE_DEFAULT);
+            mSummary = getImportanceSummary(
                     NotificationListenerService.Ranking.IMPORTANCE_UNSPECIFIED);
         }
         mSummaryTextView.setText(mSummary);
@@ -159,19 +161,22 @@ public class ImportanceSeekBarPreference extends SeekBarPreference implements
             seekBar.setProgress(mMinProgress);
             progress = mMinProgress;
         }
+        int importance = levelToImportance(progress);
         if (mSummaryTextView != null) {
-            mSummary = getProgressSummary(progress);
+            mSummary = getImportanceSummary(importance);
             mSummaryTextView.setText(mSummary);
         }
-        mCallback.onImportanceChanged(progress, fromTouch);
+        mCallback.onImportanceChanged(importance, fromTouch);
     }
 
-    private String getProgressSummary(int progress) {
-        switch (progress) {
+    private String getImportanceSummary(int importance) {
+        switch (importance) {
             case NotificationListenerService.Ranking.IMPORTANCE_NONE:
                 return getContext().getString(R.string.notification_importance_blocked);
             case NotificationListenerService.Ranking.IMPORTANCE_MIN:
                 return getContext().getString(R.string.notification_importance_min);
+            case NotificationListenerService.Ranking.IMPORTANCE_VERY_LOW:
+                return getContext().getString(R.string.notification_importance_very_low);
             case NotificationListenerService.Ranking.IMPORTANCE_LOW:
                 return getContext().getString(R.string.notification_importance_low);
             case NotificationListenerService.Ranking.IMPORTANCE_DEFAULT:

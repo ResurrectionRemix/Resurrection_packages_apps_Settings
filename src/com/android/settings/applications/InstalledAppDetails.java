@@ -107,6 +107,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import static android.service.notification.NotificationListenerService.Ranking.importanceToLevel;
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 /**
@@ -1105,7 +1106,7 @@ public class InstalledAppDetails extends AppInfoBase
         if (showSlider) {
             if (appRow.appImportance != Ranking.IMPORTANCE_UNSPECIFIED) {
                 summaryAttributes.add(context.getString(
-                        R.string.notification_summary_level, appRow.appImportance));
+                        R.string.notification_summary_level, importanceToLevel(appRow.appImportance)));
             }
         } else {
             if (appRow.banned) {
