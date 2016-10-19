@@ -27,6 +27,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -62,6 +63,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String KEY_SHOW_ON_KEYGUARD = "show_on_keyguard";
     private static final String KEY_NO_ONGOING_ON_KEYGUARD = "no_ongoing_on_keyguard";
     private static final String KEY_HALO = "halo";
+    private static final String KEY_SOUND_TIMEOUT = "sound_timeout";
 
     private static final Intent APP_NOTIFICATION_PREFS_CATEGORY_INTENT
             = new Intent(Intent.ACTION_MAIN)
@@ -77,6 +79,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private SwitchPreference mShowOnKeyguard;
     private SwitchPreference mShowNoOngoingOnKeyguard;
     private SwitchPreference mHalo;
+    private ListPreference mSoundTimeout;
     private AppRow mAppRow;
     private boolean mCreated;
     private boolean mIsSystemPackage;
@@ -146,6 +149,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mShowOnKeyguard = (SwitchPreference) findPreference(KEY_SHOW_ON_KEYGUARD);
         mShowNoOngoingOnKeyguard = (SwitchPreference) findPreference(KEY_NO_ONGOING_ON_KEYGUARD);
         mHalo = (SwitchPreference) findPreference(KEY_HALO);
+        mSoundTimeout = (ListPreference) findPreference(KEY_SOUND_TIMEOUT);
 
         mAppRow = mBackend.loadAppRow(pm, info.applicationInfo);
 
@@ -160,6 +164,8 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPeekable.setChecked(mAppRow.peekable);
         mSensitive.setChecked(mAppRow.sensitive);
         mHalo.setChecked(mAppRow.halo);
+        mSoundTimeout.setValue(Long.toString(mAppRow.soundTimeout));
+        updateSoundTimeoutSummary(mAppRow.soundTimeout);
 
         mBlock.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
@@ -205,6 +211,18 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean sensitive = (Boolean) newValue;
                 return mBackend.setSensitive(pkg, mUid, sensitive);
+            }
+        });
+
+        mSoundTimeout.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                long value = Long.valueOf((String) newValue);
+                if (!mBackend.setNotificationSoundTimeout(pkg, mUid, value)) {
+                    return false;
+                }
+                updateSoundTimeoutSummary(value);
+                return true;
             }
         });
 
@@ -269,6 +287,25 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         if (mUid != -1 && getPackageManager().getPackagesForUid(mUid) == null) {
             // App isn't around anymore, must have been removed.
             finish();
+        }
+    }
+
+    private void updateSoundTimeoutSummary(long value) {
+        if (value == 0) {
+            mSoundTimeout.setSummary(R.string.app_notification_sound_timeout_value_none);
+        } else {
+            final CharSequence[] entries = mSoundTimeout.getEntries();
+            final CharSequence[] values = mSoundTimeout.getEntryValues();
+            CharSequence summary = null;
+            for (int i = 0; i < values.length; i++) {
+                long timeout = Long.parseLong(values[i].toString());
+                if (timeout == value) {
+                    summary = getString(R.string.app_notification_sound_timeout_summary_template,
+                            entries[i]);
+                    break;
+                }
+            }
+            mSoundTimeout.setSummary(summary);
         }
     }
 

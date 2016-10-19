@@ -75,6 +75,14 @@
             android:dependency="show_on_keyguard"
             android:persistent="false" />
 
+    <ListPreference
+            android:key="sound_timeout"
+            android:title="@string/app_notification_sound_timeout_title"
+            android:entries="@array/app_notification_sound_timeout_entries"
+            android:entryValues="@array/app_notification_sound_timeout_values"
+            android:order="7"
+            android:persistent="false" />
+
     <!-- App notification preferences -->
     <Preference
             android:key="app_settings"
