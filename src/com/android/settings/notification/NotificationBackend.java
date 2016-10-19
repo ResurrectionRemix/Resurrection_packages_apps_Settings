@@ -52,6 +52,7 @@ public class NotificationBackend {
         row.appImportance = getImportance(row.pkg, row.uid);
         row.appBypassDnd = getBypassZenMode(row.pkg, row.uid);
         row.appVisOverride = getVisibilityOverride(row.pkg, row.uid);
+        row.soundTimeout = getNotificationSoundTimeout(row.pkg, row.uid);
         row.lockScreenSecure = new LockPatternUtils(context).isSecure(
                 UserHandle.myUserId());
         return row;
@@ -131,6 +132,25 @@ public class NotificationBackend {
         }
     }
 
+    public long getNotificationSoundTimeout(String pkg, int uid) {
+        try {
+            return sINM.getNotificationSoundTimeout(pkg, uid);
+        } catch (Exception e) {
+            Log.w(TAG, "Error calling NoMan", e);
+            return 0;
+        }
+    }
+
+    public boolean setNotificationSoundTimeout(String pkg, int uid, long timeout) {
+        try {
+            sINM.setNotificationSoundTimeout(pkg, uid, timeout);
+            return true;
+        } catch (Exception e) {
+            Log.w(TAG, "Error calling NoMan", e);
+            return false;
+        }
+    }
+
     static class Row {
         public String section;
     }
@@ -147,6 +167,7 @@ public class NotificationBackend {
         public int appImportance;
         public boolean appBypassDnd;
         public int appVisOverride;
+        public long soundTimeout;
         public boolean lockScreenSecure;
     }
 }

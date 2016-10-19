@@ -77,6 +77,8 @@ public class AppNotificationSettings extends NotificationSettingsBase {
                         KEY_VISIBILITY_OVERRIDE);
         mBlock = (RestrictedSwitchPreference) getPreferenceScreen().findPreference(KEY_BLOCK);
         mSilent = (RestrictedSwitchPreference) getPreferenceScreen().findPreference(KEY_SILENT);
+        mSoundTimeout = (RestrictedDropDownPreference)
+                getPreferenceScreen().findPreference(KEY_SOUND_TIMEOUT);
 
         if (mPkgInfo != null) {
             mAppRow = mBackend.loadAppRow(mContext, mPm, mPkgInfo);
@@ -93,6 +95,7 @@ public class AppNotificationSettings extends NotificationSettingsBase {
             setupImportancePrefs(mAppRow.systemApp, mAppRow.appImportance, mAppRow.banned);
             setupPriorityPref(mAppRow.appBypassDnd);
             setupVisOverridePref(mAppRow.appVisOverride);
+            setupSoundTimeoutPref(mAppRow.soundTimeout);
             updateDependents(mAppRow.appImportance);
         }
     }
