@@ -48,6 +48,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
 import com.android.settings.util.CMDProcessor;
@@ -72,40 +73,41 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     PagerSlidingTabStrip mTabs;
     SectionsPagerAdapter mSectionsPagerAdapter;
     protected Context mContext;
+	private LinearLayout mLayout;
+	private FloatingActionsMenu mFab;
+	private FrameLayout mInterceptorFrame;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		PreferenceScreen prefs = getPreferenceScreen();
-        if (prefs != null) {
-            prefs.removeAll();
-        }
-   		mContainer = container;
+        mContainer = container;
         View view = inflater.inflate(R.layout.rr_main, container, false);
-        FloatingActionsMenu mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
+        mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
+        mLayout = (LinearLayout) view.findViewById(R.id.main_content);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+        mInterceptorFrame = (FrameLayout) view.findViewById(R.id.fl_interceptor);
+        FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
+        FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
+        FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
+        FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_info);
+        FloatingActionButton mFab5 = (FloatingActionButton) view.findViewById(R.id.fab_config);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
-		mContext = getActivity().getApplicationContext();
-		ContentResolver resolver = getActivity().getContentResolver();
-
-		int which = Settings.System.getInt(getActivity().getContentResolver(),
+        mContext = getActivity().getApplicationContext();
+        ContentResolver resolver = getActivity().getContentResolver();
+        mInterceptorFrame.getBackground().setAlpha(0);
+        int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.RR_CONFIG_STYLE, 0);
-		FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
-		FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
-		FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
-		FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_info);
-		FloatingActionButton mFab5 = (FloatingActionButton) view.findViewById(R.id.fab_config);
-		if (which == 1) {
-		mTabs.setVisibility(View.GONE);
-		mFab5.setTitle("Toggle Nougat Layout");
-		} else if (which == 0) {
-		mTabs.setVisibility(View.VISIBLE);
-		mFab5.setTitle("Toggle Marshmallow Layout");
-		}
+        if (which == 1) {
+        mTabs.setVisibility(View.GONE);
+        mFab5.setTitle("Toggle Nougat Layout");
+        } else if (which == 0) {
+        mTabs.setVisibility(View.VISIBLE);
+        mFab5.setTitle("Toggle Marshmallow Layout");
+        }
 
         boolean isShowing =   Settings.System.getInt(resolver,
-		Settings.System.RR_OTA_FAB, 1) == 1;
+        Settings.System.RR_OTA_FAB, 1) == 1;
 
         mFab1.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -131,20 +133,20 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              alertDialog.setMessage("Reset All RR configurations to Default Values?");
 
              alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
-               			 public void onClick(DialogInterface dialog, int which) {
-                		 stockitems();
-                		 }
-              		 });
+                         public void onClick(DialogInterface dialog, int which) {
+                         stockitems();
+                         }
+                    });
              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,"Cancel", new DialogInterface.OnClickListener() {
-                		 public void onClick(DialogInterface dialog, int which) {
-                		 return;
-                		}
-               		});
+                         public void onClick(DialogInterface dialog, int which) {
+                         return;
+                         }
+                    });
              alertDialog.show();
              }
         });
 
-		mFab4.setOnClickListener(new View.OnClickListener() {
+        mFab4.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
              Intent fabIntent = new Intent();
@@ -153,28 +155,59 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              }
         });
 
-		mFab5.setOnClickListener(new View.OnClickListener() {
+        mFab5.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             			if (which == 0) {
-            			Settings.System.putInt(getActivity().getContentResolver(),
+                        if (which == 0) {
+                        Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.RR_CONFIG_STYLE, 1);
-			  			} else if(which == 1) {
-						Settings.System.putInt(getActivity().getContentResolver(),
+                        } else if(which == 1) {
+                        Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.RR_CONFIG_STYLE, 0);
-						}
-			 finish();
-			 startActivity(getIntent());
+                        }
+             finish();
+             startActivity(getIntent());
              }
         });
 
+        if (isShowing) {
+        mFab.setVisibility(View.VISIBLE);
+        } else {
+        mFab.setVisibility(View.GONE);
+        }
 
-		if (isShowing) {
-		mFab.setVisibility(View.VISIBLE);
-		} else {
-		mFab.setVisibility(View.GONE);
-		}
-		return view;
+        mFab.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
+        @Override
+        public void onMenuExpanded() {
+        mInterceptorFrame.getBackground().setAlpha(240);
+        mInterceptorFrame.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                   mFab.collapse();
+                   return true;
+                   }
+             });
+        }
+
+        @Override
+        public void onMenuCollapsed() {
+                    mInterceptorFrame.getBackground().setAlpha(0);
+                    mInterceptorFrame.setOnTouchListener(null);
+    	            }
+        });
+
+        mInterceptorFrame.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                if (mFab.isExpanded()) {
+                    mFab.collapse();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+    return view;
     }
 
     @Override
@@ -194,14 +227,14 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-		int which = Settings.System.getInt(getActivity().getContentResolver(),
+        int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.RR_CONFIG_STYLE, 0);
-			if (which == 0) {
+        	if (which == 0) {
             frags[0] = new StatusBarSettings();
             frags[1] = new NotificationDrawerSettings();
             frags[2] = new RecentsSettings();
             frags[3] = new QsPanel();
-			frags[4] = new LockScreenSettings();
+        	frags[4] = new LockScreenSettings();
             frags[5] = new RRGestures();
             frags[6] = new ButtonSettings();
             frags[7] = new AnimationSettings();
@@ -209,9 +242,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[9] = new MiscSettings();
             frags[10] = new About();
         	} else {
-		    frags[0] = new MainSettings();
-			}
-		}
+            frags[0] = new MainSettings();
+        	}
+        }
 
         @Override
         public Fragment getItem(int position) {
@@ -231,9 +264,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     private String[] getTitles() {
         String titleString[];
-		int which = Settings.System.getInt(getActivity().getContentResolver(),
+        int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.RR_CONFIG_STYLE, 0);
-		if (which == 0) {
+        if (which == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.rr_notification_panel_title),
@@ -246,10 +279,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.rr_ui_title),
                 getString(R.string.rr_misc_title),
                 getString(R.string.about_rr_settings)};
-		} else {
+        } else {
                 titleString = new String[]{
                 getString(R.string.rr_title)};
-		}
+        }
         return titleString;
     }
 

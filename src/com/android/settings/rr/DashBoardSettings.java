@@ -62,12 +62,12 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             Integer.valueOf((String) objValue));
             mConfig.setValue(String.valueOf(objValue));
             mConfig.setSummary(mConfig.getEntry());
-			finish();
-        	Intent fabIntent = new Intent();
+            finish();
+            Intent fabIntent = new Intent();
             fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
             startActivity(fabIntent);
             return true;
         }
-        return true;
+        return false;
     }
 }

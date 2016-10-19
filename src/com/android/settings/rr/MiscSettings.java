@@ -111,8 +111,8 @@ private SwitchPreference mSelinux;
             boolean newvalue = (Boolean) value;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RR_OTA_FAB, newvalue ? 1 : 0);
-			finish();
-        	Intent fabIntent = new Intent();
+            finish();
+            Intent fabIntent = new Intent();
             fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
             startActivity(fabIntent);
             return true;
