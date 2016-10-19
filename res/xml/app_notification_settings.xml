@@ -69,9 +69,16 @@
             android:key="bubble_link_pref"
             android:title="@string/notification_bubbles_title"
             android:order="1002" />
+        <com.android.settings.RestrictedListPreference
+            android:key="sound_timeout"
+            android:title="@string/app_notification_sound_timeout_title"
+            android:entries="@array/app_notification_sound_timeout_entries"
+            android:entryValues="@array/app_notification_sound_timeout_values"
+            android:order="1003"
+            android:persistent="false" />
         <Preference
             android:key="app_link"
-            android:order="1003"
+            android:order="1004"
             android:title="@string/app_settings_link" />
 
     </PreferenceCategory>
