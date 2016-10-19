@@ -16,6 +16,7 @@ package com.android.settings.rr;
 import android.os.Bundle;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
@@ -54,12 +55,17 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mConfig.setOnPreferenceChangeListener(this);
     }
 
+	@Override
     public boolean onPreferenceChange(Preference preference, Object objValue){
   		if (preference == mConfig) {
 			Settings.System.putInt(getContentResolver(), Settings.System.RR_CONFIG_STYLE,
             Integer.valueOf((String) objValue));
             mConfig.setValue(String.valueOf(objValue));
             mConfig.setSummary(mConfig.getEntry());
+			finish();
+        	Intent fabIntent = new Intent();
+            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
+            startActivity(fabIntent);
             return true;
         }
         return true;

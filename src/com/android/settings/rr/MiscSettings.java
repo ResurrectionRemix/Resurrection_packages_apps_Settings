@@ -52,8 +52,10 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener{
 
 private static final String SELINUX = "selinux";
+private static final String RR_OTA = "rr_ota_fab";
 
 
+private SwitchPreference mConfig;
 private SwitchPreference mSelinux;
 
     @Override
@@ -74,6 +76,12 @@ private SwitchPreference mSelinux;
             mSelinux.setChecked(false);
             mSelinux.setSummary(R.string.selinux_permissive_title);
          	}
+
+        mConfig =
+            (SwitchPreference) findPreference(RR_OTA);
+        mConfig.setChecked((Settings.System.getInt(getContentResolver(),
+                            Settings.System.RR_OTA_FAB, 0) == 1));
+        mConfig.setOnPreferenceChangeListener(this);
 
 		}
 
@@ -99,7 +107,16 @@ private SwitchPreference mSelinux;
                 mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
-         }
+         } else if (preference == mConfig) {
+            boolean newvalue = (Boolean) value;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RR_OTA_FAB, newvalue ? 1 : 0);
+			finish();
+        	Intent fabIntent = new Intent();
+            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
+            startActivity(fabIntent);
+            return true;
+        }
         return false;
      } 
 }

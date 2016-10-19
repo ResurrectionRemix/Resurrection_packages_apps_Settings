@@ -74,8 +74,11 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     protected Context mContext;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-   		 mContainer = container;
-
+		PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
+   		mContainer = container;
         View view = inflater.inflate(R.layout.rr_main, container, false);
         FloatingActionsMenu mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
@@ -83,25 +86,23 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
-		
-		refreshSettings(mFab,view);
-		return view;
-
-		}
-		
-		void refreshSettings(View mFab, View view) {
 		mContext = getActivity().getApplicationContext();
 		ContentResolver resolver = getActivity().getContentResolver();
 
 		int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.RR_CONFIG_STYLE, 0);
-		if (which == 1) {
-		mTabs.setVisibility(View.GONE);
-		}
 		FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
 		FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
 		FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
 		FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_info);
+		FloatingActionButton mFab5 = (FloatingActionButton) view.findViewById(R.id.fab_config);
+		if (which == 1) {
+		mTabs.setVisibility(View.GONE);
+		mFab5.setTitle("Toggle Nougat Layout");
+		} else if (which == 0) {
+		mTabs.setVisibility(View.VISIBLE);
+		mFab5.setTitle("Toggle Marshmallow Layout");
+		}
 
         boolean isShowing =   Settings.System.getInt(resolver,
 		Settings.System.RR_OTA_FAB, 1) == 1;
@@ -152,11 +153,28 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              }
         });
 
+		mFab5.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             			if (which == 0) {
+            			Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.RR_CONFIG_STYLE, 1);
+			  			} else if(which == 1) {
+						Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.RR_CONFIG_STYLE, 0);
+						}
+			 finish();
+			 startActivity(getIntent());
+             }
+        });
+
+
 		if (isShowing) {
 		mFab.setVisibility(View.VISIBLE);
 		} else {
 		mFab.setVisibility(View.GONE);
 		}
+		return view;
     }
 
     @Override
