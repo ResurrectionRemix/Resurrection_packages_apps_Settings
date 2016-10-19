@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The Dirty Unicorns project
+ * Copyright (C) 2016 Resurrection Remix
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,86 +23,82 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
-import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LogoSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class CustomLogo extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
-    public static final String TAG = "LogoSettings";
+    public static final String TAG = "Logo";
 
-    private static final String KEY_RR_LOGO_COLOR = "status_bar_rr_logo_color";
-    private static final String KEY_RR_LOGO_STYLE = "status_bar_rr_logo_style";
+    private static final String KEY_CUSTOM_LOGO_COLOR = "custom_logo_color";
+    private static final String KEY_CUSTOM_LOGO_STYLE = "custom_logo_style";
 
-    private ColorPickerPreference mRRLogoColor;
-    private ListPreference mRRLogoStyle;
+    private ColorPickerPreference mCustomLogoColor;
+    private ListPreference mCustomLogoStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.rr_logo);
+        addPreferencesFromResource(R.xml.custom_logo);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-        int intColor;
-        String hexColor;
 
-        	// RR logo color
-        	mRRLogoColor =
-            (ColorPickerPreference) prefSet.findPreference(KEY_RR_LOGO_COLOR);
-        	mRRLogoColor.setOnPreferenceChangeListener(this);
-        	intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_RR_LOGO_COLOR, 0xffffffff);
-       		hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mRRLogoColor.setSummary(hexColor);
-            mRRLogoColor.setNewPreviewColor(intColor);
+        // custom logo color
+        mCustomLogoColor =
+            (ColorPickerPreference) prefSet.findPreference(KEY_CUSTOM_LOGO_COLOR);
+        mCustomLogoColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.CUSTOM_LOGO_COLOR, 0xffffffff);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mCustomLogoColor.setSummary(hexColor);
+            mCustomLogoColor.setNewPreviewColor(intColor);
 
-            mRRLogoStyle = (ListPreference) findPreference(KEY_RR_LOGO_STYLE);
+
+            mCustomLogoStyle = (ListPreference) findPreference(KEY_CUSTOM_LOGO_STYLE);
             int rrLogoStyle = Settings.System.getIntForUser(getContentResolver(),
-                    Settings.System.STATUS_BAR_RR_LOGO_STYLE, 0,
+                    Settings.System.CUSTOM_LOGO_STYLE, 0,
                     UserHandle.USER_CURRENT);
-            mRRLogoStyle.setValue(String.valueOf(rrLogoStyle));
-            mRRLogoStyle.setSummary(mRRLogoStyle.getEntry());
-            mRRLogoStyle.setOnPreferenceChangeListener(this);
+            mCustomLogoStyle.setValue(String.valueOf(rrLogoStyle));
+            mCustomLogoStyle.setSummary(mCustomLogoStyle.getEntry());
+            mCustomLogoStyle.setOnPreferenceChangeListener(this);
 
     }
 
-	@Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mRRLogoColor) {
+        if (preference == mCustomLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_RR_LOGO_COLOR, intHex);
+                    Settings.System.CUSTOM_LOGO_COLOR, intHex);
             return true;
-        } else if (preference == mRRLogoStyle) {
+        }  else if (preference == mCustomLogoStyle) {
                 int rrLogoStyle = Integer.valueOf((String) newValue);
-                int index = mRRLogoStyle.findIndexOfValue((String) newValue);
+                int index = mCustomLogoStyle.findIndexOfValue((String) newValue);
                 Settings.System.putIntForUser(
-                        getContentResolver(), Settings.System.STATUS_BAR_RR_LOGO_STYLE, rrLogoStyle,
+                       getContentResolver(), 
+		Settings.System.CUSTOM_LOGO_STYLE, rrLogoStyle,
                         UserHandle.USER_CURRENT);
-                mRRLogoStyle.setSummary(
-                        mRRLogoStyle.getEntries()[index]);
+                mCustomLogoStyle.setSummary(
+                        mCustomLogoStyle.getEntries()[index]);
                 return true;
-        }
+	}
         return false;
     }
-
 
     @Override
     protected int getMetricsCategory() {
