@@ -62,6 +62,7 @@ public class NotificationBackend {
         row.userId = UserHandle.getUserId(row.uid);
         row.blockedChannelCount = getBlockedChannelCount(row.pkg, row.uid);
         row.channelCount = getChannelCount(row.pkg, row.uid);
+        row.soundTimeout = getNotificationSoundTimeout(row.pkg, row.uid);
         return row;
     }
 
@@ -259,6 +260,25 @@ public class NotificationBackend {
         }
     }
 
+    public long getNotificationSoundTimeout(String pkg, int uid) {
+        try {
+            return sINM.getNotificationSoundTimeout(pkg, uid);
+        } catch (Exception e) {
+            Log.w(TAG, "Error calling NoMan", e);
+            return 0;
+        }
+    }
+
+    public boolean setNotificationSoundTimeout(String pkg, int uid, long timeout) {
+        try {
+            sINM.setNotificationSoundTimeout(pkg, uid, timeout);
+            return true;
+        } catch (Exception e) {
+            Log.w(TAG, "Error calling NoMan", e);
+            return false;
+        }
+    }
+
     static class Row {
         public String section;
     }
@@ -278,5 +298,6 @@ public class NotificationBackend {
         public int userId;
         public int blockedChannelCount;
         public int channelCount;
+        public long soundTimeout;
     }
 }
