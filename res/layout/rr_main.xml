@@ -16,8 +16,11 @@
 <RelativeLayout
      xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+     xmlns:fab="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
      android:layout_width="match_parent"
-     android:layout_height="match_parent">
+     android:layout_height="match_parent"
+     tools:context="in.city.bytes.view.MainActivity">
 	<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,6 +30,7 @@
     android:id="@+id/main_content"
     android:orientation="vertical">
 
+
     <com.android.settings.rr.PagerSlidingTabStrip
         android:id="@+id/tabs"
         app:pstsShouldExpand="false"
@@ -34,23 +38,17 @@
         android:background="@color/rr_config_tab_color"
         android:layout_height="48dp" />
 
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainSettings"/>
+
 	</LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fl_interceptor"
-        android:descendantFocusability="blocksDescendants"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-		android:background="@color/white_overlay">
 
- 	<include layout="@layout/fab_main" />
-
- </FrameLayout>
+	<include layout="@layout/fab_main" />
 
 
 </RelativeLayout>

@@ -234,6 +234,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
              prefScreen.removePreference(mDisableNavigationKeys);
          }
 
+        mDt2lCameraVibrateConfig = (SeekBarPreference) findPreference(DT2L_CAMERA_VIBRATE_CONFIG);
+        mDt2lCameraVibrateConfig.setProgress(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1));
+        mDt2lCameraVibrateConfig.setOnPreferenceChangeListener(this);
+
 
         if (hasPowerKey) {
             if (!TelephonyUtils.isVoiceCapable(getActivity())) {
@@ -429,10 +434,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
-        mDt2lCameraVibrateConfig = (SeekBarPreference) findPreference(DT2L_CAMERA_VIBRATE_CONFIG);
-        mDt2lCameraVibrateConfig.setProgress(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1));
-        mDt2lCameraVibrateConfig.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -595,6 +596,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             int dt2lcameravib = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, dt2lcameravib * 10);
+           return true;
         }
         return false;
     }
