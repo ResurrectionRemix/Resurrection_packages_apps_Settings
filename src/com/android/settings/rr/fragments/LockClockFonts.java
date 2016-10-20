@@ -38,8 +38,10 @@ import com.android.settings.Utils;
 public class LockClockFonts extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+    private static final String LOCK_DATE_FONTS = "lock_date_fonts";
 
     ListPreference mLockClockFonts;
+    ListPreference mDateFonts;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,12 @@ public class LockClockFonts extends SettingsPreferenceFragment implements OnPref
                 getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 0)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
+
+        mDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
+        mDateFonts.setValue(String.valueOf(Settings.System.getInt(
+                resolver, Settings.System.LOCK_DATE_FONTS, 4)));
+        mDateFonts.setSummary(mDateFonts.getEntry());
+        mDateFonts.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -79,7 +87,13 @@ public class LockClockFonts extends SettingsPreferenceFragment implements OnPref
             mLockClockFonts.setValue(String.valueOf(newValue));
             mLockClockFonts.setSummary(mLockClockFonts.getEntry());
             return true;
-        }
+        } else if (preference == mDateFonts) {
+                Settings.System.putInt(resolver, Settings.System.LOCK_DATE_FONTS,
+                        Integer.valueOf((String) newValue));
+                mDateFonts.setValue(String.valueOf(newValue));
+                mDateFonts.setSummary(mDateFonts.getEntry());
+                return true;
+	     } 
         return result;
     }
 }
