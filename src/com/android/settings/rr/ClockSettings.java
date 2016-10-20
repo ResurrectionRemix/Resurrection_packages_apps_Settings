@@ -50,7 +50,7 @@ import android.widget.EditText;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import java.util.ArrayList;
@@ -177,7 +177,7 @@ public class ClockSettings extends SettingsPreferenceFragment
         mStatusBarClockFontSize = (SeekBarPreference) findPreference(PREF_STATUS_BAR_CLOCK_FONT_SIZE);
 		int size = Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14);
-        mStatusBarClockFontSize.setProgress(size);
+        mStatusBarClockFontSize.setValue(size);
         mStatusBarClockFontSize.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);

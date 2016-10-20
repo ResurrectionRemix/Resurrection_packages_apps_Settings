@@ -48,7 +48,7 @@
         android:defaultValue="false"
         android:dependency="sidebar_enable" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="sidebar_transparency"
         android:title="@string/app_sidebar_transparency_title"
         android:summary="@string/app_sidebar_transparency_summary"
@@ -62,7 +62,7 @@
     <PreferenceCategory
         android:title="@string/trigger_category" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="trigger_width"
         android:title="@string/trigger_width_title"
         android:summary="@string/trigger_width_summary"
@@ -73,7 +73,7 @@
         settings:unitsRight="px"
         android:dependency="sidebar_enable" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="trigger_top"
         android:title="@string/trigger_top_title"
         android:summary="@string/trigger_top_summary"
@@ -84,7 +84,7 @@
         settings:unitsRight="%"
         android:dependency="sidebar_enable" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="trigger_bottom"
         android:title="@string/trigger_bottom_title"
         android:summary="@string/trigger_bottom_summary"

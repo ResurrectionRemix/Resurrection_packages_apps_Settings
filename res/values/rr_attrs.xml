@@ -19,9 +19,12 @@
      
     <!-- Base attributes available to CustomSeekBarPreference. -->
     <declare-styleable name="SeekBarPreference">
-        <attr name="interval" format="integer" />
-        <attr name="min" format="integer" />
-        <attr name="max" format="integer" />
+       <attr name="interval" format="integer" />
+        <attr name="minimum" format="integer" />
+        <attr name="unitsLeft" format="string|reference" />
+        <attr name="unitsRight" format="string|reference" />
+        <attr name="defaultVal" format="integer" />
+        <attr name="maximum" format="integer" />
         <attr name="units" format="string|reference" />
     </declare-styleable>
 
@@ -70,8 +73,8 @@
 
 
     <declare-styleable name="IntervalSeekBar">
-        <attr name="min" format="float" />
-        <attr name="max" format="float" />
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
         <attr name="defaultValue" />
         <attr name="digits" format="integer" />
     </declare-styleable>

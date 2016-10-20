@@ -61,7 +61,7 @@ import com.android.internal.utils.du.Config;
 import com.android.internal.utils.du.Config.ButtonConfig;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 public class SmartbarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -112,7 +112,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
                 (SeekBarPreference) findPreference(PREF_NAVBAR_BUTTONS_ALPHA);
         int bAlpha = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.NAVBAR_BUTTONS_ALPHA, 255, UserHandle.USER_CURRENT);
-        mButtonsAlpha.setProgress(bAlpha / 1);
+        mButtonsAlpha.setValue(bAlpha / 1);
         mButtonsAlpha.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -283,7 +283,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
 
         Settings.Secure.putInt(getContentResolver(),
                 "navbar_buttons_alpha", 255);
-        mButtonsAlpha.setProgress(255);
+        mButtonsAlpha.setValue(255);
         mButtonsAlpha.setOnPreferenceChangeListener(this);
     }
 

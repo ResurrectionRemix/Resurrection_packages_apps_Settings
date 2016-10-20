@@ -34,13 +34,12 @@
                android:summary="@string/lockscreen_maxnotif_sumary"
                android:defaultValue="false" />
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
                android:key="lockscreen_max_notif_cofig"
                android:title="@string/lockscreen_maxnotif_config"
-               android:max="8"
+               settings:max="8"
                settings:minimum="3"
-               settings:unitsLeft=""
-               settings:unitsRight=""
+               settings:units=""
                android:persistent="false"
                android:dependency="lock_screen_custom_notif" />
 

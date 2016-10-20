@@ -31,7 +31,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.android.settings.R;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -75,7 +75,7 @@ public class StatusBarWeather extends SettingsPreferenceFragment
         mStatusBarTemperature.setOnPreferenceChangeListener(this);
 
         mStatusBarTemperatureSize = (SeekBarPreference) findPreference(PREF_STATUS_BAR_WEATHER_SIZE);
-        mStatusBarTemperatureSize.setProgress(Settings.System.getInt(resolver,
+        mStatusBarTemperatureSize.setValue(Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_WEATHER_SIZE, 14));
         mStatusBarTemperatureSize.setOnPreferenceChangeListener(this);
 

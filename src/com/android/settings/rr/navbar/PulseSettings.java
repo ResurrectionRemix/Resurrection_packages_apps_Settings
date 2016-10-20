@@ -25,7 +25,7 @@ import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import android.support.v7.preference.PreferenceCategory;
@@ -98,52 +98,52 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         int customdimen = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_DIMEN, 14, UserHandle.USER_CURRENT);
         mCustomDimen = (SeekBarPreference) findPreference(CUSTOM_DIMEN);
-        mCustomDimen.setProgress(customdimen);
+        mCustomDimen.setValue(customdimen);
         mCustomDimen.setOnPreferenceChangeListener(this);
 
         int customdiv = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_DIV, 16, UserHandle.USER_CURRENT);
         mCustomDiv = (SeekBarPreference) findPreference(CUSTOM_DIV);
-        mCustomDiv.setProgress(customdiv);
+        mCustomDiv.setValue(customdiv);
         mCustomDiv.setOnPreferenceChangeListener(this);
 
         int filled = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 4, UserHandle.USER_CURRENT);
         mFilled = (SeekBarPreference) findPreference(PULSE_BLOCK);
-        mFilled.setProgress(filled);
+        mFilled.setValue(filled);
         mFilled.setOnPreferenceChangeListener(this);
 
         int empty = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 1, UserHandle.USER_CURRENT);
         mEmpty = (SeekBarPreference) findPreference(EMPTY_BLOCK);
-        mEmpty.setProgress(empty);
+        mEmpty.setValue(empty);
         mEmpty.setOnPreferenceChangeListener(this);
 
         int fudge = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 4, UserHandle.USER_CURRENT);
         mFudge = (SeekBarPreference) findPreference(FUDGE_FACOR);
-        mFudge.setProgress(fudge);
+        mFudge.setValue(fudge);
         mFudge.setOnPreferenceChangeListener(this);
 
         int solidfudge = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, 5,
                 UserHandle.USER_CURRENT);
         mSolidFudge = (SeekBarPreference) findPreference(SOLID_FUDGE);
-        mSolidFudge.setProgress(solidfudge);
+        mSolidFudge.setValue(solidfudge);
         mSolidFudge.setOnPreferenceChangeListener(this);
 
         int speed = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_LAVALAMP_SOLID_SPEED, 10000, UserHandle.USER_CURRENT);
         mSolidSpeed =
                 (SeekBarPreference) findPreference(SOLID_LAVAMP_SPEED);
-        mSolidSpeed.setProgress(speed);
+        mSolidSpeed.setValue(speed);
         mSolidSpeed.setOnPreferenceChangeListener(this);
 
         int fspeed = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_PULSE_LAVALAMP_SPEED, 10000, UserHandle.USER_CURRENT);
         mFadingSpeed =
                 (SeekBarPreference) findPreference(FADING_LAVAMP_SPEED);
-        mFadingSpeed.setProgress(fspeed);
+        mFadingSpeed.setValue(fspeed);
         mFadingSpeed.setOnPreferenceChangeListener(this);
     }
 

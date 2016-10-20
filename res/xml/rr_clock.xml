@@ -69,13 +69,12 @@
         android:entryValues="@array/clock_font_style_values"
         android:title="@string/clock_font_style_title" />
 
-   <com.android.settings.SeekBarPreference
+   <com.android.settings.rr.SeekBarPreference
         android:key="status_bar_clock_font_size"
         android:title="@string/clock_font_size_title"
-        android:max="23"
+        settings:max="23"
         settings:minimum="4"
-        settings:unitsLeft=""
-        settings:unitsRight="dp"
+        settings:units="dp"
         android:persistent="false" />
 
  </PreferenceCategory>

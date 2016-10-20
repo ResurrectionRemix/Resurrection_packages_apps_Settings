@@ -12,7 +12,7 @@ import android.support.v7.preference.*;
 
 import com.android.settings.R;
 
-public class CustomSeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
+public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
     private final String TAG = getClass().getName();
     private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
@@ -28,18 +28,18 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
     private TextView mTitle;
     private TextView mStatusText;
 
-    public CustomSeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr,
+    public SeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr,
             int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         final TypedArray a = context.obtainStyledAttributes(
-                attrs, R.styleable.CustomSeekBarPreference);
+                attrs, R.styleable.SeekBarPreference);
 
         mMax = attrs.getAttributeIntValue(SETTINGS_NS, "max", 100);
         mMin = attrs.getAttributeIntValue(SETTINGS_NS, "min", 0);
         mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", -1);
         mUnits = getAttributeStringValue(attrs, SETTINGS_NS, "units", "");
 
-        Integer id = a.getResourceId(R.styleable.CustomSeekBarPreference_units, 0);
+        Integer id = a.getResourceId(R.styleable.SeekBarPreference_units, 0);
         if (id > 0) {
             mUnits = context.getResources().getString(id);
         }
@@ -59,15 +59,15 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         setLayoutResource(R.layout.preference_custom_seekbar);
     }
 
-    public CustomSeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
     }
 
-    public CustomSeekBarPreference(Context context, AttributeSet attrs) {
+    public SeekBarPreference(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CustomSeekBarPreference(Context context) {
+    public SeekBarPreference(Context context) {
         this(context, null);
     }
 

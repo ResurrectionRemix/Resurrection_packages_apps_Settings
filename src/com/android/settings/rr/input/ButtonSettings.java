@@ -34,7 +34,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 import android.util.Log;
 import android.view.IWindowManager;
@@ -235,7 +235,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
          }
 
         mDt2lCameraVibrateConfig = (SeekBarPreference) findPreference(DT2L_CAMERA_VIBRATE_CONFIG);
-        mDt2lCameraVibrateConfig.setProgress(Settings.System.getInt(getActivity().getContentResolver(),
+        mDt2lCameraVibrateConfig.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1));
         mDt2lCameraVibrateConfig.setOnPreferenceChangeListener(this);
 

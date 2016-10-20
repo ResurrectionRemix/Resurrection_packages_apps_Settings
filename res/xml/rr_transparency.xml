@@ -21,23 +21,21 @@
     <PreferenceCategory
         android:title="@string/rr_qs_title">
 
-    <!--<com.android.settings.SeekBarPreference
+    <!--<com.android.settings.rr.SeekBarPreference
         android:key="qs_transparent_header"
         android:title="@string/qs_transparent_header"
-        android:max="255"
+        settings:max="255"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight=""
+        settings:units=""
         settings:defaultVal="255"
         android:persistent="false" />-->
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="qs_transparent_shade"
         android:title="@string/qs_transparent_shade"
-        android:max="255"
+        settings:max="255"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight=""
+        settings:units=""
         settings:defaultVal="255"
         android:persistent="false" />
 
@@ -54,40 +52,40 @@
         android:title="@string/qs_stroke_color_title"
         android:defaultValue="0xff80cbc4"/>
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="qs_stroke_thickness"
         android:title="@string/qs_stroke_thickness_title"
-        android:max="25"
+        settings:max="25"
         settings:minimum="1"
         settings:unitsLeft=""
         settings:unitsRight="px"
         settings:defaultVal="4"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="qs_corner_radius"
         android:title="@string/qs_corner_radius_title"
-        android:max="50"
+        settings:max="50"
         settings:minimum="0"
         settings:unitsLeft=""
         settings:unitsRight="px"
         settings:defaultVal="5"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="qs_dash_width"
         android:title="@string/qs_dash_width_title"
-        android:max="50"
+        settings:max="50"
         settings:minimum="0"
         settings:unitsLeft=""
         settings:unitsRight="px"
         settings:defaultVal="0"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="qs_dash_gap"
         android:title="@string/qs_dash_gap_title"
-        android:max="50"
+        settings:max="50"
         settings:minimum="1"
         settings:unitsLeft=""
         settings:unitsRight="px"
@@ -96,13 +94,12 @@
 
    </PreferenceCategory>
 
-    <!--<com.android.settings.SeekBarPreference
+    <!--<com.android.settings.rr.SeekBarPreference
         android:key="notification_alpha"
         android:title="@string/notifications_transparency"
-        android:max="255"
+        settings:max="255"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight=""
+        settings:units=""
         settings:defaultVal="255"
         android:persistent="false" />-->
 

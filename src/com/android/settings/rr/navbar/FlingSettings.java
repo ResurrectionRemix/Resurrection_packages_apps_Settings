@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -121,7 +121,7 @@ public class FlingSettings extends ActionFragment implements
         mTrailsWidth = (SeekBarPreference) findPreference("du_fling_trails_width");
         int width = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_TRAILS_WIDTH, 15, UserHandle.USER_CURRENT);
-        mTrailsWidth.setProgress(width);
+        mTrailsWidth.setValue(width);
         mTrailsWidth.setOnPreferenceChangeListener(this);
 
         // NOTE: we display to the user actual timeouts starting from touch event
@@ -131,7 +131,7 @@ public class FlingSettings extends ActionFragment implements
         int val = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.FLING_LONGPRESS_TIMEOUT, 250, UserHandle.USER_CURRENT);
         val += 100;
-        mLongPressTimeout.setProgress(val);
+        mLongPressTimeout.setValue(val);
         mLongPressTimeout.setOnPreferenceChangeListener(this);
 
         final boolean isTablet = !DUActionUtils.navigationBarCanMove();
@@ -140,14 +140,14 @@ public class FlingSettings extends ActionFragment implements
         val = Settings.Secure.getIntForUser(
                 getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_RIGHT_PORT,
                 isTablet ? 30 : 40, UserHandle.USER_CURRENT);
-        mSwipePortRight.setProgress(val);
+        mSwipePortRight.setValue(val);
         mSwipePortRight.setOnPreferenceChangeListener(this);
 
         mSwipePortLeft = (SeekBarPreference) findPreference("du_fling_longswipe_port_left");
         val = Settings.Secure.getIntForUser(
                 getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_LEFT_PORT,
                 isTablet ? 30 : 40, UserHandle.USER_CURRENT);
-        mSwipePortLeft.setProgress(val);
+        mSwipePortLeft.setValue(val);
         mSwipePortLeft.setOnPreferenceChangeListener(this);
 
         mSwipeLandRight = (SeekBarPreference) findPreference("du_fling_longswipe_land_right");
@@ -164,13 +164,13 @@ public class FlingSettings extends ActionFragment implements
             val = Settings.Secure.getIntForUser(
                     getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_RIGHT_LAND,
                     25, UserHandle.USER_CURRENT);
-            mSwipeLandRight.setProgress(val);
+            mSwipeLandRight.setValue(val);
             mSwipeLandRight.setOnPreferenceChangeListener(this);
 
             val = Settings.Secure.getIntForUser(
                     getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_LEFT_LAND,
                     25, UserHandle.USER_CURRENT);
-            mSwipeLandLeft.setProgress(val);
+            mSwipeLandLeft.setValue(val);
             mSwipeLandLeft.setOnPreferenceChangeListener(this);
         } else {
             longSwipeCategory.removePreference(mSwipeLandRight);
@@ -178,13 +178,13 @@ public class FlingSettings extends ActionFragment implements
             val = Settings.Secure.getIntForUser(
                     getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_UP_LAND,
                     40, UserHandle.USER_CURRENT);
-            mSwipeVertUp.setProgress(val);
+            mSwipeVertUp.setValue(val);
             mSwipeVertUp.setOnPreferenceChangeListener(this);
 
             val = Settings.Secure.getIntForUser(
                     getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_DOWN_LAND,
                     40, UserHandle.USER_CURRENT);
-            mSwipeVertDown.setProgress(val);
+            mSwipeVertDown.setValue(val);
             mSwipeVertDown.setOnPreferenceChangeListener(this);
         }
 

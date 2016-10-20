@@ -41,7 +41,7 @@ import com.android.internal.utils.du.DUActionUtils;
 import com.android.internal.utils.du.Config.ButtonConfig;
 import com.android.settings.R;
 
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 public class NavbarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -93,7 +93,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
         int size = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.NAVIGATION_BAR_HEIGHT, 100, UserHandle.USER_CURRENT);
         mBarHeightPort = (SeekBarPreference) findPreference(KEY_NAVIGATION_HEIGHT_PORT);
-        mBarHeightPort.setProgress(size);
+        mBarHeightPort.setValue(size);
         mBarHeightPort.setOnPreferenceChangeListener(this);
 
         final boolean canMove = DUActionUtils.navigationBarCanMove();
@@ -102,14 +102,14 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
             size = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_WIDTH, 100, UserHandle.USER_CURRENT);
             mBarWidth = (SeekBarPreference) findPreference(KEY_NAVIGATION_WIDTH);
-            mBarWidth.setProgress(size);
+            mBarWidth.setValue(size);
             mBarWidth.setOnPreferenceChangeListener(this);
         } else {
             mNavGeneral.removePreference(findPreference(KEY_NAVIGATION_WIDTH));
             size = Settings.Secure.getIntForUser(getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_HEIGHT_LANDSCAPE, 100, UserHandle.USER_CURRENT);
             mBarHeightLand = (SeekBarPreference) findPreference(KEY_NAVIGATION_HEIGHT_LAND);
-            mBarHeightLand.setProgress(size);
+            mBarHeightLand.setValue(size);
             mBarHeightLand.setOnPreferenceChangeListener(this);
         }
     }

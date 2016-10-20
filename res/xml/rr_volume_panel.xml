@@ -23,13 +23,12 @@
   <PreferenceCategory
         android:title="@string/vol_diag">
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="transparent_volume_dialog"
         android:title="@string/volume_dialog_transparency"
-        android:max="255"
+        settings:max="255"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight=""
+        settings:units=""
         settings:defaultVal="255"
         android:persistent="false" />
 
@@ -46,43 +45,39 @@
         android:title="@string/volume_dialog_stroke_color_title"
         android:defaultValue="0xffffffff" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="volume_dialog_stroke_thickness"
         android:title="@string/volume_dialog_stroke_thickness_title"
-        android:max="25"
+        settings:max="25"
         settings:minimum="1"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
+        settings:units="px"
         settings:defaultVal="4"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="volume_dialog_corner_radius"
         android:title="@string/volume_dialog_corner_radius_title"
-        android:max="50"
+        settings:max="50"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
+        settings:units="px"
         settings:defaultVal="10"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="volume_dialog_dash_width"
         android:title="@string/volume_dialog_dash_width_title"
-        android:max="50"
+        settings:max="50"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
+        settings:units="px"
         settings:defaultVal="0"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="volume_dialog_dash_gap"
         android:title="@string/volume_dialog_dash_gap_title"
-        android:max="50"
+        settings:max="50"
         settings:minimum="1"
-        settings:unitsLeft=""
-        settings:unitsRight="px"
+        settings:units="px"
         settings:defaultVal="10"
         android:persistent="false" />
     </PreferenceCategory>

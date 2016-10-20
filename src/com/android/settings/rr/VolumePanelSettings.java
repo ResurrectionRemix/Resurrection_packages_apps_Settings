@@ -20,7 +20,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 public class VolumePanelSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -57,7 +57,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_VOLUME_DIALOG);
             int volumeDialogAlpha = Settings.System.getInt(resolver,
                     Settings.System.TRANSPARENT_VOLUME_DIALOG, 255);
-            mVolumeDialogAlpha.setProgress(volumeDialogAlpha / 1);
+            mVolumeDialogAlpha.setValue(volumeDialogAlpha / 1);
             mVolumeDialogAlpha.setOnPreferenceChangeListener(this);
 
             // Volume dialog stroke
@@ -85,7 +85,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_THICKNESS);
             int volumeDialogStrokeThickness = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, 4);
-            mVolumeDialogStrokeThickness.setProgress(volumeDialogStrokeThickness / 1);
+            mVolumeDialogStrokeThickness.setValue(volumeDialogStrokeThickness / 1);
             mVolumeDialogStrokeThickness.setOnPreferenceChangeListener(this);
 
             // Volume dialog corner radius
@@ -93,7 +93,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_CORNER_RADIUS);
             int volumeDialogCornerRadius = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_CORNER_RADIUS, 10);
-            mVolumeDialogCornerRadius.setProgress(volumeDialogCornerRadius / 1);
+            mVolumeDialogCornerRadius.setValue(volumeDialogCornerRadius / 1);
             mVolumeDialogCornerRadius.setOnPreferenceChangeListener(this);
 
             // Volume dialog dash width
@@ -102,9 +102,9 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             int volumeDialogDashWidth = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, 0);
             if (volumeDialogDashWidth != 0) {
-                mVolumeDialogDashWidth.setProgress(volumeDialogDashWidth / 1);
+                mVolumeDialogDashWidth.setValue(volumeDialogDashWidth / 1);
             } else {
-                mVolumeDialogDashWidth.setProgress(0);
+                mVolumeDialogDashWidth.setValue(0);
             }
             mVolumeDialogDashWidth.setOnPreferenceChangeListener(this);
 
@@ -113,7 +113,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_GAP);
             int volumeDialogDashGap = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, 10);
-            mVolumeDialogDashGap.setProgress(volumeDialogDashGap / 1);
+            mVolumeDialogDashGap.setValue(volumeDialogDashGap / 1);
             mVolumeDialogDashGap.setOnPreferenceChangeListener(this);
 
             VolumeDialogSettingsDisabler(volumeDialogStroke);

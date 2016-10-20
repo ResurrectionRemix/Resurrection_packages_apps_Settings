@@ -28,7 +28,7 @@ import android.provider.Settings;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 public class LockScreenWeatherSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -74,7 +74,7 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
                 (SeekBarPreference) findPreference(PREF_NUMBER_OF_NOTIFICATIONS);
         int numberOfNotifications = Settings.System.getInt(mResolver,
                 Settings.System.LOCK_SCREEN_WEATHER_NUMBER_OF_NOTIFICATIONS, 4);
-        mNumberOfNotifications.setProgress(numberOfNotifications);
+        mNumberOfNotifications.setValue(numberOfNotifications);
         mNumberOfNotifications.setOnPreferenceChangeListener(this);
 
         updatePreference();

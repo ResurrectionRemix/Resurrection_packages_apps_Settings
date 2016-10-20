@@ -63,13 +63,12 @@
             android:summary="@string/camera_double_tap_power_gesture_desc"
             android:persistent="false" />
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
                 android:key="dt2l_camera_vibrate_config"
                 android:title="@string/dt2l_camera_vib_title"
-                android:max="1000"
+                settings:max="1000"
                 settings:minimum="0"
-                settings:unitsLeft=""
-                settings:unitsRight=""
+                settings:units=""
                 android:dependency="camera_double_tap_power_gesture" />
 
 

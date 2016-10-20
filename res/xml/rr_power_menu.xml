@@ -23,23 +23,21 @@
     <PreferenceCategory
         android:title="@string/power">
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="transparent_power_menu"
         android:title="@string/power_menu_transparency"
-        android:max="100"
+        settings:max="100"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="%"
+        settings:units="%"
         settings:defaultVal="100"
         android:persistent="false" />
 
-    <com.android.settings.SeekBarPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="transparent_power_dialog_dim"
         android:title="@string/power_menu_dialog_dim"
-        android:max="100"
+        settings:max="100"
         settings:minimum="0"
-        settings:unitsLeft=""
-        settings:unitsRight="%"
+        settings:units="%"
         settings:defaultVal="50"
         android:persistent="false" />
     </PreferenceCategory>

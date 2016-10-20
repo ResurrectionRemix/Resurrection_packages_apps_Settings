@@ -20,7 +20,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 public class TransparencySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -60,7 +60,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
             int qSShadeAlpha = Settings.System.getInt(resolver,
                     Settings.System.QS_TRANSPARENT_SHADE, 255);
-            mQSShadeAlpha.setProgress(qSShadeAlpha / 1);
+            mQSShadeAlpha.setValue(qSShadeAlpha / 1);
             mQSShadeAlpha.setOnPreferenceChangeListener(this);
 
             // QS header alpha
@@ -96,7 +96,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) findPreference(PREF_QS_STROKE_THICKNESS);
             int qSStrokeThickness = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_THICKNESS, 4);
-            mQSStrokeThickness.setProgress(qSStrokeThickness / 1);
+            mQSStrokeThickness.setValue(qSStrokeThickness / 1);
             mQSStrokeThickness.setOnPreferenceChangeListener(this);
 
             // QS corner radius
@@ -104,7 +104,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) findPreference(PREF_QS_CORNER_RADIUS);
             int qSCornerRadius = Settings.System.getInt(resolver,
                     Settings.System.QS_CORNER_RADIUS, 5);
-            mQSCornerRadius.setProgress(qSCornerRadius / 1);
+            mQSCornerRadius.setValue(qSCornerRadius / 1);
             mQSCornerRadius.setOnPreferenceChangeListener(this);
 
             // QS dash width
@@ -113,9 +113,9 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
             int qSDialogDashWidth = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_DASH_WIDTH, 0);
             if (qSDialogDashWidth != 0) {
-                mQSDashWidth.setProgress(qSDialogDashWidth / 1);
+                mQSDashWidth.setValue(qSDialogDashWidth / 1);
             } else {
-                mQSDashWidth.setProgress(0);
+                mQSDashWidth.setValue(0);
             }
             mQSDashWidth.setOnPreferenceChangeListener(this);
 
@@ -124,7 +124,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) findPreference(PREF_QS_STROKE_DASH_GAP);
             int qSDialogDashGap = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_DASH_GAP, 10);
-            mQSDashGap.setProgress(qSDialogDashGap / 1);
+            mQSDashGap.setValue(qSDialogDashGap / 1);
             mQSDashGap.setOnPreferenceChangeListener(this);
 
             // Notifications alpha

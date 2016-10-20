@@ -52,7 +52,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 import java.util.Date;
 import java.util.List;
@@ -118,12 +118,12 @@ public class CarrierLabel extends SettingsPreferenceFragment implements
 
 
         mStatusBarCarrierSize = (SeekBarPreference) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
-        mStatusBarCarrierSize.setProgress(Settings.System.getInt(getActivity().getContentResolver(),
+        mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 10));
         mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
 
         mHideCarrierMaxNotification = (SeekBarPreference) findPreference(HIDE_CARRIER_MAX_NOTIFICATION);
-        mHideCarrierMaxNotification.setProgress(Settings.System.getInt(resolver,
+        mHideCarrierMaxNotification.setValue(Settings.System.getInt(resolver,
                 Settings.System.HIDE_CARRIER_MAX_NOTIFICATION, 1));
         mHideCarrierMaxNotification.setOnPreferenceChangeListener(this);
 

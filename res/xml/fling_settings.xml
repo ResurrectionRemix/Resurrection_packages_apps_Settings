@@ -163,11 +163,11 @@
             android:defaultValue="0xffffff"
             android:dependency="eos_fling_trails_enable" />
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_trails_width"
             android:title="@string/fling_trails_width_title"
             android:defaultValue="15"
-            android:max="25"
+            settings:max="25"
             settings:minimum="1"
             settings:unitsRight="dp"
             android:dependency="eos_fling_trails_enable"
@@ -178,13 +178,13 @@
         android:key="eos_long_swipe_category"
         android:title="@string/fling_advanced" >
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longpress_pref"
             android:title="@string/fling_longpress_title"
-            android:max="350"
+            settings:max="350"
             settings:minimum="125"
             settings:interval="5"
-            settings:unitsRight="ms"/>
+            settings:units="ms"/>
     
         <Preference
             style="?android:preferenceInformationStyle"
@@ -193,64 +193,58 @@
             android:summary="@string/fling_long_swipe_summary"
             android:title="@string/fling_long_swipe_title" />
             
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longswipe_port_right"
             android:title="@string/portrait_right_swipe_title"
             android:defaultValue="40"
-            android:max="60"
+            settings:max="60"
             settings:minimum="10"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
+            settings:units="%"
             android:persistent="false" />
             
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longswipe_port_left"
             android:title="@string/portrait_left_swipe_title"
             android:defaultValue="40"
-            android:max="60"
+            settings:max="60"
             settings:minimum="10"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
+            settings:units="%"
             android:persistent="false" />
             
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longswipe_land_right"
             android:title="@string/landscape_right_swipe_title"
             android:defaultValue="25"
-            android:max="60"
+            settings:max="60"
             settings:minimum="10"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
+            settings:units="%"
             android:persistent="false" />
             
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longswipe_land_left"
             android:title="@string/landscape_left_swipe_title"
             android:defaultValue="25"
-            android:max="60"
+            settings:max="60"
             settings:minimum="10"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
+            settings:units="%"
             android:persistent="false" />
             
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longswipe_vert_up"
             android:title="@string/vertical_up_swipe_title"
             android:defaultValue="40"
-            android:max="60"
+            settings:max="60"
             settings:minimum="10"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
+            settings:units="%"
             android:persistent="false" />
             
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="du_fling_longswipe_vert_down"
             android:title="@string/vertical_down_swipe_title"
             android:defaultValue="40"
-            android:max="60"
+            settings:max="60"
             settings:minimum="10"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
+            settings:units="%"
             android:persistent="false" />
     </PreferenceCategory>
 </PreferenceScreen>

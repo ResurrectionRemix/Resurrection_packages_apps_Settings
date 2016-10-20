@@ -48,24 +48,22 @@
             android:title="@string/lockscreen_visualizer_title"
             android:defaultValue="true"/>
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="lockclock_font_size"
             android:title="@string/lockclock_font_size_title"
-            android:max="150"
+            settings:max="150"
             settings:minimum="1"
-            settings:unitsLeft=""
-            settings:unitsRight="sp"
+            settings:units="sp"
             android:persistent="false"
             android:defaultValue="88"
             android:dependency="hide_lockscreen_clock" />
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="lockdate_font_size"
             android:title="@string/lockdate_font_size_title"
-            android:max="25"
+            settings:max="25"
             settings:minimum="1"
-            settings:unitsLeft=""
-            settings:unitsRight="sp"
+            settings:units="sp"
             android:defaultValue="14"
             android:persistent="false"
             android:dependency="hide_lockscreen_date" />

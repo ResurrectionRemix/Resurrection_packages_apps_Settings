@@ -53,10 +53,10 @@
             android:entryValues="@array/weather_hide_panel_values"
             android:dependency="lock_screen_show_weather" />
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="weather_number_of_notifications"
             android:title="@string/weather_number_of_notifications_title"
-            android:max="6"
+            settings:max="6"
             settings:minimum="1"
             android:persistent="false"
             android:dependency="lock_screen_show_weather" />

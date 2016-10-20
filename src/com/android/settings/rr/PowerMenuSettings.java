@@ -20,7 +20,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 public class PowerMenuSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -45,7 +45,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_POWER_MENU);
             int powerMenuAlpha = Settings.System.getInt(resolver,
                     Settings.System.TRANSPARENT_POWER_MENU, 100);
-            mPowerMenuAlpha.setProgress(powerMenuAlpha / 1);
+            mPowerMenuAlpha.setValue(powerMenuAlpha / 1);
             mPowerMenuAlpha.setOnPreferenceChangeListener(this);
 
             // Power/reboot dialog dim
@@ -53,7 +53,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
                     (SeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_POWER_DIALOG_DIM);
             int powerDialogDim = Settings.System.getInt(resolver,
                     Settings.System.TRANSPARENT_POWER_DIALOG_DIM, 50);
-            mPowerDialogDim.setProgress(powerDialogDim / 1);
+            mPowerDialogDim.setValue(powerDialogDim / 1);
             mPowerDialogDim.setOnPreferenceChangeListener(this);
         }
 

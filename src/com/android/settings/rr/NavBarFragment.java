@@ -32,7 +32,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -82,7 +82,7 @@ public class NavBarFragment extends SettingsPreferenceFragment implements
         mLongpressKillDelay = (SeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
         int killconf = Settings.System.getInt(getContentResolver(),
                 Settings.System.LONG_PRESS_KILL_DELAY, 1000);
-        mLongpressKillDelay.setProgress(killconf);
+        mLongpressKillDelay.setValue(killconf);
 		mLongpressKillDelay.setOnPreferenceChangeListener(this);
 
   	// kill-app long press back

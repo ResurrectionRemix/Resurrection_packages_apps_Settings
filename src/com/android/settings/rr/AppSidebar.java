@@ -13,7 +13,7 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 public class AppSidebar extends SettingsPreferenceFragment implements

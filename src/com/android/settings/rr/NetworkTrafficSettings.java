@@ -17,7 +17,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-import com.android.settings.SeekBarPreference;
+import com.android.settings.rr.SeekBarPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class NetworkTrafficSettings extends SettingsPreferenceFragment
@@ -74,7 +74,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficAutohideThreshold = (SeekBarPreference) prefSet.findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
         int netTrafficAutohideThreshold = Settings.System.getInt(resolver,
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10);
-        mNetTrafficAutohideThreshold.setProgress(netTrafficAutohideThreshold / 1);
+        mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold / 1);
         mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
 
 		mNetTrafficColor =

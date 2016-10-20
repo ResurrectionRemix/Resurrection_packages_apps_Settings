@@ -54,58 +54,53 @@
             android:key="pulse_fading_bars_category"
             android:title="@string/pulse_legacy_mode_advanced_category">
 
-           <com.android.settings.SeekBarPreference
+           <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_custom_dimen"
                 android:title="@string/pulse_custom_dimen"
-                android:max="30"
+                settings:max="30"
                 settings:minimum="1"
-                settings:unitsLeft=""
-                settings:unitsRight="dp"
+                settings:units="px"
                 android:dependency="pulse_fading_bars_category"/>
 
-           <com.android.settings.SeekBarPreference
+           <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_custom_div"
                 android:title="@string/pulse_custom_div"
-                android:max="44"
+                settings:max="44"
                 settings:minimum="2"
                 settings:interval="2"
-                settings:unitsLeft=""
-                settings:unitsRight="dp"
+                settings:units="px"
                 android:dependency="pulse_fading_bars_category"/>
 
-           <com.android.settings.SeekBarPreference
+           <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_filled_block_size"
                 android:title="@string/pulse_filled_block_size"
-                android:max="8"
+                settings:max="8"
                 settings:minimum="4"
-                settings:unitsLeft=""
-                settings:unitsRight="dp"
+                settings:units="px"
                 android:dependency="pulse_fading_bars_category"/>
 
-           <com.android.settings.SeekBarPreference
+           <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_empty_block_size"
                 android:title="@string/pulse_empty_block_size"
-                android:max="4"
+                settings:max="4"
                 settings:minimum="0"
-                settings:unitsLeft=""
-                settings:unitsRight="dp"
+                settings:units="px"
                 android:dependency="pulse_fading_bars_category"/>
 
-           <com.android.settings.SeekBarPreference
+           <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_custom_fudge_factor"
                 android:title="@string/pulse_custom_fudge_factor"
-                android:max="6"
+                settings:max="6"
                 settings:minimum="2"
                 android:dependency="pulse_fading_bars_category"/>
 
-           <com.android.settings.SeekBarPreference
+           <com.android.settings.rr.SeekBarPreference
                 android:key="fling_pulse_lavalamp_speed"
                 android:title="@string/lavamp_solid_speed_title"
-                android:max="30000"
+                settings:max="30000"
                 settings:minimum="200"
                 settings:interval="200"
-                settings:unitsLeft=""
-                settings:unitsRight="ms"
+                settings:units="ms"
                 android:dependency="pulse_fading_bars_category"/>
 	</PreferenceCategory>
 
@@ -113,20 +108,20 @@
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category" >
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
-            android:max="7"
+            settings:max="7"
             settings:minimum="2"
             android:dependency="pulse_2"/>
 
-        <com.android.settings.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreference
             android:key="lavamp_solid_speed"
             android:title="@string/lavamp_solid_speed_title"
-            android:max="30000"
+            settings:max="30000"
             settings:minimum="200"
             settings:interval="200"
-            settings:unitsRight="ms"
+            settings:units="ms"
             android:dependency="pulse_2"/>
 	</PreferenceCategory>
 
