@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/ticker_screen_title">
+
+    <SwitchPreference
+            android:key="status_bar_show_ticker"
+            android:title="@string/ticker_title"
+            android:summary="@string/ticker_summary"
+            android:defaultValue="false" />
+
+        <PreferenceCategory
+            android:key="ticker_colors"
+            android:title="@string/colors_title">
+
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:key="status_bar_ticker_text_color"
+                android:title="@string/text_title"
+                android:defaultValue="0xffffab00" />
+
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:key="status_bar_ticker_icon_color"
+                android:title="@string/icon_title"
+                android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
+
+    <Preference
+        android:key="ticker_restore_defaults"
+        android:title="@string/ticker_restore_defaults_title" />
+
+</PreferenceScreen>

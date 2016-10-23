@@ -45,6 +45,12 @@
 		android:icon="@drawable/rr_statusbar_icons_icon" />
 
      <PreferenceScreen
+        android:key="rr_ticker"
+        android:fragment="com.android.settings.rr.Ticker"
+        android:title="@string/ticker_screen_title" 
+        android:icon="@drawable/rr_ticker_icon" />
+
+     <PreferenceScreen
         android:key="statusbar_weather"
 		android:fragment="com.android.settings.rr.StatusBarWeather"
         android:title="@string/status_bar_temperature_title" 
