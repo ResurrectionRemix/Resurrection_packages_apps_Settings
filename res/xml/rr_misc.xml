@@ -37,7 +37,21 @@
     <!-- Weather providers -->
     <org.cyanogenmod.internal.cmparts.CMPartsPreference
         	android:key="weather_settings"
-		    android:icon="@drawable/rr_weather_main_icon" />
+        	android:icon="@drawable/rr_weather_main_icon" />
+
+    <!-- Weather Settings -->
+    <Preference
+           android:id="@+id/weather_settings"
+           android:title="@string/weather_settings_title_cclock"
+           android:icon="@drawable/rr_cclock_icon">
+           <intent
+               android:action="android.intent.action.MAIN"
+               android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+               android:targetPackage="com.cyanogenmod.lockclock" >
+               <extra android:name=":android:show_fragment"
+                   android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
+           </intent>
+     </Preference>
 
      <!-- Ad Blocker -->
         <Preference
