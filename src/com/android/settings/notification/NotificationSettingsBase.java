@@ -129,7 +129,7 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
 
         mSuspendedAppsAdmin = RestrictedLockUtils.checkIfApplicationIsSuspended(
                 mContext, mPkg, mUserId);
-        mShowSlider = Settings.Secure.getInt(getContentResolver(), TUNER_SETTING, 0) == 1;
+        mShowSlider = Settings.Secure.getInt(getContentResolver(), TUNER_SETTING, 1) == 1;
     }
 
     @Override

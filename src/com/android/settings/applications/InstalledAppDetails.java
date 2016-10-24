@@ -1100,7 +1100,7 @@ public class InstalledAppDetails extends AppInfoBase
 
     public static CharSequence getNotificationSummary(AppRow appRow, Context context) {
         boolean showSlider = Settings.Secure.getInt(
-                context.getContentResolver(), NOTIFICATION_TUNER_SETTING, 0) == 1;
+                context.getContentResolver(), NOTIFICATION_TUNER_SETTING, 1) == 1;
         List<String> summaryAttributes = new ArrayList<>();
         StringBuffer summary = new StringBuffer();
         if (showSlider) {
