@@ -142,6 +142,7 @@ import com.android.settings.rr.navbar.SmartbarSettings;
 import com.android.settings.rr.navbar.PulseSettings;
 import com.android.settings.rr.AppCircleBar;
 import com.android.settings.rr.AppSidebar;
+import com.android.settings.rr.pie.PieControl;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
 
 import java.util.ArrayList;
@@ -392,7 +393,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             PulseSettings.class.getName(),
             AppSidebar.class.getName(),
             AppCircleBar.class.getName(),
-            GestureAnywhereSettings.class.getName()
+            GestureAnywhereSettings.class.getName(),
+            PieControl.class.getName(),
     };
 
 
