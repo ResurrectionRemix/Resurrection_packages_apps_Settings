@@ -34,7 +34,6 @@ public class Settings extends SettingsActivity {
     public static class SimSettingsActivity extends SettingsActivity { /* empty */ }
     public static class Lte4GEnableActivity extends SettingsActivity { /* empty */ }
     public static class TetherSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class MobileNetworkMainActivity extends SettingsActivity { /* empty */ }
     public static class VpnSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DateTimeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StorageSettingsActivity extends SettingsActivity { /* empty */ }
@@ -54,8 +53,6 @@ public class Settings extends SettingsActivity {
     public static class HomeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class OtherDeviceFunctionsSettingsActivity extends SettingsActivity { /* empty */}
-    public static class SystemUpdateActivity extends SettingsActivity { /* empty */}
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ChangeLog extends SettingsActivity { /* empty */ }
     public static class About extends SettingsActivity { /* empty */ }
@@ -83,7 +80,6 @@ public class Settings extends SettingsActivity {
     public static class AccessibilityDaltonizerSettingsActivity extends SettingsActivity { /* empty */ }
     public static class SecuritySettingsActivity extends SettingsActivity { /* empty */ }
     public static class UsageAccessSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class ProfileMgrMainActivity extends SettingsActivity { /* empty */ }
     public static class LocationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrivacySettingsActivity extends SettingsActivity { /* empty */ }
     public static class RunningServicesActivity extends SettingsActivity { /* empty */ }
