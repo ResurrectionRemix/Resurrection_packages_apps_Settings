@@ -101,12 +101,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
-<<<<<<< HEAD
-    private SwitchPreference mCameraDoubleTapPowerGesturePreference;
-=======
+
     private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
->>>>>>> ebf9845... Merge branch 'android-7.1.0_r4' into n7.1
 
     @Override
     protected int getMetricsCategory() {
@@ -181,7 +178,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             }
 
-        if (RotationPolicy.isRotationLockToggleVisible(activity)) {
             DropDownPreference rotatePreference =
                     (DropDownPreference) findPreference(KEY_AUTO_ROTATE);
             if (rotatePreference != null) {
@@ -223,6 +219,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     displayPrefs.removePreference(rotatePreference);
                 }
             }
+
 
             DropDownPreference vrDisplayPref =
                     (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);

@@ -17,6 +17,7 @@ package com.android.settings.dashboard;
 
 import android.content.Context;
 import android.util.Log;
+import android.content.ComponentName;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;

@@ -121,16 +121,6 @@ public class WifiApEnabler {
             ((HotspotPreference)mSwitch).setChecked(Checked);
     }
 
-    public void setSoftapEnabled(boolean enable) {
-        if (TetherUtil.setWifiTethering(enable, mContext)) {
-            /* Disable here, enabled on receiving success broadcast */
-            mSwitch.setEnabled(false);
-        } else {
-            mSwitch.setSummary(R.string.wifi_error);
-        }
-        mEnabling = enable;
-    }
-
     public void updateConfigSummary(WifiConfiguration wifiConfig) {
         String s = mContext.getString(
                 com.android.internal.R.string.wifi_tether_configure_ssid_default);
