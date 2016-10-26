@@ -34,13 +34,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.util.ArrayUtils;
-import com.android.settings.Lte4GEnabler;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.dashboard.conditional.Condition;
@@ -72,16 +70,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     private static final int DEFAULT_SUGGESTION_COUNT = 2;
 
-    private static final String LTE_4G_ACTIVITY = "Lte4GEnableActivity";
     private final List<Object> mItems = new ArrayList<>();
     private final List<Integer> mTypes = new ArrayList<>();
     private final List<Integer> mIds = new ArrayList<>();
     private final IconCache mCache;
 
     private final Context mContext;
-    private Lte4GEnabler mLte4GEnabler;
-    private DashboardItemHolder mLte4GEnablerHolder;
-    private Switch mSw;
 
     private List<DashboardCategory> mCategories;
     private List<Condition> mConditions;
@@ -100,7 +94,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
                 List<Condition> conditions) {
         mContext = context;
         mCache = new IconCache(context);
-        mLte4GEnabler = new Lte4GEnabler(mContext, new Switch(mContext));
         mSuggestionParser = parser;
         mConditions = conditions;
 
@@ -148,46 +141,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             }
         }
         return null;
-    }
-
-    public Lte4GEnabler getLte4GEnabler(){
-        return mLte4GEnabler;
-    }
-
-    public void updateLte4GEnabler(){
-        if(mLte4GEnablerHolder == null) {
-            return;
-        }
-        boolean enabled = isAPMAndSimStateEnable();
-        mLte4GEnablerHolder.itemView.setEnabled(enabled);
-        mLte4GEnablerHolder.title.setEnabled(enabled);
-        mLte4GEnablerHolder.summary.setEnabled(enabled);
-        mLte4GEnablerHolder.sw.setEnabled(enabled);
-        mLte4GEnablerHolder.summary.setVisibility(View.VISIBLE);
-        mLte4GEnablerHolder.icon.setImageResource(enabled ? R.drawable.ic_settings_4g
-            : R.drawable.ic_settings_4g_dis);
-        if(!enabled) {
-            mLte4GEnablerHolder.summary.setText(R.string.lte_4g_settings_disable);
-        } else {
-            mSw.setChecked(mSw.isChecked());
-            set4GEnableSummary(mSw.isChecked());
-        }
-    }
-
-    private boolean isAPMAndSimStateEnable() {
-        return (Settings.System.getInt(mContext.getContentResolver(),
-            Settings.Global.AIRPLANE_MODE_ON, 0) == 0)
-            && mLte4GEnabler.isThereSimReady();
-    }
-
-    private void set4GEnableSummary(boolean enabled) {
-        if (enabled) {
-            mLte4GEnablerHolder.summary.setText(
-               R.string.lte_4g_settings_4genable_summary);
-        } else {
-            mLte4GEnablerHolder.summary.setText(
-               R.string.lte_4g_settings_4gdisable_summary);
-        }
     }
 
     public void setCategories(List<DashboardCategory> categories) {
@@ -255,15 +208,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             countItem(category, R.layout.dashboard_category, mIsShowingAll, NS_ITEMS);
             for (int j = 0; j < category.tiles.size(); j++) {
                 Tile tile = category.tiles.get(j);
-                if (tile.intent.getComponent().getClassName().contains(LTE_4G_ACTIVITY)) {
-                    countItem(tile, R.layout.dashboard_tile_switch, mIsShowingAll ||
-                            ArrayUtils.contains(DashboardSummary.INITIAL_ITEMS,
-                            tile.intent.getComponent().getClassName()), NS_ITEMS);
-                } else {
-                    countItem(tile, R.layout.dashboard_tile, mIsShowingAll
-                            || ArrayUtils.contains(DashboardSummary.INITIAL_ITEMS,
-                            tile.intent.getComponent().getClassName()), NS_ITEMS);
-                }
+                countItem(tile, R.layout.dashboard_tile, mIsShowingAll
+                        || ArrayUtils.contains(DashboardSummary.INITIAL_ITEMS,
+                        tile.intent.getComponent().getClassName()), NS_ITEMS);
             }
         }
         notifyDataSetChanged();
@@ -301,7 +248,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     @Override
     public DashboardItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new DashboardItemHolder(LayoutInflater.from(parent.getContext()).inflate(
-                viewType, parent, false), (viewType == R.layout.dashboard_tile_switch));
+                viewType, parent, false));
     }
 
     @Override
@@ -315,22 +262,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
                 onBindTile(holder, tile);
                 holder.itemView.setTag(tile);
                 holder.itemView.setOnClickListener(this);
-                break;
-            case R.layout.dashboard_tile_switch:
-                final Tile tileSitch = (Tile) mItems.get(position);
-                mLte4GEnablerHolder = holder;
-                onBindTile(holder, tileSitch);
-                holder.itemView.setOnClickListener(this);
-                mSw = (Switch) holder.itemView.findViewById(R.id.switchWidget);
-                mLte4GEnabler.setSwitch(mSw);
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                       mSw.setChecked(!mSw.isChecked());
-                       set4GEnableSummary(mSw.isChecked());
-                    }
-                });
-                updateLte4GEnabler();
                 break;
             case R.layout.suggestion_header:
                 onBindSuggestionHeader(holder);
@@ -480,9 +411,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.dashboard_tile_switch) {
-            return;
-        }
         if (v.getId() == R.id.dashboard_tile) {
             ((SettingsActivity) mContext).openTile((Tile) v.getTag());
             return;
@@ -567,21 +495,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         public final ImageView icon;
         public final TextView title;
         public final TextView summary;
-        public final Switch sw;
 
-        public DashboardItemHolder(View itemView, boolean hasSwitch) {
+        public DashboardItemHolder(View itemView) {
             super(itemView);
-            if(!hasSwitch){
-                icon = (ImageView) itemView.findViewById(android.R.id.icon);
-                title = (TextView) itemView.findViewById(android.R.id.title);
-                summary = (TextView) itemView.findViewById(android.R.id.summary);
-                sw = null;
-             } else {
-                icon = (ImageView) itemView.findViewById(android.R.id.icon);
-                title = (TextView) itemView.findViewById(android.R.id.title);
-                summary = (TextView) itemView.findViewById(android.R.id.summary);
-                sw = (Switch) itemView.findViewById(R.id.switchWidget);
-            }
+            icon = (ImageView) itemView.findViewById(android.R.id.icon);
+            title = (TextView) itemView.findViewById(android.R.id.title);
+            summary = (TextView) itemView.findViewById(android.R.id.summary);
         }
     }
 }
