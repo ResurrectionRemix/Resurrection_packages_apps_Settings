@@ -17,7 +17,6 @@
 package com.android.settings.dashboard;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
