@@ -104,7 +104,6 @@ import com.android.settingslib.net.ChartDataLoader;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -189,7 +188,7 @@ public class InstalledAppDetails extends AppInfoBase
         // by not allowing disabling of apps signed with the
         // system cert and any launcher app in the system.
         if (mHomePackages.contains(mAppEntry.info.packageName)
-                || Utils.isSystemPackage(mPm, mPackageInfo)) {
+                || Utils.isSystemPackage(getContext().getResources(), mPm, mPackageInfo)) {
             // Disable button for core system applications.
             button.setText(R.string.disable_text);
         } else if (mAppEntry.info.enabled && !isDisabledUntilUsed()) {
@@ -232,6 +231,11 @@ public class InstalledAppDetails extends AppInfoBase
         // "uninstall" is actually "downgrade to the system version + disable", and "downgrade"
         // will clear data on all users.
         if (isProfileOrDeviceOwner(mPackageInfo.packageName)) {
+            enabled = false;
+        }
+
+        // Don't allow uninstalling the device provisioning package.
+        if (Utils.isDeviceProvisioningPackage(getResources(), mAppEntry.info.packageName)) {
             enabled = false;
         }
 

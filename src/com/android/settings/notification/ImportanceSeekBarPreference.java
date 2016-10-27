@@ -31,6 +31,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import com.android.settings.Utils;
 
 /**
  * A slider preference that controls notification importance.
@@ -55,8 +56,7 @@ public class ImportanceSeekBarPreference extends SeekBarPreference implements
             int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         setLayoutResource(R.layout.preference_importance_slider);
-        mActiveSliderTint = ColorStateList.valueOf(
-                context.getColor(R.color.importance_slider_color));
+        mActiveSliderTint = ColorStateList.valueOf(Utils.getColorAccent(context));
         mInactiveSliderTint = ColorStateList.valueOf(
                 context.getColor(R.color.importance_disabled_slider_color));
         mHandler = new Handler();

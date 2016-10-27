@@ -42,6 +42,7 @@ import android.widget.TextView;
 import com.android.internal.util.MemInfoReader;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
+import com.android.settings.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -450,7 +451,7 @@ public class RunningProcessesView extends FrameLayout
         mColorBar = (LinearColorBar)mHeader.findViewById(R.id.color_bar);
         final Context context = getContext();
         mColorBar.setColors(context.getColor(R.color.running_processes_system_ram),
-                context.getColor(R.color.running_processes_apps_ram),
+                Utils.getColorAccent(context),
                 context.getColor(R.color.running_processes_free_ram));
         mBackgroundProcessPrefix = (TextView)mHeader.findViewById(R.id.freeSizePrefix);
         mAppsProcessPrefix = (TextView)mHeader.findViewById(R.id.appsSizePrefix);

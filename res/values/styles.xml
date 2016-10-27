@@ -219,7 +219,7 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
-        <item name="android:textColor">@color/warning</item>
+        <item name="android:textColor">@*android:color/system_error</item>
     </style>
 
     <style name="wifi_item_content">
@@ -286,6 +286,18 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="SetupWizardButton.Negative" parent="@android:style/Widget.Material.Button.Borderless.Colored">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:theme">@style/AccentColorHighlightBorderlessButton</item>
+    </style>
+
+    <style name="SetupWizardButton.Positive" parent="@android:style/Widget.Material.Button.Colored" />
+
+    <style name="AccentColorHighlightBorderlessButton">
+        <item name="android:colorControlHighlight">?android:attr/colorAccent</item>
+    </style>
+
     <style name="vpn_label">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -329,6 +341,12 @@
     <style name="TextAppearance.RecentsTitle" parent="TextAppearance.CategoryTitle" />
     <style name="TextAppearance.ResultTitle" parent="TextAppearance.CategoryTitle" />
 
+    <style name="TextAppearance.SuggestionTitle"
+           parent="@android:style/TextAppearance.Material.Subhead">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="TextAppearance.FingerprintMessage"
         parent="android:TextAppearance.Material.Subhead">
         <item name="android:lineSpacingExtra">@dimen/suw_description_line_spacing_extra</item>
@@ -347,24 +365,31 @@
 
     <style name="TextAppearance.FingerprintErrorText"
         parent="android:TextAppearance.Material.Body1">
-        <item name="android:textColor">@color/warning</item>
+        <item name="android:textColor">@*android:color/system_error</item>
+    </style>
+
+    <style name="TextAppearance.SupportTitle"
+           parent="@android:style/TextAppearance.Material.Subhead">
+        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextAppearance.SupportSummary" parent="TextAppearance.CategoryTitle"/>
+
+    <style name="SupportPrimaryButton" parent="android:Widget.Material.Button.Colored"/>
+
+    <style name="SupportSecondaryButton"
+           parent="android:Widget.Material.Button.Borderless.Colored">
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="FingerprintLayoutTheme">
-        <item name="suwBackground">@drawable/fp_enrollment_header</item>
-        <item name="suwIllustrationAspectRatio">@dimen/fingerprint_illustration_aspect_ratio</item>
-        <item name="suwDecorPaddingTop">@dimen/fingerprint_decor_padding_top</item>
-    </style>
-
-    <style name="SetupWizardFingerprintLayoutTheme">
-        <item name="suwBackgroundTile">@drawable/setup_illustration_tile</item>
-        <item name="suwIllustration">@drawable/setup_illustration_lock_screen</item>
-        <item name="suwIllustrationHorizontalTile">@drawable/setup_illustration_horizontal_tile</item>
+        <item name="android:icon">@drawable/ic_fingerprint_header</item>
     </style>
 
     <style name="TextAppearance.ConfirmDeviceCredentialsErrorText"
         parent="android:TextAppearance.Material.Body1">
-        <item name="android:textColor">@color/warning</item>
+        <item name="android:textColor">@*android:color/system_error</item>
     </style>
 
     <style name="TextAppearance.Small.SwitchBar">
@@ -402,23 +427,13 @@
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
     </style>
 
-    <style name="floating_action_button">
-        <item name="android:layout_width">@dimen/fab_size</item>
-        <item name="android:layout_height">@dimen/fab_size</item>
-        <item name="android:layout_margin">@dimen/fab_margin</item>
-        <item name="android:background">@drawable/floating_action_button</item>
-        <item name="android:stateListAnimator">@anim/floating_action_button_elevation</item>
-        <item name="android:elevation">@dimen/fab_elevation_normal</item>
-        <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_gravity">bottom|right</item>
-    </style>
 
-    <style name="floating_action_button_image">
-        <item name="android:layout_width">@dimen/fab_icon_size</item>
-        <item name="android:layout_height">@dimen/fab_icon_size</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:background">@android:color/transparent</item>
+    <style name="SupportEscalationCard">
+        <item name="android:background">@color/card_background_grey</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">368dp</item>
+        <item name="android:paddingStart">56dp</item>
+        <item name="android:paddingEnd">56dp</item>
     </style>
 
 </resources>

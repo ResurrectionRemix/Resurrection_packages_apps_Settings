@@ -41,7 +41,6 @@ public class FingerprintLocationAnimationVideoView extends TextureView
 
     public FingerprintLocationAnimationVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
     }
 
     @Override
@@ -52,15 +51,28 @@ public class FingerprintLocationAnimationVideoView extends TextureView
         super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
     }
 
+    protected Uri getFingerprintLocationAnimation() {
+        return resourceEntryToUri(getContext(), R.raw.fingerprint_location_animation);
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         setSurfaceTextureListener(new SurfaceTextureListener() {
+            private SurfaceTexture mTextureToDestroy = null;
+
             @Override
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int width,
                     int height) {
                 setVisibility(View.INVISIBLE);
-                Uri videoUri = resourceEntryToUri(mContext, R.raw.fingerprint_location_animation);
+                Uri videoUri = getFingerprintLocationAnimation();
+                if (mMediaPlayer != null) {
+                    mMediaPlayer.release();
+                }
+                if (mTextureToDestroy != null) {
+                    mTextureToDestroy.release();
+                    mTextureToDestroy = null;
+                }
                 mMediaPlayer = MediaPlayer.create(mContext, videoUri);
                 mMediaPlayer.setSurface(new Surface(surfaceTexture));
                 mMediaPlayer.setOnPreparedListener(new OnPreparedListener() {
@@ -91,6 +103,7 @@ public class FingerprintLocationAnimationVideoView extends TextureView
 
             @Override
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+                mTextureToDestroy = surfaceTexture;
                 return false;
             }
 
@@ -100,7 +113,7 @@ public class FingerprintLocationAnimationVideoView extends TextureView
         });
     }
 
-    private static Uri resourceEntryToUri (Context context, int id) {
+    protected static Uri resourceEntryToUri (Context context, int id) {
         Resources res = context.getResources();
         return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
                 res.getResourcePackageName(id) + '/' +

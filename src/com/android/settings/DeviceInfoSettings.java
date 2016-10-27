@@ -216,16 +216,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
 
-        // Remove regulatory information if none present or config_show_regulatory_info is disabled
-        final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
-        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()
-                || !getResources().getBoolean(R.bool.config_show_regulatory_info)) {
-            Preference pref = findPreference(KEY_REGULATORY_INFO);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        }
         setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.0_r14 - NBD90Z");
+        // Remove regulatory labels if no activity present to handle intent.
+        removePreferenceIfActivityMissing(
+                KEY_REGULATORY_INFO, Settings.ACTION_SHOW_REGULATORY_INFO);
+
+        removePreferenceIfActivityMissing(
+                "safety_info", "android.settings.SHOW_SAFETY_AND_REGULATORY_INFO");
     }
 
     @Override
@@ -328,8 +325,23 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             CarrierConfigManager configManager =
                     (CarrierConfigManager) getSystemService(Context.CARRIER_CONFIG_SERVICE);
             PersistableBundle b = configManager.getConfig();
-            if (b.getBoolean(CarrierConfigManager.KEY_CI_ACTION_ON_SYS_UPDATE_BOOL)) {
+            if (b != null && b.getBoolean(CarrierConfigManager.KEY_CI_ACTION_ON_SYS_UPDATE_BOOL)) {
                 ciActionOnSysUpdate(b);
+            }
+        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
+            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
+            mHits[mHits.length-1] = SystemClock.uptimeMillis();
+            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.putExtra("is_cm", true);
+                intent.setClassName("android",
+                        com.android.internal.app.PlatLogoActivity.class.getName());
+                try {
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
+                }
+>>>>>>> ebf9845... Merge branch 'android-7.1.0_r4' into n7.1
             }
         }
         return super.onPreferenceTreeClick(preference);
@@ -366,6 +378,16 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             } catch (RuntimeException e) {
                 Log.d(LOG_TAG, "Property '" + property + "' missing and no '"
                         + preference + "' preference");
+            }
+        }
+    }
+
+    private void removePreferenceIfActivityMissing(String preferenceKey, String action) {
+        final Intent intent = new Intent(action);
+        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
+            Preference pref = findPreference(preferenceKey);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
             }
         }
     }

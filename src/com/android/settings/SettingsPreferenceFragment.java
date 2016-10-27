@@ -400,10 +400,11 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
         for (Preference p : mPreferenceCache.values()) {
             group.removePreference(p);
         }
+        mPreferenceCache = null;
     }
 
     protected int getCachedCount() {
-        return mPreferenceCache.size();
+        return mPreferenceCache != null ? mPreferenceCache.size() : 0;
     }
 
     private void highlightPreference(String key) {
@@ -520,7 +521,7 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
         // To be able to dismiss dialog at that time, don't check
         // mDialogFragment.isVisible().
         if (mDialogFragment != null && mDialogFragment.getDialogId() == dialogId) {
-            mDialogFragment.dismiss();
+            mDialogFragment.dismissAllowingStateLoss();
         }
         mDialogFragment = null;
     }

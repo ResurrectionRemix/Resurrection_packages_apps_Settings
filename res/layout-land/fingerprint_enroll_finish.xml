@@ -15,7 +15,7 @@
   ~ limitations under the License
   -->
 
-<com.android.setupwizardlib.SetupWizardLayout
+<com.android.setupwizardlib.GlifLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
@@ -50,29 +50,32 @@
                 style="@style/TextAppearance.FingerprintMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/suw_description_margin_top"
+                android:layout_marginTop="@dimen/suw_description_glif_margin_top"
                 android:text="@string/setup_fingerprint_enroll_finish_message_secondary"
                 android:textColor="?android:attr/textColorSecondary"
                 android:visibility="gone" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="-12dp"
                 android:orientation="horizontal">
 
                 <Button
-                    style="@style/Button.FingerprintButton"
+                    style="@style/SetupWizardButton.Negative"
                     android:id="@+id/add_another_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:gravity="start|center_vertical"
                     android:text="@string/fingerprint_enroll_button_add" />
 
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
                 <Button
-                    style="@style/Button.FingerprintButton"
+                    style="@style/SetupWizardButton.Positive"
                     android:id="@+id/next_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,4 +103,4 @@
 
     </LinearLayout>
 
-</com.android.setupwizardlib.SetupWizardLayout>
+</com.android.setupwizardlib.GlifLayout>

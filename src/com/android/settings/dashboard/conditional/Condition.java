@@ -23,6 +23,8 @@ import android.os.PersistableBundle;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
+import static android.content.pm.PackageManager.DONT_KILL_APP;
+
 public abstract class Condition {
 
     private static final String KEY_SILENCE = "silence";
@@ -38,6 +40,12 @@ public abstract class Condition {
     // All conditions must live in this package.
     Condition(ConditionManager manager) {
         mManager = manager;
+        Class<?> receiverClass = getReceiverClass();
+        if (receiverClass != null && shouldAlwaysListenToBroadcast()) {
+            PackageManager pm = mManager.getContext().getPackageManager();
+            pm.setComponentEnabledSetting(new ComponentName(mManager.getContext(), receiverClass),
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, DONT_KILL_APP);
+        }
     }
 
     void restoreState(PersistableBundle bundle) {
@@ -93,6 +101,10 @@ public abstract class Condition {
     }
 
     private void onSilenceChanged(boolean silenced) {
+        if (shouldAlwaysListenToBroadcast()) {
+            // Don't try to disable BroadcastReceiver if we want it always on.
+            return;
+        }
         Class<?> clz = getReceiverClass();
         if (clz == null) {
             return;
@@ -102,11 +114,15 @@ public abstract class Condition {
         pm.setComponentEnabledSetting(new ComponentName(mManager.getContext(), clz),
                 silenced ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
+                DONT_KILL_APP);
     }
 
     protected Class<?> getReceiverClass() {
         return null;
+    }
+
+    protected boolean shouldAlwaysListenToBroadcast() {
+        return false;
     }
 
     public boolean shouldShow() {

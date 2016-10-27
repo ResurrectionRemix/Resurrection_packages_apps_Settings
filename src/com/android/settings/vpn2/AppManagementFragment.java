@@ -80,7 +80,7 @@ public class AppManagementFragment extends SettingsPreferenceFragment
         public void onForget() {
             // Unset always-on-vpn when forgetting the VPN
             if (isVpnAlwaysOn()) {
-                setAlwaysOnVpnByUI(false);
+                setAlwaysOnVpn(false);
             }
             // Also dismiss and go back to VPN list
             finish();
@@ -187,12 +187,16 @@ public class AppManagementFragment extends SettingsPreferenceFragment
         if (mUserId == UserHandle.USER_SYSTEM) {
             VpnUtils.clearLockdownVpn(getContext());
         }
-        final boolean success = mConnectivityManager.setAlwaysOnVpnPackageForUser(mUserId,
-                isEnabled ? mPackageName : null, /* lockdownEnabled */ false);
+        final boolean success = setAlwaysOnVpn(isEnabled);
         if (isEnabled && (!success || !isVpnAlwaysOn())) {
             CannotConnectFragment.show(this, mVpnLabel);
         }
         return success;
+    }
+
+    private boolean setAlwaysOnVpn(boolean isEnabled) {
+         return mConnectivityManager.setAlwaysOnVpnPackageForUser(mUserId,
+                isEnabled ? mPackageName : null, /* lockdownEnabled */ false);
     }
 
     private boolean checkTargetVersion() {
@@ -224,8 +228,14 @@ public class AppManagementFragment extends SettingsPreferenceFragment
             mPreferenceForget.checkRestrictionAndSetDisabled(UserManager.DISALLOW_CONFIG_VPN,
                     mUserId);
 
-            if (!checkTargetVersion()) {
+            if (checkTargetVersion()) {
+                // setSummary doesn't override the admin message when user restriction is applied
+                mPreferenceAlwaysOn.setSummary(null);
+                // setEnabled is not required here, as checkRestrictionAndSetDisabled
+                // should have refreshed the enable state.
+            } else {
                 mPreferenceAlwaysOn.setEnabled(false);
+                mPreferenceAlwaysOn.setSummary(R.string.vpn_not_supported_by_this_app);
             }
         }
     }

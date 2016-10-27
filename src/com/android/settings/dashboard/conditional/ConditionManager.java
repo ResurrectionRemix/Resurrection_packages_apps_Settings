@@ -20,6 +20,7 @@ import android.os.AsyncTask;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.util.Xml;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -142,6 +143,7 @@ public class ConditionManager {
         addIfMissing(CellularDataCondition.class, conditions);
         addIfMissing(BackgroundDataCondition.class, conditions);
         addIfMissing(WorkModeCondition.class, conditions);
+        addIfMissing(NightDisplayCondition.class, conditions);
         Collections.sort(conditions, CONDITION_COMPARATOR);
     }
 
@@ -167,6 +169,8 @@ public class ConditionManager {
             return new BackgroundDataCondition(this);
         } else if (WorkModeCondition.class == clz) {
             return new WorkModeCondition(this);
+        } else if (NightDisplayCondition.class == clz) {
+            return new NightDisplayCondition(this);
         }
         throw new RuntimeException("Unexpected Condition " + clz);
     }
@@ -238,10 +242,7 @@ public class ConditionManager {
         protected void onPostExecute(ArrayList<Condition> conditions) {
             mConditions.clear();
             mConditions.addAll(conditions);
-            final int N = mListeners.size();
-            for (int i = 0; i < N; i++) {
-                mListeners.get(i).onConditionsChanged();
-            }
+            refreshAll();
         }
     }
 

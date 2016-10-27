@@ -61,7 +61,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
     private static final String CONFIGURE_ACCOUNT = "configure_account";
     private static final String DATA_MANAGEMENT = "data_management";
     private static final String BACKUP_INACTIVE = "backup_inactive";
-    private static final String NETWORK_RESET = "network_reset";
     private static final String FACTORY_RESET = "factory_reset";
     private static final String TAG = "PrivacySettings";
     private IBackupManager mBackupManager;
@@ -219,51 +218,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
         return R.string.help_url_backup_reset;
     }
 
-    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
-
-        private final Context mContext;
-        private final SummaryLoader mSummaryLoader;
-
-        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
-            mContext = context;
-            mSummaryLoader = summaryLoader;
-        }
-
-        @Override
-        public void setListening(boolean listening) {
-            if (listening) {
-                IBackupManager backupManager = IBackupManager.Stub.asInterface(
-                        ServiceManager.getService(Context.BACKUP_SERVICE));
-                try {
-                    boolean backupEnabled = backupManager.isBackupEnabled();
-                    if (backupEnabled) {
-                        String transport = backupManager.getCurrentTransport();
-                        String configSummary = backupManager.getDestinationString(transport);
-                        if (configSummary != null) {
-                            mSummaryLoader.setSummary(this, configSummary);
-                        } else {
-                            mSummaryLoader.setSummary(this, mContext.getString(
-                                    R.string.backup_configure_account_default_summary));
-                        }
-                    } else {
-                        mSummaryLoader.setSummary(this, mContext.getString(
-                                R.string.backup_disabled));
-                    }
-                } catch (RemoteException e) {
-                }
-            }
-        }
-    }
-
-    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
-            = new SummaryLoader.SummaryProviderFactory() {
-        @Override
-        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
-                                                                   SummaryLoader summaryLoader) {
-            return new SummaryProvider(activity, summaryLoader);
-        }
-    };
-
     /**
      * For Search.
      */
@@ -330,10 +284,6 @@ public class PrivacySettings extends SettingsPreferenceFragment implements Index
         if (RestrictedLockUtils.hasBaseUserRestriction(context,
                 UserManager.DISALLOW_FACTORY_RESET, UserHandle.myUserId())) {
             nonVisibleKeys.add(FACTORY_RESET);
-        }
-        if (RestrictedLockUtils.hasBaseUserRestriction(context,
-                UserManager.DISALLOW_NETWORK_RESET, UserHandle.myUserId())) {
-            nonVisibleKeys.add(NETWORK_RESET);
         }
     }
 }

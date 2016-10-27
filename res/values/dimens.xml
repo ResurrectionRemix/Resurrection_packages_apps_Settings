@@ -59,6 +59,8 @@
     <dimen name="appwidget_min_height">40dip</dimen>
 
     <dimen name="pager_tabs_padding">0dp</dimen>
+    <dimen name="pager_tabs_title_padding">16dp</dimen>
+    <dimen name="pager_tabs_selected_indicator_height">3dp</dimen>
 
     <!-- Minimum width for the popup for updating a user's photo. -->
     <dimen name="update_user_photo_popup_min_width">300dip</dimen>
@@ -116,8 +118,6 @@
     <!-- Dashboard tile image margin start / end -->
     <dimen name="dashboard_tile_image_margin_start">16dp</dimen>
     <dimen name="dashboard_tile_image_margin_end">32dp</dimen>
-
-    <dimen name="suggestion_arrow_margin">16dp</dimen>
 
     <!-- SwitchBar margin start / end -->
     <dimen name="switchbar_margin_start">16dp</dimen>
@@ -201,7 +201,9 @@
     <!-- Bluetooth Preferences -->
     <dimen name="bluetooth_dialog_padding">8dip</dimen>
     <integer name="bluetooth_name_length">32</integer>
-    <dimen name="bluetooth_pairing_padding">20dp</dimen>
+    <dimen name="bluetooth_pairing_padding">24dp</dimen>
+    <dimen name="bluetooth_pairing_edittext_padding">21dp</dimen>
+    <dimen name="bluetooth_checkbox_padding">16dp</dimen>
 
     <!-- Bluetooth ActionBar -->
     <dimen name="bluetooth_landscape_title_textsize">14px</dimen>
@@ -304,11 +306,18 @@
     <!-- Padding between the radio buttons/checkbox and text on the redaction interstitial -->
     <dimen name="redaction_padding_start">16dp</dimen>
 
-    <!-- FAB Dimensions -->
-    <dimen name="fab_size">56dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="fab_icon_size">24dp</dimen>
-    <dimen name="fab_elevation_normal">8dp</dimen>
-    <dimen name="fab_elevation_pressed">6dp</dimen>
+    <!-- Padding for Gestures settings screen -->
+    <dimen name="gestures_settings_padding_top_bottom">20dp</dimen>
+    <dimen name="gestures_play_button_size">36dp</dimen>
+    <dimen name="gesture_animation_padding">0dp</dimen>
 
+    <!-- Support tile minimum height -->
+    <dimen name="support_tile_min_height">48dp</dimen>
+    <!-- support spacer layout height -->
+    <dimen name="support_spacer_height">8dp</dimen>
+
+    <dimen name="password_requirement_textsize">14sp</dimen>
+    <!-- Visible vertical space we want to show below password edittext field when ime is shown.
+         The unit is sp as it is related to the text size of password requirement item. -->
+    <dimen name="visible_vertical_space_below_password">20sp</dimen>
 </resources>

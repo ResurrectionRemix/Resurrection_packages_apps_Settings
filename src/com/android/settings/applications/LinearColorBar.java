@@ -14,10 +14,10 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
+import com.android.settings.Utils;
 
 public class LinearColorBar extends LinearLayout {
-    static final int LEFT_COLOR = 0xff009688;
-    static final int MIDDLE_COLOR = 0xff009688;
+
     static final int RIGHT_COLOR = 0xffced7db;
     static final int GRAY_COLOR = 0xff555555;
     static final int WHITE_COLOR = 0xffffffff;
@@ -26,8 +26,8 @@ public class LinearColorBar extends LinearLayout {
     private float mYellowRatio;
     private float mGreenRatio;
 
-    private int mLeftColor = LEFT_COLOR;
-    private int mMiddleColor = MIDDLE_COLOR;
+    private int mLeftColor;
+    private int mMiddleColor;
     private int mRightColor = RIGHT_COLOR;
 
     private boolean mShowIndicator = true;
@@ -70,7 +70,7 @@ public class LinearColorBar extends LinearLayout {
                 ? 2 : 1;
         mEdgeGradientPaint.setStrokeWidth(mLineWidth);
         mEdgeGradientPaint.setAntiAlias(true);
-        
+        mLeftColor = mMiddleColor = Utils.getColorAccent(context);
     }
 
     public void setOnRegionTappedListener(OnRegionTappedListener listener) {

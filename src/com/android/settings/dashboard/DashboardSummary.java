@@ -16,6 +16,7 @@
 
 package com.android.settings.dashboard;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +26,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.telephony.TelephonyIntents;
@@ -101,7 +101,6 @@ public class DashboardSummary extends InstrumentedFragment
         List<DashboardCategory> categories =
                 ((SettingsActivity) getActivity()).getDashboardCategories();
         mSummaryLoader = new SummaryLoader(getActivity(), categories);
-        setHasOptionsMenu(true);
         Context context = getContext();
         mConditionManager = ConditionManager.get(context, false);
         mSuggestionParser = new SuggestionParser(context,
@@ -115,14 +114,6 @@ public class DashboardSummary extends InstrumentedFragment
     public void onDestroy() {
         mSummaryLoader.release();
         super.onDestroy();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        if (getActivity() == null) return;
-        HelpUtils.prepareHelpMenuItem(getActivity(), menu, R.string.help_uri_dashboard,
-                getClass().getName());
     }
 
     @Override
@@ -197,6 +188,9 @@ public class DashboardSummary extends InstrumentedFragment
         super.onSaveInstanceState(outState);
         if (mLayoutManager == null) return;
         outState.putInt(EXTRA_SCROLL_POSITION, mLayoutManager.findFirstVisibleItemPosition());
+        if (mAdapter != null) {
+            mAdapter.onSaveInstanceState(outState);
+        }
     }
 
     @Override
@@ -213,14 +207,13 @@ public class DashboardSummary extends InstrumentedFragment
         mDashboard.setHasFixedSize(true);
         mDashboard.setListener(this);
         mDashboard.addItemDecoration(new DashboardDecorator(getContext()));
-        mAdapter = new DashboardAdapter(getContext(), mSuggestionParser);
-        mAdapter.setConditions(mConditionManager.getConditions());
+        mAdapter = new DashboardAdapter(getContext(), mSuggestionParser, bundle,
+                mConditionManager.getConditions());
         mDashboard.setAdapter(mAdapter);
         mSummaryLoader.setAdapter(mAdapter);
         ConditionAdapterUtils.addDismiss(mDashboard);
         if (DEBUG_TIMING) Log.d(TAG, "onViewCreated took "
                 + (System.currentTimeMillis() - startTime) + " ms");
-
         rebuildUI();
     }
 
@@ -229,10 +222,6 @@ public class DashboardSummary extends InstrumentedFragment
             Log.w(TAG, "Cannot build the DashboardSummary UI yet as the Fragment is not added");
             return;
         }
-
-        List<DashboardCategory> categories =
-                ((SettingsActivity) getActivity()).getDashboardCategories();
-        mAdapter.setCategories(categories);
 
         // recheck to see if any suggestions have been changed.
         new SuggestionLoader().execute();
@@ -265,7 +254,13 @@ public class DashboardSummary extends InstrumentedFragment
 
         @Override
         protected void onPostExecute(List<Tile> tiles) {
-            mAdapter.setSuggestions(tiles);
+            final Activity activity = getActivity();
+            if (activity == null) {
+                return;
+            }
+            List<DashboardCategory> categories =
+                    ((SettingsActivity) activity).getDashboardCategories();
+            mAdapter.setCategoriesAndSuggestions(categories, tiles);
         }
     }
 }

@@ -16,10 +16,10 @@
 
 package com.android.settings;
 
-import com.android.internal.logging.MetricsLogger;
-
 import android.os.Bundle;
 import android.support.v14.preference.PreferenceFragment;
+
+import com.android.internal.logging.MetricsLogger;
 
 /**
  * Instrumented fragment that logs visibility state.

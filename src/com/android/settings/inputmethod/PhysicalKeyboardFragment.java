@@ -212,9 +212,9 @@ public final class PhysicalKeyboardFragment extends SettingsPreferenceFragment
             clearLoader();
             mLastHardKeyboards.clear();
             mLastHardKeyboards.addAll(newHardKeyboards);
+            mLoaderIDs.add(mNextLoaderId);
             getLoaderManager().initLoader(mNextLoaderId, null,
                     new Callbacks(getContext(), this, mLastHardKeyboards));
-            mLoaderIDs.add(mNextLoaderId);
             ++mNextLoaderId;
         }
     }
@@ -266,7 +266,7 @@ public final class PhysicalKeyboardFragment extends SettingsPreferenceFragment
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     mSettings.setShowImeWithHardKeyboard((Boolean) newValue);
-                    return false;
+                    return true;
                 }
             };
 

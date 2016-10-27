@@ -81,7 +81,7 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
         mIdleText = idleText;
     }
 
-    private boolean isListening() {
+    public boolean isListening() {
         return mCancellationSignal != null && !mCancellationSignal.isCanceled();
     }
 

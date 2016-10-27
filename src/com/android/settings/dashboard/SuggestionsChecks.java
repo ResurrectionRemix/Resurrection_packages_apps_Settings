@@ -21,6 +21,7 @@ import android.app.IWallpaperManagerCallback;
 import android.app.KeyguardManager;
 import android.app.NotificationManager;
 import android.app.WallpaperManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
@@ -32,9 +33,9 @@ import com.android.ims.ImsManager;
 import com.android.settings.Settings.FingerprintEnrollSuggestionActivity;
 import com.android.settings.Settings.FingerprintSuggestionActivity;
 import com.android.settings.Settings.ScreenLockSuggestionActivity;
-import com.android.settings.Settings.WallpaperSuggestionActivity;
 import com.android.settings.Settings.WifiCallingSuggestionActivity;
 import com.android.settings.Settings.ZenModeAutomationSuggestionActivity;
+import com.android.settings.WallpaperSuggestionActivity;
 import com.android.settingslib.drawer.Tile;
 
 import java.util.Collection;
@@ -59,10 +60,11 @@ public class SuggestionsChecks {
         } else if (className.equals(WifiCallingSuggestionActivity.class.getName())) {
             return isWifiCallingUnavailableOrEnabled();
         } else if (className.equals(FingerprintSuggestionActivity.class.getName())) {
-            return isNotSingleFingerprintEnrolled();
-        } else if (className.equals(ScreenLockSuggestionActivity.class.getName())
-                || className.equals(FingerprintEnrollSuggestionActivity.class.getName())) {
+            return isNotSingleFingerprintEnrolled() || !isFingerprintEnabled();
+        } else if (className.equals(ScreenLockSuggestionActivity.class.getName())) {
             return isDeviceSecured();
+        } else if (className.equals(FingerprintEnrollSuggestionActivity.class.getName())) {
+            return isDeviceSecured() || !isFingerprintEnabled();
         }
         return false;
     }
@@ -78,7 +80,8 @@ public class SuggestionsChecks {
     }
 
     public boolean isWifiCallingUnavailableOrEnabled() {
-        if (!ImsManager.isWfcEnabledByPlatform(mContext)) {
+        if (!ImsManager.isWfcEnabledByPlatform(mContext) ||
+                !ImsManager.isWfcProvisionedOnDevice(mContext)) {
             return true;
         }
         return ImsManager.isWfcEnabledByUser(mContext)
@@ -100,11 +103,20 @@ public class SuggestionsChecks {
         IBinder b = ServiceManager.getService(Context.WALLPAPER_SERVICE);
         IWallpaperManager service = Stub.asInterface(b);
         try {
-            return service.getWallpaper(mCallback, WallpaperManager.FLAG_SYSTEM,
-                    new Bundle(), mContext.getUserId()) != null;
+            return !service.isSetWallpaperAllowed(mContext.getOpPackageName()) ||
+                    service.getWallpaper(mCallback, WallpaperManager.FLAG_SYSTEM,
+                            new Bundle(), mContext.getUserId()) != null;
         } catch (RemoteException e) {
         }
         return false;
+    }
+
+    private boolean isFingerprintEnabled() {
+        DevicePolicyManager dpManager =
+                (DevicePolicyManager) mContext.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        final int dpmFlags = dpManager.getKeyguardDisabledFeatures(null, /* admin */
+                mContext.getUserId());
+        return (dpmFlags & DevicePolicyManager.KEYGUARD_DISABLE_FINGERPRINT) == 0;
     }
 
     private final IWallpaperManagerCallback mCallback = new IWallpaperManagerCallback.Stub() {

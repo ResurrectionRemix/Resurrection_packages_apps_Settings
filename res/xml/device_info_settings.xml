@@ -47,10 +47,8 @@
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status"
-                android:summary="@string/device_status_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.Settings$StatusActivity" />
+                android:summary="@string/device_status_summary"
+                android:fragment="com.android.settings.deviceinfo.Status">
         </PreferenceScreen>
 
         <!-- Manual -->
@@ -68,8 +66,14 @@
 
         <PreferenceScreen
                 android:key="regulatory_info"
-                android:title="@string/regulatory_information">
+                android:title="@string/regulatory_labels">
             <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+                android:key="safety_info"
+                android:title="@string/safety_and_regulatory_info">
+                <intent android:action="android.settings.SHOW_SAFETY_AND_REGULATORY_INFO" />
         </PreferenceScreen>
 
         <!-- Feedback on the device -->
@@ -92,11 +96,12 @@
                 android:summary="@string/device_info_default"/>
 
         <!-- Security patch level -->
-        <Preference android:key="security_patch"
-                android:enabled="false"
-                android:shouldDisableView="false"
+        <PreferenceScreen android:key="security_patch"
                 android:title="@string/security_patch"
-                android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default">
+                <intent android:action="android.intent.action.VIEW"
+                        android:data="https://source.android.com/security/bulletin/" />
+        </PreferenceScreen>
 
         <!-- Device FCC equipment id -->
         <Preference android:key="fcc_equipment_id"
