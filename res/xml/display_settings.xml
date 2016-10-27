@@ -85,6 +85,12 @@
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title" />
 
+        <!-- Heads Up switch -->
+        <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
+                android:key="heads_up_notifications_enabled"
+                android:title="@string/heads_up_switch_title"
+                android:summary="@string/heads_up_switch_summary"
+                android:defaultValue="true" />
 
         <cyanogenmod.preference.RemotePreference
                 android:key="doze_device_settings"
