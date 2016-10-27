@@ -341,7 +341,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 } catch (Exception e) {
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
->>>>>>> ebf9845... Merge branch 'android-7.1.0_r4' into n7.1
             }
         }
         return super.onPreferenceTreeClick(preference);

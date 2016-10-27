@@ -63,15 +63,8 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
     private String mLabel;
     private String mSummary;
 
-<<<<<<< HEAD
-    private boolean mDisabledByAdmin = false;
-=======
-    private int mStateOnLabel = R.string.switch_on_text;
-    private int mStateOffLabel = R.string.switch_off_text;
-
     private boolean mLoggingIntialized;
     private boolean mDisabledByAdmin;
->>>>>>> ebf9845... Merge branch 'android-7.1.0_r4' into n7.1
     private EnforcedAdmin mEnforcedAdmin = null;
 
     private String mMetricsTag;
