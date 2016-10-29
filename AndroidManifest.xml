@@ -2555,6 +2555,17 @@
                 android:value="com.android.settings.rr.pie.PieControl" />
         </activity>
 
+        <!-- Ambient Display -->
+        <activity android:name="Settings$AmbientDisplaySettingsActivity"
+                android:label="@string/doze_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.ambientdisplay.AmbientSettings" />
+        </activity>
 
          <!-- Global DUI settings activity. -->
          <activity android:name="Settings$NavigationSettingsActivity"

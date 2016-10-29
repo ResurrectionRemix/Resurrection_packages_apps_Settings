@@ -172,6 +172,7 @@ public class Settings extends SettingsActivity {
     public static class NavigationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class FlingSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AmbientDisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class SmartbarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PulseSettingsActivity extends SettingsActivity { /* empty */ }
     public static class GestrueAnywhereActivity extends SettingsActivity { /* empty */ }

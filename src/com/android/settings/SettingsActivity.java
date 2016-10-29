@@ -144,6 +144,7 @@ import com.android.settings.rr.AppCircleBar;
 import com.android.settings.rr.AppSidebar;
 import com.android.settings.rr.pie.PieControl;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
+import com.android.settings.rr.ambientdisplay.AmbientSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -378,6 +379,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
             MainSettingsLayout.class.getName(),
+            AmbientSettings.class.getName(),
             About.class.getName(),
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
