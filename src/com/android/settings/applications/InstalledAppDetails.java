@@ -1048,8 +1048,9 @@ public class InstalledAppDetails extends AppInfoBase
 
     public static void setupAppSnippet(View appSnippet, CharSequence label, Drawable icon,
             CharSequence versionName, String packageName) {
-        LayoutInflater.from(appSnippet.getContext()).inflate(R.layout.widget_text_views,
-                (ViewGroup) appSnippet.findViewById(android.R.id.widget_frame));
+        ViewGroup parent = (ViewGroup) appSnippet.findViewById(android.R.id.widget_frame);
+        LayoutInflater inflater = LayoutInflater.from(appSnippet.getContext());
+        inflater.inflate(R.layout.app_version_and_package, parent);
 
         ImageView iconView = (ImageView) appSnippet.findViewById(android.R.id.icon);
         iconView.setImageDrawable(icon);
@@ -1058,20 +1059,21 @@ public class InstalledAppDetails extends AppInfoBase
         labelView.setText(label);
         // Version number of application
         TextView appVersion = (TextView) appSnippet.findViewById(R.id.widget_text1);
+        TextView appPackage = (TextView) appSnippet.findViewById(R.id.widget_text2);
 
         if (packageName != null) {
-            TextView appPackage = (TextView) appSnippet.findViewById(R.id.widget_text2);
+            appPackage.setVisibility(View.VISIBLE);
             appPackage.setText(packageName);
-            appPackage.setSelected(true);
+        } else {
+            appPackage.setVisibility(View.GONE);
         }
 
         if (!TextUtils.isEmpty(versionName)) {
-            appVersion.setSelected(true);
             appVersion.setVisibility(View.VISIBLE);
             appVersion.setText(appSnippet.getContext().getString(R.string.version_text,
                     String.valueOf(versionName)));
         } else {
-            appVersion.setVisibility(View.INVISIBLE);
+            appVersion.setVisibility(View.GONE);
         }
     }
 
