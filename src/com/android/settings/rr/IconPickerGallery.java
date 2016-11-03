@@ -19,6 +19,7 @@ package com.android.settings.rr;
 
 import java.io.File;
 
+import com.android.internal.utils.du.DUActionUtils;
 import com.android.internal.utils.du.ImageHelper;
 
 import android.app.Activity;
@@ -56,35 +57,43 @@ public class IconPickerGallery extends Activity {
         if (resultCode == Activity.RESULT_OK && requestCode == 69) {
             Bitmap b = null;
             try {
-                b = ImageHelper.getBitmapFromUri(this, data.getData());
-            } catch (Exception e) {
-                Toast.makeText(this, getString(R.string.invalid_icon_from_uri), Toast.LENGTH_SHORT)
-                        .show();
-                sendCancelResultAndFinish();
-            }
-            if (b != null) {
-                File dir = new File(Environment.getExternalStorageDirectory() + File.separator
-                        + "dui_icons");
-                dir.mkdirs();
-                String fileName = "dui_icons_"
-                        + String.valueOf(System.currentTimeMillis());
-                ;
-                Uri newUri = ImageHelper.addBitmapToStorage(dir, fileName, b);
-                if (newUri == null) {
-                    Toast.makeText(this, getString(R.string.invalid_icon_from_uri),
+                if (DUActionUtils.isBitmapAllowedSize(this, data.getData(),
+                        DUActionUtils.DUI_ICON_MAX_WIDTH, DUActionUtils.DUI_ICON_MAX_HEIGHT)) {
+                    b = ImageHelper.getBitmapFromUri(this, data.getData());
+                    if (b != null) {
+                        File dir = new File(Environment.getExternalStorageDirectory() + File.separator
+                                + "dui_icons");
+                        dir.mkdirs();
+                        String fileName = "dui_icons_"
+                                + String.valueOf(System.currentTimeMillis());
+                        ;
+                        Uri newUri = ImageHelper.addBitmapToStorage(dir, fileName, b);
+                        if (newUri == null) {
+                            Toast.makeText(this, getString(R.string.invalid_icon_from_uri),
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+                            sendCancelResultAndFinish();
+                        } else {
+                            Intent resultIntent = new Intent();
+                            resultIntent.setAction(INTENT_GALLERY_PICKER);
+                            resultIntent.putExtra("result", Activity.RESULT_OK);
+                            resultIntent.putExtra("uri", newUri.toString());
+                            sendBroadcastAsUser(resultIntent, UserHandle.CURRENT);
+                            setResult(RESULT_OK, resultIntent);
+                            finish();
+                        }
+                    } else {
+                        Toast.makeText(this, getString(R.string.invalid_icon_from_uri), Toast.LENGTH_SHORT)
+                                .show();
+                        sendCancelResultAndFinish();
+                    }
+                } else {
+                    Toast.makeText(this, getString(R.string.image_exceeds_max_allowed_size),
                             Toast.LENGTH_SHORT)
                             .show();
                     sendCancelResultAndFinish();
-                } else {
-                    Intent resultIntent = new Intent();
-                    resultIntent.setAction(INTENT_GALLERY_PICKER);
-                    resultIntent.putExtra("result", Activity.RESULT_OK);
-                    resultIntent.putExtra("uri", newUri.toString());
-                    sendBroadcastAsUser(resultIntent, UserHandle.CURRENT);
-                    setResult(RESULT_OK, resultIntent);
-                    finish();
                 }
-            } else {
+            } catch (Exception e) {
                 Toast.makeText(this, getString(R.string.invalid_icon_from_uri), Toast.LENGTH_SHORT)
                         .show();
                 sendCancelResultAndFinish();

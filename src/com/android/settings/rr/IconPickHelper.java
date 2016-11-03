@@ -32,6 +32,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.internal.utils.du.DUActionUtils;
 import com.android.settings.R;
 
 public class IconPickHelper {
@@ -69,37 +70,45 @@ public class IconPickHelper {
                 case REQUEST_CODE_GALLERY:
                     Bitmap b = null;
                     try {
-                        b = ImageHelper.getBitmapFromUri(mParent, data.getData());
+                        if (DUActionUtils.isBitmapAllowedSize(mParent, data.getData(),
+                                DUActionUtils.DUI_ICON_MAX_WIDTH, DUActionUtils.DUI_ICON_MAX_HEIGHT)) {
+                            b = ImageHelper.getBitmapFromUri(mParent, data.getData());
+                            if (b != null) {
+                                File dir = new File(Environment.getExternalStorageDirectory()
+                                        + File.separator
+                                        + "dui_icons");
+                                dir.mkdirs();
+                                String fileName = "dui_icons_"
+                                        + String.valueOf(System.currentTimeMillis());
+                                Uri newUri = ImageHelper.addBitmapToStorage(dir, fileName, b);
+                                if (newUri == null) {
+                                    Toast.makeText(mParent,
+                                            mParent.getString(R.string.invalid_icon_from_uri),
+                                            Toast.LENGTH_SHORT)
+                                            .show();
+                                    mListener.imagePicked(null);
+                                } else {
+                                    mListener.imagePicked(newUri);
+                                }
+                            } else {
+                                Toast.makeText(mParent, mParent.getString(R.string.invalid_icon_from_uri),
+                                        Toast.LENGTH_SHORT)
+                                        .show();
+                                mListener.imagePicked(null);
+                            }
+                        } else {
+                            Toast.makeText(mParent, mParent.getString(R.string.image_exceeds_max_allowed_size),
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+                            mListener.imagePicked(null);
+                        }
                     } catch (Exception e) {
                         Toast.makeText(mParent, mParent.getString(R.string.invalid_icon_from_uri),
                                 Toast.LENGTH_SHORT)
                                 .show();
                         mListener.imagePicked(null);
                     }
-                    if (b != null) {
-                        File dir = new File(Environment.getExternalStorageDirectory()
-                                + File.separator
-                                + "dui_icons");
-                        dir.mkdirs();
-                        String fileName = "dui_icons_"
-                                + String.valueOf(System.currentTimeMillis());
-                        Uri newUri = ImageHelper.addBitmapToStorage(dir, fileName, b);
-                        if (newUri == null) {
-                            Toast.makeText(mParent,
-                                    mParent.getString(R.string.invalid_icon_from_uri),
-                                    Toast.LENGTH_SHORT)
-                                    .show();
-                            mListener.imagePicked(null);
-                        } else {
-                            mListener.imagePicked(newUri);
-                        }
-                    } else {
-                        Toast.makeText(mParent, mParent.getString(R.string.invalid_icon_from_uri),
-                                Toast.LENGTH_SHORT)
-                                .show();
-                        mListener.imagePicked(null);
-                    }
-                    break;
+                break;
             }
         }
     }
