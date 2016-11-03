@@ -18,6 +18,8 @@ import android.content.Context;
 import android.net.NetworkTemplate;
 import android.support.v7.preference.Preference;
 import android.util.AttributeSet;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import com.android.settings.DividedCategory;
 
 public class TemplatePreferenceCategory extends DividedCategory implements TemplatePreference {
@@ -48,6 +50,14 @@ public class TemplatePreferenceCategory extends DividedCategory implements Templ
     public void pushTemplates(NetworkServices services) {
         if (mTemplate == null) {
             throw new RuntimeException("null mTemplate for " + getKey());
+        }
+        if (mSubId != 0) {
+            SubscriptionManager sm = SubscriptionManager.from(getContext());
+            SubscriptionInfo info = sm.getActiveSubscriptionInfo(mSubId);
+            CharSequence name = info != null ? info.getDisplayName() : null;
+            if (name != null) {
+                setTitle(name);
+            }
         }
         for (int i = 0; i < getPreferenceCount(); i++) {
             ((TemplatePreference) getPreference(i)).setTemplate(mTemplate, mSubId, services);
