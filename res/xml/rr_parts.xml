@@ -42,6 +42,14 @@
         <intent android:action="org.lineageos.lineageparts.PROFILES_SETTINGS" />
     </Preference>
 
+        <!-- Custom charging sounds -->
+     <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="charging_sounds_settings"
+        android:icon="@drawable/rr_charging sounds_icons"
+        android:title="@string/charging_sounds_settings_title"
+        android:summary="@string/charging_sounds_settings_summary"
+        lineage:replacesKey="charging_sounds" />
+
 
     <PreferenceScreen
         android:key="rounded_corners"
