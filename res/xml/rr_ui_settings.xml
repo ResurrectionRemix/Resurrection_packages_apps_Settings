@@ -51,5 +51,27 @@
                 android:icon="@drawable/rr_dashboard_icon"
                 android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
+        <PreferenceCategory
+            android:key="screenshot_options"
+            android:title="@string/screenshot_options_category" >
+
+ 
+        <ListPreference
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:key="screenshot_type"
+            android:title="@string/screenshot_type_title" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="screenshot_delay"
+            android:title="@string/screenshot_delay_title"
+            android:summary="@string/screenshot_delay_summary"
+            settings:max="10000"
+            settings:minimum="100"
+            settings:interval="100"
+            settings:units="ms"
+            android:persistent="false" />
+
+        </PreferenceCategory>
 
 </PreferenceScreen>
