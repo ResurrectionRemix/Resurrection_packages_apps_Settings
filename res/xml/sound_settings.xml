@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/sound_settings"
     android:key="sound_settings"
@@ -184,6 +185,11 @@
         <SwitchPreference
           android:key="charging_sounds"
           android:title="@string/charging_sounds_title"/>
+
+        <!-- Custom charging sounds -->
+        <org.lineageos.internal.lineageparts.LineagePartsPreference
+          android:key="charging_sounds_settings"
+          lineage:replacesKey="charging_sounds" />
 
         <!-- Docking sounds -->
         <SwitchPreference
