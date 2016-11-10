@@ -18,6 +18,7 @@ package com.android.settings.notificationlight;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -55,11 +56,11 @@ public class ApplicationLightPreference extends DialogPreference {
      */
     public ApplicationLightPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+        NotificationManager nm = context.getSystemService(NotificationManager.class);
         mColorValue = DEFAULT_COLOR;
         mOnValue = DEFAULT_TIME;
         mOffValue = DEFAULT_TIME;
-        mOnOffChangeable = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_ledCanPulse);
+        mOnOffChangeable = nm.deviceLightsCan(NotificationManager.LIGHTS_LED_PULSE);
         init();
     }
 
@@ -71,11 +72,11 @@ public class ApplicationLightPreference extends DialogPreference {
      */
     public ApplicationLightPreference(Context context, int color, int onValue, int offValue) {
         super(context, null);
+        NotificationManager nm = context.getSystemService(NotificationManager.class);
         mColorValue = color;
         mOnValue = onValue;
         mOffValue = offValue;
-        mOnOffChangeable = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_ledCanPulse);
+        mOnOffChangeable = nm.deviceLightsCan(NotificationManager.LIGHTS_LED_PULSE);
         init();
     }
 
@@ -117,6 +118,8 @@ public class ApplicationLightPreference extends DialogPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
+        NotificationManager nm = getContext().getSystemService(NotificationManager.class);
+
         mLightColorView = (ImageView) view.findViewById(R.id.light_color);
         mOnValueView = (TextView) view.findViewById(R.id.textViewTimeOnValue);
         mOffValueView = (TextView) view.findViewById(R.id.textViewTimeOffValue);
@@ -126,7 +129,7 @@ public class ApplicationLightPreference extends DialogPreference {
         TextView tView = (TextView) view.findViewById(android.R.id.summary);
         tView.setVisibility(View.GONE);
 
-        if (!mResources.getBoolean(com.android.internal.R.bool.config_multiColorNotificationLed)) {
+        if (!nm.deviceLightsCan(NotificationManager.LIGHTS_RGB_NOTIFICATION)) {
             mLightColorView.setVisibility(View.GONE);
         }
 

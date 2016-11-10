@@ -16,6 +16,7 @@
 
 package com.android.settings.notificationlight;
 
+import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -66,6 +67,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.battery_light_settings);
 
+        final NotificationManager nm = getContext().getSystemService(NotificationManager.class);
+
         PreferenceScreen prefSet = getPreferenceScreen();
 
         PreferenceGroup mGeneralPrefs = (PreferenceGroup) prefSet.findPreference("general_section");
@@ -73,13 +76,13 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
         mLightEnabledPref = (CMSystemSettingSwitchPreference) prefSet.findPreference(LIGHT_ENABLED_PREF);
         mPulseEnabledPref = (CMSystemSettingSwitchPreference) prefSet.findPreference(PULSE_ENABLED_PREF);
 
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_ledCanPulse) ||
-                getResources().getBoolean(org.cyanogenmod.platform.internal.R.bool.config_useSegmentedBatteryLed)) {
+        if (!nm.deviceLightsCan(NotificationManager.LIGHTS_LED_PULSE) ||
+             nm.deviceLightsCan(NotificationManager.LIGHTS_SEGMENTED_BATTERY_LIGHTS) ) {
             mGeneralPrefs.removePreference(mPulseEnabledPref);
         }
 
         // Does the Device support changing battery LED colors?
-        if (getResources().getBoolean(com.android.internal.R.bool.config_multiColorBatteryLed)) {
+        if (nm.deviceLightsCan(NotificationManager.LIGHTS_RGB_BATTERY)) {
             setHasOptionsMenu(true);
 
             // Low, Medium and full color preferences
