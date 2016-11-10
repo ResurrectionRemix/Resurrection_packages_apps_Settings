@@ -44,17 +44,11 @@ public class FingerprintEnrollIntroduction extends FingerprintEnrollBase {
         findViewById(R.id.cancel_button).setOnClickListener(this);
 
         final View learnMoreButton = findViewById(R.id.learn_more_button);
-        // If help url is not overlaid, remove the button.
-        if (TextUtils.isEmpty(getString(R.string.help_url_fingerprint))) {
-            learnMoreButton.setVisibility(View.GONE);
-        } else {
-            learnMoreButton.setOnClickListener(this);
-        }
-
-        final View learnMoreButton = findViewById(R.id.learn_more_button);
         learnMoreButton.setOnClickListener(this);
         if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0) == 0) {
             learnMoreButton.setVisibility(View.GONE);
+        } else {
+            learnMoreButton.setOnClickListener(this);
         }
 
         final int passwordQuality = new ChooseLockSettingsHelper(this).utils()
