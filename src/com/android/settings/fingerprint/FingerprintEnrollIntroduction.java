@@ -45,7 +45,8 @@ public class FingerprintEnrollIntroduction extends FingerprintEnrollBase {
 
         final View learnMoreButton = findViewById(R.id.learn_more_button);
         learnMoreButton.setOnClickListener(this);
-        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0) == 0) {
+        if (TextUtils.isEmpty(getString(R.string.help_url_fingerprint)) ||
+                Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0) == 0) {
             learnMoreButton.setVisibility(View.GONE);
         } else {
             learnMoreButton.setOnClickListener(this);
