@@ -14,6 +14,7 @@
 package com.android.settings.rr;
 
 import android.app.AlertDialog;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
@@ -53,6 +54,7 @@ import android.widget.LinearLayout;
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
 import com.android.settings.util.CMDProcessor;
 import com.android.settings.util.Helpers;
+import com.android.settings.dashboard.SummaryLoader;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -291,6 +293,32 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         return MetricsEvent.RESURRECTED;
      }
 
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+
+        private final Context mContext;
+        private final SummaryLoader mSummaryLoader;
+
+        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
+            mContext = context;
+            mSummaryLoader = summaryLoader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                mSummaryLoader.setSummary(this, mContext.getString(R.string.rr_title_summary));
+            }
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 
     public void stockitems() {
                 ContentResolver mResolver = getActivity().getContentResolver();
