@@ -20,6 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/qs_advanced_title">
 
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_show_brightness"
+            android:title="@string/show_brightness"
+            android:summary="@string/show_brightness_summary"
+            android:defaultValue="true" />
+
         <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
