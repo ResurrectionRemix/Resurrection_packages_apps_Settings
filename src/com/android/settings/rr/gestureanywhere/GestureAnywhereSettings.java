@@ -17,19 +17,18 @@
 package com.android.settings.rr.gestureanywhere;
 
 import android.app.ActionBar;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
-import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Gravity;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.rr.SeekBarPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -46,9 +45,9 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
 
     private SwitchPreference mEnabledPref;
     private ListPreference mPositionPref;
-    private ListPreference mTriggerWidthPref;
-    private ListPreference mTriggerTopPref;
-    private ListPreference mTriggerBottomPref;
+    private SeekBarPreference mTriggerWidthPref;
+    private SeekBarPreference mTriggerTopPref;
+    private SeekBarPreference mTriggerBottomPref;
 
     private CharSequence mPreviousTitle;
 
@@ -76,26 +75,20 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
         mPositionPref.setValue(String.valueOf(position));
         updatePositionSummary(position);
 
-        mTriggerWidthPref = (ListPreference) findPreference(KEY_TRIGGER_WIDTH);
+        mTriggerWidthPref = (SeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
+        mTriggerWidthPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, 20));
         mTriggerWidthPref.setOnPreferenceChangeListener(this);
-		int width = Settings.System.getInt(getContentResolver(),
-                Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, 10);
-        mTriggerWidthPref.setValue(String.valueOf(width));
-		mTriggerWidthPref.setSummary(mTriggerWidthPref.getEntry());
 
-        mTriggerTopPref = (ListPreference) findPreference(KEY_TRIGGER_TOP);
+        mTriggerTopPref = (SeekBarPreference) findPreference(KEY_TRIGGER_TOP);
+        mTriggerTopPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, 0));
         mTriggerTopPref.setOnPreferenceChangeListener(this);
-		int twidth = Settings.System.getInt(getContentResolver(),
-                Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, 0);
-        mTriggerTopPref.setValue(String.valueOf(twidth));
-		mTriggerTopPref.setSummary(mTriggerWidthPref.getEntry());
 
-        mTriggerBottomPref = (ListPreference) findPreference(KEY_TRIGGER_BOTTOM);
-		mTriggerBottomPref.setOnPreferenceChangeListener(this);
-		int height = Settings.System.getInt(getContentResolver(),
-                Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, 100);
-        mTriggerBottomPref.setValue(String.valueOf(height));
-		mTriggerBottomPref.setSummary(mTriggerBottomPref.getEntry());
+        mTriggerBottomPref = (SeekBarPreference) findPreference(KEY_TRIGGER_BOTTOM);
+        mTriggerBottomPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, 100));
+        mTriggerBottomPref.setOnPreferenceChangeListener(this);
 
         Preference pref = findPreference(KEY_GESTURES);
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -122,7 +115,6 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mPositionPref) {
             int position = Integer.valueOf((String) newValue);
             updatePositionSummary(position);
@@ -133,28 +125,28 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
             return true;
         } else if (preference == mTriggerWidthPref) {
-                int val = Integer.parseInt((String) newValue);
-                int width = mTriggerWidthPref.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(resolver,
-                        Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, val, UserHandle.USER_CURRENT);
-                mTriggerWidthPref.setSummary(mTriggerWidthPref.getEntries()[width]);
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, width);
             return true;
         } else if (preference == mTriggerTopPref) {
-                int val = Integer.parseInt((String) newValue);
-                int width = mTriggerTopPref.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(resolver,
-                        Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, val, UserHandle.USER_CURRENT);
-                mTriggerTopPref.setSummary(mTriggerTopPref.getEntries()[width]);
+            int top = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, top);
             return true;
         } else if (preference == mTriggerBottomPref) {
-                int val = Integer.parseInt((String) newValue);
-                int width = mTriggerBottomPref.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(resolver,
-                        Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, val, UserHandle.USER_CURRENT);
-                mTriggerBottomPref.setSummary(mTriggerBottomPref.getEntries()[width]);
+            int bottom = ((Integer)newValue).intValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, bottom);
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        boolean value;
+        return true;
     }
 
     private void updatePositionSummary(int value) {

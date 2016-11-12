@@ -362,3 +362,4 @@ public class GestureAnywhereBuilderActivity extends ListActivity
         }
     }
 }
+

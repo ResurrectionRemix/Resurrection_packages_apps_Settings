@@ -41,31 +41,35 @@
     <PreferenceCategory
         android:title="@string/trigger_category" />
 
-    <ListPreference
+
+    <com.android.settings.rr.SeekBarPreference
         android:key="gesture_anywhere_trigger_width"
-        android:persistent="false"
-        android:dialogTitle="@string/trigger_width_title"
         android:title="@string/trigger_width_title"
-        android:entries="@array/gesture_anywhere_trigger_width_entries"
-        android:entryValues="@array/gesture_anywhere_trigger_width_values"
-        android:dependency="gesture_anywhere_enabled"/>
+        android:summary="@string/trigger_width_summary"
+        android:defaultValue="4"
+        android:max="64"
+        settings:minimum="4"
+        settings:units="px"
+        android:dependency="gesture_anywhere_enabled" />
 
-    <ListPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="gesture_anywhere_trigger_top"
-        android:persistent="false"
-        android:dialogTitle="@string/trigger_top_title"
         android:title="@string/trigger_top_title"
-        android:entries="@array/gesture_anywhere_trigger_top_entries"
-        android:entryValues="@array/gesture_anywhere_trigger_top_values"
-        android:dependency="gesture_anywhere_enabled"/>
+        android:summary="@string/trigger_top_summary"
+        android:defaultValue="0"
+        android:max="99"
+        settings:minimum="0"
+        settings:units="%"
+        android:dependency="gesture_anywhere_enabled" />
 
-    <ListPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="gesture_anywhere_trigger_bottom"
-        android:persistent="false"
-        android:dialogTitle="@string/trigger_bottom_title"
         android:title="@string/trigger_bottom_title"
-        android:entries="@array/gesture_anywhere_trigger_bottom_entries"
-        android:entryValues="@array/gesture_anywhere_trigger_bottom_values"
-        android:dependency="gesture_anywhere_enabled"/>
+        android:summary="@string/trigger_bottom_summary"
+        android:defaultValue="100"
+        android:max="100"
+        settings:minimum="1"
+        settings:units="%"
+        android:dependency="gesture_anywhere_enabled" />
 
 </PreferenceScreen>
