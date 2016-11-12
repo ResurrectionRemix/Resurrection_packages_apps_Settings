@@ -71,7 +71,7 @@ public class GestureAnywhereBuilderActivity extends ListActivity
     // Type: long (id)
     private static final String GESTURES_INFO_ID = "gestures.info_id";
 
-    private final File mStoreFile = new File("/data/system", "ga_gestures");
+    private final File mStoreFile = new File(Environment.getExternalStorageDirectory(), "ga_gestures");
 
     private final Comparator<NamedGesture> mSorter = new Comparator<NamedGesture>() {
         public int compare(NamedGesture object1, NamedGesture object2) {
@@ -102,6 +102,8 @@ public class GestureAnywhereBuilderActivity extends ListActivity
 
         if (sStore == null) {
             sStore = GestureLibraries.fromFile(mStoreFile);
+            sStore.save();//Add this to save your rename Gesture. This will solve your Rename Gesture Problem.
+
         }
         mEmpty = (TextView) findViewById(android.R.id.empty);
         loadGestures();
@@ -283,6 +285,7 @@ public class GestureAnywhereBuilderActivity extends ListActivity
 
                         mAdapter.addBitmap(namedGesture.gesture.getID(), bitmap);
                         publishProgress(namedGesture);
+                        sStore.save();//Add this to save your rename Gesture. This will solve your Rename Gesture Problem.
                     }
                 }
 

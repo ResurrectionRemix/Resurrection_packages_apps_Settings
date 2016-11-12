@@ -72,9 +72,7 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
         mPositionPref.setOnPreferenceChangeListener(this);
         int position = Settings.System.getInt(getContentResolver(),
                 Settings.System.GESTURE_ANYWHERE_POSITION, Gravity.LEFT);
-        mPositionPref.setValue(String.valueOf(position));
-        updatePositionSummary(position);
-
+                
         mTriggerWidthPref = (SeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
         mTriggerWidthPref.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, 20));
