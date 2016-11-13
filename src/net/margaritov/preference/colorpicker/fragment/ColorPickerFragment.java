@@ -418,13 +418,13 @@ public class ColorPickerFragment extends Fragment implements
         TypedArray layouts = mResources.obtainTypedArray(
                 R.array.color_picker_palette_color_buttons_layouts);
         TypedArray buttons = mResources.obtainTypedArray(R.array.color_picker_palette_color_buttons);
-        TypedArray colors = mResources.obtainTypedArray(R.array.color_picker_darkkat_palette);
+        TypedArray colors = mResources.obtainTypedArray(R.array.color_picker_palette);
 
         for (int i=0; i<3; i++) {
             int layoutResId = layouts.getResourceId(i, 0);
             LinearLayout layout = (LinearLayout) mColorPickerView.findViewById(layoutResId);
             TextView paletteTitle = (TextView) layout.findViewById(R.id.palette_color_buttons_title);
-            int titleResId = R.string.palette_darkkat_title;
+            int titleResId = R.string.palette_title;
             if (i == PALETTE_MATERIAL) {
                 titleResId = R.string.palette_material_title;
                 colors = mResources.obtainTypedArray(R.array.color_picker_material_palette);
