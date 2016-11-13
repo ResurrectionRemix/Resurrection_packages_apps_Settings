@@ -91,16 +91,6 @@
                 android:persistent="false"
                 android:ringtoneType="alarm" />
 
-        <com.android.settingslib.RestrictedPreference
-                android:key="cell_broadcast_settings"
-                android:title="@string/cell_broadcast_settings"
-                settings:useAdminDisabledSummary="true">
-                <!--intent
-                        android:action="android.intent.action.MAIN"
-                        android:targetPackage="com.android.cellbroadcastreceiver"
-                        android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" /-->
-        </com.android.settingslib.RestrictedPreference>
-
         <!-- Other sounds -->
         <Preference
                 android:key="other_sounds"
