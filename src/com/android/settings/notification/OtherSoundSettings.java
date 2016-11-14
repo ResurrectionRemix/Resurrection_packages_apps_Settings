@@ -76,8 +76,11 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DOCK_AUDIO_MEDIA = "dock_audio_media";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
     private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
+    private static final String KEY_CAMERA_SOUNDS = "camera_sounds";
+    private static final String PROP_CAMERA_SOUND = "persist.sys.camera-sound";
 
     private ListPreference mAnnoyingNotifications;
+    private SwitchPreference mCameraSounds;
 
     // Boot Sounds needs to be a system property so it can be accessed during boot.
     private static final String KEY_BOOT_SOUNDS = "boot_sounds";
@@ -225,6 +228,11 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         mAnnoyingNotifications.setValue(Integer.toString(notificationThreshold));
         mAnnoyingNotifications.setOnPreferenceChangeListener(this);
 
+ 
+        mCameraSounds = (SwitchPreference) findPreference(KEY_CAMERA_SOUNDS);
+        mCameraSounds.setChecked(SystemProperties.getBoolean(PROP_CAMERA_SOUND, true));
+        mCameraSounds.setOnPreferenceChangeListener(this);
+
         for (SettingPref pref : PREFS) {
             pref.init(this);
         }
@@ -251,6 +259,15 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
             final int val = Integer.valueOf((String) objValue);
             System.putInt(getContentResolver(),
                     System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, val);
+        } else if (preference == mCameraSounds) {
+               if (KEY_CAMERA_SOUNDS.equals(key)) {
+                   if ((Boolean) objValue) {
+                       SystemProperties.set(PROP_CAMERA_SOUND, "1");
+                   } else {
+                       SystemProperties.set(PROP_CAMERA_SOUND, "0");
+                   }
+                }
+                return true;
         }
         return true;
     }
