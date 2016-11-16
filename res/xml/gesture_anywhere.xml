@@ -47,7 +47,7 @@
         android:title="@string/trigger_width_title"
         android:summary="@string/trigger_width_summary"
         android:defaultValue="4"
-        android:max="64"
+        settings:maximum="64"
         settings:minimum="4"
         settings:units="px"
         android:dependency="gesture_anywhere_enabled" />
@@ -57,7 +57,7 @@
         android:title="@string/trigger_top_title"
         android:summary="@string/trigger_top_summary"
         android:defaultValue="0"
-        android:max="99"
+        settings:maximum="99"
         settings:minimum="0"
         settings:units="%"
         android:dependency="gesture_anywhere_enabled" />
@@ -67,7 +67,7 @@
         android:title="@string/trigger_bottom_title"
         android:summary="@string/trigger_bottom_summary"
         android:defaultValue="100"
-        android:max="100"
+        settings:maximum="100"
         settings:minimum="1"
         settings:units="%"
         android:dependency="gesture_anywhere_enabled" />
