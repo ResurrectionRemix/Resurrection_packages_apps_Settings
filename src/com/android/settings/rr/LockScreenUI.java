@@ -54,7 +54,7 @@ public class LockScreenUI extends SettingsPreferenceFragment implements
 
         mClockFontSize = (SeekBarPreference) findPreference(CLOCK_FONT_SIZE);
         mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKCLOCK_FONT_SIZE, 88));
+                Settings.System.LOCKCLOCK_FONT_SIZE, 78));
         mClockFontSize.setOnPreferenceChangeListener(this);
 
         mDateFontSize = (SeekBarPreference) findPreference(DATE_FONT_SIZE);
