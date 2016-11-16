@@ -61,7 +61,7 @@ public class LockClockFonts extends SettingsPreferenceFragment implements OnPref
 
         mDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
         mDateFonts.setValue(String.valueOf(Settings.System.getInt(
-                resolver, Settings.System.LOCK_DATE_FONTS, 4)));
+                resolver, Settings.System.LOCK_DATE_FONTS, 8)));
         mDateFonts.setSummary(mDateFonts.getEntry());
         mDateFonts.setOnPreferenceChangeListener(this);
     }
