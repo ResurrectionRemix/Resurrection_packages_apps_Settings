@@ -64,6 +64,10 @@ import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedPreference;
 import com.android.settingslib.RestrictedSwitchPreference;
 
+import cyanogenmod.providers.CMSettings;
+
+import org.cyanogenmod.internal.util.CmLockPatternUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1013,17 +1017,20 @@ public class SecuritySettings extends SettingsPreferenceFragment
         private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
         private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
         private static final String KEY_POWER_INSTANTLY_LOCKS = "power_button_instantly_locks";
+        private static final String KEY_DIRECTLY_SHOW_LOCK = "directly_show_lock";
 
         // These switch preferences need special handling since they're not all stored in Settings.
         private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
-                KEY_VISIBLE_PATTERN, KEY_POWER_INSTANTLY_LOCKS };
+                KEY_VISIBLE_PATTERN, KEY_POWER_INSTANTLY_LOCKS, KEY_DIRECTLY_SHOW_LOCK };
 
         private TimeoutListPreference mLockAfter;
         private SwitchPreference mVisiblePattern;
         private SwitchPreference mPowerButtonInstantlyLocks;
+        private SwitchPreference mDirectlyShowLock;
         private RestrictedPreference mOwnerInfoPref;
 
         private LockPatternUtils mLockPatternUtils;
+        private ChooseLockSettingsHelper mChooseLockSettingsHelper;
         private DevicePolicyManager mDPM;
 
         @Override
@@ -1035,6 +1042,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
         public void onCreate(Bundle icicle) {
             super.onCreate(icicle);
             mLockPatternUtils = new LockPatternUtils(getContext());
+            mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
             mDPM = getContext().getSystemService(DevicePolicyManager.class);
             createPreferenceHierarchy();
         }
@@ -1051,6 +1059,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
             }
             if (mPowerButtonInstantlyLocks != null) {
                 mPowerButtonInstantlyLocks.setChecked(mLockPatternUtils.getPowerButtonInstantlyLocks(
+                        MY_USER_ID));
+            }
+            final CmLockPatternUtils cmLockPatternUtils = mChooseLockSettingsHelper.cmUtils();
+            if (mDirectlyShowLock != null) {
+                mDirectlyShowLock.setChecked(cmLockPatternUtils.shouldPassToSecurityView(
                         MY_USER_ID));
             }
 
@@ -1075,6 +1088,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
                     new LockPatternUtils(getContext()),
                     ManagedLockPasswordProvider.get(getContext(), MY_USER_ID));
             addPreferencesFromResource(resid);
+
+            // directly show lock
+            mDirectlyShowLock = (SwitchPreference) findPreference(KEY_DIRECTLY_SHOW_LOCK);
 
             // lock after preference
             mLockAfter = (TimeoutListPreference) findPreference(KEY_LOCK_AFTER_TIMEOUT);
@@ -1221,6 +1237,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
             String key = preference.getKey();
             if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
                 mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) value, MY_USER_ID);
+            } else if (KEY_DIRECTLY_SHOW_LOCK.equals(key)) {
+                final CmLockPatternUtils cmLockPatternUtils = mChooseLockSettingsHelper.cmUtils();
+                cmLockPatternUtils.setPassToSecurityView((Boolean) value, MY_USER_ID);
             } else if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
                 int timeout = Integer.parseInt((String) value);
                 try {

@@ -27,6 +27,8 @@ import android.os.UserManager;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.widget.LockPatternUtils;
 
+import org.cyanogenmod.internal.util.CmLockPatternUtils;
+
 public final class ChooseLockSettingsHelper {
 
     static final String EXTRA_KEY_TYPE = "type";
@@ -40,12 +42,14 @@ public final class ChooseLockSettingsHelper {
 
 
     @VisibleForTesting LockPatternUtils mLockPatternUtils;
+    private CmLockPatternUtils mCmLockPatternUtils;
     private Activity mActivity;
     private Fragment mFragment;
 
     public ChooseLockSettingsHelper(Activity activity) {
         mActivity = activity;
         mLockPatternUtils = new LockPatternUtils(activity);
+        mCmLockPatternUtils = new CmLockPatternUtils(activity);
     }
 
     public ChooseLockSettingsHelper(Activity activity, Fragment fragment) {
@@ -55,6 +59,10 @@ public final class ChooseLockSettingsHelper {
 
     public LockPatternUtils utils() {
         return mLockPatternUtils;
+    }
+
+    public CmLockPatternUtils cmUtils() {
+        return mCmLockPatternUtils;
     }
 
     /**
