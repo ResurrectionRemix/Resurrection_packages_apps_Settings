@@ -46,6 +46,12 @@
         android:key="power_button_instantly_locks"
         android:title="@string/lockpattern_settings_enable_power_button_instantly_locks" />
 
+    <!-- available in pin/pattern/password -->
+    <SwitchPreference
+        android:key="directly_show_lock"
+        android:title="@string/directly_show_lock"
+        android:summary="@string/directly_show_lock_summary" />
+
     <!-- available in pin/pattern/password/slide -->
     <com.android.settingslib.RestrictedPreference
         android:key="owner_info_settings"
