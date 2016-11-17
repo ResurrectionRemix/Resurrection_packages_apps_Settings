@@ -31,6 +31,8 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 import com.android.setupwizardlib.util.WizardManagerHelper;
 
+import org.lineageos.internal.util.LineageLockPatternUtils;
+
 public final class ChooseLockSettingsHelper {
 
     public static final String EXTRA_KEY_TYPE = "type";
@@ -44,12 +46,14 @@ public final class ChooseLockSettingsHelper {
 
 
     @VisibleForTesting LockPatternUtils mLockPatternUtils;
+    private LineageLockPatternUtils mLineageLockPatternUtils;
     private Activity mActivity;
     private Fragment mFragment;
 
     public ChooseLockSettingsHelper(Activity activity) {
         mActivity = activity;
         mLockPatternUtils = new LockPatternUtils(activity);
+        mLineageLockPatternUtils = new LineageLockPatternUtils(activity);
     }
 
     public ChooseLockSettingsHelper(Activity activity, Fragment fragment) {
@@ -59,6 +63,10 @@ public final class ChooseLockSettingsHelper {
 
     public LockPatternUtils utils() {
         return mLockPatternUtils;
+    }
+
+    public LineageLockPatternUtils lineageUtils() {
+        return mLineageLockPatternUtils;
     }
 
     /**
