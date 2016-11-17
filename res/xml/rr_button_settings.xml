@@ -49,18 +49,18 @@
      <PreferenceScreen
             android:key="rr_nav_bar"
             android:fragment="com.android.settings.rr.navbar.NavbarSettings"
-			android:icon="@drawable/rr_navbar_icon"
+            android:icon="@drawable/rr_navbar_icon"
             android:title="@string/rr_navbar_title"/>
+
+   <PreferenceCategory
+        android:key="power_key"
+        android:title="@string/hardware_keys_power_key_title" >
 
         <PreferenceScreen
             android:key="power_menu"
             android:title="@string/power_menu_title"
-			android:icon="@drawable/rr_power_menu_icon"
+            android:icon="@drawable/rr_power_menu_icon"
             android:fragment="com.android.settings.rr.input.PowerMenuActions" />
-
-    <PreferenceCategory
-        android:key="power_key"
-        android:title="@string/hardware_keys_power_key_title" >
 
         <SwitchPreference
             android:key="power_end_call"
