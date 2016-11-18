@@ -24,35 +24,35 @@
         android:title="@string/rr_qs_layout"
         android:key="qs_layout">
 
-          <ListPreference
+           <com.android.settings.rr.SeekBarPreference
               android:key="qs_rows_portrait"
               android:title="@string/qs_port_rows_title"
-              android:entries="@array/qs_rows_portrait_entries"
-              android:entryValues="@array/qs_rows_portrait_values" />
+              settings:maximum="4"
+              settings:minimum="1"/>
   
-          <ListPreference
+           <com.android.settings.rr.SeekBarPreference
               android:key="qs_columns_portrait"
               android:title="@string/qs_port_columns_title"
-              android:entries="@array/qs_columns_portrait_entries"
-              android:entryValues="@array/qs_columns_portrait_values" />
+              settings:maximum="8"
+              settings:minimum="3" />
   
-          <ListPreference
+           <com.android.settings.rr.SeekBarPreference
               android:key="qs_rows_landscape"
               android:title="@string/qs_land_rows_title"
-              android:entries="@array/qs_rows_landscape_entries"
-              android:entryValues="@array/qs_rows_landscape_values" />
+              settings:maximum="3"
+              settings:minimum="1" />
   
-          <ListPreference
+           <com.android.settings.rr.SeekBarPreference
               android:key="qs_columns_landscape"
               android:title="@string/qs_land_columns_title"
-              android:entries="@array/qs_columns_landscape_entries"
-              android:entryValues="@array/qs_columns_landscape_values" />
+              settings:maximum="8"
+              settings:minimum="3" />
 
-          <ListPreference
+           <com.android.settings.rr.SeekBarPreference
               android:key="sysui_qqs_count_key"
               android:title="@string/sysui_qqs_count_title"
-              android:entries="@array/sysui_qqs_count_entries"
-              android:entryValues="@array/sysui_qqs_count_values" />   
+              settings:maximum="7"
+              settings:minimum="3"/>  
 
 </PreferenceCategory>
 
