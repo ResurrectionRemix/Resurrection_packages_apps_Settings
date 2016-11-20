@@ -115,7 +115,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              @Override
              public void onClick(View v) {
              Intent fabIntent = new Intent();
-             fabIntent.setClassName("com.rr.ota", "com.rr.center.OTACenter");
+             fabIntent.setClassName("com.resurrection.ota", "com.resurrection.ota.MainActivity");
              startActivity(fabIntent);
              }
         });
