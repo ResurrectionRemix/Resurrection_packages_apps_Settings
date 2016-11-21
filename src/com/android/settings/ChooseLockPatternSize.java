@@ -21,8 +21,14 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.utils.SettingsDividerItemDecoration;
+import com.android.setupwizardlib.GlifPreferenceLayout;
 
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
@@ -53,6 +59,7 @@ public class ChooseLockPatternSize extends PreferenceActivity {
                 throw new SecurityException("Fragment contained in wrong activity");
             }
             addPreferencesFromResource(R.xml.security_settings_pattern_size);
+            setHeaderView(R.layout.choose_lock_pattern_size_header);
         }
 
         @Override
@@ -101,6 +108,26 @@ public class ChooseLockPatternSize extends PreferenceActivity {
 
             finish();
             return true;
+        }
+
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            GlifPreferenceLayout layout = (GlifPreferenceLayout) view;
+            layout.setDividerItemDecoration(new SettingsDividerItemDecoration(getContext()));
+
+            layout.setIcon(getContext().getDrawable(R.drawable.ic_lock));
+
+            // Use the dividers in SetupWizardRecyclerLayout. Suppress the dividers in
+            // PreferenceFragment.
+            setDivider(null);
+        }
+
+        @Override
+        public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
+                Bundle savedInstanceState) {
+            GlifPreferenceLayout layout = (GlifPreferenceLayout) parent;
+            return layout.onCreateRecyclerView(inflater, parent, savedInstanceState);
         }
 
         @Override

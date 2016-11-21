@@ -1766,7 +1766,8 @@
 
         <activity android:name="ChooseLockGeneric"
             android:label="@string/lockpassword_choose_lock_generic_header"
-            android:excludeFromRecents="true" >
+            android:excludeFromRecents="true"
+            android:theme="@style/SetupWizardTheme.Light" >
             <intent-filter android:priority="1">
                 <action android:name="android.app.action.SET_NEW_PASSWORD" />
                 <action android:name="android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD" />
@@ -1809,6 +1810,7 @@
         <activity android:name="ChooseLockGeneric$InternalActivity" android:exported="false"
             android:label="@string/lockpassword_choose_lock_generic_header"
             android:excludeFromRecents="true"
+            android:theme="@style/SetupWizardTheme.Light"
         />
 
         <activity android:name="SetupChooseLockPattern"
@@ -1816,8 +1818,10 @@
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SetupWizardTheme.Light" />
 
-        <activity android:name="ChooseLockPatternSize" android:exported="false"/>
-        <activity android:name="ChooseLockPattern" android:exported="false"/>
+        <activity android:name="ChooseLockPatternSize"
+            android:exported="false"
+            android:theme="@style/SetupWizardTheme.Light" />
+
         <activity android:name="ChooseLockPattern"
             android:exported="false"
             android:theme="@style/SetupWizardTheme.Light" />

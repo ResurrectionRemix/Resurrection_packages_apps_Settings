@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.UserInfo;
+import android.content.res.Resources;
 import android.hardware.fingerprint.Fingerprint;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.FingerprintManager.RemovalCallback;
@@ -38,15 +39,22 @@ import android.os.storage.StorageManager;
 import android.security.KeyStore;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.utils.SettingsDividerItemDecoration;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedPreference;
+import com.android.setupwizardlib.GlifPreferenceLayout;
 
 import java.util.List;
 
@@ -72,6 +80,13 @@ public class ChooseLockGeneric extends SettingsActivity {
     protected boolean isValidFragment(String fragmentName) {
         if (ChooseLockGenericFragment.class.getName().equals(fragmentName)) return true;
         return false;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.content_parent);
+        layout.setFitsSystemWindows(false);
     }
 
     /* package */ Class<? extends Fragment> getFragmentClass() {
@@ -221,6 +236,32 @@ public class ChooseLockGeneric extends SettingsActivity {
         }
 
         @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            if (mForFingerprint) {
+                GlifPreferenceLayout layout = (GlifPreferenceLayout) view;
+                layout.setDividerItemDecoration(new SettingsDividerItemDecoration(getContext()));
+
+                layout.setIcon(getContext().getDrawable(R.drawable.ic_lock));
+                layout.setHeaderText(getActivity().getTitle());
+
+                // Use the dividers in SetupWizardRecyclerLayout. Suppress the dividers in
+                // PreferenceFragment.
+                setDivider(null);
+            }
+        }
+
+        @Override
+        public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
+                Bundle savedInstanceState) {
+            if (mForFingerprint) {
+                GlifPreferenceLayout layout = (GlifPreferenceLayout) parent;
+                return layout.onCreateRecyclerView(inflater, parent, savedInstanceState);
+            }
+            return super.onCreateRecyclerView(inflater, parent, savedInstanceState);
+        }
+
+        @Override
         public boolean onPreferenceTreeClick(Preference preference) {
             final String key = preference.getKey();
 
@@ -357,12 +398,15 @@ public class ChooseLockGeneric extends SettingsActivity {
         private void updatePreferenceText() {
             if (mForFingerprint) {
                 Preference pattern = findPreference(KEY_UNLOCK_SET_PATTERN);
+                pattern.setIcon(R.drawable.ic_security_pattern);
                 pattern.setTitle(R.string.fingerprint_unlock_set_unlock_pattern);
 
                 Preference pin = findPreference(KEY_UNLOCK_SET_PIN);
+                pin.setIcon(R.drawable.ic_security_pin);
                 pin.setTitle(R.string.fingerprint_unlock_set_unlock_pin);
 
                 Preference password = findPreference(KEY_UNLOCK_SET_PASSWORD);
+                password.setIcon(R.drawable.ic_security_pwd);
                 password.setTitle(R.string.fingerprint_unlock_set_unlock_password);
             }
 
