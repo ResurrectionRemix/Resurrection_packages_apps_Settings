@@ -13,9 +13,11 @@
 */
 package com.android.settings.rr;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -26,6 +28,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
 import android.provider.Settings;
+import android.text.TextUtils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -41,10 +44,12 @@ public class UISettings extends SettingsPreferenceFragment implements
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String SCREENSHOT_TYPE = "screenshot_type";
     private static final String SCREENSHOT_DELAY = "screenshot_delay";
+    private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
 
     private Preference mFontSizePref;
     private ListPreference mScreenshotType;
     private SeekBarPreference mScreenshotDelay;
+    private PreferenceScreen mDozeFragement;
 
     @Override
     protected int getMetricsCategory() {
@@ -54,7 +59,7 @@ public class UISettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        final Activity activity = getActivity(); 
 		ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.rr_ui_settings);
@@ -72,6 +77,12 @@ public class UISettings extends SettingsPreferenceFragment implements
                 Settings.System.SCREENSHOT_DELAY, 100);
         mScreenshotDelay.setValue(screenshotDelay / 1);
         mScreenshotDelay.setOnPreferenceChangeListener(this);
+
+        mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
+        if (!isDozeAvailable(activity)) {
+            getPreferenceScreen().removePreference(mDozeFragement);
+            mDozeFragement = null;
+         }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -103,6 +114,15 @@ public class UISettings extends SettingsPreferenceFragment implements
                 strEntryValues);
         mFontSizePref.setSummary(entries[index]);
     }
+
+    private static boolean isDozeAvailable(Context context) {
+        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
+        if (TextUtils.isEmpty(name)) {
+            name = context.getResources().getString(
+                    com.android.internal.R.string.config_dozeComponent);
+        }
+        return !TextUtils.isEmpty(name);
+     }
 
  @Override
     public void onResume() {

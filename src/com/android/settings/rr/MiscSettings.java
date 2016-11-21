@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.Build;
 import com.android.settings.util.AbstractAsyncSuCMDProcessor;
@@ -57,6 +58,8 @@ private static final String RR_OTA = "rr_ota_fab";
 
 private SwitchPreference mConfig;
 private SwitchPreference mSelinux;
+private FingerprintManager mFingerprintManager;
+private SwitchPreference mFingerprintVib;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,12 @@ private SwitchPreference mSelinux;
         mConfig.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.RR_OTA_FAB, 0) == 1));
         mConfig.setOnPreferenceChangeListener(this);
+
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);        
+        mFingerprintVib = (SwitchPreference) findPreference("fingerprint_success_vib");
+        if (!mFingerprintManager.isHardwareDetected()){
+            getPreferenceScreen().removePreference(mFingerprintVib);
+        }
 
 		}
 
