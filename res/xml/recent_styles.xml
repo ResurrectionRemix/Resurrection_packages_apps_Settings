@@ -67,6 +67,12 @@
         android:defaultValue="0xffDC4C3C" 
         android:dependency="clear_recents_style_enable"/>
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="clear_button_color"
+        android:title="@string/kill_app_button_color"
+        android:defaultValue="0xffffffff"
+        android:dependency="clear_recents_style_enable" />
+        
        <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="mem_bar_color"
         android:title="@string/mem_bar_color"
@@ -78,12 +84,6 @@
         android:title="@string/mem_text_color"
         android:defaultValue="0xffffffff" 
         android:dependency="clear_recents_style_enable"/>
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="clear_button_color"
-        android:title="@string/clear_button_color"
-        android:defaultValue="0xffffffff"
-        android:dependency="clear_recents_style_enable" />
 
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
