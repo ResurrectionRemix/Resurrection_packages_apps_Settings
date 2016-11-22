@@ -34,6 +34,13 @@
             android:icon="@drawable/rr_recents_clear_all_icon"
             />
 
+        <PreferenceScreen
+            android:key="recent_styles"
+            android:title="@string/recent_styles"
+            android:fragment="com.android.settings.rr.RecentsStyles"
+            android:icon="@drawable/rr_recents_style_icon"
+            android:summary="@string/recent_styles_summary"/>
+
          <PreferenceScreen
              android:key="hide_app_from_recents"
              android:title="@string/hide_apps_from_recents_title"
