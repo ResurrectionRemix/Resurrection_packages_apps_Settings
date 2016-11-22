@@ -44,9 +44,11 @@ public class CustomLogo extends SettingsPreferenceFragment implements Preference
 
     private static final String KEY_CUSTOM_LOGO_COLOR = "custom_logo_color";
     private static final String KEY_CUSTOM_LOGO_STYLE = "custom_logo_style";
+    private static final String KEY_CUSTOM_LOGO_POS = "custom_logo_position";
 
     private ColorPickerPreference mCustomLogoColor;
     private ListPreference mCustomLogoStyle;
+    private ListPreference mCustomLogoPos;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,12 +70,20 @@ public class CustomLogo extends SettingsPreferenceFragment implements Preference
 
 
             mCustomLogoStyle = (ListPreference) findPreference(KEY_CUSTOM_LOGO_STYLE);
-            int rrLogoStyle = Settings.System.getIntForUser(getContentResolver(),
+            int LogoStyle = Settings.System.getIntForUser(getContentResolver(),
                     Settings.System.CUSTOM_LOGO_STYLE, 0,
                     UserHandle.USER_CURRENT);
-            mCustomLogoStyle.setValue(String.valueOf(rrLogoStyle));
+            mCustomLogoStyle.setValue(String.valueOf(LogoStyle));
             mCustomLogoStyle.setSummary(mCustomLogoStyle.getEntry());
             mCustomLogoStyle.setOnPreferenceChangeListener(this);
+
+            mCustomLogoPos = (ListPreference) findPreference(KEY_CUSTOM_LOGO_POS);
+            int cLogopos = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.CUSTOM_LOGO_POSITION, 0,
+                    UserHandle.USER_CURRENT);
+            mCustomLogoPos.setValue(String.valueOf(cLogopos));
+            mCustomLogoPos.setSummary(mCustomLogoPos.getEntry());
+            mCustomLogoPos.setOnPreferenceChangeListener(this);
 
     }
 
@@ -87,16 +97,24 @@ public class CustomLogo extends SettingsPreferenceFragment implements Preference
                     Settings.System.CUSTOM_LOGO_COLOR, intHex);
             return true;
         }  else if (preference == mCustomLogoStyle) {
-                int rrLogoStyle = Integer.valueOf((String) newValue);
+                int LogoStyle = Integer.valueOf((String) newValue);
                 int index = mCustomLogoStyle.findIndexOfValue((String) newValue);
-                Settings.System.putIntForUser(
-                       getContentResolver(), 
-		Settings.System.CUSTOM_LOGO_STYLE, rrLogoStyle,
+                Settings.System.putIntForUser(getContentResolver(), 
+		        Settings.System.CUSTOM_LOGO_STYLE, LogoStyle,
                         UserHandle.USER_CURRENT);
                 mCustomLogoStyle.setSummary(
                         mCustomLogoStyle.getEntries()[index]);
                 return true;
-	}
+	   }  else if (preference == mCustomLogoPos) {
+                int logopos = Integer.valueOf((String) newValue);
+                int index = mCustomLogoPos.findIndexOfValue((String) newValue);
+                Settings.System.putIntForUser(getContentResolver(), 
+		        Settings.System.CUSTOM_LOGO_POSITION, logopos,
+                        UserHandle.USER_CURRENT);
+                mCustomLogoPos.setSummary(
+                        mCustomLogoPos.getEntries()[index]);
+                return true;
+	   }
         return false;
     }
 
