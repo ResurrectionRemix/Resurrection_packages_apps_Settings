@@ -104,10 +104,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_CONFIG_STYLE, 0);
         if (which == 1) {
         mTabs.setVisibility(View.GONE);
-        mFab5.setTitle("Toggle Nougat Layout");
+        mFab5.setTitle("Toggle tabs layout");
         } else if (which == 0) {
         mTabs.setVisibility(View.VISIBLE);
-        mFab5.setTitle("Toggle Marshmallow Layout");
+        mFab5.setTitle("Toggle classic layout");
         }
 
         boolean isShowing =   Settings.System.getInt(resolver,
@@ -134,7 +134,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              public void onClick(View v) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
              alertDialog.setTitle("Reset Settings");
-             alertDialog.setMessage("Reset All RR configurations to Default Values?");
+             alertDialog.setMessage("Reset all RR configurations to default values?");
 
              alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
                          public void onClick(DialogInterface dialog, int which) {
