@@ -33,11 +33,9 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 public class AnimationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-	  private ListPreference mPowerMenuAnimations;
+      private static final String KEY_SS_TABS_EFFECT = "tabs_effect";
   
-      private int[] mAnimations;
-      private String[] mAnimationsStrings;
-      private String[] mAnimationsNum;
+      ListPreference mListViewTabsEffect;
 
 	  protected Context mContext;
 
@@ -50,10 +48,26 @@ public class AnimationSettings extends SettingsPreferenceFragment implements
 	    mContext = getActivity().getApplicationContext();
 		mContentRes = getActivity().getContentResolver();
 
+ 
+        mListViewTabsEffect = (ListPreference) findPreference(KEY_SS_TABS_EFFECT);
+        int tabsEffect = Settings.System.getInt(getContentResolver(),
+                Settings.System.RR_SETTINGS_TABS_EFFECT, 0);
+        mListViewTabsEffect.setValue(String.valueOf(tabsEffect));
+        mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntry());
+        mListViewTabsEffect.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+         if (preference == mListViewTabsEffect) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mListViewTabsEffect.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                     Settings.System.RR_SETTINGS_TABS_EFFECT, value);
+            mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntries()[index]);
+            return true;
+         }
         return false;
     }
 
