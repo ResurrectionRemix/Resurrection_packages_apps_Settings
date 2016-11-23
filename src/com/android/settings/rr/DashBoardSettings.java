@@ -13,8 +13,12 @@
 */
 package com.android.settings.rr;
 
+ 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.preference.ListPreference;
@@ -23,6 +27,9 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.text.Spannable;
+import android.text.TextUtils;
+import android.widget.EditText;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -34,8 +41,11 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
 	private static final String RR_CONFIG = "rr_config_style";
+    private static final String PREF_RR_SETTINGS_SUMMARY = "rr_settings_summary";
 
 	private ListPreference mConfig;
+    private Preference mCustomSummary;
+    private String mCustomSummaryText;
 
     @Override
     protected int getMetricsCategory() {
@@ -53,6 +63,9 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.RR_CONFIG_STYLE, 0)));
         mConfig.setSummary(mConfig.getEntry());
         mConfig.setOnPreferenceChangeListener(this);
+
+        mCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY);
+        updateCustomSummaryTextString();
     }
 
 	@Override
@@ -69,5 +82,45 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+     @Override
+     public boolean onPreferenceTreeClick(Preference preference) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mCustomSummary) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+            alert.setTitle(R.string.custom_summary_title);
+            alert.setMessage(R.string.custom_summary_explain);
+
+            // Set an EditText view to get user input
+            final EditText input = new EditText(getActivity());
+            input.setText(TextUtils.isEmpty(mCustomSummaryText) ? "" : mCustomSummaryText);
+            input.setSelection(input.getText().length());
+            alert.setView(input);
+            alert.setPositiveButton(getString(android.R.string.ok),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            String value = ((Spannable) input.getText()).toString().trim();
+                            Settings.System.putString(resolver, Settings.System.RR_SETTINGS_SUMMARY, value);
+                            updateCustomSummaryTextString();
+                        }
+                    });
+            alert.setNegativeButton(getString(android.R.string.cancel), null);
+            alert.show();
+        } else {
+            return super.onPreferenceTreeClick(preference);
+        }
+        return false;
+    }
+
+    private void updateCustomSummaryTextString() {
+        mCustomSummaryText = Settings.System.getString(
+                getActivity().getContentResolver(), Settings.System.RR_SETTINGS_SUMMARY);
+ 
+        if (TextUtils.isEmpty(mCustomSummaryText)) {
+            mCustomSummary.setSummary(R.string.rr_title_summary);
+        } else {
+            mCustomSummary.setSummary(mCustomSummaryText);
+        }
     }
 }
