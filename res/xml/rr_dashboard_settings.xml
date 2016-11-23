@@ -58,6 +58,16 @@
 
         </PreferenceCategory>
 
+     <Preference
+        android:key="rr_settings_summary"
+        android:title="@string/rr_settings_summary_title" />
+
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="rr_settings_random_summary"
+        android:title="@string/custom_summary_randomize_title"
+        android:summary="@string/custom_summary_randomize_explain"
+        android:defaultValue="false" />
+
 
 
 </PreferenceScreen>
