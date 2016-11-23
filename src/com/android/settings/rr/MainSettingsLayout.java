@@ -73,6 +73,8 @@ import com.android.settings.rr.animation.AnimationSettings;
 import java.util.Random;
 
 
+import com.android.settings.rr.transforms.*;
+
 public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String TAG = "MainSettingsLayout";
     ViewPager mViewPager;
@@ -83,6 +85,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 	private LinearLayout mLayout;
 	private FloatingActionsMenu mFab;
 	private FrameLayout mInterceptorFrame;
+    private SettingsObserver mSettingsObserver;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContainer = container;
@@ -91,6 +94,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mLayout = (LinearLayout) view.findViewById(R.id.main_content);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+        mSettingsObserver = new SettingsObserver(new Handler());
         mInterceptorFrame = (FrameLayout) view.findViewById(R.id.fl_interceptor);
         FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
         FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
@@ -100,6 +104,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
+        mSettingsObserver.observe();
         mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
         mInterceptorFrame.getBackground().setAlpha(0);
@@ -303,4 +308,97 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 ContentResolver mResolver = getActivity().getContentResolver();
     }
 
+
+
+   private class SettingsObserver extends ContentObserver {
+            SettingsObserver(Handler handler) {
+                super(handler);
+            }
+    
+            void observe() {
+                ContentResolver resolver = getActivity().getContentResolver();
+                resolver.registerContentObserver(Settings.System.getUriFor(
+                        Settings.System.RR_SETTINGS_TABS_EFFECT),
+                        false, this, UserHandle.USER_ALL);
+                update();
+            }
+    
+            void unobserve() {
+                ContentResolver resolver = getActivity().getContentResolver();
+                resolver.unregisterContentObserver(this);
+            }
+    
+            @Override
+            public void onChange(boolean selfChange) {
+                super.onChange(selfChange);
+                update();
+            }
+    
+            @Override
+            public void onChange(boolean selfChange, Uri uri) {
+                update();
+            }
+    
+            public void update() {
+                ContentResolver resolver = getActivity().getContentResolver();
+                int effect = Settings.System.getIntForUser(resolver,
+                    Settings.System.RR_SETTINGS_TABS_EFFECT, 0,
+                    UserHandle.USER_CURRENT);
+                switch (effect) {
+                    case 0:
+                        mViewPager.setPageTransformer(true, new DefaultTransformer());
+                        break;
+                    case 1:
+                        mViewPager.setPageTransformer(true, new AccordionTransformer());
+                        break;
+                    case 2:
+                        mViewPager.setPageTransformer(true, new BackgroundToForegroundTransformer());
+                        break;
+                    case 3:
+                        mViewPager.setPageTransformer(true, new CubeInTransformer());
+                        break;
+                    case 4:
+                        mViewPager.setPageTransformer(true, new CubeOutTransformer());
+                        break;
+                    case 5:
+                        mViewPager.setPageTransformer(true, new DepthPageTransformer());
+                        break;
+                    case 6:
+                        mViewPager.setPageTransformer(true, new FlipHorizontalTransformer());
+                        break;
+                    case 7:
+                        mViewPager.setPageTransformer(true, new FlipVerticalTransformer());
+                        break;
+                    case 8:
+                        mViewPager.setPageTransformer(true, new ForegroundToBackgroundTransformer());
+                        break;
+                    case 9:
+                        mViewPager.setPageTransformer(true, new RotateDownTransformer());
+                        break;
+                    case 10:
+                        mViewPager.setPageTransformer(true, new RotateUpTransformer());
+                        break;
+                    case 11:
+                        mViewPager.setPageTransformer(true, new ScaleInOutTransformer());
+                        break;
+                    case 12:
+                        mViewPager.setPageTransformer(true, new StackTransformer());
+                        break;
+                    case 13:
+                        mViewPager.setPageTransformer(true, new TabletTransformer());
+                        break;
+                    case 14:
+                        mViewPager.setPageTransformer(true, new ZoomInTransformer());
+                        break;
+                    case 15:
+                        mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
+                        break;
+                    case 16:
+                        mViewPager.setPageTransformer(true, new ZoomOutTranformer());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 }
