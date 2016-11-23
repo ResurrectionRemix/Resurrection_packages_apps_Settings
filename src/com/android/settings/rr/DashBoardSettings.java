@@ -43,10 +43,9 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String RR_CONFIG = "rr_config_style";
 
     private ListPreference mConfig;
-   /* private Preference mCustomSummary;
-    private String mCustomSummaryText;
-    private SeekBarPreference mDashboardPortraitColumns;
-    private SeekBarPreference mDashboardLandscapeColumns;*/
+    private Preference mCustomSummary;
+    private String mCustomSummaryText;;
+    private static final String PREF_RR_SETTINGS_SUMMARY = "rr_settings_summary";
 
     @Override
     public int getMetricsCategory() {
@@ -66,9 +65,12 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mConfig.setSummary(mConfig.getEntry());
         mConfig.setOnPreferenceChangeListener(this);
 
+        mCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY);
+        updateCustomSummaryTextString();
+
        /* mDashboardPortraitColumns = (SeekBarPreference) findPreference(KEY_DASHBOARD_PORTRAIT_COLUMNS);
         int columnsPortrait = Settings.System.getInt(resolver,
-                Settings.System.DASHBOARD_PORTRAIT_COLUMNS, DashboardSummary.mNumColumns);
+                Settings.SystemCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY);m.DASHBOARD_PORTRAIT_COLUMNS, DashboardSummary.mNumColumns);
         mDashboardPortraitColumns.setValue(columnsPortrait / 1);
         mDashboardPortraitColumns.setOnPreferenceChangeListener(this);
 
@@ -77,9 +79,8 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                 Settings.System.DASHBOARD_LANDSCAPE_COLUMNS, 2);
         mDashboardLandscapeColumns.setValue(columnsLandscape / 1);
         mDashboardLandscapeColumns.setOnPreferenceChangeListener(this);
+        mCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY); */
 
-        mCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY);
-        updateCustomSummaryTextString();*/
     }
 
     @Override
@@ -111,7 +112,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
 
      @Override
      public boolean onPreferenceTreeClick(Preference preference) {
-     /*   ContentResolver resolver = getActivity().getContentResolver();
+      ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mCustomSummary) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_summary_title);
@@ -134,11 +135,12 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             alert.show();
         } else {
             return super.onPreferenceTreeClick(preference);
-        }*/
+
+        }
         return false;
+
     }
 
-    /*
     private void updateCustomSummaryTextString() {
         mCustomSummaryText = Settings.System.getString(
                 getActivity().getContentResolver(), Settings.System.RR_SETTINGS_SUMMARY);
@@ -148,5 +150,5 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         } else {
             mCustomSummary.setSummary(mCustomSummaryText);
         }
-    }*/
+    }
 }

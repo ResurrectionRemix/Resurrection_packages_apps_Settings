@@ -78,6 +78,7 @@ import com.android.settings.rr.navigation.fragments.ButtonSettingsNav;
 import com.android.settings.rr.navigation.fragments.UISettingsNav;
 import com.android.settings.rr.navigation.fragments.MiscSettingsNav;
 
+import java.util.Random;
 
 import java.util.Random;
 
@@ -316,6 +317,53 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     public void onSaveInstanceState(Bundle saveState) {
         super.onSaveInstanceState(saveState);
     }
+
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+
+        private final Context mContext;
+        private final SummaryLoader mSummaryLoader;
+
+        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
+            mContext = context;
+            mSummaryLoader = summaryLoader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            String mCustomSummary = Settings.System.getString(
+                    mContext.getContentResolver(), Settings.System.RR_SETTINGS_SUMMARY);
+            boolean mRandSum = Settings.System.getInt(
+                    mContext.getContentResolver(), Settings.System.RR_SETTINGS_RANDOM_SUMMARY, 0) == 1;
+            final String[] summariesArray = mContext.getResources().getStringArray(R.array.custom_summaries);
+            String chosenSum = randomSummary(summariesArray);
+
+            if (listening) {
+                if (TextUtils.isEmpty(mCustomSummary) && !mRandSum) {
+                    mSummaryLoader.setSummary(this, mContext.getString(R.string.rr_title_summary));
+                } else if (!TextUtils.isEmpty(mCustomSummary) && !mRandSum) { //Random is off, Use User's input
+                    mSummaryLoader.setSummary(this, mCustomSummary);
+                } else if (TextUtils.isEmpty(mCustomSummary) && mRandSum) { //Random is on, User Input is blank
+                    mSummaryLoader.setSummary(this, chosenSum);
+                } else if (!TextUtils.isEmpty(mCustomSummary) && mRandSum) { //Random is on, but User has input
+                    mSummaryLoader.setSummary(this, chosenSum); //Override Text from user input
+                }
+            }
+       }
+
+        public static String randomSummary(String[] array) {
+            int rand = new Random().nextInt(array.length);
+            return array[rand];
+        }
+   }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 
     class SectionsPagerAdapter extends FragmentPagerAdapter {
         int mStyle = Settings.System.getInt(getActivity().getContentResolver(),
