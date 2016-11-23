@@ -38,6 +38,7 @@
     <Preference
            android:id="@+id/weather_settings"
            android:title="@string/weather_settings_title_cclock"
+           android:summary="@string/misc_weather_settings_summary"
            android:icon="@drawable/rr_cclock_icon">
           <intent
                  android:action="android.intent.action.MAIN"
@@ -50,12 +51,14 @@
             android:id="@+id/system_app_remover"
             android:title="@string/system_app_remover"
             android:icon="@drawable/rr_system_app_remover_icon"
+            android:summary="@string/system_app_remover_summary"
             android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
 
         <!-- Updater -->
         <PreferenceScreen
                 android:key="update_settings"
                 android:title="@string/updater_title"
+                android:summary="@string/rr_updater_summary"
                 android:icon="@drawable/ic_rr_ota_icon_2">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.resurrection.ota"

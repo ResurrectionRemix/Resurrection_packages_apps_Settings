@@ -23,67 +23,78 @@
     <PreferenceScreen
         android:key="clock"
         android:title="@string/clock_custom"
+        android:summary="@string/clock_custom_summary"
 		android:fragment="com.android.settings.rr.ClockSettings"
 		android:icon="@drawable/rr_clock_icon" />
 
     <PreferenceScreen
         android:key="rr_logo"
         android:title="@string/status_bar_logo_title"
+        android:summary="@string/status_bar_logo_summary"
 		android:fragment="com.android.settings.rr.LogoSettings"
 		android:icon="@drawable/rr_statusbar_logo_icon" />
 
     <PreferenceScreen
         android:key="custom_logo"
         android:title="@string/sb_custom_logos"
+        android:summary="@string/sb_custom_logos_summary"
 		android:fragment="com.android.settings.rr.CustomLogo"
 		android:icon="@drawable/rr_custom_logo_icon" />
 
      <PreferenceScreen
         android:key="rr_battery"
 		android:fragment="com.android.settings.rr.BatterySettings"
-        android:title="@string/rr_battery" 
+        android:title="@string/rr_battery"
+        android:summary="@string/rr_battery_summary"
 		android:icon="@drawable/rr_battery_icon" />
 
      <PreferenceScreen
         android:key="rr_icons"
 		android:fragment="com.android.settings.rr.StatusBarIcons"
-        android:title="@string/rr_sb_icons" 
+        android:title="@string/rr_sb_icons"
+        android:summary="@string/rr_sb_icons_summary"
 		android:icon="@drawable/rr_statusbar_icons_icon" />
 
      <PreferenceScreen
         android:key="rr_ticker"
         android:fragment="com.android.settings.rr.Ticker"
         android:title="@string/ticker_screen_title" 
+        android:summary="@string/ticker_screen_summary"
         android:icon="@drawable/rr_ticker_icon" />
 
      <PreferenceScreen
         android:key="statusbar_weather"
 		android:fragment="com.android.settings.rr.StatusBarWeather"
-        android:title="@string/status_bar_temperature_title" 
+        android:title="@string/status_bar_temperature_title"
+        android:summary="@string/status_bar_temperature_summary"
 		android:icon="@drawable/rr_statusbar_weather_icon"/>
 
    	<PreferenceScreen
         android:key="network_traffic_settings"
         android:title="@string/network_traffic_title"
 		android:icon="@drawable/rr_network_traffic_icon"
+        android:summary="@string/network_traffic_summary"
         android:fragment="com.android.settings.rr.NetworkTrafficSettings" />
 
      <PreferenceScreen
         android:key="rr_carrier"
         android:fragment="com.android.settings.rr.carrierlabel.CarrierLabel"
         android:title="@string/carrier_title" 
+        android:summary="@string/carrier_summary"
         android:icon="@drawable/rr_carrier_label_icon" />
 
    	<PreferenceScreen
         android:key="rr_sb_gestures"
         android:title="@string/rr_sb_gestures_title"
 		android:icon="@drawable/rr_statusbar_gestures_icon"
+        android:summary="@string/rr_sb_gestures_summary"
         android:fragment="com.android.settings.rr.StatusBarGestures" />
 
    	<PreferenceScreen
         android:key="rr_breathing_notif"
         android:title="@string/breathing_notifications_title"
 		android:icon="@drawable/rr_breathing_notif_icon"
+        android:summary="@string/breathing_notifications_summary"
         android:fragment="com.android.settings.rr.BreathingNotifications" />
 
 

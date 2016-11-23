@@ -25,6 +25,7 @@
             android:fragment="com.android.settings.rr.RecentsUI"
             android:title="@string/recents_ui_title"
 			android:icon="@drawable/rr_recents_ui_icon"
+            android:summary="@string/rr_recents_ui_summary"
             />
 
         <PreferenceScreen
@@ -32,6 +33,7 @@
             android:fragment="com.android.settings.rr.RecentsClearAll"
             android:title="@string/recents_clear_all_title"
             android:icon="@drawable/rr_recents_clear_all_icon"
+            android:summary="@string/recents_clear_all_summary"
             />
 
         <PreferenceScreen
@@ -63,7 +65,8 @@
             android:id="@+id/omniswitch"
             android:title="@string/omniswitch_settings_title"
 			android:icon="@drawable/rr_recents_switcher_icon"
-            android:fragment="com.android.settings.rr.OmniSwitch" />
+            android:fragment="com.android.settings.rr.OmniSwitch" 
+            android:summary="@string/omniswitch_summary"/>
 
 
 </PreferenceScreen>
