@@ -145,19 +145,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-            android:key="lights"
-            android:title="@string/lights_label">
-
-        <!-- Battery light -->
-        <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="battery_lights"
-                cm:requiresConfig="@*android:bool/config_intrusiveBatteryLed" />
-
-        <!-- Notification lights -->
-        <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="notification_lights"
-                cm:requiresConfig="@*android:bool/config_intrusiveNotificationLed" />
-
-    </PreferenceCategory>
 </PreferenceScreen>

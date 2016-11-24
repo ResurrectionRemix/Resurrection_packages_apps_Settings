@@ -16,13 +16,9 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+                  xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
         android:title="@string/configure_notification_settings"
         android:key="configure_notification_settings" >
-
-    <!-- Pulse notification light -->
-    <SwitchPreference
-            android:key="notification_pulse"
-            android:title="@string/notification_pulse_title" />
 
     <!-- When device is locked -->
     <com.android.settings.notification.RestrictedDropDownPreference
@@ -37,4 +33,25 @@
         <intent android:action="com.android.settings.action.POWER_NOTIF_CONTROLS" />
     </PreferenceScreen>
 
+    <!-- Lights -->
+    <PreferenceCategory
+        android:key="lights"
+        android:title="@string/lights_label">
+
+        <!-- Pulse notification light -->
+        <SwitchPreference
+            android:key="notification_pulse"
+            android:title="@string/notification_pulse_title" />
+
+        <!-- Battery light -->
+        <org.cyanogenmod.internal.cmparts.CMPartsPreference
+            android:key="battery_lights"
+            cm:requiresConfig="@*android:bool/config_intrusiveBatteryLed" />
+
+        <!-- Notification lights -->
+        <org.cyanogenmod.internal.cmparts.CMPartsPreference
+            android:key="notification_lights"
+            cm:requiresConfig="@*android:bool/config_intrusiveNotificationLed" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
