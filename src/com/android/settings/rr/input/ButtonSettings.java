@@ -228,10 +228,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         mDt2lCameraVibrateConfig = (SeekBarPreference) findPreference(DT2L_CAMERA_VIBRATE_CONFIG);
-        mDt2lCameraVibrateConfig.setValue(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1));
+        int dt2lCameraVibrateConfig = Settings.System.getInt(resolver,
+                Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1);
+        mDt2lCameraVibrateConfig.setValue(dt2lCameraVibrateConfig / 1);
         mDt2lCameraVibrateConfig.setOnPreferenceChangeListener(this);
-
 
         if (hasPowerKey) {
             if (!TelephonyUtils.isVoiceCapable(getActivity())) {
@@ -598,7 +598,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else if (preference == mDt2lCameraVibrateConfig) {
             int dt2lcameravib = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, dt2lcameravib * 10);
+                    Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, dt2lcameravib * 1);
            return true;
         }
         return false;

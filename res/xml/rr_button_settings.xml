@@ -81,8 +81,9 @@
                 android:title="@string/dt2l_camera_vib_title"
                 settings:maximum="1000"
                 settings:minimum="0"
-                settings:units=""
-                android:dependency="camera_double_tap_power_gesture" />
+                settings:units="ms"
+                android:dependency="camera_double_tap_power_gesture"
+                android:persistent="false" />
 
 
        <cyanogenmod.preference.CMSecureSettingSwitchPreference

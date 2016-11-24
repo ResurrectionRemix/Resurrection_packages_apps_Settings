@@ -563,6 +563,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             }
     
             public void update() {
+            try {
                 ContentResolver resolver = getActivity().getContentResolver();
                 int effect = Settings.System.getIntForUser(resolver,
                     Settings.System.RR_SETTINGS_TABS_EFFECT, 0,
@@ -622,6 +623,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     default:
                         break;
                 }
+              } catch (Exception e){}
             }
         }
 }
