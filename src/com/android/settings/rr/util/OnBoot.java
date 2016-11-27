@@ -25,7 +25,7 @@ public class OnBoot extends BroadcastReceiver {
         }
         SharedPreferences sharedpreferences = settingsContext.getSharedPreferences("com.android.settings_preferences", Context.MODE_PRIVATE);
         if(sharedpreferences.getBoolean("selinux", true)) {
-            CMDProcessor.runSuCommand("setenforce 1");
+            CMDProcessor.runShellCommand("setenforce 1");
         } else if (!sharedpreferences.getBoolean("selinux", true)) {
             CMDProcessor.runSuCommand("setenforce 0");
         }
