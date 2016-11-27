@@ -500,8 +500,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                             Settings.System.putInt(mResolver,
                                     Settings.System.QS_ROWS_PORTRAIT, 3);
                             Settings.System.putInt(mResolver,
-                                    Settings.System.QS_COLUMNS_PORTRAIT, 3);
-                            Settings.System.putInt(mResolver,
                                     Settings.System.QS_ROWS_LANDSCAPE, 2);
                             Settings.System.putInt(mResolver,
                                     Settings.System.QS_COLUMNS_LANDSCAPE, 4);
