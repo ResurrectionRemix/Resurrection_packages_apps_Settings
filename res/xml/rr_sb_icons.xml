@@ -28,12 +28,6 @@
            android:defaultValue="false" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-           android:key="status_bar_rr_logo"
-           android:title="@string/status_bar_rr_logo_title"
-           android:summary="@string/status_bar_rr_logo_summary"
-           android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="show_fourg"
             android:title="@string/show_4g_title"
             android:summary="@string/show_4g_summary"
@@ -57,16 +51,4 @@
             android:summary="@string/show_su_indicator_summary"
             android:defaultValue="false" />
 
-
-    <PreferenceScreen
-        android:key="status_bar_icons"
-        android:title="@string/status_bar_icons_title"
-        android:summary="@string/status_bar_icons_summary">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.systemui"
-            android:targetClass="com.android.systemui.tuner.TunerActivity">
-            <extra android:name="tuner" android:value="status_bar" />
-        </intent>
-    </PreferenceScreen>
 </PreferenceScreen>
