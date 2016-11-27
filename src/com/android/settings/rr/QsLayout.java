@@ -34,18 +34,13 @@ import com.android.settings.Utils;
 
 public class QsLayout extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+    private static final String PREF_COLUMNS = "qs_layout_columns";
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
-    private static final String PREF_COLUMNS_PORTRAIT = "qs_columns_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
-    private static final String PREF_COLUMNS_LANDSCAPE = "qs_columns_landscape";
-	private static final String PREF_CAT_LAYOUT = "qs_layout";
-    private static final String KEY_SYSUI_QQS_COUNT = "sysui_qqs_count_key";
 
+    private SeekBarPreference mQsColumns;
     private SeekBarPreference mRowsPortrait;
-    private SeekBarPreference mColumnsPortrait;
     private SeekBarPreference mRowsLandscape;
-    private SeekBarPreference mColumnsLandscape;
-    private SeekBarPreference mSysuiQqsCount;
 	protected Context mContext;
 	protected ContentResolver mContentRes;
 
@@ -67,81 +62,50 @@ public class QsLayout extends SettingsPreferenceFragment implements
 
 		  PreferenceScreen prefs = getPreferenceScreen();
 		  ContentResolver resolver = getActivity().getContentResolver();
-		  PreferenceCategory catLayout = (PreferenceCategory) findPreference(PREF_CAT_LAYOUT);
 
-          mRowsPortrait =
-                  (SeekBarPreference) findPreference(PREF_ROWS_PORTRAIT);
-          int rowsPortrait = Settings.System.getInt(resolver,
-                  Settings.System.QS_ROWS_PORTRAIT, 3);
-          mRowsPortrait.setValue(rowsPortrait);
-          mRowsPortrait.setOnPreferenceChangeListener(this);
-  
-          mColumnsPortrait =
-                  (SeekBarPreference) findPreference(PREF_COLUMNS_PORTRAIT);
-          int columnsPortrait = Settings.System.getInt(resolver,
-                  Settings.System.QS_COLUMNS_PORTRAIT, 3);
-          mColumnsPortrait.setValue(columnsPortrait);
-          mColumnsPortrait.setOnPreferenceChangeListener(this);
+        mQsColumns = (SeekBarPreference) findPreference(PREF_COLUMNS);
+        int columnsQs = Settings.System.getInt(resolver,
+                Settings.System.QS_LAYOUT_COLUMNS, 3);
+        mQsColumns.setValue(columnsQs / 1);
+        mQsColumns.setOnPreferenceChangeListener(this);
 
-        mSysuiQqsCount = (SeekBarPreference) findPreference(KEY_SYSUI_QQS_COUNT);
-        int SysuiQqsCount = Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.QQS_COUNT, 5);
-        mSysuiQqsCount.setValue(SysuiQqsCount);
-        mSysuiQqsCount.setOnPreferenceChangeListener(this);
-  
-          defaultValue = res.getInteger(R.integer.config_qs_num_rows_landscape_default);
-          if (defaultValue != 1) {
-              mRowsLandscape =
-                      (SeekBarPreference) findPreference(PREF_ROWS_LANDSCAPE);
-              int rowsLandscape = Settings.System.getInt(resolver,
-                      Settings.System.QS_ROWS_LANDSCAPE, defaultValue);
-              mRowsLandscape.setValue(rowsLandscape);
-              mRowsLandscape.setOnPreferenceChangeListener(this);
-          } else {
-              catLayout.removePreference(findPreference(PREF_ROWS_LANDSCAPE));
-          }
-  
-          mColumnsLandscape =
-                  (SeekBarPreference) findPreference(PREF_COLUMNS_LANDSCAPE);
-          defaultValue = res.getInteger(R.integer.config_qs_num_columns_landscape_default);
-          int columnsLandscape = Settings.System.getInt(resolver,
-                  Settings.System.QS_COLUMNS_LANDSCAPE, defaultValue);
-          mColumnsLandscape.setValue(columnsLandscape);
-          mColumnsLandscape.setOnPreferenceChangeListener(this);
+        mRowsPortrait = (SeekBarPreference) findPreference(PREF_ROWS_PORTRAIT);
+        int rowsPortrait = Settings.System.getInt(resolver,
+                Settings.System.QS_ROWS_PORTRAIT, 3);
+        mRowsPortrait.setValue(rowsPortrait / 1);
+        mRowsPortrait.setOnPreferenceChangeListener(this);
+
+        defaultValue = getResources().getInteger(com.android.internal.R.integer.config_qs_num_rows_landscape_default);
+        mRowsLandscape = (SeekBarPreference) findPreference(PREF_ROWS_LANDSCAPE);
+        int rowsLandscape = Settings.System.getInt(resolver,
+                Settings.System.QS_ROWS_LANDSCAPE, defaultValue);
+        mRowsLandscape.setValue(rowsLandscape / 1);
+        mRowsLandscape.setOnPreferenceChangeListener(this);
+
 
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
 		int intValue;
         int index;
 		ContentResolver resolver = getActivity().getContentResolver();
 		final Resources res = getResources();
-		 if (preference == mRowsPortrait) {
-              int layout = (Integer) newValue;
-              Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_ROWS_PORTRAIT, layout);
-              return true;
-          } else if (preference == mColumnsPortrait) {
-              int layout = (Integer) newValue;
-              Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_COLUMNS_PORTRAIT, layout);
-              return true;
-          } else if (preference == mRowsLandscape) {
-              int layout = (Integer) newValue;
-              Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_ROWS_LANDSCAPE, layout);
-              return true;
-          } else if (preference == mColumnsLandscape) {
-              int layout = (Integer) newValue;
-              Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_COLUMNS_LANDSCAPE, layout);
-              return true;
-          } else if (preference == mSysuiQqsCount) {
-              int layout = (Integer) newValue;
-              Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.QQS_COUNT, layout);
-              return true;
-          }
+        if (preference == mQsColumns) {
+            int qsColumns = (Integer) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_LAYOUT_COLUMNS, qsColumns * 1);
+            return true;
+        } else if (preference == mRowsPortrait) {
+            int rowsPortrait = (Integer) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_ROWS_PORTRAIT, rowsPortrait * 1);
+            return true;
+        } else if (preference == mRowsLandscape) {
+            int rowsLandscape = (Integer) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_ROWS_LANDSCAPE, rowsLandscape * 1);
+            return true;
+        } 
         return false;
     }
 }
