@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import com.android.internal.logging.MetricsProto.MetricsEvent;
 import android.widget.Toast;
 import java.io.IOException;
 import java.util.List;
@@ -38,11 +37,6 @@ public class OnBoot extends BroadcastReceiver {
                  CMDProcessor.runSuCommand("setenforce 0");
              }
         }
-    }
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
     }
 
 }

@@ -64,12 +64,16 @@
     
             <com.android.settings.rr.SeekBarPreference
                 android:key="battery_bar_thickness"
-                android:title="@string/qs_columns_title"
+                android:title="@string/battery_bar_thickness_title"
                 settings:maximum="5"
                 settings:minimum="1"
                 settings:units="dp"
                 android:persistent="false" />
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+      android:key="battery_bar_color"
+      android:title="@string/battery_bar_color"
+      android:defaultValue="0xffffffff" />
     
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="battery_bar_charging_color"
