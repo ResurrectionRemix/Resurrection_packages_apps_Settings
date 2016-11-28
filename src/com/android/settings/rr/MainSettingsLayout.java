@@ -412,16 +412,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                             Settings.System.putInt(mResolver,
                                     Settings.System.LOCKSCREEN_ENABLE_POWER_MENU, 1);
                             Settings.System.putInt(mResolver,
-                                    Settings.System.APP_SIDEBAR_ENABLED, 0);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.APP_SIDEBAR_POSITION, 0);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.APP_SIDEBAR_TRIGGER_WIDTH, 10);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.APP_SIDEBAR_TRIGGER_TOP, 100);
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.APP_SIDEBAR_TRIGGER_HEIGHT, 0);
-                            Settings.System.putInt(mResolver,
                                     Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.STATUSBAR_BATTERY_BAR, 0);
