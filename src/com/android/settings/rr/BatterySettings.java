@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.preference.PreferenceScreen;
@@ -56,6 +57,7 @@ public class BatterySettings extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_USE_GRADIENT_COLOR = "statusbar_battery_bar_use_gradient_color";
     private static final String STATUS_BAR_BAR_LOW_COLOR = "statusbar_battery_bar_low_color";
     private static final String STATUS_BAR_BAR_HIGH_COLOR = "statusbar_battery_bar_high_color";
+    private static final String STATUS_BAR_CHARGE_COLOR = "status_bar_charge_color";
 
 
 
@@ -149,6 +151,13 @@ public class BatterySettings extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xff99CC00 & intColor));
         mBatteryBarBatteryHighColor.setSummary(hexColor);
 
+ 
+        int chargeColor = Settings.Secure.getInt(resolver,
+                Settings.Secure.STATUS_BAR_CHARGE_COLOR, Color.WHITE);
+        mChargeColor = (ColorPickerPreference) findPreference("status_bar_charge_color");
+        mChargeColor.setNewPreviewColor(chargeColor);
+        mChargeColor.setOnPreferenceChangeListener(this);
+
         mBatteryBarBatteryLowColorWarn =
                 (ColorPickerPreference) findPreference(STATUS_BAR_BATTERY_LOW_COLOR_WARNING);
         mBatteryBarBatteryLowColorWarn.setOnPreferenceChangeListener(this);
@@ -234,6 +243,11 @@ public class BatterySettings extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
                     Settings.System.STATUSBAR_BATTERY_BAR_COLOR, intHex);
+            return true;
+        } else if (preference.equals(mChargeColor)) {
+            int color = ((Integer) newValue).intValue();
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.STATUS_BAR_CHARGE_COLOR, color);
             return true;
         }
 	return false;
