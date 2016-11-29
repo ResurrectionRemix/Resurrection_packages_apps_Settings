@@ -16,6 +16,8 @@
 
 package com.android.settings.rr.input;
 
+
+import android.app.Dialog;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -34,12 +36,12 @@ import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.android.settings.rr.input.CustomDialogPreference;
+import com.android.settings.CustomDialogPreference;
 import com.android.settings.R;
 
 import cyanogenmod.providers.CMSettings;
 
-public class ButtonBacklightBrightness extends CustomDialogPreference<AlertDialog> implements
+public class ButtonBacklightBrightness extends CustomDialogPreference implements
         SeekBar.OnSeekBarChangeListener {
     private static final int DEFAULT_BUTTON_TIMEOUT = 5;
 
@@ -85,7 +87,7 @@ public class ButtonBacklightBrightness extends CustomDialogPreference<AlertDialo
     }
 
     @Override
-    protected void onClick(AlertDialog d, int which) {
+    protected void onClick(Dialog d, int which) {
         super.onClick(d, which);
 
         if (getDialog() != null) {
@@ -106,7 +108,7 @@ public class ButtonBacklightBrightness extends CustomDialogPreference<AlertDialo
     }
 
     @Override
-    protected boolean onDismissDialog(AlertDialog dialog, int which) {
+    protected boolean onDismissDialog(Dialog dialog, int which) {
         if (which == DialogInterface.BUTTON_NEUTRAL) {
             mTimeoutBar.setProgress(DEFAULT_BUTTON_TIMEOUT);
             if (mButtonBrightness != null) {

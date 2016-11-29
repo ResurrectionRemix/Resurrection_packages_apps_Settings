@@ -64,7 +64,14 @@ public class CustomDialogPreference extends DialogPreference {
     protected void onClick(DialogInterface dialog, int which) {
     }
 
+    protected void onClick(Dialog dialog, int which) {
+    }
+
     protected void onBindDialogView(View view) {
+    }
+
+    protected boolean onDismissDialog(Dialog dialog, int which) {
+        return true;
     }
 
     private void setFragment(CustomPreferenceDialogFragment fragment) {
