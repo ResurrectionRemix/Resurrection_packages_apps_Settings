@@ -74,6 +74,7 @@ public class ClockSettings extends SettingsPreferenceFragment
     private static final String PREF_FONT_STYLE = "font_style";
     private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "status_bar_clock_font_size";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
+    private static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -88,6 +89,7 @@ public class ClockSettings extends SettingsPreferenceFragment
     private SeekBarPreference mStatusBarClockFontSize;
     private boolean mCheckPreferences;	
     private ListPreference mClockDatePosition;
+    private SwitchPreference mStatusBarClockSeconds;
 
 
 
@@ -120,6 +122,12 @@ public class ClockSettings extends SettingsPreferenceFragment
         mStatusBarDate = (ListPreference) findPreference(STATUS_BAR_DATE);
         mStatusBarDateStyle = (ListPreference) findPreference(STATUS_BAR_DATE_STYLE);
         mStatusBarDateFormat = (ListPreference) findPreference(STATUS_BAR_DATE_FORMAT);
+
+        mStatusBarClockSeconds = (SwitchPreference) findPreference(STATUS_BAR_CLOCK_SECONDS);
+        mStatusBarClockSeconds.setChecked((Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK_SECONDS, 0) == 1));
+        mStatusBarClockSeconds.setOnPreferenceChangeListener(this);
 
 
         int clockStyle = CMSettings.System.getInt(resolver,
@@ -292,8 +300,7 @@ public class ClockSettings extends SettingsPreferenceFragment
                 }
             }
             return true;
-	}
-	 else if (preference == mFontStyle) {
+	    } else if (preference == mFontStyle) {
             int val = Integer.parseInt((String) newValue);
             int index = mFontStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -304,6 +311,11 @@ public class ClockSettings extends SettingsPreferenceFragment
             int size = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_FONT_SIZE, size);
+            return true;
+        } else if (preference == mStatusBarClockSeconds) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_SECONDS,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;

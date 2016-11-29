@@ -71,6 +71,7 @@ public class BatterySettings extends SettingsPreferenceFragment implements
     private SeekBarPreference mBatteryBarThickness;
 	private SwitchPreference mBatteryBarChargingAnimation;
     private SwitchPreference mBatteryBarUseGradient;
+    private ColorPickerPreference mChargeColor;
     private ColorPickerPreference mBatteryBarColor;
     private ColorPickerPreference mBatteryBarChargingColor;
     private ColorPickerPreference mBatteryBarBatteryLowColor;
