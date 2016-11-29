@@ -54,6 +54,7 @@
             android:key="music_tile_title"
             android:title="@string/qs_music_tile_track_optional_title"
             android:summary="@string/qs_music_tile_track_optional_summary"
+            android:dependency="qs_tile_title_visibility"
             android:defaultValue="false"/>
 
      	<com.android.settings.rr.Preferences.SecureSettingSwitchPreference
@@ -67,5 +68,12 @@
             android:title="@string/status_bar_battery_style_tile_title"
             android:summary="@string/status_bar_battery_style_tile_summary"
             android:defaultValue="true" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_title_visibility"
+            android:title="@string/qs_tile_title_visibility_title"
+            android:summaryOn="@string/qs_tile_title_visibility_summary_on"
+            android:summaryOff="@string/qs_tile_title_visibility_summary_off"
+            android:defaultValue="true"/>
 
 </PreferenceScreen>
