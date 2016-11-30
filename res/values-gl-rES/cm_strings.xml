@@ -58,7 +58,9 @@
   <string name="app_ops_categories_messaging">Mensaxes</string>
   <string name="app_ops_categories_media">Multimedia</string>
   <string name="app_ops_categories_device">Dispositivo</string>
+  <string name="app_ops_categories_background">Imagen de fondo</string>
   <string name="app_ops_categories_bootup">Execución</string>
+  <string name="app_ops_categories_su">Superusuario</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">ubicación aproximada</string>
   <string name="app_ops_summaries_fine_location">ubicación exacta</string>
@@ -123,10 +125,12 @@
   <string name="app_ops_summaries_write_external_storage">escribir no almacenamento externo</string>
   <string name="app_ops_summaries_turn_screen_on">acender a pantalla</string>
   <string name="app_ops_summaries_get_accounts">obter contas</string>
+  <string name="app_ops_summaries_run_in_background">abrir en segundo plano</string>
   <string name="app_ops_summaries_toggle_wifi">trocar wifi</string>
   <string name="app_ops_summaries_toggle_bluetooth">trocar bluetooh</string>
   <string name="app_ops_summaries_start_at_boot">iniciar co arranque</string>
   <string name="app_ops_summaries_toggle_nfc">trocar NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">trocar datos móbiles</string>
   <string name="app_ops_summaries_superuser">acceso de superusuario</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Localización imprecisa</string>
@@ -192,10 +196,12 @@
   <string name="app_ops_labels_write_external_storage">Escribir no almacenamento externo</string>
   <string name="app_ops_labels_turn_screen_on">Acender a pantalla</string>
   <string name="app_ops_labels_get_accounts">Obter contas</string>
+  <string name="app_ops_labels_run_in_background">Abrir en segundo plano</string>
   <string name="app_ops_labels_toggle_wifi">Trocar wifi</string>
   <string name="app_ops_labels_toggle_bluetooth">Trocar bluetooh</string>
   <string name="app_ops_labels_start_at_boot">Iniciar co arranque</string>
   <string name="app_ops_labels_toggle_nfc">Trocar NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Trocar datos móbiles</string>
   <string name="app_ops_labels_superuser">Acceso root</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Permitido</string>
@@ -216,6 +222,10 @@
   <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Sonidos de axuste de volume</string>
   <!-- Sizes for pattern lockscreen -->
+  <string name="lock_pattern_size_3">3x3</string>
+  <string name="lock_pattern_size_4">4x4</string>
+  <string name="lock_pattern_size_5">5x5</string>
+  <string name="lock_pattern_size_6">6x6</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Mostrar erro do padrón</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
@@ -228,11 +238,14 @@
   <string name="lock_directly_show_pin">Amosar directamente o PIN</string>
   <!-- Lock screen vibrate settings -->
   <string name="lockscreen_vibrate_enabled_title">Vibrar</string>
+  <string name="lockscreen_vibrate_enabled_head">Vibrar ao desbloquear</string>
   <!-- Lights settings -->
   <string name="lights_label">Luces</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">Aplicacións que se inician no arranque</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">Reinicio avanzado</string>
+  <string name="advanced_reboot_summary">Ao desbloquear, inclúe opcións do menú de apagado para reiniciar en modo recuperación, cargador de arranque ou reinicio do sistema</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Disposición aleatoria</string>
   <string name="unlock_scramble_pin_layout_summary">Cambiar a disposición dos números do PIN para desbloquear o dispositivo</string>
@@ -247,6 +260,7 @@
   <string name="protected_apps">Aplicacións protexidas</string>
   <string name="protected_apps_summary">Xestiona que aplicacións están protexidas por un bloqueo de seguridade</string>
   <string name="saving_protected_components">Gardando o estado dos componentes\u2026</string>
+  <string name="launch_app">Lanzar aplicativo</string>
   <string name="pa_login_username_hint">Nome de usuario (correo)</string>
   <string name="pa_login_password_hint">Contrasinal</string>
   <string name="pa_login_submit_button">Acceder</string>
@@ -256,8 +270,10 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Amosar o tempo</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Desenfocar Pantalla de bloqueo</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Previr acender de forma accidental</string>
+  <string name="proximity_wake_summary">Verificar o sensor de proximidade antes de espertar ao dispositivo con xestos</string>
   <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Alta sensibilidade</string>
   <string name="high_touch_sensitivity_summary">Aumentar a sensibilidade da pantalla para poder utilizalo con luvas</string>
@@ -265,6 +281,8 @@
   <string name="touchscreen_hovering_title">Pantalla táctil deslizante</string>
   <string name="touchscreen_hovering_summary">Permítelle utilizar o dedo coma un rato ao deslizalo en navegadores web, escritorios remotos, etc.</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Notificación do seletor do método de entrada</string>
+  <string name="ime_switcher_notify_summary">Mostrar a notificación da seleción do métodos de entrada</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Amosar iconas ao usar o lápis</string>
@@ -274,6 +292,7 @@
   <string name="kill_app_longpress_back_summary">Peche a aplicación en primeiro plano mantendo presionado o botón Atrás</string>
   <!-- Android debugging -->
   <string name="enable_adb_cm">Depuración de Android</string>
+  <string name="enable_adb_summary_cm">Activa a interface de depuración Android Debug Bridge (ADB)</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">Notificar de depuración</string>
   <string name="adb_notify_summary">Notifica cando está activada a depuración da rede ou o dispositivo USB</string>
@@ -309,6 +328,14 @@
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- Notification importance -->
+  <string name="tuner_full_importance_settings">Controlos de notificación</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Licenza de CyanogenMod</string>
+  <!-- Format string for fingerprint location message -->
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Localiza o sensor de pegadas dixitais na <xliff:g id="sensor_location">%1$s</xliff:g> do teu móbil.</string>
+  <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_back">parte posterior</string>
+  <string name="security_settings_fingerprint_sensor_location_front">parte frontal</string>
+  <string name="security_settings_fingerprint_sensor_location_left">cara esquerda</string>
+  <string name="security_settings_fingerprint_sensor_location_right">cara dereita</string>
 </resources>
