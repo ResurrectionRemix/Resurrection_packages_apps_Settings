@@ -55,14 +55,6 @@ import cyanogenmod.providers.CMSettings;
 public class NavBarFragment extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "NavBarFragment";
-    private static final String KEY_NAVIGATION_RECENTS_LONG_PRESS = "navigation_recents_long_press";
-	private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
-    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
-
-    private ListPreference mNavigationRecentsLongPressAction;
-    private SwitchPreference mKillAppLongPressBack;
-	private SeekBarPreference mLongpressKillDelay;
-
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -74,126 +66,9 @@ public class NavBarFragment extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_navbar);
 
-        // Navigation bar recents long press activity needs custom setup
-        mNavigationRecentsLongPressAction =
-                initRecentsLongPressAction(KEY_NAVIGATION_RECENTS_LONG_PRESS);
-
-        // kill-app long press back delay
-        mLongpressKillDelay = (SeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
-        int killconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LONG_PRESS_KILL_DELAY, 1000);
-        mLongpressKillDelay.setValue(killconf);
-		mLongpressKillDelay.setOnPreferenceChangeListener(this);
-
-  	// kill-app long press back
-        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
-        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
-        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
-                KILL_APP_LONGPRESS_BACK, 0);
-        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
-
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) 		{
-		if (preference == mNavigationRecentsLongPressAction) {
-            // RecentsLongPressAction is handled differently because it intentionally uses
-            // Settings.System
-            String putString = (String) newValue;
-            int index = mNavigationRecentsLongPressAction.findIndexOfValue(putString);
-            CharSequence summary = mNavigationRecentsLongPressAction.getEntries()[index];
-            // Update the summary
-            mNavigationRecentsLongPressAction.setSummary(summary);
-            if (putString.length() == 0) {
-                putString = null;
-            }
-            CMSettings.Secure.putString(getContentResolver(),
-                    CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY, putString);
-            return true;
-        } else if (preference == mLongpressKillDelay) {
-            int killconf = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LONG_PRESS_KILL_DELAY, killconf);
-            return true;
-		} else  if (preference == mKillAppLongPressBack) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(), KILL_APP_LONGPRESS_BACK,value ? 1 : 0);
-			return true;
-        }
+    public boolean onPreferenceChange(Preference preference, Object newValue){
         return false;
-    }
-
-
-    private ListPreference initRecentsLongPressAction(String key) {
-        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
-        list.setOnPreferenceChangeListener(this);
-
-        // Read the componentName from Settings.Secure, this is the user's prefered setting
-        String componentString = CMSettings.Secure.getString(getContentResolver(),
-                CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY);
-        ComponentName targetComponent = null;
-        if (componentString == null) {
-            list.setSummary(getString(R.string.hardware_keys_action_last_app));
-        } else {
-            targetComponent = ComponentName.unflattenFromString(componentString);
-        }
-
-        // Dyanamically generate the list array,
-        // query PackageManager for all Activites that are registered for ACTION_RECENTS_LONG_PRESS
-        PackageManager pm = getPackageManager();
-        Intent intent = new Intent(cyanogenmod.content.Intent.ACTION_RECENTS_LONG_PRESS);
-        List<ResolveInfo> recentsActivities = pm.queryIntentActivities(intent,
-                PackageManager.MATCH_DEFAULT_ONLY);
-        if (recentsActivities.size() == 0) {
-            // No entries available, disable
-            list.setSummary(getString(R.string.hardware_keys_action_last_app));
-            CMSettings.Secure.putString(getContentResolver(),
-                    CMSettings.Secure.RECENTS_LONG_PRESS_ACTIVITY, null);
-            list.setEnabled(false);
-            return list;
-        }
-
-        CharSequence[] entries = new CharSequence[recentsActivities.size() + 1];
-        CharSequence[] values = new CharSequence[recentsActivities.size() + 1];
-        // First entry is always default last app
-        entries[0] = getString(R.string.hardware_keys_action_last_app);
-        values[0] = "";
-        list.setValue(values[0].toString());
-        int i = 1;
-        for (ResolveInfo info : recentsActivities) {
-            try {
-                // Use pm.getApplicationInfo for the label,
-                // we cannot rely on ResolveInfo that comes back from queryIntentActivities.
-                entries[i] = pm.getApplicationInfo(info.activityInfo.packageName, 0).loadLabel(pm);
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.e(TAG, "Error package not found: " + info.activityInfo.packageName, e);
-                // Fallback to package name
-                entries[i] = info.activityInfo.packageName;
-            }
-
-            // Set the value to the ComponentName that will handle this intent
-            ComponentName entryComponent = new ComponentName(info.activityInfo.packageName,
-                    info.activityInfo.name);
-            values[i] = entryComponent.flattenToString();
-            if (targetComponent != null) {
-                if (entryComponent.equals(targetComponent)) {
-                    // Update the selected value and the preference summary
-                    list.setSummary(entries[i]);
-                    list.setValue(values[i].toString());
-                }
-            }
-            i++;
-        }
-        list.setEntries(entries);
-        list.setEntryValues(values);
-        return list;
-    }
-
-    private ListPreference initActionList(String key, int value) {
-        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
-        if (list == null) return null;
-        list.setValue(Integer.toString(value));
-        list.setSummary(list.getEntry());
-        list.setOnPreferenceChangeListener(this);
-        return list;
     }
 }
