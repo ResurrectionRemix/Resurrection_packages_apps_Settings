@@ -379,6 +379,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 volumeCategory.removePreference(findPreference(CMSettings.System.VOLUME_WAKE_SCREEN));
             }
 
+            if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+                volumeCategory.removePreference(
+                        findPreference(CMSettings.System.VOLUME_ANSWER_CALL));
+            }
+
             int cursorControlAction = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
             mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
