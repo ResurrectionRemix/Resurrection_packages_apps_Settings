@@ -29,7 +29,7 @@
   <string name="reset_message">Скинути всі записи за замовчуванням?</string>
   <string name="attention">Увага</string>
   <string name="reset">Скинути</string>
-  <string name="restart_systemui">Перезавантаження інтерфейса</string>
+  <string name="restart_systemui">Перезавантажити інтерфейс</string>
   <!-- About RR -->
   <string name="about_rr_settings">Про Resurrection</string>
   <string name="about_rr">Про Resurrection</string>
@@ -52,7 +52,7 @@
   <string name="rr_website_title">Веб-сторінка</string>
   <string name="rr_website_summary">Отримати більше інформації про Resurrection Rom</string>
   <string name="rr_forum_title">Форум</string>
-  <string name="rr_forum_summary">Бути учасником Resurrection</string>
+  <string name="rr_forum_summary">Стати учасником форуму Resurrection</string>
   <string name="rr_source_title">Github</string>
   <string name="rr_source_summary">Вихідні коди Resurrection</string>
   <string name="rr_irc_title">Приєднуйтесь до нас на IRC</string>
@@ -120,6 +120,8 @@
   <string name="rr_sb_gestures_title">Жести в панелі статусу</string>
   <string name="qs_advanced_title">Розширені налаштування</string>
   <string name="rr_notification_panel_title">Панелі</string>
+  <string name="rr_tuner">Налаштування системного інтерфейсу</string>
+  <string name="rr_tuner_summary">Частина стандартних налаштувань</string>
   <string name="rr_battery">Батарея</string>
   <string name="rr_sb_icons">Системні іконки</string>
   <string name="rr_sb_battery">Панель стану</string>
@@ -269,6 +271,7 @@
   <string name="toast_icon_summary">Відображати значок додатка в спливаючих сповіщеннях</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Показати заряд Bluetooth-пристроя</string>
+  <string name="bluetooth_battery_summary">Показувати заряд батареї під\'єднаних в даний час bluetooth-пристрої, якщо доступно.</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Примусово розширене сповіщення</string>
   <string name="force_expanded_notifications_summary">Лише для додатків, які підтримують розширені сповіщення</string>
@@ -530,11 +533,26 @@
   <string name="battery_not_title">Значок батареї в сповіщеннях</string>
   <string name="battery_not_summary">Значок батареї буде відображатися вгорі, де знаходиться кнопка \"Очистити всі\"</string>
   <string name="battery_bar_location">Розташування індикатора батареї</string>
+  <string name="battery_bar_color">Колір смужки заряда акамулятора</string>
+  <string name="battery_bar">Смужка заряда акамулятора</string>
   <string name="battery_bar_summary">Налаштування розташування і кольору панелі заряду батареї</string>
   <string name="battery_bar_style_title">Стиль смужки батареї</string>
   <string name="battery_bar_thickness_title">Товщина смужки батареї</string>
   <string name="battery_bar_animate_title">Анімація заряджання</string>
   <string name="battery_bar_animate_summary">Зміна анімації заряджання може призвести до негативних вражень від використання. Використовуйте на власний розсуд.</string>
+  <string name="battery_bar_charging_color">Колір індикатора батареї при зарядці</string>
+  <string name="battery_bar_battery_low_color">Колір індикатора батареї при низькому заряді акумулятора</string>
+  <string name="battery_bar_style_regular">Звичайний</string>
+  <string name="battery_bar_style_center_mirrored">Дзеркально від центра</string>
+  <string name="battery_bar_style_reversed">Змінити на протилежний</string>
+  <string name="battery_bar_use_gradient_color">Використовувати градієнт кольору</string>
+  <string name="battery_bar_gradient_color_summary">Використовувати градієнт в якості шкали для рівня заряду акумулятора</string>
+  <string name="battery_bar_high_color">Колір повного рівня заряду\"</string>
+  <string name="battery_bar_low_color">Колір низького рівня заряду\"</string>
+  <string name="battery_bar_hide">Приховати</string>
+  <string name="battery_bar_statusbar">Рядок стану</string>
+  <string name="battery_bar_navbar_top">Зверху панелі навігації</string>
+  <string name="battery_bar_navbar_bottom">Знизу панелі навігації</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Увімкнено</string>
   <string name="summary_doze_disabled">Вимкнено</string>
@@ -1301,6 +1319,10 @@
   <string name="status_bar_expanded_qs_settings">Розташування</string>
   <string name="status_bar_expanded_qs_settings_summary">Виберіть кількість рядків і стовпців</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Плитки швидких налаштувань</string>
+  <string name="qs_rows_portrait_title">Рядки (портрет орієнтація)</string>
+  <string name="qs_rows_landscape_title">Рядки (альбомна орієнтація)</string>
+  <string name="qs_columns_title">Стовпці</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Колір попередження</string>
   <string name="battery_saver_color_summary">Помаранчевий колір панелей нафігації і стану при увімкненні режиму збереження енергії</string>
@@ -1327,6 +1349,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Швидкий перемикач Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Одним натисканням вмикається і вимикається Bluetooth замість переходу в налаштування</string>
+  <string name="quick_settings_vibrate_title">Вібрація під час дотику</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Швидке розблокування</string>
   <string name="unlock_quick_unlock_control_summary">Автоматичне розблокування при введенні правильного пароля чи PIN-коду</string>
@@ -1660,7 +1683,6 @@
   <string name="heads_up_settings">Спливаючі сповіщення</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Інформація про заряджання на екрані блокування</string>
-  <string name="lockscreen_charging_current_summary">Відображення сили і кількості струму на екрані блокування</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Тривалість</string>
   <string name="heads_up_time_out_summary">Сповіщення буде показуватися <xliff:g id="number">%d</xliff:g> секунд(и)</string>
@@ -1797,5 +1819,19 @@
   <string name="lock_screen_weather_city_color">Місто </string>
   <string name="lock_screen_weather_wind_color">Вітер</string>
   <string name="yes">ТАК</string>
+  <string name="status_bar_battery_style_tile_title">Користувальницький стиль плитки акумулятора</string>
+  <string name="status_bar_battery_style_tile_summary">Дозволити встановити іконку, таку як в рядку стану</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Налаштування прокручування</string>
+  <string name="scrolling_summary">Перегляд або зміна анімацій прокручування</string>
+  <string name="animation_fling_velocity_title">Швидкість відкиду</string>
+  <string name="animation_scroll_friction_title">Інтенсивність прокрутки</string>
+  <string name="animation_overscroll_distance_title">Відстань перекрутки</string>
+  <string name="animation_overfling_distance_title">Відстань відскоку</string>
+  <string name="animation_duration_summary">Встановити тривалість</string>
+  <string name="animation_no_scroll_title">Налаштовувані модифікатори прокручування</string>
+  <string name="animation_no_scroll_summary_on">Увімкнено</string>
+  <string name="animation_no_scroll_summary_off">Вимкнено</string>
+  <string name="scroll_disclaimer_summary">Примітка: Більшість додатків потрібно буде перезапустити, щоб нові значення набули чинності</string>
+  <string name="animation_settings_reset_message">Скинути всі налаштування анімації за заумовчуванням?</string>
 </resources>

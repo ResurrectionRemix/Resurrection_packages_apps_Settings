@@ -120,6 +120,8 @@
   <string name="rr_sb_gestures_title">Gestos da barra de status</string>
   <string name="qs_advanced_title">Avançado</string>
   <string name="rr_notification_panel_title">Painéis</string>
+  <string name="rr_tuner">Sintonizador System UI</string>
+  <string name="rr_tuner_summary">Parte das customizações stock</string>
   <string name="rr_battery">Bateria</string>
   <string name="rr_sb_icons">Ícones de sistema</string>
   <string name="rr_sb_battery">Barra de Status</string>
@@ -269,6 +271,7 @@
   <string name="toast_icon_summary">Exibir o ícone do aplicativo correspondente ao balão de mensagens</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Mostrar os Status de bateria do Bluetooth</string>
+  <string name="bluetooth_battery_summary">Mostrar o status de bateria do dispositivo bluetooth conectado atualmente, caso disponível.</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Forçar expandimento</string>
   <string name="force_expanded_notifications_summary">Disponivel apenas para apps que suportam notificações expandidas</string>
@@ -530,11 +533,26 @@
   <string name="battery_not_title">Ícone da bateria em notificações</string>
   <string name="battery_not_summary">O ícone da bateria vai aparecer onde o botão de Limpar Tudo aparece</string>
   <string name="battery_bar_location">Localização da Barra de bateria</string>
+  <string name="battery_bar_color">Cor da barra de bateria</string>
+  <string name="battery_bar">Barra de bateria</string>
   <string name="battery_bar_summary">Barra de Bateria, posição e cor de personalização</string>
   <string name="battery_bar_style_title">Estilo da barra da bateria</string>
   <string name="battery_bar_thickness_title">Espessura da barra de bateria</string>
   <string name="battery_bar_animate_title">Animação de carregamento</string>
   <string name="battery_bar_animate_summary">A animação do carregamento pode resultar em uma experiência de usuário ruim. Habilite a seu próprio critério.</string>
+  <string name="battery_bar_charging_color">Cor de carregamento da barra de bateria</string>
+  <string name="battery_bar_battery_low_color">Cor de bateria fraca da barra de bateria</string>
+  <string name="battery_bar_style_regular">Regular</string>
+  <string name="battery_bar_style_center_mirrored">Centro-espelhado</string>
+  <string name="battery_bar_style_reversed">Invertido</string>
+  <string name="battery_bar_use_gradient_color">Usar cor gradiente</string>
+  <string name="battery_bar_gradient_color_summary">Usar cor gradiente como uma escala para o nível da bateria</string>
+  <string name="battery_bar_high_color">Cor de alto nível\"</string>
+  <string name="battery_bar_low_color">Cor de baixo nível\"</string>
+  <string name="battery_bar_hide">Ocultar</string>
+  <string name="battery_bar_statusbar">Barra de Status</string>
+  <string name="battery_bar_navbar_top">Parte superior da barra de navegação</string>
+  <string name="battery_bar_navbar_bottom">Parte inferior da barra de navegação</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Habilitado</string>
   <string name="summary_doze_disabled">Desligado</string>
@@ -1301,6 +1319,10 @@
   <string name="status_bar_expanded_qs_settings">Aparência</string>
   <string name="status_bar_expanded_qs_settings_summary">Escolha o número de linhas e colunas</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Layout de telhas QS</string>
+  <string name="qs_rows_portrait_title">Linhas (retrato)</string>
+  <string name="qs_rows_landscape_title">Linhas (paisagem)</string>
+  <string name="qs_columns_title">Colunas</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Cor de aviso</string>
   <string name="battery_saver_color_summary">Habilitar a cor laranja - barras de status/navegação quando o economizador de bateria está ativado</string>
@@ -1327,6 +1349,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth fácil alternância</string>
   <string name="qs_bt_easy_toggle_summary">Faz com que um clique vai virar Bluetooth ligado ou desligado em vez de levá-lo para as configurações</string>
+  <string name="quick_settings_vibrate_title">Vibrar ao tocar</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Desbloqueio rápido</string>
   <string name="unlock_quick_unlock_control_summary">Desbloquear automaticamente quando o PIN/Senha correto é inserido</string>
@@ -1660,7 +1683,6 @@
   <string name="heads_up_settings">Notificações pop-up</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informação de carregamento na tela de bloqueio</string>
-  <string name="lockscreen_charging_current_summary">Exibir a tensão e corrente máxima do carregador na tela de bloqueio</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Tempo limite</string>
   <string name="heads_up_time_out_summary">Mostrar notificação por<xliff:g id="number">%d</xliff:g> segundos</string>
@@ -1797,5 +1819,19 @@
   <string name="lock_screen_weather_city_color">Clima na Cidade </string>
   <string name="lock_screen_weather_wind_color">Vento do Clima</string>
   <string name="yes">SIM</string>
+  <string name="status_bar_battery_style_tile_title">Estilo personalizado da telha de bateria</string>
+  <string name="status_bar_battery_style_tile_summary">Permitem definir o mesmo estilo de ícone escolhido para a barra de status da bateria</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Modificadores de rolagem</string>
+  <string name="scrolling_summary">Exibir ou alterar as animações de rolagem</string>
+  <string name="animation_fling_velocity_title">Velocidade de desloque</string>
+  <string name="animation_scroll_friction_title">Atrito de rolagem</string>
+  <string name="animation_overscroll_distance_title">Distância de deslocamento inferior</string>
+  <string name="animation_overfling_distance_title">Distância de deslocamento superior</string>
+  <string name="animation_duration_summary">Definir duração</string>
+  <string name="animation_no_scroll_title">Modificadores de rolagem personalizados</string>
+  <string name="animation_no_scroll_summary_on">Habilitado</string>
+  <string name="animation_no_scroll_summary_off">Desabilitado</string>
+  <string name="scroll_disclaimer_summary">Nota: a maioria dos apps precisam ser reiniciados para os valores personalizados fazerem efeito</string>
+  <string name="animation_settings_reset_message">Redefinir todas as configurações de animação para o padrão?</string>
 </resources>

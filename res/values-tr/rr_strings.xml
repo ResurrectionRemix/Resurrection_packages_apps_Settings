@@ -120,6 +120,8 @@
   <string name="rr_sb_gestures_title">Durum çubuğu hareketleri</string>
   <string name="qs_advanced_title">Gelişmiş</string>
   <string name="rr_notification_panel_title">Paneller</string>
+  <string name="rr_tuner">Sistem Arayüzü ayarlayıcısı</string>
+  <string name="rr_tuner_summary">Stok özelleştirmelerinin bir kısmı</string>
   <string name="rr_battery">Pil</string>
   <string name="rr_sb_icons">Sistem simgeleri</string>
   <string name="rr_sb_battery">Durum çubuğu</string>
@@ -269,6 +271,7 @@
   <string name="toast_icon_summary">Tost ile gelen uygulama simgesini görüntüler</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Bluetooth pil durumunu göster</string>
+  <string name="bluetooth_battery_summary">Eğer mümkün ise şu anda bağlı olan bluetooth cihazı için pil durumunu gösterir.</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Genişletmeye Zorla</string>
   <string name="force_expanded_notifications_summary">Sadece genişletilmiş bildirimleri destekleyen uygulamalar için kullanılabilir</string>
@@ -530,11 +533,26 @@
   <string name="battery_not_title">Bildirimlerde pil simgesi</string>
   <string name="battery_not_summary">Tümünü temizle tuşunun bulunduğu yerde pil simgesi görünecektir</string>
   <string name="battery_bar_location">Pil çubuğu konumu</string>
+  <string name="battery_bar_color">Pil çubuğu rengi</string>
+  <string name="battery_bar">Pil Çubuğu</string>
   <string name="battery_bar_summary">Pil çubuğu konumu ve renk özelleştirme</string>
   <string name="battery_bar_style_title">Pil çubuğu stili</string>
   <string name="battery_bar_thickness_title">Pil çubuğu kalınlığı</string>
   <string name="battery_bar_animate_title">Şarj animasyonu</string>
   <string name="battery_bar_animate_summary">Şarj animasyonu kötü bir kullanıcı deneyimine neden olabilir. Kendi takdirinize bağlı olarak etkinleştirin.</string>
+  <string name="battery_bar_charging_color">Pil çubuğu şarj olma rengi</string>
+  <string name="battery_bar_battery_low_color">Pil çubuğu düşük pil rengi</string>
+  <string name="battery_bar_style_regular">Normal</string>
+  <string name="battery_bar_style_center_mirrored">Merkez-yansıtmalı</string>
+  <string name="battery_bar_style_reversed">Zıt</string>
+  <string name="battery_bar_use_gradient_color">Eğim rengi kullan</string>
+  <string name="battery_bar_gradient_color_summary">Pil seviyesi için bir ölçek olarak eğim rengi kullanın</string>
+  <string name="battery_bar_high_color">Yüksek düzeyde renk</string>
+  <string name="battery_bar_low_color">Düşük düzeyde renk</string>
+  <string name="battery_bar_hide">Gizle</string>
+  <string name="battery_bar_statusbar">Durum çubuğu</string>
+  <string name="battery_bar_navbar_top">Gezinti çubuğunun üstü</string>
+  <string name="battery_bar_navbar_bottom">Gezinti çubuğunun altı</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Etkinleştirildi</string>
   <string name="summary_doze_disabled">Devre dışı</string>
@@ -1301,6 +1319,10 @@
   <string name="status_bar_expanded_qs_settings">Düzen</string>
   <string name="status_bar_expanded_qs_settings_summary">Sütun/satır sayılarını seç</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Hızlı Ayarlar kare düzeni</string>
+  <string name="qs_rows_portrait_title">Satırlar (dikey)</string>
+  <string name="qs_rows_landscape_title">Satırlar (yatay)</string>
+  <string name="qs_columns_title">Sütunlar</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Uyarı rengi</string>
   <string name="battery_saver_color_summary">Pil tasarrufu aktif olduğunda, turuncu durum ve gezinti çubuklarını etkinleştirin</string>
@@ -1327,6 +1349,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth kolay geçiş</string>
   <string name="qs_bt_easy_toggle_summary">Tek bir tıklamayla sizi ayarlara götürmek yerine Bluetooth\'u açar veya kapatır</string>
+  <string name="quick_settings_vibrate_title">Dokunulduğunda Titre</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Hızlı kilit açma</string>
   <string name="unlock_quick_unlock_control_summary">Doğru PIN/şifre girildiğinde kilidi otomatik aç</string>
@@ -1660,7 +1683,6 @@
   <string name="heads_up_settings">Heads up</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Kilit ekranı şarj bilgisi</string>
-  <string name="lockscreen_charging_current_summary">Kilit ekran üzerinde şarj cihazı maksimum akım ve voltaj göstergesi</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Zaman aşımı</string>
   <string name="heads_up_time_out_summary">Bildirimler <xliff:g id="number">%d</xliff:g> saniye boyunca gösterilir</string>
@@ -1797,5 +1819,19 @@
   <string name="lock_screen_weather_city_color">Hava Durumu Şehir</string>
   <string name="lock_screen_weather_wind_color">Hava Rüzgar</string>
   <string name="yes">EVET</string>
+  <string name="status_bar_battery_style_tile_title">Özel pil kare stili</string>
+  <string name="status_bar_battery_style_tile_summary">Durum çubuğu pili için seçilen aynı simge stilini ayarlamaya izin ver</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Kaydırmayı düzenle</string>
+  <string name="scrolling_summary">Kaydırma animasyonlarını görüntüleme veya değiştirme</string>
+  <string name="animation_fling_velocity_title">Fling hızı</string>
+  <string name="animation_scroll_friction_title">Kaydırma sürtünmesi</string>
+  <string name="animation_overscroll_distance_title">Üzerinde kaydırma mesafesi</string>
+  <string name="animation_overfling_distance_title">Yükselme mesafesi</string>
+  <string name="animation_duration_summary">Süreyi ayarla</string>
+  <string name="animation_no_scroll_title">Özelleştirilmiş kaydırma düzenleyiciler</string>
+  <string name="animation_no_scroll_summary_on">Etkinleştirildi</string>
+  <string name="animation_no_scroll_summary_off">Devre dışı</string>
+  <string name="scroll_disclaimer_summary">Not: Çoğu uygulamalar için özel değerlerin etkili olabilmesi için yeniden başlatılması gerekiyor</string>
+  <string name="animation_settings_reset_message">Tüm animasyon ayarları varsayılana sıfırlansın mı?</string>
 </resources>

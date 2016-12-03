@@ -54,7 +54,7 @@
   <string name="rr_forum_title">Forum</string>
   <string name="rr_forum_summary">Être membre du forum Resurrection</string>
   <string name="rr_source_title">GitHub</string>
-  <string name="rr_source_summary">Sources de Resurrection</string>
+  <string name="rr_source_summary">Code source de Resurrection Remix</string>
   <string name="rr_irc_title">Rejoignez-moi sur IRC</string>
   <string name="rr_irc_summary">#aokp-sgs2 @ irc.freenode.net</string>
   <string name="rr_facebook_title">Facebook</string>
@@ -120,6 +120,8 @@
   <string name="rr_sb_gestures_title">Gestes sur la barre d\'état</string>
   <string name="qs_advanced_title">Options avancées</string>
   <string name="rr_notification_panel_title">Panneaux</string>
+  <string name="rr_tuner">Personnalisation de l\'interface utilisateur système</string>
+  <string name="rr_tuner_summary">Partie de personnalisations d\'usine (stock)</string>
   <string name="rr_battery">Batterie</string>
   <string name="rr_sb_icons">Icônes système</string>
   <string name="rr_sb_battery">Barre d\'état</string>
@@ -128,7 +130,7 @@
   <string name="recents_ui_title">Interface Utilisateur</string>
   <string name="animation_title">Animations</string>
   <string name="button_settings">Boutons</string>
-  <string name="rr_misc_title">Divers</string>
+  <string name="rr_misc_title">Réglages divers</string>
   <string name="rr_ui_title">Interface</string>
   <string name="rr_dash_board_title">Tableau de Bord</string>
   <string name="system_animations">Animation du système</string>
@@ -269,6 +271,7 @@
   <string name="toast_icon_summary">Afficher l\'icône de l\'application correspondant aux messages informatifs (toasts)</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Afficher l’état de la batterie Bluetooth</string>
+  <string name="bluetooth_battery_summary">Afficher l\'état de la batterie de l\'appareil Bluetooth connecté (si disponible).</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Forcer le mode étendu des notifications</string>
   <string name="force_expanded_notifications_summary">Disponible uniquement pour les applications qui prennent en charge les notifications étendues</string>
@@ -530,11 +533,26 @@
   <string name="battery_not_title">Icône de la batterie dans les notifications</string>
   <string name="battery_not_summary">L’icône de la batterie sera affichée au même endroit que le bouton \"Tout effacer\"</string>
   <string name="battery_bar_location">Emplacement de la barre de batterie</string>
+  <string name="battery_bar_color">Couleur de la barre de la batterie</string>
+  <string name="battery_bar">Barre de batterie</string>
   <string name="battery_bar_summary">Personnalisation des couleurs et de la position de la barre de batterie</string>
   <string name="battery_bar_style_title">Style de barre de batterie</string>
   <string name="battery_bar_thickness_title">Épaisseur de la barre de batterie</string>
   <string name="battery_bar_animate_title">Animation lors de la charge</string>
   <string name="battery_bar_animate_summary">L\'animation de charge peut entraîner une mauvaise expérience utilisateur. Activez à vos risques et périls.</string>
+  <string name="battery_bar_charging_color">Couleur de la barre de batterie durant le chargement</string>
+  <string name="battery_bar_battery_low_color">Couleur de la barre de batterie (batterie faible)</string>
+  <string name="battery_bar_style_regular">Normal</string>
+  <string name="battery_bar_style_center_mirrored">Centre-miroir</string>
+  <string name="battery_bar_style_reversed">Inverser</string>
+  <string name="battery_bar_use_gradient_color">Utiliser un dégradé de couleur</string>
+  <string name="battery_bar_gradient_color_summary">Utiliser le dégradé de couleur comme une échelle indiquant le niveau de batterie</string>
+  <string name="battery_bar_high_color">Contraste élevé des couleurs</string>
+  <string name="battery_bar_low_color">Faible contraste des couleurs</string>
+  <string name="battery_bar_hide">Masquer</string>
+  <string name="battery_bar_statusbar">Barre d\'état</string>
+  <string name="battery_bar_navbar_top">Au-dessus de la barre de navigation</string>
+  <string name="battery_bar_navbar_bottom">En-dessous de la barre de navigation</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Activée</string>
   <string name="summary_doze_disabled">Désactivée</string>
@@ -1301,6 +1319,10 @@
   <string name="status_bar_expanded_qs_settings">Clavier</string>
   <string name="status_bar_expanded_qs_settings_summary">Choisir le nombre de lignes/colonnes</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Disposition</string>
+  <string name="qs_rows_portrait_title">Lignes (portrait)</string>
+  <string name="qs_rows_landscape_title">Lignes (paysage)</string>
+  <string name="qs_columns_title">Colonnes</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Couleur d\'avertissement</string>
   <string name="battery_saver_color_summary">Activer les barres d\'état et de navigation en orange quand l\'économiseur de batterie est activé</string>
@@ -1327,6 +1349,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Activer/Désactiver facilement la connexion Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Activer/Désactiver facilement la connexion Bluetooth</string>
+  <string name="quick_settings_vibrate_title">Vibrer au touché</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
   <string name="unlock_quick_unlock_control_summary">Déverrouiller automatiquement lorsque le bon code PIN/mot de passe est saisi</string>
@@ -1501,7 +1524,7 @@
   <string name="custom_logo_style">Choisir une couleur</string>
   <string name="custom_logos">Faites votre choix</string>
   <string name="show_custom_logo_title">Afficher le logo personnalisé</string>
-  <string name="show_custom_logo_summary">Afficher les logos dans la barre d\'état parmi un large choix disponible dans le système</string>
+  <string name="show_custom_logo_summary">Afficher dans la barre d\'état un logo parmi un large choix disponible dans le système</string>
   <string name="custom_logo_color">Couleur</string>
   <string name="custom_logo_position">Position</string>
   <string name="logo0">Resurrection Remix</string>
@@ -1542,7 +1565,7 @@
   <string name="logo35">Sexe : Mâle</string>
   <string name="logo36">Sexe : Féminin</string>
   <string name="logo37">Nuit noire</string>
-  <string name="logo38">Resurrection Orginal</string>
+  <string name="logo38">Resurrection Original</string>
   <string name="logo39">Resurrection Demi</string>
   <string name="logo40">Resurrection sans cercle</string>
   <string name="logo41">Araignée 1</string>
@@ -1660,7 +1683,6 @@
   <string name="heads_up_settings">Notifications flottantes</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informations de charge sur l\'écran de verrouillage</string>
-  <string name="lockscreen_charging_current_summary">Afficher la charge max courante et le voltage sur l\'écran de verrouillage</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Délai dépassé</string>
   <string name="heads_up_time_out_summary">Affichage des notifications pendant <xliff:g id="number">%d</xliff:g> secondes</string>
@@ -1797,5 +1819,19 @@
   <string name="lock_screen_weather_city_color">Ville </string>
   <string name="lock_screen_weather_wind_color">Vent</string>
   <string name="yes">OUI</string>
+  <string name="status_bar_battery_style_tile_title">Style de tuile personnalisée de la batterie</string>
+  <string name="status_bar_battery_style_tile_summary">Permet de définir le même style d\'icône choisi pour la batterie dans la barre d\'état</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Personnalisation du défilement</string>
+  <string name="scrolling_summary">Afficher ou modifier le défilement des animations</string>
+  <string name="animation_fling_velocity_title">Vitesse de lancement</string>
+  <string name="animation_scroll_friction_title">Friction de défilement</string>
+  <string name="animation_overscroll_distance_title">Distance de défilement prolongé</string>
+  <string name="animation_overfling_distance_title">Distance de survole</string>
+  <string name="animation_duration_summary">Définir la durée</string>
+  <string name="animation_no_scroll_title">Modificateurs de défilement personnalisées</string>
+  <string name="animation_no_scroll_summary_on">Activée</string>
+  <string name="animation_no_scroll_summary_off">Désactivée</string>
+  <string name="scroll_disclaimer_summary">Remarque : La plupart des applications doivent être redémarrés pour que les modifications prennent effet</string>
+  <string name="animation_settings_reset_message">Rétablir tous les paramètres d\'animation par défaut ?</string>
 </resources>

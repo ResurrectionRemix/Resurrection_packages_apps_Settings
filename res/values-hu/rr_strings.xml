@@ -120,6 +120,8 @@
   <string name="rr_sb_gestures_title">Állapotsor gesztusok</string>
   <string name="qs_advanced_title">Haladó</string>
   <string name="rr_notification_panel_title">Panelek</string>
+  <string name="rr_tuner">Kezelőfelület-hangoló</string>
+  <string name="rr_tuner_summary">Gyári testreszabások része</string>
   <string name="rr_battery">Akkumulátor</string>
   <string name="rr_sb_icons">Rendszerikonok</string>
   <string name="rr_sb_battery">Állpotsor</string>
@@ -269,6 +271,7 @@
   <string name="toast_icon_summary">A buborékszöveghez tartozó alkalmazás ikonjának megjelenítése</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Bluetooth akkumulátor állapotának megjelenítése</string>
+  <string name="bluetooth_battery_summary">A csatlakoztatott bluetooth eszköz akkumulátor állapotának megjelenítése, ha rendelkezésre áll.</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Kiterjesztett üzenetek kényszerítése</string>
   <string name="force_expanded_notifications_summary">Csak azon alkalmazásokra érvényes, melyek támogatják azt</string>
@@ -530,11 +533,26 @@
   <string name="battery_not_title">Akkumulátor ikon az értesítésekben</string>
   <string name="battery_not_summary">Akkumulátor ikon ott fog megjelenni, ahol az összes törlése gomb megjelenik</string>
   <string name="battery_bar_location">Akkumulátorsáv helye</string>
+  <string name="battery_bar_color">Akkumulátorsáv színe</string>
+  <string name="battery_bar">Akkumulátorsáv</string>
   <string name="battery_bar_summary">Akkumulátorsáv helyének és színének testreszabása</string>
   <string name="battery_bar_style_title">Akkumulátorsáv stílusa</string>
   <string name="battery_bar_thickness_title">Akkumulátorsáv vastagsága</string>
   <string name="battery_bar_animate_title">Töltési animáció</string>
   <string name="battery_bar_animate_summary">A töltési animáció rossz felhasználói élményt okozhat. Saját belátása szerint engedélyezze.</string>
+  <string name="battery_bar_charging_color">Akkumulátorsáv töltési szín</string>
+  <string name="battery_bar_battery_low_color">Akkumulátorsáv alacsony töltöttségi szín</string>
+  <string name="battery_bar_style_regular">Hagyományos</string>
+  <string name="battery_bar_style_center_mirrored">Középre-tükrözött</string>
+  <string name="battery_bar_style_reversed">Fordított</string>
+  <string name="battery_bar_use_gradient_color">Színátmenet használata</string>
+  <string name="battery_bar_gradient_color_summary">Színátmenet használata az akkumulátor töltöttségi szinthez</string>
+  <string name="battery_bar_high_color">Magas szint színe</string>
+  <string name="battery_bar_low_color">Alacsony szint színe</string>
+  <string name="battery_bar_hide">Elrejtés</string>
+  <string name="battery_bar_statusbar">Állapotsor</string>
+  <string name="battery_bar_navbar_top">Navigációs sáv tetején</string>
+  <string name="battery_bar_navbar_bottom">Navigációs sáv alján</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Engedélyezve</string>
   <string name="summary_doze_disabled">Letiltva</string>
@@ -1301,6 +1319,10 @@
   <string name="status_bar_expanded_qs_settings">Elrendezés</string>
   <string name="status_bar_expanded_qs_settings_summary">Sorok/oszlopok számának kiválasztása</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Csempék elrendezése</string>
+  <string name="qs_rows_portrait_title">Sorok (álló)</string>
+  <string name="qs_rows_landscape_title">Sorok (fekvő)</string>
+  <string name="qs_columns_title">Oszlopok</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Figyelmeztetés színe</string>
   <string name="battery_saver_color_summary">Narancs állapot és navigációs sáv engedélyezése, ha a takarékos üzemmód aktív</string>
@@ -1327,6 +1349,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth gyorskapcsoló</string>
   <string name="qs_bt_easy_toggle_summary">Engedélyezi, hogy egy megnyomás ki/be kapcsolja a Bluetooth-t ahelyett, hogy a beállításaiba vinne</string>
+  <string name="quick_settings_vibrate_title">Érintéskor rezeg</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Gyors feloldás</string>
   <string name="unlock_quick_unlock_control_summary">Automatikus feloldás a helyes jelszó/PIN kód megadásakor</string>
@@ -1660,7 +1683,6 @@
   <string name="heads_up_settings">Lebegő értesítések</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Töltés kijelzése képernyőzáron</string>
-  <string name="lockscreen_charging_current_summary">Becsült töltőáram és feszültség megjelenítése képernyőzáron</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Időkorlát</string>
   <string name="heads_up_time_out_summary">Lebegő értesítések megjelenítése <xliff:g id="number">%d</xliff:g> másodpercig</string>
@@ -1797,5 +1819,19 @@
   <string name="lock_screen_weather_city_color">Város</string>
   <string name="lock_screen_weather_wind_color">Szél</string>
   <string name="yes">IGEN</string>
+  <string name="status_bar_battery_style_tile_title">Egyéni akkumulátor csempe stílus</string>
+  <string name="status_bar_battery_style_tile_summary">Lehetővé teszi, hogy ugyanazt az ikonstílust állítsa be, mint az állapotsoron</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Görgetés módosítások</string>
+  <string name="scrolling_summary">Görgetési animációk megtekintése vagy módosítása</string>
+  <string name="animation_fling_velocity_title">Hajítási sebesség</string>
+  <string name="animation_scroll_friction_title">Görgetési súrlódás</string>
+  <string name="animation_overscroll_distance_title">Túlgörgetési távolság</string>
+  <string name="animation_overfling_distance_title">Túlhajítási távolság</string>
+  <string name="animation_duration_summary">Időtartam beállítása</string>
+  <string name="animation_no_scroll_title">Testreszabott görgetési módosítók</string>
+  <string name="animation_no_scroll_summary_on">Engedélyezve</string>
+  <string name="animation_no_scroll_summary_off">Letiltva</string>
+  <string name="scroll_disclaimer_summary">Megjegyzés: A legtöbb alkalmazást újra kell indítani a módosított értékek életbe léptetéséhez</string>
+  <string name="animation_settings_reset_message">Minden animációs beállítás visszaállítása az alapértelmezettre?</string>
 </resources>

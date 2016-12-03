@@ -120,6 +120,7 @@
   <string name="rr_sb_gestures_title">Gesta stavové lišty</string>
   <string name="qs_advanced_title">Rozšířené</string>
   <string name="rr_notification_panel_title">Panely</string>
+  <string name="rr_tuner">Nástroj na ladění uživatelského rozhraní systému</string>
   <string name="rr_battery">Baterie</string>
   <string name="rr_sb_icons">Systémové ikony</string>
   <string name="rr_sb_battery">Stavová lišta</string>
@@ -269,6 +270,7 @@
   <string name="toast_icon_summary">Zobrazit ikonu aplikace v oznámení Toast</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Zobrazit stav baterie Bluetooth</string>
+  <string name="bluetooth_battery_summary">Zobrait stav baterie aktuálně připojeného bluetooth zařízení, je-li dostupné.</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Vynutit rozšířené oznámení</string>
   <string name="force_expanded_notifications_summary">K dispozici pouze pro aplikace, které podporují rozšířené oznámení</string>
@@ -530,11 +532,26 @@
   <string name="battery_not_title">Ikona baterie v upozorněních</string>
   <string name="battery_not_summary">Ikona baterie se zobrazí vedle tlačítka pro vymazání seznamu</string>
   <string name="battery_bar_location">Pozice pruhu baterie</string>
+  <string name="battery_bar_color">Barva pruhu baterie</string>
+  <string name="battery_bar">Pruh baterie</string>
   <string name="battery_bar_summary">Přizpůsobení barvy a pozice pruhu baterie</string>
   <string name="battery_bar_style_title">Styl pruhu baterie</string>
   <string name="battery_bar_thickness_title">Tloušťka pruhu baterie</string>
   <string name="battery_bar_animate_title">Animace nabíjení</string>
   <string name="battery_bar_animate_summary">Animace nabíjení může mít za následek špatné uživatelské zkušenosti. Povolení je na vlastním uvážení.</string>
+  <string name="battery_bar_charging_color">Barva indikátoru baterie při nabíjení</string>
+  <string name="battery_bar_battery_low_color">Barva indikátoru baterie při vybití</string>
+  <string name="battery_bar_style_regular">Normální</string>
+  <string name="battery_bar_style_center_mirrored">Zrcadlově na střed</string>
+  <string name="battery_bar_style_reversed">Obráceně</string>
+  <string name="battery_bar_use_gradient_color">Použít barvu přechodu</string>
+  <string name="battery_bar_gradient_color_summary">Použít barvu přechodu jako měřítko pro stav baterie</string>
+  <string name="battery_bar_high_color">Barva vysoké úrovně</string>
+  <string name="battery_bar_low_color">Barva nízké úrovně</string>
+  <string name="battery_bar_hide">Skrýt</string>
+  <string name="battery_bar_statusbar">Stavová lišta</string>
+  <string name="battery_bar_navbar_top">V horní části navigační lišty</string>
+  <string name="battery_bar_navbar_bottom">V dolní části navigační lišty</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Zapnuto</string>
   <string name="summary_doze_disabled">Vypnuto</string>
@@ -1301,6 +1318,10 @@
   <string name="status_bar_expanded_qs_settings">Rozložení</string>
   <string name="status_bar_expanded_qs_settings_summary">Zvolte počet řádků a sloupců</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Rozložení dlaždic QS</string>
+  <string name="qs_rows_portrait_title">Řádky (na výšku)</string>
+  <string name="qs_rows_landscape_title">Řádky (na šířku)</string>
+  <string name="qs_columns_title">Sloupce</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Výstražná barva</string>
   <string name="battery_saver_color_summary">Povolit oranžovou barvu stavové lišty při aktivaci spořiče baterie</string>
@@ -1327,6 +1348,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Snadné přepnutí Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Jedním klepnutím zapnout Bluetooth namísto zapnutí v nastavení</string>
+  <string name="quick_settings_vibrate_title">Vibrovat při dotyku</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Rychlé odemknutí</string>
   <string name="unlock_quick_unlock_control_summary">Automatické odemknutí pokud je zadán správný PIN/heslo</string>
@@ -1660,7 +1682,6 @@
   <string name="heads_up_settings">Plovoucí upozornění</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informace o nabíjení na zamykací obrazovce</string>
-  <string name="lockscreen_charging_current_summary">Zobrazit maximální proud a napětí při nabíjení na zamykací obrazovce</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Časový limit</string>
   <string name="heads_up_time_out_summary">Prohlížení oznámení bude zobrazeno na <xliff:g id="number">%d</xliff:g> sekund</string>
@@ -1797,5 +1818,19 @@
   <string name="lock_screen_weather_city_color">Město </string>
   <string name="lock_screen_weather_wind_color">Vítr</string>
   <string name="yes">ANO</string>
+  <string name="status_bar_battery_style_tile_title">Vlastní styl dlaždice baterie</string>
+  <string name="status_bar_battery_style_tile_summary">Nastaví stejný styl ikony baterie ve stavové liště</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Měniče posunu</string>
+  <string name="scrolling_summary">Zobrazit nebo změnit posouvání animace</string>
+  <string name="animation_fling_velocity_title">Rychlost úletu</string>
+  <string name="animation_scroll_friction_title">Odpor rolování</string>
+  <string name="animation_overscroll_distance_title">Vzdálenost přerolování</string>
+  <string name="animation_overfling_distance_title">Vzdálenost úletu</string>
+  <string name="animation_duration_summary">Nastavit dobu trvání</string>
+  <string name="animation_no_scroll_title">Vlastní nastavení posouvání</string>
+  <string name="animation_no_scroll_summary_on">Zapnuto</string>
+  <string name="animation_no_scroll_summary_off">Vypnuto</string>
+  <string name="scroll_disclaimer_summary">Poznámka: Většinu aplikací je třeba restartovat aby se projevily vlastní hodnoty</string>
+  <string name="animation_settings_reset_message">Obnovit výchozí nastavení všech animací?</string>
 </resources>

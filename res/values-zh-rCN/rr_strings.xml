@@ -120,6 +120,8 @@
   <string name="rr_sb_gestures_title">状态栏手势</string>
   <string name="qs_advanced_title">高级</string>
   <string name="rr_notification_panel_title">面板</string>
+  <string name="rr_tuner">系统界面调谐器</string>
+  <string name="rr_tuner_summary">原生配置</string>
   <string name="rr_battery">电池</string>
   <string name="rr_sb_icons">系统图标</string>
   <string name="rr_sb_battery">状态栏</string>
@@ -193,13 +195,13 @@
   <string name="wallpaper_open_title">壁纸打开动画</string>
   <string name="wallpaper_close_title">壁纸关闭动画</string>
   <string name="wallpaper_intra_open_title">壁纸内部打开动画</string>
-  <string name="wallpaper_intra_close_title">壁纸内关闭动画</string>
+  <string name="wallpaper_intra_close_title">关闭壁纸动画</string>
   <string name="animation_duration_title">动画时长</string>
   <string name="title_animation_no_override">阻止应用程序重写</string>
   <string name="summary_animation_no_override">阻止应用程序覆盖过渡动画</string>
   <string name="animation_duration_default">默认</string>
   <!-- Toast Animation -->
-  <string name="toast_animation_title">Toast动画</string>
+  <string name="toast_animation_title">提示动画</string>
   <string name="toast_none_animation">无</string>
   <string name="toast_default_animation">默认</string>
   <string name="toast_fade_animation">淡出淡入</string>
@@ -224,15 +226,15 @@
   <string name="listview_alpha">透明</string>
   <string name="listview_scale">比例</string>
   <string name="listview_stack_top">堆栈（顶部）</string>
-  <string name="listview_stack_bottom">堆叠 （底部）</string>
+  <string name="listview_stack_bottom">堆栈（底部）</string>
   <string name="listview_unfold">展开</string>
   <string name="listview_fold">折叠</string>
-  <string name="listview_translate_left">飞入 (左)</string>
-  <string name="listview_translate_right">飞入 (右)</string>
+  <string name="listview_translate_left">翻转 (左)</string>
+  <string name="listview_translate_right">翻译 (右)</string>
   <!-- ListView interpolator -->
   <string name="listview_interpolator_title">列表视图插补器</string>
-  <string name="listview_accelerate_interpolator">越来越快</string>
-  <string name="listview_decelerate_interpolator">越来越慢</string>
+  <string name="listview_accelerate_interpolator">加速</string>
+  <string name="listview_decelerate_interpolator">减速</string>
   <string name="listview_accelerate_decelerate_interpolator">先加速后减速</string>
   <string name="listview_anticipate_interpolator">先后退一小步然后向前加速</string>
   <string name="listview_overshoot_interpolator">重物反弹效果</string>
@@ -265,12 +267,13 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Toast Icons -->
-  <string name="toast_icon_title">显示 Toast 应用图标</string>
-  <string name="toast_icon_summary">在toast上显示对应应用图标</string>
+  <string name="toast_icon_title">提示图标</string>
+  <string name="toast_icon_summary">在提示上显示对应应用的图标</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">显示蓝牙设备电量</string>
+  <string name="bluetooth_battery_summary">显示当前连接的蓝牙设备电量，需要蓝牙设备支持</string>
   <!-- Force expanded notifications -->
-  <string name="force_expanded_notifications_title">强制拓展通知</string>
+  <string name="force_expanded_notifications_title">强制扩展通知</string>
   <string name="force_expanded_notifications_summary">仅适用于支持扩展通知的应用</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">禁用沉浸模式消息</string>
@@ -293,15 +296,15 @@
   <string name="show_network_traffic_up">上传</string>
   <string name="show_network_traffic_down">下载</string>
   <string name="show_network_traffic_all">上传和下载</string>
-  <string name="show_network_traffic_bit">Bit/秒</string>
-  <string name="show_network_traffic_byte">Byte/秒</string>
+  <string name="show_network_traffic_bit">比特每秒</string>
+  <string name="show_network_traffic_byte">字节每秒</string>
   <string name="show_network_traffic_500">500 毫秒</string>
   <string name="show_network_traffic_1000">1000 毫秒</string>
   <string name="show_network_traffic_1500">1500毫秒</string>
   <string name="show_network_traffic_2000">2000毫秒</string>
   <string name="network_traffic_autohide">自动隐藏</string>
   <string name="network_traffic_autohide_summary">没有网络活动时隐藏状态栏网速指示</string>
-  <string name="network_traffic_autohide_threshold">隐藏的临界值</string>
+  <string name="network_traffic_autohide_threshold">网络流量指示器隐藏阈值</string>
   <!-- Statusbar RR logo -->
   <string name="status_bar_rr_logo_title">启用logo</string>
   <string name="status_bar_rr_logo_summary">在状态栏中显示RR的logo</string>
@@ -316,14 +319,14 @@
   <string name="reset_android_title">Android 默认</string>
   <string name="reset_title">恢复默认</string>
   <string name="reset_theme_default_title">主题默认</string>
-  <string name="favorites_title">收藏夾</string>
+  <string name="favorites_title">收藏夹：</string>
   <string name="hide_favorites_title">隐藏收藏夹</string>
   <string name="show_favorites_title">显示收藏夹</string>
   <string name="hide_help_title">隐藏帮助</string>
   <string name="show_help_title">显示帮助</string>
   <string name="empty_title">空</string>
   <!-- Help screen -->
-  <string name="color_picker_help_screen_title">如何使用颜色选取器</string>
+  <string name="color_picker_help_screen_title">颜色选取器使用帮助</string>
   <string name="color_picker_help_ab_title">操作栏:</string>
   <string name="color_picker_help_ab_back_title">返回键:</string>
   <string name="color_picker_help_ab_back_summary">关闭颜色选取器，而不应用新的颜色，（取消）。 \n这与单击导航栏上的后退按钮的效果相同。</string>
@@ -470,13 +473,13 @@
   <string name="trigger_category">触发区域</string>
   <string name="trigger_width_title">触发区域宽度</string>
   <string name="trigger_width_summary">调整触发区域宽度</string>
-  <string name="trigger_top_title">触发区域高度</string>
+  <string name="trigger_top_title">触发区域位置</string>
   <string name="trigger_top_summary">调整触发区域的纵向位置</string>
   <string name="trigger_bottom_title">触发区域高度</string>
   <string name="trigger_bottom_summary">调整触发区域的高度</string>
   <string name="picker_activities">活动</string>
-  <string name="select_custom_app_title">自定义应用</string>
-  <string name="select_custom_activity_title">自定义activity</string>
+  <string name="select_custom_app_title">选择自定义应用</string>
+  <string name="select_custom_activity_title">选择自定义活动</string>
   <string name="profile_applist_title">应用程序</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
@@ -530,11 +533,26 @@
   <string name="battery_not_title">在下拉通知中显示电池图标</string>
   <string name="battery_not_summary">将在下拉通知栏中“清除全部通知”按钮位置显示电池图标</string>
   <string name="battery_bar_location">电池栏位置</string>
+  <string name="battery_bar_color">电量条颜色</string>
+  <string name="battery_bar">电量条选项</string>
   <string name="battery_bar_summary">自定义电池栏位置及颜色</string>
   <string name="battery_bar_style_title">电池栏样式</string>
   <string name="battery_bar_thickness_title">电池栏高度</string>
   <string name="battery_bar_animate_title">充电动画</string>
   <string name="battery_bar_animate_summary">充电动画可能会带来较差的用户体验，请自行决定是否启用。</string>
+  <string name="battery_bar_charging_color">电量条颜色 (充电时)</string>
+  <string name="battery_bar_battery_low_color">电量条颜色 (低电量时)</string>
+  <string name="battery_bar_style_regular">正常</string>
+  <string name="battery_bar_style_center_mirrored">中心镜像</string>
+  <string name="battery_bar_style_reversed">反转</string>
+  <string name="battery_bar_use_gradient_color">使用渐变颜色</string>
+  <string name="battery_bar_gradient_color_summary">使用渐变颜色显示电池电量</string>
+  <string name="battery_bar_high_color">电量充足时的颜色\"</string>
+  <string name="battery_bar_low_color">电量不足时的颜色\"</string>
+  <string name="battery_bar_hide">隐藏</string>
+  <string name="battery_bar_statusbar">状态栏</string>
+  <string name="battery_bar_navbar_top">导航栏顶部</string>
+  <string name="battery_bar_navbar_bottom">导航栏底部</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">启用</string>
   <string name="summary_doze_disabled">禁用</string>
@@ -627,7 +645,7 @@
   <string name="shortcuts_icon_picker_contact">通讯录</string>
   <string name="shortcuts_icon_picker_directdial">快捷拨号</string>
   <string name="shortcuts_icon_picker_directmessage">直接发送短信</string>
-  <string name="shortcuts_icon_picker_drive">Drive</string>
+  <string name="shortcuts_icon_picker_drive">云盘</string>
   <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
   <string name="shortcuts_icon_picker_email">电子邮件</string>
   <string name="shortcuts_icon_picker_email2">备用电子邮件</string>
@@ -655,6 +673,7 @@
   <string name="shortcuts_icon_picker_nav">导航</string>
   <string name="shortcuts_icon_picker_phone">通话</string>
   <string name="shortcuts_icon_picker_package">软件包</string>
+  <string name="shortcuts_icon_picker_pinterest">图钉兴趣(照片分享网站)</string>
   <string name="shortcuts_icon_picker_play">Play 商店</string>
   <string name="shortcuts_icon_picker_pocket">口袋</string>
   <string name="shortcuts_icon_picker_quicksettings">快速设置</string>
@@ -721,6 +740,7 @@
   <string name="shortcut_picker_icon_type_custom_title">图库</string>
   <string name="airplay">支付宝</string>
   <string name="android">Android</string>
+  <string name="badoo">贝朵</string>
   <string name="battery">电池</string>
   <string name="bluetooth">蓝牙</string>
   <string name="bookmarks">书签</string>
@@ -742,6 +762,7 @@
   <string name="email">电子邮件</string>
   <string name="evernote">印象笔记</string>
   <string name="explorer">文件管理器</string>
+  <string name="falcon">猎鹰</string>
   <string name="fb">脸书（Facebook）</string>
   <string name="flipboard">Flipboard</string>
   <string name="foursquare">正方形</string>
@@ -761,10 +782,12 @@
   <string name="googlecurrents">谷歌潮流</string>
   <string name="googletalk">Google Talk</string>
   <string name="gosms">Go短信</string>
+  <string name="meebo">米宝 (Meebo)</string>
   <string name="maps2">地图2</string>
   <string name="memorycleaner">内存清理工具</string>
   <string name="navigation">导航</string>
   <string name="pulse">脉冲</string>
+  <string name="shazam">音乐辨识 (Shazam)</string>
   <string name="swiftkey">Swiftkey</string>
   <string name="tmobile">T-Mobile</string>
   <string name="trash">垃圾箱</string>
@@ -779,16 +802,19 @@
   <string name="googletranslate">Google 翻译</string>
   <string name="google">谷歌（Google）</string>
   <string name="googleplus">Google+</string>
+  <string name="imdb">互联网电影库</string>
   <string name="instagram">Instagram</string>
+  <string name="lastfm">网上音乐库 (Last. fm)</string>
   <string name="maps">地图</string>
   <string name="messages">信息</string>
   <string name="music">音乐</string>
-  <string name="mxplayer">Mxplayer</string>
+  <string name="mxplayer">Mx播放器</string>
   <string name="notepad">直接发送短信</string>
   <string name="opera">Opera 浏览器</string>
   <string name="paint">绘画</string>
   <string name="paypal">Paypal 贝宝</string>
   <string name="phone">电话</string>
+  <string name="picasa">Picasa</string>
   <string name="pictures2">图片2</string>
   <string name="player_pro">主播放器</string>
   <string name="playstation">播放状态</string>
@@ -796,14 +822,18 @@
   <string name="settings">设置</string>
   <string name="skype">Skype</string>
   <string name="soundscloud">声音云</string>
-  <string name="tapatalk">Tapatalk</string>
+  <string name="spotifiy">Spotifiy</string>
+  <string name="tapatalk">论坛助手</string>
+  <string name="tunein">走调</string>
   <string name="twitter">推特（Twitter）</string>
+  <string name="viber">网络通讯 (Viber)</string>
   <string name="videocamera">视频摄像机</string>
   <string name="whatsapp">WhatsApp</string>
   <string name="wifi">WiFi</string>
   <string name="xda">Xda</string>
   <string name="yahoo">雅虎</string>
   <string name="youtube">Youtube</string>
+  <string name="zedge">桌面美化 (Zedge)</string>
   <!-- Hide Lockscreen clock & date -->
   <string name="hide_lockscreen_clock_title">显示锁屏时钟</string>
   <string name="hide_lockscreen_date_title">显示锁屏日期</string>
@@ -872,6 +902,7 @@
   <string name="hardware_keys_action_sleep">关闭屏幕</string>
   <string name="hardware_keys_action_last_app">前一个应用</string>
   <string name="camera_sleep_on_release_title">屏幕窥探</string>
+  <string name="camera_sleep_on_release_summary">半按保持屏幕开启</string>
   <string name="camera_launch_title">打开相机</string>
   <string name="camera_launch_summary">长按后释放将会打开相机</string>
   <string name="volbtn_music_controls_title">播放控制</string>
@@ -896,7 +927,7 @@
   <string name="backlight_timeout_title">背光超时</string>
   <string name="backlight_timeout_unlimited">从不关闭</string>
   <string name="backlight_summary_disabled">禁用</string>
-  <string name="backlight_summary_enabled_with_timeout">启用 <xliff:g id="超时">%s</xliff:g></string>
+  <string name="backlight_summary_enabled_with_timeout">保持背光灯 <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">启用</string>
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">禁用实体键</string>
@@ -941,6 +972,8 @@
   <string name="lockscreen_maxnotif_config">最大锁屏通知数</string>
   <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">音量键调节声音</string>
+  <string name="qs_fancy_animation_title">快速设置面板动画</string>
+  <string name="qs_fancy_animation_summary">拉下状态栏时用不同的动画效果</string>
   <!-- Status bar -->
   <string name="status_bar_title">状态栏</string>
   <string name="status_bar_toggle_brightness">亮度控制</string>
@@ -975,7 +1008,11 @@
   <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">电量百分比</string>
   <string name="status_bar_battery_percentage_default">隐藏</string>
+  <string name="status_bar_battery_percentage_text_inside">在图标内</string>
+  <string name="status_bar_battery_percentage_text_next">图标旁</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">状态栏图标</string>
+  <string name="status_bar_icons_summary">控制状态栏显示的图标</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">智能下拉</string>
   <string name="smart_pulldown_summary">当有%1$s的通知时打开快速设置</string>
@@ -1020,7 +1057,7 @@
   <string name="status_bar_date_style_lowercase">小写</string>
   <string name="status_bar_date_style_uppercase">大写</string>
   <string name="status_bar_date_format_custom">自定义 java 格式</string>
-  <string name="status_bar_date_string_edittext_title">必要的日期格式，例如: MM/dd/yy</string>
+  <string name="status_bar_date_string_edittext_title">日期格式 例如: MM/dd/yy</string>
   <string name="status_bar_date_string_edittext_summary">输入字符串</string>
   <string name="clock_category">时钟 </string>
   <string name="clock_custom">自定义时钟</string>
@@ -1096,11 +1133,11 @@
   <string name="lockscreen_weather_title">天气</string>
   <string name="lock_screen_weather_settings_title">天气设置</string>
   <string name="weather_show_weather_title">显示天气</string>
-  <string name="weather_show_weather_summary">启用以显示位置</string>
+  <string name="weather_show_weather_summary">启用显示天气信息</string>
   <string name="weather_show_location_title">显示位置</string>
-  <string name="weather_show_location_summary">启用以显示位置</string>
+  <string name="weather_show_location_summary">启用显示位置</string>
   <string name="weather_show_timestamp_title">显示更新时间</string>
-  <string name="weather_show_timestamp_summary">启用以显示更新时间</string>
+  <string name="weather_show_timestamp_summary">启用显示更新时间</string>
   <string name="weather_condition_icon_title">图标集</string>
   <string name="weather_condition_icon_dlg_title">选择一个图标显示天气状况</string>
   <string name="weather_condition_icon_monochrome_title">单色</string>
@@ -1108,11 +1145,11 @@
   <string name="weather_condition_icon_vclouds_title">VClouds</string>
   <string name="icons_title">图标</string>
   <string name="position_right_title">右侧</string>
-  <string name="position_centered_title">中间</string>
+  <string name="position_centered_title">居中</string>
   <string name="hidden_title">隐藏</string>
   <string name="weather_cat_notifications_title">通知</string>
   <string name="weather_hide_panel_title">隐藏天气面板</string>
-  <string name="weather_hide_panel_dlg_title">选择时，天气面板会被隐藏</string>
+  <string name="weather_hide_panel_dlg_title">选择以隐藏天气面板</string>
   <string name="weather_hide_panel_auto_title">自动</string>
   <string name="weather_hide_panel_custom_title">自定义</string>
   <string name="weather_hide_panel_never_title">从不</string>
@@ -1128,9 +1165,9 @@
   <string name="qs_brightness_slider_summary">在快捷开关面板中显示亮度滑块</string>
   <string name="brightness_icon_title">亮度图标 </string>
   <string name="brightness_icon_summary">在亮度滑块左侧显示亮度图标用于调节自动亮度</string>
-  <string name="show_clear_all_recents_button_title">一键清理按钮</string>
-  <string name="show_clear_all_recents_button_summary">在最近任务面板显示一键清理按钮</string>
-  <string name="recents_clear_all_location_title">一键清理按钮位置</string>
+  <string name="show_clear_all_recents_button_title">“一键清理”按钮</string>
+  <string name="show_clear_all_recents_button_summary">显示“一键清理”按钮</string>
+  <string name="recents_clear_all_location_title">清除所有位置</string>
   <string name="recents_clear_all_location_top_right">右上方</string>
   <string name="recents_clear_all_location_top_left">左上方</string>
   <string name="recents_clear_all_location_top_center">上方中央</string>
@@ -1139,7 +1176,16 @@
   <string name="recents_clear_all_location_bottom_center">下方中央</string>
   <string name="recents_clear_all_title">全部清除</string>
   <string name="clear_recents_style">按钮样式</string>
+  <string name="fab_button_color">清除全部背景色</string>
+  <string name="kill_app_button_color">清除所有图标着色</string>
   <string name="mem_bar_color">内存栏</string>
+  <string name="recents_clock_color">最近任务沉浸模式时钟文本</string>
+  <string name="recents_date_color">最近任务沉浸模式日期文本</string>
+  <string name="recents_styles_1">样式</string>
+  <string name="recents_colors">样式</string>
+  <string name="recents_style_2">颜色</string>
+  <string name="recents_style_3">任务视图页眉</string>
+  <string name="pin_button_color">锁屏按钮 </string>
   <string name="mw_button_color">多窗口按钮</string>
   <string name="float_button_color">悬浮按钮</string>
   <string name="tv_app_color">应用图标填充（填充整个图标）</string>
@@ -1149,16 +1195,23 @@
   <string name="mem_text_color">内存栏文本</string>
   <string name="clear_button_color">全部清除</string>
   <string name="clear_recents_style_enable">自定义最近任务样式</string>
-  <string name="clear_recents_style_enable_summary">启用/禁用自定义最近应用视图的全部清除按钮</string>
+  <string name="clear_recents_style_enable_summary">启用/禁用自定义最近应用视图</string>
+  <string name="recents_rotate_fab">FAB按钮动画</string>
   <string name="recents_rotate_fab_summary">启用/禁用自定义全部清除按钮的旋转动画</string>
   <string name="recents_fab_vibrate">按下全部清除按钮时振动</string>
-  <string name="recents_fab_vibrate_summary">启用/禁用全部清除按钮的振动反馈</string>
+  <string name="recents_fab_vibrate_summary">启用/禁用全部按钮的振动反馈</string>
   <string name="fab_animation_style">浮动按钮动画</string>
+  <string name="recents_fab_lp">允许长按FAB操作</string>
   <string name="recents_fab_lp_summary">长按刷新内存栏</string>
-  <string name="clear_animation_style">全部清除动画</string>
+  <string name="recents_fab_lp_anim">FAB长按动画</string>
+  <string name="clear_animation_style">清除所有动画</string>
   <string name="button1">默认 </string>
   <string name="button2">方形复选框 </string>
+  <string name="button3">图形 </string>
+  <string name="button4">垂直线1</string>
+  <string name="button5">垂直线2</string>
   <string name="button6">剪贴板 </string>
+  <string name="button7">绘画</string>
   <string name="button8">水平线</string>
   <string name="button9">圆形复选框 </string>
   <string name="button10">划动删除 </string>
@@ -1166,8 +1219,11 @@
   <string name="button12">闭眼</string>
   <string name="button13">点赞按钮</string>
   <string name="button14">滑动方块</string>
-  <string name="button15">铃铛 </string>
+  <string name="button15">铃音 </string>
   <string name="button16">左箭头 </string>
+  <string name="button17">关闭图层 </string>
+  <string name="button18">右箭头</string>
+  <string name="button19">图层</string>
   <string name="button20">存档 </string>
   <string name="button21">数据库 +</string>
   <string name="button22">指向里的箭头</string>
@@ -1180,18 +1236,30 @@
   <string name="button29">Resurrection Lollipop</string>
   <string name="button30">Android N</string>
   <string name="animation0">旋转 </string>
+  <string name="animation1">最近退出</string>
   <string name="animation2">向右滑出 </string>
   <string name="animation3">缓慢向右滑出</string>
-  <string name="animation4">Toast退出</string>
+  <string name="animation4">提示退出</string>
   <string name="animation5">向下滑出 </string>
+  <string name="animation6">Xylon退出</string>
+  <string name="animation7">Honami 提示退出</string>
+  <string name="animation8">向右滑出</string>
+  <string name="animation9">提示退出</string>
+  <string name="animation10">淡出</string>
+  <string name="animation11">左侧滑出</string>
+  <string name="animation12">淡出</string>
+  <string name="animation13">快速淡出</string>
+  <string name="animation14">顶部滑出</string>
   <string name="animation15">快速旋转</string>
   <!-- OmniSwitch -->
-  <string name="recents_use_omniswitch_summary">使用 OmniSwitch 而不是默认近期应用视图</string>
+  <string name="omniswitch_category">Omni切换器</string>
+  <string name="recents_use_omniswitch_title">使用历史</string>
+  <string name="recents_use_omniswitch_summary">使用 Omni切换器 而不是默认使用历史视图</string>
   <string name="omniswitch_start_settings_title">设置</string>
-  <string name="omniswitch_start_settings_summary">打开omni开关设置</string>
-  <string name="omniswitch_first_time_title">信息</string>
+  <string name="omniswitch_start_settings_summary">打开omni切换器设置</string>
+  <string name="omniswitch_first_time_title">资讯</string>
   <string name="omniswitch_first_time_message">请确认已开启Omni。你能通过下面的“设置”做到这一点。</string>
-  <string name="omniswitch_settings_title">Omni开关</string>
+  <string name="omniswitch_settings_title">Omni切换器</string>
   <!-- Less Notification sounds -->
   <string name="notifications_category_title">通知</string>
   <string name="less_notification_sounds_title">降低通知声音频率</string>
@@ -1214,20 +1282,20 @@
   <string name="vol_diag">音量调节列表</string>
   <string name="power">电源</string>
   <!-- QS shade transparency -->
-  <string name="qs_transparent_shade">快速设置面板阴影透明度</string>
+  <string name="qs_transparent_shade">快速设置阴影透明度</string>
   <!-- QS header transparency -->
-  <string name="qs_transparent_header">快速设置面板头透明度</string>
+  <string name="qs_transparent_header">快速设置页眉透明度</string>
   <!-- Volume dialog transparency -->
   <string name="volume_dialog_transparency">声音对话框透明度</string>
   <!-- Power menu and dialogs transparency -->
-  <string name="power_menu_transparency">电源或重启菜单透明度</string>
+  <string name="power_menu_transparency">电源 / 重启菜单透明度</string>
   <!-- Power/reboot dialogs dim amount -->
-  <string name="power_menu_dialog_dim">电源或重启对话框背景遮挡率</string>
+  <string name="power_menu_dialog_dim">电源 / 重启对话框背景遮挡率</string>
   <!-- Notifications transparency -->
   <string name="notifications_transparency">通知栏透明度</string>
   <!-- Volume dialog stroke settings -->
   <string name="volume_dialog_stroke_title">音量对话框框线</string>
-  <string name="volume_dialog_stroke_disabled">未启用</string>
+  <string name="volume_dialog_stroke_disabled">停用</string>
   <string name="volume_dialog_stroke_accent">主题色</string>
   <string name="volume_dialog_stroke_custom">自定义颜色</string>
   <string name="volume_dialog_stroke_color_title">音量对话框框线颜色</string>
@@ -1249,27 +1317,70 @@
   <string name="rr_qs_layout">布局：</string>
   <!-- QS settings -->
   <string name="status_bar_expanded_qs_settings">布局：</string>
+  <string name="status_bar_expanded_qs_settings_summary">选择行数和列数</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">快速设置面板布局</string>
+  <string name="qs_rows_portrait_title">行 （纵向）</string>
+  <string name="qs_rows_landscape_title">行 （横向）</string>
+  <string name="qs_columns_title">列</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">警告颜色</string>
-  <string name="network_traffic_color_reset_message">重置网络流量颜色为默认值？</string>
+  <string name="battery_saver_color_summary">在节电模式启用时显示橙色的状态栏和导航栏</string>
+  <string name="network_traffic_color_style">颜色样式</string>
+  <string name="network_traffic_color_reset">重置颜色</string>
+  <string name="network_traffic_color_reset_message">是否将网速指示的颜色重置为默认？</string>
   <string name="status_bar_weather_color_title">温度颜色</string>
-  <string name="status_bar_logo">Resurrection 标志</string>
+  <string name="status_bar_rr_logo_color">Logo 颜色</string>
+  <string name="status_bar_logo">Resurrection Logo</string>
+  <string name="status_bar_logo_title">品牌 Logo</string>
+  <string name="status_bar_rr_logo_position">Logo 位置</string>
+  <string name="status_bar_rr_logo_position_summary">选择在左侧还是右侧显示 Logo？</string>
   <string name="status_bar_logo_position_right">右侧</string>
   <string name="status_bar_logo_position_left">左侧</string>
+  <string name="status_bar_logo_position_center">居中</string>
+  <string name="rr_config_style_title">配置</string>
+  <string name="rr_config_n">Nougat</string>
+  <string name="rr_config_mm">经典样式</string>
   <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">双击休眠</string>
+  <string name="status_bar_double_tap_to_sleep_summary">双击状态栏来关闭屏幕</string>
+  <string name="qs_wifi_easy_toggle_title">WiFi 快捷切换键</string>
+  <string name="qs_wifi_easy_toggle_summary">设置使点击即可开启或关闭 WiFi ，而不是打开设置界面</string>
   <!-- BT easy toggle -->
+  <string name="qs_bt_easy_toggle_title">蓝牙快捷切换键</string>
+  <string name="qs_bt_easy_toggle_summary">设置使点击即可开启或关闭蓝牙 ，而不是打开设置界面</string>
+  <string name="quick_settings_vibrate_title">触摸时使用振动反馈</string>
   <!-- Quick unlock -->
+  <string name="unlock_quick_unlock_control_title">快速解锁</string>
+  <string name="unlock_quick_unlock_control_summary">当输入正确的 PIN 码或密码后自动解锁</string>
   <!-- Disable OS on lockscreen -->
+  <string name="block_on_secure_keyguard_title">禁用快捷设置</string>
+  <string name="block_on_secure_keyguard_summary">在安全锁屏界面禁用快速设置</string>
   <!-- Circle app bar -->
+  <string name="category_app_circle_bar_title">应用启动器</string>
+  <string name="app_circle_bar_title">环形应用栏</string>
+  <string name="app_circle_bar_summary">在触摸屏幕右侧后显示环形应用启动器</string>
+  <string name="app_circle_bar_included_apps_title">包含的应用</string>
+  <string name="app_circle_bar_included_apps_summary">应用将显示在环形应用栏</string>
   <string name="trigger_width_title">触发区域宽度</string>
   <string name="trigger_width_summary">调整触发区域宽度</string>
-  <string name="trigger_top_title">触发区域高度</string>
+  <string name="trigger_top_title">触发区域位置</string>
   <string name="trigger_top_summary">调整触发区域的纵向位置</string>
   <string name="trigger_bottom_title">触发区域高度</string>
   <string name="trigger_bottom_summary">调整触发区域的高度</string>
   <!-- Breathing Notifications -->
+  <string name="breathing_notifications_title">呼吸式通知</string>
+  <string name="sms_breath_title">呼吸式短信通知</string>
+  <string name="sms_breath_summary">为短信通知提供状态栏呼吸效果</string>
+  <string name="missed_call_breath_title">呼吸式未接来电通知</string>
+  <string name="missed_call_breath_summary">你的未接来电通知将以呼吸灯式效果显示在状态栏</string>
+  <string name="voicemail_breath_title">呼吸式语音信箱</string>
+  <string name="voicemail_breath_summary">你的语音信箱通知将以呼吸灯式效果显示在状态栏</string>
   <!-- Navigation Bar -->
+  <string name="navigation_category">导航栏</string>
+  <string name="navbar_interface_title">界面</string>
+  <string name="navbar_size">导航栏尺寸</string>
+  <string name="navbar_mode">导航栏模式</string>
   <string name="navbar_visibility">启用导航栏</string>
   <string name="navigationbar_settings_title">导航栏</string>
   <string name="navigationbar_settings_summary">自定义导航样式和行为</string>
@@ -1283,8 +1394,8 @@
   <string name="icon_pack_picker_dialog_title">图标包</string>
   <string name="invalid_icon_from_uri">无法从内容提供器中加载图像</string>
   <string name="picker_activities">活动</string>
-  <string name="select_custom_app_title">自定义应用</string>
-  <string name="select_custom_activity_title">自定义activity</string>
+  <string name="select_custom_app_title">选择自定义应用</string>
+  <string name="select_custom_activity_title">选择自定义活动</string>
   <string name="profile_applist_title">应用程序</string>
   <string name="default_string">默认</string>
   <string name="reset">重置</string>
@@ -1316,12 +1427,62 @@
   <string name="fling_long_left_press">长按左侧</string>
   <string name="long_swipe_portrait_title">纵向</string>
   <string name="long_swipe_landscape_title">横向</string>
+  <string name="portrait_right_swipe_title">竖向右划</string>
+  <string name="portrait_left_swipe_title">竖向左划</string>
+  <string name="landscape_right_swipe_title">横向右划</string>
+  <string name="landscape_left_swipe_title">横向左划</string>
+  <string name="vertical_up_swipe_title">垂直上划</string>
+  <string name="vertical_down_swipe_title">垂直下划</string>
   <string name="up_swipe_title">上划</string>
   <string name="down_swipe_title">下划</string>
   <string name="long_swipe_reset">重置</string>
+  <string name="fling_advanced">高级</string>
+  <string name="fling_long_swipe_title">长划阈值</string>
+  <string name="fling_long_swipe_summary">基于一个界面宽度或高度的百分比微调长滑动的阈值</string>
+  <string name="fling_trails_enable_title">启用手势轨迹</string>
+  <string name="fling_trails_enable_summary">手势滑动时显示轨迹</string>
+  <string name="fling_trails_color_title">轨迹颜色</string>
+  <string name="fling_trails_width_title">轨迹宽度</string>
+  <string name="fling_appearance">外观</string>
+  <string name="fling_show_logo_title">显示 Fling logo</string>
+  <string name="fling_animate_logo_title">Logo 动画</string>
+  <string name="fling_animate_logo_summary">触摸时显示 Logo 动画</string>
+  <string name="fling_logo_color">Logo 颜色</string>
+  <string name="fling_logo_custom_logo_pick_title">自定义 logo 图标</string>
+  <string name="fling_logo_custom_logo_image_pick_title">自定义 logo 图像</string>
+  <string name="fling_logo_custom_logo_reset_title">重置 logo 图标</string>
+  <string name="fling_show_ripple_title">显示波形动画</string>
+  <string name="fling_show_ripple_summary">触摸事件的连锁反应</string>
+  <string name="fling_ripple_color">波纹颜色</string>
+  <string name="fling_longpress_timeout_label_left">较小延迟</string>
+  <string name="fling_longpress_timeout_label_right">更多延迟</string>
+  <string name="fling_longpress_title">长按延迟</string>
+  <string name="fling_longpress_summary">增加或减少执行长按的时间</string>
   <!-- Pulse navigation bar music visualizer -->
+  <string name="pulse_help_policy_notice_title">关于 Pulse</string>
+  <string name="pulse_help_policy_notice_summary">Pulse 是一种在播放音乐时，位于导航栏的智能均衡器式的音频显示方式。当使用扬声器时， Pulse 在某些音源下可能不工作</string>
+  <string name="pulse_settings">Pulse</string>
+  <string name="pulse_settings_summary">导航栏音乐可视化</string>
+  <string name="fling_show_pulse_title">显示 Pulse</string>
+  <string name="fling_show_pulse_summary">导航栏上的音频可视化效果</string>
+  <string name="pulse_render_mode_title">渲染模式</string>
+  <string name="pulse_render_mode_fading_bars">虚线</string>
+  <string name="pulse_render_mode_solid_lines">实线</string>
+  <string name="fling_pulse_color">Pulse 颜色</string>
+  <string name="eos_fling_lavalamp_title">开启霓虹灯</string>
+  <string name="eos_fling_lavalamp_summary">可视化样式以平滑的霓虹灯风格颜色混合</string>
+  <string name="pulse_advanced_category">高级</string>
+  <string name="pulse_legacy_mode_advanced_category">虚线模式设置</string>
+  <string name="pulse_custom_fudge_factor">理智水平</string>
+  <string name="lavamp_solid_speed_title">霓虹灯速度</string>
+  <string name="pulse_solid_dimen_category">实线模式设置</string>
   <!-- Pulse config -->
+  <string name="pulse_custom_dimen">栏宽度</string>
+  <string name="pulse_custom_div">栏间距</string>
+  <string name="pulse_filled_block_size">块大小</string>
+  <string name="pulse_empty_block_size">方块间距</string>
   <!-- Navbar height -->
+  <string name="navigation_bar_size_title">导航栏尺寸</string>
   <string name="portrait_title">纵向高度</string>
   <string name="land_vert_title">横向宽度</string>
   <string name="land_hor_title">横向高度</string>
@@ -1332,7 +1493,7 @@
   <string name="smartbar_editor_title">切换按钮编辑器</string>
   <string name="smartbar_editor_summary">按住按钮并拖动以更改位置. 长按以显示编辑菜单. 虽然菜单会显示但按钮的位置可能会改变.</string>
   <string name="smartbar_context_menu_position_title">上下文按钮布局位置</string>
-  <string name="smartbar_context_menu_position_summary">设置上下文按钮的位置，如菜单键和输入法选择器</string>
+  <string name="smartbar_context_menu_position_summary">设置上下文按钮如菜单键和输入法选择器的位置</string>
   <string name="smartbar_right">右侧</string>
   <string name="smartbar_left">左侧</string>
   <string name="smartbar_button_animation_title">按钮触摸动画</string>
@@ -1358,21 +1519,71 @@
   <string name="navbar_buttons_alpha_title">按钮透明度</string>
   <string name="rr_navbar_settings">导航栏</string>
   <!--Custom logos-->
-  <string name="rr_custom_logo_summary">自定义各种徽标 / 状态栏中的图标</string>
-  <string name="sb_custom_logos">自定义标志</string>
-  <string name="custom_logo_style">选择一个标志</string>
+  <string name="rr_custom_logo_summary">自定义各种 logo / 状态栏中的图标</string>
+  <string name="sb_custom_logos">自定义 logo</string>
+  <string name="custom_logo_style">选择一个 logo</string>
   <string name="custom_logos">任意选择</string>
-  <string name="show_custom_logo_title">显示自定义标志</string>
-  <string name="show_custom_logo_summary">在状态栏显示系统提供的多种可用标志</string>
+  <string name="show_custom_logo_title">显示自定义 logo</string>
+  <string name="show_custom_logo_summary">在状态栏显示系统提供的多种可用 logo</string>
   <string name="custom_logo_color">颜色</string>
   <string name="custom_logo_position">位置</string>
+  <string name="logo0">纯正的Resurrection</string>
   <string name="logo1">Resurrection lollipop</string>
   <string name="logo2">调谐器 </string>
   <string name="logo3">最小的 bug 机器人 </string>
-  <string name="logo6">重影</string>
+  <string name="logo4">Drupal</string>
+  <string name="logo5">酷的微笑</string>
+  <string name="logo6">幽灵</string>
   <string name="logo7">闪光</string>
   <string name="logo8">多窗口</string>
+  <string name="logo9">Xbox</string>
+  <string name="logo10">Emoji</string>
+  <string name="logo11">幸福的微笑</string>
+  <string name="logo12">指纹</string>
+  <string name="logo13">老虎</string>
+  <string name="logo14">猫头鹰</string>
+  <string name="logo15">关闭天气 </string>
+  <string name="logo16">搅拌机</string>
+  <string name="logo17">蛋糕</string>
+  <string name="logo18">电吉他</string>
+  <string name="logo19">笑脸标记</string>
+  <string name="logo20">运行</string>
+  <string name="logo21">有毒</string>
+  <string name="logo22">Pro 用户</string>
+  <string name="logo23">捅球</string>
+  <string name="logo24">打开箱子</string>
+  <string name="logo25">关闭箱子</string>
+  <string name="logo26">开启天气</string>
+  <string name="logo27">猫</string>
+  <string name="logo28">Bug 机器人</string>
+  <string name="logo29">骑自行车的人</string>
+  <string name="logo30">糖果手杖</string>
+  <string name="logo31">皮笑肉不笑</string>
+  <string name="logo32">泡沫</string>
+  <string name="logo33">谷歌（Google）</string>
+  <string name="logo34">鱼</string>
+  <string name="logo35">男性</string>
+  <string name="logo36">女性</string>
+  <string name="logo37">漆黑一片</string>
+  <string name="logo38">原版Resurrection</string>
+  <string name="logo39">一半Resurrection</string>
+  <string name="logo40">无环Resurrection</string>
+  <string name="logo41">蜘蛛 1</string>
+  <string name="logo42">蜘蛛 2</string>
+  <string name="logo43">金莺</string>
   <!-- Carrier label -->
+  <string name="carrier_title">运营商标签</string>
+  <string name="carrier_options_summary">自定义运营商标签</string>
+  <string name="custom_carrier_label_title">自定义运营商标签</string>
+  <string name="custom_carrier_label_explain">请输入一个新的标签，留空将恢复至默认的运营商标签.</string>
+  <string name="custom_carrier_label_notset">没有设置自定义运营商标签</string>
+  <string name="show_carrier_title">运营商标签</string>
+  <string name="show_carrier_disabled">未启用</string>
+  <string name="show_carrier_keyguard">仅锁屏界面</string>
+  <string name="show_carrier_statusbar">仅状态栏</string>
+  <string name="show_carrier_both">锁屏界面 &amp; 状态栏</string>
+  <string name="show_carrier_enabled">锁屏界面 &amp; 状态栏</string>
+  <string name="status_bar_carrier_color">运营商标签颜色</string>
   <string name="status_bar_carrier_size">运营商标签文本大小</string>
   <string name="status_bar_carrier_font_style_title">运营商标签字体</string>
   <string name="number_of_notifications_title">通知数量</string>
@@ -1433,40 +1644,194 @@
   <string name="pa_pie_mode_quick">快速</string>
   <string name="pa_pie_mode_default">默认</string>
   <string name="pa_pie_mode_slow">缓慢</string>
+  <string name="pa_pie_lastapp_title">最后的应用程序</string>
+  <string name="pa_pie_lastapp_summary">启用上次应用按钮</string>
+  <string name="pa_pie_killtask_title">终止任务</string>
+  <string name="pa_pie_killtask_summary">启用一键清理任务按钮</string>
+  <string name="pa_pie_notifications_title">通知</string>
+  <string name="pa_pie_notifications_summary">启用通知按钮</string>
+  <string name="pa_pie_settings_panel_title">快速设置面板</string>
+  <string name="pa_pie_settings_panel_summary">启用快速设置扩展面板按钮</string>
+  <string name="pa_pie_screenshot_title">屏幕截图</string>
+  <string name="pa_pie_screenshot_summary">启用截屏按钮</string>
+  <string name="pa_pie_color_title">手势颜色设置</string>
+  <string name="pa_pie_color_style_title">手势颜色样式</string>
+  <string name="pa_pie_background_title">背景颜色</string>
+  <string name="pa_pie_select_title">选择颜色</string>
+  <string name="pa_pie_outlines_title">轮廓颜色</string>
+  <string name="pa_pie_status_clock_title">时钟颜色</string>
+  <string name="pa_pie_status_title">状态栏颜色</string>
+  <string name="pa_pie_chevron_title">轮廓颜色</string>
+  <string name="pa_pie_juice_title">电池颜色</string>
+  <string name="pa_pie_button_color">按钮按色</string>
+  <string name="pa_pie_button_color_title">按钮颜色</string>
+  <string name="pa_pie_always_right_title">右侧手势</string>
+  <string name="pa_pie_always_right_summary">当为横屏状态时手势总是显示在右侧</string>
   <!-- Heads up switch -->
+  <string name="heads_up_switch_title">浮动通知</string>
+  <string name="heads_up_switch_summary">针对全局而不是每个应用程序的切换设置</string>
+  <string name="lockscreen_pin_ripple_title">针波纹锁屏界面</string>
+  <string name="lockscreen_pin_ripple_summary">输入 pin 号码时不能删除波纹</string>
   <!-- Optional screenshot type -->
+  <string name="screenshot_type_title">截屏类型</string>
+  <string name="screenshot_type_fullscreen">全屏截图</string>
+  <string name="screenshot_type_partial">拖动以选定屏幕快照的区域</string>
   <!-- Screenshot delay -->
+  <string name="screenshot_options_category">屏幕快照选项</string>
+  <string name="screenshot_delay_title">屏幕截图延迟</string>
+  <string name="screenshot_delay_summary">调整抓图的时间</string>
+  <string name="heads_up_settings">浮动通知</string>
   <!-- Lockscreen charging current indicator  -->
+  <string name="lockscreen_charging_current_title">锁屏界面下的充电信息</string>
   <!-- Heads up timeout -->
+  <string name="heads_up_time_out_title">超时</string>
+  <string name="heads_up_time_out_summary">查看通知将显示为 <xliff:g id="number">%d</xliff:g> 秒</string>
+  <string name="heads_up_time_out_2sec">2 秒</string>
+  <string name="heads_up_time_out_4sec">4 秒</string>
+  <string name="heads_up_time_out_5sec">5 秒</string>
+  <string name="heads_up_time_out_6sec">6 秒</string>
+  <string name="heads_up_time_out_8sec">8 秒</string>
+  <string name="heads_up_time_out_10sec">10 秒</string>
   <!-- Heads up snooze -->
+  <string name="heads_up_snooze_title">暂停计时器</string>
+  <string name="heads_up_snooze_summary_one_minute">上滑弹出通知将使此应用的浮动通知进入打盹状态1分钟</string>
+  <string name="heads_up_snooze_summary">上滑弹出通知将使此应用的浮动通知进入打盹状态<xliff:g id="number">%d</xliff:g>分钟</string>
+  <string name="heads_up_snooze_disabled_summary">暂停计时器已禁用</string>
+  <string name="heads_up_snooze_1min">1 分钟</string>
+  <string name="heads_up_snooze_3min">3 分钟</string>
+  <string name="heads_up_snooze_5min">5 分钟</string>
+  <string name="heads_up_snooze_10min">10 分钟</string>
+  <string name="heads_up_snooze_15min">15 分钟</string>
+  <string name="heads_up_snooze_20min">20 分钟</string>
   <!-- Camera shutter sound -->
+  <string name="camera_sounds_title">相机快门音</string>
+  <string name="camera_sounds_summary">此禁用可能对第三方相机应用和 HDR+ 模式无效</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
+  <string name="hw_keys_title">实体按键</string>
+  <string name="hw_keys_summary">启用实体按键</string>
   <!-- Expanded desktop -->
+  <string name="expanded_desktop_category">扩展桌面</string>
+  <string name="expanded_hide_nothing">不隐藏</string>
+  <string name="expanded_hide_status">隐藏状态栏</string>
+  <string name="expanded_hide_navigation">隐藏导航栏</string>
+  <string name="expanded_hide_both">全部隐藏</string>
+  <string name="expanded_nothing_to_show">要添加一个为单个应用配置的扩展状态，请关闭 “全部开启”</string>
+  <string name="expanded_desktop_state">扩展的状态</string>
+  <string name="expanded_enabled_for_all">启用全部</string>
+  <string name="expanded_user_configurable">用户配置</string>
+  <string name="expanded_desktop_style">扩展桌面的样式</string>
   <string name="expanded_desktop_style_description">选择默认的扩展桌面样式</string>
+  <string name="expanded_desktop_title">扩展桌面选项</string>
   <!-- SlimSizer  -->
+  <string name="listsystem">列表</string>
+  <string name="sizer_title">应用卸载器</string>
+  <string name="caution">注意事项</string>
+  <string name="sizer_message_startup">此工具允许你删除系统应用程序。请谨慎使用，且只能删除可以安全删除的应用程序。</string>
+  <string name="cancel">取消</string>
+  <string name="sizer_message_delete">你确定要删除这个程序?</string>
+  <string name="btn_delete">立即删除选定的应用程序！</string>
+  <string name="delete_progress_title">正在删除...</string>
+  <string name="delete_progress">正在删除所选的文件...</string>
+  <string name="delete_success">已删除</string>
+  <string name="delete_fail">无法删除</string>
+  <string name="btn_profile">配置</string>
+  <string name="sizer_message_sdnowrite">无法写入 SD 卡。</string>
+  <string name="sizer_message_sdnoread">无法读取 SD 卡。</string>
+  <string name="sizer_message_filesuccess">已创建的配置文件。</string>
+  <string name="sizer_message_filefail">无法创建配置文件。</string>
+  <string name="sizer_message_noselect">未选择任何内容。</string>
+  <string name="system_app_remover">系统应用程序卸载器</string>
   <!-- RR summary text -->
+  <string name="rr_settings_summary_title">设置应用程序中的自定义摘要文本</string>
+  <string name="custom_summary_title">自定义 RR 摘要</string>
+  <string name="custom_summary_explain">请输入一个新的摘要，留空将恢复至默认文本。</string>
   <!-- Custom summaries -->
+  <string name="custom_summary_randomize_title">随机化摘要</string>
+  <string name="custom_summary_randomize_explain">你预先写好的摘要将随机选择，将会改变每次启动设置应用程序 \n这将重写任何自定义的摘要集。</string>
+  <string name="sum1">你检查了所有调整吗？</string>
+  <string name="sum2">最新消息︰ 唐纳德 · 特朗普改变了他的发型 ！</string>
+  <string name="sum3">你已经点了十万次了</string>
+  <string name="sum4">很多的选择 ！</string>
+  <string name="sum5">现在点击我 ！</string>
+  <string name="sum6">还有什么？</string>
+  <string name="sum7">我不是你的 F1 按钮</string>
+  <string name="sum8">你不会想错过这的… ！</string>
+  <string name="sum9">欢迎使用 RR</string>
+  <string name="sum10">不要错过我 ！</string>
+  <string name="sum11">你完成你的作业了吗？ツ</string>
+  <string name="sum12">你好，我是你的新助理</string>
+  <string name="sum13">不要弄乱界面 ！</string>
+  <string name="sum14">你期望什么呢？</string>
+  <string name="sum15">仅为高级用户提供</string>
+  <string name="sum16">你感到无聊吗？好吧，现在点击我 ！</string>
+  <string name="sum17">干的好！你已获得了额外的功能</string>
   <string name="sum18">停止将垃圾信息发到 g+ 社区</string>
-  <string name="sum24">够了！别再放垃圾了！</string>
+  <string name="sum19">请遵守g+ 社区规则</string>
+  <string name="sum20">新手不能输入</string>
+  <string name="sum21">自定义</string>
+  <string name="sum22">震撼消息︰ 苹果将从下一个代 iphone 中移除闪光灯。</string>
+  <string name="sum23">现在你开心了吗？</string>
+  <string name="sum24">够了！别再点击了！</string>
+  <string name="sum25">时髦的</string>
+  <string name="sum26">ツ</string>
   <!-- RR Settings tabs slide effects -->
+  <string name="tabs_effect_title">配置选项卡切换效果</string>
   <string name="effect_default">默认</string>
+  <string name="effect_accordion">可折叠的</string>
+  <string name="effect_background_to_foreground">从后台到前台</string>
+  <string name="effect_cube_in">立方体内部</string>
+  <string name="effect_cube_out">立方体外部</string>
+  <string name="effect_depth_page">溶解</string>
+  <string name="effect_flip_horizontal">水平翻转</string>
+  <string name="effect_flip_vertical">垂直翻转</string>
+  <string name="effect_foreground_to_background">从前台到后台</string>
   <string name="effect_rotate_down">向下旋转</string>
   <string name="effect_rotate_up">向上旋转</string>
+  <string name="effect_scale_in_out">缩放</string>
+  <string name="effect_stack">堆叠</string>
+  <string name="effect_tablet">平板（Tablet）</string>
+  <string name="effect_zoom_in">放大</string>
+  <string name="effect_zoom_out_slide">滑动缩小</string>
+  <string name="effect_zoom_out">缩小</string>
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">三指滑动手势</string>
   <string name="three_finger_gesture_summary">滑动三指截屏</string>
   <!-- Lockscreen Colors -->
+  <string name="lockscreen_colors">自定义颜色</string>
+  <string name="lockscreen_phone_icon_color">锁定屏幕左下角的快捷方式</string>
+  <string name="lockscreen_lock_icon_color">锁屏界面锁图标</string>
+  <string name="lockscreen_camera_icon_color">锁屏界面右下角的快捷方式</string>
+  <string name="ls_shortcut_icon_color">锁屏界面快捷方式</string>
+  <string name="lockscreen_indication_text_color">锁屏界面显示文本</string>
+  <string name="lockscreen_clock_color">锁屏时钟</string>
+  <string name="lockscreen_clock_date_color">锁屏界面日期</string>
+  <string name="lockscreen_colors_reset_title">重置锁屏界面颜色</string>
   <string name="lockscreen_colors_reset_message">您确定要重置这些颜色为默认值？</string>
+  <string name="lockscreen_colors_title">自定义颜色</string>
   <string name="lockscreen_owner_info_color">机主信息</string>
   <string name="lockscreen_alarm_color">闹钟</string>
   <string name="icons_title">图标</string>
   <string name="text_title">文本</string>
   <string name="lock_screen_weather_temp_color">天气温度</string>
   <string name="lock_screen_weather_con_color">天气状况</string>
-  <string name="lock_screen_weather_stamp_color">更新时间位置 </string>
+  <string name="lock_screen_weather_stamp_color">位置时间戳 </string>
   <string name="lock_screen_weather_hum_color">天气湿度</string>
   <string name="lock_screen_weather_city_color">城市天气 </string>
-  <string name="lock_screen_weather_wind_color">天气风</string>
+  <string name="lock_screen_weather_wind_color">天气的风信息</string>
   <string name="yes">是</string>
+  <string name="status_bar_battery_style_tile_title">自定义电池磁贴风格</string>
+  <string name="status_bar_battery_style_tile_summary">允许为状态栏的电池图标设定相同的图标样式</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">滚动选项</string>
+  <string name="scrolling_summary">查看或更改滚动动画</string>
+  <string name="animation_fling_velocity_title">滑动速度</string>
+  <string name="animation_scroll_friction_title">滚动摩擦</string>
+  <string name="animation_overscroll_distance_title">滚屏越界的距离</string>
+  <string name="animation_overfling_distance_title">滑动越界距离</string>
+  <string name="animation_duration_summary">设置持续时间</string>
+  <string name="animation_no_scroll_title">自定义滚动选项</string>
+  <string name="animation_no_scroll_summary_on">已启用</string>
+  <string name="animation_no_scroll_summary_off">已禁用</string>
+  <string name="scroll_disclaimer_summary">注意：大多数应用的自定义值需要重新启动后才能生效</string>
+  <string name="animation_settings_reset_message">重置所有的动画设置为默认值吗？</string>
 </resources>
