@@ -32,6 +32,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
         private static final String PREF_VOLUME_DIALOG_CORNER_RADIUS = "volume_dialog_corner_radius";
         private static final String PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH = "volume_dialog_dash_width";
         private static final String PREF_VOLUME_DIALOG_STROKE_DASH_GAP = "volume_dialog_dash_gap";
+        private static final String KEY_VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
 
         private SeekBarPreference mVolumeDialogAlpha;
         private ListPreference mVolumeDialogStroke;
@@ -40,6 +41,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
         private SeekBarPreference mVolumeDialogCornerRadius;
         private SeekBarPreference mVolumeDialogDashWidth;
         private SeekBarPreference mVolumeDialogDashGap;
+        private SeekBarPreference mVolumeDialogTimeout;
 
         static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
 
@@ -116,6 +118,13 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             mVolumeDialogDashGap.setValue(volumeDialogDashGap / 1);
             mVolumeDialogDashGap.setOnPreferenceChangeListener(this);
 
+            mVolumeDialogTimeout =
+                    (SeekBarPreference) findPreference(KEY_VOLUME_DIALOG_TIMEOUT);
+            int timeout = Settings.System.getInt(resolver,
+                    Settings.System.VOLUME_DIALOG_TIMEOUT, 3000);
+            mVolumeDialogTimeout.setValue(timeout / 1);
+            mVolumeDialogTimeout.setOnPreferenceChangeListener(this);
+
             VolumeDialogSettingsDisabler(volumeDialogStroke);
 
         }
@@ -168,6 +177,11 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
                 int val = (Integer) newValue;
                 Settings.System.putInt(resolver,
                         Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, val * 1);
+                return true;
+            }else if (preference == mVolumeDialogTimeout) {
+                int val = (Integer) newValue;
+                Settings.System.putInt(resolver,
+                        Settings.System.VOLUME_DIALOG_TIMEOUT, val * 1);
                 return true;
             }
             return false;

@@ -24,6 +24,15 @@
         android:title="@string/vol_diag">
 
     <com.android.settings.rr.SeekBarPreference
+        android:key="volume_dialog_timeout"
+        android:title="@string/volume_dialog_timeout_title"
+        settings:maximum="10000"
+        settings:minimum="100"
+        settings:units=""
+        settings:defaultVal="255"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreference
         android:key="transparent_volume_dialog"
         android:title="@string/volume_dialog_transparency"
         settings:maximum="255"
