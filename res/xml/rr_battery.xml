@@ -47,6 +47,15 @@
         android:summaryOff="@string/force_charge_battery_text_summary_off"
         android:defaultValue="true" />
 
+    <ListPreference
+        android:key="text_charging_symbol"
+        android:title="@string/text_charging_symbol_title"
+        android:summary="%s"
+        android:dialogTitle="@string/text_charging_symbol_dialog"
+        android:entries="@array/text_charging_symbol_entries"
+        android:entryValues="@array/text_charging_symbol_values"
+        android:defaultValue="0" />
+
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="status_bar_charge_color"
         android:title="@string/status_bar_charge_color_title"

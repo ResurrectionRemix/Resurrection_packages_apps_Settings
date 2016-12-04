@@ -58,6 +58,7 @@ public class BatterySettings extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_BAR_LOW_COLOR = "statusbar_battery_bar_low_color";
     private static final String STATUS_BAR_BAR_HIGH_COLOR = "statusbar_battery_bar_high_color";
     private static final String STATUS_BAR_CHARGE_COLOR = "status_bar_charge_color";
+    private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
 
 
 
@@ -77,6 +78,8 @@ public class BatterySettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mBatteryBarBatteryLowColor;
     private ColorPickerPreference mBatteryBarBatteryLowColorWarn;
     private ColorPickerPreference mBatteryBarBatteryHighColor;
+    private ListPreference mTextChargingSymbol;
+    private int mTextChargingSymbolValue;
 
 
     @Override
@@ -97,6 +100,13 @@ public class BatterySettings extends SettingsPreferenceFragment implements
         mBatteryBar.setOnPreferenceChangeListener(this);
         mBatteryBar.setValue((Settings.System.getInt(resolver,
                         Settings.System.STATUSBAR_BATTERY_BAR, 0)) + "");
+
+        mTextChargingSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
+        mTextChargingSymbolValue = Settings.Secure.getInt(resolver,
+                Settings.Secure.TEXT_CHARGING_SYMBOL, 0);
+        mTextChargingSymbol.setValue(Integer.toString(mTextChargingSymbolValue));
+        mTextChargingSymbol.setSummary(mTextChargingSymbol.getEntry());
+        mTextChargingSymbol.setOnPreferenceChangeListener(this);
 
         mBatteryBarStyle = (ListPreference) findPreference(PREF_BATT_BAR_STYLE);
         mBatteryBarStyle.setOnPreferenceChangeListener(this);
@@ -250,7 +260,15 @@ public class BatterySettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(resolver,
                     Settings.Secure.STATUS_BAR_CHARGE_COLOR, color);
             return true;
-        }
+        }  else if (preference == mTextChargingSymbol) {
+            mTextChargingSymbolValue = Integer.valueOf((String) newValue);
+            int index = mTextChargingSymbol.findIndexOfValue((String) newValue);
+            mTextChargingSymbol.setSummary(
+                    mTextChargingSymbol.getEntries()[index]);
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.TEXT_CHARGING_SYMBOL, mTextChargingSymbolValue);
+            return true;
+         }
 	return false;
 	}
 
