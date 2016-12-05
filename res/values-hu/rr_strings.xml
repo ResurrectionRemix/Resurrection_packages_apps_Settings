@@ -266,6 +266,7 @@
   <string name="volume_steps_15">15</string>
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
+  <!-- Volume dialog timeout -->
   <!-- Toast Icons -->
   <string name="toast_icon_title">Buborékszöveg ikon</string>
   <string name="toast_icon_summary">A buborékszöveghez tartozó alkalmazás ikonjának megjelenítése</string>
@@ -379,7 +380,7 @@
   <string name="rr_toast_title">Buborékszöveg</string>
   <string name="rr_pm_animations_title">Kikapcsoló menü</string>
   <!-- Tiles animation style  -->
-  <string name="qs_tiles">QS csempék</string>
+  <string name="qs_tiles">Gyorsbeállítás csempék</string>
   <string name="qs_tile_animation_style_title">Animáció stílusa</string>
   <string name="qs_tile_animation_duration_title">Animáció hossza</string>
   <string name="qs_tile_animation_interpolator_title">Csempe animáció interpolátor</string>
@@ -879,28 +880,14 @@
   <!-- Advanced data tile -->
   <string name="qs_advanced_data_title">Haladó adat csempe</string>
   <string name="qs_advanced_data_summary">Egyszerű érintési művelet engedélyezése az adatforgalom engedélyezéséhez/tiltásához</string>
-  <!-- Button settings -->
+  <!-- Hardware button navigation -->
   <string name="button_pref_title">Gombok</string>
-  <string name="hardware_keys_power_key_title">Bekapcsoló gomb</string>
   <string name="hardware_keys_home_key_title">Home gomb</string>
-  <string name="hardware_keys_back_key_title">Vissza gomb</string>
   <string name="hardware_keys_menu_key_title">Menü gomb</string>
   <string name="hardware_keys_assist_key_title">Keresés gomb</string>
-  <string name="hardware_keys_appswitch_key_title">Előzmények gomb</string>
-  <string name="hardware_keys_camera_key_title">Kamera gomb</string>
-  <string name="hardware_keys_volume_keys_title">Hangerő gombok</string>
-  <string name="hardware_keys_short_press_title">Rövid érintési művelet</string>
+  <string name="hardware_keys_back_key_title">Vissza gomb</string>
   <string name="hardware_keys_long_press_title">Hosszan nyomási művelet</string>
   <string name="hardware_keys_double_tap_title">Dupla érintési művelet</string>
-  <string name="hardware_keys_action_nothing">Nincs művelet</string>
-  <string name="hardware_keys_action_menu">Menü megnyitása/bezárása</string>
-  <string name="hardware_keys_action_app_switch">Alkalmazás előzmények</string>
-  <string name="hardware_keys_action_search">Keresési segéd</string>
-  <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
-  <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
-  <string name="hardware_keys_action_launch_camera">Kamera indítása</string>
-  <string name="hardware_keys_action_sleep">Képernyő kikapcsolása</string>
-  <string name="hardware_keys_action_last_app">Utolsó alkalmazás</string>
   <string name="camera_sleep_on_release_title">Betekintés</string>
   <string name="camera_sleep_on_release_summary">A kijelző ébren marad, amíg félig lenyomva tartja a gombot</string>
   <string name="camera_launch_title">Kamera indítása</string>
@@ -960,6 +947,8 @@
   <string name="volume_keys_control_ring_stream_title">Csengőhang hangerejének vezérlése</string>
   <string name="volume_keys_control_ring_stream_summary_on">Csengőhang vezérlése hangerőgombokkal</string>
   <string name="volume_keys_control_ring_stream_summary_off">Médiahang vezérlése hangerőgombokkal</string>
+  <string name="volume_answer_call_title">Hívás fogadása</string>
+  <string name="volume_answer_call_summary">Bejövő hívások fogadása a hangerő gombok megnyomásával</string>
   <string name="camera_double_tap_power_gesture_title">Nyomja meg a bekapcsoló gombot kétszer a kamerához</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">A kamera gyors megnyitása a képernyő feloldása nélkül</string>
@@ -1010,6 +999,11 @@
   <string name="status_bar_battery_percentage_default">Rejtett</string>
   <string name="status_bar_battery_percentage_text_inside">Ikonon belül</string>
   <string name="status_bar_battery_percentage_text_next">Ikon mellett</string>
+  <string name="status_bar_charge_color_title">Állapotsori akkumulátor töltési szín</string>
+  <string name="status_bar_charge_color_summary">Az állapotsori akkumulátor ikon töltés közbeni színének beállítása</string>
+  <string name="force_charge_battery_text_title">Állapotsori akkumulátor töltési százalék</string>
+  <string name="force_charge_battery_text_summary_on">Akkumulátor százalék mutatása az ikonon kívül, töltés közben</string>
+  <string name="force_charge_battery_text_summary_off">Akkumulátor százalék mutatása az ikonon belül, töltés közben</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Állapotsor ikonjai</string>
   <string name="status_bar_icons_summary">Vezérelheti, mely állapotsori ikonok jelenjenek meg</string>
@@ -1088,6 +1082,7 @@
   <string name="clock_font_notoserif_bold">NotoSerif félkövér</string>
   <string name="clock_font_notoserif_bold_italic">NotoSerif félkövér dőlt</string>
   <string name="clock_font_size_title">Betűméret</string>
+  <string name="status_bar_clock_seconds_title">Másodpercek mutatása</string>
   <!-- Status bar temperature -->
   <string name="weather_settings_title_cclock">Óra és modul beállítások</string>
   <string name="settings_title_cclock">Időjárás beállítások</string>
@@ -1349,7 +1344,10 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth gyorskapcsoló</string>
   <string name="qs_bt_easy_toggle_summary">Engedélyezi, hogy egy megnyomás ki/be kapcsolja a Bluetooth-t ahelyett, hogy a beállításaiba vinne</string>
+  <string name="qs_music_tile_track_optional_title">Zene csempe - szám címe</string>
+  <string name="qs_music_tile_track_optional_summary">Zeneszám nevének megjelenítése a gyorsbeállítás csempe címeként</string>
   <string name="quick_settings_vibrate_title">Érintéskor rezeg</string>
+  <string name="quick_settings_vibrate_summary">Rezgés csempék érintésekor</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Gyors feloldás</string>
   <string name="unlock_quick_unlock_control_summary">Automatikus feloldás a helyes jelszó/PIN kód megadásakor</string>
@@ -1680,9 +1678,11 @@
   <string name="screenshot_options_category">Képernyőmentési beállítások</string>
   <string name="screenshot_delay_title">Képernyőmentés késleltetés</string>
   <string name="screenshot_delay_summary">Képernyőmentés készítési idő beállítása</string>
+  <!--Screenshot crop and share -->
   <string name="heads_up_settings">Lebegő értesítések</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Töltés kijelzése képernyőzáron</string>
+  <string name="lockscreen_charging_current_summary">Becsült töltőáram és feszültség megjelenítése a képernyőzáron</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Időkorlát</string>
   <string name="heads_up_time_out_summary">Lebegő értesítések megjelenítése <xliff:g id="number">%d</xliff:g> másodpercig</string>
@@ -1834,4 +1834,9 @@
   <string name="animation_no_scroll_summary_off">Letiltva</string>
   <string name="scroll_disclaimer_summary">Megjegyzés: A legtöbb alkalmazást újra kell indítani a módosított értékek életbe léptetéséhez</string>
   <string name="animation_settings_reset_message">Minden animációs beállítás visszaállítása az alapértelmezettre?</string>
+  <string name="qs_tile_title_visibility_title">Gyorsbeállítás csempe címek</string>
+  <string name="qs_tile_title_visibility_summary_on">Gyorsbeállítás csempék címei most láthatók</string>
+  <string name="qs_tile_title_visibility_summary_off">Gyorsbeállítás csempék címei most eltűntek</string>
+  <!-- setting: show CPU info-->
+  <!-- QS Header Icons -->
 </resources>

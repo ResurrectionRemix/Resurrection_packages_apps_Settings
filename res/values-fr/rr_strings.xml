@@ -266,6 +266,7 @@
   <string name="volume_steps_15">15</string>
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
+  <!-- Volume dialog timeout -->
   <!-- Toast Icons -->
   <string name="toast_icon_title">Icône pour les messages informatifs (toasts)</string>
   <string name="toast_icon_summary">Afficher l\'icône de l\'application correspondant aux messages informatifs (toasts)</string>
@@ -879,28 +880,14 @@
   <!-- Advanced data tile -->
   <string name="qs_advanced_data_title">Tuile de données avancées</string>
   <string name="qs_advanced_data_summary">Activer ou désactiver les données mobiles par appui sur la tuile</string>
-  <!-- Button settings -->
+  <!-- Hardware button navigation -->
   <string name="button_pref_title">Boutons</string>
-  <string name="hardware_keys_power_key_title">Bouton d\'alimentation</string>
   <string name="hardware_keys_home_key_title">Bouton d\'Accueil</string>
-  <string name="hardware_keys_back_key_title">Bouton retour</string>
   <string name="hardware_keys_menu_key_title">Bouton Menu</string>
   <string name="hardware_keys_assist_key_title">Bouton de recherche</string>
-  <string name="hardware_keys_appswitch_key_title">Bouton d\'applications récentes</string>
-  <string name="hardware_keys_camera_key_title">Bouton de l\'appareil photo</string>
-  <string name="hardware_keys_volume_keys_title">Boutons de volume</string>
-  <string name="hardware_keys_short_press_title">Action d\'appui court</string>
+  <string name="hardware_keys_back_key_title">Bouton retour</string>
   <string name="hardware_keys_long_press_title">Action d\'appui long</string>
   <string name="hardware_keys_double_tap_title">Action au double appui</string>
-  <string name="hardware_keys_action_nothing">Aucune action</string>
-  <string name="hardware_keys_action_menu">Ouvrir/Fermer le menu</string>
-  <string name="hardware_keys_action_app_switch">Gestionnaire d\'applis récentes</string>
-  <string name="hardware_keys_action_search">Assistant de recherche</string>
-  <string name="hardware_keys_action_voice_search">Recherche vocale</string>
-  <string name="hardware_keys_action_in_app_search">Recherche In-app</string>
-  <string name="hardware_keys_action_launch_camera">Démarrer l\'appareil photo</string>
-  <string name="hardware_keys_action_sleep">Éteindre l\'écran</string>
-  <string name="hardware_keys_action_last_app">Application précédente</string>
   <string name="camera_sleep_on_release_title">Aperçu de l\'écran</string>
   <string name="camera_sleep_on_release_summary">Un demi appui permet de garder l\'écran allumé tant que le bouton est maintenu appuyé</string>
   <string name="camera_launch_title">Démarrer l\'appareil photo</string>
@@ -960,6 +947,8 @@
   <string name="volume_keys_control_ring_stream_title">Contrôler le volume de la sonnerie</string>
   <string name="volume_keys_control_ring_stream_summary_on">Les boutons de volume contrôlent le volume de la sonnerie</string>
   <string name="volume_keys_control_ring_stream_summary_off">Les boutons de volume contrôlent le volume du média</string>
+  <string name="volume_answer_call_title">Répondre à l’appel ?</string>
+  <string name="volume_answer_call_summary">\"Accepter les appels entrants en appuyant sur la touche d\'accueil\"</string>
   <string name="camera_double_tap_power_gesture_title">Appuyer deux fois sur le bouton Marche/Arrêt pour lancer caméra</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Ouvrir rapidement l\'app. photo sans verrouiller l\'écran</string>
@@ -1010,6 +999,11 @@
   <string name="status_bar_battery_percentage_default">Cachée</string>
   <string name="status_bar_battery_percentage_text_inside">Dans l\'icône</string>
   <string name="status_bar_battery_percentage_text_next">À côté de l\'icône</string>
+  <string name="status_bar_charge_color_title">Couleur de l\'icône de la batterie dans la barre d\'état lors de la charge</string>
+  <string name="status_bar_charge_color_summary">Définir la couleur de l\'icône de la batterie dans la barre d\'état lors de la charge</string>
+  <string name="force_charge_battery_text_title">Pourcentage de charge de la batterie dans la barre d\'état</string>
+  <string name="force_charge_battery_text_summary_on">Afficher le pourcentage de batterie en dehors de l’icône pendant le chargement</string>
+  <string name="force_charge_battery_text_summary_off">Afficher le pourcentage de batterie à l’intérieur de l’icône pendant le chargement</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Icônes de la barre d\'état</string>
   <string name="status_bar_icons_summary">Contrôle quelles icônes de la barre d’état affichées</string>
@@ -1088,6 +1082,7 @@
   <string name="clock_font_notoserif_bold">NotoSerif Gras</string>
   <string name="clock_font_notoserif_bold_italic">NotoSerif Gras Italique</string>
   <string name="clock_font_size_title">Taille de la police</string>
+  <string name="status_bar_clock_seconds_title">Afficher les secondes</string>
   <!-- Status bar temperature -->
   <string name="weather_settings_title_cclock">Paramètres du widget horloge</string>
   <string name="settings_title_cclock">Paramètres Météo</string>
@@ -1349,7 +1344,10 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Activer/Désactiver facilement la connexion Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Activer/Désactiver facilement la connexion Bluetooth</string>
+  <string name="qs_music_tile_track_optional_title">Titre de la musique dans la tuile</string>
+  <string name="qs_music_tile_track_optional_summary">Montrer le titre de la musique dans la tuile des réglages rapides</string>
   <string name="quick_settings_vibrate_title">Vibrer au touché</string>
+  <string name="quick_settings_vibrate_summary">Vibrer lors des appuis sur les raccourcis</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
   <string name="unlock_quick_unlock_control_summary">Déverrouiller automatiquement lorsque le bon code PIN/mot de passe est saisi</string>
@@ -1370,7 +1368,7 @@
   <string name="trigger_bottom_summary">Ajuster la hauteur de la zone de déclenchement</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">Notifications clignotantes</string>
-  <string name="sms_breath_title">SMS</string>
+  <string name="sms_breath_title">Clignotement SMS</string>
   <string name="sms_breath_summary">Donnera à vos notifications pour les SMS un effet clignotant dans la barre d\'état</string>
   <string name="missed_call_breath_title">Effet clignotant pour les appels manqués</string>
   <string name="missed_call_breath_summary">Donnera à vos notifications d\'appels manqués un effet clignotant dans la barre de statut</string>
@@ -1649,7 +1647,7 @@
   <string name="pa_pie_killtask_title">Tuer la tâche</string>
   <string name="pa_pie_killtask_summary">Activer le bouton pour effacer toutes les applications récentes</string>
   <string name="pa_pie_notifications_title">Notifications</string>
-  <string name="pa_pie_notifications_summary">Activer la notification sonore</string>
+  <string name="pa_pie_notifications_summary">Activer le bouton de notifications</string>
   <string name="pa_pie_settings_panel_title">Panneau des Réglages Rapides</string>
   <string name="pa_pie_settings_panel_summary">Activer le bouton du panneau des réglages rapides</string>
   <string name="pa_pie_screenshot_title">Capture d\'écran</string>
@@ -1680,9 +1678,11 @@
   <string name="screenshot_options_category">Options de capture d’écran</string>
   <string name="screenshot_delay_title">Délai de capture d\'écran</string>
   <string name="screenshot_delay_summary">Régler le délai avant la prise de capture d\'écran</string>
+  <!--Screenshot crop and share -->
   <string name="heads_up_settings">Notifications flottantes</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informations de charge sur l\'écran de verrouillage</string>
+  <string name="lockscreen_charging_current_summary">Afficher la charge courante max et le voltage sur l\'écran de verrouillage</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Délai dépassé</string>
   <string name="heads_up_time_out_summary">Affichage des notifications pendant <xliff:g id="number">%d</xliff:g> secondes</string>
@@ -1694,9 +1694,9 @@
   <string name="heads_up_time_out_10sec">10 secondes</string>
   <!-- Heads up snooze -->
   <string name="heads_up_snooze_title">Minuterie de répétition</string>
-  <string name="heads_up_snooze_summary_one_minute">Les notifications ne seront pas affichées à partir de cette demande pendant 1 minute</string>
-  <string name="heads_up_snooze_summary">Les notifications ne seront pas affichées pour les prochaines <xliff:g id="number">%d</xliff:g> minutes</string>
-  <string name="heads_up_snooze_disabled_summary">La minuterie de répétition est désactivée</string>
+  <string name="heads_up_snooze_summary_one_minute">Glisser les notifications désactivera les notifications flottantes de cette application pendant 1 minutes</string>
+  <string name="heads_up_snooze_summary">Glisser les notifications désactivera les notifications flottantes de cette application pour <xliff:g id="number">%d </xliff:g> minutes</string>
+  <string name="heads_up_snooze_disabled_summary">La minuterie Snooze est désactivée</string>
   <string name="heads_up_snooze_1min">1 minute</string>
   <string name="heads_up_snooze_3min">3 minutes</string>
   <string name="heads_up_snooze_5min">5 minutes</string>
@@ -1725,7 +1725,7 @@
   <!-- SlimSizer  -->
   <string name="listsystem">liste</string>
   <string name="sizer_title">Suppression d\'applications</string>
-  <string name="caution">Prudence !</string>
+  <string name="caution">Attention!</string>
   <string name="sizer_message_startup">Cet outil va vous permettre de supprimer des applications système. Utiliser ceci avec prudence et supprimer seulement des applications que vous connaissez.</string>
   <string name="cancel">Annuler</string>
   <string name="sizer_message_delete">Êtes-vous sûr de vouloir supprimer cette application ?</string>
@@ -1747,7 +1747,7 @@
   <string name="custom_summary_explain">Entrez une nouvelle étiquette. Laissez vide pour retrouver l\'étiquette par défaut.</string>
   <!-- Custom summaries -->
   <string name="custom_summary_randomize_title">Résumé aléatoire</string>
-  <string name="custom_summary_randomize_explain">Des résumés pré-écrits seront sélectionnés au hasard et changeront à chaque fois que vous démarrez les substitutions de \nCela remplacera toutes les valeurs personnalisées.</string>
+  <string name="custom_summary_randomize_explain">Des résumés pré-écrits seront sélectionnés au hasard et changeront à chaque fois que vous lancez l\'application Paramètres.\nCela remplacera toutes les valeurs personnalisées.</string>
   <string name="sum1">Avez-vous vérifié tous les réglages ?</string>
   <string name="sum2">Dernières nouvelles : Donald Trump a changé son style de coiffure !</string>
   <string name="sum3">Vous avez tapé 100 milles fois.</string>
@@ -1765,11 +1765,11 @@
   <string name="sum15">Uniquement pour les utilisateurs pro.</string>
   <string name="sum16">Vous vous ennuyez ? Découvrez-moi dès maintenant !</string>
   <string name="sum17">Bien joué ! Vous avez gagné un bonus</string>
-  <string name="sum18">Arrêter le spam sur communauté Google+</string>
+  <string name="sum18">Arrêter le spam sur la communauté Google+</string>
   <string name="sum19">Suivez les règles d\'affichage Google+</string>
-  <string name="sum20">Noobs ne peut entrer</string>
+  <string name="sum20">Les noobs ne peut pas entrer</string>
   <string name="sum21">#Gotresurrected</string>
-  <string name="sum22">Dernières nouvelles : Apple supprimera les lampes de poche des prochains iPhone (iDob).</string>
+  <string name="sum22">Dernières nouvelles : Apple supprimera les lampes torches des prochains iPhone (iDob).</string>
   <string name="sum23">Es-tu heureux maintenant ?</string>
   <string name="sum24">C\'en est assez, arrêtez de me tapoter !</string>
   <string name="sum25">#Swagger</string>
@@ -1829,9 +1829,14 @@
   <string name="animation_overscroll_distance_title">Distance de défilement prolongé</string>
   <string name="animation_overfling_distance_title">Distance de survole</string>
   <string name="animation_duration_summary">Définir la durée</string>
-  <string name="animation_no_scroll_title">Modificateurs de défilement personnalisées</string>
+  <string name="animation_no_scroll_title">Modification de défilement personnalisées</string>
   <string name="animation_no_scroll_summary_on">Activée</string>
   <string name="animation_no_scroll_summary_off">Désactivée</string>
   <string name="scroll_disclaimer_summary">Remarque : La plupart des applications doivent être redémarrés pour que les modifications prennent effet</string>
   <string name="animation_settings_reset_message">Rétablir tous les paramètres d\'animation par défaut ?</string>
+  <string name="qs_tile_title_visibility_title">Titres dans la tuile des réglages rapides</string>
+  <string name="qs_tile_title_visibility_summary_on">Les titres dans les tuiles des réglages rapides sont maintenant visibles</string>
+  <string name="qs_tile_title_visibility_summary_off">Les titres dans les tuiles des réglages rapides sont maintenant masqués</string>
+  <!-- setting: show CPU info-->
+  <!-- QS Header Icons -->
 </resources>

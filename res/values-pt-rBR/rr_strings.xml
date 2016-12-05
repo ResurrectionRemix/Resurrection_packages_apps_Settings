@@ -266,6 +266,7 @@
   <string name="volume_steps_15">15</string>
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
+  <!-- Volume dialog timeout -->
   <!-- Toast Icons -->
   <string name="toast_icon_title">Ícone do Toast</string>
   <string name="toast_icon_summary">Exibir o ícone do aplicativo correspondente ao balão de mensagens</string>
@@ -879,28 +880,14 @@
   <!-- Advanced data tile -->
   <string name="qs_advanced_data_title">Telha de dados avançados</string>
   <string name="qs_advanced_data_summary">Permitir uma ação de toque para habilitar ou desabilitar dados</string>
-  <!-- Button settings -->
+  <!-- Hardware button navigation -->
   <string name="button_pref_title">Botões</string>
-  <string name="hardware_keys_power_key_title">Botão liga/desliga</string>
   <string name="hardware_keys_home_key_title">Botão de início</string>
-  <string name="hardware_keys_back_key_title">Botão de Voltar</string>
   <string name="hardware_keys_menu_key_title">Botão de menu</string>
   <string name="hardware_keys_assist_key_title">Botão de pesquisa</string>
-  <string name="hardware_keys_appswitch_key_title">Botão recentes</string>
-  <string name="hardware_keys_camera_key_title">Botão da câmera</string>
-  <string name="hardware_keys_volume_keys_title">Botões de Volume</string>
-  <string name="hardware_keys_short_press_title">Ação de toque rápido</string>
+  <string name="hardware_keys_back_key_title">Botão de Voltar</string>
   <string name="hardware_keys_long_press_title">Ação de toque longo</string>
   <string name="hardware_keys_double_tap_title">Ação de duplo toque</string>
-  <string name="hardware_keys_action_nothing">Nenhuma ação</string>
-  <string name="hardware_keys_action_menu">Abrir/fechar menu</string>
-  <string name="hardware_keys_action_app_switch">Alternador de apps recentes</string>
-  <string name="hardware_keys_action_search">Assistente de pesquisa</string>
-  <string name="hardware_keys_action_voice_search">Busca por voz</string>
-  <string name="hardware_keys_action_in_app_search">Busca dentro do app</string>
-  <string name="hardware_keys_action_launch_camera">Iniciar a câmera</string>
-  <string name="hardware_keys_action_sleep">Desligar a tela</string>
-  <string name="hardware_keys_action_last_app">Último aplicativo</string>
   <string name="camera_sleep_on_release_title">Visualização de tela</string>
   <string name="camera_sleep_on_release_summary">Enquanto o botão estiver semi-pressionado, a tela permanecerá ligada</string>
   <string name="camera_launch_title">Iniciar câmera</string>
@@ -960,6 +947,8 @@
   <string name="volume_keys_control_ring_stream_title">Controlar o volume da chamada</string>
   <string name="volume_keys_control_ring_stream_summary_on">Botões de volume controlam o volume do toque</string>
   <string name="volume_keys_control_ring_stream_summary_off">Teclas de volume controlam o volume de mídia</string>
+  <string name="volume_answer_call_title">Atender chamada</string>
+  <string name="volume_answer_call_summary">Atender chamadas pressionando os botões de volume</string>
   <string name="camera_double_tap_power_gesture_title">Abrir câmera pressionando o botão power duas vezes</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Abrir a câmera rapidamente sem desbloquear a tela</string>
@@ -1010,6 +999,11 @@
   <string name="status_bar_battery_percentage_default">Escondido</string>
   <string name="status_bar_battery_percentage_text_inside">Dentro do ícone</string>
   <string name="status_bar_battery_percentage_text_next">Próximo ao ícone</string>
+  <string name="status_bar_charge_color_title">StatusBar ícone de bateria cor de carregamento</string>
+  <string name="status_bar_charge_color_summary">Definir a cor do ícone da bateria do statusbar durante o carregamento</string>
+  <string name="force_charge_battery_text_title">Por cento de carga de bateria de StatusBar</string>
+  <string name="force_charge_battery_text_summary_on">Mostra a porcentagem da bateria fora o ícone durante o carregamento</string>
+  <string name="force_charge_battery_text_summary_off">Mostra a porcentagem da bateria fora o ícone durante o carregamento</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Ícones da barra de status</string>
   <string name="status_bar_icons_summary">Controle quais ícones da barra de status são mostrados</string>
@@ -1088,6 +1082,7 @@
   <string name="clock_font_notoserif_bold">NotoSerif Negrito</string>
   <string name="clock_font_notoserif_bold_italic">NotoSerif negrito itálico</string>
   <string name="clock_font_size_title">Tamanho da fonte</string>
+  <string name="status_bar_clock_seconds_title">Mostrar segundos</string>
   <!-- Status bar temperature -->
   <string name="weather_settings_title_cclock">Configurações de relógio e widget</string>
   <string name="settings_title_cclock">Configurações de Clima</string>
@@ -1349,7 +1344,10 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth fácil alternância</string>
   <string name="qs_bt_easy_toggle_summary">Faz com que um clique vai virar Bluetooth ligado ou desligado em vez de levá-lo para as configurações</string>
+  <string name="qs_music_tile_track_optional_title">Título da faixa de música da telha</string>
+  <string name="qs_music_tile_track_optional_summary">Mostrar o título da faixa de música como os QS telha título</string>
   <string name="quick_settings_vibrate_title">Vibrar ao tocar</string>
+  <string name="quick_settings_vibrate_summary">Vibrar ao tocar as tiles</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Desbloqueio rápido</string>
   <string name="unlock_quick_unlock_control_summary">Desbloquear automaticamente quando o PIN/Senha correto é inserido</string>
@@ -1680,9 +1678,11 @@
   <string name="screenshot_options_category">Opções de captura de tela</string>
   <string name="screenshot_delay_title">Atraso da captura de tela</string>
   <string name="screenshot_delay_summary">Ajustar o tempo para quando uma imagem é capturada</string>
+  <!--Screenshot crop and share -->
   <string name="heads_up_settings">Notificações pop-up</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informação de carregamento na tela de bloqueio</string>
+  <string name="lockscreen_charging_current_summary">Exibir a tensão e corrente máxima do carregador na tela de bloqueio</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Tempo limite</string>
   <string name="heads_up_time_out_summary">Mostrar notificação por<xliff:g id="number">%d</xliff:g> segundos</string>
@@ -1834,4 +1834,9 @@
   <string name="animation_no_scroll_summary_off">Desabilitado</string>
   <string name="scroll_disclaimer_summary">Nota: a maioria dos apps precisam ser reiniciados para os valores personalizados fazerem efeito</string>
   <string name="animation_settings_reset_message">Redefinir todas as configurações de animação para o padrão?</string>
+  <string name="qs_tile_title_visibility_title">Títulos de telha QS</string>
+  <string name="qs_tile_title_visibility_summary_on">Títulos de telhas QS são agora visíveis</string>
+  <string name="qs_tile_title_visibility_summary_off">Títulos de telhas QS são agora visíveis</string>
+  <!-- setting: show CPU info-->
+  <!-- QS Header Icons -->
 </resources>
