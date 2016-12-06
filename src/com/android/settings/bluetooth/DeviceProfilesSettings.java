@@ -104,7 +104,7 @@ public final class DeviceProfilesSettings extends DialogFragment implements
         deviceName.setText(mCachedDevice.getName(), TextView.BufferType.EDITABLE);
         return new AlertDialog.Builder(getContext())
                 .setView(mRootView)
-                .setNegativeButton(R.string.forget, this)
+                .setNeutralButton(R.string.forget, this)
                 .setPositiveButton(R.string.okay, this)
                 .setTitle(R.string.bluetooth_preference_paired_devices)
                 .create();
@@ -117,7 +117,7 @@ public final class DeviceProfilesSettings extends DialogFragment implements
                 EditText deviceName = (EditText) mRootView.findViewById(R.id.name);
                 mCachedDevice.setName(deviceName.getText().toString());
                 break;
-            case DialogInterface.BUTTON_NEGATIVE:
+            case DialogInterface.BUTTON_NEUTRAL:
                 mCachedDevice.unpair();
                 com.android.settings.bluetooth.Utils.updateSearchIndex(getContext(),
                         BluetoothSettings.class.getName(), mCachedDevice.getName(),

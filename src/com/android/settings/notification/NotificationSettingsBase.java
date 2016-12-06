@@ -162,13 +162,14 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
         }
     }
 
-    protected void setupImportancePrefs(boolean isSystemApp, int importance, boolean banned) {
-        if (mShowSlider) {
+    protected void setupImportancePrefs(boolean notBlockable, boolean notSilenceable,
+                                        int importance, boolean banned) {
+        if (mShowSlider && !notSilenceable) {
             setVisible(mBlock, false);
             setVisible(mSilent, false);
             mImportance.setDisabledByAdmin(mSuspendedAppsAdmin);
             mImportance.setMinimumProgress(
-                    isSystemApp ? Ranking.IMPORTANCE_MIN : Ranking.IMPORTANCE_NONE);
+                    notBlockable ? Ranking.IMPORTANCE_MIN : Ranking.IMPORTANCE_NONE);
             mImportance.setMax(importanceToLevel(Ranking.IMPORTANCE_MAX));
             mImportance.setImportance(importance);
             mImportance.setAutoOn(importance == Ranking.IMPORTANCE_UNSPECIFIED);
@@ -183,7 +184,7 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
             });
         } else {
             setVisible(mImportance, false);
-            if (isSystemApp) {
+            if (notBlockable) {
                 setVisible(mBlock, false);
             } else {
                 boolean blocked = importance == Ranking.IMPORTANCE_NONE || banned;
@@ -199,7 +200,11 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
                         return true;
                     }
                 });
-
+            }
+            if (notSilenceable) {
+                setVisible(mSilent, false);
+            } else {
+                mSilent.setChecked(importance == Ranking.IMPORTANCE_LOW);
                 mSilent.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                     @Override
                     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -211,8 +216,8 @@ abstract public class NotificationSettingsBase extends SettingsPreferenceFragmen
                         return true;
                     }
                 });
-                updateDependents(banned ? Ranking.IMPORTANCE_NONE : importance);
             }
+            updateDependents(banned ? Ranking.IMPORTANCE_NONE : importance);
         }
     }
 

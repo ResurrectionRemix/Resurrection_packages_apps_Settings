@@ -671,10 +671,10 @@ public class WifiSettings extends RestrictedSettingsFragment
                         }
                         LongPressAccessPointPreference
                                 preference = new LongPressAccessPointPreference(accessPoint,
-                                getPrefContext(), mUserBadgeCache, false, this);
+                                getPrefContext(), mUserBadgeCache, false,
+                                R.drawable.ic_wifi_signal_0, this);
                         preference.setKey(key);
                         preference.setOrder(index++);
-
                         if (mOpenSsid != null && mOpenSsid.equals(accessPoint.getSsidStr())
                                 && !accessPoint.isSaved()
                                 && accessPoint.getSecurity() != AccessPoint.SECURITY_NONE) {
@@ -683,6 +683,7 @@ public class WifiSettings extends RestrictedSettingsFragment
                         }
                         getPreferenceScreen().addPreference(preference);
                         accessPoint.setListener(this);
+                        preference.refresh();
                     }
                 }
                 removeCachedPrefs(getPreferenceScreen());

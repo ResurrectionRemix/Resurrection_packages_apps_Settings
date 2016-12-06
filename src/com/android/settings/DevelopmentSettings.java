@@ -57,11 +57,11 @@ import android.os.ServiceManager;
 import android.os.StrictMode;
 import android.os.SystemProperties;
 import android.os.UserHandle;
-import android.service.persistentdata.PersistentDataBlockManager;
 import android.os.UserManager;
 import android.os.storage.IMountService;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.service.persistentdata.PersistentDataBlockManager;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -72,9 +72,9 @@ import android.support.v7.preference.PreferenceScreen;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.ThreadedRenderer;
 import android.view.IWindowManager;
 import android.view.LayoutInflater;
+import android.view.ThreadedRenderer;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityManager;
@@ -749,10 +749,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 Settings.Global.STAY_ON_WHILE_PLUGGED_IN, 0) != 0);
         updateSwitchPreference(mBtHciSnoopLog, Settings.Secure.getInt(cr,
                 Settings.Secure.BLUETOOTH_HCI_LOG, 0) != 0);
-        if (mEnableOemUnlock != null) {
-            updateSwitchPreference(mEnableOemUnlock, Utils.isOemUnlockEnabled(getActivity()));
-            updateOemUnlockSettingDescription();
-        }
         updateSwitchPreference(mDebugViewAttributes, Settings.Global.getInt(cr,
                 Settings.Global.DEBUG_VIEW_ATTRIBUTES, 0) != 0);
         updateSwitchPreference(mForceAllowOnExternal, Settings.Global.getInt(cr,
@@ -1193,6 +1189,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void updateOemUnlockOptions() {
         if (mEnableOemUnlock != null) {
+            updateSwitchPreference(mEnableOemUnlock, Utils.isOemUnlockEnabled(getActivity()));
+            updateOemUnlockSettingDescription();
             // Showing mEnableOemUnlock preference as device has persistent data block.
             mEnableOemUnlock.setDisabledByAdmin(null);
             mEnableOemUnlock.setEnabled(enableOemUnlockPreference());
@@ -1911,7 +1909,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             getActivity().stopService(service);
         }
     }
-
 
     private void writeImmediatelyDestroyActivitiesOptions() {
         try {

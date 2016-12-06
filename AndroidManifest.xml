@@ -1012,6 +1012,7 @@
 
         <activity android:name="Settings$NightDisplaySettingsActivity"
                 android:label="@string/night_display_title"
+                android:enabled="@*android:bool/config_nightDisplayAvailable"
                 android:icon="@drawable/ic_settings_night_display"
                 android:taskAffinity="">
             <intent-filter android:priority="1">
@@ -1093,6 +1094,20 @@
                 android:value="com.android.settings.applications.ManageApplications" />
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
+        </activity>
+
+        <activity android:name="Settings$ManageDomainUrlsActivity"
+                  android:taskAffinity="com.android.settings"
+                  android:label="@string/domain_urls_title"
+                  android:icon="@drawable/ic_settings_memory">
+            <intent-filter>
+                <action android:name="android.settings.MANAGE_DOMAIN_URLS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.device" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.applications.ManageDomainUrls" />
         </activity>
 
         <activity android:name="Settings$MemorySettingsActivity"
@@ -1675,6 +1690,7 @@
             android:exported="true"
             android:taskAffinity="com.android.wizard"
             android:theme="@style/SuwThemeGlif.Light"
+            android:label="@string/lock_screen_notifications_interstitial_title"
             android:icon="@drawable/ic_suggested_notifications">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1767,7 +1783,12 @@
         <activity android:name="ChooseLockGeneric"
             android:label="@string/lockpassword_choose_lock_generic_header"
             android:excludeFromRecents="true"
-            android:theme="@style/SetupWizardTheme.Light" >
+            android:exported="false"
+            android:theme="@style/SetupWizardTheme.Light" />
+
+        <activity android:name=".password.SetNewPasswordActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true" >
             <intent-filter android:priority="1">
                 <action android:name="android.app.action.SET_NEW_PASSWORD" />
                 <action android:name="android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD" />
@@ -3293,6 +3314,18 @@
                        android:value="com.android.settings.category.personal" />
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                        android:value="true" />
+        </activity>
+
+        <activity android:name="Settings$AutomaticStorageManagerSettingsActivity"
+                  android:exported="@bool/config_storage_manager_settings_enabled"
+                  android:label="@string/automatic_storage_manager_settings"
+                  android:taskAffinity="">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.STORAGE_MANAGER_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.deletionhelper.AutomaticStorageManagerSettings" />
         </activity>
 
         <service
