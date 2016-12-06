@@ -213,7 +213,6 @@ public class HWSettings extends ActionFragment implements
         if (hasBackKey) {
             if (!showBackWake) {
                 backCategory.removePreference(findPreference(CMSettings.System.BACK_WAKE_SCREEN));
-                prefScreen.removePreference(backCategory);
             }
         } else {
             prefScreen.removePreference(backCategory);
