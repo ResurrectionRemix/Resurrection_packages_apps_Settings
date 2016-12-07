@@ -451,8 +451,8 @@ public class ChooseLockGeneric extends SettingsActivity {
                         KEY_UNLOCK_SET_PIN,
                         KEY_UNLOCK_SET_PASSWORD };
                 final int icon[] = { R.drawable.ic_security_pattern,
-                        R.string.fingerprint_unlock_set_unlock_pin,
-                        R.string.fingerprint_unlock_set_unlock_password};
+                        R.drawable.ic_security_pin,
+                        R.drawable.ic_security_pwd};
                 final int res[] = { R.string.fingerprint_unlock_set_unlock_pattern,
                         R.string.fingerprint_unlock_set_unlock_pin,
                         R.string.fingerprint_unlock_set_unlock_password };
