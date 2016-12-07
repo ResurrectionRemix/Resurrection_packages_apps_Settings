@@ -219,7 +219,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
 
-        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.1.0_r7 - NDE63X");
+        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.1.1_r4 - NMF26O");
         // Remove regulatory labels if no activity present to handle intent.
         removePreferenceIfActivityMissing(
                 KEY_REGULATORY_INFO, Settings.ACTION_SHOW_REGULATORY_INFO);
@@ -321,6 +321,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already_cm,
                         Toast.LENGTH_LONG);
                 mDevHitToast.show();
+            }
+        } else if (preference.getKey().equals(KEY_SECURITY_PATCH)) {
+            if (getPackageManager().queryIntentActivities(preference.getIntent(), 0).isEmpty()) {
+                // Don't send out the intent to stop crash
+                Log.w(LOG_TAG, "Stop click action on " + KEY_SECURITY_PATCH + ": "
+                        + "queryIntentActivities() returns empty" );
+                return true;
             }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();

@@ -35,6 +35,7 @@
             android:id="@+id/collapsed_group"
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal"
             android:gravity="center">
 
@@ -62,14 +63,13 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?android:attr/selectableItemBackground" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/detail_group"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingStart="56dp"
+            android:paddingStart="72dp"
             android:visibility="gone"
             android:orientation="vertical">
 
@@ -103,18 +103,22 @@
 
                 <Button
                     android:id="@+id/first_action"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:paddingStart="0dp"
                     android:alpha=".8"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/condition_card_first_button_text_color"
                     style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/second_action"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:alpha=".8"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/condition_card_second_button_text_color"
                     style="?android:attr/buttonBarButtonStyle" />
 

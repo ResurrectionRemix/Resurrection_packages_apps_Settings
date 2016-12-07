@@ -112,6 +112,9 @@ public class CellDataPreference extends CustomDialogPreference implements Templa
     @Override
     protected void performClick(View view) {
         MetricsLogger.action(getContext(), MetricsEvent.ACTION_CELL_DATA_TOGGLE, !mChecked);
+        final SubscriptionInfo currentSir = mSubscriptionManager.getActiveSubscriptionInfo(
+                mSubId);
+        final SubscriptionInfo nextSir = mSubscriptionManager.getDefaultDataSubscriptionInfo();
         if (mChecked) {
             super.performClick(view);
         } else {

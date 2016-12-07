@@ -99,6 +99,7 @@
         <item name="@dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
         <item name="@android:preferenceFragmentStyle">@style/PreferenceFragmentStyle</item>
         <item name="apnPreferenceStyle">@style/ApnPreference</item>
+        <item name="android:scrollbars">vertical</item>
     </style>
 
     <style name="PreferenceTheme.SetupWizard" parent="SetupWizardTheme">
@@ -123,6 +124,7 @@
 
     <style name="SetupWizardAccessibilitySwitchBarTheme" parent="ThemeOverlay.SwitchBar.Settings">
         <item name="switchBarBackgroundColor">@color/material_blue_500</item>
+        <item name="android:colorControlActivated">@android:color/white</item>
     </style>
 
     <!-- Theme with no local references, used by AccountPreferenceBase where we have to inflate

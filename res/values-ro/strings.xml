@@ -330,7 +330,7 @@
     <string name="security_settings_fingerprint_preference_title" msgid="2488725232406204350">"Amprentă"</string>
     <string name="fingerprint_manage_category_title" msgid="8293801041700001681">"Gestionați amprentele"</string>
     <string name="fingerprint_usage_category_title" msgid="8438526918999536619">"Folosiți amprenta la"</string>
-    <string name="fingerprint_add_title" msgid="1926752654454033904">"Adăugați amprenta"</string>
+    <string name="fingerprint_add_title" msgid="1926752654454033904">"Adăugați o amprentă"</string>
     <string name="fingerprint_enable_keyguard_toggle_title" msgid="5078060939636911795">"blocarea ecranului"</string>
     <plurals name="security_settings_fingerprint_preference_summary" formatted="false" msgid="624961700033979880">
       <item quantity="few"><xliff:g id="COUNT_1">%1$d</xliff:g> amprente configurate</item>
@@ -339,7 +339,9 @@
     </plurals>
     <string name="security_settings_fingerprint_preference_summary_none" msgid="1507739327565151923"></string>
     <string name="security_settings_fingerprint_enroll_introduction_title" msgid="3201556857492526098">"Deblocați cu amprenta"</string>
+    <string name="security_settings_fingerprint_enroll_introduction_title_unlock_disabled" msgid="7066417934622827305">"Folosiți amprenta"</string>
     <string name="security_settings_fingerprint_enroll_introduction_message" msgid="3508870672887336095">"Puteți să deblocați telefonul, să autorizați achiziții sau să vă conectați la aplicații atingând senzorul pentru amprente. Aveți grijă ce amprente adăugați. Aceste acțiuni sunt posibile folosind chiar și o singură amprentă adăugată.\n\nNotă: este posibil ca amprenta să fie mai puțin sigură decât un model sau un cod PIN puternic."</string>
+    <string name="security_settings_fingerprint_enroll_introduction_message_unlock_disabled" msgid="4193477159493347679">"Puteți să autorizați achiziții sau să vă conectați la aplicații atingând senzorul de amprentă. Aveți grijă ce amprente adăugați. Aceste acțiuni sunt posibile folosind chiar și o singură amprentă adăugată.\n\nNotă: nu vă puteți folosi amprenta ca să deblocați acest dispozitiv. Pentru informații suplimentare, contactați administratorul organizației."</string>
     <string name="security_settings_fingerprint_enroll_introduction_message_setup" msgid="3635924459027832861">"Puteți să deblocați telefonul, să autorizați achiziții sau să vă conectați la aplicații atingând senzorul pentru amprente. Aveți grijă ce amprente adăugați. Aceste acțiuni sunt posibile folosind chiar și o singură amprentă adăugată.\n\nNotă: este posibil ca amprenta să fie mai puțin sigură decât un model sau un cod PIN puternic."</string>
     <string name="security_settings_fingerprint_enroll_introduction_cancel" msgid="3199351118385606526">"Anulați"</string>
     <string name="security_settings_fingerprint_enroll_introduction_continue" msgid="7472492858148162530">"Continuați"</string>
@@ -381,8 +383,6 @@
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"Pe lângă deblocarea telefonului, vă puteți folosi amprenta pentru a autoriza achizițiile și accesul aplicațiilor. "<annotation id="url">"Aflați mai multe"</annotation></string>
     <string name="security_settings_fingerprint_enroll_disclaimer_lockscreen_disabled" msgid="7007548031540826618">"Opțiunea pentru blocarea ecranului este dezactivată. Contactați administratorul organizației pentru a afla mai multe. "<annotation id="admin_details">"Mai multe detalii"</annotation>\n\n"Puteți să folosiți în continuare amprenta pentru a autoriza achizițiile și accesul aplicațiilor. "<annotation id="url">"Aflați mai multe"</annotation></string>
     <string name="security_settings_fingerprint_enroll_lift_touch_again" msgid="1888772560642539718">"Ridicați degetul, apoi atingeți senzorul din nou"</string>
-    <string name="setup_fingerprint_enroll_finish_message" msgid="4132164775128798343">"Când vedeți această pictogramă, vă puteți folosi amprenta."</string>
-    <string name="setup_fingerprint_enroll_finish_secondary_message" msgid="3734962461534384882">"Pentru a schimba setările, accesați Setări &gt; Securitate &gt; Amprentă."</string>
     <string name="fingerprint_add_max" msgid="1020927549936895822">"Puteți să adăugați până la <xliff:g id="COUNT">%d</xliff:g>   amprente"</string>
     <string name="fingerprint_last_delete_title" msgid="6410310101247028988">"Eliminați toate amprentele?"</string>
     <string name="fingerprint_last_delete_message" msgid="8318926239554839722">"Nu veți putea folosi amprentele ca să deblocați telefonul, să autorizați achiziții sau să vă conectați la aplicații."</string>
@@ -454,6 +454,8 @@
     <string name="fingerprint_unlock_set_unlock_pattern" msgid="4939057588092120368">"Amprentă + model"</string>
     <string name="fingerprint_unlock_set_unlock_pin" msgid="8010746824051056986">"Amprentă + cod PIN"</string>
     <string name="fingerprint_unlock_set_unlock_password" msgid="7351131075806338634">"Amprentă + parolă"</string>
+    <string name="fingerprint_unlock_skip_fingerprint" msgid="1441077909803666681">"Continuați fără amprentă"</string>
+    <string name="fingerprint_unlock_title" msgid="2826226740306003991">"Puteți debloca telefonul folosind amprenta. Din motive de securitate, această opțiune necesită o blocare a ecranului de rezervă."</string>
     <string name="unlock_set_unlock_disabled_summary" msgid="2120729867788851674">"Dezactivată de admin./politică de criptare/acreditări stocate"</string>
     <string name="unlock_set_unlock_mode_off" msgid="5881952274566013651">"Fără"</string>
     <string name="unlock_set_unlock_mode_none" msgid="8467360084676871617">"Glisare"</string>
@@ -708,6 +710,8 @@
     <string name="wifi_more" msgid="3195296805089107950">"Mai multe"</string>
     <string name="wifi_setup_wps" msgid="8128702488486283957">"Config. automată (WPS)"</string>
     <string name="wifi_show_advanced" msgid="3409422789616520979">"Opțiuni avansate"</string>
+    <string name="wifi_advanced_toggle_description_expanded" msgid="2380600578544493084">"Listă drop-down cu Opțiuni avansate. Atingeți de două ori pentru a restrânge."</string>
+    <string name="wifi_advanced_toggle_description_collapsed" msgid="1463812308429197263">"Listă drop-down cu Opțiuni avansate. Atingeți de două ori pentru a extinde."</string>
     <string name="wifi_wps_setup_title" msgid="8207552222481570175">"Configurare protejată Wi-Fi"</string>
     <string name="wifi_wps_setup_msg" msgid="315174329121275092">"Se pornește WPS…"</string>
     <string name="wifi_wps_onstart_pbc" msgid="817003360936932340">"Apăsați pe butonul Configurare protejată Wi‑Fi de pe router. Se poate numi „WPS” sau poate fi marcat cu acest simbol:"</string>
@@ -838,10 +842,19 @@
     <string name="wifi_calling_suggestion_summary" msgid="3765923249566552233">"Folosiți rețeaua Wi-Fi în loc de rețeaua mobilă"</string>
     <string name="wifi_calling_mode_title" msgid="2164073796253284289">"Preferință pentru apelare"</string>
     <string name="wifi_calling_mode_dialog_title" msgid="8149690312199253909">"Modul Apelare prin Wi-Fi"</string>
+    <string name="wifi_calling_roaming_mode_title" msgid="1565039047187685115">"Preferințe privind roamingul"</string>
+    <!-- no translation found for wifi_calling_roaming_mode_summary (8642014873060687717) -->
+    <skip />
+    <string name="wifi_calling_roaming_mode_dialog_title" msgid="7800926602662078576">"Preferințe privind roamingul"</string>
   <string-array name="wifi_calling_mode_choices">
     <item msgid="2124257075906188844">"Se preferă conexiunea Wi-Fi"</item>
     <item msgid="5267397515594230396">"Se preferă conexiunea mobilă"</item>
     <item msgid="3132912693346866895">"Numai Wi-Fi"</item>
+  </string-array>
+  <string-array name="wifi_calling_mode_choices_v2">
+    <item msgid="742988808283756263">"Wi-Fi"</item>
+    <item msgid="122823150092396518">"Date mobile"</item>
+    <item msgid="2838022395783120596">"Numai Wi-Fi"</item>
   </string-array>
   <string-array name="wifi_calling_mode_values">
     <item msgid="4799585830102342375">"2"</item>
@@ -851,6 +864,10 @@
   <string-array name="wifi_calling_mode_choices_without_wifi_only">
     <item msgid="5782108782860004851">"Se preferă conexiunea Wi-Fi"</item>
     <item msgid="9006785365352731433">"Se preferă conexiunea mobilă"</item>
+  </string-array>
+  <string-array name="wifi_calling_mode_choices_v2_without_wifi_only">
+    <item msgid="6132150507201243768">"Wi-Fi"</item>
+    <item msgid="2749029835484916851">"Date mobile"</item>
   </string-array>
   <string-array name="wifi_calling_mode_values_without_wifi_only">
     <item msgid="2339246858001475047">"2"</item>
@@ -925,7 +942,7 @@
     <string name="auto_brightness_title" msgid="6341042882350279391">"Luminozitate adaptivă"</string>
     <string name="auto_brightness_summary" msgid="1799041158760605375">"Optimizează nivelul de luminozitate pentru lumina disponibilă"</string>
     <string name="night_display_title" msgid="2626451512200357686">"Lumină de noapte"</string>
-    <string name="night_display_text" msgid="4535302797673277668">"Lumina de noapte dă o nuanță de roșu ecranului. Astfel, este mai ușor să priviți ecranul sau să citiți într-o lumină slabă și vă poate ajuta să adormiți mai rapid."</string>
+    <string name="night_display_text" msgid="1837277457033025056">"Lumina de noapte dă o nuanță de chihlimbar ecranului. Astfel, este mai ușor să priviți ecranul sau să citiți într-o lumină slabă și vă poate ajuta să adormiți mai rapid."</string>
     <string name="night_display_category_schedule" msgid="2044072617637348966">"Program"</string>
     <string name="night_display_category_status" msgid="1952928783124400330">"Stare"</string>
     <string name="night_display_auto_mode_title" msgid="8046314360381608455">"Activați automat"</string>
@@ -934,14 +951,14 @@
     <string name="night_display_auto_mode_twilight" msgid="2123345097508167094">"De la apus la răsărit"</string>
     <string name="night_display_start_time_title" msgid="8918016772613689584">"Ora începerii"</string>
     <string name="night_display_end_time_title" msgid="8286061578083519350">"Ora încheierii"</string>
-    <string name="night_display_summary_off" msgid="1792750041697946539">"Dezactivat/<xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="night_display_summary_off_auto_mode_never" msgid="8865054549719499274">"Nu se activează niciodată automat"</string>
-    <string name="night_display_summary_off_auto_mode_custom" msgid="4962295097132112885">"Se activează automat la <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="night_display_summary_off_auto_mode_twilight" msgid="5520577516590422267">"Se activează automat la apus"</string>
-    <string name="night_display_summary_on" msgid="1355713529996456744">"Activat/<xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="night_display_summary_on_auto_mode_never" msgid="44005841579902825">"Nu se dezactivează niciodată automat"</string>
-    <string name="night_display_summary_on_auto_mode_custom" msgid="4350556852471560173">"Se dezactivează automat la <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="night_display_summary_on_auto_mode_twilight" msgid="6122152828111119250">"Se dezactivează automat la răsărit"</string>
+    <string name="night_display_summary_off" msgid="7009821232380000786">"Dezactivat. <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="night_display_summary_off_auto_mode_never" msgid="2305501561697289620">"Nu se va activa niciodată automat."</string>
+    <string name="night_display_summary_off_auto_mode_custom" msgid="1548073080728058384">"Se va activa automat la <xliff:g id="ID_1">%1$s</xliff:g>."</string>
+    <string name="night_display_summary_off_auto_mode_twilight" msgid="2737328390752018845">"Se va activa automat la apus."</string>
+    <string name="night_display_summary_on" msgid="6626224414971753417">"Activat. <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="night_display_summary_on_auto_mode_never" msgid="5217396859715040056">"Nu se va dezactiva niciodată automat."</string>
+    <string name="night_display_summary_on_auto_mode_custom" msgid="887702685252504739">"Se va dezactiva automat la <xliff:g id="ID_1">%1$s</xliff:g>."</string>
+    <string name="night_display_summary_on_auto_mode_twilight" msgid="8574989770628425398">"Se va dezactiva automat la răsărit."</string>
     <string name="screen_timeout" msgid="4351334843529712571">"Inactivitate"</string>
     <string name="screen_timeout_title" msgid="5130038655092628247">"Ecranul se dezactivează"</string>
     <string name="screen_timeout_summary" msgid="327761329263064327">"După <xliff:g id="TIMEOUT_DESCRIPTION">%1$s</xliff:g>"</string>
@@ -1007,7 +1024,7 @@
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Versiune Android"</string>
     <string name="security_patch" msgid="8438384045870296634">"Nivelul corecției de securitate Android"</string>
-    <string name="model_number" msgid="3765737700545384794">"Număr model"</string>
+    <string name="model_info" msgid="1952009518045740889">"Model"</string>
     <string name="fcc_equipment_id" msgid="149114368246356737">"ID echipament"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Versiunea benzii de bază"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Versiune nucleu"</string>
@@ -1138,8 +1155,8 @@
     <string name="storage_detail_other" msgid="8404938385075638238">"Altele"</string>
     <string name="storage_detail_system" msgid="4629506366064709687">"Sistem"</string>
     <string name="storage_detail_explore" msgid="7911344011431568294">"Explorați <xliff:g id="NAME">^1</xliff:g>"</string>
-    <string name="storage_detail_dialog_other" msgid="5343550781234524040">"Pot fi incluse fișiere trimise care au fost salvate de aplicații, fișiere descărcate de pe internet sau prin Bluetooth, fișiere Android și altele. \n\nPentru a vedea întregul conținut al stocării <xliff:g id="NAME">^1</xliff:g>, atingeți Explorați."</string>
-    <string name="storage_detail_dialog_system" msgid="3058775028564971102">"Sistemul include fișiere folosite intern de sistemul de operare Android. \n\nAceste fișiere nu pot fi afișate individual."</string>
+    <string name="storage_detail_dialog_other" msgid="8907101974576694793">"În „Altele” sunt incluse fișiere trimise care au fost salvate de aplicații, fișiere descărcate de pe internet sau prin Bluetooth, fișiere Android și altele. \n\nPentru a accesa conținutul vizibil al stocării <xliff:g id="NAME">^1</xliff:g>, atingeți Explorați."</string>
+    <string name="storage_detail_dialog_system" msgid="3417679651116003900">"Sistemul include fișiere pe care Android nu le poate afișa individual."</string>
     <string name="storage_detail_dialog_user" msgid="1675756743326079688">"Este posibil ca <xliff:g id="USER_0">^1</xliff:g> să fi salvat fotografii, muzică, filme, aplicați sau alte date care ocupă <xliff:g id="SIZE">^2</xliff:g> din spațiul de stocare. \n\nPentru a vedea detaliile, comutați la <xliff:g id="USER_1">^1</xliff:g>."</string>
     <string name="storage_wizard_init_title" msgid="5085400514028585772">"Configurați <xliff:g id="NAME">^1</xliff:g>"</string>
     <string name="storage_wizard_init_external_title" msgid="4867326438945303598">"Folosiți ca stocare portabilă"</string>
@@ -1991,7 +2008,7 @@
     <string name="gadget_brightness_state_half" msgid="3696671957608774204">"pe jumătate"</string>
     <string name="gadget_brightness_state_off" msgid="946382262872753084">"dezactivată"</string>
     <string name="vpn_settings_title" msgid="5662579425832406705">"VPN"</string>
-    <string name="credentials_title" msgid="4446234003860769883">"Stocarea acreditărilor"</string>
+    <string name="credentials_title" msgid="4446234003860769883">"Stocarea certificatelor"</string>
     <string name="credentials_install" product="nosdcard" msgid="466093273825150847">"Instalați de pe stocare"</string>
     <string name="credentials_install" product="default" msgid="953914549998062317">"Instalați de pe cardul SD"</string>
     <string name="credentials_install_summary" product="nosdcard" msgid="4220422806818210676">"Instalați certificate de pe stocare"</string>
@@ -2513,6 +2530,11 @@
     <string name="sim_calls_ask_first_prefs_title" msgid="7941299533514115976">"Întreabă mereu"</string>
     <string name="sim_selection_required_pref" msgid="3446721423206414652">"Selectați o opțiune"</string>
     <string name="dashboard_title" msgid="5453710313046681820">"Setări"</string>
+    <plurals name="settings_suggestion_header_summary_hidden_items" formatted="false" msgid="5597356221942118048">
+      <item quantity="few">Afișați %d elemente ascunse</item>
+      <item quantity="other">Afișați %d de elemente ascunse</item>
+      <item quantity="one">Afișați %d element ascuns</item>
+    </plurals>
     <string name="search_results_title" msgid="1796252422574886932">"Setări"</string>
     <string name="search_menu" msgid="6283419262313758339">"Setări de căutare"</string>
     <string name="query_hint_text" msgid="3350700807437473939">"Setări pentru căutare"</string>
@@ -2569,6 +2591,8 @@
     <string name="status_tag_not_writable" msgid="2511611539977682175">"Eticheta NFC nu poate fi scrisă. Utilizați altă etichetă."</string>
     <string name="default_sound" msgid="8821684447333687810">"Sunet prestabilit"</string>
     <string name="sound_settings_summary" msgid="4100853606668287965">"Volumul soneriei este la <xliff:g id="PERCENTAGE">%1$s</xliff:g>"</string>
+    <string name="sound_settings_summary_vibrate" msgid="1869282574422220096">"Soneria este setată pe vibrații"</string>
+    <string name="sound_settings_summary_silent" msgid="5074529767435584948">"Soneria este setată pe silențios"</string>
     <string name="sound_settings_example_summary" msgid="2404914514266523165">"Volumul soneriei este la 80%"</string>
     <string name="media_volume_option_title" msgid="2811531786073003825">"Volum media"</string>
     <string name="alarm_volume_option_title" msgid="8219324421222242421">"Volum alarmă"</string>
@@ -2608,8 +2632,8 @@
     <string name="notification_pulse_title" msgid="1247988024534030629">"Indicator luminos intermitent"</string>
     <string name="lock_screen_notifications_title" msgid="6173076173408887213">"Pe ecranul de blocare"</string>
     <string name="lock_screen_notifications_summary_show" msgid="6407527697810672847">"Afișați integral conținutul notificărilor"</string>
-    <string name="lock_screen_notifications_summary_hide" msgid="7891552853357258782">"Ascundeți conținutul sensibil din notificări"</string>
-    <string name="lock_screen_notifications_summary_disable" msgid="859628910427886715">"Nu afișați nicio notificare"</string>
+    <string name="lock_screen_notifications_summary_hide" msgid="7891552853357258782">"Ascunde conținutul sensibil din notificări"</string>
+    <string name="lock_screen_notifications_summary_disable" msgid="859628910427886715">"Nu afișa nicio notificare"</string>
     <string name="lock_screen_notifications_interstitial_message" msgid="6164532459432182244">"Când dispozitivul este blocat, cum doriți să se afișeze notificările?"</string>
     <string name="lock_screen_notifications_interstitial_title" msgid="1416589393106326972">"Notificări"</string>
     <string name="lock_screen_notifications_summary_show_profile" msgid="835870815661120772">"Afișați tot conținutul notificărilor de serviciu"</string>
@@ -2647,9 +2671,9 @@
     <string name="no_vr_listeners" msgid="2689382881717507390">"Nicio aplicație instalată nu a solicitat să fie rulată ca un serviciu de ajutor pentru Realitatea virtuală."</string>
     <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Permiteți accesul la serviciul de Realitate virtuală pentru <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> va putea rula când folosiți aplicațiile în modul de realitate virtuală."</string>
-    <string name="display_vr_pref_title" msgid="7049857952347953979">"Când dispozitivul este în modul RV"</string>
-    <string name="display_vr_pref_low_persistence" msgid="6221441245293606681">"Folosiți setări pentru reducerea estompării cauzate de mișcare"</string>
-    <string name="display_vr_pref_off" msgid="1244880066079174840">"Nu schimbați nimic"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Când dispozitivul este în modul VR"</string>
+    <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Reduceți estomparea (recomandat)"</string>
+    <string name="display_vr_pref_off" msgid="2190091757123260989">"Reduceți pâlpâirea"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Accesul Nu deranja"</string>
     <string name="zen_access_empty_text" msgid="8772967285742259540">"Nicio aplicație instalată nu a solicitat accesul Nu deranja"</string>
     <string name="loading_notification_apps" msgid="5031818677010335895">"Se încarcă aplicațiile..."</string>
@@ -3066,7 +3090,7 @@
     <string name="condition_work_title" msgid="7293722361184366648">"Profil de serviciu dezactivat"</string>
     <string name="condition_work_summary" msgid="7543202177571590378">"Aplicațiile, sincronizarea în fundal și alte funcții asociate profilului de serviciu sunt dezactivate."</string>
     <string name="condition_night_display_title" msgid="5599814941976856183">"Lumina de noapte este activată"</string>
-    <string name="condition_night_display_summary" msgid="6156601053674688864">"Ecranul are o tentă roșiatică. Acest lucru vă poate ajuta să adormiți."</string>
+    <string name="condition_night_display_summary" msgid="5443722724310650381">"Ecranul are o tentă de chihlimbar. Acest lucru vă poate ajuta să adormiți."</string>
     <string name="suggestions_title" msgid="7280792342273268377">"Sugestii"</string>
     <string name="suggestions_summary" msgid="2509040178581728056">"+<xliff:g id="ID_1">%1$d</xliff:g>"</string>
     <string name="suggestion_remove" msgid="904627293892092439">"Eliminați"</string>
@@ -3091,6 +3115,7 @@
     <string name="network_restrictions" msgid="8234695294536675380">"Restricții de rețea"</string>
     <string name="operator_warning" msgid="1862988028996859195">"Cuantificarea datelor de către operator poate fi diferită de cea de pe dispozitiv"</string>
     <string name="data_used_template" msgid="3245919669966296505">"Date utilizate: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="set_data_warning" msgid="6115364758236594593">"Setați avertisment pentru date"</string>
     <string name="data_warning" msgid="209133958008062117">"Avertisment pentru date"</string>
     <string name="set_data_limit" msgid="2901526323210516923">"Setați limita de date"</string>
     <string name="data_limit" msgid="1885406964934590552">"Limită de date"</string>
@@ -3191,7 +3216,6 @@
     <string name="support_sign_in_button_text" msgid="3054769428620671241">"Conectați-vă"</string>
     <string name="support_sign_in_required_help" msgid="5200654782405538114">"Nu vă puteți conecta?"</string>
     <string name="support_disclaimer_title" msgid="4825302018208770031">"Trimiteți informațiile despre sistem"</string>
-    <string name="support_disclaimer_content" msgid="6702447747744624871">"Pentru a remedia problema rapid, avem nevoie de informații despre sistem pentru diagnosticare."</string>
     <string name="support_disclaimer_do_not_show" msgid="3378367075323727539">"Nu mai afișa"</string>
     <string name="managed_profile_settings_title" msgid="2729481936758125054">"Setările profilului de serviciu"</string>
     <string name="managed_profile_contact_search_title" msgid="6034734926815544221">"Căutarea persoanelor de contact"</string>
@@ -3227,15 +3251,27 @@
     <string name="deletion_helper_manual_title" msgid="7947432164411214029">"Manuale"</string>
     <string name="deletion_helper_preference_title" msgid="5271510052022285884">"Eliberați spațiu acum"</string>
     <string name="gesture_preference_title" msgid="5280023307132819052">"Gesturi"</string>
-    <string name="gesture_preference_summary" msgid="8627850388011956901">"Gesturi rapide pentru a controla telefonul"</string>
+    <string name="gesture_preference_summary" product="default" msgid="8627850388011956901">"Gesturi rapide pentru a controla telefonul"</string>
+    <string name="gesture_preference_summary" product="tablet" msgid="4717535378272065510">"Gesturi rapide pentru controlul tabletei"</string>
+    <string name="gesture_preference_summary" product="device" msgid="4205941452664950852">"Gesturi rapide pentru controlul dispozitivului"</string>
     <string name="double_tap_power_for_camera_title" msgid="2993443929413421363">"Accesați camera foto"</string>
-    <string name="double_tap_power_for_camera_summary" msgid="6988157149749655988">"Pentru a deschide rapid camera foto, atingeți de două ori butonul de pornire. Funcționează din orice ecran."</string>
+    <string name="double_tap_power_for_camera_summary" msgid="6005086458928518432">"Pentru a deschide rapid camera foto, apăsați de două ori butonul de pornire. Funcționează din orice ecran."</string>
     <string name="double_twist_for_camera_mode_title" msgid="4877834147983530479">"Comutați camera foto"</string>
     <string name="double_twist_for_camera_mode_summary" msgid="122977081337563340"></string>
-    <string name="ambient_display_title" msgid="7369291941168001738">"Verificare rapidă a ecranului"</string>
-    <string name="ambient_display_summary" msgid="3606386731704368561">"Pentru a verifica telefonul fără să îl activați complet, atingeți-l de două ori sau ridicați-l"</string>
+    <string name="ambient_display_title" product="default" msgid="5144814600610448504">"Atingeți de două ori pentru a verifica telefonul"</string>
+    <string name="ambient_display_title" product="tablet" msgid="8688795028609563837">"Atingeți de două ori pentru a verifica tableta"</string>
+    <string name="ambient_display_title" product="device" msgid="3423781975742145894">"Atingeți de două ori pentru a verifica dispozitivul"</string>
+    <string name="ambient_display_summary" msgid="5817384104520817202">"Pentru a verifica rapid notificările, atingeți ecranul de două ori"</string>
+    <string name="ambient_display_pickup_title" product="default" msgid="818688002837687268">"Ridicați pentru a verifica telefonul"</string>
+    <string name="ambient_display_pickup_title" product="tablet" msgid="4455864282995698097">"Ridicați pentru a verifica tableta"</string>
+    <string name="ambient_display_pickup_title" product="device" msgid="5380534405773531175">"Ridicați pentru a verifica dispozitivul"</string>
+    <string name="ambient_display_pickup_summary" product="default" msgid="7887685543895952417">"Pentru a verifica rapid notificările, ridicați telefonul"</string>
+    <string name="ambient_display_pickup_summary" product="tablet" msgid="4703466494089486840">"Pentru a verifica rapid notificările, ridicați tableta"</string>
+    <string name="ambient_display_pickup_summary" product="device" msgid="3557276829636914807">"Pentru a verifica rapid notificările, ridicați dispozitivul"</string>
     <string name="fingerprint_swipe_for_notifications_title" msgid="2750203868053669600">"Glisați pentru notificări"</string>
-    <string name="fingerprint_swipe_for_notifications_summary" msgid="5274050434459511239">"Pentru a verifica notificările, glisați în jos pe senzorul de amprentă de pe partea din spate a telefonului"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" product="default" msgid="5274050434459511239">"Pentru a verifica notificările, glisați în jos pe senzorul de amprentă de pe partea din spate a telefonului"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" product="tablet" msgid="7557602481555096698">"Pentru a verifica notificările, glisați în jos pe senzorul de amprentă de pe spatele tabletei"</string>
+    <string name="fingerprint_swipe_for_notifications_summary" product="device" msgid="5635310946298433769">"Pentru a verifica notificările, glisați în jos pe senzorul de amprentă de pe spatele dispozitivului"</string>
     <string name="gesture_setting_on" msgid="3455094265233870280">"Activat"</string>
     <string name="gesture_setting_off" msgid="5230169535435881894">"Dezactivat"</string>
     <string name="oem_unlock_enable_disabled_summary_bootloader_unlocked" msgid="4265541229765635629">"Bootloaderul este deja deblocat"</string>
@@ -3243,4 +3279,9 @@
     <string name="oem_unlock_enable_disabled_summary_connectivity_or_locked" msgid="5884723935668892613">"Conectați-vă la internet sau contactați-vă operatorul"</string>
     <string name="oem_unlock_enable_disabled_summary_sim_locked_device" msgid="4149387448213399630">"Nu este disponibilă pe dispozitivele blocate de operator"</string>
     <string name="automatic_storage_manager_freed_bytes" msgid="7517560170441007788">"Un spațiu total disponibil de <xliff:g id="SIZE">%1$s</xliff:g>\n\nData ultimei rulări: <xliff:g id="DATE">%2$s</xliff:g>"</string>
+    <string name="web_action_enable_title" msgid="8502552575492048305">"Deschideți linkuri în aplicații"</string>
+    <string name="web_action_enable_summary" msgid="4679844581193646863">"Deschideți linkuri în aplicațiile acceptate, chiar dacă aplicațiile nu sunt instalate pe dispozitiv"</string>
+    <string name="web_action_section_title" msgid="806405168097593614">"Aplicații neinstalate"</string>
+    <string name="domain_url_section_title" msgid="7046835219056428883">"Aplicații instalate"</string>
+    <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Spațiul de stocare este acum gestionat de managerul spațiului de stocare"</string>
 </resources>
