@@ -155,7 +155,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String DISABLE_OVERLAYS_KEY = "disable_overlays";
     private static final String SIMULATE_COLOR_SPACE = "simulate_color_space";
     private static final String USB_AUDIO_KEY = "usb_audio";
-    private static final String SHOW_CPU_USAGE_KEY = "show_cpu_usage";
     private static final String SHOW_CPU_INFO_KEY = "show_cpu_info";
     private static final String FORCE_HARDWARE_UI_KEY = "force_hw_ui";
     private static final String FORCE_MSAA_KEY = "force_msaa";
@@ -455,7 +454,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mShowTouches = findAndInitSwitchPref(SHOW_TOUCHES_KEY);
         mShowScreenUpdates = findAndInitSwitchPref(SHOW_SCREEN_UPDATES_KEY);
         mDisableOverlays = findAndInitSwitchPref(DISABLE_OVERLAYS_KEY);
-        mShowCpuUsage = findAndInitSwitchPref(SHOW_CPU_USAGE_KEY);
         mShowCpuInfo = findAndInitSwitchPref(SHOW_CPU_INFO_KEY);
         mForceHardwareUi = findAndInitSwitchPref(FORCE_HARDWARE_UI_KEY);
         mForceMsaa = findAndInitSwitchPref(FORCE_MSAA_KEY);
@@ -761,7 +759,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updatePointerLocationOptions();
         updateShowTouchesOptions();
         updateFlingerOptions();
-        updateCpuUsageOptions();
         updateCpuInfoOptions();
         updateHardwareUiOptions();
         updateMsaaOptions();
@@ -1873,25 +1870,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         }
     }
 
-    private void updateCpuUsageOptions() {
-        updateSwitchPreference(mShowCpuUsage,
-                Settings.Global.getInt(getActivity().getContentResolver(),
-                        Settings.Global.SHOW_PROCESSES, 0) != 0);
-    }
-
-    private void writeCpuUsageOptions() {
-        boolean value = mShowCpuUsage.isChecked();
-        Settings.Global.putInt(getActivity().getContentResolver(),
-                Settings.Global.SHOW_PROCESSES, value ? 1 : 0);
-        Intent service = (new Intent())
-                .setClassName("com.android.systemui", "com.android.systemui.LoadAverageService");
-        if (value) {
-            getActivity().startService(service);
-        } else {
-            getActivity().stopService(service);
-        }
-    }
-
     private void updateCpuInfoOptions() {
         updateSwitchPreference(mShowCpuInfo, Settings.Global.getInt(getActivity().getContentResolver(),
                 Settings.Global.SHOW_CPU, 0) != 0);
@@ -2237,8 +2215,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             writeShowUpdatesOption();
         } else if (preference == mDisableOverlays) {
             writeDisableOverlaysOption();
-        } else if (preference == mShowCpuUsage) {
-            writeCpuUsageOptions();
         } else if (preference == mShowCpuInfo) {
             writeCpuInfoOptions();
         } else if (preference == mImmediatelyDestroyActivities) {
