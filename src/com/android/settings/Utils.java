@@ -25,6 +25,7 @@ import android.app.AppGlobals;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.IActivityManager;
+import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -49,8 +50,6 @@ import android.net.LinkProperties;
 import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.INetworkManagementService;
 import android.os.Looper;
@@ -92,6 +91,7 @@ import android.widget.TabWidget;
 import com.android.internal.app.UnlaunchableAppActivity;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.UserIcons;
+import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 
@@ -522,7 +522,7 @@ public final class Utils extends com.android.settingslib.Utils {
         if (resultTo == null) {
             context.startActivity(intent);
         } else {
-            resultTo.startActivityForResult(intent, resultRequestCode);
+            resultTo.getActivity().startActivityForResult(intent, resultRequestCode);
         }
     }
 
@@ -1155,6 +1155,30 @@ public final class Utils extends com.android.settingslib.Utils {
             return true;
         }
         return false;
+    }
+
+    public static boolean unlockWorkProfileIfNecessary(Context context, int userId) {
+        try {
+            if (!ActivityManagerNative.getDefault().isUserRunning(userId,
+                    ActivityManager.FLAG_AND_LOCKED)) {
+                return false;
+            }
+        } catch (RemoteException e) {
+            return false;
+        }
+        if (!(new LockPatternUtils(context)).isSecure(userId)) {
+            return false;
+        }
+        final KeyguardManager km = (KeyguardManager) context.getSystemService(
+                Context.KEYGUARD_SERVICE);
+        final Intent unlockIntent = km.createConfirmDeviceCredentialIntent(null, null, userId);
+        if (unlockIntent != null) {
+            context.startActivity(unlockIntent);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public static CharSequence getApplicationLabel(Context context, String packageName) {

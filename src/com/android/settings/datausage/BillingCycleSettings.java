@@ -17,6 +17,7 @@ package com.android.settings.datausage;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -34,6 +35,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settingslib.NetworkPolicyEditor;
@@ -45,7 +47,7 @@ import static android.net.TrafficStats.GB_IN_BYTES;
 import static android.net.TrafficStats.MB_IN_BYTES;
 
 public class BillingCycleSettings extends DataUsageBase implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, DataUsageEditController {
 
     private static final String TAG = "BillingCycleSettings";
     private static final boolean LOGD = false;
@@ -55,6 +57,7 @@ public class BillingCycleSettings extends DataUsageBase implements
     private static final String TAG_WARNING_EDITOR = "warningEditor";
 
     private static final String KEY_BILLING_CYCLE = "billing_cycle";
+    private static final String KEY_SET_DATA_WARNING = "set_data_warning";
     private static final String KEY_DATA_WARNING = "data_warning";
     private static final String KEY_SET_DATA_LIMIT = "set_data_limit";
     private static final String KEY_DATA_LIMIT = "data_limit";
@@ -66,6 +69,7 @@ public class BillingCycleSettings extends DataUsageBase implements
     private NetworkTemplate mNetworkTemplate;
     private Preference mBillingCycle;
     private Preference mDataWarning;
+    private SwitchPreference mEnableDataWarning;
     private SwitchPreference mEnableDataLimit;
     private Preference mDataLimit;
     private DataUsageController mDataUsageController;
@@ -84,6 +88,8 @@ public class BillingCycleSettings extends DataUsageBase implements
 
         addPreferencesFromResource(R.xml.billing_cycle);
         mBillingCycle = findPreference(KEY_BILLING_CYCLE);
+        mEnableDataWarning = (SwitchPreference) findPreference(KEY_SET_DATA_WARNING);
+        mEnableDataWarning.setOnPreferenceChangeListener(this);
         mDataWarning = findPreference(KEY_DATA_WARNING);
         mEnableDataLimit = (SwitchPreference) findPreference(KEY_SET_DATA_LIMIT);
         mEnableDataLimit.setOnPreferenceChangeListener(this);
@@ -106,10 +112,15 @@ public class BillingCycleSettings extends DataUsageBase implements
         NetworkPolicy policy = services.mPolicyEditor.getPolicy(mNetworkTemplate);
         mBillingCycle.setSummary(getString(R.string.billing_cycle_summary, policy != null ?
                 policy.cycleDay : 1));
-        mDataWarning.setSummary(Formatter.formatFileSize(getContext(),
-                policy != null
-                        ? policy.warningBytes
-                        : mDataUsageController.getDefaultWarningLevel()));
+        if (policy != null && policy.warningBytes != WARNING_DISABLED) {
+            mDataWarning.setSummary(Formatter.formatFileSize(getContext(), policy.warningBytes));
+            mDataWarning.setEnabled(true);
+            mEnableDataWarning.setChecked(true);
+        } else {
+            mDataWarning.setSummary(null);
+            mDataWarning.setEnabled(false);
+            mEnableDataWarning.setChecked(false);
+        }
         if (policy != null && policy.limitBytes != LIMIT_DISABLED) {
             mDataLimit.setSummary(Formatter.formatFileSize(getContext(), policy.limitBytes));
             mDataLimit.setEnabled(true);
@@ -147,6 +158,14 @@ public class BillingCycleSettings extends DataUsageBase implements
                 setPolicyLimitBytes(LIMIT_DISABLED);
             }
             return true;
+        } else if (mEnableDataWarning == preference) {
+            boolean enabled = (Boolean) newValue;
+            if (enabled) {
+                setPolicyWarningBytes(mDataUsageController.getDefaultWarningLevel());
+            } else {
+                setPolicyWarningBytes(WARNING_DISABLED);
+            }
+            return true;
         } else if (mEnableDataTimeRange == preference) {
             boolean enabled = (Boolean) newValue;
             mShowDataUsage = !mShowDataUsage;
@@ -169,33 +188,58 @@ public class BillingCycleSettings extends DataUsageBase implements
         updatePrefs();
     }
 
+    private void setPolicyWarningBytes(long warningBytes) {
+        if (LOGD) Log.d(TAG, "setPolicyWarningBytes()");
+        services.mPolicyEditor.setPolicyWarningBytes(mNetworkTemplate, warningBytes);
+        updatePrefs();
+    }
+
+    @Override
+    public NetworkPolicyEditor getNetworkPolicyEditor() {
+        return services.mPolicyEditor;
+    }
+
+    @Override
+    public NetworkTemplate getNetworkTemplate() {
+        return mNetworkTemplate;
+    }
+
+    @Override
+    public void updateDataUsage() {
+        updatePrefs();
+    }
+
     /**
      * Dialog to edit {@link NetworkPolicy#warningBytes}.
      */
     public static class BytesEditorFragment extends DialogFragment
-            implements DialogInterface.OnClickListener{
+            implements DialogInterface.OnClickListener {
         private static final String EXTRA_TEMPLATE = "template";
         private static final String EXTRA_LIMIT = "limit";
         private View mView;
 
-        public static void show(BillingCycleSettings parent, boolean isLimit) {
-            if (!parent.isAdded()) return;
+        public static void show(DataUsageEditController parent, boolean isLimit) {
+            if (!(parent instanceof Fragment)) {
+                return;
+            }
+            Fragment targetFragment = (Fragment) parent;
+            if (!targetFragment.isAdded()) {
+                return;
+            }
 
             final Bundle args = new Bundle();
-            args.putParcelable(EXTRA_TEMPLATE, parent.mNetworkTemplate);
+            args.putParcelable(EXTRA_TEMPLATE, parent.getNetworkTemplate());
             args.putBoolean(EXTRA_LIMIT, isLimit);
 
             final BytesEditorFragment dialog = new BytesEditorFragment();
             dialog.setArguments(args);
-            dialog.setTargetFragment(parent, 0);
-            dialog.show(parent.getFragmentManager(), TAG_WARNING_EDITOR);
+            dialog.setTargetFragment(targetFragment, 0);
+            dialog.show(targetFragment.getFragmentManager(), TAG_WARNING_EDITOR);
         }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Context context = getActivity();
-
-
             final LayoutInflater dialogInflater = LayoutInflater.from(context);
             final boolean isLimit = getArguments().getBoolean(EXTRA_LIMIT);
             mView = dialogInflater.inflate(R.layout.data_usage_bytes_editor, null, false);
@@ -210,8 +254,8 @@ public class BillingCycleSettings extends DataUsageBase implements
         }
 
         private void setupPicker(EditText bytesPicker, Spinner type) {
-            final BillingCycleSettings target = (BillingCycleSettings) getTargetFragment();
-            final NetworkPolicyEditor editor = target.services.mPolicyEditor;
+            final DataUsageEditController target = (DataUsageEditController) getTargetFragment();
+            final NetworkPolicyEditor editor = target.getNetworkPolicyEditor();
 
             final NetworkTemplate template = getArguments().getParcelable(EXTRA_TEMPLATE);
             final boolean isLimit = getArguments().getBoolean(EXTRA_LIMIT);
@@ -220,10 +264,16 @@ public class BillingCycleSettings extends DataUsageBase implements
             final long limitDisabled = isLimit ? LIMIT_DISABLED : WARNING_DISABLED;
 
             if (bytes > 1.5f * GB_IN_BYTES) {
-                bytesPicker.setText(formatText(bytes / (float) GB_IN_BYTES));
+                final String bytesText = formatText(bytes / (float) GB_IN_BYTES);
+                bytesPicker.setText(bytesText);
+                bytesPicker.setSelection(0, bytesText.length());
+
                 type.setSelection(1);
             } else {
-                bytesPicker.setText(formatText(bytes / (float) MB_IN_BYTES));
+                final String bytesText = formatText(bytes / (float) MB_IN_BYTES);
+                bytesPicker.setText(bytesText);
+                bytesPicker.setSelection(0, bytesText.length());
+
                 type.setSelection(0);
             }
         }
@@ -238,8 +288,8 @@ public class BillingCycleSettings extends DataUsageBase implements
             if (which != DialogInterface.BUTTON_POSITIVE) {
                 return;
             }
-            final BillingCycleSettings target = (BillingCycleSettings) getTargetFragment();
-            final NetworkPolicyEditor editor = target.services.mPolicyEditor;
+            final DataUsageEditController target = (DataUsageEditController) getTargetFragment();
+            final NetworkPolicyEditor editor = target.getNetworkPolicyEditor();
 
             final NetworkTemplate template = getArguments().getParcelable(EXTRA_TEMPLATE);
             final boolean isLimit = getArguments().getBoolean(EXTRA_LIMIT);
@@ -251,13 +301,13 @@ public class BillingCycleSettings extends DataUsageBase implements
                 bytesString = "0";
             }
             final long bytes = (long) (Float.valueOf(bytesString)
-                        * (spinner.getSelectedItemPosition() == 0 ? MB_IN_BYTES : GB_IN_BYTES));
+                    * (spinner.getSelectedItemPosition() == 0 ? MB_IN_BYTES : GB_IN_BYTES));
             if (isLimit) {
                 editor.setPolicyLimitBytes(template, bytes);
             } else {
                 editor.setPolicyWarningBytes(template, bytes);
             }
-            target.updatePrefs();
+            target.updateDataUsage();
         }
     }
 
@@ -265,7 +315,7 @@ public class BillingCycleSettings extends DataUsageBase implements
      * Dialog to edit {@link NetworkPolicy#cycleDay}.
      */
     public static class CycleEditorFragment extends DialogFragment implements
-            DialogInterface.OnClickListener{
+            DialogInterface.OnClickListener {
         private static final String EXTRA_TEMPLATE = "template";
         private NumberPicker mCycleDayPicker;
 
@@ -284,8 +334,8 @@ public class BillingCycleSettings extends DataUsageBase implements
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Context context = getActivity();
-            final BillingCycleSettings target = (BillingCycleSettings) getTargetFragment();
-            final NetworkPolicyEditor editor = target.services.mPolicyEditor;
+            final DataUsageEditController target = (DataUsageEditController) getTargetFragment();
+            final NetworkPolicyEditor editor = target.getNetworkPolicyEditor();
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(context);
             final LayoutInflater dialogInflater = LayoutInflater.from(builder.getContext());
@@ -310,8 +360,8 @@ public class BillingCycleSettings extends DataUsageBase implements
         @Override
         public void onClick(DialogInterface dialog, int which) {
             final NetworkTemplate template = getArguments().getParcelable(EXTRA_TEMPLATE);
-            final BillingCycleSettings target = (BillingCycleSettings) getTargetFragment();
-            final NetworkPolicyEditor editor = target.services.mPolicyEditor;
+            final DataUsageEditController target = (DataUsageEditController) getTargetFragment();
+            final NetworkPolicyEditor editor = target.getNetworkPolicyEditor();
 
             // clear focus to finish pending text edits
             mCycleDayPicker.clearFocus();
@@ -319,7 +369,7 @@ public class BillingCycleSettings extends DataUsageBase implements
             final int cycleDay = mCycleDayPicker.getValue();
             final String cycleTimezone = new Time().timezone;
             editor.setPolicyCycleDay(template, cycleDay, cycleTimezone);
-            target.updatePrefs();
+            target.updateDataUsage();
         }
     }
 
@@ -328,7 +378,7 @@ public class BillingCycleSettings extends DataUsageBase implements
      * {@link NetworkPolicy#limitBytes}.
      */
     public static class ConfirmLimitFragment extends DialogFragment implements
-            DialogInterface.OnClickListener{
+            DialogInterface.OnClickListener {
         private static final String EXTRA_MESSAGE = "message";
         private static final String EXTRA_LIMIT_BYTES = "limitBytes";
         public static final float FLOAT = 1.2f;

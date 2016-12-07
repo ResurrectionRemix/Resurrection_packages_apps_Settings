@@ -15,6 +15,8 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
+        xmlns:settings="http://schemas.android.com/apk/res-auto"
         android:title="@string/about_settings">
 
         <!-- System update settings - launches activity -->
@@ -90,11 +92,15 @@
                 android:summary="@string/device_info_default"/>
 
         <!-- Device hardware model -->
-        <Preference android:key="device_model"
+        <com.android.settings.DividerPreference
+                android:key="device_model"
                 android:enabled="false"
                 android:shouldDisableView="false"
+                android:selectable="false"
                 android:title="@string/device_model"
-                android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default"
+                settings:allowDividerAbove="true"
+                settings:allowDividerBelow="true"/>
 
         <!-- Device firmware version -->
         <Preference android:key="firmware_version"
@@ -112,18 +118,26 @@
         </PreferenceScreen>
 
         <!-- Device FCC equipment id -->
-        <Preference android:key="fcc_equipment_id"
+        <com.android.settings.DividerPreference
+                android:key="fcc_equipment_id"
                 android:enabled="false"
                 android:shouldDisableView="false"
+                android:selectable="false"
                 android:title="@string/fcc_equipment_id"
-                android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default"
+                settings:allowDividerAbove="true"
+                settings:allowDividerBelow="true"/>
 
         <!-- Device Baseband version -->
-        <Preference android:key="baseband_version"
+        <com.android.settings.DividerPreference
+                android:key="baseband_version"
                 android:enabled="false"
                 android:shouldDisableView="false"
+                android:selectable="false"
                 android:title="@string/baseband_version"
-                android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default"
+                settings:allowDividerAbove="true"
+                settings:allowDividerBelow="true"/>
 
 
         <!-- Device MBN version -->
@@ -134,11 +148,15 @@
 				android:summary="@string/device_info_default"/>
 
         <!-- Device Kernel version -->
-        <Preference android:key="kernel_version"
+        <com.android.settings.DividerPreference
+                android:key="kernel_version"
                 android:enabled="false"
                 android:shouldDisableView="false"
+                android:selectable="false"
                 android:title="@string/kernel_version"
-                android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default"
+                settings:allowDividerAbove="true"
+                settings:allowDividerBelow="true"/>
 
         <!-- Device cpu info -->
         <Preference android:key="device_cpu"
@@ -166,10 +184,14 @@
 		android:summary="@string/device_info_default"/>
 
         <!-- SELinux status information -->
-        <Preference android:key="selinux_status"
+        <com.android.settings.DividerPreference
+                android:key="selinux_status"
                 android:enabled="false"
                 android:shouldDisableView="false"
+                android:selectable="false"
                 android:title="@string/selinux_status"
-                android:summary="@string/selinux_status_enforcing"/>
+                android:summary="@string/selinux_status_enforcing"
+                settings:allowDividerAbove="true"
+                settings:allowDividerBelow="true"/>
 
 </PreferenceScreen>

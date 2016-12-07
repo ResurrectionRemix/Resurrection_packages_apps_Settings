@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings.Secure;
 import android.support.v7.preference.Preference;
@@ -30,6 +31,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.internal.hardware.AmbientDisplayConfiguration;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -50,12 +52,14 @@ public class GestureSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "GestureSettings";
     private static final String PREF_KEY_DOUBLE_TAP_POWER = "gesture_double_tap_power";
     private static final String PREF_KEY_DOUBLE_TWIST = "gesture_double_twist";
+    private static final String PREF_KEY_PICK_UP = "gesture_pick_up";
     private static final String PREF_KEY_SWIPE_DOWN_FINGERPRINT = "gesture_swipe_down_fingerprint";
-    private static final int PREF_ID_DOUBLE_TAP_POWER = 0;
-    private static final int PREF_ID_DOUBLE_TWIST = 1;
-    private static final int PREF_ID_SWIPE_DOWN_FINGERPRINT = 2;
+    private static final String PREF_KEY_DOUBLE_TAP_SCREEN = "gesture_double_tap_screen";
+    private static final String DEBUG_DOZE_COMPONENT = "debug.doze.component";
 
     private List<GesturePreference> mPreferences;
+
+    private AmbientDisplayConfiguration mAmbientConfig;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,19 +68,33 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         Context context = getActivity();
         mPreferences = new ArrayList();
 
-         // Double tap power for camera
+        // Double tap power for camera
         if (isCameraDoubleTapPowerGestureAvailable(getResources())) {
             int cameraDisabled = Secure.getInt(
                     getContentResolver(), Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 0);
-            addPreference(PREF_KEY_DOUBLE_TAP_POWER, cameraDisabled == 0, PREF_ID_DOUBLE_TAP_POWER);
+            addPreference(PREF_KEY_DOUBLE_TAP_POWER, cameraDisabled == 0);
         } else {
             removePreference(PREF_KEY_DOUBLE_TAP_POWER);
         }
 
+        // Ambient Display
+        mAmbientConfig = new AmbientDisplayConfiguration(context);
+        if (mAmbientConfig.pulseOnPickupAvailable()) {
+            boolean pickup = mAmbientConfig.pulseOnPickupEnabled(UserHandle.myUserId());
+            addPreference(PREF_KEY_PICK_UP, pickup);
+        } else {
+            removePreference(PREF_KEY_PICK_UP);
+        }
+        if (mAmbientConfig.pulseOnDoubleTapAvailable()) {
+            boolean doubleTap = mAmbientConfig.pulseOnDoubleTapEnabled(UserHandle.myUserId());
+            addPreference(PREF_KEY_DOUBLE_TAP_SCREEN, doubleTap);
+        } else {
+            removePreference(PREF_KEY_DOUBLE_TAP_SCREEN);
+        }
+
         // Fingerprint slide for notifications
         if (isSystemUINavigationAvailable(context)) {
-            addPreference(PREF_KEY_SWIPE_DOWN_FINGERPRINT, isSystemUINavigationEnabled(context),
-                    PREF_ID_SWIPE_DOWN_FINGERPRINT);
+            addPreference(PREF_KEY_SWIPE_DOWN_FINGERPRINT, isSystemUINavigationEnabled(context));
         } else {
             removePreference(PREF_KEY_SWIPE_DOWN_FINGERPRINT);
         }
@@ -85,7 +103,7 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         if (isDoubleTwistAvailable(context)) {
             int doubleTwistEnabled = Secure.getInt(
                     getContentResolver(), Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, 1);
-            addPreference(PREF_KEY_DOUBLE_TWIST, doubleTwistEnabled != 0, PREF_ID_DOUBLE_TWIST);
+            addPreference(PREF_KEY_DOUBLE_TWIST, doubleTwistEnabled != 0);
         } else {
             removePreference(PREF_KEY_DOUBLE_TWIST);
         }
@@ -127,12 +145,24 @@ public class GestureSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        for (GesturePreference preference : mPreferences) {
+            preference.onViewInvisible();
+        }
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean enabled = (boolean) newValue;
         String key = preference.getKey();
         if (PREF_KEY_DOUBLE_TAP_POWER.equals(key)) {
             Secure.putInt(getContentResolver(),
                     Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, enabled ? 0 : 1);
+        } else if (PREF_KEY_PICK_UP.equals(key)) {
+            Secure.putInt(getContentResolver(), Secure.DOZE_PULSE_ON_PICK_UP, enabled ? 1 : 0);
+        } else if (PREF_KEY_DOUBLE_TAP_SCREEN.equals(key)) {
+            Secure.putInt(getContentResolver(), Secure.DOZE_PULSE_ON_DOUBLE_TAP, enabled ? 1 : 0);
         } else if (PREF_KEY_SWIPE_DOWN_FINGERPRINT.equals(key)) {
             Secure.putInt(getContentResolver(),
                     Secure.SYSTEM_NAVIGATION_KEYS_ENABLED, enabled ? 1 : 0);
@@ -169,9 +199,14 @@ public class GestureSettings extends SettingsPreferenceFragment implements
     }
 
     private static boolean isDoubleTwistAvailable(Context context) {
+        return hasSensor(context, R.string.gesture_double_twist_sensor_name,
+                R.string.gesture_double_twist_sensor_vendor);
+    }
+
+    private static boolean hasSensor(Context context, int nameResId, int vendorResId) {
         Resources resources = context.getResources();
-        String name = resources.getString(R.string.gesture_double_twist_sensor_name);
-        String vendor = resources.getString(R.string.gesture_double_twist_sensor_vendor);
+        String name = resources.getString(nameResId);
+        String vendor = resources.getString(vendorResId);
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(vendor)) {
             SensorManager sensorManager =
                     (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -184,11 +219,10 @@ public class GestureSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
-    private void addPreference(String key, boolean enabled, int id) {
+    private void addPreference(String key, boolean enabled) {
         GesturePreference preference = (GesturePreference) findPreference(key);
         preference.setChecked(enabled);
         preference.setOnPreferenceChangeListener(this);
-        preference.loadPreview(getLoaderManager(), id);
         mPreferences.add(preference);
     }
 
@@ -210,8 +244,16 @@ public class GestureSettings extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 ArrayList<String> result = new ArrayList<String>();
+                AmbientDisplayConfiguration ambientConfig
+                        = new AmbientDisplayConfiguration(context);
                 if (!isCameraDoubleTapPowerGestureAvailable(context.getResources())) {
                     result.add(PREF_KEY_DOUBLE_TAP_POWER);
+                }
+                if (!ambientConfig.pulseOnPickupAvailable()) {
+                    result.add(PREF_KEY_PICK_UP);
+                }
+                if (!ambientConfig.pulseOnDoubleTapAvailable()) {
+                    result.add(PREF_KEY_DOUBLE_TAP_SCREEN);
                 }
                 if (!isSystemUINavigationAvailable(context)) {
                     result.add(PREF_KEY_SWIPE_DOWN_FINGERPRINT);
