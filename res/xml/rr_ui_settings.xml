@@ -66,14 +66,6 @@
             android:key="screenshot_options"
             android:title="@string/screenshot_options_category" >
 
- 
-        <ListPreference
-            android:entries="@array/screenshot_type_entries"
-            android:entryValues="@array/screenshot_type_values"
-            android:icon="@drawable/rr_screenshots"
-            android:key="screenshot_type"
-            android:title="@string/screenshot_type_title" />
-
         <com.android.settings.rr.SeekBarPreference
             android:key="screenshot_delay"
             android:title="@string/screenshot_delay_title"
@@ -85,12 +77,18 @@
             settings:units="ms"
             android:persistent="false" />
 
- 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="screenshot_crop_and_share"
             android:title="@string/screenshot_crop_and_share_title"
             android:summary="@string/screenshot_crop_and_share_summary"
             android:defaultValue="false" />
+
+        <ListPreference
+            android:entries="@array/screenshot_type_entries"
+            android:entryValues="@array/screenshot_type_values"
+            android:icon="@drawable/rr_screenshots"
+            android:key="screenshot_type"
+            android:title="@string/screenshot_type_title" />
 
         </PreferenceCategory>
 
